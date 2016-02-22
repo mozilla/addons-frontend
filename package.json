@@ -1,0 +1,20 @@
+{
+  "name": "mozilla-addons-frontend",
+  "version": "0.0.1",
+  "description": "Universal front-end projects to complement addons-server.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozillla/addons-frontend.git"
+  },
+  "author": "Mozilla Add-ons Team",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mozillla/addons-frontend/issues"
+  },
+  "homepage": "https://github.com/mozillla/addons-frontend#readme"
+}
