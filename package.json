@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/mozillla/addons-frontend/issues"
   },
-  "homepage": "https://github.com/mozillla/addons-frontend#readme"
+  "homepage": "https://github.com/mozillla/addons-frontend#readme",
+  "dependencies": {
+    "react": "0.14.7",
+    "webpack": "1.12.13",
+    "webpack-isomorphic-tools": "2.2.29"
+  }
 }
