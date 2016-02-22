@@ -5,6 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "start": "bin/server.js",
+    "dev": "npm run start & webpack-dev-server --progress --color --port 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,16 +20,22 @@
   },
   "homepage": "https://github.com/mozillla/addons-frontend#readme",
   "dependencies": {
-    "koa": "1.1.2",
+    "express": "4.13.4",
     "react": "0.14.7",
     "react-router": "2.0.0"
   },
   "devDependencies": {
     "babel-core": "6.5.2",
     "babel-eslint": "5.0.0",
+    "babel-loader": "6.2.3",
     "babel-plugin-transform-class-properties": "6.5.2",
     "babel-preset-es2015": "6.5.0",
+    "babel-preset-react": "6.5.0",
     "babel-preset-stage-2": "6.5.0",
+    "babel-register": "6.5.2",
+    "history": "2.0.0",
+    "react-dom": "0.14.7",
+    "react-hot-loader": "1.3.0",
     "webpack": "1.12.13",
     "webpack-dev-server": "1.14.1",
     "webpack-isomorphic-tools": "2.2.29"
