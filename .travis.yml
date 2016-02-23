@@ -3,6 +3,7 @@ node_js:
     - "4"
 env:
   - TASK=test:lint
+  - TASK=test:style
 cache:
   directories:
     - node_modules
