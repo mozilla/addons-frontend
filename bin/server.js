@@ -10,4 +10,5 @@ const host = config.get('serverHost');
 const env = config.get('env');
 
 server.listen(port, host);
+// eslint-disable-next-line no-console
 console.log(`Express server listening: ${host}:${port} [env:${env}]`);

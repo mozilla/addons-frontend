@@ -3,11 +3,10 @@ import express from 'express';
 import path from 'path';
 import React from 'react';
 
-import { renderToString } from 'react-dom/server'
+import { renderToString } from 'react-dom/server';
 import { RouterContext, match } from 'react-router';
 
 import routes from './routes';
-
 
 
 const app = express();
@@ -19,7 +18,7 @@ app.use((req, res) => {
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
     if (err) {
-      console.error(err);
+      console.error(err); // eslint-disable-line no-console
       return res.status(500).end('Internal server error');
     }
 
@@ -43,7 +42,8 @@ app.use((req, res) => {
         <script type="application/javascript" src="/bundle.js"></script>
       </body>
     </html>`;
-    res.end(HTML);
+
+    return res.end(HTML);
   });
 });
 

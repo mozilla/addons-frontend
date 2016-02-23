@@ -1,4 +1,3 @@
-
 import path from 'path';
 import webpack from 'webpack';
 
@@ -15,20 +14,20 @@ const SERVER_PORT = config.get('serverPort');
 
 
 export default Object.assign({}, prodWebpackConfig, {
-  entry:  [
+  entry: [
     `webpack-dev-server/client?http://${WEBPACK_HOST}:${WEBPACK_PORT}/`,
     'webpack/hot/only-dev-server',
-    './src/client'
+    './src/client',
   ],
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devtool: 'inline-source-map',
   devServer: {
     hot: true,
     proxy: {
-      '*': `http://${SERVER_HOST}:${SERVER_PORT}`
+      '*': `http://${SERVER_HOST}:${SERVER_PORT}`,
     },
     host: SERVER_HOST,
   },
@@ -37,12 +36,12 @@ export default Object.assign({}, prodWebpackConfig, {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel']
-      }
-    ]
+        loaders: ['react-hot', 'babel'],
+      },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
   ],
 });
