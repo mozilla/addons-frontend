@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+    - "4"
+env:
+  - TASK=test:lint
+  - TASK=test:style
+cache:
+  directories:
+    - node_modules
+    - $NVM_DIR
+before_install:
+  - npm install -g npm@3
+  - npm --version
+script:
+  - npm run $TASK
