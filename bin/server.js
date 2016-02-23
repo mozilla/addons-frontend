@@ -2,8 +2,9 @@
 
 require('../server.babel');
 
-const server = require('../src/server').default;
 const config = require('../config').default;
+const appName = config.get('currentApp');
+const server = require(`../src/${appName}/server`).default;
 
 const port = config.get('serverPort');
 const host = config.get('serverHost');

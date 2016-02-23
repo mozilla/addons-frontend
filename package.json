@@ -7,6 +7,8 @@
   "scripts": {
     "start": "bin/server.js",
     "dev": "npm run start & webpack-dev-server --progress --color --port 3000",
+    "dev:search": "APP_NAME=search npm run dev",
+    "dev:disco": "APP_NAME=disco npm run dev",
     "test": "npm run test:lint && npm run test:style",
     "test:lint": "eslint .",
     "test:style": "jscs .",
