@@ -9,10 +9,7 @@ const WEBPACK_PORT = config.get('webpackPort');
 const SERVER_HOST = config.get('serverHost');
 const SERVER_PORT = config.get('serverPort');
 
-
 // Note: Object.assign only goes one level deep.
-
-
 export default Object.assign({}, prodWebpackConfig, {
   entry: [
     `webpack-dev-server/client?http://${WEBPACK_HOST}:${WEBPACK_PORT}/`,
