@@ -7,7 +7,8 @@
   "scripts": {
     "start": "bin/server.js",
     "dev": "npm run start & webpack-dev-server --progress --color --port 3000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --color -p --config webpack.prod.config.js"
   },
   "repository": {
     "type": "git",

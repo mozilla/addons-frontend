@@ -10,6 +10,13 @@ Front-end infrastructure and code to complement mozilla/addons-server
 The easiest way to manage multiple node versions in development is to use
 nvm. See https://github.com/creationix/nvm for more info.
 
+## Get started
+
+Run:
+
+* npm install
+* npm run dev
+
 ## Overview and rationale
 
 This project will hold several distinct front-ends e.g:
