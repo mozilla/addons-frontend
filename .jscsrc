@@ -1,4 +1,5 @@
 {
   "preset": "airbnb",
-  "excludeFiles": ['dist']
+  "excludeFiles": ['dist'],
+  "requireSpacesInsideObjectBrackets": false
 }
