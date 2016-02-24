@@ -1,4 +1,4 @@
-import baseServer from '../core/baseServer';
+import baseServer from '../core/server/base';
 
 import routes from './routes';
 

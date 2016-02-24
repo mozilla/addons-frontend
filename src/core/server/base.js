@@ -6,10 +6,19 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { RouterContext, match } from 'react-router';
 
-export default function (routes) {
+import config from 'config';
+import devServer from './dev';
+
+const ENV = config.get('env');
+
+export default function(routes) {
   const app = express();
 
-  app.use(express.static(path.join(__dirname, '../dist')));
+  if (ENV === 'development') {
+    devServer(app);
+  }
+
+  app.use(express.static(path.join(__dirname, '../../../dist')));
 
   app.use((req, res) => {
     const location = createLocation(req.url);

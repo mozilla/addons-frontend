@@ -1,45 +1,42 @@
 import path from 'path';
 import webpack from 'webpack';
 
-import config from './index';
-import prodWebpackConfig from './webpack.prod.config';
+// Note: This config should not include anything that's
+// purely for development. To add things that are development
+// related add them to src/core/server/dev.js.
 
-const WEBPACK_HOST = config.get('webpackHost');
-const WEBPACK_PORT = config.get('webpackPort');
-const SERVER_HOST = config.get('serverHost');
-const SERVER_PORT = config.get('serverPort');
-const APP_NAME = config.get('currentApp');
-
-// Note: Object.assign only goes one level deep.
-export default Object.assign({}, prodWebpackConfig, {
+export default {
   entry: [
-    `webpack-dev-server/client?http://${WEBPACK_HOST}:${WEBPACK_PORT}/`,
-    'webpack/hot/only-dev-server',
-    `./src/${APP_NAME}/client`,
+    './src/core/client',
   ],
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'bundle.js',
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    hot: true,
-    proxy: {
-      '*': `http://${SERVER_HOST}:${SERVER_PORT}`,
-    },
-    host: SERVER_HOST,
+    publicPath: '/',
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['babel'],
       },
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"',
+      },
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+    }),
   ],
-});
+  resolve: {
+    modulesDirectories: ['node_modules', 'src'],
+    extensions: ['', '.js', '.jsx'],
+  },
+};
