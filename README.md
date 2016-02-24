@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/mozilla/addons-frontend.svg?branch=master)](https://travis-ci.org/mozilla/addons-frontend)
+
 # Addons-frontend 🔥
 
 Front-end infrastructure and code to complement mozilla/addons-server
