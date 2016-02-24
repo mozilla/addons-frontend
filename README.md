@@ -12,10 +12,23 @@ nvm. See https://github.com/creationix/nvm for more info.
 
 ## Get started
 
-Run:
-
 * npm install
 * npm run dev
+
+
+## NPM scripts
+
+| Script                 | Description                                       |
+|------------------------|---------------------------------------------------|
+| npm start              |  Starts the express server                        |
+| npm test               |  Runs the tests                                   |
+| npm run build          |  Builds the lib                                   |
+| npm run dev            |  Starts the dev server (Express + webpack)        |
+| npm run dev:search     |  As above but just the search code                |
+| npm run dev:disco      |  As above but just the discovery pane code        |
+| npm run lint           |  Lints the files with `eslint` (Run in `npm test`)|
+| npm run eslint         |  An alias for `npm run lint`                      |
+| npm run jscs           |  Checks for style issues (Run in `npm test`)      |
 
 ## Overview and rationale
 
