@@ -2,8 +2,8 @@ language: node_js
 node_js:
     - "4"
 env:
-  - TASK=test:lint
-  - TASK=test:style
+  - TASK=lint
+  - TASK=jscs
 cache:
   directories:
     - node_modules
