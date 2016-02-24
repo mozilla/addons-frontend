@@ -8,13 +8,14 @@ const WEBPACK_HOST = config.get('webpackHost');
 const WEBPACK_PORT = config.get('webpackPort');
 const SERVER_HOST = config.get('serverHost');
 const SERVER_PORT = config.get('serverPort');
+const APP_NAME = config.get('currentApp');
 
 // Note: Object.assign only goes one level deep.
 export default Object.assign({}, prodWebpackConfig, {
   entry: [
     `webpack-dev-server/client?http://${WEBPACK_HOST}:${WEBPACK_PORT}/`,
     'webpack/hot/only-dev-server',
-    './src/client',
+    `./src/${APP_NAME}/client`,
   ],
   output: {
     path: path.join(__dirname, '../dist'),

@@ -16,4 +16,11 @@ config.set('serverPort', process.env.NODE_PORT || 4000);
 config.set('webpackHost', process.env.NODE_HOST || '127.0.0.1');
 config.set('webpackPort', 3000);
 
+const APP_NAMES = ['search', 'disco'];
+if (APP_NAMES.indexOf(process.env.APP_NAME) < 0) {
+  config.set('currentApp', 'core');
+} else {
+  config.set('currentApp', process.env.APP_NAME);
+}
+
 export default config;
