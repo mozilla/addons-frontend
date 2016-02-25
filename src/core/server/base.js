@@ -1,5 +1,6 @@
 import createLocation from 'history/lib/createLocation';
 import express from 'express';
+import helmet from 'helmet';
 import path from 'path';
 import React from 'react';
 
@@ -13,12 +14,44 @@ const ENV = config.get('env');
 
 export default function(routes) {
   const app = express();
+  app.disable('x-powered-by');
+
+  // Sets X-Frame-Options
+  app.use(helmet.frameguard('deny'));
+
+  // Sets x-content-type-options:"nosniff"
+  app.use(helmet.noSniff());
+
+  // Sets x-xss-protection:"1; mode=block"
+  app.use(helmet.xssFilter());
+
+  app.use(helmet.csp({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'"],
+      reportUri: '/__cspreport__',
+    },
+
+    // Set to true if you only want browsers to report errors, not block them
+    reportOnly: false,
+
+    // Set to true if you want to blindly set all headers: Content-Security-Policy,
+    // X-WebKit-CSP, and X-Content-Security-Policy.
+    setAllHeaders: false,
+
+    // Set to true if you want to disable CSP on Android where it can be buggy.
+    disableAndroid: false,
+  }));
 
   if (ENV === 'development') {
     devServer(app);
   }
 
   app.use(express.static(path.join(__dirname, '../../../dist')));
+
+  // Return 204 for csp reports.
+  app.post('/__cspreport__', (req, res) => res.status(204));
 
   app.use((req, res) => {
     const location = createLocation(req.url);
