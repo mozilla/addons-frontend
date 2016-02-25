@@ -3,7 +3,6 @@ node_js:
     - "4"
 env:
   - TASK=lint
-  - TASK=jscs
 cache:
   directories:
     - node_modules

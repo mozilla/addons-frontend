@@ -31,7 +31,6 @@ nvm. See https://github.com/creationix/nvm for more info.
 | npm run dev:disco      |  As above but just the discovery pane code        |
 | npm run lint           |  Lints the files with `eslint` (Run in `npm test`)|
 | npm run eslint         |  An alias for `npm run lint`                      |
-| npm run jscs           |  Checks for style issues (Run in `npm test`)      |
 | npm run version-check  |  Checks you have the minimum node + npm versions  |
 
 ## Overview and rationale
