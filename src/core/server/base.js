@@ -45,6 +45,7 @@ export default function(routes) {
   }));
 
   if (ENV === 'development') {
+    console.log('Adding Webpack Dev Server'); // eslint-disable-line no-console
     devServer(app);
   }
 
