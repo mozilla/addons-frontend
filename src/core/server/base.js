@@ -1,4 +1,3 @@
-import createLocation from 'history/lib/createLocation';
 import express from 'express';
 import helmet from 'helmet';
 import path from 'path';
@@ -55,15 +54,15 @@ export default function(routes) {
   app.post('/__cspreport__', (req, res) => res.status(204));
 
   app.use((req, res) => {
-    const location = createLocation(req.url);
-
-    match({ routes, location }, (err, redirectLocation, renderProps) => {
+    match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
       if (err) {
         console.error(err); // eslint-disable-line no-console
         return res.status(500).end('Internal server error');
       }
 
-      if (!renderProps) return res.status(404).end('Not found.');
+      if (!renderProps) {
+        return res.status(404).end('Not found.');
+      }
 
       const InitialComponent = (
         <RouterContext {...renderProps} />
