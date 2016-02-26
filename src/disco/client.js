@@ -1,12 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router } from 'react-router';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 
-const history = createBrowserHistory();
-
 render(
-  <Router children={routes} history={history} />,
+  <Router children={routes} history={browserHistory} />,
   document.getElementById('react-view')
 );
