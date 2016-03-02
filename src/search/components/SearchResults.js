@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 export default class SearchResults extends React.Component {
   static propTypes = {
     query: PropTypes.string,
-    results: PropTypes.string,
+    results: PropTypes.arrayOf(PropTypes.object),
   }
 
   static defaultProps = {
