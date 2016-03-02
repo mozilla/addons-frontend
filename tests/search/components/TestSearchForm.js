@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 
-import SearchForm from '../../../src/search/components/SearchForm';
+import SearchForm from 'search/components/SearchForm';
 
 const render = ReactTestUtils.renderIntoDocument;
 const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
