@@ -49,7 +49,7 @@ export default function karmaConf(config) {
       'test-runner.js',
     ],
     preprocessors: {
-      'test-runner.js': 'webpack',
+      'test-runner.js': ['webpack', 'sourcemap'],
     },
     reporters,
     colors: true,
