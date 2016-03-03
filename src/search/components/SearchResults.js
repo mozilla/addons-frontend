@@ -20,8 +20,8 @@ export default class SearchResults extends React.Component {
     if (query && results.length > 0) {
       searchResults = (
         <div className={searchResultsClass}>
-          <p>Your search for "{query}" returned {results.length} results.</p>
-          <ul>
+          <p ref="message">Your search for "{query}" returned {results.length} results.</p>
+          <ul ref="results">
             {results.map((result) => <li key={result.title}>{result.title}</li>)}
           </ul>
         </div>
@@ -29,19 +29,19 @@ export default class SearchResults extends React.Component {
     } else if (query && results.length === 0) {
       searchResults = (
         <div className={searchResultsClass}>
-          <p>No results were found for "{query}".</p>
+          <p ref="message">No results were found for "{query}".</p>
         </div>
       );
     } else if (query !== null) {
       searchResults = (
         <div className={searchResultsClass}>
-          <p>Please supply a valid search</p>
+          <p ref="message">Please supply a valid search</p>
         </div>
       );
     }
 
     return (
-      <div className="search-results">
+      <div ref="container" className="search-results">
         {searchResults}
       </div>
     );

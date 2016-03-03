@@ -4,19 +4,18 @@ import ReactTestUtils from 'react-addons-test-utils';
 import SearchForm from 'search/components/SearchForm';
 
 const render = ReactTestUtils.renderIntoDocument;
-const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
 
 describe('<SearchForm />', () => {
-  var onSearch;
-  var root;
-  var form;
-  var input;
+  let onSearch;
+  let root;
+  let form;
+  let input;
 
   beforeEach(() => {
     onSearch = sinon.spy();
     root = render(<SearchForm onSearch={onSearch} />);
-    form = findByTag(root, 'form');
-    input = findByTag(root, 'input');
+    form = root.refs.form;
+    input = root.refs.query;
   });
 
   it('renders a form', () => {
