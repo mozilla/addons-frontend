@@ -1,36 +1,55 @@
 import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
+import { createRenderer, renderIntoDocument, Simulate } from 'react-addons-test-utils';
 
 import SearchForm from 'search/components/SearchForm';
 
-const render = ReactTestUtils.renderIntoDocument;
-const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
+if (typeof window === 'undefined' && typeof global !== 'undefined') {
+  global.sinon = require('sinon');
+  global.assert = require('chai').assert;
+}
+
+function render(component) {
+  const renderer = createRenderer();
+  renderer.render(component);
+  return renderer.getRenderOutput();
+}
+
+function browser(message, test) {
+  if (typeof document === 'undefined') {
+    xit(message, test);
+  } else {
+    it(message, test);
+  }
+}
 
 describe('<SearchForm />', () => {
-  var onSearch;
-  var root;
-  var form;
-  var input;
+  let onSearch;
+  let root;
 
   beforeEach(() => {
     onSearch = sinon.spy();
     root = render(<SearchForm onSearch={onSearch} />);
-    form = findByTag(root, 'form');
-    input = findByTag(root, 'input');
+  });
+
+  it('is a form', () => {
+    assert.equal(root.type, 'form');
+    assert.equal(root.props.className, 'search-form');
   });
 
   it('renders a form', () => {
-    assert.ok(form.classList.contains('search-form'));
+    assert.include(root.props.className, 'search-form');
   });
 
   it('renders a search input', () => {
-    assert.equal(input.placeholder, 'Search');
-    assert.equal(input.type, 'search');
+    const query = root.props.children.filter(({ ref }) => ref === 'query')[0];
+    assert.equal(query.props.placeholder, 'Search');
+    assert.equal(query.props.type, 'search');
   });
 
-  it('calls onSearch with a search query', () => {
+  browser('calls onSearch with a search query', () => {
+    root = renderIntoDocument(<SearchForm onSearch={onSearch} />);
     root.refs.query.value = 'adblock';
-    ReactTestUtils.Simulate.submit(form);
+    Simulate.submit(root.refs.form);
     assert.ok(onSearch.calledWith('adblock'));
   });
 });
