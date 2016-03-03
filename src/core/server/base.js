@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import path from 'path';
 import React from 'react';
 
+import { stripIndent } from 'common-tags';
 import { renderToString } from 'react-dom/server';
 import { RouterContext, match } from 'react-router';
 
@@ -46,6 +47,23 @@ export default function(routes) {
   if (ENV === 'development') {
     console.log('Adding Webpack Dev Server'); // eslint-disable-line no-console
     devServer(app);
+
+    app.get('/', (req, res) => {
+      res.end(stripIndent`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Nav</title>
+        </head>
+        <body>
+          <ul>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/disco">Discovery Pane</a></li>
+          </ul>
+        </body>
+      </html>`);
+    });
   }
 
   app.use(express.static(path.join(__dirname, '../../../dist')));
@@ -70,7 +88,7 @@ export default function(routes) {
 
       const componentHTML = renderToString(InitialComponent);
 
-      const HTML = `
+      const HTML = stripIndent`
       <!DOCTYPE html>
       <html>
         <head>
