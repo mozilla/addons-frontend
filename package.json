@@ -11,6 +11,7 @@
     "dev:disco": "APP_NAME=disco npm run dev",
     "test": "npm run version-check && npm run unittest && npm run lint",
     "unittest:dev": "karma start",
+    "unittest:server": "NODE_PATH=src:$NODE_PATH mocha --compilers js:babel-register tests/**/Test*.js",
     "unittest": "karma start --single-run",
     "lint": "eslint .",
     "eslint": "npm run lint",

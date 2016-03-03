@@ -1,30 +1,55 @@
 import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
+import { createRenderer, renderIntoDocument, Simulate } from 'react-addons-test-utils';
 
 import SearchForm from 'search/components/SearchForm';
 
-const render = ReactTestUtils.renderIntoDocument;
-const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
+if (typeof window === 'undefined' && typeof global !== 'undefined') {
+  global.sinon = require('sinon');
+  global.assert = require('chai').assert;
+}
+
+function browser(message, test) {
+  if (typeof document === 'undefined') {
+    xit(message, test);
+  } else {
+    it(message, test);
+  }
+}
+
+function render(component) {
+  const renderer = createRenderer();
+  renderer.render(component);
+  return renderer.getRenderOutput();
+}
 
 describe('<SearchForm />', () => {
+  let onSearch;
+  let root;
+
+  beforeEach(() => {
+    onSearch = sinon.spy();
+    root = render(<SearchForm onSearch={onSearch} />);
+  });
+
+  it('is a form', () => {
+    assert.equal(root.type, 'form');
+    assert.equal(root.props.className, 'search-form');
+  });
+
   it('renders a form', () => {
-    const root = render(<SearchForm onSearch={sinon.spy()} />);
-    const form = findByTag(root, 'form');
-    assert.ok(form.classList.contains('search-form'));
+    assert.include(root.props.className, 'search-form');
   });
 
   it('renders a search input', () => {
-    const root = render(<SearchForm onSearch={sinon.spy()} />);
-    const input = findByTag(root, 'input');
-    assert.equal(input.placeholder, 'Search');
-    assert.equal(input.type, 'text');
+    const query = root.props.children.filter(({ ref }) => ref === 'query')[0];
+    assert.equal(query.props.placeholder, 'Search');
+    assert.equal(query.props.type, 'search');
   });
 
-  it('calls onSearch with a search query', () => {
-    const onSearch = sinon.spy();
-    const root = render(<SearchForm onSearch={onSearch} />);
+  browser('calls onSearch with a search query', () => {
+    root = renderIntoDocument(<SearchForm onSearch={onSearch} />);
     root.refs.query.value = 'adblock';
-    ReactTestUtils.Simulate.submit(root.refs.form);
+    Simulate.submit(root.refs.form);
     assert.ok(onSearch.calledWith('adblock'));
   });
 });

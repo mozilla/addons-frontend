@@ -13,7 +13,7 @@ export default class SearchForm extends React.Component {
   render() {
     return (
       <form ref="form" className="search-form" onSubmit={this.handleSubmit}>
-        <input ref="query" type="text" name="q" placeholder="Search" />
+        <input ref="query" type="search" name="q" placeholder="Search" />
         <button ref="submit" type="submit">Search</button>
       </form>
     );
