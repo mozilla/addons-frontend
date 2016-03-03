@@ -8,18 +8,18 @@ if (typeof window === 'undefined' && typeof global !== 'undefined') {
   global.assert = require('chai').assert;
 }
 
-function render(component) {
-  const renderer = createRenderer();
-  renderer.render(component);
-  return renderer.getRenderOutput();
-}
-
 function browser(message, test) {
   if (typeof document === 'undefined') {
     xit(message, test);
   } else {
     it(message, test);
   }
+}
+
+function render(component) {
+  const renderer = createRenderer();
+  renderer.render(component);
+  return renderer.getRenderOutput();
 }
 
 describe('<SearchForm />', () => {

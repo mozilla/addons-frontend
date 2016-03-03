@@ -8,26 +8,39 @@ const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
 const findByClass = ReactTestUtils.findRenderedDOMComponentWithClass;
 const isDOMComponent = ReactTestUtils.isDOMComponent;
 
+if (typeof window === 'undefined' && typeof global !== 'undefined') {
+  global.sinon = require('sinon');
+  global.assert = require('chai').assert;
+}
+
+function browser(message, test) {
+  if (typeof document === 'undefined') {
+    xit(message, test);
+  } else {
+    it(message, test);
+  }
+}
+
 
 describe('<SearchResults />', () => {
   function renderResults(props) {
     return render(<SearchResults {...props} />);
   }
 
-  it('renders empty search results container', () => {
+  browser('renders empty search results container', () => {
     const root = renderResults();
     const searchResults = findByClass(root, 'search-results');
     assert.ok(isDOMComponent(searchResults));
     assert.equal(searchResults.childNodes.length, 0);
   });
 
-  it('renders error when query is an empty string', () => {
+  browser('renders error when query is an empty string', () => {
     const root = renderResults({query: ''});
     const searchResultsMsg = findByTag(root, 'p');
     assert.include(searchResultsMsg.firstChild.nodeValue, 'supply a valid search');
   });
 
-  it('renders error when no results and valid query', () => {
+  browser('renders error when no results and valid query', () => {
     const root = renderResults({query: 'test'});
     const searchResultsMsg = findByTag(root, 'p');
     // Using textContent here since we want to see the text inside the p.
@@ -35,7 +48,7 @@ describe('<SearchResults />', () => {
     assert.include(searchResultsMsg.textContent, 'No results were found');
   });
 
-  it('renders search results when supplied', () => {
+  browser('renders search results when supplied', () => {
     const root = renderResults({
       query: 'test',
       results: [
