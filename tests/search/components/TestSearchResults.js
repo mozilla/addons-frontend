@@ -1,10 +1,7 @@
 import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
+import { renderIntoDocument as render, isDOMComponent } from 'react-addons-test-utils';
 
 import SearchResults from 'search/components/SearchResults';
-
-const render = ReactTestUtils.renderIntoDocument;
-const isDOMComponent = ReactTestUtils.isDOMComponent;
 
 
 describe('<SearchResults />', () => {

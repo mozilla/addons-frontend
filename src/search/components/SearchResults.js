@@ -13,35 +13,28 @@ export default class SearchResults extends React.Component {
 
   render() {
     const { query, results } = this.props;
-    const searchResultsClass = 'search-results';
 
     let searchResults;
+    let messageText;
 
     if (query && results.length > 0) {
+      messageText = `Your search for "${query}" returned ${results.length} results.`;
       searchResults = (
-        <div className={searchResultsClass}>
-          <p ref="message">Your search for "{query}" returned {results.length} results.</p>
-          <ul ref="results">
-            {results.map((result) => <li key={result.title}>{result.title}</li>)}
-          </ul>
-        </div>
+        <ul ref="results">
+          {results.map((result) => <li key={result.title}>{result.title}</li>)}
+        </ul>
       );
     } else if (query && results.length === 0) {
-      searchResults = (
-        <div className={searchResultsClass}>
-          <p ref="message">No results were found for "{query}".</p>
-        </div>
-      );
+      messageText = `No results were found for "${query}".`;
     } else if (query !== null) {
-      searchResults = (
-        <div className={searchResultsClass}>
-          <p ref="message">Please supply a valid search</p>
-        </div>
-      );
+      messageText = 'Please supply a valid search';
     }
+
+    const message = messageText ? <p ref="message">{messageText}</p> : null;
 
     return (
       <div ref="container" className="search-results">
+        {message}
         {searchResults}
       </div>
     );

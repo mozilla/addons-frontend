@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
+import { renderIntoDocument as render } from 'react-addons-test-utils';
 
 import SearchForm from 'search/components/SearchForm';
 
-const render = ReactTestUtils.renderIntoDocument;
 
 describe('<SearchForm />', () => {
   let onSearch;
-  let root;
+  let root; // eslint-disable-line prefer-const
   let form;
   let input;
 
@@ -28,7 +28,7 @@ describe('<SearchForm />', () => {
   });
 
   it('calls onSearch with a search query', () => {
-    root.refs.query.value = 'adblock';
+    input.value = 'adblock';
     ReactTestUtils.Simulate.submit(form);
     assert.ok(onSearch.calledWith('adblock'));
   });
