@@ -2,6 +2,7 @@ import React from 'react';
 
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
+import { gettext as _ } from 'core/utils';
 
 export default class App extends React.Component {
 
@@ -19,7 +20,7 @@ export default class App extends React.Component {
     const { query, results } = this.state;
     return (
       <div className="search-app">
-        <h1>Add-on Search</h1>
+        <h1>{_('Add-on Search')}</h1>
         <SearchForm onSearch={this.handleSearch} />
         <SearchResults results={results} query={query} />
       </div>

@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "npm run version-check && NODE_PATH=$NODE_PATH:. node bin/server.js",
+    "start": "npm run version-check && NODE_PATH=$NODE_PATH:./src node bin/server.js",
     "dev": "NODE_ENV=development npm run start",
     "dev:search": "APP_NAME=search npm run dev",
     "dev:disco": "APP_NAME=disco npm run dev",

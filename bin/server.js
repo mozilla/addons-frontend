@@ -5,10 +5,10 @@
 
 require('../server.babel');
 
-const config = require('../config').default;
+const config = require('config').default;
 const appName = config.get('currentApp');
 
-const server = require(`../src/${appName}/server`).default;
+const server = require(`${appName}/server`).default;
 
 const env = config.get('env');
 
