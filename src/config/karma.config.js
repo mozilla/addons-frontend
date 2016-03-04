@@ -7,8 +7,7 @@ const coverageReporters = [{
   type: 'text-summary',
 }];
 
-// eslint-disable-next-line prefer-const
-let newWebpackConfig = Object.assign({}, webpackConfig, {
+const newWebpackConfig = Object.assign({}, webpackConfig, {
   plugins: [],
   devtool: 'inline-source-map',
   module: Object.assign({}, webpackConfig.module, {
@@ -19,6 +18,8 @@ let newWebpackConfig = Object.assign({}, webpackConfig, {
       exclude: /node_modules/,
     }],
   }),
+  output: undefined,
+  entry: undefined,
 });
 
 const reporters = [
@@ -26,10 +27,6 @@ const reporters = [
   'coverage',
 ];
 
-// Remove the bits from the shared config
-// that we don't want for tests.
-delete newWebpackConfig.output;
-delete newWebpackConfig.entry;
 
 if (process.env.TRAVIS) {
   console.log('On Travis sending coveralls');
