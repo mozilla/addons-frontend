@@ -3,11 +3,12 @@
 
 import webpackConfig from './webpack.config';
 
-var coverageReporters = [{
+const coverageReporters = [{
   type: 'text-summary',
 }];
 
-var newWebpackConfig = Object.assign({}, webpackConfig, {
+// eslint-disable-next-line prefer-const
+let newWebpackConfig = Object.assign({}, webpackConfig, {
   plugins: [],
   devtool: 'inline-source-map',
   module: Object.assign({}, webpackConfig.module, {
@@ -20,7 +21,7 @@ var newWebpackConfig = Object.assign({}, webpackConfig, {
   }),
 });
 
-var reporters = [
+const reporters = [
   'mocha',
   'coverage',
 ];

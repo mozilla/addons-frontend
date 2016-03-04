@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+/* eslint-disable strict */
+'use strict';
+
 require('../server.babel');
 
 const config = require('../config').default;
