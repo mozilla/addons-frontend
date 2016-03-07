@@ -14,6 +14,7 @@ export default class SearchForm extends React.Component {
   }
 
   render() {
+    require('search/css/SearchForm.scss');
     return (
       <form ref="form" className="search-form" onSubmit={this.handleSubmit}>
         <input ref="query" type="search" name="q" placeholder={_('Search')} />

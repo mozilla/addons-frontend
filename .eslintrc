@@ -6,6 +6,7 @@
   "globals": {
     "assert": true,
     "sinon": true,
+    "webpackIsomorphicTools": true
   },
   "parser": "babel-eslint",
   "rules": {
