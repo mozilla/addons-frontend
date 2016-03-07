@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
-import { renderIntoDocument as render } from 'react-addons-test-utils';
+import { Simulate, renderIntoDocument as render } from 'react-addons-test-utils';
 
 import SearchForm from 'search/components/SearchForm';
 
@@ -29,7 +28,7 @@ describe('<SearchForm />', () => {
 
   it('calls onSearch with a search query', () => {
     input.value = 'adblock';
-    ReactTestUtils.Simulate.submit(form);
+    Simulate.submit(form);
     assert.ok(onSearch.calledWith('adblock'));
   });
 });
