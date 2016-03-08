@@ -1,17 +1,26 @@
 import addons from 'core/reducers/addons';
 
 describe('addon reducer', () => {
+  let originalState;
+
+  beforeEach(() => {
+    originalState = {foo: {slug: 'foo'}, bar: {slug: 'bar'}};
+  });
+
   it('returns the old state', () => {
-    const originalState = {foo: {slug: 'foo'}, bar: {slug: 'bar'}};
     assert.strictEqual(originalState, addons(originalState, {type: 'BLAH'}));
   });
 
-  it('adds an addon', () => {
-    const originalState = {foo: {slug: 'foo'}};
-    const baz = {slug: 'baz'};
-    const expectedState = {foo: {slug: 'foo'}, baz};
-    const newState = addons(originalState, {type: 'ADDON_FETCHED', addon: baz});
-    assert.notStrictEqual(originalState, newState);
-    assert.deepEqual(expectedState, newState);
+  it('stores addons from entities', () => {
+    const state = addons(originalState, {
+      payload: {
+        entities: {
+          addons: {
+            baz: {slug: 'baz'},
+          },
+        },
+      },
+    });
+    assert.deepEqual(state, {foo: {slug: 'foo'}, bar: {slug: 'bar'}, baz: {slug: 'baz'}});
   });
 });

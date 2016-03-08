@@ -7,6 +7,7 @@ import 'search/css/SearchResults.scss';
 
 export default class SearchResults extends React.Component {
   static propTypes = {
+    loading: PropTypes.bool,
     query: PropTypes.string,
     results: PropTypes.arrayOf(PropTypes.object),
   }
@@ -17,7 +18,7 @@ export default class SearchResults extends React.Component {
   }
 
   render() {
-    const { query, results } = this.props;
+    const { loading, query, results } = this.props;
 
     let searchResults;
     let messageText;
@@ -26,9 +27,11 @@ export default class SearchResults extends React.Component {
       messageText = _(`Your search for "${query}" returned ${results.length} results.`);
       searchResults = (
         <ul ref="results">
-          {results.map((result) => <li key={result.title}>{result.title}</li>)}
+          {results.map((result) => <li key={result.slug}>{result.name}</li>)}
         </ul>
       );
+    } else if (query && loading) {
+      messageText = _('Searching...');
     } else if (query && results.length === 0) {
       messageText = _(`No results were found for "${query}".`);
     } else if (query !== null) {

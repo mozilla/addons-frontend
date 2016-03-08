@@ -1,4 +1,4 @@
-import search, { getMatchingAddons } from 'search/reducers/search';
+import search from 'search/reducers/search';
 
 describe('search reducer', () => {
   it('defaults to a null query', () => {
@@ -6,20 +6,87 @@ describe('search reducer', () => {
     assert.strictEqual(query, null);
   });
 
-  it('sets the query on SET_QUERY', () => {
-    const state = search(undefined, {type: 'SET_QUERY', query: 'foo'});
-    assert.equal(state.query, 'foo');
-    const newState = search(state, {type: 'SET_QUERY', query: 'bar'});
-    assert.equal(newState.query, 'bar');
+  it('defaults to not loading', () => {
+    const { loading } = search(undefined, {type: 'unrelated'});
+    assert.strictEqual(loading, false);
   });
-});
 
-describe('getMatchingAddons', () => {
-  it('matches on the title', () => {
-    assert.deepEqual(
-      getMatchingAddons(
-        [{title: 'Foo'}, {title: 'Bar'}, {title: 'Bar Food'}],
-        'Foo'),
-      [{title: 'Foo'}, {title: 'Bar Food'}]);
+  it('defaults to empty results', () => {
+    const { results } = search(undefined, {type: 'unrelated'});
+    assert.deepEqual(results, []);
+  });
+
+  describe('SET_QUERY', () => {
+    it('sets the query', () => {
+      const state = search(undefined, {type: 'SET_QUERY', payload: {query: 'foo'}});
+      assert.equal(state.query, 'foo');
+      const newState = search(state, {type: 'SET_QUERY', payload: {query: 'bar'}});
+      assert.equal(newState.query, 'bar');
+    });
+  });
+
+  describe('SEARCH_STARTED', () => {
+    it('sets the query and loading', () => {
+      const state = search(
+        {query: 'bar', loading: false, results: [{slug: 'bar'}]},
+        {type: 'SEARCH_STARTED', payload: {query: 'foo'}});
+      assert.equal(state.query, 'foo');
+      assert.strictEqual(state.loading, true);
+      assert.deepEqual(state.results, []);
+    });
+  });
+
+  describe('SEARCH_LOADED', () => {
+    let initialState;
+    let response;
+
+    beforeEach(() => {
+      initialState = {
+        query: 'foo',
+        loading: false,
+        results: [],
+      };
+      response = {
+        result: {results: ['foo', 'food']},
+        entities: {
+          addons: {
+            bar: {slug: 'bar'},
+            foo: {slug: 'foo'},
+            food: {slug: 'food'},
+          },
+        },
+      };
+    });
+
+    function getNextState() {
+      return search(initialState, {
+        type: 'SEARCH_LOADED',
+        payload: {
+          query: 'foo',
+          ...response,
+        },
+      });
+    }
+
+    it('sets the query', () => {
+      const { query } = getNextState();
+      assert.equal(query, 'foo');
+    });
+
+    it('sets loading', () => {
+      const { loading } = getNextState();
+      assert.strictEqual(loading, false);
+    });
+
+    it('sets the results', () => {
+      const { results } = getNextState();
+      assert.deepEqual(results, [{slug: 'foo'}, {slug: 'food'}]);
+    });
+
+    it('sets the results in order', () => {
+      response.result.results = ['food', 'foo'];
+      const { results } = getNextState();
+      assert.deepEqual(results, [{slug: 'food'}, {slug: 'foo'}]);
+    });
   });
 });
