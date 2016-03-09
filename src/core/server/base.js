@@ -37,6 +37,7 @@ export default function(routes) {
     // webpackIsomorphicTools.refresh();
 
     app.get('/', (req, res) => {
+      res.header('Content-Type', 'text/html');
       res.end(stripIndent`
       <!DOCTYPE html>
       <html>
@@ -95,6 +96,7 @@ export default function(routes) {
         </body>
       </html>`;
 
+      res.header('Content-Type', 'text/html');
       return res.end(HTML);
     });
   });
