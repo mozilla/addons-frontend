@@ -1,0 +1,13 @@
+@import "~normalize.css";
+@import "inc/vars";
+@import "inc/lib";
+
+body {
+  background: $body-color;
+  margin: 20px;
+  color: $text-color-default;
+}
+
+* {
+  box-sizing: border-box;
+}

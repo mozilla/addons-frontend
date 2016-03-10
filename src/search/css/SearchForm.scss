@@ -1,3 +1,22 @@
-form {
-  background: green;
+@import "inc/vars";
+
+.search-form {
+  display: flex;
+
+  input[type="search"] {
+    box-sizing: border-box;
+    flex-grow: 1;
+    font-size: $font-size-l;
+    height: 3rem;
+    margin: 0;
+    max-width: 640px;
+    padding: 0.15em 0.25em 0;
+  }
+
+  .button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    height: 3rem;
+    padding: 0 1rem;
+  }
 }

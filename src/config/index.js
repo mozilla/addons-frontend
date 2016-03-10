@@ -46,6 +46,7 @@ const WEBPACK_HOST =
 
 if (config.get('env') === 'development') {
   CSP.directives.scriptSrc.push(WEBPACK_HOST);
+  CSP.directives.styleSrc.push('blob:');
   CSP.directives.connectSrc = [WEBPACK_HOST];
   CSP.reportOnly = true;
 }

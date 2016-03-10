@@ -10,7 +10,6 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackDevConfig = require('config/webpack.dev.config.babel').default;
 
-const app = new Express();
 const config = require('config').default;
 
 const host = config.get('webpackServerHost');
@@ -22,12 +21,15 @@ const serverOptions = {
   contentBase: `http://${host}:${port}`,
   quiet: true,
   noInfo: true,
+  headers: {'Access-Control-Allow-Origin': '*'},
   hot: true,
   inline: true,
   lazy: false,
   stats: {colors: true},
   publicPath: webpackDevConfig.output.publicPath,
 };
+
+const app = new Express();
 
 app.use(webpackDevMiddleware(compiler, serverOptions));
 app.use(webpackHotMiddleware(compiler));

@@ -1,0 +1,45 @@
+@import "../inc/vars";
+@import "../inc/mixins";
+
+a.button,
+button.button {
+  background: $button-background-color;
+  border-radius: $border-radius-s;
+  border: 0;
+  color: $text-color-message;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-m;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: $transition-short;
+  transition-property: background-color;
+
+  &:active,
+  &:hover,
+  &:focus {
+    background: $button-background-hover-color;
+  }
+
+  &:focus {
+    @include focus();
+  }
+
+  &:disabled,
+  &.disabled {
+    background: $button-background-disabled-color;
+    cursor: not-allowed;
+  }
+
+  &.warning {
+    background: $warning;
+  }
+}
+
+button.button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
