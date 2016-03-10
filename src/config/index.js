@@ -23,8 +23,15 @@ config.set('devServerPort', process.env.SERVER_PORT || 3000);
 config.set('webpackServerHost', process.env.WEBPACK_SERVER_HOST || '127.0.0.1');
 config.set('webpackServerPort', process.env.WEBPACK_SERVER_PORT || 3001);
 
+if (config.get('env') === 'development') {
+  config.set('apiHost', process.env.API_HOST || 'https://addons-dev.allizom.org');
+} else {
+  config.set('apiHost', process.env.API_HOST);
+}
+
 const CSP = {
   directives: {
+    connectSrc: ["'self'", config.get('apiHost')],
     defaultSrc: ["'self'"],
     scriptSrc: ["'self'"],
     styleSrc: ["'self'"],
@@ -47,7 +54,7 @@ const WEBPACK_HOST =
 if (config.get('env') === 'development') {
   CSP.directives.scriptSrc.push(WEBPACK_HOST);
   CSP.directives.styleSrc.push('blob:');
-  CSP.directives.connectSrc = [WEBPACK_HOST];
+  CSP.directives.connectSrc.push(WEBPACK_HOST);
   CSP.reportOnly = true;
 }
 

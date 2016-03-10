@@ -18,7 +18,8 @@ describe('<SearchPage />', () => {
   beforeEach(() => {
     state = {
       handleSearch: sinon.spy(),
-      results: [{title: 'Foo', slug: 'foo'}, {title: 'Bar', slug: 'bar'}],
+      loading: false,
+      results: [{name: 'Foo', slug: 'foo'}, {name: 'Bar', slug: 'bar'}],
       query: 'foo',
     };
     // eslint-disable-next-line new-cap
@@ -36,9 +37,10 @@ describe('<SearchPage />', () => {
     const results = findByTag(root, SearchResults);
     assert.strictEqual(results.props.results, state.results);
     assert.strictEqual(results.props.query, state.query);
+    assert.strictEqual(results.props.loading, state.loading);
     assert.deepEqual(
       Object.keys(results.props).sort(),
-      ['results', 'query'].sort());
+      ['loading', 'results', 'query'].sort());
   });
 
   it('renders the query', () => {

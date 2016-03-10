@@ -34,8 +34,8 @@ describe('<SearchResults />', () => {
     const root = renderResults({
       query: 'test',
       results: [
-        {title: 'result 1'},
-        {title: 'result 2'},
+        {name: 'result 1', slug: '1'},
+        {name: 'result 2', slug: '2'},
       ],
     });
     const searchResultsMsg = root.refs.message;

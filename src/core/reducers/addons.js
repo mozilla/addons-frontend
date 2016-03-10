@@ -1,15 +1,13 @@
-const initialState = {
-  wat: {slug: 'wat', title: 'Wat is this?'},
-  foo: {slug: 'foo', title: 'The foo add-on'},
-  food: {slug: 'food', title: 'Find food'},
-  bar: {slug: 'bar', title: 'The bar add-on'},
-};
+const initialState = {};
 
 export default function addon(state = initialState, action) {
-  switch (action.type) {
-    case 'ADDON_FETCHED':
-      return Object.assign({}, state, {[action.addon.slug]: action.addon});
-    default:
-      return state;
+  const { payload } = action;
+  if (payload && payload.entities && payload.entities.addons) {
+    const newState = Object.assign({}, state);
+    Object.keys(payload.entities.addons).forEach((slug) => {
+      newState[slug] = payload.entities.addons[slug];
+    });
+    return newState;
   }
+  return state;
 }

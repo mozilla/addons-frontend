@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import SearchPage from '../components/SearchPage';
-import { setQuery } from '../actions';
-import { getMatchingAddons } from 'search/reducers/search';
+import { searchStart, searchLoad } from '../actions';
+import { search } from 'core/api';
 
 export function mapStateToProps(state) {
-  return {
-    results: getMatchingAddons(state.addons, state.search.query),
-    query: state.search.query,
-  };
+  return state.search;
 }
 
 export function mapDispatchToProps(dispatch) {
   return {
-    handleSearch: (query) => dispatch(setQuery(query)),
+    handleSearch: (query) => {
+      dispatch(searchStart(query));
+      return search({ query })
+        .then((response) => dispatch(searchLoad({ query, ...response })));
+    },
   };
 }
 
