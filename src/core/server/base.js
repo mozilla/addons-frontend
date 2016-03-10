@@ -57,7 +57,7 @@ export default function(routes) {
   app.use(Express.static(path.join(__dirname, '../../../dist')));
 
   // Return 204 for csp reports.
-  app.post('/__cspreport__', (req, res) => res.status(204));
+  app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
 
   app.use((req, res) => {
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {

@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 
 import { gettext as _ } from 'core/utils';
 
+import 'search/css/SearchResults.scss';
+
 
 export default class SearchResults extends React.Component {
   static propTypes = {
