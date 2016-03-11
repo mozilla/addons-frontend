@@ -40,8 +40,16 @@ export default {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      DEVELOPMENT: false,
+      CLIENT: true,
+      SERVER: false,
+    }),
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+      'API_HOST',
+    ]),
     new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
-
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/webpack\.dev/, /\/babel$/),
     // optimizations

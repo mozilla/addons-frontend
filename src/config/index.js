@@ -1,13 +1,9 @@
 import path from 'path';
 const config = new Map();
+const NODE_ENV = process.env.NODE_ENV;
 
 // Default to production unless overridden.
-config.set('env', process.env.NODE_ENV || 'production');
-
-config.set('globals', {
-  __DEV__: config.get('env') === 'development',
-  __PROD__: config.get('env') === 'production',
-});
+config.set('env', NODE_ENV || 'production');
 
 config.set('basePath', path.resolve(__dirname, '../'));
 
@@ -23,11 +19,10 @@ config.set('devServerPort', process.env.SERVER_PORT || 3000);
 config.set('webpackServerHost', process.env.WEBPACK_SERVER_HOST || '127.0.0.1');
 config.set('webpackServerPort', process.env.WEBPACK_SERVER_PORT || 3001);
 
-if (config.get('env') === 'development') {
-  config.set('apiHost', process.env.API_HOST || 'https://addons-dev.allizom.org');
-} else {
-  config.set('apiHost', process.env.API_HOST);
-}
+config.set('apiHost',
+  process.env.API_HOST ||
+    NODE_ENV === 'development' ?
+      'https://addons-dev.allizom.org' : 'https://addons.mozilla.org');
 
 const CSP = {
   directives: {

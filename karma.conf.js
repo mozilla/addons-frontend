@@ -1,6 +1,8 @@
 // Karma configuration
 /* eslint-disable no-console */
 require('babel-register');
+
+const webpack = require('webpack');
 const webpackDevConfig = require('./src/config/webpack.dev.config.babel').default;
 
 const coverageReporters = [{
@@ -8,7 +10,17 @@ const coverageReporters = [{
 }];
 
 const newWebpackConfig = Object.assign({}, webpackDevConfig, {
-  plugins: [],
+  plugins: [
+    new webpack.DefinePlugin({
+      DEVELOPMENT: true,
+      CLIENT: true,
+      SERVER: false,
+    }),
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+      'API_HOST',
+    ]),
+  ],
   devtool: 'inline-source-map',
   module: Object.assign({}, webpackDevConfig.module, {
     preLoaders: [{

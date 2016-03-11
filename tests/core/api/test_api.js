@@ -28,7 +28,7 @@ describe('search api', () => {
   it('sets the lang and query', () => {
     // FIXME: This shouldn't fail if the args are in a different order.
     mockWindow.expects('fetch')
-      .withArgs('https://addons-dev.allizom.org/api/v3/addons/search/?q=foo&lang=en-US')
+      .withArgs('https://addons.mozilla.org/api/v3/addons/search/?q=foo&lang=en-US')
       .once()
       .returns(mockResponse());
     return search({query: 'foo'}).then(() => mockWindow.verify());
