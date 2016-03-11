@@ -1,7 +1,9 @@
 import { Schema, arrayOf, normalize } from 'normalizr';
 
-// FIXME: Load this from something.
-const API_HOST = 'https://addons-dev.allizom.org';
+import config from 'config';
+
+
+const API_HOST = config.get('apiHost');
 const API_BASE = `${API_HOST}/api/v3`;
 
 const addon = new Schema('addons', {idAttribute: 'slug'});

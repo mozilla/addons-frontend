@@ -62,6 +62,15 @@ export default Object.assign({}, webpackConfig, {
     }],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      DEVELOPMENT: true,
+      CLIENT: true,
+      SERVER: false,
+    }),
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+      'API_HOST',
+    ]),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),

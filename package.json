@@ -8,7 +8,7 @@
     "start": "npm run version-check && NODE_PATH=$NODE_PATH:./src NODE_ENV=production node bin/server.js",
     "start-dev": "NODE_PATH=$NODE_PATH:./src NODE_ENV=development node bin/server.js",
     "dev": "concurrently --kill-others 'npm run webpack-dev-server' 'npm run start-dev'",
-    "webpack-dev-server": "NODE_PATH=$NODE_PATH:./src node bin/webpack-dev-server.js",
+    "webpack-dev-server": "NODE_ENV=development NODE_PATH=$NODE_PATH:./src node bin/webpack-dev-server.js",
     "dev:search": "APP_NAME=search npm run dev",
     "dev:disco": "APP_NAME=disco npm run dev",
     "test": "npm run version-check && npm run unittest && npm run lint",

@@ -16,6 +16,11 @@ const host = env === 'production' ?
 const WebpackIsomorphicTools = require('webpack-isomorphic-tools');
 const WebpackIsomorphicToolsConfig = require('config/webpack-isomorphic-tools');
 
+// Globals (these are set by definePlugin for client-side builds).
+global.CLIENT = false;
+global.SERVER = true;
+global.DEVELOPMENT = env !== 'production';
+
 // For reloading of the server on changes.
 if (env === 'development') {
   if (!require('piping')({
