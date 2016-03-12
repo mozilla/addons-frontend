@@ -1,18 +1,52 @@
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import SearchPage from '../components/SearchPage';
-import { searchStart, searchLoad } from '../actions';
-import { search } from 'core/api';
+import { loadSearch } from 'search/actions';
 
-export function mapStateToProps(state) {
-  return state.search;
+import SearchForm from '../components/SearchForm';
+import SearchResults from '../components/SearchResults';
+import { gettext as _ } from 'core/utils';
+
+import 'search/css/SearchPage.scss';
+
+function loadData(props) {
 }
 
-export function mapDispatchToProps(dispatch) {
+class SearchPage extends React.Component {
+  static propTypes = {
+    handleSearch: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
+    results: PropTypes.arrayOf(PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })),
+    query: PropTypes.string,
+  }
+
+  render() {
+    const { handleSearch, loading, results, query } = this.props;
+
+    return (
+      <div className="search-page">
+        <h1>{_('Add-on Search')}</h1>
+        <SearchForm onSearch={handleSearch} query={query} />
+        <SearchResults results={results} query={query} loading={loading} />
+      </div>
+    );
+  }
+}
+export function mapStateToProps(state, context) {
+  const query = context.location.query.q;
+  return Object.assign({}, state.search, { query });
+}
+
+export function mapDispatchToProps(dispatch, context) {
   return {
     handleSearch: (query) => {
-      dispatch(searchStart(query));
-      return search({ query })
-        .then((response) => dispatch(searchLoad({ query, ...response })));
+      context.history.push({
+        pathname: '/search',
+        query: {q: query},
+      });
+      dispatch(loadSearch({ query }));
     },
   };
 }
