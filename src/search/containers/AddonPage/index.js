@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { loadAddon } from 'core/api';
+import { loadAddon } from 'core/actions';
 
 function loadData(props) {
-  const { slug } = props;
-  props.loadAddon(slug);
+  props.loadAddon(props.slug);
 }
 
 class AddonPage extends React.Component {
@@ -47,7 +46,6 @@ function mapStateToProps(state, ownProps) {
   const {
     entities: { addons },
   } = state;
-  console.log('map', state, addons);
   return {
     addon: addons[slug],
     slug,

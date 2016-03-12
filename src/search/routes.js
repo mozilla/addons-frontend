@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router';
 
 import App from './components/App';
-import AddonPage from './containers/AddonPage/AddonPage';
+import AddonPage from './containers/AddonPage';
 import CurrentSearchPage from './containers/CurrentSearchPage';
 
 export default (

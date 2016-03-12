@@ -18,7 +18,8 @@ export default class SearchForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onSearch(this.state.query);
+    const { query } = this.state;
+    this.props.onSearch({ query });
   }
 
   handleChange = () => {
