@@ -6,11 +6,12 @@ import thunk from 'redux-thunk';
 
 import api from 'core/middleware/api';
 import entities from 'core/reducers/entities';
+import search from 'search/reducers/search';
 
 import 'search/css/App.scss';
 
 const store = createStore(
-  combineReducers({ entities }),
+  combineReducers({ entities, search }),
   applyMiddleware(thunk, api, createLogger()),
 );
 

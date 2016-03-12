@@ -1,8 +1,8 @@
-import { Schema, arrayOf, normalize } from 'normalizr';
 // import { camelizeKeys } from 'humps';
+import { Schema, arrayOf, normalize } from 'normalizr';
+
 import 'isomorphic-fetch';
 
-// const API_ROOT = 'https://addons-dev.allizom.org/api/v3/';
 const API_ROOT = 'http://olympia.dev/api/v3/';
 
 // Fetches an API response and normalizes the result JSON according to schema.
@@ -31,7 +31,7 @@ function callApi(endpoint, schema) {
 
 function responseSchema(schema) {
   return {
-    result: schema,
+    results: schema,
   };
 }
 

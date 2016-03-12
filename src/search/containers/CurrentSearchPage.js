@@ -9,13 +9,14 @@ import { gettext as _ } from 'core/utils';
 import 'search/css/SearchPage.scss';
 
 function loadData(props) {
-  props.loadSearch(props.query);
+  const { query } = props;
+  props.loadSearch({ query });
 }
 
 class SearchPage extends React.Component {
   static propTypes = {
     loadSearch: PropTypes.func.isRequired,
-    loading: PropTypes.bool.isRequired,
+    history: PropTypes.object.isRequired,
     results: PropTypes.arrayOf(PropTypes.shape({
       slug: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
@@ -23,35 +24,33 @@ class SearchPage extends React.Component {
     query: PropTypes.string,
   }
 
-  // componentWillMount() {
-  //   loadData(this.props);
-  // }
+  componentWillMount() {
+    loadData(this.props);
+  }
+
+  loadSearch = ({ query }) => {
+    this.props.history.push({
+      pathname: '/search',
+      query: {q: query},
+    });
+    this.props.loadSearch({ query });
+  }
 
   render() {
-    const { loading, results, query } = this.props;
+    const { results, query } = this.props;
 
     return (
       <div className="search-page">
         <h1>{_('Add-on Search')}</h1>
-        <SearchForm onSearch={this.props.loadSearch} query={query} />
-        <SearchResults results={results} query={query} loading={loading} />
+        <SearchForm onSearch={this.loadSearch} query={query} />
+        <SearchResults results={results} query={query} />
       </div>
     );
   }
 }
 export function mapStateToProps(state, context) {
   const query = context.location.query.q;
-  return Object.assign({}, state.search, { query });
-}
-
-function handleSearch(query) {
-  return (dispatch) => {
-    context.history.push({
-      pathname: '/search',
-      query: {q: query},
-    });
-    dispatch(loadSearch({ query }));
-  };
+  return { query, results: state.search.results };
 }
 
 const CurrentSearchPage = connect(mapStateToProps, {

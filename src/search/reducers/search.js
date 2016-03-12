@@ -1,21 +1,17 @@
+import { SEARCH_REQUEST, SEARCH_SUCCESS } from 'search/actions';
+
 const initialState = {
   query: null,
-  loading: false,
-  results: [],
 };
 
 export default function search(state = initialState, action) {
-  const { payload } = action;
+  const { response } = action;
   switch (action.type) {
-    case 'SET_QUERY':
-      return Object.assign({}, state, {query: payload.query});
-    case 'SEARCH_STARTED':
-      return Object.assign({}, state, {query: payload.query, loading: true, results: []});
-    case 'SEARCH_LOADED':
+    case SEARCH_REQUEST:
+      return Object.assign({}, {query: 'gyro'});
+    case SEARCH_SUCCESS:
       return Object.assign({}, state, {
-        query: payload.query,
-        loading: false,
-        results: payload.result.results.map((slug) => payload.entities.addons[slug]),
+        results: response.result.results.map((slug) => response.entities.addons[slug]),
       });
     default:
       return state;
