@@ -15,7 +15,10 @@ class AddonPage extends React.Component {
   };
 
   componentWillMount() {
-    loadData(this.props);
+    const { addon, slug } = this.props;
+    if (!addon || addon.slug !== slug) {
+      loadData(this.props);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
