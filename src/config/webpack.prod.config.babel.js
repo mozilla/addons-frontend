@@ -63,6 +63,9 @@ export default {
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
   ],
   resolve: {
+    alias: {
+      'normalize.css': 'normalize.css/normalize.css',
+    },
     root: [
       path.resolve('../src'),
     ],
