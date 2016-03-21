@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
-import CurrentSearchPage from '../containers/CurrentSearchPage';
 import search from '../reducers/search';
 import addons from 'core/reducers/addons';
 
@@ -12,10 +11,15 @@ const store = createStore(combineReducers({addons, search}));
 
 
 export default class App extends React.Component {
+  static propTypes = {
+    children: PropTypes.node,
+  }
+
   render() {
+    const { children } = this.props;
     return (
       <Provider store={store}>
-        <CurrentSearchPage />
+        {children}
       </Provider>
     );
   }

@@ -12,3 +12,17 @@ export function searchLoad({ query, entities, result }) {
   };
 }
 
+export function addonLoad(addon) {
+  return {
+    type: 'ADDON_LOADED',
+    payload: {entities: [addon]},
+  };
+}
+
+export function loadEntities(entities) {
+  return {
+    type: 'ENTITIES_LOADED',
+    payload: {entities},
+  };
+}
+
