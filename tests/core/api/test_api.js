@@ -1,4 +1,4 @@
-import { search } from 'core/api';
+import * as api from 'core/api';
 
 describe('search api', () => {
   let mockWindow;
@@ -31,12 +31,12 @@ describe('search api', () => {
       .withArgs('https://addons.mozilla.org/api/v3/addons/search/?q=foo&lang=en-US')
       .once()
       .returns(mockResponse());
-    return search({query: 'foo'}).then(() => mockWindow.verify());
+    return api.search({query: 'foo'}).then(() => mockWindow.verify());
   });
 
   it('normalizes the response', () => {
     mockWindow.expects('fetch').once().returns(mockResponse());
-    return search({query: 'foo'}).then((results) => {
+    return api.search({query: 'foo'}).then((results) => {
       assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
       assert.deepEqual(results.entities, {
         addons: {
@@ -45,6 +45,46 @@ describe('search api', () => {
           football: {slug: 'football'},
         },
       });
+    });
+  });
+});
+
+describe('add-on api', () => {
+  let mockWindow;
+
+  beforeEach(() => {
+    mockWindow = sinon.mock(window);
+  });
+
+  afterEach(() => {
+    mockWindow.restore();
+  });
+
+  function mockResponse() {
+    return Promise.resolve({
+      json() {
+        return Promise.resolve({
+          name: 'Foo!',
+          slug: 'foo',
+        });
+      },
+    });
+  }
+
+  it('sets the lang and slug', () => {
+    mockWindow.expects('fetch')
+      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US')
+      .once()
+      .returns(mockResponse());
+    return api.fetchAddon('foo').then(() => mockWindow.verify());
+  });
+
+  it('normalizes the response', () => {
+    mockWindow.expects('fetch').once().returns(mockResponse());
+    return api.fetchAddon('foo').then((results) => {
+      const foo = {slug: 'foo', name: 'Foo!'};
+      assert.deepEqual(results.result, 'foo');
+      assert.deepEqual(results.entities, {addons: {foo}});
     });
   });
 });

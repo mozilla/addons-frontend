@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 import { gettext as _ } from 'core/utils';
 
@@ -27,7 +28,11 @@ export default class SearchResults extends React.Component {
       messageText = _(`Your search for "${query}" returned ${results.length} results.`);
       searchResults = (
         <ul ref="results">
-          {results.map((result) => <li key={result.slug}>{result.name}</li>)}
+          {results.map((result) => (
+            <li key={result.slug}>
+              <Link to={`/search/addons/${result.slug}`}>{result.name}</Link>
+            </li>
+          ))}
         </ul>
       );
     } else if (query && loading) {

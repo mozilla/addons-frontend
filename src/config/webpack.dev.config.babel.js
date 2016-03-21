@@ -10,6 +10,8 @@ import config from './index';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools';
 
+const development = config.get('env') === 'development';
+
 const webpackIsomorphicToolsPlugin =
   new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig);
 const APP_NAME = config.get('currentApp');
@@ -27,7 +29,7 @@ const babelDevPlugins = [['react-transform', {
 }]];
 
 const BABEL_QUERY = Object.assign({}, babelrcObject, {
-  plugins: babelPlugins.concat(babelDevPlugins),
+  plugins: development ? babelPlugins.concat(babelDevPlugins) : babelPlugins,
 });
 
 const webpackHost = config.get('webpackServerHost');

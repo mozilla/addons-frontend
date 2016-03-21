@@ -1,15 +1,9 @@
 import React from 'react';
-import { createRenderer } from 'react-addons-test-utils';
 
 import SearchPage from 'search/components/SearchPage';
 import SearchResults from 'search/components/SearchResults';
 import SearchForm from 'search/components/SearchForm';
-
-function findByTag(root, tag) {
-  const matches = root.props.children.filter((child) => child.type === tag);
-  assert.equal(matches.length, 1, 'expected one match');
-  return matches[0];
-}
+import { findByTag, shallowRender } from '../../utils';
 
 describe('<SearchPage />', () => {
   let root;
@@ -22,10 +16,7 @@ describe('<SearchPage />', () => {
       results: [{name: 'Foo', slug: 'foo'}, {name: 'Bar', slug: 'bar'}],
       query: 'foo',
     };
-    // eslint-disable-next-line new-cap
-    const renderer = createRenderer();
-    renderer.render(<SearchPage {...state} />);
-    root = renderer.getRenderOutput();
+    root = shallowRender(<SearchPage {...state} />);
   });
 
   it('has a nice heading', () => {

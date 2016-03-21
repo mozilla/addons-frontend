@@ -12,3 +12,9 @@ export function searchLoad({ query, entities, result }) {
   };
 }
 
+export function loadEntities(entities) {
+  return {
+    type: 'ENTITIES_LOADED',
+    payload: {entities},
+  };
+}
