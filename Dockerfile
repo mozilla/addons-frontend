@@ -9,12 +9,12 @@ RUN yum update -y \
 
 # Install node_modules into a different directory to avoid npm/npm#9863.
 RUN mkdir -p /srv/node
-ADD package.json /srv/node
+ADD package.json /srv/node/
 WORKDIR /srv/node
 RUN npm install -g npm@3
 RUN npm install
 
-ADD . /srv/code
+ADD . /srv/code/
 WORKDIR /srv/code
 
 # Replace the local node_modules with the ones we installed above.
