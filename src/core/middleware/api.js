@@ -1,14 +1,21 @@
 // import { camelizeKeys } from 'humps';
 import { Schema, arrayOf, normalize } from 'normalizr';
 
+import config from 'config';
 import 'isomorphic-fetch';
 
-const API_ROOT = 'http://olympia.dev/api/v3/';
+const API_ROOT = `${config.get('apiHost')}/api/v3/`;
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
 function callApi(endpoint, schema) {
-  const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
+  let fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
+
+  if (fullUrl.includes('?')) {
+    fullUrl += '&lang=en-US';
+  } else {
+    fullUrl += '?lang=en-US';
+  }
 
   return fetch(fullUrl)
     .then(response =>
