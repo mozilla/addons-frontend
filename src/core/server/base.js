@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import Express from 'express';
 import helmet from 'helmet';
 import path from 'path';
@@ -7,14 +5,17 @@ import React from 'react';
 
 import { stripIndent } from 'common-tags';
 import { renderToString } from 'react-dom/server';
-import { RouterContext, match } from 'react-router';
+import { match } from 'react-router';
+import { Provider } from 'react-redux';
+import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
+
 
 import config from 'config';
 
 
 const ENV = config.get('env');
 
-export default function(routes) {
+export default function(routes, createStore) {
   const app = new Express();
   app.disable('x-powered-by');
 
@@ -31,7 +32,7 @@ export default function(routes) {
   app.use(helmet.csp(config.get('CSP')));
 
   if (ENV === 'development') {
-    console.log('Running in Development Mode');
+    console.log('Running in Development Mode'); // eslint-disable-line no-console
 
     // clear require() cache if in development mode
     // webpackIsomorphicTools.refresh();
@@ -71,33 +72,40 @@ export default function(routes) {
         return res.status(404).end('Not found.');
       }
 
-      const InitialComponent = (
-        <RouterContext {...renderProps} />
-      );
+      const store = createStore();
 
-      const componentHTML = renderToString(InitialComponent);
-      const assets = webpackIsomorphicTools.assets();
-      const styles = Object.keys(assets.styles).map((style) =>
-       `<link href=${assets.styles[style]} rel="stylesheet" type="text/css" />`
-      ).join('\n');
+      return loadOnServer({...renderProps, store}).then(() => {
+        const InitialComponent = (
+          <Provider store={store} key="provider">
+            <ReduxAsyncConnect {...renderProps} />
+          </Provider>
+        );
 
-      const HTML = stripIndent`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <title>Isomorphic Redux Demo</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          ${styles}
-        </head>
-        <body>
-          <div id="react-view">${componentHTML}</div>
-          <script src="${assets.javascript.main}"></script>
-        </body>
-      </html>`;
+        const componentHTML = renderToString(InitialComponent);
+        const assets = webpackIsomorphicTools.assets();
+        const styles = Object.keys(assets.styles).map((style) =>
+        `<link href=${assets.styles[style]} rel="stylesheet" type="text/css" />`
+        ).join('\n');
 
-      res.header('Content-Type', 'text/html');
-      return res.end(HTML);
+        const HTML = stripIndent`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Isomorphic Redux Demo</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            ${styles}
+          </head>
+          <body>
+            <div id="react-view">${componentHTML}</div>
+            <script>window.__data = ${JSON.stringify(store.getState())}</script>
+            <script src="${assets.javascript.main}"></script>
+          </body>
+        </html>`;
+
+        res.header('Content-Type', 'text/html');
+        return res.end(HTML);
+      });
     });
   });
 

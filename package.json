@@ -43,7 +43,8 @@
     "react-redux": "4.4.0",
     "react-router": "2.0.1",
     "redux": "3.3.1",
-    "redux-async-connect": "1.0.0-rc4"
+    "redux-async-connect": "1.0.0-rc4",
+    "redux-logger": "2.6.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "3.2.0",
