@@ -15,16 +15,22 @@ function makeQueryString(opts) {
   return Object.keys(opts).map((k) => `${k}=${opts[k]}`).join('&');
 }
 
+function callApi(endpoint, schema, params = {}) {
+  const queryString = makeQueryString(params);
+  let fullUrl = `${API_BASE}/${endpoint}/`;
+  if (queryString) {
+    fullUrl += `?${queryString}`;
+  }
+  return fetch(fullUrl)
+    .then((response) => response.json())
+    .then((response) => normalize(response, schema));
+}
+
 export function search({ query }) {
   // TODO: Get the language from the server.
-  const queryString = makeQueryString({q: query, lang: 'en-US'});
-  return fetch(`${API_BASE}/addons/search/?${queryString}`)
-    .then((response) => response.json())
-    .then((response) => normalize(response, {results: arrayOf(addon)}));
+  return callApi('addons/search', {results: arrayOf(addon)}, {q: query, lang: 'en-US'});
 }
 
 export function loadAddon(slug) {
-  return fetch(`${API_BASE}/addons/addon/${slug}/?lang=en-US`)
-    .then((response) => response.json())
-    .then((response) => normalize(response, addon));
+  return callApi(`addons/addon/${slug}`, addon, {lang: 'en-US'});
 }

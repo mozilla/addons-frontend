@@ -9,7 +9,7 @@ class AddonPage extends React.Component {
     addon: PropTypes.shape({
       name: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
     slug: PropTypes.string.isRequired,
   }
 
@@ -28,7 +28,7 @@ class AddonPage extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
   return {
     addon: state.addons[slug],
@@ -36,7 +36,7 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export function findAddon(state, slug) {
+function findAddon(state, slug) {
   return state.addons[slug];
 }
 
