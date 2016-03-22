@@ -7,7 +7,17 @@ import { ReduxAsyncConnect } from 'redux-async-connect';
 import routes from './routes';
 import createStore from './store';
 
-const store = createStore(window.__data);
+const initialStateContainer = document.getElementById('redux-store-state');
+let initialState;
+
+if (initialStateContainer) {
+  try {
+    initialState = JSON.parse(initialStateContainer.textContent);
+  } catch (error) {
+    console.error('Could not load initial redux data'); // eslint-disable-line no-console
+  }
+}
+const store = createStore(initialState);
 
 function reduxAsyncConnectRender(props) {
   return <ReduxAsyncConnect {...props} />;

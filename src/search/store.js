@@ -5,10 +5,10 @@ import createLogger from 'redux-logger';
 import search from 'search/reducers/search';
 import addons from 'core/reducers/addons';
 
-export default function createStore(initialData = {}) {
+export default function createStore(initialState = {}) {
   return _createStore(
     combineReducers({addons, search, reduxAsyncConnect}),
-    initialData,
+    initialState,
     applyMiddleware(createLogger()),
   );
 }

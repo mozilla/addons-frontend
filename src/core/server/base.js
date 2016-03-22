@@ -1,14 +1,13 @@
+import { stripIndent } from 'common-tags';
 import Express from 'express';
 import helmet from 'helmet';
 import path from 'path';
 import React from 'react';
-
-import { stripIndent } from 'common-tags';
 import { renderToString } from 'react-dom/server';
-import { match } from 'react-router';
 import { Provider } from 'react-redux';
+import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
-
+import serialize from 'serialize-javascript';
 
 import config from 'config';
 
@@ -98,7 +97,9 @@ export default function(routes, createStore) {
           </head>
           <body>
             <div id="react-view">${componentHTML}</div>
-            <script>window.__data = ${JSON.stringify(store.getState())}</script>
+            <script type="application/json" id="redux-store-state">
+              ${serialize(store.getState())}
+            </script>
             <script src="${assets.javascript.main}"></script>
           </body>
         </html>`;
