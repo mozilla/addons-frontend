@@ -5,8 +5,7 @@ import config from 'config';
 import 'isomorphic-fetch';
 
 
-const API_HOST = config.get('apiHost');
-const API_BASE = `${API_HOST}/api/v3`;
+const API_BASE = config.get('apiBase');
 
 const addon = new Schema('addons', {idAttribute: 'slug'});
 
