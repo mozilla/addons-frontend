@@ -30,6 +30,6 @@ export function search({ query }) {
   return callApi('addons/search', {results: arrayOf(addon)}, {q: query, lang: 'en-US'});
 }
 
-export function loadAddon(slug) {
+export function fetchAddon(slug) {
   return callApi(`addons/addon/${slug}`, addon, {lang: 'en-US'});
 }

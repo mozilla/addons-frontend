@@ -76,12 +76,12 @@ describe('add-on api', () => {
       .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US')
       .once()
       .returns(mockResponse());
-    return api.loadAddon('foo').then(() => mockWindow.verify());
+    return api.fetchAddon('foo').then(() => mockWindow.verify());
   });
 
   it('normalizes the response', () => {
     mockWindow.expects('fetch').once().returns(mockResponse());
-    return api.loadAddon('foo').then((results) => {
+    return api.fetchAddon('foo').then((results) => {
       const foo = {slug: 'foo', name: 'Foo!'};
       assert.deepEqual(results.result, 'foo');
       assert.deepEqual(results.entities, {addons: {foo}});

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
-import { loadAddon } from 'core/api';
+import { fetchAddon } from 'core/api';
 import { loadEntities } from 'search/actions';
 
 class AddonPage extends React.Component {
@@ -36,19 +36,21 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-function findAddon(state, slug) {
+export function findAddon(state, slug) {
   return state.addons[slug];
+}
+
+export function loadAddonIfNeeded({store: {dispatch, getState}, params: {slug}}) {
+  const addon = findAddon(getState(), slug);
+  if (addon) {
+    return addon;
+  }
+  return fetchAddon(slug).then(({entities}) => dispatch(loadEntities(entities)));
 }
 
 const CurrentAddonPage = asyncConnect([{
   deferred: true,
-  promise: ({store: {dispatch, getState}, params: {slug}}) => {
-    const addon = findAddon(getState(), slug);
-    if (addon) {
-      return addon;
-    }
-    return loadAddon(slug).then((response) => dispatch(loadEntities(response.entities)));
-  },
+  promise: loadAddonIfNeeded,
 }])(connect(mapStateToProps)(AddonPage));
 
 export default CurrentAddonPage;

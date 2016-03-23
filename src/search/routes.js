@@ -1,7 +1,7 @@
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
-import App from './components/App';
+import App from './containers/App';
 import CurrentSearchPage from './containers/CurrentSearchPage';
 import AddonPage from './containers/AddonPage';
 

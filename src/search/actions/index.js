@@ -18,4 +18,3 @@ export function loadEntities(entities) {
     payload: {entities},
   };
 }
-
