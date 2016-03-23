@@ -35,24 +35,6 @@ export default function(routes, createStore) {
 
     // clear require() cache if in development mode
     // webpackIsomorphicTools.refresh();
-
-    app.get('/', (req, res) => {
-      res.header('Content-Type', 'text/html');
-      res.end(stripIndent`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <title>Nav</title>
-        </head>
-        <body>
-          <ul>
-            <li><a href="/search">Search</a></li>
-            <li><a href="/disco">Discovery Pane</a></li>
-          </ul>
-        </body>
-      </html>`);
-    });
   }
 
   app.use(Express.static(path.join(__dirname, '../../../dist')));
