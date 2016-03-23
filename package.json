@@ -47,7 +47,7 @@
   "devDependencies": {
     "autoprefixer-loader": "3.2.0",
     "babel-core": "6.7.4",
-    "babel-eslint": "5.0.0",
+    "babel-eslint": "6.0.0-beta.6",
     "babel-istanbul": "0.7.0",
     "babel-istanbul-loader": "0.1.0",
     "babel-loader": "6.2.4",
@@ -64,7 +64,7 @@
     "chalk": "1.1.1",
     "concurrently": "2.0.0",
     "css-loader": "0.23.1",
-    "eslint": "2.2.0",
+    "eslint": "2.4.0",
     "eslint-config-airbnb": "6.2.0",
     "eslint-plugin-react": "4.2.3",
     "json-loader": "0.5.4",
