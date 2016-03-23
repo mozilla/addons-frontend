@@ -1,5 +1,6 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, no-console */
 
+import fs from 'fs';
 import path from 'path';
 import webpack from 'webpack';
 
@@ -12,24 +13,23 @@ import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools';
 const webpackIsomorphicToolsPlugin =
   new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig);
 const APP_NAME = config.get('currentApp');
-const BABEL_QUERY = {
-  presets: [
-    'es2015',
-    'stage-2',
-    'react',
-  ],
-  plugins: [
-    'transform-class-properties',
-    'transform-es2015-modules-commonjs',
-    ['react-transform', {
-      transforms: [{
-        transform: 'react-transform-hmr',
-        imports: ['react'],
-        locals: ['module'],
-      }],
-    }],
-  ],
-};
+
+const babelrc = fs.readFileSync('./.babelrc');
+const babelrcObject = JSON.parse(babelrc);
+
+const babelPlugins = babelrcObject.plugins || [];
+const babelDevPlugins = [['react-transform', {
+  transforms: [{
+    transform: 'react-transform-hmr',
+    imports: ['react'],
+    locals: ['module'],
+  }],
+}]];
+
+const BABEL_QUERY = Object.assign({}, babelrcObject, {
+  plugins: babelPlugins.concat(babelDevPlugins),
+});
+
 const webpackHost = config.get('webpackServerHost');
 const webpackPort = config.get('webpackServerPort');
 const assetsPath = path.resolve(__dirname, '../../dist');
@@ -50,7 +50,6 @@ export default Object.assign({}, webpackConfig, {
     publicPath: `http://${webpackHost}:${webpackPort}/`,
   }),
   module: {
-    // TODO: Factor out this duplication.
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
