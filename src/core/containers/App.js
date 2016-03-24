@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export default class App extends React.Component {
   render() {
     return (
-      <ul>
+      <ul ref="appList">
         <li><Link to="/search">Search</Link></li>
         <li><Link to="/disco">Discovery Pane</Link></li>
       </ul>
