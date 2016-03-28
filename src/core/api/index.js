@@ -14,13 +14,9 @@ function makeQueryString(opts) {
   return Object.keys(opts).map((k) => `${k}=${opts[k]}`).join('&');
 }
 
-function callApi(endpoint, schema, params = {}) {
+function callApi(endpoint, schema, params) {
   const queryString = makeQueryString(params);
-  let fullUrl = `${API_BASE}/${endpoint}/`;
-  if (queryString) {
-    fullUrl += `?${queryString}`;
-  }
-  return fetch(fullUrl)
+  return fetch(`${API_BASE}/${endpoint}/?${queryString}`)
     .then((response) => response.json())
     .then((response) => normalize(response, schema));
 }

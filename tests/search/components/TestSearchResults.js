@@ -30,6 +30,15 @@ describe('<SearchResults />', () => {
     assert.include(searchResultsMsg.textContent, 'No results were found');
   });
 
+  it('renders a loading message when loading', () => {
+    const root = renderResults({
+      query: 'test',
+      loading: true,
+    });
+    const searchResultsMsg = root.refs.message;
+    assert.equal(searchResultsMsg.textContent, 'Searching...');
+  });
+
   it('renders search results when supplied', () => {
     const root = renderResults({
       query: 'test',
