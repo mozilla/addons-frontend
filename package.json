@@ -5,20 +5,62 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "npm run version-check && NODE_PATH=$NODE_PATH:./src NODE_ENV=production node bin/server.js",
-    "start-dev": "NODE_PATH=$NODE_PATH:./src NODE_ENV=development node bin/server.js",
+    "build": "better-npm-run build",
+    "clean": "rimraf './dist/*+(css|js|map)' './src/webpack-assets.json'",
     "dev": "concurrently --kill-others 'npm run webpack-dev-server' 'npm run start-dev'",
-    "webpack-dev-server": "NODE_ENV=development NODE_PATH=$NODE_PATH:./src node bin/webpack-dev-server.js",
-    "dev:search": "APP_NAME=search npm run dev",
-    "dev:disco": "APP_NAME=disco npm run dev",
-    "test": "npm run version-check && npm run unittest && npm run lint",
-    "unittest:dev": "karma start",
-    "unittest": "karma start --single-run",
-    "lint": "eslint .",
+    "dev:disco": "npm-better-run dev:disco",
+    "dev:search": "npm-better-run dev:search",
     "eslint": "npm run lint",
-    "build": "npm run clean && npm run version-check && NODE_ENV=production webpack --verbose --display-error-details --progress --colors --config src/config/webpack.prod.config.babel.js",
+    "lint": "eslint .",
+    "start": "better-npm-run start",
+    "start-dev": "better-npm-run start-dev",
+    "test": "npm run version-check && npm run unittest && npm run lint",
+    "unittest": "karma start --single-run",
+    "unittest:dev": "karma start",
     "version-check": "node bin/version-check.js",
-    "clean": "rimraf './dist/*+(css|js|map)' './src/webpack-assets.json'"
+    "webpack-dev-server": "better-npm-run webpack-dev-server"
+  },
+  "betterScripts": {
+    "build": {
+      "command": "npm run clean && npm run version-check && webpack --verbose --display-error-details --progress --colors --config src/config/webpack.prod.config.babel.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NODE_PATH": "$NODE_PATH:./src"
+      }
+    },
+    "dev:disco": {
+      "command": "npm-better-run dev",
+      "env": {
+        "APP_NAME": "disco"
+      }
+    },
+    "dev:search": {
+      "command": "npm-better-run dev",
+      "env": {
+        "APP_NAME": "search"
+      }
+    },
+    "start": {
+      "command": "npm run version-check && node bin/server.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NODE_PATH": "$NODE_PATH:./src"
+      }
+    },
+    "start-dev": {
+      "command": "node bin/server.js",
+      "env": {
+        "NODE_ENV": "development",
+        "NODE_PATH": "$NODE_PATH:./src"
+      }
+    },
+    "webpack-dev-server": {
+      "command": "node bin/webpack-dev-server.js",
+      "env": {
+        "NODE_ENV": "development",
+        "NODE_PATH": "$NODE_PATH:./src"
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -31,6 +73,7 @@
   },
   "homepage": "https://github.com/mozillla/addons-frontend#readme",
   "dependencies": {
+    "better-npm-run": "0.0.8",
     "common-tags": "0.0.3",
     "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",
