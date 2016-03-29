@@ -8,24 +8,26 @@ import 'search/css/SearchResults.scss';
 
 export default class SearchResults extends React.Component {
   static propTypes = {
+    count: PropTypes.number,
     loading: PropTypes.bool,
     query: PropTypes.string,
     results: PropTypes.arrayOf(PropTypes.object),
   }
 
   static defaultProps = {
+    count: 0,
     query: null,
     results: [],
   }
 
   render() {
-    const { loading, query, results } = this.props;
+    const { count, loading, query, results } = this.props;
 
     let searchResults;
     let messageText;
 
-    if (query && results.length > 0) {
-      messageText = _(`Your search for "${query}" returned ${results.length} results.`);
+    if (query && count > 0) {
+      messageText = _(`Your search for "${query}" returned ${count} results.`);
       searchResults = (
         <ul ref="results">
           {results.map((result) => (

@@ -1,0 +1,13 @@
+.paginator {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+  padding: 0;
+}
+
+.paginator--item {
+  display: inline-block;
+  margin: 0 0.5em;
+  list-style-type: none;
+  text-align: center;
+}

@@ -6,8 +6,12 @@ export function shallowRender(stuff) {
   return renderer.getRenderOutput();
 }
 
+export function findAllByTag(root, tag) {
+  return root.props.children.filter((child) => child.type === tag);
+}
+
 export function findByTag(root, tag) {
-  const matches = root.props.children.filter((child) => child.type === tag);
+  const matches = findAllByTag(root, tag);
   assert.equal(matches.length, 1, 'expected one match');
   return matches[0];
 }

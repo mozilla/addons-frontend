@@ -1,14 +1,14 @@
 import * as actions from 'search/actions';
 
 describe('SEARCH_STARTED', () => {
-  const action = actions.searchStart('foo');
+  const action = actions.searchStart('foo', 5);
 
   it('sets the type', () => {
     assert.equal(action.type, 'SEARCH_STARTED');
   });
 
   it('sets the query', () => {
-    assert.deepEqual(action.payload, {query: 'foo'});
+    assert.deepEqual(action.payload, {query: 'foo', page: 5});
   });
 });
 

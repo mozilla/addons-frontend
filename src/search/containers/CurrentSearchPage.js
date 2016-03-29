@@ -9,10 +9,10 @@ export function mapStateToProps(state) {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    handleSearch: (query) => {
-      dispatch(searchStart(query));
-      return search({ query })
-        .then((response) => dispatch(searchLoad({ query, ...response })));
+    handleSearch: (query, page = 1) => {
+      dispatch(searchStart(query, page));
+      return search({ page, query })
+        .then((response) => dispatch(searchLoad({ page, query, ...response })));
     },
   };
 }

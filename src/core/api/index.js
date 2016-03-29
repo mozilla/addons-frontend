@@ -21,9 +21,12 @@ function callApi(endpoint, schema, params) {
     .then((response) => normalize(response, schema));
 }
 
-export function search({ query }) {
+export function search({ page, query }) {
   // TODO: Get the language from the server.
-  return callApi('addons/search', {results: arrayOf(addon)}, {q: query, lang: 'en-US'});
+  return callApi(
+    'addons/search',
+    {results: arrayOf(addon)},
+    {q: query, lang: 'en-US', page});
 }
 
 export function fetchAddon(slug) {

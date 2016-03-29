@@ -41,6 +41,7 @@ describe('<SearchResults />', () => {
 
   it('renders search results when supplied', () => {
     const root = renderResults({
+      count: 5,
       query: 'test',
       results: [
         {name: 'result 1', slug: '1'},
@@ -48,7 +49,7 @@ describe('<SearchResults />', () => {
       ],
     });
     const searchResultsMsg = root.refs.message;
-    assert.include(searchResultsMsg.textContent, 'Your search for "test" returned 2');
+    assert.include(searchResultsMsg.textContent, 'Your search for "test" returned 5 results');
 
     const searchResultsList = root.refs.results;
     assert.include(searchResultsList.textContent, 'result 1');
