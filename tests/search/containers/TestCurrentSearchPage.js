@@ -31,7 +31,7 @@ describe('CurrentSearchPage.mapDispatchToProps', () => {
     Object.keys(mocks).forEach((name) => mocks[name].restore());
   });
 
-  function handleSearch(query, page, response = Promise.resolve({}), expectedPage) {
+  function handleSearch({query, page, response = Promise.resolve({}), expectedPage}) {
     mocks.api.expects('search')
       .withArgs({ page: expectedPage || page, query })
       .once()
@@ -46,7 +46,7 @@ describe('CurrentSearchPage.mapDispatchToProps', () => {
       .withArgs('DuckDuckGo', 5)
       .once()
       .returns(searchAction);
-    return handleSearch('DuckDuckGo', 5).then(() => {
+    return handleSearch({query: 'DuckDuckGo', page: 5}).then(() => {
       assert(dispatch.calledWith(searchAction), 'expected action to be dispatched');
       mocks.actions.verify();
     });
@@ -59,7 +59,7 @@ describe('CurrentSearchPage.mapDispatchToProps', () => {
       .withArgs('DuckDuckGo', 1)
       .once()
       .returns(searchAction);
-    return handleSearch('DuckDuckGo', undefined, undefined, 1).then(() => {
+    return handleSearch({query: 'DuckDuckGo', expectedPage: 1}).then(() => {
       assert(dispatch.calledWith(searchAction), 'expected action to be dispatched');
       mocks.actions.verify();
     });
@@ -80,7 +80,7 @@ describe('CurrentSearchPage.mapDispatchToProps', () => {
         result: ['foo', 'bar']})
       .once()
       .returns(loadAction);
-    return handleSearch('Yahoo!', 3, response).then(() => {
+    return handleSearch({query: 'Yahoo!', page: 3, response}).then(() => {
       mocks.actions.verify();
       assert(dispatch.calledWith(loadAction), 'expected action to be dispatched');
     });

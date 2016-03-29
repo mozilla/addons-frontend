@@ -57,7 +57,7 @@ describe('<SearchPage />', () => {
     assert.equal(typeof paginator.props.pager, 'function');
   });
 
-  it('does not render a Paginate when there is no serach term', () => {
+  it('does not render a Paginate when there is no search term', () => {
     const root = render({query: null, count: 0});
     const paginators = findAllByTag(root, Paginate);
     assert.deepEqual(paginators, []);

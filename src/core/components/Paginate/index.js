@@ -25,15 +25,20 @@ export default class Paginate extends React.Component {
     const pageCount = this.pageCount();
     const pageLinkCount = Math.min(showPages, pageCount);
     // Offset should be a number between 0 and showPages. When near the middle it will be
-    // `showPages / 2`, when near the begging it will be near 0, when near then end it will be near
-    // `showPages`.
+    // `showPages / 2`, when near the beginning it will be near 0, when near then end it will be
+    // near `showPages`.
     const offset = Math.max(
       // Limit the offset when near the start to `currentPage - 1`, otherwise use `showPages / 2`.
       Math.min(Math.floor(showPages / 2), currentPage - 1),
       // When near the end the offset should approach `showPages`, but not if we have fewer pages
       // than `showPages`.
       showPages < pageCount ? showPages - (pageCount - currentPage) - 1 : 0);
-    return new Array(pageLinkCount).fill(0).map((val, i) => i + currentPage - offset);
+    // Construct an array of visible page numbers.
+    const pages = new Array(pageLinkCount);
+    for (let i = 0; i < pageLinkCount; i++) {
+      pages[i] = i + currentPage - offset;
+    }
+    return pages;
   }
 
   makeLink({ currentPage, page, pager, text }) {
