@@ -1,7 +1,7 @@
-export function searchStart(query) {
+export function searchStart(query, page) {
   return {
     type: 'SEARCH_STARTED',
-    payload: { query },
+    payload: { page, query },
   };
 }
 
