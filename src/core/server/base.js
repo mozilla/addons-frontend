@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { stripIndent } from 'common-tags';
 import Express from 'express';
 import helmet from 'helmet';
@@ -8,11 +10,19 @@ import { Provider } from 'react-redux';
 import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
 import serialize from 'serialize-javascript';
+import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
+import WebpackIsomorphicToolsConfig from 'config/webpack-isomorphic-tools';
 
 import config from 'config';
 
 
 const ENV = config.get('env');
+const APP_NAME = config.get('currentApp');
+
+// Globals (these are set by definePlugin for client-side builds).
+global.CLIENT = false;
+global.SERVER = true;
+global.DEVELOPMENT = ENV !== 'production';
 
 export default function(routes, createStore) {
   const app = new Express();
@@ -34,7 +44,7 @@ export default function(routes, createStore) {
     console.log('Running in Development Mode'); // eslint-disable-line no-console
 
     // clear require() cache if in development mode
-    // webpackIsomorphicTools.refresh();
+    webpackIsomorphicTools.refresh();
   }
 
   app.use(Express.static(path.join(__dirname, '../../../dist')));
@@ -93,4 +103,38 @@ export default function(routes, createStore) {
   });
 
   return app;
+}
+
+export function runServer({listen = true, appName} = {}) {
+  const port = ENV === 'production' ?
+    config.get('serverPort') : config.get('devServerPort');
+  const host = ENV === 'production' ?
+    config.get('serverHost') : config.get('devServerHost');
+
+  const isoMorphicServer = new WebpackIsomorphicTools(WebpackIsomorphicToolsConfig);
+  return isoMorphicServer.development(ENV === 'development')
+    .server(config.get('basePath'))
+    .then(() => {
+      global.webpackIsomorphicTools = isoMorphicServer;
+      // Webpack Isomorphic tools is ready
+      // now fire up the actual server.
+      return new Promise((resolve, reject) => {
+        const server = require(`${appName || APP_NAME}/server`).default;
+        if (listen === true) {
+          server.listen(port, host, (err) => {
+            if (err) {
+              reject(err);
+            }
+            console.log(`🔥  Addons-frontend server is running [ENV:${ENV}]`);
+            console.log(`👁  Open your browser at http://${host}:${port} to view it.`);
+            resolve(server);
+          });
+        } else {
+          resolve(server);
+        }
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }

@@ -1,6 +1,6 @@
 require('babel-polyfill');
 
-const testsContext = require.context('./tests', true, /\.js$/);
+const testsContext = require.context('./tests/karma/', true, /\.js$/);
 const componentsContext = require.context(
   './src/', true, /(actions|api|components|containers|reducers)\/.*\.js$/);
 
