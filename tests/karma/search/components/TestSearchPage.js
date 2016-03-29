@@ -7,14 +7,14 @@ import Paginate from 'core/components/Paginate';
 import { findAllByTag, findByTag, shallowRender } from '../../../utils';
 
 describe('<SearchPage />', () => {
-  let state;
+  let props;
 
-  function render(updateState = {}) {
-    return shallowRender(<SearchPage {...Object.assign({}, state, updateState)} />);
+  function render(extra = {}) {
+    return shallowRender(<SearchPage {...Object.assign({}, props, extra)} />);
   }
 
   beforeEach(() => {
-    state = {
+    props = {
       count: 80,
       page: 3,
       handleSearch: sinon.spy(),
@@ -33,10 +33,10 @@ describe('<SearchPage />', () => {
   it('renders the results', () => {
     const root = render();
     const results = findByTag(root, SearchResults);
-    assert.strictEqual(results.props.count, state.count);
-    assert.strictEqual(results.props.results, state.results);
-    assert.strictEqual(results.props.query, state.query);
-    assert.strictEqual(results.props.loading, state.loading);
+    assert.strictEqual(results.props.count, props.count);
+    assert.strictEqual(results.props.results, props.results);
+    assert.strictEqual(results.props.query, props.query);
+    assert.strictEqual(results.props.loading, props.loading);
     assert.deepEqual(
       Object.keys(results.props).sort(),
       ['count', 'loading', 'results', 'query'].sort());
@@ -45,8 +45,10 @@ describe('<SearchPage />', () => {
   it('renders the query', () => {
     const root = render();
     const form = findByTag(root, SearchForm);
-    assert.strictEqual(form.props.onSearch, state.handleSearch);
-    assert.deepEqual(Object.keys(form.props), ['onSearch']);
+    assert.deepEqual(form.props, {
+      pathname: '/search/',
+      query: 'foo',
+    });
   });
 
   it('renders a Paginate', () => {
@@ -54,21 +56,13 @@ describe('<SearchPage />', () => {
     const paginator = findByTag(root, Paginate);
     assert.equal(paginator.props.count, 80);
     assert.equal(paginator.props.currentPage, 3);
-    assert.equal(typeof paginator.props.pager, 'function');
+    assert.equal(paginator.props.pathname, '/search/');
+    assert.deepEqual(paginator.props.query, {q: 'foo'});
   });
 
   it('does not render a Paginate when there is no search term', () => {
     const root = render({query: null, count: 0});
     const paginators = findAllByTag(root, Paginate);
     assert.deepEqual(paginators, []);
-  });
-});
-
-describe('<SearchPage /> pager()', () => {
-  it('calls handleSearch with the query and page', () => {
-    const handleSearch = sinon.spy();
-    const searchPage = new SearchPage({handleSearch, loading: false, query: 'Howdy'});
-    searchPage.pager(20);
-    assert(handleSearch.calledWith('Howdy', 20));
   });
 });

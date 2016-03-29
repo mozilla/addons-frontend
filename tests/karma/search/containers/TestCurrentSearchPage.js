@@ -1,8 +1,13 @@
 import * as actions from 'search/actions';
-import { mapDispatchToProps, mapStateToProps } from 'search/containers/CurrentSearchPage';
+import {
+  isLoaded,
+  loadSearchResultsIfNeeded,
+  mapStateToProps,
+  parsePage,
+} from 'search/containers/CurrentSearchPage';
 import * as api from 'core/api';
 
-describe('CurrentSearchPage.mapStateToProps', () => {
+describe('CurrentSearchPage.mapStateToProps()', () => {
   const state = {
     addons: {ab: {slug: 'ab', name: 'ad-block'},
              cd: {slug: 'cd', name: 'cd-block'}},
@@ -15,74 +20,98 @@ describe('CurrentSearchPage.mapStateToProps', () => {
   });
 });
 
-describe('CurrentSearchPage.mapDispatchToProps', () => {
-  let dispatch;
-  let mocks;
+describe('CurrentSearchPage.isLoaded()', () => {
+  const state = {
+    page: 2,
+    query: 'ad-block',
+    loading: false,
+    results: [{slug: 'ab', name: 'ad-block'}],
+  };
 
-  beforeEach(() => {
-    dispatch = sinon.spy();
-    mocks = {
-      actions: sinon.mock(actions),
-      api: sinon.mock(api),
-    };
+  it('is loaded when not loading and page and query page', () => {
+    assert(isLoaded({state, page: 2, query: 'ad-block'}));
   });
 
-  afterEach(() => {
-    Object.keys(mocks).forEach((name) => mocks[name].restore());
+  it('is not loaded when loading', () => {
+    assert(!isLoaded({
+      state: Object.assign({}, state, {loading: true}),
+      page: 2,
+      query: 'ad-block',
+    }));
   });
 
-  function handleSearch({query, page, response = Promise.resolve({}), expectedPage}) {
-    mocks.api.expects('search')
-      .withArgs({ page: expectedPage || page, query })
-      .once()
-      .returns(response);
-    return mapDispatchToProps(dispatch).handleSearch(query, page);
-  }
-
-  it('sets the query', () => {
-    const searchAction = sinon.stub();
-    mocks.actions
-      .expects('searchStart')
-      .withArgs('DuckDuckGo', 5)
-      .once()
-      .returns(searchAction);
-    return handleSearch({query: 'DuckDuckGo', page: 5}).then(() => {
-      assert(dispatch.calledWith(searchAction), 'expected action to be dispatched');
-      mocks.actions.verify();
-    });
+  it('is not loaded when the query does not match', () => {
+    assert(!isLoaded({state, page: 2, query: 'youtube'}));
   });
 
-  it('sets defaults the page to 1', () => {
-    const searchAction = sinon.stub();
-    mocks.actions
-      .expects('searchStart')
-      .withArgs('DuckDuckGo', 1)
-      .once()
-      .returns(searchAction);
-    return handleSearch({query: 'DuckDuckGo', expectedPage: 1}).then(() => {
-      assert(dispatch.calledWith(searchAction), 'expected action to be dispatched');
-      mocks.actions.verify();
-    });
+  it('is not loaded when the page does not match', () => {
+    assert(!isLoaded({state, page: 3, query: 'ad-block'}));
+  });
+});
+
+describe('CurrentSearchPage.parsePage()', () => {
+  it('returns a number', () => {
+    assert.strictEqual(parsePage(10), 10);
   });
 
-  it('sets the response', () => {
-    const loadAction = sinon.stub();
-    const response = Promise.resolve({
-      entities: {addons: {foo: {}, bar: {}}},
-      result: ['foo', 'bar'],
-    });
-    mocks.actions
-      .expects('searchLoad')
-      .withArgs({
-        query: 'Yahoo!',
-        entities: {addons: {foo: {}, bar: {}}},
-        page: 3,
-        result: ['foo', 'bar']})
+  it('parses a number from a string', () => {
+    assert.strictEqual(parsePage('8'), 8);
+  });
+
+  it('treats negatives as 1', () => {
+    assert.strictEqual(parsePage('-10'), 1);
+  });
+
+  it('treats words as 1', () => {
+    assert.strictEqual(parsePage('hmmm'), 1);
+  });
+
+  it('treats "0" as 1', () => {
+    assert.strictEqual(parsePage('0'), 1);
+  });
+
+  it('treats 0 as 1', () => {
+    assert.strictEqual(parsePage(0), 1);
+  });
+
+  it('treats empty strings as 1', () => {
+    assert.strictEqual(parsePage(''), 1);
+  });
+});
+
+describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
+  it('returns right away when loaded', () => {
+    const page = 10;
+    const query = 'no ads';
+    const state = {loading: false, page, query};
+    const store = {dispatch: sinon.spy(), getState: () => ({search: state})};
+    const location = {query: {page, q: query}};
+    assert.strictEqual(loadSearchResultsIfNeeded({store, location}), true);
+  });
+
+  it('loads the search results when needed', () => {
+    const page = 10;
+    const query = 'no ads';
+    const state = {loading: false, page, query: 'old query'};
+    const dispatch = sinon.spy();
+    const store = {dispatch, getState: () => ({search: state})};
+    const location = {query: {page, q: query}};
+    const mockApi = sinon.mock(api);
+    const entities = sinon.stub();
+    const result = sinon.stub();
+    mockApi
+      .expects('search')
       .once()
-      .returns(loadAction);
-    return handleSearch({query: 'Yahoo!', page: 3, response}).then(() => {
-      mocks.actions.verify();
-      assert(dispatch.calledWith(loadAction), 'expected action to be dispatched');
+      .withArgs({page, query})
+      .returns(Promise.resolve({entities, result}));
+    return loadSearchResultsIfNeeded({store, location}).then(() => {
+      mockApi.verify();
+      assert(
+        dispatch.firstCall.calledWith(actions.searchStart(query, page)),
+        'searchStart not called');
+      assert(
+        dispatch.secondCall.calledWith(actions.searchLoad({query, entities, result})),
+        'searchLoad not called');
     });
   });
 });

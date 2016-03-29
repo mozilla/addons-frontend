@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 import './Paginate.scss';
 
@@ -6,13 +7,15 @@ export default class Paginate extends React.Component {
   static propTypes = {
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
-    pager: PropTypes.func.isRequired,
+    pathname: PropTypes.string.isRequired,
+    query: PropTypes.object,
     perPage: PropTypes.number,
     showPages: PropTypes.number,
   }
 
   static defaultProps = {
     perPage: 25,
+    query: {},
     showPages: 9,
   }
 
@@ -41,27 +44,24 @@ export default class Paginate extends React.Component {
     return pages;
   }
 
-  makeLink({ currentPage, page, pager, text }) {
-    const goToPage = (e) => {
-      e.preventDefault();
-      pager(page);
-    };
+  makeLink({ currentPage, page, pathname, query, text }) {
     let child;
     if (currentPage === page || page < 1 || page > this.pageCount()) {
       child = text || page;
     } else {
-      child = <a href="#" onClick={goToPage}>{text || page}</a>;
+      const newQuery = Object.assign({page}, query);
+      child = <Link to={{pathname, query: newQuery}}>{text || page}</Link>;
     }
     return <li key={page} className="paginator--item">{child}</li>;
   }
 
   render() {
-    const { currentPage, pager } = this.props;
+    const { currentPage, pathname, query } = this.props;
     return (
       <ul className="paginator">
-        {this.makeLink({page: currentPage - 1, currentPage, pager, text: 'Prev'})}
-        {this.visiblePages().map((page) => this.makeLink({page, currentPage, pager}))}
-        {this.makeLink({page: currentPage + 1, currentPage, pager, text: 'Next'})}
+        {this.makeLink({page: currentPage - 1, currentPage, pathname, query, text: 'Prev'})}
+        {this.visiblePages().map((page) => this.makeLink({page, currentPage, pathname, query}))}
+        {this.makeLink({page: currentPage + 1, currentPage, pathname, query, text: 'Next'})}
       </ul>
     );
   }

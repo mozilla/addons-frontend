@@ -10,7 +10,6 @@ import 'search/css/SearchPage.scss';
 export default class SearchPage extends React.Component {
   static propTypes = {
     count: PropTypes.number,
-    handleSearch: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     page: PropTypes.number,
     results: PropTypes.arrayOf(PropTypes.shape({
@@ -20,18 +19,15 @@ export default class SearchPage extends React.Component {
     query: PropTypes.string,
   }
 
-  pager = (page) => {
-    this.props.handleSearch(this.props.query, page);
-  }
-
   render() {
-    const { count, handleSearch, loading, page, query, results } = this.props;
+    const { count, loading, page, query, results } = this.props;
+    const pathname = '/search/';
     const paginator = query && count > 0 ?
-      <Paginate count={count} pager={this.pager} currentPage={page} /> : [];
+      <Paginate count={count} pathname={pathname} query={{q: query}} currentPage={page} /> : [];
     return (
       <div className="search-page">
         <h1>{_('Add-on Search')}</h1>
-        <SearchForm onSearch={handleSearch} />
+        <SearchForm pathname={pathname} query={query} />
         {paginator}
         <SearchResults results={results} query={query} loading={loading} count={count} />
       </div>
