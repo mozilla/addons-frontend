@@ -8,7 +8,11 @@ import * as api from 'core/api';
 import * as actions from 'search/actions';
 
 describe('AddonPage', () => {
-  const initialState = {addons: {'my-addon': {name: 'Addon!', slug: 'my-addon'}}};
+  const initialState = {
+    addons: {
+      'my-addon': {name: 'Addon!', slug: 'my-addon', url: 'http://example.com/my-addon', tags: []},
+    },
+  };
 
   function render({props, state}) {
     const store = createStore(state);
@@ -24,15 +28,9 @@ describe('AddonPage', () => {
     assert.equal(root.querySelector('h1').textContent, 'Addon!');
   });
 
-  it('renders the slug', () => {
-    const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
-    assert.equal(root.querySelector('p').textContent, 'This is the page for my-addon.');
-  });
-
   it('loads the add-on if not found', () => {
     const root = render({state: initialState, props: {params: {slug: 'other-addon'}}});
     assert.equal(root.querySelector('h1').textContent, 'Loading...');
-    assert.equal(root.querySelector('p').textContent, 'This is the page for other-addon.');
   });
 
   describe('findAddon', () => {

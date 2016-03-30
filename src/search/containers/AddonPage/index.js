@@ -4,6 +4,14 @@ import { asyncConnect } from 'redux-async-connect';
 import { fetchAddon } from 'core/api';
 import { loadEntities } from 'search/actions';
 
+import './style.scss';
+
+const editRegExpHelper = new RegExp('/firefox/addon/');
+const editRegExpPath = '/developers/addon/';
+function editUrl(viewUrl) {
+  return `${viewUrl.replace(editRegExpHelper, editRegExpPath)}edit`;
+}
+
 class AddonPage extends React.Component {
   static propTypes = {
     addon: PropTypes.shape({
@@ -13,16 +21,88 @@ class AddonPage extends React.Component {
     slug: PropTypes.string.isRequired,
   }
 
-  render() {
-    const { slug } = this.props;
-    let { addon } = this.props;
-    if (!addon) {
-      addon = {name: 'Loading...', slug};
+  dataItems() {
+    const { addon } = this.props;
+    const items = [
+      [addon.type, 'type'],
+      [addon.status, 'status'],
+      [<a href={addon.url} target="_blank">View on site</a>, 'url'],
+      [<a href={editUrl(addon.url)} target="_blank">Edit on site</a>, 'edit'],
+    ];
+    if (addon.homepage) {
+      items.push([
+        <a href={addon.homepage} rel="external" target="_blank">View homepage</a>,
+        'homepage',
+      ]);
+    }
+    if (addon.support_email) {
+      items.push([<a href={`mailto:${addon.support_email}`}>Support email</a>, 'support_email']);
+    }
+    if (addon.support_url) {
+      items.push([
+        <a href={addon.support_url} rel="external" target="_blank">View support site</a>,
+        'support_url',
+      ]);
+    }
+    return items;
+  }
+
+  dataBar(items) {
+    if (!items) {
+      return [];
     }
     return (
-      <div>
+      <ul className="addon--data-bar">
+        {items.map(
+          ([item, key]) => <li key={key} className="addon--data-bar--item">{item}</li>)}
+      </ul>
+    );
+  }
+  renderVersion(version) {
+    if (version) {
+      return (
+        <div className="addon--current-version">
+          <h2>Current version</h2>
+          {this.dataBar([[version.version, 'version']])}
+          <h3>Files</h3>
+          <ul>
+            {version.files.map((file) => (
+              <li>
+                {this.dataBar([
+                  [file.platform, 'platform'],
+                  [file.status, 'status'],
+                  [`${file.size} bytes`, 'size'],
+                  [file.created, 'created'],
+                  [<a href={file.url}>Download</a>, 'download'],
+                ])}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    return (
+      <div className="addon--current-version">
+        <h2>No current version</h2>
+      </div>
+    );
+  }
+
+  render() {
+    const { addon } = this.props;
+    if (!addon) {
+      return <div className="addon--loading"><h1>Loading...</h1></div>;
+    }
+    return (
+      <div className="addon">
         <h1>{addon.name}</h1>
-        <p>This is the page for {slug}.</p>
+        <p>Attributes</p>
+        {this.dataBar(this.dataItems())}
+        <p>Tags</p>
+        {this.dataBar(addon.tags.map((tag, i) => [tag, i]))}
+        <p className="addon--summary">{addon.summary}</p>
+        <p className="addon--description">{addon.description}</p>
+        {addon.type !== 'Theme' ? this.renderVersion(addon.current_version) : []}
       </div>
     );
   }

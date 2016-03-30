@@ -1,0 +1,23 @@
+.addon--data-bar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+    background: #cfcfcf;
+    display: inline-block;
+    font-size: 0.8em;
+    margin: 0.5em;
+    padding: 0.5em;
+  }
+}
+
+.addon p {
+  line-height: 1.3333333;
+}
