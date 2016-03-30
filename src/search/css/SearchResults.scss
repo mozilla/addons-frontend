@@ -1,3 +1,14 @@
+.serach-page {
+  margin-top: 1em 0 0;
+}
+
 .search-results {
-  margin-top: 1em;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
 }

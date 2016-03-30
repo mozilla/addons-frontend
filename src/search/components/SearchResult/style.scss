@@ -1,0 +1,22 @@
+.search-result {
+  border-bottom: 1px solid #cfcfcf;
+  color: #333;
+  display: block;
+  margin: 0;
+  padding: 1em 0;
+  text-decoration: none;
+
+  &:hover .search-result--name {
+    text-decoration: underline;
+  }
+}
+
+.search-result--name {
+  font-size: 1.25em;
+  margin-bottom: 0.25em;
+}
+
+.search-result--info {
+  font-size: 0.8em;
+  margin-right: 1em;
+}
