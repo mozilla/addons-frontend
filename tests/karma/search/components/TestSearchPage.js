@@ -4,7 +4,7 @@ import SearchPage from 'search/components/SearchPage';
 import SearchResults from 'search/components/SearchResults';
 import SearchForm from 'search/components/SearchForm';
 import Paginate from 'core/components/Paginate';
-import { findAllByTag, findByTag, shallowRender } from '../../utils';
+import { findAllByTag, findByTag, shallowRender } from '../../../utils';
 
 describe('<SearchPage />', () => {
   let state;
