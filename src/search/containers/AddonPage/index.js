@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import { fetchAddon } from 'core/api';
 import { loadEntities } from 'search/actions';
+import { gettext as _ } from 'core/utils';
 
 import './style.scss';
 
@@ -26,21 +27,24 @@ class AddonPage extends React.Component {
     const items = [
       [addon.type, 'type'],
       [addon.status, 'status'],
-      [<a href={addon.url} target="_blank">View on site</a>, 'url'],
-      [<a href={editUrl(addon.url)} target="_blank">Edit on site</a>, 'edit'],
+      [<a href={addon.url} target="_blank">{_('View on site')}</a>, 'url'],
+      [<a href={editUrl(addon.url)} target="_blank">{_('Edit on site')}</a>, 'edit'],
     ];
     if (addon.homepage) {
       items.push([
-        <a href={addon.homepage} rel="external" target="_blank">View homepage</a>,
+        <a href={addon.homepage} rel="external" target="_blank">{_('View homepage')}</a>,
         'homepage',
       ]);
     }
     if (addon.support_email) {
-      items.push([<a href={`mailto:${addon.support_email}`}>Support email</a>, 'support_email']);
+      items.push([
+        <a href={`mailto:${addon.support_email}`}>{_('Support email')}</a>,
+        'support_email',
+      ]);
     }
     if (addon.support_url) {
       items.push([
-        <a href={addon.support_url} rel="external" target="_blank">View support site</a>,
+        <a href={addon.support_url} rel="external" target="_blank">{_('View support site')}</a>,
         'support_url',
       ]);
     }
@@ -62,9 +66,9 @@ class AddonPage extends React.Component {
     if (version) {
       return (
         <div className="addon--current-version">
-          <h2>Current version</h2>
+          <h2>{_('Current version')}</h2>
           {this.dataBar([[version.version, 'version']])}
-          <h3>Files</h3>
+          <h3>{_('Files')}</h3>
           <ul>
             {version.files.map((file) => (
               <li>
@@ -73,7 +77,7 @@ class AddonPage extends React.Component {
                   [file.status, 'status'],
                   [`${file.size} bytes`, 'size'],
                   [file.created, 'created'],
-                  [<a href={file.url}>Download</a>, 'download'],
+                  [<a href={file.url}>{_('Download')}</a>, 'download'],
                 ])}
               </li>
             ))}
@@ -83,7 +87,7 @@ class AddonPage extends React.Component {
     }
     return (
       <div className="addon--current-version">
-        <h2>No current version</h2>
+        <h2>{_('No current version')}</h2>
       </div>
     );
   }
@@ -96,9 +100,9 @@ class AddonPage extends React.Component {
     return (
       <div className="addon">
         <h1>{addon.name}</h1>
-        <p>Attributes</p>
+        <p>{_('Attributes')}</p>
         {this.dataBar(this.dataItems())}
-        <p>Tags</p>
+        <p>{_('Tags')}</p>
         {this.dataBar(addon.tags.map((tag, i) => [tag, i]))}
         <p className="addon--summary">{addon.summary}</p>
         <p className="addon--description">{addon.description}</p>
