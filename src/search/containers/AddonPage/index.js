@@ -38,7 +38,7 @@ class AddonPage extends React.Component {
     }
     if (addon.support_email) {
       items.push([
-        <a href={`mailto:${addon.support_email}`}>{_('Support email')}</a>,
+        <a href={`mailto:${addon.support_email}`}>{_('Email support')}</a>,
         'support_email',
       ]);
     }
@@ -51,23 +51,24 @@ class AddonPage extends React.Component {
     return items;
   }
 
-  dataBar(items) {
-    if (!items) {
+  dataBar(items, dataType) {
+    if (items.length === 0) {
       return [];
     }
     return (
-      <ul className="addon--data-bar">
+      <ul className={`addon--data-bar addon--${dataType}`}>
         {items.map(
           ([item, key]) => <li key={key} className="addon--data-bar--item">{item}</li>)}
       </ul>
     );
   }
+
   renderVersion(version) {
     if (version) {
       return (
         <div className="addon--current-version">
           <h2>{_('Current version')}</h2>
-          {this.dataBar([[version.version, 'version']])}
+          {this.dataBar([[version.version, 'version']], 'version-info')}
           <h3>{_('Files')}</h3>
           <ul>
             {version.files.map((file) => (
@@ -78,7 +79,7 @@ class AddonPage extends React.Component {
                   [`${file.size} bytes`, 'size'],
                   [file.created, 'created'],
                   [<a href={file.url}>{_('Download')}</a>, 'download'],
-                ])}
+                ], 'file-info')}
               </li>
             ))}
           </ul>
@@ -101,9 +102,9 @@ class AddonPage extends React.Component {
       <div className="addon">
         <h1>{addon.name}</h1>
         <p>{_('Attributes')}</p>
-        {this.dataBar(this.dataItems())}
+        {this.dataBar(this.dataItems(), 'info')}
         <p>{_('Tags')}</p>
-        {this.dataBar(addon.tags.map((tag, i) => [tag, i]))}
+        {this.dataBar(addon.tags.map((tag, i) => [tag, i]), 'tags')}
         <p className="addon--summary">{addon.summary}</p>
         <p className="addon--description">{addon.description}</p>
         {addon.type !== 'Theme' ? this.renderVersion(addon.current_version) : []}
