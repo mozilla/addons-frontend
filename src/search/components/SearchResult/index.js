@@ -18,13 +18,15 @@ export default class SearchResult extends React.Component {
   render() {
     const { result } = this.props;
     return (
-      <Link to={`/search/addons/${result.slug}`} className="search-result">
-        <div className="search-result--name">
+      <Link to={`/search/addons/${result.slug}`} className="search-result" ref="container">
+        <div className="search-result--name" ref="name">
           {result.name}
         </div>
-        <span className="search-result--info">{result.type}</span>
-        <span className="search-result--info">{result.status}</span>
-        <span className="search-result--info">{fileCount(result.current_version)} files</span>
+        <span className="search-result--info" ref="type">{result.type}</span>
+        <span className="search-result--info" ref="status">{result.status}</span>
+        <span className="search-result--info" ref="fileCount">
+          {fileCount(result.current_version)} files
+        </span>
       </Link>
     );
   }

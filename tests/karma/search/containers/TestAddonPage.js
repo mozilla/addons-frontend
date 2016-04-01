@@ -22,6 +22,18 @@ describe('AddonPage', () => {
         tags: ['foo-tag', 'bar-tag'],
         type: 'Extension',
         url: 'https://addons.mozilla.org/firefox/addon/my-addon/',
+        current_version: {
+          version: '2.5-beta.1',
+          files: [
+            {
+              platform: 'Linux',
+              status: 'Fully Reviewed',
+              size: 556677,
+              created: '2016-04-01T12:11:10',
+              url: 'https://addons.mozilla.org/files/54321',
+            },
+          ],
+        },
       },
     },
   };
@@ -100,12 +112,34 @@ describe('AddonPage', () => {
       assert.equal(url.tagName, 'A');
       assert.equal(url.getAttribute('href'), 'https://example.com/my-addon');
     });
+
+    it('renders the current version header', () => {
+      assert.equal(
+        root.querySelector('.addon--current-version h2').textContent,
+        'Current version');
+    });
+
+    it('renders the current version', () => {
+      const version = Array
+        .from(root.querySelector('.addon--version-info').childNodes)
+        .map((infum) => infum.textContent);
+      assert.deepEqual(version, ['2.5-beta.1']);
+    });
+
+    it('renders the file info', () => {
+      const file = Array
+        .from(root.querySelector('.addon--file-info').childNodes)
+        .map((infum) => infum.textContent);
+      assert.deepEqual(
+        file, ['Linux', 'Fully Reviewed', '556677 bytes', '2016-04-01T12:11:10', 'Download']);
+    });
   });
 
   describe('optional fields', () => {
     const updatedState = {
       addons: {
         'my-addon': Object.assign({}, initialState.addons['my-addon'], {
+          current_version: undefined,
           homepage: undefined,
           support_email: undefined,
           support_url: undefined,
@@ -126,6 +160,31 @@ describe('AddonPage', () => {
     it('does not render the tags', () => {
       const tags = root.querySelector('.addon--tags');
       assert.strictEqual(tags, null);
+    });
+
+    it('notes that there is no current version', () => {
+      assert.equal(
+        root.querySelector('.addon--current-version h2').textContent, 'No current version');
+    });
+  });
+
+  describe('themes', () => {
+    const updatedState = {
+      addons: {
+        'my-addon': Object.assign({}, initialState.addons['my-addon'], {
+          current_version: {},
+          homepage: undefined,
+          support_email: undefined,
+          support_url: undefined,
+          tags: [],
+          type: 'Theme',
+        }),
+      },
+    };
+    const root = render({state: updatedState, props: {params: {slug: 'my-addon'}}});
+
+    it('does not render the version', () => {
+      assert.strictEqual(root.querySelector('.addon--current-version'), null);
     });
   });
 
