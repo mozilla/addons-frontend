@@ -141,10 +141,9 @@ describe('<Paginate />', () => {
 
     it('renders the right links', () => {
       renderPaginate().then((root) => {
-        const links = root.querySelectorAll('a');
+        const links = Array.from(root.querySelectorAll('a'));
         assert.deepEqual(
-          Array.prototype.map.call(
-            links, (link) => [link.textContent, link.getAttribute('href')]),
+          links.map((link) => [link.textContent, link.getAttribute('href')]),
           [
             ['Prev', '/some-path/?page=4'],
             ['3', '/some-path/?page=3'],

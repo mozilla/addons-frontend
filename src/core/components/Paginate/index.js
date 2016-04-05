@@ -49,7 +49,7 @@ export default class Paginate extends React.Component {
     if (currentPage === page || page < 1 || page > this.pageCount()) {
       child = text || page;
     } else {
-      const newQuery = Object.assign({page}, query);
+      const newQuery = {page, ...query};
       child = <Link to={{pathname, query: newQuery}}>{text || page}</Link>;
     }
     return <li key={page} className="paginator--item">{child}</li>;

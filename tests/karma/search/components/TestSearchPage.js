@@ -10,7 +10,7 @@ describe('<SearchPage />', () => {
   let props;
 
   function render(extra = {}) {
-    return shallowRender(<SearchPage {...Object.assign({}, props, extra)} />);
+    return shallowRender(<SearchPage {...{...props, ...extra}} />);
   }
 
   beforeEach(() => {
