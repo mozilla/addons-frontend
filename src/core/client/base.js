@@ -17,6 +17,7 @@ export default function makeClient(routes, createStore) {
     }
   }
   const store = createStore(initialState);
+  store.dispatch({type: 'SET_API_CLIENT', payload: {getState: store.getState}});
 
   function reduxAsyncConnectRender(props) {
     return <ReduxAsyncConnect {...props} />;

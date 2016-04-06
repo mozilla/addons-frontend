@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
-
 import { stripIndent } from 'common-tags';
 import Express from 'express';
 import helmet from 'helmet';
 import path from 'path';
 import React from 'react';
+import cookie from 'react-cookie';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
@@ -54,6 +53,8 @@ export default function(routes, createStore) {
 
   app.use((req, res) => {
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+      cookie.plugToRequest(req, res);
+
       if (err) {
         console.error(err); // eslint-disable-line no-console
         return res.status(500).end('Internal server error');
@@ -64,6 +65,9 @@ export default function(routes, createStore) {
       }
 
       const store = createStore();
+
+      store.dispatch({type: 'SET_JWT', payload: {token: cookie.load('jwt_api_auth_token')}});
+      store.dispatch({type: 'SET_API_CLIENT', payload: {getState: store.getState}});
 
       return loadOnServer({...renderProps, store}).then(() => {
         const InitialComponent = (
@@ -78,6 +82,12 @@ export default function(routes, createStore) {
         `<link href=${assets.styles[style]} rel="stylesheet" type="text/css" />`
         ).join('\n');
 
+        const state = store.getState();
+        // We need to delete the API client since it cannot be serialized, it will be recreated on
+        // the client side. Ideally this would go in context instead but redux-async-connect does
+        // not support context.
+        delete state.api;
+
         const HTML = stripIndent`
         <!DOCTYPE html>
         <html>
@@ -90,7 +100,7 @@ export default function(routes, createStore) {
           <body>
             <div id="react-view">${componentHTML}</div>
             <script type="application/json" id="redux-store-state">
-              ${serialize(store.getState())}
+              ${serialize(state)}
             </script>
             <script src="${assets.javascript.main}"></script>
           </body>
@@ -125,7 +135,9 @@ export function runServer({listen = true, appName} = {}) {
             if (err) {
               reject(err);
             }
+            // eslint-disable-next-line no-console
             console.log(`🔥  Addons-frontend server is running [ENV:${ENV}]`);
+            // eslint-disable-next-line no-console
             console.log(`👁  Open your browser at http://${host}:${port} to view it.`);
             resolve(server);
           });
@@ -135,6 +147,7 @@ export function runServer({listen = true, appName} = {}) {
       });
     })
     .catch((err) => {
+      // eslint-disable-next-line no-console
       console.error(err);
     });
 }

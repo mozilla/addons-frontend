@@ -5,7 +5,6 @@ import {
   mapStateToProps,
   parsePage,
 } from 'search/containers/CurrentSearchPage';
-import * as api from 'core/api';
 
 describe('CurrentSearchPage.mapStateToProps()', () => {
   const state = {
@@ -94,18 +93,14 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const query = 'no ads';
     const state = {loading: false, page, query: 'old query'};
     const dispatch = sinon.spy();
-    const store = {dispatch, getState: () => ({search: state})};
     const location = {query: {page, q: query}};
-    const mockApi = sinon.mock(api);
     const entities = sinon.stub();
     const result = sinon.stub();
-    mockApi
-      .expects('search')
-      .once()
-      .withArgs({page, query})
-      .returns(Promise.resolve({entities, result}));
+    const api = {search: sinon.stub().returns(Promise.resolve({entities, result}))};
+    const store = {dispatch, getState: () => ({api, search: state})};
     return loadSearchResultsIfNeeded({store, location}).then(() => {
-      mockApi.verify();
+      assert(api.search.calledOnce);
+      assert(api.search.calledWith({page, query}));
       assert(
         dispatch.firstCall.calledWith(actions.searchStart(query, page)),
         'searchStart not called');
@@ -120,16 +115,12 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const query = 'no ads';
     const state = {loading: false, page, query: 'old query'};
     const dispatch = sinon.spy();
-    const store = {dispatch, getState: () => ({search: state})};
     const location = {query: {page, q: query}};
-    const mockApi = sinon.mock(api);
-    mockApi
-      .expects('search')
-      .once()
-      .withArgs({page, query})
-      .returns(Promise.reject());
+    const api = {search: sinon.stub().returns(Promise.reject())};
+    const store = {dispatch, getState: () => ({api, search: state})};
     return loadSearchResultsIfNeeded({store, location}).then(() => {
-      mockApi.verify();
+      assert(api.search.calledOnce);
+      assert(api.search.calledWith({page, query}));
       assert(
         dispatch.firstCall.calledWith(actions.searchStart(query, page)),
         'searchStart not called');

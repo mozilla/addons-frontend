@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
-import { fetchAddon } from 'core/api';
 import { loadEntities } from 'search/actions';
 import { gettext as _ } from 'core/utils';
 import NotFound from 'core/components/NotFound';
@@ -127,11 +126,12 @@ export function findAddon(state, slug) {
 }
 
 export function loadAddonIfNeeded({store: {dispatch, getState}, params: {slug}}) {
-  const addon = findAddon(getState(), slug);
+  const state = getState();
+  const addon = findAddon(state, slug);
   if (addon) {
     return addon;
   }
-  return fetchAddon(slug).then(({entities}) => dispatch(loadEntities(entities)));
+  return state.api.fetchAddon(slug).then(({entities}) => dispatch(loadEntities(entities)));
 }
 
 const CurrentAddonPage = asyncConnect([{

@@ -1,7 +1,9 @@
-import * as api from 'core/api';
+import ApiClient from 'core/api';
 
 describe('search api', () => {
   let mockWindow;
+  const state = {};
+  const api = new ApiClient({getState: () => state});
 
   beforeEach(() => {
     mockWindow = sinon.mock(window);
@@ -52,9 +54,13 @@ describe('search api', () => {
 
 describe('add-on api', () => {
   let mockWindow;
+  let state;
+  let api;
 
   beforeEach(() => {
     mockWindow = sinon.mock(window);
+    state = {auth: {}};
+    api = new ApiClient({getState: () => state});
   });
 
   afterEach(() => {
@@ -99,5 +105,23 @@ describe('add-on api', () => {
     return api.fetchAddon('foo').then(
       () => assert.fail(null, null, 'expected API call to fail'),
       (error) => assert.equal(error.message, 'Error calling API'));
+  });
+
+  it('includes the authorization token if available', () => {
+    const token = 'bAse64.enCodeD.JWT';
+    state.auth.token = token;
+    mockWindow
+      .expects('fetch')
+      .withArgs(
+        'https://addons.mozilla.org/api/v3/addons/addon/bar/?lang=en-US',
+        {headers: {authorization: `Bearer ${token}`}})
+      .once()
+      .returns(mockResponse());
+    return api.fetchAddon('bar').then((results) => {
+      const foo = {slug: 'foo', name: 'Foo!'};
+      assert.deepEqual(results.result, 'foo');
+      assert.deepEqual(results.entities, {addons: {foo}});
+      mockWindow.verify();
+    });
   });
 });

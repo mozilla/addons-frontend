@@ -5,7 +5,7 @@ describe('search createStore', () => {
     const store = createStore();
     assert.deepEqual(
       Object.keys(store.getState()).sort(),
-      ['addons', 'reduxAsyncConnect', 'search']);
+      ['addons', 'api', 'auth', 'reduxAsyncConnect', 'search']);
   });
 
   it('creates an empty store', () => {

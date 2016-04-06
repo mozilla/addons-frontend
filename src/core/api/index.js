@@ -4,7 +4,6 @@ import config from 'config';
 
 import 'isomorphic-fetch';
 
-
 const API_BASE = config.get('apiBase');
 
 const addon = new Schema('addons', {idAttribute: 'slug'});
@@ -14,26 +13,43 @@ function makeQueryString(opts) {
   return Object.keys(opts).map((k) => `${k}=${opts[k]}`).join('&');
 }
 
-function callApi(endpoint, schema, params) {
-  const queryString = makeQueryString(params);
-  return fetch(`${API_BASE}/${endpoint}/?${queryString}`)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
+export default class ApiClient {
+  constructor({getState}) {
+    this.getState = getState;
+  }
+
+  bearerToken() {
+    return this.getState().auth.token;
+  }
+
+  callApi(endpoint, schema, params, auth = false) {
+    const queryString = makeQueryString(params);
+    const options = {headers: {}};
+    if (auth) {
+      const token = this.bearerToken();
+      if (token) {
+        options.headers.authorization = `Bearer ${token}`;
       }
-      throw new Error('Error calling API');
-    })
-    .then((response) => normalize(response, schema));
-}
+    }
+    return fetch(`${API_BASE}/${endpoint}/?${queryString}`, options)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Error calling API');
+      })
+      .then((response) => normalize(response, schema));
+  }
 
-export function search({ page, query }) {
-  // TODO: Get the language from the server.
-  return callApi(
-    'addons/search',
-    {results: arrayOf(addon)},
-    {q: query, lang: 'en-US', page});
-}
+  search({ page, query }) {
+    // TODO: Get the language from the server.
+    return this.callApi(
+      'addons/search',
+      {results: arrayOf(addon)},
+      {q: query, lang: 'en-US', page});
+  }
 
-export function fetchAddon(slug) {
-  return callApi(`addons/addon/${slug}`, addon, {lang: 'en-US'});
+  fetchAddon(slug) {
+    return this.callApi(`addons/addon/${slug}`, addon, {lang: 'en-US'}, true);
+  }
 }
