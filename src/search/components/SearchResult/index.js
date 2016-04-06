@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
+import { ngettext } from 'core/utils';
+
 import './style.scss';
 
 function fileCount(version) {
@@ -8,6 +10,11 @@ function fileCount(version) {
     return version.files.length;
   }
   return 0;
+}
+
+function fileCountText(version) {
+  const count = fileCount(version);
+  return ngettext('{count} file', '{count} files', count).replace('{count}', count);
 }
 
 export default class SearchResult extends React.Component {
@@ -25,7 +32,7 @@ export default class SearchResult extends React.Component {
         <span className="search-result--info" ref="type">{result.type}</span>
         <span className="search-result--info" ref="status">{result.status}</span>
         <span className="search-result--info" ref="fileCount">
-          {fileCount(result.current_version)} files
+          {fileCountText(result.current_version)}
         </span>
       </Link>
     );

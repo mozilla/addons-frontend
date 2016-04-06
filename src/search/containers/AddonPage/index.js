@@ -96,7 +96,7 @@ class AddonPage extends React.Component {
   render() {
     const { addon } = this.props;
     if (!addon) {
-      return <div className="addon--loading"><h1>Loading...</h1></div>;
+      return <div className="addon--loading"><h1>{_('Loading...')}</h1></div>;
     }
     return (
       <div className="addon">

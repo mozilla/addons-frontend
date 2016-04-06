@@ -8,34 +8,15 @@ import * as api from 'core/api';
 import * as actions from 'search/actions';
 
 describe('AddonPage', () => {
-  const initialState = {
-    addons: {
-      'my-addon': {
-        description: 'An add-on that adds on.',
-        homepage: 'https://example.com/my-addon',
-        name: 'Addon!',
-        slug: 'my-addon',
-        summary: 'My add-on',
-        support_email: 'my-addon@example.com',
-        support_url: 'https://example.com/my-addon/support',
-        status: 'Fully Reviewed',
-        tags: ['foo-tag', 'bar-tag'],
-        type: 'Extension',
-        url: 'https://addons.mozilla.org/firefox/addon/my-addon/',
-        current_version: {
-          version: '2.5-beta.1',
-          files: [
-            {
-              platform: 'Linux',
-              status: 'Fully Reviewed',
-              size: 556677,
-              created: '2016-04-01T12:11:10',
-              url: 'https://addons.mozilla.org/files/54321',
-            },
-          ],
-        },
-      },
-    },
+  const basicAddon = {
+    description: 'An add-on that adds on.',
+    name: 'Addon!',
+    slug: 'my-addon',
+    summary: 'My add-on',
+    status: 'Fully Reviewed',
+    tags: [],
+    type: 'Extension',
+    url: 'https://addons.mozilla.org/firefox/addon/my-addon/',
   };
 
   function render({props, state}) {
@@ -48,6 +29,30 @@ describe('AddonPage', () => {
   }
 
   describe('rendered fields', () => {
+    const initialState = {
+      addons: {
+        'my-addon': {
+          ...basicAddon,
+          homepage: 'https://example.com/my-addon',
+          support_email: 'my-addon@example.com',
+          support_url: 'https://example.com/my-addon/support',
+          tags: ['foo-tag', 'bar-tag'],
+          current_version: {
+            version: '2.5-beta.1',
+            files: [
+              {
+                platform: 'Linux',
+                status: 'Fully Reviewed',
+                size: 556677,
+                created: '2016-04-01T12:11:10',
+                url: 'https://addons.mozilla.org/files/54321',
+              },
+            ],
+          },
+        },
+      },
+    };
+
     const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
 
     it('renders the name', () => {
@@ -64,8 +69,8 @@ describe('AddonPage', () => {
     });
 
     it('renders the tags', () => {
-      const tags = root.querySelector('.addon--tags').childNodes;
-      const tagText = Array.prototype.map.call(tags, (tag) => tag.textContent);
+      const tags = Array.from(root.querySelector('.addon--tags').childNodes);
+      const tagText = tags.map((tag) => tag.textContent);
       assert.deepEqual(tagText, ['foo-tag', 'bar-tag']);
     });
 
@@ -136,18 +141,8 @@ describe('AddonPage', () => {
   });
 
   describe('optional fields', () => {
-    const updatedState = {
-      addons: {
-        'my-addon': Object.assign({}, initialState.addons['my-addon'], {
-          current_version: undefined,
-          homepage: undefined,
-          support_email: undefined,
-          support_url: undefined,
-          tags: [],
-        }),
-      },
-    };
-    const root = render({state: updatedState, props: {params: {slug: 'my-addon'}}});
+    const initialState = {addons: {'my-addon': basicAddon}};
+    const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
 
     it('does not render the info', () => {
       const info = Array.from(root.querySelector('.addon--info').childNodes);
@@ -169,19 +164,15 @@ describe('AddonPage', () => {
   });
 
   describe('themes', () => {
-    const updatedState = {
+    const initialState = {
       addons: {
-        'my-addon': Object.assign({}, initialState.addons['my-addon'], {
-          current_version: {},
-          homepage: undefined,
-          support_email: undefined,
-          support_url: undefined,
-          tags: [],
+        'my-addon': {
+          ...basicAddon,
           type: 'Theme',
-        }),
+        },
       },
     };
-    const root = render({state: updatedState, props: {params: {slug: 'my-addon'}}});
+    const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
 
     it('does not render the version', () => {
       assert.strictEqual(root.querySelector('.addon--current-version'), null);
@@ -189,6 +180,7 @@ describe('AddonPage', () => {
   });
 
   it('loads the add-on if not found', () => {
+    const initialState = {addons: {'my-addon': basicAddon}};
     const root = render({state: initialState, props: {params: {slug: 'other-addon'}}});
     assert.equal(root.querySelector('h1').textContent, 'Loading...');
   });
