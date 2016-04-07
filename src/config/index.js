@@ -25,8 +25,8 @@ const config = new Map();
 
   config.set('apiHost',
     process.env.API_HOST ||
-      NODE_ENV === 'development' ?
-        'https://addons-dev.allizom.org' : 'https://addons.mozilla.org');
+      (NODE_ENV === 'development' ?
+       'https://addons-dev.allizom.org' : 'https://addons.mozilla.org'));
 
   config.set('apiPath', process.env.API_PATH || '/api/v3');
   config.set('apiBase', config.get('apiHost') + config.get('apiPath'));
