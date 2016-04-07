@@ -8,7 +8,16 @@ import * as api from 'core/api';
 import * as actions from 'search/actions';
 
 describe('AddonPage', () => {
-  const initialState = {addons: {'my-addon': {name: 'Addon!', slug: 'my-addon'}}};
+  const basicAddon = {
+    description: 'An add-on that adds on.',
+    name: 'Addon!',
+    slug: 'my-addon',
+    summary: 'My add-on',
+    status: 'Fully Reviewed',
+    tags: [],
+    type: 'Extension',
+    url: 'https://addons.mozilla.org/firefox/addon/my-addon/',
+  };
 
   function render({props, state}) {
     const store = createStore(state);
@@ -19,20 +28,161 @@ describe('AddonPage', () => {
     ));
   }
 
-  it('renders the name', () => {
+  describe('rendered fields', () => {
+    const initialState = {
+      addons: {
+        'my-addon': {
+          ...basicAddon,
+          homepage: 'https://example.com/my-addon',
+          support_email: 'my-addon@example.com',
+          support_url: 'https://example.com/my-addon/support',
+          tags: ['foo-tag', 'bar-tag'],
+          current_version: {
+            version: '2.5-beta.1',
+            files: [
+              {
+                platform: 'Linux',
+                status: 'Fully Reviewed',
+                size: 556677,
+                created: '2016-04-01T12:11:10',
+                url: 'https://addons.mozilla.org/files/54321',
+              },
+            ],
+          },
+        },
+      },
+    };
+
     const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
-    assert.equal(root.querySelector('h1').textContent, 'Addon!');
+
+    it('renders the name', () => {
+      assert.equal(root.querySelector('h1').textContent, 'Addon!');
+    });
+
+    it('renders the summary', () => {
+      assert.equal(root.querySelector('.addon--summary').textContent, 'My add-on');
+    });
+
+    it('renders the description', () => {
+      assert.equal(
+        root.querySelector('.addon--description').textContent, 'An add-on that adds on.');
+    });
+
+    it('renders the tags', () => {
+      const tags = Array.from(root.querySelector('.addon--tags').childNodes);
+      const tagText = tags.map((tag) => tag.textContent);
+      assert.deepEqual(tagText, ['foo-tag', 'bar-tag']);
+    });
+
+    const info = Array.from(root.querySelector('.addon--info').childNodes);
+    it('renders the addon info', () => {
+      const infoText = info.map((infum) => infum.textContent);
+      assert.deepEqual(
+        infoText,
+        ['Extension', 'Fully Reviewed', 'View on site', 'Edit on site', 'View homepage',
+         'Email support', 'View support site']);
+    });
+
+    it('renders the AMO page as a link', () => {
+      const url = info.find(
+        (infum) => infum.textContent === 'View on site').firstChild;
+      assert.equal(url.tagName, 'A');
+      assert.equal(url.getAttribute('href'), 'https://addons.mozilla.org/firefox/addon/my-addon/');
+    });
+
+    it('renders the manage page as a link', () => {
+      const url = info.find(
+        (infum) => infum.textContent === 'Edit on site').firstChild;
+      assert.equal(url.tagName, 'A');
+      assert.equal(
+        url.getAttribute('href'), 'https://addons.mozilla.org/developers/addon/my-addon/edit');
+    });
+
+    it('renders the support email as a mailto', () => {
+      const email = info.find((infum) => infum.textContent === 'Email support').firstChild;
+      assert.equal(email.tagName, 'A');
+      assert.equal(email.getAttribute('href'), 'mailto:my-addon@example.com');
+    });
+
+    it('renders the support url as a link', () => {
+      const url = info.find(
+        (infum) => infum.textContent === 'View support site').firstChild;
+      assert.equal(url.tagName, 'A');
+      assert.equal(url.getAttribute('href'), 'https://example.com/my-addon/support');
+    });
+
+    it('renders the homepage as a link', () => {
+      const url = info.find(
+        (infum) => infum.textContent === 'View homepage').firstChild;
+      assert.equal(url.tagName, 'A');
+      assert.equal(url.getAttribute('href'), 'https://example.com/my-addon');
+    });
+
+    it('renders the current version header', () => {
+      assert.equal(
+        root.querySelector('.addon--current-version h2').textContent,
+        'Current version');
+    });
+
+    it('renders the current version', () => {
+      const version = Array
+        .from(root.querySelector('.addon--version-info').childNodes)
+        .map((infum) => infum.textContent);
+      assert.deepEqual(version, ['2.5-beta.1']);
+    });
+
+    it('renders the file info', () => {
+      const file = Array
+        .from(root.querySelector('.addon--file-info').childNodes)
+        .map((infum) => infum.textContent);
+      assert.deepEqual(
+        file, ['Linux', 'Fully Reviewed', '556677 bytes', '2016-04-01T12:11:10', 'Download']);
+    });
   });
 
-  it('renders the slug', () => {
+  describe('optional fields', () => {
+    const initialState = {addons: {'my-addon': basicAddon}};
     const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
-    assert.equal(root.querySelector('p').textContent, 'This is the page for my-addon.');
+
+    it('does not render the info', () => {
+      const info = Array.from(root.querySelector('.addon--info').childNodes);
+      const infoText = info.map((infum) => infum.textContent);
+      assert.deepEqual(
+        infoText,
+        ['Extension', 'Fully Reviewed', 'View on site', 'Edit on site']);
+    });
+
+    it('does not render the tags', () => {
+      const tags = root.querySelector('.addon--tags');
+      assert.strictEqual(tags, null);
+    });
+
+    it('notes that there is no current version', () => {
+      assert.equal(
+        root.querySelector('.addon--current-version h2').textContent, 'No current version');
+    });
+  });
+
+  describe('themes', () => {
+    const initialState = {
+      addons: {
+        'my-addon': {
+          ...basicAddon,
+          type: 'Theme',
+        },
+      },
+    };
+    const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
+
+    it('does not render the version', () => {
+      assert.strictEqual(root.querySelector('.addon--current-version'), null);
+    });
   });
 
   it('loads the add-on if not found', () => {
+    const initialState = {addons: {'my-addon': basicAddon}};
     const root = render({state: initialState, props: {params: {slug: 'other-addon'}}});
     assert.equal(root.querySelector('h1').textContent, 'Loading...');
-    assert.equal(root.querySelector('p').textContent, 'This is the page for other-addon.');
   });
 
   describe('findAddon', () => {
