@@ -123,8 +123,6 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const store = {dispatch, getState: () => ({search: state})};
     const location = {query: {page, q: query}};
     const mockApi = sinon.mock(api);
-    const entities = sinon.stub();
-    const result = sinon.stub();
     mockApi
       .expects('search')
       .once()
