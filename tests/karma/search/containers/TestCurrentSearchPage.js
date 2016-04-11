@@ -114,4 +114,30 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
         'searchLoad not called');
     });
   });
+
+  it('triggers searchFail when it fails', () => {
+    const page = 11;
+    const query = 'no ads';
+    const state = {loading: false, page, query: 'old query'};
+    const dispatch = sinon.spy();
+    const store = {dispatch, getState: () => ({search: state})};
+    const location = {query: {page, q: query}};
+    const mockApi = sinon.mock(api);
+    const entities = sinon.stub();
+    const result = sinon.stub();
+    mockApi
+      .expects('search')
+      .once()
+      .withArgs({page, query})
+      .returns(Promise.reject());
+    return loadSearchResultsIfNeeded({store, location}).then(() => {
+      mockApi.verify();
+      assert(
+        dispatch.firstCall.calledWith(actions.searchStart(query, page)),
+        'searchStart not called');
+      assert(
+        dispatch.secondCall.calledWith(actions.searchFail({page, query})),
+        'searchFail not called');
+    });
+  });
 });

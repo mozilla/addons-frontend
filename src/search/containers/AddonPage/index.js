@@ -4,6 +4,7 @@ import { asyncConnect } from 'redux-async-connect';
 import { fetchAddon } from 'core/api';
 import { loadEntities } from 'search/actions';
 import { gettext as _ } from 'core/utils';
+import NotFound from 'core/components/NotFound';
 
 import './style.scss';
 
@@ -96,7 +97,7 @@ class AddonPage extends React.Component {
   render() {
     const { addon } = this.props;
     if (!addon) {
-      return <div className="addon--loading"><h1>{_('Loading...')}</h1></div>;
+      return <NotFound />;
     }
     return (
       <div className="addon">

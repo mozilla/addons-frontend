@@ -13,6 +13,7 @@ describe('search api', () => {
 
   function mockResponse() {
     return Promise.resolve({
+      ok: true,
       json() {
         return Promise.resolve({
           results: [
@@ -62,6 +63,7 @@ describe('add-on api', () => {
 
   function mockResponse() {
     return Promise.resolve({
+      ok: true,
       json() {
         return Promise.resolve({
           name: 'Foo!',
@@ -86,5 +88,16 @@ describe('add-on api', () => {
       assert.deepEqual(results.result, 'foo');
       assert.deepEqual(results.entities, {addons: {foo}});
     });
+  });
+
+  it('fails when the add-on is not found', () => {
+    mockWindow
+      .expects('fetch')
+      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US')
+      .once()
+      .returns(Promise.resolve({ok: false}));
+    return api.fetchAddon('foo').then(
+      () => assert.fail(null, null, 'expected API call to fail'),
+      (error) => assert.equal(error.message, 'Error calling API'));
   });
 });

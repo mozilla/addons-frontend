@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import SearchPage from '../components/SearchPage';
-import { searchStart, searchLoad } from '../actions';
+import { searchStart, searchLoad, searchFail } from '../actions';
 import { search } from 'core/api';
 
 export function mapStateToProps(state) {
@@ -11,7 +11,8 @@ export function mapStateToProps(state) {
 function performSearch({dispatch, page, query}) {
   dispatch(searchStart(query, page));
   return search({ page, query })
-    .then((response) => dispatch(searchLoad({ page, query, ...response })));
+    .then((response) => dispatch(searchLoad({ page, query, ...response })))
+    .catch(() => dispatch(searchFail({ page, query })));
 }
 
 export function isLoaded({page, query, state}) {

@@ -179,10 +179,10 @@ describe('AddonPage', () => {
     });
   });
 
-  it('loads the add-on if not found', () => {
+  it('renders NotFound when the add-on is not loaded', () => {
     const initialState = {addons: {'my-addon': basicAddon}};
     const root = render({state: initialState, props: {params: {slug: 'other-addon'}}});
-    assert.equal(root.querySelector('h1').textContent, 'Loading...');
+    assert(root.querySelector('h1').textContent.includes("we can't find what you're looking for"));
   });
 
   describe('findAddon', () => {
@@ -261,6 +261,27 @@ describe('AddonPage', () => {
         .returns(action);
       return loadAddonIfNeeded(makeProps(slug)).then(() => {
         assert(dispatch.calledWith(action), 'dispatch not called');
+        mockApi.verify();
+        mockActions.verify();
+      });
+    });
+
+    it('handles 404s when loading the add-on', () => {
+      const slug = 'other-addon';
+      const mockApi = makeMock(api);
+      mockApi
+        .expects('fetchAddon')
+        .once()
+        .withArgs(slug)
+        .returns(Promise.reject(new Error('Error accessing API')));
+      const mockActions = makeMock(actions);
+      mockActions
+        .expects('loadEntities')
+        .never();
+      return loadAddonIfNeeded(makeProps(slug)).then(() => {
+        assert(false, 'expected promise to fail');
+      }, () => {
+        assert(!dispatch.called, 'dispatch called');
         mockApi.verify();
         mockActions.verify();
       });

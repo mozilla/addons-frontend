@@ -12,6 +12,13 @@ export function searchLoad({ query, entities, result }) {
   };
 }
 
+export function searchFail({ page, query }) {
+  return {
+    type: 'SEARCH_FAILED',
+    payload: { page, query },
+  };
+}
+
 export function loadEntities(entities) {
   return {
     type: 'ENTITIES_LOADED',
