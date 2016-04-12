@@ -5,8 +5,8 @@ import NotFound from 'core/components/NotFound';
 describe('<NotFound />', () => {
   const root = renderIntoDocument(<NotFound />);
 
-  it('sets a header', () => {
+  it('sets a heading', () => {
     assert.equal(
-      root.refs.header.textContent, "We're sorry, but we can't find what you're looking for.");
+      root.refs.heading.textContent, "We're sorry, but we can't find what you're looking for.");
   });
 });
