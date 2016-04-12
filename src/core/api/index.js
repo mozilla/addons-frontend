@@ -17,7 +17,12 @@ function makeQueryString(opts) {
 function callApi(endpoint, schema, params) {
   const queryString = makeQueryString(params);
   return fetch(`${API_BASE}/${endpoint}/?${queryString}`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Error calling API');
+    })
     .then((response) => normalize(response, schema));
 }
 

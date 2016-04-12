@@ -89,4 +89,14 @@ describe('search reducer', () => {
       assert.deepEqual(results, [{slug: 'food'}, {slug: 'foo'}]);
     });
   });
+
+  describe('SEARCH_FAILED', () => {
+    it('resets the initialState with page and query', () => {
+      const page = 5;
+      const query = 'add-ons';
+      const initialState = {foo: 'bar', query: 'hi', page: 100, results: [1, 2, 3]};
+      const state = search(initialState, {type: 'SEARCH_FAILED', payload: {page, query}});
+      assert.deepEqual(state, {count: 0, loading: false, page, query, results: []});
+    });
+  });
 });
