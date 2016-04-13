@@ -66,6 +66,11 @@ describe('<Paginate />', () => {
           assert.deepEqual(root.visiblePages(), [1, 2, 3]);
         });
 
+        it('will not offset near the end', () => {
+          const root = renderPaginate({count: 128, perPage: 25, showPages: 9, currentPage: 6});
+          assert.deepEqual(root.visiblePages(), [1, 2, 3, 4, 5, 6]);
+        });
+
         it('will not offset more than showPages', () => {
           const root = renderPaginate({ ...commonParams, currentPage: 3});
           assert.deepEqual(root.visiblePages(), [1, 2, 3]);
