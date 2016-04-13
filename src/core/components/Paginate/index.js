@@ -3,6 +3,14 @@ import { Link } from 'react-router';
 
 import './Paginate.scss';
 
+function makePageNumbers({start, end}) {
+  const pages = [];
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+  return pages;
+}
+
 export default class Paginate extends React.Component {
   static propTypes = {
     count: PropTypes.number.isRequired,
@@ -26,22 +34,22 @@ export default class Paginate extends React.Component {
   visiblePages() {
     const { currentPage, showPages } = this.props;
     const pageCount = this.pageCount();
-    const pageLinkCount = Math.min(showPages, pageCount);
-    // Offset should be a number between 0 and showPages. When near the middle it will be
-    // `showPages / 2`, when near the beginning it will be near 0, when near then end it will be
-    // near `showPages`.
-    const offset = Math.max(
-      // Limit the offset when near the start to `currentPage - 1`, otherwise use `showPages / 2`.
-      Math.min(Math.floor(showPages / 2), currentPage - 1),
-      // When near the end the offset should approach `showPages`, but not if we have fewer pages
-      // than `showPages`.
-      showPages < pageCount ? showPages - (pageCount - currentPage) - 1 : 0);
-    // Construct an array of visible page numbers.
-    const pages = new Array(pageLinkCount);
-    for (let i = 0; i < pageLinkCount; i++) {
-      pages[i] = i + currentPage - offset;
+    const showExtra = Math.floor(showPages / 2);
+    const start = Math.max(1, currentPage - showExtra);
+    const end = Math.min(pageCount, currentPage + showExtra);
+
+    // If we can show all of the pages, show them all.
+    if (pageCount <= showPages) {
+      return makePageNumbers({start: 1, end: pageCount});
+    // If we are showing less on the right than we should, define the start by the end.
+    } else if (end - currentPage < showExtra) {
+      return makePageNumbers({start: end - showPages + 1, end});
+    // If we are showing less on the left than we should, define the end by the start.
+    } else if (currentPage - start < showExtra) {
+      return makePageNumbers({start, end: start + showPages - 1});
     }
-    return pages;
+    // We're showing the maximum number of pages on each side, start and end are correct.
+    return makePageNumbers({start, end});
   }
 
   makeLink({ currentPage, page, pathname, query, text }) {
