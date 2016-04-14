@@ -2,14 +2,15 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import SearchPage from '../components/SearchPage';
 import { searchStart, searchLoad, searchFail } from '../actions';
+import { search } from 'core/api';
 
 export function mapStateToProps(state) {
   return state.search;
 }
 
-function performSearch({api, dispatch, page, query}) {
+function performSearch({dispatch, page, query, state}) {
   dispatch(searchStart(query, page));
-  return api.search({ page, query })
+  return search({ page, query, state })
     .then((response) => dispatch(searchLoad({ page, query, ...response })))
     .catch(() => dispatch(searchFail({ page, query })));
 }
@@ -28,7 +29,7 @@ export function loadSearchResultsIfNeeded({store: {dispatch, getState}, location
   const page = parsePage(location.query.page);
   const state = getState();
   if (!isLoaded({state: state.search, query, page})) {
-    return performSearch({api: state.api, dispatch, page, query});
+    return performSearch({dispatch, page, query, state});
   }
   return true;
 }

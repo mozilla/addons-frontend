@@ -4,6 +4,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import AddonPage, { findAddon, loadAddonIfNeeded } from 'search/containers/AddonPage';
 import createStore from 'search/store';
+import * as api from 'core/api';
 import * as actions from 'search/actions';
 
 describe('AddonPage', () => {
@@ -223,11 +224,10 @@ describe('AddonPage', () => {
       return mock;
     }
 
-    function makeProps({api, slug}) {
+    function makeProps(slug) {
       return {
         store: {
           getState: () => ({
-            api,
             addons: {
               [loadedSlug]: loadedAddon,
             },
@@ -239,14 +239,21 @@ describe('AddonPage', () => {
     }
 
     it('returns the add-on if loaded', () => {
-      assert.strictEqual(loadAddonIfNeeded(makeProps({slug: loadedSlug})), loadedAddon);
+      assert.strictEqual(loadAddonIfNeeded(makeProps(loadedSlug)), loadedAddon);
     });
 
     it('loads the add-on if it is not loaded', () => {
       const slug = 'other-addon';
+      const props = makeProps(slug);
+      const state = props.store.getState();
       const addon = sinon.stub();
       const entities = {[slug]: addon};
-      const api = {fetchAddon: sinon.stub().returns(Promise.resolve({entities}))};
+      const mockApi = makeMock(api);
+      mockApi
+        .expects('fetchAddon')
+        .once()
+        .withArgs({slug, state})
+        .returns(Promise.resolve({entities}));
       const action = sinon.stub();
       const mockActions = makeMock(actions);
       mockActions
@@ -254,29 +261,32 @@ describe('AddonPage', () => {
         .once()
         .withArgs(entities)
         .returns(action);
-      return loadAddonIfNeeded(makeProps({api, slug})).then(() => {
+      return loadAddonIfNeeded(props).then(() => {
         assert(dispatch.calledWith(action), 'dispatch not called');
-        assert(api.fetchAddon.calledOnce);
-        assert(api.fetchAddon.calledWith(slug));
+        mockApi.verify();
         mockActions.verify();
       });
     });
 
     it('handles 404s when loading the add-on', () => {
       const slug = 'other-addon';
-      const api = {
-        fetchAddon: sinon.stub().returns(Promise.reject(new Error('Error accessing API'))),
-      };
+      const props = makeProps(slug);
+      const state = props.store.getState();
+      const mockApi = makeMock(api);
+      mockApi
+        .expects('fetchAddon')
+        .once()
+        .withArgs({slug, state})
+        .returns(Promise.reject(new Error('Error accessing API')));
       const mockActions = makeMock(actions);
       mockActions
         .expects('loadEntities')
         .never();
-      return loadAddonIfNeeded(makeProps({api, slug})).then(() => {
+      return loadAddonIfNeeded(props).then(() => {
         assert(false, 'expected promise to fail');
       }, () => {
         assert(!dispatch.called, 'dispatch called');
-        assert(api.fetchAddon.calledOnce);
-        assert(api.fetchAddon.calledWith(slug));
+        mockApi.verify();
         mockActions.verify();
       });
     });

@@ -67,7 +67,6 @@ export default function(routes, createStore) {
       const store = createStore();
 
       store.dispatch({type: 'SET_JWT', payload: {token: cookie.load('jwt_api_auth_token')}});
-      store.dispatch({type: 'SET_API_CLIENT', payload: {getState: store.getState}});
 
       return loadOnServer({...renderProps, store}).then(() => {
         const InitialComponent = (
@@ -82,12 +81,6 @@ export default function(routes, createStore) {
         `<link href=${assets.styles[style]} rel="stylesheet" type="text/css" />`
         ).join('\n');
 
-        const state = store.getState();
-        // We need to delete the API client since it cannot be serialized, it will be recreated on
-        // the client side. Ideally this would go in context instead but redux-async-connect does
-        // not support context.
-        delete state.api;
-
         const HTML = stripIndent`
         <!DOCTYPE html>
         <html>
@@ -100,7 +93,7 @@ export default function(routes, createStore) {
           <body>
             <div id="react-view">${componentHTML}</div>
             <script type="application/json" id="redux-store-state">
-              ${serialize(state)}
+              ${serialize(store.getState())}
             </script>
             <script src="${assets.javascript.main}"></script>
           </body>

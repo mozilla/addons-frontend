@@ -1,9 +1,7 @@
-import ApiClient from 'core/api';
+import * as api from 'core/api';
 
 describe('search api', () => {
   let mockWindow;
-  const state = {};
-  const api = new ApiClient({getState: () => state});
 
   beforeEach(() => {
     mockWindow = sinon.mock(window);
@@ -54,13 +52,9 @@ describe('search api', () => {
 
 describe('add-on api', () => {
   let mockWindow;
-  let state;
-  let api;
 
   beforeEach(() => {
     mockWindow = sinon.mock(window);
-    state = {auth: {}};
-    api = new ApiClient({getState: () => state});
   });
 
   afterEach(() => {
@@ -81,10 +75,10 @@ describe('add-on api', () => {
 
   it('sets the lang and slug', () => {
     mockWindow.expects('fetch')
-      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US')
+      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US', {headers: {}})
       .once()
       .returns(mockResponse());
-    return api.fetchAddon('foo').then(() => mockWindow.verify());
+    return api.fetchAddon({slug: 'foo'}).then(() => mockWindow.verify());
   });
 
   it('normalizes the response', () => {
@@ -99,17 +93,17 @@ describe('add-on api', () => {
   it('fails when the add-on is not found', () => {
     mockWindow
       .expects('fetch')
-      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US')
+      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US', {headers: {}})
       .once()
       .returns(Promise.resolve({ok: false}));
-    return api.fetchAddon('foo').then(
+    return api.fetchAddon({slug: 'foo'}).then(
       () => assert.fail(null, null, 'expected API call to fail'),
       (error) => assert.equal(error.message, 'Error calling API'));
   });
 
   it('includes the authorization token if available', () => {
     const token = 'bAse64.enCodeD.JWT';
-    state.auth.token = token;
+    const state = {auth: {token}};
     mockWindow
       .expects('fetch')
       .withArgs(
@@ -117,7 +111,7 @@ describe('add-on api', () => {
         {headers: {authorization: `Bearer ${token}`}})
       .once()
       .returns(mockResponse());
-    return api.fetchAddon('bar').then((results) => {
+    return api.fetchAddon({slug: 'bar', state}).then((results) => {
       const foo = {slug: 'foo', name: 'Foo!'};
       assert.deepEqual(results.result, 'foo');
       assert.deepEqual(results.entities, {addons: {foo}});

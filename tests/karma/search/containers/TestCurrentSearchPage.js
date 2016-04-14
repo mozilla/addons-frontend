@@ -5,6 +5,7 @@ import {
   mapStateToProps,
   parsePage,
 } from 'search/containers/CurrentSearchPage';
+import * as api from 'core/api';
 
 describe('CurrentSearchPage.mapStateToProps()', () => {
   const state = {
@@ -91,16 +92,20 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
   it('loads the search results when needed', () => {
     const page = 10;
     const query = 'no ads';
-    const state = {loading: false, page, query: 'old query'};
+    const state = {search: {loading: false, page, query: 'old query'}};
     const dispatch = sinon.spy();
+    const store = {dispatch, getState: () => state};
     const location = {query: {page, q: query}};
+    const mockApi = sinon.mock(api);
     const entities = sinon.stub();
     const result = sinon.stub();
-    const api = {search: sinon.stub().returns(Promise.resolve({entities, result}))};
-    const store = {dispatch, getState: () => ({api, search: state})};
+    mockApi
+      .expects('search')
+      .once()
+      .withArgs({page, query, state})
+      .returns(Promise.resolve({entities, result}));
     return loadSearchResultsIfNeeded({store, location}).then(() => {
-      assert(api.search.calledOnce);
-      assert(api.search.calledWith({page, query}));
+      mockApi.verify();
       assert(
         dispatch.firstCall.calledWith(actions.searchStart(query, page)),
         'searchStart not called');
@@ -113,14 +118,18 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
   it('triggers searchFail when it fails', () => {
     const page = 11;
     const query = 'no ads';
-    const state = {loading: false, page, query: 'old query'};
+    const state = {search: {loading: false, page, query: 'old query'}};
     const dispatch = sinon.spy();
+    const store = {dispatch, getState: () => state};
     const location = {query: {page, q: query}};
-    const api = {search: sinon.stub().returns(Promise.reject())};
-    const store = {dispatch, getState: () => ({api, search: state})};
+    const mockApi = sinon.mock(api);
+    mockApi
+      .expects('search')
+      .once()
+      .withArgs({page, query, state})
+      .returns(Promise.reject());
     return loadSearchResultsIfNeeded({store, location}).then(() => {
-      assert(api.search.calledOnce);
-      assert(api.search.calledWith({page, query}));
+      mockApi.verify();
       assert(
         dispatch.firstCall.calledWith(actions.searchStart(query, page)),
         'searchStart not called');
