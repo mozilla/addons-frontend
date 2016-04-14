@@ -8,8 +8,8 @@
     "build": "better-npm-run build",
     "clean": "rimraf './dist/*+(css|js|map)' './src/webpack-assets.json'",
     "dev": "concurrently --kill-others 'npm run webpack-dev-server' 'npm run start-dev'",
-    "dev:disco": "npm-better-run dev:disco",
-    "dev:search": "npm-better-run dev:search",
+    "dev:disco": "better-npm-run dev:disco",
+    "dev:search": "better-npm-run dev:search",
     "eslint": "npm run lint",
     "lint": "eslint .",
     "servertest": "npm run build && better-npm-run servertest",
@@ -30,13 +30,13 @@
       }
     },
     "dev:disco": {
-      "command": "npm-better-run dev",
+      "command": "npm run dev",
       "env": {
         "APP_NAME": "disco"
       }
     },
     "dev:search": {
-      "command": "npm-better-run dev",
+      "command": "npm run dev",
       "env": {
         "APP_NAME": "search"
       }
