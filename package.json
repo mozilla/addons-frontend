@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "build": "better-npm-run build",
+    "build:disco": "better-npm-run build:disco",
+    "build:search": "better-npm-run build:search",
     "clean": "rimraf './dist/*+(css|js|map)' './src/webpack-assets.json'",
     "dev": "concurrently --kill-others 'npm run webpack-dev-server' 'npm run start-dev'",
     "dev:disco": "better-npm-run dev:disco",
@@ -14,6 +16,8 @@
     "lint": "eslint .",
     "servertest": "npm run build && better-npm-run servertest",
     "start": "better-npm-run start",
+    "start:disco": "better-npm-run start:disco",
+    "start:search": "better-npm-run start:search",
     "start-dev": "better-npm-run start-dev",
     "test": "npm run version-check && npm run unittest && npm run servertest && npm run lint",
     "unittest": "karma start --single-run",
@@ -27,6 +31,18 @@
       "env": {
         "NODE_ENV": "production",
         "NODE_PATH": "$NODE_PATH:./src"
+      }
+    },
+    "build:disco": {
+      "command": "npm run build",
+      "env": {
+        "APP_NAME": "disco"
+      }
+    },
+    "build:search": {
+      "command": "npm run build",
+      "env": {
+        "APP_NAME": "search"
       }
     },
     "dev:disco": {
@@ -53,6 +69,18 @@
       "env": {
         "NODE_ENV": "production",
         "NODE_PATH": "$NODE_PATH:./src"
+      }
+    },
+    "start:search": {
+      "command": "npm run start",
+      "env": {
+        "APP_NAME": "search"
+      }
+    },
+    "start:disco": {
+      "command": "npm run start",
+      "env": {
+        "APP_NAME": "disco"
       }
     },
     "start-dev": {

@@ -47,8 +47,8 @@ export default Object.assign({}, webpackConfig, {
   },
   output: Object.assign({}, webpackConfig.output, {
     path: assetsPath,
-    filename: '[name]-[hash].js',
-    chunkFilename: '[name]-[chunkhash].js',
+    filename: `${APP_NAME}-[name]-[chunkhash].js`,
+    chunkFilename: `${APP_NAME}-[name]-[chunkhash].js`,
     publicPath: `http://${webpackHost}:${webpackPort}/`,
   }),
   module: {
