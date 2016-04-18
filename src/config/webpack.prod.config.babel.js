@@ -22,8 +22,8 @@ export default {
   },
   output: {
     path: path.join(__dirname, '../../dist'),
-    filename: '[name]-[chunkhash].js',
-    chunkFilename: '[name]-[chunkhash].js',
+    filename: `${APP_NAME}-[name]-[chunkhash].js`,
+    chunkFilename: `${APP_NAME}-[name]-[chunkhash].js`,
     publicPath: '/',
   },
   module: {
@@ -49,7 +49,7 @@ export default {
       'NODE_ENV',
       'API_HOST',
     ]),
-    new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
+    new ExtractTextPlugin(`${APP_NAME}-[name]-[chunkhash].css`, {allChunks: true}),
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/webpack\.dev/, /\/babel$/),
     // optimizations
