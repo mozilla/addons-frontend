@@ -92,9 +92,12 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
   it('loads the search results when needed', () => {
     const page = 10;
     const query = 'no ads';
-    const state = {loading: false, page, query: 'old query'};
+    const state = {
+      api: {token: 'a.jwt.token'},
+      search: {loading: false, page, query: 'old query'},
+    };
     const dispatch = sinon.spy();
-    const store = {dispatch, getState: () => ({search: state})};
+    const store = {dispatch, getState: () => state};
     const location = {query: {page, q: query}};
     const mockApi = sinon.mock(api);
     const entities = sinon.stub();
@@ -102,7 +105,7 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     mockApi
       .expects('search')
       .once()
-      .withArgs({page, query})
+      .withArgs({page, query, api: state.api})
       .returns(Promise.resolve({entities, result}));
     return loadSearchResultsIfNeeded({store, location}).then(() => {
       mockApi.verify();
@@ -118,15 +121,18 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
   it('triggers searchFail when it fails', () => {
     const page = 11;
     const query = 'no ads';
-    const state = {loading: false, page, query: 'old query'};
+    const state = {
+      api: {},
+      search: {loading: false, page, query: 'old query'},
+    };
     const dispatch = sinon.spy();
-    const store = {dispatch, getState: () => ({search: state})};
+    const store = {dispatch, getState: () => state};
     const location = {query: {page, q: query}};
     const mockApi = sinon.mock(api);
     mockApi
       .expects('search')
       .once()
-      .withArgs({page, query})
+      .withArgs({page, query, api: state.api})
       .returns(Promise.reject());
     return loadSearchResultsIfNeeded({store, location}).then(() => {
       mockApi.verify();

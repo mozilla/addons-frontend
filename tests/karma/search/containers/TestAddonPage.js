@@ -203,6 +203,7 @@ describe('AddonPage', () => {
   });
 
   describe('loadAddonIfNeeded', () => {
+    const apiState = {token: 'my.jwt.token'};
     const loadedSlug = 'my-addon';
     let loadedAddon;
     let dispatch;
@@ -231,6 +232,7 @@ describe('AddonPage', () => {
             addons: {
               [loadedSlug]: loadedAddon,
             },
+            api: apiState,
           }),
           dispatch,
         },
@@ -244,13 +246,14 @@ describe('AddonPage', () => {
 
     it('loads the add-on if it is not loaded', () => {
       const slug = 'other-addon';
+      const props = makeProps(slug, apiState);
       const addon = sinon.stub();
       const entities = {[slug]: addon};
       const mockApi = makeMock(api);
       mockApi
         .expects('fetchAddon')
         .once()
-        .withArgs(slug)
+        .withArgs({slug, api: apiState})
         .returns(Promise.resolve({entities}));
       const action = sinon.stub();
       const mockActions = makeMock(actions);
@@ -259,7 +262,7 @@ describe('AddonPage', () => {
         .once()
         .withArgs(entities)
         .returns(action);
-      return loadAddonIfNeeded(makeProps(slug)).then(() => {
+      return loadAddonIfNeeded(props).then(() => {
         assert(dispatch.calledWith(action), 'dispatch not called');
         mockApi.verify();
         mockActions.verify();
@@ -268,17 +271,18 @@ describe('AddonPage', () => {
 
     it('handles 404s when loading the add-on', () => {
       const slug = 'other-addon';
+      const props = makeProps(slug, apiState);
       const mockApi = makeMock(api);
       mockApi
         .expects('fetchAddon')
         .once()
-        .withArgs(slug)
+        .withArgs({slug, api: apiState})
         .returns(Promise.reject(new Error('Error accessing API')));
       const mockActions = makeMock(actions);
       mockActions
         .expects('loadEntities')
         .never();
-      return loadAddonIfNeeded(makeProps(slug)).then(() => {
+      return loadAddonIfNeeded(props).then(() => {
         assert(false, 'expected promise to fail');
       }, () => {
         assert(!dispatch.called, 'dispatch called');

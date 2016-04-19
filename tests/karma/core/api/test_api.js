@@ -75,10 +75,10 @@ describe('add-on api', () => {
 
   it('sets the lang and slug', () => {
     mockWindow.expects('fetch')
-      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US')
+      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US', {headers: {}})
       .once()
       .returns(mockResponse());
-    return api.fetchAddon('foo').then(() => mockWindow.verify());
+    return api.fetchAddon({slug: 'foo'}).then(() => mockWindow.verify());
   });
 
   it('normalizes the response', () => {
@@ -93,11 +93,28 @@ describe('add-on api', () => {
   it('fails when the add-on is not found', () => {
     mockWindow
       .expects('fetch')
-      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US')
+      .withArgs('https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US', {headers: {}})
       .once()
       .returns(Promise.resolve({ok: false}));
-    return api.fetchAddon('foo').then(
+    return api.fetchAddon({slug: 'foo'}).then(
       () => assert.fail(null, null, 'expected API call to fail'),
       (error) => assert.equal(error.message, 'Error calling API'));
+  });
+
+  it('includes the authorization token if available', () => {
+    const token = 'bAse64.enCodeD.JWT';
+    mockWindow
+      .expects('fetch')
+      .withArgs(
+        'https://addons.mozilla.org/api/v3/addons/addon/bar/?lang=en-US',
+        {headers: {authorization: `Bearer ${token}`}})
+      .once()
+      .returns(mockResponse());
+    return api.fetchAddon({api: {token}, slug: 'bar'}).then((results) => {
+      const foo = {slug: 'foo', name: 'Foo!'};
+      assert.deepEqual(results.result, 'foo');
+      assert.deepEqual(results.entities, {addons: {foo}});
+      mockWindow.verify();
+    });
   });
 });

@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
-
 import { stripIndent } from 'common-tags';
 import Express from 'express';
 import helmet from 'helmet';
 import path from 'path';
 import React from 'react';
+import cookie from 'react-cookie';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
@@ -54,6 +53,8 @@ export default function(routes, createStore) {
 
   app.use((req, res) => {
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+      cookie.plugToRequest(req, res);
+
       if (err) {
         console.error(err); // eslint-disable-line no-console
         return res.status(500).end('Internal server error');
@@ -64,6 +65,8 @@ export default function(routes, createStore) {
       }
 
       const store = createStore();
+
+      store.dispatch({type: 'SET_JWT', payload: {token: cookie.load('jwt_api_auth_token')}});
 
       return loadOnServer({...renderProps, store}).then(() => {
         const InitialComponent = (
@@ -125,7 +128,9 @@ export function runServer({listen = true, appName} = {}) {
             if (err) {
               reject(err);
             }
+            // eslint-disable-next-line no-console
             console.log(`🔥  Addons-frontend server is running [ENV:${ENV}]`);
+            // eslint-disable-next-line no-console
             console.log(`👁  Open your browser at http://${host}:${port} to view it.`);
             resolve(server);
           });
@@ -135,6 +140,7 @@ export function runServer({listen = true, appName} = {}) {
       });
     })
     .catch((err) => {
+      // eslint-disable-next-line no-console
       console.error(err);
     });
 }
