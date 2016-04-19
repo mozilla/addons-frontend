@@ -13,12 +13,12 @@ function makeQueryString(opts) {
   return Object.keys(opts).map((k) => `${k}=${opts[k]}`).join('&');
 }
 
-function callApi({endpoint, schema, params, auth = false, config = {}}) {
+function callApi({endpoint, schema, params, auth = false, state = {}}) {
   const queryString = makeQueryString(params);
   const options = {headers: {}};
   if (auth) {
-    if (config.token) {
-      options.headers.authorization = `Bearer ${config.token}`;
+    if (state.token) {
+      options.headers.authorization = `Bearer ${state.token}`;
     }
   }
   return fetch(`${API_BASE}/${endpoint}/?${queryString}`, options)
@@ -37,7 +37,7 @@ export function search({ api, page, query }) {
     endpoint: 'addons/search',
     schema: {results: arrayOf(addon)},
     params: {q: query, lang: 'en-US', page},
-    config: api,
+    state: api,
   });
 }
 
@@ -47,6 +47,6 @@ export function fetchAddon({ api, slug }) {
     schema: addon,
     params: {lang: 'en-US'},
     auth: true,
-    config: api,
+    state: api,
   });
 }
