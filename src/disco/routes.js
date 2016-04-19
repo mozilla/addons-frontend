@@ -1,8 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { IndexRoute, Route } from 'react-router';
 
-import App from './components/hello-world';
+import App from './containers/App';
+import DiscoPane from './containers/DiscoPane';
 
 export default (
-  <Route name="disco" component={App} path="/disco" />
+  <Route path="/disco" component={App}>
+    <IndexRoute component={DiscoPane} />
+  </Route>
 );

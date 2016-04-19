@@ -9,6 +9,9 @@ export function mapStateToProps(state) {
 }
 
 function performSearch({dispatch, page, query, api}) {
+  if (!query) {
+    return Promise.resolve();
+  }
   dispatch(searchStart(query, page));
   return search({ page, query, api })
     .then((response) => dispatch(searchLoad({ page, query, ...response })))
