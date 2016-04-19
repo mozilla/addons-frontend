@@ -103,7 +103,6 @@ describe('add-on api', () => {
 
   it('includes the authorization token if available', () => {
     const token = 'bAse64.enCodeD.JWT';
-    const state = {auth: {token}};
     mockWindow
       .expects('fetch')
       .withArgs(
@@ -111,7 +110,7 @@ describe('add-on api', () => {
         {headers: {authorization: `Bearer ${token}`}})
       .once()
       .returns(mockResponse());
-    return api.fetchAddon({slug: 'bar', state}).then((results) => {
+    return api.fetchAddon({api: {token}, slug: 'bar'}).then((results) => {
       const foo = {slug: 'foo', name: 'Foo!'};
       assert.deepEqual(results.result, 'foo');
       assert.deepEqual(results.entities, {addons: {foo}});

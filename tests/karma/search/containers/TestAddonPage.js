@@ -203,6 +203,7 @@ describe('AddonPage', () => {
   });
 
   describe('loadAddonIfNeeded', () => {
+    const apiState = {token: 'my.jwt.token'};
     const loadedSlug = 'my-addon';
     let loadedAddon;
     let dispatch;
@@ -231,6 +232,7 @@ describe('AddonPage', () => {
             addons: {
               [loadedSlug]: loadedAddon,
             },
+            api: apiState,
           }),
           dispatch,
         },
@@ -244,15 +246,14 @@ describe('AddonPage', () => {
 
     it('loads the add-on if it is not loaded', () => {
       const slug = 'other-addon';
-      const props = makeProps(slug);
-      const state = props.store.getState();
+      const props = makeProps(slug, apiState);
       const addon = sinon.stub();
       const entities = {[slug]: addon};
       const mockApi = makeMock(api);
       mockApi
         .expects('fetchAddon')
         .once()
-        .withArgs({slug, state})
+        .withArgs({slug, api: apiState})
         .returns(Promise.resolve({entities}));
       const action = sinon.stub();
       const mockActions = makeMock(actions);
@@ -270,13 +271,12 @@ describe('AddonPage', () => {
 
     it('handles 404s when loading the add-on', () => {
       const slug = 'other-addon';
-      const props = makeProps(slug);
-      const state = props.store.getState();
+      const props = makeProps(slug, apiState);
       const mockApi = makeMock(api);
       mockApi
         .expects('fetchAddon')
         .once()
-        .withArgs({slug, state})
+        .withArgs({slug, api: apiState})
         .returns(Promise.reject(new Error('Error accessing API')));
       const mockActions = makeMock(actions);
       mockActions

@@ -13,13 +13,12 @@ function makeQueryString(opts) {
   return Object.keys(opts).map((k) => `${k}=${opts[k]}`).join('&');
 }
 
-function callApi({endpoint, schema, params, auth = false, state = {}}) {
+function callApi({endpoint, schema, params, auth = false, config = {}}) {
   const queryString = makeQueryString(params);
   const options = {headers: {}};
   if (auth) {
-    const token = state.auth && state.auth.token;
-    if (token) {
-      options.headers.authorization = `Bearer ${token}`;
+    if (config.token) {
+      options.headers.authorization = `Bearer ${config.token}`;
     }
   }
   return fetch(`${API_BASE}/${endpoint}/?${queryString}`, options)
@@ -32,22 +31,22 @@ function callApi({endpoint, schema, params, auth = false, state = {}}) {
     .then((response) => normalize(response, schema));
 }
 
-export function search({ page, query, state }) {
+export function search({ api, page, query }) {
   // TODO: Get the language from the server.
   return callApi({
     endpoint: 'addons/search',
     schema: {results: arrayOf(addon)},
     params: {q: query, lang: 'en-US', page},
-    state,
+    config: api,
   });
 }
 
-export function fetchAddon({ slug, state }) {
+export function fetchAddon({ api, slug }) {
   return callApi({
     endpoint: `addons/addon/${slug}`,
     schema: addon,
     params: {lang: 'en-US'},
     auth: true,
-    state,
+    config: api,
   });
 }

@@ -8,9 +8,9 @@ export function mapStateToProps(state) {
   return state.search;
 }
 
-function performSearch({dispatch, page, query, state}) {
+function performSearch({dispatch, page, query, api}) {
   dispatch(searchStart(query, page));
-  return search({ page, query, state })
+  return search({ page, query, api })
     .then((response) => dispatch(searchLoad({ page, query, ...response })))
     .catch(() => dispatch(searchFail({ page, query })));
 }
@@ -29,7 +29,7 @@ export function loadSearchResultsIfNeeded({store: {dispatch, getState}, location
   const page = parsePage(location.query.page);
   const state = getState();
   if (!isLoaded({state: state.search, query, page})) {
-    return performSearch({dispatch, page, query, state});
+    return performSearch({dispatch, page, query, api: state.api});
   }
   return true;
 }
