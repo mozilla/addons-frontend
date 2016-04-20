@@ -80,6 +80,15 @@ describe('CurrentSearchPage.parsePage()', () => {
 });
 
 describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
+  it('does not dispatch on undefined query', () => {
+    const dispatchSpy = sinon.spy();
+    const state = {loading: false};
+    const store = {dispatch: dispatchSpy, getState: () => ({search: state})};
+    const location = {query: {page: undefined, q: undefined}};
+    loadSearchResultsIfNeeded({store, location});
+    assert.notOk(dispatchSpy.called);
+  });
+
   it('returns right away when loaded', () => {
     const page = 10;
     const query = 'no ads';
