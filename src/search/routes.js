@@ -4,9 +4,10 @@ import { IndexRoute, Route } from 'react-router';
 import App from './containers/App';
 import CurrentSearchPage from './containers/CurrentSearchPage';
 import AddonPage from './containers/AddonPage';
+import loginRequired from 'core/containers/LoginRequired';
 
 export default (
-  <Route path="/search" component={App}>
+  <Route path="/search" component={loginRequired(App)}>
     <IndexRoute component={CurrentSearchPage} />
     <Route path="addons/:slug" component={AddonPage} />
   </Route>
