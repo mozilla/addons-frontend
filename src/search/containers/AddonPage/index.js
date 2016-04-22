@@ -73,7 +73,7 @@ class AddonPage extends React.Component {
           <h3>{_('Files')}</h3>
           <ul>
             {version.files.map((file) => (
-              <li>
+              <li key={file.id}>
                 {this.dataBar([
                   [file.platform, 'platform'],
                   [file.status, 'status'],

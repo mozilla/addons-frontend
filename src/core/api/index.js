@@ -13,9 +13,20 @@ function makeQueryString(opts) {
   return Object.keys(opts).map((k) => `${k}=${opts[k]}`).join('&');
 }
 
-function callApi({endpoint, schema, params, auth = false, state = {}}) {
+function callApi({endpoint, schema, params, auth = false, state = {}, method = 'get', body,
+                  credentials}) {
   const queryString = makeQueryString(params);
-  const options = {headers: {}};
+  const options = {
+    headers: {},
+    method,
+  };
+  if (credentials) {
+    options.credentials = 'include';
+  }
+  if (body) {
+    options.body = JSON.stringify(body);
+    options.headers['Content-type'] = 'application/json';
+  }
   if (auth) {
     if (state.token) {
       options.headers.authorization = `Bearer ${state.token}`;
@@ -28,7 +39,7 @@ function callApi({endpoint, schema, params, auth = false, state = {}}) {
       }
       throw new Error('Error calling API');
     })
-    .then((response) => normalize(response, schema));
+    .then((response) => (schema ? normalize(response, schema) : response));
 }
 
 export function search({ api, page, query }) {
@@ -48,5 +59,16 @@ export function fetchAddon({ api, slug }) {
     params: {lang: 'en-US'},
     auth: true,
     state: api,
+  });
+}
+
+export function login({ api, code, state }) {
+  return callApi({
+    endpoint: 'internal/accounts/login',
+    method: 'post',
+    body: {code, state},
+    params: {lang: 'en-US'},
+    state: api,
+    credentials: true,
   });
 }

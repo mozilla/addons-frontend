@@ -41,6 +41,7 @@ describe('AddonPage', () => {
             version: '2.5-beta.1',
             files: [
               {
+                id: 54321,
                 platform: 'Linux',
                 status: 'Fully Reviewed',
                 size: 556677,

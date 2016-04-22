@@ -16,6 +16,7 @@ import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import WebpackIsomorphicToolsConfig from 'config/webpack-isomorphic-tools';
 
 import config from 'config';
+import { setJWT } from 'core/actions';
 
 
 const ENV = config.get('env');
@@ -74,7 +75,10 @@ export default function(routes, createStore) {
 
       const store = createStore();
 
-      store.dispatch({type: 'SET_JWT', payload: {token: cookie.load('jwt_api_auth_token')}});
+      const token = cookie.load(config.get('cookieName'));
+      if (token) {
+        store.dispatch(setJWT(token));
+      }
 
       return loadOnServer({...renderProps, store}).then(() => {
         const InitialComponent = (
