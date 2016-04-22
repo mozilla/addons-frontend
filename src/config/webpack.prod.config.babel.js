@@ -9,21 +9,23 @@ import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools';
 
 import config from './index';
 
-const APP_NAME = config.get('currentApp');
+const appsBuildList = config.get('appsBuildList');
+
+const entryPoints = {};
+for (const app of appsBuildList) {
+  entryPoints[app] = `${app}/client`;
+}
+
 
 export default {
   devtool: 'source-map',
   context: path.resolve(__dirname, '..'),
   progress: true,
-  entry: {
-    main: [
-      `./${APP_NAME}/client`,
-    ],
-  },
+  entry: entryPoints,
   output: {
     path: path.join(__dirname, '../../dist'),
-    filename: `${APP_NAME}-[name]-[chunkhash].js`,
-    chunkFilename: `${APP_NAME}-[name]-[chunkhash].js`,
+    filename: '[name]-[chunkhash].js',
+    chunkFilename: '[name]-[chunkhash].js',
     publicPath: '/',
   },
   module: {
@@ -49,7 +51,7 @@ export default {
       'NODE_ENV',
       'API_HOST',
     ]),
-    new ExtractTextPlugin(`${APP_NAME}-[name]-[chunkhash].css`, {allChunks: true}),
+    new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/webpack\.dev/, /\/babel$/),
     // optimizations

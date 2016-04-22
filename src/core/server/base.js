@@ -1,14 +1,16 @@
-import { stripIndent } from 'common-tags';
 import Express from 'express';
 import helmet from 'helmet';
 import path from 'path';
-import React from 'react';
+import serialize from 'serialize-javascript';
 import cookie from 'react-cookie';
+import React from 'react';
+
+import { stripIndent } from 'common-tags';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
-import serialize from 'serialize-javascript';
+
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import WebpackIsomorphicToolsConfig from 'config/webpack-isomorphic-tools';
 
@@ -48,8 +50,13 @@ export default function(routes, createStore) {
 
   app.use(Express.static(path.join(__dirname, '../../../dist')));
 
-  // Return 204 for csp reports.
+  // Return 200 for csp reports - this will need to be overridden in production.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
+
+  // Redirect from / for the search app it's a 302 to prevent caching.
+  if (APP_NAME === 'search') {
+    app.get('/', (req, res) => res.redirect(302, '/search'));
+  }
 
   app.use((req, res) => {
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
@@ -78,26 +85,29 @@ export default function(routes, createStore) {
         const componentHTML = renderToString(InitialComponent);
         const assets = webpackIsomorphicTools.assets();
         const styles = Object.keys(assets.styles).map((style) =>
-        `<link href=${assets.styles[style]} rel="stylesheet" type="text/css" />`
+          `<link href="${assets.styles[style]}" rel="stylesheet" type="text/css" />`
+        ).join('\n');
+        const script = Object.keys(assets.javascript).map((js) =>
+          `<script src="${assets.javascript[js]}"></script>`
         ).join('\n');
 
         const HTML = stripIndent`
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <title>Isomorphic Redux Demo</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            ${styles}
-          </head>
-          <body>
-            <div id="react-view">${componentHTML}</div>
-            <script type="application/json" id="redux-store-state">
-              ${serialize(store.getState())}
-            </script>
-            <script src="${assets.javascript.main}"></script>
-          </body>
-        </html>`;
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <title>Isomorphic Redux Demo</title>
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              ${styles}
+            </head>
+            <body>
+              <div id="react-view">${componentHTML}</div>
+              <script type="application/json" id="redux-store-state">
+                ${serialize(store.getState())}
+              </script>
+              ${script}
+            </body>
+          </html>`;
 
         res.header('Content-Type', 'text/html');
         return res.end(HTML);
@@ -108,7 +118,13 @@ export default function(routes, createStore) {
   return app;
 }
 
-export function runServer({listen = true, appName} = {}) {
+export function runServer({listen = true, appName = APP_NAME} = {}) {
+  if (!appName) {
+    // eslint-disable-next-line no-console
+    console.log(`Please specify a valid appName from ${config.get('validAppNames')}`);
+    process.exit(1);
+  }
+
   const port = ENV === 'production' ?
     config.get('serverPort') : config.get('devServerPort');
   const host = ENV === 'production' ?
@@ -122,14 +138,14 @@ export function runServer({listen = true, appName} = {}) {
       // Webpack Isomorphic tools is ready
       // now fire up the actual server.
       return new Promise((resolve, reject) => {
-        const server = require(`${appName || APP_NAME}/server`).default;
+        const server = require(`${appName}/server`).default;
         if (listen === true) {
           server.listen(port, host, (err) => {
             if (err) {
               reject(err);
             }
             // eslint-disable-next-line no-console
-            console.log(`🔥  Addons-frontend server is running [ENV:${ENV}]`);
+            console.log(`🔥  Addons-frontend server is running [ENV:${ENV}] [APP:${appName}]`);
             // eslint-disable-next-line no-console
             console.log(`👁  Open your browser at http://${host}:${port} to view it.`);
             resolve(server);

@@ -14,7 +14,6 @@ const development = config.get('env') === 'development';
 
 const webpackIsomorphicToolsPlugin =
   new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig);
-const APP_NAME = config.get('currentApp');
 
 const babelrc = fs.readFileSync('./.babelrc');
 const babelrcObject = JSON.parse(babelrc);
@@ -36,19 +35,27 @@ const webpackHost = config.get('webpackServerHost');
 const webpackPort = config.get('webpackServerPort');
 const assetsPath = path.resolve(__dirname, '../../dist');
 
+const hmr = `webpack-hot-middleware/client?path=http://${webpackHost}:${webpackPort}/__webpack_hmr`;
+
+const appsBuildList = config.get('appsBuildList');
+
+const entryPoints = {};
+for (const app of appsBuildList) {
+  entryPoints[app] = [
+    hmr,
+    `${app}/client`,
+  ];
+}
+
+
 export default Object.assign({}, webpackConfig, {
   devtool: 'inline-source-map',
   context: path.resolve(__dirname, '..'),
-  entry: {
-    main: [
-      `webpack-hot-middleware/client?path=http://${webpackHost}:${webpackPort}/__webpack_hmr`,
-      `${APP_NAME}/client`,
-    ],
-  },
+  entry: entryPoints,
   output: Object.assign({}, webpackConfig.output, {
     path: assetsPath,
-    filename: `${APP_NAME}-[name]-[hash].js`,
-    chunkFilename: `${APP_NAME}-[name]-[hash].js`,
+    filename: '[name]-[hash].js',
+    chunkFilename: '[name]-[hash].js',
     publicPath: `http://${webpackHost}:${webpackPort}/`,
   }),
   module: {

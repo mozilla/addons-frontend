@@ -50,6 +50,7 @@ const config = new Map();
     // Set to true if you want to disable CSP on Android where it can be buggy.
     disableAndroid: false,
   };
+
   const WEBPACK_HOST =
       `http://${config.get('webpackServerHost')}:${config.get('webpackServerPort')}`;
 
@@ -62,11 +63,18 @@ const config = new Map();
 
   config.set('CSP', CSP);
 
-  const APP_NAMES = ['search', 'disco'];
-  if (APP_NAMES.indexOf(process.env.APP_NAME) < 0) {
-    config.set('currentApp', 'core');
+  // This is the list of apps allowed to run.
+  const validAppNames = ['search', 'disco'];
+  config.set('validAppNames', validAppNames);
+
+  // Create a list of apps to build targets for.
+  const appName = process.env.APP_NAME;
+  if (validAppNames.indexOf(appName) > -1) {
+    config.set('appsBuildList', [appName]);
+    config.set('currentApp', appName);
   } else {
-    config.set('currentApp', process.env.APP_NAME);
+    config.set('appsBuildList', validAppNames);
+    config.set('currentApp', null);
   }
 }());
 
