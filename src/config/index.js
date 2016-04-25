@@ -69,7 +69,7 @@ const config = new Map();
 
   // Create a list of apps to build targets for.
   const appName = process.env.APP_NAME;
-  if (validAppNames.includes(appName)) {
+  if (validAppNames.indexOf(appName) > -1) {
     config.set('appsBuildList', [appName]);
     config.set('currentApp', appName);
   } else {
