@@ -1,3 +1,4 @@
+import fs from 'fs';
 import Express from 'express';
 import helmet from 'helmet';
 import path from 'path';
@@ -83,13 +84,32 @@ export default function(routes, createStore) {
         );
 
         const componentHTML = renderToString(InitialComponent);
+
         const assets = webpackIsomorphicTools.assets();
-        const styles = Object.keys(assets.styles).map((style) =>
-          `<link href="${assets.styles[style]}" rel="stylesheet" type="text/css" />`
-        ).join('\n');
-        const script = Object.keys(assets.javascript).map((js) =>
-          `<script src="${assets.javascript[js]}"></script>`
-        ).join('\n');
+
+        // Get SRI for production only.
+        const sri = (ENV === 'production') ? JSON.parse(
+          fs.readFileSync(path.join(config.get('basePath'), 'sri.json'))
+        ) : null;
+
+        const styles = Object.keys(assets.styles).map((style) => {
+          const cssHash = sri[path.basename(assets.styles[style])];
+          if (!cssHash) {
+            throw new Error('Missing SRI Data');
+          }
+          const cssSRI = sri && cssHash ? ` integrity="${cssHash}" crossorigin="anonymous"` : '';
+          return `<link href="${assets.styles[style]}"${cssSRI}
+                        rel="stylesheet" type="text/css" />`;
+        }).join('\n');
+
+        const script = Object.keys(assets.javascript).map((js) => {
+          const jsHash = sri[path.basename(assets.javascript[js])];
+          if (!jsHash) {
+            throw new Error('Missing SRI Data');
+          }
+          const jsSRI = sri && jsHash ? ` integrity="${jsHash}" crossorigin="anonymous"` : '';
+          return `<script src="${assets.javascript[js]}"${jsSRI}></script>`;
+        }).join('\n');
 
         const HTML = stripIndent`
           <!DOCTYPE html>

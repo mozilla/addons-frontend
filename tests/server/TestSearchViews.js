@@ -6,6 +6,7 @@ import { assert } from 'chai';
 import { runServer } from 'core/server/base';
 import Policy from 'csp-parse';
 
+import { checkSRI } from './helpers';
 
 describe('GET requests', () => {
   let app;
@@ -28,4 +29,9 @@ describe('GET requests', () => {
       assert.include(policy.get('script-src'), "'self'");
       assert.include(policy.get('connect-src'), "'self'");
     }));
+
+  it('should be using SRI for script and style in /search', () => request(app)
+    .get('/search')
+    .expect(200)
+    .then((res) => checkSRI(res)));
 });
