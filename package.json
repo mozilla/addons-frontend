@@ -9,16 +9,13 @@
     "build:disco": "better-npm-run build:disco",
     "build:search": "better-npm-run build:search",
     "clean": "rimraf './dist/*+(css|js|map)' './src/webpack-assets.json'",
-    "dev": "concurrently --kill-others 'npm run webpack-dev-server' 'npm run start-dev'",
     "dev:disco": "better-npm-run dev:disco",
     "dev:search": "better-npm-run dev:search",
     "eslint": "npm run lint",
     "lint": "eslint .",
     "servertest": "npm run build && better-npm-run servertest",
-    "start": "better-npm-run start",
     "start:disco": "better-npm-run start:disco",
     "start:search": "better-npm-run start:search",
-    "start-dev": "better-npm-run start-dev",
     "test": "npm run version-check && npm run unittest && npm run servertest && npm run lint",
     "unittest": "karma start --single-run",
     "unittest:dev": "karma start",
@@ -46,15 +43,23 @@
       }
     },
     "dev:disco": {
-      "command": "npm run dev",
+      "command": "better-npm-run start-dev",
       "env": {
         "APP_NAME": "disco"
       }
     },
     "dev:search": {
-      "command": "npm run dev",
+      "command": "better-npm-run start-dev",
       "env": {
         "APP_NAME": "search"
+      }
+    },
+    "start-dev": {
+      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js'",
+      "env": {
+        "NODE_ENV": "development",
+        "NODE_PATH": "$NODE_PATH:./src",
+        "ENABLE_PIPING": "true"
       }
     },
     "servertest": {
@@ -72,23 +77,15 @@
       }
     },
     "start:search": {
-      "command": "npm run start",
+      "command": "better-npm-run start",
       "env": {
         "APP_NAME": "search"
       }
     },
     "start:disco": {
-      "command": "npm run start",
+      "command": "better-npm-run start",
       "env": {
         "APP_NAME": "disco"
-      }
-    },
-    "start-dev": {
-      "command": "node bin/server.js",
-      "env": {
-        "NODE_ENV": "development",
-        "NODE_PATH": "$NODE_PATH:./src",
-        "ENABLE_PIPING": "true"
       }
     },
     "webpack-dev-server": {

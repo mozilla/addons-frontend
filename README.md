@@ -24,19 +24,17 @@ nvm. See https://github.com/creationix/nvm for more info.
 
 | Script                 | Description                                           |
 |------------------------|-------------------------------------------------------|
-| npm start              |  Starts the express server (prod mode all apps)       |
-| npm start:disco        |  Starts the express server (prod mode discovery pane) |
-| npm start:search       |  Starts the express server (prod mode search)         |
-| npm test               |  Runs the tests                                       |
+| npm run start:disco    |  Starts the express server (prod mode discovery pane) |
+| npm run start:search   |  Starts the express server (prod mode search)         |
 | npm run build          |  Builds the libs (all apps)                           |
 | npm run build:disco    |  Builds the libs (discovery pane)                     |
 | npm run build:search   |  Builds the libs (search)                             |
-| npm run dev            |  Starts the dev server (Express + webpack)            |
-| npm run dev:search     |  As above but just the search code                    |
-| npm run dev:disco      |  As above but just the discovery pane code            |
+| npm run dev:search     |  Starts the dev server (search app)                   |
+| npm run dev:disco      |  Starts the dev server (discovery pane)               |
 | npm run lint           |  Lints the files with `eslint` (Run in `npm test`)    |
 | npm run eslint         |  An alias for `npm run lint`                          |
 | npm run version-check  |  Checks you have the minimum node + npm versions      |
+| npm test               |  Runs the tests                                       |
 
 
 ### Running a production build of a specific app:
