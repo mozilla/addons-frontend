@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
+// eslint messages suppressed to allow this to work
+// in older node versions.
+
 /* eslint-disable strict */
+/* eslint-disable no-var */
 /* eslint-disable no-console */
 /* eslint-disable prefer-template */
 
@@ -9,17 +13,17 @@
 // A simple check that node + npm versions
 // meet the expected minimums.
 
-const exec = require('shelljs').exec;
-const chalk = require('chalk');
-const semver = require('semver');
+var exec = require('shelljs').exec;
+var chalk = require('chalk');
+var semver = require('semver');
 
-const MIN_NODE_VERSION = 4;
-const MIN_NPM_VERSION = 3;
+var MIN_NODE_VERSION = 4;
+var MIN_NPM_VERSION = 3;
 
-const NODE_VERSION = process.versions.node;
-const NPM_VERSION = exec('npm --version', {silent: true}).stdout;
+var NODE_VERSION = process.versions.node;
+var NPM_VERSION = exec('npm --version', {silent: true}).stdout;
 
-let versionCheckPassed = true;
+var versionCheckPassed = true;
 
 if (semver.major(NODE_VERSION) < MIN_NODE_VERSION) {
   console.log(chalk.red('Node version must be at least: ' + MIN_NODE_VERSION));
