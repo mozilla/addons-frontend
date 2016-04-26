@@ -31,6 +31,8 @@ const config = new Map();
   config.set('apiPath', process.env.API_PATH || '/api/v3');
   config.set('apiBase', config.get('apiHost') + config.get('apiPath'));
 
+  config.set('startLoginUrl', `${config.get('apiHost')}/api/v3/internal/accounts/login/start/`);
+
   const CSP = {
     directives: {
       connectSrc: ["'self'", config.get('apiHost')],
