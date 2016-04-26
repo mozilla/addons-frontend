@@ -18,8 +18,8 @@ describe('AddonPage', () => {
   describe('rendered fields', () => {
     const root = render({state: {}, props: {}});
 
-    it('renders the name', () => {
-      assert.equal(root.querySelector('h1').textContent, 'HELLO DISCO WORLD');
+    it('renders an addon', () => {
+      assert.ok(root.querySelector('.addon'));
     });
   });
 });

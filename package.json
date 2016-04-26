@@ -108,6 +108,7 @@
   "homepage": "https://github.com/mozillla/addons-frontend#readme",
   "dependencies": {
     "better-npm-run": "0.0.8",
+    "camelcase": "2.1.1",
     "common-tags": "0.0.3",
     "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",

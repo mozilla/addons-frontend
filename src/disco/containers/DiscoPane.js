@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
+import { camelCaseProps } from 'core/utils';
 
-import { gettext as _ } from 'core/utils';
+import Addon from '../components/Addon';
+import fakeData from 'disco/fakeData';
 
 
 class DiscoPane extends React.Component {
+  static propTypes = {
+    results: PropTypes.arrayOf(PropTypes.object),
+  }
+
+  static defaultProps = {
+    results: fakeData.results,
+  }
+
   render() {
+    const { results } = this.props;
     return (
       <div id="app-view" ref="container">
-        <h1>{_('HELLO DISCO WORLD')}</h1>
+        { results.map((item, i) => <Addon {...camelCaseProps(item)} key={i} />) }
       </div>
     );
   }

@@ -1,3 +1,4 @@
+/* Shared mixins. Bear in mind changes here impact *all* apps. */
 
 @mixin focus() {
   border-color: $focus-outline-color;
