@@ -1,0 +1,192 @@
+$size: 26px;
+$borderSize: 1px;
+
+$transition: 0.3s;
+
+$switchHandleActive: #fff;
+$switchHandleInactive: transparentize($switchHandleActive, 0.75);
+$switchHandleGap: 1px;
+$switchHandleDisabledOpacity: 0.25;
+$switchHandleActivePosition: ($size * 2.5) - $size + $switchHandleGap;
+
+$switchStrokeOff: #858585;
+$switchStrokeOn: #00A920;
+
+$switchBackgroundOn: #57BD35;
+$switchBackgroundOff: #919191;
+
+$uninstallStripeColor1: #B1B1B1;
+$uninstallStripeColor2: #D4D4D4;
+
+$installStripeColor1: #00A920;
+$installStripeColor2: #00C42E;
+
+@keyframes stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: $size $size/2;
+  }
+}
+
+@mixin stripes($color1, $color2) {
+  animation: stripes .5s linear infinite;
+  background-image: repeating-linear-gradient(
+    45deg,
+    $color1,
+    $color1 25%,
+    $color2 25%,
+    $color2 50%,
+    $color1 50%);
+  background-size: $size/2 $size/2;
+}
+
+.switch {
+  position: relative;
+
+  &.success:after {
+    color: #fff;
+    content: '\2713';
+    font-family: sans-serif;
+    left: $size;
+    position: absolute;
+    top: $size/2;
+    transform: translate(-50%, -50%);
+  }
+
+  input + label {
+    background: #919191;
+    border-radius: $size;
+    border: 1px solid $switchStrokeOff;
+    cursor: pointer;
+    display: block;
+    height: $size;
+    overflow: hidden;
+    position: relative;
+    width: $size * 2.5;
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+
+    // Switch background.
+    &:before {
+      border-radius: $size;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      transition: background $transition;
+    }
+
+    // Handle.
+    &:after {
+      background: $switchHandleActive;
+      border-radius: 50%;
+      bottom: 0;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+      left: 0;
+      top: 0;
+      transition: left $transition, box-shadow $transition;
+      width: $size;
+      z-index: 3;
+    }
+
+    &:hover:after {
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 0 0 $size/2 transparentize($switchHandleActive, 0.80);
+    }
+  }
+
+  &.uninstalling {
+    input + label:before {
+      @include stripes(
+         $uninstallStripeColor1,
+         $uninstallStripeColor2);
+      // Reverse the stripe direction without
+      // impacting the animation speed.
+      transform: scaleX(-1);
+    }
+    input + label:after {
+      left: 0;
+    }
+  }
+
+  &.installing {
+    input + label {
+      border-color: $switchStrokeOn;
+
+      &:before {
+        @include stripes(
+           $installStripeColor1,
+           $installStripeColor2);
+      }
+      &:after {
+        left: $switchHandleActivePosition;
+      }
+    }
+  }
+
+  @keyframes download {
+    from {
+      width: 0;
+    }
+    to {
+      width: 50px;
+    }
+  }
+
+  &.downloading {
+    overflow: hidden;
+    position: relative;
+
+    .progress {
+      background: transparentize(#3ef827, 0.50);
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 80%;
+    }
+
+    input + label {
+      border: 1px solid $switchStrokeOn;
+      overflow: hidden;
+
+      &:before {
+        background: $switchBackgroundOff;
+      }
+
+      &:after {
+        background: $switchHandleInactive;
+        left: $switchHandleActivePosition;
+      }
+    }
+  }
+
+
+  // Disabled State
+  input:disabled + label,
+  input:checked:disabled + label {
+    cursor: not-allowed;
+    &:after {
+      background: $switchHandleInactive;
+    }
+  }
+
+  input:checked + label {
+    border-color: $switchStrokeOn;
+
+    &:before {
+      background: $switchBackgroundOn;
+    }
+
+    &:after {
+      left: $switchHandleActivePosition;
+    }
+  }
+}

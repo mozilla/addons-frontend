@@ -1,0 +1,61 @@
+$addon-padding: 20px;
+$primary-text-color: #000;
+$secondary-text-color: #6a6a6a;
+
+.addon {
+  background: #fff;
+  margin-top: 20px;
+  overflow: hidden;
+
+  .theme-image {
+    width: 100%;
+  }
+
+  .content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    line-height: 1.5;
+    padding: 20px;
+
+    .logo {
+      height: 64px;
+      width: 64px;
+    }
+
+    .copy {
+      padding: 0 20px;
+      flex-grow: 1;
+
+      .heading {
+        color: $primary-text-color;
+        font-size: 18px;
+        font-weight: medium;
+        margin: 0;
+
+        .sub-heading {
+          color: $secondary-text-color;
+          font-size: 14px;
+          font-weight: normal;
+        }
+      }
+
+      .editorial-description {
+        color: $secondary-text-color;
+        font-size: 12px;
+        margin: 0.5em 0;
+      }
+
+      // Remove the left-padding if the copy block
+      // is the first-child of its parent (e.g. a theme)
+      &:first-child {
+        padding-left: 0;
+      }
+
+      // Remove the bottom margin of the last element.
+      & :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

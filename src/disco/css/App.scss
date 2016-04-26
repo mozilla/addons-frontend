@@ -1,6 +1,27 @@
 @import "~normalize.css";
+@import "~core/css/inc/lib";
+
+$page-background: #d4d4d4;
+
+html,
+body {
+  background: $page-background;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+}
 
 * {
   box-sizing: border-box;
 }
 
+img {
+  box-sizing: content-box;
+}
+
+.disco-pane {
+  padding: 50px;
+  margin: 0 auto;
+  max-width: 680px;
+}
