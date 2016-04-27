@@ -90,11 +90,11 @@ export default function(routes, createStore) {
         // Get SRI for production only.
         const sri = (ENV === 'production') ? JSON.parse(
           fs.readFileSync(path.join(config.get('basePath'), 'sri.json'))
-        ) : null;
+        ) : {};
 
         const styles = Object.keys(assets.styles).map((style) => {
           const cssHash = sri[path.basename(assets.styles[style])];
-          if (!cssHash) {
+          if (ENV === 'production' && !cssHash) {
             throw new Error('Missing SRI Data');
           }
           const cssSRI = sri && cssHash ? ` integrity="${cssHash}" crossorigin="anonymous"` : '';
@@ -104,7 +104,7 @@ export default function(routes, createStore) {
 
         const script = Object.keys(assets.javascript).map((js) => {
           const jsHash = sri[path.basename(assets.javascript[js])];
-          if (!jsHash) {
+          if (ENV === 'production' && !jsHash) {
             throw new Error('Missing SRI Data');
           }
           const jsSRI = sri && jsHash ? ` integrity="${jsHash}" crossorigin="anonymous"` : '';
