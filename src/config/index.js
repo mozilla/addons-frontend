@@ -37,6 +37,11 @@ const config = new Map();
     directives: {
       connectSrc: ["'self'", config.get('apiHost')],
       defaultSrc: ["'self'"],
+      imgSrc: [
+        "'self'",
+        // FIXME: This should be added via a separate config for -dev once #272 is fixed.
+        'https://addons-dev-cdn.allizom.org/',
+      ],
       scriptSrc: ["'self'"],
       styleSrc: ["'self'"],
       reportUri: '/__cspreport__',
