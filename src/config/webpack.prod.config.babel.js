@@ -7,6 +7,8 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools';
 
+import SriStatsPlugin from 'sri-stats-webpack-plugin';
+
 import config from './index';
 
 const appsBuildList = config.get('appsBuildList');
@@ -52,6 +54,11 @@ export default {
       'API_HOST',
     ]),
     new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
+    new SriStatsPlugin({
+      algorithm: 'sha512',
+      write: true,
+      saveAs: path.join(__dirname, '../sri.json'),
+    }),
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/webpack\.dev/, /\/babel$/),
     // optimizations
