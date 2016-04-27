@@ -2,30 +2,34 @@
 
 import path from 'path';
 
-import webpack from 'webpack';
+import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
-import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools';
+import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
+import webpack from 'webpack';
 
 import SriStatsPlugin from 'sri-stats-webpack-plugin';
 
-import config from './index';
+import { getClientConfig } from 'core/utils';
 
-const appsBuildList = config.get('appsBuildList');
+const clientConfig = getClientConfig(config);
+
+const appName = config.get('appName');
+const appsBuildList = appName ? [appName] : config.get('validAppNames');
 
 const entryPoints = {};
 for (const app of appsBuildList) {
-  entryPoints[app] = `${app}/client`;
+  entryPoints[app] = `src/${app}/client`;
 }
 
 
 export default {
   devtool: 'source-map',
-  context: path.resolve(__dirname, '..'),
+  context: path.resolve(__dirname),
   progress: true,
   entry: entryPoints,
   output: {
-    path: path.join(__dirname, '../../dist'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name]-[chunkhash].js',
     chunkFilename: '[name]-[chunkhash].js',
     publicPath: '/',
@@ -48,16 +52,15 @@ export default {
       DEVELOPMENT: false,
       CLIENT: true,
       SERVER: false,
+      CLIENT_CONFIG: JSON.stringify(clientConfig),
     }),
-    new webpack.EnvironmentPlugin([
-      'NODE_ENV',
-      'API_HOST',
-    ]),
+    // Replaces server config module with the subset clientConfig object.
+    new webpack.NormalModuleReplacementPlugin(/config$/, 'client-config.js'),
     new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
     new SriStatsPlugin({
       algorithm: 'sha512',
       write: true,
-      saveAs: path.join(__dirname, '../sri.json'),
+      saveAs: path.join(__dirname, 'dist/sri.json'),
     }),
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/webpack\.dev/, /\/babel$/),
@@ -76,7 +79,7 @@ export default {
       'normalize.css': 'normalize.css/normalize.css',
     },
     root: [
-      path.resolve('../src'),
+      path.resolve(__dirname),
     ],
     modulesDirectories: ['node_modules', 'src'],
     extensions: ['', '.js', '.jsx'],

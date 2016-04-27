@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import { camelCaseProps } from 'core/utils';
 
-import Addon from '../components/Addon';
+import Addon from 'disco/components/Addon';
 import fakeData from 'disco/fakeData';
 
 

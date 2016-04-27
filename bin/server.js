@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 require('babel-register');
-const config = require('config').default;
-const env = config.get('env');
+const config = require('config');
 
-if (env === 'development') {
+if (config.util.getEnv('NODE_ENV') === 'development') {
   if (!require('piping')({
     hook: true,
     ignore: /(\/\.|~$|\.json|\.scss$)/i,
