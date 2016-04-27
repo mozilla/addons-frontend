@@ -8,7 +8,7 @@
     "build": "better-npm-run build",
     "build:disco": "better-npm-run build:disco",
     "build:search": "better-npm-run build:search",
-    "clean": "rimraf './dist/*+(css|js|map)' './src/webpack-assets.json' './src/sri.json'",
+    "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
     "dev:disco": "better-npm-run dev:disco",
     "dev:search": "better-npm-run dev:search",
     "eslint": "npm run lint",
@@ -16,83 +16,102 @@
     "servertest": "npm run build && better-npm-run servertest",
     "start:disco": "better-npm-run start:disco",
     "start:search": "better-npm-run start:search",
-    "test": "npm run version-check && npm run unittest && npm run servertest && npm run lint",
-    "unittest": "karma start --single-run",
-    "unittest:dev": "karma start",
+    "test": "better-npm-run test",
+    "unittest": "better-npm-run unittest",
+    "unittest:dev": "better-npm-run unittest:dev",
     "version-check": "node bin/version-check.js",
     "webpack-dev-server": "better-npm-run webpack-dev-server"
   },
   "betterScripts": {
     "build": {
-      "command": "npm run clean && npm run version-check && webpack --verbose --display-error-details --progress --colors --config src/config/webpack.prod.config.babel.js",
+      "command": "npm run clean && npm run version-check && webpack --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
       "env": {
-        "NODE_ENV": "production",
-        "NODE_PATH": "$NODE_PATH:./src"
+        "NODE_PATH": "./:./src"
       }
     },
     "build:disco": {
       "command": "npm run build",
       "env": {
-        "APP_NAME": "disco"
+        "NODE_APP_INSTANCE": "disco"
       }
     },
     "build:search": {
       "command": "npm run build",
       "env": {
-        "APP_NAME": "search"
+        "NODE_APP_INSTANCE": "search"
       }
     },
     "dev:disco": {
       "command": "better-npm-run start-dev",
       "env": {
-        "APP_NAME": "disco"
+        "NODE_APP_INSTANCE": "disco"
       }
     },
     "dev:search": {
       "command": "better-npm-run start-dev",
       "env": {
-        "APP_NAME": "search"
+        "NODE_APP_INSTANCE": "search"
       }
     },
     "start-dev": {
       "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js'",
       "env": {
+        "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
-        "NODE_PATH": "$NODE_PATH:./src",
-        "ENABLE_PIPING": "true"
+        "NODE_PATH": "./:./src"
       }
     },
     "servertest": {
       "command": "mocha --compilers js:babel-register tests/server/",
       "env": {
-        "NODE_ENV": "production",
-        "NODE_PATH": "$NODE_PATH:./src:tests/server"
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production"
       }
     },
     "start": {
       "command": "npm run version-check && node bin/server.js",
       "env": {
-        "NODE_ENV": "production",
-        "NODE_PATH": "$NODE_PATH:./src"
+        "NODE_PATH": "./:./src"
       }
     },
     "start:search": {
       "command": "better-npm-run start",
       "env": {
-        "APP_NAME": "search"
+        "NODE_APP_INSTANCE": "search"
       }
     },
     "start:disco": {
       "command": "better-npm-run start",
       "env": {
-        "APP_NAME": "disco"
+        "NODE_APP_INSTANCE": "disco"
+      }
+    },
+    "test": {
+      "command": "npm run version-check && npm run unittest && npm run servertest && npm run lint",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production"
+      }
+    },
+    "unittest": {
+      "command": "karma start --single-run",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production"
+      }
+    },
+    "unittest:dev": {
+      "command": "karma start",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production"
       }
     },
     "webpack-dev-server": {
       "command": "node bin/webpack-dev-server.js",
       "env": {
         "NODE_ENV": "development",
-        "NODE_PATH": "$NODE_PATH:./src"
+        "NODE_PATH": "./:./src"
       }
     }
   },
@@ -110,6 +129,7 @@
     "better-npm-run": "0.0.8",
     "camelcase": "2.1.1",
     "common-tags": "0.0.3",
+    "config": "1.20.1",
     "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",
     "helmet": "1.3.0",
@@ -170,6 +190,7 @@
     "react-hot-loader": "1.3.0",
     "react-transform-hmr": "1.0.4",
     "redux-devtools": "3.2.0",
+    "require-uncached": "1.0.2",
     "rimraf": "2.5.2",
     "sass-loader": "3.1.2",
     "semver": "5.1.0",

@@ -1,35 +1,50 @@
 // Karma configuration
-/* eslint-disable no-console */
+/* eslint-disable max-len, no-console */
 require('babel-register');
 
+const fs = require('fs');
+
+const babelrc = fs.readFileSync('./.babelrc');
+const babelQuery = JSON.parse(babelrc);
 const webpack = require('webpack');
-const webpackDevConfig = require('./src/config/webpack.dev.config.babel').default;
+const webpackConfigProd = require('./webpack.prod.config.babel').default;
+const config = require('config');
+const getClientConfig = require('src/core/utils').getClientConfig;
+const clientConfig = getClientConfig(config);
 
 const coverageReporters = [{
   type: 'text-summary',
 }];
 
-const newWebpackConfig = Object.assign({}, webpackDevConfig, {
+
+const newWebpackConfig = Object.assign({}, webpackConfigProd, {
   plugins: [
     new webpack.DefinePlugin({
-      DEVELOPMENT: true,
+      DEVELOPMENT: false,
       CLIENT: true,
       SERVER: false,
+      CLIENT_CONFIG: JSON.stringify(clientConfig),
     }),
-    new webpack.EnvironmentPlugin([
-      'NODE_ENV',
-      'API_HOST',
-    ]),
+    new webpack.NormalModuleReplacementPlugin(/config$/, 'client-config.js'),
   ],
   devtool: 'inline-source-map',
-  module: Object.assign({}, webpackDevConfig.module, {
+  module: {
     preLoaders: [{
       test: /\.jsx?$/,
       loader: 'babel-istanbul',
       include: /src\//,
       exclude: /node_modules/,
     }],
-  }),
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel',
+      query: babelQuery,
+    }, {
+      test: /\.scss$/,
+      loader: 'style!css?importLoaders=2!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded',
+    }],
+  },
   output: undefined,
   entry: undefined,
 });
@@ -48,8 +63,8 @@ if (process.env.TRAVIS) {
   coverageReporters.push({type: 'html', dir: 'coverage', subdir: '.'});
 }
 
-module.exports = function karmaConf(config) {
-  config.set({
+module.exports = function karmaConf(conf) {
+  conf.set({
     coverageReporter: {
       reporters: coverageReporters,
     },

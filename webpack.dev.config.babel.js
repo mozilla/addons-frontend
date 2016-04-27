@@ -4,13 +4,15 @@ import fs from 'fs';
 import path from 'path';
 import webpack from 'webpack';
 
+import { getClientConfig } from 'core/utils';
+import config from 'config';
+
 import webpackConfig from './webpack.prod.config.babel';
-import config from './index';
-
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
-import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools';
+import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
-const development = config.get('env') === 'development';
+const clientConfig = getClientConfig(config);
+const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
 
 const webpackIsomorphicToolsPlugin =
   new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig);
@@ -28,29 +30,30 @@ const babelDevPlugins = [['react-transform', {
 }]];
 
 const BABEL_QUERY = Object.assign({}, babelrcObject, {
-  plugins: development ? babelPlugins.concat(babelDevPlugins) : babelPlugins,
+  plugins: localDevelopment ? babelPlugins.concat(babelDevPlugins) : babelPlugins,
 });
 
 const webpackHost = config.get('webpackServerHost');
 const webpackPort = config.get('webpackServerPort');
-const assetsPath = path.resolve(__dirname, '../../dist');
+const assetsPath = path.resolve(__dirname, 'dist');
 
 const hmr = `webpack-hot-middleware/client?path=http://${webpackHost}:${webpackPort}/__webpack_hmr`;
 
-const appsBuildList = config.get('appsBuildList');
+const appName = config.get('appName');
+const appsBuildList = appName ? [appName] : config.get('validAppNames');
 
 const entryPoints = {};
 for (const app of appsBuildList) {
   entryPoints[app] = [
     hmr,
-    `${app}/client`,
+    `src/${app}/client`,
   ];
 }
 
 
 export default Object.assign({}, webpackConfig, {
   devtool: 'inline-source-map',
-  context: path.resolve(__dirname, '..'),
+  context: path.resolve(__dirname),
   entry: entryPoints,
   output: Object.assign({}, webpackConfig.output, {
     path: assetsPath,
@@ -71,14 +74,12 @@ export default Object.assign({}, webpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      DEVELOPMENT: true,
       CLIENT: true,
+      CLIENT_CONFIG: JSON.stringify(clientConfig),
+      DEVELOPMENT: true,
       SERVER: false,
     }),
-    new webpack.EnvironmentPlugin([
-      'NODE_ENV',
-      'API_HOST',
-    ]),
+    new webpack.NormalModuleReplacementPlugin(/config$/, 'client-config.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),

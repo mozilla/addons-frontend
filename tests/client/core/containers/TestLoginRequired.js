@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { shallowRender } from '../../../utils';
+import { shallowRender } from 'tests/client/helpers';
 import { mapStateToProps, LoginRequired } from 'core/containers/LoginRequired';
 import LoginPage from 'core/components/LoginPage';
 
