@@ -50,15 +50,16 @@ function createLoadData(dispatch) {
   return ({api, location, router}) => {
     const { code, state } = location.query;
     if (code && state) {
-      return login({api, code, state}).then(({token}) => {
-        dispatch(setJWT(token));
-        cookie.save(config.get('cookieName'), token, {
-          path: '/',
-          secure: true,
-          maxAge: config.get('cookieMaxAge'),
+      return login({api, code, state})
+        .then(({token}) => {
+          dispatch(setJWT(token));
+          cookie.save(config.get('cookieName'), token, {
+            path: '/',
+            secure: true,
+            maxAge: config.get('cookieMaxAge'),
+          });
+          router.push('/search');
         });
-        router.push('/search');
-      });
     }
     return Promise.resolve();
   };
