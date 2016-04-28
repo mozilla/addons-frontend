@@ -1,49 +1,47 @@
 import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-import config from 'config';
-import loginRequired from 'core/containers/LoginRequired';
+import { shallowRender } from '../../../utils';
+import { mapStateToProps, LoginRequired } from 'core/containers/LoginRequired';
+import LoginPage from 'core/components/LoginPage';
 
-describe('loginRequired', () => {
+describe('LoginRequired helpers', () => {
   class MyComponent extends React.Component {
     render() {
       return <p>Authenticated content.</p>;
     }
   }
-  const LoginRequiredMyComponent = loginRequired(MyComponent);
 
-  describe('when not authenticated', () => {
-    const state = {auth: {}};
-    const store = createStore((s = {}) => s, state);
-    const root = findDOMNode(renderIntoDocument(
-      <Provider store={store}>
-        <LoginRequiredMyComponent />
-      </Provider>
-    ));
-
-    it('renders the login page', () => {
-      assert.equal(root.querySelector('h1').textContent, 'Login Required');
-    });
-
-    it('the login button goes to the start login URL', () => {
-      assert.equal(root.querySelector('a').href, config.get('startLoginUrl'));
+  describe('rendered component when not authenticated', () => {
+    it('renders <LoginPage />', () => {
+      const root = shallowRender(<LoginRequired Component={MyComponent} authenticated={false} />);
+      assert.equal(root.type, LoginPage);
     });
   });
 
-  describe('when authenticated', () => {
-    const state = {auth: {token: 'my.JWT.token'}};
-    const store = createStore((s = {}) => s, state);
-    const root = findDOMNode(renderIntoDocument(
-      <Provider store={store}>
-        <LoginRequiredMyComponent />
-      </Provider>
-    ));
-
+  describe('rendered component when authenticated', () => {
     it('renders the child component', () => {
-      assert.equal(root.textContent, 'Authenticated content.');
+      const root = shallowRender(<LoginRequired Component={MyComponent} authenticated />);
+      assert.equal(root.type, MyComponent);
+    });
+
+    it('passes along its props', () => {
+      const root = shallowRender(
+        <LoginRequired Component={MyComponent} authenticated foo="bar" />);
+      assert.deepEqual(root.props, {foo: 'bar'});
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    it('sets authenticated and Component when authenticated', () => {
+      assert.deepEqual(
+        mapStateToProps(MyComponent)({auth: {token: 'foo'}}),
+        {authenticated: true, Component: MyComponent});
+    });
+
+    it('sets authenticated and Component when unauthenticated', () => {
+      assert.deepEqual(
+        mapStateToProps(MyComponent)({auth: {}}),
+        {authenticated: false, Component: MyComponent});
     });
   });
 });

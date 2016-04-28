@@ -33,6 +33,10 @@ const config = new Map();
 
   config.set('startLoginUrl', `${config.get('apiHost')}/api/v3/internal/accounts/login/start/`);
 
+  // 2592000 is 30 days in seconds.
+  config.set('cookieMaxAge', 2592000);
+  config.set('cookieName', 'jwt_api_auth_token');
+
   const CSP = {
     directives: {
       connectSrc: ["'self'", config.get('apiHost')],
