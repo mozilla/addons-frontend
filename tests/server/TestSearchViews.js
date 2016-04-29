@@ -11,7 +11,7 @@ import { checkSRI } from './helpers';
 describe('GET requests', () => {
   let app;
 
-  before((done) => runServer({listen: false, appName: 'search'})
+  before((done) => runServer({listen: false, app: 'search'})
     .then((server) => {
       app = server;
       done();

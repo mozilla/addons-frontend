@@ -8,9 +8,9 @@ const Express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackDevConfig = require('config/webpack.dev.config.babel').default;
+const webpackDevConfig = require('webpack.dev.config.babel').default;
 
-const config = require('config').default;
+const config = require('config');
 
 const host = config.get('webpackServerHost');
 const port = config.get('webpackServerPort');

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
-import SearchPage from '../components/SearchPage';
-import { searchStart, searchLoad, searchFail } from '../actions';
+import SearchPage from 'search/components/SearchPage';
+import { searchStart, searchLoad, searchFail } from 'search/actions';
 import { search } from 'core/api';
 
 export function mapStateToProps(state) {

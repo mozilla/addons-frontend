@@ -18,3 +18,11 @@ export function camelCaseProps(obj) {
   });
   return newObj;
 }
+
+export function getClientConfig(config) {
+  const clientConfig = {};
+  for (const key of config.get('clientConfigKeys')) {
+    clientConfig[key] = config.get(key);
+  }
+  return clientConfig;
+}

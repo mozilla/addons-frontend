@@ -12,7 +12,7 @@ import { checkSRI } from './helpers';
 describe('GET requests', () => {
   let app;
 
-  before((done) => runServer({listen: false, appName: 'disco'})
+  before((done) => runServer({listen: false, app: 'disco'})
     .then((server) => {
       app = server;
       done();
