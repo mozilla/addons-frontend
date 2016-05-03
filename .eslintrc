@@ -14,9 +14,9 @@
   },
   "parser": "babel-eslint",
   "rules": {
-    "object-curly-spacing": 0,
-    "space-before-function-paren": [2, "never"],
-    "react/prefer-stateless-function": 0,
+    "object-curly-spacing": "off",
+    "space-before-function-paren": ["error", "never"],
+    "react/prefer-stateless-function": "off",
     "react/jsx-indent-props": "off",
     "react/jsx-closing-bracket-location": "off"
   }
