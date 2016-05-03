@@ -5,7 +5,7 @@ import config from 'config';
 
 import 'isomorphic-fetch';
 
-const API_BASE = config.get('apiBase');
+const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
 const addon = new Schema('addons', {idAttribute: 'slug'});
 
@@ -45,10 +45,11 @@ function callApi({endpoint, schema, params, auth = false, state = {}, method = '
 export function search({ api, page, query }) {
   // TODO: Get the language from the server.
   return callApi({
-    endpoint: 'addons/search',
+    endpoint: 'internal/addons/search',
     schema: {results: arrayOf(addon)},
     params: {q: query, lang: 'en-US', page},
     state: api,
+    auth: true,
   });
 }
 
@@ -71,4 +72,8 @@ export function login({ api, code, state }) {
     state: api,
     credentials: true,
   });
+}
+
+export function startLoginUrl() {
+  return `${API_BASE}/internal/accounts/login/start/`;
 }

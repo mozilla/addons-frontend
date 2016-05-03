@@ -17,8 +17,6 @@ if (appName && validAppNames.indexOf(appName) === -1) {
 
 const amoCDN = 'https://addons.cdn.mozilla.net';
 const apiHost = 'https://addons.mozilla.org';
-const apiBase = `${apiHost}/api/v3`;
-const startLoginUrl = `${apiBase}/internal/accounts/login/start/`;
 
 
 module.exports = {
@@ -42,19 +40,18 @@ module.exports = {
   // The CDN host for AMO.
   amoCDN,
   apiHost,
-  apiBase,
-  startLoginUrl,
+  apiPath: '/api/v3',
 
   // The keys listed here will be exposed on the client.
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
   clientConfigKeys: [
-    'apiBase',
+    'apiHost',
+    'apiPath',
     'cookieName',
     'cookieMaxAge',
     'isDeployed',
     'isDevelopment',
-    'startLoginUrl',
   ],
 
   // Content security policy.

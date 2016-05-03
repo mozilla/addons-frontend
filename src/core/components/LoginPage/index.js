@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import config from 'config';
+import { startLoginUrl } from 'core/api';
 import { gettext as _ } from 'core/utils';
 
 export default class LoginPage extends React.Component {
@@ -17,7 +17,7 @@ export default class LoginPage extends React.Component {
           {message || _('You must be logged in to access this page.')}
         </p>
         <p>
-          <a className="button" href={config.get('startLoginUrl')}>
+          <a className="button" href={startLoginUrl()}>
             {_('Login')}
           </a>
         </p>

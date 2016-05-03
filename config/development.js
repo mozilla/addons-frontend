@@ -5,12 +5,9 @@ const webpackServerPort = 3001;
 const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
 const apiHost = 'https://addons-dev.allizom.org';
 const amoCDN = 'https://addons-dev-cdn.allizom.org';
-const apiBase = `${apiHost}/api/v3`;
-const startLoginUrl = `${apiBase}/internal/accounts/login/start/`;
 
 
 module.exports = {
-
   apiHost,
   amoCDN,
 
@@ -18,7 +15,6 @@ module.exports = {
   isDevelopment: true,
 
   serverPort: 3000,
-  startLoginUrl,
   webpackServerHost,
   webpackServerPort,
   webpackHost,
