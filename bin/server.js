@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable global-require */
 
 require('babel-register');
 const config = require('config');

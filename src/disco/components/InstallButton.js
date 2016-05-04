@@ -8,7 +8,7 @@ import 'disco/css/InstallButton.scss';
 export default class InstallButton extends React.Component {
   render() {
     return (
-     <div className="switch">
+      <div className="switch">
         <input type="checkbox" className="visually-hidden" />
         <label>
           <span className="visually-hidden">{_('Install')}</span>

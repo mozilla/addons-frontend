@@ -44,8 +44,8 @@ export default class Addon extends React.Component {
         <div className="content">
           {this.getLogo()}
           <div className="copy">
-            <h2 ref="heading" className="heading">{heading} { subHeading ?
-              <span ref="sub-heading" className="sub-heading">{subHeading}</span> : null }</h2>
+            <h2 ref="heading" className="heading">{heading} {subHeading ?
+              <span ref="sub-heading" className="sub-heading">{subHeading}</span> : null}</h2>
             <p ref="editorial-description"
                className="editorial-description"
                dangerouslySetInnerHTML={this.getDescription()} />
