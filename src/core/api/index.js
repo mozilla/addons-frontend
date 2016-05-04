@@ -1,4 +1,5 @@
 import { Schema, arrayOf, normalize } from 'normalizr';
+import url from 'url';
 
 import config from 'config';
 
@@ -8,9 +9,8 @@ const API_BASE = config.get('apiBase');
 
 const addon = new Schema('addons', {idAttribute: 'slug'});
 
-function makeQueryString(opts) {
-  // FIXME: This should use a real query string generator.
-  return Object.keys(opts).map((k) => `${k}=${opts[k]}`).join('&');
+function makeQueryString(query) {
+  return url.format({query});
 }
 
 function callApi({endpoint, schema, params, auth = false, state = {}, method = 'get', body,
@@ -32,7 +32,7 @@ function callApi({endpoint, schema, params, auth = false, state = {}, method = '
       options.headers.authorization = `Bearer ${state.token}`;
     }
   }
-  return fetch(`${API_BASE}/${endpoint}/?${queryString}`, options)
+  return fetch(`${API_BASE}/${endpoint}/${queryString}`, options)
     .then((response) => {
       if (response.ok) {
         return response.json();
