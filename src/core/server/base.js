@@ -2,18 +2,18 @@ import fs from 'fs';
 import Express from 'express';
 import helmet from 'helmet';
 import path from 'path';
-import serialize from 'serialize-javascript';
 import cookie from 'react-cookie';
 import React from 'react';
+import ReactDOM from 'react-dom/server';
+import ReactHelmet from 'react-helmet';
 
-import { stripIndent } from 'common-tags';
-import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
 
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import WebpackIsomorphicToolsConfig from 'webpack-isomorphic-tools-config';
+import ServerHtml from 'core/containers/ServerHtml';
 
 import config from 'config';
 import { setJWT } from 'core/actions';
@@ -29,7 +29,7 @@ global.CLIENT = false;
 global.SERVER = true;
 global.DEVELOPMENT = env === 'development';
 
-export default function(routes, createStore) {
+function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   const app = new Express();
   app.disable('x-powered-by');
 
@@ -58,7 +58,7 @@ export default function(routes, createStore) {
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
 
   // Redirect from / for the search app it's a 302 to prevent caching.
-  if (appName === 'search') {
+  if (appInstanceName === 'search') {
     app.get('/', (req, res) => res.redirect(302, '/search'));
   }
 
@@ -82,67 +82,37 @@ export default function(routes, createStore) {
         store.dispatch(setJWT(token));
       }
 
-      return loadOnServer({...renderProps, store}).then(() => {
-        const InitialComponent = (
-          <Provider store={store} key="provider">
-            <ReduxAsyncConnect {...renderProps} />
-          </Provider>
-        );
+      return loadOnServer({...renderProps, store})
+        .then(() => {
+          const InitialComponent = (
+            <Provider store={store} key="provider">
+              <ReduxAsyncConnect {...renderProps} />
+            </Provider>
+          );
 
-        const componentHTML = renderToString(InitialComponent);
+          // Get SRI for deployed services only.
+          const sriData = (isDeployed) ? JSON.parse(
+            fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
+          ) : {};
 
-        const assets = webpackIsomorphicTools.assets();
+          const pageProps = {
+            appName: appInstanceName,
+            assets: webpackIsomorphicTools.assets(),
+            component: InitialComponent,
+            head: ReactHelmet.rewind(),
+            sriData,
+            includeSri: isDeployed,
+            store,
+          };
 
-        // Get SRI for deployed services only.
-        const sri = isDeployed ? JSON.parse(
-          fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
-        ) : {};
-
-        const styles = Object.keys(assets.styles).map((style) => {
-          const cssHash = sri[path.basename(assets.styles[style])];
-          if (isDeployed && !cssHash) {
-            throw new Error('Missing SRI Data');
-          }
-          const cssSRI = sri && cssHash ? ` integrity="${cssHash}" crossorigin="anonymous"` : '';
-          return `<link href="${assets.styles[style]}"${cssSRI}
-                        rel="stylesheet" type="text/css" />`;
-        }).join('\n');
-
-        const script = Object.keys(assets.javascript).map((js) => {
-          const jsHash = sri[path.basename(assets.javascript[js])];
-          if (isDeployed && !jsHash) {
-            throw new Error('Missing SRI Data');
-          }
-          const jsSRI = sri && jsHash ? ` integrity="${jsHash}" crossorigin="anonymous"` : '';
-          return `<script src="${assets.javascript[js]}"${jsSRI}></script>`;
-        }).join('\n');
-
-        const HTML = stripIndent`
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <meta charset="utf-8">
-              <title>Isomorphic Redux Demo</title>
-              <meta name="viewport" content="width=device-width, initial-scale=1" />
-              ${styles}
-            </head>
-            <body>
-              <div id="react-view">${componentHTML}</div>
-              <script type="application/json" id="redux-store-state">
-                ${serialize(store.getState())}
-              </script>
-              ${script}
-            </body>
-          </html>`;
-
-        res.header('Content-Type', 'text/html');
-        return res.end(HTML);
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error(error.stack);
-        res.status(500).end(errorString);
-      });
+          const HTML = ReactDOM.renderToString(<ServerHtml {...pageProps} />);
+          res.send(`<!DOCTYPE html>${HTML}`);
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.error(error.stack);
+          res.status(500).end(errorString);
+        });
     });
   });
 
@@ -174,7 +144,9 @@ export function runServer({listen = true, app = appName} = {}) {
       // Webpack Isomorphic tools is ready
       // now fire up the actual server.
       return new Promise((resolve, reject) => {
-        const server = require(`${app}/server`).default;
+        const routes = require(`${app}/routes`).default;
+        const createStore = require(`${app}/store`).default;
+        const server = baseServer(routes, createStore, {appInstanceName: app});
         if (listen === true) {
           server.listen(port, host, (err) => {
             if (err) {
@@ -196,3 +168,5 @@ export function runServer({listen = true, app = appName} = {}) {
       console.error(err);
     });
 }
+
+export default baseServer;

@@ -12,6 +12,7 @@ describe('App', () => {
     }
     const root = shallowRender(<App><MyComponent /></App>);
     assert.equal(root.type, 'div');
-    assert.equal(root.props.children.type, MyComponent);
+    // First child is <Helmet />.
+    assert.equal(root.props.children[1].type, MyComponent);
   });
 });
