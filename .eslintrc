@@ -14,10 +14,12 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "import/no-unresolved": "off",
     "object-curly-spacing": "off",
     "space-before-function-paren": ["error", "never"],
     "react/prefer-stateless-function": "off",
     "react/jsx-indent-props": "off",
-    "react/jsx-closing-bracket-location": "off"
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-first-prop-new-line": "off"
   }
 }

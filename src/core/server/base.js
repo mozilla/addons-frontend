@@ -144,8 +144,10 @@ export function runServer({listen = true, app = appName} = {}) {
       // Webpack Isomorphic tools is ready
       // now fire up the actual server.
       return new Promise((resolve, reject) => {
+        /* eslint-disable global-require */
         const routes = require(`${app}/routes`).default;
         const createStore = require(`${app}/store`).default;
+        /* eslint-enable global-require */
         const server = baseServer(routes, createStore, {appInstanceName: app});
         if (listen === true) {
           server.listen(port, host, (err) => {

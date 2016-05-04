@@ -20,7 +20,7 @@ class DiscoPane extends React.Component {
     const { results } = this.props;
     return (
       <div id="app-view" ref="container">
-        { results.map((item, i) => <Addon {...camelCaseProps(item)} key={i} />) }
+        {results.map((item, i) => <Addon {...camelCaseProps(item)} key={i} />)}
       </div>
     );
   }
