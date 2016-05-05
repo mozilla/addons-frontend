@@ -74,10 +74,7 @@ export default Object.assign({}, webpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      CLIENT: true,
       CLIENT_CONFIG: JSON.stringify(clientConfig),
-      DEVELOPMENT: true,
-      SERVER: false,
     }),
     new webpack.NormalModuleReplacementPlugin(/config$/, 'client-config.js'),
     new webpack.HotModuleReplacementPlugin(),

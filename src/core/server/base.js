@@ -32,11 +32,6 @@ const log = bunyan.createLogger({
   serializers: bunyan.stdSerializers,
 });
 
-// Globals (these are set by definePlugin for client-side builds).
-global.CLIENT = false;
-global.SERVER = true;
-global.DEVELOPMENT = isDevelopment;
-
 function logRequests(req, res, next) {
   const start = new Date();
   next();
