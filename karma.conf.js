@@ -20,9 +20,6 @@ const coverageReporters = [{
 const newWebpackConfig = Object.assign({}, webpackConfigProd, {
   plugins: [
     new webpack.DefinePlugin({
-      DEVELOPMENT: false,
-      CLIENT: true,
-      SERVER: false,
       CLIENT_CONFIG: JSON.stringify(clientConfig),
     }),
     new webpack.NormalModuleReplacementPlugin(/config$/, 'client-config.js'),

@@ -8,6 +8,9 @@ module.exports = {
   apiHost: 'https://addons-dev.allizom.org',
   amoCDN: 'https://addons-dev-cdn.allizom.org',
 
+  isDeployed: false,
+  isDevelopment: true,
+
   webpackServerHost: '127.0.0.1',
   webpackServerPort: 3001,
   webpackHost: defer((cfg) => `http://${cfg.webpackServerHost}:${cfg.webpackServerPort}`),

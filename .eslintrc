@@ -4,10 +4,7 @@
   },
   "extends": "airbnb",
   "globals": {
-    "CLIENT": true,
     "CLIENT_CONFIG": true,
-    "DEVELOPMENT": true,
-    "SERVER": true,
     "assert": true,
     "sinon": true,
     "webpackIsomorphicTools": true

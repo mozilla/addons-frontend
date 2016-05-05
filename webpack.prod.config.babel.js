@@ -49,9 +49,6 @@ export default {
   },
   plugins: [
     new webpack.DefinePlugin({
-      DEVELOPMENT: false,
-      CLIENT: true,
-      SERVER: false,
       CLIENT_CONFIG: JSON.stringify(clientConfig),
     }),
     // Replaces server config module with the subset clientConfig object.

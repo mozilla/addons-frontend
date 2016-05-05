@@ -24,6 +24,9 @@ module.exports = {
   cookieMaxAge: 2592000,
   cookieName: 'jwt_api_auth_token',
 
+  isDeployed: true,
+  isDevelopment: false,
+
   // The canonical list of enabled apps.
   validAppNames,
 
@@ -46,6 +49,8 @@ module.exports = {
     'apiBase',
     'cookieName',
     'cookieMaxAge',
+    'isDeployed',
+    'isDevelopment',
     'startLoginUrl',
   ],
 

@@ -14,8 +14,9 @@
     "eslint": "npm run lint",
     "lint": "eslint .",
     "servertest": "npm run build && better-npm-run servertest",
-    "start:disco": "better-npm-run start:disco",
-    "start:search": "better-npm-run start:search",
+    "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
+    "start:disco": "NODE_APP_INSTANCE=disco npm start",
+    "start:search": "NODE_APP_INSTANCE=search npm start",
     "test": "better-npm-run test",
     "unittest": "better-npm-run unittest",
     "unittest:dev": "better-npm-run unittest:dev",
@@ -68,24 +69,6 @@
         "NODE_ENV": "production"
       }
     },
-    "start": {
-      "command": "npm run version-check && node bin/server.js",
-      "env": {
-        "NODE_PATH": "./:./src"
-      }
-    },
-    "start:search": {
-      "command": "better-npm-run start",
-      "env": {
-        "NODE_APP_INSTANCE": "search"
-      }
-    },
-    "start:disco": {
-      "command": "better-npm-run start",
-      "env": {
-        "NODE_APP_INSTANCE": "disco"
-      }
-    },
     "test": {
       "command": "npm run version-check && npm run unittest && npm run servertest && npm run lint",
       "env": {
@@ -127,9 +110,9 @@
   "homepage": "https://github.com/mozillla/addons-frontend#readme",
   "dependencies": {
     "better-npm-run": "0.0.8",
+    "bunyan": "1.8.1",
     "camelcase": "2.1.1",
     "classnames": "2.2.5",
-    "common-tags": "0.0.3",
     "config": "1.20.1",
     "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",
