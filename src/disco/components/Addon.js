@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 
 import InstallButton from './InstallButton';
 
@@ -37,9 +38,12 @@ export default class Addon extends React.Component {
   }
 
   render() {
-    const { heading, subHeading } = this.props;
+    const { heading, subHeading, type } = this.props;
+    const addonClasses = classNames('addon', {
+      theme: type === 'Theme',
+    });
     return (
-      <div className="addon">
+      <div className={addonClasses}>
         {this.getThemeImage()}
         <div className="content">
           {this.getLogo()}

@@ -8,7 +8,12 @@ $secondary-text-color: #6a6a6a;
   overflow: hidden;
 
   .theme-image {
+    display: block;
     width: 100%;
+  }
+
+  .install-button {
+    margin: 0 20px 0 30px;
   }
 
   .content {
@@ -16,15 +21,23 @@ $secondary-text-color: #6a6a6a;
     display: flex;
     flex-direction: row;
     line-height: 1.5;
-    padding: 20px;
 
     .logo {
-      height: 64px;
-      width: 64px;
+      align-items: center;
+      align-self: stretch;
+      background: #fcfcfc;
+      display: flex;
+      padding: 0 15px;
+
+      img {
+        display: block;
+        height: 64px;
+        width: 64px;
+      }
     }
 
     .copy {
-      padding: 0 20px;
+      padding: 30px 20px;
       flex-grow: 1;
 
       .heading {
@@ -46,16 +59,14 @@ $secondary-text-color: #6a6a6a;
         margin: 0.5em 0;
       }
 
-      // Remove the left-padding if the copy block
-      // is the first-child of its parent (e.g. a theme)
-      &:first-child {
-        padding-left: 0;
-      }
-
       // Remove the bottom margin of the last element.
       & :last-child {
         margin-bottom: 0;
       }
     }
+  }
+
+  &.theme .content .copy {
+    padding: 20px;
   }
 }
