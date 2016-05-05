@@ -130,44 +130,20 @@ $installStripeColor2: #00C42E;
     }
   }
 
-  @keyframes download {
-    from {
-      width: 0;
-    }
-    to {
-      width: 50px;
-    }
-  }
-
   &.downloading {
     overflow: hidden;
     position: relative;
 
-    .progress {
-      background: transparentize(#3ef827, 0.50);
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 80%;
-    }
-
     input + label {
-      border: 1px solid $switchStrokeOn;
+      border: 1px solid $switchStrokeOff;
       overflow: hidden;
 
-      &:before {
-        background: $switchBackgroundOff;
-      }
-
       &:after {
-        background: $switchHandleInactive;
+        background: $switchHandleActive;
         left: $switchHandleActivePosition;
       }
     }
   }
-
 
   // Disabled State
   input:disabled + label,
@@ -188,5 +164,23 @@ $installStripeColor2: #00C42E;
     &:after {
       left: $switchHandleActivePosition;
     }
+  }
+}
+
+.progress {
+  background: transparentize(#3ef827, 0.50);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  transition: transform 1s;
+  transform: translateX(-100%);
+}
+
+@for $i from 1 through 100 {
+  [data-download-progress="#{$i}"] .progress {
+    transform: translateX(#{percentage($i - 100) / 100});
   }
 }

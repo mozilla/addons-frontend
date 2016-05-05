@@ -1,9 +1,5 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import makeClient from 'core/client/base';
 import routes from './routes';
+import createStore from './store';
 
-render(
-  <Router children={routes} history={browserHistory} />,
-  document.getElementById('react-view')
-);
+makeClient(routes, createStore);
