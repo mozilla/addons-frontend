@@ -50,6 +50,7 @@ export default {
   plugins: [
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     // Replaces server config module with the subset clientConfig object.
     new webpack.NormalModuleReplacementPlugin(/config$/, 'client-config.js'),
