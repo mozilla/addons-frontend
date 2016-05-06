@@ -1,3 +1,6 @@
+@import "~disco/css/inc/vars";
+@import "~core/css/inc/mixins";
+
 $addon-padding: 20px;
 $primary-text-color: #000;
 $secondary-text-color: #6a6a6a;
@@ -5,11 +8,18 @@ $secondary-text-color: #6a6a6a;
 .addon {
   background: #fff;
   margin-top: 20px;
-  overflow: hidden;
 
   .theme-image {
     display: block;
-    width: 100%;
+
+    img {
+      display: block;
+    }
+
+    &:hover,
+    &:focus {
+      @include focus();
+    }
   }
 
   .install-button {
