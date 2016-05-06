@@ -1,24 +1,40 @@
 // Config specific to local development
 
-const defer = require('config/defer').deferConfig;
+const webpackServerHost = '127.0.0.1';
+const webpackServerPort = 3001;
+const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
+const apiHost = 'https://addons-dev.allizom.org';
+const amoCDN = 'https://addons-dev-cdn.allizom.org';
+const apiBase = `${apiHost}/api/v3`;
+const startLoginUrl = `${apiBase}/internal/accounts/login/start/`;
+
 
 module.exports = {
-  serverPort: 3000,
 
-  apiHost: 'https://addons-dev.allizom.org',
-  amoCDN: 'https://addons-dev-cdn.allizom.org',
+  apiHost,
+  amoCDN,
 
   isDeployed: false,
   isDevelopment: true,
 
-  webpackServerHost: '127.0.0.1',
-  webpackServerPort: 3001,
-  webpackHost: defer((cfg) => `http://${cfg.webpackServerHost}:${cfg.webpackServerPort}`),
+  serverPort: 3000,
+  startLoginUrl,
+  webpackServerHost,
+  webpackServerPort,
+  webpackHost,
 
   CSP: {
     directives: {
-      connectSrc: defer((cfg) => ["'self'", cfg.apiHost, cfg.webpackHost]),
-      scriptSrc: defer((cfg) => ["'self'", cfg.webpackHost]),
+      connectSrc: [
+        "'self'",
+        amoCDN,
+        webpackHost,
+      ],
+      scriptSrc: [
+        "'self'",
+        amoCDN,
+        webpackHost,
+      ],
       styleSrc: ["'self'", 'blob:'],
     },
     reportOnly: true,
