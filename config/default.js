@@ -3,7 +3,6 @@
 // live here.
 
 const path = require('path');
-const defer = require('config/defer').deferConfig;
 
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
@@ -15,6 +14,12 @@ const validAppNames = [
 if (appName && validAppNames.indexOf(appName) === -1) {
   throw new Error(`App ${appName} is not enabled`);
 }
+
+const amoCDN = 'https://addons.cdn.mozilla.net';
+const apiHost = 'https://addons.mozilla.org';
+const apiBase = `${apiHost}/api/v3`;
+const startLoginUrl = `${apiBase}/internal/accounts/login/start/`;
+
 
 module.exports = {
   appName,
@@ -35,12 +40,10 @@ module.exports = {
   serverPort: 4000,
 
   // The CDN host for AMO.
-  amoCDN: 'https://addons.cdn.mozilla.net',
-
-  apiHost: 'https://addons.mozilla.org',
-  apiPath: '/api/v3',
-  apiBase: defer((cfg) => cfg.apiHost + cfg.apiPath),
-  startLoginUrl: defer((cfg) => `${cfg.apiBase}/internal/accounts/login/start/`),
+  amoCDN,
+  apiHost,
+  apiBase,
+  startLoginUrl,
 
   // The keys listed here will be exposed on the client.
   // Since by definition client-side code is public these config keys
@@ -58,11 +61,14 @@ module.exports = {
   CSP: {
     directives: {
       defaultSrc: ["'self'"],
-      connectSrc: defer((cfg) => ["'self'", cfg.apiHost]),
-      imgSrc: defer((cfg) => [
+      connectSrc: [
         "'self'",
-        cfg.amoCDN,
-      ]),
+        apiHost,
+      ],
+      imgSrc: [
+        "'self'",
+        amoCDN,
+      ],
       scriptSrc: ["'self'"],
       styleSrc: ["'self'"],
       reportUri: '/__cspreport__',
@@ -78,5 +84,4 @@ module.exports = {
     // Set to true if you want to disable CSP on Android where it can be buggy.
     disableAndroid: false,
   },
-
 };
