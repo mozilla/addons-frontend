@@ -9,7 +9,7 @@ import NotFound from 'core/components/NotFound';
 import './style.scss';
 
 function siteLink(url, text) {
-  return <a href={url} target="_blank">{text}</a>
+  return <a href={url} target="_blank">{text}</a>;
 }
 
 class AddonPage extends React.Component {
