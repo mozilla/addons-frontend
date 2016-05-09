@@ -17,6 +17,8 @@ describe('AddonPage', () => {
     tags: [],
     type: 'Extension',
     url: 'https://addons.mozilla.org/firefox/addon/my-addon/',
+    edit_url: 'https://addons.mozilla.org/developers/addon/my-addon/edit',
+    review_url: 'https://addons.mozilla.org/en-US/editors/review/1865',
   };
 
   function render({props, state}) {
@@ -39,6 +41,8 @@ describe('AddonPage', () => {
           tags: ['foo-tag', 'bar-tag'],
           current_version: {
             version: '2.5-beta.1',
+            url: 'https://a.m.org/versions/2.5-beta.1',
+            edit_url: 'https://a.m.org/versions/2.5-beta.1/edit',
             files: [
               {
                 id: 54321,
@@ -80,8 +84,8 @@ describe('AddonPage', () => {
       const infoText = info.map((infum) => infum.textContent);
       assert.deepEqual(
         infoText,
-        ['Extension', 'Fully Reviewed', 'View on site', 'Edit on site', 'View homepage',
-         'Email support', 'View support site']);
+        ['Extension', 'Fully Reviewed', 'View on site', 'Edit on site', 'View on editors',
+         'View homepage', 'Email support', 'View support site']);
     });
 
     it('renders the AMO page as a link', () => {
@@ -129,7 +133,7 @@ describe('AddonPage', () => {
       const version = Array
         .from(root.querySelector('.addon--version-info').childNodes)
         .map((infum) => infum.textContent);
-      assert.deepEqual(version, ['2.5-beta.1']);
+      assert.deepEqual(version, ['2.5-beta.1', 'View on site', 'Edit on site']);
     });
 
     it('renders the file info', () => {
@@ -150,7 +154,7 @@ describe('AddonPage', () => {
       const infoText = info.map((infum) => infum.textContent);
       assert.deepEqual(
         infoText,
-        ['Extension', 'Fully Reviewed', 'View on site', 'Edit on site']);
+        ['Extension', 'Fully Reviewed', 'View on site', 'Edit on site', 'View on editors']);
     });
 
     it('does not render the tags', () => {

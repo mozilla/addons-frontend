@@ -8,10 +8,8 @@ import NotFound from 'core/components/NotFound';
 
 import './style.scss';
 
-const editRegExpHelper = new RegExp('/firefox/addon/');
-const editRegExpPath = '/developers/addon/';
-function editUrl(viewUrl) {
-  return `${viewUrl.replace(editRegExpHelper, editRegExpPath)}edit`;
+function siteLink(url, text) {
+  return <a href={url} target="_blank">{text}</a>;
 }
 
 class AddonPage extends React.Component {
@@ -28,8 +26,9 @@ class AddonPage extends React.Component {
     const items = [
       [addon.type, 'type'],
       [addon.status, 'status'],
-      [<a href={addon.url} target="_blank">{_('View on site')}</a>, 'url'],
-      [<a href={editUrl(addon.url)} target="_blank">{_('Edit on site')}</a>, 'edit'],
+      [siteLink(addon.url, _('View on site')), 'url'],
+      [siteLink(addon.edit_url, _('Edit on site')), 'edit'],
+      [siteLink(addon.review_url, _('View on editors')), 'editors'],
     ];
     if (addon.homepage) {
       items.push([
@@ -69,7 +68,11 @@ class AddonPage extends React.Component {
       return (
         <div className="addon--current-version">
           <h2>{_('Current version')}</h2>
-          {this.dataBar([[version.version, 'version']], 'version-info')}
+          {this.dataBar([
+            [version.version, 'version'],
+            [siteLink(version.url, _('View on site')), 'view'],
+            [siteLink(version.edit_url, _('Edit on site')), 'edit'],
+          ], 'version-info')}
           <h3>{_('Files')}</h3>
           <ul>
             {version.files.map((file) => (

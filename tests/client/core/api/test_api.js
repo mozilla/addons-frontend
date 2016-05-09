@@ -30,7 +30,8 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/addons/search/?q=foo&lang=en-US&page=3')
+        .withArgs(
+          'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&lang=en-US&page=3')
         .once()
         .returns(mockResponse());
       return api.search({query: 'foo', page: 3}).then(() => mockWindow.verify());

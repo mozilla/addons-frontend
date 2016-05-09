@@ -165,7 +165,8 @@ export function runServer({listen = true, app = appName} = {}) {
               reject(err);
             }
             log.info(`🔥  Addons-frontend server is running [ENV:${env}] [APP:${app}] ` +
-                     `[isDevelopment:${isDevelopment}] [isDeployed:${isDeployed}]`);
+                     `[isDevelopment:${isDevelopment}] [isDeployed:${isDeployed}] ` +
+                     `[apiHost:${config.get('apiHost')}] [apiPath:${config.get('apiPath')}]`);
             log.info(`👁  Open your browser at http://${host}:${port} to view it.`);
             resolve(server);
           });

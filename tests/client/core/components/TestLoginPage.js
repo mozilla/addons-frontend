@@ -2,7 +2,6 @@ import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
-import config from 'config';
 import LoginPage from 'core/components/LoginPage';
 
 describe('<LoginPage />', () => {
@@ -32,7 +31,9 @@ describe('<LoginPage />', () => {
   it('has a button to the login URL', () => {
     const root = render();
     const loginLink = root.querySelector('a');
-    assert.equal(loginLink.href, config.get('startLoginUrl'));
+    assert.equal(
+      loginLink.href,
+      'https://addons.mozilla.org/api/v3/internal/accounts/login/start/');
     assert.equal(loginLink.textContent, 'Login');
   });
 });
