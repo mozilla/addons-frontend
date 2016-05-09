@@ -2,29 +2,25 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import LoginPage from 'core/components/LoginPage';
 
-export function mapStateToProps(Component) {
-  return (state) => ({
+export function mapStateToProps(state) {
+  return {
     authenticated: !!state.auth.token,
-    Component,
-  });
+  };
 }
 
-export class LoginRequired extends React.Component {
+class LoginRequired extends React.Component {
   static propTypes = {
     authenticated: PropTypes.bool.isRequired,
-    // This is really a react component class but I guess that's a function.
-    Component: PropTypes.func.isRequired,
+    children: PropTypes.node,
   }
 
   render() {
-    const { authenticated, Component, ...childProps } = this.props;
+    const { authenticated, children } = this.props;
     if (authenticated) {
-      return <Component {...childProps} />;
+      return children;
     }
     return <LoginPage />;
   }
 }
 
-export default function loginRequired(Component) {
-  return connect(mapStateToProps(Component))(LoginRequired);
-}
+export default connect(mapStateToProps)(LoginRequired);
