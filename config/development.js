@@ -14,6 +14,8 @@ module.exports = {
   isDeployed: false,
   isDevelopment: true,
 
+  cookieSecure: false,
+
   serverPort: 3000,
   webpackServerHost,
   webpackServerPort,

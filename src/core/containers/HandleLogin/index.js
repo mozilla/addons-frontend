@@ -55,7 +55,7 @@ function createLoadData(dispatch) {
           dispatch(setJWT(token));
           cookie.save(config.get('cookieName'), token, {
             path: '/',
-            secure: true,
+            secure: config.get('cookieSecure'),
             maxAge: config.get('cookieMaxAge'),
           });
           router.push('/search');
