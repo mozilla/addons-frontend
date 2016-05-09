@@ -26,6 +26,7 @@ module.exports = {
   // 2592000 is 30 days in seconds.
   cookieMaxAge: 2592000,
   cookieName: 'jwt_api_auth_token',
+  cookieSecure: true,
 
   isDeployed: true,
   isDevelopment: false,
@@ -50,6 +51,7 @@ module.exports = {
     'apiPath',
     'cookieName',
     'cookieMaxAge',
+    'cookieSecure',
     'isDeployed',
     'isDevelopment',
   ],
