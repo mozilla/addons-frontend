@@ -8,7 +8,8 @@ export function mapStateToProps(state) {
   };
 }
 
-class LoginRequired extends React.Component {
+// This class is exported for testing outside of redux.
+export class LoginRequired extends React.Component {
   static propTypes = {
     authenticated: PropTypes.bool.isRequired,
     children: PropTypes.node,

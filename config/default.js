@@ -27,7 +27,6 @@ module.exports = {
   cookieMaxAge: 2592000,
   cookieName: 'jwt_api_auth_token',
   cookieSecure: true,
-  cookie: 'hi!',
 
   isDeployed: true,
   isDevelopment: false,
@@ -52,6 +51,7 @@ module.exports = {
     'apiPath',
     'cookieName',
     'cookieMaxAge',
+    'cookieSecure',
     'isDeployed',
     'isDevelopment',
   ],
