@@ -53,12 +53,6 @@ function createLoadData(dispatch) {
       return login({api, code, state})
         .then(({token}) => {
           dispatch(setJWT(token));
-          console.log(JSON.stringify({
-            cookieName: config.get('cookieName'),
-            cookieSecure: config.get('cookieSecure'),
-            cookieMaxAge: config.get('cookieMaxAge'),
-            cookie: config.get('cookie'),
-          }));
           cookie.save(config.get('cookieName'), token, {
             path: '/',
             secure: config.get('cookieSecure'),
