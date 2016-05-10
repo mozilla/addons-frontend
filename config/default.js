@@ -54,22 +54,40 @@ module.exports = {
     'isDevelopment',
   ],
 
-  // Content security policy.
+  // Content Security Policy.
+  // NOTE: This config should be overridden on a per app basis
+  // if you're not updating the config for all apps.
+  // NOTE: if a config contains a var, it must be set
+  // for all overriding configs.
   CSP: {
     directives: {
-      defaultSrc: ["'self'"],
+      defaultSrc: ["'none'"],
+      baseUri: ["'self'"],
+      childSrc: ["'none'"],
       connectSrc: [
         "'self'",
         apiHost,
       ],
+      formAction: ["'self'"],
+      frameSrc: ["'none'"],
+      frameAncestors: ["'none'"],
       imgSrc: [
         "'self'",
         amoCDN,
         'data:',
       ],
-      scriptSrc: ["'self'"],
-      styleSrc: ["'self'"],
+      mediaSrc: ["'none'"],
+      objectSrc: ["'none'"],
+      scriptSrc: [
+        "'self'",
+        amoCDN,
+      ],
+      styleSrc: [
+        "'self'",
+        amoCDN,
+      ],
       reportUri: '/__cspreport__',
+      upgradeInsecureRequests: true,
     },
 
     // Set to true if you only want browsers to report errors, not block them
