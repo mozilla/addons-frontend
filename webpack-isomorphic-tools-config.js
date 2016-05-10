@@ -24,7 +24,7 @@ module.exports = {
       parser: WebpackIsomorphicToolsPlugin.url_loader_parser,
     },
     svg: {
-      extension: 'svg',
+      extensions: ['svg'],
       parser: WebpackIsomorphicToolsPlugin.url_loader_parser,
     },
     style_modules: {

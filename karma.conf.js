@@ -40,6 +40,9 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
     }, {
       test: /\.scss$/,
       loader: 'style!css?importLoaders=2!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded',
+    }, {
+      test: /\.svg$/,
+      loader: 'url?limit=10000&mimetype=image/svg+xml',
     }],
   },
   output: undefined,

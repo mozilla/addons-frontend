@@ -65,6 +65,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         amoCDN,
+        'data:',
       ],
       scriptSrc: ["'self'"],
       styleSrc: ["'self'"],

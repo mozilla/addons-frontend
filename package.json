@@ -130,7 +130,8 @@
     "redux-async-connect": "1.0.0-rc4",
     "redux-logger": "2.6.1",
     "serialize-javascript": "1.2.0",
-    "url": "0.11.0"
+    "url": "0.11.0",
+    "url-loader": "0.5.7"
   },
   "devDependencies": {
     "autoprefixer-loader": "3.2.0",
