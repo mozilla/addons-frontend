@@ -45,14 +45,18 @@ $installStripeColor2: #00C42E;
 .switch {
   position: relative;
 
-  &.success:after {
+  &.installed:after {
+    background: url('../img/tick.svg') no-repeat 50% 50%;
     color: #fff;
-    content: '\2713';
+    content: '';
+    display: block;
     font-family: sans-serif;
+    height: 16px;
     left: $size;
     position: absolute;
     top: $size/2;
     transform: translate(-50%, -50%);
+    width: 16px;
   }
 
   input + label {
