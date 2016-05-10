@@ -13,7 +13,7 @@ describe('Config', () => {
     const config = requireUncached('config');
     const clientConfig = getClientConfig(config);
     assert.equal(config.get('apiHost'), 'https://addons.mozilla.org');
-    assert.include(clientConfig.startLoginUrl, 'https://addons.mozilla.org');
+    assert.equal(clientConfig.apiHost, 'https://addons.mozilla.org');
     assert.equal(config.util.getEnv('NODE_ENV'), 'production');
   });
 
@@ -22,7 +22,7 @@ describe('Config', () => {
     const config = requireUncached('config');
     const clientConfig = getClientConfig(config);
     assert.equal(config.get('apiHost'), 'https://addons-dev.allizom.org');
-    assert.include(clientConfig.startLoginUrl, 'https://addons-dev.allizom.org');
+    assert.equal(clientConfig.apiHost, 'https://addons-dev.allizom.org');
     assert.equal(config.util.getEnv('NODE_ENV'), 'dev');
   });
 
@@ -31,7 +31,7 @@ describe('Config', () => {
     const config = requireUncached('config');
     const clientConfig = getClientConfig(config);
     assert.equal(config.get('apiHost'), 'https://addons.allizom.org');
-    assert.include(clientConfig.startLoginUrl, 'https://addons.allizom.org');
+    assert.equal(clientConfig.apiHost, 'https://addons.allizom.org');
     assert.equal(config.util.getEnv('NODE_ENV'), 'stage');
   });
 
@@ -40,7 +40,7 @@ describe('Config', () => {
     const config = requireUncached('config');
     const clientConfig = getClientConfig(config);
     assert.equal(config.get('apiHost'), 'https://addons-dev.allizom.org');
-    assert.include(clientConfig.startLoginUrl, 'https://addons-dev.allizom.org');
+    assert.equal(clientConfig.apiHost, 'https://addons-dev.allizom.org');
     assert.equal(config.util.getEnv('NODE_ENV'), 'development');
   });
 });

@@ -5,6 +5,7 @@ env:
   matrix:
   - TASK=lint
   - TASK=unittest GUI=1
+  - TASK=servertest
 cache:
   directories:
   - node_modules
