@@ -7,6 +7,8 @@ import { createStore } from 'redux';
 import HandleLogin, { mapDispatchToProps } from 'core/containers/HandleLogin';
 import * as api from 'core/api';
 
+import config from 'config';
+
 describe('<HandleLogin />', () => {
   let sandbox;
 
@@ -139,6 +141,13 @@ describe('<HandleLogin />', () => {
       const { apiConfig, dispatch, location, payload: {token}, router } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
       const mockCookie = sandbox.mock(cookie);
+        console.log(JSON.stringify({
+          tests: true,
+          cookieName: config.get('cookieName'),
+          cookieSecure: config.get('cookieSecure'),
+          cookieMaxAge: config.get('cookieMaxAge'),
+          cookie: config.get('cookie'),
+        }));
       mockCookie.expects('save').once().withArgs(
         'jwt_api_auth_token', token, {path: '/', secure: true, maxAge: 2592000});
       return loadData({api: apiConfig, location, router}).then(() => {
