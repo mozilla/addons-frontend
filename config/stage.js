@@ -19,6 +19,14 @@ module.exports = {
         "'self'",
         amoCDN,
       ],
+      scriptSrc: [
+        "'self'",
+        amoCDN,
+      ],
+      styleSrc: [
+        "'self'",
+        amoCDN,
+      ],
     },
   },
 };

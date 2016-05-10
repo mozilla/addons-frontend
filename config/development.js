@@ -26,12 +26,19 @@ module.exports = {
         amoCDN,
         webpackHost,
       ],
+      imgSrc: [
+        "'self'",
+        webpackHost,
+      ],
       scriptSrc: [
         "'self'",
         amoCDN,
         webpackHost,
       ],
-      styleSrc: ["'self'", 'blob:'],
+      styleSrc: [
+        "'self'",
+        'blob:',
+      ],
     },
     reportOnly: true,
   },
