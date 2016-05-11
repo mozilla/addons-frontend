@@ -63,7 +63,7 @@
       }
     },
     "servertest": {
-      "command": "mocha --compilers js:babel-register tests/server/",
+      "command": "mocha --compilers js:babel-register --timeout 3000 tests/server/",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production"
