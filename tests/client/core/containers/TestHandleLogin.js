@@ -150,7 +150,11 @@ describe('<HandleLogin />', () => {
       const { apiConfig, dispatch, location, router } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
       const mockRouter = sandbox.mock(router);
-      mockRouter.expects('push').once().withArgs('/search').returns(null);
+      mockRouter
+        .expects('push')
+        .once()
+        .withArgs('/search')
+        .returns(null);
       return loadData({api: apiConfig, location, router}).then(() => {
         mockRouter.verify();
       });
