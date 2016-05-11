@@ -41,7 +41,7 @@ export class InstallButton extends React.Component {
   render() {
     const { status, downloadProgress } = this.props;
 
-    if (validStates.indexOf(status) === -1) {
+    if (!validStates.includes(state)) {
       throw new Error('Invalid add-on status');
     }
 

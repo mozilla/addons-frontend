@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+
 import fs from 'fs';
 import Express from 'express';
 import helmet from 'helmet';
