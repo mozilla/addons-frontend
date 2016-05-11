@@ -33,3 +33,16 @@ export const validThemeActions = [
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
 ];
+
+export const installEventList = [
+  'onDownloadStarted',
+  'onDownloadProgress',
+  'onDownloadEnded',
+  'onDownloadCancelled',
+  'onDownloadFailed',
+  'onInstallStarted',
+  'onInstallProgress',
+  'onInstallEnded',
+  'onInstallCancelled',
+  'onInstallFailed',
+];
