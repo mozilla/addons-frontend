@@ -19,13 +19,15 @@ const acceptedTypes = [
 ];
 
 export default function installations(state = {}, { type, payload }) {
-  if (!acceptedTypes.includes(type)) {
+  if (acceptedTypes.indexOf(type) === -1) {
     return state;
   }
-  const newState = {...state};
-  const addon = newState[payload.slug];
+  let addon;
+  if (state[payload.slug]) {
+    addon = {...state[payload.slug]};
+  }
   if (type === 'INSTALL_STATE') {
-    newState[payload.slug] = {
+    addon = {
       slug: payload.slug,
       guid: payload.guid,
       url: payload.url,
@@ -33,24 +35,27 @@ export default function installations(state = {}, { type, payload }) {
       status: payload.status,
     };
   } else if (type === 'START_DOWNLOAD') {
-    newState[payload.slug].status = DOWNLOADING;
+    addon.status = DOWNLOADING;
   } else if (type === 'DOWNLOAD_PROGRESS') {
-    newState[payload.slug].downloadProgress = payload.downloadProgress;
+    addon.downloadProgress = payload.downloadProgress;
   } else if (type === 'START_INSTALL') {
     addon.downloadProgress = 100;
     addon.status = INSTALLING;
   } else if (type === 'INSTALL_COMPLETE') {
-    newState[payload.slug].status = INSTALLED;
+    addon.status = INSTALLED;
   } else if (type === 'START_UNINSTALL') {
     addon.downloadProgress = 0;
     addon.status = UNINSTALLING;
   } else if (type === 'UNINSTALL_COMPLETE') {
-    newState[payload.slug].status = UNINSTALLED;
+    addon.status = UNINSTALLED;
   /* istanbul ignore else */
   } else if (type === 'INSTALL_ERROR') {
     addon.downloadProgress = 0;
     addon.status = ERROR;
     addon.error = payload.error;
   }
-  return newState;
+  return {
+    ...state,
+    [payload.slug]: addon,
+  };
 }
