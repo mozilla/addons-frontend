@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import themeAction from 'disco/themePreview';
 import { gettext as _ } from 'core/utils';
 
-import InstallButton from './InstallButton';
+import InstallButton from 'disco/containers/InstallButton';
 import {
   validAddonTypes,
   EXTENSION_TYPE,
@@ -24,6 +24,7 @@ export default class Addon extends React.Component {
     heading: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     subHeading: PropTypes.string,
     textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
@@ -82,7 +83,7 @@ export default class Addon extends React.Component {
   }
 
   render() {
-    const { heading, subHeading, type } = this.props;
+    const { heading, slug, subHeading, type } = this.props;
 
     if (validAddonTypes.indexOf(type) === -1) {
       throw new Error('Invalid addon type');
@@ -105,7 +106,7 @@ export default class Addon extends React.Component {
                dangerouslySetInnerHTML={this.getDescription()} />
           </div>
           <div className="install-button">
-            <InstallButton />
+            <InstallButton slug={slug} />
           </div>
         </div>
       </div>

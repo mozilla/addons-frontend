@@ -1,10 +1,20 @@
 // Addon States.
 export const DOWNLOADING = 'downloading';
+export const ERROR = 'error';
 export const INSTALLED = 'installed';
 export const INSTALLING = 'installing';
 export const UNINSTALLED = 'uninstalled';
 export const UNINSTALLING = 'uninstalling';
 export const UNKNOWN = 'unknown';
+export const validInstallStates = [
+  DOWNLOADING,
+  ERROR,
+  INSTALLED,
+  INSTALLING,
+  UNINSTALLED,
+  UNINSTALLING,
+  UNKNOWN,
+];
 
 // Add-on types.
 export const THEME_TYPE = 'Theme';

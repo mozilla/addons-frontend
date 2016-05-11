@@ -1,6 +1,12 @@
 import React from 'react';
-import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
+import {
+  findRenderedComponentWithType,
+  renderIntoDocument,
+  Simulate,
+} from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import Addon from 'disco/components/Addon';
 
 import { THEME_PREVIEW, THEME_RESET_PREVIEW } from 'disco/constants';
@@ -10,15 +16,26 @@ const result = {
   id: 'test-id',
   type: 'Extension',
   heading: 'test-heading',
+  slug: 'test-slug',
   subHeading: 'test-sub-heading',
   editorialDescription: 'test-editorial-description',
 };
+
+const store = createStore((s) => s, {installations: {}});
+
+function renderAddon(data) {
+  return findRenderedComponentWithType(renderIntoDocument(
+    <Provider store={store}>
+      <Addon {...data} />
+    </Provider>
+  ), Addon);
+}
 
 describe('<Addon type="Extension"/>', () => {
   let root;
 
   beforeEach(() => {
-    root = renderIntoDocument(<Addon {...result} />);
+    root = renderAddon(result);
   });
 
   it('renders the heading', () => {
@@ -35,7 +52,7 @@ describe('<Addon type="Extension"/>', () => {
 
   it("doesn't render the subheading when not present", () => {
     const data = {...result, subHeading: undefined};
-    root = renderIntoDocument(<Addon {...data} />);
+    root = renderAddon(data);
     assert.notEqual(root.refs.heading.textContent, 'test-sub-heading');
   });
 
@@ -51,7 +68,7 @@ describe('<Addon type="Extension"/>', () => {
     assert.include(root.refs.heading.textContent, 'test-heading');
     const data = {...result, type: 'Whatever'};
     assert.throws(() => {
-      renderIntoDocument(<Addon {...data} />);
+      renderAddon(data);
     }, Error, 'Invalid addon type');
   });
 });
@@ -62,7 +79,7 @@ describe('<Addon type="Theme"/>', () => {
 
   beforeEach(() => {
     const data = {...result, type: 'Theme'};
-    root = renderIntoDocument(<Addon {...data} />);
+    root = renderAddon(data);
   });
 
   it('does render the theme image for a theme', () => {
@@ -83,7 +100,7 @@ describe('Theme Previews', () => {
   beforeEach(() => {
     themeAction = sinon.stub();
     const data = {...result, type: 'Theme', themeAction};
-    root = renderIntoDocument(<Addon {...data} />);
+    root = renderAddon(data);
     themeImage = findDOMNode(root).querySelector('.theme-image');
   });
 
