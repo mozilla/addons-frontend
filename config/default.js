@@ -89,7 +89,6 @@ module.exports = {
         amoCDN,
       ],
       reportUri: '/__cspreport__',
-      upgradeInsecureRequests: true,
     },
 
     // Set to true if you only want browsers to report errors, not block them
