@@ -53,8 +53,24 @@ describe('AddonManager', () => {
     it('should call mozAddonManager.getAddonByID() with id', () => {
       const addonManager = new AddonManager('test-id', fakeInstallUrl, fakeCallback,
                                             {mozAddonManager: fakeMozAddonManager});
-      addonManager.getAddon();
-      assert.ok(fakeMozAddonManager.getAddonByID.calledWith('test-id'));
+      fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
+      return addonManager.getAddon()
+        .then(() => {
+          assert.ok(fakeMozAddonManager.getAddonByID.calledWith('test-id'));
+        });
+    });
+
+    it('should reject if mozAddonManager.getAddonByID() resolves with falsey addon', () => {
+      const addonManager = new AddonManager('test-id', fakeInstallUrl, fakeCallback,
+                                            {mozAddonManager: fakeMozAddonManager});
+      fakeMozAddonManager.getAddonByID.returns(Promise.resolve(false));
+      return addonManager.getAddon()
+        .then(() => {
+          assert.fail('unexpected success');
+        })
+        .catch((err) => {
+          assert.equal(err.message, 'Addon not found');
+        });
     });
   });
 
@@ -86,12 +102,18 @@ describe('AddonManager', () => {
   });
 
   describe('uninstall()', () => {
-    it('should call just resolve if getAddonByID resolves with falsey value', () => {
+    it('should reject if getAddonByID resolves with falsey value', () => {
       const addonManager = new AddonManager('test-id', fakeInstallUrl, fakeCallback,
                                             {mozAddonManager: fakeMozAddonManager});
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(false));
       // If the code doesn't resolve this will blow up.
-      return addonManager.uninstall();
+      return addonManager.uninstall()
+        .then(() => {
+          assert.fail('unexpected success');
+        })
+        .catch((err) => {
+          assert.equal(err.message, 'Addon not found');
+        });
     });
 
     it('should reject if addon.uninstall resolves with false', () => {

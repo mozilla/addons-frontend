@@ -17,9 +17,14 @@ export class AddonManager {
   }
 
   getAddon() {
-    // Resolves a promise with the addon.
-    // This will be falsey if the addon wasn't found.
-    return this.mozAddonManager.getAddonByID(this.id);
+    // Resolves a promise with the addon on success.
+    return this.mozAddonManager.getAddonByID(this.id)
+      .then((addon) => {
+        if (!addon) {
+          return Promise.reject(new Error('Addon not found'));
+        }
+        return Promise.resolve(addon);
+      });
   }
 
   install() {
@@ -34,15 +39,7 @@ export class AddonManager {
 
   uninstall() {
     return this.getAddon()
-      // eslint-disable-next-line consistent-return
       .then((addon) => {
-        if (!addon) {
-          // eslint-disable-next-line no-console
-          console.warn('Addon not found no-op.');
-          // If the addon doesn't exist then there's nothing
-          // to uninstall.
-          return Promise.resolve();
-        }
         const addonUninstall = addon.uninstall();
         return addonUninstall
           .then((result) => {
