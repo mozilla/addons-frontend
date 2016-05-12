@@ -39,19 +39,15 @@ export class AddonManager {
 
   uninstall() {
     return this.getAddon()
-      .then((addon) => {
-        const addonUninstall = addon.uninstall();
-        return addonUninstall
-          .then((result) => {
-            // Until bug 1268075 this will resolve with a boolean
-            // for success and failure.
-            if (result === false) {
-              return Promise.reject(new Error('Uninstall failed'));
-            }
-            // If uninstallation succeeded return the original
-            // promise.
-            return addonUninstall;
-          });
+      .then((addon) => addon.uninstall())
+      .then((result) => {
+        // Until bug 1268075 this will resolve with a boolean
+        // for success and failure.
+        if (result === false) {
+          return Promise.reject(new Error('Uninstall failed'));
+        }
+        // eslint-disable-next-line consistent-return
+        return;
       });
   }
 }

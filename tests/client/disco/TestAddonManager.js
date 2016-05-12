@@ -40,7 +40,7 @@ describe('AddonManager', () => {
   });
 
   describe('handleEvent()', () => {
-    it('should provide eventCallBack with event and id', () => {
+    it('should provide eventCallback with event and id', () => {
       const addonManager = new AddonManager('test-id', fakeInstallUrl, fakeCallback,
                                             {mozAddonManager: fakeMozAddonManager});
       const fakeEvent = {type: 'fakeEvent'};
