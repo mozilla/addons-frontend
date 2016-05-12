@@ -8,6 +8,7 @@ import 'isomorphic-fetch';
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
 const addon = new Schema('addons', {idAttribute: 'slug'});
+const user = new Schema('users', {idAttribute: 'username'});
 
 function makeQueryString(query) {
   return url.format({query});
@@ -76,4 +77,14 @@ export function login({ api, code, state }) {
 
 export function startLoginUrl() {
   return `${API_BASE}/internal/accounts/login/start/`;
+}
+
+export function fetchProfile({ api }) {
+  return callApi({
+    endpoint: 'accounts/profile',
+    schema: user,
+    params: {lang: 'en-US'},
+    auth: true,
+    state: api,
+  });
 }

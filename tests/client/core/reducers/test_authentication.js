@@ -14,4 +14,16 @@ describe('authentication reducer', () => {
     const token = 'json.WEB.t0k3n';
     assert.deepEqual(auth(undefined, {type: 'SET_JWT', payload: {token}}), {token});
   });
+
+  it('sets the user on SET_CURRENT_USER', () => {
+    const username = 'my-username';
+    assert.deepEqual(auth(undefined, {type: 'SET_CURRENT_USER', payload: {username}}), {username});
+  });
+
+  it('maintains the token when adding a username', () => {
+    const username = 'name-of-user';
+    assert.deepEqual(
+      auth({token: 'foo'}, {type: 'SET_CURRENT_USER', payload: {username}}),
+      {token: 'foo', username});
+  });
 });
