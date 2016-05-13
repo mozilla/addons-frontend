@@ -6,6 +6,9 @@ import AddonPage, { findAddon, loadAddonIfNeeded } from 'search/containers/Addon
 import createStore from 'search/store';
 import * as api from 'core/api';
 import * as actions from 'search/actions';
+import * as addonManager from 'disco/addonManager';
+
+const AddonManager = addonManager.AddonManager;
 
 describe('AddonPage', () => {
   const basicAddon = {
@@ -20,6 +23,25 @@ describe('AddonPage', () => {
     edit_url: 'https://addons.mozilla.org/developers/addon/my-addon/edit',
     review_url: 'https://addons.mozilla.org/en-US/editors/review/1865',
   };
+  let sandbox;
+
+  function stubAddonManager({ getAddon = Promise.resolve() } = {}) {
+    const instance = sinon.createStubInstance(AddonManager);
+    instance.getAddon = sandbox.stub().returns(getAddon);
+    const mockAddonManager = sandbox.spy(() => instance);
+    sandbox.stub(addonManager, 'AddonManager', mockAddonManager);
+    return instance;
+  }
+
+  beforeEach(() => {
+    sandbox = sinon.sandbox.create();
+    stubAddonManager();
+  });
+
+  afterEach(() => {
+    sandbox.restore();
+    sandbox = null;
+  });
 
   function render({props, state}) {
     const store = createStore(state);
@@ -57,8 +79,13 @@ describe('AddonPage', () => {
         },
       },
     };
+    let root;
+    let info;
 
-    const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
+    beforeEach(() => {
+      root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
+      info = Array.from(root.querySelector('.addon--info').childNodes);
+    });
 
     it('renders the name', () => {
       assert.equal(root.querySelector('h1').textContent, 'Addon!');
@@ -79,7 +106,6 @@ describe('AddonPage', () => {
       assert.deepEqual(tagText, ['foo-tag', 'bar-tag']);
     });
 
-    const info = Array.from(root.querySelector('.addon--info').childNodes);
     it('renders the addon info', () => {
       const infoText = info.map((infum) => infum.textContent);
       assert.deepEqual(
@@ -147,7 +173,11 @@ describe('AddonPage', () => {
 
   describe('optional fields', () => {
     const initialState = {addons: {'my-addon': basicAddon}};
-    const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
+    let root;
+
+    beforeEach(() => {
+      root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
+    });
 
     it('does not render the info', () => {
       const info = Array.from(root.querySelector('.addon--info').childNodes);
@@ -177,9 +207,9 @@ describe('AddonPage', () => {
         },
       },
     };
-    const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
 
     it('does not render the version', () => {
+      const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
       assert.strictEqual(root.querySelector('.addon--current-version'), null);
     });
   });

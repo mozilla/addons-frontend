@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { gettext as _ } from 'core/utils';
 
 import 'disco/css/InstallButton.scss';
+import { AddonManager } from 'disco/addonManager';
 import {
   DOWNLOADING,
   INSTALLED,
@@ -17,7 +18,9 @@ export class InstallButton extends React.Component {
     install: PropTypes.func,
     uninstall: PropTypes.func,
     handleChange: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
+    installUrl: PropTypes.string,
     url: PropTypes.string,
     downloadProgress: PropTypes.number,
     slug: PropTypes.string.isRequired,
@@ -29,12 +32,53 @@ export class InstallButton extends React.Component {
     downloadProgress: 0,
   }
 
+  componentDidMount() {
+    const { dispatch, guid, installUrl, slug } = this.props;
+    this.addonManager = new AddonManager(guid, installUrl, this.statusChanged);
+    this.addonManager.getAddon().then(() => {
+      dispatch({
+        type: 'INSTALL_STATE',
+        payload: {slug, guid, url: installUrl, status: INSTALLED}});
+    }, () => {
+      dispatch({
+        type: 'INSTALL_STATE',
+        payload: {slug, guid, url: installUrl, status: UNINSTALLED}});
+    });
+  }
+
+  statusChanged = (addonInstall) => {
+    const { dispatch, slug } = this.props;
+    if (addonInstall.state === 'STATE_DOWNLOADING') {
+      const downloadProgress = parseInt(
+        100 * addonInstall.progress / addonInstall.maxProgress, 10);
+      dispatch({type: 'DOWNLOAD_PROGRESS', payload: {slug, downloadProgress}});
+    } else if (addonInstall.state === 'STATE_INSTALLING') {
+      dispatch({type: 'START_INSTALL', payload: {slug}});
+    } else if (addonInstall.state === 'STATE_INSTALLED') {
+      dispatch({type: 'INSTALL_COMPLETE', payload: {slug}});
+    }
+  }
+
+  install() {
+    const { dispatch, slug } = this.props;
+    dispatch({type: 'START_DOWNLOAD', payload: {slug}});
+    this.addonManager.install();
+  }
+
+  uninstall() {
+    const { dispatch, slug } = this.props;
+    dispatch({type: 'START_UNINSTALL', payload: {slug}});
+    this.addonManager
+      .uninstall()
+      .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {slug}}));
+  }
+
   handleClick = () => {
     const { status } = this.props;
     if (status === UNINSTALLED) {
-      this.props.install();
+      this.install();
     } else if (status === INSTALLED) {
-      this.props.uninstall();
+      this.uninstall();
     }
   }
 
@@ -71,39 +115,9 @@ export class InstallButton extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  return (state.installations || {})[ownProps.slug] || {};
+  const installation = (state.installations || {})[ownProps.slug] || {};
+  const addon = (state.addons || {})[ownProps.slug] || {};
+  return {...installation, ...addon};
 }
 
-export function mapDispatchToProps(dispatch, ownProps) {
-  const { slug } = ownProps;
-  const url = 'foo';
-  const guid = 'foo@foo.com';
-  dispatch({type: 'INSTALL_STATE', payload: {slug, guid, url, status: UNINSTALLED}});
-  /* istanbul ignore next */
-  return {
-    install() {
-      dispatch({type: 'START_DOWNLOAD', payload: {slug, guid, url}});
-      let downloadProgress = 0;
-      const downloading = setInterval(() => {
-        downloadProgress += Math.ceil(Math.random() * 10 + 15);
-        downloadProgress = Math.min(downloadProgress, 100);
-        dispatch({type: 'DOWNLOAD_PROGRESS', payload: {slug, downloadProgress}});
-        if (downloadProgress >= 100) {
-          clearInterval(downloading);
-          dispatch({type: 'START_INSTALL', payload: {slug}});
-          setTimeout(() => {
-            dispatch({type: 'INSTALL_COMPLETE', payload: {slug}});
-          }, 5000);
-        }
-      }, 500);
-    },
-    uninstall() {
-      dispatch({type: 'START_UNINSTALL', payload: {slug}});
-      setTimeout(() => {
-        dispatch({type: 'UNINSTALL_COMPLETE', payload: {slug}});
-      }, 5000);
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(InstallButton);
+export default connect(mapStateToProps)(InstallButton);

@@ -12,10 +12,6 @@ export class AddonManager {
     this.eventCallback = eventCallback;
   }
 
-  handleEvent = (e) => {
-    this.eventCallback(e, this.id);
-  }
-
   getAddon() {
     // Resolves a promise with the addon on success.
     return this.mozAddonManager.getAddonByID(this.id)
@@ -30,8 +26,9 @@ export class AddonManager {
   install() {
     return this.mozAddonManager.createInstall({url: this.url})
       .then((installObj) => {
+        const callback = (e) => this.eventCallback(installObj, e, this.id);
         for (const event of installEventList) {
-          installObj.addEventListener(event, this.handleEvent);
+          installObj.addEventListener(event, callback);
         }
         return installObj.install();
       });

@@ -4,16 +4,11 @@ import { asyncConnect } from 'redux-async-connect';
 import { gettext as _, camelCaseProps } from 'core/utils';
 
 import Addon from 'disco/components/Addon';
-import fakeData from 'disco/fakeData';
 
 
 class DiscoPane extends React.Component {
   static propTypes = {
     results: PropTypes.arrayOf(PropTypes.object),
-  }
-
-  static defaultProps = {
-    results: fakeData.results,
   }
 
   render() {
@@ -45,7 +40,14 @@ function loadDataIfNeeded() {
   return Promise.resolve();
 }
 
+function mapStateToProps(state) {
+  const { addons } = state;
+  return {
+    results: [addons['japanese-tattoo'], addons.noscript, addons.easyscreenshot],
+  };
+}
+
 export default asyncConnect([{
   deferred: true,
   promise: loadDataIfNeeded,
-}])(connect()(DiscoPane));
+}])(connect(mapStateToProps)(DiscoPane));
