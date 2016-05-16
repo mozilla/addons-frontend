@@ -6,6 +6,8 @@ import { gettext as _ } from 'core/utils';
 import InstallButton from 'disco/containers/InstallButton';
 import {
   validAddonTypes,
+  validInstallStates,
+  ERROR,
   EXTENSION_TYPE,
   THEME_TYPE,
   THEME_PREVIEW,
@@ -18,7 +20,9 @@ import 'disco/css/Addon.scss';
 export default class Addon extends React.Component {
   static propTypes = {
     accentcolor: PropTypes.string,
+    closeErrorAction: PropTypes.func,
     editorialDescription: PropTypes.string.isRequired,
+    errorMessage: PropTypes.string,
     footerURL: PropTypes.string,
     headerURL: PropTypes.string,
     heading: PropTypes.string.isRequired,
@@ -26,6 +30,7 @@ export default class Addon extends React.Component {
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     subHeading: PropTypes.string,
+    status: PropTypes.oneOf(validInstallStates).isRequired,
     textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     themeAction: PropTypes.func,
@@ -39,6 +44,15 @@ export default class Addon extends React.Component {
   getBrowserThemeData() {
     const { id, name, headerURL, footerURL, textcolor, accentcolor } = this.props;
     return JSON.stringify({id, name, headerURL, footerURL, textcolor, accentcolor});
+  }
+
+  getError() {
+    const { status } = this.props;
+    const errorMessage = this.props.errorMessage || _('An unexpected error occurred');
+    return status === ERROR ? (<div className="error">
+      <p className="message">{errorMessage}</p>
+      <a className="close" href="#" onClick={this.props.closeErrorAction}>Close</a>
+    </div>) : null;
   }
 
   getLogo() {
@@ -96,8 +110,9 @@ export default class Addon extends React.Component {
     return (
       <div className={addonClasses}>
         {this.getThemeImage()}
+        {this.getLogo()}
         <div className="content">
-          {this.getLogo()}
+          {this.getError()}
           <div className="copy">
             <h2 ref="heading" className="heading">{heading} {subHeading ?
               <span ref="sub-heading" className="sub-heading">{subHeading}</span> : null}</h2>
