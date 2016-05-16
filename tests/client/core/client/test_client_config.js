@@ -1,4 +1,4 @@
-import { ClientConfig } from 'client-config';
+import { ClientConfig } from 'core/client/config';
 
 describe('client-config module', () => {
   let config;

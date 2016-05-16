@@ -8,7 +8,6 @@ import cookie from 'react-cookie';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import ReactHelmet from 'react-helmet';
-import bunyan from 'bunyan';
 
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
@@ -20,6 +19,8 @@ import ServerHtml from 'core/containers/ServerHtml';
 
 import config from 'config';
 import { setJWT } from 'core/actions';
+import log from 'core/logger';
+
 
 const env = config.util.getEnv('NODE_ENV');
 const isDeployed = config.get('isDeployed');
@@ -28,11 +29,6 @@ const isDevelopment = config.get('isDevelopment');
 const errorString = 'Internal Server Error';
 const appName = config.get('appName');
 
-const log = bunyan.createLogger({
-  name: 'server',
-  app: appName,
-  serializers: bunyan.stdSerializers,
-});
 
 function logRequests(req, res, next) {
   const start = new Date();

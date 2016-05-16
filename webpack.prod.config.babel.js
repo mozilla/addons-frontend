@@ -55,7 +55,9 @@ export default {
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     // Replaces server config module with the subset clientConfig object.
-    new webpack.NormalModuleReplacementPlugin(/config$/, 'client-config.js'),
+    new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
+    // Substitutes client only config.
+    new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
     new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
     new SriStatsPlugin({
       algorithm: 'sha512',
@@ -70,6 +72,7 @@ export default {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
+        drop_console: true,
       },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
