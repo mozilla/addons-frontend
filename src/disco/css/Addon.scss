@@ -2,8 +2,6 @@
 @import "~core/css/inc/mixins";
 
 $addon-padding: 20px;
-$primary-text-color: #000;
-$secondary-text-color: #6a6a6a;
 
 .addon {
   background: #fff;
@@ -51,20 +49,20 @@ $secondary-text-color: #6a6a6a;
       flex-grow: 1;
 
       .heading {
-        color: $primary-text-color;
+        color: $primary-font-color;
         font-size: 18px;
         font-weight: medium;
         margin: 0;
 
         .sub-heading {
-          color: $secondary-text-color;
+          color: $secondary-font-color;
           font-size: 14px;
           font-weight: normal;
         }
       }
 
       .editorial-description {
-        color: $secondary-text-color;
+        color: $secondary-font-color;
         font-size: 12px;
         margin: 0.5em 0;
       }

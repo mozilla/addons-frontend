@@ -1,7 +1,7 @@
 @import "~normalize.css";
 @import "~core/css/inc/lib";
+@import "~disco/css/inc/vars";
 
-$page-background: #f5f5f5;
 
 html,
 body {
@@ -30,7 +30,7 @@ img {
 
 header {
   display: flex;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 1px solid $header-border-color;
   flex-direction: row;
   margin-bottom: 40px;
   padding-bottom: 40px;
@@ -40,12 +40,18 @@ header {
   }
 
   h1 {
+    color: $primary-font-color;
     display: block;
-    letter-spacing: 0.11ex;
-    line-height: 1.5;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
+    line-height: 1.5;
     margin: 0 0 20px;
+  }
+
+  p {
+    color: $header-copy-font-color;
+    font-size: 14px;
+    line-height: 1.28;
   }
 
   p:last-child {
