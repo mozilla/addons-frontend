@@ -1,3 +1,6 @@
+@import "~disco/css/inc/vars";
+@import "~core/css/inc/mixins";
+
 $size: 26px;
 $borderSize: 1px;
 
@@ -57,6 +60,10 @@ $installStripeColor2: #00C42E;
     top: $size/2;
     transform: translate(-50%, -50%);
     width: 16px;
+  }
+
+  input:focus + label {
+    @include focus();
   }
 
   input + label {

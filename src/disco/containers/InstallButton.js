@@ -39,7 +39,7 @@ export class InstallButton extends React.Component {
   }
 
   render() {
-    const { status, downloadProgress } = this.props;
+    const { downloadProgress, slug, status } = this.props;
 
     if (!validStates.includes(status)) {
       throw new Error('Invalid add-on status');
@@ -54,12 +54,13 @@ export class InstallButton extends React.Component {
       <div className={switchClasses} onClick={this.handleClick}
         data-download-progress={isDownloading ? downloadProgress : 0}>
         <input
+          id={slug}
           className="visually-hidden"
           checked={isInstalled}
           disabled={isDisabled}
           onChange={this.props.handleChange}
           type="checkbox" />
-        <label>
+        <label htmlFor={slug}>
           {isDownloading ? <div className="progress"></div> : null}
           <span className="visually-hidden">{_('Install')}</span>
         </label>
