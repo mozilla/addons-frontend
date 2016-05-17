@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Addon from 'disco/components/Addon';
 
-import { THEME_PREVIEW, THEME_RESET_PREVIEW } from 'disco/constants';
+import { ERROR, THEME_PREVIEW, THEME_RESET_PREVIEW } from 'disco/constants';
 
 
 const result = {
@@ -36,6 +36,21 @@ describe('<Addon type="Extension"/>', () => {
 
   beforeEach(() => {
     root = renderAddon(result);
+  });
+
+  it('renders an error overlay', () => {
+    const data = {...result, status: ERROR,
+      errorMessage: 'this is an error', closeErrorAction: sinon.stub()};
+    root = renderAddon(data);
+    const error = findDOMNode(root).querySelector('.error');
+    assert.equal(error.querySelector('p').textContent, 'this is an error',
+                 'error message should be present');
+    Simulate.click(error.querySelector('.close'));
+    assert.ok(data.closeErrorAction.called, 'close link action should be called');
+  });
+
+  it('does not normally render an error', () => {
+    assert.notOk(findDOMNode(root).querySelector('.error'));
   });
 
   it('renders the heading', () => {
