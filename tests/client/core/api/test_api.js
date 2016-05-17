@@ -7,10 +7,6 @@ describe('api', () => {
     mockWindow = sinon.mock(window);
   });
 
-  afterEach(() => {
-    mockWindow.restore();
-  });
-
   describe('search api', () => {
     function mockResponse() {
       return Promise.resolve({

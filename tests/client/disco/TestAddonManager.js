@@ -8,28 +8,22 @@ describe('AddonManager', () => {
   let fakeInstallObj;
   let fakeInstallUrl;
   let fakeMozAddonManager;
-  let sandbox;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
-    fakeCallback = sandbox.stub();
+    fakeCallback = sinon.stub();
     fakeInstallUrl = 'https://fake-install-url';
     fakeAddon = {
-      uninstall: sandbox.stub(),
+      uninstall: sinon.stub(),
     };
     fakeInstallObj = {
-      addEventListener: sandbox.stub(),
-      install: sandbox.stub(),
+      addEventListener: sinon.stub(),
+      install: sinon.stub(),
     };
     fakeMozAddonManager = {
-      createInstall: sandbox.stub(),
-      getAddonByID: sandbox.stub(),
+      createInstall: sinon.stub(),
+      getAddonByID: sinon.stub(),
     };
     fakeMozAddonManager.createInstall.returns(Promise.resolve(fakeInstallObj));
-  });
-
-  afterEach(() => {
-    sandbox.restore();
   });
 
   it('should throw if mozAddonManager is not provided', () => {
