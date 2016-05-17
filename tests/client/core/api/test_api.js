@@ -143,4 +143,26 @@ describe('api', () => {
       });
     });
   });
+
+  describe('fetchProfile', () => {
+    it("requests the user's profile", () => {
+      const token = 'the.jwt.string';
+      const user = {username: 'foo', email: 'foo@example.com'};
+      mockWindow
+        .expects('fetch')
+        .withArgs('https://addons.mozilla.org/api/v3/accounts/profile/?lang=en-US', {
+          headers: {authorization: `Bearer ${token}`},
+          method: 'get',
+        })
+        .once()
+        .returns(Promise.resolve({
+          ok: true,
+          json() { return user; },
+        }));
+      return api.fetchProfile({api: {token}}).then((apiResponse) => {
+        assert.deepEqual(apiResponse, {entities: {users: {foo: user}}, result: 'foo'});
+        mockWindow.verify();
+      });
+    });
+  });
 });
