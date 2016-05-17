@@ -212,7 +212,7 @@ describe('<InstallButton />', () => {
     const dispatch = sandbox.spy();
     const slug = 'my-addon';
     const button = renderButton({dispatch, slug, status: INSTALLING});
-    button.statusChanged({state: 'STATE_INSTALLED'})
+    button.statusChanged({state: 'STATE_INSTALLED'});
     assert(dispatch.calledWith({
       type: 'INSTALL_COMPLETE',
       payload: {slug},
