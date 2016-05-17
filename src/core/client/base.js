@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-async-connect';
 
+import log from 'core/logger';
+
+
 export default function makeClient(routes, createStore) {
   const initialStateContainer = document.getElementById('redux-store-state');
   let initialState;
@@ -13,7 +16,7 @@ export default function makeClient(routes, createStore) {
     try {
       initialState = JSON.parse(initialStateContainer.textContent);
     } catch (error) {
-      console.error('Could not load initial redux data'); // eslint-disable-line no-console
+      log.error('Could not load initial redux data');
     }
   }
   const store = createStore(initialState);

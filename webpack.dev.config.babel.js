@@ -78,8 +78,12 @@ export default Object.assign({}, webpackConfig, {
   plugins: [
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.NormalModuleReplacementPlugin(/config$/, 'client-config.js'),
+    // Replaces server config module with the subset clientConfig object.
+    new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
+    // Substitutes client only config.
+    new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),
