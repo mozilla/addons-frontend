@@ -48,6 +48,7 @@ module.exports = {
   // must not contain sensitive data.
   clientConfigKeys: [
     'appName',
+    'amoCDN',
     'apiHost',
     'apiPath',
     'cookieName',

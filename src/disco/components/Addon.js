@@ -27,13 +27,15 @@ export default class Addon extends React.Component {
     headerURL: PropTypes.string,
     heading: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
+    imageURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    subHeading: PropTypes.string,
     status: PropTypes.oneOf(validInstallStates).isRequired,
+    subHeading: PropTypes.string,
     textcolor: PropTypes.string,
-    type: PropTypes.oneOf(validAddonTypes).isRequired,
     themeAction: PropTypes.func,
+    themeURL: PropTypes.string,
+    type: PropTypes.oneOf(validAddonTypes).isRequired,
   }
 
   static defaultProps = {
@@ -56,8 +58,7 @@ export default class Addon extends React.Component {
   }
 
   getLogo() {
-    const { id } = this.props;
-    const imageURL = `https://addons-dev-cdn.allizom.org/user-media/addon_icons/0/${id}-64.png?modified=1388632826`;
+    const { imageURL } = this.props;
     if (this.props.type === EXTENSION_TYPE) {
       return <div className="logo"><img src={imageURL} alt="" /></div>;
     }
@@ -65,8 +66,7 @@ export default class Addon extends React.Component {
   }
 
   getThemeImage() {
-    const { id, name } = this.props;
-    const themeURL = `https://addons-dev-cdn.allizom.org/user-media/addons/${id}/preview_large.jpg?1239806327`;
+    const { name, themeURL } = this.props;
     if (this.props.type === THEME_TYPE) {
       return (<a href="#" className="theme-image"
                  data-browsertheme={this.getBrowserThemeData()}

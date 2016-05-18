@@ -1,3 +1,8 @@
+import config from 'config';
+
+const amoCDN = config.get('amoCDN');
+const amoHost = config.get('apiHost');
+
 export default {
   results: [{
     editorial_description: 'Hover over the image to preview',
@@ -7,9 +12,10 @@ export default {
     slug: 'japanese-tattoo',
     sub_heading: null,
     type: 'Theme',
-    url: 'https://addons-dev.allizom.org/en-US/firefox/addon/japanese-tattoo/',
-    headerURL: 'https://addons-dev-cdn.allizom.org/user-media/addons/18781/personare.jpg?1239806327',
-    footerURL: 'https://addons-dev-cdn.allizom.org/user-media/addons/18781/persona2re.jpg?1239806327',
+    url: `${amoHost}/en-US/firefox/addon/japanese-tattoo/`,
+    themeURL: `${amoCDN}/user-media/addons/18781/preview_large.jpg?1239806327`,
+    headerURL: `${amoCDN}/user-media/addons/18781/personare.jpg?1239806327`,
+    footerURL: `${amoCDN}/user-media/addons/18781/persona2re.jpg?1239806327`,
     textcolor: '#000000',
     accentcolor: '#ffffff',
   }, {
@@ -17,9 +23,10 @@ export default {
     heading: 'Something something',
     sub_heading: 'with NoScript',
     id: 722,
+    imageURL: `${amoCDN}/user-media/addon_icons/0/722-64.png?modified=1388632826`,
     name: 'NoScript Security Suite',
     slug: 'noscript',
     type: 'Extension',
-    url: 'https://addons-dev.allizom.org/en-US/firefox/addon/noscript/',
+    url: `${amoHost}/en-US/firefox/addon/noscript/`,
   }],
 };
