@@ -41,8 +41,7 @@ export class InstallButton extends React.Component {
         dispatch({
           type: 'INSTALL_STATE',
           payload: {slug, guid, url: installURL, status: INSTALLED}});
-      })
-      .catch(() => {
+      }, () => {
         dispatch({
           type: 'INSTALL_STATE',
           payload: {slug, guid, url: installURL, status: UNINSTALLED}});
