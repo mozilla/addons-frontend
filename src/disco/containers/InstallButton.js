@@ -49,18 +49,19 @@ export class InstallButton extends React.Component {
     const isDisabled = status === UNKNOWN;
     const isDownloading = status === DOWNLOADING;
     const switchClasses = `switch ${status}`;
+    const identifier = `install-button-${slug}`;
 
     return (
       <div className={switchClasses} onClick={this.handleClick}
         data-download-progress={isDownloading ? downloadProgress : 0}>
         <input
-          id={slug}
+          id={identifier}
           className="visually-hidden"
           checked={isInstalled}
           disabled={isDisabled}
           onChange={this.props.handleChange}
           type="checkbox" />
-        <label htmlFor={slug}>
+        <label htmlFor={identifier}>
           {isDownloading ? <div className="progress"></div> : null}
           <span className="visually-hidden">{_('Install')}</span>
         </label>

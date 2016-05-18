@@ -97,6 +97,15 @@ describe('<InstallButton />', () => {
     assert.ok(!uninstall.called);
   });
 
+  it('should associate the label and input with id and for attributes', () => {
+    const button = renderButton({status: UNINSTALLED, slug: 'foo'});
+    const root = findDOMNode(button);
+    assert.equal(root.querySelector('input').getAttribute('id'),
+                 'install-button-foo', 'id is set');
+    assert.equal(root.querySelector('label').getAttribute('for'),
+                 'install-button-foo', 'for attribute matches id');
+  });
+
   it('should throw on bogus status', () => {
     assert.throws(() => {
       renderButton({status: 'BOGUS'});
