@@ -35,13 +35,13 @@ export class InstallButton extends React.Component {
   componentDidMount() {
     const { dispatch, guid, installURL, slug } = this.props;
     this.addonManager = new AddonManager(guid, installURL, this.statusChanged);
-    this.addonManager
-      .getAddon()
+    this.addonManager.getAddon()
       .then(() => {
         dispatch({
           type: 'INSTALL_STATE',
           payload: {slug, guid, url: installURL, status: INSTALLED}});
-      }, () => {
+      })
+      .catch(() => {
         dispatch({
           type: 'INSTALL_STATE',
           payload: {slug, guid, url: installURL, status: UNINSTALLED}});
@@ -70,8 +70,7 @@ export class InstallButton extends React.Component {
   uninstall() {
     const { dispatch, slug } = this.props;
     dispatch({type: 'START_UNINSTALL', payload: {slug}});
-    this.addonManager
-      .uninstall()
+    this.addonManager.uninstall()
       .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {slug}}));
   }
 

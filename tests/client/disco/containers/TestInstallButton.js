@@ -183,14 +183,17 @@ describe('<InstallButton />', () => {
       const slug = 'foo';
       const installURL = 'http://the.url';
       renderButton({dispatch, guid, slug, status: UNKNOWN, installURL});
-      return manager.getAddon().then(() => {
-        assert(false, 'expected promise to reject');
-      }, () => {
-        assert(dispatch.calledWith({
-          type: 'INSTALL_STATE',
-          payload: {guid, slug, status: UNINSTALLED, url: installURL},
-        }));
-      });
+      return manager.getAddon()
+        // We need an extra promise so that the code under test will definitely run first.
+        .then()
+        .then(() => {
+          assert(false, 'expected promise to reject');
+        }, () => {
+          assert(dispatch.calledWith({
+            type: 'INSTALL_STATE',
+            payload: {guid, slug, status: UNINSTALLED, url: installURL},
+          }));
+        });
     });
 
     it('should call uninstall function on click when installed', () => {
