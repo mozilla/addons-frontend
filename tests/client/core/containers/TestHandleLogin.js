@@ -8,16 +8,6 @@ import HandleLogin, { mapDispatchToProps } from 'core/containers/HandleLogin';
 import * as api from 'core/api';
 
 describe('<HandleLogin />', () => {
-  let sandbox;
-
-  beforeEach(() => {
-    sandbox = sinon.sandbox.create();
-  });
-
-  afterEach(() => {
-    sandbox.restore();
-  });
-
   class MyRouter extends React.Component {
     static propTypes = {
       children: React.PropTypes.node.isRequired,
@@ -56,12 +46,12 @@ describe('<HandleLogin />', () => {
     let router;
 
     beforeEach(() => {
-      mockApi = sandbox.mock(api);
+      mockApi = sinon.mock(api);
       mockApi
         .expects('login')
         .withArgs({api: {}, code, state})
         .returns(Promise.resolve());
-      router = sandbox.mock({push: () => {}});
+      router = sinon.mock({push: () => {}});
     });
 
     it('notifies the user that they are being logged in', () => {
@@ -82,8 +72,8 @@ describe('<HandleLogin />', () => {
     let mockApi;
 
     beforeEach(() => {
-      router = sandbox.mock({});
-      mockApi = sandbox.mock(api);
+      router = sinon.mock({});
+      mockApi = sinon.mock(api);
       mockApi.expects('login').never();
     });
 
@@ -111,14 +101,14 @@ describe('<HandleLogin />', () => {
     function setupData() {
       const data = {
         apiConfig: {},
-        dispatch: sandbox.stub(),
+        dispatch: sinon.stub(),
         router: {push: () => {}},
         code: 'acodefromfxa',
         state: 'thestatefromamo',
         payload: {token: 'sometoken'},
       };
       data.location = {query: {code: data.code, state: data.state}};
-      sandbox.stub(api, 'login').withArgs({
+      sinon.stub(api, 'login').withArgs({
         api: data.apiConfig,
         code: data.code,
         state: data.state,
@@ -138,7 +128,7 @@ describe('<HandleLogin />', () => {
     it('stores the token in a cookie', () => {
       const { apiConfig, dispatch, location, payload: {token}, router } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
-      const mockCookie = sandbox.mock(cookie);
+      const mockCookie = sinon.mock(cookie);
       mockCookie.expects('save').once().withArgs(
         'jwt_api_auth_token', token, {path: '/', secure: true, maxAge: 2592000});
       return loadData({api: apiConfig, location, router}).then(() => {
@@ -149,7 +139,7 @@ describe('<HandleLogin />', () => {
     it('redirects to the search endpoint', () => {
       const { apiConfig, dispatch, location, router } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
-      const mockRouter = sandbox.mock(router);
+      const mockRouter = sinon.mock(router);
       mockRouter
         .expects('push')
         .once()

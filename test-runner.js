@@ -1,4 +1,5 @@
 require('babel-polyfill');
+require('tests/client/init');
 
 const testsContext = require.context('./tests/client/', true, /\.js$/);
 const componentsContext = require.context(

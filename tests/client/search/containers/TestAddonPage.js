@@ -212,23 +212,11 @@ describe('AddonPage', () => {
     const loadedSlug = 'my-addon';
     let loadedAddon;
     let dispatch;
-    let mocks;
 
     beforeEach(() => {
       loadedAddon = sinon.stub();
       dispatch = sinon.spy();
-      mocks = [];
     });
-
-    afterEach(() => {
-      mocks.forEach((mock) => mock.restore());
-    });
-
-    function makeMock(thing) {
-      const mock = sinon.mock(thing);
-      mocks.push(mock);
-      return mock;
-    }
 
     function makeProps(slug) {
       return {
@@ -254,14 +242,14 @@ describe('AddonPage', () => {
       const props = makeProps(slug, apiState);
       const addon = sinon.stub();
       const entities = {[slug]: addon};
-      const mockApi = makeMock(api);
+      const mockApi = sinon.mock(api);
       mockApi
         .expects('fetchAddon')
         .once()
         .withArgs({slug, api: apiState})
         .returns(Promise.resolve({entities}));
       const action = sinon.stub();
-      const mockActions = makeMock(actions);
+      const mockActions = sinon.mock(actions);
       mockActions
         .expects('loadEntities')
         .once()
@@ -277,13 +265,13 @@ describe('AddonPage', () => {
     it('handles 404s when loading the add-on', () => {
       const slug = 'other-addon';
       const props = makeProps(slug, apiState);
-      const mockApi = makeMock(api);
+      const mockApi = sinon.mock(api);
       mockApi
         .expects('fetchAddon')
         .once()
         .withArgs({slug, api: apiState})
         .returns(Promise.reject(new Error('Error accessing API')));
-      const mockActions = makeMock(actions);
+      const mockActions = sinon.mock(actions);
       mockActions
         .expects('loadEntities')
         .never();

@@ -23,23 +23,17 @@ describe('<UserPage />', () => {
   });
 
   describe('loadProfileIfNeeded', () => {
-    let sandbox;
     let mockApi;
 
     beforeEach(() => {
-      sandbox = sinon.sandbox.create();
-      mockApi = sandbox.mock(api);
-    });
-
-    afterEach(() => {
-      sandbox.restore();
+      mockApi = sinon.mock(api);
     });
 
     it('loads the profile when it is not loaded', () => {
       const apiConfig = {api: 'config'};
       const entities = {'the-username': {username: 'the-username'}};
       const result = 'the-username';
-      const dispatch = sandbox.stub();
+      const dispatch = sinon.stub();
       const store = {
         dispatch,
         getState() {
@@ -63,7 +57,7 @@ describe('<UserPage />', () => {
 
     it('does not load the profile when it is loaded', () => {
       const apiConfig = {api: 'config'};
-      const dispatch = sandbox.stub();
+      const dispatch = sinon.stub();
       const store = {
         dispatch,
         getState() {
