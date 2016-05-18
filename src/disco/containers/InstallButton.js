@@ -35,15 +35,18 @@ export class InstallButton extends React.Component {
   componentDidMount() {
     const { dispatch, guid, installURL, slug } = this.props;
     this.addonManager = new AddonManager(guid, installURL, this.statusChanged);
-    this.addonManager.getAddon().then(() => {
-      dispatch({
-        type: 'INSTALL_STATE',
-        payload: {slug, guid, url: installURL, status: INSTALLED}});
-    }, () => {
-      dispatch({
-        type: 'INSTALL_STATE',
-        payload: {slug, guid, url: installURL, status: UNINSTALLED}});
-    });
+    this.addonManager
+      .getAddon()
+      .then(() => {
+        dispatch({
+          type: 'INSTALL_STATE',
+          payload: {slug, guid, url: installURL, status: INSTALLED}});
+      })
+      .catch(() => {
+        dispatch({
+          type: 'INSTALL_STATE',
+          payload: {slug, guid, url: installURL, status: UNINSTALLED}});
+      });
   }
 
   statusChanged = (addonInstall) => {
