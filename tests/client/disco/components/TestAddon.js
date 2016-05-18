@@ -8,12 +8,9 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Addon from 'disco/components/Addon';
-
 import { ERROR, THEME_PREVIEW, THEME_RESET_PREVIEW } from 'disco/constants';
-import * as addonManager from 'disco/addonManager';
+import { stubAddonManager } from 'tests/client/helpers';
 
-
-const AddonManager = addonManager.AddonManager;
 const result = {
   id: 'test-id',
   type: 'Extension',
@@ -34,24 +31,8 @@ function renderAddon(data) {
 }
 
 describe('<Addon />', () => {
-  let sandbox;
-
-  function stubAddonManager({ getAddon = Promise.resolve() } = {}) {
-    const instance = sinon.createStubInstance(AddonManager);
-    instance.getAddon = sandbox.stub().returns(getAddon);
-    const mockAddonManager = sandbox.spy(() => instance);
-    sandbox.stub(addonManager, 'AddonManager', mockAddonManager);
-    return instance;
-  }
-
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
     stubAddonManager();
-  });
-
-  afterEach(() => {
-    sandbox.restore();
-    sandbox = null;
   });
 
   describe('<Addon type="Extension"/>', () => {

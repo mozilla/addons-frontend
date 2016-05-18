@@ -20,7 +20,7 @@ export class InstallButton extends React.Component {
     handleChange: PropTypes.func,
     dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
-    installUrl: PropTypes.string,
+    installURL: PropTypes.string,
     url: PropTypes.string,
     downloadProgress: PropTypes.number,
     slug: PropTypes.string.isRequired,
@@ -33,16 +33,16 @@ export class InstallButton extends React.Component {
   }
 
   componentDidMount() {
-    const { dispatch, guid, installUrl, slug } = this.props;
-    this.addonManager = new AddonManager(guid, installUrl, this.statusChanged);
+    const { dispatch, guid, installURL, slug } = this.props;
+    this.addonManager = new AddonManager(guid, installURL, this.statusChanged);
     this.addonManager.getAddon().then(() => {
       dispatch({
         type: 'INSTALL_STATE',
-        payload: {slug, guid, url: installUrl, status: INSTALLED}});
+        payload: {slug, guid, url: installURL, status: INSTALLED}});
     }, () => {
       dispatch({
         type: 'INSTALL_STATE',
-        payload: {slug, guid, url: installUrl, status: UNINSTALLED}});
+        payload: {slug, guid, url: installURL, status: UNINSTALLED}});
     });
   }
 

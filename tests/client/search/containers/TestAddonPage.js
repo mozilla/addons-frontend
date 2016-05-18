@@ -6,9 +6,7 @@ import AddonPage, { findAddon, loadAddonIfNeeded } from 'search/containers/Addon
 import createStore from 'search/store';
 import * as api from 'core/api';
 import * as actions from 'search/actions';
-import * as addonManager from 'disco/addonManager';
-
-const AddonManager = addonManager.AddonManager;
+import { stubAddonManager } from 'tests/client/helpers';
 
 describe('AddonPage', () => {
   const basicAddon = {
@@ -23,24 +21,9 @@ describe('AddonPage', () => {
     edit_url: 'https://addons.mozilla.org/developers/addon/my-addon/edit',
     review_url: 'https://addons.mozilla.org/en-US/editors/review/1865',
   };
-  let sandbox;
-
-  function stubAddonManager({ getAddon = Promise.resolve() } = {}) {
-    const instance = sinon.createStubInstance(AddonManager);
-    instance.getAddon = sandbox.stub().returns(getAddon);
-    const mockAddonManager = sandbox.spy(() => instance);
-    sandbox.stub(addonManager, 'AddonManager', mockAddonManager);
-    return instance;
-  }
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
     stubAddonManager();
-  });
-
-  afterEach(() => {
-    sandbox.restore();
-    sandbox = null;
   });
 
   function render({props, state}) {

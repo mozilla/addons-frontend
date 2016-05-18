@@ -1,5 +1,8 @@
 import { createRenderer } from 'react-addons-test-utils';
 
+import * as addonManager from 'disco/addonManager';
+const AddonManager = addonManager.AddonManager;
+
 export function shallowRender(stuff) {
   const renderer = createRenderer();
   renderer.render(stuff);
@@ -15,3 +18,12 @@ export function findByTag(root, tag) {
   assert.equal(matches.length, 1, 'expected one match');
   return matches[0];
 }
+
+export function stubAddonManager({ getAddon = Promise.resolve() } = {}) {
+  const instance = sinon.createStubInstance(AddonManager);
+  instance.getAddon = sinon.stub().returns(getAddon);
+  const mockAddonManager = sinon.spy(() => instance);
+  sinon.stub(addonManager, 'AddonManager', mockAddonManager);
+  return instance;
+}
+
