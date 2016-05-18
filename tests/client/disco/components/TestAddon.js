@@ -20,7 +20,7 @@ const result = {
   editorialDescription: 'test-editorial-description',
 };
 
-const store = createStore((s) => s, {installations: {}});
+const store = createStore((s) => s, {installations: {}, addons: {}});
 
 function renderAddon(data) {
   return findRenderedComponentWithType(renderIntoDocument(

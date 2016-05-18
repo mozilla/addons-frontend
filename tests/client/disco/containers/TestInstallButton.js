@@ -138,10 +138,6 @@ describe('<InstallButton />', () => {
           }, {slug: 'addon'}),
           {slug: 'addon', downloadProgress: 75, addonProp: 'addonValue'});
       });
-
-      it('handles no installation data', () => {
-        assert.deepEqual(mapStateToProps({}, {slug: 'foo'}), {});
-      });
     });
   });
 

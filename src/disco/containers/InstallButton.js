@@ -116,8 +116,8 @@ export class InstallButton extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const installation = (state.installations || {})[ownProps.slug] || {};
-  const addon = (state.addons || {})[ownProps.slug] || {};
+  const installation = state.installations[ownProps.slug] || {};
+  const addon = state.addons[ownProps.slug] || {};
   return {...installation, ...addon};
 }
 
