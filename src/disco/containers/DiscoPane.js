@@ -43,7 +43,7 @@ function loadDataIfNeeded() {
 function mapStateToProps(state) {
   const { addons } = state;
   return {
-    results: [addons['japanese-tattoo'], addons.easyscreenshot],
+    results: [addons['japanese-tattoo'], addons['awesome-screenshot-capture-']],
   };
 }
 
