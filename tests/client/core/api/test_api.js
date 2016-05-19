@@ -1,4 +1,5 @@
 import * as api from 'core/api';
+import * as helpers from 'tests/client/helpers';
 
 describe('api', () => {
   let mockWindow;
@@ -30,21 +31,23 @@ describe('api', () => {
           'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&lang=en-US&page=3')
         .once()
         .returns(mockResponse());
-      return api.search({query: 'foo', page: 3}).then(() => mockWindow.verify());
+      return api.search({query: 'foo', page: 3})
+        .then(() => mockWindow.verify());
     });
 
     it('normalizes the response', () => {
       mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.search({query: 'foo'}).then((results) => {
-        assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
-        assert.deepEqual(results.entities, {
-          addons: {
-            foo: {slug: 'foo'},
-            food: {slug: 'food'},
-            football: {slug: 'football'},
-          },
+      return api.search({query: 'foo'})
+        .then((results) => {
+          assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
+          assert.deepEqual(results.entities, {
+            addons: {
+              foo: {slug: 'foo'},
+              food: {slug: 'food'},
+              football: {slug: 'football'},
+            },
+          });
         });
-      });
     });
   });
 
@@ -68,16 +71,18 @@ describe('api', () => {
           {headers: {}, method: 'get'})
         .once()
         .returns(mockResponse());
-      return api.fetchAddon({slug: 'foo'}).then(() => mockWindow.verify());
+      return api.fetchAddon({slug: 'foo'})
+        .then(() => mockWindow.verify());
     });
 
     it('normalizes the response', () => {
       mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.fetchAddon('foo').then((results) => {
-        const foo = {slug: 'foo', name: 'Foo!'};
-        assert.deepEqual(results.result, 'foo');
-        assert.deepEqual(results.entities, {addons: {foo}});
-      });
+      return api.fetchAddon('foo')
+        .then((results) => {
+          const foo = {slug: 'foo', name: 'Foo!'};
+          assert.deepEqual(results.result, 'foo');
+          assert.deepEqual(results.entities, {addons: {foo}});
+        });
     });
 
     it('fails when the add-on is not found', () => {
@@ -88,9 +93,9 @@ describe('api', () => {
           {headers: {}, method: 'get'})
         .once()
         .returns(Promise.resolve({ok: false}));
-      return api.fetchAddon({slug: 'foo'}).then(
-        () => assert.fail(null, null, 'expected API call to fail'),
-        (error) => assert.equal(error.message, 'Error calling API'));
+      return api.fetchAddon({slug: 'foo'})
+        .then(helpers.unexpectedSuccess,
+              (error) => assert.equal(error.message, 'Error calling API'));
     });
 
     it('includes the authorization token if available', () => {

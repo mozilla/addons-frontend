@@ -29,3 +29,6 @@ export function stubAddonManager({ getAddon = Promise.resolve() } = {}) {
   return instance;
 }
 
+export function unexpectedSuccess() {
+  return assert.fail(null, null, 'Unexpected success');
+}
