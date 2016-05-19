@@ -180,8 +180,6 @@ describe('<InstallButton />', () => {
       const installURL = 'http://the.url';
       renderButton({dispatch, guid, slug, status: UNKNOWN, installURL});
       return manager.getAddon()
-        // We need an extra promise so that the code under test will definitely run first.
-        .then()
         .then(() => {
           assert(false, 'expected promise to reject');
         }, () => {
