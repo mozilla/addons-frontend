@@ -82,3 +82,31 @@ header {
     }
   }
 }
+
+header.show-video {
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 0;
+
+  video {
+    width: 510px;
+  }
+
+  a {
+    color: #2CA1F4;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+  }
+
+  .content,
+  .play-video {
+    display: none;
+  }
+
+  a {
+    display: inline-block;
+    margin: 0 auto;
+  }
+}

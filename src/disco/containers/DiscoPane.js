@@ -11,23 +11,54 @@ class DiscoPane extends React.Component {
     results: PropTypes.arrayOf(PropTypes.object),
   }
 
+  constructor() {
+    super();
+    this.state = {
+      showVideo: false,
+    };
+  }
+
+  showVideo = () => {
+    this.setState({showVideo: true});
+  }
+
+  hideVideo = () => {
+    this.setState({showVideo: false});
+  }
+
   render() {
     const { results } = this.props;
+    const { showVideo } = this.state;
+    let video = null;
+    if (showVideo) {
+      video = (
+        <div className="video-wrapper">
+          <video autoPlay autostart preload controls crossOrigin="anonymous">
+            <source src={require('disco/video/AddOns.mp4')} type="video/mp4" />
+            <source src={require('disco/video/AddOns.webm')} type="video/webm" />
+          </video>
+          <div>
+            <a href="#" onClick={this.hideVideo}>{_('Close video')}</a>
+          </div>
+        </div>
+      );
+    }
     return (
       <div id="app-view" ref="container">
-        <header>
+        <header className={showVideo ? 'show-video' : ''}>
           <div className="content">
             <h1>{_('Personalize Your Firefox')}</h1>
             <p>{_(`There are thousands of add-ons that let you make Firefox all your
                own—everything from fun visual themes to powerful tools and features.
                Here are a few great ones to check out.`)}</p>
           </div>
-          <a href="#" className="play-video">
+          <a href="#play" onClick={this.showVideo} className="play-video">
             <p>
               <span>{_('Click to play')}</span>
               <span className="visually-hidden">{_('to find out more about add-ons')}</span>
             </p>
           </a>
+          {video}
         </header>
         {results.map((item, i) => <Addon {...camelCaseProps(item)} key={i} />)}
       </div>
