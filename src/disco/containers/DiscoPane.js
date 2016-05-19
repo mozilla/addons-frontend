@@ -18,9 +18,9 @@ class DiscoPane extends React.Component {
         <header>
           <div className="content">
             <h1>{_('Personalize Your Firefox')}</h1>
-            <p>{_(`There are thousands of add-ons that let you make Firefox all your
-               own—everything from fun visual themes to powerful tools and features.
-               Here are a few great ones to check out.`)}</p>
+            <p>{_(dedent`There are thousands of add-ons that let you make Firefox all your
+                  own—everything from fun visual themes to powerful tools and features.
+                  Here are a few great ones to check out.`)}</p>
           </div>
           <a href="#" className="play-video">
             <p>

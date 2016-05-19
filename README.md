@@ -22,19 +22,20 @@ nvm. See https://github.com/creationix/nvm for more info.
 
 ## NPM scripts
 
-| Script                 | Description                                           |
-|------------------------|-------------------------------------------------------|
-| npm run start:disco    |  Starts the express server (prod mode discovery pane) |
-| npm run start:search   |  Starts the express server (prod mode search)         |
-| npm run build          |  Builds the libs (all apps)                           |
-| npm run build:disco    |  Builds the libs (discovery pane)                     |
-| npm run build:search   |  Builds the libs (search)                             |
-| npm run dev:search     |  Starts the dev server (search app)                   |
-| npm run dev:disco      |  Starts the dev server (discovery pane)               |
-| npm run lint           |  Lints the files with `eslint` (Run in `npm test`)    |
-| npm run eslint         |  An alias for `npm run lint`                          |
-| npm run version-check  |  Checks you have the minimum node + npm versions      |
-| npm test               |  Runs the tests                                       |
+| Script                 | Description                                         |
+|------------------------|-----------------------------------------------------|
+| npm run start:disco    |  Starts the express server (prod mode disco pane)   |
+| npm run start:search   |  Starts the express server (prod mode search)       |
+| npm run build          |  Builds the libs (all apps)                         |
+| npm run build-l10n     |  Builds the libs + extracts translations            |
+| npm run build:disco    |  Builds the libs (discovery pane)                   |
+| npm run build:search   |  Builds the libs (search)                           |
+| npm run dev:search     |  Starts the dev server (search app)                 |
+| npm run dev:disco      |  Starts the dev server (discovery pane)             |
+| npm run lint           |  Lints the files with `eslint` (Run in `npm test`)  |
+| npm run eslint         |  An alias for `npm run lint`                        |
+| npm run version-check  |  Checks you have the minimum node + npm versions    |
+| npm test               |  Runs the tests                                     |
 
 
 ### Running a production build of a specific app:
@@ -42,7 +43,7 @@ nvm. See https://github.com/creationix/nvm for more info.
 Running a specific prod build is as follows:
 
 ```
-npm run build:search && npm run start:search
+NODE_APP_INSTANCE=search NODE_ENV=production npm run build && npm run start
 ```
 
 ## Overview and rationale

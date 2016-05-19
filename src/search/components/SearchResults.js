@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { sprintf } from 'sprintf-js';
 
 import { gettext as _ } from 'core/utils';
 import SearchResult from 'search/components/SearchResult';
@@ -27,7 +28,8 @@ export default class SearchResults extends React.Component {
     let messageText;
 
     if (query && count > 0) {
-      messageText = _(`Your search for "${query}" returned ${count} results.`);
+      messageText = sprintf(
+        _('Your search for "%(query)s" returned %(count)s results.'), {query, count});
       searchResults = (
         <ul ref="results" className="search-results">
           {results.map((result) => <li key={result.slug}><SearchResult result={result} /></li>)}
@@ -36,7 +38,7 @@ export default class SearchResults extends React.Component {
     } else if (query && loading) {
       messageText = _('Searching...');
     } else if (query && results.length === 0) {
-      messageText = _(`No results were found for "${query}".`);
+      messageText = sprintf(_('No results were found for "%(query)s".'), {query});
     } else if (query !== null) {
       messageText = _('Please supply a valid search');
     }

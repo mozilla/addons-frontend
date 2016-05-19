@@ -4,7 +4,6 @@
  * When webpack builds the client-side code it exposes
  * the clientConfig config via the definePlugin as CLIENT_CONFIG.
  */
-import { oneLine } from 'common-tags';
 
 export class ClientConfig {
   constructor(objData) {
@@ -16,7 +15,7 @@ export class ClientConfig {
         if (this.has(key)) {
           return objData[key];
         }
-        throw new Error(oneLine`Key was not found in clientConfig. Check the
+        throw new Error(dedent`Key was not found in clientConfig. Check the
           key has been added to clientConfigKeys`);
       },
     });

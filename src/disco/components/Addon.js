@@ -1,5 +1,7 @@
-import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import React, { PropTypes } from 'react';
+import { sprintf } from 'sprintf-js';
+
 import themeAction from 'disco/themePreview';
 import { gettext as _ } from 'core/utils';
 
@@ -75,7 +77,7 @@ export default class Addon extends React.Component {
                  onFocus={this.previewTheme}
                  onMouseOut={this.resetPreviewTheme}
                  onMouseOver={this.previewTheme}>
-        <img src={themeURL} alt={_(`Preview ${name}`)} /></a>);
+        <img src={themeURL} alt={sprintf(_('Preview %(name)s'), {name})} /></a>);
     }
     return null;
   }
