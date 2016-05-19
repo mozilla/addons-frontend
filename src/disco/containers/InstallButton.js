@@ -16,8 +16,6 @@ import config from 'config';
 
 export class InstallButton extends React.Component {
   static propTypes = {
-    install: PropTypes.func,
-    uninstall: PropTypes.func,
     handleChange: PropTypes.func,
     guid: PropTypes.string,
     install: PropTypes.func.isRequired,

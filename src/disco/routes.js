@@ -7,5 +7,6 @@ import DiscoPane from './containers/DiscoPane';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={DiscoPane} />
+    <Route path="/:locale/firefox/discovery/pane/:version/:platform/:type" component={DiscoPane} />
   </Route>
 );
