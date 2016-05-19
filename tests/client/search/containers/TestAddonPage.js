@@ -14,9 +14,9 @@ describe('AddonPage', () => {
     name: 'Addon!',
     slug: 'my-addon',
     summary: 'My add-on',
-    status: 'Fully Reviewed',
+    status: 'public',
     tags: [],
-    type: 'Extension',
+    type: 'extension',
     url: 'https://addons.mozilla.org/firefox/addon/my-addon/',
     edit_url: 'https://addons.mozilla.org/developers/addon/my-addon/edit',
     review_url: 'https://addons.mozilla.org/en-US/editors/review/1865',
@@ -51,8 +51,8 @@ describe('AddonPage', () => {
             files: [
               {
                 id: 54321,
-                platform: 'Linux',
-                status: 'Fully Reviewed',
+                platform: 'linux',
+                status: 'public',
                 size: 556677,
                 created: '2016-04-01T12:11:10',
                 url: 'https://addons.mozilla.org/files/54321',
@@ -93,7 +93,7 @@ describe('AddonPage', () => {
       const infoText = info.map((infum) => infum.textContent);
       assert.deepEqual(
         infoText,
-        ['Extension', 'Fully Reviewed', 'View on site', 'Edit on site', 'View on editors',
+        ['extension', 'public', 'View on site', 'Edit on site', 'View on editors',
          'View homepage', 'Email support', 'View support site']);
     });
 
@@ -150,7 +150,7 @@ describe('AddonPage', () => {
         .from(root.querySelector('.addon--file-info').childNodes)
         .map((infum) => infum.textContent);
       assert.deepEqual(
-        file, ['Linux', 'Fully Reviewed', '556677 bytes', '2016-04-01T12:11:10', 'Download']);
+        file, ['linux', 'public', '556677 bytes', '2016-04-01T12:11:10', 'Download']);
     });
   });
 
@@ -167,7 +167,7 @@ describe('AddonPage', () => {
       const infoText = info.map((infum) => infum.textContent);
       assert.deepEqual(
         infoText,
-        ['Extension', 'Fully Reviewed', 'View on site', 'Edit on site', 'View on editors']);
+        ['extension', 'public', 'View on site', 'Edit on site', 'View on editors']);
     });
 
     it('does not render the tags', () => {

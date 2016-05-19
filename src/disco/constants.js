@@ -17,11 +17,16 @@ export const validInstallStates = [
 ];
 
 // Add-on types.
-export const THEME_TYPE = 'Theme';
-export const EXTENSION_TYPE = 'Extension';
+export const EXTENSION_TYPE = 'extension';
+export const THEME_TYPE = 'theme';
+// These types are not used.
+// export const DICT_TYPE = 'dictionary';
+// export const SEARCH_TYPE = 'search';
+// export const LPAPP_TYPE = 'language';
+// export const PERSONA_TYPE = 'persona';
 export const validAddonTypes = [
-  THEME_TYPE,
   EXTENSION_TYPE,
+  THEME_TYPE,
 ];
 
 // Theme preview actions.
