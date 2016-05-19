@@ -23,6 +23,10 @@ module.exports = {
   appName,
   basePath: path.resolve(__dirname, '../'),
 
+  // These are reversed in src/core/client/config.js.
+  client: false,
+  server: true,
+
   // 2592000 is 30 days in seconds.
   cookieMaxAge: 2592000,
   cookieName: 'jwt_api_auth_token',

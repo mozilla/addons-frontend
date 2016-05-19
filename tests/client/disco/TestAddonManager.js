@@ -33,16 +33,6 @@ describe('AddonManager', () => {
     }, Error, /mozAddonManager not available/);
   });
 
-  describe('handleEvent()', () => {
-    it('should provide eventCallback with event and id', () => {
-      const addonManager = new AddonManager('test-id', fakeInstallUrl, fakeCallback,
-                                            {mozAddonManager: fakeMozAddonManager});
-      const fakeEvent = {type: 'fakeEvent'};
-      addonManager.handleEvent(fakeEvent);
-      assert.ok(fakeCallback.calledWith(fakeEvent, 'test-id'));
-    });
-  });
-
   describe('getAddon()', () => {
     it('should call mozAddonManager.getAddonByID() with id', () => {
       const addonManager = new AddonManager('test-id', fakeInstallUrl, fakeCallback,
@@ -91,6 +81,19 @@ describe('AddonManager', () => {
       return addonManager.install()
         .then(() => {
           assert.ok(fakeInstallObj.install.called);
+        });
+    });
+
+    it('passes the installObj, the event and the id to the callback', () => {
+      const addonManager = new AddonManager('test-id', fakeInstallUrl, fakeCallback,
+                                            {mozAddonManager: fakeMozAddonManager});
+      const fakeEvent = {type: 'fakeEvent'};
+      let callback;
+      fakeInstallObj.addEventListener = (event, cb) => { callback = cb; };
+      return addonManager.install()
+        .then(() => {
+          callback(fakeEvent);
+          assert.ok(fakeCallback.calledWith(fakeInstallObj, fakeEvent, 'test-id'));
         });
     });
   });

@@ -4,8 +4,13 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import createStore from 'disco/store';
 import DiscoPane from 'disco/containers/DiscoPane';
+import { stubAddonManager } from 'tests/client/helpers';
 
 describe('AddonPage', () => {
+  beforeEach(() => {
+    stubAddonManager();
+  });
+
   function render({props, state}) {
     const store = createStore(state);
     return findDOMNode(renderIntoDocument(
@@ -16,7 +21,11 @@ describe('AddonPage', () => {
   }
 
   describe('rendered fields', () => {
-    const root = render({state: {}, props: {}});
+    let root;
+
+    beforeEach(() => {
+      root = render({state: {}, props: {}});
+    });
 
     it('renders an addon', () => {
       assert.ok(root.querySelector('.addon'));
