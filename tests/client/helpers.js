@@ -22,6 +22,8 @@ export function findByTag(root, tag) {
 export function stubAddonManager({ getAddon = Promise.resolve() } = {}) {
   const instance = sinon.createStubInstance(AddonManager);
   instance.getAddon = sinon.stub().returns(getAddon);
+  instance.install = sinon.stub().returns(Promise.resolve());
+  instance.uninstall = sinon.stub().returns(Promise.resolve());
   const mockAddonManager = sinon.spy(() => instance);
   sinon.stub(addonManager, 'AddonManager', mockAddonManager);
   return instance;

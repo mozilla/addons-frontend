@@ -12,17 +12,20 @@ import {
   UNKNOWN,
   validInstallStates as validStates,
 } from 'disco/constants';
+import config from 'config';
 
 export class InstallButton extends React.Component {
   static propTypes = {
     install: PropTypes.func,
     uninstall: PropTypes.func,
     handleChange: PropTypes.func,
-    dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
+    install: PropTypes.func.isRequired,
     installURL: PropTypes.string,
+    uninstall: PropTypes.func.isRequired,
     url: PropTypes.string,
     downloadProgress: PropTypes.number,
+    setInitialStatus: PropTypes.func.isRequired,
     slug: PropTypes.string.isRequired,
     status: PropTypes.oneOf(validStates),
   }
@@ -33,47 +36,16 @@ export class InstallButton extends React.Component {
   }
 
   componentDidMount() {
-    const { dispatch, guid, installURL, slug } = this.props;
-    const payload = {slug, guid, url: installURL};
-    this.addonManager = new AddonManager(guid, installURL, this.statusChanged);
-    this.addonManager.getAddon()
-      .then(
-        () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: INSTALLED}}),
-        () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: UNINSTALLED}}));
-  }
-
-  statusChanged = (addonInstall) => {
-    const { dispatch, slug } = this.props;
-    if (addonInstall.state === 'STATE_DOWNLOADING') {
-      const downloadProgress = parseInt(
-        100 * addonInstall.progress / addonInstall.maxProgress, 10);
-      dispatch({type: 'DOWNLOAD_PROGRESS', payload: {slug, downloadProgress}});
-    } else if (addonInstall.state === 'STATE_INSTALLING') {
-      dispatch({type: 'START_INSTALL', payload: {slug}});
-    } else if (addonInstall.state === 'STATE_INSTALLED') {
-      dispatch({type: 'INSTALL_COMPLETE', payload: {slug}});
-    }
-  }
-
-  install() {
-    const { dispatch, slug } = this.props;
-    dispatch({type: 'START_DOWNLOAD', payload: {slug}});
-    this.addonManager.install();
-  }
-
-  uninstall() {
-    const { dispatch, slug } = this.props;
-    dispatch({type: 'START_UNINSTALL', payload: {slug}});
-    this.addonManager.uninstall()
-      .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {slug}}));
+    const { guid, installURL, setInitialStatus, slug } = this.props;
+    setInitialStatus({guid, installURL, slug});
   }
 
   handleClick = () => {
-    const { status } = this.props;
+    const { guid, install, installURL, slug, status, uninstall } = this.props;
     if (status === UNINSTALLED) {
-      this.install();
+      install({ guid, installURL, slug });
     } else if (status === INSTALLED) {
-      this.uninstall();
+      uninstall({ guid, installURL, slug });
     }
   }
 
@@ -115,4 +87,47 @@ export function mapStateToProps(state, ownProps) {
   return {...installation, ...addon};
 }
 
-export default connect(mapStateToProps)(InstallButton);
+export function makeProgressHandler(dispatch, slug) {
+  return (addonInstall) => {
+    if (addonInstall.state === 'STATE_DOWNLOADING') {
+      const downloadProgress = parseInt(
+        100 * addonInstall.progress / addonInstall.maxProgress, 10);
+      dispatch({type: 'DOWNLOAD_PROGRESS', payload: {slug, downloadProgress}});
+    } else if (addonInstall.state === 'STATE_INSTALLING') {
+      dispatch({type: 'START_INSTALL', payload: {slug}});
+    } else if (addonInstall.state === 'STATE_INSTALLED') {
+      dispatch({type: 'INSTALL_COMPLETE', payload: {slug}});
+    }
+  };
+}
+
+export function mapDispatchToProps(dispatch) {
+  if (config.get('server')) {
+    return {};
+  }
+  return {
+    setInitialStatus({ guid, installURL, slug }) {
+      const addonManager = new AddonManager(guid, installURL);
+      const payload = {guid, slug, url: installURL};
+      return addonManager.getAddon()
+        .then(
+          () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: INSTALLED}}),
+          () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: UNINSTALLED}}));
+    },
+
+    install({ guid, installURL, slug }) {
+      const addonManager = new AddonManager(guid, installURL, makeProgressHandler(dispatch, slug));
+      dispatch({type: 'START_DOWNLOAD', payload: {slug}});
+      return addonManager.install();
+    },
+
+    uninstall({ guid, installURL, slug }) {
+      const addonManager = new AddonManager(guid, installURL);
+      dispatch({type: 'START_UNINSTALL', payload: {slug}});
+      return addonManager.uninstall()
+        .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {slug}}));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InstallButton);
