@@ -32,11 +32,15 @@ header {
   display: flex;
   border-bottom: 1px solid $header-border-color;
   flex-direction: row;
+  justify-content: space-between;
   margin-bottom: 40px;
+  min-height: 160px;
   padding-bottom: 40px;
 
   .content {
-    flex-grow: 1;
+    opacity: 1;
+    transition: 250ms;
+    width: 425px;
   }
 
   h1 {
@@ -59,54 +63,80 @@ header {
     margin-bottom: 0;
   }
 
-  .play-video {
-    background: #ccc;
-    border-radius: 5px;
+  .video {
     display: block;
-    flex-grow: 0;
-    margin-left: 50px;
-    min-height: 120px;
-    min-width: 215px;
+    transition: 250ms;
+  }
+}
 
-    &:hover {
-      color: #fff;
-      background: #666;
-    }
+.video-placeholder {
+  align-items: center;
+  background: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  height: 120px;
+  transition: 250ms;
+  width: 215px;
 
-    p {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      margin-top: 0;
-    }
+  &:hover {
+    color: #fff;
+    background: #666;
+  }
+}
+
+.video-wrapper {
+  display: none;
+}
+
+.video-close {
+  color: #0996F8;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
 header.show-video {
-  flex-direction: column;
-  text-align: center;
-  padding-bottom: 0;
+  justify-content: flex-end;
+  min-height: 323px;
 
-  video {
+  .content {
+    opacity: 0;
+    transform: translateX(-425px);
+  }
+
+  .video {
+    flex-grow: 1;
+    transform: translateX(-85px);
+  }
+
+  .video-placeholder {
+    height: 283px;
     width: 510px;
   }
 
-  a {
-    color: #2CA1F4;
-    display: inline-block;
-    height: 40px;
-    line-height: 40px;
-    text-decoration: none;
-  }
+  // padding-bottom: 0;
 
-  .content,
-  .play-video {
-    display: none;
-  }
+  // .video-wrapper {
+  //   display: block;
+  //   margin: 0 auto;
+  //   width: 510px;
+  // }
+  //
+  // video {
+  //   width: 100%;
+  // }
 
-  a {
-    display: inline-block;
-    margin: 0 auto;
+
+  .video-placeholder {
+    // transform: translate(-235px, 50px) scale(2.5);
   }
 }

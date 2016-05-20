@@ -5,6 +5,9 @@ import { gettext as _, camelCaseProps } from 'core/utils';
 
 import Addon from 'disco/components/Addon';
 
+import mp4Video from 'disco/video/AddOns.mp4';
+import webmVideo from 'disco/video/AddOns.webm';
+
 
 class DiscoPane extends React.Component {
   static propTypes = {
@@ -19,7 +22,7 @@ class DiscoPane extends React.Component {
   }
 
   showVideo = () => {
-    this.setState({showVideo: true});
+    this.setState({showVideo: !this.state.showVideo});
   }
 
   hideVideo = () => {
@@ -33,9 +36,9 @@ class DiscoPane extends React.Component {
     if (showVideo) {
       video = (
         <div className="video-wrapper">
-          <video autoPlay autostart preload controls crossOrigin="anonymous">
-            <source src={require('disco/video/AddOns.mp4')} type="video/mp4" />
-            <source src={require('disco/video/AddOns.webm')} type="video/webm" />
+          <video controls crossOrigin="anonymous">
+            <source src={mp4Video} type="video/mp4" />
+            <source src={webmVideo} type="video/webm" />
           </video>
           <div>
             <a href="#" onClick={this.hideVideo}>{_('Close video')}</a>
@@ -52,13 +55,21 @@ class DiscoPane extends React.Component {
                own—everything from fun visual themes to powerful tools and features.
                Here are a few great ones to check out.`)}</p>
           </div>
-          <a href="#play" onClick={this.showVideo} className="play-video">
-            <p>
+          <div className="video">
+            <div className="video-placeholder" onClick={this.showVideo}>
               <span>{_('Click to play')}</span>
               <span className="visually-hidden">{_('to find out more about add-ons')}</span>
-            </p>
-          </a>
-          {video}
+            </div>
+            <div className="video-wrapper">
+              <video controls crossOrigin="anonymous">
+                <source src={mp4Video} type="video/mp4" />
+                <source src={webmVideo} type="video/webm" />
+              </video>
+              <div>
+                <a href="#" onClick={this.hideVideo} className="video-close">{_('Close video')}</a>
+              </div>
+            </div>
+          </div>
         </header>
         {results.map((item, i) => <Addon {...camelCaseProps(item)} key={i} />)}
       </div>
