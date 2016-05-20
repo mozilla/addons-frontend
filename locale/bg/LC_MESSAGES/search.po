@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: search\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-05-20 14:41+0000\n"
+"PO-Revision-Date: 2016-05-20 14:41+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Language: bg\n"
+
+#: src/core/components/LoginPage/index.js:13
+msgid "Login Required"
+msgstr ""
+
+#: src/core/components/LoginPage/index.js:20
+msgid "You must be logged in to access this page."
+msgstr ""
+
+#: src/core/components/LoginPage/index.js:24
+msgid "Login"
+msgstr ""
+
+#: src/core/components/NotFound.js:8
+msgid "We're sorry, but we can't find what you're looking for."
+msgstr ""
+
+#: src/core/components/NotFound.js:9
+msgid ""
+"The page or file you requested wasn't found on our site. It's possible that "
+"you\n"
+"clicked a link that's out of date, or typed in the address incorrectly."
+msgstr ""
+
+#: src/core/containers/HandleLogin/index.js:41
+msgid "Logging you in..."
+msgstr ""
+
+#: src/core/containers/HandleLogin/index.js:45
+msgid "There was an error logging you in, please try again."
+msgstr ""
+
+#: src/search/components/SearchForm.js:30
+msgid "Search"
+msgstr ""
+
+#: src/search/components/SearchPage.js:29
+msgid "Add-on Search"
+msgstr ""
+
+#: src/search/components/SearchResult/index.js:18
+msgid "%(count)s file"
+msgid_plural "%(count)s files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/search/components/SearchResults.js:32
+msgid "Your search for \"%(query)s\" returned %(count)s results."
+msgstr ""
+
+#: src/search/components/SearchResults.js:39
+msgid "Searching..."
+msgstr ""
+
+#: src/search/components/SearchResults.js:41
+msgid "No results were found for \"%(query)s\"."
+msgstr ""
+
+#: src/search/components/SearchResults.js:43
+msgid "Please supply a valid search"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:108
+msgid "Attributes"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:110
+msgid "Tags"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:31
+msgid "View on editors"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:35
+msgid "View homepage"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:41
+msgid "Email support"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:47
+msgid "View support site"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:70
+msgid "Current version"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:73
+msgid "View on site"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:74
+msgid "Edit on site"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:76
+msgid "Files"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:85
+msgid "Download"
+msgstr ""
+
+#: src/search/containers/AddonPage/index.js:95
+msgid "No current version"
+msgstr ""
+
+#: src/search/containers/App.js:18
+msgid "Add-ons Search"
+msgstr ""

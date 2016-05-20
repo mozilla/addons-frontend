@@ -1,0 +1,43 @@
+#!/usr/bin/env node --use_strict
+
+/*
+ * If a locale doesn't exist create it under locale and generate
+ * the relevant po files from the .pot
+ */
+
+const config = require('config');
+const fs = require('fs');
+const glob = require('glob');
+const path = require('path');
+const shell = require('shelljs');
+
+const supportedLocales = config.get('supportedLocales');
+const localeDir = path.join(__dirname, '../locale');
+const templateDir = path.join(localeDir, 'templates/LC_MESSAGES');
+const potFiles = glob.sync(`${templateDir}/*.pot`);
+
+let locale;
+let potFile;
+let fileName;
+let outputFile;
+
+for (locale of supportedLocales) {
+  locale = locale.replace('-', '_');
+  shell.exec(`mkdir -p ${localeDir}/${locale}/LC_MESSAGES/`);
+  for (potFile of potFiles) {
+    fileName = path.basename(potFile, '.pot');
+    outputFile = path.join(localeDir, locale, 'LC_MESSAGES', `${fileName}.po`);
+    try {
+      fs.statSync(outputFile);
+      // eslint-disable-next-line no-console
+      console.log(`${outputFile} already exists skipping`);
+    } catch (e) {
+      if (e.code === 'ENOENT') {
+        shell.exec(`msginit --no-translator --input=${templateDir}/${fileName}.pot
+                    --output-file=${outputFile} -l ${locale}`.replace('\n', ' '));
+      } else {
+        throw e;
+      }
+    }
+  }
+}
