@@ -1,5 +1,5 @@
 import * as api from 'core/api';
-import * as helpers from 'tests/client/helpers';
+import { unexpectedSuccess } from 'tests/client/helpers';
 
 describe('api', () => {
   let mockWindow;
@@ -94,8 +94,8 @@ describe('api', () => {
         .once()
         .returns(Promise.resolve({ok: false}));
       return api.fetchAddon({slug: 'foo'})
-        .then(helpers.unexpectedSuccess,
-              (error) => assert.equal(error.message, 'Error calling API'));
+        .then(unexpectedSuccess,
+          (error) => assert.equal(error.message, 'Error calling API'));
     });
 
     it('includes the authorization token if available', () => {

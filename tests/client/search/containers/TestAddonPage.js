@@ -6,7 +6,7 @@ import AddonPage, { findAddon, loadAddonIfNeeded } from 'search/containers/Addon
 import createStore from 'search/store';
 import * as api from 'core/api';
 import * as actions from 'search/actions';
-import { stubAddonManager } from 'tests/client/helpers';
+import { stubAddonManager, unexpectedSuccess } from 'tests/client/helpers';
 
 describe('AddonPage', () => {
   const basicAddon = {
@@ -288,13 +288,13 @@ describe('AddonPage', () => {
       mockActions
         .expects('loadEntities')
         .never();
-      return loadAddonIfNeeded(props).then(() => {
-        assert(false, 'expected promise to fail');
-      }, () => {
-        assert(!dispatch.called, 'dispatch called');
-        mockApi.verify();
-        mockActions.verify();
-      });
+      return loadAddonIfNeeded(props)
+        .then(unexpectedSuccess,
+          () => {
+            assert(!dispatch.called, 'dispatch called');
+            mockApi.verify();
+            mockActions.verify();
+          });
     });
   });
 });
