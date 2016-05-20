@@ -25,7 +25,7 @@ for (locale of supportedLocales) {
   locale = locale.replace('-', '_');
   shell.exec(`mkdir -p ${localeDir}/${locale}/LC_MESSAGES/`);
   for (potFile of potFiles) {
-    fileName = `${path.basename(potFile, '.pot')}`;
+    fileName = path.basename(potFile, '.pot');
     outputFile = path.join(localeDir, locale, 'LC_MESSAGES', `${fileName}.po`);
     try {
       fs.statSync(outputFile);
