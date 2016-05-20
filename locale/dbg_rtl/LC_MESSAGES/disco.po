@@ -1,0 +1,51 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: disco\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-05-20 11:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
+
+#: src/disco/components/Addon.js:55
+msgid "An unexpected error occurred"
+msgstr "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp"
+
+#: src/disco/components/Addon.js:80
+msgid "Preview %(name)s"
+msgstr "‮Ԁɹǝʌıǝʍ %(name)s"
+
+#: src/disco/containers/App.js:18
+msgid "Discover Add-ons"
+msgstr "‮ᗡısɔoʌǝɹ ∀pp-ous"
+
+#: src/disco/containers/DiscoPane.js:20
+msgid "Personalize Your Firefox"
+msgstr "‮Ԁǝɹsouɐʅızǝ ⅄onɹ Ⅎıɹǝɟox"
+
+#: src/disco/containers/DiscoPane.js:21
+msgid ""
+"There are thousands of add-ons that let you make Firefox all your\n"
+"own—everything from fun visual themes to powerful tools and features.\n"
+"Here are a few great ones to check out."
+msgstr ""
+"‮⊥ɥǝɹǝ ɐɹǝ ʇɥonsɐups oɟ ɐpp-ous ʇɥɐʇ ʅǝʇ ʎon ɯɐʞǝ Ⅎıɹǝɟox ɐʅʅ ʎonɹ\n"
+"‮oʍu—‮ǝʌǝɹʎʇɥıuƃ ɟɹoɯ ɟnu ʌısnɐʅ ʇɥǝɯǝs ʇo doʍǝɹɟnʅ ʇooʅs ɐup ɟǝɐʇnɹǝs˙\n"
+"‮Hǝɹǝ ɐɹǝ ɐ ɟǝʍ ƃɹǝɐʇ ouǝs ʇo ɔɥǝɔʞ onʇ˙"
+
+#: src/disco/containers/DiscoPane.js:27
+msgid "Click to play"
+msgstr "‮Ↄʅıɔʞ ʇo dʅɐʎ"
+
+#: src/disco/containers/DiscoPane.js:28
+msgid "to find out more about add-ons"
+msgstr "‮ʇo ɟıup onʇ ɯoɹǝ ɐqonʇ ɐpp-ous"
+
+#: src/disco/containers/InstallButton.js:75
+msgid "Install"
+msgstr "‮Iusʇɐʅʅ"
