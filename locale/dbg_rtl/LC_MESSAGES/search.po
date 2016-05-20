@@ -1,0 +1,129 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: search\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-05-20 14:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
+
+#: src/core/components/LoginPage/index.js:13
+msgid "Login Required"
+msgstr "‮⅂oƃıu ᴚǝbnıɹǝp"
+
+#: src/core/components/LoginPage/index.js:20
+msgid "You must be logged in to access this page."
+msgstr "‮⅄on ɯnsʇ qǝ ʅoƃƃǝp ıu ʇo ɐɔɔǝss ʇɥıs dɐƃǝ˙"
+
+#: src/core/components/LoginPage/index.js:24
+msgid "Login"
+msgstr "‮⅂oƃıu"
+
+#: src/core/components/NotFound.js:8
+msgid "We're sorry, but we can't find what you're looking for."
+msgstr "‮Ｍǝ,ɹǝ soɹɹʎ´ qnʇ ʍǝ ɔɐu,ʇ ɟıup ʍɥɐʇ ʎon,ɹǝ ʅooʞıuƃ ɟoɹ˙"
+
+#: src/core/components/NotFound.js:9
+msgid ""
+"The page or file you requested wasn't found on our site. It's possible that "
+"you\n"
+"clicked a link that's out of date, or typed in the address incorrectly."
+msgstr ""
+"‮⊥ɥǝ dɐƃǝ oɹ ɟıʅǝ ʎon ɹǝbnǝsʇǝp ʍɐsu,ʇ ɟonup ou onɹ sıʇǝ˙ Iʇ,s dossıqʅǝ ʇɥɐʇ "
+"ʎon\n"
+"‮ɔʅıɔʞǝp ɐ ʅıuʞ ʇɥɐʇ,s onʇ oɟ pɐʇǝ´ oɹ ʇʎdǝp ıu ʇɥǝ ɐppɹǝss ıuɔoɹɹǝɔʇʅʎ˙"
+
+#: src/core/containers/HandleLogin/index.js:41
+msgid "Logging you in..."
+msgstr "‮⅂oƃƃıuƃ ʎon ıu˙˙˙"
+
+#: src/core/containers/HandleLogin/index.js:45
+msgid "There was an error logging you in, please try again."
+msgstr "‮⊥ɥǝɹǝ ʍɐs ɐu ǝɹɹoɹ ʅoƃƃıuƃ ʎon ıu´ dʅǝɐsǝ ʇɹʎ ɐƃɐıu˙"
+
+#: src/search/components/SearchForm.js:30
+msgid "Search"
+msgstr "‮Sǝɐɹɔɥ"
+
+#: src/search/components/SearchPage.js:29
+msgid "Add-on Search"
+msgstr "‮∀pp-ou Sǝɐɹɔɥ"
+
+#: src/search/components/SearchResult/index.js:18
+msgid "%(count)s file"
+msgid_plural "%(count)s files"
+msgstr[0] "%(count)s‮ ɟıʅǝ"
+msgstr[1] "%(count)s‮ ɟıʅǝs"
+
+#: src/search/components/SearchResults.js:32
+msgid "Your search for \"%(query)s\" returned %(count)s results."
+msgstr "‮⅄onɹ sǝɐɹɔɥ ɟoɹ „%(query)s‮„ ɹǝʇnɹuǝp %(count)s‮ ɹǝsnʅʇs˙"
+
+#: src/search/components/SearchResults.js:39
+msgid "Searching..."
+msgstr "‮Sǝɐɹɔɥıuƃ˙˙˙"
+
+#: src/search/components/SearchResults.js:41
+msgid "No results were found for \"%(query)s\"."
+msgstr "‮No ɹǝsnʅʇs ʍǝɹǝ ɟonup ɟoɹ „%(query)s‮„˙"
+
+#: src/search/components/SearchResults.js:43
+msgid "Please supply a valid search"
+msgstr "‮Ԁʅǝɐsǝ snddʅʎ ɐ ʌɐʅıp sǝɐɹɔɥ"
+
+#: src/search/containers/AddonPage/index.js:108
+msgid "Attributes"
+msgstr "‮∀ʇʇɹıqnʇǝs"
+
+#: src/search/containers/AddonPage/index.js:110
+msgid "Tags"
+msgstr "‮⊥ɐƃs"
+
+#: src/search/containers/AddonPage/index.js:31
+msgid "View on editors"
+msgstr "‮Ʌıǝʍ ou ǝpıʇoɹs"
+
+#: src/search/containers/AddonPage/index.js:35
+msgid "View homepage"
+msgstr "‮Ʌıǝʍ ɥoɯǝdɐƃǝ"
+
+#: src/search/containers/AddonPage/index.js:41
+msgid "Email support"
+msgstr "‮Ǝɯɐıʅ snddoɹʇ"
+
+#: src/search/containers/AddonPage/index.js:47
+msgid "View support site"
+msgstr "‮Ʌıǝʍ snddoɹʇ sıʇǝ"
+
+#: src/search/containers/AddonPage/index.js:70
+msgid "Current version"
+msgstr "‮Ↄnɹɹǝuʇ ʌǝɹsıou"
+
+#: src/search/containers/AddonPage/index.js:73
+msgid "View on site"
+msgstr "‮Ʌıǝʍ ou sıʇǝ"
+
+#: src/search/containers/AddonPage/index.js:74
+msgid "Edit on site"
+msgstr "‮Ǝpıʇ ou sıʇǝ"
+
+#: src/search/containers/AddonPage/index.js:76
+msgid "Files"
+msgstr "‮Ⅎıʅǝs"
+
+#: src/search/containers/AddonPage/index.js:85
+msgid "Download"
+msgstr "‮ᗡoʍuʅoɐp"
+
+#: src/search/containers/AddonPage/index.js:95
+msgid "No current version"
+msgstr "‮No ɔnɹɹǝuʇ ʌǝɹsıou"
+
+#: src/search/containers/App.js:18
+msgid "Add-ons Search"
+msgstr "‮∀pp-ous Sǝɐɹɔɥ"

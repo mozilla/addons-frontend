@@ -109,9 +109,9 @@ module.exports = {
   },
 
   supportedLocales: [
-    'af', 'ar', 'bg', 'bn-BD', 'ca', 'cs', 'da', 'de', 'el', 'en-GB', 'en-US',
-    'es', 'eu', 'fa', 'fi', 'fr', 'ga-IE', 'he', 'hu', 'id', 'it', 'ja', 'ko',
-    'mk', 'mn', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk', 'sl', 'sq',
-    'sv-SE', 'uk', 'vi', 'zh-CN', 'zh-TW',
+    'af', 'ar', 'bg', 'bn-BD', 'ca', 'cs', 'da', 'de', 'dbg', 'dbg-rtl', 'el',
+    'en-GB', 'en-US', 'es', 'eu', 'fa', 'fi', 'fr', 'ga-IE', 'he', 'hu', 'id',
+    'it', 'ja', 'ko', 'mk', 'mn', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk',
+    'sl', 'sq', 'sv-SE', 'uk', 'vi', 'zh-CN', 'zh-TW',
   ],
 };
