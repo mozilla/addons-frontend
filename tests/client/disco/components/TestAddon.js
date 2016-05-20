@@ -13,7 +13,7 @@ import { stubAddonManager } from 'tests/client/helpers';
 
 const result = {
   id: 'test-id',
-  type: 'Extension',
+  type: 'extension',
   heading: 'test-heading',
   slug: 'test-slug',
   subHeading: 'test-sub-heading',
@@ -35,7 +35,7 @@ describe('<Addon />', () => {
     stubAddonManager();
   });
 
-  describe('<Addon type="Extension"/>', () => {
+  describe('<Addon type="extension"/>', () => {
     let root;
 
     beforeEach(() => {
@@ -97,11 +97,11 @@ describe('<Addon />', () => {
   });
 
 
-  describe('<Addon type="Theme"/>', () => {
+  describe('<Addon type="theme"/>', () => {
     let root;
 
     beforeEach(() => {
-      const data = {...result, type: 'Theme'};
+      const data = {...result, type: 'theme'};
       root = renderAddon(data);
     });
 
@@ -122,7 +122,7 @@ describe('<Addon />', () => {
 
     beforeEach(() => {
       themeAction = sinon.stub();
-      const data = {...result, type: 'Theme', themeAction};
+      const data = {...result, type: 'theme', themeAction};
       root = renderAddon(data);
       themeImage = findDOMNode(root).querySelector('.theme-image');
     });
