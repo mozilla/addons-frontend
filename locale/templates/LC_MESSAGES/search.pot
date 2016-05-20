@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: search\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-05-20 11:27+0000\n"
+"POT-Creation-Date: 2016-05-20 14:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,12 @@ msgstr ""
 #: src/search/components/SearchPage.js:29
 msgid "Add-on Search"
 msgstr ""
+
+#: src/search/components/SearchResult/index.js:18
+msgid "%(count)s file"
+msgid_plural "%(count)s files"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/search/components/SearchResults.js:32
 msgid "Your search for \"%(query)s\" returned %(count)s results."

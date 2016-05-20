@@ -44,6 +44,13 @@ const babelL10nPlugins = [
     },
     functionNames: {
       _: ['msgid'],
+      dgettext: ['domain', 'msgid'],
+      ngettext: ['msgid', 'msgid_plural', 'count'],
+      dngettext: ['domain', 'msgid', 'msgid_plural', 'count'],
+      pgettext: ['msgctxt', 'msgid'],
+      dpgettext: ['domain', 'msgctxt', 'msgid'],
+      npgettext: ['msgctxt', 'msgid', 'msgid_plural', 'count'],
+      dnpgettext: ['domain', 'msgctxt', 'msgid', 'msgid_plural', 'count'],
     },
     fileName: `locale/templates/LC_MESSAGES/${appName}.pot`,
     baseDirectory: process.cwd(),
