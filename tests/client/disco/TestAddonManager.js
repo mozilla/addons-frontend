@@ -1,5 +1,6 @@
 import { AddonManager } from 'disco/addonManager';
 import { installEventList } from 'disco/constants';
+import { unexpectedSuccess } from 'tests/client/helpers';
 
 
 describe('AddonManager', () => {
@@ -49,12 +50,8 @@ describe('AddonManager', () => {
                                             {mozAddonManager: fakeMozAddonManager});
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(false));
       return addonManager.getAddon()
-        .then(() => {
-          assert.fail('unexpected success');
-        })
-        .catch((err) => {
-          assert.equal(err.message, 'Addon not found');
-        });
+        .then(unexpectedSuccess,
+          (err) => assert.equal(err.message, 'Addon not found'));
     });
   });
 
@@ -105,12 +102,8 @@ describe('AddonManager', () => {
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(false));
       // If the code doesn't resolve this will blow up.
       return addonManager.uninstall()
-        .then(() => {
-          assert.fail('unexpected success');
-        })
-        .catch((err) => {
-          assert.equal(err.message, 'Addon not found');
-        });
+        .then(unexpectedSuccess,
+          (err) => assert.equal(err.message, 'Addon not found'));
     });
 
     it('should reject if addon.uninstall resolves with false', () => {
@@ -119,10 +112,8 @@ describe('AddonManager', () => {
       fakeAddon.uninstall.returns(Promise.resolve(false));
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
       return addonManager.uninstall()
-        .then(() => assert.fail('unexpected success'))
-        .catch((err) => {
-          assert.equal(err.message, 'Uninstall failed');
-        });
+        .then(unexpectedSuccess,
+          (err) => assert.equal(err.message, 'Uninstall failed'));
     });
 
     it('should resolve if addon.uninstall resolves with true', () => {
