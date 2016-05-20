@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "build": "better-npm-run build",
+    "build-l10n": "better-npm-run build-l10n",
     "build:disco": "better-npm-run build:disco",
     "build:search": "better-npm-run build:search",
     "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
@@ -52,6 +53,13 @@
       "command": "better-npm-run start-dev",
       "env": {
         "NODE_APP_INSTANCE": "search"
+      }
+    },
+    "build-l10n": {
+      "command": "webpack --verbose --display-error-details --progress --colors --config webpack.l10n.config.babel.js",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production"
       }
     },
     "start-dev": {
@@ -109,11 +117,11 @@
   },
   "homepage": "https://github.com/mozillla/addons-frontend#readme",
   "dependencies": {
+    "babel-plugin-dedent": "2.0.0",
     "better-npm-run": "0.0.8",
     "bunyan": "1.8.1",
     "camelcase": "3.0.0",
     "classnames": "2.2.5",
-    "common-tags": "0.1.1",
     "config": "1.20.3",
     "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",
@@ -131,6 +139,7 @@
     "redux-async-connect": "1.0.0-rc4",
     "redux-logger": "2.6.1",
     "serialize-javascript": "1.2.0",
+    "sprintf-js": "1.0.3",
     "url": "0.11.0",
     "url-loader": "0.5.7"
   },
@@ -138,6 +147,7 @@
     "autoprefixer-loader": "3.2.0",
     "babel-core": "6.9.0",
     "babel-eslint": "6.0.4",
+    "babel-gettext-extractor": "git+https://github.com/muffinresearch/babel-gettext-extractor.git#f0f00b2afb71cba5edfb43d377bde9e1b08cdb46",
     "babel-istanbul": "0.8.0",
     "babel-istanbul-loader": "0.1.0",
     "babel-loader": "6.2.4",
@@ -161,6 +171,7 @@
     "eslint-plugin-import": "1.8.0",
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1",
+    "file-loader": "0.8.5",
     "json-loader": "0.5.4",
     "karma": "0.13.22",
     "karma-chai": "0.1.0",

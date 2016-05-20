@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { sprintf } from 'sprintf-js';
 
 import { ngettext } from 'core/utils';
 
@@ -14,7 +15,7 @@ function fileCount(version) {
 
 function fileCountText(version) {
   const count = fileCount(version);
-  return ngettext('{count} file', '{count} files', count).replace('{count}', count);
+  return sprintf(ngettext('%(count)s file', '%(count)s files', count), {count});
 }
 
 export default class SearchResult extends React.Component {

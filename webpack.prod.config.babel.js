@@ -39,7 +39,7 @@ export default {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel'],
+        loader: 'babel',
       }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),

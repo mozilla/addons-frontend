@@ -4,6 +4,7 @@
   },
   "extends": "airbnb",
   "globals": {
+    "dedent",
     "CLIENT_CONFIG": true,
     "assert": true,
     "sinon": true,
