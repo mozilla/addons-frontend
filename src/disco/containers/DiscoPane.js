@@ -7,6 +7,7 @@ import Addon from 'disco/components/Addon';
 
 import mp4Video from 'disco/video/AddOns.mp4';
 import webmVideo from 'disco/video/AddOns.webm';
+import videoPoster from 'disco/img/AddOnsPoster.jpg';
 
 
 class DiscoPane extends React.Component {
@@ -21,31 +22,21 @@ class DiscoPane extends React.Component {
     };
   }
 
-  showVideo = () => {
-    this.setState({showVideo: !this.state.showVideo});
+  showVideo = (e) => {
+    e.preventDefault();
+    this.setState({showVideo: true});
+    this.refs.video.play();
   }
 
-  hideVideo = () => {
+  hideVideo = (e) => {
+    e.preventDefault();
     this.setState({showVideo: false});
+    this.refs.video.pause();
   }
 
   render() {
     const { results } = this.props;
     const { showVideo } = this.state;
-    let video = null;
-    if (showVideo) {
-      video = (
-        <div className="video-wrapper">
-          <video controls crossOrigin="anonymous">
-            <source src={mp4Video} type="video/mp4" />
-            <source src={webmVideo} type="video/webm" />
-          </video>
-          <div>
-            <a href="#" onClick={this.hideVideo}>{_('Close video')}</a>
-          </div>
-        </div>
-      );
-    }
     return (
       <div id="app-view" ref="container">
         <header className={showVideo ? 'show-video' : ''}>
@@ -56,18 +47,17 @@ class DiscoPane extends React.Component {
                Here are a few great ones to check out.`)}</p>
           </div>
           <div className="video">
-            <div className="video-placeholder" onClick={this.showVideo}>
-              <span>{_('Click to play')}</span>
+            <div className="video-show" onClick={this.showVideo}>
+              <span className="video-show-button">{_('Click to play')}</span>
               <span className="visually-hidden">{_('to find out more about add-ons')}</span>
             </div>
-            <div className="video-wrapper">
-              <video controls crossOrigin="anonymous">
-                <source src={mp4Video} type="video/mp4" />
-                <source src={webmVideo} type="video/webm" />
-              </video>
-              <div>
-                <a href="#" onClick={this.hideVideo} className="video-close">{_('Close video')}</a>
-              </div>
+            <video autoPlay={showVideo} controls={showVideo} crossOrigin="anonymous"
+                   poster={videoPoster} ref="video" height="285" width="510">
+              <source src={mp4Video} type="video/mp4" />
+              <source src={webmVideo} type="video/webm" />
+            </video>
+            <div className="video-close">
+              <a href="#" onClick={this.hideVideo}>{_('Close video')}</a>
             </div>
           </div>
         </header>

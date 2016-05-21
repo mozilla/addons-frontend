@@ -74,6 +74,9 @@ export default Object.assign({}, webpackConfig, {
       test: /\.svg$/,
       loader: 'url?limit=10000&mimetype=image/svg+xml',
     }, {
+      test: /\.jpg/,
+      loader: 'url?limit=10000&mimetype=image/jpg',
+    }, {
       test: /\.mp4$/,
       loader: 'file',
       query: {minemtype: 'video/mp4'},
