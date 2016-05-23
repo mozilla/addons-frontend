@@ -45,7 +45,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   app.use(logRequests);
 
   // Sets X-Frame-Options
-  app.use(helmet.frameguard('deny'));
+  app.use(helmet.frameguard(config.get('frameGuard')));
 
   // Sets x-content-type-options:"nosniff"
   app.use(helmet.noSniff());
