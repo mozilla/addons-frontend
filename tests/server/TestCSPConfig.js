@@ -91,3 +91,24 @@ describe('CSP Config', () => {
     assert.deepEqual(cspConfig.mediaSrc, ["'none'"]);
   });
 });
+
+
+describe('App Specific CSP Config', () => {
+  afterEach(() => {
+    process.env.NODE_ENV = 'production';
+    delete process.env.NODE_APP_INSTANCE;
+  });
+
+  it('should default frame-ancestors to "\'none\'"', () => {
+    const config = requireUncached('config');
+    const cspConfig = config.get('CSP').directives;
+    assert.deepEqual(cspConfig.frameAncestors, ["'none'"]);
+  });
+
+  it('should default set frame-ancestors to about:addons for disco pane', () => {
+    process.env.NODE_APP_INSTANCE = 'disco';
+    const config = requireUncached('config');
+    const cspConfig = config.get('CSP').directives;
+    assert.deepEqual(cspConfig.frameAncestors, ['about:addons']);
+  });
+});
