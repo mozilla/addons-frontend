@@ -1,1 +1,7 @@
-module.exports = {};
+module.exports = {
+  CSP: {
+    directives: {
+      frameAncestors: ['about:addons'],
+    },
+  },
+};
