@@ -4,7 +4,7 @@ ADD docker/nodesource.gpg.key /etc/pki/rpm-gpg/RPM-GPG-KEY-nodesource
 ADD docker/nodesource.repo /etc/yum.repos.d/nodesource.repo
 
 RUN yum update -y \
-    && yum install -y nodejs \
+    && yum install -y nodejs git \
     && yum clean all
 
 # Install node_modules into a different directory to avoid npm/npm#9863.
