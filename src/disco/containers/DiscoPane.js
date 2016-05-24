@@ -51,7 +51,7 @@ class DiscoPane extends React.Component {
                 <span className="play-video-text">{_('► Click to play')}</span>
                 <span className="visually-hidden">{_('to find out more about add-ons')}</span>
               </a>
-              <video poster={videoPoster} controls={showVideo} width="510" height="283" ref="video">
+              <video poster={videoPoster} controls={showVideo} width="512" height="288" ref="video">
                 <source src={videoWebm} type="video/webm" />
                 <source src={videoMp4} type="video/mp4" />
               </video>
