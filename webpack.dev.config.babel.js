@@ -78,10 +78,10 @@ export default Object.assign({}, webpackConfig, {
       loader: 'url?limit=10000&mimetype=image/jpeg',
     }, {
       test: /\.webm$/,
-      loader: 'file?limit=10000&mimetype=video/webm',
+      loader: 'url?limit=10000&mimetype=video/webm',
     }, {
       test: /\.mp4$/,
-      loader: 'file?limit=10000&mimetype=video/mp4',
+      loader: 'url?limit=10000&mimetype=video/mp4',
     }],
   },
   plugins: [
