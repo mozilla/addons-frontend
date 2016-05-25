@@ -46,6 +46,15 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
     }, {
       test: /\.svg$/,
       loader: 'url?limit=10000&mimetype=image/svg+xml',
+    }, {
+      test: /\.jpg$/,
+      loader: 'url?limit=10000&mimetype=image/jpeg',
+    }, {
+      test: /\.webm$/,
+      loader: 'url?limit=10000&mimetype=video/webm',
+    }, {
+      test: /\.mp4$/,
+      loader: 'url?limit=10000&mimetype=video/mp4',
     }],
   },
   output: undefined,

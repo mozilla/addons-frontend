@@ -60,5 +60,12 @@ module.exports = {
         }
       },
     },
+    videos: {
+      extensions: [
+        'mp4',
+        'webm',
+      ],
+      parser: WebpackIsomorphicToolsPlugin.url_loader_parser,
+    },
   },
 };
