@@ -24,4 +24,4 @@ export class App extends React.Component {
   }
 }
 
-export default translate()(App);
+export default translate({withRef: true})(App);
