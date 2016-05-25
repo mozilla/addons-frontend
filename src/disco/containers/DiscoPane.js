@@ -40,7 +40,7 @@ class DiscoPane extends React.Component {
       <div id="app-view" ref="container">
         <header className={showVideo ? 'show-video' : ''}>
           <div className="disco-header">
-            <div className="content">
+            <div className="disco-content">
               <h1>{_('Personalize Your Firefox')}</h1>
               <p>{_(dedent`There are thousands of add-ons that let you make Firefox all your
                     own—everything from fun visual themes to powerful tools and features.
@@ -51,7 +51,8 @@ class DiscoPane extends React.Component {
                 <span className="play-video-text">{_('► Click to play')}</span>
                 <span className="visually-hidden">{_('to find out more about add-ons')}</span>
               </a>
-              <video poster={videoPoster} controls={showVideo} width="512" height="288" ref="video">
+              <video poster={videoPoster} controls={showVideo} width="512" height="288"
+                     className="disco-video" ref="video">
                 <source src={videoWebm} type="video/webm" />
                 <source src={videoMp4} type="video/mp4" />
               </video>
