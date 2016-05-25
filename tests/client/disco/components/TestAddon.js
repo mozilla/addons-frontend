@@ -9,7 +9,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Addon from 'disco/components/Addon';
 import { ERROR, THEME_PREVIEW, THEME_RESET_PREVIEW } from 'disco/constants';
-import { stubAddonManager } from 'tests/client/helpers';
+import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
+import I18nProvider from 'core/i18n/Provider';
 
 const result = {
   id: 'test-id',
@@ -24,10 +25,12 @@ const store = createStore((s) => s, {installations: {}, addons: {}});
 
 function renderAddon(data) {
   return findRenderedComponentWithType(renderIntoDocument(
-    <Provider store={store}>
-      <Addon {...data} />
-    </Provider>
-  ), Addon);
+    <I18nProvider i18n={getFakeI18nInst()}>
+      <Provider store={store}>
+        <Addon {...data} />
+      </Provider>
+    </I18nProvider>
+  ), Addon).getWrappedInstance();
 }
 
 describe('<Addon />', () => {
@@ -55,10 +58,6 @@ describe('<Addon />', () => {
 
     it('does not normally render an error', () => {
       assert.notOk(findDOMNode(root).querySelector('.error'));
-    });
-
-    it('renders the heading', () => {
-      assert.include(root.refs.heading.textContent, 'test-heading');
     });
 
     it('renders the heading', () => {

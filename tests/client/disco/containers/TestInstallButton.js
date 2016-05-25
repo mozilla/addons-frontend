@@ -17,17 +17,23 @@ import {
   UNINSTALLING,
   UNKNOWN,
 } from 'disco/constants';
-import { stubAddonManager } from 'tests/client/helpers';
+import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
 import config from 'config';
 
 
 describe('<InstallButton />', () => {
-  function renderButton({
-      dispatch = sinon.spy(), setInitialStatus = sinon.spy(), install = sinon.spy(),
-      uninstall = sinon.spy(), ...props,
-  }) {
+  function renderButton(props = {}) {
+    const renderProps = {
+      dispatch: sinon.spy(),
+      setInitialStatus: sinon.spy(),
+      install: sinon.spy(),
+      uninstall: sinon.spy(),
+      i18n: getFakeI18nInst(),
+      ...props,
+    };
+
     return renderIntoDocument(
-      <InstallButton {...{dispatch, install, setInitialStatus, uninstall, ...props}} />);
+      <InstallButton {...renderProps} />);
   }
 
   it('should be disabled if isDisabled status is UNKNOWN', () => {

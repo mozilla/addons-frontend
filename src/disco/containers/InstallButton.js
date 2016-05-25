@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-
-import { gettext as _ } from 'core/utils';
+import translate from 'core/i18n/translate';
 
 import 'disco/css/InstallButton.scss';
 import { AddonManager } from 'disco/addonManager';
@@ -19,6 +18,7 @@ export class InstallButton extends React.Component {
     handleChange: PropTypes.func,
     guid: PropTypes.string,
     install: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired,
     installURL: PropTypes.string,
     uninstall: PropTypes.func.isRequired,
     url: PropTypes.string,
@@ -48,7 +48,7 @@ export class InstallButton extends React.Component {
   }
 
   render() {
-    const { downloadProgress, slug, status } = this.props;
+    const { downloadProgress, i18n, slug, status } = this.props;
 
     if (!validStates.includes(status)) {
       throw new Error('Invalid add-on status');
@@ -72,7 +72,7 @@ export class InstallButton extends React.Component {
           type="checkbox" />
         <label htmlFor={identifier}>
           {isDownloading ? <div className="progress"></div> : null}
-          <span className="visually-hidden">{_('Install')}</span>
+          <span className="visually-hidden">{i18n.gettext('Install')}</span>
         </label>
       </div>
     );
@@ -128,4 +128,4 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(InstallButton);
+export default connect(mapStateToProps, mapDispatchToProps)(translate()(InstallButton));

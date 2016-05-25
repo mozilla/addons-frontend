@@ -26,7 +26,7 @@ describe('client-config module', () => {
     it('throws if key is missing', () => {
       assert.throws(() => {
         config.get('missing-key');
-      }, Error, /Key was not found in clientConfig/);
+      }, Error, /Key "missing-key" was not found in clientConfig/);
     });
   });
 

@@ -2,23 +2,26 @@ import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
 import 'disco/css/App.scss';
-import { gettext as _ } from 'core/utils';
+import translate from 'core/i18n/translate';
 
 
-export default class App extends React.Component {
+export class App extends React.Component {
   static propTypes = {
     children: PropTypes.node,
+    i18n: PropTypes.object.isRequired,
   }
 
   render() {
-    const { children } = this.props;
+    const { children, i18n } = this.props;
     return (
       <div className="disco-pane">
         <Helmet
-          defaultTitle={_('Discover Add-ons')}
+          defaultTitle={i18n.gettext('Discover Add-ons')}
         />
         {children}
       </div>
     );
   }
 }
+
+export default translate()(App);

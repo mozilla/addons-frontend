@@ -4,7 +4,9 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import createStore from 'disco/store';
 import DiscoPane from 'disco/containers/DiscoPane';
-import { stubAddonManager } from 'tests/client/helpers';
+import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
+import I18nProvider from 'core/i18n/Provider';
+
 
 describe('AddonPage', () => {
   beforeEach(() => {
@@ -13,9 +15,11 @@ describe('AddonPage', () => {
 
   function render() {
     return findDOMNode(renderIntoDocument(
-      <Provider store={createStore()} key="provider">
-        <DiscoPane />
-      </Provider>
+      <I18nProvider i18n={getFakeI18nInst()}>
+        <Provider store={createStore()} key="provider">
+          <DiscoPane />
+        </Provider>
+      </I18nProvider>
     ));
   }
 

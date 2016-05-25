@@ -16,6 +16,9 @@ const localeDir = path.join(__dirname, '../locale');
 const templateDir = path.join(localeDir, 'templates/LC_MESSAGES');
 const potFiles = glob.sync(`${templateDir}/*.pot`);
 
+require('babel-register');
+const localeFromLang = require('src/core/i18n/utils').localeFromLang;
+
 let lang;
 let locale;
 let potFile;
@@ -23,7 +26,7 @@ let fileName;
 let outputFile;
 
 for (lang of supportedLangs) {
-  locale = lang.replace('-', '_');
+  locale = localeFromLang(lang);
   shell.exec(`mkdir -p ${localeDir}/${locale}/LC_MESSAGES/`);
   for (potFile of potFiles) {
     fileName = path.basename(potFile, '.pot');
