@@ -122,6 +122,10 @@ header {
   display: inline-block;
   padding: 10px;
   transition: background 300ms;
+
+  &::before {
+    content: "\25BA ";
+  }
 }
 
 .play-video:hover .play-video-text {

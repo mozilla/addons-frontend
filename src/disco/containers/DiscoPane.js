@@ -48,7 +48,7 @@ class DiscoPane extends React.Component {
             </div>
             <div className="video-wrapper">
               <a className="play-video" href="#play" onClick={this.showVideo}>
-                <span className="play-video-text">{_('► Click to play')}</span>
+                <span className="play-video-text">{_('Click to play')}</span>
                 <span className="visually-hidden">{_('to find out more about add-ons')}</span>
               </a>
               <video poster={videoPoster} controls={showVideo} width="512" height="288"
