@@ -4,8 +4,8 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import AddonPage, { findAddon, loadAddonIfNeeded } from 'search/containers/AddonPage';
 import createStore from 'search/store';
+import * as actions from 'core/actions';
 import * as api from 'core/api';
-import * as actions from 'search/actions';
 import { stubAddonManager, unexpectedSuccess } from 'tests/client/helpers';
 
 describe('AddonPage', () => {

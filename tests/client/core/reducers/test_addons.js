@@ -23,4 +23,47 @@ describe('addon reducer', () => {
     });
     assert.deepEqual(state, {foo: {slug: 'foo'}, bar: {slug: 'bar'}, baz: {slug: 'baz'}});
   });
+
+  it('pulls down the install URL from the file', () => {
+    const fileOne = {url: 'https://a.m.o/download.xpi'};
+    const fileTwo = {file: 'data'};
+    const addon = {
+      slug: 'installable',
+      current_version: {
+        files: [fileOne, fileTwo],
+      },
+    };
+    assert.deepEqual(
+      addons(undefined, {payload: {entities: {addons: {installable: addon}}}}),
+      {
+        installable: {
+          ...addon,
+          installURL: 'https://a.m.o/download.xpi',
+        },
+      });
+  });
+
+  it('flattens theme data', () => {
+    const state = addons(originalState, {
+      payload: {
+        entities: {
+          addons: {
+            baz: {slug: 'baz', id: 42, theme_data: {theme_thing: 'some-data'}},
+          },
+        },
+      },
+    });
+    assert.deepEqual(
+      state,
+      {
+        foo: {slug: 'foo'},
+        bar: {slug: 'bar'},
+        baz: {
+          id: 42,
+          slug: 'baz',
+          theme_thing: 'some-data',
+          guid: '42@personas.mozilla.org',
+        },
+      });
+  });
 });

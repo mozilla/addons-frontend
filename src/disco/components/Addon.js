@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { sprintf } from 'sprintf-js';
 import translate from 'core/i18n/translate';
+import purify from 'core/purify';
 
 import themeAction, { getThemeData } from 'disco/themePreview';
 
@@ -18,26 +19,32 @@ import {
 
 import 'disco/css/Addon.scss';
 
+function sanitizeHTML(text, allowTags = []) {
+  // TODO: Accept tags to allow and run through dom-purify.
+  return {
+    __html: purify.sanitize(text, {ALLOWED_TAGS: allowTags}),
+  };
+}
 
 export class Addon extends React.Component {
   static propTypes = {
     accentcolor: PropTypes.string,
     closeErrorAction: PropTypes.func,
+    description: PropTypes.string,
     editorialDescription: PropTypes.string.isRequired,
     errorMessage: PropTypes.string,
     footerURL: PropTypes.string,
     headerURL: PropTypes.string,
     heading: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
     i18n: PropTypes.string.isRequired,
-    imageURL: PropTypes.string,
+    iconUrl: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
-    subHeading: PropTypes.string,
     textcolor: PropTypes.string,
     themeAction: PropTypes.func,
-    themeURL: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
   }
 
@@ -60,15 +67,15 @@ export class Addon extends React.Component {
   }
 
   getLogo() {
-    const { imageURL } = this.props;
+    const { iconUrl } = this.props;
     if (this.props.type === EXTENSION_TYPE) {
-      return <div className="logo"><img src={imageURL} alt="" /></div>;
+      return <div className="logo"><img src={iconUrl} alt="" /></div>;
     }
     return null;
   }
 
   getThemeImage() {
-    const { i18n, name, themeURL } = this.props;
+    const { i18n, name, previewURL } = this.props;
     if (this.props.type === THEME_TYPE) {
       return (<a href="#" className="theme-image"
                  data-browsertheme={this.getBrowserThemeData()}
@@ -77,13 +84,24 @@ export class Addon extends React.Component {
                  onFocus={this.previewTheme}
                  onMouseOut={this.resetPreviewTheme}
                  onMouseOver={this.previewTheme}>
-        <img src={themeURL} alt={sprintf(i18n.gettext('Preview %(name)s'), {name})} /></a>);
+        <img src={previewURL} alt={sprintf(i18n.gettext('Preview %(name)s'), {name})} /></a>);
     }
     return null;
   }
 
   getDescription() {
-    return { __html: this.props.editorialDescription };
+    const { i18n, description, type } = this.props;
+    if (type === THEME_TYPE) {
+      return (
+        <p className="editorial-description">{i18n.gettext('Hover over the image to preview')}</p>
+      );
+    }
+    return (
+      <div
+        ref="editorialDescription"
+        className="editorial-description"
+        dangerouslySetInnerHTML={sanitizeHTML(description, ['blockquote', 'cite'])} />
+    );
   }
 
   handleClick = (e) => {
@@ -99,10 +117,10 @@ export class Addon extends React.Component {
   }
 
   render() {
-    const { heading, slug, subHeading, type } = this.props;
+    const { heading, slug, type } = this.props;
 
     if (!validAddonTypes.includes(type)) {
-      throw new Error('Invalid addon type');
+      throw new Error(`Invalid addon type "${type}"`);
     }
 
     const addonClasses = classNames('addon', {
@@ -116,11 +134,11 @@ export class Addon extends React.Component {
         <div className="content">
           {this.getError()}
           <div className="copy">
-            <h2 ref="heading" className="heading">{heading} {subHeading ?
-              <span ref="sub-heading" className="sub-heading">{subHeading}</span> : null}</h2>
-            <p ref="editorial-description"
-               className="editorial-description"
-               dangerouslySetInnerHTML={this.getDescription()} />
+            <h2
+              ref="heading"
+              className="heading"
+              dangerouslySetInnerHTML={sanitizeHTML(heading, ['span'])} />
+            {this.getDescription()}
           </div>
           <div className="install-button">
             <InstallButton slug={slug} />

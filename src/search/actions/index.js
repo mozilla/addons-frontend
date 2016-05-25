@@ -18,19 +18,3 @@ export function searchFail({ page, query }) {
     payload: { page, query },
   };
 }
-
-export function loadEntities(entities) {
-  return {
-    type: 'ENTITIES_LOADED',
-    payload: {entities},
-  };
-}
-
-export function setCurrentUser(username) {
-  return {
-    type: 'SET_CURRENT_USER',
-    payload: {
-      username,
-    },
-  };
-}

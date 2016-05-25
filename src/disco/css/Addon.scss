@@ -11,6 +11,16 @@ $addon-padding: 20px;
   line-height: 1.5;
   margin-top: 20px;
 
+  blockquote {
+    margin: 0;
+  }
+
+  .editorial-description {
+    color: $secondary-font-color;
+    font-size: 12px;
+    margin: 0.5em 0;
+  }
+
   &.theme {
     display: block;
 
@@ -46,6 +56,19 @@ $addon-padding: 20px;
       display: block;
       height: 64px;
       width: 64px;
+    }
+  }
+
+  .heading {
+    color: $primary-font-color;
+    font-size: 18px;
+    font-weight: medium;
+    margin: 0;
+
+    span {
+      color: $secondary-font-color;
+      font-size: 14px;
+      font-weight: normal;
     }
   }
 
@@ -87,25 +110,6 @@ $addon-padding: 20px;
     .copy {
       padding: 30px 20px;
       flex-grow: 1;
-
-      .heading {
-        color: $primary-font-color;
-        font-size: 18px;
-        font-weight: medium;
-        margin: 0;
-      }
-
-      .sub-heading {
-        color: $secondary-font-color;
-        font-size: 14px;
-        font-weight: normal;
-      }
-
-      .editorial-description {
-        color: $secondary-font-color;
-        font-size: 12px;
-        margin: 0.5em 0;
-      }
 
       // Remove the bottom margin of the last element.
       & :last-child {

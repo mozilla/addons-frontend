@@ -26,6 +26,8 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
     // Substitutes client only config.
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
+    // Use the browser's window for window.
+    new webpack.NormalModuleReplacementPlugin(/core\/window/, 'core/browserWindow.js'),
   ],
   devtool: 'inline-source-map',
   module: {

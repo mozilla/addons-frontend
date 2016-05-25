@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 
+import { loadEntities, setCurrentUser } from 'core/actions';
 import { fetchProfile } from 'core/api';
-import { loadEntities, setCurrentUser } from 'search/actions';
 
 import './styles.scss';
 

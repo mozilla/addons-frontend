@@ -18,7 +18,7 @@ export const validInstallStates = [
 
 // Add-on types.
 export const EXTENSION_TYPE = 'extension';
-export const THEME_TYPE = 'theme';
+export const THEME_TYPE = 'persona';
 // These types are not used.
 // export const DICT_TYPE = 'dictionary';
 // export const SEARCH_TYPE = 'search';
