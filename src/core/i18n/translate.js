@@ -23,10 +23,6 @@ export default function translate(options = {}) {
         return { i18n: this.i18n };
       }
 
-      componentWillUnmount() {
-        this.mounted = false;
-      }
-
       getWrappedInstance() {
         if (!withRef) {
           throw new Error(dedent`To access the wrapped instance, you need to specify

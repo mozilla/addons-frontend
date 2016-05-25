@@ -24,12 +24,6 @@ export default class I18nProvider extends Component {
     return { i18n: this.i18n };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.i18n !== nextProps.i18n) {
-      throw new Error('Mutating the i18n object is not allowed');
-    }
-  }
-
   render() {
     const { children } = this.props;
     return Children.only(children);
