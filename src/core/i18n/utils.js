@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
+
 import config from 'config';
-import log from 'core/logger';
 
 const defaultLang = config.get('defaultLang');
 const langs = config.get('langs');
@@ -8,7 +9,7 @@ const validLangs = langs.concat(Object.keys(langMap));
 const rtlLangs = config.get('rtlLangs');
 
 
-export function localeToLang(locale, log_ = log) {
+export function localeToLang(locale, log_ = console) {
   let lang = '';
   if (locale && locale.split) {
     const parts = locale.split('_');
@@ -29,7 +30,7 @@ export function localeToLang(locale, log_ = log) {
   return lang;
 }
 
-export function langToLocale(language, log_ = log) {
+export function langToLocale(language, log_ = console) {
   let locale = '';
   if (language && language.split) {
     const parts = language.split('-');
