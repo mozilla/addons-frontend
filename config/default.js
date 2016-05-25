@@ -27,6 +27,9 @@ module.exports = {
   client: false,
   server: true,
 
+  // Disables the server side render, handy for debugging.
+  disableSSR: false,
+
   // 2592000 is 30 days in seconds.
   cookieMaxAge: 2592000,
   cookieName: 'jwt_api_auth_token',
@@ -58,8 +61,12 @@ module.exports = {
     'cookieName',
     'cookieMaxAge',
     'cookieSecure',
+    'defaultLang',
     'isDeployed',
     'isDevelopment',
+    'langs',
+    'langMap',
+    'rtlLangs',
   ],
 
   // Content Security Policy.
@@ -112,10 +119,22 @@ module.exports = {
     action: 'deny',
   },
 
-  supportedLocales: [
-    'af', 'ar', 'bg', 'bn-BD', 'ca', 'cs', 'da', 'de', 'dbg', 'dbg-rtl', 'el',
+  // Supported languages.
+  langs: [
+    'af', 'ar', 'bg', 'bn-BD', 'ca', 'cs', 'da', 'de', 'dbl', 'dbr', 'el',
     'en-GB', 'en-US', 'es', 'eu', 'fa', 'fi', 'fr', 'ga-IE', 'he', 'hu', 'id',
     'it', 'ja', 'ko', 'mk', 'mn', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk',
     'sl', 'sq', 'sv-SE', 'uk', 'vi', 'zh-CN', 'zh-TW',
   ],
+  // Map of short langs to longer ones.
+  langMap: {
+    en: 'en-US',
+    ga: 'ga-IE',
+    pt: 'pt-PT',
+    sv: 'sv-SE',
+    zh: 'zh-CN',
+  },
+  rtlLangs: ['ar', 'dbr', 'fa', 'he'],
+  defaultLang: 'en-US',
+  localeDir: path.resolve(path.join(__dirname, '../locale')),
 };
