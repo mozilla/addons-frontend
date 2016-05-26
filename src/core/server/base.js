@@ -26,6 +26,7 @@ import Jed from 'jed';
 
 
 const env = config.util.getEnv('NODE_ENV');
+const version = path.join(config.get('basePath'), 'version.json');
 const isDeployed = config.get('isDeployed');
 const isDevelopment = config.get('isDevelopment');
 
@@ -62,6 +63,18 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
 
   app.use(Express.static(path.join(config.get('basePath'), 'dist')));
+
+  // Return version information as json
+  app.get('/__version__', (req, res) => {
+    fs.stat(version, (err) => {
+      if (err) {
+        res.sendStatus(415);
+      } else {
+        res.setHeader('Content-Type', 'application/json');
+        fs.createReadStream(version).pipe(res);
+      }
+    });
+  });
 
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
