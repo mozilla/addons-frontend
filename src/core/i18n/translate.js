@@ -19,10 +19,6 @@ export default function translate(options = {}) {
         };
       }
 
-      getChildContext() {
-        return { i18n: this.i18n };
-      }
-
       getWrappedInstance() {
         if (!withRef) {
           throw new Error(dedent`To access the wrapped instance, you need to specify
@@ -38,10 +34,7 @@ export default function translate(options = {}) {
           extraProps.ref = 'wrappedInstance';
         }
 
-        return React.createElement(
-          WrappedComponent,
-          { ...this.props, ...extraProps }
-        );
+        return <WrappedComponent {...this.props} {...extraProps} />;
       }
     }
 
