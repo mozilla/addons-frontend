@@ -43,7 +43,7 @@ const babelL10nPlugins = [
       'plural-forms': 'nplurals=2; plural=(n!=1);',
     },
     functionNames: {
-      _: ['msgid'],
+      gettext: ['msgid'],
       dgettext: ['domain', 'msgid'],
       ngettext: ['msgid', 'msgid_plural', 'count'],
       dngettext: ['domain', 'msgid', 'msgid_plural', 'count'],

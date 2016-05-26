@@ -1,0 +1,36 @@
+{
+   "domain": "messages",
+   "locale_data": {
+      "messages": {
+         "": {
+            "domain": "messages",
+            "plural_forms": "nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2;",
+            "lang": "ro"
+         },
+         "An unexpected error occurred": [
+            ""
+         ],
+         "Preview %(name)s": [
+            ""
+         ],
+         "Discover Add-ons": [
+            ""
+         ],
+         "Personalize Your Firefox": [
+            ""
+         ],
+         "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
+            ""
+         ],
+         "Click to play": [
+            ""
+         ],
+         "to find out more about add-ons": [
+            ""
+         ],
+         "Install": [
+            ""
+         ]
+      }
+   }
+}

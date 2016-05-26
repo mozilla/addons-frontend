@@ -32,3 +32,19 @@ export function stubAddonManager({ getAddon = Promise.resolve() } = {}) {
 export function unexpectedSuccess() {
   return assert.fail(null, null, 'Unexpected success');
 }
+
+/*
+ * Creates a stand-in for a jed instance,
+ */
+export function getFakeI18nInst() {
+  return {
+    gettext: sinon.stub(),
+    dgettext: sinon.stub(),
+    ngettext: sinon.stub(),
+    dngettext: sinon.stub(),
+    pgettext: sinon.stub(),
+    dpgettext: sinon.stub(),
+    npgettext: sinon.stub(),
+    dnpgettext: sinon.stub(),
+  };
+}

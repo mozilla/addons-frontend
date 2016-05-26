@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { sprintf } from 'sprintf-js';
+import translate from 'core/i18n/translate';
 
 import themeAction from 'disco/themePreview';
-import { gettext as _ } from 'core/utils';
 
 import InstallButton from 'disco/containers/InstallButton';
 import {
@@ -19,7 +19,7 @@ import {
 import 'disco/css/Addon.scss';
 
 
-export default class Addon extends React.Component {
+export class Addon extends React.Component {
   static propTypes = {
     accentcolor: PropTypes.string,
     closeErrorAction: PropTypes.func,
@@ -29,6 +29,7 @@ export default class Addon extends React.Component {
     headerURL: PropTypes.string,
     heading: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
+    i18n: PropTypes.string.isRequired,
     imageURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
@@ -51,8 +52,8 @@ export default class Addon extends React.Component {
   }
 
   getError() {
-    const { status } = this.props;
-    const errorMessage = this.props.errorMessage || _('An unexpected error occurred');
+    const { status, i18n } = this.props;
+    const errorMessage = this.props.errorMessage || i18n.gettext('An unexpected error occurred');
     return status === ERROR ? (<div className="error">
       <p className="message">{errorMessage}</p>
       <a className="close" href="#" onClick={this.props.closeErrorAction}>Close</a>
@@ -68,7 +69,7 @@ export default class Addon extends React.Component {
   }
 
   getThemeImage() {
-    const { name, themeURL } = this.props;
+    const { i18n, name, themeURL } = this.props;
     if (this.props.type === THEME_TYPE) {
       return (<a href="#" className="theme-image"
                  data-browsertheme={this.getBrowserThemeData()}
@@ -77,7 +78,7 @@ export default class Addon extends React.Component {
                  onFocus={this.previewTheme}
                  onMouseOut={this.resetPreviewTheme}
                  onMouseOver={this.previewTheme}>
-        <img src={themeURL} alt={sprintf(_('Preview %(name)s'), {name})} /></a>);
+        <img src={themeURL} alt={sprintf(i18n.gettext('Preview %(name)s'), {name})} /></a>);
     }
     return null;
   }
@@ -130,3 +131,5 @@ export default class Addon extends React.Component {
     );
   }
 }
+
+export default translate({withRef: true})(Addon);

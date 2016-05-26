@@ -1,7 +1,15 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
+import {
+  findRenderedComponentWithType,
+  renderIntoDocument,
+} from 'react-addons-test-utils';
 
 import App from 'disco/containers/App';
-import { shallowRender } from 'tests/client/helpers';
+import I18nProvider from 'core/i18n/Provider';
+
+import { getFakeI18nInst } from 'tests/client/helpers';
+
 
 describe('App', () => {
   it('renders its children', () => {
@@ -10,9 +18,15 @@ describe('App', () => {
         return <p>The component</p>;
       }
     }
-    const root = shallowRender(<App><MyComponent /></App>);
-    assert.equal(root.type, 'div');
-    // First child is <Helmet />.
-    assert.equal(root.props.children[1].type, MyComponent);
+    const root = findRenderedComponentWithType(renderIntoDocument(
+      <I18nProvider i18n={getFakeI18nInst()}>
+        <App>
+          <MyComponent />
+        </App>
+      </I18nProvider>), App).getWrappedInstance();
+
+    const rootNode = findDOMNode(root);
+    assert.equal(rootNode.tagName.toLowerCase(), 'div');
+    assert.equal(rootNode.querySelector('p').textContent, 'The component');
   });
 });

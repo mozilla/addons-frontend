@@ -7,7 +7,6 @@ import path from 'path';
 import cookie from 'react-cookie';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import ReactHelmet from 'react-helmet';
 
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
@@ -20,6 +19,10 @@ import ServerHtml from 'core/containers/ServerHtml';
 import config from 'config';
 import { setJWT } from 'core/actions';
 import log from 'core/logger';
+import setLanguage from 'core/i18n/middleware';
+import { getDirection, langToLocale } from 'core/i18n/utils';
+import I18nProvider from 'core/i18n/Provider';
+import Jed from 'jed';
 
 
 const env = config.util.getEnv('NODE_ENV');
@@ -28,7 +31,6 @@ const isDevelopment = config.get('isDevelopment');
 
 const errorString = 'Internal Server Error';
 const appName = config.get('appName');
-
 
 function logRequests(req, res, next) {
   const start = new Date();
@@ -41,6 +43,8 @@ function logRequests(req, res, next) {
 function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   const app = new Express();
   app.disable('x-powered-by');
+
+  app.use(setLanguage);
 
   app.use(logRequests);
 
@@ -56,12 +60,6 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // CSP configuration.
   app.use(helmet.contentSecurityPolicy(config.get('CSP')));
 
-  if (isDevelopment) {
-    log.info('Running in Development Mode');
-
-    // clear require() cache if in development mode
-    webpackIsomorphicTools.refresh();
-  }
 
   app.use(Express.static(path.join(config.get('basePath'), 'dist')));
 
@@ -74,6 +72,13 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   }
 
   app.use((req, res) => {
+    if (isDevelopment) {
+      log.info('Running in Development Mode');
+
+      // clear require() cache if in development mode
+      webpackIsomorphicTools.refresh();
+    }
+
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
       cookie.plugToRequest(req, res);
 
@@ -87,37 +92,57 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       }
 
       const store = createStore();
-
       const token = cookie.load(config.get('cookieName'));
       if (token) {
         store.dispatch(setJWT(token));
       }
+      // Get SRI for deployed services only.
+      const sriData = (isDeployed) ? JSON.parse(
+        fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
+      ) : {};
+
+      const lang = res.locals.lang;
+      const dir = getDirection(lang);
+      const locale = langToLocale(lang);
+
+      function hydrateOnClient(props = {}) {
+        const pageProps = {
+          appName: appInstanceName,
+          assets: webpackIsomorphicTools.assets(),
+          htmlLang: lang,
+          htmlDir: dir,
+          includeSri: isDeployed,
+          sriData,
+          store,
+          ...props,
+        };
+
+        const HTML = ReactDOM.renderToString(
+          <ServerHtml {...pageProps} />);
+        res.send(`<!DOCTYPE html>\n${HTML}`);
+      }
+
+      // Set disableSSR to true to debug
+      // client-side-only render.
+      if (config.get('disableSSR') === true) {
+        return Promise.resolve(hydrateOnClient());
+      }
 
       return loadOnServer({...renderProps, store})
         .then(() => {
+          // eslint-disable-next-line global-require
+          const jedData = require(`json!../../locale/${locale}/${appInstanceName}.json`);
+          const i18n = new Jed(jedData);
+
           const InitialComponent = (
-            <Provider store={store} key="provider">
-              <ReduxAsyncConnect {...renderProps} />
-            </Provider>
+            <I18nProvider i18n={i18n}>
+              <Provider store={store} key="provider">
+                <ReduxAsyncConnect {...renderProps} />
+              </Provider>
+            </I18nProvider>
           );
 
-          // Get SRI for deployed services only.
-          const sriData = (isDeployed) ? JSON.parse(
-            fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
-          ) : {};
-
-          const pageProps = {
-            appName: appInstanceName,
-            assets: webpackIsomorphicTools.assets(),
-            component: InitialComponent,
-            head: ReactHelmet.rewind(),
-            sriData,
-            includeSri: isDeployed,
-            store,
-          };
-
-          const HTML = ReactDOM.renderToString(<ServerHtml {...pageProps} />);
-          res.send(`<!DOCTYPE html>${HTML}`);
+          return hydrateOnClient({component: InitialComponent});
         })
         .catch((error) => {
           log.error({err: error});

@@ -15,7 +15,7 @@ export class ClientConfig {
         if (this.has(key)) {
           return objData[key];
         }
-        throw new Error(dedent`Key was not found in clientConfig. Check the
+        throw new Error(dedent`Key "${key}" was not found in clientConfig. Check the
           key has been added to clientConfigKeys`);
       },
     });

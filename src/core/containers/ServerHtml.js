@@ -10,10 +10,17 @@ export default class ServerHtml extends Component {
     appName: PropTypes.string.isRequired,
     assets: PropTypes.object.isRequired,
     component: PropTypes.object.isRequired,
+    htmlDir: PropTypes.object,
+    htmlLang: PropTypes.object,
     includeSri: PropTypes.bool,
     sriData: PropTypes.object,
     store: PropTypes.object.isRequired,
   };
+
+  static defaultProps = {
+    htmlDir: 'ltr',
+    htmlLang: 'en-US',
+  }
 
   getStatic({filePath, type, index}) {
     const { includeSri, sriData, appName } = this.props;
@@ -58,15 +65,14 @@ export default class ServerHtml extends Component {
   }
 
   render() {
-    const { component, store } = this.props;
+    const { component, htmlLang, htmlDir, store } = this.props;
     // This must happen before Helmet.rewind() see
     // https://github.com/nfl/react-helmet#server-usage for more info.
     const content = component ? ReactDOM.renderToString(component) : '';
     const head = Helmet.rewind();
-    const htmlAttrs = head.htmlAttributes.toComponent();
 
     return (
-      <html {...htmlAttrs}>
+      <html lang={htmlLang} dir={htmlDir}>
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />

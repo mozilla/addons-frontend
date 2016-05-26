@@ -43,7 +43,6 @@ describe('<ServerHtml />', () => {
           <Helmet
             defaultTitle="test title"
             meta={[{name: 'description', content: 'test meta'}]}
-            htmlAttributes={{lang: 'wat'}}
           />
           {children}
         </div>
@@ -51,22 +50,24 @@ describe('<ServerHtml />', () => {
     }
   }
 
-  function render({ appName = 'disco', includeSri = true,
-                    sriData = fakeSRIData } = {}) {
+  function render(opts = {}) {
     const pageProps = {
-      appName,
+      appName: 'disco',
       component: <FakeApp />,
       assets: fakeAssets,
-      includeSri,
+      includeSri: true,
       store: fakeStore,
-      sriData,
+      sriData: fakeSRIData,
+      ...opts,
     };
     return renderIntoDocument(<ServerHtml {...pageProps} />);
   }
 
   it('renders html attrs provided', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
-    assert.equal(html.getAttribute('lang'), 'wat');
+    const html = findRenderedDOMComponentWithTag(
+      render({htmlLang: 'ar', htmlDir: 'rtl'}), 'html');
+    assert.equal(html.getAttribute('lang'), 'ar');
+    assert.equal(html.getAttribute('dir'), 'rtl');
   });
 
   it('renders css provided', () => {

@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+/* eslint-disable no-var, no-console */
+// We can't use strict mode because po2json causes
+// referenceErrors.
+
+
+const fs = require('fs');
+const path = require('path');
+const config = require('config');
+const po2json = require('po2json');
+const glob = require('glob');
+const shelljs = require('shelljs');
+const chalk = require('chalk');
+
+const appName = config.get('appName');
+
+if (!appName) {
+  console.log(
+    chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
+  process.exit(1);
+}
+
+const localeDir = path.join(__dirname, '../locale');
+const poFiles = glob.sync(`${localeDir}/**/${appName}.po`);
+const dest = path.join(__dirname, '../src/locale/');
+
+poFiles.forEach((pofile) => {
+  const dir = path.dirname(pofile);
+  const subdir = path.dirname(dir);
+  const locale = path.basename(subdir);
+  const stem = path.basename(pofile, '.po');
+  const jsonfile = path.join(dest, locale, `${stem}.json`);
+  shelljs.mkdir('-p', path.join(dest, locale));
+  const json = po2json.parseFileSync(pofile, { stringify: true, pretty: true, format: 'jed1.x' });
+  fs.writeFileSync(jsonfile, json);
+});

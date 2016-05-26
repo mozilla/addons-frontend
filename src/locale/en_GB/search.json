@@ -1,0 +1,94 @@
+{
+   "domain": "messages",
+   "locale_data": {
+      "messages": {
+         "": {
+            "domain": "messages",
+            "plural_forms": "nplurals=2; plural=(n != 1);",
+            "lang": "en_GB"
+         },
+         "Login Required": [
+            "Login Required"
+         ],
+         "You must be logged in to access this page.": [
+            "You must be logged in to access this page."
+         ],
+         "Login": [
+            "Login"
+         ],
+         "We're sorry, but we can't find what you're looking for.": [
+            "We're sorry, but we can't find what you're looking for."
+         ],
+         "The page or file you requested wasn't found on our site. It's possible that you\nclicked a link that's out of date, or typed in the address incorrectly.": [
+            "The page or file you requested wasn't found on our site. It's possible that you\nclicked a link that's out of date, or typed in the address incorrectly."
+         ],
+         "Logging you in...": [
+            "Logging you in..."
+         ],
+         "There was an error logging you in, please try again.": [
+            "There was an error logging you in, please try again."
+         ],
+         "Search": [
+            "Search"
+         ],
+         "Add-on Search": [
+            "Add-on Search"
+         ],
+         "%(count)s file": [
+            "%(count)s file",
+            "%(count)s files"
+         ],
+         "Your search for \"%(query)s\" returned %(count)s results.": [
+            "Your search for \"%(query)s\" returned %(count)s results."
+         ],
+         "Searching...": [
+            "Searching..."
+         ],
+         "No results were found for \"%(query)s\".": [
+            "No results were found for \"%(query)s\"."
+         ],
+         "Please supply a valid search": [
+            "Please supply a valid search"
+         ],
+         "Attributes": [
+            "Attributes"
+         ],
+         "Tags": [
+            "Tags"
+         ],
+         "View on editors": [
+            "View on editors"
+         ],
+         "View homepage": [
+            "View homepage"
+         ],
+         "Email support": [
+            "Email support"
+         ],
+         "View support site": [
+            "View support site"
+         ],
+         "Current version": [
+            "Current version"
+         ],
+         "View on site": [
+            "View on site"
+         ],
+         "Edit on site": [
+            "Edit on site"
+         ],
+         "Files": [
+            "Files"
+         ],
+         "Download": [
+            "Download"
+         ],
+         "No current version": [
+            "No current version"
+         ],
+         "Add-ons Search": [
+            "Add-ons Search"
+         ]
+      }
+   }
+}

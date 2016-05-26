@@ -1,9 +1,12 @@
+/* eslint-disable max-len */
+
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
-import { gettext as _, camelCaseProps } from 'core/utils';
+import { camelCaseProps } from 'core/utils';
 
 import Addon from 'disco/components/Addon';
+import translate from 'core/i18n/translate';
 
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
@@ -12,6 +15,7 @@ import videoWebm from 'disco/video/AddOns.webm';
 
 class DiscoPane extends React.Component {
   static propTypes = {
+    i18n: PropTypes.object.isRequired,
     results: PropTypes.arrayOf(PropTypes.object),
   }
 
@@ -33,7 +37,7 @@ class DiscoPane extends React.Component {
   }
 
   render() {
-    const { results } = this.props;
+    const { results, i18n } = this.props;
     const { showVideo } = this.state;
 
     return (
@@ -41,15 +45,15 @@ class DiscoPane extends React.Component {
         <header className={showVideo ? 'show-video' : ''}>
           <div className="disco-header">
             <div className="disco-content">
-              <h1>{_('Personalize Your Firefox')}</h1>
-              <p>{_(dedent`There are thousands of add-ons that let you make Firefox all your
+              <h1>{i18n.gettext('Personalize Your Firefox')}</h1>
+              <p>{i18n.gettext(dedent`There are thousands of add-ons that let you make Firefox all your
                     own—everything from fun visual themes to powerful tools and features.
                     Here are a few great ones to check out.`)}</p>
             </div>
             <div className="video-wrapper">
               <a className="play-video" href="#play" onClick={this.showVideo}>
-                <span className="play-video-text">{_('Click to play')}</span>
-                <span className="visually-hidden">{_('to find out more about add-ons')}</span>
+                <span className="play-video-text">{i18n.gettext('Click to play')}</span>
+                <span className="visually-hidden">{i18n.gettext('to find out more about add-ons')}</span>
               </a>
               <video poster={videoPoster} controls={showVideo} width="512" height="288"
                      className="disco-video" ref="video">
@@ -57,7 +61,7 @@ class DiscoPane extends React.Component {
                 <source src={videoMp4} type="video/mp4" />
               </video>
               <div className="close-video">
-                <a href="#close" onClick={this.closeVideo}>{_('Close video')}</a>
+                <a href="#close" onClick={this.closeVideo}>{i18n.gettext('Close video')}</a>
               </div>
             </div>
           </div>
@@ -83,4 +87,4 @@ function mapStateToProps(state) {
 export default asyncConnect([{
   deferred: true,
   promise: loadDataIfNeeded,
-}])(connect(mapStateToProps)(DiscoPane));
+}])(connect(mapStateToProps)(translate()(DiscoPane)));
