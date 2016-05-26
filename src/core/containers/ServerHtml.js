@@ -27,7 +27,7 @@ export default class ServerHtml extends Component {
     const leafName = filePath.split('/').pop();
     let sriProps = {};
     // Only output files for the current app.
-    if (leafName.startsWith(appName)) {
+    if (leafName.startsWith(appName) && !leafName.includes('i18n')) {
       if (includeSri) {
         sriProps = {
           integrity: sriData[leafName],

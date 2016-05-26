@@ -67,14 +67,17 @@ export default {
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
     // Substitutes client only config.
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
+    // This allow us to exclude locales for other apps being built.
+    new webpack.ContextReplacementPlugin(
+      /locale$/,
+      new RegExp(`^\\.\\/.*?\\/${appName}\\.json$`)
+    ),
     new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
     new SriStatsPlugin({
       algorithm: 'sha512',
       write: true,
       saveAs: path.join(__dirname, 'dist/sri.json'),
     }),
-    // ignore dev config
-    new webpack.IgnorePlugin(/\.\/webpack\.dev/, /\/babel$/),
     // optimizations
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),

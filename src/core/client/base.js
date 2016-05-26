@@ -21,29 +21,30 @@ export default function makeClient(routes, createStore) {
   const lang = getLanguage(html.getAttribute('lang'));
   const locale = langToLocale(lang);
   const appName = config.get('appName');
-  // eslint-disable-next-line global-require
-  const jedData = require(`json!../../locale/${locale}/${appName}.json`);
-  const i18n = new Jed(jedData);
+  // eslint-disable-next-line global-require, max-len
+  require(`bundle?name=[name]-i18n-[folder]!json!../../locale/${locale}/${appName}.json`)((jedData) => {
+    const i18n = new Jed(jedData);
 
-  if (initialStateContainer) {
-    try {
-      initialState = JSON.parse(initialStateContainer.textContent);
-    } catch (error) {
-      log.error('Could not load initial redux data');
+    if (initialStateContainer) {
+      try {
+        initialState = JSON.parse(initialStateContainer.textContent);
+      } catch (error) {
+        log.error('Could not load initial redux data');
+      }
     }
-  }
-  const store = createStore(initialState);
+    const store = createStore(initialState);
 
-  function reduxAsyncConnectRender(props) {
-    return <ReduxAsyncConnect {...props} />;
-  }
+    function reduxAsyncConnectRender(props) {
+      return <ReduxAsyncConnect {...props} />;
+    }
 
-  render(
-    <I18nProvider i18n={i18n}>
-      <Provider store={store} key="provider">
-        <Router render={reduxAsyncConnectRender} children={routes} history={browserHistory} />
-      </Provider>
-    </I18nProvider>,
-    document.getElementById('react-view')
-  );
+    render(
+      <I18nProvider i18n={i18n}>
+        <Provider store={store} key="provider">
+          <Router render={reduxAsyncConnectRender} children={routes} history={browserHistory} />
+        </Provider>
+      </I18nProvider>,
+      document.getElementById('react-view')
+    );
+  });
 }
