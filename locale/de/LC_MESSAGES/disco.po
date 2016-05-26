@@ -1,33 +1,34 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-05-20 11:26+0000\n"
-"PO-Revision-Date: 2016-05-20 11:26+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-05-26 08:43+0000\n"
+"Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Language: de\n"
+"X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:55
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
 #: src/disco/components/Addon.js:80
 msgid "Preview %(name)s"
-msgstr ""
+msgstr "Vorschau von %(name)s"
 
 #: src/disco/containers/App.js:18
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Add-ons entdecken"
 
 #: src/disco/containers/DiscoPane.js:20
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Passen Sie Ihren Firefox an."
 
 #: src/disco/containers/DiscoPane.js:21
 msgid ""
@@ -35,15 +36,18 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
+"Es gibt Tausende von Add-ons, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können\n"
+" – alles, von lustigen Themes zu mächtigen Werkzeugen und Funktionen.\n"
+"Hier sind ein paar tolle Beispiele, die Sie ausprobieren können."
 
 #: src/disco/containers/DiscoPane.js:27
 msgid "Click to play"
-msgstr ""
+msgstr "Klicken Sie zum Abspielen"
 
 #: src/disco/containers/DiscoPane.js:28
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "um mehr über Add-ons zu erfahren"
 
 #: src/disco/containers/InstallButton.js:75
 msgid "Install"
-msgstr ""
+msgstr "Installieren"
