@@ -1,127 +1,126 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: search\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-05-20 14:41+0000\n"
-"PO-Revision-Date: 2016-05-20 14:41+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-05-26 04:59+0000\n"
+"Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"Content-Type: text/plain; charset=utf-8\n"
 "Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pontoon\n"
 
 #: src/core/components/LoginPage/index.js:13
 msgid "Login Required"
-msgstr ""
+msgstr "需要登入"
 
 #: src/core/components/LoginPage/index.js:20
 msgid "You must be logged in to access this page."
-msgstr ""
+msgstr "必須登入後才能存取此頁面。"
 
 #: src/core/components/LoginPage/index.js:24
 msgid "Login"
-msgstr ""
+msgstr "登入"
 
 #: src/core/components/NotFound.js:8
 msgid "We're sorry, but we can't find what you're looking for."
-msgstr ""
+msgstr "很抱歉，我們找不到您想尋找的東西。"
 
 #: src/core/components/NotFound.js:9
 msgid ""
-"The page or file you requested wasn't found on our site. It's possible that "
-"you\n"
+"The page or file you requested wasn't found on our site. It's possible that you\n"
 "clicked a link that's out of date, or typed in the address incorrectly."
-msgstr ""
+msgstr "您想要開啟的頁面或檔案不存在於此網站，可能是您點擊了過時的鏈結，或是網址打錯了。"
 
 #: src/core/containers/HandleLogin/index.js:41
 msgid "Logging you in..."
-msgstr ""
+msgstr "登入中…"
 
 #: src/core/containers/HandleLogin/index.js:45
 msgid "There was an error logging you in, please try again."
-msgstr ""
+msgstr "登入時發生錯誤，請再試一次。"
 
 #: src/search/components/SearchForm.js:30
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: src/search/components/SearchPage.js:29
 msgid "Add-on Search"
-msgstr ""
+msgstr "搜尋附加元件"
 
 #: src/search/components/SearchResult/index.js:18
 msgid "%(count)s file"
 msgid_plural "%(count)s files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s 檔案"
 
 #: src/search/components/SearchResults.js:32
 msgid "Your search for \"%(query)s\" returned %(count)s results."
-msgstr ""
+msgstr "您搜尋「%(query)s」回傳了 %(count)s 筆結果。"
 
 #: src/search/components/SearchResults.js:39
 msgid "Searching..."
-msgstr ""
+msgstr "搜尋中…"
 
 #: src/search/components/SearchResults.js:41
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "找不到「%(query)s」的搜尋結果。"
 
 #: src/search/components/SearchResults.js:43
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "請提供正確的搜尋條件"
 
 #: src/search/containers/AddonPage/index.js:108
 msgid "Attributes"
-msgstr ""
+msgstr "屬性"
 
 #: src/search/containers/AddonPage/index.js:110
 msgid "Tags"
-msgstr ""
+msgstr "標籤"
 
 #: src/search/containers/AddonPage/index.js:31
 msgid "View on editors"
-msgstr ""
+msgstr "在編輯器中檢視"
 
 #: src/search/containers/AddonPage/index.js:35
 msgid "View homepage"
-msgstr ""
+msgstr "檢視首頁"
 
 #: src/search/containers/AddonPage/index.js:41
 msgid "Email support"
-msgstr ""
+msgstr "發信給技術支援信箱"
 
 #: src/search/containers/AddonPage/index.js:47
 msgid "View support site"
-msgstr ""
+msgstr "檢視技術支援網站"
 
 #: src/search/containers/AddonPage/index.js:70
 msgid "Current version"
-msgstr ""
+msgstr "目前版本"
 
 #: src/search/containers/AddonPage/index.js:73
 msgid "View on site"
-msgstr ""
+msgstr "在網站上檢視"
 
 #: src/search/containers/AddonPage/index.js:74
 msgid "Edit on site"
-msgstr ""
+msgstr "在網站上編輯"
 
 #: src/search/containers/AddonPage/index.js:76
 msgid "Files"
-msgstr ""
+msgstr "檔案"
 
 #: src/search/containers/AddonPage/index.js:85
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 #: src/search/containers/AddonPage/index.js:95
 msgid "No current version"
-msgstr ""
+msgstr "沒有目前的版本"
 
 #: src/search/containers/App.js:18
 msgid "Add-ons Search"
-msgstr ""
+msgstr "搜尋附加元件"
