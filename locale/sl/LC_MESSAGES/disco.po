@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-05-20 11:26+0000\n"
-"PO-Revision-Date: 2016-05-25 18:28+0000\n"
+"PO-Revision-Date: 2016-05-26 10:44+0000\n"
 "Last-Translator: Matjaž Horvat <matjaz.horvat@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -16,19 +16,19 @@ msgstr ""
 
 #: src/disco/components/Addon.js:55
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Prišlo je do nepričakovane napake"
 
 #: src/disco/components/Addon.js:80
 msgid "Preview %(name)s"
-msgstr ""
+msgstr "Predogled %(name)s"
 
 #: src/disco/containers/App.js:18
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Odkrijte dodatke"
 
 #: src/disco/containers/DiscoPane.js:20
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Prikrojite Firefox po svoji meri"
 
 #: src/disco/containers/DiscoPane.js:21
 msgid ""
@@ -36,14 +36,17 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
+"Na voljo je na tisoče dodatkov — od zabavnih grafičnih tem do\n"
+"zmogljivih orodij. Omogočajo vam, da naredite Firefox samo vaš.\n"
+"Predstavljamo najbolj priljubljene."
 
 #: src/disco/containers/DiscoPane.js:27
 msgid "Click to play"
-msgstr ""
+msgstr "Kliknite za predvajanje"
 
 #: src/disco/containers/DiscoPane.js:28
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "in odkrijte več o dodatkih"
 
 #: src/disco/containers/InstallButton.js:75
 msgid "Install"
