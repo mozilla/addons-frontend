@@ -9,6 +9,7 @@ export default {
       editorial_description: 'Hover over the image to preview',
       heading: 'Japanese Tattoo by MaDonna',
       id: '18781',
+      guid: '18781@personas.mozilla.org',
       name: 'Japanese Tattoo',
       slug: 'japanese-tattoo',
       sub_heading: null,

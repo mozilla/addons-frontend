@@ -19,7 +19,7 @@ export function findByTag(root, tag) {
   return matches[0];
 }
 
-export function stubAddonManager({ getAddon = Promise.resolve() } = {}) {
+export function stubAddonManager({ getAddon = Promise.resolve({type: 'addon'}) } = {}) {
   const instance = sinon.createStubInstance(AddonManager);
   instance.getAddon = sinon.stub().returns(getAddon);
   instance.install = sinon.stub().returns(Promise.resolve());

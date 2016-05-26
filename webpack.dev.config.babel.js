@@ -37,7 +37,7 @@ const webpackHost = config.get('webpackServerHost');
 const webpackPort = config.get('webpackServerPort');
 const assetsPath = path.resolve(__dirname, 'dist');
 
-const hmr = `webpack-hot-middleware/client?path=http://${webpackHost}:${webpackPort}/__webpack_hmr`;
+const hmr = `webpack-hot-middleware/client?path=//${webpackHost}:${webpackPort}/__webpack_hmr`;
 
 const appName = config.get('appName');
 const appsBuildList = appName ? [appName] : config.get('validAppNames');
@@ -59,7 +59,7 @@ export default Object.assign({}, webpackConfig, {
     path: assetsPath,
     filename: '[name]-[hash].js',
     chunkFilename: '[name]-[hash].js',
-    publicPath: `http://${webpackHost}:${webpackPort}/`,
+    publicPath: `//${webpackHost}:${webpackPort}/`,
   }),
   module: {
     loaders: [{

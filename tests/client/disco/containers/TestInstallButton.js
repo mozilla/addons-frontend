@@ -13,6 +13,8 @@ import {
   DOWNLOADING,
   INSTALLED,
   INSTALLING,
+  THEME_INSTALL,
+  THEME_TYPE,
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
@@ -27,6 +29,7 @@ describe('<InstallButton />', () => {
       dispatch: sinon.spy(),
       setInitialStatus: sinon.spy(),
       install: sinon.spy(),
+      installTheme: sinon.spy(),
       uninstall: sinon.spy(),
       i18n: getFakeI18nInst(),
       ...props,
@@ -102,6 +105,16 @@ describe('<InstallButton />', () => {
     assert.throws(() => {
       renderButton({status: 'BOGUS'});
     }, Error, 'Invalid add-on status');
+  });
+
+  it('should call installThem function on click when uninstalled theme', () => {
+    const installTheme = sinon.spy();
+    const slug = 'my-theme';
+    const button = renderButton({installTheme, type: THEME_TYPE, slug, status: UNINSTALLED});
+    const themeData = button.refs.themeData;
+    const root = findDOMNode(button);
+    Simulate.click(root);
+    assert(installTheme.calledWith(themeData, slug));
   });
 
   it('should call install function on click when uninstalled', () => {
@@ -186,7 +199,7 @@ describe('<InstallButton />', () => {
   });
 
   describe('setInitialStatus', () => {
-    it('sets the status to INSTALLED when found', () => {
+    it('sets the status to INSTALLED when add-on found', () => {
       stubAddonManager();
       const dispatch = sinon.spy();
       const guid = '@foo';
@@ -198,6 +211,38 @@ describe('<InstallButton />', () => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
             payload: {guid, slug, status: INSTALLED, url: installURL},
+          }));
+        });
+    });
+
+    it('sets the status to INSTALLED when an installed theme is found', () => {
+      stubAddonManager({getAddon: Promise.resolve({type: 'theme', isEnabled: true})});
+      const dispatch = sinon.spy();
+      const guid = '@foo';
+      const slug = 'foo';
+      const installURL = 'http://the.url';
+      const { setInitialStatus } = mapDispatchToProps(dispatch);
+      return setInitialStatus({guid, installURL, slug})
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: 'INSTALL_STATE',
+            payload: {guid, slug, status: INSTALLED, url: installURL},
+          }));
+        });
+    });
+
+    it('sets the status to UNINSTALLED when an uninstalled theme is found', () => {
+      stubAddonManager({getAddon: Promise.resolve({type: 'theme', isEnabled: false})});
+      const dispatch = sinon.spy();
+      const guid = '@foo';
+      const slug = 'foo';
+      const installURL = 'http://the.url';
+      const { setInitialStatus } = mapDispatchToProps(dispatch);
+      return setInitialStatus({guid, installURL, slug})
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: 'INSTALL_STATE',
+            payload: {guid, slug, status: UNINSTALLED, url: installURL},
           }));
         });
     });
@@ -252,7 +297,7 @@ describe('<InstallButton />', () => {
     const installURL = 'https://mysite.com/download.xpi';
     const slug = 'uninstall';
 
-    it('installs the addon on a new AddonManager', () => {
+    it('prepares the addon on a new AddonManager', () => {
       stubAddonManager();
       const dispatch = sinon.spy();
       const { uninstall } = mapDispatchToProps(dispatch);
@@ -272,6 +317,24 @@ describe('<InstallButton />', () => {
           type: 'START_UNINSTALL',
           payload: {slug},
         })));
+    });
+  });
+
+  describe('installTheme', () => {
+    it('installs the theme', () => {
+      const node = sinon.stub();
+      const slug = 'install-theme';
+      const spyThemeAction = sinon.spy();
+      const dispatch = sinon.spy();
+      const { installTheme } = mapDispatchToProps(dispatch);
+      return installTheme(node, slug, spyThemeAction)
+        .then(() => {
+          assert(spyThemeAction.calledWith(node, THEME_INSTALL));
+          assert(dispatch.calledWith({
+            type: 'INSTALL_STATE',
+            payload: {slug, status: INSTALLED},
+          }));
+        });
     });
   });
 

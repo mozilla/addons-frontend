@@ -8,3 +8,7 @@ export default function themeAction(node, action, _doc = document) {
   event.initEvent(action, true, false);
   node.dispatchEvent(event);
 }
+
+export function getThemeData({ id, name, headerURL, footerURL, textcolor, accentcolor }) {
+  return {id, name, headerURL, footerURL, textcolor, accentcolor};
+}
