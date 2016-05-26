@@ -5,12 +5,6 @@ const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 module.exports = {
   debug: false,
   assets: {
-    translations: {
-      extensions: [
-        'po',
-      ],
-      parser: WebpackIsomorphicToolsPlugin.url_loader_parser,
-    },
     images: {
       extensions: [
         'jpeg',
