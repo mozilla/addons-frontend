@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "better-npm-run build",
-    "build-l10n": "better-npm-run build-l10n",
+    "extract-locales": "better-npm-run extract-locales",
     "build:disco": "better-npm-run build:disco",
     "build:search": "better-npm-run build:search",
     "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
@@ -55,7 +55,7 @@
         "NODE_APP_INSTANCE": "search"
       }
     },
-    "build-l10n": {
+    "extract-locales": {
       "command": "webpack --verbose --display-error-details --progress --colors --config webpack.l10n.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src",
