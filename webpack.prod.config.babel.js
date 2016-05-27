@@ -32,7 +32,7 @@ export default {
     path: path.join(__dirname, 'dist'),
     filename: '[name]-[chunkhash].js',
     chunkFilename: '[name]-[chunkhash].js',
-    publicPath: '/',
+    publicPath: config.has('staticHost') ? `${config.get('staticHost')}/` : '/',
   },
   module: {
     loaders: [

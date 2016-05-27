@@ -12,7 +12,6 @@ module.exports = {
   CSP: {
     directives: {
       connectSrc: [
-        "'self'",
         apiHost,
       ],
       imgSrc: [
@@ -21,11 +20,9 @@ module.exports = {
         'data:',
       ],
       scriptSrc: [
-        "'self'",
         amoCDN,
       ],
       styleSrc: [
-        "'self'",
         amoCDN,
       ],
     },

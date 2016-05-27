@@ -49,6 +49,7 @@ module.exports = {
 
   // The CDN host for AMO.
   amoCDN,
+  staticHost: amoCDN,
   apiHost,
   apiPath: '/api/v3',
 
@@ -81,28 +82,21 @@ module.exports = {
       defaultSrc: ["'none'"],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
-      connectSrc: [
-        "'self'",
-        apiHost,
-      ],
-      formAction: ["'self'"],
+      connectSrc: [apiHost],
+      formAction: ["'none'"],
       frameSrc: ["'none'"],
       frameAncestors: ["'none'"],
       imgSrc: [
+        // Favicons are normally served
+        // from the document host.
         "'self'",
         amoCDN,
         'data:',
       ],
       mediaSrc: ["'none'"],
       objectSrc: ["'none'"],
-      scriptSrc: [
-        "'self'",
-        amoCDN,
-      ],
-      styleSrc: [
-        "'self'",
-        amoCDN,
-      ],
+      scriptSrc: [amoCDN],
+      styleSrc: [amoCDN],
       reportUri: '/__cspreport__',
     },
 
