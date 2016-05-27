@@ -107,7 +107,7 @@ describe('<InstallButton />', () => {
     }, Error, 'Invalid add-on status');
   });
 
-  it('should call installThem function on click when uninstalled theme', () => {
+  it('should call installTheme function on click when uninstalled theme', () => {
     const installTheme = sinon.spy();
     const slug = 'my-theme';
     const button = renderButton({installTheme, type: THEME_TYPE, slug, status: UNINSTALLED});
