@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import { sprintf } from 'sprintf-js';
 import translate from 'core/i18n/translate';
 
-import themeAction from 'disco/themePreview';
+import themeAction, { getThemeData } from 'disco/themePreview';
 
 import InstallButton from 'disco/containers/InstallButton';
 import {
@@ -47,8 +47,7 @@ export class Addon extends React.Component {
   }
 
   getBrowserThemeData() {
-    const { id, name, headerURL, footerURL, textcolor, accentcolor } = this.props;
-    return JSON.stringify({id, name, headerURL, footerURL, textcolor, accentcolor});
+    return JSON.stringify(getThemeData(this.props));
   }
 
   getError() {

@@ -2,22 +2,28 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import translate from 'core/i18n/translate';
 
-import 'disco/css/InstallButton.scss';
+import config from 'config';
 import { AddonManager } from 'disco/addonManager';
 import {
   DOWNLOADING,
   INSTALLED,
+  THEME_INSTALL,
+  THEME_TYPE,
   UNINSTALLED,
   UNKNOWN,
+  validAddonTypes,
   validInstallStates as validStates,
 } from 'disco/constants';
-import config from 'config';
+import themeAction, { getThemeData } from 'disco/themePreview';
+
+import 'disco/css/InstallButton.scss';
 
 export class InstallButton extends React.Component {
   static propTypes = {
     handleChange: PropTypes.func,
     guid: PropTypes.string,
     install: PropTypes.func.isRequired,
+    installTheme: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     installURL: PropTypes.string,
     uninstall: PropTypes.func.isRequired,
@@ -26,6 +32,7 @@ export class InstallButton extends React.Component {
     setInitialStatus: PropTypes.func.isRequired,
     slug: PropTypes.string.isRequired,
     status: PropTypes.oneOf(validStates),
+    type: PropTypes.oneOf(validAddonTypes),
   }
 
   static defaultProps = {
@@ -39,8 +46,10 @@ export class InstallButton extends React.Component {
   }
 
   handleClick = () => {
-    const { guid, install, installURL, slug, status, uninstall } = this.props;
-    if (status === UNINSTALLED) {
+    const { guid, install, installURL, slug, status, installTheme, type, uninstall } = this.props;
+    if (type === THEME_TYPE && status === UNINSTALLED) {
+      installTheme(this.refs.themeData, slug);
+    } else if (status === UNINSTALLED) {
       install({ guid, installURL, slug });
     } else if (status === INSTALLED) {
       uninstall({ guid, installURL, slug });
@@ -69,6 +78,8 @@ export class InstallButton extends React.Component {
           checked={isInstalled}
           disabled={isDisabled}
           onChange={this.props.handleChange}
+          data-browsertheme={JSON.stringify(getThemeData(this.props))}
+          ref="themeData"
           type="checkbox" />
         <label htmlFor={identifier}>
           {isDownloading ? <div className="progress"></div> : null}
@@ -109,7 +120,10 @@ export function mapDispatchToProps(dispatch) {
       const payload = {guid, slug, url: installURL};
       return addonManager.getAddon()
         .then(
-          () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: INSTALLED}}),
+          (addon) => {
+            const status = addon.type === THEME_TYPE && !addon.isEnabled ? UNINSTALLED : INSTALLED;
+            dispatch({type: 'INSTALL_STATE', payload: {...payload, status}});
+          },
           () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: UNINSTALLED}}));
     },
 
@@ -117,6 +131,16 @@ export function mapDispatchToProps(dispatch) {
       const addonManager = new AddonManager(guid, installURL, makeProgressHandler(dispatch, slug));
       dispatch({type: 'START_DOWNLOAD', payload: {slug}});
       return addonManager.install();
+    },
+
+    installTheme(node, slug, _themeAction = themeAction) {
+      _themeAction(node, THEME_INSTALL);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          dispatch({type: 'INSTALL_STATE', payload: {slug, status: INSTALLED}});
+          resolve();
+        }, 250);
+      });
     },
 
     uninstall({ guid, installURL, slug }) {
