@@ -7,12 +7,12 @@ const apiHost = 'https://addons.allizom.org';
 module.exports = {
   apiHost,
   amoCDN,
+  staticHost: amoCDN,
 
   // Content security policy.
   CSP: {
     directives: {
       connectSrc: [
-        "'self'",
         apiHost,
       ],
       imgSrc: [
@@ -21,11 +21,9 @@ module.exports = {
         'data:',
       ],
       scriptSrc: [
-        "'self'",
         amoCDN,
       ],
       styleSrc: [
-        "'self'",
         amoCDN,
       ],
     },

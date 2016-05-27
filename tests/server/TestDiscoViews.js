@@ -12,23 +12,24 @@ import { checkSRI } from './helpers';
 describe('GET requests', () => {
   let app;
 
-  before((done) => runServer({listen: false, app: 'disco'})
+  before(() => runServer({listen: false, app: 'disco'})
     .then((server) => {
       app = server;
-      done();
     }));
 
   after(() => {
     webpackIsomorphicTools.undo();
   });
 
-  it('should have a CSP policy for /', () => request(app)
+  it('should have a CSP policy for / on the disco app', () => request(app)
     .get('/')
     .expect(200)
     .then((res) => {
       const policy = new Policy(res.header['content-security-policy']);
-      assert.include(policy.get('script-src'), "'self'");
-      assert.include(policy.get('connect-src'), "'self'");
+      assert.notInclude(policy.get('script-src'), "'self'");
+      assert.include(policy.get('script-src'), 'https://addons.cdn.mozilla.net');
+      assert.notInclude(policy.get('connect-src'), "'self'");
+      assert.include(policy.get('connect-src'), 'https://addons.mozilla.org');
     }));
 
   it('should be using SRI for script and style in /', () => request(app)

@@ -33,13 +33,13 @@ describe('CSP Config', () => {
       const config = requireUncached('config');
       const cspConfig = config.get('CSP').directives;
       assert.include(cspConfig.scriptSrc, cdnHost);
-      assert.include(cspConfig.scriptSrc, "'self'");
+      assert.notInclude(cspConfig.scriptSrc, "'self'");
       assert.include(cspConfig.imgSrc, cdnHost);
       assert.include(cspConfig.imgSrc, "'self'");
       assert.include(cspConfig.styleSrc, cdnHost);
-      assert.include(cspConfig.styleSrc, "'self'");
+      assert.notInclude(cspConfig.styleSrc, "'self'");
       assert.include(cspConfig.connectSrc, apiHost);
-      assert.include(cspConfig.connectSrc, "'self'");
+      assert.notInclude(cspConfig.connectSrc, "'self'");
     });
   }
 
@@ -55,10 +55,10 @@ describe('CSP Config', () => {
     assert.deepEqual(cspConfig.baseUri, ["'self'"]);
   });
 
-  it('should default form-action to "\'self\'"', () => {
+  it('should default form-action to "\'none\'"', () => {
     const config = requireUncached('config');
     const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.formAction, ["'self'"]);
+    assert.deepEqual(cspConfig.formAction, ["'none'"]);
   });
 
   it('should default frame-ancestors to "\'none\'"', () => {
@@ -97,6 +97,39 @@ describe('App Specific CSP Config', () => {
   afterEach(() => {
     process.env.NODE_ENV = 'production';
     delete process.env.NODE_APP_INSTANCE;
+  });
+
+  it('should set style-src for disco', () => {
+    process.env.NODE_APP_INSTANCE = 'disco';
+    const config = requireUncached('config');
+    const cspConfig = config.get('CSP').directives;
+    assert.deepEqual(cspConfig.styleSrc, ['https://addons-discovery.cdn.mozilla.net']);
+  });
+
+  it('should set script-src for disco', () => {
+    process.env.NODE_APP_INSTANCE = 'disco';
+    const config = requireUncached('config');
+    const cspConfig = config.get('CSP').directives;
+    assert.deepEqual(cspConfig.scriptSrc, ['https://addons-discovery.cdn.mozilla.net']);
+  });
+
+  it('should set media-src for disco', () => {
+    process.env.NODE_APP_INSTANCE = 'disco';
+    const config = requireUncached('config');
+    const cspConfig = config.get('CSP').directives;
+    assert.deepEqual(cspConfig.mediaSrc, ['https://addons-discovery.cdn.mozilla.net']);
+  });
+
+  it('should set img-src for disco', () => {
+    process.env.NODE_APP_INSTANCE = 'disco';
+    const config = requireUncached('config');
+    const cspConfig = config.get('CSP').directives;
+    assert.sameMembers(cspConfig.imgSrc, [
+      "'self'",
+      'data:',
+      'https://addons.cdn.mozilla.net',
+      'https://addons-discovery.cdn.mozilla.net',
+    ]);
   });
 
   it('should default frame-ancestors to "\'none\'"', () => {

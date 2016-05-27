@@ -11,6 +11,9 @@ module.exports = {
   apiHost,
   amoCDN,
 
+  // Statics will be served by node.
+  staticHost: undefined,
+
   isDeployed: false,
   isDevelopment: true,
 
