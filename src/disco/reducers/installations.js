@@ -19,7 +19,7 @@ const acceptedTypes = [
 ];
 
 export default function installations(state = {}, { type, payload }) {
-  if (acceptedTypes.indexOf(type) === -1) {
+  if (!acceptedTypes.includes(type)) {
     return state;
   }
   let addon;
