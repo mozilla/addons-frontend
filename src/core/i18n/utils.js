@@ -60,13 +60,13 @@ export function normalizeLocale(locale) {
 }
 
 export function isValidLang(lang) {
-  return validLangs.indexOf(lang) > -1;
+  return validLangs.includes(lang);
 }
 
 export function getLanguage(langOrLocale) {
   let language = normalizeLang(langOrLocale);
   // Only look in the un-mapped lang list.
-  if (langs.indexOf(language) === -1) {
+  if (!langs.includes(language)) {
     language = langMap.hasOwnProperty(language) ? langMap[language] : defaultLang;
   }
   return language;
@@ -74,7 +74,7 @@ export function getLanguage(langOrLocale) {
 
 export function isRtlLang(lang) {
   const language = getLanguage(lang);
-  return rtlLangs.indexOf(language) > -1;
+  return rtlLangs.includes(language);
 }
 
 export function getDirection(lang) {

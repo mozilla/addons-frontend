@@ -2,6 +2,8 @@
 // WARNING: No test/stage/dev/development config should
 // live here.
 
+import 'babel-polyfill';
+
 const path = require('path');
 
 const appName = process.env.NODE_APP_INSTANCE || null;
@@ -11,7 +13,7 @@ const validAppNames = [
 ];
 
 // Throw if the appName supplied is not valid.
-if (appName && validAppNames.indexOf(appName) === -1) {
+if (appName && !validAppNames.includes(appName)) {
   throw new Error(`App ${appName} is not enabled`);
 }
 

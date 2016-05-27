@@ -102,7 +102,7 @@ export class Addon extends React.Component {
   render() {
     const { heading, slug, subHeading, type } = this.props;
 
-    if (validAddonTypes.indexOf(type) === -1) {
+    if (!validAddonTypes.includes(type)) {
       throw new Error('Invalid addon type');
     }
 
