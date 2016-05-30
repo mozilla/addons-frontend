@@ -27,7 +27,7 @@ nvm. See https://github.com/creationix/nvm for more info.
 | npm run start:disco    |  Starts the express server (prod mode disco pane)   |
 | npm run start:search   |  Starts the express server (prod mode search)       |
 | npm run build          |  Builds the libs (all apps)                         |
-| npm run build-l10n     |  Builds the libs + extracts translations            |
+| npm run extract-locales|  Builds the libs + extracts translations            |
 | npm run build:disco    |  Builds the libs (discovery pane)                   |
 | npm run build:search   |  Builds the libs (search)                           |
 | npm run dev:search     |  Starts the dev server (search app)                 |
