@@ -6,7 +6,7 @@ import * as coreApi from 'core/api';
 describe('disco api', () => {
   describe('getDiscoveryAddons', () => {
     it('calls the API', () => {
-      const callApi = sinon.spy(coreApi, 'callApi');
+      const callApi = sinon.stub(coreApi, 'callApi');
       const api = {some: 'apiconfig'};
       getDiscoveryAddons({api});
       assert.ok(callApi.calledWith({

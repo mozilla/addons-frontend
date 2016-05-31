@@ -64,7 +64,7 @@ describe('AddonPage', () => {
           return {addons: {foo: {}}, discoResults: [{addon: 'foo'}]};
         },
       };
-      const getAddons = sinon.spy(discoApi, 'getDiscoveryAddons');
+      const getAddons = sinon.stub(discoApi, 'getDiscoveryAddons');
       return helpers.loadDataIfNeeded({store})
         .then(() => assert.notOk(getAddons.called));
     });
