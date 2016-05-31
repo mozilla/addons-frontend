@@ -1,5 +1,6 @@
 @import "~normalize.css";
 @import "~core/css/inc/lib";
+@import "~core/css/inc/mixins";
 @import "~disco/css/inc/vars";
 
 
@@ -28,6 +29,13 @@ img {
   padding: 50px 20px;
 }
 
+#app-view {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
 header {
   border-bottom: 1px solid $header-border-color;
   margin-bottom: 40px;
@@ -40,6 +48,25 @@ header {
     font-weight: 400;
     line-height: 1.5;
     margin: 0 0 20px;
+  }
+}
+
+.cta {
+  align-self: center;
+  padding: 1em 1.5em;
+  margin: 30px 0;
+  background: $cta-background-color;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  transition: background .2s;
+
+  &:hover {
+    background: lighten($cta-background-color, 7);
+  }
+
+  &:focus {
+    @include focus();
   }
 }
 

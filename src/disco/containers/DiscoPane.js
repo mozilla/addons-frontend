@@ -67,6 +67,7 @@ class DiscoPane extends React.Component {
           </div>
         </header>
         {results.map((item, i) => <Addon {...camelCaseProps(item)} key={i} />)}
+        <a className="cta" href="https://addons.mozilla.org/">{i18n.gettext('See more add-ons!')}</a>
       </div>
     );
   }
