@@ -21,8 +21,7 @@ export default function makeClient(routes, createStore) {
   const lang = getLanguage(html.getAttribute('lang'));
   const locale = langToLocale(lang);
   const appName = config.get('appName');
-  // eslint-disable-next-line global-require, max-len
-  require(`bundle?name=[name]-i18n-[folder]!json!../../locale/${locale}/${appName}.json`)((jedData) => {
+  function renderApp(jedData) {
     const i18n = new Jed(jedData);
 
     if (initialStateContainer) {
@@ -46,5 +45,16 @@ export default function makeClient(routes, createStore) {
       </I18nProvider>,
       document.getElementById('react-view')
     );
-  });
+  }
+
+  try {
+    if (locale !== langToLocale(config.get('defaultLang'))) {
+      // eslint-disable-next-line global-require, max-len
+      require(`bundle?name=[name]-i18n-[folder]!json!../../locale/${locale}/${appName}.json`)(renderApp);
+    }
+  } catch (e) {
+    log.info(dedent`Locale not found or required for locale: "${locale}".
+      Falling back to default lang: "${config.get('defaultLang')}"`);
+    renderApp({});
+  }
 }
