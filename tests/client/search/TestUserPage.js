@@ -2,8 +2,8 @@ import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
+import { loadEntities, setCurrentUser } from 'core/actions';
 import * as api from 'core/api';
-import { loadEntities, setCurrentUser } from 'search/actions';
 import { UserPage, mapStateToProps, loadProfileIfNeeded } from 'search/containers/UserPage';
 
 describe('<UserPage />', () => {

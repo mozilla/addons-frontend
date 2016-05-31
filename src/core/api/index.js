@@ -7,15 +7,15 @@ import 'isomorphic-fetch';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
-const addon = new Schema('addons', {idAttribute: 'slug'});
-const user = new Schema('users', {idAttribute: 'username'});
+export const addon = new Schema('addons', {idAttribute: 'slug'});
+export const user = new Schema('users', {idAttribute: 'username'});
 
 function makeQueryString(query) {
   return url.format({query});
 }
 
-function callApi({endpoint, schema, params, auth = false, state = {}, method = 'get', body,
-                  credentials}) {
+export function callApi({endpoint, schema, params, auth = false, state = {}, method = 'get', body,
+                         credentials}) {
   const queryString = makeQueryString(params);
   const options = {
     headers: {},

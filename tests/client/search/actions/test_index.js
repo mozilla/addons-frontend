@@ -37,16 +37,3 @@ describe('SEARCH_FAILED', () => {
     assert.deepEqual(action.payload, {page: 25, query: 'foo'});
   });
 });
-
-describe('ENTITIES_LOADED', () => {
-  const entities = sinon.stub();
-  const action = actions.loadEntities(entities);
-
-  it('sets the type', () => {
-    assert.equal(action.type, 'ENTITIES_LOADED');
-  });
-
-  it('sets the payload', () => {
-    assert.deepEqual(action.payload, {entities});
-  });
-});

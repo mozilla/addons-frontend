@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import { fetchAddon } from 'core/api';
-import { loadEntities } from 'search/actions';
+import { loadEntities } from 'core/actions';
 import { gettext as _ } from 'core/utils';
 import NotFound from 'core/components/NotFound';
 

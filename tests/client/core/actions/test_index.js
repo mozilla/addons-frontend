@@ -7,3 +7,16 @@ describe('core actions setJWT', () => {
       {type: 'SET_JWT', payload: {token: 'my.amo.token'}});
   });
 });
+
+describe('ENTITIES_LOADED', () => {
+  const entities = sinon.stub();
+  const action = actions.loadEntities(entities);
+
+  it('sets the type', () => {
+    assert.equal(action.type, 'ENTITIES_LOADED');
+  });
+
+  it('sets the payload', () => {
+    assert.deepEqual(action.payload, {entities});
+  });
+});

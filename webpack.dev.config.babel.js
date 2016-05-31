@@ -93,6 +93,8 @@ export default Object.assign({}, webpackConfig, {
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
     // Substitutes client only config.
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
+    // Use the browser's window for window.
+    new webpack.NormalModuleReplacementPlugin(/core\/window/, 'core/browserWindow.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),

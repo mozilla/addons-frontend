@@ -216,7 +216,7 @@ describe('<InstallButton />', () => {
     });
 
     it('sets the status to INSTALLED when an installed theme is found', () => {
-      stubAddonManager({getAddon: Promise.resolve({type: 'theme', isEnabled: true})});
+      stubAddonManager({getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: true})});
       const dispatch = sinon.spy();
       const guid = '@foo';
       const slug = 'foo';
@@ -232,7 +232,7 @@ describe('<InstallButton />', () => {
     });
 
     it('sets the status to UNINSTALLED when an uninstalled theme is found', () => {
-      stubAddonManager({getAddon: Promise.resolve({type: 'theme', isEnabled: false})});
+      stubAddonManager({getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: false})});
       const dispatch = sinon.spy();
       const guid = '@foo';
       const slug = 'foo';

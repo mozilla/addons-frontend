@@ -8,7 +8,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Addon from 'disco/components/Addon';
-import { ERROR, THEME_PREVIEW, THEME_RESET_PREVIEW } from 'disco/constants';
+import { ERROR, THEME_PREVIEW, THEME_RESET_PREVIEW, THEME_TYPE } from 'disco/constants';
 import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
 import I18nProvider from 'core/i18n/Provider';
 
@@ -17,8 +17,7 @@ const result = {
   type: 'extension',
   heading: 'test-heading',
   slug: 'test-slug',
-  subHeading: 'test-sub-heading',
-  editorialDescription: 'test-editorial-description',
+  description: 'test-editorial-description',
 };
 
 const store = createStore((s) => s, {installations: {}, addons: {}});
@@ -65,17 +64,26 @@ describe('<Addon />', () => {
     });
 
     it('renders the editorial description', () => {
-      assert.equal(root.refs['editorial-description'].textContent, 'test-editorial-description');
+      assert.equal(root.refs.editorialDescription.textContent, 'test-editorial-description');
     });
 
-    it('renders the sub-heading', () => {
-      assert.equal(root.refs['sub-heading'].textContent, 'test-sub-heading');
+    it('purifies the heading', () => {
+      root = renderAddon({
+        ...result,
+        heading: '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
+      });
+      assert.include(root.refs.heading.innerHTML, 'Hey! This is <span>an add-on</span>');
     });
 
-    it("doesn't render the subheading when not present", () => {
-      const data = {...result, subHeading: undefined};
-      root = renderAddon(data);
-      assert.notEqual(root.refs.heading.textContent, 'test-sub-heading');
+    it('purifies the editorial description', () => {
+      root = renderAddon({
+        ...result,
+        description: '<script>foo</script><blockquote>This is an add-on!</blockquote> ' +
+                     '<i>Reviewed by <cite>a person</cite></i>',
+      });
+      assert.equal(
+        root.refs.editorialDescription.innerHTML,
+        '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>');
     });
 
     it('does render a logo for an extension', () => {
@@ -100,7 +108,7 @@ describe('<Addon />', () => {
     let root;
 
     beforeEach(() => {
-      const data = {...result, type: 'theme'};
+      const data = {...result, type: THEME_TYPE};
       root = renderAddon(data);
     });
 
@@ -121,7 +129,7 @@ describe('<Addon />', () => {
 
     beforeEach(() => {
       themeAction = sinon.stub();
-      const data = {...result, type: 'theme', themeAction};
+      const data = {...result, type: THEME_TYPE, themeAction};
       root = renderAddon(data);
       themeImage = findDOMNode(root).querySelector('.theme-image');
     });

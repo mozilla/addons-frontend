@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import { camelCaseProps } from 'core/utils';
 
+import { getDiscoveryAddons } from 'disco/api';
+import { discoResults } from 'disco/actions';
+import { loadEntities } from 'core/actions';
+
 import Addon from 'disco/components/Addon';
 import translate from 'core/i18n/translate';
 
@@ -13,7 +17,7 @@ import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
 
 
-class DiscoPane extends React.Component {
+export class DiscoPane extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     results: PropTypes.arrayOf(PropTypes.object),
@@ -72,15 +76,26 @@ class DiscoPane extends React.Component {
   }
 }
 
-function loadDataIfNeeded() {
-  /* istanbul ignore next */
-  return Promise.resolve();
+function loadedAddons(state) {
+  return state.discoResults.map((result) => ({...result, ...state.addons[result.addon]}));
 }
 
-function mapStateToProps(state) {
-  const { addons } = state;
+export function loadDataIfNeeded({ store: { dispatch, getState }}) {
+  const state = getState();
+  const addons = loadedAddons(state);
+  if (addons.length > 0) {
+    return Promise.resolve();
+  }
+  return getDiscoveryAddons({api: state.api})
+    .then(({ entities, result }) => {
+      dispatch(loadEntities(entities));
+      dispatch(discoResults(result.results.map((r) => entities.discoResults[r])));
+    });
+}
+
+export function mapStateToProps(state) {
   return {
-    results: [addons['japanese-tattoo'], addons['awesome-screenshot-capture-']],
+    results: loadedAddons(state),
   };
 }
 
