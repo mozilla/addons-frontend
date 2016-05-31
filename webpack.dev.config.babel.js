@@ -91,6 +91,11 @@ export default Object.assign({}, webpackConfig, {
     }),
     // Replaces server config module with the subset clientConfig object.
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
+    // This allow us to exclude locales for other apps being built.
+    new webpack.ContextReplacementPlugin(
+      /locale$/,
+      new RegExp(`^\\.\\/.*?\\/${appName}\\.json$`)
+    ),
     // Substitutes client only config.
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
     // Use the browser's window for window.
