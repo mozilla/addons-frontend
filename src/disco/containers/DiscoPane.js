@@ -93,7 +93,7 @@ export function loadDataIfNeeded({ store: { dispatch, getState }}) {
     });
 }
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return {
     results: loadedAddons(state),
   };

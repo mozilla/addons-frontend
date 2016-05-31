@@ -6,7 +6,7 @@ import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
 import { EXTENSION_TYPE } from 'disco/constants';
-import  * as helpers from 'disco/containers/DiscoPane';
+import * as helpers from 'disco/containers/DiscoPane';
 import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
 import I18nProvider from 'core/i18n/Provider';
@@ -88,6 +88,21 @@ describe('AddonPage', () => {
           assert.ok(dispatch.calledWith(loadEntities(entities)));
           assert.ok(dispatch.calledWith(discoResults([{addon: 'foo'}])));
         });
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    it('only sets results', () => {
+      const props = helpers.mapStateToProps({discoResults: []});
+      assert.deepEqual(Object.keys(props), ['results']);
+    });
+
+    it('sets the results', () => {
+      const props = helpers.mapStateToProps({
+        addons: {one: {slug: 'one'}, two: {slug: 'two'}},
+        discoResults: [{addon: 'two'}],
+      });
+      assert.deepEqual(props.results, [{slug: 'two', addon: 'two'}]);
     });
   });
 });
