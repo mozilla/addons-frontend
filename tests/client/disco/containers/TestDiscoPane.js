@@ -6,10 +6,13 @@ import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
 import { EXTENSION_TYPE } from 'disco/constants';
-import DiscoPane, * as helpers from 'disco/containers/DiscoPane';
+import  * as helpers from 'disco/containers/DiscoPane';
 import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
 import I18nProvider from 'core/i18n/Provider';
+
+// Use DiscoPane that isn't wrapped in asyncConnect.
+const { DiscoPane } = helpers;
 
 
 describe('AddonPage', () => {
@@ -22,23 +25,19 @@ describe('AddonPage', () => {
       addons: {foo: {type: EXTENSION_TYPE}},
       discoResults: [{addon: 'foo'}],
     });
+    const results = [{addon: 'foo', type: EXTENSION_TYPE}];
     return findDOMNode(renderIntoDocument(
       <I18nProvider i18n={getFakeI18nInst()}>
         <Provider store={store} key="provider">
-          <DiscoPane />
+          <DiscoPane results={results} i18n={getFakeI18nInst()} />
         </Provider>
       </I18nProvider>
     ));
   }
 
   describe('rendered fields', () => {
-    let root;
-
-    beforeEach(() => {
-      root = render();
-    });
-
     it('renders an addon', () => {
+      const root = render();
       assert.ok(root.querySelector('.addon'));
     });
   });

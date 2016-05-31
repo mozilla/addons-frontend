@@ -67,6 +67,25 @@ describe('<Addon />', () => {
       assert.equal(root.refs.editorialDescription.textContent, 'test-editorial-description');
     });
 
+    it('purifies the heading', () => {
+      root = renderAddon({
+        ...result,
+        heading: '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
+      });
+      assert.include(root.refs.heading.innerHTML, 'Hey! This is <span>an add-on</span>');
+    });
+
+    it('purifies the editorial description', () => {
+      root = renderAddon({
+        ...result,
+        description: '<script>foo</script><blockquote>This is an add-on!</blockquote> ' +
+                     '<i>Reviewed by <cite>a person</cite></i>',
+      });
+      assert.equal(
+        root.refs.editorialDescription.innerHTML,
+        '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>');
+    });
+
     it('does render a logo for an extension', () => {
       assert.ok(findDOMNode(root).querySelector('.logo'));
     });

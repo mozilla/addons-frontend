@@ -17,7 +17,7 @@ import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
 
 
-class DiscoPane extends React.Component {
+export class DiscoPane extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     results: PropTypes.arrayOf(PropTypes.object),
