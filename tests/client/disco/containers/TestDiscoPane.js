@@ -26,10 +26,12 @@ describe('AddonPage', () => {
       discoResults: [{addon: 'foo'}],
     });
     const results = [{addon: 'foo', type: EXTENSION_TYPE}];
+    const i18n = getFakeI18nInst();
+    // We need the providers for i18n and since InstallButton will pull data from the store.
     return findDOMNode(renderIntoDocument(
-      <I18nProvider i18n={getFakeI18nInst()}>
+      <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <DiscoPane results={results} i18n={getFakeI18nInst()} />
+          <DiscoPane results={results} i18n={i18n} />
         </Provider>
       </I18nProvider>
     ));
