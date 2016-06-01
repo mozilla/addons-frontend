@@ -6,11 +6,11 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
 
 #: src/disco/components/Addon.js:62
 msgid "An unexpected error occurred"
@@ -22,7 +22,7 @@ msgstr "‮Ԁɹǝʌıǝʍ %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "‮Hoʌǝɹ oʌǝɹ ʇɥǝ ıɯɐƃǝ ʇo dɹǝʌıǝʍ"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -52,11 +52,11 @@ msgstr "‮ʇo ɟıup onʇ ɯoɹǝ ɐqonʇ ɐpp-ous"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "‮Ↄʅosǝ ʌıpǝo"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "‮Sǝǝ ɯoɹǝ ɐpp-ous¡"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"

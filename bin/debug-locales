@@ -32,7 +32,7 @@ for (locale of debugLocales) {
   for (potFile of potFiles) {
     fileName = path.basename(potFile, '.pot');
     poFile = path.join(localeDir, locale, 'LC_MESSAGES', `${fileName}.po`);
-    rewrite = locale === 'dbg' ? 'unicode' : 'flipped';
+    rewrite = locale === 'dbl' ? 'unicode' : 'flipped';
     shell.exec(`podebug -i ${potFile} -o ${poFile} --rewrite ${rewrite}`);
   }
 }
