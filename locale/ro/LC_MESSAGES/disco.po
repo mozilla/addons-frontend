@@ -2,49 +2,60 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-05-20 11:26+0000\n"
+"POT-Creation-Date: 2016-06-01 10:28+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Language: ro\n"
 
-#: src/disco/components/Addon.js:55
+#: src/disco/components/Addon.js:62
 msgid "An unexpected error occurred"
 msgstr ""
 
-#: src/disco/components/Addon.js:80
+#: src/disco/components/Addon.js:87
 msgid "Preview %(name)s"
 msgstr ""
 
-#: src/disco/containers/App.js:18
+#: src/disco/components/Addon.js:96
+msgid "Hover over the image to preview"
+msgstr ""
+
+#: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:20
+#: src/disco/containers/DiscoPane.js:52
 msgid "Personalize Your Firefox"
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:21
+#: src/disco/containers/DiscoPane.js:53
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:27
+#: src/disco/containers/DiscoPane.js:59
 msgid "Click to play"
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:28
+#: src/disco/containers/DiscoPane.js:60
 msgid "to find out more about add-ons"
 msgstr ""
 
-#: src/disco/containers/InstallButton.js:75
+#: src/disco/containers/DiscoPane.js:68
+msgid "Close video"
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:74
+msgid "See more add-ons!"
+msgstr ""
+
+#: src/disco/containers/InstallButton.js:86
 msgid "Install"
 msgstr ""
