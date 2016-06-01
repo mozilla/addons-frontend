@@ -19,8 +19,7 @@ import ServerHtml from 'core/containers/ServerHtml';
 import config from 'config';
 import { setJWT } from 'core/actions';
 import log from 'core/logger';
-import setLanguage from 'core/i18n/middleware';
-import { getDirection, langToLocale } from 'core/i18n/utils';
+import { getDirection, getLangFromRouter, langToLocale } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 import Jed from 'jed';
 
@@ -44,8 +43,6 @@ function logRequests(req, res, next) {
 function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   const app = new Express();
   app.disable('x-powered-by');
-
-  app.use(setLanguage);
 
   app.use(logRequests);
 
@@ -114,7 +111,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
       ) : {};
 
-      const lang = res.locals.lang;
+      const lang = getLangFromRouter(renderProps);
       const dir = getDirection(lang);
       const locale = langToLocale(lang);
 

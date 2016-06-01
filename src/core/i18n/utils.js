@@ -80,3 +80,17 @@ export function isRtlLang(lang) {
 export function getDirection(lang) {
   return isRtlLang(lang) ? 'rtl' : 'ltr';
 }
+
+export function getLangFromRouter(renderProps) {
+  if (renderProps) {
+    // Get the lang from the url param by default
+    // if it exists.
+    if (renderProps.params && renderProps.params.lang) {
+      return getLanguage(renderProps.params.lang);
+    } else if (renderProps.location && renderProps.location.query &&
+               renderProps.location.query.lang) {
+      return getLanguage(renderProps.location.query.lang);
+    }
+  }
+  return defaultLang;
+}

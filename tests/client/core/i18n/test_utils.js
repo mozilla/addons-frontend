@@ -1,4 +1,5 @@
 import * as utils from 'core/i18n/utils';
+import config from 'config';
 
 
 describe('i18n utils', () => {
@@ -140,6 +141,47 @@ describe('i18n utils', () => {
 
     it('should see pt as a valid lang', () => {
       assert.equal(utils.isValidLang('pt'), true);
+    });
+  });
+
+  describe('getLangFromRouter()', () => {
+    it('should return default lang if no lang is provided', () => {
+      const fakeRenderProps = {};
+      assert.equal(utils.getLangFromRouter(fakeRenderProps), config.get('defaultLang'));
+    });
+
+    it('should return lang if provided via the URL', () => {
+      const fakeRenderProps = {
+        params: {
+          lang: 'fr',
+        },
+      };
+      assert.equal(utils.getLangFromRouter(fakeRenderProps), 'fr');
+    });
+
+    it('should return lang if provided via a query param', () => {
+      const fakeRenderProps = {
+        location: {
+          query: {
+            lang: 'pt-PT',
+          },
+        },
+      };
+      assert.equal(utils.getLangFromRouter(fakeRenderProps), 'pt-PT');
+    });
+
+    it('should use url param if both that and query string are present', () => {
+      const fakeRenderProps = {
+        params: {
+          lang: 'fr',
+        },
+        location: {
+          query: {
+            lang: 'pt-PT',
+          },
+        },
+      };
+      assert.equal(utils.getLangFromRouter(fakeRenderProps), 'fr');
     });
   });
 });
