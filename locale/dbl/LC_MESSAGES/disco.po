@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-05-20 11:26+0000\n"
+"POT-Creation-Date: 2016-06-01 10:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,23 +12,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "Content-Type: text/plain; charset=utf-8\n"
 
-#: src/disco/components/Addon.js:55
+#: src/disco/components/Addon.js:62
 msgid "An unexpected error occurred"
 msgstr "Ȧƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ"
 
-#: src/disco/components/Addon.js:80
+#: src/disco/components/Addon.js:87
 msgid "Preview %(name)s"
 msgstr "Ƥřḗṽīḗẇ %(name)s"
 
-#: src/disco/containers/App.js:18
+#: src/disco/components/Addon.js:96
+msgid "Hover over the image to preview"
+msgstr "Ħǿṽḗř ǿṽḗř ŧħḗ īḿȧɠḗ ŧǿ ƥřḗṽīḗẇ"
+
+#: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Ḓīşƈǿṽḗř Ȧḓḓ-ǿƞş"
 
-#: src/disco/containers/DiscoPane.js:20
+#: src/disco/containers/DiscoPane.js:52
 msgid "Personalize Your Firefox"
 msgstr "Ƥḗřşǿƞȧŀīzḗ Ẏǿŭř Ƒīřḗƒǿẋ"
 
-#: src/disco/containers/DiscoPane.js:21
+#: src/disco/containers/DiscoPane.js:53
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
@@ -38,14 +42,22 @@ msgstr ""
 "ǿẇƞ—ḗṽḗřẏŧħīƞɠ ƒřǿḿ ƒŭƞ ṽīşŭȧŀ ŧħḗḿḗş ŧǿ ƥǿẇḗřƒŭŀ ŧǿǿŀş ȧƞḓ ƒḗȧŧŭřḗş.\n"
 "Ħḗřḗ ȧřḗ ȧ ƒḗẇ ɠřḗȧŧ ǿƞḗş ŧǿ ƈħḗƈķ ǿŭŧ."
 
-#: src/disco/containers/DiscoPane.js:27
+#: src/disco/containers/DiscoPane.js:59
 msgid "Click to play"
 msgstr "Ƈŀīƈķ ŧǿ ƥŀȧẏ"
 
-#: src/disco/containers/DiscoPane.js:28
+#: src/disco/containers/DiscoPane.js:60
 msgid "to find out more about add-ons"
 msgstr "ŧǿ ƒīƞḓ ǿŭŧ ḿǿřḗ ȧƀǿŭŧ ȧḓḓ-ǿƞş"
 
-#: src/disco/containers/InstallButton.js:75
+#: src/disco/containers/DiscoPane.js:68
+msgid "Close video"
+msgstr "Ƈŀǿşḗ ṽīḓḗǿ"
+
+#: src/disco/containers/DiscoPane.js:74
+msgid "See more add-ons!"
+msgstr "Şḗḗ ḿǿřḗ ȧḓḓ-ǿƞş!"
+
+#: src/disco/containers/InstallButton.js:86
 msgid "Install"
 msgstr "Īƞşŧȧŀŀ"

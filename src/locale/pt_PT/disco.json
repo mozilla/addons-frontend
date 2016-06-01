@@ -5,31 +5,40 @@
          "": {
             "domain": "messages",
             "plural_forms": "nplurals=2; plural=(n != 1);",
-            "lang": "pt"
+            "lang": "pt_PT"
          },
          "An unexpected error occurred": [
-            ""
+            "Ocorreu um erro inesperado"
          ],
          "Preview %(name)s": [
+            "Pré-visualizar %(name)s"
+         ],
+         "Hover over the image to preview": [
             ""
          ],
          "Discover Add-ons": [
-            ""
+            "Descobrir extras"
          ],
          "Personalize Your Firefox": [
-            ""
+            "Personalizar o seu Firefox"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            ""
+            "Existem milhares de extras que permitem tornar o Firefox só seu — tudo desde temas de visuais divertidos a poderosas ferramentas e funcionalidades. Eis alguns fantásticos para ver."
          ],
          "Click to play": [
-            ""
+            "Clicar para reproduzir"
          ],
          "to find out more about add-ons": [
+            "para saber mais sobre extras"
+         ],
+         "Close video": [
+            ""
+         ],
+         "See more add-ons!": [
             ""
          ],
          "Install": [
-            ""
+            "Instalar"
          ]
       }
    }

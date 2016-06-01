@@ -4,32 +4,41 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n!=1);",
+            "plural_forms": "nplurals=1; plural=0;",
             "lang": "fa"
          },
          "An unexpected error occurred": [
-            ""
+            "خطا غیر منتظره رخ داده است"
          ],
          "Preview %(name)s": [
+            "نمایش%(name)s"
+         ],
+         "Hover over the image to preview": [
             ""
          ],
          "Discover Add-ons": [
-            ""
+            "افزونه کشف کنید"
          ],
          "Personalize Your Firefox": [
-            ""
+            "فایرفاکس خود را شخصی سازی کنید"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            ""
+            "هزاران افزونه وجود دارد که به شما کمک می‌کند تمام فایرفاکس را به اختیار خود درآورید — همه چیز از ضمیمه های سرگرم کننده بصری تا ابزارهای قوی و ویژیگی های مختلف. \nدر اینجا تعدادی از بهترین های آن ها را ببینید."
          ],
          "Click to play": [
-            ""
+            "کلیک برای پخش"
          ],
          "to find out more about add-ons": [
+            "برای پیداکردن اطلاعات بیشتر در مورد افزونه"
+         ],
+         "Close video": [
+            ""
+         ],
+         "See more add-ons!": [
             ""
          ],
          "Install": [
-            ""
+            "نصب"
          ]
       }
    }
