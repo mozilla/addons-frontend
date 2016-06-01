@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-27 13:12+0000\n"
+"PO-Revision-Date: 2016-06-01 17:11+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr "Prévisualiser %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Survolez l’image pour activer la prévisualisation"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -40,10 +40,8 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Il existe des milliers de modules qui vous permettent de personnaliser "
-"complètement Firefox, que ce soit avec des thèmes amusants ou en ajoutant "
-"des outils ou des fonctionnalités très pratiques. En voici quelques-uns pour "
-"vous faire une idée."
+"Il existe des milliers de modules qui vous permettent de personnaliser complètement Firefox, que ce soit avec des thèmes amusants ou en ajoutant des outils ou des fonctionnalités très pratiques. En "
+"voici quelques-uns pour vous faire une idée."
 
 #: src/disco/containers/DiscoPane.js:59
 msgid "Click to play"
@@ -55,11 +53,11 @@ msgstr "pour en savoir davantage sur les modules"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "Fermer la vidéo"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Découvrez davantage de modules"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
