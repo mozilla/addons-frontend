@@ -29,13 +29,6 @@ img {
   padding: 50px 20px;
 }
 
-#app-view {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-
 header {
   border-bottom: 1px solid $header-border-color;
   margin-bottom: 40px;
@@ -51,22 +44,26 @@ header {
   }
 }
 
-.cta {
-  align-self: center;
-  padding: 1em 1.5em;
-  margin: 30px 0;
-  background: $cta-background-color;
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  transition: background 200ms;
+.amo-link {
+  text-align: center;
 
-  &:hover {
-    background: lighten($cta-background-color, 7);
-  }
+  a {
+    background: $amo-link-background-color;
+    color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    margin: 30px 0;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    transition: background 300ms;
 
-  &:focus {
-    @include focus();
+    &:hover {
+      background: lighten($amo-link-background-color, 7);
+    }
+
+    &:focus {
+      @include focus();
+    }
   }
 }
 
@@ -76,6 +73,11 @@ header {
   line-height: 1.28;
   margin-right: 50px;
   width: 415px;
+
+  [dir=rtl] & {
+    margin-left: 50px;
+    margin-right: 0;
+  }
 
   &:last-child {
     display: block;
@@ -106,6 +108,10 @@ header {
   .disco-header {
     transform: translateX(-465px);
     width: 1145px;
+
+    [dir=rtl] & {
+      transform: translateX(465px);
+    }
   }
   .disco-content {
     opacity: 0;
