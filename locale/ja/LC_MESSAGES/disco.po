@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-27 02:56+0000\n"
+"PO-Revision-Date: 2016-06-01 18:04+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -24,7 +24,7 @@ msgstr "%(name)s をプレビュー"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "画像にマウスオーバーしてプレビュー"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -39,10 +39,7 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr ""
-"楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分"
-"好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを"
-"紹介します。"
+msgstr "楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを紹介します。"
 
 #: src/disco/containers/DiscoPane.js:59
 msgid "Click to play"
@@ -54,11 +51,11 @@ msgstr "し、アドオンについて詳しく知る"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "動画を閉じる"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "アドオンをもっと見る"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
