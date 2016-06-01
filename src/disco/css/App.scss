@@ -59,7 +59,7 @@ header {
   color: #fff;
   text-decoration: none;
   font-size: 13px;
-  transition: background .2s;
+  transition: background 200ms;
 
   &:hover {
     background: lighten($cta-background-color, 7);
