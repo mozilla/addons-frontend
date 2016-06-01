@@ -4,32 +4,41 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n!=1);",
+            "plural_forms": "nplurals=1; plural=0;",
             "lang": "zh_TW"
          },
          "An unexpected error occurred": [
-            ""
+            "發生未預期的錯誤"
          ],
          "Preview %(name)s": [
+            "預覽 %(name)s"
+         ],
+         "Hover over the image to preview": [
             ""
          ],
          "Discover Add-ons": [
-            ""
+            "探索附加元件"
          ],
          "Personalize Your Firefox": [
-            ""
+            "個人化您的 Firefox"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            ""
+            "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
          ],
          "Click to play": [
-            ""
+            "點擊播放"
          ],
          "to find out more about add-ons": [
+            "以了解附加元件的更多資訊"
+         ],
+         "Close video": [
+            ""
+         ],
+         "See more add-ons!": [
             ""
          ],
          "Install": [
-            ""
+            "安裝"
          ]
       }
    }

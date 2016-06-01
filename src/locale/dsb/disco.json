@@ -4,32 +4,32 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n != 1);",
-            "lang": "de"
+            "plural_forms": "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);",
+            "lang": "dsb"
          },
          "An unexpected error occurred": [
-            "Ein unerwarteter Fehler ist aufgetreten."
+            "Njewótcakana zmólka jo nastała"
          ],
          "Preview %(name)s": [
-            "Vorschau von %(name)s"
+            "Pśeglěd za %(name)s"
          ],
          "Hover over the image to preview": [
             ""
          ],
          "Discover Add-ons": [
-            "Add-ons entdecken"
+            "Dodanki namakaś"
          ],
          "Personalize Your Firefox": [
-            "Passen Sie Ihren Firefox an."
+            "Pśiměrśo swój Firefox"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            "Es gibt Tausende von Add-ons, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können\n – alles, von lustigen Themes zu mächtigen Werkzeugen und Funktionen.\nHier sind ein paar tolle Beispiele, die Sie ausprobieren können."
+            "Su tysace dodankow, kótarež wam zmóžnjaju, Firefox wašym pótrjebam pśiměriś &ndash; wšykno, wót zabawnych drastwow až do mócnych rědow a funkcijow. How su někotare, kótarež móžośo wopytowaś."
          ],
          "Click to play": [
-            "Klicken Sie zum Abspielen"
+            "Klikniśo, aby wótgrał"
          ],
          "to find out more about add-ons": [
-            "um mehr über Add-ons zu erfahren"
+            "aby wěcej wó dodankach zgónił"
          ],
          "Close video": [
             ""
@@ -38,7 +38,7 @@
             ""
          ],
          "Install": [
-            "Installieren"
+            "Instalěrowaś"
          ]
       }
    }

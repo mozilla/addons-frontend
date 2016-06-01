@@ -4,32 +4,41 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n!=1);",
+            "plural_forms": "nplurals=1; plural=0;",
             "lang": "id"
          },
          "An unexpected error occurred": [
-            ""
+            "Terjadi kesalahan yang tidak diharapkan"
          ],
          "Preview %(name)s": [
+            "Tinjauan %(name)s"
+         ],
+         "Hover over the image to preview": [
             ""
          ],
          "Discover Add-ons": [
-            ""
+            "Temukan Pengaya"
          ],
          "Personalize Your Firefox": [
-            ""
+            "Personalisasi Firefox Anda"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            ""
+            "Ada ribuan pengaya yang memungkinkan Anda membuat Firefox seperti \nmilik Anda—semua hal mulai dari tema visual menyenangkan hingga fitur dan alat yang kuat.\nBerikut adalah sebagian diantaranya yang luar biasa."
          ],
          "Click to play": [
-            ""
+            "Klik untuk memainkan"
          ],
          "to find out more about add-ons": [
+            "untuk mengetahui lebih lanjut tentang pengaya"
+         ],
+         "Close video": [
+            ""
+         ],
+         "See more add-ons!": [
             ""
          ],
          "Install": [
-            ""
+            "Pasang"
          ]
       }
    }
