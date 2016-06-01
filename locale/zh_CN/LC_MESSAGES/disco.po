@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-26 02:35+0000\n"
+"PO-Revision-Date: 2016-06-01 16:12+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -24,7 +24,7 @@ msgstr "预览 %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "悬停在图像上以预览"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -54,11 +54,11 @@ msgstr "进一步了解附加组件"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "关闭视频"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "查看更多附加组件！"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
