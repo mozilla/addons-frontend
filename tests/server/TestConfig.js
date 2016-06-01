@@ -8,6 +8,11 @@ describe('Config', () => {
     process.env.NODE_ENV = 'production';
   });
 
+  it('should not ever have disableSSR set to true', () => {
+    const config = requireUncached('config');
+    assert.equal(config.get('disableSSR'), false);
+  });
+
   it('should provide a production config by default', () => {
     process.env.NODE_ENV = 'production';
     const config = requireUncached('config');
