@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-26 17:39+0000\n"
-"Last-Translator: Andreas Pettersson <az@kth.se>\n"
+"PO-Revision-Date: 2016-06-01 19:32+0000\n"
+"Last-Translator: Ludwig Johnson <ludwig.johnson@telia.com>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Förhandsgranska %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Håll muspekaren över bilden för att förhandsgranska"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -54,11 +54,11 @@ msgstr "för att få reda på mer om tillägg"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "Stäng video"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Visa fler tillägg!"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
