@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { sprintf } from 'sprintf-js';
+import { sprintf } from 'jed';
 
 import { gettext as _ } from 'core/utils';
 import SearchResult from 'search/components/SearchResult';

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
+import { sprintf } from 'jed';
 import React, { PropTypes } from 'react';
-import { sprintf } from 'sprintf-js';
 import translate from 'core/i18n/translate';
 import purify from 'core/purify';
 
