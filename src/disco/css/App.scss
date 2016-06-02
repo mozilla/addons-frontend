@@ -12,6 +12,9 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
+  // Firefox adds this margin to the left side, for some reason we only need to add half of it.
+  $firefox-margin: 48px;
+  margin-right: $firefox-margin / 2;
 }
 
 * {
