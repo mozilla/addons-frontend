@@ -14,9 +14,9 @@ function makeQueryString(query) {
   return url.format({query});
 }
 
-export function callApi({endpoint, schema, params, auth = false, state = {}, method = 'get', body,
-                         credentials}) {
-  const queryString = makeQueryString(params);
+export function callApi({endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
+                         body, credentials}) {
+  const queryString = makeQueryString({...params, lang: state.lang});
   const options = {
     headers: {},
     method,
@@ -48,7 +48,7 @@ export function search({ api, page, query }) {
   return callApi({
     endpoint: 'internal/addons/search',
     schema: {results: arrayOf(addon)},
-    params: {q: query, lang: 'en-US', page},
+    params: {q: query, page},
     state: api,
     auth: true,
   });
@@ -58,7 +58,6 @@ export function fetchAddon({ api, slug }) {
   return callApi({
     endpoint: `addons/addon/${slug}`,
     schema: addon,
-    params: {lang: 'en-US'},
     auth: true,
     state: api,
   });
@@ -69,7 +68,6 @@ export function login({ api, code, state }) {
     endpoint: 'internal/accounts/login',
     method: 'post',
     body: {code, state},
-    params: {lang: 'en-US'},
     state: api,
     credentials: true,
   });
@@ -83,7 +81,6 @@ export function fetchProfile({ api }) {
   return callApi({
     endpoint: 'accounts/profile',
     schema: user,
-    params: {lang: 'en-US'},
     auth: true,
     state: api,
   });

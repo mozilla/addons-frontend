@@ -28,10 +28,10 @@ describe('api', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
         .withArgs(
-          'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&lang=en-US&page=3')
+          'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&page=3&lang=en-US')
         .once()
         .returns(mockResponse());
-      return api.search({query: 'foo', page: 3})
+      return api.search({api: {lang: 'en-US'}, query: 'foo', page: 3})
         .then(() => mockWindow.verify());
     });
 
@@ -71,7 +71,7 @@ describe('api', () => {
           {headers: {}, method: 'get'})
         .once()
         .returns(mockResponse());
-      return api.fetchAddon({slug: 'foo'})
+      return api.fetchAddon({api: {lang: 'en-US'}, slug: 'foo'})
         .then(() => mockWindow.verify());
     });
 
@@ -93,7 +93,7 @@ describe('api', () => {
           {headers: {}, method: 'get'})
         .once()
         .returns(Promise.resolve({ok: false}));
-      return api.fetchAddon({slug: 'foo'})
+      return api.fetchAddon({api: {lang: 'en-US'}, slug: 'foo'})
         .then(unexpectedSuccess,
           (error) => assert.equal(error.message, 'Error calling API'));
     });
@@ -107,12 +107,13 @@ describe('api', () => {
           {headers: {authorization: `Bearer ${token}`}, method: 'get'})
         .once()
         .returns(mockResponse());
-      return api.fetchAddon({api: {token}, slug: 'bar'}).then((results) => {
-        const foo = {slug: 'foo', name: 'Foo!'};
-        assert.deepEqual(results.result, 'foo');
-        assert.deepEqual(results.entities, {addons: {foo}});
-        mockWindow.verify();
-      });
+      return api.fetchAddon({api: {lang: 'en-US', token}, slug: 'bar'})
+        .then((results) => {
+          const foo = {slug: 'foo', name: 'Foo!'};
+          assert.deepEqual(results.result, 'foo');
+          assert.deepEqual(results.entities, {addons: {foo}});
+          mockWindow.verify();
+        });
     });
   });
 
@@ -138,10 +139,11 @@ describe('api', () => {
         })
         .once()
         .returns(mockResponse());
-      return api.login({api: {}, code: 'my-code', state: 'my-state'}).then((apiResponse) => {
-        assert.strictEqual(apiResponse, response);
-        mockWindow.verify();
-      });
+      return api.login({api: {lang: 'en-US'}, code: 'my-code', state: 'my-state'})
+        .then((apiResponse) => {
+          assert.strictEqual(apiResponse, response);
+          mockWindow.verify();
+        });
     });
   });
 
@@ -160,10 +162,11 @@ describe('api', () => {
           ok: true,
           json() { return user; },
         }));
-      return api.fetchProfile({api: {token}}).then((apiResponse) => {
-        assert.deepEqual(apiResponse, {entities: {users: {foo: user}}, result: 'foo'});
-        mockWindow.verify();
-      });
+      return api.fetchProfile({api: {lang: 'en-US', token}})
+        .then((apiResponse) => {
+          assert.deepEqual(apiResponse, {entities: {users: {foo: user}}, result: 'foo'});
+          mockWindow.verify();
+        });
     });
   });
 });

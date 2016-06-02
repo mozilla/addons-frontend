@@ -5,6 +5,13 @@ export function setJWT(token) {
   };
 }
 
+export function setLang(lang) {
+  return {
+    type: 'SET_LANG',
+    payload: {lang},
+  };
+}
+
 export function loadEntities(entities) {
   return {
     type: 'ENTITIES_LOADED',
