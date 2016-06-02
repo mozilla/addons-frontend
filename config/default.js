@@ -70,6 +70,8 @@ module.exports = {
     'langs',
     'langMap',
     'rtlLangs',
+    'trackingEnabled',
+    'trackingId',
   ],
 
   // Content Security Policy.
@@ -133,4 +135,9 @@ module.exports = {
   rtlLangs: ['ar', 'dbr', 'fa', 'he'],
   defaultLang: 'en-US',
   localeDir: path.resolve(path.join(__dirname, '../locale')),
+
+  // This is off by default
+  // and enabled on a per-app basis.
+  trackingEnabled: false,
+  trackingId: null,
 };

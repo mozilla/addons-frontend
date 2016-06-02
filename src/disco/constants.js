@@ -51,3 +51,6 @@ export const installEventList = [
   'onInstallCancelled',
   'onInstallFailed',
 ];
+
+export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
+export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';

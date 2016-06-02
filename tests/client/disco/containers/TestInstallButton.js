@@ -121,22 +121,25 @@ describe('<InstallButton />', () => {
     const guid = '@foo';
     const install = sinon.spy();
     const installURL = 'https://my.url/download';
+    const name = 'hai';
     const slug = 'foo';
-    const button = renderButton({guid, install, installURL, slug, status: UNINSTALLED});
+    const button = renderButton({guid, install, installURL, name, slug, status: UNINSTALLED});
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(install.calledWith({guid, installURL, slug}));
+    assert(install.calledWith({guid, installURL, slug, name}));
   });
 
   it('should call uninstall function on click when installed', () => {
     const guid = '@foo';
     const installURL = 'https://my.url/download';
+    const name = 'hai';
     const slug = 'foo';
+    const type = 'whatevs';
     const uninstall = sinon.spy();
-    const button = renderButton({guid, installURL, slug, status: INSTALLED, uninstall});
+    const button = renderButton({guid, installURL, name, slug, status: INSTALLED, type, uninstall});
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(uninstall.calledWith({guid, installURL, slug}));
+    assert(uninstall.calledWith({guid, installURL, slug, name, type}));
   });
 
   it('should call setInitialStatus in componentDidMount', () => {
@@ -322,12 +325,13 @@ describe('<InstallButton />', () => {
 
   describe('installTheme', () => {
     it('installs the theme', () => {
+      const name = 'hai-theme';
       const node = sinon.stub();
       const slug = 'install-theme';
       const spyThemeAction = sinon.spy();
       const dispatch = sinon.spy();
       const { installTheme } = mapDispatchToProps(dispatch);
-      return installTheme(node, slug, spyThemeAction)
+      return installTheme(node, slug, name, spyThemeAction)
         .then(() => {
           assert(spyThemeAction.calledWith(node, THEME_INSTALL));
           assert(dispatch.calledWith({

@@ -18,15 +18,21 @@ module.exports = {
       // about:addons can iframe the disco pane.
       frameAncestors: ['about:'],
       // Script is limited to the discovery specific CDN.
-      scriptSrc: [staticHost],
+      scriptSrc: [
+        staticHost,
+        'https://www.google-analytics.com',
+      ],
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
         'data:',
         amoCDN,
         staticHost,
+        'https://www.google-analytics.com',
       ],
       mediaSrc: [staticHost],
     },
   },
+  trackingEnabled: true,
+  trackingId: 'UA-36116321-7',
 };
