@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-26 06:49+0000\n"
+"PO-Revision-Date: 2016-06-02 09:05+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -24,7 +24,7 @@ msgstr "Vista previa de %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Pasa por la imagen para visualizarla"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -54,11 +54,11 @@ msgstr "para saber más sobre los complementos"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "Cerrar video"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "¡Ver más complementos!"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
