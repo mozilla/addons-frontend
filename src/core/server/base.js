@@ -17,7 +17,7 @@ import WebpackIsomorphicToolsConfig from 'webpack-isomorphic-tools-config';
 import ServerHtml from 'core/containers/ServerHtml';
 
 import config from 'config';
-import { setJWT } from 'core/actions';
+import { setLang, setJWT } from 'core/actions';
 import log from 'core/logger';
 import { getDirection, getLangFromRouter, langToLocale } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
@@ -114,6 +114,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       const lang = getLangFromRouter(renderProps);
       const dir = getDirection(lang);
       const locale = langToLocale(lang);
+      store.dispatch(setLang(lang));
 
       function hydrateOnClient(props = {}) {
         const pageProps = {

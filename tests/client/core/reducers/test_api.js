@@ -11,6 +11,11 @@ describe('api reducer', () => {
     assert.deepEqual(api({foo: 'bar'}, {type: 'SET_JWT', payload: {token}}), {foo: 'bar', token});
   });
 
+  it('stores the lang', () => {
+    const lang = 'de';
+    assert.deepEqual(api({bar: 'baz'}, {type: 'SET_LANG', payload: {lang}}), {bar: 'baz', lang});
+  });
+
   it('defaults to an empty object', () => {
     assert.deepEqual(api(undefined, {type: 'UNRELATED'}), {});
   });

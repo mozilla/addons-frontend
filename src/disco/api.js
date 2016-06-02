@@ -10,7 +10,6 @@ export function getDiscoveryAddons({ api }) {
   return callApi({
     endpoint: 'discovery',
     schema: {results: arrayOf(discoResult)},
-    params: {lang: 'en-US'},
     state: api,
   });
 }
