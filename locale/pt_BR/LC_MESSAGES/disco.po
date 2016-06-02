@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-26 15:43+0000\n"
-"Last-Translator: Rodrigo Silva <rdrgwtrs@gmail.com>\n"
+"PO-Revision-Date: 2016-06-02 01:29+0000\n"
+"Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Pré-visualizar %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Passe o mouse sobre a imagem para visualizar"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -40,8 +40,7 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Existem milhares de complementos que permitem tornar o seu Firefo—único, "
-"desde divertidos temas visuais para ferramentas e recursos poderosos.\n"
+"Existem milhares de complementos que permitem tornar o seu Firefo—único, desde divertidos temas visuais para ferramentas e recursos poderosos.\n"
 "Aqui estão algumas grandes para conhecer."
 
 #: src/disco/containers/DiscoPane.js:59
@@ -54,11 +53,11 @@ msgstr "para saber mais sobre complementos"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "Fechar vídeo"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Exibir mais complementos!"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
