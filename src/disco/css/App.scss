@@ -25,8 +25,8 @@ img {
 .disco-pane {
   box-sizing: content-box;
   margin: 0 auto;
-  max-width: 680px;
   padding: 50px 20px;
+  width: 680px;
 }
 
 header {
@@ -92,6 +92,7 @@ header {
 }
 
 .disco-header {
+  align-items: flex-start;
   display: flex;
   width: 100%;
 
