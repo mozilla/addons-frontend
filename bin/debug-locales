@@ -1,4 +1,5 @@
 #!/usr/bin/env node --use_strict
+/* eslint-disable no-console */
 
 /*
  * Generate a unicode debug locale and a flipped rtl
@@ -12,27 +13,32 @@
  *   sudo apt-get install translate-toolkit
  *
  */
+require('babel-register');
 
-const glob = require('glob');
 const path = require('path');
 const shell = require('shelljs');
 
+const chalk = require('chalk');
 const debugLocales = ['dbl', 'dbr'];
+const config = require('config');
 const localeDir = path.join(__dirname, '../locale');
 const templateDir = path.join(localeDir, 'templates/LC_MESSAGES');
-const potFiles = glob.sync(`${templateDir}/*.pot`);
+const appName = config.get('appName');
+
+if (!appName) {
+  console.log(
+    chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
+  process.exit(1);
+}
 
 let locale;
 let rewrite;
 let potFile;
 let poFile;
-let fileName;
 
 for (locale of debugLocales) {
-  for (potFile of potFiles) {
-    fileName = path.basename(potFile, '.pot');
-    poFile = path.join(localeDir, locale, 'LC_MESSAGES', `${fileName}.po`);
-    rewrite = locale === 'dbl' ? 'unicode' : 'flipped';
-    shell.exec(`podebug -i ${potFile} -o ${poFile} --rewrite ${rewrite}`);
-  }
+  potFile = path.join(templateDir, `${appName}.pot`);
+  poFile = path.join(localeDir, locale, 'LC_MESSAGES', `${appName}.po`);
+  rewrite = locale === 'dbl' ? 'unicode' : 'flipped';
+  shell.exec(`podebug -i ${potFile} -o ${poFile} --rewrite ${rewrite}`);
 }
