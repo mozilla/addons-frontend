@@ -138,7 +138,8 @@ describe('api', () => {
         })
         .once()
         .returns(mockResponse());
-      return api.login({api: {lang: 'en-US'}, code: 'my-code', state: 'my-state'}).then((apiResponse) => {
+      const lang = 'en-US';
+      return api.login({api: {lang}, code: 'my-code', state: 'my-state'}).then((apiResponse) => {
         assert.strictEqual(apiResponse, response);
         mockWindow.verify();
       });
