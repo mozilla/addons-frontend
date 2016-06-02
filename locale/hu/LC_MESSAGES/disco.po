@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-26 06:04+0000\n"
+"PO-Revision-Date: 2016-06-02 15:20+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -24,7 +24,7 @@ msgstr "%(name)s előnézete"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Az előnézethez vigye a kép fölé az egeret"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -54,11 +54,11 @@ msgstr "hogy többet tudjon meg a kiegészítőkről"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "Videó bezárása"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Több kiegészítő megtekintése!"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
