@@ -1,4 +1,4 @@
-const amoCDN = 'https://addons-cdn.allizom.org';
+const amoCDN = 'https://addons-stage-cdn.allizom.org';
 const staticHost = 'https://addons-discovery-cdn.allizom.org';
 
 module.exports = {
