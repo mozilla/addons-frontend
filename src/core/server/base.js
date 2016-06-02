@@ -142,9 +142,17 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       return loadOnServer({...renderProps, store})
         .then(() => {
           // eslint-disable-next-line global-require
-          const jedData = require(`json!../../locale/${locale}/${appInstanceName}.json`);
+          let jedData = {};
+          try {
+            if (locale !== langToLocale(config.get('defaultLang'))) {
+              // eslint-disable-next-line global-require
+              jedData = require(`json!../../locale/${locale}/${appInstanceName}.json`);
+            }
+          } catch (e) {
+            log.info(dedent`Locale not found or required for locale: "${locale}".
+              Falling back to default lang: "${config.get('defaultLang')}"`);
+          }
           const i18n = new Jed(jedData);
-
           const InitialComponent = (
             <I18nProvider i18n={i18n}>
               <Provider store={store} key="provider">
