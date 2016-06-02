@@ -74,7 +74,7 @@ export default {
       /locale$/,
       new RegExp(`^\\.\\/.*?\\/${appName}\\.json$`)
     ),
-    new ExtractTextPlugin('[name]-[chunkhash].css', {allChunks: true}),
+    new ExtractTextPlugin('[name]-[contenthash].css', {allChunks: true}),
     new SriStatsPlugin({
       algorithm: 'sha512',
       write: true,
