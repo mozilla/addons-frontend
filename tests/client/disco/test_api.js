@@ -1,6 +1,6 @@
 import { arrayOf, normalize } from 'normalizr';
 
-import { discoResult, getDiscoveryAddons } from 'disco/api';
+import { discoResult, getDiscoveryAddons, getGuid } from 'disco/api';
 import * as coreApi from 'core/api';
 
 describe('disco api', () => {
@@ -18,18 +18,28 @@ describe('disco api', () => {
   });
 
   describe('discoResult', () => {
-    it("uses the addon's slug as an id", () => {
-      const normalized = normalize({addon: {slug: 'foo'}}, discoResult);
+    it("uses the addon's guid as an id", () => {
+      const normalized = normalize({addon: {guid: '{foo}'}}, discoResult);
       assert.deepEqual(
         normalized,
         {
           entities: {
-            addons: {foo: {slug: 'foo'}},
-            discoResults: {foo: {addon: 'foo'}},
+            addons: {'{foo}': {guid: '{foo}'}},
+            discoResults: {'{foo}': {addon: '{foo}'}},
           },
-          result: 'foo',
+          result: '{foo}',
         },
         sinon.format(normalized.entities));
+    });
+  });
+
+  describe('getGuid', () => {
+    it('provides a theme guid for a theme', () => {
+      const fakeResult = {
+        type: 'persona',
+        id: 'awooga',
+      };
+      assert.equal(getGuid(fakeResult), 'awooga@personas.mozilla.org');
     });
   });
 });

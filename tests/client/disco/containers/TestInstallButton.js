@@ -109,94 +109,92 @@ describe('<InstallButton />', () => {
 
   it('should call installTheme function on click when uninstalled theme', () => {
     const installTheme = sinon.spy();
-    const slug = 'my-theme';
-    const button = renderButton({installTheme, type: THEME_TYPE, slug, status: UNINSTALLED});
+    const guid = 'test-guid';
+    const name = 'hai';
+    const button = renderButton({installTheme, type: THEME_TYPE, guid, name, status: UNINSTALLED});
     const themeData = button.refs.themeData;
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(installTheme.calledWith(themeData, slug));
+    assert(installTheme.calledWith(themeData, guid, name));
   });
 
   it('should call install function on click when uninstalled', () => {
     const guid = '@foo';
+    const name = 'hai';
     const install = sinon.spy();
     const installURL = 'https://my.url/download';
-    const name = 'hai';
-    const slug = 'foo';
-    const button = renderButton({guid, install, installURL, name, slug, status: UNINSTALLED});
+    const button = renderButton({guid, install, installURL, name, status: UNINSTALLED});
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(install.calledWith({guid, installURL, slug, name}));
+    assert(install.calledWith({guid, installURL, name}));
   });
 
   it('should call uninstall function on click when installed', () => {
     const guid = '@foo';
     const installURL = 'https://my.url/download';
     const name = 'hai';
-    const slug = 'foo';
     const type = 'whatevs';
     const uninstall = sinon.spy();
-    const button = renderButton({guid, installURL, name, slug, status: INSTALLED, type, uninstall});
+    const button = renderButton({guid, installURL, name, status: INSTALLED, type, uninstall});
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(uninstall.calledWith({guid, installURL, slug, name, type}));
+    assert(uninstall.calledWith({guid, installURL, name, type}));
   });
 
   it('should call setInitialStatus in componentDidMount', () => {
     const guid = '@foo';
     const installURL = 'http://the.url';
     const setInitialStatus = sinon.spy();
-    const slug = 'foo';
-    renderButton({guid, installURL, setInitialStatus, slug, status: UNKNOWN});
-    assert(setInitialStatus.calledWith({guid, installURL, slug}));
+    renderButton({guid, installURL, setInitialStatus, status: UNKNOWN});
+    assert(setInitialStatus.calledWith({guid, installURL}));
   });
 
   describe('mapStateToProps', () => {
     it('pulls the installation data from the state', () => {
       const addon = {
-        slug: 'addon',
+        guid: 'foo@addon',
         downloadProgress: 75,
       };
       assert.deepEqual(
         mapStateToProps({
-          installations: {foo: {some: 'data'}, addon},
-          addons: {addon: {addonProp: 'addonValue'}},
-        }, {slug: 'addon'}),
-        {slug: 'addon', downloadProgress: 75, addonProp: 'addonValue'});
+          installations: {foo: {some: 'data'}, 'foo@addon': addon},
+          addons: {'foo@addon': {addonProp: 'addonValue'}},
+        }, {guid: 'foo@addon'}),
+        {guid: 'foo@addon', downloadProgress: 75, addonProp: 'addonValue'});
     });
   });
 
   describe('makeProgressHandler', () => {
     it('sets the download progress on STATE_DOWNLOADING', () => {
       const dispatch = sinon.spy();
-      const slug = 'my-addon';
-      const handler = makeProgressHandler(dispatch, slug);
+      const guid = 'foo@addon';
+      const handler = makeProgressHandler(dispatch, guid);
       handler({state: 'STATE_DOWNLOADING', progress: 300, maxProgress: 990});
       assert(dispatch.calledWith({
         type: 'DOWNLOAD_PROGRESS',
-        payload: {downloadProgress: 30, slug},
+        payload: {downloadProgress: 30, guid},
       }));
     });
 
     it('sets status to installing on STATE_INSTALLING', () => {
       const dispatch = sinon.spy();
-      const slug = 'my-addon';
-      const handler = makeProgressHandler(dispatch, slug);
+      const guid = 'foo@my-addon';
+      const handler = makeProgressHandler(dispatch, guid);
       handler({state: 'STATE_INSTALLING'});
       assert(dispatch.calledWith({
         type: 'START_INSTALL',
-        payload: {slug},
+        payload: {guid},
       }));
     });
 
     it('sets status to installed on STATE_INSTALLED', () => {
       const dispatch = sinon.spy();
-      const slug = 'my-addon';
-      const handler = makeProgressHandler(dispatch, slug);
+      const guid = '{my-addon}';
+      const handler = makeProgressHandler(dispatch, guid);
       handler({state: 'STATE_INSTALLED'});
       assert(dispatch.calledWith({
         type: 'INSTALL_COMPLETE',
-        payload: {slug},
+        payload: {guid},
       }));
     });
   });
@@ -206,14 +204,13 @@ describe('<InstallButton />', () => {
       stubAddonManager();
       const dispatch = sinon.spy();
       const guid = '@foo';
-      const slug = 'foo';
       const installURL = 'http://the.url';
       const { setInitialStatus } = mapDispatchToProps(dispatch);
-      return setInitialStatus({guid, installURL, slug})
+      return setInitialStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
-            payload: {guid, slug, status: INSTALLED, url: installURL},
+            payload: {guid, status: INSTALLED, url: installURL},
           }));
         });
     });
@@ -222,14 +219,13 @@ describe('<InstallButton />', () => {
       stubAddonManager({getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: true})});
       const dispatch = sinon.spy();
       const guid = '@foo';
-      const slug = 'foo';
       const installURL = 'http://the.url';
       const { setInitialStatus } = mapDispatchToProps(dispatch);
-      return setInitialStatus({guid, installURL, slug})
+      return setInitialStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
-            payload: {guid, slug, status: INSTALLED, url: installURL},
+            payload: {guid, status: INSTALLED, url: installURL},
           }));
         });
     });
@@ -238,14 +234,13 @@ describe('<InstallButton />', () => {
       stubAddonManager({getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: false})});
       const dispatch = sinon.spy();
       const guid = '@foo';
-      const slug = 'foo';
       const installURL = 'http://the.url';
       const { setInitialStatus } = mapDispatchToProps(dispatch);
-      return setInitialStatus({guid, installURL, slug})
+      return setInitialStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
-            payload: {guid, slug, status: UNINSTALLED, url: installURL},
+            payload: {guid, status: UNINSTALLED, url: installURL},
           }));
         });
     });
@@ -254,14 +249,13 @@ describe('<InstallButton />', () => {
       stubAddonManager({getAddon: Promise.reject()});
       const dispatch = sinon.spy();
       const guid = '@foo';
-      const slug = 'foo';
       const installURL = 'http://the.url';
       const { setInitialStatus } = mapDispatchToProps(dispatch);
-      return setInitialStatus({guid, installURL, slug})
+      return setInitialStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
-            payload: {guid, slug, status: UNINSTALLED, url: installURL},
+            payload: {guid, status: UNINSTALLED, url: installURL},
           }));
         });
     });
@@ -270,13 +264,12 @@ describe('<InstallButton />', () => {
   describe('install', () => {
     const guid = '@install';
     const installURL = 'https://mysite.com/download.xpi';
-    const slug = 'install';
 
     it('installs the addon on a new AddonManager', () => {
       stubAddonManager();
       const dispatch = sinon.spy();
       const { install } = mapDispatchToProps(dispatch);
-      return install({guid, installURL, slug})
+      return install({guid, installURL})
         .then(() => {
           assert(addonManager.AddonManager.calledWithNew, 'new AddonManager() called');
           assert(addonManager.AddonManager.calledWith(guid, installURL, sinon.match.func));
@@ -287,10 +280,10 @@ describe('<InstallButton />', () => {
       stubAddonManager();
       const dispatch = sinon.spy();
       const { install } = mapDispatchToProps(dispatch);
-      return install({guid, installURL, slug})
+      return install({guid, installURL})
         .then(() => assert(dispatch.calledWith({
           type: 'START_DOWNLOAD',
-          payload: {slug},
+          payload: {guid},
         })));
     });
   });
@@ -298,13 +291,12 @@ describe('<InstallButton />', () => {
   describe('uninstall', () => {
     const guid = '@uninstall';
     const installURL = 'https://mysite.com/download.xpi';
-    const slug = 'uninstall';
 
     it('prepares the addon on a new AddonManager', () => {
       stubAddonManager();
       const dispatch = sinon.spy();
       const { uninstall } = mapDispatchToProps(dispatch);
-      return uninstall({guid, installURL, slug})
+      return uninstall({guid, installURL})
         .then(() => {
           assert(addonManager.AddonManager.calledWithNew, 'new AddonManager() called');
           assert(addonManager.AddonManager.calledWith(guid, installURL));
@@ -315,10 +307,10 @@ describe('<InstallButton />', () => {
       stubAddonManager();
       const dispatch = sinon.spy();
       const { uninstall } = mapDispatchToProps(dispatch);
-      return uninstall({guid, installURL, slug})
+      return uninstall({guid, installURL})
         .then(() => assert(dispatch.calledWith({
           type: 'START_UNINSTALL',
-          payload: {slug},
+          payload: {guid},
         })));
     });
   });
@@ -326,17 +318,17 @@ describe('<InstallButton />', () => {
   describe('installTheme', () => {
     it('installs the theme', () => {
       const name = 'hai-theme';
+      const guid = '{install-theme}';
       const node = sinon.stub();
-      const slug = 'install-theme';
       const spyThemeAction = sinon.spy();
       const dispatch = sinon.spy();
       const { installTheme } = mapDispatchToProps(dispatch);
-      return installTheme(node, slug, name, spyThemeAction)
+      return installTheme(node, guid, name, spyThemeAction)
         .then(() => {
           assert(spyThemeAction.calledWith(node, THEME_INSTALL));
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
-            payload: {slug, status: INSTALLED},
+            payload: {guid, status: INSTALLED},
           }));
         });
     });
