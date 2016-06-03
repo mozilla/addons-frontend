@@ -110,7 +110,8 @@ describe('App Specific CSP Config', () => {
     process.env.NODE_APP_INSTANCE = 'disco';
     const config = requireUncached('config');
     const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.scriptSrc, ['https://addons-discovery.cdn.mozilla.net']);
+    assert.deepEqual(cspConfig.scriptSrc, [
+      'https://addons-discovery.cdn.mozilla.net', 'https://www.google-analytics.com']);
   });
 
   it('should set media-src for disco', () => {
@@ -129,6 +130,7 @@ describe('App Specific CSP Config', () => {
       'data:',
       'https://addons.cdn.mozilla.net',
       'https://addons-discovery.cdn.mozilla.net',
+      'https://www.google-analytics.com',
     ]);
   });
 

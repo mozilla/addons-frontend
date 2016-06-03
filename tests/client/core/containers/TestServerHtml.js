@@ -57,6 +57,7 @@ describe('<ServerHtml />', () => {
       assets: fakeAssets,
       includeSri: true,
       store: fakeStore,
+      trackingEnabled: false,
       sriData: fakeSRIData,
       ...opts,
     };
@@ -68,6 +69,21 @@ describe('<ServerHtml />', () => {
       render({htmlLang: 'ar', htmlDir: 'rtl'}), 'html');
     assert.equal(html.getAttribute('lang'), 'ar');
     assert.equal(html.getAttribute('dir'), 'rtl');
+  });
+
+  it('renders GA script when trackingEnabled is true', () => {
+    const html = findRenderedDOMComponentWithTag(
+      render({trackingEnabled: true}), 'html');
+    const ga = html.querySelectorAll('script[src="https://www.google-analytics.com/analytics.js"]');
+    assert.equal(ga.length, 1);
+    assert.equal(ga[0].hasAttribute('async'), true);
+  });
+
+  it("doesn't render GA script when trackingEnabled is false", () => {
+    const html = findRenderedDOMComponentWithTag(
+      render({trackingEnabled: false}), 'html');
+    const ga = html.querySelectorAll('script[src="https://www.google-analytics.com/analytics.js"]');
+    assert.equal(ga.length, 0);
   });
 
   it('renders css provided', () => {

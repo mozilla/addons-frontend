@@ -10,16 +10,18 @@ export default class ServerHtml extends Component {
     appName: PropTypes.string.isRequired,
     assets: PropTypes.object.isRequired,
     component: PropTypes.object.isRequired,
-    htmlDir: PropTypes.object,
-    htmlLang: PropTypes.object,
+    htmlDir: PropTypes.string,
+    htmlLang: PropTypes.string,
     includeSri: PropTypes.bool,
     sriData: PropTypes.object,
     store: PropTypes.object.isRequired,
+    trackingEnabled: PropTypes.bool,
   };
 
   static defaultProps = {
     htmlDir: 'ltr',
     htmlLang: 'en-US',
+    trackingEnabled: false,
   }
 
   getStatic({filePath, type, index}) {
@@ -50,6 +52,13 @@ export default class ServerHtml extends Component {
     } else {
       return null;
     }
+  }
+
+  getAnalytics() {
+    if (this.props.trackingEnabled) {
+      return <script async src="https://www.google-analytics.com/analytics.js"></script>;
+    }
+    return null;
   }
 
   getStyle() {
@@ -85,6 +94,7 @@ export default class ServerHtml extends Component {
           <div id="react-view" dangerouslySetInnerHTML={{__html: content}} />
           <script dangerouslySetInnerHTML={{__html: serialize(store.getState())}}
                   type="application/json" id="redux-store-state" />
+          {this.getAnalytics()}
           {this.getScript()}
         </body>
       </html>

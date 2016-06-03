@@ -125,6 +125,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           includeSri: isDeployed,
           sriData,
           store,
+          trackingEnabled: config.get('trackingEnabled'),
           ...props,
         };
 
