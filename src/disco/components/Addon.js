@@ -6,7 +6,7 @@ import purify from 'core/purify';
 
 import themeAction, { getThemeData } from 'disco/themePreview';
 
-import InstallButton from 'disco/containers/InstallButton';
+import InstallButton from 'disco/components/InstallButton';
 import {
   validAddonTypes,
   validInstallStates,
