@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import { sprintf } from 'sprintf-js';
+import { sprintf } from 'jed';
 
 import { ngettext } from 'core/utils';
 
