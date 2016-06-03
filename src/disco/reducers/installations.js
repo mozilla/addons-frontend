@@ -23,12 +23,11 @@ export default function installations(state = {}, { type, payload }) {
     return state;
   }
   let addon;
-  if (state[payload.slug]) {
-    addon = {...state[payload.slug]};
+  if (state[payload.guid]) {
+    addon = {...state[payload.guid]};
   }
   if (type === 'INSTALL_STATE') {
     addon = {
-      slug: payload.slug,
       guid: payload.guid,
       url: payload.url,
       downloadProgress: 0,
@@ -56,6 +55,6 @@ export default function installations(state = {}, { type, payload }) {
   }
   return {
     ...state,
-    [payload.slug]: addon,
+    [payload.guid]: addon,
   };
 }

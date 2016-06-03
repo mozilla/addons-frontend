@@ -34,6 +34,7 @@ export class Addon extends React.Component {
     editorialDescription: PropTypes.string.isRequired,
     errorMessage: PropTypes.string,
     footerURL: PropTypes.string,
+    guid: PropTypes.string.isRequired,
     headerURL: PropTypes.string,
     heading: PropTypes.string.isRequired,
     i18n: PropTypes.string.isRequired,
@@ -41,7 +42,6 @@ export class Addon extends React.Component {
     id: PropTypes.string.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     textcolor: PropTypes.string,
     themeAction: PropTypes.func,
@@ -117,7 +117,7 @@ export class Addon extends React.Component {
   }
 
   render() {
-    const { heading, slug, type } = this.props;
+    const { guid, heading, type } = this.props;
 
     if (!validAddonTypes.includes(type)) {
       throw new Error(`Invalid addon type "${type}"`);
@@ -141,7 +141,7 @@ export class Addon extends React.Component {
             {this.getDescription()}
           </div>
           <div className="install-button">
-            <InstallButton slug={slug} />
+            <InstallButton guid={guid} />
           </div>
         </div>
       </div>

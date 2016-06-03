@@ -23,15 +23,13 @@ describe('installations reducer', () => {
       installations(undefined, {
         type: 'INSTALL_STATE',
         payload: {
-          slug: 'my-addon',
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           status: UNINSTALLED,
         },
       }),
       {
-        'my-addon': {
-          slug: 'my-addon',
+        'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,
@@ -45,15 +43,13 @@ describe('installations reducer', () => {
       installations(undefined, {
         type: 'INSTALL_STATE',
         payload: {
-          slug: 'an-addon',
           guid: 'an-addon@me.com',
           url: 'https://cdn.amo/download/an-addon.xpi',
           status: INSTALLED,
         },
       }),
       {
-        'an-addon': {
-          slug: 'an-addon',
+        'an-addon@me.com': {
           guid: 'an-addon@me.com',
           url: 'https://cdn.amo/download/an-addon.xpi',
           downloadProgress: 0,
@@ -64,8 +60,7 @@ describe('installations reducer', () => {
 
   it('marks an add-on as installing on START_DOWNLOAD', () => {
     const state = {
-      'my-addon': {
-        slug: 'my-addon',
+      'my-addon@me.com': {
         guid: 'my-addon@me.com',
         url: 'https://cdn.amo/download/my-addon.xpi',
         downloadProgress: 0,
@@ -76,12 +71,11 @@ describe('installations reducer', () => {
       installations(state, {
         type: 'START_DOWNLOAD',
         payload: {
-          slug: 'my-addon',
+          guid: 'my-addon@me.com',
         },
       }),
       {
-        'my-addon': {
-          slug: 'my-addon',
+        'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,
@@ -92,8 +86,7 @@ describe('installations reducer', () => {
 
   it('updates the downloadProgress on DOWNLOAD_PROGRESS', () => {
     const state = {
-      'my-addon': {
-        slug: 'my-addon',
+      'my-addon@me.com': {
         guid: 'my-addon@me.com',
         url: 'https://cdn.amo/download/my-addon.xpi',
         downloadProgress: 0,
@@ -104,13 +97,12 @@ describe('installations reducer', () => {
       installations(state, {
         type: 'DOWNLOAD_PROGRESS',
         payload: {
-          slug: 'my-addon',
+          guid: 'my-addon@me.com',
           downloadProgress: 25,
         },
       }),
       {
-        'my-addon': {
-          slug: 'my-addon',
+        'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 25,
@@ -121,8 +113,7 @@ describe('installations reducer', () => {
 
   it('updates the status and downloadProgress on START_INSTALL', () => {
     const state = {
-      'my-addon': {
-        slug: 'my-addon',
+      'my-addon@me.com': {
         guid: 'my-addon@me.com',
         url: 'https://cdn.amo/download/my-addon.xpi',
         downloadProgress: 75,
@@ -133,12 +124,11 @@ describe('installations reducer', () => {
       installations(state, {
         type: 'START_INSTALL',
         payload: {
-          slug: 'my-addon',
+          guid: 'my-addon@me.com',
         },
       }),
       {
-        'my-addon': {
-          slug: 'my-addon',
+        'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 100,
@@ -149,8 +139,7 @@ describe('installations reducer', () => {
 
   it('updates the status on INSTALL_COMPLETE', () => {
     const state = {
-      'my-addon': {
-        slug: 'my-addon',
+      'my-addon@me.com': {
         guid: 'my-addon@me.com',
         url: 'https://cdn.amo/download/my-addon.xpi',
         downloadProgress: 100,
@@ -161,12 +150,11 @@ describe('installations reducer', () => {
       installations(state, {
         type: 'INSTALL_COMPLETE',
         payload: {
-          slug: 'my-addon',
+          guid: 'my-addon@me.com',
         },
       }),
       {
-        'my-addon': {
-          slug: 'my-addon',
+        'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 100,
@@ -177,8 +165,7 @@ describe('installations reducer', () => {
 
   it('updates the status on START_UNINSTALL', () => {
     const state = {
-      'my-addon': {
-        slug: 'my-addon',
+      'my-addon@me.com': {
         guid: 'my-addon@me.com',
         url: 'https://cdn.amo/download/my-addon.xpi',
         downloadProgress: 100,
@@ -189,12 +176,11 @@ describe('installations reducer', () => {
       installations(state, {
         type: 'START_UNINSTALL',
         payload: {
-          slug: 'my-addon',
+          guid: 'my-addon@me.com',
         },
       }),
       {
-        'my-addon': {
-          slug: 'my-addon',
+        'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,
@@ -205,8 +191,7 @@ describe('installations reducer', () => {
 
   it('updates the status on UNINSTALL_COMPLETE', () => {
     const state = {
-      'my-addon': {
-        slug: 'my-addon',
+      'my-addon@me.com': {
         guid: 'my-addon@me.com',
         url: 'https://cdn.amo/download/my-addon.xpi',
         downloadProgress: 0,
@@ -217,12 +202,11 @@ describe('installations reducer', () => {
       installations(state, {
         type: 'UNINSTALL_COMPLETE',
         payload: {
-          slug: 'my-addon',
+          guid: 'my-addon@me.com',
         },
       }),
       {
-        'my-addon': {
-          slug: 'my-addon',
+        'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,
@@ -233,8 +217,7 @@ describe('installations reducer', () => {
 
   it('sets an error on INSTALL_ERROR', () => {
     const state = {
-      'my-addon': {
-        slug: 'my-addon',
+      'my-addon@me.com': {
         guid: 'my-addon@me.com',
         url: 'https://cdn.amo/download/my-addon.xpi',
         downloadProgress: 55,
@@ -245,13 +228,12 @@ describe('installations reducer', () => {
       installations(state, {
         type: 'INSTALL_ERROR',
         payload: {
-          slug: 'my-addon',
+          guid: 'my-addon@me.com',
           error: 'Download interrupted, check your network connection.',
         },
       }),
       {
-        'my-addon': {
-          slug: 'my-addon',
+        'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,

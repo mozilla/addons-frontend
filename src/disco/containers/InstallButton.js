@@ -24,7 +24,7 @@ import 'disco/css/InstallButton.scss';
 export class InstallButton extends React.Component {
   static propTypes = {
     handleChange: PropTypes.func,
-    guid: PropTypes.string,
+    guid: PropTypes.string.isRequired,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -45,20 +45,19 @@ export class InstallButton extends React.Component {
   }
 
   componentDidMount() {
-    const { guid, installURL, setInitialStatus, slug } = this.props;
-    setInitialStatus({guid, installURL, slug});
+    const { guid, installURL, setInitialStatus } = this.props;
+    setInitialStatus({guid, installURL});
   }
 
   handleClick = (e) => {
     e.preventDefault();
-    const { guid, install, installURL, name, slug,
-      status, installTheme, type, uninstall } = this.props;
+    const { guid, install, installURL, name, status, installTheme, type, uninstall } = this.props;
     if (type === THEME_TYPE && status === UNINSTALLED) {
-      installTheme(this.refs.themeData, slug, name);
+      installTheme(this.refs.themeData, guid, name);
     } else if (status === UNINSTALLED) {
-      install({ guid, installURL, slug, name });
+      install({ guid, installURL, name });
     } else if (status === INSTALLED) {
-      uninstall({ guid, installURL, slug, name, type });
+      uninstall({ guid, installURL, name, type });
     }
   }
 
@@ -97,21 +96,21 @@ export class InstallButton extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const installation = state.installations[ownProps.slug] || {};
-  const addon = state.addons[ownProps.slug] || {};
+  const installation = state.installations[ownProps.guid] || {};
+  const addon = state.addons[ownProps.guid] || {};
   return {...installation, ...addon};
 }
 
-export function makeProgressHandler(dispatch, slug) {
+export function makeProgressHandler(dispatch, guid) {
   return (addonInstall) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
         100 * addonInstall.progress / addonInstall.maxProgress, 10);
-      dispatch({type: 'DOWNLOAD_PROGRESS', payload: {slug, downloadProgress}});
+      dispatch({type: 'DOWNLOAD_PROGRESS', payload: {guid, downloadProgress}});
     } else if (addonInstall.state === 'STATE_INSTALLING') {
-      dispatch({type: 'START_INSTALL', payload: {slug}});
+      dispatch({type: 'START_INSTALL', payload: {guid}});
     } else if (addonInstall.state === 'STATE_INSTALLED') {
-      dispatch({type: 'INSTALL_COMPLETE', payload: {slug}});
+      dispatch({type: 'INSTALL_COMPLETE', payload: {guid}});
     }
   };
 }
@@ -121,9 +120,9 @@ export function mapDispatchToProps(dispatch) {
     return {};
   }
   return {
-    setInitialStatus({ guid, installURL, slug }) {
+    setInitialStatus({ guid, installURL }) {
       const addonManager = new AddonManager(guid, installURL);
-      const payload = {guid, slug, url: installURL};
+      const payload = {guid, url: installURL};
       return addonManager.getAddon()
         .then(
           (addon) => {
@@ -133,34 +132,34 @@ export function mapDispatchToProps(dispatch) {
           () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: UNINSTALLED}}));
     },
 
-    install({ guid, installURL, slug, name }) {
-      const addonManager = new AddonManager(guid, installURL, makeProgressHandler(dispatch, slug));
-      dispatch({type: 'START_DOWNLOAD', payload: {slug}});
+    install({ guid, installURL, name }) {
+      const addonManager = new AddonManager(guid, installURL, makeProgressHandler(dispatch, guid));
+      dispatch({type: 'START_DOWNLOAD', payload: {guid}});
       tracking.sendEvent({action: 'addon', category: INSTALL_CATEGORY, label: name});
       return addonManager.install();
     },
 
-    installTheme(node, slug, name, _themeAction = themeAction) {
+    installTheme(node, guid, name, _themeAction = themeAction) {
       _themeAction(node, THEME_INSTALL);
       tracking.sendEvent({action: 'theme', category: INSTALL_CATEGORY, label: name});
       return new Promise((resolve) => {
         setTimeout(() => {
-          dispatch({type: 'INSTALL_STATE', payload: {slug, status: INSTALLED}});
+          dispatch({type: 'INSTALL_STATE', payload: {guid, status: INSTALLED}});
           resolve();
         }, 250);
       });
     },
 
-    uninstall({ guid, installURL, slug, name, type }) {
+    uninstall({ guid, installURL, name, type }) {
       const addonManager = new AddonManager(guid, installURL);
-      dispatch({type: 'START_UNINSTALL', payload: {slug}});
+      dispatch({type: 'START_UNINSTALL', payload: {guid}});
       const action = {
         ADDON_TYPE: 'addon',
         THEME_TYPE: 'theme',
       }[type] || 'invalid';
       tracking.sendEvent({action, category: UNINSTALL_CATEGORY, label: name});
       return addonManager.uninstall()
-        .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {slug}}));
+        .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {guid}}));
     },
   };
 }
