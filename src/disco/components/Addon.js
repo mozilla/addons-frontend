@@ -185,7 +185,7 @@ export function makeProgressHandler(dispatch, guid) {
   };
 }
 
-export function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch, { _tracking = tracking } = {}) {
   if (config.get('server')) {
     return {};
   }
@@ -205,13 +205,13 @@ export function mapDispatchToProps(dispatch) {
     install({ guid, installURL, name }) {
       const addonManager = new AddonManager(guid, installURL, makeProgressHandler(dispatch, guid));
       dispatch({type: 'START_DOWNLOAD', payload: {guid}});
-      tracking.sendEvent({action: 'addon', category: INSTALL_CATEGORY, label: name});
+      _tracking.sendEvent({action: 'addon', category: INSTALL_CATEGORY, label: name});
       return addonManager.install();
     },
 
     installTheme(node, guid, name, _themeAction = themeAction) {
       _themeAction(node, THEME_INSTALL);
-      tracking.sendEvent({action: 'theme', category: INSTALL_CATEGORY, label: name});
+      _tracking.sendEvent({action: 'theme', category: INSTALL_CATEGORY, label: name});
       return new Promise((resolve) => {
         setTimeout(() => {
           dispatch({type: 'INSTALL_STATE', payload: {guid, status: INSTALLED}});
@@ -224,10 +224,10 @@ export function mapDispatchToProps(dispatch) {
       const addonManager = new AddonManager(guid, installURL);
       dispatch({type: 'START_UNINSTALL', payload: {guid}});
       const action = {
-        ADDON_TYPE: 'addon',
-        THEME_TYPE: 'theme',
+        [EXTENSION_TYPE]: 'addon',
+        [THEME_TYPE]: 'theme',
       }[type] || 'invalid';
-      tracking.sendEvent({action, category: UNINSTALL_CATEGORY, label: name});
+      _tracking.sendEvent({action, category: UNINSTALL_CATEGORY, label: name});
       return addonManager.uninstall()
         .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {guid}}));
     },

@@ -16,11 +16,13 @@ import Addon, {
 import * as addonManager from 'disco/addonManager';
 import {
   ERROR,
+  INSTALL_CATEGORY,
   INSTALLED,
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
   THEME_TYPE,
+  UNINSTALL_CATEGORY,
   UNINSTALLED,
 } from 'disco/constants';
 import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
@@ -302,6 +304,26 @@ describe('<Addon />', () => {
         });
     });
 
+    it('tracks an addon inntall', () => {
+      stubAddonManager();
+      const name = 'hai-addon';
+      const type = 'extension';
+      const dispatch = sinon.spy();
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { install } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      return install({guid, installURL, name, type})
+        .then(() => {
+          assert(fakeTracking.sendEvent.calledWith({
+            action: 'addon',
+            category: INSTALL_CATEGORY,
+            label: 'hai-addon',
+          }));
+        });
+    });
+
+
     it('should dispatch START_DOWNLOAD', () => {
       stubAddonManager();
       const dispatch = sinon.spy();
@@ -326,6 +348,63 @@ describe('<Addon />', () => {
         .then(() => {
           assert(addonManager.AddonManager.calledWithNew, 'new AddonManager() called');
           assert(addonManager.AddonManager.calledWith(guid, installURL));
+        });
+    });
+
+    it('tracks an addon uninstall', () => {
+      stubAddonManager();
+      const dispatch = sinon.spy();
+      const name = 'whatevs';
+      const type = 'extension';
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { uninstall } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      return uninstall({guid, installURL, name, type})
+        .then(() => {
+          assert.ok(fakeTracking.sendEvent.calledWith({
+            action: 'addon',
+            category: UNINSTALL_CATEGORY,
+            label: 'whatevs',
+          }), 'correctly called');
+        });
+    });
+
+    it('tracks a theme uninstall', () => {
+      stubAddonManager();
+      const dispatch = sinon.spy();
+      const name = 'whatevs';
+      const type = 'persona';
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { uninstall } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      return uninstall({guid, installURL, name, type})
+        .then(() => {
+          assert(fakeTracking.sendEvent.calledWith({
+            action: 'theme',
+            category: UNINSTALL_CATEGORY,
+            label: 'whatevs',
+          }));
+        });
+    });
+
+    it('tracks a unknown type uninstall', () => {
+      stubAddonManager();
+      const dispatch = sinon.spy();
+      const name = 'whatevs';
+      const type = 'foo';
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { uninstall } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      return uninstall({guid, installURL, name, type})
+        .then(() => {
+          assert(fakeTracking.sendEvent.calledWith({
+            action: 'invalid',
+            category: UNINSTALL_CATEGORY,
+            label: 'whatevs',
+          }));
         });
     });
 
@@ -355,6 +434,26 @@ describe('<Addon />', () => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
             payload: {guid, status: INSTALLED},
+          }));
+        });
+    });
+
+    it('tracks a theme install', () => {
+      const name = 'hai-theme';
+      const guid = '{install-theme}';
+      const node = sinon.stub();
+      const dispatch = sinon.spy();
+      const spyThemeAction = sinon.spy();
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { installTheme } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      return installTheme(node, guid, name, spyThemeAction)
+        .then(() => {
+          assert(fakeTracking.sendEvent.calledWith({
+            action: 'theme',
+            category: INSTALL_CATEGORY,
+            label: 'hai-theme',
           }));
         });
     });
