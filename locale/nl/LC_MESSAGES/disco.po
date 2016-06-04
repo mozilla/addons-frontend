@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-26 07:20+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2016-06-02 12:09+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Voorbeeld %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -40,9 +40,7 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Er zijn duizenden add-ons waarmee u Firefox helemaal van uzelf kunt maken — "
-"variërend van leuke visuele thema’s tot krachtige hulpmiddelen en functies. "
-"Probeer deze geweldige voorbeelden eens uit."
+"Er zijn duizenden add-ons waarmee u Firefox helemaal van uzelf kunt maken — variërend van leuke visuele thema’s tot krachtige hulpmiddelen en functies. Probeer deze geweldige voorbeelden eens uit."
 
 #: src/disco/containers/DiscoPane.js:59
 msgid "Click to play"
@@ -54,11 +52,11 @@ msgstr "om meer over add-ons te ontdekken"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "Video sluiten"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Bekijk meer add-ons!"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
