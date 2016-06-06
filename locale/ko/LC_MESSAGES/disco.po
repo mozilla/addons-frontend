@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-26 04:32+0000\n"
+"PO-Revision-Date: 2016-06-06 08:28+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -24,7 +24,7 @@ msgstr "%(name)s 미리보기"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "마우스 올려서 미리보기"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -54,11 +54,11 @@ msgstr "부가기능 더 알아보기"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "동영상 닫기"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "다른 부가기능 보기!"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
