@@ -112,6 +112,22 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       ) : {};
 
       const lang = getLangFromRouter(renderProps);
+
+      if (renderProps.params && renderProps.params.lang) {
+        const origLang = renderProps.params.lang;
+        if (lang !== origLang) {
+          // If the original lang param (found via the router) matches
+          // the first part of the original url path, redirect to the
+          // normalized lang (which will be the default if invalid).
+          // eslint-disable-next-line no-unused-vars
+          const [_, firstPart, ...rest] = req.originalUrl.split('/');
+          if (origLang === decodeURIComponent(firstPart)) {
+            // The '' provides a leading /
+            return res.redirect(301, ['', lang, ...rest].join('/'));
+          }
+        }
+      }
+
       const dir = getDirection(lang);
       const locale = langToLocale(lang);
       store.dispatch(setLang(lang));

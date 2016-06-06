@@ -36,4 +36,52 @@ describe('GET requests', () => {
     .get('/')
     .expect(200)
     .then((res) => checkSRI(res)));
+
+  it('should redirect an invalid locale', () => request(app)
+    .get('/whatevs/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl')
+    .expect(301)
+    .then((res) => {
+      assert.equal(res.header.location,
+        '/en-US/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl');
+    }));
+
+  it('should redirect an invalid locale which will be encoded', () => request(app)
+    .get('/<script>/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl')
+    .expect(301)
+    .then((res) => {
+      assert.equal(res.header.location,
+        '/en-US/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl');
+    }));
+
+  it('should redirect an invalid locale which will be encoded', () => request(app)
+    .get('/AC%2fDC/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl')
+    .expect(301)
+    .then((res) => {
+      assert.equal(res.header.location,
+        '/en-US/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl');
+    }));
+
+  it('should redirect an aliased lang', () => request(app)
+    .get('/pt/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl')
+    .expect(301)
+    .then((res) => {
+      assert.equal(res.header.location,
+        '/pt-PT/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl');
+    }));
+
+  it('should correct incorrect case', () => request(app)
+    .get('/pt-br/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl')
+    .expect(301)
+    .then((res) => {
+      assert.equal(res.header.location,
+        '/pt-BR/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl');
+    }));
+
+  it('should not replace more than it should', () => request(app)
+    .get('/48.0/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl')
+    .expect(301)
+    .then((res) => {
+      assert.equal(res.header.location,
+        '/en-US/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl');
+    }));
 });
