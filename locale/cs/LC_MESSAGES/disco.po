@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-31 11:10+0000\n"
+"PO-Revision-Date: 2016-06-06 07:22+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -20,11 +20,11 @@ msgstr "Došlo k neočekávané chybě"
 
 #: src/disco/components/Addon.js:87
 msgid "Preview %(name)s"
-msgstr ""
+msgstr "Náhled %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Pro náhled přejeďte nad obrázkem myší"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -51,11 +51,11 @@ msgstr ""
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "Zavřít video"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Zobrazte si více doplňků!"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
