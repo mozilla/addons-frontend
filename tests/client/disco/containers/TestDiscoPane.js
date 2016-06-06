@@ -7,19 +7,16 @@ import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
 import { EXTENSION_TYPE } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
-import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
 import I18nProvider from 'core/i18n/Provider';
+
 
 // Use DiscoPane that isn't wrapped in asyncConnect.
 const { DiscoPane } = helpers;
 
 
 describe('AddonPage', () => {
-  beforeEach(() => {
-    stubAddonManager();
-  });
-
   function render() {
     const store = createStore({
       addons: {foo: {type: EXTENSION_TYPE}},
@@ -27,22 +24,16 @@ describe('AddonPage', () => {
     });
     const results = [{addon: 'foo', type: EXTENSION_TYPE}];
     const i18n = getFakeI18nInst();
+
     // We need the providers for i18n and since InstallButton will pull data from the store.
     return findDOMNode(renderIntoDocument(
       <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <DiscoPane results={results} i18n={i18n} />
+          <DiscoPane results={results} i18n={i18n} AddonComponent={MockedSubComponent} />
         </Provider>
       </I18nProvider>
     ));
   }
-
-  describe('rendered fields', () => {
-    it('renders an addon', () => {
-      const root = render();
-      assert.ok(root.querySelector('.addon'));
-    });
-  });
 
   describe('video', () => {
     it('is small by default', () => {

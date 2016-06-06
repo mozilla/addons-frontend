@@ -8,7 +8,7 @@ import purify from 'core/purify';
 import config from 'config';
 import themeAction, { getThemeData } from 'disco/themePreview';
 import tracking from 'core/tracking';
-import { AddonManager } from 'disco/addonManager';
+import * as addonManager from 'disco/addonManager';
 
 import InstallButton from 'disco/components/InstallButton';
 import {
@@ -46,7 +46,7 @@ export class Addon extends React.Component {
     guid: PropTypes.string.isRequired,
     headerURL: PropTypes.string,
     heading: PropTypes.string.isRequired,
-    i18n: PropTypes.string.isRequired,
+    i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     id: PropTypes.string.isRequired,
     installURL: PropTypes.string,
@@ -185,15 +185,15 @@ export function makeProgressHandler(dispatch, guid) {
   };
 }
 
-export function mapDispatchToProps(dispatch, { _tracking = tracking } = {}) {
+export function mapDispatchToProps(dispatch, { _tracking = tracking,
+                                               _addonManager = addonManager } = {}) {
   if (config.get('server')) {
     return {};
   }
   return {
     setInitialStatus({ guid, installURL }) {
-      const addonManager = new AddonManager(guid, installURL);
       const payload = {guid, url: installURL};
-      return addonManager.getAddon()
+      return _addonManager.getAddon(guid)
         .then(
           (addon) => {
             const status = addon.type === THEME_TYPE && !addon.isEnabled ? UNINSTALLED : INSTALLED;
@@ -203,10 +203,9 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking } = {}) {
     },
 
     install({ guid, installURL, name }) {
-      const addonManager = new AddonManager(guid, installURL, makeProgressHandler(dispatch, guid));
       dispatch({type: 'START_DOWNLOAD', payload: {guid}});
       _tracking.sendEvent({action: 'addon', category: INSTALL_CATEGORY, label: name});
-      return addonManager.install();
+      return _addonManager.install(installURL, makeProgressHandler(dispatch, guid));
     },
 
     installTheme(node, guid, name, _themeAction = themeAction) {
@@ -220,15 +219,14 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking } = {}) {
       });
     },
 
-    uninstall({ guid, installURL, name, type }) {
-      const addonManager = new AddonManager(guid, installURL);
+    uninstall({ guid, name, type }) {
       dispatch({type: 'START_UNINSTALL', payload: {guid}});
       const action = {
         [EXTENSION_TYPE]: 'addon',
         [THEME_TYPE]: 'theme',
       }[type] || 'invalid';
       _tracking.sendEvent({action, category: UNINSTALL_CATEGORY, label: name});
-      return addonManager.uninstall()
+      return _addonManager.uninstall(guid)
         .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {guid}}));
     },
   };

@@ -1,7 +1,5 @@
+import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
-
-import * as addonManager from 'disco/addonManager';
-const AddonManager = addonManager.AddonManager;
 
 export function shallowRender(stuff) {
   const renderer = createRenderer();
@@ -20,13 +18,11 @@ export function findByTag(root, tag) {
 }
 
 export function stubAddonManager({ getAddon = Promise.resolve({type: 'addon'}) } = {}) {
-  const instance = sinon.createStubInstance(AddonManager);
-  instance.getAddon = sinon.stub().returns(getAddon);
-  instance.install = sinon.stub().returns(Promise.resolve());
-  instance.uninstall = sinon.stub().returns(Promise.resolve());
-  const mockAddonManager = sinon.spy(() => instance);
-  sinon.stub(addonManager, 'AddonManager', mockAddonManager);
-  return instance;
+  const fakeAddonManager = {};
+  fakeAddonManager.getAddon = sinon.stub().returns(getAddon);
+  fakeAddonManager.install = sinon.stub().returns(Promise.resolve());
+  fakeAddonManager.uninstall = sinon.stub().returns(Promise.resolve());
+  return fakeAddonManager;
 }
 
 export function unexpectedSuccess() {
@@ -47,4 +43,10 @@ export function getFakeI18nInst() {
     npgettext: sinon.stub(),
     dnpgettext: sinon.stub(),
   };
+}
+
+export class MockedSubComponent extends React.Component {
+  render() {
+    return <div></div>;
+  }
 }

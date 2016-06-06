@@ -21,6 +21,11 @@ export class DiscoPane extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     results: PropTypes.arrayOf(PropTypes.object),
+    AddonComponent: PropTypes.object.isRequred,
+  }
+
+  static defaultProps = {
+    AddonComponent: Addon,
   }
 
   constructor() {
@@ -41,7 +46,7 @@ export class DiscoPane extends React.Component {
   }
 
   render() {
-    const { results, i18n } = this.props;
+    const { results, i18n, AddonComponent } = this.props;
     const { showVideo } = this.state;
 
     return (
@@ -70,7 +75,7 @@ export class DiscoPane extends React.Component {
             </div>
           </div>
         </header>
-        {results.map((item) => <Addon {...camelCaseProps(item)} key={item.guid} />)}
+        {results.map((item) => <AddonComponent {...camelCaseProps(item)} key={item.guid} />)}
         <div className="amo-link">
           <a href="https://addons.mozilla.org/" target="_blank" rel="noreferrer">
             {i18n.gettext('See more add-ons!')}
