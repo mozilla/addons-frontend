@@ -53,21 +53,32 @@ header {
   text-align: center;
 
   a {
-    background: $amo-link-background-color;
+    background: #2EA3FF;
+    border: 1px solid #0675D3;
     color: #fff;
     display: inline-block;
-    font-size: 13px;
+    font-size: 14px;
     margin: 30px 0;
-    padding: 1em 1.5em;
+    min-width: 140px;
+    padding: 10px 1em 11px;
     text-decoration: none;
-    transition: background 300ms;
+    transition: background 200ms;
 
+    &:focus,
     &:hover {
-      background: lighten($amo-link-background-color, 7);
+      background: #0996F8;
+      border: 1px solid #0461AE;
     }
 
     &:focus {
       @include focus();
+      border: 1px solid #fff;
+    }
+
+    &:active {
+      background: #0675D3;
+      border: 1px solid #025295;
+      box-shadow: none;
     }
   }
 }
