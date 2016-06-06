@@ -13,17 +13,23 @@ import {
   mapStateToProps,
 } from 'disco/components/Addon';
 import {
-  ERROR,
   DOWNLOAD_FAILED,
-  INSTALL_CATEGORY,
-  INSTALL_FAILED,
+  DOWNLOAD_PROGRESS,
+  ERROR,
   INSTALLED,
+  INSTALL_CATEGORY,
+  INSTALL_COMPLETE,
+  INSTALL_FAILED,
+  INSTALL_STATE,
+  START_DOWNLOAD,
+  START_INSTALL,
+  START_UNINSTALL,
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
   THEME_TYPE,
-  UNINSTALL_CATEGORY,
   UNINSTALLED,
+  UNINSTALL_CATEGORY,
 } from 'disco/constants';
 import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
 import I18nProvider from 'core/i18n/Provider';
@@ -232,7 +238,7 @@ describe('<Addon />', () => {
       const handler = makeProgressHandler(dispatch, guid);
       handler({state: 'STATE_DOWNLOADING', progress: 300, maxProgress: 990});
       assert(dispatch.calledWith({
-        type: 'DOWNLOAD_PROGRESS',
+        type: DOWNLOAD_PROGRESS,
         payload: {downloadProgress: 30, guid},
       }));
     });
@@ -243,7 +249,7 @@ describe('<Addon />', () => {
       const handler = makeProgressHandler(dispatch, guid);
       handler({state: 'STATE_INSTALLING'});
       assert(dispatch.calledWith({
-        type: 'START_INSTALL',
+        type: START_INSTALL,
         payload: {guid},
       }));
     });
@@ -254,7 +260,7 @@ describe('<Addon />', () => {
       const handler = makeProgressHandler(dispatch, guid);
       handler({state: 'STATE_INSTALLED'});
       assert(dispatch.calledWith({
-        type: 'INSTALL_COMPLETE',
+        type: INSTALL_COMPLETE,
         payload: {guid},
       }));
     });
@@ -294,7 +300,7 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: INSTALLED, url: installURL},
           }));
         });
@@ -310,7 +316,7 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: INSTALLED, url: installURL},
           }));
         });
@@ -326,7 +332,7 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: UNINSTALLED, url: installURL},
           }));
         });
@@ -341,7 +347,7 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: UNINSTALLED, url: installURL},
           }));
         });
@@ -389,7 +395,7 @@ describe('<Addon />', () => {
       const { install } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return install({guid, installURL})
         .then(() => assert(dispatch.calledWith({
-          type: 'START_DOWNLOAD',
+          type: START_DOWNLOAD,
           payload: {guid},
         })));
     });
@@ -474,7 +480,7 @@ describe('<Addon />', () => {
       const { uninstall } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return uninstall({guid, installURL})
         .then(() => assert(dispatch.calledWith({
-          type: 'START_UNINSTALL',
+          type: START_UNINSTALL,
           payload: {guid},
         })));
     });
@@ -492,7 +498,7 @@ describe('<Addon />', () => {
         .then(() => {
           assert(spyThemeAction.calledWith(node, THEME_INSTALL));
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: INSTALLED},
           }));
         });

@@ -1,13 +1,19 @@
 // Addon States.
-export const DOWNLOADING = 'downloading';
-export const ERROR = 'error';
-export const INSTALLED = 'installed';
-export const INSTALLING = 'installing';
-export const UNINSTALLED = 'uninstalled';
-export const UNINSTALLING = 'uninstalling';
-export const UNKNOWN = 'unknown';
+export const DOWNLOADING = 'DOWNLOADING';
+export const ERROR = 'ERROR';
+export const INSTALLED = 'INSTALLED';
+export const INSTALLING = 'INSTALLING';
+export const UNINSTALLED = 'UNINSTALLED';
+export const UNINSTALLING = 'UNINSTALLING';
+export const UNKNOWN = 'UNKNOWN';
+// Theme states
+export const DISABLED = 'DISABLED';
+export const ENABLED = 'ENABLED';
+
 export const validInstallStates = [
+  DISABLED,
   DOWNLOADING,
+  ENABLED,
   ERROR,
   INSTALLED,
   INSTALLING,
@@ -16,8 +22,8 @@ export const validInstallStates = [
   UNKNOWN,
 ];
 
-export const DOWNLOAD_FAILED = 'download-failed';
-export const INSTALL_FAILED = 'install-failed';
+export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
+export const INSTALL_FAILED = 'INSTALL_FAILED';
 
 // Add-on types.
 export const API_THEME_TYPE = 'persona';
@@ -58,3 +64,36 @@ export const installEventList = [
 
 export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
 export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
+
+// These are events directly on mozAddonManager
+// they will be fired by addons and themes that aren't
+// necessarily in the disco pane.
+export const globalEventLIist = [
+  'onUninstalling',
+  'onInstalled',
+  'onInstalling',
+  'onUninstalled',
+  'onEnabled',
+  'onDisabled',
+];
+
+// Install Types
+export const INSTALL_STATE = 'INSTALL_STATE';
+export const START_DOWNLOAD = 'START_DOWNLOAD';
+export const DOWNLOAD_PROGRESS = 'DOWNLOAD_PROGRESS';
+export const START_INSTALL = 'START_INSTALL';
+export const INSTALL_COMPLETE = 'INSTALL_COMPLETE';
+export const START_UNINSTALL = 'START_UNINSTALL';
+export const UNINSTALL_COMPLETE = 'UNINSTALL_COMPLETE';
+export const INSTALL_ERROR = 'INSTALL_ERROR';
+
+export const acceptedInstallTypes = [
+  INSTALL_STATE,
+  START_DOWNLOAD,
+  DOWNLOAD_PROGRESS,
+  START_INSTALL,
+  INSTALL_COMPLETE,
+  START_UNINSTALL,
+  UNINSTALL_COMPLETE,
+  INSTALL_ERROR,
+];
