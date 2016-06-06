@@ -5,15 +5,13 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import config from 'config';
-import Addon, {
+import {
+  Addon,
   makeProgressHandler,
   mapDispatchToProps,
   mapStateToProps,
 } from 'disco/components/Addon';
-import * as addonManager from 'disco/addonManager';
 import {
   ERROR,
   INSTALL_CATEGORY,
@@ -27,6 +25,7 @@ import {
 } from 'disco/constants';
 import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
 import I18nProvider from 'core/i18n/Provider';
+import translate from 'core/i18n/translate';
 
 const result = {
   id: 'test-id',
@@ -36,16 +35,16 @@ const result = {
   description: 'test-editorial-description',
 };
 
-const store = createStore((s) => s, {installations: {}, addons: {}});
-
 function renderAddon(data) {
+  const props = {...data, setInitialStatus: sinon.stub()};
+
+  const MyAddon = translate({withRef: true})(Addon);
+
   return findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={getFakeI18nInst()}>
-      <Provider store={store}>
-        <Addon {...data} />
-      </Provider>
+      <MyAddon {...props} />
     </I18nProvider>
-  ), Addon).getWrappedInstance().getWrappedInstance();
+  ), MyAddon).getWrappedInstance();
 }
 
 describe('<Addon />', () => {
@@ -53,7 +52,6 @@ describe('<Addon />', () => {
     let root;
 
     beforeEach(() => {
-      stubAddonManager();
       root = renderAddon(result);
     });
 
@@ -121,7 +119,6 @@ describe('<Addon />', () => {
     let root;
 
     beforeEach(() => {
-      stubAddonManager();
       const data = {...result, type: THEME_TYPE};
       root = renderAddon(data);
     });
@@ -142,7 +139,6 @@ describe('<Addon />', () => {
     let themeAction;
 
     beforeEach(() => {
-      stubAddonManager();
       themeAction = sinon.stub();
       const data = {...result, type: THEME_TYPE, themeAction};
       root = renderAddon(data);
@@ -178,7 +174,6 @@ describe('<Addon />', () => {
 
   describe('mapStateToProps', () => {
     it('pulls the installation data from the state', () => {
-      stubAddonManager();
       const addon = {
         guid: 'foo@addon',
         downloadProgress: 75,
@@ -229,11 +224,11 @@ describe('<Addon />', () => {
 
   describe('setInitialStatus', () => {
     it('sets the status to INSTALLED when add-on found', () => {
-      stubAddonManager();
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setInitialStatus } = mapDispatchToProps(dispatch);
+      const { setInitialStatus } = mapDispatchToProps(
+        dispatch, {_addonManager: stubAddonManager()});
       return setInitialStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
@@ -244,11 +239,12 @@ describe('<Addon />', () => {
     });
 
     it('sets the status to INSTALLED when an installed theme is found', () => {
-      stubAddonManager({getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: true})});
+      const fakeAddonManager = stubAddonManager(
+        {getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: true})});
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setInitialStatus } = mapDispatchToProps(dispatch);
+      const { setInitialStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return setInitialStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
@@ -259,11 +255,12 @@ describe('<Addon />', () => {
     });
 
     it('sets the status to UNINSTALLED when an uninstalled theme is found', () => {
-      stubAddonManager({getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: false})});
+      const fakeAddonManager = stubAddonManager(
+        {getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: false})});
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setInitialStatus } = mapDispatchToProps(dispatch);
+      const { setInitialStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return setInitialStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
@@ -274,11 +271,11 @@ describe('<Addon />', () => {
     });
 
     it('sets the status to UNINSTALLED when not found', () => {
-      stubAddonManager({getAddon: Promise.reject()});
+      const fakeAddonManager = stubAddonManager({getAddon: Promise.reject()});
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setInitialStatus } = mapDispatchToProps(dispatch);
+      const { setInitialStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return setInitialStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
@@ -293,26 +290,26 @@ describe('<Addon />', () => {
     const guid = '@install';
     const installURL = 'https://mysite.com/download.xpi';
 
-    it('installs the addon on a new AddonManager', () => {
-      stubAddonManager();
+    it('calls addonManager.install()', () => {
+      const fakeAddonManager = stubAddonManager();
       const dispatch = sinon.spy();
-      const { install } = mapDispatchToProps(dispatch);
+      const { install } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return install({guid, installURL})
         .then(() => {
-          assert(addonManager.AddonManager.calledWithNew, 'new AddonManager() called');
-          assert(addonManager.AddonManager.calledWith(guid, installURL, sinon.match.func));
+          assert(fakeAddonManager.install.calledWith(installURL, sinon.match.func));
         });
     });
 
-    it('tracks an addon inntall', () => {
-      stubAddonManager();
+    it('tracks an addon install', () => {
+      const fakeAddonManager = stubAddonManager();
       const name = 'hai-addon';
       const type = 'extension';
       const dispatch = sinon.spy();
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { install } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      const { install } = mapDispatchToProps(dispatch,
+        {_tracking: fakeTracking, _addonManager: fakeAddonManager});
       return install({guid, installURL, name, type})
         .then(() => {
           assert(fakeTracking.sendEvent.calledWith({
@@ -325,9 +322,9 @@ describe('<Addon />', () => {
 
 
     it('should dispatch START_DOWNLOAD', () => {
-      stubAddonManager();
+      const fakeAddonManager = stubAddonManager();
       const dispatch = sinon.spy();
-      const { install } = mapDispatchToProps(dispatch);
+      const { install } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return install({guid, installURL})
         .then(() => assert(dispatch.calledWith({
           type: 'START_DOWNLOAD',
@@ -340,26 +337,26 @@ describe('<Addon />', () => {
     const guid = '@uninstall';
     const installURL = 'https://mysite.com/download.xpi';
 
-    it('prepares the addon on a new AddonManager', () => {
-      stubAddonManager();
+    it('calls addonManager.uninstall()', () => {
+      const fakeAddonManager = stubAddonManager();
       const dispatch = sinon.spy();
-      const { uninstall } = mapDispatchToProps(dispatch);
+      const { uninstall } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return uninstall({guid, installURL})
         .then(() => {
-          assert(addonManager.AddonManager.calledWithNew, 'new AddonManager() called');
-          assert(addonManager.AddonManager.calledWith(guid, installURL));
+          assert(fakeAddonManager.uninstall.calledWith(guid));
         });
     });
 
     it('tracks an addon uninstall', () => {
-      stubAddonManager();
+      const fakeAddonManager = stubAddonManager();
       const dispatch = sinon.spy();
       const name = 'whatevs';
       const type = 'extension';
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { uninstall } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      const { uninstall } = mapDispatchToProps(dispatch,
+        {_tracking: fakeTracking, _addonManager: fakeAddonManager});
       return uninstall({guid, installURL, name, type})
         .then(() => {
           assert.ok(fakeTracking.sendEvent.calledWith({
@@ -371,14 +368,15 @@ describe('<Addon />', () => {
     });
 
     it('tracks a theme uninstall', () => {
-      stubAddonManager();
+      const fakeAddonManager = stubAddonManager();
       const dispatch = sinon.spy();
       const name = 'whatevs';
       const type = 'persona';
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { uninstall } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      const { uninstall } = mapDispatchToProps(dispatch,
+        {_tracking: fakeTracking, _addonManager: fakeAddonManager});
       return uninstall({guid, installURL, name, type})
         .then(() => {
           assert(fakeTracking.sendEvent.calledWith({
@@ -390,14 +388,15 @@ describe('<Addon />', () => {
     });
 
     it('tracks a unknown type uninstall', () => {
-      stubAddonManager();
+      const fakeAddonManager = stubAddonManager();
       const dispatch = sinon.spy();
       const name = 'whatevs';
       const type = 'foo';
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { uninstall } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
+      const { uninstall } = mapDispatchToProps(dispatch,
+        {_tracking: fakeTracking, _addonManager: fakeAddonManager});
       return uninstall({guid, installURL, name, type})
         .then(() => {
           assert(fakeTracking.sendEvent.calledWith({
@@ -409,9 +408,9 @@ describe('<Addon />', () => {
     });
 
     it('should dispatch START_UNINSTALL', () => {
-      stubAddonManager();
+      const fakeAddonManager = stubAddonManager();
       const dispatch = sinon.spy();
-      const { uninstall } = mapDispatchToProps(dispatch);
+      const { uninstall } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return uninstall({guid, installURL})
         .then(() => assert(dispatch.calledWith({
           type: 'START_UNINSTALL',
