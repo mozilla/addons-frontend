@@ -38,11 +38,13 @@ export class InstallButton extends React.Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    const { guid, install, installURL, name, status, installTheme, type, uninstall } = this.props;
+    const {
+      guid, i18n, install, installURL, name, status, installTheme, type, uninstall,
+    } = this.props;
     if (type === THEME_TYPE && status === UNINSTALLED) {
       installTheme(this.refs.themeData, guid, name);
     } else if (status === UNINSTALLED) {
-      install({ guid, installURL, name });
+      install({ guid, i18n, installURL, name });
     } else if (status === INSTALLED) {
       uninstall({ guid, installURL, name, type });
     }

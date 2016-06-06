@@ -115,11 +115,12 @@ describe('<InstallButton />', () => {
     const guid = '@foo';
     const name = 'hai';
     const install = sinon.spy();
+    const i18n = getFakeI18nInst();
     const installURL = 'https://my.url/download';
-    const button = renderButton({guid, install, installURL, name, status: UNINSTALLED});
+    const button = renderButton({guid, i18n, install, installURL, name, status: UNINSTALLED});
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(install.calledWith({guid, installURL, name}));
+    assert(install.calledWith({guid, i18n, installURL, name}));
   });
 
   it('should call uninstall function on click when installed', () => {

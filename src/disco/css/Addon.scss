@@ -79,7 +79,7 @@ $addon-padding: 20px;
     flex-grow: 1;
     position: relative;
 
-    .error {
+    > .error {
       align-content: stretch;
       align-items: center;
       background: #c33c32 url('../img/warning.svg') no-repeat calc(100% - 40px) 50%;
