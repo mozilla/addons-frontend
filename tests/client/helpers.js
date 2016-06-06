@@ -18,11 +18,12 @@ export function findByTag(root, tag) {
 }
 
 export function stubAddonManager({ getAddon = Promise.resolve({type: 'addon'}) } = {}) {
-  const fakeAddonManager = {};
-  fakeAddonManager.getAddon = sinon.stub().returns(getAddon);
-  fakeAddonManager.install = sinon.stub().returns(Promise.resolve());
-  fakeAddonManager.uninstall = sinon.stub().returns(Promise.resolve());
-  return fakeAddonManager;
+  return {
+    getAddon: sinon.stub().returns(getAddon),
+    install: sinon.stub().returns(Promise.resolve()),
+    uninstall: sinon.stub().returns(Promise.resolve()),
+    addEventListener: sinon.stub(),
+  };
 }
 
 export function unexpectedSuccess() {

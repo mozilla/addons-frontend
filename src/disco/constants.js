@@ -65,17 +65,6 @@ export const installEventList = [
 export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
 export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
 
-// These are events directly on mozAddonManager
-// they will be fired by addons and themes that aren't
-// necessarily in the disco pane.
-export const globalEventLIist = [
-  'onUninstalling',
-  'onInstalled',
-  'onInstalling',
-  'onUninstalled',
-  'onEnabled',
-  'onDisabled',
-];
 
 // Install Types
 export const INSTALL_STATE = 'INSTALL_STATE';
@@ -97,3 +86,23 @@ export const acceptedInstallTypes = [
   UNINSTALL_COMPLETE,
   INSTALL_ERROR,
 ];
+
+// These are events directly on mozAddonManager
+// they will be fired by addons and themes that aren't
+// necessarily in the disco pane.
+export const globalEvents = [
+  'onUninstalling',
+  'onInstalled',
+  'onInstalling',
+  'onUninstalled',
+  'onEnabled',
+  'onDisabled',
+];
+
+// Global event actions
+export const ON_DISABLE = 'ON_DISABLE';
+export const ON_ENABLE = 'ON_ENABLE';
+export const ON_INSTALLING = 'ON_INSTALLING';
+export const ON_UNINSTALLING = 'ON_UNINSTALLING';
+export const ON_INSTALLED = 'ON_INSTALLED';
+export const ON_UNINSTALLED = 'ON_UNINSTALLED';

@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import { camelCaseProps } from 'core/utils';
 
+import config from 'config';
 import { getDiscoveryAddons } from 'disco/api';
 import { discoResults } from 'disco/actions';
 import { loadEntities } from 'core/actions';
+import log from 'core/logger';
 
 import Addon from 'disco/components/Addon';
 import translate from 'core/i18n/translate';
@@ -16,21 +18,45 @@ import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
 
+import {
+  globalEvents,
+  ON_ENABLE,
+  ON_DISABLE,
+  ON_INSTALLING,
+  ON_UNINSTALLING,
+  ON_INSTALLED,
+  ON_UNINSTALLED,
+} from 'disco/constants';
+
 
 export class DiscoPane extends React.Component {
   static propTypes = {
+    handleGlobalEvent: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     results: PropTypes.arrayOf(PropTypes.object),
     AddonComponent: PropTypes.object.isRequred,
+    mozAddonManager: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
     AddonComponent: Addon,
+    mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
   }
 
   constructor() {
     super();
     this.state = {showVideo: false};
+  }
+
+  componentDidMount() {
+    const { handleGlobalEvent, mozAddonManager } = this.props;
+    if (mozAddonManager && mozAddonManager.addEventListener) {
+      for (const event of globalEvents) {
+        mozAddonManager.addEventListener(event, handleGlobalEvent);
+      }
+    } else {
+      log.info('mozAddonManager.addEventListener not available');
+    }
   }
 
   showVideo = (e) => {
@@ -109,7 +135,42 @@ export function mapStateToProps(state) {
   };
 }
 
+export function mapDispatchToProps(dispatch, { _config = config } = {}) {
+  if (_config.get('server')) {
+    return {};
+  }
+  return {
+    handleGlobalEvent(e) {
+      const { id, type, needsRestart } = e;
+      const payload = { guid: id, needsRestart };
+      log.info('Event received', type, id, needsRestart);
+      switch (type) {
+        case 'onDisabled':
+          dispatch({type: ON_DISABLE, payload});
+          break;
+        case 'onEnabled':
+          dispatch({type: ON_ENABLE, payload});
+          break;
+        case 'onInstalling':
+          dispatch({type: ON_INSTALLING, payload});
+          break;
+        case 'onInstalled':
+          dispatch({type: ON_INSTALLED, payload});
+          break;
+        case 'onUninstalling':
+          dispatch({type: ON_UNINSTALLING, payload});
+          break;
+        case 'onUninstalled':
+          dispatch({type: ON_UNINSTALLED, payload});
+          break;
+        default:
+          throw new Error(`Unknown global event: ${type}`);
+      }
+    },
+  };
+}
+
 export default asyncConnect([{
   deferred: true,
   promise: loadDataIfNeeded,
-}])(connect(mapStateToProps)(translate()(DiscoPane)));
+}])(connect(mapStateToProps, mapDispatchToProps)(translate()(DiscoPane)));

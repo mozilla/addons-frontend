@@ -5,9 +5,18 @@ import { Provider } from 'react-redux';
 import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
-import { EXTENSION_TYPE } from 'disco/constants';
+import {
+  EXTENSION_TYPE,
+  ON_DISABLE,
+  ON_ENABLE,
+  ON_INSTALLED,
+  ON_INSTALLING,
+  ON_UNINSTALLED,
+  ON_UNINSTALLING,
+  globalEvents,
+} from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
-import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
+import { getFakeI18nInst, MockedSubComponent, stubAddonManager } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
 import I18nProvider from 'core/i18n/Provider';
 
@@ -17,7 +26,7 @@ const { DiscoPane } = helpers;
 
 
 describe('AddonPage', () => {
-  function render() {
+  function render(props) {
     const store = createStore({
       addons: {foo: {type: EXTENSION_TYPE}},
       discoResults: [{addon: 'foo'}],
@@ -29,7 +38,8 @@ describe('AddonPage', () => {
     return findDOMNode(renderIntoDocument(
       <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <DiscoPane results={results} i18n={i18n} AddonComponent={MockedSubComponent} />
+          <DiscoPane results={results} i18n={i18n}
+            {...props} AddonComponent={MockedSubComponent} />
         </Provider>
       </I18nProvider>
     ));
@@ -96,6 +106,54 @@ describe('AddonPage', () => {
         discoResults: [{addon: 'two'}],
       });
       assert.deepEqual(props.results, [{slug: 'two', addon: 'two'}]);
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    const eventMap = {
+      onDisabled: ON_DISABLE,
+      onEnabled: ON_ENABLE,
+      onInstalling: ON_INSTALLING,
+      onInstalled: ON_INSTALLED,
+      onUninstalling: ON_UNINSTALLING,
+      onUninstalled: ON_UNINSTALLED,
+    };
+
+    Object.keys(eventMap).forEach((event) => {
+      const action = eventMap[event];
+      it(`dispatches ${action}`, () => {
+        const dispatch = sinon.spy();
+        const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
+        const id = 'foo@whatever';
+        const needsRestart = false;
+        handleGlobalEvent({id, type: event, needsRestart});
+        assert(dispatch.calledWith({
+          type: action,
+          payload: {guid: id, needsRestart},
+        }), `Calls ${action} for ${event}`);
+      });
+    });
+
+    it('throws on unknown event', () => assert.throws(() => {
+      const dispatch = sinon.spy();
+      const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
+      handleGlobalEvent({type: 'whateve'});
+    }, Error, /Unknown global event/));
+
+    it('is empty when there is no navigator', () => {
+      const configStub = {
+        get: sinon.stub().returns(true),
+      };
+      assert.deepEqual(
+        helpers.mapDispatchToProps(sinon.spy(), { _config: configStub }), {});
+    });
+  });
+
+  describe('componentDidMount', () => {
+    it('sets events', () => {
+      const fakeAddonManager = stubAddonManager();
+      render({mozAddonManager: fakeAddonManager});
+      assert.equal(fakeAddonManager.addEventListener.callCount, globalEvents.length);
     });
   });
 });
