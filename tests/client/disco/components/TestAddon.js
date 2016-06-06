@@ -371,13 +371,12 @@ describe('<Addon />', () => {
       const fakeAddonManager = stubAddonManager();
       const dispatch = sinon.spy();
       const name = 'whatevs';
-      const type = 'persona';
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
       const { uninstall } = mapDispatchToProps(dispatch,
         {_tracking: fakeTracking, _addonManager: fakeAddonManager});
-      return uninstall({guid, installURL, name, type})
+      return uninstall({guid, installURL, name, type: THEME_TYPE})
         .then(() => {
           assert(fakeTracking.sendEvent.calledWith({
             action: 'theme',

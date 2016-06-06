@@ -1,6 +1,6 @@
 import { arrayOf, normalize } from 'normalizr';
 
-import { discoResult, getDiscoveryAddons, getGuid } from 'disco/api';
+import { discoResult, getDiscoveryAddons } from 'disco/api';
 import * as coreApi from 'core/api';
 
 describe('disco api', () => {
@@ -30,16 +30,6 @@ describe('disco api', () => {
           result: '{foo}',
         },
         sinon.format(normalized.entities));
-    });
-  });
-
-  describe('getGuid', () => {
-    it('provides a theme guid for a theme', () => {
-      const fakeResult = {
-        type: 'persona',
-        id: 'awooga',
-      };
-      assert.equal(getGuid(fakeResult), 'awooga@personas.mozilla.org');
     });
   });
 });

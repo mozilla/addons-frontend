@@ -1,4 +1,13 @@
+import { API_THEME_TYPE, THEME_TYPE } from 'disco/constants';
+
 const initialState = {};
+
+export function getGuid(result) {
+  if (result.type === API_THEME_TYPE) {
+    return `${result.id}@personas.mozilla.org`;
+  }
+  return result.guid;
+}
 
 export default function addon(state = initialState, action) {
   const { payload } = action;
@@ -10,7 +19,8 @@ export default function addon(state = initialState, action) {
         newState[key] = {
           ...thisAddon,
           ...thisAddon.theme_data,
-          guid: `${thisAddon.id}@personas.mozilla.org`,
+          guid: getGuid(thisAddon),
+          type: THEME_TYPE,
         };
         delete newState[key].theme_data;
       } else {

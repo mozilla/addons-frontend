@@ -1,13 +1,7 @@
 import { Schema, arrayOf } from 'normalizr';
 
 import { callApi } from 'core/api';
-
-export function getGuid(result) {
-  if (result.type === 'persona') {
-    return `${result.id}@personas.mozilla.org`;
-  }
-  return result.guid;
-}
+import { getGuid } from 'core/reducers/addons';
 
 export const discoResult =
   new Schema('discoResults', {idAttribute: (result) => getGuid(result.addon)});
