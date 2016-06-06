@@ -70,7 +70,7 @@ export class DiscoPane extends React.Component {
             </div>
           </div>
         </header>
-        {results.map((item, i) => <Addon {...camelCaseProps(item)} key={i} />)}
+        {results.map((item) => <Addon {...camelCaseProps(item)} key={item.guid} />)}
         <div className="amo-link">
           <a href="https://addons.mozilla.org/" target="_blank" rel="noreferrer">
             {i18n.gettext('See more add-ons!')}
