@@ -229,7 +229,7 @@ describe('installations reducer', () => {
         type: 'INSTALL_ERROR',
         payload: {
           guid: 'my-addon@me.com',
-          errorMessage: 'Download interrupted, check your network connection.',
+          error: 'an-error',
         },
       }),
       {
@@ -238,7 +238,7 @@ describe('installations reducer', () => {
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,
           status: ERROR,
-          errorMessage: 'Download interrupted, check your network connection.',
+          error: 'an-error',
         },
       });
   });

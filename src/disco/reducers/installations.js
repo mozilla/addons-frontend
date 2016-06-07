@@ -51,7 +51,7 @@ export default function installations(state = {}, { type, payload }) {
   } else if (type === 'INSTALL_ERROR') {
     addon.downloadProgress = 0;
     addon.status = ERROR;
-    addon.errorMessage = payload.errorMessage;
+    addon.error = payload.error;
   }
   return {
     ...state,

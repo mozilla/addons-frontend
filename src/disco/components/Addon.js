@@ -14,9 +14,11 @@ import InstallButton from 'disco/components/InstallButton';
 import {
   validAddonTypes,
   validInstallStates,
+  DOWNLOAD_FAILED,
   ERROR,
   EXTENSION_TYPE,
   INSTALL_CATEGORY,
+  INSTALL_FAILED,
   INSTALLED,
   THEME_INSTALL,
   THEME_TYPE,
@@ -40,7 +42,7 @@ export class Addon extends React.Component {
     accentcolor: PropTypes.string,
     description: PropTypes.string,
     editorialDescription: PropTypes.string.isRequired,
-    errorMessage: PropTypes.string,
+    error: PropTypes.string,
     footerURL: PropTypes.string,
     guid: PropTypes.string.isRequired,
     headerURL: PropTypes.string,
@@ -77,10 +79,8 @@ export class Addon extends React.Component {
   }
 
   getError() {
-    const { status, i18n } = this.props;
-    const errorMessage = this.props.errorMessage || i18n.gettext('An unexpected error occurred');
-    return status === ERROR ? (<div className="error">
-      <p className="message">{errorMessage}</p>
+    return this.props.status === ERROR ? (<div className="error">
+      <p className="message">{this.errorMessage()}</p>
       <a className="close" href="#" onClick={this.closeError}>Close</a>
     </div>) : null;
   }
@@ -121,6 +121,18 @@ export class Addon extends React.Component {
         className="editorial-description"
         dangerouslySetInnerHTML={sanitizeHTML(description, ['blockquote', 'cite'])} />
     );
+  }
+
+  errorMessage() {
+    const { error, i18n } = this.props;
+    switch (error) {
+      case INSTALL_FAILED:
+        return i18n.gettext('Installation failed. Please try again.');
+      case DOWNLOAD_FAILED:
+        return i18n.gettext('Download failed. Please check your connection.');
+      default:
+        return i18n.gettext('An unexpected error occurred.');
+    }
   }
 
   closeError = (e) => {
@@ -179,7 +191,7 @@ export function mapStateToProps(state, ownProps) {
   return {...installation, ...addon};
 }
 
-export function makeProgressHandler(dispatch, guid, i18n) {
+export function makeProgressHandler(dispatch, guid) {
   return (addonInstall, e) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
@@ -190,21 +202,9 @@ export function makeProgressHandler(dispatch, guid, i18n) {
     } else if (addonInstall.state === 'STATE_INSTALLED') {
       dispatch({type: 'INSTALL_COMPLETE', payload: {guid}});
     } else if (e.type === 'onDownloadFailed') {
-      dispatch({
-        type: 'INSTALL_ERROR',
-        payload: {
-          guid,
-          errorMessage: i18n.gettext('Download failed. Please check your connection.'),
-        },
-      });
+      dispatch({type: 'INSTALL_ERROR', payload: {guid, error: DOWNLOAD_FAILED}});
     } else if (e.type === 'onInstallFailed') {
-      dispatch({
-        type: 'INSTALL_ERROR',
-        payload: {
-          guid,
-          errorMessage: i18n.gettext('Installation failed. Please try again.'),
-        },
-      });
+      dispatch({type: 'INSTALL_ERROR', payload: {guid, error: INSTALL_FAILED}});
     }
   };
 }

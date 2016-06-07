@@ -14,7 +14,9 @@ import {
 } from 'disco/components/Addon';
 import {
   ERROR,
+  DOWNLOAD_FAILED,
   INSTALL_CATEGORY,
+  INSTALL_FAILED,
   INSTALLED,
   THEME_INSTALL,
   THEME_PREVIEW,
@@ -53,13 +55,42 @@ describe('<Addon />', () => {
       root = renderAddon(result);
     });
 
-    it('renders an error overlay', () => {
-      const data = {...result, status: ERROR,
-        errorMessage: 'this is an error', setCurrentStatus: sinon.stub()};
+    it('renders a default error overlay', () => {
+      const data = {...result, status: ERROR, setCurrentStatus: sinon.stub()};
       root = renderAddon(data);
       const error = findDOMNode(root).querySelector('.error');
-      assert.equal(error.querySelector('p').textContent, 'this is an error',
-                  'error message should be present');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'An unexpected error occurred.',
+        'error message should be present');
+      Simulate.click(error.querySelector('.close'));
+      assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
+    });
+
+    it('renders an install error overlay', () => {
+      const data = {
+        ...result, status: ERROR, error: INSTALL_FAILED, setCurrentStatus: sinon.stub(),
+      };
+      root = renderAddon(data);
+      const error = findDOMNode(root).querySelector('.error');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'Installation failed. Please try again.',
+        'error message should be present');
+      Simulate.click(error.querySelector('.close'));
+      assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
+    });
+
+    it('renders an error overlay', () => {
+      const data = {
+        ...result, status: ERROR, error: DOWNLOAD_FAILED, setCurrentStatus: sinon.stub(),
+      };
+      root = renderAddon(data);
+      const error = findDOMNode(root).querySelector('.error');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'Download failed. Please check your connection.',
+        'error message should be present');
       Simulate.click(error.querySelector('.close'));
       assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
     });
@@ -236,7 +267,7 @@ describe('<Addon />', () => {
       handler({state: 'STATE_SOMETHING'}, {type: 'onDownloadFailed'});
       assert(dispatch.calledWith({
         type: 'INSTALL_ERROR',
-        payload: {guid, errorMessage: 'Download failed. Please check your connection.'},
+        payload: {guid, error: DOWNLOAD_FAILED},
       }));
     });
 
@@ -248,7 +279,7 @@ describe('<Addon />', () => {
       handler({state: 'STATE_SOMETHING'}, {type: 'onInstallFailed'});
       assert(dispatch.calledWith({
         type: 'INSTALL_ERROR',
-        payload: {guid, errorMessage: 'Installation failed. Please try again.'},
+        payload: {guid, error: INSTALL_FAILED},
       }));
     });
   });

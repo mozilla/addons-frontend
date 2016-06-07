@@ -16,6 +16,9 @@ export const validInstallStates = [
   UNKNOWN,
 ];
 
+export const DOWNLOAD_FAILED = 'download-failed';
+export const INSTALL_FAILED = 'install-failed';
+
 // Add-on types.
 export const API_THEME_TYPE = 'persona';
 export const EXTENSION_TYPE = 'extension';
