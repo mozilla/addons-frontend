@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-01 10:28+0000\n"
-"PO-Revision-Date: 2016-05-26 16:35+0000\n"
+"PO-Revision-Date: 2016-06-07 20:18+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -20,19 +20,19 @@ msgstr "Tapahtui odottamaton virhe"
 
 #: src/disco/components/Addon.js:87
 msgid "Preview %(name)s"
-msgstr ""
+msgstr "Esikatsele: %(name)s"
 
 #: src/disco/components/Addon.js:96
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Esikatsele osoittamalla kuvaa"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Löydä lisäosia"
 
 #: src/disco/containers/DiscoPane.js:52
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Mukauta Firefoxiasi"
 
 #: src/disco/containers/DiscoPane.js:53
 msgid ""
@@ -43,20 +43,20 @@ msgstr ""
 
 #: src/disco/containers/DiscoPane.js:59
 msgid "Click to play"
-msgstr ""
+msgstr "Toista painamalla"
 
 #: src/disco/containers/DiscoPane.js:60
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "saadaksesi lisätietoja lisäosista"
 
 #: src/disco/containers/DiscoPane.js:68
 msgid "Close video"
-msgstr ""
+msgstr "Sulje video"
 
 #: src/disco/containers/DiscoPane.js:74
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Katso lisää lisäosia!"
 
 #: src/disco/containers/InstallButton.js:86
 msgid "Install"
-msgstr ""
+msgstr "Asenna"
