@@ -1,13 +1,8 @@
 import * as addonManager from 'disco/addonManager';
 import { unexpectedSuccess } from 'tests/client/helpers';
 import {
+  globalEventStatusMap,
   installEventList,
-  ON_ENABLE,
-  ON_DISABLE,
-  ON_INSTALLING,
-  ON_UNINSTALLING,
-  ON_INSTALLED,
-  ON_UNINSTALLED,
 } from 'disco/constants';
 
 
@@ -124,25 +119,15 @@ describe('addonManager', () => {
 
     const handleChangeEvent =
       addonManager.addChangeListeners(fakeEventCallback, fakeMozAddonManager);
-    const eventMap = {
-      onDisabled: ON_DISABLE,
-      onEnabled: ON_ENABLE,
-      onInstalling: ON_INSTALLING,
-      onInstalled: ON_INSTALLED,
-      onUninstalling: ON_UNINSTALLING,
-      onUninstalled: ON_UNINSTALLED,
-    };
 
-    Object.keys(eventMap).forEach((event) => {
-      const action = eventMap[event];
-      it(`dispatches ${action}`, () => {
+    Object.keys(globalEventStatusMap).forEach((event) => {
+      const status = globalEventStatusMap[event];
+      it(`calls callback with status ${status}`, () => {
         const id = 'foo@whatever';
         const needsRestart = false;
         handleChangeEvent({id, needsRestart, type: event});
-        assert(fakeEventCallback.calledWith({
-          type: action,
-          payload: {guid: id, needsRestart},
-        }), `Calls ${action} for ${event}`);
+        assert.ok(fakeEventCallback.calledWith({guid: id, needsRestart, status}),
+          `Calls callback with "${status}" for "${event}"`);
       });
     });
 

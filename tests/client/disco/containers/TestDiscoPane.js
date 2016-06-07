@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
-import { EXTENSION_TYPE, globalEvents } from 'disco/constants';
+import { EXTENSION_TYPE, INSTALL_STATE, globalEvents } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import { getFakeI18nInst, MockedSubComponent, stubAddonManager } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
@@ -104,10 +104,9 @@ describe('AddonPage', () => {
     it('calls dispatch when handleGlobalEvent is called with data', () => {
       const dispatch = sinon.spy();
       const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
-      const type = 'foo';
       const payload = {id: 'whatever'};
-      handleGlobalEvent({type, payload});
-      assert.ok(dispatch.calledWith({type, payload}));
+      handleGlobalEvent(payload);
+      assert.ok(dispatch.calledWith({type: INSTALL_STATE, payload}));
     });
 
     it('is empty when there is no navigator', () => {

@@ -12,6 +12,7 @@ export const ENABLED = 'ENABLED';
 
 export const validInstallStates = [
   DISABLED,
+  ENABLED,
   DOWNLOADING,
   ENABLED,
   ERROR,
@@ -87,22 +88,16 @@ export const acceptedInstallTypes = [
   INSTALL_ERROR,
 ];
 
-// These are events directly on mozAddonManager
+export const globalEventStatusMap = {
+  onDisabled: DISABLED,
+  onEnabled: ENABLED,
+  onInstalling: INSTALLING,
+  onInstalled: INSTALLED,
+  onUninstalling: UNINSTALLING,
+  onUninstalled: UNINSTALLED,
+};
+
+// The events here are set directly on mozAddonManager
 // they will be fired by addons and themes that aren't
 // necessarily in the disco pane.
-export const globalEvents = [
-  'onUninstalling',
-  'onInstalled',
-  'onInstalling',
-  'onUninstalled',
-  'onEnabled',
-  'onDisabled',
-];
-
-// Global event actions
-export const ON_DISABLE = 'ON_DISABLE';
-export const ON_ENABLE = 'ON_ENABLE';
-export const ON_INSTALLING = 'ON_INSTALLING';
-export const ON_UNINSTALLING = 'ON_UNINSTALLING';
-export const ON_INSTALLED = 'ON_INSTALLED';
-export const ON_UNINSTALLED = 'ON_UNINSTALLED';
+export const globalEvents = Object.keys(globalEventStatusMap);

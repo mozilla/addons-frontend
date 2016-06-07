@@ -10,6 +10,7 @@ import { getDiscoveryAddons } from 'disco/api';
 import { discoResults } from 'disco/actions';
 import { loadEntities } from 'core/actions';
 import { addChangeListeners } from 'disco/addonManager';
+import { INSTALL_STATE } from 'disco/constants';
 
 import Addon from 'disco/components/Addon';
 import translate from 'core/i18n/translate';
@@ -127,8 +128,8 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
     return {};
   }
   return {
-    handleGlobalEvent({type, payload}) {
-      dispatch({type, payload});
+    handleGlobalEvent(payload) {
+      dispatch({type: INSTALL_STATE, payload});
     },
   };
 }

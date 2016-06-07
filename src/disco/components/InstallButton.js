@@ -60,7 +60,7 @@ export class InstallButton extends React.Component {
     const isInstalled = status === INSTALLED;
     const isDisabled = status === UNKNOWN;
     const isDownloading = status === DOWNLOADING;
-    const switchClasses = `switch ${status}`;
+    const switchClasses = `switch ${status.toLowerCase()}`;
     const identifier = `install-button-${slug}`;
 
     return (
