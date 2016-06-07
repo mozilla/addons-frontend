@@ -14,7 +14,9 @@ import {
 } from 'disco/components/Addon';
 import {
   ERROR,
+  DOWNLOAD_FAILED,
   INSTALL_CATEGORY,
+  INSTALL_FAILED,
   INSTALLED,
   THEME_INSTALL,
   THEME_PREVIEW,
@@ -35,14 +37,12 @@ const result = {
   description: 'test-editorial-description',
 };
 
-function renderAddon(data) {
-  const props = {...data, setInitialStatus: sinon.stub()};
-
+function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
   const MyAddon = translate({withRef: true})(Addon);
 
   return findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={getFakeI18nInst()}>
-      <MyAddon {...props} />
+      <MyAddon {...props} setCurrentStatus={setCurrentStatus} />
     </I18nProvider>
   ), MyAddon).getWrappedInstance();
 }
@@ -55,15 +55,44 @@ describe('<Addon />', () => {
       root = renderAddon(result);
     });
 
-    it('renders an error overlay', () => {
-      const data = {...result, status: ERROR,
-        errorMessage: 'this is an error', closeErrorAction: sinon.stub()};
+    it('renders a default error overlay', () => {
+      const data = {...result, status: ERROR, setCurrentStatus: sinon.stub()};
       root = renderAddon(data);
       const error = findDOMNode(root).querySelector('.error');
-      assert.equal(error.querySelector('p').textContent, 'this is an error',
-                  'error message should be present');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'An unexpected error occurred.',
+        'error message should be present');
       Simulate.click(error.querySelector('.close'));
-      assert.ok(data.closeErrorAction.called, 'close link action should be called');
+      assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
+    });
+
+    it('renders an install error overlay', () => {
+      const data = {
+        ...result, status: ERROR, error: INSTALL_FAILED, setCurrentStatus: sinon.stub(),
+      };
+      root = renderAddon(data);
+      const error = findDOMNode(root).querySelector('.error');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'Installation failed. Please try again.',
+        'error message should be present');
+      Simulate.click(error.querySelector('.close'));
+      assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
+    });
+
+    it('renders an error overlay', () => {
+      const data = {
+        ...result, status: ERROR, error: DOWNLOAD_FAILED, setCurrentStatus: sinon.stub(),
+      };
+      root = renderAddon(data);
+      const error = findDOMNode(root).querySelector('.error');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'Download failed. Please check your connection.',
+        'error message should be present');
+      Simulate.click(error.querySelector('.close'));
+      assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
     });
 
     it('does not normally render an error', () => {
@@ -185,6 +214,15 @@ describe('<Addon />', () => {
         }, {guid: 'foo@addon'}),
         {guid: 'foo@addon', downloadProgress: 75, addonProp: 'addonValue'});
     });
+
+    it('handles missing data', () => {
+      assert.deepEqual(
+        mapStateToProps({
+          installations: {},
+          addons: {},
+        }, {guid: 'nope@addon'}),
+        {});
+    });
   });
 
   describe('makeProgressHandler', () => {
@@ -220,16 +258,40 @@ describe('<Addon />', () => {
         payload: {guid},
       }));
     });
+
+    it('sets status to error on onDownloadFailed', () => {
+      const dispatch = sinon.spy();
+      const guid = '{my-addon}';
+      const i18n = getFakeI18nInst();
+      const handler = makeProgressHandler(dispatch, guid, i18n);
+      handler({state: 'STATE_SOMETHING'}, {type: 'onDownloadFailed'});
+      assert(dispatch.calledWith({
+        type: 'INSTALL_ERROR',
+        payload: {guid, error: DOWNLOAD_FAILED},
+      }));
+    });
+
+    it('sets status to error on onInstallFailed', () => {
+      const dispatch = sinon.spy();
+      const guid = '{my-addon}';
+      const i18n = getFakeI18nInst();
+      const handler = makeProgressHandler(dispatch, guid, i18n);
+      handler({state: 'STATE_SOMETHING'}, {type: 'onInstallFailed'});
+      assert(dispatch.calledWith({
+        type: 'INSTALL_ERROR',
+        payload: {guid, error: INSTALL_FAILED},
+      }));
+    });
   });
 
-  describe('setInitialStatus', () => {
+  describe('setCurrentStatus', () => {
     it('sets the status to INSTALLED when add-on found', () => {
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setInitialStatus } = mapDispatchToProps(
+      const { setCurrentStatus } = mapDispatchToProps(
         dispatch, {_addonManager: stubAddonManager()});
-      return setInitialStatus({guid, installURL})
+      return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
@@ -244,8 +306,8 @@ describe('<Addon />', () => {
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setInitialStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
-      return setInitialStatus({guid, installURL})
+      const { setCurrentStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
+      return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
@@ -260,8 +322,8 @@ describe('<Addon />', () => {
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setInitialStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
-      return setInitialStatus({guid, installURL})
+      const { setCurrentStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
+      return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',
@@ -275,8 +337,8 @@ describe('<Addon />', () => {
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setInitialStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
-      return setInitialStatus({guid, installURL})
+      const { setCurrentStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
+      return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
             type: 'INSTALL_STATE',

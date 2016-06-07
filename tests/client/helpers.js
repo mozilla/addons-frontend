@@ -34,7 +34,7 @@ export function unexpectedSuccess() {
  */
 export function getFakeI18nInst() {
   return {
-    gettext: sinon.stub(),
+    gettext: sinon.spy((str) => str),
     dgettext: sinon.stub(),
     ngettext: sinon.stub(),
     dngettext: sinon.stub(),

@@ -14,9 +14,11 @@ import InstallButton from 'disco/components/InstallButton';
 import {
   validAddonTypes,
   validInstallStates,
+  DOWNLOAD_FAILED,
   ERROR,
   EXTENSION_TYPE,
   INSTALL_CATEGORY,
+  INSTALL_FAILED,
   INSTALLED,
   THEME_INSTALL,
   THEME_TYPE,
@@ -38,10 +40,9 @@ function sanitizeHTML(text, allowTags = []) {
 export class Addon extends React.Component {
   static propTypes = {
     accentcolor: PropTypes.string,
-    closeErrorAction: PropTypes.func,
     description: PropTypes.string,
     editorialDescription: PropTypes.string.isRequired,
-    errorMessage: PropTypes.string,
+    error: PropTypes.string,
     footerURL: PropTypes.string,
     guid: PropTypes.string.isRequired,
     headerURL: PropTypes.string,
@@ -52,7 +53,7 @@ export class Addon extends React.Component {
     installURL: PropTypes.string,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
-    setInitialStatus: PropTypes.func.isRequired,
+    setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     textcolor: PropTypes.string,
     themeAction: PropTypes.func,
@@ -65,8 +66,12 @@ export class Addon extends React.Component {
   }
 
   componentDidMount() {
-    const { guid, installURL, setInitialStatus } = this.props;
-    setInitialStatus({guid, installURL});
+    this.setCurrentStatus();
+  }
+
+  setCurrentStatus() {
+    const { guid, installURL, setCurrentStatus } = this.props;
+    setCurrentStatus({guid, installURL});
   }
 
   getBrowserThemeData() {
@@ -74,11 +79,9 @@ export class Addon extends React.Component {
   }
 
   getError() {
-    const { status, i18n } = this.props;
-    const errorMessage = this.props.errorMessage || i18n.gettext('An unexpected error occurred');
-    return status === ERROR ? (<div className="error">
-      <p className="message">{errorMessage}</p>
-      <a className="close" href="#" onClick={this.props.closeErrorAction}>Close</a>
+    return this.props.status === ERROR ? (<div className="error">
+      <p className="message">{this.errorMessage()}</p>
+      <a className="close" href="#" onClick={this.closeError}>Close</a>
     </div>) : null;
   }
 
@@ -118,6 +121,23 @@ export class Addon extends React.Component {
         className="editorial-description"
         dangerouslySetInnerHTML={sanitizeHTML(description, ['blockquote', 'cite'])} />
     );
+  }
+
+  errorMessage() {
+    const { error, i18n } = this.props;
+    switch (error) {
+      case INSTALL_FAILED:
+        return i18n.gettext('Installation failed. Please try again.');
+      case DOWNLOAD_FAILED:
+        return i18n.gettext('Download failed. Please check your connection.');
+      default:
+        return i18n.gettext('An unexpected error occurred.');
+    }
+  }
+
+  closeError = (e) => {
+    e.preventDefault();
+    this.setCurrentStatus();
   }
 
   handleClick = (e) => {
@@ -172,7 +192,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function makeProgressHandler(dispatch, guid) {
-  return (addonInstall) => {
+  return (addonInstall, e) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
         100 * addonInstall.progress / addonInstall.maxProgress, 10);
@@ -181,6 +201,10 @@ export function makeProgressHandler(dispatch, guid) {
       dispatch({type: 'START_INSTALL', payload: {guid}});
     } else if (addonInstall.state === 'STATE_INSTALLED') {
       dispatch({type: 'INSTALL_COMPLETE', payload: {guid}});
+    } else if (e.type === 'onDownloadFailed') {
+      dispatch({type: 'INSTALL_ERROR', payload: {guid, error: DOWNLOAD_FAILED}});
+    } else if (e.type === 'onInstallFailed') {
+      dispatch({type: 'INSTALL_ERROR', payload: {guid, error: INSTALL_FAILED}});
     }
   };
 }
@@ -191,7 +215,7 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
     return {};
   }
   return {
-    setInitialStatus({ guid, installURL }) {
+    setCurrentStatus({ guid, installURL }) {
       const payload = {guid, url: installURL};
       return _addonManager.getAddon(guid)
         .then(
@@ -202,10 +226,10 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
           () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: UNINSTALLED}}));
     },
 
-    install({ guid, installURL, name }) {
+    install({ guid, i18n, installURL, name }) {
       dispatch({type: 'START_DOWNLOAD', payload: {guid}});
       _tracking.sendEvent({action: 'addon', category: INSTALL_CATEGORY, label: name});
-      return _addonManager.install(installURL, makeProgressHandler(dispatch, guid));
+      return _addonManager.install(installURL, makeProgressHandler(dispatch, guid, i18n));
     },
 
     installTheme(node, guid, name, _themeAction = themeAction) {
