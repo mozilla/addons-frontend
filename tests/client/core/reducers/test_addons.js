@@ -1,4 +1,5 @@
 import addons from 'core/reducers/addons';
+import { API_THEME_TYPE, THEME_TYPE } from 'disco/constants';
 
 describe('addon reducer', () => {
   let originalState;
@@ -44,11 +45,12 @@ describe('addon reducer', () => {
   });
 
   it('flattens theme data', () => {
+    const type = API_THEME_TYPE;
     const state = addons(originalState, {
       payload: {
         entities: {
           addons: {
-            baz: {slug: 'baz', id: 42, theme_data: {theme_thing: 'some-data'}},
+            baz: {slug: 'baz', id: 42, theme_data: {theme_thing: 'some-data'}, type},
           },
         },
       },
@@ -63,6 +65,7 @@ describe('addon reducer', () => {
           slug: 'baz',
           theme_thing: 'some-data',
           guid: '42@personas.mozilla.org',
+          type: THEME_TYPE,
         },
       });
   });
