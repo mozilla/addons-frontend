@@ -5,16 +5,7 @@ import { Provider } from 'react-redux';
 import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
-import {
-  EXTENSION_TYPE,
-  ON_DISABLE,
-  ON_ENABLE,
-  ON_INSTALLED,
-  ON_INSTALLING,
-  ON_UNINSTALLED,
-  ON_UNINSTALLING,
-  globalEvents,
-} from 'disco/constants';
+import { EXTENSION_TYPE, globalEvents } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import { getFakeI18nInst, MockedSubComponent, stubAddonManager } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
@@ -110,35 +101,14 @@ describe('AddonPage', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    const eventMap = {
-      onDisabled: ON_DISABLE,
-      onEnabled: ON_ENABLE,
-      onInstalling: ON_INSTALLING,
-      onInstalled: ON_INSTALLED,
-      onUninstalling: ON_UNINSTALLING,
-      onUninstalled: ON_UNINSTALLED,
-    };
-
-    Object.keys(eventMap).forEach((event) => {
-      const action = eventMap[event];
-      it(`dispatches ${action}`, () => {
-        const dispatch = sinon.spy();
-        const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
-        const id = 'foo@whatever';
-        const needsRestart = false;
-        handleGlobalEvent({id, type: event, needsRestart});
-        assert(dispatch.calledWith({
-          type: action,
-          payload: {guid: id, needsRestart},
-        }), `Calls ${action} for ${event}`);
-      });
-    });
-
-    it('throws on unknown event', () => assert.throws(() => {
+    it('calls dispatch when handleGlobalEvent is called with data', () => {
       const dispatch = sinon.spy();
       const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
-      handleGlobalEvent({type: 'whateve'});
-    }, Error, /Unknown global event/));
+      const type = 'foo';
+      const payload = {id: 'whatever'};
+      handleGlobalEvent({type, payload});
+      assert.ok(dispatch.calledWith({type, payload}));
+    });
 
     it('is empty when there is no navigator', () => {
       const configStub = {

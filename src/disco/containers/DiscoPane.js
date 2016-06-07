@@ -9,7 +9,7 @@ import config from 'config';
 import { getDiscoveryAddons } from 'disco/api';
 import { discoResults } from 'disco/actions';
 import { loadEntities } from 'core/actions';
-import log from 'core/logger';
+import { addChangeListeners } from 'disco/addonManager';
 
 import Addon from 'disco/components/Addon';
 import translate from 'core/i18n/translate';
@@ -18,29 +18,21 @@ import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
 
-import {
-  globalEvents,
-  ON_ENABLE,
-  ON_DISABLE,
-  ON_INSTALLING,
-  ON_UNINSTALLING,
-  ON_INSTALLED,
-  ON_UNINSTALLED,
-} from 'disco/constants';
-
 
 export class DiscoPane extends React.Component {
   static propTypes = {
     handleGlobalEvent: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     results: PropTypes.arrayOf(PropTypes.object),
-    AddonComponent: PropTypes.object.isRequred,
-    mozAddonManager: PropTypes.object.isRequired,
+    AddonComponent: PropTypes.func.isRequred,
+    _addChangeListeners: PropTypes.func,
+    mozAddonManager: PropTypes.object,
   }
 
   static defaultProps = {
     AddonComponent: Addon,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    _addChangeListeners: addChangeListeners,
   }
 
   constructor() {
@@ -49,14 +41,9 @@ export class DiscoPane extends React.Component {
   }
 
   componentDidMount() {
-    const { handleGlobalEvent, mozAddonManager } = this.props;
-    if (mozAddonManager && mozAddonManager.addEventListener) {
-      for (const event of globalEvents) {
-        mozAddonManager.addEventListener(event, handleGlobalEvent);
-      }
-    } else {
-      log.info('mozAddonManager.addEventListener not available');
-    }
+    const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
+    // Use addonManager.addChangeListener to setup and filter events.
+    _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
 
   showVideo = (e) => {
@@ -140,32 +127,8 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
     return {};
   }
   return {
-    handleGlobalEvent(e) {
-      const { id, type, needsRestart } = e;
-      const payload = { guid: id, needsRestart };
-      log.info('Event received', type, id, needsRestart);
-      switch (type) {
-        case 'onDisabled':
-          dispatch({type: ON_DISABLE, payload});
-          break;
-        case 'onEnabled':
-          dispatch({type: ON_ENABLE, payload});
-          break;
-        case 'onInstalling':
-          dispatch({type: ON_INSTALLING, payload});
-          break;
-        case 'onInstalled':
-          dispatch({type: ON_INSTALLED, payload});
-          break;
-        case 'onUninstalling':
-          dispatch({type: ON_UNINSTALLING, payload});
-          break;
-        case 'onUninstalled':
-          dispatch({type: ON_UNINSTALLED, payload});
-          break;
-        default:
-          throw new Error(`Unknown global event: ${type}`);
-      }
+    handleGlobalEvent({type, payload}) {
+      dispatch({type, payload});
     },
   };
 }
