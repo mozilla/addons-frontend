@@ -1,6 +1,8 @@
 import {
-  DOWNLOADING,
+  DISABLED,
   DOWNLOAD_PROGRESS,
+  DOWNLOADING,
+  ENABLED,
   ERROR,
   INSTALLED,
   INSTALLING,
@@ -17,6 +19,17 @@ import {
 } from 'disco/constants';
 
 
+function normalizeStatus(status) {
+  switch (status) {
+    case DISABLED:
+      return UNINSTALLED;
+    case ENABLED:
+      return INSTALLED;
+    default:
+      return status;
+  }
+}
+
 export default function installations(state = {}, { type, payload }) {
   if (!acceptedInstallTypes.includes(type)) {
     return state;
@@ -30,7 +43,7 @@ export default function installations(state = {}, { type, payload }) {
       guid: payload.guid,
       url: payload.url,
       downloadProgress: 0,
-      status: payload.status,
+      status: normalizeStatus(payload.status),
     };
   } else if (type === START_DOWNLOAD) {
     addon.status = DOWNLOADING;

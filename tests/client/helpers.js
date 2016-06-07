@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
+import { EXTENSION_TYPE } from 'disco/constants';
 
 export function shallowRender(stuff) {
   const renderer = createRenderer();
@@ -17,7 +18,9 @@ export function findByTag(root, tag) {
   return matches[0];
 }
 
-export function getFakeAddonManagerWrapper({ getAddon = Promise.resolve({type: 'addon'}) } = {}) {
+const enabledExtension = Promise.resolve({type: EXTENSION_TYPE, isEnabled: true});
+
+export function getFakeAddonManagerWrapper({ getAddon = enabledExtension } = {}) {
   return {
     getAddon: sinon.stub().returns(getAddon),
     install: sinon.stub().returns(Promise.resolve()),

@@ -13,14 +13,17 @@ import {
   mapStateToProps,
 } from 'disco/components/Addon';
 import {
+  DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
+  ENABLED,
   ERROR,
-  INSTALLED,
+  EXTENSION_TYPE,
   INSTALL_CATEGORY,
   INSTALL_COMPLETE,
   INSTALL_FAILED,
   INSTALL_STATE,
+  INSTALLED,
   START_DOWNLOAD,
   START_INSTALL,
   START_UNINSTALL,
@@ -291,7 +294,7 @@ describe('<Addon />', () => {
   });
 
   describe('setCurrentStatus', () => {
-    it('sets the status to INSTALLED when add-on found', () => {
+    it('sets the status to ENABLED when an enabled add-on found', () => {
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
@@ -300,15 +303,34 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: INSTALL_STATE,
-            payload: {guid, status: INSTALLED, url: installURL},
+            type: 'INSTALL_STATE',
+            payload: {guid, status: ENABLED, url: installURL},
           }));
         });
     });
 
-    it('sets the status to INSTALLED when an installed theme is found', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper(
-        {getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: true})});
+    it('sets the status to DISABLED when a disabled add-on found', () => {
+      const dispatch = sinon.spy();
+      const guid = '@foo';
+      const installURL = 'http://the.url';
+      const { setCurrentStatus } = mapDispatchToProps(dispatch, {
+        _addonManager: getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({type: EXTENSION_TYPE, isEnabled: false}),
+        }),
+      });
+      return setCurrentStatus({guid, installURL})
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: 'INSTALL_STATE',
+            payload: {guid, status: DISABLED, url: installURL},
+          }));
+        });
+    });
+
+    it('sets the status to ENABLED when an enabled theme is found', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper({
+        getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: true}),
+      });
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
@@ -316,15 +338,16 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: INSTALL_STATE,
-            payload: {guid, status: INSTALLED, url: installURL},
+            type: 'INSTALL_STATE',
+            payload: {guid, status: ENABLED, url: installURL},
           }));
         });
     });
 
-    it('sets the status to UNINSTALLED when an uninstalled theme is found', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper(
-        {getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: false})});
+    it('sets the status to DISABLED when a disabled theme is found', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper({
+        getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: false}),
+      });
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
@@ -332,8 +355,8 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: INSTALL_STATE,
-            payload: {guid, status: UNINSTALLED, url: installURL},
+            type: 'INSTALL_STATE',
+            payload: {guid, status: DISABLED, url: installURL},
           }));
         });
     });

@@ -12,8 +12,12 @@ import * as addonManager from 'disco/addonManager';
 
 import InstallButton from 'disco/components/InstallButton';
 import {
+  validAddonTypes,
+  validInstallStates,
+  DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
+  ENABLED,
   ERROR,
   EXTENSION_TYPE,
   INSTALLED,
@@ -32,8 +36,6 @@ import {
   UNINSTALLED,
   UNINSTALL_CATEGORY,
   UNINSTALL_COMPLETE,
-  validAddonTypes,
-  validInstallStates,
 } from 'disco/constants';
 
 import 'disco/css/Addon.scss';
@@ -228,7 +230,7 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
       return _addonManager.getAddon(guid)
         .then(
           (addon) => {
-            const status = addon.type === THEME_TYPE && !addon.isEnabled ? UNINSTALLED : INSTALLED;
+            const status = addon.isEnabled ? ENABLED : DISABLED;
             dispatch({type: INSTALL_STATE, payload: {...payload, status}});
           },
           () => dispatch({type: INSTALL_STATE, payload: {...payload, status: UNINSTALLED}}));

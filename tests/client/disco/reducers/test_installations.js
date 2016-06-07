@@ -1,6 +1,8 @@
 import {
+  DISABLED,
   DOWNLOADING,
   DOWNLOAD_PROGRESS,
+  ENABLED,
   ERROR,
   INSTALLED,
   INSTALL_COMPLETE,
@@ -40,6 +42,44 @@ describe('installations reducer', () => {
         'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
+          downloadProgress: 0,
+          status: UNINSTALLED,
+        },
+      });
+  });
+
+  it('treats ENABLED as INSTALLED in INSTALL_STATE', () => {
+    assert.deepEqual(
+      installations(undefined, {
+        type: 'INSTALL_STATE',
+        payload: {
+          guid: 'my-addon@me.com',
+          status: ENABLED,
+        },
+      }),
+      {
+        'my-addon@me.com': {
+          guid: 'my-addon@me.com',
+          url: undefined,
+          downloadProgress: 0,
+          status: INSTALLED,
+        },
+      });
+  });
+
+  it('treats DISABLED as UNINSTALLED in INSTALL_STATE', () => {
+    assert.deepEqual(
+      installations(undefined, {
+        type: 'INSTALL_STATE',
+        payload: {
+          guid: 'my-addon@me.com',
+          status: DISABLED,
+        },
+      }),
+      {
+        'my-addon@me.com': {
+          guid: 'my-addon@me.com',
+          url: undefined,
           downloadProgress: 0,
           status: UNINSTALLED,
         },

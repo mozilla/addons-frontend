@@ -1,15 +1,13 @@
 // Addon States.
+export const DISABLED = 'DISABLED';
 export const DOWNLOADING = 'DOWNLOADING';
+export const ENABLED = 'ENABLED';
 export const ERROR = 'ERROR';
 export const INSTALLED = 'INSTALLED';
 export const INSTALLING = 'INSTALLING';
 export const UNINSTALLED = 'UNINSTALLED';
 export const UNINSTALLING = 'UNINSTALLING';
 export const UNKNOWN = 'UNKNOWN';
-// Theme states
-export const DISABLED = 'DISABLED';
-export const ENABLED = 'ENABLED';
-
 export const validInstallStates = [
   DISABLED,
   ENABLED,
@@ -23,6 +21,7 @@ export const validInstallStates = [
   UNKNOWN,
 ];
 
+// Add-on error states.
 export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
 export const INSTALL_FAILED = 'INSTALL_FAILED';
 
