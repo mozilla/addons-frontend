@@ -23,10 +23,8 @@ import {
   INSTALL_COMPLETE,
   INSTALL_FAILED,
   INSTALL_STATE,
-  INSTALLED,
   START_DOWNLOAD,
   START_INSTALL,
-  START_UNINSTALL,
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
@@ -216,21 +214,24 @@ describe('<Addon />', () => {
         guid: 'foo@addon',
         downloadProgress: 75,
       };
-      assert.deepEqual(
-        mapStateToProps({
-          installations: {foo: {some: 'data'}, 'foo@addon': addon},
-          addons: {'foo@addon': {addonProp: 'addonValue'}},
-        }, {guid: 'foo@addon'}),
-        {guid: 'foo@addon', downloadProgress: 75, addonProp: 'addonValue'});
+      const props = mapStateToProps({
+        installations: {foo: {some: 'data'}, 'foo@addon': addon},
+        addons: {'foo@addon': {addonProp: 'addonValue'}},
+      }, {guid: 'foo@addon'});
+      assert.deepEqual(props, {
+        guid: 'foo@addon',
+        downloadProgress: 75,
+        addonProp: 'addonValue',
+        installTheme: props.installTheme,
+      });
     });
 
     it('handles missing data', () => {
-      assert.deepEqual(
-        mapStateToProps({
-          installations: {},
-          addons: {},
-        }, {guid: 'nope@addon'}),
-        {});
+      const props = mapStateToProps({
+        installations: {},
+        addons: {},
+      }, {guid: 'nope@addon'});
+      assert.deepEqual(props, {installTheme: props.installTheme});
     });
   });
 
@@ -243,28 +244,6 @@ describe('<Addon />', () => {
       assert(dispatch.calledWith({
         type: DOWNLOAD_PROGRESS,
         payload: {downloadProgress: 30, guid},
-      }));
-    });
-
-    it('sets status to installing on STATE_INSTALLING', () => {
-      const dispatch = sinon.spy();
-      const guid = 'foo@my-addon';
-      const handler = makeProgressHandler(dispatch, guid);
-      handler({state: 'STATE_INSTALLING'});
-      assert(dispatch.calledWith({
-        type: START_INSTALL,
-        payload: {guid},
-      }));
-    });
-
-    it('sets status to installed on STATE_INSTALLED', () => {
-      const dispatch = sinon.spy();
-      const guid = '{my-addon}';
-      const handler = makeProgressHandler(dispatch, guid);
-      handler({state: 'STATE_INSTALLED'});
-      assert(dispatch.calledWith({
-        type: INSTALL_COMPLETE,
-        payload: {guid},
       }));
     });
 
@@ -315,7 +294,25 @@ describe('<Addon />', () => {
       const installURL = 'http://the.url';
       const { setCurrentStatus } = mapDispatchToProps(dispatch, {
         _addonManager: getFakeAddonManagerWrapper({
-          getAddon: Promise.resolve({type: EXTENSION_TYPE, isEnabled: false}),
+          getAddon: Promise.resolve({type: EXTENSION_TYPE, isActive: false, isEnabled: false}),
+        }),
+      });
+      return setCurrentStatus({guid, installURL})
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: {guid, status: DISABLED, url: installURL},
+          }));
+        });
+    });
+
+    it('sets the status to DISABLED when an inactive add-on found', () => {
+      const dispatch = sinon.spy();
+      const guid = '@foo';
+      const installURL = 'http://the.url';
+      const { setCurrentStatus } = mapDispatchToProps(dispatch, {
+        _addonManager: getFakeAddonManagerWrapper({
+          getAddon: Promise.resolve({type: EXTENSION_TYPE, isActive: false, isEnabled: true}),
         }),
       });
       return setCurrentStatus({guid, installURL})
@@ -329,7 +326,7 @@ describe('<Addon />', () => {
 
     it('sets the status to ENABLED when an enabled theme is found', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: true}),
+        getAddon: Promise.resolve({type: THEME_TYPE, isActive: true, isEnabled: true}),
       });
       const dispatch = sinon.spy();
       const guid = '@foo';
@@ -344,9 +341,26 @@ describe('<Addon />', () => {
         });
     });
 
+    it('sets the status to DISABLED when an inactive theme is found', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper({
+        getAddon: Promise.resolve({type: THEME_TYPE, isActive: false, isEnabled: true}),
+      });
+      const dispatch = sinon.spy();
+      const guid = '@foo';
+      const installURL = 'http://the.url';
+      const { setCurrentStatus } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
+      return setCurrentStatus({guid, installURL})
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: {guid, status: DISABLED, url: installURL},
+          }));
+        });
+    });
+
     it('sets the status to DISABLED when a disabled theme is found', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: false}),
+        getAddon: Promise.resolve({type: THEME_TYPE, isActive: true, isEnabled: false}),
       });
       const dispatch = sinon.spy();
       const guid = '@foo';
@@ -496,17 +510,6 @@ describe('<Addon />', () => {
           }));
         });
     });
-
-    it('should dispatch START_UNINSTALL', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      const dispatch = sinon.spy();
-      const { uninstall } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
-      return uninstall({guid, installURL})
-        .then(() => assert(dispatch.calledWith({
-          type: START_UNINSTALL,
-          payload: {guid},
-        })));
-    });
   });
 
   describe('installTheme', () => {
@@ -515,36 +518,28 @@ describe('<Addon />', () => {
       const guid = '{install-theme}';
       const node = sinon.stub();
       const spyThemeAction = sinon.spy();
-      const dispatch = sinon.spy();
-      const { installTheme } = mapDispatchToProps(dispatch);
-      return installTheme(node, guid, name, spyThemeAction)
-        .then(() => {
-          assert(spyThemeAction.calledWith(node, THEME_INSTALL));
-          assert(dispatch.calledWith({
-            type: INSTALL_STATE,
-            payload: {guid, status: INSTALLED},
-          }));
-        });
+      const props = mapStateToProps({installations: {}, addons: {}}, {});
+      props.installTheme(node, guid, name, spyThemeAction);
+      assert(spyThemeAction.calledWith(node, THEME_INSTALL));
     });
 
     it('tracks a theme install', () => {
       const name = 'hai-theme';
       const guid = '{install-theme}';
       const node = sinon.stub();
-      const dispatch = sinon.spy();
       const spyThemeAction = sinon.spy();
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { installTheme } = mapDispatchToProps(dispatch, {_tracking: fakeTracking});
-      return installTheme(node, guid, name, spyThemeAction)
-        .then(() => {
-          assert(fakeTracking.sendEvent.calledWith({
-            action: 'theme',
-            category: INSTALL_CATEGORY,
-            label: 'hai-theme',
-          }));
-        });
+      const { installTheme } = mapStateToProps({installations: {}, addons: {}}, {}, {
+        _tracking: fakeTracking,
+      });
+      installTheme(node, guid, name, spyThemeAction);
+      assert(fakeTracking.sendEvent.calledWith({
+        action: 'theme',
+        category: INSTALL_CATEGORY,
+        label: 'hai-theme',
+      }));
     });
   });
 

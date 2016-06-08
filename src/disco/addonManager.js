@@ -14,6 +14,7 @@ export function getAddon(guid, {_mozAddonManager = window.navigator.mozAddonMana
       if (!addon) {
         throw new Error('Addon not found');
       }
+      log.info('Add-on found', addon);
       return addon;
     });
 }

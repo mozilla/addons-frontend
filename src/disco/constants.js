@@ -1,7 +1,9 @@
 // Addon States.
 export const DISABLED = 'DISABLED';
+export const DISABLING = 'DISABLING';
 export const DOWNLOADING = 'DOWNLOADING';
 export const ENABLED = 'ENABLED';
+export const ENABLING = 'ENABLING';
 export const ERROR = 'ERROR';
 export const INSTALLED = 'INSTALLED';
 export const INSTALLING = 'INSTALLING';
@@ -70,9 +72,7 @@ export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
 export const INSTALL_STATE = 'INSTALL_STATE';
 export const START_DOWNLOAD = 'START_DOWNLOAD';
 export const DOWNLOAD_PROGRESS = 'DOWNLOAD_PROGRESS';
-export const START_INSTALL = 'START_INSTALL';
 export const INSTALL_COMPLETE = 'INSTALL_COMPLETE';
-export const START_UNINSTALL = 'START_UNINSTALL';
 export const UNINSTALL_COMPLETE = 'UNINSTALL_COMPLETE';
 export const INSTALL_ERROR = 'INSTALL_ERROR';
 
@@ -80,9 +80,7 @@ export const acceptedInstallTypes = [
   INSTALL_STATE,
   START_DOWNLOAD,
   DOWNLOAD_PROGRESS,
-  START_INSTALL,
   INSTALL_COMPLETE,
-  START_UNINSTALL,
   UNINSTALL_COMPLETE,
   INSTALL_ERROR,
 ];
@@ -94,6 +92,8 @@ export const globalEventStatusMap = {
   onInstalled: INSTALLED,
   onUninstalling: UNINSTALLING,
   onUninstalled: UNINSTALLED,
+  onEnabling: ENABLING,
+  onDisabling: DISABLING,
 };
 
 // The events here are set directly on mozAddonManager

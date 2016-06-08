@@ -18,7 +18,7 @@ export function findByTag(root, tag) {
   return matches[0];
 }
 
-const enabledExtension = Promise.resolve({type: EXTENSION_TYPE, isEnabled: true});
+const enabledExtension = Promise.resolve({type: EXTENSION_TYPE, isActive: true, isEnabled: true});
 
 export function getFakeAddonManagerWrapper({ getAddon = enabledExtension } = {}) {
   return {
