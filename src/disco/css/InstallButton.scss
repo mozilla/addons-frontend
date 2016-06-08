@@ -10,10 +10,11 @@ $switchHandleActive: #fff;
 $switchHandleInactive: transparentize($switchHandleActive, 0.75);
 $switchHandleGap: 1px;
 $switchHandleDisabledOpacity: 0.25;
-$switchHandleActivePosition: ($size * 2.5) - $size + $switchHandleGap;
+$switchToBackgroundRatio: 2.7;
 
 $switchStrokeOff: #858585;
 $switchStrokeOn: #00A920;
+$switchStrokeWidth: 1px;
 
 $switchBackgroundOn: #57BD35;
 $switchBackgroundOff: #919191;
@@ -56,8 +57,10 @@ $installStripeColor2: #00C42E;
     font-family: sans-serif;
     height: 16px;
     left: $size;
+    // Allow mouse events to pass-through the image.
+    pointer-events: none;
     position: absolute;
-    top: $size/2;
+    top: ($size + ($switchHandleGap * 2))/2;
     transform: translate(-50%, -50%);
     width: 16px;
   }
@@ -69,13 +72,13 @@ $installStripeColor2: #00C42E;
   input + label {
     background: #919191;
     border-radius: $size;
-    border: 1px solid $switchStrokeOff;
+    border: $switchStrokeWidth solid $switchStrokeOff;
     cursor: pointer;
     display: block;
-    height: $size;
+    height: $size + ($switchHandleGap * 2) + ($switchStrokeWidth * 2);
     overflow: hidden;
     position: relative;
-    width: $size * 2.5;
+    width: $size * $switchToBackgroundRatio;
 
     &:before,
     &:after {
@@ -98,12 +101,13 @@ $installStripeColor2: #00C42E;
     &:after {
       background: $switchHandleActive;
       border-radius: 50%;
-      bottom: 0;
+      bottom: $switchHandleGap;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-      left: 0;
-      top: 0;
+      left: $switchHandleGap;
+      top: $switchHandleGap;
       transition: left $transition, box-shadow $transition;
       width: $size;
+      height: $size;
       z-index: 3;
     }
 
@@ -121,8 +125,13 @@ $installStripeColor2: #00C42E;
       // impacting the animation speed.
       transform: scaleX(-1);
     }
-    input + label:after {
-      left: 0;
+    input + label {
+      &:after {
+        left: $switchHandleGap;
+      }
+      &:hover:after {
+        box-shadow: none;
+      }
     }
   }
 
@@ -136,7 +145,11 @@ $installStripeColor2: #00C42E;
            $installStripeColor2);
       }
       &:after {
-        left: $switchHandleActivePosition;
+        left: auto;
+        right: $switchHandleGap;
+      }
+      &:hover:after {
+        box-shadow: none;
       }
     }
   }
@@ -151,7 +164,8 @@ $installStripeColor2: #00C42E;
 
       &:after {
         background: $switchHandleActive;
-        left: $switchHandleActivePosition;
+        left: auto;
+        right: $switchHandleGap;
       }
     }
   }
@@ -163,6 +177,9 @@ $installStripeColor2: #00C42E;
     &:after {
       background: $switchHandleInactive;
     }
+    &:hover:after {
+      box-shadow: none;
+    }
   }
 
   input:checked + label {
@@ -173,7 +190,8 @@ $installStripeColor2: #00C42E;
     }
 
     &:after {
-      left: $switchHandleActivePosition;
+      left: auto;
+      right: $switchHandleGap;
     }
   }
 }
