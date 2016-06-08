@@ -303,7 +303,7 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: ENABLED, url: installURL},
           }));
         });
@@ -321,7 +321,7 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: DISABLED, url: installURL},
           }));
         });
@@ -338,7 +338,7 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: ENABLED, url: installURL},
           }));
         });
@@ -355,7 +355,7 @@ describe('<Addon />', () => {
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
-            type: 'INSTALL_STATE',
+            type: INSTALL_STATE,
             payload: {guid, status: DISABLED, url: installURL},
           }));
         });
