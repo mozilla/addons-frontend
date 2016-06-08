@@ -17,12 +17,12 @@ export function findByTag(root, tag) {
   return matches[0];
 }
 
-export function stubAddonManager({ getAddon = Promise.resolve({type: 'addon'}) } = {}) {
+export function getFakeAddonManagerWrapper({ getAddon = Promise.resolve({type: 'addon'}) } = {}) {
   return {
     getAddon: sinon.stub().returns(getAddon),
     install: sinon.stub().returns(Promise.resolve()),
     uninstall: sinon.stub().returns(Promise.resolve()),
-    addEventListener: sinon.stub(),
+    addChangeListerners: sinon.stub(),
   };
 }
 

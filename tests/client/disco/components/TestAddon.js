@@ -31,7 +31,7 @@ import {
   UNINSTALLED,
   UNINSTALL_CATEGORY,
 } from 'disco/constants';
-import { stubAddonManager, getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeAddonManagerWrapper, getFakeI18nInst } from 'tests/client/helpers';
 import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
 
@@ -296,7 +296,7 @@ describe('<Addon />', () => {
       const guid = '@foo';
       const installURL = 'http://the.url';
       const { setCurrentStatus } = mapDispatchToProps(
-        dispatch, {_addonManager: stubAddonManager()});
+        dispatch, {_addonManager: getFakeAddonManagerWrapper()});
       return setCurrentStatus({guid, installURL})
         .then(() => {
           assert(dispatch.calledWith({
@@ -307,7 +307,7 @@ describe('<Addon />', () => {
     });
 
     it('sets the status to INSTALLED when an installed theme is found', () => {
-      const fakeAddonManager = stubAddonManager(
+      const fakeAddonManager = getFakeAddonManagerWrapper(
         {getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: true})});
       const dispatch = sinon.spy();
       const guid = '@foo';
@@ -323,7 +323,7 @@ describe('<Addon />', () => {
     });
 
     it('sets the status to UNINSTALLED when an uninstalled theme is found', () => {
-      const fakeAddonManager = stubAddonManager(
+      const fakeAddonManager = getFakeAddonManagerWrapper(
         {getAddon: Promise.resolve({type: THEME_TYPE, isEnabled: false})});
       const dispatch = sinon.spy();
       const guid = '@foo';
@@ -339,7 +339,7 @@ describe('<Addon />', () => {
     });
 
     it('sets the status to UNINSTALLED when not found', () => {
-      const fakeAddonManager = stubAddonManager({getAddon: Promise.reject()});
+      const fakeAddonManager = getFakeAddonManagerWrapper({getAddon: Promise.reject()});
       const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
@@ -359,7 +359,7 @@ describe('<Addon />', () => {
     const installURL = 'https://mysite.com/download.xpi';
 
     it('calls addonManager.install()', () => {
-      const fakeAddonManager = stubAddonManager();
+      const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
       const { install } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return install({guid, installURL})
@@ -369,7 +369,7 @@ describe('<Addon />', () => {
     });
 
     it('tracks an addon install', () => {
-      const fakeAddonManager = stubAddonManager();
+      const fakeAddonManager = getFakeAddonManagerWrapper();
       const name = 'hai-addon';
       const type = 'extension';
       const dispatch = sinon.spy();
@@ -390,7 +390,7 @@ describe('<Addon />', () => {
 
 
     it('should dispatch START_DOWNLOAD', () => {
-      const fakeAddonManager = stubAddonManager();
+      const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
       const { install } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return install({guid, installURL})
@@ -406,7 +406,7 @@ describe('<Addon />', () => {
     const installURL = 'https://mysite.com/download.xpi';
 
     it('calls addonManager.uninstall()', () => {
-      const fakeAddonManager = stubAddonManager();
+      const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
       const { uninstall } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return uninstall({guid, installURL})
@@ -416,7 +416,7 @@ describe('<Addon />', () => {
     });
 
     it('tracks an addon uninstall', () => {
-      const fakeAddonManager = stubAddonManager();
+      const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
       const name = 'whatevs';
       const type = 'extension';
@@ -436,7 +436,7 @@ describe('<Addon />', () => {
     });
 
     it('tracks a theme uninstall', () => {
-      const fakeAddonManager = stubAddonManager();
+      const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
       const name = 'whatevs';
       const fakeTracking = {
@@ -455,7 +455,7 @@ describe('<Addon />', () => {
     });
 
     it('tracks a unknown type uninstall', () => {
-      const fakeAddonManager = stubAddonManager();
+      const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
       const name = 'whatevs';
       const type = 'foo';
@@ -475,7 +475,7 @@ describe('<Addon />', () => {
     });
 
     it('should dispatch START_UNINSTALL', () => {
-      const fakeAddonManager = stubAddonManager();
+      const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
       const { uninstall } = mapDispatchToProps(dispatch, {_addonManager: fakeAddonManager});
       return uninstall({guid, installURL})

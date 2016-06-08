@@ -7,7 +7,7 @@ import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
 import { EXTENSION_TYPE, INSTALL_STATE, globalEvents } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
-import { getFakeI18nInst, MockedSubComponent, stubAddonManager } from 'tests/client/helpers';
+import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
 import I18nProvider from 'core/i18n/Provider';
 
@@ -120,9 +120,11 @@ describe('AddonPage', () => {
 
   describe('componentDidMount', () => {
     it('sets events', () => {
-      const fakeAddonManager = stubAddonManager();
-      render({mozAddonManager: fakeAddonManager});
-      assert.equal(fakeAddonManager.addEventListener.callCount, globalEvents.length);
+      const fakeMozAddonManager = {
+        addEventListener: sinon.stub(),
+      };
+      render({mozAddonManager: fakeMozAddonManager});
+      assert.equal(fakeMozAddonManager.addEventListener.callCount, globalEvents.length);
     });
   });
 });
