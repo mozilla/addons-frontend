@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-08 08:38+0000\n"
-"PO-Revision-Date: 2016-06-01 19:04+0000\n"
+"PO-Revision-Date: 2016-06-08 11:44+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:114
@@ -25,16 +24,15 @@ msgstr "Наведите мышь на изображение для предп�
 
 #: src/disco/components/Addon.js:138
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Установка не удалась. Пожалуйста, попробуйте позже."
 
 #: src/disco/components/Addon.js:140
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Загрузка не удалась. Пожалуйста, проверьте ваше соединение."
 
 #: src/disco/components/Addon.js:142
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Произошла непредвиденная ошибка"
+msgstr "Произошла непредвиденная ошибка."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
