@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "sv_SE"
          },
-         "An unexpected error occurred": [
-            "Ett oväntat fel har uppstått"
-         ],
          "Preview %(name)s": [
             "Förhandsgranska %(name)s"
          ],
          "Hover over the image to preview": [
             "Håll muspekaren över bilden för att förhandsgranska"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Installera"
          ],
          "Discover Add-ons": [
             "Upptäck tillägg"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Visa fler tillägg!"
-         ],
-         "Install": [
-            "Installera"
          ]
       }
    }

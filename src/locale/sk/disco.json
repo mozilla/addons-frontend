@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;",
             "lang": "sk"
          },
-         "An unexpected error occurred": [
-            "Nastala neočakávaná chyba"
-         ],
          "Preview %(name)s": [
             "Ukážka %(name)s"
          ],
          "Hover over the image to preview": [
             ""
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Nainštalovať"
          ],
          "Discover Add-ons": [
             "Objavte doplnky"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             ""
-         ],
-         "Install": [
-            "Nainštalovať"
          ]
       }
    }

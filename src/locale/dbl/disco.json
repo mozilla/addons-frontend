@@ -6,14 +6,23 @@
             "domain": "messages",
             "plural_forms": "nplurals=2; plural=(n!=1);"
          },
-         "An unexpected error occurred": [
-            "Ȧƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ"
-         ],
          "Preview %(name)s": [
             "Ƥřḗṽīḗẇ %(name)s"
          ],
          "Hover over the image to preview": [
             "Ħǿṽḗř ǿṽḗř ŧħḗ īḿȧɠḗ ŧǿ ƥřḗṽīḗẇ"
+         ],
+         "Installation failed. Please try again.": [
+            "Īƞşŧȧŀŀȧŧīǿƞ ƒȧīŀḗḓ. Ƥŀḗȧşḗ ŧřẏ ȧɠȧīƞ."
+         ],
+         "Download failed. Please check your connection.": [
+            "Ḓǿẇƞŀǿȧḓ ƒȧīŀḗḓ. Ƥŀḗȧşḗ ƈħḗƈķ ẏǿŭř ƈǿƞƞḗƈŧīǿƞ."
+         ],
+         "An unexpected error occurred.": [
+            "Ȧƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ."
+         ],
+         "Install": [
+            "Īƞşŧȧŀŀ"
          ],
          "Discover Add-ons": [
             "Ḓīşƈǿṽḗř Ȧḓḓ-ǿƞş"
@@ -35,9 +44,6 @@
          ],
          "See more add-ons!": [
             "Şḗḗ ḿǿřḗ ȧḓḓ-ǿƞş!"
-         ],
-         "Install": [
-            "Īƞşŧȧŀŀ"
          ]
       }
    }

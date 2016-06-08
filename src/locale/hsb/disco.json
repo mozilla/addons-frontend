@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);",
             "lang": "hsb"
          },
-         "An unexpected error occurred": [
-            "Njewočakowany zmylk je wustupił"
-         ],
          "Preview %(name)s": [
             "Přehlad %(name)s"
          ],
          "Hover over the image to preview": [
             "Pohíbujće myšku nad wobraz za přehlad"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Instalować"
          ],
          "Discover Add-ons": [
             "Přidatki wotkryć"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Wobhladajće sej dalše přidatki!"
-         ],
-         "Install": [
-            "Instalować"
          ]
       }
    }

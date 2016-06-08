@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);",
             "lang": "sl"
          },
-         "An unexpected error occurred": [
-            "Prišlo je do nepričakovane napake"
-         ],
          "Preview %(name)s": [
             "Predogled %(name)s"
          ],
          "Hover over the image to preview": [
             "Premaknite miško nad sliko za predogled"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Namesti"
          ],
          "Discover Add-ons": [
             "Odkrijte dodatke"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Oglejte si več dodatkov"
-         ],
-         "Install": [
-            "Namesti"
          ]
       }
    }

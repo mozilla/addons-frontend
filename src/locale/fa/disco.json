@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "fa"
          },
-         "An unexpected error occurred": [
-            "خطا غیر منتظره رخ داده است"
-         ],
          "Preview %(name)s": [
             "نمایش%(name)s"
          ],
          "Hover over the image to preview": [
             ""
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "نصب"
          ],
          "Discover Add-ons": [
             "افزونه کشف کنید"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             ""
-         ],
-         "Install": [
-            "نصب"
          ]
       }
    }

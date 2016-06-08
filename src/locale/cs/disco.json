@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;",
             "lang": "cs"
          },
-         "An unexpected error occurred": [
-            "Došlo k neočekávané chybě"
-         ],
          "Preview %(name)s": [
             "Náhled %(name)s"
          ],
          "Hover over the image to preview": [
             "Pro náhled přejeďte nad obrázkem myší"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Instalovat"
          ],
          "Discover Add-ons": [
             "Objevte doplňky"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Zobrazte si více doplňků!"
-         ],
-         "Install": [
-            "Instalovat"
          ]
       }
    }

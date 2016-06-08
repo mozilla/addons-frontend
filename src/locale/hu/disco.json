@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "hu"
          },
-         "An unexpected error occurred": [
-            "Váratlan hiba történt"
-         ],
          "Preview %(name)s": [
             "%(name)s előnézete"
          ],
          "Hover over the image to preview": [
             "Az előnézethez vigye a kép fölé az egeret"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Telepítés"
          ],
          "Discover Add-ons": [
             "Kiegészítők felfedezése"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Több kiegészítő megtekintése!"
-         ],
-         "Install": [
-            "Telepítés"
          ]
       }
    }

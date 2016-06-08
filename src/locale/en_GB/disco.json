@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "en_GB"
          },
-         "An unexpected error occurred": [
-            "An unexpected error occurred"
-         ],
          "Preview %(name)s": [
             "Preview %(name)s"
          ],
          "Hover over the image to preview": [
             ""
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Install"
          ],
          "Discover Add-ons": [
             "Discover Add-ons"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             ""
-         ],
-         "Install": [
-            "Install"
          ]
       }
    }

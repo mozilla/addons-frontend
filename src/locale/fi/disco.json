@@ -7,38 +7,41 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "fi"
          },
-         "An unexpected error occurred": [
-            "Tapahtui odottamaton virhe"
-         ],
          "Preview %(name)s": [
-            ""
+            "Esikatsele: %(name)s"
          ],
          "Hover over the image to preview": [
+            "Esikatsele osoittamalla kuvaa"
+         ],
+         "Installation failed. Please try again.": [
             ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Asenna"
          ],
          "Discover Add-ons": [
-            ""
+            "Löydä lisäosia"
          ],
          "Personalize Your Firefox": [
-            ""
+            "Mukauta Firefoxiasi"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
             ""
          ],
          "Click to play": [
-            ""
+            "Toista painamalla"
          ],
          "to find out more about add-ons": [
-            ""
+            "saadaksesi lisätietoja lisäosista"
          ],
          "Close video": [
-            ""
+            "Sulje video"
          ],
          "See more add-ons!": [
-            ""
-         ],
-         "Install": [
-            ""
+            "Katso lisää lisäosia!"
          ]
       }
    }
