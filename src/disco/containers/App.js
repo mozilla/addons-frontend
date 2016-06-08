@@ -17,6 +17,9 @@ export class App extends React.Component {
       <div className="disco-pane">
         <Helmet
           defaultTitle={i18n.gettext('Discover Add-ons')}
+          meta={[
+            {name: 'robots', content: 'noindex'},
+          ]}
         />
         {children}
       </div>
