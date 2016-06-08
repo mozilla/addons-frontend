@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "ja"
          },
-         "An unexpected error occurred": [
-            "予期せぬ問題が発生しました"
-         ],
          "Preview %(name)s": [
             "%(name)s をプレビュー"
          ],
          "Hover over the image to preview": [
             "画像にマウスオーバーしてプレビュー"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "インストール"
          ],
          "Discover Add-ons": [
             "アドオンを見つける"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "アドオンをもっと見る"
-         ],
-         "Install": [
-            "インストール"
          ]
       }
    }

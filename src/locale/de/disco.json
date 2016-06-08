@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "de"
          },
-         "An unexpected error occurred": [
-            "Ein unerwarteter Fehler ist aufgetreten."
-         ],
          "Preview %(name)s": [
             "Vorschau von %(name)s"
          ],
          "Hover over the image to preview": [
             "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Installieren"
          ],
          "Discover Add-ons": [
             "Add-ons entdecken"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Sehen Sie sich weitere Add-ons an!"
-         ],
-         "Install": [
-            "Installieren"
          ]
       }
    }

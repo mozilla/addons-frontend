@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);",
             "lang": "ru"
          },
-         "An unexpected error occurred": [
-            "Произошла непредвиденная ошибка"
-         ],
          "Preview %(name)s": [
             "Предпросмотр %(name)s"
          ],
          "Hover over the image to preview": [
             "Наведите мышь на изображение для предпросмотра"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Установить"
          ],
          "Discover Add-ons": [
             "Откройте для себя дополнения"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Посмотрите больше дополнений!"
-         ],
-         "Install": [
-            "Установить"
          ]
       }
    }

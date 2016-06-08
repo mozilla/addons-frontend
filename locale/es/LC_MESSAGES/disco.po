@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-01 10:28+0000\n"
+"POT-Creation-Date: 2016-06-08 08:38+0000\n"
 "PO-Revision-Date: 2016-06-02 09:05+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
@@ -14,27 +14,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:62
-msgid "An unexpected error occurred"
-msgstr "Se ha producido un error inesperado"
-
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:114
 msgid "Preview %(name)s"
 msgstr "Vista previa de %(name)s"
 
-#: src/disco/components/Addon.js:96
+#: src/disco/components/Addon.js:123
 msgid "Hover over the image to preview"
 msgstr "Pasa por la imagen para visualizarla"
+
+#: src/disco/components/Addon.js:138
+msgid "Installation failed. Please try again."
+msgstr ""
+
+#: src/disco/components/Addon.js:140
+msgid "Download failed. Please check your connection."
+msgstr ""
+
+#: src/disco/components/Addon.js:142
+#, fuzzy
+msgid "An unexpected error occurred."
+msgstr "Se ha producido un error inesperado"
+
+#: src/disco/components/InstallButton.js:80
+msgid "Install"
+msgstr "Instalar"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Descubrir complementos"
 
-#: src/disco/containers/DiscoPane.js:52
+#: src/disco/containers/DiscoPane.js:71
 msgid "Personalize Your Firefox"
 msgstr "Personaliza tu Firefox"
 
-#: src/disco/containers/DiscoPane.js:53
+#: src/disco/containers/DiscoPane.js:72
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
@@ -44,22 +57,18 @@ msgstr ""
 "a tu gusto: desde divertidos temas visuales a herramientas y funciones\n"
 "alucinantes. Te mostramos algunos."
 
-#: src/disco/containers/DiscoPane.js:59
+#: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
 msgstr "Haz clic para reproducir"
 
-#: src/disco/containers/DiscoPane.js:60
+#: src/disco/containers/DiscoPane.js:79
 msgid "to find out more about add-ons"
 msgstr "para saber más sobre los complementos"
 
-#: src/disco/containers/DiscoPane.js:68
+#: src/disco/containers/DiscoPane.js:87
 msgid "Close video"
 msgstr "Cerrar video"
 
-#: src/disco/containers/DiscoPane.js:74
+#: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "¡Ver más complementos!"
-
-#: src/disco/containers/InstallButton.js:86
-msgid "Install"
-msgstr "Instalar"

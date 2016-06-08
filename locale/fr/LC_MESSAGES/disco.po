@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-01 10:28+0000\n"
+"POT-Creation-Date: 2016-06-08 08:38+0000\n"
 "PO-Revision-Date: 2016-06-06 18:32+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,51 +14,62 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:62
-msgid "An unexpected error occurred"
-msgstr "Une erreur inattendue s’est produite"
-
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:114
 msgid "Preview %(name)s"
 msgstr "Prévisualiser %(name)s"
 
-#: src/disco/components/Addon.js:96
+#: src/disco/components/Addon.js:123
 msgid "Hover over the image to preview"
 msgstr "Survolez l’image pour activer la prévisualisation"
+
+#: src/disco/components/Addon.js:138
+msgid "Installation failed. Please try again."
+msgstr ""
+
+#: src/disco/components/Addon.js:140
+msgid "Download failed. Please check your connection."
+msgstr ""
+
+#: src/disco/components/Addon.js:142
+#, fuzzy
+msgid "An unexpected error occurred."
+msgstr "Une erreur inattendue s’est produite"
+
+#: src/disco/components/InstallButton.js:80
+msgid "Install"
+msgstr "Installer"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Découvrez des modules"
 
-#: src/disco/containers/DiscoPane.js:52
+#: src/disco/containers/DiscoPane.js:71
 msgid "Personalize Your Firefox"
 msgstr "Personnalisez Firefox"
 
-#: src/disco/containers/DiscoPane.js:53
+#: src/disco/containers/DiscoPane.js:72
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Il existe des milliers de modules qui vous permettent de personnaliser complètement Firefox, que ce soit avec des thèmes amusants ou en ajoutant des outils ou des fonctionnalités très pratiques. En "
-"voici quelques-uns pour vous faire une idée."
+"Il existe des milliers de modules qui vous permettent de personnaliser "
+"complètement Firefox, que ce soit avec des thèmes amusants ou en ajoutant "
+"des outils ou des fonctionnalités très pratiques. En voici quelques-uns pour "
+"vous faire une idée."
 
-#: src/disco/containers/DiscoPane.js:59
+#: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
 msgstr "Lire la vidéo"
 
-#: src/disco/containers/DiscoPane.js:60
+#: src/disco/containers/DiscoPane.js:79
 msgid "to find out more about add-ons"
 msgstr "et en apprendre davantage sur les modules"
 
-#: src/disco/containers/DiscoPane.js:68
+#: src/disco/containers/DiscoPane.js:87
 msgid "Close video"
 msgstr "Fermer la vidéo"
 
-#: src/disco/containers/DiscoPane.js:74
+#: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "Découvrez davantage de modules"
-
-#: src/disco/containers/InstallButton.js:86
-msgid "Install"
-msgstr "Installer"

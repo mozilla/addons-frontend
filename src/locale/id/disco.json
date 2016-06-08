@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "id"
          },
-         "An unexpected error occurred": [
-            "Terjadi kesalahan yang tidak diharapkan"
-         ],
          "Preview %(name)s": [
             "Tinjauan %(name)s"
          ],
          "Hover over the image to preview": [
             ""
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Pasang"
          ],
          "Discover Add-ons": [
             "Temukan Pengaya"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             ""
-         ],
-         "Install": [
-            "Pasang"
          ]
       }
    }

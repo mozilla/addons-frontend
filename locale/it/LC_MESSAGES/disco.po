@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-01 10:28+0000\n"
+"POT-Creation-Date: 2016-06-08 08:38+0000\n"
 "PO-Revision-Date: 2016-06-05 15:21+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -14,51 +14,63 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:62
-msgid "An unexpected error occurred"
-msgstr "Si è verificato un errore inatteso"
-
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:114
 msgid "Preview %(name)s"
 msgstr "Anteprima di %(name)s"
 
-#: src/disco/components/Addon.js:96
+#: src/disco/components/Addon.js:123
 msgid "Hover over the image to preview"
-msgstr "Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
+msgstr ""
+"Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
+
+#: src/disco/components/Addon.js:138
+msgid "Installation failed. Please try again."
+msgstr ""
+
+#: src/disco/components/Addon.js:140
+msgid "Download failed. Please check your connection."
+msgstr ""
+
+#: src/disco/components/Addon.js:142
+#, fuzzy
+msgid "An unexpected error occurred."
+msgstr "Si è verificato un errore inatteso"
+
+#: src/disco/components/InstallButton.js:80
+msgid "Install"
+msgstr "Installa"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Alla scoperta dei componenti aggiuntivi"
 
-#: src/disco/containers/DiscoPane.js:52
+#: src/disco/containers/DiscoPane.js:71
 msgid "Personalize Your Firefox"
 msgstr "Personalizza Firefox"
 
-#: src/disco/containers/DiscoPane.js:53
+#: src/disco/containers/DiscoPane.js:72
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Esistono migliaia di componenti aggiuntivi che ti consentiranno di personalizzare Firefox secondo le tue esigenze — di tutto e di più, da simpatici temi fino a strumenti e caratteristiche avanzate. "
-"Eccone alcuni tra i migliori che potresti provare."
+"Esistono migliaia di componenti aggiuntivi che ti consentiranno di "
+"personalizzare Firefox secondo le tue esigenze — di tutto e di più, da "
+"simpatici temi fino a strumenti e caratteristiche avanzate. Eccone alcuni "
+"tra i migliori che potresti provare."
 
-#: src/disco/containers/DiscoPane.js:59
+#: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
 msgstr "Fai clic per riprodurre"
 
-#: src/disco/containers/DiscoPane.js:60
+#: src/disco/containers/DiscoPane.js:79
 msgid "to find out more about add-ons"
 msgstr "Per conoscere ancora meglio i componenti aggiuntivi"
 
-#: src/disco/containers/DiscoPane.js:68
+#: src/disco/containers/DiscoPane.js:87
 msgid "Close video"
 msgstr "Chiudi il video"
 
-#: src/disco/containers/DiscoPane.js:74
+#: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "Scopri altri componenti aggiuntivi."
-
-#: src/disco/containers/InstallButton.js:86
-msgid "Install"
-msgstr "Installa"

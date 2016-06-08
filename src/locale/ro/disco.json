@@ -7,13 +7,22 @@
             "plural_forms": "nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2;",
             "lang": "ro"
          },
-         "An unexpected error occurred": [
-            ""
-         ],
          "Preview %(name)s": [
             ""
          ],
          "Hover over the image to preview": [
+            ""
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "An unexpected error occurred.": [
+            ""
+         ],
+         "Install": [
             ""
          ],
          "Discover Add-ons": [
@@ -35,9 +44,6 @@
             ""
          ],
          "See more add-ons!": [
-            ""
-         ],
-         "Install": [
             ""
          ]
       }

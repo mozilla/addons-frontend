@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "sq"
          },
-         "An unexpected error occurred": [
-            "Ndodhi një gabim i papritur"
-         ],
          "Preview %(name)s": [
             "Parashiheni %(name)s"
          ],
          "Hover over the image to preview": [
             "Kalojeni kursorin përsipër figurës që ta parashihni"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Instaloje"
          ],
          "Discover Add-ons": [
             "Zbuloni Shtesa"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Shihni më tepër shtesa!"
-         ],
-         "Install": [
-            "Instaloje"
          ]
       }
    }

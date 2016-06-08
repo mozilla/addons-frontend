@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "zh_TW"
          },
-         "An unexpected error occurred": [
-            "發生未預期的錯誤"
-         ],
          "Preview %(name)s": [
             "預覽 %(name)s"
          ],
          "Hover over the image to preview": [
             "滑過圖片進行預覽"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "安裝"
          ],
          "Discover Add-ons": [
             "探索附加元件"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "看看更多附加元件！"
-         ],
-         "Install": [
-            "安裝"
          ]
       }
    }

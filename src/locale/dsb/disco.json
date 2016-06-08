@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);",
             "lang": "dsb"
          },
-         "An unexpected error occurred": [
-            "Njewótcakana zmólka jo nastała"
-         ],
          "Preview %(name)s": [
             "Pśeglěd za %(name)s"
          ],
          "Hover over the image to preview": [
             "Gibniśo myšku nad wobraz za pśeglěd"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Instalěrowaś"
          ],
          "Discover Add-ons": [
             "Dodanki namakaś"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Woglědajśo se dalšne dodanki!"
-         ],
-         "Install": [
-            "Instalěrowaś"
          ]
       }
    }

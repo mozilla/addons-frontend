@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);",
             "lang": "uk"
          },
-         "An unexpected error occurred": [
-            "Сталася неочікувана помилка"
-         ],
          "Preview %(name)s": [
             "Попередній перегляд %(name)s"
          ],
          "Hover over the image to preview": [
             "Наведіть курсор на зображення для перегляду"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Встановити"
          ],
          "Discover Add-ons": [
             "Відкрийте для себе додатки"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Перегляньте інші додатки!"
-         ],
-         "Install": [
-            "Встановити"
          ]
       }
    }

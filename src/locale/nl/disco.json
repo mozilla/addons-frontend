@@ -7,14 +7,20 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "nl"
          },
-         "An unexpected error occurred": [
-            "Er is een onverwachte fout opgetreden"
-         ],
          "Preview %(name)s": [
             "Voorbeeld %(name)s"
          ],
          "Hover over the image to preview": [
             "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
+         ],
+         "Installation failed. Please try again.": [
+            ""
+         ],
+         "Download failed. Please check your connection.": [
+            ""
+         ],
+         "Install": [
+            "Installeren"
          ],
          "Discover Add-ons": [
             "Add-ons ontdekken"
@@ -36,9 +42,6 @@
          ],
          "See more add-ons!": [
             "Bekijk meer add-ons!"
-         ],
-         "Install": [
-            "Installeren"
          ]
       }
    }
