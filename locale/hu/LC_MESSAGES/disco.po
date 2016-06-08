@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-08 08:38+0000\n"
-"PO-Revision-Date: 2016-06-02 15:20+0000\n"
-"Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
+"PO-Revision-Date: 2016-06-08 13:34+0000\n"
+"Last-Translator: siparon <siparon@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -24,16 +24,15 @@ msgstr "Az előnézethez vigye a kép fölé az egeret"
 
 #: src/disco/components/Addon.js:138
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "A telepítés sikertelen. Kérjük, próbálja meg újra."
 
 #: src/disco/components/Addon.js:140
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "A letöltés sikertelen. Kérjük, ellenőrizze kapcsolatát."
 
 #: src/disco/components/Addon.js:142
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Váratlan hiba történt"
+msgstr "Váratlan hiba történt."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
