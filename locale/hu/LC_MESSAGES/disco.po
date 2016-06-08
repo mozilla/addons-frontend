@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-01 10:28+0000\n"
+"POT-Creation-Date: 2016-06-08 08:38+0000\n"
 "PO-Revision-Date: 2016-06-02 15:20+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,27 +14,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:62
-msgid "An unexpected error occurred"
-msgstr "Váratlan hiba történt"
-
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:114
 msgid "Preview %(name)s"
 msgstr "%(name)s előnézete"
 
-#: src/disco/components/Addon.js:96
+#: src/disco/components/Addon.js:123
 msgid "Hover over the image to preview"
 msgstr "Az előnézethez vigye a kép fölé az egeret"
+
+#: src/disco/components/Addon.js:138
+msgid "Installation failed. Please try again."
+msgstr ""
+
+#: src/disco/components/Addon.js:140
+msgid "Download failed. Please check your connection."
+msgstr ""
+
+#: src/disco/components/Addon.js:142
+#, fuzzy
+msgid "An unexpected error occurred."
+msgstr "Váratlan hiba történt"
+
+#: src/disco/components/InstallButton.js:80
+msgid "Install"
+msgstr "Telepítés"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Kiegészítők felfedezése"
 
-#: src/disco/containers/DiscoPane.js:52
+#: src/disco/containers/DiscoPane.js:71
 msgid "Personalize Your Firefox"
 msgstr "A Firefox testreszabása"
 
-#: src/disco/containers/DiscoPane.js:53
+#: src/disco/containers/DiscoPane.js:72
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
@@ -44,22 +57,18 @@ msgstr ""
 "– mókás vizuális témáktól kezdve, a hatékony eszközökig és funkciókig.\n"
 "Itt van néhány nagyszerű, amelyet kipróbálhat."
 
-#: src/disco/containers/DiscoPane.js:59
+#: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
 msgstr "Kattintson a lejátszáshoz"
 
-#: src/disco/containers/DiscoPane.js:60
+#: src/disco/containers/DiscoPane.js:79
 msgid "to find out more about add-ons"
 msgstr "hogy többet tudjon meg a kiegészítőkről"
 
-#: src/disco/containers/DiscoPane.js:68
+#: src/disco/containers/DiscoPane.js:87
 msgid "Close video"
 msgstr "Videó bezárása"
 
-#: src/disco/containers/DiscoPane.js:74
+#: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "Több kiegészítő megtekintése!"
-
-#: src/disco/containers/InstallButton.js:86
-msgid "Install"
-msgstr "Telepítés"

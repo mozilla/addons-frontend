@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-01 10:28+0000\n"
+"POT-Creation-Date: 2016-06-08 08:38+0000\n"
 "PO-Revision-Date: 2016-06-01 18:04+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,49 +14,61 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:62
-msgid "An unexpected error occurred"
-msgstr "予期せぬ問題が発生しました"
-
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:114
 msgid "Preview %(name)s"
 msgstr "%(name)s をプレビュー"
 
-#: src/disco/components/Addon.js:96
+#: src/disco/components/Addon.js:123
 msgid "Hover over the image to preview"
 msgstr "画像にマウスオーバーしてプレビュー"
+
+#: src/disco/components/Addon.js:138
+msgid "Installation failed. Please try again."
+msgstr ""
+
+#: src/disco/components/Addon.js:140
+msgid "Download failed. Please check your connection."
+msgstr ""
+
+#: src/disco/components/Addon.js:142
+#, fuzzy
+msgid "An unexpected error occurred."
+msgstr "予期せぬ問題が発生しました"
+
+#: src/disco/components/InstallButton.js:80
+msgid "Install"
+msgstr "インストール"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "アドオンを見つける"
 
-#: src/disco/containers/DiscoPane.js:52
+#: src/disco/containers/DiscoPane.js:71
 msgid "Personalize Your Firefox"
 msgstr "Firefox をパーソナライズしよう"
 
-#: src/disco/containers/DiscoPane.js:53
+#: src/disco/containers/DiscoPane.js:72
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr "楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを紹介します。"
+msgstr ""
+"楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分"
+"好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを"
+"紹介します。"
 
-#: src/disco/containers/DiscoPane.js:59
+#: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
 msgstr "クリックして再生"
 
-#: src/disco/containers/DiscoPane.js:60
+#: src/disco/containers/DiscoPane.js:79
 msgid "to find out more about add-ons"
 msgstr "し、アドオンについて詳しく知る"
 
-#: src/disco/containers/DiscoPane.js:68
+#: src/disco/containers/DiscoPane.js:87
 msgid "Close video"
 msgstr "動画を閉じる"
 
-#: src/disco/containers/DiscoPane.js:74
+#: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "アドオンをもっと見る"
-
-#: src/disco/containers/InstallButton.js:86
-msgid "Install"
-msgstr "インストール"

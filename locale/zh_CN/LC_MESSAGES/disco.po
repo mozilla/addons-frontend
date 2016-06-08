@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-01 10:28+0000\n"
+"POT-Creation-Date: 2016-06-08 08:38+0000\n"
 "PO-Revision-Date: 2016-06-01 16:12+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,27 +14,40 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:62
-msgid "An unexpected error occurred"
-msgstr "发生意外错误"
-
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:114
 msgid "Preview %(name)s"
 msgstr "预览 %(name)s"
 
-#: src/disco/components/Addon.js:96
+#: src/disco/components/Addon.js:123
 msgid "Hover over the image to preview"
 msgstr "悬停在图像上以预览"
+
+#: src/disco/components/Addon.js:138
+msgid "Installation failed. Please try again."
+msgstr ""
+
+#: src/disco/components/Addon.js:140
+msgid "Download failed. Please check your connection."
+msgstr ""
+
+#: src/disco/components/Addon.js:142
+#, fuzzy
+msgid "An unexpected error occurred."
+msgstr "发生意外错误"
+
+#: src/disco/components/InstallButton.js:80
+msgid "Install"
+msgstr "安装"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "发现附加组件"
 
-#: src/disco/containers/DiscoPane.js:52
+#: src/disco/containers/DiscoPane.js:71
 msgid "Personalize Your Firefox"
 msgstr "个性化你的火狐"
 
-#: src/disco/containers/DiscoPane.js:53
+#: src/disco/containers/DiscoPane.js:72
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
@@ -44,22 +57,18 @@ msgstr ""
 "—像是有趣的视觉主题，强大的工具和功能。\n"
 "这里有一些推荐给你。"
 
-#: src/disco/containers/DiscoPane.js:59
+#: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
 msgstr "点击播放"
 
-#: src/disco/containers/DiscoPane.js:60
+#: src/disco/containers/DiscoPane.js:79
 msgid "to find out more about add-ons"
 msgstr "进一步了解附加组件"
 
-#: src/disco/containers/DiscoPane.js:68
+#: src/disco/containers/DiscoPane.js:87
 msgid "Close video"
 msgstr "关闭视频"
 
-#: src/disco/containers/DiscoPane.js:74
+#: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "查看更多附加组件！"
-
-#: src/disco/containers/InstallButton.js:86
-msgid "Install"
-msgstr "安装"
