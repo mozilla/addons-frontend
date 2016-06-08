@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-08 08:38+0000\n"
-"PO-Revision-Date: 2016-06-01 18:04+0000\n"
+"PO-Revision-Date: 2016-06-08 16:47+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -24,16 +24,15 @@ msgstr "画像にマウスオーバーしてプレビュー"
 
 #: src/disco/components/Addon.js:138
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "インストールに失敗しました。再度試してください。"
 
 #: src/disco/components/Addon.js:140
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "ダウンロードに失敗しました。接続状況を確認してください。"
 
 #: src/disco/components/Addon.js:142
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "予期せぬ問題が発生しました"
+msgstr "予期せぬ問題が発生しました。"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -52,10 +51,7 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr ""
-"楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分"
-"好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを"
-"紹介します。"
+msgstr "楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを紹介します。"
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
