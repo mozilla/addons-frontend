@@ -1,9 +1,17 @@
 import {
   DOWNLOADING,
+  DOWNLOAD_PROGRESS,
   ERROR,
   INSTALLED,
+  INSTALL_COMPLETE,
+  INSTALL_ERROR,
+  INSTALL_STATE,
   INSTALLING,
+  START_DOWNLOAD,
+  START_INSTALL,
+  START_UNINSTALL,
   UNINSTALLED,
+  UNINSTALL_COMPLETE,
   UNINSTALLING,
 } from 'disco/constants';
 import installations from 'disco/reducers/installations';
@@ -21,7 +29,7 @@ describe('installations reducer', () => {
   it('adds an add-on on INSTALL_STATE', () => {
     assert.deepEqual(
       installations(undefined, {
-        type: 'INSTALL_STATE',
+        type: INSTALL_STATE,
         payload: {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
@@ -41,7 +49,7 @@ describe('installations reducer', () => {
   it('uses the add-ons status', () => {
     assert.deepEqual(
       installations(undefined, {
-        type: 'INSTALL_STATE',
+        type: INSTALL_STATE,
         payload: {
           guid: 'an-addon@me.com',
           url: 'https://cdn.amo/download/an-addon.xpi',
@@ -69,7 +77,7 @@ describe('installations reducer', () => {
     };
     assert.deepEqual(
       installations(state, {
-        type: 'START_DOWNLOAD',
+        type: START_DOWNLOAD,
         payload: {
           guid: 'my-addon@me.com',
         },
@@ -95,7 +103,7 @@ describe('installations reducer', () => {
     };
     assert.deepEqual(
       installations(state, {
-        type: 'DOWNLOAD_PROGRESS',
+        type: DOWNLOAD_PROGRESS,
         payload: {
           guid: 'my-addon@me.com',
           downloadProgress: 25,
@@ -122,7 +130,7 @@ describe('installations reducer', () => {
     };
     assert.deepEqual(
       installations(state, {
-        type: 'START_INSTALL',
+        type: START_INSTALL,
         payload: {
           guid: 'my-addon@me.com',
         },
@@ -148,7 +156,7 @@ describe('installations reducer', () => {
     };
     assert.deepEqual(
       installations(state, {
-        type: 'INSTALL_COMPLETE',
+        type: INSTALL_COMPLETE,
         payload: {
           guid: 'my-addon@me.com',
         },
@@ -174,7 +182,7 @@ describe('installations reducer', () => {
     };
     assert.deepEqual(
       installations(state, {
-        type: 'START_UNINSTALL',
+        type: START_UNINSTALL,
         payload: {
           guid: 'my-addon@me.com',
         },
@@ -200,7 +208,7 @@ describe('installations reducer', () => {
     };
     assert.deepEqual(
       installations(state, {
-        type: 'UNINSTALL_COMPLETE',
+        type: UNINSTALL_COMPLETE,
         payload: {
           guid: 'my-addon@me.com',
         },
@@ -226,7 +234,7 @@ describe('installations reducer', () => {
     };
     assert.deepEqual(
       installations(state, {
-        type: 'INSTALL_ERROR',
+        type: INSTALL_ERROR,
         payload: {
           guid: 'my-addon@me.com',
           error: 'an-error',

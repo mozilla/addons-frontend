@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
-import { EXTENSION_TYPE } from 'disco/constants';
+import { EXTENSION_TYPE, INSTALL_STATE, globalEvents } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
@@ -17,7 +17,7 @@ const { DiscoPane } = helpers;
 
 
 describe('AddonPage', () => {
-  function render() {
+  function render(props) {
     const store = createStore({
       addons: {foo: {type: EXTENSION_TYPE}},
       discoResults: [{addon: 'foo'}],
@@ -29,7 +29,8 @@ describe('AddonPage', () => {
     return findDOMNode(renderIntoDocument(
       <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <DiscoPane results={results} i18n={i18n} AddonComponent={MockedSubComponent} />
+          <DiscoPane results={results} i18n={i18n}
+            {...props} AddonComponent={MockedSubComponent} />
         </Provider>
       </I18nProvider>
     ));
@@ -96,6 +97,34 @@ describe('AddonPage', () => {
         discoResults: [{addon: 'two'}],
       });
       assert.deepEqual(props.results, [{slug: 'two', addon: 'two'}]);
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('calls dispatch when handleGlobalEvent is called with data', () => {
+      const dispatch = sinon.spy();
+      const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
+      const payload = {id: 'whatever'};
+      handleGlobalEvent(payload);
+      assert.ok(dispatch.calledWith({type: INSTALL_STATE, payload}));
+    });
+
+    it('is empty when there is no navigator', () => {
+      const configStub = {
+        get: sinon.stub().returns(true),
+      };
+      assert.deepEqual(
+        helpers.mapDispatchToProps(sinon.spy(), { _config: configStub }), {});
+    });
+  });
+
+  describe('componentDidMount', () => {
+    it('sets events', () => {
+      const fakeMozAddonManager = {
+        addEventListener: sinon.stub(),
+      };
+      render({mozAddonManager: fakeMozAddonManager});
+      assert.equal(fakeMozAddonManager.addEventListener.callCount, globalEvents.length);
     });
   });
 });

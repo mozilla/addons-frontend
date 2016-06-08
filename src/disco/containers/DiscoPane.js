@@ -5,9 +5,12 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 import { camelCaseProps } from 'core/utils';
 
+import config from 'config';
 import { getDiscoveryAddons } from 'disco/api';
 import { discoResults } from 'disco/actions';
 import { loadEntities } from 'core/actions';
+import { addChangeListeners } from 'disco/addonManager';
+import { INSTALL_STATE } from 'disco/constants';
 
 import Addon from 'disco/components/Addon';
 import translate from 'core/i18n/translate';
@@ -19,18 +22,29 @@ import videoWebm from 'disco/video/AddOns.webm';
 
 export class DiscoPane extends React.Component {
   static propTypes = {
+    handleGlobalEvent: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     results: PropTypes.arrayOf(PropTypes.object),
-    AddonComponent: PropTypes.object.isRequred,
+    AddonComponent: PropTypes.func.isRequred,
+    _addChangeListeners: PropTypes.func,
+    mozAddonManager: PropTypes.object,
   }
 
   static defaultProps = {
     AddonComponent: Addon,
+    mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    _addChangeListeners: addChangeListeners,
   }
 
   constructor() {
     super();
     this.state = {showVideo: false};
+  }
+
+  componentDidMount() {
+    const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
+    // Use addonManager.addChangeListener to setup and filter events.
+    _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
 
   showVideo = (e) => {
@@ -109,7 +123,18 @@ export function mapStateToProps(state) {
   };
 }
 
+export function mapDispatchToProps(dispatch, { _config = config } = {}) {
+  if (_config.get('server')) {
+    return {};
+  }
+  return {
+    handleGlobalEvent(payload) {
+      dispatch({type: INSTALL_STATE, payload});
+    },
+  };
+}
+
 export default asyncConnect([{
   deferred: true,
   promise: loadDataIfNeeded,
-}])(connect(mapStateToProps)(translate()(DiscoPane)));
+}])(connect(mapStateToProps, mapDispatchToProps)(translate()(DiscoPane)));

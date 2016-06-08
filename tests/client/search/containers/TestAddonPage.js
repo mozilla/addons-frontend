@@ -6,7 +6,7 @@ import AddonPage, { findAddon, loadAddonIfNeeded } from 'search/containers/Addon
 import createStore from 'search/store';
 import * as actions from 'core/actions';
 import * as api from 'core/api';
-import { stubAddonManager, unexpectedSuccess } from 'tests/client/helpers';
+import { unexpectedSuccess } from 'tests/client/helpers';
 
 describe('AddonPage', () => {
   const basicAddon = {
@@ -21,10 +21,6 @@ describe('AddonPage', () => {
     edit_url: 'https://addons.mozilla.org/developers/addon/my-addon/edit',
     review_url: 'https://addons.mozilla.org/en-US/editors/review/1865',
   };
-
-  beforeEach(() => {
-    stubAddonManager();
-  });
 
   function render({props, state}) {
     const store = createStore(state);

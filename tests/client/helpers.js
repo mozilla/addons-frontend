@@ -17,12 +17,13 @@ export function findByTag(root, tag) {
   return matches[0];
 }
 
-export function stubAddonManager({ getAddon = Promise.resolve({type: 'addon'}) } = {}) {
-  const fakeAddonManager = {};
-  fakeAddonManager.getAddon = sinon.stub().returns(getAddon);
-  fakeAddonManager.install = sinon.stub().returns(Promise.resolve());
-  fakeAddonManager.uninstall = sinon.stub().returns(Promise.resolve());
-  return fakeAddonManager;
+export function getFakeAddonManagerWrapper({ getAddon = Promise.resolve({type: 'addon'}) } = {}) {
+  return {
+    getAddon: sinon.stub().returns(getAddon),
+    install: sinon.stub().returns(Promise.resolve()),
+    uninstall: sinon.stub().returns(Promise.resolve()),
+    addChangeListerners: sinon.stub(),
+  };
 }
 
 export function unexpectedSuccess() {

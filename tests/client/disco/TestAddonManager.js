@@ -1,6 +1,9 @@
 import * as addonManager from 'disco/addonManager';
-import { installEventList } from 'disco/constants';
 import { unexpectedSuccess } from 'tests/client/helpers';
+import {
+  globalEventStatusMap,
+  installEventList,
+} from 'disco/constants';
 
 
 describe('addonManager', () => {
@@ -23,6 +26,7 @@ describe('addonManager', () => {
     fakeMozAddonManager = {
       createInstall: sinon.stub(),
       getAddonByID: sinon.stub(),
+      addEventListener: sinon.stub(),
     };
     fakeMozAddonManager.createInstall.returns(Promise.resolve(fakeInstallObj));
   });
@@ -105,5 +109,30 @@ describe('addonManager', () => {
       // If the code doesn't resolve this will blow up.
       return addonManager.uninstall('test-id', {_mozAddonManager: fakeMozAddonManager});
     });
+  });
+
+  describe('addChangeListener', () => {
+    const fakeEventCallback = sinon.stub();
+    fakeMozAddonManager = {
+      addEventListener: sinon.stub(),
+    };
+
+    const handleChangeEvent =
+      addonManager.addChangeListeners(fakeEventCallback, fakeMozAddonManager);
+
+    Object.keys(globalEventStatusMap).forEach((event) => {
+      const status = globalEventStatusMap[event];
+      it(`calls callback with status ${status}`, () => {
+        const id = 'foo@whatever';
+        const needsRestart = false;
+        handleChangeEvent({id, needsRestart, type: event});
+        assert.ok(fakeEventCallback.calledWith({guid: id, needsRestart, status}),
+          `Calls callback with "${status}" for "${event}"`);
+      });
+    });
+
+    it('throws on unknown event', () => assert.throws(() => {
+      handleChangeEvent({type: 'whatevs'});
+    }, Error, /Unknown global event/));
   });
 });

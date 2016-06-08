@@ -1,4 +1,10 @@
-import { installEventList } from 'disco/constants';
+import log from 'core/logger';
+
+import {
+  globalEvents,
+  globalEventStatusMap,
+  installEventList,
+} from 'disco/constants';
 
 
 export function getAddon(guid, {_mozAddonManager = window.navigator.mozAddonManager} = {}) {
@@ -35,4 +41,24 @@ export function uninstall(guid, {_mozAddonManager = window.navigator.mozAddonMan
       }
       return;
     });
+}
+
+export function addChangeListeners(callback, mozAddonManager) {
+  function handleChangeEvent(e) {
+    const { id, type, needsRestart } = e;
+    log.info('Event received', {type, id, needsRestart});
+    if (globalEventStatusMap.hasOwnProperty(type)) {
+      return callback({guid: id, status: globalEventStatusMap[type], needsRestart});
+    }
+    throw new Error(`Unknown global event: ${type}`);
+  }
+
+  if (mozAddonManager && mozAddonManager.addEventListener) {
+    for (const event of globalEvents) {
+      mozAddonManager.addEventListener(event, handleChangeEvent);
+    }
+  } else {
+    log.info('mozAddonManager.addEventListener not available');
+  }
+  return handleChangeEvent;
 }

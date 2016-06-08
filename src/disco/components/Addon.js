@@ -12,20 +12,28 @@ import * as addonManager from 'disco/addonManager';
 
 import InstallButton from 'disco/components/InstallButton';
 import {
-  validAddonTypes,
-  validInstallStates,
   DOWNLOAD_FAILED,
+  DOWNLOAD_PROGRESS,
   ERROR,
   EXTENSION_TYPE,
-  INSTALL_CATEGORY,
-  INSTALL_FAILED,
   INSTALLED,
+  INSTALL_CATEGORY,
+  INSTALL_COMPLETE,
+  INSTALL_ERROR,
+  INSTALL_FAILED,
+  INSTALL_STATE,
+  START_DOWNLOAD,
+  START_INSTALL,
+  START_UNINSTALL,
   THEME_INSTALL,
-  THEME_TYPE,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
-  UNINSTALL_CATEGORY,
+  THEME_TYPE,
   UNINSTALLED,
+  UNINSTALL_CATEGORY,
+  UNINSTALL_COMPLETE,
+  validAddonTypes,
+  validInstallStates,
 } from 'disco/constants';
 
 import 'disco/css/Addon.scss';
@@ -196,15 +204,15 @@ export function makeProgressHandler(dispatch, guid) {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
         100 * addonInstall.progress / addonInstall.maxProgress, 10);
-      dispatch({type: 'DOWNLOAD_PROGRESS', payload: {guid, downloadProgress}});
+      dispatch({type: DOWNLOAD_PROGRESS, payload: {guid, downloadProgress}});
     } else if (addonInstall.state === 'STATE_INSTALLING') {
-      dispatch({type: 'START_INSTALL', payload: {guid}});
+      dispatch({type: START_INSTALL, payload: {guid}});
     } else if (addonInstall.state === 'STATE_INSTALLED') {
-      dispatch({type: 'INSTALL_COMPLETE', payload: {guid}});
+      dispatch({type: INSTALL_COMPLETE, payload: {guid}});
     } else if (e.type === 'onDownloadFailed') {
-      dispatch({type: 'INSTALL_ERROR', payload: {guid, error: DOWNLOAD_FAILED}});
+      dispatch({type: INSTALL_ERROR, payload: {guid, error: DOWNLOAD_FAILED}});
     } else if (e.type === 'onInstallFailed') {
-      dispatch({type: 'INSTALL_ERROR', payload: {guid, error: INSTALL_FAILED}});
+      dispatch({type: INSTALL_ERROR, payload: {guid, error: INSTALL_FAILED}});
     }
   };
 }
@@ -221,15 +229,15 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
         .then(
           (addon) => {
             const status = addon.type === THEME_TYPE && !addon.isEnabled ? UNINSTALLED : INSTALLED;
-            dispatch({type: 'INSTALL_STATE', payload: {...payload, status}});
+            dispatch({type: INSTALL_STATE, payload: {...payload, status}});
           },
-          () => dispatch({type: 'INSTALL_STATE', payload: {...payload, status: UNINSTALLED}}));
+          () => dispatch({type: INSTALL_STATE, payload: {...payload, status: UNINSTALLED}}));
     },
 
-    install({ guid, i18n, installURL, name }) {
-      dispatch({type: 'START_DOWNLOAD', payload: {guid}});
+    install({ guid, installURL, name }) {
+      dispatch({type: START_DOWNLOAD, payload: {guid}});
       _tracking.sendEvent({action: 'addon', category: INSTALL_CATEGORY, label: name});
-      return _addonManager.install(installURL, makeProgressHandler(dispatch, guid, i18n));
+      return _addonManager.install(installURL, makeProgressHandler(dispatch, guid));
     },
 
     installTheme(node, guid, name, _themeAction = themeAction) {
@@ -237,21 +245,21 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
       _tracking.sendEvent({action: 'theme', category: INSTALL_CATEGORY, label: name});
       return new Promise((resolve) => {
         setTimeout(() => {
-          dispatch({type: 'INSTALL_STATE', payload: {guid, status: INSTALLED}});
+          dispatch({type: INSTALL_STATE, payload: {guid, status: INSTALLED}});
           resolve();
         }, 250);
       });
     },
 
     uninstall({ guid, name, type }) {
-      dispatch({type: 'START_UNINSTALL', payload: {guid}});
+      dispatch({type: START_UNINSTALL, payload: {guid}});
       const action = {
         [EXTENSION_TYPE]: 'addon',
         [THEME_TYPE]: 'theme',
       }[type] || 'invalid';
       _tracking.sendEvent({action, category: UNINSTALL_CATEGORY, label: name});
       return _addonManager.uninstall(guid)
-        .then(() => dispatch({type: 'UNINSTALL_COMPLETE', payload: {guid}}));
+        .then(() => dispatch({type: UNINSTALL_COMPLETE, payload: {guid}}));
     },
   };
 }
