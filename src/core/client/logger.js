@@ -6,16 +6,19 @@ import config from 'config';
  * This module loader is loaded when importing 'core/logger' in the client.
  */
 
-export function bindConsoleMethod(consoleMethodName, _consoleObj = window.console,
-                                  _function = Function) {
-  let consoleMethod;
-  let consoleFunc;
-  const appName = config.get('appName');
-  if (typeof _consoleObj[consoleMethodName] !== 'undefined') {
-    consoleMethod = _consoleObj[consoleMethodName];
-  } else {
+export function bindConsoleMethod(consoleMethodName, {_consoleObj = window.console,
+                                  _function = Function, _noop = () => {}, _config = config} = {}) {
+  if (typeof _consoleObj[consoleMethodName] === 'undefined') {
     throw new Error(`console method "${consoleMethodName}" does not exist`);
   }
+
+  if (_config.get('enableClientConsole') === false) {
+    return _noop;
+  }
+
+  let consoleFunc;
+  const appName = _config.get('appName');
+  const consoleMethod = _consoleObj[consoleMethodName];
 
   const app = `[${appName}]`;
 

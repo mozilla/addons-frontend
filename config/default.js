@@ -37,6 +37,8 @@ module.exports = {
   cookieName: 'jwt_api_auth_token',
   cookieSecure: true,
 
+  enableClientConsole: false,
+
   isDeployed: true,
   isDevelopment: false,
 
@@ -64,6 +66,7 @@ module.exports = {
     'cookieName',
     'cookieMaxAge',
     'cookieSecure',
+    'enableClientConsole',
     'defaultLang',
     'isDeployed',
     'isDevelopment',

@@ -8,6 +8,8 @@ module.exports = {
   apiHost,
   amoCDN,
 
+  enableClientConsole: true,
+
   // Content security policy.
   CSP: {
     directives: {
