@@ -28,6 +28,7 @@ import {
   THEME_RESET_PREVIEW,
   THEME_TYPE,
   UNINSTALLED,
+  UNINSTALLING,
   UNINSTALL_CATEGORY,
 } from 'disco/constants';
 import { getFakeAddonManagerWrapper, getFakeI18nInst } from 'tests/client/helpers';
@@ -63,7 +64,7 @@ describe('<Addon />', () => {
     it('renders a default error overlay', () => {
       const data = {...result, status: ERROR, setCurrentStatus: sinon.stub()};
       root = renderAddon(data);
-      const error = findDOMNode(root).querySelector('.error');
+      const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
         'An unexpected error occurred.',
@@ -77,7 +78,7 @@ describe('<Addon />', () => {
         ...result, status: ERROR, error: INSTALL_FAILED, setCurrentStatus: sinon.stub(),
       };
       root = renderAddon(data);
-      const error = findDOMNode(root).querySelector('.error');
+      const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
         'Installation failed. Please try again.',
@@ -91,7 +92,7 @@ describe('<Addon />', () => {
         ...result, status: ERROR, error: DOWNLOAD_FAILED, setCurrentStatus: sinon.stub(),
       };
       root = renderAddon(data);
-      const error = findDOMNode(root).querySelector('.error');
+      const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
         'Download failed. Please check your connection.',
@@ -101,7 +102,31 @@ describe('<Addon />', () => {
     });
 
     it('does not normally render an error', () => {
-      assert.notOk(findDOMNode(root).querySelector('.error'));
+      assert.notOk(findDOMNode(root).querySelector('.notification.error'));
+    });
+
+    it('renders a default restart notification', () => {
+      const data = { ...result, needsRestart: true };
+      root = renderAddon(data);
+      const restart = findDOMNode(root).querySelector('.notification.restart');
+      assert.equal(
+        restart.querySelector('p').textContent,
+        'Please restart Firefox to use this add-on.',
+        'restart message should be present');
+    });
+
+    it('renders a uninstallation restart notification', () => {
+      const data = { ...result, needsRestart: true, status: UNINSTALLING };
+      root = renderAddon(data);
+      const restart = findDOMNode(root).querySelector('.notification.restart');
+      assert.equal(
+        restart.querySelector('p').textContent,
+        'This add-on will be uninstalled after you restart Firefox.',
+        'restart uninstallation message should be present');
+    });
+
+    it('does not normally render a restart notification', () => {
+      assert.notOk(findDOMNode(root).querySelector('.notification.restart'));
     });
 
     it('renders the heading', () => {

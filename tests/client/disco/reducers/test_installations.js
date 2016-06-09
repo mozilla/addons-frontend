@@ -42,6 +42,29 @@ describe('installations reducer', () => {
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,
           status: UNINSTALLED,
+          needsRestart: false,
+        },
+      });
+  });
+
+  it('passes down needsRestart=true', () => {
+    assert.deepEqual(
+      installations(undefined, {
+        type: INSTALL_STATE,
+        payload: {
+          guid: 'my-addon@me.com',
+          url: 'https://cdn.amo/download/my-addon.xpi',
+          status: UNINSTALLING,
+          needsRestart: true,
+        },
+      }),
+      {
+        'my-addon@me.com': {
+          guid: 'my-addon@me.com',
+          url: 'https://cdn.amo/download/my-addon.xpi',
+          downloadProgress: 0,
+          status: UNINSTALLING,
+          needsRestart: true,
         },
       });
   });
@@ -61,6 +84,7 @@ describe('installations reducer', () => {
           url: undefined,
           downloadProgress: 0,
           status: INSTALLED,
+          needsRestart: false,
         },
       });
   });
@@ -80,6 +104,7 @@ describe('installations reducer', () => {
           url: undefined,
           downloadProgress: 0,
           status: UNINSTALLED,
+          needsRestart: false,
         },
       });
   });
@@ -100,6 +125,7 @@ describe('installations reducer', () => {
           url: 'https://cdn.amo/download/an-addon.xpi',
           downloadProgress: 0,
           status: INSTALLED,
+          needsRestart: false,
         },
       });
   });

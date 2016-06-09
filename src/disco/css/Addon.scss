@@ -80,34 +80,6 @@ $addon-padding: 20px;
     flex-grow: 1;
     position: relative;
 
-    > .error {
-      align-content: stretch;
-      align-items: center;
-      background: #c33c32 url('../img/warning.svg') no-repeat calc(100% - 40px) 50%;
-      bottom: 0;
-      color: #fff;
-      display: flex;
-      flex-direction: row;
-      left: 0;
-      padding: 15px 20px;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 10;
-
-      .message {
-        flex-grow: 1;
-      }
-
-      .close {
-        bottom: 10px;
-        color: #fff;
-        display: block;
-        left: 15px;
-        padding: 5px;
-        position: absolute;
-      }
-    }
 
     .copy {
       padding: 30px 20px;
@@ -120,4 +92,40 @@ $addon-padding: 20px;
     }
   }
 
+  .notification {
+    align-content: stretch;
+    align-items: center;
+    bottom: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    left: 0;
+    padding: 15px 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &.error {
+      background: #c33c32 url('../img/warning.svg') no-repeat calc(100% - 40px) 50%;
+      z-index: 20;
+    }
+
+    &.restart {
+      background: #70CF5B url('../img/restart.svg') no-repeat calc(100% - 40px) 50%;
+      z-index: 10;
+    }
+
+    .message {
+      flex-grow: 1;
+    }
+
+    .close {
+      bottom: 10px;
+      color: #fff;
+      display: block;
+      left: 15px;
+      padding: 5px;
+      position: absolute;
+    }
+  }
 }

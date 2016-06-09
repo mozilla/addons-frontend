@@ -29,6 +29,7 @@ import {
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
   THEME_TYPE,
+  UNINSTALLING,
   UNINSTALLED,
   UNINSTALL_CATEGORY,
 } from 'disco/constants';
@@ -56,6 +57,7 @@ export class Addon extends React.Component {
     iconUrl: PropTypes.string,
     id: PropTypes.string.isRequired,
     installURL: PropTypes.string,
+    needsRestart: PropTypes.bool.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
@@ -68,6 +70,7 @@ export class Addon extends React.Component {
   static defaultProps = {
     // Defaults themeAction to the imported func.
     themeAction,
+    needsRestart: false,
   }
 
   componentDidMount() {
@@ -84,9 +87,15 @@ export class Addon extends React.Component {
   }
 
   getError() {
-    return this.props.status === ERROR ? (<div className="error">
+    return this.props.status === ERROR ? (<div className="notification error">
       <p className="message">{this.errorMessage()}</p>
       <a className="close" href="#" onClick={this.closeError}>Close</a>
+    </div>) : null;
+  }
+
+  getRestart() {
+    return this.props.needsRestart ? (<div className="notification restart">
+      <p className="message">{this.restartMessage()}</p>
     </div>) : null;
   }
 
@@ -140,6 +149,16 @@ export class Addon extends React.Component {
     }
   }
 
+  restartMessage() {
+    const { status, i18n } = this.props;
+    switch (status) {
+      case UNINSTALLING:
+        return i18n.gettext('This add-on will be uninstalled after you restart Firefox.');
+      default:
+        return i18n.gettext('Please restart Firefox to use this add-on.');
+    }
+  }
+
   closeError = (e) => {
     e.preventDefault();
     this.setCurrentStatus();
@@ -174,6 +193,7 @@ export class Addon extends React.Component {
         {this.getLogo()}
         <div className="content">
           {this.getError()}
+          {this.getRestart()}
           <div className="copy">
             <h2
               ref="heading"
