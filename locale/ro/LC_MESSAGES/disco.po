@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-08 08:38+0000\n"
+"POT-Creation-Date: 2016-06-09 15:44+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -13,24 +13,32 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:120
 msgid "Preview %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon.js:123
+#: src/disco/components/Addon.js:129
 msgid "Hover over the image to preview"
 msgstr ""
 
-#: src/disco/components/Addon.js:138
+#: src/disco/components/Addon.js:144
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:148
 msgid "An unexpected error occurred."
+msgstr ""
+
+#: src/disco/components/Addon.js:156
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr ""
+
+#: src/disco/components/Addon.js:158
+msgid "Please restart Firefox to use this add-on."
 msgstr ""
 
 #: src/disco/components/InstallButton.js:80
