@@ -105,6 +105,27 @@ $addon-padding: 20px;
     right: 0;
     top: 0;
 
+    &.overlay-enter.overlay-enter-active {
+      transition: 300ms cubic-bezier(.19,.95,.39,1) 400ms;
+    }
+
+    &.overlay-enter {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+
+    &.overlay-leave.overlay-leave-active {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: 300ms cubic-bezier(.19,.95,.39,1);
+    }
+
+    &.overlay-leave,
+    &.overlay-enter.overlay-enter-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
     &.error {
       background: #c33c32 url('../img/warning.svg') no-repeat calc(100% - 40px) 50%;
       z-index: 20;
