@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { sprintf } from 'jed';
 import React, { PropTypes } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import translate from 'core/i18n/translate';
 import purify from 'core/purify';
@@ -87,14 +88,14 @@ export class Addon extends React.Component {
   }
 
   getError() {
-    return this.props.status === ERROR ? (<div className="notification error">
+    return this.props.status === ERROR ? (<div className="notification error" key="error-overlay">
       <p className="message">{this.errorMessage()}</p>
       <a className="close" href="#" onClick={this.closeError}>Close</a>
     </div>) : null;
   }
 
   getRestart() {
-    return this.props.needsRestart ? (<div className="notification restart">
+    return this.props.needsRestart ? (<div className="notification restart" key="restart-overlay">
       <p className="message">{this.restartMessage()}</p>
     </div>) : null;
   }
@@ -192,8 +193,14 @@ export class Addon extends React.Component {
         {this.getThemeImage()}
         {this.getLogo()}
         <div className="content">
-          {this.getError()}
-          {this.getRestart()}
+          <ReactCSSTransitionGroup
+            transitionName="overlay"
+            transitionEnterTimeout={700}
+            transitionLeaveTimeout={300}
+          >
+            {this.getError()}
+            {this.getRestart()}
+          </ReactCSSTransitionGroup>
           <div className="copy">
             <h2
               ref="heading"
