@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-09 15:44+0000\n"
-"PO-Revision-Date: 2016-06-08 15:55+0000\n"
+"PO-Revision-Date: 2016-06-09 17:58+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -36,11 +36,11 @@ msgstr "Ocorreu um erro inesperado."
 
 #: src/disco/components/Addon.js:156
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Este extra será desinstalado depois de reiniciar o Firefox."
 
 #: src/disco/components/Addon.js:158
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Por favor, reinicie o Firefox para utilizar este extra."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -59,10 +59,7 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr ""
-"Existem milhares de extras que permitem tornar o Firefox só seu — tudo desde "
-"temas de visuais divertidos a poderosas ferramentas e funcionalidades. Eis "
-"alguns fantásticos para ver."
+msgstr "Existem milhares de extras que permitem tornar o Firefox só seu — tudo desde temas de visuais divertidos a poderosas ferramentas e funcionalidades. Eis alguns fantásticos para ver."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
