@@ -40,6 +40,7 @@ export default function installations(state = {}, { type, payload }) {
       url: payload.url,
       downloadProgress: 0,
       status: normalizeStatus(payload.status),
+      needsRestart: payload.needsRestart || false,
     };
   } else if (type === START_DOWNLOAD) {
     addon.status = DOWNLOADING;
