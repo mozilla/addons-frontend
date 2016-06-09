@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-08 08:38+0000\n"
-"PO-Revision-Date: 2016-06-02 09:05+0000\n"
+"PO-Revision-Date: 2016-06-09 07:10+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -24,16 +24,15 @@ msgstr "Pasa por la imagen para visualizarla"
 
 #: src/disco/components/Addon.js:138
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Falló la instalación. Vuelve a intentarlo, por favor."
 
 #: src/disco/components/Addon.js:140
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Falló la descarga. Comprueba tu conexión, por favor."
 
 #: src/disco/components/Addon.js:142
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Se ha producido un error inesperado"
+msgstr "Se ha producido un error inesperado."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
