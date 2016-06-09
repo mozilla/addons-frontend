@@ -15,6 +15,7 @@ $switchToBackgroundRatio: 2.7;
 $switchStrokeOff: #858585;
 $switchStrokeOn: #00A920;
 $switchStrokeWidth: 1px;
+$switchHandleActivePosition: round(($size * $switchToBackgroundRatio) - ($size + ($switchHandleGap * 2 + $switchStrokeWidth)));
 
 $switchBackgroundOn: #57BD35;
 $switchBackgroundOff: #919191;
@@ -78,7 +79,8 @@ $installStripeColor2: #00C42E;
     height: $size + ($switchHandleGap * 2) + ($switchStrokeWidth * 2);
     overflow: hidden;
     position: relative;
-    width: $size * $switchToBackgroundRatio;
+    width: round($size * $switchToBackgroundRatio);
+    transition: border $transition;
 
     &:before,
     &:after {
@@ -103,9 +105,9 @@ $installStripeColor2: #00C42E;
       border-radius: 50%;
       bottom: $switchHandleGap;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-      left: $switchHandleGap;
+      transform: translateX($switchHandleGap);
       top: $switchHandleGap;
-      transition: left $transition, box-shadow $transition;
+      transition: transform $transition, box-shadow $transition;
       width: $size;
       height: $size;
       z-index: 3;
@@ -127,7 +129,7 @@ $installStripeColor2: #00C42E;
     }
     input + label {
       &:after {
-        left: $switchHandleGap;
+        transform: translateX($switchHandleGap);
       }
       &:hover:after {
         box-shadow: none;
@@ -145,8 +147,7 @@ $installStripeColor2: #00C42E;
            $installStripeColor2);
       }
       &:after {
-        left: auto;
-        right: $switchHandleGap;
+        transform: translateX($switchHandleActivePosition);
       }
       &:hover:after {
         box-shadow: none;
@@ -164,8 +165,7 @@ $installStripeColor2: #00C42E;
 
       &:after {
         background: $switchHandleActive;
-        left: auto;
-        right: $switchHandleGap;
+        transform: translateX($switchHandleActivePosition);
       }
     }
   }
@@ -190,8 +190,7 @@ $installStripeColor2: #00C42E;
     }
 
     &:after {
-      left: auto;
-      right: $switchHandleGap;
+      transform: translateX($switchHandleActivePosition);
     }
   }
 }
@@ -204,7 +203,7 @@ $installStripeColor2: #00C42E;
   right: 0;
   top: 0;
   width: 100%;
-  transition: transform 1s;
+  transition: transform $transition;
   transform: translateX(-100%);
 }
 
