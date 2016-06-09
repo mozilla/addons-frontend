@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-08 08:38+0000\n"
-"PO-Revision-Date: 2016-06-02 12:09+0000\n"
-"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
+"PO-Revision-Date: 2016-06-09 06:24+0000\n"
+"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -24,16 +24,15 @@ msgstr "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
 
 #: src/disco/components/Addon.js:138
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installatie mislukt. Probeer het opnieuw."
 
 #: src/disco/components/Addon.js:140
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Download mislukt. Controleer uw verbinding."
 
 #: src/disco/components/Addon.js:142
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Er is een onverwachte fout opgetreden"
+msgstr "Er is een onverwachte fout opgetreden."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -53,9 +52,7 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Er zijn duizenden add-ons waarmee u Firefox helemaal van uzelf kunt maken — "
-"variërend van leuke visuele thema’s tot krachtige hulpmiddelen en functies. "
-"Probeer deze geweldige voorbeelden eens uit."
+"Er zijn duizenden add-ons waarmee u Firefox helemaal van uzelf kunt maken — variërend van leuke visuele thema’s tot krachtige hulpmiddelen en functies. Probeer deze geweldige voorbeelden eens uit."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
