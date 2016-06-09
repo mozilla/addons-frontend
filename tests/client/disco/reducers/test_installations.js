@@ -1,17 +1,17 @@
 import {
+  DISABLED,
   DOWNLOADING,
   DOWNLOAD_PROGRESS,
+  ENABLED,
   ERROR,
-  INSTALLED,
   INSTALL_COMPLETE,
   INSTALL_ERROR,
   INSTALL_STATE,
+  INSTALLED,
   INSTALLING,
   START_DOWNLOAD,
-  START_INSTALL,
-  START_UNINSTALL,
-  UNINSTALLED,
   UNINSTALL_COMPLETE,
+  UNINSTALLED,
   UNINSTALLING,
 } from 'disco/constants';
 import installations from 'disco/reducers/installations';
@@ -40,6 +40,44 @@ describe('installations reducer', () => {
         'my-addon@me.com': {
           guid: 'my-addon@me.com',
           url: 'https://cdn.amo/download/my-addon.xpi',
+          downloadProgress: 0,
+          status: UNINSTALLED,
+        },
+      });
+  });
+
+  it('treats ENABLED as INSTALLED in INSTALL_STATE', () => {
+    assert.deepEqual(
+      installations(undefined, {
+        type: 'INSTALL_STATE',
+        payload: {
+          guid: 'my-addon@me.com',
+          status: ENABLED,
+        },
+      }),
+      {
+        'my-addon@me.com': {
+          guid: 'my-addon@me.com',
+          url: undefined,
+          downloadProgress: 0,
+          status: INSTALLED,
+        },
+      });
+  });
+
+  it('treats DISABLED as UNINSTALLED in INSTALL_STATE', () => {
+    assert.deepEqual(
+      installations(undefined, {
+        type: 'INSTALL_STATE',
+        payload: {
+          guid: 'my-addon@me.com',
+          status: DISABLED,
+        },
+      }),
+      {
+        'my-addon@me.com': {
+          guid: 'my-addon@me.com',
+          url: undefined,
           downloadProgress: 0,
           status: UNINSTALLED,
         },
@@ -119,32 +157,6 @@ describe('installations reducer', () => {
       });
   });
 
-  it('updates the status and downloadProgress on START_INSTALL', () => {
-    const state = {
-      'my-addon@me.com': {
-        guid: 'my-addon@me.com',
-        url: 'https://cdn.amo/download/my-addon.xpi',
-        downloadProgress: 75,
-        status: DOWNLOADING,
-      },
-    };
-    assert.deepEqual(
-      installations(state, {
-        type: START_INSTALL,
-        payload: {
-          guid: 'my-addon@me.com',
-        },
-      }),
-      {
-        'my-addon@me.com': {
-          guid: 'my-addon@me.com',
-          url: 'https://cdn.amo/download/my-addon.xpi',
-          downloadProgress: 100,
-          status: INSTALLING,
-        },
-      });
-  });
-
   it('updates the status on INSTALL_COMPLETE', () => {
     const state = {
       'my-addon@me.com': {
@@ -167,32 +179,6 @@ describe('installations reducer', () => {
           url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 100,
           status: INSTALLED,
-        },
-      });
-  });
-
-  it('updates the status on START_UNINSTALL', () => {
-    const state = {
-      'my-addon@me.com': {
-        guid: 'my-addon@me.com',
-        url: 'https://cdn.amo/download/my-addon.xpi',
-        downloadProgress: 100,
-        status: INSTALLED,
-      },
-    };
-    assert.deepEqual(
-      installations(state, {
-        type: START_UNINSTALL,
-        payload: {
-          guid: 'my-addon@me.com',
-        },
-      }),
-      {
-        'my-addon@me.com': {
-          guid: 'my-addon@me.com',
-          url: 'https://cdn.amo/download/my-addon.xpi',
-          downloadProgress: 0,
-          status: UNINSTALLING,
         },
       });
   });
