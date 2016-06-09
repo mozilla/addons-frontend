@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-08 08:38+0000\n"
+"POT-Creation-Date: 2016-06-09 15:44+0000\n"
 "PO-Revision-Date: 2016-06-08 15:51+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,25 +14,33 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:120
 msgid "Preview %(name)s"
 msgstr "预览 %(name)s"
 
-#: src/disco/components/Addon.js:123
+#: src/disco/components/Addon.js:129
 msgid "Hover over the image to preview"
 msgstr "悬停在图像上以预览"
 
-#: src/disco/components/Addon.js:138
+#: src/disco/components/Addon.js:144
 msgid "Installation failed. Please try again."
 msgstr "安装失败。请重试。"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Download failed. Please check your connection."
 msgstr "下载失败。请检查您的连接。"
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:148
 msgid "An unexpected error occurred."
 msgstr "发生意外错误。"
+
+#: src/disco/components/Addon.js:156
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr ""
+
+#: src/disco/components/Addon.js:158
+msgid "Please restart Firefox to use this add-on."
+msgstr ""
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
