@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-08 08:38+0000\n"
-"PO-Revision-Date: 2016-06-06 07:22+0000\n"
+"PO-Revision-Date: 2016-06-09 00:23+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -24,16 +24,15 @@ msgstr "Pro náhled přejeďte nad obrázkem myší"
 
 #: src/disco/components/Addon.js:138
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Instalace selhala. Zkuste to prosím znovu."
 
 #: src/disco/components/Addon.js:140
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Stahování selhalo. Zkontrolujte prosím své připojení."
 
 #: src/disco/components/Addon.js:142
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Došlo k neočekávané chybě"
+msgstr "Došlo k neočekávané chybě."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -53,6 +52,9 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
+"Jsou zde tisíce doplňků, díky kterým si můžete Firefox přizpůsobit podle \n"
+"sebe — od nádherných motivů vzhledu až po produktivní nástroje a funkce.\n"
+"Tady jsme pro vás vybrali některé z vynikajících doplňků."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
