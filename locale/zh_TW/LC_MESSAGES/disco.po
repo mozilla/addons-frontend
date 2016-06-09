@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-08 08:38+0000\n"
-"PO-Revision-Date: 2016-06-02 04:06+0000\n"
+"PO-Revision-Date: 2016-06-09 09:34+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -24,16 +24,15 @@ msgstr "滑過圖片進行預覽"
 
 #: src/disco/components/Addon.js:138
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "安裝失敗，請再試一次。"
 
 #: src/disco/components/Addon.js:140
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "下載失敗，請檢查網路連線。"
 
 #: src/disco/components/Addon.js:142
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "發生未預期的錯誤"
+msgstr "發生未預期的錯誤。"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -52,9 +51,7 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr ""
-"有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或"
-"是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
+msgstr "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
