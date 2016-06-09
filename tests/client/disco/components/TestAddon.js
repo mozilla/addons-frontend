@@ -19,6 +19,7 @@ import {
   ENABLED,
   ERROR,
   EXTENSION_TYPE,
+  INSTALLED,
   INSTALL_CATEGORY,
   INSTALL_FAILED,
   INSTALL_STATE,
@@ -224,10 +225,29 @@ describe('<Addon />', () => {
       assert.ok(themeAction.calledWith(themeImage, THEME_RESET_PREVIEW));
     });
 
-    it('runs preventDefault onClick', () => {
+    it('installs a theme when the theme image is clicked', () => {
       const preventDefault = sinon.stub();
       Simulate.click(themeImage, { preventDefault });
+      const installTheme = sinon.stub();
+      const data = { ...result, type: THEME_TYPE, themeAction,
+        status: UNINSTALLED, installTheme };
+      root = renderAddon(data);
+      themeImage = findDOMNode(root).querySelector('.theme-image');
+      Simulate.click(themeImage, { currentTarget: themeImage, preventDefault });
       assert.ok(preventDefault.called);
+      assert.ok(installTheme.called);
+    });
+
+    it('does not try to install theme if not UNINSTALLED', () => {
+      const preventDefault = sinon.stub();
+      const installTheme = sinon.stub();
+      const data = { ...result, type: THEME_TYPE, themeAction,
+        status: INSTALLED, installTheme };
+      root = renderAddon(data);
+      themeImage = findDOMNode(root).querySelector('.theme-image');
+      Simulate.click(themeImage, { currentTarget: themeImage, preventDefault });
+      assert.ok(preventDefault.called);
+      assert.notOk(installTheme.called);
     });
   });
 

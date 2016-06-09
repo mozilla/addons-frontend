@@ -58,6 +58,7 @@ export class Addon extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     id: PropTypes.string.isRequired,
+    installTheme: PropTypes.func.isRequired,
     installURL: PropTypes.string,
     needsRestart: PropTypes.bool.isRequired,
     previewURL: PropTypes.string,
@@ -115,11 +116,13 @@ export class Addon extends React.Component {
       return (<a href="#" className="theme-image"
                  data-browsertheme={this.getBrowserThemeData()}
                  onBlur={this.resetPreviewTheme}
-                 onClick={this.handleClick}
+                 onClick={this.clickInstallTheme}
                  onFocus={this.previewTheme}
                  onMouseOut={this.resetPreviewTheme}
                  onMouseOver={this.previewTheme}>
-        <img src={previewURL} alt={sprintf(i18n.gettext('Preview %(name)s'), { name })} /></a>);
+        <img src={previewURL}
+          alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })}
+        /></a>);
     }
     return null;
   }
@@ -166,8 +169,12 @@ export class Addon extends React.Component {
     this.setCurrentStatus();
   }
 
-  handleClick = (e) => {
+  clickInstallTheme = (e) => {
+    const { guid, installTheme, name, status, type } = this.props;
     e.preventDefault();
+    if (type === THEME_TYPE && status === UNINSTALLED) {
+      installTheme(e.currentTarget, guid, name);
+    }
   }
 
   previewTheme = (e) => {
