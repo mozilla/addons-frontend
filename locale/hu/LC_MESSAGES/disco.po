@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-09 15:44+0000\n"
-"PO-Revision-Date: 2016-06-08 13:34+0000\n"
-"Last-Translator: siparon <siparon@gmail.com>\n"
+"PO-Revision-Date: 2016-06-09 16:15+0000\n"
+"Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -36,11 +36,11 @@ msgstr "Váratlan hiba történt."
 
 #: src/disco/components/Addon.js:156
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
 
 #: src/disco/components/Addon.js:158
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
