@@ -30,22 +30,41 @@ img {
 .disco-pane {
   box-sizing: content-box;
   margin: 0 auto;
-  padding: 50px 20px;
-  width: 680px;
+  padding: 10px 20px 20px;
+  max-width: 680px;
+}
+
+@include respond-to('large') {
+  .disco-pane {
+    padding: 50px 20px 20px;
+  }
 }
 
 header {
-  border-bottom: 1px solid $header-border-color;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
+  margin: 0 0 20px;
+  padding: 20px 0 0;
 
   h1 {
     color: $primary-font-color;
     display: block;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.1;
     margin: 0 0 20px;
+  }
+}
+
+@include respond-to('large') {
+  header {
+    background: inherit;
+    border-bottom: 1px solid $header-border-color;
+    padding: 0 0 40px;
+    margin: 0 0 40px;
+
+    h1 {
+      font-size: 20px;
+      line-height: 1.5;
+    }
   }
 }
 
@@ -85,19 +104,26 @@ header {
 
 .disco-content {
   color: $header-copy-font-color;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.28;
-  margin-right: 50px;
-  width: 415px;
-
-  [dir=rtl] & {
-    margin-left: 50px;
-    margin-right: 0;
-  }
+  width: 100%;
 
   &:last-child {
     display: block;
     margin-bottom: 0;
+  }
+}
+
+@include respond-to('large') {
+  .disco-content {
+    font-size: 14px;
+    margin-right: 50px;
+    max-width: 415px;
+
+    [dir=rtl] & {
+      margin-left: 50px;
+      margin-right: 0;
+    }
   }
 }
 
@@ -151,7 +177,14 @@ header {
 }
 
 .video-wrapper {
+  display: none;
   position: relative;
+}
+
+@include respond-to('large') {
+  .video-wrapper {
+    display: block;
+  }
 }
 
 .play-video {
