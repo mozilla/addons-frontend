@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-09 15:44+0000\n"
-"PO-Revision-Date: 2016-06-05 15:21+0000\n"
+"PO-Revision-Date: 2016-06-09 08:44+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -20,21 +20,19 @@ msgstr "Anteprima di %(name)s"
 
 #: src/disco/components/Addon.js:129
 msgid "Hover over the image to preview"
-msgstr ""
-"Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
+msgstr "Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
 
 #: src/disco/components/Addon.js:144
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
 #: src/disco/components/Addon.js:146
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Non è riuscito il download del componente aggiuntivo. Controlla la connessione alla rete."
 
 #: src/disco/components/Addon.js:148
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Si è verificato un errore inatteso"
+msgstr "Si è verificato un errore inatteso."
 
 #: src/disco/components/Addon.js:156
 msgid "This add-on will be uninstalled after you restart Firefox."
@@ -62,10 +60,8 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Esistono migliaia di componenti aggiuntivi che ti consentiranno di "
-"personalizzare Firefox secondo le tue esigenze — di tutto e di più, da "
-"simpatici temi fino a strumenti e caratteristiche avanzate. Eccone alcuni "
-"tra i migliori che potresti provare."
+"Esistono migliaia di componenti aggiuntivi che ti consentiranno di personalizzare Firefox secondo le tue esigenze — di tutto e di più, da simpatici temi fino a strumenti e caratteristiche avanzate. "
+"Eccone alcuni tra i migliori che potresti provare."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
