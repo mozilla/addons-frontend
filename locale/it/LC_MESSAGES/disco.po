@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-09 15:44+0000\n"
-"PO-Revision-Date: 2016-06-09 08:44+0000\n"
+"PO-Revision-Date: 2016-06-10 11:05+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -36,11 +36,11 @@ msgstr "Si è verificato un errore inatteso."
 
 #: src/disco/components/Addon.js:156
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di Firefox."
 
 #: src/disco/components/Addon.js:158
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "riavvia Firefox per utilizzare questo componente aggiuntivo."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
