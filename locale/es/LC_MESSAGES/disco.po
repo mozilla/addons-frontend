@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-09 15:44+0000\n"
-"PO-Revision-Date: 2016-06-09 07:10+0000\n"
+"PO-Revision-Date: 2016-06-10 12:11+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -36,11 +36,11 @@ msgstr "Se ha producido un error inesperado."
 
 #: src/disco/components/Addon.js:156
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "El complemento se desinstalará tras reiniciar Firefox."
 
 #: src/disco/components/Addon.js:158
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Por favor, reinicia Firefox para usar este complemento."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
