@@ -10,6 +10,7 @@ import config from 'config';
 import themeAction, { getThemeData } from 'disco/themePreview';
 import tracking from 'core/tracking';
 import * as addonManager from 'disco/addonManager';
+import log from 'core/logger';
 
 import InstallButton from 'disco/components/InstallButton';
 import {
@@ -258,7 +259,10 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
             const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
             dispatch({type: INSTALL_STATE, payload: {...payload, status}});
           },
-          () => dispatch({type: INSTALL_STATE, payload: {...payload, status: UNINSTALLED}}));
+          () => {
+            log.info('Add-on not found so setting status to UNINSTALLED');
+            dispatch({type: INSTALL_STATE, payload: {...payload, status: UNINSTALLED}});
+          });
     },
 
     install({ guid, installURL, name }) {

@@ -25,21 +25,27 @@ export function install(url, eventCallback,
     .then((installObj) => {
       const callback = (e) => eventCallback(installObj, e);
       for (const event of installEventList) {
+        log.info(`[install] Adding listener for ${event}`);
         installObj.addEventListener(event, callback);
       }
+      log.info('Events to handle the installation initialized.');
       return installObj.install();
     });
 }
 
 export function uninstall(guid, {_mozAddonManager = window.navigator.mozAddonManager} = {}) {
   return getAddon(guid, {_mozAddonManager})
-    .then((addon) => addon.uninstall())
+    .then((addon) => {
+      log.info(`Requesting uninstall of ${guid}`);
+      return addon.uninstall();
+    })
     .then((result) => {
       // Until bug 1268075 this will resolve with a boolean
       // for success and failure.
       if (result === false) {
         throw new Error('Uninstall failed');
       }
+      log.info('Uninstall complete');
       return;
     });
 }
@@ -56,8 +62,10 @@ export function addChangeListeners(callback, mozAddonManager) {
 
   if (mozAddonManager && mozAddonManager.addEventListener) {
     for (const event of globalEvents) {
+      log.info(`adding event listener for "${event}"`);
       mozAddonManager.addEventListener(event, handleChangeEvent);
     }
+    log.info('Global change event listeners have been initialized');
   } else {
     log.info('mozAddonManager.addEventListener not available');
   }
