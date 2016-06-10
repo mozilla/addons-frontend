@@ -12,7 +12,9 @@ export const UNINSTALLING = 'UNINSTALLING';
 export const UNKNOWN = 'UNKNOWN';
 export const validInstallStates = [
   DISABLED,
+  DISABLING,
   ENABLED,
+  ENABLING,
   DOWNLOADING,
   ENABLED,
   ERROR,

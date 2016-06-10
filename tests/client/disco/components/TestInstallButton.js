@@ -7,6 +7,8 @@ import {
 } from 'disco/components/InstallButton';
 import {
   DOWNLOADING,
+  DISABLING,
+  ENABLING,
   INSTALLED,
   INSTALLING,
   THEME_TYPE,
@@ -98,6 +100,14 @@ describe('<InstallButton />', () => {
     assert.throws(() => {
       renderButton({status: 'BOGUS'});
     }, Error, 'Invalid add-on status');
+  });
+
+  it('should not throw for ENABLING', () => {
+    renderButton({status: ENABLING});
+  });
+
+  it('should not throw for DISABLING', () => {
+    renderButton({status: DISABLING});
   });
 
   it('should call installTheme function on click when uninstalled theme', () => {
