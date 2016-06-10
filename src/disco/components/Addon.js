@@ -260,7 +260,7 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
             dispatch({type: INSTALL_STATE, payload: {...payload, status}});
           },
           () => {
-            log.info('Add-on not found so setting status to UNINSTALLED');
+            log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
             dispatch({type: INSTALL_STATE, payload: {...payload, status: UNINSTALLED}});
           });
     },
