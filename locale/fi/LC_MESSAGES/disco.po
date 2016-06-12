@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-09 15:44+0000\n"
-"PO-Revision-Date: 2016-06-07 20:18+0000\n"
+"PO-Revision-Date: 2016-06-12 19:23+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -24,24 +24,23 @@ msgstr "Esikatsele osoittamalla kuvaa"
 
 #: src/disco/components/Addon.js:144
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Asennus epäonnistui. Yritä uudestaan."
 
 #: src/disco/components/Addon.js:146
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Lataus epäonnistui. Tarkista verkkoyhteys."
 
 #: src/disco/components/Addon.js:148
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Tapahtui odottamaton virhe"
+msgstr "Tapahtui odottamaton virhe."
 
 #: src/disco/components/Addon.js:156
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Tämä lisäosa poistetaan, kun käynnistät Firefoxin uudestaan."
 
 #: src/disco/components/Addon.js:158
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Käynnistä Firefox uudestaan, jotta voit käyttää tätä lisäosaa."
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -60,7 +59,7 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr ""
+msgstr "Firefoxille on tuhansia lisäosia, joilla teet siitä omanlaisesi – kaikkea hauskoista teemoista tehokkaisiin työkaluihin ja ominaisuuksiin. Tässä on muutamia hyviä lisäosia katsottavaksi."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
