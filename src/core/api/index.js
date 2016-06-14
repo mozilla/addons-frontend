@@ -7,16 +7,16 @@ import 'isomorphic-fetch';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
-export const addon = new Schema('addons', {idAttribute: 'slug'});
-export const user = new Schema('users', {idAttribute: 'username'});
+export const addon = new Schema('addons', { idAttribute: 'slug' });
+export const user = new Schema('users', { idAttribute: 'username' });
 
 function makeQueryString(query) {
-  return url.format({query});
+  return url.format({ query });
 }
 
-export function callApi({endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
-                         body, credentials}) {
-  const queryString = makeQueryString({...params, lang: state.lang});
+export function callApi({ endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
+                         body, credentials }) {
+  const queryString = makeQueryString({ ...params, lang: state.lang });
   const options = {
     headers: {},
     method,
@@ -47,8 +47,8 @@ export function search({ api, page, query }) {
   // TODO: Get the language from the server.
   return callApi({
     endpoint: 'internal/addons/search',
-    schema: {results: arrayOf(addon)},
-    params: {q: query, page},
+    schema: { results: arrayOf(addon) },
+    params: { q: query, page },
     state: api,
     auth: true,
   });
@@ -67,7 +67,7 @@ export function login({ api, code, state }) {
   return callApi({
     endpoint: 'internal/accounts/login',
     method: 'post',
-    body: {code, state},
+    body: { code, state },
     state: api,
     credentials: true,
   });

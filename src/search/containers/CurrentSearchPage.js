@@ -8,7 +8,7 @@ export function mapStateToProps(state) {
   return state.search;
 }
 
-function performSearch({dispatch, page, query, api}) {
+function performSearch({ dispatch, page, query, api }) {
   if (!query) {
     return Promise.resolve();
   }
@@ -18,7 +18,7 @@ function performSearch({dispatch, page, query, api}) {
     .catch(() => dispatch(searchFail({ page, query })));
 }
 
-export function isLoaded({page, query, state}) {
+export function isLoaded({ page, query, state }) {
   return state.query === query && state.page === page && !state.loading;
 }
 
@@ -27,12 +27,12 @@ export function parsePage(page) {
   return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
 }
 
-export function loadSearchResultsIfNeeded({store: {dispatch, getState}, location}) {
+export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, location }) {
   const query = location.query.q;
   const page = parsePage(location.query.page);
   const state = getState();
-  if (!isLoaded({state: state.search, query, page})) {
-    return performSearch({dispatch, page, query, api: state.api});
+  if (!isLoaded({ state: state.search, query, page })) {
+    return performSearch({ dispatch, page, query, api: state.api });
   }
   return true;
 }

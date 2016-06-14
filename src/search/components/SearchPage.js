@@ -23,7 +23,7 @@ export default class SearchPage extends React.Component {
     const { count, loading, page, query, results } = this.props;
     const pathname = '/search/';
     const paginator = query && count > 0 ?
-      <Paginate count={count} pathname={pathname} query={{q: query}} currentPage={page} /> : [];
+      <Paginate count={count} pathname={pathname} query={{ q: query }} currentPage={page} /> : [];
     return (
       <div className="search-page">
         <h1>{_('Add-on Search')}</h1>

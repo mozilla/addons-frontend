@@ -9,9 +9,9 @@ import * as api from 'core/api';
 
 describe('CurrentSearchPage.mapStateToProps()', () => {
   const state = {
-    addons: {ab: {slug: 'ab', name: 'ad-block'},
-             cd: {slug: 'cd', name: 'cd-block'}},
-    search: {query: 'ad-block', loading: false, results: [{slug: 'ab', name: 'ad-block'}]},
+    addons: { ab: { slug: 'ab', name: 'ad-block' },
+             cd: { slug: 'cd', name: 'cd-block' } },
+    search: { query: 'ad-block', loading: false, results: [{ slug: 'ab', name: 'ad-block' }] },
   };
   const props = mapStateToProps(state);
 
@@ -25,27 +25,27 @@ describe('CurrentSearchPage.isLoaded()', () => {
     page: 2,
     query: 'ad-block',
     loading: false,
-    results: [{slug: 'ab', name: 'ad-block'}],
+    results: [{ slug: 'ab', name: 'ad-block' }],
   };
 
   it('is loaded when not loading and page and query page', () => {
-    assert(isLoaded({state, page: 2, query: 'ad-block'}));
+    assert(isLoaded({ state, page: 2, query: 'ad-block' }));
   });
 
   it('is not loaded when loading', () => {
     assert(!isLoaded({
-      state: Object.assign({}, state, {loading: true}),
+      state: Object.assign({}, state, { loading: true }),
       page: 2,
       query: 'ad-block',
     }));
   });
 
   it('is not loaded when the query does not match', () => {
-    assert(!isLoaded({state, page: 2, query: 'youtube'}));
+    assert(!isLoaded({ state, page: 2, query: 'youtube' }));
   });
 
   it('is not loaded when the page does not match', () => {
-    assert(!isLoaded({state, page: 3, query: 'ad-block'}));
+    assert(!isLoaded({ state, page: 3, query: 'ad-block' }));
   });
 });
 
@@ -82,47 +82,47 @@ describe('CurrentSearchPage.parsePage()', () => {
 describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
   it('does not dispatch on undefined query', () => {
     const dispatchSpy = sinon.spy();
-    const state = {loading: false};
-    const store = {dispatch: dispatchSpy, getState: () => ({search: state})};
-    const location = {query: {page: undefined, q: undefined}};
-    loadSearchResultsIfNeeded({store, location});
+    const state = { loading: false };
+    const store = { dispatch: dispatchSpy, getState: () => ({ search: state }) };
+    const location = { query: { page: undefined, q: undefined } };
+    loadSearchResultsIfNeeded({ store, location });
     assert.notOk(dispatchSpy.called);
   });
 
   it('returns right away when loaded', () => {
     const page = 10;
     const query = 'no ads';
-    const state = {loading: false, page, query};
-    const store = {dispatch: sinon.spy(), getState: () => ({search: state})};
-    const location = {query: {page, q: query}};
-    assert.strictEqual(loadSearchResultsIfNeeded({store, location}), true);
+    const state = { loading: false, page, query };
+    const store = { dispatch: sinon.spy(), getState: () => ({ search: state }) };
+    const location = { query: { page, q: query } };
+    assert.strictEqual(loadSearchResultsIfNeeded({ store, location }), true);
   });
 
   it('loads the search results when needed', () => {
     const page = 10;
     const query = 'no ads';
     const state = {
-      api: {token: 'a.jwt.token'},
-      search: {loading: false, page, query: 'old query'},
+      api: { token: 'a.jwt.token' },
+      search: { loading: false, page, query: 'old query' },
     };
     const dispatch = sinon.spy();
-    const store = {dispatch, getState: () => state};
-    const location = {query: {page, q: query}};
+    const store = { dispatch, getState: () => state };
+    const location = { query: { page, q: query } };
     const mockApi = sinon.mock(api);
     const entities = sinon.stub();
     const result = sinon.stub();
     mockApi
       .expects('search')
       .once()
-      .withArgs({page, query, api: state.api})
-      .returns(Promise.resolve({entities, result}));
-    return loadSearchResultsIfNeeded({store, location}).then(() => {
+      .withArgs({ page, query, api: state.api })
+      .returns(Promise.resolve({ entities, result }));
+    return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       assert(
         dispatch.firstCall.calledWith(actions.searchStart(query, page)),
         'searchStart not called');
       assert(
-        dispatch.secondCall.calledWith(actions.searchLoad({query, entities, result})),
+        dispatch.secondCall.calledWith(actions.searchLoad({ query, entities, result })),
         'searchLoad not called');
     });
   });
@@ -132,24 +132,24 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const query = 'no ads';
     const state = {
       api: {},
-      search: {loading: false, page, query: 'old query'},
+      search: { loading: false, page, query: 'old query' },
     };
     const dispatch = sinon.spy();
-    const store = {dispatch, getState: () => state};
-    const location = {query: {page, q: query}};
+    const store = { dispatch, getState: () => state };
+    const location = { query: { page, q: query } };
     const mockApi = sinon.mock(api);
     mockApi
       .expects('search')
       .once()
-      .withArgs({page, query, api: state.api})
+      .withArgs({ page, query, api: state.api })
       .returns(Promise.reject());
-    return loadSearchResultsIfNeeded({store, location}).then(() => {
+    return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       assert(
         dispatch.firstCall.calledWith(actions.searchStart(query, page)),
         'searchStart not called');
       assert(
-        dispatch.secondCall.calledWith(actions.searchFail({page, query})),
+        dispatch.secondCall.calledWith(actions.searchFail({ page, query })),
         'searchFail not called');
     });
   });

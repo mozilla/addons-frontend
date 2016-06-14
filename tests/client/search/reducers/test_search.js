@@ -2,25 +2,25 @@ import search from 'search/reducers/search';
 
 describe('search reducer', () => {
   it('defaults to a null query', () => {
-    const { query } = search(undefined, {type: 'unrelated'});
+    const { query } = search(undefined, { type: 'unrelated' });
     assert.strictEqual(query, null);
   });
 
   it('defaults to not loading', () => {
-    const { loading } = search(undefined, {type: 'unrelated'});
+    const { loading } = search(undefined, { type: 'unrelated' });
     assert.strictEqual(loading, false);
   });
 
   it('defaults to empty results', () => {
-    const { results } = search(undefined, {type: 'unrelated'});
+    const { results } = search(undefined, { type: 'unrelated' });
     assert.deepEqual(results, []);
   });
 
   describe('SET_QUERY', () => {
     it('sets the query', () => {
-      const state = search(undefined, {type: 'SET_QUERY', payload: {query: 'foo'}});
+      const state = search(undefined, { type: 'SET_QUERY', payload: { query: 'foo' } });
       assert.equal(state.query, 'foo');
-      const newState = search(state, {type: 'SET_QUERY', payload: {query: 'bar'}});
+      const newState = search(state, { type: 'SET_QUERY', payload: { query: 'bar' } });
       assert.equal(newState.query, 'bar');
     });
   });
@@ -28,8 +28,8 @@ describe('search reducer', () => {
   describe('SEARCH_STARTED', () => {
     it('sets the query and loading', () => {
       const state = search(
-        {query: 'bar', loading: false, results: [{slug: 'bar'}]},
-        {type: 'SEARCH_STARTED', payload: {query: 'foo'}});
+        { query: 'bar', loading: false, results: [{ slug: 'bar' }] },
+        { type: 'SEARCH_STARTED', payload: { query: 'foo' } });
       assert.equal(state.query, 'foo');
       assert.strictEqual(state.loading, true);
       assert.deepEqual(state.results, []);
@@ -47,12 +47,12 @@ describe('search reducer', () => {
         results: [],
       };
       response = {
-        result: {results: ['foo', 'food']},
+        result: { results: ['foo', 'food'] },
         entities: {
           addons: {
-            bar: {slug: 'bar'},
-            foo: {slug: 'foo'},
-            food: {slug: 'food'},
+            bar: { slug: 'bar' },
+            foo: { slug: 'foo' },
+            food: { slug: 'food' },
           },
         },
       };
@@ -80,13 +80,13 @@ describe('search reducer', () => {
 
     it('sets the results', () => {
       const { results } = getNextState();
-      assert.deepEqual(results, [{slug: 'foo'}, {slug: 'food'}]);
+      assert.deepEqual(results, [{ slug: 'foo' }, { slug: 'food' }]);
     });
 
     it('sets the results in order', () => {
       response.result.results = ['food', 'foo'];
       const { results } = getNextState();
-      assert.deepEqual(results, [{slug: 'food'}, {slug: 'foo'}]);
+      assert.deepEqual(results, [{ slug: 'food' }, { slug: 'foo' }]);
     });
   });
 
@@ -94,9 +94,9 @@ describe('search reducer', () => {
     it('resets the initialState with page and query', () => {
       const page = 5;
       const query = 'add-ons';
-      const initialState = {foo: 'bar', query: 'hi', page: 100, results: [1, 2, 3]};
-      const state = search(initialState, {type: 'SEARCH_FAILED', payload: {page, query}});
-      assert.deepEqual(state, {count: 0, loading: false, page, query, results: []});
+      const initialState = { foo: 'bar', query: 'hi', page: 100, results: [1, 2, 3] };
+      const state = search(initialState, { type: 'SEARCH_FAILED', payload: { page, query } });
+      assert.deepEqual(state, { count: 0, loading: false, page, query, results: [] });
     });
   });
 });

@@ -16,7 +16,7 @@ describe('<SearchForm />', () => {
     }
 
     getChildContext() {
-      return {router};
+      return { router };
     }
 
     render() {
@@ -25,7 +25,7 @@ describe('<SearchForm />', () => {
   }
 
   beforeEach(() => {
-    router = {push: sinon.spy()};
+    router = { push: sinon.spy() };
     root = renderIntoDocument(<SearchFormWrapper />).refs.root;
     form = root.refs.form;
     input = root.refs.query;

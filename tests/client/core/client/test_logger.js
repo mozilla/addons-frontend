@@ -17,7 +17,7 @@ describe('logger.bindConsoleMethod()', () => {
   });
 
   function getAlias(method = 'info', opts = {}) {
-    return bindConsoleMethod(method, {_consoleObj: fakeConsole, _config: fakeConfig, ...opts});
+    return bindConsoleMethod(method, { _consoleObj: fakeConsole, _config: fakeConfig, ...opts });
   }
 
   it('aliases as expected', () => {
@@ -39,7 +39,7 @@ describe('logger.bindConsoleMethod()', () => {
         apply: sinon.stub(),
       },
     };
-    const infoAlias = getAlias('info', {_function: fakeFunc});
+    const infoAlias = getAlias('info', { _function: fakeFunc });
     infoAlias('hello');
     assert.ok(fakeFunc.prototype.apply.called);
   });
@@ -47,7 +47,7 @@ describe('logger.bindConsoleMethod()', () => {
   it('uses a noop function if the client console loggin is off', () => {
     fakeConfig.get.withArgs('enableClientConsole').returns(false);
     const fakeNoopFunc = sinon.stub();
-    const infoAlias = getAlias('info', {_noop: fakeNoopFunc});
+    const infoAlias = getAlias('info', { _noop: fakeNoopFunc });
     infoAlias('hello');
     assert.ok(fakeNoopFunc.called);
   });
@@ -56,7 +56,7 @@ describe('logger.bindConsoleMethod()', () => {
     fakeConfig.get.withArgs('enableClientConsole').returns(false);
     const fakeNoopFunc = sinon.stub();
     assert.throws(() => {
-      getAlias('bazinga', {_noop: fakeNoopFunc});
+      getAlias('bazinga', { _noop: fakeNoopFunc });
     }, Error, 'console method "bazinga" does not exist');
   });
 });

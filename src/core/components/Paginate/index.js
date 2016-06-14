@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import './Paginate.scss';
 
-function makePageNumbers({start, end}) {
+function makePageNumbers({ start, end }) {
   const pages = [];
   for (let i = start; i <= end; i++) {
     pages.push(i);
@@ -40,16 +40,16 @@ export default class Paginate extends React.Component {
 
     // If we can show all of the pages, show them all.
     if (pageCount <= showPages) {
-      return makePageNumbers({start: 1, end: pageCount});
+      return makePageNumbers({ start: 1, end: pageCount });
     // If we are showing less on the right than we should, define the start by the end.
     } else if (end - currentPage < showExtra) {
-      return makePageNumbers({start: end - showPages + 1, end});
+      return makePageNumbers({ start: end - showPages + 1, end });
     // If we are showing less on the left than we should, define the end by the start.
     } else if (currentPage - start < showExtra) {
-      return makePageNumbers({start, end: start + showPages - 1});
+      return makePageNumbers({ start, end: start + showPages - 1 });
     }
     // We're showing the maximum number of pages on each side, start and end are correct.
-    return makePageNumbers({start, end});
+    return makePageNumbers({ start, end });
   }
 
   makeLink({ currentPage, page, pathname, query, text }) {
@@ -57,8 +57,8 @@ export default class Paginate extends React.Component {
     if (currentPage === page || page < 1 || page > this.pageCount()) {
       child = text || page;
     } else {
-      const newQuery = {page, ...query};
-      child = <Link to={{pathname, query: newQuery}}>{text || page}</Link>;
+      const newQuery = { page, ...query };
+      child = <Link to={{ pathname, query: newQuery }}>{text || page}</Link>;
     }
     return <li key={page} className="paginator--item">{child}</li>;
   }
@@ -67,9 +67,9 @@ export default class Paginate extends React.Component {
     const { currentPage, pathname, query } = this.props;
     return (
       <ul className="paginator">
-        {this.makeLink({page: currentPage - 1, currentPage, pathname, query, text: 'Prev'})}
-        {this.visiblePages().map((page) => this.makeLink({page, currentPage, pathname, query}))}
-        {this.makeLink({page: currentPage + 1, currentPage, pathname, query, text: 'Next'})}
+        {this.makeLink({ page: currentPage - 1, currentPage, pathname, query, text: 'Prev' })}
+        {this.visiblePages().map((page) => this.makeLink({ page, currentPage, pathname, query }))}
+        {this.makeLink({ page: currentPage + 1, currentPage, pathname, query, text: 'Next' })}
       </ul>
     );
   }

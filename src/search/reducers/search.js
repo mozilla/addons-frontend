@@ -10,9 +10,9 @@ export default function search(state = initialState, action) {
   const { payload } = action;
   switch (action.type) {
     case 'SET_QUERY':
-      return {...state, query: payload.query};
+      return { ...state, query: payload.query };
     case 'SEARCH_STARTED':
-      return {...state, ...payload, count: 0, loading: true, results: []};
+      return { ...state, ...payload, count: 0, loading: true, results: [] };
     case 'SEARCH_LOADED':
       return {
         ...state,

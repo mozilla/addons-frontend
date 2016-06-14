@@ -4,11 +4,11 @@ describe('users reducer', () => {
   let originalState;
 
   beforeEach(() => {
-    originalState = {foo: {username: 'foo'}, bar: {username: 'bar'}};
+    originalState = { foo: { username: 'foo' }, bar: { username: 'bar' } };
   });
 
   it('returns the old state', () => {
-    assert.strictEqual(originalState, users(originalState, {type: 'BLAH'}));
+    assert.strictEqual(originalState, users(originalState, { type: 'BLAH' }));
   });
 
   it('stores users from entities', () => {
@@ -16,13 +16,13 @@ describe('users reducer', () => {
       payload: {
         entities: {
           users: {
-            baz: {username: 'baz'},
+            baz: { username: 'baz' },
           },
         },
       },
     });
     assert.deepEqual(
       state,
-      {foo: {username: 'foo'}, bar: {username: 'bar'}, baz: {username: 'baz'}});
+      { foo: { username: 'foo' }, bar: { username: 'bar' }, baz: { username: 'baz' } });
   });
 });

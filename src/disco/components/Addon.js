@@ -41,7 +41,7 @@ import 'disco/css/Addon.scss';
 function sanitizeHTML(text, allowTags = []) {
   // TODO: Accept tags to allow and run through dom-purify.
   return {
-    __html: purify.sanitize(text, {ALLOWED_TAGS: allowTags}),
+    __html: purify.sanitize(text, { ALLOWED_TAGS: allowTags }),
   };
 }
 
@@ -81,7 +81,7 @@ export class Addon extends React.Component {
 
   setCurrentStatus() {
     const { guid, installURL, setCurrentStatus } = this.props;
-    setCurrentStatus({guid, installURL});
+    setCurrentStatus({ guid, installURL });
   }
 
   getBrowserThemeData() {
@@ -119,7 +119,7 @@ export class Addon extends React.Component {
                  onFocus={this.previewTheme}
                  onMouseOut={this.resetPreviewTheme}
                  onMouseOver={this.previewTheme}>
-        <img src={previewURL} alt={sprintf(i18n.gettext('Preview %(name)s'), {name})} /></a>);
+        <img src={previewURL} alt={sprintf(i18n.gettext('Preview %(name)s'), { name })} /></a>);
     }
     return null;
   }
@@ -226,7 +226,7 @@ export function mapStateToProps(state, ownProps, { _tracking = tracking } = {}) 
     ...addon,
     installTheme(node, guid, name, _themeAction = themeAction) {
       _themeAction(node, THEME_INSTALL);
-      _tracking.sendEvent({action: 'theme', category: INSTALL_CATEGORY, label: name});
+      _tracking.sendEvent({ action: 'theme', category: INSTALL_CATEGORY, label: name });
     },
   };
 }
@@ -236,11 +236,11 @@ export function makeProgressHandler(dispatch, guid) {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
         100 * addonInstall.progress / addonInstall.maxProgress, 10);
-      dispatch({type: DOWNLOAD_PROGRESS, payload: {guid, downloadProgress}});
+      dispatch({ type: DOWNLOAD_PROGRESS, payload: { guid, downloadProgress } });
     } else if (e.type === 'onDownloadFailed') {
-      dispatch({type: INSTALL_ERROR, payload: {guid, error: DOWNLOAD_FAILED}});
+      dispatch({ type: INSTALL_ERROR, payload: { guid, error: DOWNLOAD_FAILED } });
     } else if (e.type === 'onInstallFailed') {
-      dispatch({type: INSTALL_ERROR, payload: {guid, error: INSTALL_FAILED}});
+      dispatch({ type: INSTALL_ERROR, payload: { guid, error: INSTALL_FAILED } });
     }
   };
 }
@@ -252,22 +252,22 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
   }
   return {
     setCurrentStatus({ guid, installURL }) {
-      const payload = {guid, url: installURL};
+      const payload = { guid, url: installURL };
       return _addonManager.getAddon(guid)
         .then(
           (addon) => {
             const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
-            dispatch({type: INSTALL_STATE, payload: {...payload, status}});
+            dispatch({ type: INSTALL_STATE, payload: { ...payload, status } });
           },
           () => {
             log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
-            dispatch({type: INSTALL_STATE, payload: {...payload, status: UNINSTALLED}});
+            dispatch({ type: INSTALL_STATE, payload: { ...payload, status: UNINSTALLED } });
           });
     },
 
     install({ guid, installURL, name }) {
-      dispatch({type: START_DOWNLOAD, payload: {guid}});
-      _tracking.sendEvent({action: 'addon', category: INSTALL_CATEGORY, label: name});
+      dispatch({ type: START_DOWNLOAD, payload: { guid } });
+      _tracking.sendEvent({ action: 'addon', category: INSTALL_CATEGORY, label: name });
       return _addonManager.install(installURL, makeProgressHandler(dispatch, guid));
     },
 
@@ -276,12 +276,12 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
         [EXTENSION_TYPE]: 'addon',
         [THEME_TYPE]: 'theme',
       }[type] || 'invalid';
-      _tracking.sendEvent({action, category: UNINSTALL_CATEGORY, label: name});
+      _tracking.sendEvent({ action, category: UNINSTALL_CATEGORY, label: name });
       return _addonManager.uninstall(guid);
     },
   };
 }
 
 export default connect(
-  mapStateToProps, mapDispatchToProps, undefined, {withRef: true}
-)(translate({withRef: true})(Addon));
+  mapStateToProps, mapDispatchToProps, undefined, { withRef: true }
+)(translate({ withRef: true })(Addon));

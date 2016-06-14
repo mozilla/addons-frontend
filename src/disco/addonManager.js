@@ -7,7 +7,7 @@ import {
 } from 'disco/constants';
 
 
-export function getAddon(guid, {_mozAddonManager = window.navigator.mozAddonManager} = {}) {
+export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
   // Resolves a promise with the addon on success.
   return _mozAddonManager.getAddonByID(guid)
     .then((addon) => {
@@ -20,8 +20,8 @@ export function getAddon(guid, {_mozAddonManager = window.navigator.mozAddonMana
 }
 
 export function install(url, eventCallback,
-  {_mozAddonManager = window.navigator.mozAddonManager} = {}) {
-  return _mozAddonManager.createInstall({url})
+  { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
+  return _mozAddonManager.createInstall({ url })
     .then((installObj) => {
       const callback = (e) => eventCallback(installObj, e);
       for (const event of installEventList) {
@@ -33,8 +33,8 @@ export function install(url, eventCallback,
     });
 }
 
-export function uninstall(guid, {_mozAddonManager = window.navigator.mozAddonManager} = {}) {
-  return getAddon(guid, {_mozAddonManager})
+export function uninstall(guid, { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
+  return getAddon(guid, { _mozAddonManager })
     .then((addon) => {
       log.info(`Requesting uninstall of ${guid}`);
       return addon.uninstall();
@@ -53,9 +53,9 @@ export function uninstall(guid, {_mozAddonManager = window.navigator.mozAddonMan
 export function addChangeListeners(callback, mozAddonManager) {
   function handleChangeEvent(e) {
     const { id, type, needsRestart } = e;
-    log.info('Event received', {type, id, needsRestart});
+    log.info('Event received', { type, id, needsRestart });
     if (globalEventStatusMap.hasOwnProperty(type)) {
-      return callback({guid: id, status: globalEventStatusMap[type], needsRestart});
+      return callback({ guid: id, status: globalEventStatusMap[type], needsRestart });
     }
     throw new Error(`Unknown global event: ${type}`);
   }

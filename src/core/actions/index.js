@@ -1,21 +1,21 @@
 export function setJWT(token) {
   return {
     type: 'SET_JWT',
-    payload: {token},
+    payload: { token },
   };
 }
 
 export function setLang(lang) {
   return {
     type: 'SET_LANG',
-    payload: {lang},
+    payload: { lang },
   };
 }
 
 export function loadEntities(entities) {
   return {
     type: 'ENTITIES_LOADED',
-    payload: {entities},
+    payload: { entities },
   };
 }
 

@@ -7,7 +7,7 @@ describe('core store middleware', () => {
         return true;
       },
     };
-    assert.isFunction(middleware({__config: config}));
+    assert.isFunction(middleware({ __config: config }));
   });
 
   it('is undefined when not in development', () => {
@@ -16,6 +16,6 @@ describe('core store middleware', () => {
         return false;
       },
     };
-    assert.strictEqual(undefined, middleware({__config: config}));
+    assert.strictEqual(undefined, middleware({ __config: config }));
   });
 });

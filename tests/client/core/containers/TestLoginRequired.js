@@ -32,14 +32,14 @@ describe('<LoginRequired />', () => {
   describe('mapStateToProps', () => {
     it('sets authenticated to true when there is a token', () => {
       assert.deepEqual(
-        mapStateToProps({auth: {token: 'foo'}}),
-        {authenticated: true});
+        mapStateToProps({ auth: { token: 'foo' } }),
+        { authenticated: true });
     });
 
     it('sets authenticated to false when there is not a token', () => {
       assert.deepEqual(
-        mapStateToProps({auth: {}}),
-        {authenticated: false});
+        mapStateToProps({ auth: {} }),
+        { authenticated: false });
     });
   });
 });

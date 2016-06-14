@@ -18,12 +18,12 @@ import installations from 'disco/reducers/installations';
 
 describe('installations reducer', () => {
   it('is an empty object by default', () => {
-    assert.deepEqual(installations(undefined, {type: 'whatever'}), {});
+    assert.deepEqual(installations(undefined, { type: 'whatever' }), {});
   });
 
   it('ignored unknown actions', () => {
     const state = {};
-    assert.strictEqual(installations(state, {type: 'whatever'}), state);
+    assert.strictEqual(installations(state, { type: 'whatever' }), state);
   });
 
   it('adds an add-on on INSTALL_STATE', () => {

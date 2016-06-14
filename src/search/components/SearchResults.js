@@ -29,7 +29,7 @@ export default class SearchResults extends React.Component {
 
     if (query && count > 0) {
       messageText = sprintf(
-        _('Your search for "%(query)s" returned %(count)s results.'), {query, count});
+        _('Your search for "%(query)s" returned %(count)s results.'), { query, count });
       searchResults = (
         <ul ref="results" className="search-results">
           {results.map((result) => <li key={result.slug}><SearchResult result={result} /></li>)}
@@ -38,7 +38,7 @@ export default class SearchResults extends React.Component {
     } else if (query && loading) {
       messageText = _('Searching...');
     } else if (query && results.length === 0) {
-      messageText = sprintf(_('No results were found for "%(query)s".'), {query});
+      messageText = sprintf(_('No results were found for "%(query)s".'), { query });
     } else if (query !== null) {
       messageText = _('Please supply a valid search');
     }

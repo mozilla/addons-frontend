@@ -14,7 +14,7 @@ describe('search createStore', () => {
   });
 
   it('creates a store with an initial state', () => {
-    const store = createStore({addons: {foo: {slug: 'foo'}}});
-    assert.deepEqual(store.getState().addons, {foo: {slug: 'foo'}});
+    const store = createStore({ addons: { foo: { slug: 'foo' } } });
+    assert.deepEqual(store.getState().addons, { foo: { slug: 'foo' } });
   });
 });

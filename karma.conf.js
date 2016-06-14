@@ -70,11 +70,11 @@ const reporters = [
 
 if (process.env.TRAVIS) {
   console.log('On Travis sending coveralls');
-  coverageReporters.push({ type: 'lcov', dir: 'coverage'});
+  coverageReporters.push({ type: 'lcov', dir: 'coverage' });
   reporters.push('coveralls');
 } else {
   console.log('Not on Travis so not sending coveralls');
-  coverageReporters.push({type: 'html', dir: 'coverage', subdir: '.'});
+  coverageReporters.push({ type: 'html', dir: 'coverage', subdir: '.' });
 }
 
 module.exports = function karmaConf(conf) {

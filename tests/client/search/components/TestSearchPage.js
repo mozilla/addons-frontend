@@ -10,7 +10,7 @@ describe('<SearchPage />', () => {
   let props;
 
   function render(extra = {}) {
-    return shallowRender(<SearchPage {...{...props, ...extra}} />);
+    return shallowRender(<SearchPage {...{ ...props, ...extra }} />);
   }
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('<SearchPage />', () => {
       page: 3,
       handleSearch: sinon.spy(),
       loading: false,
-      results: [{name: 'Foo', slug: 'foo'}, {name: 'Bar', slug: 'bar'}],
+      results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
       query: 'foo',
     };
   });
@@ -57,11 +57,11 @@ describe('<SearchPage />', () => {
     assert.equal(paginator.props.count, 80);
     assert.equal(paginator.props.currentPage, 3);
     assert.equal(paginator.props.pathname, '/search/');
-    assert.deepEqual(paginator.props.query, {q: 'foo'});
+    assert.deepEqual(paginator.props.query, { q: 'foo' });
   });
 
   it('does not render a Paginate when there is no search term', () => {
-    const root = render({query: null, count: 0});
+    const root = render({ query: null, count: 0 });
     const paginators = findAllByTag(root, Paginate);
     assert.deepEqual(paginators, []);
   });
