@@ -38,7 +38,7 @@ export class DiscoPane extends React.Component {
 
   constructor() {
     super();
-    this.state = {showVideo: false};
+    this.state = { showVideo: false };
   }
 
   componentDidMount() {
@@ -49,13 +49,13 @@ export class DiscoPane extends React.Component {
 
   showVideo = (e) => {
     e.preventDefault();
-    this.setState({showVideo: true});
+    this.setState({ showVideo: true });
     this.refs.video.play();
   }
 
   closeVideo = (e) => {
     e.preventDefault();
-    this.setState({showVideo: false});
+    this.setState({ showVideo: false });
     this.refs.video.pause();
   }
 
@@ -101,16 +101,16 @@ export class DiscoPane extends React.Component {
 }
 
 function loadedAddons(state) {
-  return state.discoResults.map((result) => ({...result, ...state.addons[result.addon]}));
+  return state.discoResults.map((result) => ({ ...result, ...state.addons[result.addon] }));
 }
 
-export function loadDataIfNeeded({ store: { dispatch, getState }}) {
+export function loadDataIfNeeded({ store: { dispatch, getState } }) {
   const state = getState();
   const addons = loadedAddons(state);
   if (addons.length > 0) {
     return Promise.resolve();
   }
-  return getDiscoveryAddons({api: state.api})
+  return getDiscoveryAddons({ api: state.api })
     .then(({ entities, result }) => {
       dispatch(loadEntities(entities));
       dispatch(discoResults(result.results.map((r) => entities.discoResults[r])));
@@ -129,7 +129,7 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
   }
   return {
     handleGlobalEvent(payload) {
-      dispatch({type: INSTALL_STATE, payload});
+      dispatch({ type: INSTALL_STATE, payload });
     },
   };
 }

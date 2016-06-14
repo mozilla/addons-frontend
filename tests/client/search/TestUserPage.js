@@ -16,9 +16,9 @@ describe('<UserPage />', () => {
   });
 
   it('pulls the user data from state', () => {
-    const user = {username: 'me', email: 'me@example.com'};
+    const user = { username: 'me', email: 'me@example.com' };
     assert.strictEqual(
-      mapStateToProps({auth: {username: user.username}, users: {[user.username]: user}}),
+      mapStateToProps({ auth: { username: user.username }, users: { [user.username]: user } }),
       user);
   });
 
@@ -30,8 +30,8 @@ describe('<UserPage />', () => {
     });
 
     it('loads the profile when it is not loaded', () => {
-      const apiConfig = {api: 'config'};
-      const entities = {'the-username': {username: 'the-username'}};
+      const apiConfig = { api: 'config' };
+      const entities = { 'the-username': { username: 'the-username' } };
       const result = 'the-username';
       const dispatch = sinon.stub();
       const store = {
@@ -46,9 +46,9 @@ describe('<UserPage />', () => {
       };
       mockApi
         .expects('fetchProfile')
-        .withArgs({api: apiConfig})
-        .returns(Promise.resolve({entities, result}));
-      return loadProfileIfNeeded({store}).then(() => {
+        .withArgs({ api: apiConfig })
+        .returns(Promise.resolve({ entities, result }));
+      return loadProfileIfNeeded({ store }).then(() => {
         assert(dispatch.calledWith(loadEntities(entities)));
         assert(dispatch.calledWith(setCurrentUser('the-username')));
         mockApi.verify();
@@ -56,22 +56,22 @@ describe('<UserPage />', () => {
     });
 
     it('does not load the profile when it is loaded', () => {
-      const apiConfig = {api: 'config'};
+      const apiConfig = { api: 'config' };
       const dispatch = sinon.stub();
       const store = {
         dispatch,
         getState() {
           return {
             api: apiConfig,
-            auth: {username: 'me'},
-            users: {me: {username: 'me'}},
+            auth: { username: 'me' },
+            users: { me: { username: 'me' } },
           };
         },
       };
       mockApi
         .expects('fetchProfile')
         .never();
-      return loadProfileIfNeeded({store}).then(() => {
+      return loadProfileIfNeeded({ store }).then(() => {
         assert(!dispatch.called, 'dispatch should not be called');
         mockApi.verify();
       });

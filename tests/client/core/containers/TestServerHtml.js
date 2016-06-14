@@ -10,7 +10,7 @@ describe('<ServerHtml />', () => {
   });
 
   const fakeStore = {
-    getState: () => ({foo: 'bar'}),
+    getState: () => ({ foo: 'bar' }),
   };
 
   const fakeAssets = {
@@ -42,7 +42,7 @@ describe('<ServerHtml />', () => {
         <div>
           <Helmet
             defaultTitle="test title"
-            meta={[{name: 'description', content: 'test meta'}]}
+            meta={[{ name: 'description', content: 'test meta' }]}
           />
           {children}
         </div>
@@ -66,14 +66,14 @@ describe('<ServerHtml />', () => {
 
   it('renders html attrs provided', () => {
     const html = findRenderedDOMComponentWithTag(
-      render({htmlLang: 'ar', htmlDir: 'rtl'}), 'html');
+      render({ htmlLang: 'ar', htmlDir: 'rtl' }), 'html');
     assert.equal(html.getAttribute('lang'), 'ar');
     assert.equal(html.getAttribute('dir'), 'rtl');
   });
 
   it('renders GA script when trackingEnabled is true', () => {
     const html = findRenderedDOMComponentWithTag(
-      render({trackingEnabled: true}), 'html');
+      render({ trackingEnabled: true }), 'html');
     const ga = html.querySelectorAll('script[src="https://www.google-analytics.com/analytics.js"]');
     assert.equal(ga.length, 1);
     assert.equal(ga[0].hasAttribute('async'), true);
@@ -81,7 +81,7 @@ describe('<ServerHtml />', () => {
 
   it("doesn't render GA script when trackingEnabled is false", () => {
     const html = findRenderedDOMComponentWithTag(
-      render({trackingEnabled: false}), 'html');
+      render({ trackingEnabled: false }), 'html');
     const ga = html.querySelectorAll('script[src="https://www.google-analytics.com/analytics.js"]');
     assert.equal(ga.length, 0);
   });
@@ -142,14 +142,14 @@ describe('<ServerHtml />', () => {
 
   it('throws for unknown static type', () => {
     assert.throws(() => {
-      const html = render({includeSri: false});
-      html.getStatic({filePath: 'disco-foo', type: 'whatever'});
+      const html = render({ includeSri: false });
+      html.getStatic({ filePath: 'disco-foo', type: 'whatever' });
     }, Error, 'Unknown static type');
   });
 
   it('throws for missing SRI data', () => {
     assert.throws(() => {
-      render({sriData: {}});
+      render({ sriData: {} });
     }, Error, /SRI Data is missing/);
   });
 });

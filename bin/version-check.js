@@ -21,7 +21,7 @@ var MIN_NODE_VERSION = 4;
 var MIN_NPM_VERSION = 3;
 
 var NODE_VERSION = process.versions.node;
-var NPM_VERSION = exec('npm --version', {silent: true}).stdout;
+var NPM_VERSION = exec('npm --version', { silent: true }).stdout;
 
 var versionCheckPassed = true;
 

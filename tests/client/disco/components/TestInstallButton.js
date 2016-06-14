@@ -35,7 +35,7 @@ describe('<InstallButton />', () => {
   }
 
   it('should be disabled if isDisabled status is UNKNOWN', () => {
-    const button = renderButton({status: UNKNOWN});
+    const button = renderButton({ status: UNKNOWN });
     const root = findDOMNode(button);
     const checkbox = root.querySelector('input[type=checkbox]');
     assert.equal(checkbox.hasAttribute('disabled'), true);
@@ -43,7 +43,7 @@ describe('<InstallButton />', () => {
   });
 
   it('should reflect UNINSTALLED status', () => {
-    const button = renderButton({status: UNINSTALLED});
+    const button = renderButton({ status: UNINSTALLED });
     const root = findDOMNode(button);
     const checkbox = root.querySelector('input[type=checkbox]');
     assert.equal(checkbox.hasAttribute('disabled'), false);
@@ -51,7 +51,7 @@ describe('<InstallButton />', () => {
   });
 
   it('should reflect INSTALLED status', () => {
-    const button = renderButton({status: INSTALLED});
+    const button = renderButton({ status: INSTALLED });
     const root = findDOMNode(button);
     const checkbox = root.querySelector('input[type=checkbox]');
     assert.equal(checkbox.checked, true, 'checked is true');
@@ -59,20 +59,20 @@ describe('<InstallButton />', () => {
   });
 
   it('should reflect download downloadProgress', () => {
-    const button = renderButton({status: DOWNLOADING, downloadProgress: 50});
+    const button = renderButton({ status: DOWNLOADING, downloadProgress: 50 });
     const root = findDOMNode(button);
     assert.ok(root.classList.contains('downloading'));
     assert.equal(root.getAttribute('data-download-progress'), 50);
   });
 
   it('should reflect installation', () => {
-    const button = renderButton({status: INSTALLING});
+    const button = renderButton({ status: INSTALLING });
     const root = findDOMNode(button);
     assert.ok(root.classList.contains('installing'));
   });
 
   it('should reflect uninstallation', () => {
-    const button = renderButton({status: UNINSTALLING});
+    const button = renderButton({ status: UNINSTALLING });
     const root = findDOMNode(button);
     assert.ok(root.classList.contains('uninstalling'));
   });
@@ -80,7 +80,7 @@ describe('<InstallButton />', () => {
   it('should not call anything on click when neither installed or uninstalled', () => {
     const install = sinon.stub();
     const uninstall = sinon.stub();
-    const button = renderButton({status: DOWNLOADING, install, uninstall});
+    const button = renderButton({ status: DOWNLOADING, install, uninstall });
     const root = findDOMNode(button);
     Simulate.click(root);
     assert.ok(!install.called);
@@ -88,7 +88,7 @@ describe('<InstallButton />', () => {
   });
 
   it('should associate the label and input with id and for attributes', () => {
-    const button = renderButton({status: UNINSTALLED, slug: 'foo'});
+    const button = renderButton({ status: UNINSTALLED, slug: 'foo' });
     const root = findDOMNode(button);
     assert.equal(root.querySelector('input').getAttribute('id'),
                 'install-button-foo', 'id is set');
@@ -98,23 +98,29 @@ describe('<InstallButton />', () => {
 
   it('should throw on bogus status', () => {
     assert.throws(() => {
-      renderButton({status: 'BOGUS'});
+      renderButton({ status: 'BOGUS' });
     }, Error, 'Invalid add-on status');
   });
 
   it('should not throw for ENABLING', () => {
-    renderButton({status: ENABLING});
+    renderButton({ status: ENABLING });
   });
 
   it('should not throw for DISABLING', () => {
-    renderButton({status: DISABLING});
+    renderButton({ status: DISABLING });
   });
 
   it('should call installTheme function on click when uninstalled theme', () => {
     const installTheme = sinon.spy();
     const guid = 'test-guid';
     const name = 'hai';
-    const button = renderButton({installTheme, type: THEME_TYPE, guid, name, status: UNINSTALLED});
+    const button = renderButton({
+      installTheme,
+      type: THEME_TYPE,
+      guid,
+      name,
+      status: UNINSTALLED,
+    });
     const themeData = button.refs.themeData;
     const root = findDOMNode(button);
     Simulate.click(root);
@@ -127,10 +133,10 @@ describe('<InstallButton />', () => {
     const install = sinon.spy();
     const i18n = getFakeI18nInst();
     const installURL = 'https://my.url/download';
-    const button = renderButton({guid, i18n, install, installURL, name, status: UNINSTALLED});
+    const button = renderButton({ guid, i18n, install, installURL, name, status: UNINSTALLED });
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(install.calledWith({guid, installURL, name}));
+    assert(install.calledWith({ guid, installURL, name }));
   });
 
   it('should call uninstall function on click when installed', () => {
@@ -139,9 +145,9 @@ describe('<InstallButton />', () => {
     const name = 'hai';
     const type = 'whatevs';
     const uninstall = sinon.spy();
-    const button = renderButton({guid, installURL, name, status: INSTALLED, type, uninstall});
+    const button = renderButton({ guid, installURL, name, status: INSTALLED, type, uninstall });
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(uninstall.calledWith({guid, installURL, name, type}));
+    assert(uninstall.calledWith({ guid, installURL, name, type }));
   });
 });

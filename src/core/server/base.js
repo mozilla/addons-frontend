@@ -37,7 +37,7 @@ function logRequests(req, res, next) {
   next();
   const finish = new Date();
   const elapsed = finish - start;
-  log.info({req, res, start, finish, elapsed});
+  log.info({ req, res, start, finish, elapsed });
 }
 
 function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
@@ -93,7 +93,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       cookie.plugToRequest(req, res);
 
       if (err) {
-        log.error({err, req});
+        log.error({ err, req });
         return res.status(500).end(errorString);
       }
 
@@ -156,7 +156,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         return Promise.resolve(hydrateOnClient());
       }
 
-      return loadOnServer({...renderProps, store})
+      return loadOnServer({ ...renderProps, store })
         .then(() => {
           // eslint-disable-next-line global-require
           let jedData = {};
@@ -178,10 +178,10 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             </I18nProvider>
           );
 
-          return hydrateOnClient({component: InitialComponent});
+          return hydrateOnClient({ component: InitialComponent });
         })
         .catch((error) => {
-          log.error({err: error});
+          log.error({ err: error });
           res.status(500).end(errorString);
         });
     });
@@ -189,14 +189,14 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
-    log.error({err});
+    log.error({ err });
     res.status(500).end(errorString);
   });
 
   return app;
 }
 
-export function runServer({listen = true, app = appName} = {}) {
+export function runServer({ listen = true, app = appName } = {}) {
   if (!app) {
     log.fatal(`Please specify a valid appName from ${config.get('validAppNames')}`);
     process.exit(1);
@@ -217,7 +217,7 @@ export function runServer({listen = true, app = appName} = {}) {
         const routes = require(`${app}/routes`).default;
         const createStore = require(`${app}/store`).default;
         /* eslint-enable global-require */
-        const server = baseServer(routes, createStore, {appInstanceName: app});
+        const server = baseServer(routes, createStore, { appInstanceName: app });
         if (listen === true) {
           server.listen(port, host, (err) => {
             if (err) {
@@ -235,7 +235,7 @@ export function runServer({listen = true, app = appName} = {}) {
       });
     })
     .catch((err) => {
-      log.error({err});
+      log.error({ err });
     });
 }
 

@@ -22,7 +22,7 @@ describe('<LoginPage />', () => {
   });
 
   it('can accept a message', () => {
-    const root = render({message: 'My custom login message.'});
+    const root = render({ message: 'My custom login message.' });
     assert.equal(
       root.querySelector('.login-message').textContent,
       'My custom login message.');

@@ -12,7 +12,7 @@ export function getGuid(result) {
 export default function addon(state = initialState, action) {
   const { payload } = action;
   if (payload && payload.entities && payload.entities.addons) {
-    const newState = {...state};
+    const newState = { ...state };
     Object.keys(payload.entities.addons).forEach((key) => {
       const thisAddon = payload.entities.addons[key];
       if (thisAddon.theme_data) {

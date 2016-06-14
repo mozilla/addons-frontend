@@ -39,8 +39,8 @@ export function loadProfileIfNeeded({ store: { getState, dispatch } }) {
   const state = getState();
   const user = getUser(state);
   if (!user) {
-    return fetchProfile({api: state.api})
-      .then(({entities, result}) => {
+    return fetchProfile({ api: state.api })
+      .then(({ entities, result }) => {
         dispatch(loadEntities(entities));
         dispatch(setCurrentUser(result));
       });

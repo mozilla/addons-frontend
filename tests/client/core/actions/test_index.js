@@ -4,7 +4,7 @@ describe('core actions setJWT', () => {
   it('creates a SET_JWT action', () => {
     assert.deepEqual(
       actions.setJWT('my.amo.token'),
-      {type: 'SET_JWT', payload: {token: 'my.amo.token'}});
+      { type: 'SET_JWT', payload: { token: 'my.amo.token' } });
   });
 });
 
@@ -12,7 +12,7 @@ describe('core actions setLang', () => {
   it('creates the SET_LANG action', () => {
     assert.deepEqual(
       actions.setLang('fr'),
-      {type: 'SET_LANG', payload: {lang: 'fr'}});
+      { type: 'SET_LANG', payload: { lang: 'fr' } });
   });
 });
 
@@ -25,6 +25,6 @@ describe('ENTITIES_LOADED', () => {
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload, {entities});
+    assert.deepEqual(action.payload, { entities });
   });
 });

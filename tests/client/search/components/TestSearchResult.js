@@ -35,7 +35,7 @@ describe('<SearchResult />', () => {
   });
 
   it('renders the number of files singularly', () => {
-    const thisResult = {...result, current_version: {files: [{}]}};
+    const thisResult = { ...result, current_version: { files: [{}] } };
     const thisRoot = renderIntoDocument(<SearchResult result={thisResult} />);
     assert.equal(thisRoot.refs.fileCount.textContent, '1 file');
   });

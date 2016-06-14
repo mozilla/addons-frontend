@@ -10,7 +10,7 @@ import { middleware } from 'core/store';
 
 export default function createStore(initialState = {}) {
   return _createStore(
-    combineReducers({addons, api, auth, search, reduxAsyncConnect, users}),
+    combineReducers({ addons, api, auth, search, reduxAsyncConnect, users }),
     initialState,
     middleware(),
   );

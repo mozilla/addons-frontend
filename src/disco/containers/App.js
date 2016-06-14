@@ -18,7 +18,7 @@ export class App extends React.Component {
         <Helmet
           defaultTitle={i18n.gettext('Discover Add-ons')}
           meta={[
-            {name: 'robots', content: 'noindex'},
+            { name: 'robots', content: 'noindex' },
           ]}
         />
         {children}
@@ -27,4 +27,4 @@ export class App extends React.Component {
   }
 }
 
-export default translate({withRef: true})(App);
+export default translate({ withRef: true })(App);

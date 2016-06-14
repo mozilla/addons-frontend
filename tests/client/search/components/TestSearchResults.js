@@ -17,13 +17,13 @@ describe('<SearchResults />', () => {
   });
 
   it('renders error when query is an empty string', () => {
-    const root = renderResults({query: ''});
+    const root = renderResults({ query: '' });
     const searchResultsMsg = root.refs.message;
     assert.include(searchResultsMsg.firstChild.nodeValue, 'supply a valid search');
   });
 
   it('renders error when no results and valid query', () => {
-    const root = renderResults({query: 'test'});
+    const root = renderResults({ query: 'test' });
     const searchResultsMsg = root.refs.message;
     // Using textContent here since we want to see the text inside the p.
     // Since it has dynamic content is wrapped in a span implicitly.
@@ -44,8 +44,8 @@ describe('<SearchResults />', () => {
       count: 5,
       query: 'test',
       results: [
-        {name: 'result 1', slug: '1'},
-        {name: 'result 2', slug: '2'},
+        { name: 'result 1', slug: '1' },
+        { name: 'result 2', slug: '2' },
       ],
     });
     const searchResultsMsg = root.refs.message;

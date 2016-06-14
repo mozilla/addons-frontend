@@ -21,11 +21,11 @@ const serverOptions = {
   contentBase: `http://${host}:${port}`,
   quiet: true,
   noInfo: true,
-  headers: {'Access-Control-Allow-Origin': '*'},
+  headers: { 'Access-Control-Allow-Origin': '*' },
   hot: true,
   inline: true,
   lazy: false,
-  stats: {colors: true},
+  stats: { colors: true },
   publicPath: webpackDevConfig.output.publicPath,
 };
 

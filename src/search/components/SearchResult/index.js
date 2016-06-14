@@ -15,7 +15,7 @@ function fileCount(version) {
 
 function fileCountText(version) {
   const count = fileCount(version);
-  return sprintf(ngettext('%(count)s file', '%(count)s files', count), {count});
+  return sprintf(ngettext('%(count)s file', '%(count)s files', count), { count });
 }
 
 export default class SearchResult extends React.Component {

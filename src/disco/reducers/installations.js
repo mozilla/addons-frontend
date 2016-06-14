@@ -32,7 +32,7 @@ export default function installations(state = {}, { type, payload }) {
   }
   let addon;
   if (state[payload.guid]) {
-    addon = {...state[payload.guid]};
+    addon = { ...state[payload.guid] };
   }
   if (type === INSTALL_STATE) {
     addon = {

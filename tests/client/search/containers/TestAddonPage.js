@@ -22,7 +22,7 @@ describe('AddonPage', () => {
     review_url: 'https://addons.mozilla.org/en-US/editors/review/1865',
   };
 
-  function render({props, state}) {
+  function render({ props, state }) {
     const store = createStore(state);
     return findDOMNode(renderIntoDocument(
       <Provider store={store} key="provider">
@@ -62,7 +62,7 @@ describe('AddonPage', () => {
     let info;
 
     beforeEach(() => {
-      root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
+      root = render({ state: initialState, props: { params: { slug: 'my-addon' } } });
       info = Array.from(root.querySelector('.addon--info').childNodes);
     });
 
@@ -151,11 +151,11 @@ describe('AddonPage', () => {
   });
 
   describe('optional fields', () => {
-    const initialState = {addons: {'my-addon': basicAddon}};
+    const initialState = { addons: { 'my-addon': basicAddon } };
     let root;
 
     beforeEach(() => {
-      root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
+      root = render({ state: initialState, props: { params: { slug: 'my-addon' } } });
     });
 
     it('does not render the info', () => {
@@ -188,14 +188,14 @@ describe('AddonPage', () => {
     };
 
     it('does not render the version', () => {
-      const root = render({state: initialState, props: {params: {slug: 'my-addon'}}});
+      const root = render({ state: initialState, props: { params: { slug: 'my-addon' } } });
       assert.strictEqual(root.querySelector('.addon--current-version'), null);
     });
   });
 
   it('renders NotFound when the add-on is not loaded', () => {
-    const initialState = {addons: {'my-addon': basicAddon}};
-    const root = render({state: initialState, props: {params: {slug: 'other-addon'}}});
+    const initialState = { addons: { 'my-addon': basicAddon } };
+    const root = render({ state: initialState, props: { params: { slug: 'other-addon' } } });
     assert(root.querySelector('h1').textContent.includes("we can't find what you're looking for"));
   });
 
@@ -217,7 +217,7 @@ describe('AddonPage', () => {
   });
 
   describe('loadAddonIfNeeded', () => {
-    const apiState = {token: 'my.jwt.token'};
+    const apiState = { token: 'my.jwt.token' };
     const loadedSlug = 'my-addon';
     let loadedAddon;
     let dispatch;
@@ -238,7 +238,7 @@ describe('AddonPage', () => {
           }),
           dispatch,
         },
-        params: {slug},
+        params: { slug },
       };
     }
 
@@ -250,13 +250,13 @@ describe('AddonPage', () => {
       const slug = 'other-addon';
       const props = makeProps(slug, apiState);
       const addon = sinon.stub();
-      const entities = {[slug]: addon};
+      const entities = { [slug]: addon };
       const mockApi = sinon.mock(api);
       mockApi
         .expects('fetchAddon')
         .once()
-        .withArgs({slug, api: apiState})
-        .returns(Promise.resolve({entities}));
+        .withArgs({ slug, api: apiState })
+        .returns(Promise.resolve({ entities }));
       const action = sinon.stub();
       const mockActions = sinon.mock(actions);
       mockActions
@@ -278,7 +278,7 @@ describe('AddonPage', () => {
       mockApi
         .expects('fetchAddon')
         .once()
-        .withArgs({slug, api: apiState})
+        .withArgs({ slug, api: apiState })
         .returns(Promise.reject(new Error('Error accessing API')));
       const mockActions = sinon.mock(actions);
       mockActions

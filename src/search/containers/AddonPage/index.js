@@ -129,13 +129,14 @@ export function findAddon(state, slug) {
   return state.addons[slug];
 }
 
-export function loadAddonIfNeeded({store: {dispatch, getState}, params: {slug}}) {
+export function loadAddonIfNeeded({ store: { dispatch, getState }, params: { slug } }) {
   const state = getState();
   const addon = findAddon(state, slug);
   if (addon) {
     return addon;
   }
-  return fetchAddon({slug, api: state.api}).then(({entities}) => dispatch(loadEntities(entities)));
+  return fetchAddon({ slug, api: state.api })
+    .then(({ entities }) => dispatch(loadEntities(entities)));
 }
 
 const CurrentAddonPage = asyncConnect([{

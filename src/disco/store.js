@@ -9,7 +9,7 @@ import installations from 'disco/reducers/installations';
 
 export default function createStore(initialState = {}) {
   return _createStore(
-    combineReducers({addons, api, discoResults, installations, reduxAsyncConnect}),
+    combineReducers({ addons, api, discoResults, installations, reduxAsyncConnect }),
     initialState,
     middleware(),
   );

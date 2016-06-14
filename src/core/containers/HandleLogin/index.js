@@ -27,8 +27,8 @@ class HandleLogin extends React.Component {
   componentDidMount() {
     const { api, loadData, location } = this.props;
     const { router } = this.context;
-    loadData({api, location, router}).catch(() => {
-      this.setState({error: true});
+    loadData({ api, location, router }).catch(() => {
+      this.setState({ error: true });
     });
   }
 
@@ -47,11 +47,11 @@ class HandleLogin extends React.Component {
 }
 
 function createLoadData(dispatch) {
-  return ({api, location, router}) => {
+  return ({ api, location, router }) => {
     const { code, state } = location.query;
     if (code && state) {
-      return login({api, code, state})
-        .then(({token}) => {
+      return login({ api, code, state })
+        .then(({ token }) => {
           dispatch(setJWT(token));
           cookie.save(config.get('cookieName'), token, {
             path: '/',
@@ -65,8 +65,8 @@ function createLoadData(dispatch) {
   };
 }
 
-function mapStateToProps({api, auth}) {
-  return {api, auth};
+function mapStateToProps({ api, auth }) {
+  return { api, auth };
 }
 
 export function mapDispatchToProps(dispatch) {

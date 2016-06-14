@@ -5,11 +5,11 @@ describe('addon reducer', () => {
   let originalState;
 
   beforeEach(() => {
-    originalState = {foo: {slug: 'foo'}, bar: {slug: 'bar'}};
+    originalState = { foo: { slug: 'foo' }, bar: { slug: 'bar' } };
   });
 
   it('returns the old state', () => {
-    assert.strictEqual(originalState, addons(originalState, {type: 'BLAH'}));
+    assert.strictEqual(originalState, addons(originalState, { type: 'BLAH' }));
   });
 
   it('stores addons from entities', () => {
@@ -17,17 +17,17 @@ describe('addon reducer', () => {
       payload: {
         entities: {
           addons: {
-            baz: {slug: 'baz'},
+            baz: { slug: 'baz' },
           },
         },
       },
     });
-    assert.deepEqual(state, {foo: {slug: 'foo'}, bar: {slug: 'bar'}, baz: {slug: 'baz'}});
+    assert.deepEqual(state, { foo: { slug: 'foo' }, bar: { slug: 'bar' }, baz: { slug: 'baz' } });
   });
 
   it('pulls down the install URL from the file', () => {
-    const fileOne = {url: 'https://a.m.o/download.xpi'};
-    const fileTwo = {file: 'data'};
+    const fileOne = { url: 'https://a.m.o/download.xpi' };
+    const fileTwo = { file: 'data' };
     const addon = {
       slug: 'installable',
       current_version: {
@@ -35,7 +35,7 @@ describe('addon reducer', () => {
       },
     };
     assert.deepEqual(
-      addons(undefined, {payload: {entities: {addons: {installable: addon}}}}),
+      addons(undefined, { payload: { entities: { addons: { installable: addon } } } }),
       {
         installable: {
           ...addon,
@@ -50,7 +50,7 @@ describe('addon reducer', () => {
       payload: {
         entities: {
           addons: {
-            baz: {slug: 'baz', id: 42, theme_data: {theme_thing: 'some-data'}, type},
+            baz: { slug: 'baz', id: 42, theme_data: { theme_thing: 'some-data' }, type },
           },
         },
       },
@@ -58,8 +58,8 @@ describe('addon reducer', () => {
     assert.deepEqual(
       state,
       {
-        foo: {slug: 'foo'},
-        bar: {slug: 'bar'},
+        foo: { slug: 'foo' },
+        bar: { slug: 'bar' },
         baz: {
           id: 42,
           slug: 'baz',
