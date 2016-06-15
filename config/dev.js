@@ -7,6 +7,7 @@ const apiHost = 'https://addons-dev.allizom.org';
 module.exports = {
   apiHost,
   amoCDN,
+  staticHost: amoCDN,
 
   enableClientConsole: true,
 
