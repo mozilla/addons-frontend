@@ -90,7 +90,6 @@ module.exports = {
       connectSrc: [apiHost],
       formAction: ["'none'"],
       frameSrc: ["'none'"],
-      frameAncestors: ["'none'"],
       imgSrc: [
         // Favicons are normally served
         // from the document host.

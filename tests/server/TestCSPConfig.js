@@ -61,12 +61,6 @@ describe('CSP Config', () => {
     assert.deepEqual(cspConfig.formAction, ["'none'"]);
   });
 
-  it('should default frame-ancestors to "\'none\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.frameAncestors, ["'none'"]);
-  });
-
   it('should default frame-src to "\'none\'"', () => {
     const config = requireUncached('config');
     const cspConfig = config.get('CSP').directives;
@@ -132,18 +126,5 @@ describe('App Specific CSP Config', () => {
       'https://addons-discovery.cdn.mozilla.net',
       'https://www.google-analytics.com',
     ]);
-  });
-
-  it('should default frame-ancestors to "\'none\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.frameAncestors, ["'none'"]);
-  });
-
-  it('should set frame-ancestors to about: to allow framing of disco pane', () => {
-    process.env.NODE_APP_INSTANCE = 'disco';
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.frameAncestors, ['about:']);
   });
 });
