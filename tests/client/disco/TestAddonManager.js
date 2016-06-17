@@ -20,15 +20,18 @@ describe('addonManager', () => {
       uninstall: sinon.stub(),
     };
     fakeInstallObj = {
-      addEventListener: sinon.stub(),
-      install: sinon.stub(),
+      addEventListener: sinon.spy(function addEventListener(eventName, cb) {
+        this[`${eventName}Listener`] = cb;
+      }),
+      install: sinon.spy(function install() {
+        this.onInstallEndedListener();
+      }),
     };
     fakeMozAddonManager = {
-      createInstall: sinon.stub(),
+      createInstall: sinon.stub().returns(Promise.resolve(fakeInstallObj)),
       getAddonByID: sinon.stub(),
       addEventListener: sinon.stub(),
     };
-    fakeMozAddonManager.createInstall.returns(Promise.resolve(fakeInstallObj));
   });
 
   describe('getAddon()', () => {
@@ -49,16 +52,22 @@ describe('addonManager', () => {
   });
 
   describe('install()', () => {
-    it('should call mozAddonManager.createInstall() with url', () => {
-      addonManager.install(fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager });
-      assert.ok(fakeMozAddonManager.createInstall.calledWith({ url: fakeInstallUrl }));
-    });
-
-    it('should call installObj.addEventListener to setup events', () => addonManager.install(
-      fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+    it(
+      'should call mozAddonManager.createInstall() with url',
+      () => addonManager.install(
+        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
         .then(() => {
-          assert.equal(fakeInstallObj.addEventListener.callCount, installEventList.length);
+          assert.ok(fakeMozAddonManager.createInstall.calledWith({ url: fakeInstallUrl }));
         }));
+
+    it(
+      'should call installObj.addEventListener to setup events',
+      () => addonManager.install(
+        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+          .then(() => {
+            // It registers an extra onInstallFailed and onInstallEnded listener.
+            assert.equal(fakeInstallObj.addEventListener.callCount, installEventList.length + 2);
+          }));
 
     it('should call installObj.install()', () => addonManager.install(
       fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
@@ -66,14 +75,23 @@ describe('addonManager', () => {
           assert.ok(fakeInstallObj.install.called);
         }));
 
+    it('rejects if the install fails', () => {
+      fakeInstallObj.install = sinon.spy(function install() {
+        this.onInstallFailedListener();
+      });
+      return addonManager.install(
+        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+        .then(
+          () => assert.ok(false, 'expected promise to reject'),
+          () => assert.ok(fakeInstallObj.install.called));
+    });
+
     it('passes the installObj, the event and the id to the callback', () => {
       const fakeEvent = { type: 'fakeEvent' };
-      let callback;
-      fakeInstallObj.addEventListener = (event, cb) => { callback = cb; };
       return addonManager.install(
         fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
           .then(() => {
-            callback(fakeEvent);
+            fakeInstallObj.onDownloadProgressListener(fakeEvent);
             assert.ok(fakeCallback.calledWith(fakeInstallObj, fakeEvent));
           });
     });

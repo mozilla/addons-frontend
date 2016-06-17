@@ -46,6 +46,7 @@ export function getFakeI18nInst() {
     dpgettext: sinon.stub(),
     npgettext: sinon.stub(),
     dnpgettext: sinon.stub(),
+    sprintf: sinon.stub(),
   };
 }
 
