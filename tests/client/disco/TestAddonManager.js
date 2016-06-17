@@ -82,7 +82,7 @@ describe('addonManager', () => {
       return addonManager.install(
         fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
         .then(
-          () => assert.ok(false, 'expected promise to reject'),
+          unexpectedSuccess,
           () => assert.ok(fakeInstallObj.install.called));
     });
 
