@@ -29,14 +29,8 @@ export function install(url, eventCallback,
         installObj.addEventListener(event, callback);
       }
       return new Promise((resolve, reject) => {
-        installObj.addEventListener('onInstallEnded', () => {
-          console.log('resolving');
-          resolve();
-        });
-        installObj.addEventListener('onInstallFailed', () => {
-          console.log('rejecting');
-          reject();
-        });
+        installObj.addEventListener('onInstallEnded', () => resolve());
+        installObj.addEventListener('onInstallFailed', () => reject());
         log.info('Events to handle the installation initialized.');
         installObj.install();
       });
