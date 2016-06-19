@@ -445,7 +445,10 @@ describe('<Addon />', () => {
     it('calls addonManager.install()', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
-      const { install } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
+      const i18n = getFakeI18nInst();
+      const { install } = mapDispatchToProps(
+        dispatch,
+        { _addonManager: fakeAddonManager, i18n, installURL });
       return install({ guid, installURL })
         .then(() => {
           assert(fakeAddonManager.install.calledWith(installURL, sinon.match.func));
@@ -456,12 +459,14 @@ describe('<Addon />', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const name = 'hai-addon';
       const type = 'extension';
+      const i18n = getFakeI18nInst();
       const dispatch = sinon.spy();
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { install } = mapDispatchToProps(dispatch,
-        { _tracking: fakeTracking, _addonManager: fakeAddonManager });
+      const { install } = mapDispatchToProps(
+        dispatch,
+        { _tracking: fakeTracking, _addonManager: fakeAddonManager, i18n, name });
       return install({ guid, installURL, name, type })
         .then(() => {
           assert(fakeTracking.sendEvent.calledWith({
@@ -472,11 +477,13 @@ describe('<Addon />', () => {
         });
     });
 
-
     it('should dispatch START_DOWNLOAD', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
+      const i18n = getFakeI18nInst();
       const dispatch = sinon.spy();
-      const { install } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
+      const { install } = mapDispatchToProps(
+        dispatch,
+        { _addonManager: fakeAddonManager, guid, i18n });
       return install({ guid, installURL })
         .then(() => assert(dispatch.calledWith({
           type: START_DOWNLOAD,

@@ -28,8 +28,12 @@ export function install(url, eventCallback,
         log.info(`[install] Adding listener for ${event}`);
         installObj.addEventListener(event, callback);
       }
-      log.info('Events to handle the installation initialized.');
-      return installObj.install();
+      return new Promise((resolve, reject) => {
+        installObj.addEventListener('onInstallEnded', () => resolve());
+        installObj.addEventListener('onInstallFailed', () => reject());
+        log.info('Events to handle the installation initialized.');
+        installObj.install();
+      });
     });
 }
 

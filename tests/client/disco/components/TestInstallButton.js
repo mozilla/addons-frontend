@@ -136,7 +136,7 @@ describe('<InstallButton />', () => {
     const button = renderButton({ guid, i18n, install, installURL, name, status: UNINSTALLED });
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert(install.calledWith({ guid, installURL, name }));
+    assert(install.calledWith());
   });
 
   it('should call uninstall function on click when installed', () => {

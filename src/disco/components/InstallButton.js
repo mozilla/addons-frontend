@@ -44,7 +44,7 @@ export class InstallButton extends React.Component {
     if (type === THEME_TYPE && status === UNINSTALLED) {
       installTheme(this.refs.themeData, guid, name);
     } else if (status === UNINSTALLED) {
-      install({ guid, installURL, name });
+      install();
     } else if (status === INSTALLED) {
       uninstall({ guid, installURL, name, type });
     }

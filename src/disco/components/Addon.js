@@ -253,7 +253,8 @@ export function makeProgressHandler(dispatch, guid) {
 }
 
 export function mapDispatchToProps(dispatch, { _tracking = tracking,
-                                               _addonManager = addonManager } = {}) {
+                                               _addonManager = addonManager,
+                                               ...ownProps } = {}) {
   if (config.get('server')) {
     return {};
   }
@@ -272,10 +273,28 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
           });
     },
 
-    install({ guid, installURL, name }) {
+    install() {
+      const { guid, i18n, iconUrl, installURL, name } = ownProps;
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
       _tracking.sendEvent({ action: 'addon', category: INSTALL_CATEGORY, label: name });
-      return _addonManager.install(installURL, makeProgressHandler(dispatch, guid));
+      return _addonManager.install(installURL, makeProgressHandler(dispatch, guid))
+        .then(() => {
+          document.dispatchEvent(new CustomEvent('mozUITour', {
+            bubbles: true,
+            detail: {
+              action: 'showInfo',
+              data: {
+                target: 'appMenu',
+                icon: iconUrl,
+                title: i18n.gettext('Installed and added to toolbar'),
+                text: i18n.sprintf(
+                  i18n.gettext('Click here to access %(name)s any time.'),
+                  { name }),
+                buttons: [{ label: i18n.gettext('Ok'), callbackID: 'add-on-installed' }],
+              },
+            },
+          }));
+        });
     },
 
     uninstall({ guid, name, type }) {
@@ -289,6 +308,6 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
   };
 }
 
-export default connect(
+export default translate({ withRef: true })(connect(
   mapStateToProps, mapDispatchToProps, undefined, { withRef: true }
-)(translate({ withRef: true })(Addon));
+)(Addon));
