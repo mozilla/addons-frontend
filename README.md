@@ -6,7 +6,8 @@
 
 # Addons-frontend 🔥
 
-Front-end infrastructure and code to complement mozilla/addons-server
+Front-end infrastructure and code to complement
+[mozilla/addons-server](https://github.com/mozilla/addons-server).
 
 ## Requirements
 
