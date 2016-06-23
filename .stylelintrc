@@ -1,8 +1,11 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "block-closing-brace-newline-after": [ "always", {
+    "block-closing-brace-newline-after": ["always", {
       "ignoreAtRules": ["if", "else"],
-    } ],
+    }],
+    "max-nesting-depth": [3, {
+      "ignore": ["at-rules-without-declaration-blocks"],
+    }],
   }
 }
