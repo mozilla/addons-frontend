@@ -6,7 +6,7 @@ $addon-padding: 20px;
 .addon {
   align-items: center;
   background: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: row;
   line-height: 1.5;
@@ -19,7 +19,7 @@ $addon-padding: 20px;
   .editorial-description {
     color: $secondary-font-color;
     font-size: 12px;
-    margin: 0.5em 0;
+    margin: 0.75em 0;
   }
 
   &.theme {
@@ -32,8 +32,10 @@ $addon-padding: 20px;
 
   .theme-image {
     display: block;
+    overflow: hidden;
 
     img {
+      float: right;
       display: block;
     }
 
@@ -47,11 +49,31 @@ $addon-padding: 20px;
     margin: 0 20px 0 30px;
   }
 
+  &:not(.theme) .install-button {
+    align-self: stretch;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0 0 15px 0;
+    padding: 15px 20px 0 20px;
+
+    > .switch {
+      float: right;
+    }
+  }
+
+  @include respond-to('large') {
+    &:not(.theme) .install-button {
+      align-self: center;
+      border: 0;
+      margin: 0 20px 0 30px;
+      padding: 0;
+    }
+  }
+
   .logo {
     align-items: center;
     align-self: stretch;
     display: flex;
-    padding: 0 15px;
+    padding: 0 10px;
 
     img {
       display: block;
@@ -60,9 +82,16 @@ $addon-padding: 20px;
     }
   }
 
+  @include respond-to('large') {
+    .logo {
+      padding: 0 15px;
+    }
+  }
+
   .heading {
     color: $primary-font-color;
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 1.2;
     font-weight: medium;
     margin: 0;
 
@@ -73,6 +102,12 @@ $addon-padding: 20px;
     }
   }
 
+  @include respond-to('large') {
+    .heading {
+      font-size: 18px;
+    }
+  }
+
   .content {
     display: flex;
     align-items: center;
@@ -80,15 +115,32 @@ $addon-padding: 20px;
     flex-grow: 1;
     position: relative;
 
-
     .copy {
-      padding: 30px 20px;
+      padding: 20px 20px 15px;
       flex-grow: 1;
 
       // Remove the bottom margin of the last element.
       & :last-child {
         margin-bottom: 0;
       }
+    }
+
+    @include respond-to('large') {
+      .copy {
+        padding: 30px 20px;
+      }
+    }
+  }
+
+  &:not(.theme) .content {
+    flex-direction: column;
+    align-items: left;
+  }
+
+  @include respond-to('large') {
+    &:not(.theme) .content {
+      flex-direction: row;
+      align-items: center;
     }
   }
 
@@ -100,7 +152,7 @@ $addon-padding: 20px;
     display: flex;
     flex-direction: row;
     left: 0;
-    padding: 15px 20px;
+    padding: 15px 80px 15px 20px;
     position: absolute;
     right: 0;
     top: 0;

@@ -6,3 +6,8 @@ $secondary-font-color: #6a6a6a;
 
 $header-copy-font-color: #414141;
 $header-border-color: #b1b1b1;
+
+$breakpoints: (
+  small: '(max-width: 719px)',
+  large: '(min-width: 720px)'
+);
