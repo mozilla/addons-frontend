@@ -2,18 +2,18 @@
 
 @mixin focus() {
   border-color: $focus-outline-color;
-  box-shadow:0 0 5px 0 $focus-outline-color;
-  outline:none;
+  box-shadow: 0 0 5px 0 $focus-outline-color;
+  outline: none;
 }
 
+/* stylelint-disable at-rule-empty-line-before, media-feature-no-missing-punctuation  */
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media #{map-get($breakpoints, $breakpoint)} {
       @content;
     }
-  }
-  @else {
+  } @else {
     @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
-    + 'Please make sure it is defined in `$breakpoints` map.';
+      + 'Please make sure it is defined in `$breakpoints` map.';
   }
 }

@@ -3,14 +3,21 @@
 @import "~core/css/inc/mixins";
 @import "~disco/css/inc/vars";
 
-
 html,
 body {
   background: $page-background;
-  font-family: -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 14px;
 }
 
@@ -72,8 +79,8 @@ header {
   text-align: center;
 
   a {
-    background: #2EA3FF;
-    border: 1px solid #0675D3;
+    background: #2ea3ff;
+    border: 1px solid #0675d3;
     color: #fff;
     display: inline-block;
     font-size: 14px;
@@ -85,8 +92,8 @@ header {
 
     &:focus,
     &:hover {
-      background: #0996F8;
-      border: 1px solid #0461AE;
+      background: #0996f8;
+      border: 1px solid #0461ae;
     }
 
     &:focus {
@@ -95,7 +102,7 @@ header {
     }
 
     &:active {
-      background: #0675D3;
+      background: #0675d3;
       border: 1px solid #025295;
       box-shadow: none;
     }
@@ -222,7 +229,7 @@ header {
   text-align: center;
 
   a {
-    color: #0996F8;
+    color: #0996f8;
     height: 40px;
     line-height: 40px;
     text-decoration: none;

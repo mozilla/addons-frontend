@@ -13,18 +13,18 @@ $switchHandleDisabledOpacity: 0.25;
 $switchToBackgroundRatio: 2.7;
 
 $switchStrokeOff: #858585;
-$switchStrokeOn: #00A920;
+$switchStrokeOn: #00a920;
 $switchStrokeWidth: 1px;
 $switchHandleActivePosition: round(($size * $switchToBackgroundRatio) - ($size + ($switchHandleGap * 2 + $switchStrokeWidth)));
 
-$switchBackgroundOn: #57BD35;
+$switchBackgroundOn: #57bd35;
 $switchBackgroundOff: #919191;
 
-$uninstallStripeColor1: #B1B1B1;
-$uninstallStripeColor2: #D4D4D4;
+$uninstallStripeColor1: #b1b1b1;
+$uninstallStripeColor2: #d4d4d4;
 
-$installStripeColor1: #00A920;
-$installStripeColor2: #00C42E;
+$installStripeColor1: #00a920;
+$installStripeColor2: #00c42e;
 
 @keyframes stripes {
   from {
@@ -36,21 +36,23 @@ $installStripeColor2: #00C42E;
 }
 
 @mixin stripes($color1, $color2) {
-  animation: stripes .5s linear infinite;
-  background-image: repeating-linear-gradient(
-    45deg,
-    $color1,
-    $color1 25%,
-    $color2 25%,
-    $color2 50%,
-    $color1 50%);
+  animation: stripes 0.5s linear infinite;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      $color1,
+      $color1 25%,
+      $color2 25%,
+      $color2 50%,
+      $color1 50%
+    );
   background-size: $size/2 $size/2;
 }
 
 .switch {
   position: relative;
 
-  &.installed:after {
+  &.installed::after {
     background: url('../img/tick.svg') no-repeat 50% 50%;
     color: #fff;
     content: '';
@@ -82,15 +84,15 @@ $installStripeColor2: #00C42E;
     width: round($size * $switchToBackgroundRatio);
     transition: border $transition;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: "";
       display: block;
       position: absolute;
     }
 
     // Switch background.
-    &:before {
+    &::before {
       border-radius: $size;
       bottom: 0;
       left: 0;
@@ -100,7 +102,7 @@ $installStripeColor2: #00C42E;
     }
 
     // Handle.
-    &:after {
+    &::after {
       background: $switchHandleActive;
       border-radius: 50%;
       bottom: $switchHandleGap;
@@ -113,13 +115,13 @@ $installStripeColor2: #00C42E;
       z-index: 3;
     }
 
-    &:hover:after {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 0 0 $size/2 transparentize($switchHandleActive, 0.80);
+    &:hover::after {
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 0 0 $size/2 transparentize($switchHandleActive, 0.8);
     }
   }
 
   &.uninstalling {
-    input + label:before {
+    input + label::before {
       @include stripes(
          $uninstallStripeColor1,
          $uninstallStripeColor2);
@@ -128,10 +130,10 @@ $installStripeColor2: #00C42E;
       transform: scaleX(-1);
     }
     input + label {
-      &:after {
+      &::after {
         transform: translateX($switchHandleGap);
       }
-      &:hover:after {
+      &:hover::after {
         box-shadow: none;
       }
     }
@@ -141,15 +143,15 @@ $installStripeColor2: #00C42E;
     input + label {
       border-color: $switchStrokeOn;
 
-      &:before {
+      &::before {
         @include stripes(
            $installStripeColor1,
            $installStripeColor2);
       }
-      &:after {
+      &::after {
         transform: translateX($switchHandleActivePosition);
       }
-      &:hover:after {
+      &:hover::after {
         box-shadow: none;
       }
     }
@@ -163,7 +165,7 @@ $installStripeColor2: #00C42E;
       border: 1px solid $switchStrokeOff;
       overflow: hidden;
 
-      &:after {
+      &::after {
         background: $switchHandleActive;
         transform: translateX($switchHandleActivePosition);
       }
@@ -174,10 +176,10 @@ $installStripeColor2: #00C42E;
   input:disabled + label,
   input:checked:disabled + label {
     cursor: not-allowed;
-    &:after {
+    &::after {
       background: $switchHandleInactive;
     }
-    &:hover:after {
+    &:hover::after {
       box-shadow: none;
     }
   }
@@ -185,18 +187,18 @@ $installStripeColor2: #00C42E;
   input:checked + label {
     border-color: $switchStrokeOn;
 
-    &:before {
+    &::before {
       background: $switchBackgroundOn;
     }
 
-    &:after {
+    &::after {
       transform: translateX($switchHandleActivePosition);
     }
   }
 }
 
 .progress {
-  background: transparentize(#3ef827, 0.50);
+  background: transparentize(#3ef827, 0.5);
   bottom: 0;
   left: 0;
   position: absolute;
