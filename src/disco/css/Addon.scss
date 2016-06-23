@@ -39,7 +39,6 @@ $addon-padding: 20px;
       display: block;
     }
 
-    &:hover,
     &:focus {
       @include focus();
     }
