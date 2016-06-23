@@ -146,6 +146,25 @@ describe('<Addon />', () => {
       assert.include(root.refs.heading.innerHTML, 'Hey! This is <span>an add-on</span>');
     });
 
+    it('purifies the heading with a link and adds link attrs', () => {
+      root = renderAddon({
+        ...result,
+        heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
+      });
+      const link = root.refs.heading.querySelector('a');
+      assert.equal(link.getAttribute('rel'), 'noreferrer');
+      assert.equal(link.getAttribute('target'), '_blank');
+    });
+
+    it('purifies the heading with a bad link', () => {
+      root = renderAddon({
+        ...result,
+        heading: 'This is <span>an <a href="javascript:alert(1)">add-on</a>/span>',
+      });
+      const link = root.refs.heading.querySelector('a');
+      assert.equal(link.getAttribute('href'), null);
+    });
+
     it('purifies the editorial description', () => {
       root = renderAddon({
         ...result,

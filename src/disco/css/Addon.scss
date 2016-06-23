@@ -95,10 +95,38 @@ $addon-padding: 20px;
     font-weight: medium;
     margin: 0;
 
+    a:link,
+    a:visited,
+    a:focus,
+    a:hover,
+    a:active {
+      color: $primary-font-color;
+      text-decoration: none;
+    }
+
+    a:focus,
+    a:hover {
+      text-decoration: underline;
+    }
+
     span {
       color: $secondary-font-color;
       font-size: 14px;
       font-weight: normal;
+
+      a:link,
+      a:visited,
+      a:focus,
+      a:hover,
+      a:active {
+        color: $secondary-font-color;
+        text-decoration: none;
+      }
+
+      a:focus,
+      a:hover {
+        text-decoration: underline;
+      }
     }
   }
 

@@ -38,6 +38,15 @@ import {
 
 import 'disco/css/Addon.scss';
 
+purify.addHook('afterSanitizeAttributes', (node) => {
+  // Set all elements owning target to target=_blank
+  // and add rel="noreferrer".
+  if ('target' in node) {
+    node.setAttribute('target', '_blank');
+    node.setAttribute('rel', 'noreferrer');
+  }
+});
+
 function sanitizeHTML(text, allowTags = []) {
   // TODO: Accept tags to allow and run through dom-purify.
   return {
@@ -213,7 +222,7 @@ export class Addon extends React.Component {
             <h2
               ref="heading"
               className="heading"
-              dangerouslySetInnerHTML={sanitizeHTML(heading, ['span'])} />
+              dangerouslySetInnerHTML={sanitizeHTML(heading, ['a', 'span'])} />
             {this.getDescription()}
           </div>
           <div className="install-button">
