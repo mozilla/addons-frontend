@@ -7,8 +7,8 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "ja"
          },
-         "Preview %(name)s": [
-            "%(name)s をプレビュー"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "画像にマウスオーバーしてプレビュー"
@@ -23,9 +23,18 @@
             "予期せぬ問題が発生しました。"
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "このアドオンは Firefox の再起動後に削除されます。"
          ],
          "Please restart Firefox to use this add-on.": [
+            "このアドオンを使うには Firefox を再起動してください。"
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [

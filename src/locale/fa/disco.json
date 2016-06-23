@@ -7,22 +7,34 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "fa"
          },
-         "Preview %(name)s": [
-            "نمایش%(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
-            ""
+            "برای پیش‌نمایش بر روی تصویر حرکت کنید"
          ],
          "Installation failed. Please try again.": [
-            ""
+            "نصب شکست خورد. لطفا دوباره تلاش کنید."
          ],
          "Download failed. Please check your connection.": [
-            ""
+            "دریافت شکست خورد. لطفا اتصال خود را بررسی کنید."
+         ],
+         "An unexpected error occurred.": [
+            "یک خطا غیر منتظره رُخ داد."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "این افزودنی پس از راه‌اندازی مجدد فایرفاکس حذف خواهد شد."
          ],
          "Please restart Firefox to use this add-on.": [
+            "لطفا برای استفاده از این افزودنی فایرفاکس را مجددا راه‌اندازی کنید."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [
@@ -44,10 +56,10 @@
             "برای پیداکردن اطلاعات بیشتر در مورد افزونه"
          ],
          "Close video": [
-            ""
+            "بستن ویدئو"
          ],
          "See more add-ons!": [
-            ""
+            "نمایش افزودنی‌های بیشتر!"
          ]
       }
    }

@@ -7,8 +7,8 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "nl"
          },
-         "Preview %(name)s": [
-            "Voorbeeld %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
@@ -23,9 +23,18 @@
             "Er is een onverwachte fout opgetreden."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Deze add-on zal worden gede-installeerd nadat u Firefox herstart."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Herstart Firefox om deze add-on te gebruiken."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [
@@ -38,13 +47,13 @@
             "Personaliseer uw Firefox"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            "Er zijn duizenden add-ons waarmee u Firefox helemaal van uzelf kunt maken — variërend van leuke visuele thema’s tot krachtige hulpmiddelen en functies. Probeer deze geweldige voorbeelden eens uit."
+            "Er zijn duizenden add-ons waarmee u Firefox helemaal van uzelf kunt maken,\nvariërend van leuke visuele thema’s tot krachtige hulpmiddelen en functies.\nDit zijn een paar goede die u kunt uitproberen."
          ],
          "Click to play": [
-            "Klik om te spelen"
+            "Klik om de video af te spelen"
          ],
          "to find out more about add-ons": [
-            "om meer over add-ons te ontdekken"
+            "en meer over add-ons te ontdekken"
          ],
          "Close video": [
             "Video sluiten"

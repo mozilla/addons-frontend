@@ -7,22 +7,34 @@
             "plural_forms": "nplurals=2; plural=(n > 1);",
             "lang": "pt_BR"
          },
-         "Preview %(name)s": [
-            "Pré-visualizar %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Passe o mouse sobre a imagem para visualizar"
          ],
          "Installation failed. Please try again.": [
-            ""
+            "A instalação falhou. Por favor tente novamente."
          ],
          "Download failed. Please check your connection.": [
-            ""
+            "Houve um erro no download. Por favor verifique sua conexão."
+         ],
+         "An unexpected error occurred.": [
+            "Ocorreu um erro inesperado."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Este complemento será removido quando o Firefox for reiniciado."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Por favor reinicie o Firefox para usar este complemento."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [
@@ -47,7 +59,7 @@
             "Fechar vídeo"
          ],
          "See more add-ons!": [
-            "Exibir mais complementos!"
+            "Ver mais complementos!"
          ]
       }
    }
