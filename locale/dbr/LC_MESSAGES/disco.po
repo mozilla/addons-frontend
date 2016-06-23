@@ -6,15 +6,15 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "‮Hoʌǝɹ ʇo dɹǝʌıǝʍ oɹ ɔʅıɔʞ ʇo ıusʇɐʅʅ %(name)s"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -42,15 +42,15 @@ msgstr "‮Ԁʅǝɐsǝ ɹǝsʇɐɹʇ Ⅎıɹǝɟox ʇo nsǝ ʇɥıs ɐpp-ou˙"
 
 #: src/disco/components/Addon.js:298
 msgid "Installed and added to toolbar"
-msgstr ""
+msgstr "‮Iusʇɐʅʅǝp ɐup ɐppǝp ʇo ʇooʅqɐɹ"
 
 #: src/disco/components/Addon.js:300
 msgid "Click here to access %(name)s any time."
-msgstr ""
+msgstr "‮Ↄʅıɔʞ ɥǝɹǝ ʇo ɐɔɔǝss %(name)s‮ ɐuʎ ʇıɯǝ˙"
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "‮Oʞ"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -89,6 +89,3 @@ msgstr "‮Ↄʅosǝ ʌıpǝo"
 #: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "‮Sǝǝ ɯoɹǝ ɐpp-ous¡"
-
-#~ msgid "Preview %(name)s"
-#~ msgstr "‮Ԁɹǝʌıǝʍ %(name)s"
