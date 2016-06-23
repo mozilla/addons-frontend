@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-09 15:44+0000\n"
+"POT-Creation-Date: 2016-06-23 18:16+0000\n"
 "PO-Revision-Date: 2016-06-18 12:12+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,33 +14,45 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:120
-msgid "Preview %(name)s"
-msgstr "نمایش%(name)s"
+#: src/disco/components/Addon.js:133
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
 
-#: src/disco/components/Addon.js:129
+#: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
 msgstr "برای پیش‌نمایش بر روی تصویر حرکت کنید"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
 msgstr "نصب شکست خورد. لطفا دوباره تلاش کنید."
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:160
 msgid "Download failed. Please check your connection."
 msgstr "دریافت شکست خورد. لطفا اتصال خود را بررسی کنید."
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "یک خطا غیر منتظره رُخ داد."
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "این افزودنی پس از راه‌اندازی مجدد فایرفاکس حذف خواهد شد."
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "لطفا برای استفاده از این افزودنی فایرفاکس را مجددا راه‌اندازی کنید."
+
+#: src/disco/components/Addon.js:298
+msgid "Installed and added to toolbar"
+msgstr ""
+
+#: src/disco/components/Addon.js:300
+msgid "Click here to access %(name)s any time."
+msgstr ""
+
+#: src/disco/components/Addon.js:302
+msgid "Ok"
+msgstr ""
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -60,7 +72,9 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"هزاران افزونه وجود دارد که به شما کمک می‌کند تمام فایرفاکس را به اختیار خود درآورید — همه چیز از ضمیمه های سرگرم کننده بصری تا ابزارهای قوی و ویژیگی های مختلف. \n"
+"هزاران افزونه وجود دارد که به شما کمک می‌کند تمام فایرفاکس را به اختیار خود "
+"درآورید — همه چیز از ضمیمه های سرگرم کننده بصری تا ابزارهای قوی و ویژیگی های "
+"مختلف. \n"
 "در اینجا تعدادی از بهترین های آن ها را ببینید."
 
 #: src/disco/containers/DiscoPane.js:78
@@ -78,3 +92,6 @@ msgstr "بستن ویدئو"
 #: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "نمایش افزودنی‌های بیشتر!"
+
+#~ msgid "Preview %(name)s"
+#~ msgstr "نمایش%(name)s"
