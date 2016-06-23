@@ -12,8 +12,9 @@
     "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
     "dev:disco": "better-npm-run dev:disco",
     "dev:search": "better-npm-run dev:search",
-    "eslint": "npm run lint",
-    "lint": "eslint .",
+    "eslint": "eslint .",
+    "stylelint": "stylelint --syntax scss **/*.scss",
+    "lint": "npm run eslint; npm run stylelint",
     "servertest": "npm run build && better-npm-run servertest",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
     "start:disco": "NODE_APP_INSTANCE=disco npm start",
@@ -78,7 +79,7 @@
       }
     },
     "test": {
-      "command": "npm run version-check && npm run unittest && npm run servertest && npm run lint",
+      "command": "npm run version-check && npm run unittest && npm run servertest && npm run eslint && npm run stylelint",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production"
@@ -204,6 +205,8 @@
     "sinon": "1.17.4",
     "sri-stats-webpack-plugin": "0.7.2",
     "style-loader": "0.13.1",
+    "stylelint": "6.7.0",
+    "stylelint-config-standard": "9.0.0",
     "supertest": "1.2.0",
     "supertest-as-promised": "3.0.0",
     "webpack": "1.13.1",
