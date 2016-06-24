@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-23 18:16+0000\n"
-"PO-Revision-Date: 2016-06-21 17:40+0000\n"
+"PO-Revision-Date: 2016-06-24 22:01+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Passe o mouse para visualizar ou clique para instalar %(name)s"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -44,15 +44,15 @@ msgstr "Por favor reinicie o Firefox para usar este complemento."
 
 #: src/disco/components/Addon.js:298
 msgid "Installed and added to toolbar"
-msgstr ""
+msgstr "Instalado e adicionado à barra de ferramentas"
 
 #: src/disco/components/Addon.js:300
 msgid "Click here to access %(name)s any time."
-msgstr ""
+msgstr "Clique aqui para acessar %(name)s a qualquer momento."
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -72,9 +72,9 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Existem milhares de complementos que permitem tornar o seu Firefo—único, "
-"desde divertidos temas visuais para ferramentas e recursos poderosos.\n"
-"Aqui estão algumas grandes para conhecer."
+"Existem milhares de complementos que permitem tornar o seu Firefox único, \n"
+"desde divertidos temas visuais a ferramentas e recursos poderosos.\n"
+"Aqui estão alguns grandes para conhecer."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
