@@ -7,8 +7,8 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "pt_PT"
          },
-         "Preview %(name)s": [
-            "Pré-visualizar %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Coloque o cursor sob a imagem para pré-visualizar"
@@ -23,9 +23,18 @@
             "Ocorreu um erro inesperado."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Este extra será desinstalado depois de reiniciar o Firefox."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Por favor, reinicie o Firefox para utilizar este extra."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [

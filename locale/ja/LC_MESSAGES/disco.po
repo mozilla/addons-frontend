@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-09 15:44+0000\n"
+"POT-Creation-Date: 2016-06-23 18:16+0000\n"
 "PO-Revision-Date: 2016-06-09 19:25+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,33 +14,45 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:120
-msgid "Preview %(name)s"
-msgstr "%(name)s をプレビュー"
+#: src/disco/components/Addon.js:133
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
 
-#: src/disco/components/Addon.js:129
+#: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
 msgstr "画像にマウスオーバーしてプレビュー"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
 msgstr "インストールに失敗しました。再度試してください。"
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:160
 msgid "Download failed. Please check your connection."
 msgstr "ダウンロードに失敗しました。接続状況を確認してください。"
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "予期せぬ問題が発生しました。"
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "このアドオンは Firefox の再起動後に削除されます。"
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "このアドオンを使うには Firefox を再起動してください。"
+
+#: src/disco/components/Addon.js:298
+msgid "Installed and added to toolbar"
+msgstr ""
+
+#: src/disco/components/Addon.js:300
+msgid "Click here to access %(name)s any time."
+msgstr ""
+
+#: src/disco/components/Addon.js:302
+msgid "Ok"
+msgstr ""
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -59,7 +71,10 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr "楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを紹介します。"
+msgstr ""
+"楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分"
+"好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを"
+"紹介します。"
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
@@ -76,3 +91,6 @@ msgstr "動画を閉じる"
 #: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "アドオンをもっと見る"
+
+#~ msgid "Preview %(name)s"
+#~ msgstr "%(name)s をプレビュー"

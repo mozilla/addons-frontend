@@ -7,22 +7,34 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "sq"
          },
-         "Preview %(name)s": [
-            "Parashiheni %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Kalojeni kursorin përsipër figurës që ta parashihni"
          ],
          "Installation failed. Please try again.": [
-            ""
+            "Instalimi dështoi. Ju lutemi, riprovoni."
          ],
          "Download failed. Please check your connection.": [
-            ""
+            "Shkarkimi dështoi. Ju lutemi, kontrolloni lidhjen tuaj."
+         ],
+         "An unexpected error occurred.": [
+            "Ndodhi një gabim i papritur."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Kjo shtesë do të çinstalohet pasi të rinisni Firefox-in."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Ju lutemi, rinisni Firefox-in që të përdorni këtë shtesë."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [

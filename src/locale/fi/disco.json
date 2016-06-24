@@ -7,22 +7,34 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "fi"
          },
-         "Preview %(name)s": [
-            "Esikatsele: %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Esikatsele osoittamalla kuvaa"
          ],
          "Installation failed. Please try again.": [
-            ""
+            "Asennus epäonnistui. Yritä uudestaan."
          ],
          "Download failed. Please check your connection.": [
-            ""
+            "Lataus epäonnistui. Tarkista verkkoyhteys."
+         ],
+         "An unexpected error occurred.": [
+            "Tapahtui odottamaton virhe."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Tämä lisäosa poistetaan, kun käynnistät Firefoxin uudestaan."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Käynnistä Firefox uudestaan, jotta voit käyttää tätä lisäosaa."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [
@@ -35,7 +47,7 @@
             "Mukauta Firefoxiasi"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            ""
+            "Firefoxille on tuhansia lisäosia, joilla teet siitä omanlaisesi – kaikkea hauskoista teemoista tehokkaisiin työkaluihin ja ominaisuuksiin. Tässä on muutamia hyviä lisäosia katsottavaksi."
          ],
          "Click to play": [
             "Toista painamalla"

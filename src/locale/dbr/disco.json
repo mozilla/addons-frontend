@@ -6,8 +6,8 @@
             "domain": "messages",
             "plural_forms": "nplurals=2; plural=(n!=1);"
          },
-         "Preview %(name)s": [
-            "‮Ԁɹǝʌıǝʍ %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            "‮Hoʌǝɹ ʇo dɹǝʌıǝʍ oɹ ɔʅıɔʞ ʇo ıusʇɐʅʅ %(name)s"
          ],
          "Hover over the image to preview": [
             "‮Hoʌǝɹ oʌǝɹ ʇɥǝ ıɯɐƃǝ ʇo dɹǝʌıǝʍ"
@@ -26,6 +26,15 @@
          ],
          "Please restart Firefox to use this add-on.": [
             "‮Ԁʅǝɐsǝ ɹǝsʇɐɹʇ Ⅎıɹǝɟox ʇo nsǝ ʇɥıs ɐpp-ou˙"
+         ],
+         "Installed and added to toolbar": [
+            "‮Iusʇɐʅʅǝp ɐup ɐppǝp ʇo ʇooʅqɐɹ"
+         ],
+         "Click here to access %(name)s any time.": [
+            "‮Ↄʅıɔʞ ɥǝɹǝ ʇo ɐɔɔǝss %(name)s‮ ɐuʎ ʇıɯǝ˙"
+         ],
+         "Ok": [
+            "‮Oʞ"
          ],
          "Install": [
             "‮Iusʇɐʅʅ"

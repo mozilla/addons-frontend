@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-09 15:44+0000\n"
+"POT-Creation-Date: 2016-06-23 18:16+0000\n"
 "PO-Revision-Date: 2016-06-09 16:59+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
@@ -11,36 +11,49 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:120
-msgid "Preview %(name)s"
-msgstr "Попередній перегляд %(name)s"
+#: src/disco/components/Addon.js:133
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
 
-#: src/disco/components/Addon.js:129
+#: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
 msgstr "Наведіть курсор на зображення для перегляду"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
 msgstr "Не вдалося виконати інсталяцію. Повторіть спробу."
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:160
 msgid "Download failed. Please check your connection."
 msgstr "Не вдалося завантажити. Будь ласка, перевірте підключення."
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "Сталася неочікувана помилка."
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Цей додаток буде видалений після перезапуску Firefox."
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "Перезапустіть Firefox для використання цього додатку."
+
+#: src/disco/components/Addon.js:298
+msgid "Installed and added to toolbar"
+msgstr ""
+
+#: src/disco/components/Addon.js:300
+msgid "Click here to access %(name)s any time."
+msgstr ""
+
+#: src/disco/components/Addon.js:302
+msgid "Ok"
+msgstr ""
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -79,3 +92,6 @@ msgstr "Закрити відео"
 #: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "Перегляньте інші додатки!"
+
+#~ msgid "Preview %(name)s"
+#~ msgstr "Попередній перегляд %(name)s"

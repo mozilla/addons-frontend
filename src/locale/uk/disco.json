@@ -7,8 +7,8 @@
             "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);",
             "lang": "uk"
          },
-         "Preview %(name)s": [
-            "Попередній перегляд %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Наведіть курсор на зображення для перегляду"
@@ -23,9 +23,18 @@
             "Сталася неочікувана помилка."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Цей додаток буде видалений після перезапуску Firefox."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Перезапустіть Firefox для використання цього додатку."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [

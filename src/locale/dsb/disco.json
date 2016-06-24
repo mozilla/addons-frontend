@@ -7,8 +7,8 @@
             "plural_forms": "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);",
             "lang": "dsb"
          },
-         "Preview %(name)s": [
-            "Pśeglěd za %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Gibniśo myšku nad wobraz za pśeglěd"
@@ -23,9 +23,18 @@
             "Njewótcakana zmólka jo nastała."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Toś ten dodank se wótinstalěrujo, za tym až sćo Firefox znowego startował."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Pšosym startujśo Firefox znowego, aby toś ten dodank wužywał."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [

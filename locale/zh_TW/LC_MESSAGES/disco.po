@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-09 15:44+0000\n"
+"POT-Creation-Date: 2016-06-23 18:16+0000\n"
 "PO-Revision-Date: 2016-06-20 07:23+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -14,33 +14,45 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:120
-msgid "Preview %(name)s"
-msgstr "預覽 %(name)s"
+#: src/disco/components/Addon.js:133
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
 
-#: src/disco/components/Addon.js:129
+#: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
 msgstr "滑過圖片進行預覽"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
 msgstr "安裝失敗，請再試一次。"
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:160
 msgid "Download failed. Please check your connection."
 msgstr "下載失敗，請檢查網路連線。"
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "您重新啟動 Firefox 後將移除此附加元件。"
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "重新啟動 Firefox 後即可使用此附加元件。"
+
+#: src/disco/components/Addon.js:298
+msgid "Installed and added to toolbar"
+msgstr ""
+
+#: src/disco/components/Addon.js:300
+msgid "Click here to access %(name)s any time."
+msgstr ""
+
+#: src/disco/components/Addon.js:302
+msgid "Ok"
+msgstr ""
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -59,7 +71,9 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
+msgstr ""
+"有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或"
+"是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
@@ -76,3 +90,6 @@ msgstr "關閉影片"
 #: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "看看更多附加元件！"
+
+#~ msgid "Preview %(name)s"
+#~ msgstr "預覽 %(name)s"

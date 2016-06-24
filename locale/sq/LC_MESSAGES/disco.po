@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-09 15:44+0000\n"
+"POT-Creation-Date: 2016-06-23 18:16+0000\n"
 "PO-Revision-Date: 2016-06-20 10:50+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -14,33 +14,45 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:120
-msgid "Preview %(name)s"
-msgstr "Parashiheni %(name)s"
+#: src/disco/components/Addon.js:133
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
 
-#: src/disco/components/Addon.js:129
+#: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
 msgstr "Kalojeni kursorin përsipër figurës që ta parashihni"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
 msgstr "Instalimi dështoi. Ju lutemi, riprovoni."
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:160
 msgid "Download failed. Please check your connection."
 msgstr "Shkarkimi dështoi. Ju lutemi, kontrolloni lidhjen tuaj."
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "Ndodhi një gabim i papritur."
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Kjo shtesë do të çinstalohet pasi të rinisni Firefox-in."
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ju lutemi, rinisni Firefox-in që të përdorni këtë shtesë."
+
+#: src/disco/components/Addon.js:298
+msgid "Installed and added to toolbar"
+msgstr ""
+
+#: src/disco/components/Addon.js:300
+msgid "Click here to access %(name)s any time."
+msgstr ""
+
+#: src/disco/components/Addon.js:302
+msgid "Ok"
+msgstr ""
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -60,7 +72,8 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Ka me mijëra shtesa që ju lejojnë ta bëni tërësisht si e doni - gjithçka, nga temat pamore zbavitëse e deri te mjete dhe veçori të fuqishme.\n"
+"Ka me mijëra shtesa që ju lejojnë ta bëni tërësisht si e doni - gjithçka, "
+"nga temat pamore zbavitëse e deri te mjete dhe veçori të fuqishme.\n"
 "Ja disa të fuqishme, sa për një ide."
 
 #: src/disco/containers/DiscoPane.js:78
@@ -78,3 +91,6 @@ msgstr "Mbylle videon"
 #: src/disco/containers/DiscoPane.js:95
 msgid "See more add-ons!"
 msgstr "Shihni më tepër shtesa!"
+
+#~ msgid "Preview %(name)s"
+#~ msgstr "Parashiheni %(name)s"

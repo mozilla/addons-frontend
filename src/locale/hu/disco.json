@@ -7,8 +7,8 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "hu"
          },
-         "Preview %(name)s": [
-            "%(name)s előnézete"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Az előnézethez vigye a kép fölé az egeret"
@@ -23,9 +23,18 @@
             "Váratlan hiba történt."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
          ],
          "Please restart Firefox to use this add-on.": [
+            "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [

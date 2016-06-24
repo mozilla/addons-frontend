@@ -7,8 +7,8 @@
             "plural_forms": "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);",
             "lang": "sl"
          },
-         "Preview %(name)s": [
-            "Predogled %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
             "Premaknite miško nad sliko za predogled"
@@ -23,9 +23,18 @@
             "Prišlo je do nepričakovane napake."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Dodatek bo odstranjen po ponovnem zagonu Firefoxa."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Ponovno zaženite Firefox za uporabo tega dodatka."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [

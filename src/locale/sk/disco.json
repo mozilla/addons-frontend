@@ -7,22 +7,34 @@
             "plural_forms": "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;",
             "lang": "sk"
          },
-         "Preview %(name)s": [
-            "Ukážka %(name)s"
+         "Hover to preview or click to install %(name)s": [
+            ""
          ],
          "Hover over the image to preview": [
-            ""
+            "Pre náhľad prejdite nad obrázok myšou"
          ],
          "Installation failed. Please try again.": [
-            ""
+            "Inštalácia zlyhala. Skúste to prosím znova."
          ],
          "Download failed. Please check your connection.": [
-            ""
+            "Prevzatie zlyhalo. Skontrolujte prosím vaše pripojenie."
+         ],
+         "An unexpected error occurred.": [
+            "Nastala neočakávaná chyba."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "Tento doplnok bude odinštalovaný po reštarte Firefoxu."
          ],
          "Please restart Firefox to use this add-on.": [
+            "Pre použitie tohto doplnku, prosím, reštartujte Firefox."
+         ],
+         "Installed and added to toolbar": [
+            ""
+         ],
+         "Click here to access %(name)s any time.": [
+            ""
+         ],
+         "Ok": [
             ""
          ],
          "Install": [
@@ -44,10 +56,10 @@
             "a zistite viac informácií o doplnkoch"
          ],
          "Close video": [
-            ""
+            "Zavrieť video"
          ],
          "See more add-ons!": [
-            ""
+            "Zobraziť ďalšie doplnky!"
          ]
       }
    }
