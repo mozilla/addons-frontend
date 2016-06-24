@@ -38,11 +38,12 @@ describe('installations reducer', () => {
       }),
       {
         'my-addon@me.com': {
-          guid: 'my-addon@me.com',
-          url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,
-          status: UNINSTALLED,
+          error: undefined,
+          guid: 'my-addon@me.com',
           needsRestart: false,
+          status: UNINSTALLED,
+          url: 'https://cdn.amo/download/my-addon.xpi',
         },
       });
   });
@@ -60,11 +61,12 @@ describe('installations reducer', () => {
       }),
       {
         'my-addon@me.com': {
-          guid: 'my-addon@me.com',
-          url: 'https://cdn.amo/download/my-addon.xpi',
           downloadProgress: 0,
-          status: UNINSTALLING,
+          error: undefined,
+          guid: 'my-addon@me.com',
           needsRestart: true,
+          status: UNINSTALLING,
+          url: 'https://cdn.amo/download/my-addon.xpi',
         },
       });
   });
@@ -80,11 +82,12 @@ describe('installations reducer', () => {
       }),
       {
         'my-addon@me.com': {
-          guid: 'my-addon@me.com',
-          url: undefined,
           downloadProgress: 0,
-          status: INSTALLED,
+          error: undefined,
+          guid: 'my-addon@me.com',
           needsRestart: false,
+          status: INSTALLED,
+          url: undefined,
         },
       });
   });
@@ -100,11 +103,12 @@ describe('installations reducer', () => {
       }),
       {
         'my-addon@me.com': {
-          guid: 'my-addon@me.com',
-          url: undefined,
           downloadProgress: 0,
-          status: UNINSTALLED,
+          error: undefined,
+          guid: 'my-addon@me.com',
           needsRestart: false,
+          status: UNINSTALLED,
+          url: undefined,
         },
       });
   });
@@ -121,11 +125,12 @@ describe('installations reducer', () => {
       }),
       {
         'an-addon@me.com': {
-          guid: 'an-addon@me.com',
-          url: 'https://cdn.amo/download/an-addon.xpi',
           downloadProgress: 0,
-          status: INSTALLED,
+          error: undefined,
+          guid: 'an-addon@me.com',
           needsRestart: false,
+          status: INSTALLED,
+          url: 'https://cdn.amo/download/an-addon.xpi',
         },
       });
   });

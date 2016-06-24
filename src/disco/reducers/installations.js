@@ -38,6 +38,7 @@ export default function installations(state = {}, { type, payload }) {
     addon = {
       guid: payload.guid,
       url: payload.url,
+      error: payload.error,
       downloadProgress: 0,
       status: normalizeStatus(payload.status),
       needsRestart: payload.needsRestart || false,

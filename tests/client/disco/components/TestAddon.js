@@ -19,6 +19,9 @@ import {
   ENABLED,
   ERROR,
   EXTENSION_TYPE,
+  FATAL_ERROR,
+  FATAL_INSTALL_ERROR,
+  FATAL_UNINSTALL_ERROR,
   INSTALLED,
   INSTALL_CATEGORY,
   INSTALL_FAILED,
@@ -62,7 +65,7 @@ describe('<Addon />', () => {
       root = renderAddon(result);
     });
 
-    it('renders a default error overlay', () => {
+    it('renders a default error overlay with no close link', () => {
       const data = { ...result, status: ERROR, setCurrentStatus: sinon.stub() };
       root = renderAddon(data);
       const error = findDOMNode(root).querySelector('.notification.error');
@@ -70,8 +73,55 @@ describe('<Addon />', () => {
         error.querySelector('p').textContent,
         'An unexpected error occurred.',
         'error message should be present');
-      Simulate.click(error.querySelector('.close'));
-      assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
+      assert.equal(error.querySelector('.close'), null);
+    });
+
+    it('renders a default error overlay with no close link for FATAL_ERROR', () => {
+      const data = {
+        ...result,
+        status: ERROR,
+        setCurrentStatus: sinon.stub(),
+        error: FATAL_ERROR,
+      };
+      root = renderAddon(data);
+      const error = findDOMNode(root).querySelector('.notification.error');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'An unexpected error occurred.',
+        'error message should be present');
+      assert.equal(error.querySelector('.close'), null);
+    });
+
+    it('renders a specific overlay with no close link for FATAL_INSTALL_ERROR', () => {
+      const data = {
+        ...result,
+        status: ERROR,
+        setCurrentStatus: sinon.stub(),
+        error: FATAL_INSTALL_ERROR,
+      };
+      root = renderAddon(data);
+      const error = findDOMNode(root).querySelector('.notification.error');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'An unexpected error occurred during installation.',
+        'error message should be present');
+      assert.equal(error.querySelector('.close'), null);
+    });
+
+    it('renders a specific overlay with no close link for FATAL_UNINSTALL_ERROR', () => {
+      const data = {
+        ...result,
+        status: ERROR,
+        setCurrentStatus: sinon.stub(),
+        error: FATAL_UNINSTALL_ERROR,
+      };
+      root = renderAddon(data);
+      const error = findDOMNode(root).querySelector('.notification.error');
+      assert.equal(
+        error.querySelector('p').textContent,
+        'An unexpected error occurred during uninstallation.',
+        'error message should be present');
+      assert.equal(error.querySelector('.close'), null);
     });
 
     it('renders an install error overlay', () => {
@@ -455,6 +505,23 @@ describe('<Addon />', () => {
           }));
         });
     });
+
+    it('dispatches error when setCurrentStatus then() gets exception', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper({ getAddon: Promise.resolve() });
+      const guid = '@foo';
+      const installURL = 'http://the.url';
+      const dispatch = sinon.stub();
+      dispatch.onFirstCall().returns(Promise.reject());
+      const { setCurrentStatus } =
+        mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
+      return setCurrentStatus({ guid, installURL })
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_ERROR },
+          }), 'dispatch was not called with FATAL_ERROR');
+        });
+    });
   });
 
   describe('install', () => {
@@ -509,6 +576,24 @@ describe('<Addon />', () => {
           payload: { guid },
         })));
     });
+
+    it('dispatches error when addonManager.install throws', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper();
+      fakeAddonManager.install = sinon.stub().returns(Promise.reject());
+      const i18n = getFakeI18nInst();
+      const dispatch = sinon.stub();
+      const { install } = mapDispatchToProps(
+        dispatch,
+        { _addonManager: fakeAddonManager, guid, i18n });
+
+      return install({ guid, installURL })
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_INSTALL_ERROR },
+          }), 'dispatch was not called with FATAL_INSTALL_ERROR');
+        });
+    });
   });
 
   describe('uninstall', () => {
@@ -522,6 +607,20 @@ describe('<Addon />', () => {
       return uninstall({ guid, installURL })
         .then(() => {
           assert(fakeAddonManager.uninstall.calledWith(guid));
+        });
+    });
+
+    it('dispatches error when addonManager.uninstall throws', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper();
+      fakeAddonManager.uninstall = sinon.stub().returns(Promise.reject());
+      const dispatch = sinon.spy();
+      const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
+      return uninstall({ guid, installURL })
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },
+          }), 'dispatch was not called with FATAL_UNINSTALL_ERROR');
         });
     });
 
