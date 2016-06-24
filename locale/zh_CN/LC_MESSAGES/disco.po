@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-23 18:16+0000\n"
-"PO-Revision-Date: 2016-06-10 10:59+0000\n"
+"PO-Revision-Date: 2016-06-24 11:45+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "悬停以预览，点击安装 %(name)s"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -44,15 +44,15 @@ msgstr "请重启 Firefox 以使用此附加组件。"
 
 #: src/disco/components/Addon.js:298
 msgid "Installed and added to toolbar"
-msgstr ""
+msgstr "已安装并添加到工具栏"
 
 #: src/disco/components/Addon.js:300
 msgid "Click here to access %(name)s any time."
-msgstr ""
+msgstr "点击此处随时访问 %(name)s。"
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "确定"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
