@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-23 18:16+0000\n"
-"PO-Revision-Date: 2016-06-10 12:11+0000\n"
+"PO-Revision-Date: 2016-06-24 10:19+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Pasa por encima para verla o haz clic para instalar %(name)s"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -44,15 +44,15 @@ msgstr "Por favor, reinicia Firefox para usar este complemento."
 
 #: src/disco/components/Addon.js:298
 msgid "Installed and added to toolbar"
-msgstr ""
+msgstr "Instalado y agregado a la barra de herramientas"
 
 #: src/disco/components/Addon.js:300
 msgid "Click here to access %(name)s any time."
-msgstr ""
+msgstr "Haz clic aquí para acceder a %(name)s cuando quieras."
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "Vale"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
