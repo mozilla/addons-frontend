@@ -1,23 +1,22 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-23 18:16+0000\n"
-"PO-Revision-Date: 2016-06-10 10:02+0000\n"
+"PO-Revision-Date: 2016-06-24 13:00+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -45,15 +44,15 @@ msgstr "Ponovno zaženite Firefox za uporabo tega dodatka."
 
 #: src/disco/components/Addon.js:298
 msgid "Installed and added to toolbar"
-msgstr ""
+msgstr "Nameščen in dodan v orodno vrstico"
 
 #: src/disco/components/Addon.js:300
 msgid "Click here to access %(name)s any time."
-msgstr ""
+msgstr "Kliknite tukaj za dostop do %(name)s."
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "V redu"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
