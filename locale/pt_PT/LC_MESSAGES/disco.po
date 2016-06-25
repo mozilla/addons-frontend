@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-23 18:16+0000\n"
-"PO-Revision-Date: 2016-06-09 17:58+0000\n"
+"PO-Revision-Date: 2016-06-25 04:52+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -44,15 +44,15 @@ msgstr "Por favor, reinicie o Firefox para utilizar este extra."
 
 #: src/disco/components/Addon.js:298
 msgid "Installed and added to toolbar"
-msgstr ""
+msgstr "Instalado e adicionado à barra de ferramentas"
 
 #: src/disco/components/Addon.js:300
 msgid "Click here to access %(name)s any time."
-msgstr ""
+msgstr "Clique aqui para aceder a %(name)s a qualquer altura."
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -71,10 +71,7 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr ""
-"Existem milhares de extras que permitem tornar o Firefox só seu — tudo desde "
-"temas de visuais divertidos a poderosas ferramentas e funcionalidades. Eis "
-"alguns fantásticos para ver."
+msgstr "Existem milhares de extras que permitem tornar o Firefox só seu — tudo desde temas de visuais divertidos a poderosas ferramentas e funcionalidades. Eis alguns fantásticos para ver."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
