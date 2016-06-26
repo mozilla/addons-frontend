@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-23 18:16+0000\n"
-"PO-Revision-Date: 2016-06-19 19:44+0000\n"
+"PO-Revision-Date: 2016-06-26 08:40+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
@@ -72,8 +72,7 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Existujú tisíce doplnkov, ktoré vám umožnia Firefox vylepšiť podľa vašej "
-"potreby — od zábavných tém až po výkonné nástroje a funkcie.\n"
+"Existujú tisíce doplnkov, ktoré vám umožnia Firefox vylepšiť podľa vašej potreby — od zábavných tém až po výkonné nástroje a funkcie.\n"
 "Tu je niekoľko velikánov, čo stoja za vyskúšanie."
 
 #: src/disco/containers/DiscoPane.js:78
