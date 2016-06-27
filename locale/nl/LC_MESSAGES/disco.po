@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-23 18:16+0000\n"
-"PO-Revision-Date: 2016-06-09 19:03+0000\n"
+"PO-Revision-Date: 2016-06-27 23:03+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te installeren"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "OK"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
