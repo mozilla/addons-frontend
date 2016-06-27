@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-23 18:16+0000\n"
-"PO-Revision-Date: 2016-06-09 16:15+0000\n"
+"PO-Revision-Date: 2016-06-27 20:15+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -44,15 +44,15 @@ msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
 
 #: src/disco/components/Addon.js:298
 msgid "Installed and added to toolbar"
-msgstr ""
+msgstr "Telepítve, és hozzáadva az eszköztárhoz"
 
 #: src/disco/components/Addon.js:300
 msgid "Click here to access %(name)s any time."
-msgstr ""
+msgstr "Kattintson ide, hogy mindig elérje a(z) %(name)s kiegészítőt."
 
 #: src/disco/components/Addon.js:302
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/disco/components/InstallButton.js:80
 msgid "Install"
