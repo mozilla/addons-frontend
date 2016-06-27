@@ -22,6 +22,9 @@ import {
   ENABLED,
   ERROR,
   EXTENSION_TYPE,
+  FATAL_ERROR,
+  FATAL_INSTALL_ERROR,
+  FATAL_UNINSTALL_ERROR,
   INSTALL_CATEGORY,
   INSTALL_ERROR,
   INSTALL_FAILED,
@@ -99,9 +102,11 @@ export class Addon extends React.Component {
   }
 
   getError() {
-    return this.props.status === ERROR ? (<div className="notification error" key="error-overlay">
+    const { error, i18n, status } = this.props;
+    return status === ERROR ? (<div className="notification error" key="error-overlay">
       <p className="message">{this.errorMessage()}</p>
-      <a className="close" href="#" onClick={this.closeError}>Close</a>
+      {error && !error.startsWith('FATAL') ?
+        <a className="close" href="#" onClick={this.closeError}>{i18n.gettext('Close')}</a> : null}
     </div>) : null;
   }
 
@@ -158,6 +163,11 @@ export class Addon extends React.Component {
         return i18n.gettext('Installation failed. Please try again.');
       case DOWNLOAD_FAILED:
         return i18n.gettext('Download failed. Please check your connection.');
+      case FATAL_INSTALL_ERROR:
+        return i18n.gettext('An unexpected error occurred during installation.');
+      case FATAL_UNINSTALL_ERROR:
+        return i18n.gettext('An unexpected error occurred during uninstallation.');
+      case FATAL_ERROR:
       default:
         return i18n.gettext('An unexpected error occurred.');
     }
@@ -274,12 +284,27 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
         .then(
           (addon) => {
             const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
-            dispatch({ type: INSTALL_STATE, payload: { ...payload, status } });
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { ...payload, status },
+            });
           },
           () => {
             log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
-            dispatch({ type: INSTALL_STATE, payload: { ...payload, status: UNINSTALLED } });
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { ...payload, status: UNINSTALLED },
+            });
+          }
+        )
+        .catch((err) => {
+          log.error(err);
+          // Dispatch a generic error should the success/error functions throw.
+          dispatch({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_ERROR },
           });
+        });
     },
 
     install() {
@@ -303,6 +328,13 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
               },
             },
           }));
+        })
+        .catch((err) => {
+          log.error(err);
+          dispatch({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_INSTALL_ERROR },
+          });
         });
     },
 
@@ -312,7 +344,14 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
         [THEME_TYPE]: 'theme',
       }[type] || 'invalid';
       _tracking.sendEvent({ action, category: UNINSTALL_CATEGORY, label: name });
-      return _addonManager.uninstall(guid);
+      return _addonManager.uninstall(guid)
+        .catch((err) => {
+          log.error(err);
+          dispatch({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },
+          });
+        });
     },
   };
 }

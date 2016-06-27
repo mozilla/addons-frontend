@@ -29,6 +29,11 @@ export const validInstallStates = [
 export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
 export const INSTALL_FAILED = 'INSTALL_FAILED';
 
+// Unrecoverable errors.
+export const FATAL_INSTALL_ERROR = 'FATAL_INSTALL_ERROR';
+export const FATAL_UNINSTALL_ERROR = 'FATAL_UNINSTALL_ERROR';
+export const FATAL_ERROR = 'FATAL_ERROR';
+
 // Add-on types.
 export const API_THEME_TYPE = 'persona';
 export const EXTENSION_TYPE = 'extension';
