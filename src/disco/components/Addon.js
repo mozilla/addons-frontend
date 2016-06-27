@@ -310,9 +310,13 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
     install() {
       const { guid, i18n, iconUrl, installURL, name } = ownProps;
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
-      _tracking.sendEvent({ action: 'addon', category: INSTALL_CATEGORY, label: name });
       return _addonManager.install(installURL, makeProgressHandler(dispatch, guid))
         .then(() => {
+          _tracking.sendEvent({
+            action: 'addon',
+            category: INSTALL_CATEGORY,
+            label: name,
+          });
           document.dispatchEvent(new CustomEvent('mozUITour', {
             bubbles: true,
             detail: {
@@ -343,8 +347,14 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
         [EXTENSION_TYPE]: 'addon',
         [THEME_TYPE]: 'theme',
       }[type] || 'invalid';
-      _tracking.sendEvent({ action, category: UNINSTALL_CATEGORY, label: name });
       return _addonManager.uninstall(guid)
+        .then(() => {
+          _tracking.sendEvent({
+            action,
+            category: UNINSTALL_CATEGORY,
+            label: name,
+          });
+        })
         .catch((err) => {
           log.error(err);
           dispatch({
