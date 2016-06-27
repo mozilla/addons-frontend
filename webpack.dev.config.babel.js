@@ -72,7 +72,7 @@ export default Object.assign({}, webpackConfig, {
       loader: 'style!css?importLoaders=2!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded',
     }, {
       test: /\.svg$/,
-      loader: 'url?limit=10000&mimetype=image/svg+xml',
+      loader: 'svg-url?limit=10000',
     }, {
       test: /\.jpg$/,
       loader: 'url?limit=10000&mimetype=image/jpeg',

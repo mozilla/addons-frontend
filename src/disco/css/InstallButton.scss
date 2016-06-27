@@ -47,26 +47,11 @@ $installStripeColor2: #00c42e;
       $color1 50%
     );
   background-size: $size/2 $size/2;
+  background-color: $switchBackgroundOn;
 }
 
 .switch {
   position: relative;
-
-  &.installed::after {
-    background: url('../img/tick.svg') no-repeat 50% 50%;
-    color: #fff;
-    content: '';
-    display: block;
-    font-family: sans-serif;
-    height: 16px;
-    left: $size;
-    // Allow mouse events to pass-through the image.
-    pointer-events: none;
-    position: absolute;
-    top: ($size + ($switchHandleGap * 2))/2;
-    transform: translate(-50%, -50%);
-    width: 16px;
-  }
 
   input:focus + label {
     @include focus();
@@ -82,7 +67,7 @@ $installStripeColor2: #00c42e;
     overflow: hidden;
     position: relative;
     width: round($size * $switchToBackgroundRatio);
-    transition: border $transition;
+    transition: border-color 0.1s;
 
     &::before,
     &::after {
@@ -98,6 +83,7 @@ $installStripeColor2: #00c42e;
       left: 0;
       right: 0;
       top: 0;
+      transition: background-color $transition;
     }
 
     // Handle.
@@ -108,7 +94,7 @@ $installStripeColor2: #00c42e;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
       transform: translateX($switchHandleGap);
       top: $switchHandleGap;
-      transition: transform $transition, box-shadow $transition;
+      transition: transform $transition;
       width: $size;
       height: $size;
       z-index: 3;
@@ -138,6 +124,21 @@ $installStripeColor2: #00c42e;
     }
   }
 
+  &.downloading {
+    overflow: hidden;
+    position: relative;
+
+    input + label {
+      border: 1px solid $switchStrokeOff;
+      overflow: hidden;
+
+      &::after {
+        background: $switchHandleActive;
+        transform: translateX($switchHandleActivePosition);
+      }
+    }
+  }
+
   &.installing {
     input + label {
       border-color: $switchStrokeOn;
@@ -156,25 +157,11 @@ $installStripeColor2: #00c42e;
     }
   }
 
-  &.downloading {
-    overflow: hidden;
-    position: relative;
-
-    input + label {
-      border: 1px solid $switchStrokeOff;
-      overflow: hidden;
-
-      &::after {
-        background: $switchHandleActive;
-        transform: translateX($switchHandleActivePosition);
-      }
-    }
-  }
-
   // Disabled State
   input:disabled + label,
   input:checked:disabled + label {
     cursor: not-allowed;
+
     &::after {
       background: $switchHandleInactive;
     }
@@ -193,6 +180,10 @@ $installStripeColor2: #00c42e;
     &::after {
       transform: translateX($switchHandleActivePosition);
     }
+  }
+
+  &.installed input + label::before {
+    background: $switchBackgroundOn url('../img/tick.svg') no-repeat 35% 50%;
   }
 }
 
