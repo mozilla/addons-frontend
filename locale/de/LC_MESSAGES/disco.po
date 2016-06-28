@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-23 18:16+0000\n"
+"POT-Creation-Date: 2016-06-28 11:43+0000\n"
 "PO-Revision-Date: 2016-06-24 12:54+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -14,43 +14,61 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:133
+#: src/disco/components/Addon.js:109
+#, fuzzy
+msgid "Close"
+msgstr "Video schließen"
+
+#: src/disco/components/Addon.js:138
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
+msgstr ""
+"Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:148
 msgid "Hover over the image to preview"
-msgstr "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+msgstr ""
+"Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:163
 msgid "Installation failed. Please try again."
 msgstr "Installation fehlgeschlagen. Bitte versuchen Sie es erneut."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:165
 msgid "Download failed. Please check your connection."
 msgstr "Download fehlgeschlagen. Bitte überprüfen Sie Ihre Verbindung."
 
-#: src/disco/components/Addon.js:162
+#: src/disco/components/Addon.js:167
+#, fuzzy
+msgid "An unexpected error occurred during installation."
+msgstr "Ein unerwarteter Fehler ist aufgetreten."
+
+#: src/disco/components/Addon.js:169
+#, fuzzy
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Ein unerwarteter Fehler ist aufgetreten."
+
+#: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred."
 msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:180
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
+msgstr ""
+"Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:182
 msgid "Please restart Firefox to use this add-on."
 msgstr "Bitte starten Sie Firefox neu, um dieses Add-on zu verwenden."
 
-#: src/disco/components/Addon.js:298
+#: src/disco/components/Addon.js:323
 msgid "Installed and added to toolbar"
 msgstr "Installiert und zur Symbolleiste hinzugefügt."
 
-#: src/disco/components/Addon.js:300
+#: src/disco/components/Addon.js:325
 msgid "Click here to access %(name)s any time."
 msgstr "Klicken Sie hier, um jederzeit auf %(name)s zuzugreifen."
 
-#: src/disco/components/Addon.js:302
+#: src/disco/components/Addon.js:327
 msgid "Ok"
 msgstr "OK"
 
@@ -72,7 +90,8 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Es gibt Tausende von Add-ons, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können\n"
+"Es gibt Tausende von Add-ons, mit denen Sie Firefox an Ihre Bedürfnisse "
+"anpassen können\n"
 " – alles, von lustigen Themes zu mächtigen Werkzeugen und Funktionen.\n"
 "Hier sind ein paar tolle Beispiele, die Sie ausprobieren können."
 
