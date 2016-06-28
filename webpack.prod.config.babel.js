@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import autoprefixer from 'autoprefixer';
 import path from 'path';
 
 import config from 'config';
@@ -22,8 +23,7 @@ for (const app of appsBuildList) {
   entryPoints[app] = `src/${app}/client`;
 }
 
-
-export default {
+const settings = {
   devtool: 'source-map',
   context: path.resolve(__dirname),
   progress: true,
@@ -42,7 +42,7 @@ export default {
         loader: 'babel',
       }, {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
+        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
       }, {
         test: /\.svg$/,
         loader: 'svg-url?limit=10000',
@@ -102,3 +102,11 @@ export default {
     extensions: ['', '.js', '.jsx'],
   },
 };
+
+if (config.get('enablePostCssLoader')) {
+  settings.postcss = [
+    autoprefixer({ browsers: ['last 2 versions'] }),
+  ];
+}
+
+export default settings;

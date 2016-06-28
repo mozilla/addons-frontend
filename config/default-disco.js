@@ -29,4 +29,6 @@ module.exports = {
   },
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',
+
+  enablePostCssLoader: false,
 };

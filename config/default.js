@@ -142,4 +142,6 @@ module.exports = {
   // and enabled on a per-app basis.
   trackingEnabled: false,
   trackingId: null,
+
+  enablePostCssLoader: true,
 };
