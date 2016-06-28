@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-28 11:43+0000\n"
-"PO-Revision-Date: 2016-06-24 21:13+0000\n"
+"PO-Revision-Date: 2016-06-28 19:38+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -15,15 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:109
-#, fuzzy
 msgid "Close"
-msgstr "Fermer la vidéo"
+msgstr "Fermer"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Survolez l’image pour activer la prévisualisation ou cliquez pour installer "
-"%(name)s"
+msgstr "Survolez l’image pour activer la prévisualisation ou cliquez pour installer %(name)s"
 
 #: src/disco/components/Addon.js:148
 msgid "Hover over the image to preview"
@@ -38,14 +35,12 @@ msgid "Download failed. Please check your connection."
 msgstr "Échec du téléchargement. Veuillez vérifier votre connexion."
 
 #: src/disco/components/Addon.js:167
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Une erreur inattendue s’est produite."
+msgstr "Une erreur inattendue s’est produite pendant l’installation."
 
 #: src/disco/components/Addon.js:169
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Une erreur inattendue s’est produite."
+msgstr "Une erreur inattendue s’est produite pendant la désinstallation."
 
 #: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred."
@@ -89,10 +84,8 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Il existe des milliers de modules qui vous permettent de personnaliser "
-"complètement Firefox, que ce soit avec des thèmes amusants ou en ajoutant "
-"des outils ou des fonctionnalités très pratiques. En voici quelques-uns pour "
-"vous faire une idée."
+"Il existe des milliers de modules qui vous permettent de personnaliser complètement Firefox, que ce soit avec des thèmes amusants ou en ajoutant des outils ou des fonctionnalités très pratiques. En "
+"voici quelques-uns pour vous faire une idée."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
