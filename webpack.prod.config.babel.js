@@ -45,7 +45,7 @@ export default {
         loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
       }, {
         test: /\.svg$/,
-        loader: 'url?limit=10000&mimetype=image/svg+xml',
+        loader: 'svg-url?limit=10000',
       }, {
         test: /\.jpg$/,
         loader: 'url?limit=10000&mimetype=image/jpeg',
