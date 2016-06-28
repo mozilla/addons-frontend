@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-28 11:43+0000\n"
-"PO-Revision-Date: 2016-06-26 11:26+0000\n"
+"PO-Revision-Date: 2016-06-28 15:21+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -15,15 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:109
-#, fuzzy
 msgid "Close"
-msgstr "Stäng video"
+msgstr "Stäng"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Håll muspekaren över för att förhandsgranska eller klicka för att installera "
-"%(name)s"
+msgstr "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
 
 #: src/disco/components/Addon.js:148
 msgid "Hover over the image to preview"
@@ -38,14 +35,12 @@ msgid "Download failed. Please check your connection."
 msgstr "Hämtningen misslyckades. Kontrollera din anslutning."
 
 #: src/disco/components/Addon.js:167
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Ett oväntat fel inträffade."
+msgstr "Ett oväntat fel uppstod under installationen."
 
 #: src/disco/components/Addon.js:169
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Ett oväntat fel inträffade."
+msgstr "Ett oväntat fel uppstod under avinstallationen."
 
 #: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred."
