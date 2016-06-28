@@ -94,7 +94,7 @@ $installStripeColor2: #00c42e;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
       transform: translateX($switchHandleGap);
       top: $switchHandleGap;
-      transition: transform $transition;
+      transition: transform $transition, box-shadow $transition;
       width: $size;
       height: $size;
       z-index: 3;
