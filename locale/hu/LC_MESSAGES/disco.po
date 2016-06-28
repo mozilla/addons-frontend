@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-28 11:43+0000\n"
-"PO-Revision-Date: 2016-06-27 20:15+0000\n"
+"PO-Revision-Date: 2016-06-28 20:39+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -15,15 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:109
-#, fuzzy
 msgid "Close"
-msgstr "Videó bezárása"
+msgstr "Bezárás"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
-"telepítéséhez"
+msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
 
 #: src/disco/components/Addon.js:148
 msgid "Hover over the image to preview"
@@ -38,14 +35,12 @@ msgid "Download failed. Please check your connection."
 msgstr "A letöltés sikertelen. Kérjük, ellenőrizze kapcsolatát."
 
 #: src/disco/components/Addon.js:167
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Váratlan hiba történt."
+msgstr "Váratlan hiba történt a telepítés során."
 
 #: src/disco/components/Addon.js:169
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Váratlan hiba történt."
+msgstr "Váratlan hiba történt az eltávolítás során."
 
 #: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred."
