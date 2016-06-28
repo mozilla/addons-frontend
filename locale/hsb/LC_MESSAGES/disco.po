@@ -1,30 +1,26 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-28 11:43+0000\n"
-"PO-Revision-Date: 2016-06-24 13:25+0000\n"
+"PO-Revision-Date: 2016-06-28 21:05+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hsb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:109
-#, fuzzy
 msgid "Close"
-msgstr "Widejo začinić"
+msgstr "Začinić"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s "
-"kliknyć"
+msgstr "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s kliknyć"
 
 #: src/disco/components/Addon.js:148
 msgid "Hover over the image to preview"
@@ -39,14 +35,12 @@ msgid "Download failed. Please check your connection."
 msgstr "Sćehnjenje je so nimokuliło. Prošu přepruwujće swój zwisk."
 
 #: src/disco/components/Addon.js:167
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Njewočakowany zmylk je wustupił."
+msgstr "Njewočakowany zmylk je při instalowanju wustupił."
 
 #: src/disco/components/Addon.js:169
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Njewočakowany zmylk je wustupił."
+msgstr "Njewočakowany zmylk je při wotinstalowanju wustupił."
 
 #: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred."
@@ -90,9 +84,7 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Su tysacy přidatkow, kotrež wam zmóžnjeja, Firefox wašim potrjebam přiměrić "
-"&ndash; wšitko, wot zabawnych drastow hač do mócnych nastrojow a funkcijow. "
-"Tu su někotre, kotrež móžeće wupruwować."
+"Su tysacy přidatkow, kotrež wam zmóžnjeja, Firefox wašim potrjebam přiměrić &ndash; wšitko, wot zabawnych drastow hač do mócnych nastrojow a funkcijow. Tu su někotre, kotrež móžeće wupruwować."
 
 #: src/disco/containers/DiscoPane.js:78
 msgid "Click to play"
