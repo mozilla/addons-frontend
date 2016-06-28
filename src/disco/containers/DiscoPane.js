@@ -10,10 +10,15 @@ import { getDiscoveryAddons } from 'disco/api';
 import { discoResults } from 'disco/actions';
 import { loadEntities } from 'core/actions';
 import { addChangeListeners } from 'disco/addonManager';
-import { INSTALL_STATE } from 'disco/constants';
+import {
+  INSTALL_STATE,
+  NAVIGATION_CATEGORY,
+  VIDEO_CATEGORY,
+} from 'disco/constants';
 
 import Addon from 'disco/components/Addon';
 import translate from 'core/i18n/translate';
+import tracking from 'core/tracking';
 
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
@@ -28,12 +33,14 @@ export class DiscoPane extends React.Component {
     AddonComponent: PropTypes.func.isRequred,
     _addChangeListeners: PropTypes.func,
     mozAddonManager: PropTypes.object,
+    _tracking: PropTypes.object,
   }
 
   static defaultProps = {
     AddonComponent: Addon,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     _addChangeListeners: addChangeListeners,
+    _tracking: tracking,
   }
 
   constructor() {
@@ -48,15 +55,34 @@ export class DiscoPane extends React.Component {
   }
 
   showVideo = (e) => {
+    const { _tracking } = this.props;
     e.preventDefault();
     this.setState({ showVideo: true });
     this.refs.video.play();
+    _tracking.sendEvent({
+      action: 'play',
+      category: VIDEO_CATEGORY,
+    });
+  }
+
+  showMoreAddons = () => {
+    const { _tracking } = this.props;
+    _tracking.sendEvent({
+      action: 'click',
+      category: NAVIGATION_CATEGORY,
+      label: 'See More Add-ons',
+    });
   }
 
   closeVideo = (e) => {
+    const { _tracking } = this.props;
     e.preventDefault();
     this.setState({ showVideo: false });
     this.refs.video.pause();
+    _tracking.sendEvent({
+      action: 'close',
+      category: VIDEO_CATEGORY,
+    });
   }
 
   render() {
@@ -91,7 +117,8 @@ export class DiscoPane extends React.Component {
         </header>
         {results.map((item) => <AddonComponent {...camelCaseProps(item)} key={item.guid} />)}
         <div className="amo-link">
-          <a href="https://addons.mozilla.org/" target="_blank" rel="noreferrer">
+          <a href="https://addons.mozilla.org/" target="_blank"
+            rel="noreferrer" onClick={this.showMoreAddons}>
             {i18n.gettext('See more add-ons!')}
           </a>
         </div>

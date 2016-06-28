@@ -73,7 +73,8 @@ export const installEventList = [
 
 export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
 export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
-
+export const VIDEO_CATEGORY = 'Discovery Video';
+export const NAVIGATION_CATEGORY = 'Discovery Navigation';
 
 // Install Types
 export const INSTALL_STATE = 'INSTALL_STATE';

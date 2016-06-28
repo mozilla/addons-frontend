@@ -5,7 +5,13 @@ import { Provider } from 'react-redux';
 import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
-import { EXTENSION_TYPE, INSTALL_STATE, globalEvents } from 'disco/constants';
+import {
+  EXTENSION_TYPE,
+  INSTALL_STATE,
+  NAVIGATION_CATEGORY,
+  VIDEO_CATEGORY,
+  globalEvents,
+} from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
 import { loadEntities } from 'core/actions';
@@ -48,6 +54,30 @@ describe('AddonPage', () => {
       assert.ok(root.querySelector('.show-video'));
       Simulate.click(root.querySelector('.close-video a'));
       assert.notOk(root.querySelector('.show-video'));
+    });
+
+    it('tracks video being played', () => {
+      const fakeTracking = {
+        sendEvent: sinon.stub(),
+      };
+      const root = render({ _tracking: fakeTracking });
+      Simulate.click(root.querySelector('.play-video'));
+      assert.ok(fakeTracking.sendEvent.calledWith({
+        category: VIDEO_CATEGORY,
+        action: 'play',
+      }));
+    });
+
+    it('tracks video being closed', () => {
+      const fakeTracking = {
+        sendEvent: sinon.stub(),
+      };
+      const root = render({ _tracking: fakeTracking });
+      Simulate.click(root.querySelector('.close-video a'));
+      assert.ok(fakeTracking.sendEvent.calledWith({
+        category: VIDEO_CATEGORY,
+        action: 'close',
+      }));
     });
   });
 
@@ -136,6 +166,21 @@ describe('AddonPage', () => {
       };
       render({ mozAddonManager: fakeMozAddonManager });
       assert.equal(fakeMozAddonManager.addEventListener.callCount, globalEvents.length);
+    });
+  });
+
+  describe('See more add-ons link', () => {
+    it('tracks see more addons link being clicked', () => {
+      const fakeTracking = {
+        sendEvent: sinon.stub(),
+      };
+      const root = render({ _tracking: fakeTracking });
+      Simulate.click(root.querySelector('.amo-link a'));
+      assert.ok(fakeTracking.sendEvent.calledWith({
+        category: NAVIGATION_CATEGORY,
+        action: 'click',
+        label: 'See More Add-ons',
+      }));
     });
   });
 });
