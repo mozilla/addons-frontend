@@ -1,5 +1,5 @@
-const amoCDN = 'https://addons.cdn.mozilla.net';
-const staticHost = 'https://addons-admin.cdn.mozilla.net';
+const amoCDN = 'https://addons-stage-cdn.allizom.org';
+const staticHost = 'https://addons-admin-cdn.allizom.org';
 
 module.exports = {
   staticHost,
