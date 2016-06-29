@@ -1,3 +1,4 @@
+const amoCDN = 'https://addons-dev-cdn.allizom.org';
 const staticHost = 'https://addons-admin-dev-cdn.allizom.org';
 
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
+        amoCDN,
         staticHost,
         'data:',
       ],

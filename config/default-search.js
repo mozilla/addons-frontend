@@ -1,3 +1,4 @@
+const amoCDN = 'https://addons.cdn.mozilla.net';
 const staticHost = 'https://addons-admin.cdn.mozilla.net';
 
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
+        amoCDN,
         staticHost,
         'data:',
       ],
