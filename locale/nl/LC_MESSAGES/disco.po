@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-28 11:43+0000\n"
-"PO-Revision-Date: 2016-06-27 23:10+0000\n"
+"PO-Revision-Date: 2016-06-29 10:53+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -15,15 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:109
-#, fuzzy
 msgid "Close"
-msgstr "Video sluiten"
+msgstr "Sluiten"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te "
-"installeren"
+msgstr "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te installeren"
 
 #: src/disco/components/Addon.js:148
 msgid "Hover over the image to preview"
@@ -35,17 +32,15 @@ msgstr "Installatie mislukt. Probeer het opnieuw."
 
 #: src/disco/components/Addon.js:165
 msgid "Download failed. Please check your connection."
-msgstr "Download mislukt. Controleer uw verbinding."
+msgstr "Downloaden mislukt. Controleer uw verbinding."
 
 #: src/disco/components/Addon.js:167
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Er is een onverwachte fout opgetreden."
+msgstr "Er is een onverwachte fout opgetreden tijdens het installeren."
 
 #: src/disco/components/Addon.js:169
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Er is een onverwachte fout opgetreden."
+msgstr "Er is een onverwachte fout opgetreden tijdens het verwijderen."
 
 #: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred."
