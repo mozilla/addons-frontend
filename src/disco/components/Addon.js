@@ -25,10 +25,12 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
+  CLOSE_INFO,
   INSTALL_CATEGORY,
   INSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_STATE,
+  SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
   THEME_PREVIEW,
@@ -273,10 +275,17 @@ export function makeProgressHandler(dispatch, guid) {
 
 export function mapDispatchToProps(dispatch, { _tracking = tracking,
                                                _addonManager = addonManager,
+                                               _config = config,
+                                               _dispatchEvent,
                                                ...ownProps } = {}) {
   if (config.get('server')) {
     return {};
   }
+
+  // Set the default here otherwise server code will blow up.
+  // eslint-disable-next-line no-param-reassign
+  _dispatchEvent = _dispatchEvent || document.dispatchEvent;
+
   return {
     setCurrentStatus({ guid, installURL }) {
       const payload = { guid, url: installURL };
@@ -317,21 +326,34 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
             category: INSTALL_CATEGORY,
             label: name,
           });
-          document.dispatchEvent(new CustomEvent('mozUITour', {
-            bubbles: true,
-            detail: {
-              action: 'showInfo',
-              data: {
-                target: 'appMenu',
-                icon: iconUrl,
-                title: i18n.gettext('Installed and added to toolbar'),
-                text: i18n.sprintf(
-                  i18n.gettext('Click here to access %(name)s any time.'),
-                  { name }),
-                buttons: [{ label: i18n.gettext('Ok'), callbackID: 'add-on-installed' }],
+          if (_config.has('useUiTour') && _config.get('useUiTour')) {
+            _dispatchEvent(new CustomEvent('mozUITour', {
+              bubbles: true,
+              detail: {
+                action: 'showInfo',
+                data: {
+                  target: 'appMenu',
+                  icon: iconUrl,
+                  title: i18n.gettext('Your add-on is ready'),
+                  text: i18n.sprintf(
+                    i18n.gettext('Now you can access %(name)s from the toolbar.'),
+                    { name }),
+                  buttons: [{ label: i18n.gettext('Ok'), callbackID: 'add-on-installed' }],
+                },
               },
-            },
-          }));
+            }));
+          } else {
+            dispatch({
+              type: SHOW_INFO,
+              payload: {
+                addonName: name,
+                imageURL: iconUrl,
+                closeAction: () => {
+                  dispatch({ type: CLOSE_INFO });
+                },
+              },
+            });
+          }
         })
         .catch((err) => {
           log.error(err);

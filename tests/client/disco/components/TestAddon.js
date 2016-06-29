@@ -13,6 +13,7 @@ import {
   mapStateToProps,
 } from 'disco/components/Addon';
 import {
+  CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
@@ -26,6 +27,7 @@ import {
   INSTALL_CATEGORY,
   INSTALL_FAILED,
   INSTALL_STATE,
+  SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
   THEME_PREVIEW,
@@ -575,6 +577,75 @@ describe('<Addon />', () => {
           type: START_DOWNLOAD,
           payload: { guid },
         })));
+    });
+
+    it('should dispatch SHOW_INFO', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper();
+      const i18n = getFakeI18nInst();
+      const dispatch = sinon.spy();
+      const iconUrl = 'whatevs';
+      const name = 'test-addon';
+
+      const fakeConfig = {
+        has: sinon.stub().withArgs('useUiTour').returns(false),
+      };
+      const { install } = mapDispatchToProps(
+        dispatch,
+        {
+          _addonManager: fakeAddonManager,
+          _config: fakeConfig,
+          i18n,
+          iconUrl,
+          name,
+        });
+      return install({ guid, installURL })
+        .then(() => {
+          assert(dispatch.calledWith({
+            type: SHOW_INFO,
+            payload: {
+              addonName: 'test-addon',
+              imageURL: iconUrl,
+              closeAction: sinon.match.func,
+            },
+          }));
+
+          // Grab the first arg of second call.
+          const arg = dispatch.getCall(1).args[0];
+          // Prove we're looking at the SHOW_INFO dispatch.
+          assert.equal(arg.type, SHOW_INFO);
+
+          // Test that close action dispatches.
+          arg.payload.closeAction();
+          assert(dispatch.calledWith({
+            type: CLOSE_INFO,
+          }));
+        });
+    });
+
+    it('should use uiTour', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper();
+      const i18n = getFakeI18nInst();
+      const dispatch = sinon.spy();
+      const iconUrl = 'whatevs';
+      const name = 'test-addon';
+
+      const fakeConfig = {
+        has: sinon.stub().withArgs('useUiTour').returns(true),
+        get: sinon.stub().withArgs('useUiTour').returns(true),
+      };
+      const fakeDispatchEvent = sinon.stub();
+      const { install } = mapDispatchToProps(
+        dispatch,
+        {
+          _addonManager: fakeAddonManager,
+          _dispatchEvent: fakeDispatchEvent,
+          _config: fakeConfig,
+          i18n,
+          iconUrl,
+          name,
+        });
+      return install({ guid, installURL })
+        .then(() => assert.ok(fakeDispatchEvent.called));
     });
 
     it('dispatches error when addonManager.install throws', () => {

@@ -17,6 +17,7 @@ import {
 } from 'disco/constants';
 
 import Addon from 'disco/components/Addon';
+import InfoDialog from 'disco/components/InfoDialog';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
 
@@ -27,12 +28,14 @@ import videoWebm from 'disco/video/AddOns.webm';
 
 export class DiscoPane extends React.Component {
   static propTypes = {
+    AddonComponent: PropTypes.func.isRequred,
     handleGlobalEvent: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    results: PropTypes.arrayOf(PropTypes.object),
-    AddonComponent: PropTypes.func.isRequred,
-    _addChangeListeners: PropTypes.func,
+    infoDialogData: PropTypes.object,
     mozAddonManager: PropTypes.object,
+    results: PropTypes.arrayOf(PropTypes.object),
+    showInfoDialog: PropTypes.boolean,
+    _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
   }
 
@@ -65,15 +68,6 @@ export class DiscoPane extends React.Component {
     });
   }
 
-  showMoreAddons = () => {
-    const { _tracking } = this.props;
-    _tracking.sendEvent({
-      action: 'click',
-      category: NAVIGATION_CATEGORY,
-      label: 'See More Add-ons',
-    });
-  }
-
   closeVideo = (e) => {
     const { _tracking } = this.props;
     e.preventDefault();
@@ -85,8 +79,17 @@ export class DiscoPane extends React.Component {
     });
   }
 
+  showMoreAddons = () => {
+    const { _tracking } = this.props;
+    _tracking.sendEvent({
+      action: 'click',
+      category: NAVIGATION_CATEGORY,
+      label: 'See More Add-ons',
+    });
+  }
+
   render() {
-    const { results, i18n, AddonComponent } = this.props;
+    const { results, i18n, AddonComponent, showInfoDialog, infoDialogData } = this.props;
     const { showVideo } = this.state;
 
     return (
@@ -122,6 +125,7 @@ export class DiscoPane extends React.Component {
             {i18n.gettext('See more add-ons!')}
           </a>
         </div>
+        {showInfoDialog === true ? <InfoDialog {...infoDialogData} /> : null}
       </div>
     );
   }
@@ -147,6 +151,8 @@ export function loadDataIfNeeded({ store: { dispatch, getState } }) {
 export function mapStateToProps(state) {
   return {
     results: loadedAddons(state),
+    showInfoDialog: state.infoDialog.show,
+    infoDialogData: state.infoDialog.data,
   };
 }
 

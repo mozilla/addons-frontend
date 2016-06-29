@@ -128,14 +128,22 @@ describe('AddonPage', () => {
 
   describe('mapStateToProps', () => {
     it('only sets results', () => {
-      const props = helpers.mapStateToProps({ discoResults: [] });
-      assert.deepEqual(Object.keys(props), ['results']);
+      const props = helpers.mapStateToProps({
+        discoResults: [],
+        infoDialog: {
+          show: false,
+          data: {},
+        },
+      });
+      assert.sameMembers(Object.keys(props),
+        ['results', 'infoDialogData', 'showInfoDialog']);
     });
 
     it('sets the results', () => {
       const props = helpers.mapStateToProps({
         addons: { one: { slug: 'one' }, two: { slug: 'two' } },
         discoResults: [{ addon: 'two' }],
+        infoDialog: {},
       });
       assert.deepEqual(props.results, [{ slug: 'two', addon: 'two' }]);
     });
