@@ -1,4 +1,4 @@
-const staticHost = 'https://addons-admin.cdn.mozilla.net';
+const staticHost = 'https://addons-admin-cdn.allizom.org';
 
 module.exports = {
   staticHost,
