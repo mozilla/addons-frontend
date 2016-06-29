@@ -44,7 +44,7 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
       query: babelQuery,
     }, {
       test: /\.scss$/,
-      loader: 'style!css?importLoaders=2!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded',
+      loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
     }, {
       test: /\.svg$/,
       loader: 'url?limit=10000&mimetype=image/svg+xml',

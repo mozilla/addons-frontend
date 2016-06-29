@@ -50,7 +50,6 @@ for (const app of appsBuildList) {
   ];
 }
 
-
 export default Object.assign({}, webpackConfig, {
   devtool: 'inline-source-map',
   context: path.resolve(__dirname),
@@ -69,7 +68,7 @@ export default Object.assign({}, webpackConfig, {
       query: BABEL_QUERY,
     }, {
       test: /\.scss$/,
-      loader: 'style!css?importLoaders=2!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded',
+      loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
     }, {
       test: /\.svg$/,
       loader: 'svg-url?limit=10000',
