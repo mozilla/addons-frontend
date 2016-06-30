@@ -22,10 +22,11 @@ const enabledExtension = Promise.resolve({ type: EXTENSION_TYPE, isActive: true,
 
 export function getFakeAddonManagerWrapper({ getAddon = enabledExtension } = {}) {
   return {
+    addChangeListeners: sinon.stub(),
+    enable: sinon.stub().returns(Promise.resolve()),
     getAddon: sinon.stub().returns(getAddon),
     install: sinon.stub().returns(Promise.resolve()),
     uninstall: sinon.stub().returns(Promise.resolve()),
-    addChangeListerners: sinon.stub(),
   };
 }
 

@@ -4,6 +4,7 @@ import {
   globalEvents,
   globalEventStatusMap,
   installEventList,
+  SET_ENABLE_NOT_AVAILABLE,
 } from 'disco/constants';
 
 
@@ -73,4 +74,15 @@ export function addChangeListeners(callback, mozAddonManager) {
     log.info('mozAddonManager.addEventListener not available');
   }
   return handleChangeEvent;
+}
+
+export function enable(guid, { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
+  return getAddon(guid, { _mozAddonManager })
+    .then((addon) => {
+      log.info(`Enable ${guid}`);
+      if (addon.setEnabled) {
+        return addon.setEnabled(true);
+      }
+      throw new Error(SET_ENABLE_NOT_AVAILABLE);
+    });
 }

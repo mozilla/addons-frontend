@@ -71,7 +71,7 @@ describe('installations reducer', () => {
       });
   });
 
-  it('treats ENABLED as INSTALLED in INSTALL_STATE', () => {
+  it('handles ENABLED status in INSTALL_STATE', () => {
     assert.deepEqual(
       installations(undefined, {
         type: 'INSTALL_STATE',
@@ -86,13 +86,13 @@ describe('installations reducer', () => {
           error: undefined,
           guid: 'my-addon@me.com',
           needsRestart: false,
-          status: INSTALLED,
+          status: ENABLED,
           url: undefined,
         },
       });
   });
 
-  it('treats DISABLED as UNINSTALLED in INSTALL_STATE', () => {
+  it('handles DISABLED status in INSTALL_STATE', () => {
     assert.deepEqual(
       installations(undefined, {
         type: 'INSTALL_STATE',
@@ -107,7 +107,7 @@ describe('installations reducer', () => {
           error: undefined,
           guid: 'my-addon@me.com',
           needsRestart: false,
-          status: UNINSTALLED,
+          status: DISABLED,
           url: undefined,
         },
       });
