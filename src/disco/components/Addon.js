@@ -14,8 +14,7 @@ import log from 'core/logger';
 
 import InstallButton from 'disco/components/InstallButton';
 import {
-  validAddonTypes,
-  validInstallStates,
+  CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
@@ -25,20 +24,22 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  CLOSE_INFO,
   INSTALL_CATEGORY,
   INSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_STATE,
+  SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
   THEME_TYPE,
-  UNINSTALLING,
   UNINSTALLED,
+  UNINSTALLING,
   UNINSTALL_CATEGORY,
+  validAddonTypes,
+  validInstallStates,
 } from 'disco/constants';
 
 import 'disco/css/Addon.scss';
@@ -286,6 +287,37 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
   // eslint-disable-next-line no-param-reassign
   _dispatchEvent = _dispatchEvent || document.dispatchEvent;
 
+  function showInfo({ name, iconUrl, i18n }) {
+    if (_config.has('useUiTour') && _config.get('useUiTour')) {
+      _dispatchEvent(new CustomEvent('mozUITour', {
+        bubbles: true,
+        detail: {
+          action: 'showInfo',
+          data: {
+            target: 'appMenu',
+            icon: iconUrl,
+            title: i18n.gettext('Your add-on is ready'),
+            text: i18n.sprintf(
+              i18n.gettext('Now you can access %(name)s from the toolbar.'),
+              { name }),
+            buttons: [{ label: i18n.gettext('OK!'), callbackID: 'add-on-installed' }],
+          },
+        },
+      }));
+    } else {
+      dispatch({
+        type: SHOW_INFO,
+        payload: {
+          addonName: name,
+          imageURL: iconUrl,
+          closeAction: () => {
+            dispatch({ type: CLOSE_INFO });
+          },
+        },
+      });
+    }
+  }
+
   return {
     setCurrentStatus({ guid, installURL }) {
       const payload = { guid, url: installURL };
@@ -316,6 +348,25 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
         });
     },
 
+    enable({ _showInfo = showInfo } = {}) {
+      const { guid, name, iconUrl, i18n } = ownProps;
+      return _addonManager.enable(guid)
+        .then(() => {
+          _showInfo({ name, iconUrl, i18n });
+        })
+        .catch((err) => {
+          if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
+            log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
+          } else {
+            log.error(err);
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { guid, status: ERROR, error: FATAL_ERROR },
+            });
+          }
+        });
+    },
+
     install() {
       const { guid, i18n, iconUrl, installURL, name } = ownProps;
       dispatch({ type: START_DOWNLOAD, payload: { guid } });
@@ -326,34 +377,7 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
             category: INSTALL_CATEGORY,
             label: name,
           });
-          if (_config.has('useUiTour') && _config.get('useUiTour')) {
-            _dispatchEvent(new CustomEvent('mozUITour', {
-              bubbles: true,
-              detail: {
-                action: 'showInfo',
-                data: {
-                  target: 'appMenu',
-                  icon: iconUrl,
-                  title: i18n.gettext('Your add-on is ready'),
-                  text: i18n.sprintf(
-                    i18n.gettext('Now you can access %(name)s from the toolbar.'),
-                    { name }),
-                  buttons: [{ label: i18n.gettext('Ok'), callbackID: 'add-on-installed' }],
-                },
-              },
-            }));
-          } else {
-            dispatch({
-              type: SHOW_INFO,
-              payload: {
-                addonName: name,
-                imageURL: iconUrl,
-                closeAction: () => {
-                  dispatch({ type: CLOSE_INFO });
-                },
-              },
-            });
-          }
+          showInfo({ name, iconUrl, i18n });
         })
         .catch((err) => {
           log.error(err);

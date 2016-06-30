@@ -111,3 +111,7 @@ export const globalEvents = Object.keys(globalEventStatusMap);
 
 export const SHOW_INFO = 'SHOW_INFO';
 export const CLOSE_INFO = 'CLOSE_INFO';
+
+// Error used to know that the setEnable method on addon is
+// not available.
+export const SET_ENABLE_NOT_AVAILABLE = 'SET_ENABLE_NOT_AVAILABLE';

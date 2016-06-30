@@ -27,6 +27,7 @@ import {
   INSTALL_CATEGORY,
   INSTALL_FAILED,
   INSTALL_STATE,
+  SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
@@ -522,6 +523,63 @@ describe('<Addon />', () => {
             type: INSTALL_STATE,
             payload: { guid, status: ERROR, error: FATAL_ERROR },
           }), 'dispatch was not called with FATAL_ERROR');
+        });
+    });
+  });
+
+  describe('enable', () => {
+    const guid = '@enable';
+    const name = 'whatever addon';
+    const iconUrl = 'something.jpg';
+
+    it('calls addonManager.enable()', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper();
+      const dispatch = sinon.spy();
+      const i18n = getFakeI18nInst();
+      const { enable } = mapDispatchToProps(
+        dispatch,
+        { name, iconUrl, guid, _addonManager: fakeAddonManager, i18n });
+      const fakeShowInfo = sinon.stub();
+      return enable({ _showInfo: fakeShowInfo })
+        .then(() => {
+          assert.ok(fakeAddonManager.enable.calledWith(guid));
+          assert.ok(fakeShowInfo.calledWith({ name, i18n, iconUrl }));
+        });
+    });
+
+    it('dispatches a FATAL_ERROR', () => {
+      const fakeAddonManager = {
+        enable: sinon.stub().returns(Promise.reject(new Error('hai'))),
+      };
+      const dispatch = sinon.spy();
+      const i18n = getFakeI18nInst();
+      const { enable } = mapDispatchToProps(
+        dispatch,
+        { name, iconUrl, guid, _addonManager: fakeAddonManager, i18n });
+      return enable()
+        .then(() => {
+          assert.ok(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_ERROR },
+          }));
+        });
+    });
+
+    it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
+      const fakeAddonManager = {
+        enable: sinon.stub().returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
+      };
+      const dispatch = sinon.spy();
+      const i18n = getFakeI18nInst();
+      const { enable } = mapDispatchToProps(
+        dispatch,
+        { name, iconUrl, guid, _addonManager: fakeAddonManager, i18n });
+      return enable()
+        .then(() => {
+          assert.notOk(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_ERROR },
+          }));
         });
     });
   });

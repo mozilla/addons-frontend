@@ -3,6 +3,7 @@ import { unexpectedSuccess } from 'tests/client/helpers';
 import {
   globalEventStatusMap,
   installEventList,
+  SET_ENABLE_NOT_AVAILABLE,
 } from 'disco/constants';
 
 
@@ -152,5 +153,27 @@ describe('addonManager', () => {
     it('throws on unknown event', () => assert.throws(() => {
       handleChangeEvent({ type: 'whatevs' });
     }, Error, /Unknown global event/));
+  });
+
+  describe('enable()', () => {
+    it('should call addon.setEnable()', () => {
+      fakeAddon = {
+        setEnabled: sinon.stub(),
+      };
+      fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
+      return addonManager.enable('whatever', { _mozAddonManager: fakeMozAddonManager })
+        .then(() => {
+          assert.ok(fakeAddon.setEnabled.calledWith(true));
+        });
+    });
+
+    it('should throw if addon.setEnable does not exist', () => {
+      fakeAddon = {};
+      fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
+      return addonManager.enable('whatevs', { _mozAddonManager: fakeMozAddonManager })
+        .then(unexpectedSuccess, (err) => {
+          assert.equal(err.message, SET_ENABLE_NOT_AVAILABLE);
+        });
+    });
   });
 });

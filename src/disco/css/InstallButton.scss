@@ -183,8 +183,12 @@ $installStripeColor2: #00c42e;
     }
   }
 
-  &.installed input + label::before {
-    background: $switchBackgroundOn url('../img/tick.svg') no-repeat 35% 50%;
+  // When add-on status is enabled installed is implied.
+  &.enabled,
+  &.installed {
+    input + label::before {
+      background: $switchBackgroundOn url('../img/tick.svg') no-repeat 35% 50%;
+    }
   }
 }
 

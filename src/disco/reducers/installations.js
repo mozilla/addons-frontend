@@ -1,8 +1,6 @@
 import {
-  DISABLED,
   DOWNLOAD_PROGRESS,
   DOWNLOADING,
-  ENABLED,
   ERROR,
   INSTALLED,
   INSTALL_COMPLETE,
@@ -14,17 +12,6 @@ import {
   acceptedInstallTypes,
 } from 'disco/constants';
 
-
-function normalizeStatus(status) {
-  switch (status) {
-    case DISABLED:
-      return UNINSTALLED;
-    case ENABLED:
-      return INSTALLED;
-    default:
-      return status;
-  }
-}
 
 export default function installations(state = {}, { type, payload }) {
   if (!acceptedInstallTypes.includes(type)) {
@@ -40,7 +27,7 @@ export default function installations(state = {}, { type, payload }) {
       url: payload.url,
       error: payload.error,
       downloadProgress: 0,
-      status: normalizeStatus(payload.status),
+      status: payload.status,
       needsRestart: payload.needsRestart || false,
     };
   } else if (type === START_DOWNLOAD) {
