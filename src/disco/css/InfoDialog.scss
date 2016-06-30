@@ -1,0 +1,66 @@
+.show-info {
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 20;
+
+  .info {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo {
+    align-self: stretch;
+    display: flex;
+    padding: 20px;
+
+    img {
+      height: 48px;
+      width: 48px;
+    }
+  }
+
+  .copy {
+    align-self: stretch;
+    padding: 20px 20px 20px 0;
+
+    :last-child {
+      margin: 0;
+    }
+
+    [dir=rtl] & {
+      padding: 20px 0 20px 20px;
+    }
+  }
+
+  h3 {
+    margin: 0 0 0.5em;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  button {
+    align-self: stretch;
+    flex-direction: column;
+    background: #2ea3ff;
+    padding: 0.8em;
+    border: none;
+    color: #fff;
+    transition: background 200ms;
+
+    &:focus,
+    &:hover {
+      background: #0996f8;
+    }
+  }
+}

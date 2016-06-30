@@ -108,3 +108,6 @@ export const globalEventStatusMap = {
 // they will be fired by addons and themes that aren't
 // necessarily in the disco pane.
 export const globalEvents = Object.keys(globalEventStatusMap);
+
+export const SHOW_INFO = 'SHOW_INFO';
+export const CLOSE_INFO = 'CLOSE_INFO';

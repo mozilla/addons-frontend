@@ -5,7 +5,7 @@ describe('discoResults reducer', () => {
     assert.deepEqual(discoResults(undefined, { type: 'UNRELATED' }), []);
   });
 
-  it('setst the state to the results', () => {
+  it('sets the state to the results', () => {
     const results = ['foo', 'bar'];
     assert.strictEqual(
       discoResults(['baz'], { type: 'DISCO_RESULTS', payload: { results } }),
