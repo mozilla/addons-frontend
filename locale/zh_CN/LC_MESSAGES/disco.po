@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-06-28 11:43+0000\n"
-"PO-Revision-Date: 2016-06-24 11:45+0000\n"
+"PO-Revision-Date: 2016-06-30 14:29+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -15,9 +15,8 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:109
-#, fuzzy
 msgid "Close"
-msgstr "关闭视频"
+msgstr "关闭"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover to preview or click to install %(name)s"
@@ -36,14 +35,12 @@ msgid "Download failed. Please check your connection."
 msgstr "下载失败。请检查您的连接。"
 
 #: src/disco/components/Addon.js:167
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "发生意外错误。"
+msgstr "安装时发生意外错误。"
 
 #: src/disco/components/Addon.js:169
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "发生意外错误。"
+msgstr "卸载时发生意外错误。"
 
 #: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred."
