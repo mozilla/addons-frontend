@@ -51,6 +51,7 @@ $installStripeColor2: #00c42e;
 }
 
 .switch {
+  direction: ltr;
   position: relative;
 
   input:focus + label {
