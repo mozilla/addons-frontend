@@ -5,6 +5,8 @@ import {
   DOWNLOADING,
   DISABLED,
   ENABLED,
+  ENABLING,
+  INSTALLING,
   INSTALLED,
   THEME_TYPE,
   UNINSTALLED,
@@ -62,7 +64,7 @@ export class InstallButton extends React.Component {
       throw new Error('Invalid add-on status');
     }
 
-    const isInstalled = [INSTALLED, ENABLED].includes(status);
+    const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(status);
     const isDisabled = status === UNKNOWN;
     const isDownloading = status === DOWNLOADING;
     const switchClasses = `switch ${status.toLowerCase()}`;
@@ -74,7 +76,7 @@ export class InstallButton extends React.Component {
         <input
           id={identifier}
           className="visually-hidden"
-          checked={isInstalled}
+          checked={isChecked}
           disabled={isDisabled}
           onChange={this.props.handleChange}
           data-browsertheme={JSON.stringify(getThemeData(this.props))}
