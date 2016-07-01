@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "ja"
          },
+         "Close": [
+            "閉じる"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
          ],
          "Hover over the image to preview": [
             "画像にマウスオーバーしてプレビュー"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "ダウンロードに失敗しました。接続状況を確認してください。"
          ],
+         "An unexpected error occurred during installation.": [
+            "インストール中に予期せぬ問題が発生しました。"
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "アンインストール中に予期せぬ問題が発生しました。"
+         ],
          "An unexpected error occurred.": [
             "予期せぬ問題が発生しました。"
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "このアドオンを使うには Firefox を再起動してください。"
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

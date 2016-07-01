@@ -6,6 +6,9 @@
             "domain": "messages",
             "plural_forms": "nplurals=2; plural=(n!=1);"
          },
+         "Close": [
+            "‮Ↄʅosǝ"
+         ],
          "Hover to preview or click to install %(name)s": [
             "‮Hoʌǝɹ ʇo dɹǝʌıǝʍ oɹ ɔʅıɔʞ ʇo ıusʇɐʅʅ %(name)s"
          ],
@@ -18,6 +21,12 @@
          "Download failed. Please check your connection.": [
             "‮ᗡoʍuʅoɐp ɟɐıʅǝp˙ Ԁʅǝɐsǝ ɔɥǝɔʞ ʎonɹ ɔouuǝɔʇıou˙"
          ],
+         "An unexpected error occurred during installation.": [
+            "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp pnɹıuƃ ıusʇɐʅʅɐʇıou˙"
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp pnɹıuƃ nuıusʇɐʅʅɐʇıou˙"
+         ],
          "An unexpected error occurred.": [
             "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp˙"
          ],
@@ -27,14 +36,14 @@
          "Please restart Firefox to use this add-on.": [
             "‮Ԁʅǝɐsǝ ɹǝsʇɐɹʇ Ⅎıɹǝɟox ʇo nsǝ ʇɥıs ɐpp-ou˙"
          ],
-         "Installed and added to toolbar": [
-            "‮Iusʇɐʅʅǝp ɐup ɐppǝp ʇo ʇooʅqɐɹ"
+         "Your add-on is ready": [
+            "‮⅄onɹ ɐpp-ou ıs ɹǝɐpʎ"
          ],
-         "Click here to access %(name)s any time.": [
-            "‮Ↄʅıɔʞ ɥǝɹǝ ʇo ɐɔɔǝss %(name)s‮ ɐuʎ ʇıɯǝ˙"
+         "Now you can access %(name)s from the toolbar.": [
+            "‮Noʍ ʎon ɔɐu ɐɔɔǝss %(name)s‮ ɟɹoɯ ʇɥǝ ʇooʅqɐɹ˙"
          ],
-         "Ok": [
-            "‮Oʞ"
+         "OK!": [
+            "‮OӼ¡"
          ],
          "Install": [
             "‮Iusʇɐʅʅ"

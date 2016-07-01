@@ -7,17 +7,26 @@
             "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);",
             "lang": "uk"
          },
+         "Close": [
+            "Закрити"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Наведіть для перегляду, або натисніть для встановлення %(name)s"
          ],
          "Hover over the image to preview": [
             "Наведіть курсор на зображення для перегляду"
          ],
          "Installation failed. Please try again.": [
-            "Не вдалося виконати інсталяцію. Повторіть спробу."
+            "Не вдалося встановити. Повторіть спробу."
          ],
          "Download failed. Please check your connection.": [
             "Не вдалося завантажити. Будь ласка, перевірте підключення."
+         ],
+         "An unexpected error occurred during installation.": [
+            "Сталася неочікувана помилка під час встановлення."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Сталася неочікувана помилка під час видалення."
          ],
          "An unexpected error occurred.": [
             "Сталася неочікувана помилка."
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "Перезапустіть Firefox для використання цього додатку."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [
@@ -50,7 +59,7 @@
             "Існують тисячі додатків, які дозволяють вам зробити Firefox\nсвоїм — все від веселих візуальних тем до потужних інструментів і функцій.\nОсь декілька чудових прикладів."
          ],
          "Click to play": [
-            "Натисніть, щоб зіграти"
+            "Натисніть для відтворення"
          ],
          "to find out more about add-ons": [
             "щоб дізнатись більше про додатки"
