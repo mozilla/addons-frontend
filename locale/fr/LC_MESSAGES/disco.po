@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-01 10:14+0000\n"
-"PO-Revision-Date: 2016-06-28 19:38+0000\n"
+"PO-Revision-Date: 2016-07-01 15:37+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -20,9 +20,7 @@ msgstr "Fermer"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Survolez l’image pour activer la prévisualisation ou cliquez pour installer "
-"%(name)s"
+msgstr "Survolez l’image pour activer la prévisualisation ou cliquez pour installer %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -66,7 +64,7 @@ msgstr ""
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
-msgstr ""
+msgstr "OK"
 
 #: src/disco/components/InstallButton.js:87
 msgid "Install"
@@ -86,10 +84,8 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Il existe des milliers de modules qui vous permettent de personnaliser "
-"complètement Firefox, que ce soit avec des thèmes amusants ou en ajoutant "
-"des outils ou des fonctionnalités très pratiques. En voici quelques-uns pour "
-"vous faire une idée."
+"Il existe des milliers de modules qui vous permettent de personnaliser complètement Firefox, que ce soit avec des thèmes amusants ou en ajoutant des outils ou des fonctionnalités très pratiques. En "
+"voici quelques-uns pour vous faire une idée."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
