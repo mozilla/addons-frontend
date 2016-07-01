@@ -8,6 +8,7 @@ import {
 import {
   DOWNLOADING,
   DISABLING,
+  ENABLED,
   ENABLING,
   INSTALLED,
   INSTALLING,
@@ -58,6 +59,14 @@ describe('<InstallButton />', () => {
     assert.ok(root.classList.contains('installed'));
   });
 
+  it('should reflect ENABLED status', () => {
+    const button = renderButton({ status: ENABLED });
+    const root = findDOMNode(button);
+    const checkbox = root.querySelector('input[type=checkbox]');
+    assert.equal(checkbox.checked, true, 'checked is true');
+    assert.ok(root.classList.contains('enabled'));
+  });
+
   it('should reflect download downloadProgress', () => {
     const button = renderButton({ status: DOWNLOADING, downloadProgress: 50 });
     const root = findDOMNode(button);
@@ -69,6 +78,16 @@ describe('<InstallButton />', () => {
     const button = renderButton({ status: INSTALLING });
     const root = findDOMNode(button);
     assert.ok(root.classList.contains('installing'));
+    const checkbox = root.querySelector('input[type=checkbox]');
+    assert.equal(checkbox.checked, true, 'checked is true');
+  });
+
+  it('should reflect ENABLING status', () => {
+    const button = renderButton({ status: ENABLING });
+    const root = findDOMNode(button);
+    assert.ok(root.classList.contains('enabling'));
+    const checkbox = root.querySelector('input[type=checkbox]');
+    assert.equal(checkbox.checked, true, 'checked is true');
   });
 
   it('should reflect uninstallation', () => {
