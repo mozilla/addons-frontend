@@ -2,69 +2,69 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-28 11:43+0000\n"
+"POT-Creation-Date: 2016-07-01 10:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"Content-Type: text/plain; charset=utf-8\n"
 
-#: src/disco/components/Addon.js:109
+#: src/disco/components/Addon.js:112
 msgid "Close"
 msgstr "‮Ↄʅosǝ"
 
-#: src/disco/components/Addon.js:138
+#: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
 msgstr "‮Hoʌǝɹ ʇo dɹǝʌıǝʍ oɹ ɔʅıɔʞ ʇo ıusʇɐʅʅ %(name)s"
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
 msgstr "‮Hoʌǝɹ oʌǝɹ ʇɥǝ ıɯɐƃǝ ʇo dɹǝʌıǝʍ"
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
 msgstr "‮Iusʇɐʅʅɐʇıou ɟɐıʅǝp˙ Ԁʅǝɐsǝ ʇɹʎ ɐƃɐıu˙"
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
 msgstr "‮ᗡoʍuʅoɐp ɟɐıʅǝp˙ Ԁʅǝɐsǝ ɔɥǝɔʞ ʎonɹ ɔouuǝɔʇıou˙"
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
 msgstr "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp pnɹıuƃ ıusʇɐʅʅɐʇıou˙"
 
-#: src/disco/components/Addon.js:169
+#: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred during uninstallation."
 msgstr "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp pnɹıuƃ nuıusʇɐʅʅɐʇıou˙"
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
 msgstr "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp˙"
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "‮⊥ɥıs ɐpp-ou ʍıʅʅ qǝ nuıusʇɐʅʅǝp ɐɟʇǝɹ ʎon ɹǝsʇɐɹʇ Ⅎıɹǝɟox˙"
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
 msgstr "‮Ԁʅǝɐsǝ ɹǝsʇɐɹʇ Ⅎıɹǝɟox ʇo nsǝ ʇɥıs ɐpp-ou˙"
 
-#: src/disco/components/Addon.js:323
-msgid "Installed and added to toolbar"
-msgstr "‮Iusʇɐʅʅǝp ɐup ɐppǝp ʇo ʇooʅqɐɹ"
+#: src/disco/components/InfoDialog.js:24
+msgid "Your add-on is ready"
+msgstr ""
 
-#: src/disco/components/Addon.js:325
-msgid "Click here to access %(name)s any time."
-msgstr "‮Ↄʅıɔʞ ɥǝɹǝ ʇo ɐɔɔǝss %(name)s‮ ɐuʎ ʇıɯǝ˙"
+#: src/disco/components/InfoDialog.js:26
+msgid "Now you can access %(name)s from the toolbar."
+msgstr ""
 
-#: src/disco/components/Addon.js:327
-msgid "Ok"
-msgstr "‮Oʞ"
+#: src/disco/components/InfoDialog.js:31
+msgid "OK!"
+msgstr ""
 
-#: src/disco/components/InstallButton.js:80
+#: src/disco/components/InstallButton.js:87
 msgid "Install"
 msgstr "‮Iusʇɐʅʅ"
 
@@ -72,11 +72,11 @@ msgstr "‮Iusʇɐʅʅ"
 msgid "Discover Add-ons"
 msgstr "‮ᗡısɔoʌǝɹ ∀pp-ous"
 
-#: src/disco/containers/DiscoPane.js:71
+#: src/disco/containers/DiscoPane.js:100
 msgid "Personalize Your Firefox"
 msgstr "‮Ԁǝɹsouɐʅızǝ ⅄onɹ Ⅎıɹǝɟox"
 
-#: src/disco/containers/DiscoPane.js:72
+#: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
@@ -86,18 +86,27 @@ msgstr ""
 "‮oʍu—‮ǝʌǝɹʎʇɥıuƃ ɟɹoɯ ɟnu ʌısnɐʅ ʇɥǝɯǝs ʇo doʍǝɹɟnʅ ʇooʅs ɐup ɟǝɐʇnɹǝs˙\n"
 "‮Hǝɹǝ ɐɹǝ ɐ ɟǝʍ ƃɹǝɐʇ ouǝs ʇo ɔɥǝɔʞ onʇ˙"
 
-#: src/disco/containers/DiscoPane.js:78
+#: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
 msgstr "‮Ↄʅıɔʞ ʇo dʅɐʎ"
 
-#: src/disco/containers/DiscoPane.js:79
+#: src/disco/containers/DiscoPane.js:108
 msgid "to find out more about add-ons"
 msgstr "‮ʇo ɟıup onʇ ɯoɹǝ ɐqonʇ ɐpp-ous"
 
-#: src/disco/containers/DiscoPane.js:87
+#: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
 msgstr "‮Ↄʅosǝ ʌıpǝo"
 
-#: src/disco/containers/DiscoPane.js:95
+#: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "‮Sǝǝ ɯoɹǝ ɐpp-ous¡"
+
+#~ msgid "Installed and added to toolbar"
+#~ msgstr "‮Iusʇɐʅʅǝp ɐup ɐppǝp ʇo ʇooʅqɐɹ"
+
+#~ msgid "Click here to access %(name)s any time."
+#~ msgstr "‮Ↄʅıɔʞ ɥǝɹǝ ʇo ɐɔɔǝss %(name)s‮ ɐuʎ ʇıɯǝ˙"
+
+#~ msgid "Ok"
+#~ msgstr "‮Oʞ"

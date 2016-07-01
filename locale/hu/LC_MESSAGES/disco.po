@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-28 11:43+0000\n"
+"POT-Creation-Date: 2016-07-01 10:14+0000\n"
 "PO-Revision-Date: 2016-06-28 20:39+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,59 +14,61 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:109
+#: src/disco/components/Addon.js:112
 msgid "Close"
 msgstr "Bezárás"
 
-#: src/disco/components/Addon.js:138
+#: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
+msgstr ""
+"Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
+"telepítéséhez"
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
 msgstr "Az előnézethez vigye a kép fölé az egeret"
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
 msgstr "A telepítés sikertelen. Kérjük, próbálja meg újra."
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
 msgstr "A letöltés sikertelen. Kérjük, ellenőrizze kapcsolatát."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
 msgstr "Váratlan hiba történt a telepítés során."
 
-#: src/disco/components/Addon.js:169
+#: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Váratlan hiba történt az eltávolítás során."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
 msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
 
-#: src/disco/components/Addon.js:323
-msgid "Installed and added to toolbar"
-msgstr "Telepítve, és hozzáadva az eszköztárhoz"
+#: src/disco/components/InfoDialog.js:24
+msgid "Your add-on is ready"
+msgstr ""
 
-#: src/disco/components/Addon.js:325
-msgid "Click here to access %(name)s any time."
-msgstr "Kattintson ide, hogy mindig elérje a(z) %(name)s kiegészítőt."
+#: src/disco/components/InfoDialog.js:26
+msgid "Now you can access %(name)s from the toolbar."
+msgstr ""
 
-#: src/disco/components/Addon.js:327
-msgid "Ok"
-msgstr "Ok"
+#: src/disco/components/InfoDialog.js:31
+msgid "OK!"
+msgstr ""
 
-#: src/disco/components/InstallButton.js:80
+#: src/disco/components/InstallButton.js:87
 msgid "Install"
 msgstr "Telepítés"
 
@@ -74,11 +76,11 @@ msgstr "Telepítés"
 msgid "Discover Add-ons"
 msgstr "Kiegészítők felfedezése"
 
-#: src/disco/containers/DiscoPane.js:71
+#: src/disco/containers/DiscoPane.js:100
 msgid "Personalize Your Firefox"
 msgstr "A Firefox testreszabása"
 
-#: src/disco/containers/DiscoPane.js:72
+#: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
@@ -88,21 +90,30 @@ msgstr ""
 "– mókás vizuális témáktól kezdve, a hatékony eszközökig és funkciókig.\n"
 "Itt van néhány nagyszerű, amelyet kipróbálhat."
 
-#: src/disco/containers/DiscoPane.js:78
+#: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
 msgstr "Kattintson a lejátszáshoz"
 
-#: src/disco/containers/DiscoPane.js:79
+#: src/disco/containers/DiscoPane.js:108
 msgid "to find out more about add-ons"
 msgstr "hogy többet tudjon meg a kiegészítőkről"
 
-#: src/disco/containers/DiscoPane.js:87
+#: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
 msgstr "Videó bezárása"
 
-#: src/disco/containers/DiscoPane.js:95
+#: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "Több kiegészítő megtekintése!"
+
+#~ msgid "Installed and added to toolbar"
+#~ msgstr "Telepítve, és hozzáadva az eszköztárhoz"
+
+#~ msgid "Click here to access %(name)s any time."
+#~ msgstr "Kattintson ide, hogy mindig elérje a(z) %(name)s kiegészítőt."
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
 
 #~ msgid "Preview %(name)s"
 #~ msgstr "%(name)s előnézete"

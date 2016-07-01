@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-06-28 11:43+0000\n"
+"POT-Creation-Date: 2016-07-01 10:14+0000\n"
 "PO-Revision-Date: 2016-06-06 08:28+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,63 +14,63 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:109
+#: src/disco/components/Addon.js:112
 #, fuzzy
 msgid "Close"
 msgstr "동영상 닫기"
 
-#: src/disco/components/Addon.js:138
+#: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
 msgstr "마우스 올려서 미리보기"
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:170
 #, fuzzy
 msgid "An unexpected error occurred during installation."
 msgstr "예상치 못 한 오류 발생"
 
-#: src/disco/components/Addon.js:169
+#: src/disco/components/Addon.js:172
 #, fuzzy
 msgid "An unexpected error occurred during uninstallation."
 msgstr "예상치 못 한 오류 발생"
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:175
 #, fuzzy
 msgid "An unexpected error occurred."
 msgstr "예상치 못 한 오류 발생"
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ""
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
 msgstr ""
 
-#: src/disco/components/Addon.js:323
-msgid "Installed and added to toolbar"
+#: src/disco/components/InfoDialog.js:24
+msgid "Your add-on is ready"
 msgstr ""
 
-#: src/disco/components/Addon.js:325
-msgid "Click here to access %(name)s any time."
+#: src/disco/components/InfoDialog.js:26
+msgid "Now you can access %(name)s from the toolbar."
 msgstr ""
 
-#: src/disco/components/Addon.js:327
-msgid "Ok"
+#: src/disco/components/InfoDialog.js:31
+msgid "OK!"
 msgstr ""
 
-#: src/disco/components/InstallButton.js:80
+#: src/disco/components/InstallButton.js:87
 msgid "Install"
 msgstr "설치"
 
@@ -78,11 +78,11 @@ msgstr "설치"
 msgid "Discover Add-ons"
 msgstr "부가기능 찾기"
 
-#: src/disco/containers/DiscoPane.js:71
+#: src/disco/containers/DiscoPane.js:100
 msgid "Personalize Your Firefox"
 msgstr "Firefox 개인화하기"
 
-#: src/disco/containers/DiscoPane.js:72
+#: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
@@ -92,19 +92,19 @@ msgstr ""
 "Firefox를 나만의 것으로 만들 수 있는 수천개의 부가기능이 있습니다. \n"
 "— 저희가 추천드리는 몇가지 기능이 있습니다."
 
-#: src/disco/containers/DiscoPane.js:78
+#: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
 msgstr "클릭해서 재생"
 
-#: src/disco/containers/DiscoPane.js:79
+#: src/disco/containers/DiscoPane.js:108
 msgid "to find out more about add-ons"
 msgstr "부가기능 더 알아보기"
 
-#: src/disco/containers/DiscoPane.js:87
+#: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
 msgstr "동영상 닫기"
 
-#: src/disco/containers/DiscoPane.js:95
+#: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "다른 부가기능 보기!"
 
