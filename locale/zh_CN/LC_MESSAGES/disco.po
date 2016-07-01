@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-01 10:14+0000\n"
-"PO-Revision-Date: 2016-06-30 14:29+0000\n"
+"PO-Revision-Date: 2016-07-01 21:14+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -56,15 +56,15 @@ msgstr "请重启 Firefox 以使用此附加组件。"
 
 #: src/disco/components/InfoDialog.js:24
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "您的附加组件已就绪"
 
 #: src/disco/components/InfoDialog.js:26
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "您现在可以从工具栏访问 %(name)s 了。"
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
-msgstr ""
+msgstr "好的！"
 
 #: src/disco/components/InstallButton.js:87
 msgid "Install"
