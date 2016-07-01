@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);",
             "lang": "hsb"
          },
+         "Close": [
+            "Začinić"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s kliknyć"
          ],
          "Hover over the image to preview": [
             "Pohíbujće myšku nad wobraz za přehlad"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "Sćehnjenje je so nimokuliło. Prošu přepruwujće swój zwisk."
          ],
+         "An unexpected error occurred during installation.": [
+            "Njewočakowany zmylk je při instalowanju wustupił."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Njewočakowany zmylk je při wotinstalowanju wustupił."
+         ],
          "An unexpected error occurred.": [
             "Njewočakowany zmylk je wustupił."
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "Prošu startujće Firefox znowa, zo byšće tutón přidatk wužiwał."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

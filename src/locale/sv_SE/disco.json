@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "sv_SE"
          },
+         "Close": [
+            "Stäng"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
          ],
          "Hover over the image to preview": [
             "Håll muspekaren över bilden för att förhandsgranska"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "Hämtningen misslyckades. Kontrollera din anslutning."
          ],
+         "An unexpected error occurred during installation.": [
+            "Ett oväntat fel uppstod under installationen."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Ett oväntat fel uppstod under avinstallationen."
+         ],
          "An unexpected error occurred.": [
             "Ett oväntat fel inträffade."
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "Starta om Firefox för att använda detta tillägg."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

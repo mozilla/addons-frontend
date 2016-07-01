@@ -7,6 +7,9 @@
             "plural_forms": "nplurals=2; plural=(n!=1);",
             "lang": "mk"
          },
+         "Close": [
+            ""
+         ],
          "Hover to preview or click to install %(name)s": [
             ""
          ],
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             ""
          ],
+         "An unexpected error occurred during installation.": [
+            ""
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            ""
+         ],
          "An unexpected error occurred.": [
             ""
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             ""
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

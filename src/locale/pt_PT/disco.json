@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "pt_PT"
          },
+         "Close": [
+            "Fechar"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
          ],
          "Hover over the image to preview": [
             "Coloque o cursor sob a imagem para pré-visualizar"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "A descarga falhou. Por favor, verifique a sua ligação."
          ],
+         "An unexpected error occurred during installation.": [
+            "Ocorreu um erro inesperado durante a instalação."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Ocorreu um erro inesperado durante a desinstalação."
+         ],
          "An unexpected error occurred.": [
             "Ocorreu um erro inesperado."
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "Por favor, reinicie o Firefox para utilizar este extra."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

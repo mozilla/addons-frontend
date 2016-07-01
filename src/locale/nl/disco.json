@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "nl"
          },
+         "Close": [
+            "Sluiten"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te installeren"
          ],
          "Hover over the image to preview": [
             "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
@@ -17,7 +20,13 @@
             "Installatie mislukt. Probeer het opnieuw."
          ],
          "Download failed. Please check your connection.": [
-            "Download mislukt. Controleer uw verbinding."
+            "Downloaden mislukt. Controleer uw verbinding."
+         ],
+         "An unexpected error occurred during installation.": [
+            "Er is een onverwachte fout opgetreden tijdens het installeren."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Er is een onverwachte fout opgetreden tijdens het verwijderen."
          ],
          "An unexpected error occurred.": [
             "Er is een onverwachte fout opgetreden."
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "Herstart Firefox om deze add-on te gebruiken."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

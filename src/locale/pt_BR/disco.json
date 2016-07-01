@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=2; plural=(n > 1);",
             "lang": "pt_BR"
          },
+         "Close": [
+            "Fechar"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Passe o mouse para visualizar ou clique para instalar %(name)s"
          ],
          "Hover over the image to preview": [
             "Passe o mouse sobre a imagem para visualizar"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "Houve um erro no download. Por favor verifique sua conexão."
          ],
+         "An unexpected error occurred during installation.": [
+            "Ocorreu um erro inesperado durante a instalação."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Ocorreu um erro inesperado durante a desinstalação."
+         ],
          "An unexpected error occurred.": [
             "Ocorreu um erro inesperado."
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "Por favor reinicie o Firefox para usar este complemento."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [
@@ -47,7 +56,7 @@
             "Personalize seu Firefox"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            "Existem milhares de complementos que permitem tornar o seu Firefo—único, desde divertidos temas visuais para ferramentas e recursos poderosos.\nAqui estão algumas grandes para conhecer."
+            "Existem milhares de complementos que permitem tornar o seu Firefox único, \ndesde divertidos temas visuais a ferramentas e recursos poderosos.\nAqui estão alguns grandes para conhecer."
          ],
          "Click to play": [
             "Clique para reproduzir"

@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);",
             "lang": "sl"
          },
+         "Close": [
+            "Zapri"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
          ],
          "Hover over the image to preview": [
             "Premaknite miško nad sliko za predogled"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "Prenos ni uspel. Preverite svojo povezavo."
          ],
+         "An unexpected error occurred during installation.": [
+            "Med nameščanjem je prišlo do nepričakovane napake."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Med odstranjevanjem je prišlo do nepričakovane napake."
+         ],
          "An unexpected error occurred.": [
             "Prišlo je do nepričakovane napake."
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "Ponovno zaženite Firefox za uporabo tega dodatka."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

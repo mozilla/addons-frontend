@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "zh_CN"
          },
+         "Close": [
+            "关闭"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "悬停以预览，点击安装 %(name)s"
          ],
          "Hover over the image to preview": [
             "悬停在图像上以预览"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "下载失败。请检查您的连接。"
          ],
+         "An unexpected error occurred during installation.": [
+            "安装时发生意外错误。"
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "卸载时发生意外错误。"
+         ],
          "An unexpected error occurred.": [
             "发生意外错误。"
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "请重启 Firefox 以使用此附加组件。"
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);",
             "lang": "ru"
          },
+         "Close": [
+            "Закрыть"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
          ],
          "Hover over the image to preview": [
             "Наведите мышь на изображение для предпросмотра"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "Загрузка не удалась. Пожалуйста, проверьте ваше соединение."
          ],
+         "An unexpected error occurred during installation.": [
+            "При установке произошла непредвиденная ошибка."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "При удалении произошла непредвиденная ошибка."
+         ],
          "An unexpected error occurred.": [
             "Произошла непредвиденная ошибка."
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "Пожалуйста, перезапустите Firefox для использования этого дополнения."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [

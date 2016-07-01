@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "hu"
          },
+         "Close": [
+            "Bezárás"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
          ],
          "Hover over the image to preview": [
             "Az előnézethez vigye a kép fölé az egeret"
@@ -19,6 +22,12 @@
          "Download failed. Please check your connection.": [
             "A letöltés sikertelen. Kérjük, ellenőrizze kapcsolatát."
          ],
+         "An unexpected error occurred during installation.": [
+            "Váratlan hiba történt a telepítés során."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Váratlan hiba történt az eltávolítás során."
+         ],
          "An unexpected error occurred.": [
             "Váratlan hiba történt."
          ],
@@ -28,13 +37,13 @@
          "Please restart Firefox to use this add-on.": [
             "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
          ],
-         "Installed and added to toolbar": [
+         "Your add-on is ready": [
             ""
          ],
-         "Click here to access %(name)s any time.": [
+         "Now you can access %(name)s from the toolbar.": [
             ""
          ],
-         "Ok": [
+         "OK!": [
             ""
          ],
          "Install": [
