@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-01 10:14+0000\n"
-"PO-Revision-Date: 2016-06-12 04:05+0000\n"
+"PO-Revision-Date: 2016-07-01 23:28+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -15,13 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
-#, fuzzy
 msgid "Close"
-msgstr "Zavřít video"
+msgstr "Zavřít"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Najeďte myší pro náhled nebo klepněte pro instalaci doplňku %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -36,14 +35,12 @@ msgid "Download failed. Please check your connection."
 msgstr "Stahování selhalo. Zkontrolujte prosím své připojení."
 
 #: src/disco/components/Addon.js:170
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Došlo k neočekávané chybě."
+msgstr "Během instalace došlo k neočekávané chybě."
 
 #: src/disco/components/Addon.js:172
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Došlo k neočekávané chybě."
+msgstr "Během odinstalace došlo k neočekávané chybě."
 
 #: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
@@ -59,15 +56,15 @@ msgstr "Pro použití tohoto doplňku prosím restartujte Firefox."
 
 #: src/disco/components/InfoDialog.js:24
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Váš doplněk je připraven"
 
 #: src/disco/components/InfoDialog.js:26
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Nyní můžete přistupovat k %(name)s z panelu nástrojů."
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/disco/components/InstallButton.js:87
 msgid "Install"
@@ -97,7 +94,7 @@ msgstr ""
 
 #: src/disco/containers/DiscoPane.js:108
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "a zjistěte více o doplňcích"
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
