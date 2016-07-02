@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-01 10:14+0000\n"
-"PO-Revision-Date: 2016-06-26 08:40+0000\n"
+"PO-Revision-Date: 2016-07-02 11:53+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -15,13 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
-#, fuzzy
 msgid "Close"
-msgstr "Zavrieť video"
+msgstr "Zavrieť"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -36,14 +35,12 @@ msgid "Download failed. Please check your connection."
 msgstr "Prevzatie zlyhalo. Skontrolujte prosím vaše pripojenie."
 
 #: src/disco/components/Addon.js:170
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Nastala neočakávaná chyba."
+msgstr "Počas inštalácie nastala neočakávaná chyba."
 
 #: src/disco/components/Addon.js:172
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "Nastala neočakávaná chyba."
+msgstr "Počas odinštalovania nastala neočakávaná chyba."
 
 #: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
@@ -59,15 +56,15 @@ msgstr "Pre použitie tohto doplnku, prosím, reštartujte Firefox."
 
 #: src/disco/components/InfoDialog.js:24
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Váš doplnok je pripravený"
 
 #: src/disco/components/InfoDialog.js:26
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Teraz môžete pristupovať k %(name)s z panela nástrojov."
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/disco/components/InstallButton.js:87
 msgid "Install"
@@ -87,8 +84,7 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Existujú tisíce doplnkov, ktoré vám umožnia Firefox vylepšiť podľa vašej "
-"potreby — od zábavných tém až po výkonné nástroje a funkcie.\n"
+"Existujú tisíce doplnkov, ktoré vám umožnia Firefox vylepšiť podľa vašej potreby — od zábavných tém až po výkonné nástroje a funkcie.\n"
 "Tu je niekoľko velikánov, čo stoja za vyskúšanie."
 
 #: src/disco/containers/DiscoPane.js:107
