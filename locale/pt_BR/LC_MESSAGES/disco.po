@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-01 10:14+0000\n"
-"PO-Revision-Date: 2016-06-28 16:47+0000\n"
+"PO-Revision-Date: 2016-07-02 01:59+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -56,15 +56,15 @@ msgstr "Por favor reinicie o Firefox para usar este complemento."
 
 #: src/disco/components/InfoDialog.js:24
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "O seu complemento está pronto"
 
 #: src/disco/components/InfoDialog.js:26
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Agora pode acessar a %(name)s pela barra de ferramentas."
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/disco/components/InstallButton.js:87
 msgid "Install"
