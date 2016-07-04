@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-01 10:14+0000\n"
-"PO-Revision-Date: 2016-07-03 13:32+0000\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"PO-Revision-Date: 2016-07-01 19:34+0000\n"
+"Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -15,9 +15,8 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
-#, fuzzy
 msgid "Close"
-msgstr "Sulje video"
+msgstr "Sulje"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
