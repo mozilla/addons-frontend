@@ -5,8 +5,6 @@ import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import { gettext as _ } from 'core/utils';
 
-import 'search/css/SearchPage.scss';
-
 export default class SearchPage extends React.Component {
   static propTypes = {
     count: PropTypes.number,
