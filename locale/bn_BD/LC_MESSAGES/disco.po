@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-01 10:14+0000\n"
-"PO-Revision-Date: 2016-07-02 19:29+0000\n"
+"PO-Revision-Date: 2016-07-04 10:15+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -28,31 +28,31 @@ msgstr ""
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
 
 #: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
 
 #: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
 
 #: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
 
 #: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
 
 #: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
 
 #: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
 
 #: src/disco/components/InfoDialog.js:24
 msgid "Your add-on is ready"
@@ -60,7 +60,7 @@ msgstr "আপনার এড-অন এখন প্রস্তুত"
 
 #: src/disco/components/InfoDialog.js:26
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "আপনি এখন টুলবার থেকে %(name)s এ প্রবেশ করতে পারেন।"
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
@@ -72,11 +72,11 @@ msgstr "ইন্সটল"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "আরো এড-অন আবিষ্কার করুন"
 
 #: src/disco/containers/DiscoPane.js:100
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "আপনার ফায়ারফক্সকে ব্যক্তিগত করুন"
 
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
@@ -91,7 +91,7 @@ msgstr "চালু করতে ক্লিক করুন"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "এড-অন সম্বন্ধে আরো খুঁজুন"
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
