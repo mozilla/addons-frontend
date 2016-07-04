@@ -109,8 +109,8 @@ $installStripeColor2: #00c42e;
   &.uninstalling {
     input + label::before {
       @include stripes(
-         $uninstallStripeColor1,
-         $uninstallStripeColor2);
+        $uninstallStripeColor1,
+        $uninstallStripeColor2);
       // Reverse the stripe direction without
       // impacting the animation speed.
       transform: scaleX(-1);
@@ -146,8 +146,8 @@ $installStripeColor2: #00c42e;
 
       &::before {
         @include stripes(
-           $installStripeColor1,
-           $installStripeColor2);
+          $installStripeColor1,
+          $installStripeColor2);
       }
       &::after {
         transform: translateX($switchHandleActivePosition);
