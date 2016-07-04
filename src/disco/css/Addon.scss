@@ -35,8 +35,9 @@ $addon-padding: 20px;
     overflow: hidden;
 
     img {
-      float: right;
       display: block;
+      float: right;
+      height: 100px;
     }
 
     &:focus {
