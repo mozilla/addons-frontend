@@ -51,7 +51,6 @@ $installStripeColor2: #00c42e;
 }
 
 .switch {
-  direction: ltr;
   position: relative;
 
   input:focus + label {
@@ -99,6 +98,10 @@ $installStripeColor2: #00c42e;
       width: $size;
       height: $size;
       z-index: 3;
+
+      [dir=rtl] & {
+        transform: translateX(-$switchHandleGap);
+      }
     }
 
     &:hover::after {
@@ -115,9 +118,16 @@ $installStripeColor2: #00c42e;
       // impacting the animation speed.
       transform: scaleX(-1);
     }
+
     input + label {
       &::after {
         transform: translateX($switchHandleGap);
+
+        /* stylelint-disable max-nesting-depth */
+        [dir=rtl] & {
+          transform: translateX(-$switchHandleGap);
+        }
+        /* stylelint-enable */
       }
       &:hover::after {
         box-shadow: none;
@@ -136,6 +146,12 @@ $installStripeColor2: #00c42e;
       &::after {
         background: $switchHandleActive;
         transform: translateX($switchHandleActivePosition);
+
+        /* stylelint-disable max-nesting-depth */
+        [dir=rtl] & {
+          transform: translateX(-$switchHandleActivePosition);
+        }
+        /* stylelint-enable */
       }
     }
   }
@@ -151,6 +167,12 @@ $installStripeColor2: #00c42e;
       }
       &::after {
         transform: translateX($switchHandleActivePosition);
+
+        /* stylelint-disable max-nesting-depth */
+        [dir=rtl] & {
+          transform: translateX(-$switchHandleActivePosition);
+        }
+        /* stylelint-enable */
       }
       &:hover::after {
         box-shadow: none;
@@ -180,6 +202,10 @@ $installStripeColor2: #00c42e;
 
     &::after {
       transform: translateX($switchHandleActivePosition);
+
+      [dir=rtl] & {
+        transform: translateX(-$switchHandleActivePosition);
+      }
     }
   }
 
@@ -188,6 +214,10 @@ $installStripeColor2: #00c42e;
   &.installed {
     input + label::before {
       background: $switchBackgroundOn url('../img/tick.svg') no-repeat 35% 50%;
+
+      [dir=rtl] & {
+        background-position: 65% 50%;
+      }
     }
   }
 }
@@ -202,10 +232,18 @@ $installStripeColor2: #00c42e;
   width: 100%;
   transition: transform $transition;
   transform: translateX(-100%);
+
+  [dir=rtl] & {
+    transform: translateX(100%);
+  }
 }
 
 @for $i from 1 through 100 {
   [data-download-progress="#{$i}"] .progress {
     transform: translateX(#{percentage($i - 100) / 100});
+
+    [dir=rtl] & {
+      transform: translateX(#{percentage(100 - $i) / 100});
+    }
   }
 }
