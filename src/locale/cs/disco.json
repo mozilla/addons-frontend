@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;",
             "lang": "cs"
          },
+         "Close": [
+            "Zavřít"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Najeďte myší pro náhled nebo klepněte pro instalaci doplňku %(name)s"
          ],
          "Hover over the image to preview": [
             "Pro náhled přejeďte nad obrázkem myší"
@@ -18,6 +21,12 @@
          ],
          "Download failed. Please check your connection.": [
             "Stahování selhalo. Zkontrolujte prosím své připojení."
+         ],
+         "An unexpected error occurred during installation.": [
+            "Během instalace došlo k neočekávané chybě."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Během odinstalace došlo k neočekávané chybě."
          ],
          "An unexpected error occurred.": [
             "Došlo k neočekávané chybě."
@@ -29,13 +38,13 @@
             "Pro použití tohoto doplňku prosím restartujte Firefox."
          ],
          "Your add-on is ready": [
-            ""
+            "Váš doplněk je připraven"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            ""
+            "Nyní můžete přistupovat k %(name)s z panelu nástrojů."
          ],
          "OK!": [
-            ""
+            "OK!"
          ],
          "Install": [
             "Instalovat"
@@ -53,7 +62,7 @@
             ""
          ],
          "to find out more about add-ons": [
-            ""
+            "a zjistěte více o doplňcích"
          ],
          "Close video": [
             "Zavřít video"
