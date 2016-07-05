@@ -7,8 +7,6 @@
   "scripts": {
     "build": "better-npm-run build",
     "extract-locales": "better-npm-run extract-locales",
-    "build:disco": "better-npm-run build:disco",
-    "build:search": "better-npm-run build:search",
     "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
     "dev:disco": "better-npm-run dev:disco",
     "dev:search": "better-npm-run dev:search",
@@ -30,18 +28,6 @@
       "command": "npm run clean && npm run version-check && webpack --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src"
-      }
-    },
-    "build:disco": {
-      "command": "npm run build",
-      "env": {
-        "NODE_APP_INSTANCE": "disco"
-      }
-    },
-    "build:search": {
-      "command": "npm run build",
-      "env": {
-        "NODE_APP_INSTANCE": "search"
       }
     },
     "dev:disco": {
