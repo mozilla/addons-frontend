@@ -6,10 +6,6 @@ import translate from 'core/i18n/translate';
 
 
 export class App extends React.Component {
-  static propTypes = {
-    children: PropTypes.node,
-    i18n: PropTypes.object.isRequired,
-  }
 
   render() {
     const { children, i18n } = this.props;
@@ -24,6 +20,10 @@ export class App extends React.Component {
         {children}
       </div>
     );
+  }
+  static propTypes = {
+    children: PropTypes.node,
+    i18n: PropTypes.object.isRequired,
   }
 }
 
