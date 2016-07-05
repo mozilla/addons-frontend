@@ -7,6 +7,9 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "fi"
          },
+         "Close": [
+            "Sulje"
+         ],
          "Hover to preview or click to install %(name)s": [
             "Esikatsele %(name)s osoittamalla tai asenna se napsauttamalla"
          ],
@@ -18,6 +21,12 @@
          ],
          "Download failed. Please check your connection.": [
             "Lataus epäonnistui. Tarkista verkkoyhteys."
+         ],
+         "An unexpected error occurred during installation.": [
+            "Asennuksessa tapahtui odottamaton virhe."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Asennuksen poistossa tapahtui odottamaton virhe."
          ],
          "An unexpected error occurred.": [
             "Tapahtui odottamaton virhe."
@@ -35,7 +44,7 @@
             ""
          ],
          "OK!": [
-            ""
+            "OK!"
          ],
          "Install": [
             "Asenna"

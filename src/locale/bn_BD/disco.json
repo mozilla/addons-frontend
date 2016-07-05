@@ -4,11 +4,11 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n!=1);",
+            "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "bn_BD"
          },
          "Close": [
-            ""
+            "বন্ধ"
          ],
          "Hover to preview or click to install %(name)s": [
             ""
@@ -17,58 +17,58 @@
             ""
          ],
          "Installation failed. Please try again.": [
-            ""
+            "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
          ],
          "Download failed. Please check your connection.": [
-            ""
+            "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
          ],
          "An unexpected error occurred during installation.": [
-            ""
+            "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
          ],
          "An unexpected error occurred during uninstallation.": [
-            ""
+            "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
          ],
          "An unexpected error occurred.": [
-            ""
+            "অপ্রত্যাশিত ভূল হয়েছে।"
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
          ],
          "Please restart Firefox to use this add-on.": [
-            ""
+            "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
          ],
          "Your add-on is ready": [
-            ""
+            "আপনার এড-অন এখন প্রস্তুত"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            ""
+            "আপনি এখন টুলবার থেকে %(name)s এ প্রবেশ করতে পারেন।"
          ],
          "OK!": [
-            ""
+            "ওকে!"
          ],
          "Install": [
-            ""
+            "ইন্সটল"
          ],
          "Discover Add-ons": [
-            ""
+            "আরো এড-অন আবিষ্কার করুন"
          ],
          "Personalize Your Firefox": [
-            ""
+            "আপনার ফায়ারফক্সকে ব্যক্তিগত করুন"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
             ""
          ],
          "Click to play": [
-            ""
+            "চালু করতে ক্লিক করুন"
          ],
          "to find out more about add-ons": [
-            ""
+            "এড-অন সম্বন্ধে আরো খুঁজুন"
          ],
          "Close video": [
-            ""
+            "ভিডিওটি বন্ধ করুন"
          ],
          "See more add-ons!": [
-            ""
+            "আরো এড-ওন দেখুন!"
          ]
       }
    }
