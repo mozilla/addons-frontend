@@ -21,8 +21,6 @@ WORKDIR /srv/code
 RUN rm -rf node_modules
 RUN ln -s /srv/node/node_modules
 
-RUN npm run build
-
 RUN GITREF=$(git rev-parse HEAD) \
 GITTAG=$(git name-rev --tags --name-only $GITREF) \
 SOURCE='https://github.com/mozilla/addons-frontend' && \
