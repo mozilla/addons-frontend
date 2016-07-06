@@ -15,8 +15,6 @@
     "lint": "npm run eslint && npm run stylelint",
     "servertest": "npm run build && better-npm-run servertest",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
-    "start:disco": "NODE_APP_INSTANCE=disco npm start",
-    "start:search": "NODE_APP_INSTANCE=search npm start",
     "test": "better-npm-run test",
     "unittest": "better-npm-run unittest",
     "unittest:dev": "better-npm-run unittest:dev",
