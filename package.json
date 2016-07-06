@@ -7,8 +7,6 @@
   "scripts": {
     "build": "better-npm-run build",
     "extract-locales": "better-npm-run extract-locales",
-    "build:disco": "better-npm-run build:disco",
-    "build:search": "better-npm-run build:search",
     "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
     "dev:disco": "better-npm-run dev:disco",
     "dev:search": "better-npm-run dev:search",
@@ -17,8 +15,6 @@
     "lint": "npm run eslint && npm run stylelint",
     "servertest": "npm run build && better-npm-run servertest",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
-    "start:disco": "NODE_APP_INSTANCE=disco npm start",
-    "start:search": "NODE_APP_INSTANCE=search npm start",
     "test": "better-npm-run test",
     "unittest": "better-npm-run unittest",
     "unittest:dev": "better-npm-run unittest:dev",
@@ -30,18 +26,6 @@
       "command": "npm run clean && npm run version-check && webpack --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src"
-      }
-    },
-    "build:disco": {
-      "command": "npm run build",
-      "env": {
-        "NODE_APP_INSTANCE": "disco"
-      }
-    },
-    "build:search": {
-      "command": "npm run build",
-      "env": {
-        "NODE_APP_INSTANCE": "search"
       }
     },
     "dev:disco": {
@@ -72,7 +56,7 @@
       }
     },
     "servertest": {
-      "command": "mocha --compilers js:babel-register --timeout 5000 tests/server/",
+      "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production"

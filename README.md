@@ -23,27 +23,39 @@ nvm. See https://github.com/creationix/nvm for more info.
 * npm run dev
 
 
-## NPM scripts
+## NPM scripts for development
+
+Generic scripts that don't need env vars. Use these for development:
 
 | Script                 | Description                                         |
 |------------------------|-----------------------------------------------------|
-| npm run start:disco    |  Starts the express server (prod mode disco pane)   |
-| npm run start:search   |  Starts the express server (prod mode search)       |
-| npm run build          |  Builds the libs (all apps)                         |
-| npm run extract-locales|  Builds the libs + extracts translations            |
-| npm run build:disco    |  Builds the libs (discovery pane)                   |
-| npm run build:search   |  Builds the libs (search)                           |
 | npm run dev:search     |  Starts the dev server (search app)                 |
 | npm run dev:disco      |  Starts the dev server (discovery pane)             |
-| npm run lint           |  Lints the files with `eslint` (Run in `npm test`)  |
-| npm run eslint         |  An alias for `npm run lint`                        |
+| npm run eslint         |  Lints the JS                                       |
+| npm run stylelint      |  Lints the SCSS                                     |
+| npm run lint           |  Runs all the JS + SCSS linters                     |
 | npm run version-check  |  Checks you have the minimum node + npm versions    |
-| npm test               |  Runs the tests                                     |
+| npm test               |  Runs the unittest, servertests + lint              |
+| npm run unittest       |  Runs just the unittests                            |
+| npm run unittest:dev   |  Runs the unittests and watches for changes         |
+| npm run servertest     |  Runs the servertests                               |
 
+### Building and running services
 
-### Running a production build of a specific app:
+The following are scripts that are used in deployment - you generally won't
+need unless you're testing something related to deployment or builds.
 
-Running a specific prod build is as follows:
+The env vars are:
+
+`NODE_APP_INSTANCE` this is the name of the app e.g. 'disco'
+`NODE_ENV` this is the node environment. e.g. production, dev, stage, development.
+
+| Script                 | Description                                         |
+|------------------------|-----------------------------------------------------|
+| npm run start          |  Starts the express server (requires env vars)      |
+| npm run build          |  Builds the libs (all apps) (requires env vars)     |
+
+Example: Building and running a production instance of the search app:
 
 ```
 NODE_APP_INSTANCE=search NODE_ENV=production npm run build && npm run start
