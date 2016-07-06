@@ -84,4 +84,10 @@ describe('GET requests', () => {
       assert.equal(res.header.location,
         '/en-US/firefox/discovery/pane/48.0/Darwin/normal?lang=dbl');
     }));
+
+  it('should set an HSTS header', () => request(app)
+    .get('/48.0/firefox/discovery/pane/48.0/Darwin/normal')
+    .then((res) => {
+      assert.equal(res.header['strict-transport-security'], 'max-age=31536000');
+    }));
 });
