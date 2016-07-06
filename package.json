@@ -14,7 +14,7 @@
     "dev:search": "better-npm-run dev:search",
     "eslint": "eslint .",
     "stylelint": "stylelint --syntax scss **/*.scss",
-    "lint": "npm run eslint && npm run stylelint",
+    "lint": "npm run versions; npm run eslint && npm run stylelint",
     "servertest": "npm run build && better-npm-run servertest",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
     "start:disco": "NODE_APP_INSTANCE=disco npm start",
@@ -23,7 +23,8 @@
     "unittest": "better-npm-run unittest",
     "unittest:dev": "better-npm-run unittest:dev",
     "version-check": "node bin/version-check.js",
-    "webpack-dev-server": "better-npm-run webpack-dev-server"
+    "webpack-dev-server": "better-npm-run webpack-dev-server",
+    "versions": "which eslint; eslint --version; which stylelint; stylelint --version"
   },
   "betterScripts": {
     "build": {
