@@ -1,71 +1,70 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-01 10:14+0000\n"
-"PO-Revision-Date: 2016-05-20 11:26+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-07-06 01:39+0000\n"
+"Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Hover to preview or click to install %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Hover over the image to preview"
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installation failed. Please try again."
 
 #: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Download failed. Please check your connection."
 
 #: src/disco/components/Addon.js:170
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "An unexpected error occurred"
+msgstr "An unexpected error occurred during installation."
 
 #: src/disco/components/Addon.js:172
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "An unexpected error occurred"
+msgstr "An unexpected error occurred during uninstallation."
 
 #: src/disco/components/Addon.js:175
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "An unexpected error occurred"
+msgstr "An unexpected error occurred."
 
 #: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "This add-on will be uninstalled after you restart Firefox."
 
 #: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Please restart Firefox to use this add-on."
 
 #: src/disco/components/InfoDialog.js:24
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Your add-on is ready"
 
 #: src/disco/components/InfoDialog.js:26
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Now you can access %(name)s from the toolbar."
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/disco/components/InstallButton.js:87
 msgid "Install"
@@ -99,11 +98,11 @@ msgstr "to find out more about add-ons"
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
-msgstr ""
+msgstr "Close video"
 
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
-msgstr ""
+msgstr "See more add-ons!"
 
 #~ msgid "Preview %(name)s"
 #~ msgstr "Preview %(name)s"
