@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "better-npm-run build",
+    "build": "bin/build-checks.js && better-npm-run build",
     "extract-locales": "better-npm-run extract-locales",
     "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
     "dev:disco": "better-npm-run dev:disco",
@@ -13,7 +13,7 @@
     "eslint": "eslint .",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
-    "servertest": "npm run build && better-npm-run servertest",
+    "servertest": "ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
     "test": "better-npm-run test",
     "unittest": "better-npm-run unittest",
