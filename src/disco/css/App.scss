@@ -24,6 +24,11 @@ body {
 body {
   // Match firefox's left margin to keep the content centered.
   margin-right: 48px;
+
+  [dir=rtl] & {
+    margin-right: 0;
+    margin-left: 48px;
+  }
 }
 
 * {
