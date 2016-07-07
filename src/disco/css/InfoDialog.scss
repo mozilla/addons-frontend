@@ -12,6 +12,11 @@
   top: 10px;
   z-index: 20;
 
+  [dir=rtl] & {
+    left: 10px;
+    right: auto;
+  }
+
   .info {
     display: flex;
     flex-direction: row;
