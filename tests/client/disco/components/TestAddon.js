@@ -735,6 +735,13 @@ describe('<Addon />', () => {
       const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL })
         .then(() => {
+          assert(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: {
+              guid,
+              status: UNINSTALLING,
+            },
+          }));
           assert(fakeAddonManager.uninstall.calledWith(guid));
         });
     });
@@ -746,6 +753,13 @@ describe('<Addon />', () => {
       const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL })
         .then(() => {
+          assert(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: {
+              guid,
+              status: UNINSTALLING,
+            },
+          }));
           assert(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },

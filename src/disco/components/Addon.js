@@ -393,6 +393,7 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
         [EXTENSION_TYPE]: 'addon',
         [THEME_TYPE]: 'theme',
       }[type] || 'invalid';
+      dispatch({ type: INSTALL_STATE, payload: { guid, status: UNINSTALLING } });
       return _addonManager.uninstall(guid)
         .then(() => {
           _tracking.sendEvent({

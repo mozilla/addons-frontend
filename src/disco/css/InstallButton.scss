@@ -35,7 +35,7 @@ $installStripeColor2: #00c42e;
   }
 }
 
-@mixin stripes($color1, $color2) {
+@mixin stripes($color1, $color2, $stripeBackgroundColor) {
   animation: stripes 0.5s linear infinite;
   background-image:
     repeating-linear-gradient(
@@ -47,7 +47,7 @@ $installStripeColor2: #00c42e;
       $color1 50%
     );
   background-size: $size/2 $size/2;
-  background-color: $switchBackgroundOn;
+  background-color: $stripeBackgroundColor;
 }
 
 .switch {
@@ -113,7 +113,8 @@ $installStripeColor2: #00c42e;
     input + label::before {
       @include stripes(
         $uninstallStripeColor1,
-        $uninstallStripeColor2);
+        $uninstallStripeColor2,
+        $switchBackgroundOff);
       // Reverse the stripe direction without
       // impacting the animation speed.
       transform: scaleX(-1);
@@ -163,7 +164,8 @@ $installStripeColor2: #00c42e;
       &::before {
         @include stripes(
           $installStripeColor1,
-          $installStripeColor2);
+          $installStripeColor2,
+          $switchBackgroundOn);
       }
       &::after {
         transform: translateX($switchHandleActivePosition);
