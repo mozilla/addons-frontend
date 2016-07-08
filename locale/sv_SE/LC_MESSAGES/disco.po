@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-01 10:14+0000\n"
+"POT-Creation-Date: 2016-07-08 18:26+0000\n"
 "PO-Revision-Date: 2016-07-01 21:07+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
@@ -20,7 +20,9 @@ msgstr "Stäng"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
+msgstr ""
+"Håll muspekaren över för att förhandsgranska eller klicka för att installera "
+"%(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -66,9 +68,33 @@ msgstr "Nu kan du komma åt %(name)s från verktygsfältet."
 msgid "OK!"
 msgstr "Ok!"
 
-#: src/disco/components/InstallButton.js:87
-msgid "Install"
-msgstr "Installera"
+#: src/disco/components/InstallButton.js:50
+msgid "Downloading %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:53
+msgid "Installing %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:57
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:60
+msgid "%(name)s is disabled. Click to enable."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:63
+msgid "Uninstalling %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:66
+msgid "%(name)s is uninstalled. Click to install."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:69
+msgid "Install state for %(name)s is unknown."
+msgstr ""
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -103,6 +129,9 @@ msgstr "Stäng video"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "Visa fler tillägg!"
+
+#~ msgid "Install"
+#~ msgstr "Installera"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Installerad och tillagd till verktygsfältet"
