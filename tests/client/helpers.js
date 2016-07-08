@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 import { EXTENSION_TYPE } from 'disco/constants';
+import { sprintf } from 'jed';
 
 export function shallowRender(stuff) {
   const renderer = createRenderer();
@@ -47,7 +48,7 @@ export function getFakeI18nInst() {
     dpgettext: sinon.stub(),
     npgettext: sinon.stub(),
     dnpgettext: sinon.stub(),
-    sprintf: sinon.stub(),
+    sprintf: sinon.spy(sprintf),
   };
 }
 

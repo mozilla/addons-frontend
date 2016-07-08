@@ -10,6 +10,7 @@ import {
   INSTALLED,
   THEME_TYPE,
   UNINSTALLED,
+  UNINSTALLING,
   UNKNOWN,
   validAddonTypes,
   validInstallStates as validStates,
@@ -41,6 +42,36 @@ export class InstallButton extends React.Component {
     downloadProgress: 0,
   }
 
+  getLabel() {
+    const { i18n, name, status } = this.props;
+    let label;
+    switch (status) {
+      case DOWNLOADING:
+        label = i18n.gettext('Downloading %(name)s.');
+        break;
+      case INSTALLING:
+        label = i18n.gettext('Installing %(name)s.');
+        break;
+      case ENABLED:
+      case INSTALLED:
+        label = i18n.gettext('%(name)s is installed and enabled. Click to uninstall.');
+        break;
+      case DISABLED:
+        label = i18n.gettext('%(name)s is disabled. Click to enable.');
+        break;
+      case UNINSTALLING:
+        label = i18n.gettext('Uninstalling %(name)s.');
+        break;
+      case UNINSTALLED:
+        label = i18n.gettext('%(name)s is uninstalled. Click to install.');
+        break;
+      default:
+        label = i18n.gettext('Install state for %(name)s is unknown.');
+        break;
+    }
+    return i18n.sprintf(label, { name });
+  }
+
   handleClick = (e) => {
     e.preventDefault();
     const {
@@ -58,7 +89,7 @@ export class InstallButton extends React.Component {
   }
 
   render() {
-    const { downloadProgress, i18n, slug, status } = this.props;
+    const { downloadProgress, slug, status } = this.props;
 
     if (!validStates.includes(status)) {
       throw new Error('Invalid add-on status');
@@ -84,7 +115,7 @@ export class InstallButton extends React.Component {
           type="checkbox" />
         <label htmlFor={identifier}>
           {isDownloading ? <div className="progress"></div> : null}
-          <span className="visually-hidden">{i18n.gettext('Install')}</span>
+          <span className="visually-hidden">{this.getLabel()}</span>
         </label>
       </div>
     );

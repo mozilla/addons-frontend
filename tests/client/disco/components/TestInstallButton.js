@@ -6,8 +6,9 @@ import {
   InstallButton,
 } from 'disco/components/InstallButton';
 import {
-  DOWNLOADING,
+  DISABLED,
   DISABLING,
+  DOWNLOADING,
   ENABLED,
   ENABLING,
   INSTALLED,
@@ -28,6 +29,8 @@ describe('<InstallButton />', () => {
       installTheme: sinon.spy(),
       uninstall: sinon.spy(),
       i18n: getFakeI18nInst(),
+      slug: 'foo',
+      name: 'test-addon',
       ...props,
     };
 
@@ -43,12 +46,26 @@ describe('<InstallButton />', () => {
     assert.ok(root.classList.contains('unknown'));
   });
 
+  it('should reflect DISABLED status', () => {
+    const button = renderButton({ status: DISABLED });
+    const root = findDOMNode(button);
+    const checkbox = root.querySelector('input[type=checkbox]');
+    assert.equal(checkbox.hasAttribute('disabled'), false);
+    assert.ok(root.classList.contains('disabled'));
+    const label = root.querySelector('label');
+    assert.include(label.textContent, 'test-addon is disabled');
+    assert.include(label.textContent, 'Click to enable');
+  });
+
   it('should reflect UNINSTALLED status', () => {
     const button = renderButton({ status: UNINSTALLED });
     const root = findDOMNode(button);
     const checkbox = root.querySelector('input[type=checkbox]');
     assert.equal(checkbox.hasAttribute('disabled'), false);
     assert.ok(root.classList.contains('uninstalled'));
+    const label = root.querySelector('label');
+    assert.include(label.textContent, 'test-addon is uninstalled');
+    assert.include(label.textContent, 'Click to install');
   });
 
   it('should reflect INSTALLED status', () => {
@@ -65,6 +82,9 @@ describe('<InstallButton />', () => {
     const checkbox = root.querySelector('input[type=checkbox]');
     assert.equal(checkbox.checked, true, 'checked is true');
     assert.ok(root.classList.contains('enabled'));
+    const label = root.querySelector('label');
+    assert.include(label.textContent, 'test-addon is installed and enabled');
+    assert.include(label.textContent, 'Click to uninstall');
   });
 
   it('should reflect download downloadProgress', () => {
@@ -72,6 +92,8 @@ describe('<InstallButton />', () => {
     const root = findDOMNode(button);
     assert.ok(root.classList.contains('downloading'));
     assert.equal(root.getAttribute('data-download-progress'), 50);
+    const label = root.querySelector('label');
+    assert.include(label.textContent, 'Downloading test-addon');
   });
 
   it('should reflect installation', () => {
@@ -80,6 +102,8 @@ describe('<InstallButton />', () => {
     assert.ok(root.classList.contains('installing'));
     const checkbox = root.querySelector('input[type=checkbox]');
     assert.equal(checkbox.checked, true, 'checked is true');
+    const label = root.querySelector('label');
+    assert.include(label.textContent, 'Installing test-addon');
   });
 
   it('should reflect ENABLING status', () => {
@@ -94,6 +118,8 @@ describe('<InstallButton />', () => {
     const button = renderButton({ status: UNINSTALLING });
     const root = findDOMNode(button);
     assert.ok(root.classList.contains('uninstalling'));
+    const label = root.querySelector('label');
+    assert.include(label.textContent, 'Uninstalling test-addon');
   });
 
   it('should not call anything on click when neither installed or uninstalled', () => {
