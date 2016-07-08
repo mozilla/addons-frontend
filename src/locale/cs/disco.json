@@ -46,8 +46,26 @@
          "OK!": [
             "OK!"
          ],
-         "Install": [
-            "Instalovat"
+         "Downloading %(name)s.": [
+            ""
+         ],
+         "Installing %(name)s.": [
+            ""
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            ""
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            ""
+         ],
+         "Uninstalling %(name)s.": [
+            ""
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            ""
+         ],
+         "Install state for %(name)s is unknown.": [
+            ""
          ],
          "Discover Add-ons": [
             "Objevte doplňky"
@@ -59,7 +77,7 @@
             "Jsou zde tisíce doplňků, díky kterým si můžete Firefox přizpůsobit podle \nsebe — od nádherných motivů vzhledu až po produktivní nástroje a funkce.\nTady jsme pro vás vybrali některé z vynikajících doplňků."
          ],
          "Click to play": [
-            ""
+            "Klepněte a spusťte"
          ],
          "to find out more about add-ons": [
             "a zjistěte více o doplňcích"

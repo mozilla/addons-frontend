@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-01 10:14+0000\n"
+"POT-Creation-Date: 2016-07-08 18:26+0000\n"
 "PO-Revision-Date: 2016-07-01 15:23+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
@@ -66,9 +66,33 @@ msgstr "Ya puedes acceder a %(name)s desde la barra de herramientas."
 msgid "OK!"
 msgstr "¡Vale!"
 
-#: src/disco/components/InstallButton.js:87
-msgid "Install"
-msgstr "Instalar"
+#: src/disco/components/InstallButton.js:50
+msgid "Downloading %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:53
+msgid "Installing %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:57
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:60
+msgid "%(name)s is disabled. Click to enable."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:63
+msgid "Uninstalling %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:66
+msgid "%(name)s is uninstalled. Click to install."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:69
+msgid "Install state for %(name)s is unknown."
+msgstr ""
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -103,6 +127,9 @@ msgstr "Cerrar video"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "¡Ver más complementos!"
+
+#~ msgid "Install"
+#~ msgstr "Instalar"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Instalado y agregado a la barra de herramientas"

@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-01 10:14+0000\n"
+"POT-Creation-Date: 2016-07-08 18:26+0000\n"
 "PO-Revision-Date: 2016-07-08 11:58+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
@@ -66,9 +66,33 @@ msgstr "Agora pode aceder a %(name)s pela barra de ferramentas."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/InstallButton.js:87
-msgid "Install"
-msgstr "Instalar"
+#: src/disco/components/InstallButton.js:50
+msgid "Downloading %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:53
+msgid "Installing %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:57
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:60
+msgid "%(name)s is disabled. Click to enable."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:63
+msgid "Uninstalling %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:66
+msgid "%(name)s is uninstalled. Click to install."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:69
+msgid "Install state for %(name)s is unknown."
+msgstr ""
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -83,7 +107,10 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr "Existem milhares de extras que permitem tornar o Firefox só seu — tudo desde temas de visuais divertidos a poderosas ferramentas e funcionalidades. Eis alguns fantásticos para ver."
+msgstr ""
+"Existem milhares de extras que permitem tornar o Firefox só seu — tudo desde "
+"temas de visuais divertidos a poderosas ferramentas e funcionalidades. Eis "
+"alguns fantásticos para ver."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
@@ -100,6 +127,9 @@ msgstr "Fechar vídeo"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "Ver mais extras!"
+
+#~ msgid "Install"
+#~ msgstr "Instalar"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Instalado e adicionado à barra de ferramentas"

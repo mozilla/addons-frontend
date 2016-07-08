@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-01 10:14+0000\n"
+"POT-Creation-Date: 2016-07-08 18:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,9 +64,33 @@ msgstr "‮Noʍ ʎon ɔɐu ɐɔɔǝss %(name)s‮ ɟɹoɯ ʇɥǝ ʇooʅqɐɹ˙"
 msgid "OK!"
 msgstr "‮OӼ¡"
 
-#: src/disco/components/InstallButton.js:87
-msgid "Install"
-msgstr "‮Iusʇɐʅʅ"
+#: src/disco/components/InstallButton.js:50
+msgid "Downloading %(name)s."
+msgstr "‮ᗡoʍuʅoɐpıuƃ %(name)s‮˙"
+
+#: src/disco/components/InstallButton.js:53
+msgid "Installing %(name)s."
+msgstr "‮Iusʇɐʅʅıuƃ %(name)s‮˙"
+
+#: src/disco/components/InstallButton.js:57
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr "%(name)s‮ ıs ıusʇɐʅʅǝp ɐup ǝuɐqʅǝp˙ Ↄʅıɔʞ ʇo nuıusʇɐʅʅ˙"
+
+#: src/disco/components/InstallButton.js:60
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s‮ ıs pısɐqʅǝp˙ Ↄʅıɔʞ ʇo ǝuɐqʅǝ˙"
+
+#: src/disco/components/InstallButton.js:63
+msgid "Uninstalling %(name)s."
+msgstr "‮∩uıusʇɐʅʅıuƃ %(name)s‮˙"
+
+#: src/disco/components/InstallButton.js:66
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s‮ ıs nuıusʇɐʅʅǝp˙ Ↄʅıɔʞ ʇo ıusʇɐʅʅ˙"
+
+#: src/disco/components/InstallButton.js:69
+msgid "Install state for %(name)s is unknown."
+msgstr "‮Iusʇɐʅʅ sʇɐʇǝ ɟoɹ %(name)s‮ ıs nuʞuoʍu˙"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-01 10:14+0000\n"
+"POT-Creation-Date: 2016-07-08 18:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,8 +64,32 @@ msgstr ""
 msgid "OK!"
 msgstr ""
 
-#: src/disco/components/InstallButton.js:87
-msgid "Install"
+#: src/disco/components/InstallButton.js:50
+msgid "Downloading %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:53
+msgid "Installing %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:57
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:60
+msgid "%(name)s is disabled. Click to enable."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:63
+msgid "Uninstalling %(name)s."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:66
+msgid "%(name)s is uninstalled. Click to install."
+msgstr ""
+
+#: src/disco/components/InstallButton.js:69
+msgid "Install state for %(name)s is unknown."
 msgstr ""
 
 #: src/disco/containers/App.js:19
