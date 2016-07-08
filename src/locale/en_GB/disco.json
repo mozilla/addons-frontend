@@ -8,37 +8,64 @@
             "lang": "en_GB"
          },
          "Close": [
-            ""
+            "Close"
          ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Hover to preview or click to install %(name)s"
          ],
          "Hover over the image to preview": [
-            ""
+            "Hover over the image to preview"
          ],
          "Installation failed. Please try again.": [
-            ""
+            "Installation failed. Please try again."
          ],
          "Download failed. Please check your connection.": [
-            ""
+            "Download failed. Please check your connection."
+         ],
+         "An unexpected error occurred during installation.": [
+            "An unexpected error occurred during installation."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "An unexpected error occurred during uninstallation."
+         ],
+         "An unexpected error occurred.": [
+            "An unexpected error occurred."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "This add-on will be uninstalled after you restart Firefox."
          ],
          "Please restart Firefox to use this add-on.": [
-            ""
+            "Please restart Firefox to use this add-on."
          ],
          "Your add-on is ready": [
-            ""
+            "Your add-on is ready"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            ""
+            "Now you can access %(name)s from the toolbar."
          ],
          "OK!": [
+            "OK!"
+         ],
+         "Downloading %(name)s.": [
             ""
          ],
-         "Install": [
-            "Install"
+         "Installing %(name)s.": [
+            ""
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            ""
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            ""
+         ],
+         "Uninstalling %(name)s.": [
+            ""
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            ""
+         ],
+         "Install state for %(name)s is unknown.": [
+            ""
          ],
          "Discover Add-ons": [
             "Discover Add-ons"
@@ -56,10 +83,10 @@
             "to find out more about add-ons"
          ],
          "Close video": [
-            ""
+            "Close video"
          ],
          "See more add-ons!": [
-            ""
+            "See more add-ons!"
          ]
       }
    }

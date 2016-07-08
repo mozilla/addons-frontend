@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "sq"
          },
+         "Close": [
+            "Mbylle"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet %(name)s"
          ],
          "Hover over the image to preview": [
             "Kalojeni kursorin përsipër figurës që ta parashihni"
@@ -18,6 +21,12 @@
          ],
          "Download failed. Please check your connection.": [
             "Shkarkimi dështoi. Ju lutemi, kontrolloni lidhjen tuaj."
+         ],
+         "An unexpected error occurred during installation.": [
+            "Ndodhi një gabim i papritur gjatë instalimit."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "Ndodhi një gabim i papritur gjatë çinstalimit."
          ],
          "An unexpected error occurred.": [
             "Ndodhi një gabim i papritur."
@@ -29,16 +38,34 @@
             "Ju lutemi, rinisni Firefox-in që të përdorni këtë shtesë."
          ],
          "Your add-on is ready": [
-            ""
+            "Shtesa juaj është gati"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            ""
+            "Tani mund të hyni te %(name)s që nga paneli."
          ],
          "OK!": [
+            "OK!"
+         ],
+         "Downloading %(name)s.": [
             ""
          ],
-         "Install": [
-            "Instaloje"
+         "Installing %(name)s.": [
+            ""
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            ""
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            ""
+         ],
+         "Uninstalling %(name)s.": [
+            ""
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            ""
+         ],
+         "Install state for %(name)s is unknown.": [
+            ""
          ],
          "Discover Add-ons": [
             "Zbuloni Shtesa"

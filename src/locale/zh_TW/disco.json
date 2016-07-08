@@ -37,8 +37,26 @@
          "OK!": [
             ""
          ],
-         "Install": [
-            "安裝"
+         "Downloading %(name)s.": [
+            ""
+         ],
+         "Installing %(name)s.": [
+            ""
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            ""
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            ""
+         ],
+         "Uninstalling %(name)s.": [
+            ""
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            ""
+         ],
+         "Install state for %(name)s is unknown.": [
+            ""
          ],
          "Discover Add-ons": [
             "探索附加元件"
