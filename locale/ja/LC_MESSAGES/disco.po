@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-08 18:26+0000\n"
-"PO-Revision-Date: 2016-07-01 19:57+0000\n"
+"PO-Revision-Date: 2016-07-09 07:26+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -20,8 +20,7 @@ msgstr "閉じる"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
+msgstr "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -69,31 +68,31 @@ msgstr "了解"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s をダウンロードしています。"
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s をインストールしています。"
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s は無効化されています。有効化するにはここをクリック。"
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s を削除しています。"
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s は削除されています。インストールするにはここをクリック。"
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s のインストール状態は不明です。"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -108,10 +107,7 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr ""
-"楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分"
-"好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを"
-"紹介します。"
+msgstr "楽しいデザインのテーマから、パワフルなツールや機能まで、Firefox を完全に自分好みのブラウザにできるアドオンがたくさんあります。ここでいくつか優れたものを紹介します。"
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
