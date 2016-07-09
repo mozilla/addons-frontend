@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-08 18:26+0000\n"
-"PO-Revision-Date: 2016-07-01 21:14+0000\n"
-"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2016-07-09 06:25+0000\n"
+"Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,11 @@ msgstr "关闭"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "悬停以预览，点击安装 %(name)s"
+msgstr "鼠标悬停在上面即可预览，点击可安装 %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
-msgstr "悬停在图像上以预览"
+msgstr "鼠标悬停在图像上可预览"
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
@@ -32,7 +32,7 @@ msgstr "安装失败。请重试。"
 
 #: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
-msgstr "下载失败。请检查您的连接。"
+msgstr "下载失败。请检查您的网络连接。"
 
 #: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
@@ -60,47 +60,47 @@ msgstr "您的附加组件已就绪"
 
 #: src/disco/components/InfoDialog.js:26
 msgid "Now you can access %(name)s from the toolbar."
-msgstr "您现在可以从工具栏访问 %(name)s 了。"
+msgstr "您现在可以在工具栏找到 %(name)s 了。"
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
-msgstr "好的！"
+msgstr "知道了！"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "正在下载 %(name)s。"
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "正在安装 %(name)s。"
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s 已安装成功并启用。若不喜欢可点击卸载。"
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s 已被禁用。点击可启用。"
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "正在卸载 %(name)s。"
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s 已被卸载。点击可重新安装。"
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s 的安装状态未知。"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
-msgstr "发现附加组件"
+msgstr "探寻附加组件"
 
 #: src/disco/containers/DiscoPane.js:100
 msgid "Personalize Your Firefox"
-msgstr "个性化你的火狐"
+msgstr "个性化您的火狐"
 
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
@@ -108,9 +108,9 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"有成千上万的附加组件让你的 Firefox 更具个性\n"
-"—像是有趣的视觉主题，强大的工具和功能。\n"
-"这里有一些推荐给你。"
+"有成千上万的附加组件让 Firefox 更具你的个性\n"
+"——像是有趣的视觉主题，强大的工具和功能。\n"
+"这里有一些推荐给您。"
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
