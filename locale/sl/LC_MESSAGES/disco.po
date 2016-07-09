@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-08 18:26+0000\n"
-"PO-Revision-Date: 2016-07-01 21:20+0000\n"
+"PO-Revision-Date: 2016-07-09 12:42+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
@@ -21,8 +20,7 @@ msgstr "Zapri"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
+msgstr "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -70,27 +68,27 @@ msgstr "V redu!"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Prenašanje %(name)s."
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Nameščanje %(name)s."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s je nameščen in omogočen. Kliknite za odstranjevanje."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s je onemogočen. Kliknite, da ga omogočite."
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Odstranjevanje %(name)s."
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s je bil odstranjen. Kliknite za namestitev."
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
