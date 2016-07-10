@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-08 18:26+0000\n"
-"PO-Revision-Date: 2016-07-01 17:41+0000\n"
+"PO-Revision-Date: 2016-07-10 10:40+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -20,9 +20,7 @@ msgstr "Sluiten"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te "
-"installeren"
+msgstr "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te installeren"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -70,31 +68,31 @@ msgstr "OK!"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s wordt gedownload."
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s wordt geïnstalleerd."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s is uitgeschakeld. Klik om de add-on in te schakelen."
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s wordt verwijderd."
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s is verwijderd. Klik om de add-on te installeren."
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Installatiestatus voor %(name)s is niet bekend."
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
