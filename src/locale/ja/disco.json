@@ -47,25 +47,25 @@
             "了解"
          ],
          "Downloading %(name)s.": [
-            ""
+            "%(name)s をダウンロードしています。"
          ],
          "Installing %(name)s.": [
-            ""
+            "%(name)s をインストールしています。"
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s は無効化されています。有効化するにはここをクリック。"
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "%(name)s を削除しています。"
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s は削除されています。インストールするにはここをクリック。"
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "%(name)s のインストール状態は不明です。"
          ],
          "Discover Add-ons": [
             "アドオンを見つける"
