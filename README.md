@@ -29,8 +29,9 @@ Generic scripts that don't need env vars. Use these for development:
 
 | Script                 | Description                                         |
 |------------------------|-----------------------------------------------------|
-| npm run dev:search     |  Starts the dev server (search app)                 |
+| npm run dev:amo        |  Starts the dev server (amo)                        |
 | npm run dev:disco      |  Starts the dev server (discovery pane)             |
+| npm run dev:search     |  Starts the dev server (search app)                 |
 | npm run eslint         |  Lints the JS                                       |
 | npm run stylelint      |  Lints the SCSS                                     |
 | npm run lint           |  Runs all the JS + SCSS linters                     |
