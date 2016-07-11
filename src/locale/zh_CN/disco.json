@@ -11,16 +11,16 @@
             "关闭"
          ],
          "Hover to preview or click to install %(name)s": [
-            "悬停以预览，点击安装 %(name)s"
+            "鼠标悬停在上面即可预览，点击可安装 %(name)s"
          ],
          "Hover over the image to preview": [
-            "悬停在图像上以预览"
+            "鼠标悬停在图像上可预览"
          ],
          "Installation failed. Please try again.": [
             "安装失败。请重试。"
          ],
          "Download failed. Please check your connection.": [
-            "下载失败。请检查您的连接。"
+            "下载失败。请检查您的网络连接。"
          ],
          "An unexpected error occurred during installation.": [
             "安装时发生意外错误。"
@@ -41,40 +41,40 @@
             "您的附加组件已就绪"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            "您现在可以从工具栏访问 %(name)s 了。"
+            "您现在可以在工具栏找到 %(name)s 了。"
          ],
          "OK!": [
-            "好的！"
+            "知道了！"
          ],
          "Downloading %(name)s.": [
-            ""
+            "正在下载 %(name)s。"
          ],
          "Installing %(name)s.": [
-            ""
+            "正在安装 %(name)s。"
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s 已安装成功并启用。若不喜欢可点击卸载。"
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s 已被禁用。点击可启用。"
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "正在卸载 %(name)s。"
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s 已被卸载。点击可重新安装。"
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "%(name)s 的安装状态未知。"
          ],
          "Discover Add-ons": [
-            "发现附加组件"
+            "探寻附加组件"
          ],
          "Personalize Your Firefox": [
-            "个性化你的火狐"
+            "个性化您的火狐"
          ],
          "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
-            "有成千上万的附加组件让你的 Firefox 更具个性\n—像是有趣的视觉主题，强大的工具和功能。\n这里有一些推荐给你。"
+            "有成千上万的附加组件让 Firefox 更具你的个性\n——像是有趣的视觉主题，强大的工具和功能。\n这里有一些推荐给您。"
          ],
          "Click to play": [
             "点击播放"

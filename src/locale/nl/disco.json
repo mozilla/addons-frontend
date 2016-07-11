@@ -47,25 +47,25 @@
             "OK!"
          ],
          "Downloading %(name)s.": [
-            ""
+            "%(name)s wordt gedownload."
          ],
          "Installing %(name)s.": [
-            ""
+            "%(name)s wordt geïnstalleerd."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s is uitgeschakeld. Klik om de add-on in te schakelen."
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "%(name)s wordt verwijderd."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s is verwijderd. Klik om de add-on te installeren."
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "Installatiestatus voor %(name)s is niet bekend."
          ],
          "Discover Add-ons": [
             "Add-ons ontdekken"
