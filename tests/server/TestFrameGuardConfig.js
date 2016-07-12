@@ -1,5 +1,8 @@
 import { assert } from 'chai';
 import requireUncached from 'require-uncached';
+import config from 'config';
+
+const appsList = config.get('validAppNames');
 
 describe('App Specific Frameguard Config', () => {
   afterEach(() => {
@@ -7,10 +10,13 @@ describe('App Specific Frameguard Config', () => {
     delete process.env.NODE_APP_INSTANCE;
   });
 
-  it('should default frameGuard to "deny"', () => {
-    const config = requireUncached('config');
-    const frameGuardConfig = config.get('frameGuard');
-    assert.equal(frameGuardConfig.action, 'deny');
-    assert.equal(frameGuardConfig.domain, undefined);
-  });
+  for (const appName of appsList) {
+    it(`should default frameGuard to "deny" for ${appName} in production`, () => {
+      process.env.NODE_APP_INSTANCE = appName;
+      const conf = requireUncached('config');
+      const frameGuardConfig = conf.get('frameGuard');
+      assert.equal(frameGuardConfig.action, 'deny');
+      assert.equal(frameGuardConfig.domain, undefined);
+    });
+  }
 });

@@ -20,7 +20,7 @@ const apiHosts = {
 };
 
 
-describe('CSP Config', () => {
+describe('CSP Config Defaults', () => {
   afterEach(() => {
     process.env.NODE_ENV = 'production';
   });
@@ -83,48 +83,5 @@ describe('CSP Config', () => {
     const config = requireUncached('config');
     const cspConfig = config.get('CSP').directives;
     assert.deepEqual(cspConfig.mediaSrc, ["'none'"]);
-  });
-});
-
-
-describe('App Specific CSP Config', () => {
-  afterEach(() => {
-    process.env.NODE_ENV = 'production';
-    delete process.env.NODE_APP_INSTANCE;
-  });
-
-  it('should set style-src for disco', () => {
-    process.env.NODE_APP_INSTANCE = 'disco';
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.styleSrc, ['https://addons-discovery.cdn.mozilla.net']);
-  });
-
-  it('should set script-src for disco', () => {
-    process.env.NODE_APP_INSTANCE = 'disco';
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.scriptSrc, [
-      'https://addons-discovery.cdn.mozilla.net', 'https://www.google-analytics.com']);
-  });
-
-  it('should set media-src for disco', () => {
-    process.env.NODE_APP_INSTANCE = 'disco';
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.mediaSrc, ['https://addons-discovery.cdn.mozilla.net']);
-  });
-
-  it('should set img-src for disco', () => {
-    process.env.NODE_APP_INSTANCE = 'disco';
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.sameMembers(cspConfig.imgSrc, [
-      "'self'",
-      'data:',
-      'https://addons.cdn.mozilla.net',
-      'https://addons-discovery.cdn.mozilla.net',
-      'https://www.google-analytics.com',
-    ]);
   });
 });

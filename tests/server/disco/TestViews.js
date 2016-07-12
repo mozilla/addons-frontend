@@ -6,10 +6,10 @@ import { assert } from 'chai';
 import { runServer } from 'core/server/base';
 import Policy from 'csp-parse';
 
-import { checkSRI } from './helpers';
+import { checkSRI } from '../helpers';
 
 
-describe('GET requests', () => {
+describe('Discovery Pane GET requests', () => {
   let app;
 
   before(() => runServer({ listen: false, app: 'disco' })
