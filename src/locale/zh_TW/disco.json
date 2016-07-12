@@ -7,8 +7,11 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "zh_TW"
          },
+         "Close": [
+            "關閉"
+         ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "滑動以預覽或點擊安裝 %(name)s"
          ],
          "Hover over the image to preview": [
             "滑過圖片進行預覽"
@@ -18,6 +21,12 @@
          ],
          "Download failed. Please check your connection.": [
             "下載失敗，請檢查網路連線。"
+         ],
+         "An unexpected error occurred during installation.": [
+            "安裝時發生未預期的錯誤。"
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "移除時發生未預期的錯誤。"
          ],
          "An unexpected error occurred.": [
             "發生未預期的錯誤。"
@@ -29,34 +38,34 @@
             "重新啟動 Firefox 後即可使用此附加元件。"
          ],
          "Your add-on is ready": [
-            ""
+            "您的附加元件已就緒"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            ""
+            "您現在可在工具列使用 %(name)s。"
          ],
          "OK!": [
-            ""
+            "好！"
          ],
          "Downloading %(name)s.": [
-            ""
+            "正在下載 %(name)s。"
          ],
          "Installing %(name)s.": [
-            ""
+            "正在安裝 %(name)s。"
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "已安裝啟用 %(name)s，點擊移除。"
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s 已停用，點擊啟用。"
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "正在移除 %(name)s。"
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "已移除 %(name)s，點擊安裝。"
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "%(name)s 的安裝狀態未知。"
          ],
          "Discover Add-ons": [
             "探索附加元件"
