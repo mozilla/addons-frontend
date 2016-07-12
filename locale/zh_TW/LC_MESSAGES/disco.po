@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-08 18:26+0000\n"
-"PO-Revision-Date: 2016-06-20 07:23+0000\n"
+"PO-Revision-Date: 2016-07-12 05:41+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -15,13 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
-#, fuzzy
 msgid "Close"
-msgstr "關閉影片"
+msgstr "關閉"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "滑動以預覽或點擊安裝 %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -36,14 +35,12 @@ msgid "Download failed. Please check your connection."
 msgstr "下載失敗，請檢查網路連線。"
 
 #: src/disco/components/Addon.js:170
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "發生未預期的錯誤。"
+msgstr "安裝時發生未預期的錯誤。"
 
 #: src/disco/components/Addon.js:172
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "發生未預期的錯誤。"
+msgstr "移除時發生未預期的錯誤。"
 
 #: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
@@ -59,43 +56,43 @@ msgstr "重新啟動 Firefox 後即可使用此附加元件。"
 
 #: src/disco/components/InfoDialog.js:24
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "您的附加元件已就緒"
 
 #: src/disco/components/InfoDialog.js:26
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "您現在可在工具列使用 %(name)s。"
 
 #: src/disco/components/InfoDialog.js:31
 msgid "OK!"
-msgstr ""
+msgstr "好！"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "正在下載 %(name)s。"
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "正在安裝 %(name)s。"
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "已安裝啟用 %(name)s，點擊移除。"
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s 已停用，點擊啟用。"
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "正在移除 %(name)s。"
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "已移除 %(name)s，點擊安裝。"
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s 的安裝狀態未知。"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -110,9 +107,7 @@ msgid ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
-msgstr ""
-"有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或"
-"是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
+msgstr "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
