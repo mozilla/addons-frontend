@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-08 18:26+0000\n"
-"PO-Revision-Date: 2016-07-01 22:16+0000\n"
+"PO-Revision-Date: 2016-07-11 22:27+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -20,14 +20,11 @@ msgstr "Chiudi"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Passa sopra col puntatore del mouse per visualizzare un’anteprima di "
-"%(name)s o fai clic per installarlo"
+msgstr "Passa sopra col puntatore del mouse per visualizzare un’anteprima di %(name)s o fai clic per installarlo"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
-msgstr ""
-"Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
+msgstr "Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
@@ -35,9 +32,7 @@ msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
 #: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
-msgstr ""
-"Non è riuscito il download del componente aggiuntivo. Controlla la "
-"connessione alla rete."
+msgstr "Non è riuscito il download del componente aggiuntivo. Controlla la connessione alla rete."
 
 #: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
@@ -53,9 +48,7 @@ msgstr "Si è verificato un errore inatteso."
 
 #: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
-"Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di "
-"Firefox."
+msgstr "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di Firefox."
 
 #: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
@@ -75,31 +68,31 @@ msgstr "OK."
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Download di %(name)s."
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Installazione di %(name)s."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s è installato e attivato. Fare clic per disinstallarlo."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s è disattivato. Fare clic per attivarlo."
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Disinstallazione di %(name)s."
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s è stato disinstallato. Fare clic per reinstallarlo nuovamente."
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -115,10 +108,8 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Esistono migliaia di componenti aggiuntivi che ti consentiranno di "
-"personalizzare Firefox secondo le tue esigenze — di tutto e di più, da "
-"simpatici temi fino a strumenti e caratteristiche avanzate. Eccone alcuni "
-"tra i migliori che potresti provare."
+"Esistono migliaia di componenti aggiuntivi che ti consentiranno di personalizzare Firefox secondo le tue esigenze — di tutto e di più, da simpatici temi fino a strumenti e caratteristiche avanzate. "
+"Eccone alcuni tra i migliori che potresti provare."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
