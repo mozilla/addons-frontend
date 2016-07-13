@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import translate from 'core/i18n/translate';
+import onClickOutside from 'react-onclickoutside';
 
 import 'disco/css/InfoDialog.scss';
 
@@ -9,6 +10,10 @@ export class InfoDialog extends React.Component {
     closeAction: PropTypes.func.isRequired,
     imageURL: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
+  }
+
+  handleClickOutside() {
+    this.props.closeAction();
   }
 
   render() {
@@ -34,4 +39,4 @@ export class InfoDialog extends React.Component {
   }
 }
 
-export default translate()(InfoDialog);
+export default translate()(onClickOutside(InfoDialog));
