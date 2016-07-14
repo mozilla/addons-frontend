@@ -18,4 +18,6 @@ module.exports = {
       ],
     },
   },
+
+  redirectLangPrefix: false,
 };

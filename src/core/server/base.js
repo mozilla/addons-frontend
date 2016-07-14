@@ -19,7 +19,7 @@ import ServerHtml from 'core/containers/ServerHtml';
 import config from 'config';
 import { setLang, setJWT } from 'core/actions';
 import log from 'core/logger';
-import { getDirection, getLangFromRouter, langToLocale } from 'core/i18n/utils';
+import { getDirection, getFilteredUserLanguage, langToLocale } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 import Jed from 'jed';
 
@@ -113,19 +113,24 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
       ) : {};
 
-      const lang = getLangFromRouter(renderProps);
+      const acceptLanguage = req.headers['accept-language'];
+      // Get language from URL or fall-back to accept-language.
+      const lang = getFilteredUserLanguage({ renderProps, acceptLanguage });
 
-      if (renderProps.params && renderProps.params.lang) {
+      if (renderProps.params) {
         const origLang = renderProps.params.lang;
         if (lang !== origLang) {
-          // If the original lang param (found via the router) matches
-          // the first part of the original url path, redirect to the
-          // normalized lang (which will be the default if invalid).
+          // If a lang was provided but the lang looked up is different
+          // redirect to the looked-up lang (or default).
           // eslint-disable-next-line no-unused-vars
           const [_, firstPart, ...rest] = req.originalUrl.split('/');
           if (origLang === decodeURIComponent(firstPart)) {
             // The '' provides a leading /
             return res.redirect(301, ['', lang, ...rest].join('/'));
+          } else if (!origLang && config.get('redirectLangPrefix')) {
+            // If there was no lang param. Redirect to the same URL with
+            // a lang prepended.
+            return res.redirect(301, `/${lang}${req.originalUrl}`);
           }
         }
       }

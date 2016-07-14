@@ -137,6 +137,8 @@ module.exports = {
   },
   rtlLangs: ['ar', 'dbr', 'fa', 'he'],
   defaultLang: 'en-US',
+  redirectLangPrefix: true,
+
   localeDir: path.resolve(path.join(__dirname, '../locale')),
 
   // This is off by default

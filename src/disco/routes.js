@@ -5,10 +5,10 @@ import App from './containers/App';
 import DiscoPane from './containers/DiscoPane';
 
 export default (
-  <Route path="/" component={App}>
+  <Route path="/(:lang/)" component={App}>
     <IndexRoute component={DiscoPane} />
     <Route
-      path="/:lang/firefox/discovery/pane/:version/:platform/:compatibilityMode"
+      path="/(:lang/)firefox/discovery/pane/:version/:platform/:compatibilityMode"
       component={DiscoPane}
     />
   </Route>

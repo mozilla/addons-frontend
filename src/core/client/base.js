@@ -6,7 +6,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-async-connect';
-import { langToLocale, getLanguage } from 'core/i18n/utils';
+import { langToLocale, sanitizeLanguage } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 import Jed from 'jed';
 
@@ -18,7 +18,7 @@ export default function makeClient(routes, createStore) {
   let initialState;
 
   const html = document.querySelector('html');
-  const lang = getLanguage(html.getAttribute('lang'));
+  const lang = sanitizeLanguage(html.getAttribute('lang'));
   const locale = langToLocale(lang);
   const appName = config.get('appName');
 
