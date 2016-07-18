@@ -102,6 +102,14 @@ describe('i18n utils', () => {
     it('should return a lang if handed a locale', () => {
       assert.equal(utils.sanitizeLanguage('en_US'), 'en-US');
     });
+
+    it('should return the default if handed undefined', () => {
+      assert.equal(utils.sanitizeLanguage(undefined), 'en-US');
+    });
+
+    it('should return the default if handed an empty string', () => {
+      assert.equal(utils.sanitizeLanguage(''), 'en-US');
+    });
   });
 
   describe('getDirection()', () => {
@@ -228,18 +236,46 @@ describe('i18n utils', () => {
 
     it('orders an accept-language header', () => {
       const input = 'fil;q=0.5,en;q=0.7';
-      assert.deepEqual(utils.parseAcceptLanguage(input), [
+      const result = utils.parseAcceptLanguage(input);
+      assert.deepEqual(result, [
         { lang: 'en', quality: 0.7 },
         { lang: 'fil', quality: 0.5 },
-      ], JSON.stringify(utils.parseAcceptLanguage(input)));
+      ], sinon.format(result));
+    });
+
+    it('deals with whitespace around delimiters except "="', () => {
+      const input = 'fil ; q=0.5 , en ; q=0.7';
+      const result = utils.parseAcceptLanguage(input);
+      assert.deepEqual(result, [
+        { lang: 'en', quality: 0.7 },
+        { lang: 'fil', quality: 0.5 },
+      ], sinon.format(result));
     });
 
     it('orders non-quality items higher', () => {
       const input = 'fil,en;q=0.7';
-      assert.deepEqual(utils.parseAcceptLanguage(input), [
+      const result = utils.parseAcceptLanguage(input);
+      assert.deepEqual(result, [
         { lang: 'fil', quality: 1 },
         { lang: 'en', quality: 0.7 },
-      ], JSON.stringify(utils.parseAcceptLanguage(input)));
+      ], sinon.format(result));
+    });
+
+    it('parses header where all entries have a quality value', () => {
+      const input = 'de; q=1.0, en; q=0.5';
+      const result = utils.parseAcceptLanguage(input);
+      assert.deepEqual(result, [
+        { lang: 'de', quality: 1 },
+        { lang: 'en', quality: 0.5 },
+      ], sinon.format(result));
+    });
+
+    it('handles entries with the same quality value', () => {
+      const input = 'de; q=0.5, en; q=0.5';
+      assert.deepEqual(utils.parseAcceptLanguage(input), [
+        { lang: 'de', quality: 0.5 },
+        { lang: 'en', quality: 0.5 },
+      ], sinon.format(utils.parseAcceptLanguage(input)));
     });
   });
 

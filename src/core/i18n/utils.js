@@ -94,9 +94,7 @@ function qualityCmp(a, b) {
 /*
  * Parses the HTTP accept-language header and returns a
  * sorted array of objects. Example object:
- * {
- *   lang: 'pl', quality: 0.7
- * }
+ * { lang: 'pl', quality: 0.7 }
  */
 export function parseAcceptLanguage(header) {
   // pl,fr-FR;q=0.3,en-US;q=0.1
@@ -107,7 +105,7 @@ export function parseAcceptLanguage(header) {
   const langList = rawLangs.map((rawLang) => {
     const parts = rawLang.split(';');
     let q = 1;
-    if (parts.length > 1 && parts[1].indexOf('q=') === 0) {
+    if (parts.length > 1 && parts[1].trim().indexOf('q=') === 0) {
       const qVal = parseFloat(parts[1].split('=')[1]);
       if (isNaN(qVal) === false) {
         q = qVal;
