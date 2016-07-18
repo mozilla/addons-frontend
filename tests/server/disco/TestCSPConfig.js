@@ -22,7 +22,8 @@ describe('Disco App Specific CSP Config', () => {
   it('should set script-src for disco', () => {
     const cspConfig = config.get('CSP').directives;
     assert.deepEqual(cspConfig.scriptSrc, [
-      'https://addons-discovery.cdn.mozilla.net', 'https://www.google-analytics.com']);
+      'https://addons-discovery.cdn.mozilla.net',
+      'https://www.google-analytics.com/analytics.js']);
   });
 
   it('should set media-src for disco', () => {
