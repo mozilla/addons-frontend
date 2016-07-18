@@ -66,7 +66,8 @@
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "TRACKING_ENABLED": "false"
       }
     },
     "servertest:disco": {
@@ -74,7 +75,8 @@
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production",
-        "NODE_APP_INSTANCE": "disco"
+        "NODE_APP_INSTANCE": "disco",
+        "TRACKING_ENABLED": "false"
       }
     },
     "servertest:search": {
@@ -82,7 +84,8 @@
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production",
-        "NODE_APP_INSTANCE": "search"
+        "NODE_APP_INSTANCE": "search",
+        "TRACKING_ENABLED": "false"
       }
     },
     "test": {

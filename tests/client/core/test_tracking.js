@@ -36,7 +36,6 @@ describe('Tracking', () => {
       },
     });
     // eslint-disable-next-line no-underscore-dangle
-    // eslint-disable-next-line no-underscore-dangle
     assert.ok(tracking._log.info.secondCall.calledWith(sinon.match(/OFF/), 'Missing tracking id'));
   });
 

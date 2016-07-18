@@ -19,10 +19,22 @@ export function camelCaseProps(obj) {
   return newObj;
 }
 
-export function getClientConfig(config) {
+export function getClientConfig(_config) {
   const clientConfig = {};
-  for (const key of config.get('clientConfigKeys')) {
-    clientConfig[key] = config.get(key);
+  for (const key of _config.get('clientConfigKeys')) {
+    clientConfig[key] = _config.get(key);
   }
   return clientConfig;
+}
+
+export function convertBoolean(value) {
+  switch (value) {
+    case true:
+    case 1:
+    case '1':
+    case 'true':
+      return true;
+    default:
+      return false;
+  }
 }
