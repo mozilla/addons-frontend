@@ -42,8 +42,9 @@ img {
 .disco-pane {
   box-sizing: content-box;
   margin: 0 auto;
-  padding: 10px 20px 20px;
   max-width: 680px;
+  min-width: 260px; // 300 - (20px + 20px)
+  padding: 10px 20px 20px;
 }
 
 @include respond-to('large') {
