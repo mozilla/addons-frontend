@@ -8,7 +8,7 @@ import Policy from 'csp-parse';
 
 import { checkSRI } from '../helpers';
 
-describe('Seach App GET requests', () => {
+describe('Search App GET requests', () => {
   let app;
 
   before(() => runServer({ listen: false, app: 'search' })

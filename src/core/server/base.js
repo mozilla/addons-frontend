@@ -83,6 +83,11 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     app.get('/', (req, res) => res.redirect(302, '/search'));
   }
 
+  if (appInstanceName === 'disco' && isDevelopment) {
+    app.get('/', (req, res) =>
+      res.redirect(302, '/en-US/firefox/discovery/pane/48.0/Darwin/normal'));
+  }
+
   app.use((req, res) => {
     if (isDevelopment) {
       log.info('Running in Development Mode');
@@ -126,11 +131,11 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           const [_, firstPart, ...rest] = req.originalUrl.split('/');
           if (origLang === decodeURIComponent(firstPart)) {
             // The '' provides a leading /
-            return res.redirect(301, ['', lang, ...rest].join('/'));
+            return res.redirect(302, ['', lang, ...rest].join('/'));
           } else if (!origLang && config.get('redirectLangPrefix')) {
             // If there was no lang param. Redirect to the same URL with
             // a lang prepended.
-            return res.redirect(301, `/${lang}${req.originalUrl}`);
+            return res.redirect(302, `/${lang}${req.originalUrl}`);
           }
         }
       }
