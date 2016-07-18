@@ -8,7 +8,7 @@ import Policy from 'csp-parse';
 
 import { checkSRI } from '../helpers';
 
-describe('Seach App GET requests', () => {
+describe('Search App GET requests', () => {
   let app;
 
   before(() => runServer({ listen: false, app: 'search' })
@@ -26,7 +26,7 @@ describe('Seach App GET requests', () => {
     .then((res) => {
       const policy = new Policy(res.header['content-security-policy']);
       assert.notInclude(policy.get('script-src'), "'self'");
-      assert.include(policy.get('script-src'), 'https://addons.cdn.mozilla.net');
+      assert.include(policy.get('script-src'), 'https://addons-admin.cdn.mozilla.net');
       assert.notInclude(policy.get('connect-src'), "'self'");
       assert.include(policy.get('connect-src'), 'https://addons.mozilla.org');
     }));

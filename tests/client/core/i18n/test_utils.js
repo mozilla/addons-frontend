@@ -82,25 +82,33 @@ describe('i18n utils', () => {
     });
   });
 
-  describe('getLanguage()', () => {
+  describe('sanitizeLanguage()', () => {
     it('should get a standard language ', () => {
-      assert.equal(utils.getLanguage('ar'), 'ar');
+      assert.equal(utils.sanitizeLanguage('ar'), 'ar');
     });
 
     it('should convert short form lang to longer', () => {
-      assert.equal(utils.getLanguage('en'), 'en-US');
+      assert.equal(utils.sanitizeLanguage('en'), 'en-US');
     });
 
     it('should return the default if lookup not present', () => {
-      assert.equal(utils.getLanguage('awooga'), 'en-US');
+      assert.equal(utils.sanitizeLanguage('awooga'), 'en-US');
     });
 
     it('should return the default if bad type', () => {
-      assert.equal(utils.getLanguage(1), 'en-US');
+      assert.equal(utils.sanitizeLanguage(1), 'en-US');
     });
 
     it('should return a lang if handed a locale', () => {
-      assert.equal(utils.getLanguage('en_US'), 'en-US');
+      assert.equal(utils.sanitizeLanguage('en_US'), 'en-US');
+    });
+
+    it('should return the default if handed undefined', () => {
+      assert.equal(utils.sanitizeLanguage(undefined), 'en-US');
+    });
+
+    it('should return the default if handed an empty string', () => {
+      assert.equal(utils.sanitizeLanguage(''), 'en-US');
     });
   });
 
@@ -144,10 +152,35 @@ describe('i18n utils', () => {
     });
   });
 
-  describe('getLangFromRouter()', () => {
+  describe('getFilteredUserLanguage()', () => {
+    it('should return default lang if called without args', () => {
+      assert.equal(utils.getFilteredUserLanguage(), config.get('defaultLang'));
+    });
+
     it('should return default lang if no lang is provided', () => {
       const fakeRenderProps = {};
-      assert.equal(utils.getLangFromRouter(fakeRenderProps), config.get('defaultLang'));
+      const result = utils.getFilteredUserLanguage({ renderProps: fakeRenderProps });
+      assert.equal(result, config.get('defaultLang'));
+    });
+
+    it('should return default lang if bad lang is provided', () => {
+      const fakeRenderProps = {
+        params: {
+          lang: 'bogus',
+        },
+      };
+      const result = utils.getFilteredUserLanguage({ renderProps: fakeRenderProps });
+      assert.equal(result, config.get('defaultLang'));
+    });
+
+    it('should return default lang if bad lang type provided', () => {
+      const fakeRenderProps = {
+        params: {
+          lang: 1,
+        },
+      };
+      const result = utils.getFilteredUserLanguage({ renderProps: fakeRenderProps });
+      assert.equal(result, config.get('defaultLang'));
     });
 
     it('should return lang if provided via the URL', () => {
@@ -156,32 +189,174 @@ describe('i18n utils', () => {
           lang: 'fr',
         },
       };
-      assert.equal(utils.getLangFromRouter(fakeRenderProps), 'fr');
+      assert.equal(utils.getFilteredUserLanguage({ renderProps: fakeRenderProps }), 'fr');
     });
 
-    it('should return lang if provided via a query param', () => {
-      const fakeRenderProps = {
-        location: {
-          query: {
-            lang: 'pt-PT',
-          },
-        },
-      };
-      assert.equal(utils.getLangFromRouter(fakeRenderProps), 'pt-PT');
-    });
-
-    it('should use url param if both that and query string are present', () => {
+    it('should fall-back to accept-language', () => {
       const fakeRenderProps = {
         params: {
-          lang: 'fr',
-        },
-        location: {
-          query: {
-            lang: 'pt-PT',
-          },
+          lang: 'bogus',
         },
       };
-      assert.equal(utils.getLangFromRouter(fakeRenderProps), 'fr');
+      const acceptLanguage = 'pt-br;q=0.5,en-us;q=0.3,en;q=0.2';
+      const result = utils.getFilteredUserLanguage(
+        { renderProps: fakeRenderProps, acceptLanguage });
+      assert.equal(result, 'pt-BR');
+    });
+
+    it('should map lang from accept-language too', () => {
+      const fakeRenderProps = {
+        params: {
+          lang: 'wat',
+        },
+      };
+      const acceptLanguage = 'pt;q=0.5,en-us;q=0.3,en;q=0.2';
+      const result = utils.getFilteredUserLanguage(
+        { renderProps: fakeRenderProps, acceptLanguage });
+      assert.equal(result, 'pt-PT');
+    });
+
+    it('should fallback when nothing matches', () => {
+      const fakeRenderProps = {
+        params: {
+          lang: 'wat',
+        },
+      };
+      const acceptLanguage = 'awooga;q=0.5';
+      const result = utils.getFilteredUserLanguage(
+        { renderProps: fakeRenderProps, acceptLanguage });
+      assert.equal(result, 'en-US');
+    });
+  });
+
+  describe('utils.parseAcceptLanguage()', () => {
+    it('returns an empty list if no arg is passed', () => {
+      assert.deepEqual(utils.parseAcceptLanguage(), []);
+    });
+
+    it('orders an accept-language header', () => {
+      const input = 'fil;q=0.5,en;q=0.7';
+      const result = utils.parseAcceptLanguage(input);
+      assert.deepEqual(result, [
+        { lang: 'en', quality: 0.7 },
+        { lang: 'fil', quality: 0.5 },
+      ], sinon.format(result));
+    });
+
+    it('deals with whitespace around delimiters except "="', () => {
+      const input = 'fil ; q=0.5 , en ; q=0.7';
+      const result = utils.parseAcceptLanguage(input);
+      assert.deepEqual(result, [
+        { lang: 'en', quality: 0.7 },
+        { lang: 'fil', quality: 0.5 },
+      ], sinon.format(result));
+    });
+
+    it('orders non-quality items higher', () => {
+      const input = 'fil,en;q=0.7';
+      const result = utils.parseAcceptLanguage(input);
+      assert.deepEqual(result, [
+        { lang: 'fil', quality: 1 },
+        { lang: 'en', quality: 0.7 },
+      ], sinon.format(result));
+    });
+
+    it('parses header where all entries have a quality value', () => {
+      const input = 'de; q=1.0, en; q=0.5';
+      const result = utils.parseAcceptLanguage(input);
+      assert.deepEqual(result, [
+        { lang: 'de', quality: 1 },
+        { lang: 'en', quality: 0.5 },
+      ], sinon.format(result));
+    });
+
+    it('handles entries with the same quality value', () => {
+      const input = 'de; q=0.5, en; q=0.5';
+      assert.deepEqual(utils.parseAcceptLanguage(input), [
+        { lang: 'de', quality: 0.5 },
+        { lang: 'en', quality: 0.5 },
+      ], sinon.format(utils.parseAcceptLanguage(input)));
+    });
+  });
+
+  describe('utils.getLangFromHeader()', () => {
+    it('should find an exact language match for Punjabi', () => {
+      const acceptLanguage = 'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
+      const supportedLangs = ['af', 'en-US', 'pa'];
+      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      assert.equal(result, 'pa');
+    });
+
+    it('should find an exact language match for Punjabi India', () => {
+      const acceptLanguage = 'pa-in,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
+      const supportedLangs = ['af', 'en-US', 'pa'];
+      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      assert.equal(result, 'pa');
+    });
+
+    it('should not extend into region unless exact match is found', () => {
+      const acceptLanguage = 'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
+      const supportedLangs = ['af', 'en-US', 'pa-IN'];
+      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      assert.equal(result, 'en-us');
+    });
+
+    it('should not match Finnish to Filipino (Philiippines)', () => {
+      const acceptLanguage = dedent`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
+        q=0.89,en-gb;q=0.86,hu-HU;q=0.83,hu;q=0.8,en-AU;q=0.77,en-nl;
+        q=0.74,nl-en;q=0.71,nl;q=0.69,en-HK;q=0.66,en-sg;q=0.63,en-th;
+        q=0.6,pl-PL;q=0.57,pl;q=0.54,fr-FR;q=0.51,fr;q=0.49,en-AE;
+        q=0.46,zh-CN;q=0.43,zh;q=0.4,ja-JP;q=0.37,ja;q=0.34,id-ID;
+        q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
+        q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
+      const supportedLangs = ['en-US', 'fi'];
+      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      assert.equal(result, 'en-US');
+    });
+
+    it('should support Filipino (Philippines)', () => {
+      const acceptLanguage = dedent`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
+        q=0.89,en-gb;q=0.86,hu-HU;q=0.83,hu;q=0.8,en-AU;q=0.77,en-nl;
+        q=0.74,nl-en;q=0.71,nl;q=0.69,en-HK;q=0.66,en-sg;q=0.63,en-th;
+        q=0.6,pl-PL;q=0.57,pl;q=0.54,fr-FR;q=0.51,fr;q=0.49,en-AE;
+        q=0.46,zh-CN;q=0.43,zh;q=0.4,ja-JP;q=0.37,ja;q=0.34,id-ID;
+        q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
+        q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
+      const supportedLangs = ['en-US', 'fi', 'fil-PH'];
+      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      assert.equal(result, 'fil-PH');
+    });
+
+    it('should support Filipino without region', () => {
+      const acceptLanguage = dedent`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
+        q=0.89,en-gb;q=0.86,hu-HU;q=0.83,hu;q=0.8,en-AU;q=0.77,en-nl;
+        q=0.74,nl-en;q=0.71,nl;q=0.69,en-HK;q=0.66,en-sg;q=0.63,en-th;
+        q=0.6,pl-PL;q=0.57,pl;q=0.54,fr-FR;q=0.51,fr;q=0.49,en-AE;
+        q=0.46,zh-CN;q=0.43,zh;q=0.4,ja-JP;q=0.37,ja;q=0.34,id-ID;
+        q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
+        q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
+      const supportedLangs = ['en-US', 'fi', 'fil'];
+      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      assert.equal(result, 'fil');
+    });
+
+    it('should return undefined language for no match', () => {
+      const acceptLanguage = 'whatever';
+      const supportedLangs = ['af', 'en-US', 'pa'];
+      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      assert.equal(result, undefined);
+    });
+
+    it('should return undefined for empty string', () => {
+      const acceptLanguage = '';
+      const result = utils.getLangFromHeader(acceptLanguage);
+      assert.equal(result, undefined);
+    });
+
+    it('should return undefined for bad type', () => {
+      const acceptLanguage = null;
+      const result = utils.getLangFromHeader(acceptLanguage);
+      assert.equal(result, undefined);
     });
   });
 });

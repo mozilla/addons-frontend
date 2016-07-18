@@ -13,9 +13,11 @@ export function checkSRI(res) {
   const $script = $('script[src]');
   assert.ok($script.length > 0, 'must be at least 1 script');
   $script.each((i, elem) => {
-    assert.include($(elem).attr('integrity'),
-      'sha512', 'script should have integrity attr');
-    assert.equal($(elem).attr('crossorigin'),
-      'anonymous', 'script should have crossorigin attr');
+    if (!$(elem).attr('src').includes('analytics.js')) {
+      assert.include($(elem).attr('integrity'),
+        'sha512', 'script should have integrity attr');
+      assert.equal($(elem).attr('crossorigin'),
+        'anonymous', 'script should have crossorigin attr');
+    }
   });
 }
