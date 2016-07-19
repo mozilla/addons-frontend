@@ -6,20 +6,35 @@ import config from 'config';
 const appsList = config.get('validAppNames');
 
 
-describe('Config', () => {
-  afterEach(() => {
-    process.env.NODE_ENV = 'production';
-    delete process.env.NODE_APP_INSTANCE;
-  });
+for (const appName of appsList) {
+  describe(`Config for ${appName}`, () => {
+    let oldNodeEnv;
 
-  for (const appName of appsList) {
+    before(() => {
+      oldNodeEnv = process.env.NODE_APP_INSTANCE;
+    });
+
+    beforeEach(() => {
+      process.env.NODE_APP_INSTANCE = appName;
+      process.env.NODE_ENV = 'production';
+    });
+
+    afterEach(() => {
+      process.env.NODE_ENV = oldNodeEnv;
+      delete process.env.NODE_APP_INSTANCE;
+    });
+
+    it(`should not ever have enableNodeStatics set to true for ${appName}`, () => {
+      const conf = requireUncached('config');
+      assert.equal(conf.get('enableNodeStatics'), false);
+    });
+
     it(`should not ever have disableSSR set to true for ${appName}`, () => {
       const conf = requireUncached('config');
       assert.equal(conf.get('disableSSR'), false);
     });
 
     it(`should provide a production conf by default for ${appName}`, () => {
-      process.env.NODE_ENV = 'production';
       const conf = requireUncached('config');
       const clientConfig = getClientConfig(conf);
       assert.equal(conf.get('apiHost'), 'https://addons.mozilla.org');
@@ -53,8 +68,8 @@ describe('Config', () => {
       assert.equal(clientConfig.apiHost, 'https://addons-dev.allizom.org');
       assert.equal(conf.util.getEnv('NODE_ENV'), 'development');
     });
-  }
-});
+  });
+}
 
 
 describe('Config Environment Variables', () => {

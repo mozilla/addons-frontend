@@ -61,7 +61,9 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // CSP configuration.
   app.use(helmet.contentSecurityPolicy(config.get('CSP')));
 
-  app.use(Express.static(path.join(config.get('basePath'), 'dist')));
+  if (config.get('enableNodeStatics')) {
+    app.use(Express.static(path.join(config.get('basePath'), 'dist')));
+  }
 
   // Return version information as json
   app.get('/__version__', (req, res) => {

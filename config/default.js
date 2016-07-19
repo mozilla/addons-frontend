@@ -40,6 +40,9 @@ module.exports = {
 
   enableClientConsole: false,
 
+  // If true node will serve the static files.
+  enableNodeStatics: false,
+
   isDeployed: true,
   isDevelopment: false,
 
