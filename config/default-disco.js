@@ -36,7 +36,7 @@ module.exports = {
       // Script is limited to the discovery specific CDN.
       scriptSrc: [
         staticHost,
-        'https://www.google-analytics.com',
+        'https://www.google-analytics.com/analytics.js',
       ],
       styleSrc: [staticHost],
       imgSrc: [

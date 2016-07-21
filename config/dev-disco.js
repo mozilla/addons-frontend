@@ -8,7 +8,7 @@ module.exports = {
     directives: {
       scriptSrc: [
         staticHost,
-        'https://www.google-analytics.com',
+        'https://www.google-analytics.com/analytics.js',
       ],
       styleSrc: [staticHost],
       imgSrc: [
