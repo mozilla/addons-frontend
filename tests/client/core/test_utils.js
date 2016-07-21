@@ -1,4 +1,4 @@
-import { camelCaseProps, getClientConfig } from 'core/utils';
+import { camelCaseProps, convertBoolean, getClientConfig } from 'core/utils';
 
 describe('camelCaseProps', () => {
   const input = {
@@ -35,5 +35,40 @@ describe('getClientConfig', () => {
     assert.equal(clientConfig.hai, 'there');
     assert.equal(clientConfig.what, 'evar');
     assert.equal(clientConfig.secret, undefined);
+  });
+});
+
+
+describe('convertBoolean', () => {
+  it('should see "false" as false', () => {
+    assert.equal(convertBoolean('false'), false);
+  });
+
+  it('should see "0" as false', () => {
+    assert.equal(convertBoolean('0'), false);
+  });
+
+  it('should see 0 as false', () => {
+    assert.equal(convertBoolean(0), false);
+  });
+
+  it('should get "true" as true', () => {
+    assert.equal(convertBoolean('true'), true);
+  });
+
+  it('should get "1" as true', () => {
+    assert.equal(convertBoolean('1'), true);
+  });
+
+  it('should get 1 as true', () => {
+    assert.equal(convertBoolean(1), true);
+  });
+
+  it('should return true for true value', () => {
+    assert.equal(convertBoolean(true), true);
+  });
+
+  it('should return false for random string value', () => {
+    assert.equal(convertBoolean('whatevs'), false);
   });
 });

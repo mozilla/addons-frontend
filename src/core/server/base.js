@@ -17,6 +17,7 @@ import WebpackIsomorphicToolsConfig from 'webpack-isomorphic-tools-config';
 import ServerHtml from 'core/containers/ServerHtml';
 
 import config from 'config';
+import { convertBoolean } from 'core/utils';
 import { setLang, setJWT } from 'core/actions';
 import log from 'core/logger';
 import { getDirection, getFilteredUserLanguage, langToLocale } from 'core/i18n/utils';
@@ -155,7 +156,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           includeSri: isDeployed,
           sriData,
           store,
-          trackingEnabled: config.get('trackingEnabled'),
+          trackingEnabled: convertBoolean(config.get('trackingEnabled')),
           ...props,
         };
 

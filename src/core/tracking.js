@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 
 import config from 'config';
+import { convertBoolean } from 'core/utils';
 import log from 'core/logger';
 
 
@@ -81,6 +82,6 @@ export class Tracking {
 }
 
 export default new Tracking({
-  trackingEnabled: config.get('trackingEnabled'),
+  trackingEnabled: convertBoolean(config.get('trackingEnabled')),
   trackingId: config.get('trackingId'),
 });
