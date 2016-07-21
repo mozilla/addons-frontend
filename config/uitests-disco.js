@@ -21,5 +21,5 @@ module.exports = {
   },
 
   enableNodeStatics: true,
-  enableTracking: false,
+  trackingEnabled: false,
 };
