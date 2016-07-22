@@ -66,7 +66,7 @@
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
+        "NODE_ENV": "test",
         "TRACKING_ENABLED": "false"
       }
     },
@@ -83,7 +83,7 @@
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/disco",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
+        "NODE_ENV": "test",
         "NODE_APP_INSTANCE": "disco",
         "TRACKING_ENABLED": "false"
       }
@@ -92,7 +92,7 @@
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/search",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
+        "NODE_ENV": "test",
         "NODE_APP_INSTANCE": "search",
         "TRACKING_ENABLED": "false"
       }
@@ -101,21 +101,21 @@
       "command": "npm run version-check && npm run unittest && npm run servertest && npm run eslint && npm run stylelint",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "test"
       }
     },
     "unittest": {
       "command": "karma start --single-run",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "test"
       }
     },
     "unittest:dev": {
       "command": "karma start",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "test"
       }
     },
     "webpack-dev-server": {

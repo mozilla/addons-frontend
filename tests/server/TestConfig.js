@@ -59,15 +59,6 @@ for (const appName of appsList) {
       assert.equal(clientConfig.apiHost, 'https://addons.allizom.org');
       assert.equal(conf.util.getEnv('NODE_ENV'), 'stage');
     });
-
-    it(`should provide a development conf for ${appName}`, () => {
-      process.env.NODE_ENV = 'development';
-      const conf = requireUncached('config');
-      const clientConfig = getClientConfig(conf);
-      assert.equal(conf.get('apiHost'), 'https://addons-dev.allizom.org');
-      assert.equal(clientConfig.apiHost, 'https://addons-dev.allizom.org');
-      assert.equal(conf.util.getEnv('NODE_ENV'), 'development');
-    });
   });
 }
 
