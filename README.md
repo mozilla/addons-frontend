@@ -15,7 +15,7 @@ Front-end infrastructure and code to complement
 * npm 3.x
 
 The easiest way to manage multiple node versions in development is to use
-nvm. See https://github.com/creationix/nvm for more info.
+[nvm](https://github.com/creationix/nvm).
 
 ## Get started
 
@@ -40,6 +40,31 @@ Generic scripts that don't need env vars. Use these for development:
 | npm run unittest       |  Runs just the unittests                            |
 | npm run unittest:dev   |  Runs the unittests and watches for changes         |
 | npm run servertest     |  Runs the servertests                               |
+
+### Configuring for local development
+
+The `dev` scripts above will connect to a hosted development API by default.
+If you want to run your own
+[addons-server](https://github.com/mozilla/addons-server)
+API or make any other local changes, just add a local configuration
+file for each app. For example, to run your own discovery pane API, first create
+a local config file:
+
+    cp config/dev-disco.js config/local-disco.js
+
+Override the `apiHost` parameter in `local-disco.js` so that it points to your
+docker container. The file would look like this:
+
+````javascript
+module.exports = {
+  apiHost: 'http://olympia.dev',
+};
+````
+
+When you start up your front-end discover pane server, it will now apply
+overrides from your local configuration file:
+
+    npm run dev:disco
 
 ### Building and running services
 
