@@ -1,10 +1,23 @@
-import { applyMiddleware } from 'redux';
+import { applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 import config from 'config';
 
-export function middleware({ __config = config } = {}) {
-  if (__config.get('isDevelopment')) {
-    return applyMiddleware(createLogger());
+/*
+ * Enhance a redux store with common middleware.
+ *
+ * This returns a function that takes a single argument, `createStore`,
+ * and returns a new `createStore` function.
+ */
+export function middleware({
+  _config = config, _createLogger = createLogger,
+  _window = typeof window !== 'undefined' ? window : null,
+} = {}) {
+  if (_config.get('isDevelopment')) {
+    return compose(
+      applyMiddleware(_createLogger()),
+      _window && _window.devToolsExtension ?
+        _window.devToolsExtension() : (createStore) => createStore
+    );
   }
-  return undefined;
+  return (createStore) => createStore;
 }
