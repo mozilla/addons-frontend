@@ -19,5 +19,5 @@ module.exports = {
     },
   },
 
-  redirectLangPrefix: false,
+  enablePrefixMiddleware: false,
 };

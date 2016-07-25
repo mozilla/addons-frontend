@@ -1,4 +1,10 @@
-import { camelCaseProps, convertBoolean, getClientConfig } from 'core/utils';
+import {
+  camelCaseProps,
+  convertBoolean,
+  getClientApp,
+  getClientConfig,
+  isValidClientApp,
+} from 'core/utils';
 
 describe('camelCaseProps', () => {
   const input = {
@@ -70,5 +76,30 @@ describe('convertBoolean', () => {
 
   it('should return false for random string value', () => {
     assert.equal(convertBoolean('whatevs'), false);
+  });
+});
+
+
+describe('getClientApplication', () => {
+  it('should return firefox', () => {
+    assert.equal(getClientApp(), 'firefox');
+  });
+});
+
+
+describe('isValidClientApp', () => {
+  const _config = new Map();
+  _config.set('validClientApplications', ['firefox', 'android']);
+
+  it('should be valid if passed "firefox"', () => {
+    assert.equal(isValidClientApp('firefox', { _config }), true);
+  });
+
+  it('should be valid if passed "android"', () => {
+    assert.equal(isValidClientApp('android', { _config }), true);
+  });
+
+  it('should be invalid if passed "whatever"', () => {
+    assert.equal(isValidClientApp('whatever', { _config }), false);
   });
 });

@@ -1,4 +1,5 @@
 import camelCase from 'camelcase';
+import config from 'config';
 
 export function gettext(str) {
   return str;
@@ -37,4 +38,13 @@ export function convertBoolean(value) {
     default:
       return false;
   }
+}
+
+export function getClientApp() {
+  // TODO: Look at user-agent header passed in.
+  return 'firefox';
+}
+
+export function isValidClientApp(value, { _config = config } = {}) {
+  return _config.get('validClientApplications').includes(value);
 }
