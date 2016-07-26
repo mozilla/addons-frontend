@@ -41,6 +41,15 @@ Generic scripts that don't need env vars. Use these for development:
 | npm run unittest:dev   |  Runs the unittests and watches for changes         |
 | npm run servertest     |  Runs the servertests                               |
 
+### Code coverage
+
+The `npm run unittest` command generates a report of how well the unit tests
+covered each line of source code.
+The continuous integration process will give you a link to view the report.
+To see this report while running tests locally, type:
+
+    open ./coverage/index.html
+
 ### Configuring for local development
 
 The `dev` scripts above will connect to a hosted development API by default.
