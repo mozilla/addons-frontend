@@ -12,6 +12,7 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "arrow-parens": ["error", "always"],
     "import/no-unresolved": "off",
     "space-before-function-paren": ["error", "never"],
     "react/prefer-stateless-function": "off",
