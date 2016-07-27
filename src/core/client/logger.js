@@ -34,7 +34,7 @@ export function bindConsoleMethod(consoleMethodName, { _consoleObj = window.cons
 }
 
 const log = {};
-['log', 'info', 'error', 'warn'].forEach((logMethodName) => {
+['log', 'debug', 'info', 'error', 'warn'].forEach((logMethodName) => {
   log[logMethodName] = bindConsoleMethod(logMethodName);
 });
 

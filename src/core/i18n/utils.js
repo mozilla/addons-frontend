@@ -1,16 +1,17 @@
-/* eslint-disable no-console */
-
 import config from 'config';
+import log from 'core/logger';
 
 const defaultLang = config.get('defaultLang');
 const langs = config.get('langs');
 const langMap = config.get('langMap');
-const validLangs = langs.concat(Object.keys(langMap));
+// The full list of supported langs including those that
+// will be mapped by sanitizeLanguage.
+const supportedLangs = langs.concat(Object.keys(langMap));
 const rtlLangs = config.get('rtlLangs');
 
 
-export function localeToLang(locale, log_ = console) {
-  let lang = '';
+export function localeToLang(locale, log_ = log) {
+  let lang;
   if (locale && locale.split) {
     const parts = locale.split('_');
     if (parts.length === 1) {
@@ -30,8 +31,8 @@ export function localeToLang(locale, log_ = console) {
   return lang;
 }
 
-export function langToLocale(language, log_ = console) {
-  let locale = '';
+export function langToLocale(language, log_ = log) {
+  let locale;
   if (language && language.split) {
     const parts = language.split('-');
     if (parts.length === 1) {
@@ -59,14 +60,18 @@ export function normalizeLocale(locale) {
   return langToLocale(localeToLang(locale));
 }
 
-export function isValidLang(lang, { _validLangs = validLangs } = {}) {
-  return _validLangs.includes(normalizeLang(lang));
+export function isSupportedLang(lang, { _supportedLangs = supportedLangs } = {}) {
+  return _supportedLangs.includes(lang);
+}
+
+export function isValidLang(lang, { _langs = langs } = {}) {
+  return _langs.includes(lang);
 }
 
 export function sanitizeLanguage(langOrLocale) {
   let language = normalizeLang(langOrLocale);
   // Only look in the un-mapped lang list.
-  if (!langs.includes(language)) {
+  if (!isValidLang(language)) {
     language = langMap.hasOwnProperty(language) ? langMap[language] : defaultLang;
   }
   return language;
@@ -123,41 +128,45 @@ export function parseAcceptLanguage(header) {
 
 /*
  * Given an accept-language header and a list of currently
- * supported languages, returns the best match with no normalization.
+ * supported languages, returns the best match normalized.
+ *
+ * Note: this doesn't map languages e.g. pt -> pt-PT. Use sanitizeLanguage for that.
  *
  */
-export function getLangFromHeader(acceptLanguage, { _validLangs } = {}) {
+export function getLangFromHeader(acceptLanguage, { _supportedLangs } = {}) {
   let userLang;
   if (acceptLanguage) {
     const langList = parseAcceptLanguage(acceptLanguage);
     for (const langPref of langList) {
-      if (isValidLang(langPref.lang, { _validLangs })) {
+      if (isSupportedLang(normalizeLang(langPref.lang), { _supportedLangs })) {
         userLang = langPref.lang;
         break;
       // Match locale, even if region isn't supported
-      } else if (isValidLang(langPref.lang.split('-')[0], { _validLangs })) {
+      } else if (isSupportedLang(normalizeLang(langPref.lang.split('-')[0]), { _supportedLangs })) {
         userLang = langPref.lang.split('-')[0];
         break;
       }
     }
   }
-  return userLang;
+  return normalizeLang(userLang);
 }
 
 /*
- * Looks up the language from the router renderProps.
- * When that fails fall-back to accept-language.
+ * Check validity of language:
+ * - If invalid, fall-back to accept-language.
+ * - Return object with lang and isLangFromHeader hint.
  *
  */
-export function getFilteredUserLanguage({ renderProps, acceptLanguage } = {}) {
-  let userLang;
-  // Get the lang from the url param by default if it exists.
-  if (renderProps && renderProps.params && renderProps.params.lang) {
-    userLang = renderProps.params.lang;
-  }
-  // If we don't have a valid userLang set yet try accept-language.
-  if (!isValidLang(userLang) && acceptLanguage) {
+export function getLanguage({ lang, acceptLanguage } = {}) {
+  let userLang = lang;
+  let isLangFromHeader = false;
+  // If we don't have a supported userLang yet try accept-language.
+  if (!isSupportedLang(normalizeLang(userLang)) && acceptLanguage) {
     userLang = getLangFromHeader(acceptLanguage);
+    isLangFromHeader = true;
   }
-  return sanitizeLanguage(userLang);
+  // sanitizeLanguage will perform the following:
+  // - mapping e.g. pt -> pt-PT.
+  // - normalization e.g: en-us -> en-US.
+  return { lang: sanitizeLanguage(userLang), isLangFromHeader };
 }

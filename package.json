@@ -14,7 +14,7 @@
     "eslint": "eslint .",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
-    "servertest": "ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest && better-npm-run servertest:disco && better-npm-run servertest:search",
+    "servertest": "ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest && better-npm-run servertest:amo && better-npm-run servertest:disco && better-npm-run servertest:search",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
     "test": "better-npm-run test",
     "unittest": "better-npm-run unittest",
@@ -67,6 +67,15 @@
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production",
+        "TRACKING_ENABLED": "false"
+      }
+    },
+    "servertest:amo": {
+      "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/amo",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production",
+        "NODE_APP_INSTANCE": "amo",
         "TRACKING_ENABLED": "false"
       }
     },

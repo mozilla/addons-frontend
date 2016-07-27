@@ -1,6 +1,8 @@
 import * as utils from 'core/i18n/utils';
 import config from 'config';
 
+const defaultLang = config.get('defaultLang');
+
 
 describe('i18n utils', () => {
   describe('normalizeLang()', () => {
@@ -23,6 +25,11 @@ describe('i18n utils', () => {
 
     it('should handle a language with 3 parts', () => {
       assert.equal(utils.normalizeLang('ja-JP-mac'), 'ja-Mac');
+    });
+
+    it('should return undefined for no match', () => {
+      assert.equal(utils.normalizeLang(1), undefined);
+      assert.equal(utils.normalizeLang(''), undefined);
     });
   });
 
@@ -58,6 +65,11 @@ describe('i18n utils', () => {
       utils.langToLocale('whatevs-this-is-really-odd', fakeLog);
       assert.ok(fakeLog.error.called);
     });
+
+    it('should return undefined for invalid input', () => {
+      assert.equal(utils.langToLocale(''), undefined);
+      assert.equal(utils.langToLocale(1), undefined);
+    });
   });
 
   describe('localeToLang()', () => {
@@ -80,6 +92,11 @@ describe('i18n utils', () => {
       utils.localeToLang('what_the_heck_is_this', fakeLog);
       assert.ok(fakeLog.error.called);
     });
+
+    it('should return undefined for invalid input', () => {
+      assert.equal(utils.localeToLang(''), undefined);
+      assert.equal(utils.localeToLang(1), undefined);
+    });
   });
 
   describe('sanitizeLanguage()', () => {
@@ -92,11 +109,11 @@ describe('i18n utils', () => {
     });
 
     it('should return the default if lookup not present', () => {
-      assert.equal(utils.sanitizeLanguage('awooga'), 'en-US');
+      assert.equal(utils.sanitizeLanguage('awooga'), defaultLang);
     });
 
     it('should return the default if bad type', () => {
-      assert.equal(utils.sanitizeLanguage(1), 'en-US');
+      assert.equal(utils.sanitizeLanguage(1), defaultLang);
     });
 
     it('should return a lang if handed a locale', () => {
@@ -104,7 +121,7 @@ describe('i18n utils', () => {
     });
 
     it('should return the default if handed undefined', () => {
-      assert.equal(utils.sanitizeLanguage(undefined), 'en-US');
+      assert.equal(utils.sanitizeLanguage(undefined), defaultLang);
     });
 
     it('should return the default if handed an empty string', () => {
@@ -135,6 +152,14 @@ describe('i18n utils', () => {
   });
 
   describe('isValidLang()', () => {
+    it('should see en-us as an invalid lang', () => {
+      assert.equal(utils.isValidLang('en-us'), false);
+    });
+
+    it('should see en_US as an invalid lang', () => {
+      assert.equal(utils.isValidLang('en_US'), false);
+    });
+
     it('should see en-US as a valid lang', () => {
       assert.equal(utils.isValidLang('en-US'), true);
     });
@@ -147,85 +172,87 @@ describe('i18n utils', () => {
       assert.equal(utils.isValidLang('awooga'), false);
     });
 
-    it('should see pt as a valid lang', () => {
-      assert.equal(utils.isValidLang('pt'), true);
+    it('should see pt as an invalid lang since it requires mapping', () => {
+      assert.equal(utils.isValidLang('pt'), false);
     });
   });
 
-  describe('getFilteredUserLanguage()', () => {
+  describe('isSupportedLang()', () => {
+    it('should see en-us as an unsupported lang', () => {
+      assert.equal(utils.isSupportedLang('en-us'), false);
+    });
+
+    it('should see en_US as an unsupported lang', () => {
+      assert.equal(utils.isSupportedLang('en_US'), false);
+    });
+
+    it('should see en-US as a supported lang', () => {
+      assert.equal(utils.isSupportedLang('en-US'), true);
+    });
+
+    it('should see incorrect type as unsupported lang', () => {
+      assert.equal(utils.isSupportedLang(1), false);
+    });
+
+    it('should see bogus value as an unsupported lang', () => {
+      assert.equal(utils.isSupportedLang('awooga'), false);
+    });
+
+    it('should see pt as a supported lang (requires mapping)', () => {
+      assert.equal(utils.isSupportedLang('pt'), true);
+    });
+  });
+
+  describe('getLanguage()', () => {
     it('should return default lang if called without args', () => {
-      assert.equal(utils.getFilteredUserLanguage(), config.get('defaultLang'));
+      const result = utils.getLanguage();
+      assert.equal(result.lang, defaultLang);
+      assert.equal(result.isLangFromHeader, false);
     });
 
     it('should return default lang if no lang is provided', () => {
-      const fakeRenderProps = {};
-      const result = utils.getFilteredUserLanguage({ renderProps: fakeRenderProps });
-      assert.equal(result, config.get('defaultLang'));
+      const result = utils.getLanguage({ lang: '' });
+      assert.equal(result.lang, defaultLang);
+      assert.equal(result.isLangFromHeader, false);
     });
 
     it('should return default lang if bad lang is provided', () => {
-      const fakeRenderProps = {
-        params: {
-          lang: 'bogus',
-        },
-      };
-      const result = utils.getFilteredUserLanguage({ renderProps: fakeRenderProps });
-      assert.equal(result, config.get('defaultLang'));
+      const result = utils.getLanguage({ lang: 'bogus' });
+      assert.equal(result.lang, defaultLang);
+      assert.equal(result.isLangFromHeader, false);
     });
 
     it('should return default lang if bad lang type provided', () => {
-      const fakeRenderProps = {
-        params: {
-          lang: 1,
-        },
-      };
-      const result = utils.getFilteredUserLanguage({ renderProps: fakeRenderProps });
-      assert.equal(result, config.get('defaultLang'));
+      const result = utils.getLanguage({ lang: 1 });
+      assert.equal(result.lang, defaultLang);
+      assert.equal(result.isLangFromHeader, false);
     });
 
     it('should return lang if provided via the URL', () => {
-      const fakeRenderProps = {
-        params: {
-          lang: 'fr',
-        },
-      };
-      assert.equal(utils.getFilteredUserLanguage({ renderProps: fakeRenderProps }), 'fr');
+      const result = utils.getLanguage({ lang: 'fr' });
+      assert.equal(result.lang, 'fr');
+      assert.equal(result.isLangFromHeader, false);
     });
 
     it('should fall-back to accept-language', () => {
-      const fakeRenderProps = {
-        params: {
-          lang: 'bogus',
-        },
-      };
       const acceptLanguage = 'pt-br;q=0.5,en-us;q=0.3,en;q=0.2';
-      const result = utils.getFilteredUserLanguage(
-        { renderProps: fakeRenderProps, acceptLanguage });
-      assert.equal(result, 'pt-BR');
+      const result = utils.getLanguage({ lang: 'bogus', acceptLanguage });
+      assert.equal(result.lang, 'pt-BR');
+      assert.equal(result.isLangFromHeader, true);
     });
 
     it('should map lang from accept-language too', () => {
-      const fakeRenderProps = {
-        params: {
-          lang: 'wat',
-        },
-      };
       const acceptLanguage = 'pt;q=0.5,en-us;q=0.3,en;q=0.2';
-      const result = utils.getFilteredUserLanguage(
-        { renderProps: fakeRenderProps, acceptLanguage });
-      assert.equal(result, 'pt-PT');
+      const result = utils.getLanguage({ lang: 'wat', acceptLanguage });
+      assert.equal(result.lang, 'pt-PT');
+      assert.equal(result.isLangFromHeader, true);
     });
 
     it('should fallback when nothing matches', () => {
-      const fakeRenderProps = {
-        params: {
-          lang: 'wat',
-        },
-      };
       const acceptLanguage = 'awooga;q=0.5';
-      const result = utils.getFilteredUserLanguage(
-        { renderProps: fakeRenderProps, acceptLanguage });
-      assert.equal(result, 'en-US');
+      const result = utils.getLanguage({ lang: 'wat', acceptLanguage });
+      assert.equal(result.lang, defaultLang);
+      assert.equal(result.isLangFromHeader, true);
     });
   });
 
@@ -283,22 +310,22 @@ describe('i18n utils', () => {
     it('should find an exact language match for Punjabi', () => {
       const acceptLanguage = 'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
       assert.equal(result, 'pa');
     });
 
     it('should find an exact language match for Punjabi India', () => {
       const acceptLanguage = 'pa-in,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
       assert.equal(result, 'pa');
     });
 
     it('should not extend into region unless exact match is found', () => {
       const acceptLanguage = 'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa-IN'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
-      assert.equal(result, 'en-us');
+      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
+      assert.equal(result, 'en-US');
     });
 
     it('should not match Finnish to Filipino (Philiippines)', () => {
@@ -310,7 +337,7 @@ describe('i18n utils', () => {
         q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
       assert.equal(result, 'en-US');
     });
 
@@ -323,7 +350,7 @@ describe('i18n utils', () => {
         q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi', 'fil-PH'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
       assert.equal(result, 'fil-PH');
     });
 
@@ -336,14 +363,14 @@ describe('i18n utils', () => {
         q=0.31,id;q=0.29,ru-RU;q=0.26,ru;q=0.23,de-DE;q=0.2,de;
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi', 'fil'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
       assert.equal(result, 'fil');
     });
 
     it('should return undefined language for no match', () => {
       const acceptLanguage = 'whatever';
       const supportedLangs = ['af', 'en-US', 'pa'];
-      const result = utils.getLangFromHeader(acceptLanguage, { _validLangs: supportedLangs });
+      const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
       assert.equal(result, undefined);
     });
 
