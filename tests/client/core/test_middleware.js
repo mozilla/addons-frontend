@@ -88,6 +88,18 @@ describe('Prefix Middleware', () => {
     assert.sameMembers(fakeRes.set.firstCall.args[1], ['accept-language', 'user-agent']);
   });
 
+  it('should find the app based on ua string', () => {
+    const fakeReq = {
+      originalUrl: '/en-US/whatever',
+      headers: {
+        'user-agent': 'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
+      },
+    };
+    prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(fakeRes.redirect.firstCall.args, [302, '/en-US/android/whatever']);
+    assert.sameMembers(fakeRes.set.firstCall.args[1], ['user-agent']);
+  });
+
   it('should populate res.locals for a sane request', () => {
     const fakeReq = {
       originalUrl: '/en-US/firefox/',
