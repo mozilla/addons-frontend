@@ -59,10 +59,12 @@ API or make any other local changes, just add a local configuration
 file for each app. For example, to run your own discovery pane API, first create
 a local config file:
 
-    cp config/dev-disco.js config/local-disco.js
+    touch config/local-development-disco.js
 
-Override the `apiHost` parameter in `local-disco.js` so that it points to your
-docker container. The file would look like this:
+Be sure to prefix the file with **local-development-** so that it doesn't pollute the
+test suite.
+Here's what `local-development-disco.js` would look like when
+overriding the `apiHost` parameter so that it points to your docker container:
 
 ````javascript
 module.exports = {
@@ -74,6 +76,10 @@ When you start up your front-end discover pane server, it will now apply
 overrides from your local configuration file:
 
     npm run dev:disco
+
+Consult the
+[config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
+to learn more about how configuration is applied.
 
 ### Building and running services
 
