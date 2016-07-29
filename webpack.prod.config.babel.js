@@ -55,6 +55,15 @@ const settings = {
       }, {
         test: /\.mp4$/,
         loader: 'url?limit=10000&mimetype=video/mp4',
+      }, {
+        test: /\.otf$/,
+        loader: 'url?limit=10000&mimetype=application/font-sfnt',
+      }, {
+        test: /\.woff$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff',
+      }, {
+        test: /\.woff2$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff2',
       },
     ],
   },

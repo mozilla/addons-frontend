@@ -7,7 +7,7 @@
   "scripts": {
     "build": "bin/build-checks.js && better-npm-run build",
     "extract-locales": "better-npm-run extract-locales",
-    "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
+    "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json'",
     "dev:amo": "better-npm-run dev:amo",
     "dev:disco": "better-npm-run dev:disco",
     "dev:search": "better-npm-run dev:search",
