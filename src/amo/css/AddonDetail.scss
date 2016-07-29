@@ -1,0 +1,74 @@
+@import "~amo/css/inc/vars";
+
+.AddonDetail {
+  header {
+    background: $header-background;
+    color: $header-font-color;
+  }
+
+  hr {
+    margin: 0 20px;
+  }
+
+  .icon,
+  .title,
+  .description,
+  .screenshots {
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .icon {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    img {
+      background: #fff;
+      border-radius: 5px;
+      display: inline-block;
+      height: 64px;
+      width: 64px;
+    }
+
+    .LikeButton {
+      margin-left: auto;
+    }
+  }
+
+  .title {
+    background: darken($header-background, 3%);
+
+    h1 {
+      margin-top: 0;
+      color: $header-font-color;
+    }
+  }
+
+  .author {
+    display: block;
+    font-size: 20px;
+
+    a {
+      color: $header-font-color;
+      font-size: 20px;
+    }
+  }
+
+  .switch {
+    float: right;
+  }
+
+  .description {
+    background: darken($header-background, 5.5%);
+    font-size: 18px;
+
+    p:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .about {
+    padding: 20px;
+  }
+}

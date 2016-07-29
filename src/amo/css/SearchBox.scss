@@ -1,0 +1,10 @@
+.SearchBox {
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #000 url('../img/icons/search.svg') no-repeat 98% 50%;
+  z-index: 20;
+}
