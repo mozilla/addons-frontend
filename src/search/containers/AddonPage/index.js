@@ -5,6 +5,7 @@ import { fetchAddon } from 'core/api';
 import { loadEntities } from 'core/actions';
 import { gettext as _ } from 'core/utils';
 import NotFound from 'core/components/NotFound';
+import JsonData from 'search/components/JsonData';
 
 import './style.scss';
 
@@ -112,6 +113,7 @@ class AddonPage extends React.Component {
         <p className="addon--summary">{addon.summary}</p>
         <p className="addon--description">{addon.description}</p>
         {addon.type !== 'Theme' ? this.renderVersion(addon.current_version) : []}
+        <JsonData data={addon} />
       </div>
     );
   }

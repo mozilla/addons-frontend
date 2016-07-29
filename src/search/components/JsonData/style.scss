@@ -1,0 +1,7 @@
+.JsonData .JsonData-json {
+  display: none;
+}
+
+.JsonData.JsonData-visible .JsonData-json {
+  display: block;
+}
