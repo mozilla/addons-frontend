@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
+import 'core/fonts/fira.scss';
 import 'amo/css/App.scss';
 import translate from 'core/i18n/translate';
 
