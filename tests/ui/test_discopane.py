@@ -40,11 +40,12 @@ def test_that_discovery_pane_loads(discovery_pane):
 
 @pytest.mark.nondestructive
 def test_that_welcome_video_plays(discovery_pane):
-    assert discovery_pane.is_video_closed
+    assert not discovery_pane.is_close_video_displayed
     discovery_pane.play_video()
-    assert discovery_pane.is_video_playing
+    assert not discovery_pane.is_play_video_displayed
     discovery_pane.close_video()
-    assert discovery_pane.is_video_closed
+    assert discovery_pane.is_play_video_displayed
+    assert not discovery_pane.is_close_video_displayed
 
 
 @pytest.mark.nondestructive

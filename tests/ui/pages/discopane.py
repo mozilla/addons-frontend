@@ -12,24 +12,24 @@ class DiscoveryPane(Page):
     _search_box_locator = (By.ID, 'lst-ib')
 
     @property
-    def is_video_playing(self):
-        return self.is_element_present(*self._close_video_link_locator)
+    def is_close_video_displayed(self):
+        return self.is_element_displayed(*self._close_video_link_locator)
 
     @property
-    def is_video_closed(self):
-        return self.is_element_present(*self._play_video_locator)
+    def is_play_video_displayed(self):
+        return self.is_element_displayed(*self._play_video_locator)
 
     def play_video(self):
         self.find_element(*self._play_video_locator).click()
-        self.find_element(*self._close_video_link_locator)
+        self.wait.until(lambda s: self.is_close_video_displayed)
 
     def close_video(self):
         self.find_element(*self._close_video_link_locator).click()
-        self.find_element(*self._play_video_locator)
+        self.wait.until(lambda s: self.is_play_video_displayed)
 
     @property
     def is_discopane_visible(self):
-        return self.is_element_present(*self._discopane_content_locator)
+        return self.is_element_displayed(*self._discopane_content_locator)
 
     @property
     def uninstalled_addons(self):
