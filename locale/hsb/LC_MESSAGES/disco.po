@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-01 15:57+0000\n"
-"PO-Revision-Date: 2016-07-08 21:35+0000\n"
+"PO-Revision-Date: 2016-08-01 20:25+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hsb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
@@ -21,9 +20,7 @@ msgstr "Začinić"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s "
-"kliknyć"
+msgstr "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s kliknyć"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -79,8 +76,7 @@ msgstr "%(name)s so instaluje."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s je so instalował a zmóžnił. Klikńće, zo byšće jón wotinstalował."
+msgstr "%(name)s je so instalował a zmóžnił. Klikńće, zo byšće jón wotinstalował."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
@@ -107,16 +103,13 @@ msgid "Personalize Your Firefox"
 msgstr "Přiměrće swój Firefox"
 
 #: src/disco/containers/DiscoPane.js:101
-#, fuzzy
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
+"world to help you personalize your browsing experience—everything from fun visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"Su tysacy přidatkow, kotrež wam zmóžnjeja, Firefox wašim potrjebam přiměrić "
-"&ndash; wšitko, wot zabawnych drastow hač do mócnych nastrojow a funkcijow. "
-"Tu su někotre, kotrež móžeće wupruwować."
+"Su tysacy přidatkow, wutworjenych wot wuwiwarjow z cyłeho swěta, kotrež wam zmóžnjeja, Firefox wašemu přehladowanskemu dožiwjenju &ndash; wšitko, wot zabawnych drastow hač do mócnych nastrojow a "
+"funkcijow. Tu su někotre, kotrež móžeće wupruwować."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
