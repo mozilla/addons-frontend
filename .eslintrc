@@ -12,7 +12,9 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "arrow-parens": ["error", "always"],
     "import/no-unresolved": "off",
+    "no-underscore-dangle": "off",
     "space-before-function-paren": ["error", "never"],
     "react/prefer-stateless-function": "off",
     "react/jsx-indent-props": "off",

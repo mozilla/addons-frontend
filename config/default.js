@@ -40,6 +40,9 @@ module.exports = {
 
   enableClientConsole: false,
 
+  // If true node will serve the static files.
+  enableNodeStatics: false,
+
   isDeployed: true,
   isDevelopment: false,
 
@@ -137,7 +140,8 @@ module.exports = {
   },
   rtlLangs: ['ar', 'dbr', 'fa', 'he'],
   defaultLang: 'en-US',
-  redirectLangPrefix: true,
+
+  enablePrefixMiddleware: true,
 
   localeDir: path.resolve(path.join(__dirname, '../locale')),
 
@@ -147,4 +151,14 @@ module.exports = {
   trackingId: null,
 
   enablePostCssLoader: true,
+
+  // The list of valid client application names. These are derived from UA strings when
+  // not supplied in the URL.
+  validClientApplications: [
+    'firefox',
+    'android',
+  ],
+
+  // The default app used in the URL.
+  defaultClientApp: 'firefox',
 };

@@ -6,7 +6,6 @@ const amoCDN = 'https://addons.cdn.mozilla.net';
 const staticHost = 'https://addons-discovery.cdn.mozilla.net';
 
 module.exports = {
-
   // The keys listed here will be exposed on the client.
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
@@ -37,7 +36,7 @@ module.exports = {
       // Script is limited to the discovery specific CDN.
       scriptSrc: [
         staticHost,
-        'https://www.google-analytics.com',
+        'https://www.google-analytics.com/analytics.js',
       ],
       styleSrc: [staticHost],
       imgSrc: [

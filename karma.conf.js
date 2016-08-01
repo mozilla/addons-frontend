@@ -37,27 +37,38 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
       include: /src\//,
       exclude: /node_modules/,
     }],
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: babelQuery,
-    }, {
-      test: /\.scss$/,
-      loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
-    }, {
-      test: /\.svg$/,
-      loader: 'url?limit=10000&mimetype=image/svg+xml',
-    }, {
-      test: /\.jpg$/,
-      loader: 'url?limit=10000&mimetype=image/jpeg',
-    }, {
-      test: /\.webm$/,
-      loader: 'url?limit=10000&mimetype=video/webm',
-    }, {
-      test: /\.mp4$/,
-      loader: 'url?limit=10000&mimetype=video/mp4',
-    }],
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: babelQuery,
+      }, {
+        test: /\.scss$/,
+        loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
+      }, {
+        test: /\.svg$/,
+        loader: 'url?limit=10000&mimetype=image/svg+xml',
+      }, {
+        test: /\.jpg$/,
+        loader: 'url?limit=10000&mimetype=image/jpeg',
+      }, {
+        test: /\.webm$/,
+        loader: 'url?limit=10000&mimetype=video/webm',
+      }, {
+        test: /\.mp4$/,
+        loader: 'url?limit=10000&mimetype=video/mp4',
+      }, {
+        test: /\.otf$/,
+        loader: 'url?limit=10000&mimetype=application/font-sfnt',
+      }, {
+        test: /\.woff$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff',
+      }, {
+        test: /\.woff2$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff2',
+      },
+    ],
   },
   output: undefined,
   entry: undefined,

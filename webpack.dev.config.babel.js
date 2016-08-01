@@ -61,27 +61,38 @@ export default Object.assign({}, webpackConfig, {
     publicPath: `//${webpackHost}:${webpackPort}/`,
   }),
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: BABEL_QUERY,
-    }, {
-      test: /\.scss$/,
-      loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
-    }, {
-      test: /\.svg$/,
-      loader: 'svg-url?limit=10000',
-    }, {
-      test: /\.jpg$/,
-      loader: 'url?limit=10000&mimetype=image/jpeg',
-    }, {
-      test: /\.webm$/,
-      loader: 'url?limit=10000&mimetype=video/webm',
-    }, {
-      test: /\.mp4$/,
-      loader: 'url?limit=10000&mimetype=video/mp4',
-    }],
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: BABEL_QUERY,
+      }, {
+        test: /\.scss$/,
+        loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
+      }, {
+        test: /\.svg$/,
+        loader: 'svg-url?limit=10000',
+      }, {
+        test: /\.jpg$/,
+        loader: 'url?limit=10000&mimetype=image/jpeg',
+      }, {
+        test: /\.webm$/,
+        loader: 'url?limit=10000&mimetype=video/webm',
+      }, {
+        test: /\.mp4$/,
+        loader: 'url?limit=10000&mimetype=video/mp4',
+      }, {
+        test: /\.otf$/,
+        loader: 'url?limit=10000&mimetype=application/font-sfnt',
+      }, {
+        test: /\.woff$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff',
+      }, {
+        test: /\.woff2$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff2',
+      },
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({

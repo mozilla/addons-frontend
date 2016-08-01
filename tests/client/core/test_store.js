@@ -1,21 +1,54 @@
 import { middleware } from 'core/store';
 
 describe('core store middleware', () => {
-  it('includes the middleware in development', () => {
-    const config = {
-      get() {
-        return true;
+  function configForDev(isDevelopment) {
+    return {
+      get(key) {
+        return (key === 'isDevelopment') ? isDevelopment : false;
       },
     };
-    assert.isFunction(middleware({ __config: config }));
+  }
+
+  it('includes the middleware in development', () => {
+    const _createLogger = sinon.stub();
+    assert.isFunction(middleware({
+      _config: configForDev(true), _createLogger,
+    }));
+    assert.equal(_createLogger.called, true);
   });
 
-  it('is undefined when not in development', () => {
-    const config = {
-      get() {
-        return false;
-      },
+  it('does not apply middleware if not in development', () => {
+    const _createLogger = sinon.stub();
+    assert.isFunction(middleware({
+      _config: configForDev(false), _createLogger,
+    }));
+    assert.equal(_createLogger.called, false);
+  });
+
+  it('handles a falsey window while on the server', () => {
+    const _createLogger = sinon.stub();
+    const _window = null;
+    assert.isFunction(middleware({
+      _config: configForDev(true), _createLogger, _window,
+    }));
+    assert.equal(_createLogger.called, true);
+  });
+
+  it('uses a placeholder store enhancer when devtools is not installed', () => {
+    const _window = {}; // devToolsExtension() is undefined
+    const enhancer = middleware({
+      _config: configForDev(true), _window,
+    });
+    assert.isFunction(enhancer);
+    const createStore = () => {};
+    assert.isFunction(enhancer(createStore));
+  });
+
+  it('adds the devtools store enhancer in development', () => {
+    const _window = {
+      devToolsExtension: sinon.spy((createStore) => createStore),
     };
-    assert.strictEqual(undefined, middleware({ __config: config }));
+    assert.isFunction(middleware({ _config: configForDev(true), _window }));
+    assert.equal(_window.devToolsExtension.called, true);
   });
 });

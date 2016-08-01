@@ -11,15 +11,17 @@ import ReactDOM from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
+import { prefixMiddleWare } from 'core/middleware';
 
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import WebpackIsomorphicToolsConfig from 'webpack-isomorphic-tools-config';
 import ServerHtml from 'core/containers/ServerHtml';
 
 import config from 'config';
+import { convertBoolean } from 'core/utils';
 import { setLang, setJWT } from 'core/actions';
 import log from 'core/logger';
-import { getDirection, getFilteredUserLanguage, langToLocale } from 'core/i18n/utils';
+import { getDirection, isValidLang, langToLocale } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 import Jed from 'jed';
 
@@ -61,7 +63,9 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // CSP configuration.
   app.use(helmet.contentSecurityPolicy(config.get('CSP')));
 
-  app.use(Express.static(path.join(config.get('basePath'), 'dist')));
+  if (config.get('enableNodeStatics')) {
+    app.use(Express.static(path.join(config.get('basePath'), 'dist')));
+  }
 
   // Return version information as json
   app.get('/__version__', (req, res) => {
@@ -88,9 +92,14 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       res.redirect(302, '/en-US/firefox/discovery/pane/48.0/Darwin/normal'));
   }
 
+  // Handle application and lang redirections.
+  if (config.get('enablePrefixMiddleware')) {
+    app.use(prefixMiddleWare);
+  }
+
   app.use((req, res) => {
     if (isDevelopment) {
-      log.info('Running in Development Mode');
+      log.info('Clearing require cache for webpack isomorphic tools. [Development Mode]');
 
       // clear require() cache if in development mode
       webpackIsomorphicTools.refresh();
@@ -118,28 +127,9 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
       ) : {};
 
-      const acceptLanguage = req.headers['accept-language'];
-      // Get language from URL or fall-back to accept-language.
-      const lang = getFilteredUserLanguage({ renderProps, acceptLanguage });
-
-      if (renderProps.params) {
-        const origLang = renderProps.params.lang;
-        if (lang !== origLang) {
-          // If a lang was provided but the lang looked up is different
-          // redirect to the looked-up lang (or default).
-          // eslint-disable-next-line no-unused-vars
-          const [_, firstPart, ...rest] = req.originalUrl.split('/');
-          if (origLang === decodeURIComponent(firstPart)) {
-            // The '' provides a leading /
-            return res.redirect(302, ['', lang, ...rest].join('/'));
-          } else if (!origLang && config.get('redirectLangPrefix')) {
-            // If there was no lang param. Redirect to the same URL with
-            // a lang prepended.
-            return res.redirect(302, `/${lang}${req.originalUrl}`);
-          }
-        }
-      }
-
+      // Check the lang supplied by res.locals.lang for validity
+      // or fall-back to the default.
+      const lang = isValidLang(res.locals.lang) ? res.locals.lang : config.get('defaultLang');
       const dir = getDirection(lang);
       const locale = langToLocale(lang);
       store.dispatch(setLang(lang));
@@ -153,7 +143,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           includeSri: isDeployed,
           sriData,
           store,
-          trackingEnabled: config.get('trackingEnabled'),
+          trackingEnabled: convertBoolean(config.get('trackingEnabled')),
           ...props,
         };
 
@@ -178,8 +168,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
               jedData = require(`json!../../locale/${locale}/${appInstanceName}.json`);
             }
           } catch (e) {
-            log.info(dedent`Locale not found or required for locale: "${locale}".
-              Falling back to default lang: "${config.get('defaultLang')}"`);
+            log.info(`Locale JSON not found or required for locale: "${locale}"`);
+            log.info(`Falling back to default lang: "${config.get('defaultLang')}".`);
           }
           const i18n = new Jed(jedData);
           const InitialComponent = (

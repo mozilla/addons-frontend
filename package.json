@@ -7,18 +7,18 @@
   "scripts": {
     "build": "bin/build-checks.js && better-npm-run build",
     "extract-locales": "better-npm-run extract-locales",
-    "clean": "rimraf './dist/*+(css|js|map|json)' './webpack-assets.json'",
+    "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json'",
     "dev:amo": "better-npm-run dev:amo",
     "dev:disco": "better-npm-run dev:disco",
     "dev:search": "better-npm-run dev:search",
     "eslint": "eslint .",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
-    "servertest": "ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest && better-npm-run servertest:disco && better-npm-run servertest:search",
+    "servertest": "bin/config-check.js && ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest && better-npm-run servertest:amo && better-npm-run servertest:disco && better-npm-run servertest:search",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
-    "test": "better-npm-run test",
-    "unittest": "better-npm-run unittest",
-    "unittest:dev": "better-npm-run unittest:dev",
+    "test": "bin/config-check.js && better-npm-run test",
+    "unittest": "bin/config-check.js && better-npm-run unittest",
+    "unittest:dev": "bin/config-check.js && better-npm-run unittest:dev",
     "version-check": "node bin/version-check.js",
     "webpack-dev-server": "better-npm-run webpack-dev-server"
   },
@@ -66,44 +66,56 @@
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "test",
+        "TRACKING_ENABLED": "false"
+      }
+    },
+    "servertest:amo": {
+      "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/amo",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "production",
+        "NODE_APP_INSTANCE": "amo",
+        "TRACKING_ENABLED": "false"
       }
     },
     "servertest:disco": {
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/disco",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
-        "NODE_APP_INSTANCE": "disco"
+        "NODE_ENV": "test",
+        "NODE_APP_INSTANCE": "disco",
+        "TRACKING_ENABLED": "false"
       }
     },
     "servertest:search": {
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/search",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
-        "NODE_APP_INSTANCE": "search"
+        "NODE_ENV": "test",
+        "NODE_APP_INSTANCE": "search",
+        "TRACKING_ENABLED": "false"
       }
     },
     "test": {
       "command": "npm run version-check && npm run unittest && npm run servertest && npm run eslint && npm run stylelint",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "test"
       }
     },
     "unittest": {
       "command": "karma start --single-run",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "test"
       }
     },
     "unittest:dev": {
       "command": "karma start",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "test"
       }
     },
     "webpack-dev-server": {
@@ -126,7 +138,7 @@
   "homepage": "https://github.com/mozillla/addons-frontend#readme",
   "dependencies": {
     "babel-plugin-dedent": "2.0.0",
-    "better-npm-run": "0.0.9",
+    "better-npm-run": "0.0.10",
     "bunyan": "1.8.1",
     "camelcase": "3.0.0",
     "classnames": "2.2.5",
@@ -134,12 +146,12 @@
     "dompurify": "0.8.2",
     "express": "4.14.0",
     "extract-text-webpack-plugin": "1.0.1",
-    "helmet": "2.1.1",
+    "helmet": "2.1.2",
     "isomorphic-fetch": "2.2.1",
-    "jed": "1.1.0",
+    "jed": "1.1.1",
     "jsdom": "9.4.1",
     "normalize.css": "4.2.0",
-    "normalizr": "2.2.0",
+    "normalizr": "2.2.1",
     "piping": "0.3.2",
     "react": "15.2.1",
     "react-addons-css-transition-group": "15.2.1",
@@ -147,7 +159,7 @@
     "react-helmet": "3.1.0",
     "react-onclickoutside": "5.3.2",
     "react-redux": "4.4.5",
-    "react-router": "2.5.2",
+    "react-router": "2.6.0",
     "redux": "3.5.2",
     "redux-async-connect": "1.0.0-rc4",
     "redux-logger": "2.6.1",
@@ -157,21 +169,21 @@
   },
   "devDependencies": {
     "autoprefixer": "6.3.7",
-    "babel-core": "6.10.4",
+    "babel-core": "6.11.4",
     "babel-eslint": "6.1.2",
     "babel-gettext-extractor": "git+https://github.com/muffinresearch/babel-gettext-extractor.git#f0f00b2afb71cba5edfb43d377bde9e1b08cdb46",
     "babel-istanbul": "0.11.0",
     "babel-istanbul-loader": "0.1.0",
     "babel-loader": "6.2.4",
     "babel-plugin-react-transform": "2.0.2",
-    "babel-plugin-transform-class-properties": "6.10.2",
+    "babel-plugin-transform-class-properties": "6.11.5",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
     "babel-plugin-transform-object-rest-spread": "6.8.0",
     "babel-polyfill": "6.9.1",
     "babel-preset-es2015": "6.9.0",
     "babel-preset-react": "6.11.1",
     "babel-preset-stage-2": "6.11.0",
-    "babel-register": "6.9.0",
+    "babel-register": "6.11.6",
     "bundle-loader": "0.5.4",
     "chai": "3.5.0",
     "chalk": "1.1.3",
@@ -179,21 +191,21 @@
     "concurrently": "2.2.0",
     "csp-parse": "0.0.2",
     "css-loader": "0.23.1",
-    "eslint": "3.1.0",
+    "eslint": "3.2.0",
     "eslint-config-airbnb": "9.0.1",
-    "eslint-plugin-import": "1.11.0",
+    "eslint-plugin-import": "1.12.0",
     "eslint-plugin-jsx-a11y": "2.0.1",
     "eslint-plugin-react": "5.2.2",
     "file-loader": "0.9.0",
     "glob": "7.0.5",
     "json-loader": "0.5.4",
-    "karma": "1.1.1",
+    "karma": "1.1.2",
     "karma-chai": "0.1.0",
-    "karma-coverage": "1.1.0",
+    "karma-coverage": "1.1.1",
     "karma-coveralls": "1.1.2",
     "karma-firefox-launcher": "1.0.0",
     "karma-mocha": "1.1.1",
-    "karma-mocha-reporter": "2.0.4",
+    "karma-mocha-reporter": "2.0.5",
     "karma-sinon": "1.0.5",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "1.7.0",
@@ -201,28 +213,28 @@
     "node-sass": "3.8.0",
     "po2json": "0.4.2",
     "postcss-loader": "0.9.1",
-    "react-addons-test-utils": "15.2.1",
+    "react-addons-test-utils": "15.3.0",
     "react-dom": "15.2.1",
     "react-hot-loader": "1.3.0",
     "react-transform-hmr": "1.0.4",
     "redux-devtools": "3.3.1",
     "require-uncached": "1.0.2",
-    "rimraf": "2.5.2",
+    "rimraf": "2.5.4",
     "sass-loader": "4.0.0",
     "semver": "5.3.0",
-    "shelljs": "0.7.0",
-    "sinon": "1.17.4",
+    "shelljs": "0.7.3",
+    "sinon": "1.17.5",
     "sri-stats-webpack-plugin": "0.7.3",
     "style-loader": "0.13.1",
     "stylelint": "7.0.3",
     "stylelint-config-standard": "11.0.0",
     "supertest": "1.2.0",
     "supertest-as-promised": "3.2.0",
-    "svg-url-loader": "1.0.3",
+    "svg-url-loader": "1.1.0",
     "webpack": "1.13.1",
     "webpack-dev-middleware": "1.6.1",
     "webpack-dev-server": "1.14.1",
     "webpack-hot-middleware": "2.12.1",
-    "webpack-isomorphic-tools": "2.3.2"
+    "webpack-isomorphic-tools": "2.5.6"
   }
 }

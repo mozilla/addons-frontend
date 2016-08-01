@@ -23,7 +23,6 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    // eslint-disable-next-line no-underscore-dangle
     assert.ok(tracking._log.info.calledWith(sinon.match(/OFF/), 'Tracking init'));
   });
 
@@ -35,8 +34,6 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    // eslint-disable-next-line no-underscore-dangle
-    // eslint-disable-next-line no-underscore-dangle
     assert.ok(tracking._log.info.secondCall.calledWith(sinon.match(/OFF/), 'Missing tracking id'));
   });
 
