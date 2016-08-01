@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-07-08 18:26+0000\n"
-"PO-Revision-Date: 2016-07-08 11:14+0000\n"
+"PO-Revision-Date: 2016-07-31 23:25+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -20,9 +20,7 @@ msgstr "Mbylle"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet "
-"%(name)s"
+msgstr "Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -70,31 +68,31 @@ msgstr "OK!"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Po shkarkohet %(name)s."
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Po instalohet %(name)s."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s është instaluar dhe aktivizuar. Klikoni që të çinstalohet."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s është i çaktivizuar. Klikoni që të aktivizohet."
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Po çinstalohet %(name)s."
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s është çinstaluar. Klikoni që të instalohet."
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Gjendja e instalimit për %(name)s është e panjohur."
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -110,8 +108,7 @@ msgid ""
 "own—everything from fun visual themes to powerful tools and features.\n"
 "Here are a few great ones to check out."
 msgstr ""
-"Ka me mijëra shtesa që ju lejojnë ta bëni tërësisht si e doni - gjithçka, "
-"nga temat pamore zbavitëse e deri te mjete dhe veçori të fuqishme.\n"
+"Ka me mijëra shtesa që ju lejojnë ta bëni tërësisht si e doni - gjithçka, nga temat pamore zbavitëse e deri te mjete dhe veçori të fuqishme.\n"
 "Ja disa të fuqishme, sa për një ide."
 
 #: src/disco/containers/DiscoPane.js:107
