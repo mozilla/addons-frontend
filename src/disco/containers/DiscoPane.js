@@ -98,9 +98,9 @@ export class DiscoPane extends React.Component {
           <div className="disco-header">
             <div className="disco-content">
               <h1>{i18n.gettext('Personalize Your Firefox')}</h1>
-              <p>{i18n.gettext(dedent`There are thousands of add-ons that let you make Firefox all your
-                    own—everything from fun visual themes to powerful tools and features.
-                    Here are a few great ones to check out.`)}</p>
+              <p>{i18n.gettext(dedent`There are thousands of add-ons created by developers all over the
+                    world to help you personalize your browsing experience—everything from fun visual
+                    themes to powerful tools and features. Here are a few great ones to try out.`)}</p>
             </div>
             <div className="video-wrapper">
               <a className="play-video" href="#play" onClick={this.showVideo}>
