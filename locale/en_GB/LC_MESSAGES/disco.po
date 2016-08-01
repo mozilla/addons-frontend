@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-08 18:26+0000\n"
+"POT-Creation-Date: 2016-08-01 15:57+0000\n"
 "PO-Revision-Date: 2016-07-17 07:39+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
@@ -54,15 +54,15 @@ msgstr "This add-on will be uninstalled after you restart Firefox."
 msgid "Please restart Firefox to use this add-on."
 msgstr "Please restart Firefox to use this add-on."
 
-#: src/disco/components/InfoDialog.js:24
+#: src/disco/components/Addon.js:299
 msgid "Your add-on is ready"
 msgstr "Your add-on is ready"
 
-#: src/disco/components/InfoDialog.js:26
+#: src/disco/components/Addon.js:301
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Now you can access %(name)s from the toolbar."
 
-#: src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:303
 msgid "OK!"
 msgstr "OK!"
 
@@ -103,10 +103,12 @@ msgid "Personalize Your Firefox"
 msgstr "Personalize Your Firefox"
 
 #: src/disco/containers/DiscoPane.js:101
+#, fuzzy
 msgid ""
-"There are thousands of add-ons that let you make Firefox all your\n"
-"own—everything from fun visual themes to powerful tools and features.\n"
-"Here are a few great ones to check out."
+"There are thousands of add-ons created by developers all over the\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
+"themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
 "There are thousands of add-ons that let you make Firefox all your\n"
 "own—everything from fun visual themes to powerful tools and features.\n"

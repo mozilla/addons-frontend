@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-08 18:26+0000\n"
+"POT-Creation-Date: 2016-08-01 15:57+0000\n"
 "PO-Revision-Date: 2016-07-12 05:41+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -54,15 +54,15 @@ msgstr "您重新啟動 Firefox 後將移除此附加元件。"
 msgid "Please restart Firefox to use this add-on."
 msgstr "重新啟動 Firefox 後即可使用此附加元件。"
 
-#: src/disco/components/InfoDialog.js:24
+#: src/disco/components/Addon.js:299
 msgid "Your add-on is ready"
 msgstr "您的附加元件已就緒"
 
-#: src/disco/components/InfoDialog.js:26
+#: src/disco/components/Addon.js:301
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "您現在可在工具列使用 %(name)s。"
 
-#: src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:303
 msgid "OK!"
 msgstr "好！"
 
@@ -103,11 +103,15 @@ msgid "Personalize Your Firefox"
 msgstr "個人化您的 Firefox"
 
 #: src/disco/containers/DiscoPane.js:101
+#, fuzzy
 msgid ""
-"There are thousands of add-ons that let you make Firefox all your\n"
-"own—everything from fun visual themes to powerful tools and features.\n"
-"Here are a few great ones to check out."
-msgstr "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
+"There are thousands of add-ons created by developers all over the\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
+"themes to powerful tools and features. Here are a few great ones to try out."
+msgstr ""
+"有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或"
+"是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
