@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-08 18:26+0000\n"
+"POT-Creation-Date: 2016-08-01 15:57+0000\n"
 "PO-Revision-Date: 2016-07-09 09:19+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -20,11 +20,13 @@ msgstr "Schließen"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
+msgstr ""
+"Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
-msgstr "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+msgstr ""
+"Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
@@ -48,21 +50,22 @@ msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
 #: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
+msgstr ""
+"Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
 
 #: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
 msgstr "Bitte starten Sie Firefox neu, um dieses Add-on zu verwenden."
 
-#: src/disco/components/InfoDialog.js:24
+#: src/disco/components/Addon.js:299
 msgid "Your add-on is ready"
 msgstr "Ihr Add-on ist bereit."
 
-#: src/disco/components/InfoDialog.js:26
+#: src/disco/components/Addon.js:301
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Sie können jetzt über die Symbolleiste auf %(name)s zugreifen."
 
-#: src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:303
 msgid "OK!"
 msgstr "OK!"
 
@@ -76,7 +79,9 @@ msgstr "%(name)s wird installiert."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu deinstallieren."
+msgstr ""
+"%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu "
+"deinstallieren."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
@@ -103,12 +108,15 @@ msgid "Personalize Your Firefox"
 msgstr "Passen Sie Ihren Firefox an."
 
 #: src/disco/containers/DiscoPane.js:101
+#, fuzzy
 msgid ""
-"There are thousands of add-ons that let you make Firefox all your\n"
-"own—everything from fun visual themes to powerful tools and features.\n"
-"Here are a few great ones to check out."
+"There are thousands of add-ons created by developers all over the\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
+"themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"Es gibt Tausende von Add-ons, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können\n"
+"Es gibt Tausende von Add-ons, mit denen Sie Firefox an Ihre Bedürfnisse "
+"anpassen können\n"
 " – alles, von lustigen Themes zu mächtigen Werkzeugen und Funktionen.\n"
 "Hier sind ein paar tolle Beispiele, die Sie ausprobieren können."
 

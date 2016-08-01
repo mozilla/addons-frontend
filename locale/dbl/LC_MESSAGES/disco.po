@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-08 18:26+0000\n"
+"POT-Creation-Date: 2016-08-01 15:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,15 +52,15 @@ msgstr "Ŧħīş ȧḓḓ-ǿƞ ẇīŀŀ ƀḗ ŭƞīƞşŧȧŀŀḗḓ ȧƒŧ�
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ƥŀḗȧşḗ řḗşŧȧřŧ Ƒīřḗƒǿẋ ŧǿ ŭşḗ ŧħīş ȧḓḓ-ǿƞ."
 
-#: src/disco/components/InfoDialog.js:24
+#: src/disco/components/Addon.js:299
 msgid "Your add-on is ready"
 msgstr "Ẏǿŭř ȧḓḓ-ǿƞ īş řḗȧḓẏ"
 
-#: src/disco/components/InfoDialog.js:26
+#: src/disco/components/Addon.js:301
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Ƞǿẇ ẏǿŭ ƈȧƞ ȧƈƈḗşş %(name)s ƒřǿḿ ŧħḗ ŧǿǿŀƀȧř."
 
-#: src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:303
 msgid "OK!"
 msgstr "ǾĶ!"
 
@@ -102,13 +102,15 @@ msgstr "Ƥḗřşǿƞȧŀīzḗ Ẏǿŭř Ƒīřḗƒǿẋ"
 
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
-"There are thousands of add-ons that let you make Firefox all your\n"
-"own—everything from fun visual themes to powerful tools and features.\n"
-"Here are a few great ones to check out."
+"There are thousands of add-ons created by developers all over the\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
+"themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"Ŧħḗřḗ ȧřḗ ŧħǿŭşȧƞḓş ǿƒ ȧḓḓ-ǿƞş ŧħȧŧ ŀḗŧ ẏǿŭ ḿȧķḗ Ƒīřḗƒǿẋ ȧŀŀ ẏǿŭř\n"
-"ǿẇƞ—ḗṽḗřẏŧħīƞɠ ƒřǿḿ ƒŭƞ ṽīşŭȧŀ ŧħḗḿḗş ŧǿ ƥǿẇḗřƒŭŀ ŧǿǿŀş ȧƞḓ ƒḗȧŧŭřḗş.\n"
-"Ħḗřḗ ȧřḗ ȧ ƒḗẇ ɠřḗȧŧ ǿƞḗş ŧǿ ƈħḗƈķ ǿŭŧ."
+"Ŧħḗřḗ ȧřḗ ŧħǿŭşȧƞḓş ǿƒ ȧḓḓ-ǿƞş ƈřḗȧŧḗḓ ƀẏ ḓḗṽḗŀǿƥḗřş ȧŀŀ ǿṽḗř ŧħḗ\n"
+"ẇǿřŀḓ ŧǿ ħḗŀƥ ẏǿŭ ƥḗřşǿƞȧŀīzḗ ẏǿŭř ƀřǿẇşīƞɠ ḗẋƥḗřīḗƞƈḗ—ḗṽḗřẏŧħīƞɠ ƒřǿḿ ƒŭƞ "
+"ṽīşŭȧŀ\n"
+"ŧħḗḿḗş ŧǿ ƥǿẇḗřƒŭŀ ŧǿǿŀş ȧƞḓ ƒḗȧŧŭřḗş. Ħḗřḗ ȧřḗ ȧ ƒḗẇ ɠřḗȧŧ ǿƞḗş ŧǿ ŧřẏ ǿŭŧ."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"

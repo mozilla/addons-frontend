@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-08 18:26+0000\n"
+"POT-Creation-Date: 2016-08-01 15:57+0000\n"
 "PO-Revision-Date: 2016-07-09 07:05+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -20,7 +20,9 @@ msgstr "Bezárás"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
+msgstr ""
+"Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
+"telepítéséhez"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -54,15 +56,15 @@ msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
 msgid "Please restart Firefox to use this add-on."
 msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
 
-#: src/disco/components/InfoDialog.js:24
+#: src/disco/components/Addon.js:299
 msgid "Your add-on is ready"
 msgstr "A kiegészítője készen áll"
 
-#: src/disco/components/InfoDialog.js:26
+#: src/disco/components/Addon.js:301
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Most már elérheti ezt az eszköztáron: %(name)s."
 
-#: src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:303
 msgid "OK!"
 msgstr "OK!"
 
@@ -76,7 +78,8 @@ msgstr "%(name)s telepítése."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
+msgstr ""
+"A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
@@ -103,10 +106,12 @@ msgid "Personalize Your Firefox"
 msgstr "A Firefox testreszabása"
 
 #: src/disco/containers/DiscoPane.js:101
+#, fuzzy
 msgid ""
-"There are thousands of add-ons that let you make Firefox all your\n"
-"own—everything from fun visual themes to powerful tools and features.\n"
-"Here are a few great ones to check out."
+"There are thousands of add-ons created by developers all over the\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
+"themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
 "Kiegészítők ezrei léteznek, amelyek a Firefoxot az Önévé teszik\n"
 "– mókás vizuális témáktól kezdve, a hatékony eszközökig és funkciókig.\n"

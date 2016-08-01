@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-07-08 18:26+0000\n"
+"POT-Creation-Date: 2016-08-01 15:57+0000\n"
 "PO-Revision-Date: 2016-07-09 18:59+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -11,7 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
@@ -20,7 +21,8 @@ msgstr "Закрыть"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
+msgstr ""
+"Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -54,15 +56,15 @@ msgstr "Это дополнение будет удалено после пер�
 msgid "Please restart Firefox to use this add-on."
 msgstr "Пожалуйста, перезапустите Firefox для использования этого дополнения."
 
-#: src/disco/components/InfoDialog.js:24
+#: src/disco/components/Addon.js:299
 msgid "Your add-on is ready"
 msgstr "Ваше дополнение готово"
 
-#: src/disco/components/InfoDialog.js:26
+#: src/disco/components/Addon.js:301
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Теперь вы можете получить доступ к %(name)s из панели инструментов."
 
-#: src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:303
 msgid "OK!"
 msgstr "ОК!"
 
@@ -103,10 +105,12 @@ msgid "Personalize Your Firefox"
 msgstr "Настройте по себя свой Firefox"
 
 #: src/disco/containers/DiscoPane.js:101
+#, fuzzy
 msgid ""
-"There are thousands of add-ons that let you make Firefox all your\n"
-"own—everything from fun visual themes to powerful tools and features.\n"
-"Here are a few great ones to check out."
+"There are thousands of add-ons created by developers all over the\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
+"themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
 "Есть тысячи дополнений, которые позволят вам сделать Firefox\n"
 "своим — всё от весёлых визуальных тем до мощных средств и возможностей.\n"
