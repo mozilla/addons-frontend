@@ -14,86 +14,83 @@ msgstr ""
 
 #: src/disco/components/Addon.js:112
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Hover to preview or click to install %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Hover over the image to preview"
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installation failed. Please try again."
 
 #: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Download failed. Please check your connection."
 
 #: src/disco/components/Addon.js:170
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "An unexpected error occurred"
+msgstr "An unexpected error occurred during installation."
 
 #: src/disco/components/Addon.js:172
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "An unexpected error occurred"
+msgstr "An unexpected error occurred during uninstallation."
 
 #: src/disco/components/Addon.js:175
-#, fuzzy
 msgid "An unexpected error occurred."
 msgstr "An unexpected error occurred"
 
 #: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "This add-on will be uninstalled after you restart Firefox."
 
 #: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Please restart Firefox to use this add-on."
 
 #: src/disco/components/Addon.js:299
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Your add-on is ready"
 
 #: src/disco/components/Addon.js:301
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Now you can access %(name)s from the toolbar."
 
 #: src/disco/components/Addon.js:303
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Downloading %(name)s."
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Installing %(name)s."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s is installed and enabled. Click to uninstall."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s is disabled. Click to enable."
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Uninstalling %(name)s."
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s is uninstalled. Click to install."
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Install state for %(name)s is unknown."
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -104,16 +101,16 @@ msgid "Personalize Your Firefox"
 msgstr "Personalize Your Firefox"
 
 #: src/disco/containers/DiscoPane.js:101
-#, fuzzy
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
 "world to help you personalize your browsing experience—everything from fun "
 "visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"There are thousands of add-ons that let you make Firefox all your\n"
-"own—everything from fun visual themes to powerful tools and features.\n"
-"Here are a few great ones to check out."
+"There are thousands of add-ons created by developers all over the\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
+"themes to powerful tools and features. Here are a few great ones to try out."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
@@ -125,14 +122,8 @@ msgstr "to find out more about add-ons"
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
-msgstr ""
+msgstr "Close video"
 
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
-msgstr ""
-
-#~ msgid "Install"
-#~ msgstr "Install"
-
-#~ msgid "Preview %(name)s"
-#~ msgstr "Preview %(name)s"
+msgstr "See more add-ons!"
