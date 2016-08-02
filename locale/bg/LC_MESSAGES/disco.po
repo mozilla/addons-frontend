@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-01 15:57+0000\n"
-"PO-Revision-Date: 2016-07-20 12:42+0000\n"
+"PO-Revision-Date: 2016-08-02 13:20+0000\n"
 "Last-Translator: stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -103,16 +103,14 @@ msgid "Personalize Your Firefox"
 msgstr ""
 
 #: src/disco/containers/DiscoPane.js:101
-#, fuzzy
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
+"world to help you personalize your browsing experience—everything from fun visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"Има хиляди добавки, които ви позволяват да направите Firefox изцяло \n"
-"ваш: от забавни визуални теми до мощни инструменти и свойства.\n"
-"Ето някои страхотни, които да разгледате."
+"Има хиляди добавки, създодени от разработчици от всички краища на света,\n"
+"които ви позволяват да направите Firefox изцяло ваш: от забавни визуални\n"
+"теми до мощни инструменти и свойства. Ето някои страхотни, които да разгледате."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
