@@ -141,6 +141,8 @@ module.exports = {
   rtlLangs: ['ar', 'dbr', 'fa', 'he'],
   defaultLang: 'en-US',
 
+  po2jsonFuzzyOutput: false,
+
   enablePrefixMiddleware: true,
 
   localeDir: path.resolve(path.join(__dirname, '../locale')),
