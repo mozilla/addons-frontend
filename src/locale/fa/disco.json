@@ -7,6 +7,9 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "fa"
          },
+         "Close": [
+            "بستن ویدئو"
+         ],
          "Hover to preview or click to install %(name)s": [
             ""
          ],
@@ -18,6 +21,12 @@
          ],
          "Download failed. Please check your connection.": [
             "دریافت شکست خورد. لطفا اتصال خود را بررسی کنید."
+         ],
+         "An unexpected error occurred during installation.": [
+            "یک خطا غیر منتظره رُخ داد."
+         ],
+         "An unexpected error occurred during uninstallation.": [
+            "یک خطا غیر منتظره رُخ داد."
          ],
          "An unexpected error occurred.": [
             "یک خطا غیر منتظره رُخ داد."
@@ -64,7 +73,7 @@
          "Personalize Your Firefox": [
             "فایرفاکس خود را شخصی سازی کنید"
          ],
-         "There are thousands of add-ons that let you make Firefox all your\nown—everything from fun visual themes to powerful tools and features.\nHere are a few great ones to check out.": [
+         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
             "هزاران افزونه وجود دارد که به شما کمک می‌کند تمام فایرفاکس را به اختیار خود درآورید — همه چیز از ضمیمه های سرگرم کننده بصری تا ابزارهای قوی و ویژیگی های مختلف. \nدر اینجا تعدادی از بهترین های آن ها را ببینید."
          ],
          "Click to play": [
