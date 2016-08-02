@@ -103,16 +103,16 @@ msgid "Personalize Your Firefox"
 msgstr "Personalize Your Firefox"
 
 #: src/disco/containers/DiscoPane.js:101
-#, fuzzy
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
 "world to help you personalize your browsing experience—everything from fun "
 "visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"There are thousands of add-ons that let you make Firefox all your\n"
-"own—everything from fun visual themes to powerful tools and features.\n"
-"Here are a few great ones to check out."
+"There are thousands of add-ons created by developers all over the\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
+"themes to powerful tools and features. Here are a few great ones to try out."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
@@ -129,9 +129,3 @@ msgstr "Close video"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "See more add-ons!"
-
-#~ msgid "Install"
-#~ msgstr "Install"
-
-#~ msgid "Preview %(name)s"
-#~ msgstr "Preview %(name)s"

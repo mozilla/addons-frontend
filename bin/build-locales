@@ -32,6 +32,12 @@ poFiles.forEach((pofile) => {
   const stem = path.basename(pofile, '.po');
   const jsonfile = path.join(dest, locale, `${stem}.json`);
   shelljs.mkdir('-p', path.join(dest, locale));
-  const json = po2json.parseFileSync(pofile, { stringify: true, pretty: true, format: 'jed1.x' });
+
+  const json = po2json.parseFileSync(pofile, {
+    stringify: true,
+    pretty: true,
+    format: 'jed1.x',
+    fuzzy: config.get('po2jsonFuzzyOutput'),
+  });
   fs.writeFileSync(jsonfile, json);
 });
