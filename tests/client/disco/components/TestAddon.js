@@ -310,6 +310,19 @@ describe('<Addon />', () => {
       assert.ok(installTheme.called);
     });
 
+    it('installs a theme when a disabled theme image is clicked', () => {
+      const preventDefault = sinon.stub();
+      Simulate.click(themeImage, { preventDefault });
+      const installTheme = sinon.stub();
+      const data = { ...result, type: THEME_TYPE, themeAction,
+        status: DISABLED, installTheme };
+      root = renderAddon(data);
+      themeImage = findDOMNode(root).querySelector('.theme-image');
+      Simulate.click(themeImage, { currentTarget: themeImage, preventDefault });
+      assert.ok(preventDefault.called);
+      assert.ok(installTheme.called);
+    });
+
     it('does not try to install theme if not UNINSTALLED', () => {
       const preventDefault = sinon.stub();
       const installTheme = sinon.stub();

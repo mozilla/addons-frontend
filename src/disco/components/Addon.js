@@ -194,7 +194,7 @@ export class Addon extends React.Component {
   clickInstallTheme = (e) => {
     const { guid, installTheme, name, status, type } = this.props;
     e.preventDefault();
-    if (type === THEME_TYPE && status === UNINSTALLED) {
+    if (type === THEME_TYPE && [UNINSTALLED, DISABLED].includes(status)) {
       installTheme(e.currentTarget, guid, name);
     }
   }
