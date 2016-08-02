@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-01 15:57+0000\n"
-"PO-Revision-Date: 2016-07-09 21:02+0000\n"
+"PO-Revision-Date: 2016-08-02 13:07+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -20,9 +20,7 @@ msgstr "Stäng"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Håll muspekaren över för att förhandsgranska eller klicka för att installera "
-"%(name)s"
+msgstr "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -105,16 +103,14 @@ msgid "Personalize Your Firefox"
 msgstr "Anpassa Firefox"
 
 #: src/disco/containers/DiscoPane.js:101
-#, fuzzy
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
+"world to help you personalize your browsing experience—everything from fun visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"Det finns tusentals tillägg som låter dig anpassa Firefox som du\n"
-"vill—allt från visuella teman till kraftfulla verktyg och funktioner.\n"
-"Här är några bra exempel att testa."
+"Det finns tusentals tillägg som skapats av utvecklare över \n"
+"hela världen för att hjälpa dig anpassa din webbupplevelse—allt från roliga \n"
+"visuella teman till kraftfulla verktyg och funktioner. Här är några bra exempel att testa."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
