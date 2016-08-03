@@ -1,11 +1,9 @@
 # UI Tests for Add-Ons Discovery Pane (discopane)
-==================================
 
 Thank you for checking out Mozilla's addons-frontend ui test suite.
 This repository contains Selenium tests used to test the discovery pane.
 
 ## How to run the tests locally
------------------------------------------
 
 ### Clone the repository
 If you have cloned this project already then you can skip this, otherwise you'll need to clone this repo using Git.
