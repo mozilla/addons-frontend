@@ -1,10 +1,10 @@
-UI Tests for Add-Ons Discovery Pane (discopane)
+# UI Tests for Add-Ons Discovery Pane (discopane)
 ==================================
 
 Thank you for checking out Mozilla's addons-frontend ui test suite.
 This repository contains Selenium tests used to test the discovery pane.
 
-How to run the tests locally
+## How to run the tests locally
 -----------------------------------------
 
 ### Clone the repository
@@ -35,9 +35,9 @@ $ pip install -Ur requirements.txt
 ### Run the tests
 Tests are run using the command line. Below are a couple of examples of running the tests:
 
-Before running, ensure the [GeckoDriver executable][geckodriver] (wires) is in your path.
+Before running, ensure the [GeckoDriver executable][geckodriver] (rename to wires) is in your path.
 
-Note: The tests must be run in Firefox 48 or later.
+Note: The tests must be run in Firefox 48 or later, and geckodriver (wires) must be 0.9.0.
 
 ```bash
 $ py.test --firefox-path=<path-to-firefox> test_discopane.py
