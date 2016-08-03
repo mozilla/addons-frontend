@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-01 15:57+0000\n"
+"POT-Creation-Date: 2016-08-02 15:08+0000\n"
 "PO-Revision-Date: 2016-07-12 05:41+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -54,15 +54,15 @@ msgstr "您重新啟動 Firefox 後將移除此附加元件。"
 msgid "Please restart Firefox to use this add-on."
 msgstr "重新啟動 Firefox 後即可使用此附加元件。"
 
-#: src/disco/components/Addon.js:299
+#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "您的附加元件已就緒"
 
-#: src/disco/components/Addon.js:301
+#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "您現在可在工具列使用 %(name)s。"
 
-#: src/disco/components/Addon.js:303
+#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "好！"
 

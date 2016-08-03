@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-01 15:57+0000\n"
+"POT-Creation-Date: 2016-08-02 15:08+0000\n"
 "PO-Revision-Date: 2016-08-02 20:24+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -20,7 +20,8 @@ msgstr "Zavrieť"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
+msgstr ""
+"Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -54,15 +55,15 @@ msgstr "Tento doplnok bude odinštalovaný po reštarte Firefoxu."
 msgid "Please restart Firefox to use this add-on."
 msgstr "Pre použitie tohto doplnku, prosím, reštartujte Firefox."
 
-#: src/disco/components/Addon.js:299
+#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Váš doplnok je pripravený"
 
-#: src/disco/components/Addon.js:301
+#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Teraz môžete pristupovať k %(name)s z panela nástrojov."
 
-#: src/disco/components/Addon.js:303
+#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "OK!"
 
@@ -76,7 +77,8 @@ msgstr "Inštalovanie doplnku %(name)s."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+msgstr ""
+"Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
@@ -105,12 +107,15 @@ msgstr "Prispôsobte si svoj Firefox"
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun visual\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
 "Existujú tisíce doplnkov, ktoré vytvárajú tisíce vývojárov po celom svete.\n"
-"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od zábavných tém \n"
-"až po výkonné nástroje a funkcie. Tu je niekoľko velikánov, čo stoja za vyskúšanie."
+"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od "
+"zábavných tém \n"
+"až po výkonné nástroje a funkcie. Tu je niekoľko velikánov, čo stoja za "
+"vyskúšanie."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"

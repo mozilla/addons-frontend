@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-01 15:57+0000\n"
+"POT-Creation-Date: 2016-08-02 15:08+0000\n"
 "PO-Revision-Date: 2016-08-02 16:04+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
@@ -20,7 +20,9 @@ msgstr "Sluiten"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te installeren"
+msgstr ""
+"Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te "
+"installeren"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -54,15 +56,15 @@ msgstr "Deze add-on zal worden gede-installeerd nadat u Firefox herstart."
 msgid "Please restart Firefox to use this add-on."
 msgstr "Herstart Firefox om deze add-on te gebruiken."
 
-#: src/disco/components/Addon.js:299
+#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Uw add-on is gereed"
 
-#: src/disco/components/Addon.js:301
+#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "U kunt %(name)s nu benaderen vanaf de werkbalk."
 
-#: src/disco/components/Addon.js:303
+#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "OK!"
 
@@ -76,7 +78,8 @@ msgstr "%(name)s wordt geïnstalleerd."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
+msgstr ""
+"%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
@@ -105,12 +108,16 @@ msgstr "Personaliseer uw Firefox"
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun visual\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"Er zijn duizenden add-ons, gemaakt door ontwikkelaars van over de hele wereld,\n"
-"die uw surfervaring helpen personaliseren – variërend van leuke visuele thema’s\n"
-"tot krachtige hulpmiddelen en functies. Dit zijn een paar goede die u kunt uitproberen."
+"Er zijn duizenden add-ons, gemaakt door ontwikkelaars van over de hele "
+"wereld,\n"
+"die uw surfervaring helpen personaliseren – variërend van leuke visuele "
+"thema’s\n"
+"tot krachtige hulpmiddelen en functies. Dit zijn een paar goede die u kunt "
+"uitproberen."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"

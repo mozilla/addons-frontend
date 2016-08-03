@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-01 15:57+0000\n"
+"POT-Creation-Date: 2016-08-02 15:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"Content-Type: text/plain; charset=utf-8\n"
 
 #: src/disco/components/Addon.js:112
 msgid "Close"
@@ -52,15 +52,15 @@ msgstr "Ŧħīş ȧḓḓ-ǿƞ ẇīŀŀ ƀḗ ŭƞīƞşŧȧŀŀḗḓ ȧƒŧ�
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ƥŀḗȧşḗ řḗşŧȧřŧ Ƒīřḗƒǿẋ ŧǿ ŭşḗ ŧħīş ȧḓḓ-ǿƞ."
 
-#: src/disco/components/Addon.js:299
+#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Ẏǿŭř ȧḓḓ-ǿƞ īş řḗȧḓẏ"
 
-#: src/disco/components/Addon.js:301
+#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Ƞǿẇ ẏǿŭ ƈȧƞ ȧƈƈḗşş %(name)s ƒřǿḿ ŧħḗ ŧǿǿŀƀȧř."
 
-#: src/disco/components/Addon.js:303
+#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "ǾĶ!"
 
