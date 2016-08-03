@@ -7,7 +7,7 @@ class DiscoveryPane(Page):
     _play_video_locator = (By.CSS_SELECTOR, '.play-video')
     _uninstalled_toggles_locator = (By.CSS_SELECTOR, '.switch.uninstalled')
     _close_video_link_locator = (By.CSS_SELECTOR, '.close-video')
-    _see_more_addons_locator = (By.CSS_SELECTOR, '.amo-link')s
+    _see_more_addons_locator = (By.CSS_SELECTOR, '.amo-link')
 
     @property
     def is_close_video_displayed(self):
