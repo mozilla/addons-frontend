@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-01 15:57+0000\n"
+"POT-Creation-Date: 2016-08-02 15:08+0000\n"
 "PO-Revision-Date: 2016-08-02 03:21+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
@@ -54,15 +54,15 @@ msgstr "Este complemento será removido quando o Firefox for reiniciado."
 msgid "Please restart Firefox to use this add-on."
 msgstr "Por favor reinicie o Firefox para usar este complemento."
 
-#: src/disco/components/Addon.js:299
+#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "O seu complemento está pronto"
 
-#: src/disco/components/Addon.js:301
+#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Agora pode acessar a %(name)s pela barra de ferramentas."
 
-#: src/disco/components/Addon.js:303
+#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "OK!"
 
@@ -105,11 +105,14 @@ msgstr "Personalize seu Firefox"
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun visual\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"Existem milhares de complementos criados por desenvolvedores de todo o mundo para o ajudar a personalizar a sua experiência de navegação — tudo, desde temas visuais divertidos a poderosas "
-"ferramentas e recursos. Aqui estão alguns ótimos para experimentar."
+"Existem milhares de complementos criados por desenvolvedores de todo o mundo "
+"para o ajudar a personalizar a sua experiência de navegação — tudo, desde "
+"temas visuais divertidos a poderosas ferramentas e recursos. Aqui estão "
+"alguns ótimos para experimentar."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"

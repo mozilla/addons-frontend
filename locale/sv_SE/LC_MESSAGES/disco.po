@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-01 15:57+0000\n"
+"POT-Creation-Date: 2016-08-02 15:08+0000\n"
 "PO-Revision-Date: 2016-08-02 13:07+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
@@ -20,7 +20,9 @@ msgstr "Stäng"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
+msgstr ""
+"Håll muspekaren över för att förhandsgranska eller klicka för att installera "
+"%(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -54,15 +56,15 @@ msgstr "Detta tillägg kommer att avinstalleras efter omstart av Firefox."
 msgid "Please restart Firefox to use this add-on."
 msgstr "Starta om Firefox för att använda detta tillägg."
 
-#: src/disco/components/Addon.js:299
+#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Ditt tillägg är klart"
 
-#: src/disco/components/Addon.js:301
+#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Nu kan du komma åt %(name)s från verktygsfältet."
 
-#: src/disco/components/Addon.js:303
+#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "Ok!"
 
@@ -105,12 +107,15 @@ msgstr "Anpassa Firefox"
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun visual\n"
+"world to help you personalize your browsing experience—everything from fun "
+"visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
 "Det finns tusentals tillägg som skapats av utvecklare över \n"
-"hela världen för att hjälpa dig anpassa din webbupplevelse—allt från roliga \n"
-"visuella teman till kraftfulla verktyg och funktioner. Här är några bra exempel att testa."
+"hela världen för att hjälpa dig anpassa din webbupplevelse—allt från "
+"roliga \n"
+"visuella teman till kraftfulla verktyg och funktioner. Här är några bra "
+"exempel att testa."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"

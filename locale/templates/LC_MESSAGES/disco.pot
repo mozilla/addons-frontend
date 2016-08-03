@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-01 15:57+0000\n"
+"POT-Creation-Date: 2016-08-02 15:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,14 +53,17 @@ msgid "Please restart Firefox to use this add-on."
 msgstr ""
 
 #: src/disco/components/Addon.js:299
+#: src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr ""
 
 #: src/disco/components/Addon.js:301
+#: src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr ""
 
 #: src/disco/components/Addon.js:303
+#: src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr ""
 
