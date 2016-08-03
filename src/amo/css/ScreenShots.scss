@@ -1,0 +1,41 @@
+.ScreenShots {
+  ol {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  li a {
+    display: inline-block;
+    padding: 5px;
+
+    &::before {
+      background: #000;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      flex-direction: row;
+      height: 12px;
+      width: 12px;
+    }
+
+    &.active::before {
+      border: 3px solid #000;
+      background: #fff;
+    }
+  }
+
+  img {
+    width: 100%;
+    padding-bottom: 75%;
+    background: #ff211e;
+    display: block;
+  }
+}

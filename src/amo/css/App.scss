@@ -1,9 +1,83 @@
 @import "~normalize.css";
 @import "~core/css/inc/lib";
 @import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~amo/css/inc/mixins";
 
 html,
 body {
   background: #fff;
-  font-family: "Fira Sans", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include font-regular();
+  font-size: 14px;
+  color: $body-font-color;
+  line-height: 19px;
+  padding-top: 50px;
+}
+
+h1,
+h2 {
+  @include font-bold();
+  color: $primary-font-color;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+h2 {
+  font-size: 12px;
+  color: $primary-font-color;
+}
+
+h3 {
+  @include font-bold();
+  font-size: 14px;
+  color: $primary-font-color;
+  line-height: 19px;
+
+}
+
+a:link {
+  @include font-medium();
+  font-size: 14px;
+  color: #0996f8;
+}
+
+em {
+  @include font-regular-italic();
+}
+
+strong {
+  @include font-bold();
+}
+
+.caption {
+  font-size: 10px;
+  color: $primary-font-color;
+  line-height: 11px;
+}
+
+.date-time {
+  font-size: 14px;
+  color: #b1b1b1;
+}
+
+button {
+  background: none;
+  border: none;
 }
