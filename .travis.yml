@@ -3,9 +3,10 @@ node_js:
 - '4'
 env:
   matrix:
-  - TASK=lint
-  - TASK=unittest GUI=1
-  - TASK=servertest
+  - TASK=npm run lint
+  - TASK=npm run unittest GUI=1
+  - TASK=npm run servertest
+  - TASK=pip install --user -r requirements/flake8.txt && flake8 tests/ui/
 cache:
   directories:
   - node_modules
@@ -15,6 +16,6 @@ before_install:
 before_script:
 - if [ $GUI ]; then export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start && sleep 3; fi
 script:
-- npm run $TASK
+- $TASK
 addons:
   firefox: latest
