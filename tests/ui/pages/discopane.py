@@ -1,7 +1,6 @@
 from pypom import Page
 from selenium.webdriver.common.by import By
 
-
 class DiscoveryPane(Page):
 
     _discopane_content_locator = (By.CSS_SELECTOR, '.disco-pane')
