@@ -40,3 +40,7 @@ webpack-assets.json
 sri.json
 
 config/local*
+
+tests/ui/.cache
+tests/ui/__pycache__
+*.pyc
