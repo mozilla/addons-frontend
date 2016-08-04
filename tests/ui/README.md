@@ -31,20 +31,20 @@ $ pip install -Ur requirements.txt
 ```
 
 ### Run the tests
-Tests are run using the command line. Below are a couple of examples of running the tests:
+Tests are run using tox on the command line. Below are a couple of examples of running the tests:
 
 Before running, ensure the [GeckoDriver executable][geckodriver] (rename to wires) is in your path.
 
 Note: The tests must be run in Firefox 48 or later, and geckodriver (wires) must be 0.9.0.
 
 ```bash
-$ py.test --firefox-path=<path-to-firefox> test_discopane.py
+$ tox -e ui-tests
 ```
 
 To run against a different environment, pass in a value for `--base-url`, like so:
 
 ```bash
-$ py.test --base-url https://discovery.addons.mozilla.org --firefox-path=<path-to-firefox> test_discopane.py
+$ tox -e ui-tests -- --base-url https://discovery.addons.mozilla.org
 ```
 
 The pytest plugin that we use for running tests has a number of advanced
