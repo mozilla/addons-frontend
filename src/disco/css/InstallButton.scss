@@ -30,6 +30,7 @@ $installStripeColor2: #00c42e;
   from {
     background-position: 0 0;
   }
+
   to {
     background-position: $size $size/2;
   }
@@ -130,6 +131,7 @@ $installStripeColor2: #00c42e;
         }
         /* stylelint-enable */
       }
+
       &:hover::after {
         box-shadow: none;
       }
@@ -167,6 +169,7 @@ $installStripeColor2: #00c42e;
           $installStripeColor2,
           $switchBackgroundOn);
       }
+
       &::after {
         transform: translateX($switchHandleActivePosition);
 
@@ -176,6 +179,7 @@ $installStripeColor2: #00c42e;
         }
         /* stylelint-enable */
       }
+
       &:hover::after {
         box-shadow: none;
       }
@@ -190,6 +194,7 @@ $installStripeColor2: #00c42e;
     &::after {
       background: $switchHandleInactive;
     }
+
     &:hover::after {
       box-shadow: none;
     }
