@@ -21,6 +21,7 @@ html {
 
 body {
   @include font-regular();
+
   font-size: 14px;
   color: $body-font-color;
   line-height: 19px;
@@ -30,6 +31,7 @@ body {
 h1,
 h2 {
   @include font-bold();
+
   color: $primary-font-color;
   font-weight: 600;
 }
@@ -46,14 +48,15 @@ h2 {
 
 h3 {
   @include font-bold();
+
   font-size: 14px;
   color: $primary-font-color;
   line-height: 19px;
-
 }
 
 a:link {
   @include font-medium();
+
   font-size: 14px;
   color: #0996f8;
 }

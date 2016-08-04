@@ -104,6 +104,7 @@ header {
 
     &:focus {
       @include focus();
+
       border: 1px solid #fff;
     }
 
@@ -169,6 +170,7 @@ header {
       transform: translateX(465px);
     }
   }
+
   .disco-content {
     opacity: 0;
     visibility: hidden;
