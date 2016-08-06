@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-02 15:08+0000\n"
-"PO-Revision-Date: 2016-07-04 10:15+0000\n"
+"PO-Revision-Date: 2016-08-06 17:21+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -20,11 +20,11 @@ msgstr "বন্ধ"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "ছবির উপর মাউস ঘুরান প্রিভিউ দেখতে"
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
@@ -68,31 +68,31 @@ msgstr "ওকে!"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s ডাউনলোডিং"
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s ইন্সটলিং।"
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ইন্সটল এবং চালুকৃত। অনইন্সটল করতে ক্লিক করুন।"
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s disabled। enable করতে ক্লিক করুন।"
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s আনইন্সটলিং।"
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s আনইন্সটলড। ইন্সটল করতে ক্লিক করুন।"
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s এর ইন্সটল অবস্থা অজানা।"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -105,10 +105,9 @@ msgstr "আপনার ফায়ারফক্সকে ব্যক্তি�
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
+"world to help you personalize your browsing experience—everything from fun visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
-msgstr ""
+msgstr "আপনার ব্রাউজিং দক্ষতা পারসোনালাইজ করতে হাজারও এড-অনস তৈরি করাছে ডেভেলোপররা — সব কিছুই শক্তিশালী টুলস এবং ফিচারই মজার থিমস দৃশ্যমান। এখানে আরো একটি আছে চেস্টা করতে। "
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
