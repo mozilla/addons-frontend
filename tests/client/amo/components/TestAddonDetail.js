@@ -1,0 +1,152 @@
+import React from 'react';
+import { findDOMNode } from 'react-dom';
+import {
+  findRenderedComponentWithType,
+  renderIntoDocument,
+} from 'react-addons-test-utils';
+
+import AddonDetail from 'amo/components/AddonDetail';
+import I18nProvider from 'core/i18n/Provider';
+import InstallButton from 'disco/components/InstallButton';
+
+import { getFakeI18nInst } from 'tests/client/helpers';
+
+
+export const fakeAddon = {
+  name: 'Chill Out',
+  slug: 'chill-out',
+  authors: [{
+    name: 'Krupa',
+    url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+  }],
+  summary: 'This is a summary of the chill out add-on',
+  description: 'This is a longer description of the chill out add-on',
+};
+
+function render({ addon = fakeAddon, ...customProps } = {}) {
+  const i18n = getFakeI18nInst();
+  const props = { i18n, addon, ...customProps };
+
+  return findRenderedComponentWithType(renderIntoDocument(
+    <I18nProvider i18n={i18n}>
+      <AddonDetail {...props} />
+    </I18nProvider>
+  ), AddonDetail);
+}
+
+function renderAsDOMNode(...args) {
+  const root = render(...args);
+  return findDOMNode(root);
+}
+
+describe('AddonDetail', () => {
+  it('renders a name', () => {
+    const rootNode = renderAsDOMNode();
+    assert.include(rootNode.querySelector('h1').textContent,
+                   'Chill Out');
+  });
+
+  it('renders a single author', () => {
+    const authorUrl = 'http://olympia.dev/en-US/firefox/user/krupa/';
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        authors: [{
+          name: 'Krupa',
+          url: authorUrl,
+        }],
+      },
+    });
+    assert.equal(rootNode.querySelector('h1').textContent,
+                 'Chill Out by Krupa');
+    assert.equal(rootNode.querySelector('h1 a').attributes.href.value,
+                 authorUrl);
+  });
+
+  it('renders multiple authors', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        authors: [{
+          name: 'Krupa',
+          url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+        }, {
+          name: 'Fligtar',
+          url: 'http://olympia.dev/en-US/firefox/user/fligtar/',
+        }],
+      },
+    });
+    assert.equal(rootNode.querySelector('h1').textContent,
+                 'Chill Out by Krupa, Fligtar');
+  });
+
+  it('configures the install button', () => {
+    const root = findRenderedComponentWithType(render(), InstallButton);
+    assert.equal(root.props.slug, fakeAddon.slug);
+  });
+
+  it('renders a summary', () => {
+    const rootNode = renderAsDOMNode();
+    assert.include(rootNode.querySelector('div.description').textContent,
+                   fakeAddon.summary);
+  });
+
+  it('sanitizes a summary', () => {
+    const scriptHTML = '<script>alert(document.cookie);</script>';
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        summary: scriptHTML,
+      },
+    });
+    // Make sure an actual script tag was not created.
+    assert.equal(rootNode.querySelector('div.description script'), null);
+    // Make sure the script HTML has been escaped and removed.
+    assert.notInclude(rootNode.querySelector('div.description').textContent,
+                      scriptHTML);
+  });
+
+  it('renders a description', () => {
+    const rootNode = renderAsDOMNode();
+    assert.include(rootNode.querySelector('section.about').textContent,
+                   fakeAddon.description);
+  });
+
+  it('sanitizes bad description HTML', () => {
+    const scriptHTML = '<script>alert(document.cookie);</script>';
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        description: scriptHTML,
+      },
+    });
+    // Make sure an actual script tag was not created.
+    assert.equal(rootNode.querySelector('section.about script'), null);
+    // Make sure the script HTML has been escaped and removed.
+    assert.notInclude(rootNode.querySelector('section.about').textContent,
+                      scriptHTML);
+  });
+
+  it('converts new lines in the description to breaks', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        description: '\n\n\n',
+      },
+    });
+    assert.equal(rootNode.querySelectorAll('section.about br').length, 3);
+  });
+
+  it('preserves certain HTML tags in the description', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        description: '<b>yep</b> <cite>yep</cite> <blockquote>yep</blockquote>',
+      },
+    });
+    assert.equal(rootNode.querySelectorAll('section.about b').length, 1);
+    assert.equal(rootNode.querySelectorAll('section.about cite').length, 1);
+    assert.equal(
+      rootNode.querySelectorAll('section.about blockquote').length, 1);
+  });
+});

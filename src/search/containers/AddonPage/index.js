@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
-import { fetchAddon } from 'core/api';
-import { loadEntities } from 'core/actions';
-import { gettext as _ } from 'core/utils';
+import { gettext as _, loadAddonIfNeeded } from 'core/utils';
 import NotFound from 'core/components/NotFound';
 import JsonData from 'search/components/JsonData';
 
@@ -125,20 +123,6 @@ function mapStateToProps(state, ownProps) {
     addon: state.addons[slug],
     slug,
   };
-}
-
-export function findAddon(state, slug) {
-  return state.addons[slug];
-}
-
-export function loadAddonIfNeeded({ store: { dispatch, getState }, params: { slug } }) {
-  const state = getState();
-  const addon = findAddon(state, slug);
-  if (addon) {
-    return addon;
-  }
-  return fetchAddon({ slug, api: state.api })
-    .then(({ entities }) => dispatch(loadEntities(entities)));
 }
 
 const CurrentAddonPage = asyncConnect([{

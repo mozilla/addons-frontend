@@ -2,11 +2,8 @@ import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
-import AddonPage, { findAddon, loadAddonIfNeeded } from 'search/containers/AddonPage';
+import AddonPage from 'search/containers/AddonPage';
 import createStore from 'search/store';
-import * as actions from 'core/actions';
-import * as api from 'core/api';
-import { unexpectedSuccess } from 'tests/client/helpers';
 
 describe('AddonPage', () => {
   const basicAddon = {
@@ -197,100 +194,5 @@ describe('AddonPage', () => {
     const initialState = { addons: { 'my-addon': basicAddon } };
     const root = render({ state: initialState, props: { params: { slug: 'other-addon' } } });
     assert(root.querySelector('h1').textContent.includes("we can't find what you're looking for"));
-  });
-
-  describe('findAddon', () => {
-    const addon = sinon.stub();
-    const state = {
-      addons: {
-        'the-addon': addon,
-      },
-    };
-
-    it('finds the add-on in the state', () => {
-      assert.strictEqual(findAddon(state, 'the-addon'), addon);
-    });
-
-    it('does not find the add-on in the state', () => {
-      assert.strictEqual(findAddon(state, 'different-addon'), undefined);
-    });
-  });
-
-  describe('loadAddonIfNeeded', () => {
-    const apiState = { token: 'my.jwt.token' };
-    const loadedSlug = 'my-addon';
-    let loadedAddon;
-    let dispatch;
-
-    beforeEach(() => {
-      loadedAddon = sinon.stub();
-      dispatch = sinon.spy();
-    });
-
-    function makeProps(slug) {
-      return {
-        store: {
-          getState: () => ({
-            addons: {
-              [loadedSlug]: loadedAddon,
-            },
-            api: apiState,
-          }),
-          dispatch,
-        },
-        params: { slug },
-      };
-    }
-
-    it('returns the add-on if loaded', () => {
-      assert.strictEqual(loadAddonIfNeeded(makeProps(loadedSlug)), loadedAddon);
-    });
-
-    it('loads the add-on if it is not loaded', () => {
-      const slug = 'other-addon';
-      const props = makeProps(slug, apiState);
-      const addon = sinon.stub();
-      const entities = { [slug]: addon };
-      const mockApi = sinon.mock(api);
-      mockApi
-        .expects('fetchAddon')
-        .once()
-        .withArgs({ slug, api: apiState })
-        .returns(Promise.resolve({ entities }));
-      const action = sinon.stub();
-      const mockActions = sinon.mock(actions);
-      mockActions
-        .expects('loadEntities')
-        .once()
-        .withArgs(entities)
-        .returns(action);
-      return loadAddonIfNeeded(props).then(() => {
-        assert(dispatch.calledWith(action), 'dispatch not called');
-        mockApi.verify();
-        mockActions.verify();
-      });
-    });
-
-    it('handles 404s when loading the add-on', () => {
-      const slug = 'other-addon';
-      const props = makeProps(slug, apiState);
-      const mockApi = sinon.mock(api);
-      mockApi
-        .expects('fetchAddon')
-        .once()
-        .withArgs({ slug, api: apiState })
-        .returns(Promise.reject(new Error('Error accessing API')));
-      const mockActions = sinon.mock(actions);
-      mockActions
-        .expects('loadEntities')
-        .never();
-      return loadAddonIfNeeded(props)
-        .then(unexpectedSuccess,
-          () => {
-            assert(!dispatch.called, 'dispatch called');
-            mockApi.verify();
-            mockActions.verify();
-          });
-    });
   });
 });
