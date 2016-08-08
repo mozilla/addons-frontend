@@ -7,10 +7,10 @@ describe('<JsonData />', () => {
   it('renders an object', () => {
     const obj = { foo: 'bar', baz: 'quux' };
     const pre = findDOMNode(renderIntoDocument(<JsonData data={obj} />)).querySelector('pre');
-    assert.equal(pre.textContent, `{
-  "foo": "bar",
-  "baz": "quux"
-}`);
+    assert.equal(pre.textContent, dedent`{
+      "foo": "bar",
+      "baz": "quux"
+    }`);
   });
 
   it('shows the JSON when the button is clicked', () => {

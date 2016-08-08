@@ -10,7 +10,7 @@ export default class JsonData extends React.Component {
 
   constructor() {
     super();
-    this.state = {isVisible: false};
+    this.state = { isVisible: false };
   }
 
   toggle = () => {
@@ -22,9 +22,9 @@ export default class JsonData extends React.Component {
     const { isVisible } = this.state;
     const buttonText = isVisible ? 'Hide JSON' : 'Show JSON';
     return (
-      <div className={classNames('JsonData', {'JsonData-visible': isVisible})}>
+      <div className={classNames('JsonData', { 'JsonData-visible': isVisible })}>
         <button className="JsonData-toggle" onClick={this.toggle}>{buttonText}</button>
-        <pre className="JsonData-json">{JSON.stringify(this.props.data, undefined, 2)}</pre>
+        <pre className="JsonData-json">{JSON.stringify(this.props.data, null, 2)}</pre>
       </div>
     );
   }
