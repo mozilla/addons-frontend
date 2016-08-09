@@ -22,6 +22,7 @@ button.button {
   &:hover,
   &:focus {
     background: $button-background-hover-color;
+    color: white;
   }
 
   &:focus {
@@ -37,6 +38,21 @@ button.button {
   &.warning {
     background: $warning;
   }
+}
+
+.button.button-middle {
+  border-radius: 0;
+}
+
+.button.button-end {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.button.button-inverse {
+  background: transparent;
+  border: 1px solid $button-background-color;
+  color: $button-background-color;
 }
 
 button.button::-moz-focus-inner {
