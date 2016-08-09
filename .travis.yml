@@ -16,5 +16,6 @@ before_script:
 - if [ $GUI ]; then export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start && sleep 3; fi
 script:
 - npm run $TASK
+- tox -e discopane-ui-tests -- --base-url http://localhost:4000
 addons:
   firefox: latest
