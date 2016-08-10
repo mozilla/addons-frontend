@@ -1,125 +1,128 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-02 15:08+0000\n"
-"PO-Revision-Date: 2016-05-20 11:26+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-08-10 18:51+0000\n"
+"Last-Translator: Alfredos-Panagiotis Damkalis <fredy@fredy.gr>\n"
 "Language-Team: none\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
 
 #: src/disco/components/Addon.js:112
 msgid "Close"
-msgstr ""
+msgstr "Κλείσιμο"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Περάστε από πάνω τον κέρσορα για προεπισκόπηση ή κάντε κλικ για εγκατάσταση του %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Μετακινήστε τον κέρσορα πάνω από την εικόνα για προεπισκόπηση"
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Αποτυχία εγκατάστασης. Παρακαλώ προσπαθήστε ξανά."
 
 #: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Αποτυχία λήψης. Παρακαλώ ελέγξτε τη σύνδεσή σας."
 
 #: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την εγκατάσταση."
 
 #: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την απεγκατάσταση."
 
 #: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Προέκυψε ένα απροσδόκητο σφάλμα."
 
 #: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Αυτό το πρόσθετο θα απεγκατασταθεί αφού επανεκκινήσετε το Firefox."
 
 #: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Παρακαλώ επανεκκινήστε το Firefox για χρήση του πρόσθετου."
 
 #: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Το πρόσθετό σας είναι έτοιμο"
 
 #: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Μπορείτε πλέον να έχετε πρόσβαση στο %(name)s από τη γραμμή εργαλείων."
 
 #: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
 msgid "OK!"
-msgstr ""
+msgstr "ΟΚ!"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Λήψη %(name)s."
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Εγκατάσταση %(name)s."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "Το %(name)s είναι εγκατεστημένο και ενεργοποιημένο. Κάντε κλικ για απεγκατάσταση."
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "Το %(name)s είναι απενεργοποιημένο. Κάντε κλικ για ενεργοποίηση."
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Απεγκατάσταση %(name)s."
 
 #: src/disco/components/InstallButton.js:66
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ για εγκατάσταση."
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Η κατάσταση εγκατάστασης για το %(name)s είναι άγνωστη."
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Ανακάλυψη πρόσθετων"
 
 #: src/disco/containers/DiscoPane.js:100
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Εξατομίκευση Firefox"
 
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
+"world to help you personalize your browsing experience—everything from fun visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
+"Υπάρχουν χιλιάδες πρόσθετα που δημιουργούνται από προγραμματιστές απ' όλο τον κόσμο για να σας βοηθήσουν να εξατομικεύσετε την εμπειρία της περιήγησής σας—τα πάντα από διασκεδαστικά θέματα εμφάνισης"
+" μέχρι ισχυρά εργαλεία και δυνατότητες. Ορίστε μερικά υπέροχα για να δοκιμάσετε."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
-msgstr ""
+msgstr "Κάντε κλικ για αναπαραγωγή"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "για να μάθετε περισσότερα σχετικά με τα πρόσθετα"
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
-msgstr ""
+msgstr "Κλείσιμο βίντεο"
 
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Προβολή περισσότερων προσθέτων!"
