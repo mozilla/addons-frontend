@@ -1,10 +1,16 @@
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
-import SearchForm from 'search/components/SearchForm';
+import * as actions from 'core/actions';
+import * as coreApi from 'core/api';
+import { SearchForm, mapDispatchToProps, mapStateToProps } from 'search/components/SearchForm';
+
+const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
 describe('<SearchForm />', () => {
   const pathname = '/somewhere';
+  let api;
+  let loadAddon;
   let router;
   let root;
   let form;
@@ -20,12 +26,14 @@ describe('<SearchForm />', () => {
     }
 
     render() {
-      return <SearchForm pathname={pathname} ref="root" />;
+      return <SearchForm pathname={pathname} api={api} loadAddon={loadAddon} ref="root" />;
     }
   }
 
   beforeEach(() => {
     router = { push: sinon.spy() };
+    loadAddon = sinon.stub();
+    api = sinon.stub();
     root = renderIntoDocument(<SearchFormWrapper />).refs.root;
     form = root.refs.form;
     input = root.refs.query;
@@ -45,5 +53,66 @@ describe('<SearchForm />', () => {
     input.value = 'adblock';
     Simulate.submit(form);
     assert(router.push.calledWith('/somewhere?q=adblock'));
+  });
+
+  it('looks up the add-on to see if you are lucky', () => {
+    loadAddon.returns(Promise.resolve('adblock'));
+    input.value = 'adblock@adblock.com';
+    Simulate.click(root.refs.go);
+    assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
+  });
+
+  it('redirects to the add-on if you are lucky', () => {
+    loadAddon.returns(Promise.resolve('adblock'));
+    assert(!router.push.called);
+    input.value = 'adblock@adblock.com';
+    Simulate.click(root.refs.go);
+    return wait(1)
+      .then(() => assert(router.push.calledWith('/search/addons/adblock')));
+  });
+
+  it('searches if it is not found', () => {
+    loadAddon.returns(Promise.reject());
+    input.value = 'adblock@adblock.com';
+    Simulate.click(root.refs.go);
+    return wait(1)
+      .then(() => assert(router.push.calledWith('/somewhere?q=adblock@adblock.com')));
+  });
+});
+
+describe('SearchForm mapStateToProps', () => {
+  it('passes the api through', () => {
+    const api = { lang: 'de', token: 'someauthtoken' };
+    assert.deepEqual(mapStateToProps({ foo: 'bar', api }), { api });
+  });
+});
+
+describe('SearchForm loadAddon', () => {
+  it('fetches the add-on', () => {
+    const slug = 'the-slug';
+    const api = { token: 'foo' };
+    const dispatch = sinon.stub();
+    const addon = sinon.stub();
+    const entities = { [slug]: addon };
+    const mockApi = sinon.mock(coreApi);
+    mockApi
+      .expects('fetchAddon')
+      .once()
+      .withArgs({ slug, api })
+      .returns(Promise.resolve({ entities }));
+    const action = sinon.stub();
+    const mockActions = sinon.mock(actions);
+    mockActions
+      .expects('loadEntities')
+      .once()
+      .withArgs(entities)
+      .returns(action);
+    const { loadAddon } = mapDispatchToProps(dispatch);
+    return loadAddon({ api, query: slug })
+      .then(() => {
+        assert(dispatch.calledWith(action));
+        mockApi.verify();
+        mockActions.verify();
+      });
   });
 });
