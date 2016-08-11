@@ -1,3 +1,8 @@
+sudo: required
+services:
+  - docker
+addons:
+  firefox: "latest"
 language: node_js
 node_js:
 - '4'
@@ -6,17 +11,22 @@ env:
   - TASK=lint
   - TASK=unittest GUI=1
   - TASK=servertest
-  - TASK=tox TOXENV=discopane-ui-tests
+  - TASK=tox TOXENV=discopane-ui-tests GUI=1
 cache:
   directories:
   - node_modules
 before_install:
 - npm install -g npm@3
 - npm --version
+- sudo pip install tox
+- wget "https://github.com/mozilla/geckodriver/releases/download/v0.9.0/geckodriver-v0.9.0-linux64.tar.gz"
+- gunzip -c geckodriver-v0.9.0-linux64.tar.gz | tar xopf -
+- chmod +x geckodriver
+- sudo mv geckodriver /usr/local/bin/wires
 before_script:
 - if [ $GUI ]; then export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start && sleep 3; fi
 script:
-- if [[ $TASK == 'tox' ]]; then tox -- --base-url http://localhost:4000; fi
+- if [[ $TASK == 'tox' ]]; then docker run -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests $(docker build -q .) /bin/sh -c "npm run build && npm run start" && sleep 60 && tox -- --driver Firefox --base-url http://localhost:4000; fi
 - if [[ $TASK != 'tox' ]]; then npm run $TASK; fi
 addons:
   firefox: latest
