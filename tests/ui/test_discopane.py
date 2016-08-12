@@ -32,7 +32,7 @@ def discovery_pane(selenium, base_url):
     return DiscoveryPane(selenium, base_url).open()
 
 
-@pytest.mark.skipif(
+@pytest.mark.xfail(
     'localhost' in pytest.config.getoption('base_url'),
     reason='Add-ons cannot be installed without SSL on local')
 @pytest.mark.nondestructive
