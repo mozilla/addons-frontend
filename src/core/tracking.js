@@ -9,6 +9,7 @@ export class Tracking {
 
   constructor({ trackingId, trackingEnabled, _log = log } = {}) {
     if (typeof window === 'undefined') {
+      /* istanbul ignore next */
       return;
     }
     this._log = _log;
