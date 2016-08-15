@@ -1,5 +1,7 @@
 // Karma configuration
-/* eslint-disable max-len, no-console */
+/* eslint-disable max-len, no-console, strict */
+'use strict';
+
 require('babel-register');
 
 const fs = require('fs');
@@ -28,6 +30,30 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
     // Use the browser's window for window.
     new webpack.NormalModuleReplacementPlugin(/core\/window/, 'core/browserWindow.js'),
+    // Plugin to show any webpack warnings and prevent tests from running
+    // Based on: https://gist.github.com/Stuk/6b574049435df532e905
+    function WebpackWarningPlugin() {
+      this.plugin('done', (_stats) => {
+        const stats = _stats;
+        let flagError;
+
+        if (stats.compilation.warnings.length) {
+          // Log each of the warnings
+          stats.compilation.warnings.forEach((_warning) => {
+            const warning = _warning.message || _warning || '';
+            if (warning.indexOf('SyntaxError') > -1) {
+              console.log(warning);
+              flagError = true;
+            }
+          });
+
+          // Bail if syntax errors were encountered.
+          if (flagError) {
+            throw new Error('Syntax error encountered, bailing');
+          }
+        }
+      });
+    },
   ],
   devtool: 'inline-source-map',
   module: {
