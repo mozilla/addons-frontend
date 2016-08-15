@@ -58,7 +58,8 @@ class AddonDetail extends React.Component {
             <LikeButton />
           </div>
           <div className="title">
-            <h1>{addon.name} <span className="author">by {authorList}</span>
+            <h1>
+              {addon.name} <span className="author">{i18n.gettext('by')} {authorList}</span>
             </h1>
             <InstallButton slug={addon.slug} />
           </div>
