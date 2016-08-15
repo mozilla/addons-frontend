@@ -8,6 +8,7 @@ import {
   getClientConfig,
   isValidClientApp,
   loadAddonIfNeeded,
+  nl2br,
 } from 'core/utils';
 
 import { unexpectedSuccess } from 'tests/client/helpers';
@@ -306,5 +307,27 @@ describe('loadAddonIfNeeded', () => {
           mockApi.verify();
           mockActions.verify();
         });
+  });
+});
+
+describe('nl2br', () => {
+  it('converts \n to <br/>', () => {
+    assert.equal(nl2br('\n'), '<br />');
+  });
+
+  it('converts \r to <br/>', () => {
+    assert.equal(nl2br('\r'), '<br />');
+  });
+
+  it('converts \r\n to <br/>', () => {
+    assert.equal(nl2br('\r\n'), '<br />');
+  });
+
+  it('converts \n\n to <br/>', () => {
+    assert.equal(nl2br('\n\n'), '<br /><br />');
+  });
+
+  it('converts \r\n\r\n to <br/>', () => {
+    assert.equal(nl2br('\r\n\r\n'), '<br /><br />');
   });
 });
