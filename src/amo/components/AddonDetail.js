@@ -26,7 +26,7 @@ class AddonDetail extends React.Component {
     const authorList = [];
     for (const author of addon.authors) {
       authorList.push(<a key={author.url} href={author.url}>{author.name}</a>);
-      authorList.push(<span key={`${author.url}-comma`}>, </span>);
+      authorList.push(', ');
     }
     if (authorList.length) {
       // Remove the trailing comma.
