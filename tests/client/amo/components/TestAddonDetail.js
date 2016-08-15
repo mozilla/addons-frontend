@@ -156,4 +156,17 @@ describe('AddonDetail', () => {
         `${tagToCheck} tag was not whitelisted`);
     }
   });
+
+  it('strips dangerous HTML tag attributes from description', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        description:
+          '<a href="javascript:alert(document.cookie)" onclick="sneaky()">placeholder</a>',
+      },
+    });
+    const anchor = rootNode.querySelector('section.about a');
+    assert.equal(anchor.attributes.onclick, null);
+    assert.equal(anchor.attributes.href, null);
+  });
 });
