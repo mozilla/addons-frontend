@@ -5,7 +5,8 @@ import {
   renderIntoDocument,
 } from 'react-addons-test-utils';
 
-import AddonDetail from 'amo/components/AddonDetail';
+import AddonDetail, { allowedDescriptionTags }
+  from 'amo/components/AddonDetail';
 import I18nProvider from 'core/i18n/Provider';
 import InstallButton from 'disco/components/InstallButton';
 
@@ -138,15 +139,21 @@ describe('AddonDetail', () => {
   });
 
   it('preserves certain HTML tags in the description', () => {
+    let description = '';
+    const allowedTags = [...allowedDescriptionTags];
+    // Ignore <br/> since it's checked elsewhere.
+    allowedTags.splice(allowedTags.indexOf('br'), 1);
+
+    for (const tag of allowedTags) {
+      description = `${description} <${tag}>placeholder</${tag}>`;
+    }
     const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        description: '<b>yep</b> <cite>yep</cite> <blockquote>yep</blockquote>',
-      },
+      addon: { ...fakeAddon, description },
     });
-    assert.equal(rootNode.querySelectorAll('section.about b').length, 1);
-    assert.equal(rootNode.querySelectorAll('section.about cite').length, 1);
-    assert.equal(
-      rootNode.querySelectorAll('section.about blockquote').length, 1);
+    for (const tagToCheck of allowedTags) {
+      assert.equal(
+        rootNode.querySelectorAll(`section.about ${tagToCheck}`).length, 1,
+        `${tagToCheck} tag was not whitelisted`);
+    }
   });
 });

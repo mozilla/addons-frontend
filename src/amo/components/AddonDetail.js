@@ -11,6 +11,22 @@ import { nl2br, sanitizeHTML } from 'core/utils';
 
 import 'amo/css/AddonDetail.scss';
 
+export const allowedDescriptionTags = [
+  'a',
+  'abbr',
+  'acronym',
+  'b',
+  'blockquote',
+  'br',
+  'code',
+  'em',
+  'i',
+  'li',
+  'ol',
+  'strong',
+  'ul',
+];
+
 class AddonDetail extends React.Component {
   static propTypes = {
     i18n: PropTypes.object,
@@ -68,7 +84,7 @@ class AddonDetail extends React.Component {
         <section className="about">
           <h2>{i18n.gettext('About this extension')}</h2>
           <div dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.description),
-                                                     ['b', 'br', 'blockquote', 'cite'])}>
+                                                     allowedDescriptionTags)}>
           </div>
         </section>
       </div>
