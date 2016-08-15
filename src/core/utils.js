@@ -67,15 +67,6 @@ export function isValidClientApp(value, { _config = config } = {}) {
   return _config.get('validClientApplications').includes(value);
 }
 
-purify.addHook('afterSanitizeAttributes', (node) => {
-  // Set all elements owning target to target=_blank
-  // and add rel="noreferrer".
-  if ('target' in node) {
-    node.setAttribute('target', '_blank');
-    node.setAttribute('rel', 'noreferrer');
-  }
-});
-
 export function sanitizeHTML(text, allowTags = []) {
   // TODO: Accept tags to allow and run through dom-purify.
   return {
