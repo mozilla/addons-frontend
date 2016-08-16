@@ -18,6 +18,7 @@ const coverageReporters = [{
   type: 'text-summary',
 }];
 
+babelQuery.plugins.push(['istanbul', { include: 'src/**' }]);
 
 const newWebpackConfig = Object.assign({}, webpackConfigProd, {
   plugins: [
@@ -57,12 +58,6 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
   ],
   devtool: 'inline-source-map',
   module: {
-    preLoaders: [{
-      test: /\.jsx?$/,
-      loader: 'babel-istanbul',
-      include: /src\//,
-      exclude: /node_modules/,
-    }],
     loaders: [
       {
         test: /\.jsx?$/,

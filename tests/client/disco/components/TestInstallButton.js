@@ -25,6 +25,7 @@ describe('<InstallButton />', () => {
   function renderButton(props = {}) {
     const renderProps = {
       dispatch: sinon.spy(),
+      enable: sinon.spy(),
       install: sinon.spy(),
       installTheme: sinon.spy(),
       uninstall: sinon.spy(),
@@ -182,6 +183,18 @@ describe('<InstallButton />', () => {
     const root = findDOMNode(button);
     Simulate.click(root);
     assert(install.calledWith());
+  });
+
+  it('should call enable function on click when uninstalled', () => {
+    const guid = '@foo';
+    const name = 'hai';
+    const enable = sinon.spy();
+    const i18n = getFakeI18nInst();
+    const installURL = 'https://my.url/download';
+    const button = renderButton({ guid, i18n, enable, installURL, name, status: DISABLED });
+    const root = findDOMNode(button);
+    Simulate.click(root);
+    assert(enable.calledWith());
   });
 
   it('should call uninstall function on click when installed', () => {
