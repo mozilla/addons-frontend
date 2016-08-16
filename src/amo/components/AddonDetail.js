@@ -41,7 +41,7 @@ class AddonDetail extends React.Component {
     const { i18n, addon } = this.props;
 
     const authorList = addon.authors.map(
-      (author) => `<a href=${author.url}>${author.name}</a>`);
+      (author) => `<a href="${author.url}">${author.name}</a>`);
 
     const title = i18n.sprintf(
       // L10n: Example: The Add-On <span>by The Author</span>
