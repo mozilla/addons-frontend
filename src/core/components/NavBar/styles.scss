@@ -1,0 +1,29 @@
+.NavBar {
+  align-items: center;
+  justify-content: space-between;
+  background: #444;
+  display: flex;
+  height: 50px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.NavBarLink {
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  min-width: 50px;
+  padding: 0 10px;
+  text-decoration: none;
+  transition: 200ms;
+
+  &:hover {
+    background-color: #fff;
+    color: #444;
+    cursor: pointer;
+  }
+}
