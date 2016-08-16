@@ -30,6 +30,11 @@ $addon-padding: 20px;
     }
   }
 
+  &.extension span {
+      display: block;
+      padding-top: 3px;
+  }
+
   .theme-image {
     display: block;
     overflow: hidden;
@@ -124,7 +129,6 @@ $addon-padding: 20px;
     // This only corresponds to the link for add-ons not themes which is all a link.
     span {
       color: $secondary-font-color;
-      display: block;
       font-size: 10px;
       font-weight: normal;
 

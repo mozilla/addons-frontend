@@ -216,6 +216,7 @@ export class Addon extends React.Component {
 
     const addonClasses = classNames('addon', {
       theme: type === THEME_TYPE,
+      extension: type === EXTENSION_TYPE,
     });
 
     return (
