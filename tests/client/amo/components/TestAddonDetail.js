@@ -81,6 +81,36 @@ describe('AddonDetail', () => {
                  'Chill Out by Krupa, Fligtar');
   });
 
+  it('sanitizes a title', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        name: '<script>alert(document.cookie);</script>',
+      },
+    });
+    // Make sure an actual script tag was not created.
+    assert.equal(rootNode.querySelector('h1 script'), null);
+    // Make sure the script HTML has been escaped and removed.
+    assert.notInclude(rootNode.querySelector('h1').textContent, 'script');
+  });
+
+  it('allows certain HTML tags in the title', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        authors: [{
+          name: 'Krupa',
+          url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+        }],
+      },
+    });
+    // Make sure these tags were whitelisted.
+    assert.equal(rootNode.querySelector('h1 span a').textContent, 'Krupa');
+    // Make sure the santizer didn't strip the class attribute:
+    const byLine = rootNode.querySelector('h1 span');
+    assert.ok(byLine.attributes.class, 'the class attribute is not empty');
+  });
+
   it('configures the install button', () => {
     const root = findRenderedComponentWithType(render(), InstallButton);
     assert.equal(root.props.slug, fakeAddon.slug);

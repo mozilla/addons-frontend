@@ -39,15 +39,18 @@ class AddonDetail extends React.Component {
 
   render() {
     const { i18n, addon } = this.props;
-    const authorList = [];
-    for (const author of addon.authors) {
-      authorList.push(<a key={author.url} href={author.url}>{author.name}</a>);
-      authorList.push(', ');
-    }
-    if (authorList.length) {
-      // Remove the trailing comma.
-      authorList.pop();
-    }
+
+    const authorList = addon.authors.map(
+      (author) => `<a href=${author.url}>${author.name}</a>`);
+
+    const title = i18n.sprintf(
+      // L10n: Example: The Add-On <span>by The Author</span>
+      i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
+        addonName: addon.name,
+        authorList: authorList.join(', '),
+        startSpan: '<span class="author">',
+        endSpan: '</span>',
+      });
 
     return (
       <div className="AddonDetail">
@@ -58,9 +61,7 @@ class AddonDetail extends React.Component {
             <LikeButton />
           </div>
           <div className="title">
-            <h1>
-              {addon.name} <span className="author">{i18n.gettext('by')} {authorList}</span>
-            </h1>
+            <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}></h1>
             <InstallButton slug={addon.slug} />
           </div>
           <div className="description">
