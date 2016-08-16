@@ -1,6 +1,11 @@
 import camelCase from 'camelcase';
 import config from 'config';
 
+import { loadEntities } from 'core/actions';
+import { fetchAddon } from 'core/api';
+import log from 'core/logger';
+import purify from 'core/purify';
+
 export function gettext(str) {
   return str;
 }
@@ -60,4 +65,40 @@ export function getClientApp(userAgentString) {
 
 export function isValidClientApp(value, { _config = config } = {}) {
   return _config.get('validClientApplications').includes(value);
+}
+
+export function sanitizeHTML(text, allowTags = []) {
+  // TODO: Accept tags to allow and run through dom-purify.
+  return {
+    __html: purify.sanitize(text, { ALLOWED_TAGS: allowTags }),
+  };
+}
+
+// Convert new lines to HTML breaks.
+export function nl2br(text) {
+  return text.replace(/(?:\r\n|\r|\n)/g, '<br />');
+}
+
+export function findAddon(state, slug) {
+  return state.addons[slug];
+}
+
+// asyncConnect() helper for loading an add-on by slug.
+//
+// This accepts component properties and returns a promise
+// that resolves when the requested add-on has been dispatched.
+// If the add-on has already been fetched, the add-on value is returned.
+//
+export function loadAddonIfNeeded(
+  { store: { dispatch, getState }, params: { slug } }
+) {
+  const state = getState();
+  const addon = findAddon(state, slug);
+  if (addon) {
+    log.info(`Found addon ${addon.id} in state`);
+    return addon;
+  }
+  log.info(`Fetching addon ${slug} from API`);
+  return fetchAddon({ slug, api: state.api })
+    .then(({ entities }) => dispatch(loadEntities(entities)));
 }

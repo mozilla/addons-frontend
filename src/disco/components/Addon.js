@@ -4,8 +4,8 @@ import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import translate from 'core/i18n/translate';
-import purify from 'core/purify';
 
+import { sanitizeHTML } from 'core/utils';
 import config from 'config';
 import themeAction, { getThemeData } from 'disco/themePreview';
 import tracking from 'core/tracking';
@@ -43,22 +43,6 @@ import {
 } from 'disco/constants';
 
 import 'disco/css/Addon.scss';
-
-purify.addHook('afterSanitizeAttributes', (node) => {
-  // Set all elements owning target to target=_blank
-  // and add rel="noreferrer".
-  if ('target' in node) {
-    node.setAttribute('target', '_blank');
-    node.setAttribute('rel', 'noreferrer');
-  }
-});
-
-function sanitizeHTML(text, allowTags = []) {
-  // TODO: Accept tags to allow and run through dom-purify.
-  return {
-    __html: purify.sanitize(text, { ALLOWED_TAGS: allowTags }),
-  };
-}
 
 export class Addon extends React.Component {
   static propTypes = {
