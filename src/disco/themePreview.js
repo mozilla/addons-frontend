@@ -1,4 +1,4 @@
-import { validThemeActions } from 'disco/constants';
+import { validThemeActions } from 'core/constants';
 
 export default function themeAction(node, action, _doc = document) {
   if (!validThemeActions.includes(action)) {

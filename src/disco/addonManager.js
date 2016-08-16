@@ -3,9 +3,11 @@ import log from 'core/logger';
 import {
   globalEvents,
   globalEventStatusMap,
-  installEventList,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'disco/constants';
+import {
+  installEventList,
+} from 'core/constants';
 
 
 export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonManager } = {}) {

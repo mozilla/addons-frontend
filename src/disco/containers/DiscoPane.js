@@ -11,10 +11,10 @@ import { discoResults } from 'disco/actions';
 import { loadEntities } from 'core/actions';
 import { addChangeListeners } from 'disco/addonManager';
 import {
-  INSTALL_STATE,
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
 } from 'disco/constants';
+import { INSTALL_STATE } from 'core/constants';
 
 import Addon from 'disco/components/Addon';
 import InfoDialog from 'disco/components/InfoDialog';

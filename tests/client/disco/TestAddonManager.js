@@ -1,8 +1,8 @@
 import * as addonManager from 'disco/addonManager';
 import { unexpectedSuccess } from 'tests/client/helpers';
+import { installEventList } from 'core/constants';
 import {
   globalEventStatusMap,
-  installEventList,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'disco/constants';
 

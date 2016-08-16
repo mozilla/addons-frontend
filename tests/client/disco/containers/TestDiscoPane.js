@@ -8,6 +8,8 @@ import createStore from 'disco/store';
 import {
   EXTENSION_TYPE,
   INSTALL_STATE,
+} from 'core/constants';
+import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
   globalEvents,

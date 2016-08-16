@@ -1,5 +1,5 @@
 import themeAction from 'disco/themePreview';
-import { THEME_PREVIEW } from 'disco/constants';
+import { THEME_PREVIEW } from 'core/constants';
 
 
 describe('Theme Preview Lib', () => {

@@ -4,7 +4,7 @@ import { findDOMNode } from 'react-dom';
 
 import {
   InstallButton,
-} from 'disco/components/InstallButton';
+} from 'core/components/InstallButton';
 import {
   DISABLED,
   DISABLING,
@@ -17,7 +17,7 @@ import {
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
-} from 'disco/constants';
+} from 'core/constants';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 

@@ -14,10 +14,10 @@ import {
   UNKNOWN,
   validAddonTypes,
   validInstallStates as validStates,
-} from 'disco/constants';
+} from 'core/constants';
 import { getThemeData } from 'disco/themePreview';
 
-import 'disco/css/InstallButton.scss';
+import './InstallButton.scss';
 
 export class InstallButton extends React.Component {
   static propTypes = {

@@ -10,7 +10,7 @@ import {
   UNINSTALLED,
   UNINSTALL_COMPLETE,
   acceptedInstallTypes,
-} from 'disco/constants';
+} from 'core/constants';
 
 
 export default function installations(state = {}, { type, payload }) {

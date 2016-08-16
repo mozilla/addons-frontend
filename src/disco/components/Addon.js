@@ -12,9 +12,8 @@ import tracking from 'core/tracking';
 import * as addonManager from 'disco/addonManager';
 import log from 'core/logger';
 
-import InstallButton from 'disco/components/InstallButton';
+import InstallButton from 'core/components/InstallButton';
 import {
-  CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
@@ -24,12 +23,9 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_CATEGORY,
   INSTALL_ERROR,
   INSTALL_FAILED,
   INSTALL_STATE,
-  SET_ENABLE_NOT_AVAILABLE,
-  SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
   THEME_PREVIEW,
@@ -37,9 +33,15 @@ import {
   THEME_TYPE,
   UNINSTALLED,
   UNINSTALLING,
-  UNINSTALL_CATEGORY,
   validAddonTypes,
   validInstallStates,
+} from 'core/constants';
+import {
+  CLOSE_INFO,
+  INSTALL_CATEGORY,
+  SET_ENABLE_NOT_AVAILABLE,
+  SHOW_INFO,
+  UNINSTALL_CATEGORY,
 } from 'disco/constants';
 
 import 'disco/css/Addon.scss';
