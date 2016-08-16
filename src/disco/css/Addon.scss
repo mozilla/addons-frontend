@@ -17,7 +17,7 @@ $addon-padding: 20px;
   }
 
   .editorial-description {
-    color: $secondary-font-color;
+    color: $header-copy-font-color;
     font-size: 12px;
     margin: 0.75em 0;
   }
@@ -28,6 +28,11 @@ $addon-padding: 20px;
     .content .copy {
       padding: 20px;
     }
+  }
+
+  &.extension span {
+    display: block;
+    padding-top: 3px;
   }
 
   .theme-image {
@@ -101,7 +106,7 @@ $addon-padding: 20px;
   }
 
   .heading {
-    color: $primary-font-color;
+    color: $header-copy-font-color;
     font-size: 14px;
     line-height: 1.2;
     font-weight: medium;
@@ -112,18 +117,19 @@ $addon-padding: 20px;
     a:focus,
     a:hover,
     a:active {
-      color: $primary-font-color;
-      text-decoration: none;
+      color: $header-copy-font-color;
+      text-decoration: underline;
     }
 
     a:focus,
     a:hover {
-      text-decoration: underline;
+      color: $link-hover-color;
     }
 
+    // This only corresponds to the link for add-ons not themes which is all a link.
     span {
       color: $secondary-font-color;
-      font-size: 14px;
+      font-size: 10px;
       font-weight: normal;
 
       a:link,
@@ -132,19 +138,12 @@ $addon-padding: 20px;
       a:hover,
       a:active {
         color: $secondary-font-color;
-        text-decoration: none;
       }
 
       a:focus,
       a:hover {
-        text-decoration: underline;
+        color: $link-hover-color;
       }
-    }
-  }
-
-  @include respond-to('large') {
-    .heading {
-      font-size: 18px;
     }
   }
 
