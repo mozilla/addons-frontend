@@ -323,11 +323,11 @@ describe('nl2br', () => {
     assert.equal(nl2br('\r\n'), '<br />');
   });
 
-  it('converts \n\n to <br/>', () => {
+  it('converts multiple new lines to multiple breaks', () => {
     assert.equal(nl2br('\n\n'), '<br /><br />');
   });
 
-  it('converts \r\n\r\n to <br/>', () => {
+  it('converts multiple new lines (Windows) to multiple breaks', () => {
     assert.equal(nl2br('\r\n\r\n'), '<br /><br />');
   });
 });
