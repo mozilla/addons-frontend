@@ -38,11 +38,6 @@ export const FATAL_ERROR = 'FATAL_ERROR';
 export const API_THEME_TYPE = 'persona';
 export const EXTENSION_TYPE = 'extension';
 export const THEME_TYPE = 'theme';
-// These types are not used.
-// export const DICT_TYPE = 'dictionary';
-// export const SEARCH_TYPE = 'search';
-// export const LPAPP_TYPE = 'language';
-// export const PERSONA_TYPE = 'persona';
 export const validAddonTypes = [
   EXTENSION_TYPE,
   THEME_TYPE,
