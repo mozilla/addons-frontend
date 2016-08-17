@@ -58,5 +58,5 @@ module.exports = {
   // stand-in for the ui-tour.
   useUiTour: false,
 
-  po2jsonFuzzyOutput: true,
+  po2jsonFuzzyOutput: false,
 };
