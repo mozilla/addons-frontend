@@ -4,7 +4,7 @@ import translate from 'core/i18n/translate';
 
 import 'amo/css/AddonMeta.scss';
 
-export class AddonMeta extends React.Component {
+export class AddonMetaBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object,
   }
@@ -34,4 +34,4 @@ export class AddonMeta extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(AddonMeta);
+export default translate({ withRef: true })(AddonMetaBase);

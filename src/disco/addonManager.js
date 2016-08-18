@@ -1,5 +1,4 @@
 import log from 'core/logger';
-
 import {
   globalEvents,
   globalEventStatusMap,

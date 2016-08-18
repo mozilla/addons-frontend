@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { gettext as _ } from 'core/utils';
 
 export default class NotFound extends React.Component {

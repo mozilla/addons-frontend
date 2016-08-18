@@ -1,7 +1,8 @@
 import React from 'react';
 
 import App from 'search/containers/App';
-import { shallowRender } from 'tests/client/helpers';
+
+import { shallowRender } from '../../helpers';
 
 describe('App', () => {
   it('renders its children', () => {

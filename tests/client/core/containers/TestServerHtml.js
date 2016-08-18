@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import React, { PropTypes } from 'react';
-
 import { findRenderedDOMComponentWithTag, renderIntoDocument } from 'react-addons-test-utils';
+
 import ServerHtml from 'core/containers/ServerHtml';
 
 describe('<ServerHtml />', () => {

@@ -5,10 +5,10 @@ import {
   renderIntoDocument,
 } from 'react-addons-test-utils';
 
-import App from 'disco/containers/App';
 import I18nProvider from 'core/i18n/Provider';
+import App from 'disco/containers/App';
 
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst } from '../../helpers';
 
 
 describe('App', () => {

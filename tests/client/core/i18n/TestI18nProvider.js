@@ -1,13 +1,14 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Component, PropTypes } from 'react';
-
-import I18nProvider from 'core/i18n/Provider';
-import translate from 'core/i18n/translate';
-import { getFakeI18nInst } from 'tests/client/helpers';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
 } from 'react-addons-test-utils';
+
+import I18nProvider from 'core/i18n/Provider';
+import translate from 'core/i18n/translate';
+
+import { getFakeI18nInst } from '../../helpers';
 
 
 class OuterComponent extends Component {

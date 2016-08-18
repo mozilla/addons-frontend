@@ -10,7 +10,7 @@ import AddonDetail, { allowedDescriptionTags }
 import I18nProvider from 'core/i18n/Provider';
 import InstallButton from 'core/components/InstallButton';
 
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst } from '../../helpers';
 
 
 export const fakeAddon = {

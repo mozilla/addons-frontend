@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
+
 import SearchResult from 'search/components/SearchResult';
 
 describe('<SearchResult />', () => {

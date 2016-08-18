@@ -4,7 +4,7 @@ import translate from 'core/i18n/translate';
 
 import 'amo/css/LikeButton.scss';
 
-export class LikeButton extends React.Component {
+export class LikeButtonBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object,
   }
@@ -21,4 +21,4 @@ export class LikeButton extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(LikeButton);
+export default translate({ withRef: true })(LikeButtonBase);

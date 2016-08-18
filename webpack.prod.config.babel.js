@@ -1,17 +1,17 @@
-/* eslint-disable max-len */
-
-import autoprefixer from 'autoprefixer';
+/* eslint-disable max-len, import/no-extraneous-dependencies */
 import path from 'path';
 
+import autoprefixer from 'autoprefixer';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
-import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
-import webpack from 'webpack';
-
 import SriStatsPlugin from 'sri-stats-webpack-plugin';
+import webpack from 'webpack';
+import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
 import { getClientConfig } from 'core/utils';
+
+import webpackIsomorphicToolsConfig
+  from './src/core/server/webpack-isomorphic-tools-config';
 
 const clientConfig = getClientConfig(config);
 

@@ -11,7 +11,7 @@ import {
   nl2br,
 } from 'core/utils';
 
-import { unexpectedSuccess } from 'tests/client/helpers';
+import { unexpectedSuccess } from '../helpers';
 
 describe('camelCaseProps', () => {
   const input = {

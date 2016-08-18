@@ -2,10 +2,10 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import ReactDOM, { findDOMNode } from 'react-dom';
 
-import InfoDialog from 'disco/components/InfoDialog';
 import I18nProvider from 'core/i18n/Provider';
+import InfoDialog from 'disco/components/InfoDialog';
 
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst } from '../../helpers';
 
 
 let closeAction;

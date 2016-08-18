@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
+
+import { search } from 'core/api';
 import SearchPage from 'search/components/SearchPage';
 import { searchStart, searchLoad, searchFail } from 'search/actions';
-import { search } from 'core/api';
 
 export function mapStateToProps(state) {
   return state.search;

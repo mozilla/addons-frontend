@@ -1,12 +1,13 @@
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
+import LoginRequired from 'core/containers/LoginRequired';
+import HandleLogin from 'core/containers/HandleLogin';
+
 import App from './containers/App';
 import CurrentSearchPage from './containers/CurrentSearchPage';
 import AddonPage from './containers/AddonPage';
 import UserPage from './containers/UserPage';
-import LoginRequired from 'core/containers/LoginRequired';
-import HandleLogin from 'core/containers/HandleLogin';
 
 export default (
   <Route path="/" component={App}>

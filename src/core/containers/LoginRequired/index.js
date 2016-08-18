@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+
 import LoginPage from 'core/components/LoginPage';
 
 export function mapStateToProps(state) {
@@ -9,7 +10,7 @@ export function mapStateToProps(state) {
 }
 
 // This class is exported for testing outside of redux.
-export class LoginRequired extends React.Component {
+export class LoginRequiredBase extends React.Component {
   static propTypes = {
     authenticated: PropTypes.bool.isRequired,
     children: PropTypes.node,
@@ -24,4 +25,4 @@ export class LoginRequired extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(LoginRequired);
+export default connect(mapStateToProps)(LoginRequiredBase);

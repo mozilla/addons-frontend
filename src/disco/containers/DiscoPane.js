@@ -1,32 +1,29 @@
 /* eslint-disable max-len */
-
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
-import { camelCaseProps } from 'core/utils';
-
 import config from 'config';
-import { getDiscoveryAddons } from 'disco/api';
-import { discoResults } from 'disco/actions';
+
+import { camelCaseProps } from 'core/utils';
 import { loadEntities } from 'core/actions';
+import translate from 'core/i18n/translate';
+import tracking from 'core/tracking';
+import { INSTALL_STATE } from 'core/constants';
 import { addChangeListeners } from 'disco/addonManager';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
 } from 'disco/constants';
-import { INSTALL_STATE } from 'core/constants';
-
+import { getDiscoveryAddons } from 'disco/api';
+import { discoResults } from 'disco/actions';
 import Addon from 'disco/components/Addon';
 import InfoDialog from 'disco/components/InfoDialog';
-import translate from 'core/i18n/translate';
-import tracking from 'core/tracking';
-
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
 
 
-export class DiscoPane extends React.Component {
+export class DiscoPaneBase extends React.Component {
   static propTypes = {
     AddonComponent: PropTypes.func.isRequred,
     handleGlobalEvent: PropTypes.func.isRequired,
@@ -170,4 +167,4 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
 export default asyncConnect([{
   deferred: true,
   promise: loadDataIfNeeded,
-}])(connect(mapStateToProps, mapDispatchToProps)(translate()(DiscoPane)));
+}])(connect(mapStateToProps, mapDispatchToProps)(translate()(DiscoPaneBase)));

@@ -1,7 +1,8 @@
+import { sprintf } from 'jed';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
+
 import { EXTENSION_TYPE } from 'core/constants';
-import { sprintf } from 'jed';
 
 export function shallowRender(stuff) {
   const renderer = createRenderer();

@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-
 import config from 'config';
+
 import { convertBoolean } from 'core/utils';
 import log from 'core/logger';
 

@@ -3,15 +3,14 @@ import { sprintf } from 'jed';
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
-import translate from 'core/i18n/translate';
-
-import { sanitizeHTML } from 'core/utils';
 import config from 'config';
+
+import translate from 'core/i18n/translate';
+import { sanitizeHTML } from 'core/utils';
 import themeAction, { getThemeData } from 'disco/themePreview';
 import tracking from 'core/tracking';
 import * as addonManager from 'disco/addonManager';
 import log from 'core/logger';
-
 import InstallButton from 'core/components/InstallButton';
 import {
   DISABLED,
@@ -46,7 +45,7 @@ import {
 
 import 'disco/css/Addon.scss';
 
-export class Addon extends React.Component {
+export class AddonBase extends React.Component {
   static propTypes = {
     accentcolor: PropTypes.string,
     description: PropTypes.string,
@@ -402,4 +401,4 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
 
 export default translate({ withRef: true })(connect(
   mapStateToProps, mapDispatchToProps, undefined, { withRef: true }
-)(Addon));
+)(AddonBase));

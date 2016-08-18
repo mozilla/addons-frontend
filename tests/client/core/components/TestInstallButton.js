@@ -3,7 +3,7 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
 import {
-  InstallButton,
+  InstallButtonBase,
 } from 'core/components/InstallButton';
 import {
   DISABLED,
@@ -18,7 +18,8 @@ import {
   UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import { getFakeI18nInst } from 'tests/client/helpers';
+
+import { getFakeI18nInst } from '../../helpers';
 
 
 describe('<InstallButton />', () => {
@@ -36,7 +37,7 @@ describe('<InstallButton />', () => {
     };
 
     return renderIntoDocument(
-      <InstallButton {...renderProps} />);
+      <InstallButtonBase {...renderProps} />);
   }
 
   it('should be disabled if isDisabled status is UNKNOWN', () => {

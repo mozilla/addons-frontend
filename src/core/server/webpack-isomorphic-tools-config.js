@@ -1,8 +1,7 @@
 /* eslint-disable no-else-return */
+import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
-const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
-
-module.exports = {
+export default {
   debug: false,
   assets: {
     images: {

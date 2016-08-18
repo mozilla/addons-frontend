@@ -3,14 +3,13 @@
 /* eslint-disable strict, no-console */
 
 require('babel-register');
-
 const Express = require('express');
+const config = require('config');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackDevConfig = require('webpack.dev.config.babel').default;
 
-const config = require('config');
+const webpackDevConfig = require('../webpack.dev.config.babel').default;
 
 const host = config.get('webpackServerHost');
 const port = config.get('webpackServerPort');

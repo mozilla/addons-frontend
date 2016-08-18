@@ -1,9 +1,11 @@
 import fs from 'fs';
-import { assert } from 'chai';
 import path from 'path';
+
+import { assert } from 'chai';
 import config from 'config';
-import { langToLocale, localeToLang } from 'core/i18n/utils';
 import glob from 'glob';
+
+import { langToLocale, localeToLang } from 'core/i18n/utils';
 
 const langs = config.get('langs');
 const basePath = config.get('basePath');

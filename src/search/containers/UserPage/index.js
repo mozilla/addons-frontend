@@ -7,7 +7,7 @@ import { fetchProfile } from 'core/api';
 
 import './styles.scss';
 
-export class UserPage extends React.Component {
+export class UserPageBase extends React.Component {
   static propTypes = {
     email: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
@@ -51,4 +51,4 @@ export function loadProfileIfNeeded({ store: { getState, dispatch } }) {
 export default asyncConnect([{
   deferred: true,
   promise: loadProfileIfNeeded,
-}])(connect(mapStateToProps)(UserPage));
+}])(connect(mapStateToProps)(UserPageBase));

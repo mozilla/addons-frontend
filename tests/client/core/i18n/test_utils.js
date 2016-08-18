@@ -1,5 +1,6 @@
-import * as utils from 'core/i18n/utils';
 import config from 'config';
+
+import * as utils from 'core/i18n/utils';
 
 const defaultLang = config.get('defaultLang');
 

@@ -8,7 +8,7 @@ import {
 import App from 'amo/containers/App';
 import I18nProvider from 'core/i18n/Provider';
 
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst } from '../../helpers';
 
 
 describe('App', () => {

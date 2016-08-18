@@ -2,7 +2,6 @@
 /* eslint-disable global-require, no-console */
 
 const chalk = require('chalk');
-
 require('babel-register');
 const config = require('config');
 

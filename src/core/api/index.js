@@ -1,9 +1,8 @@
-import { Schema, arrayOf, normalize } from 'normalizr';
 import url from 'url';
 
-import config from 'config';
-
 import 'isomorphic-fetch';
+import { Schema, arrayOf, normalize } from 'normalizr';
+import config from 'config';
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 

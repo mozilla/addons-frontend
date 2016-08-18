@@ -1,10 +1,9 @@
 /* eslint-disable no-loop-func */
-
-import request from 'supertest-as-promised';
 import { assert } from 'chai';
+import Policy from 'csp-parse';
+import request from 'supertest-as-promised';
 
 import { runServer } from 'core/server/base';
-import Policy from 'csp-parse';
 
 import { checkSRI } from '../helpers';
 

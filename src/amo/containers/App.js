@@ -6,7 +6,7 @@ import 'amo/css/App.scss';
 import translate from 'core/i18n/translate';
 
 
-export class App extends React.Component {
+export class AppBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     i18n: PropTypes.object.isRequired,
@@ -25,4 +25,4 @@ export class App extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(App);
+export default translate({ withRef: true })(AppBase);

@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 
 import Paginate from 'core/components/Paginate';
+import { gettext as _ } from 'core/utils';
+
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
-import { gettext as _ } from 'core/utils';
 
 export default class SearchPage extends React.Component {
   static propTypes = {

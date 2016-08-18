@@ -1,7 +1,8 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, import/no-extraneous-dependencies */
 import fs from 'fs';
-import config from 'config';
+
 import chalk from 'chalk';
+import config from 'config';
 
 import webpackConfig from './webpack.prod.config.babel';
 

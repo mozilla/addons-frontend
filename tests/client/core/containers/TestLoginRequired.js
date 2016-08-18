@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { shallowRender } from 'tests/client/helpers';
-import { mapStateToProps, LoginRequired } from 'core/containers/LoginRequired';
+import { mapStateToProps, LoginRequiredBase }
+  from 'core/containers/LoginRequired';
 import LoginPage from 'core/components/LoginPage';
+
+import { shallowRender } from '../../helpers';
 
 describe('<LoginRequired />', () => {
   class MyComponent extends React.Component {
@@ -13,18 +15,18 @@ describe('<LoginRequired />', () => {
 
   it('renders <LoginPage /> when unauthenticated', () => {
     const root = shallowRender(
-      <LoginRequired authenticated={false}>
+      <LoginRequiredBase authenticated={false}>
         <MyComponent />
-      </LoginRequired>
+      </LoginRequiredBase>
     );
     assert.equal(root.type, LoginPage);
   });
 
   it('renders the children when authenticated', () => {
     const root = shallowRender(
-      <LoginRequired authenticated>
+      <LoginRequiredBase authenticated>
         <MyComponent />
-      </LoginRequired>
+      </LoginRequiredBase>
     );
     assert.equal(root.type, MyComponent);
   });

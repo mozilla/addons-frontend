@@ -7,7 +7,7 @@ import AddonDetail from 'amo/components/AddonDetail';
 import translate from 'core/i18n/translate';
 import { loadAddonIfNeeded } from 'core/utils';
 
-export class DetailPage extends React.Component {
+export class DetailPageBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object,
   }
@@ -36,4 +36,4 @@ export default compose(
   }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
-)(DetailPage);
+)(DetailPageBase);

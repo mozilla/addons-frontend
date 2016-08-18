@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
+
 import NotFound from 'core/components/NotFound';
 
 describe('<NotFound />', () => {

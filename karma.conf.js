@@ -1,18 +1,20 @@
 // Karma configuration
-/* eslint-disable max-len, no-console, strict */
+/* eslint-disable max-len, no-console, strict, import/no-extraneous-dependencies */
 'use strict';
 
 require('babel-register');
 
 const fs = require('fs');
 
+const webpack = require('webpack');
+const config = require('config');
+
+const getClientConfig = require('./src/core/utils').getClientConfig;
+const webpackConfigProd = require('./webpack.prod.config.babel').default;
+
+const clientConfig = getClientConfig(config);
 const babelrc = fs.readFileSync('./.babelrc');
 const babelQuery = JSON.parse(babelrc);
-const webpack = require('webpack');
-const webpackConfigProd = require('./webpack.prod.config.babel').default;
-const config = require('config');
-const getClientConfig = require('src/core/utils').getClientConfig;
-const clientConfig = getClientConfig(config);
 
 const coverageReporters = [{
   type: 'text-summary',
