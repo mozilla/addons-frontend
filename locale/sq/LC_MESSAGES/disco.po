@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-02 15:08+0000\n"
-"PO-Revision-Date: 2016-07-31 23:25+0000\n"
+"PO-Revision-Date: 2016-08-18 08:13+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -20,9 +20,7 @@ msgstr "Mbylle"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet "
-"%(name)s"
+msgstr "Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
@@ -105,16 +103,13 @@ msgid "Personalize Your Firefox"
 msgstr "Personalizoni Firefox-in Tuaj"
 
 #: src/disco/containers/DiscoPane.js:101
-#, fuzzy
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
+"world to help you personalize your browsing experience—everything from fun visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"Ka me mijëra shtesa që ju lejojnë ta bëni tërësisht si e doni - gjithçka, "
-"nga temat pamore zbavitëse e deri te mjete dhe veçori të fuqishme.\n"
-"Ja disa të fuqishme, sa për një ide."
+"Ka me mijëra shtesa të krijuara nga programues anembanë botës që t’ju ndihmojnë të personalizoni funksionimin e shfletuesit - gjithçka, nga temat pamore zbavitëse e deri te mjete dhe veçori të "
+"fuqishme. Ja disa të fuqishme, sa për fillim."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
