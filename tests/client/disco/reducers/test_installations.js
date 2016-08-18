@@ -13,7 +13,7 @@ import {
   UNINSTALL_COMPLETE,
   UNINSTALLED,
   UNINSTALLING,
-} from 'disco/constants';
+} from 'core/constants';
 import installations from 'disco/reducers/installations';
 
 describe('installations reducer', () => {

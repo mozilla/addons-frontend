@@ -13,7 +13,6 @@ import {
   mapStateToProps,
 } from 'disco/components/Addon';
 import {
-  CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
@@ -24,11 +23,8 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALLED,
-  INSTALL_CATEGORY,
   INSTALL_FAILED,
   INSTALL_STATE,
-  SET_ENABLE_NOT_AVAILABLE,
-  SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
   THEME_PREVIEW,
@@ -36,6 +32,12 @@ import {
   THEME_TYPE,
   UNINSTALLED,
   UNINSTALLING,
+} from 'core/constants';
+import {
+  CLOSE_INFO,
+  INSTALL_CATEGORY,
+  SET_ENABLE_NOT_AVAILABLE,
+  SHOW_INFO,
   UNINSTALL_CATEGORY,
 } from 'disco/constants';
 import { getFakeAddonManagerWrapper, getFakeI18nInst } from 'tests/client/helpers';

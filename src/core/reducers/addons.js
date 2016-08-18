@@ -1,4 +1,4 @@
-import { API_THEME_TYPE, THEME_TYPE } from 'disco/constants';
+import { API_THEME_TYPE, THEME_TYPE } from 'core/constants';
 
 const initialState = {};
 

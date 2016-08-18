@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import AddonMeta from 'amo/components/AddonMeta';
-import InstallButton from 'disco/components/InstallButton';
+import InstallButton from 'core/components/InstallButton';
 import LikeButton from 'amo/components/LikeButton';
 import ScreenShots from 'amo/components/ScreenShots';
 import SearchBox from 'amo/components/SearchBox';
