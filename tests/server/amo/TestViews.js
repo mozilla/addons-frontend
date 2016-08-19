@@ -4,7 +4,8 @@ import Policy from 'csp-parse';
 import request from 'supertest-as-promised';
 
 import { runServer } from 'core/server/base';
-import { checkSRI } from 'tests/server/helpers';
+
+import { checkSRI } from '../helpers';
 
 const defaultURL = '/en-US/firefox/';
 
