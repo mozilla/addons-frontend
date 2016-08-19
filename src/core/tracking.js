@@ -3,6 +3,10 @@ import config from 'config';
 
 import { convertBoolean } from 'core/utils';
 import log from 'core/logger';
+import {
+  EXTENSION_TYPE,
+  THEME_TYPE,
+} from 'core/constants';
 
 
 export class Tracking {
@@ -80,6 +84,13 @@ export class Tracking {
     this._ga('set', 'page', page);
     this.log('setPage', page);
   }
+}
+
+export function getAction(type) {
+  return {
+    [EXTENSION_TYPE]: 'addon',
+    [THEME_TYPE]: 'theme',
+  }[type] || 'invalid';
 }
 
 export default new Tracking({

@@ -1,4 +1,5 @@
-import { Tracking } from 'core/tracking';
+import { Tracking, getAction } from 'core/tracking';
+import { EXTENSION_TYPE, THEME_TYPE } from 'core/constants';
 
 
 describe('Tracking', () => {
@@ -68,5 +69,19 @@ describe('Tracking', () => {
       action: 'some-action',
     });
     assert.ok(window.ga.called);
+  });
+});
+
+describe('getAction', () => {
+  it('returns addon for EXTENSION_TYPE', () => {
+    assert.equal(getAction(EXTENSION_TYPE), 'addon');
+  });
+
+  it('returns theme for THEME_TYPE', () => {
+    assert.equal(getAction(THEME_TYPE), 'theme');
+  });
+
+  it('returns invalid for unknown type', () => {
+    assert.equal(getAction('whatever'), 'invalid');
   });
 });

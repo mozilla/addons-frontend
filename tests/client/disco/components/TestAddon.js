@@ -37,6 +37,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import {
+  CLICK_CATEGORY,
   CLOSE_INFO,
   INSTALL_CATEGORY,
   SET_ENABLE_NOT_AVAILABLE,
@@ -247,6 +248,29 @@ describe('<Addon />', () => {
       assert.throws(() => {
         renderAddon(data);
       }, Error, 'Invalid addon type');
+    });
+
+    it('tracks an add-on link click', () => {
+      const fakeTracking = {
+        sendEvent: sinon.stub(),
+      };
+      const data = {
+        ...result,
+        _tracking: fakeTracking,
+        name: 'foo',
+        heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
+        type: EXTENSION_TYPE,
+      };
+      root = renderAddon(data);
+      const heading = findDOMNode(root).querySelector('.heading');
+      // We click the heading providing the link nodeName to emulate
+      // bubbling.
+      Simulate.click(heading, { target: { nodeName: 'A' } });
+      assert.ok(fakeTracking.sendEvent.calledWith({
+        action: 'addon',
+        category: CLICK_CATEGORY,
+        label: 'foo',
+      }), sinon.format(fakeTracking.sendEvent.firstCall.args));
     });
   });
 
