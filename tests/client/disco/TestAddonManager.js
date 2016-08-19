@@ -4,8 +4,7 @@ import {
   globalEventStatusMap,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'disco/constants';
-
-import { unexpectedSuccess } from '../helpers';
+import { unexpectedSuccess } from 'tests/client/helpers';
 
 
 describe('addonManager', () => {

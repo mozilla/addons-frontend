@@ -1,6 +1,5 @@
 import * as api from 'core/api';
-
-import { unexpectedSuccess } from '../../helpers';
+import { unexpectedSuccess } from 'tests/client/helpers';
 
 describe('api', () => {
   let mockWindow;

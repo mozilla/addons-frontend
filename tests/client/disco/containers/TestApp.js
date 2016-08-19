@@ -7,8 +7,7 @@ import {
 
 import I18nProvider from 'core/i18n/Provider';
 import App from 'disco/containers/App';
-
-import { getFakeI18nInst } from '../../helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('App', () => {

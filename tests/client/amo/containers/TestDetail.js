@@ -9,8 +9,8 @@ import { Provider } from 'react-redux';
 import createStore from 'amo/store';
 import DetailPage from 'amo/containers/DetailPage';
 import I18nProvider from 'core/i18n/Provider';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
-import { getFakeI18nInst } from '../../helpers';
 import { fakeAddon } from '../components/TestAddonDetail';
 
 function render(

@@ -18,8 +18,7 @@ import {
   UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
-
-import { getFakeI18nInst } from '../../helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<InstallButton />', () => {

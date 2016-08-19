@@ -18,8 +18,7 @@ import {
   globalEvents,
 } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
-
-import { getFakeI18nInst, MockedSubComponent } from '../../helpers';
+import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
 
 
 // Use DiscoPane that isn't wrapped in asyncConnect.

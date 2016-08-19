@@ -4,8 +4,7 @@ import SearchPage from 'search/components/SearchPage';
 import SearchResults from 'search/components/SearchResults';
 import SearchForm from 'search/components/SearchForm';
 import Paginate from 'core/components/Paginate';
-
-import { findAllByTag, findByTag, shallowRender } from '../../helpers';
+import { findAllByTag, findByTag, shallowRender } from 'tests/client/helpers';
 
 describe('<SearchPage />', () => {
   let props;

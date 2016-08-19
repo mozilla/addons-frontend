@@ -7,8 +7,7 @@ import {
 
 import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
-
-import { getFakeI18nInst } from '../../helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 class OuterComponent extends Component {

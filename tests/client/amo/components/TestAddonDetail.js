@@ -9,8 +9,7 @@ import AddonDetail, { allowedDescriptionTags }
   from 'amo/components/AddonDetail';
 import I18nProvider from 'core/i18n/Provider';
 import InstallButton from 'core/components/InstallButton';
-
-import { getFakeI18nInst } from '../../helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 export const fakeAddon = {

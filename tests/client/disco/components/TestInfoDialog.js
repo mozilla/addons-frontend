@@ -4,8 +4,7 @@ import ReactDOM, { findDOMNode } from 'react-dom';
 
 import I18nProvider from 'core/i18n/Provider';
 import InfoDialog from 'disco/components/InfoDialog';
-
-import { getFakeI18nInst } from '../../helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 let closeAction;

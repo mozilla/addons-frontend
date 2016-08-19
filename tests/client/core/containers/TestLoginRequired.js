@@ -3,8 +3,7 @@ import React from 'react';
 import { mapStateToProps, LoginRequiredBase }
   from 'core/containers/LoginRequired';
 import LoginPage from 'core/components/LoginPage';
-
-import { shallowRender } from '../../helpers';
+import { shallowRender } from 'tests/client/helpers';
 
 describe('<LoginRequired />', () => {
   class MyComponent extends React.Component {

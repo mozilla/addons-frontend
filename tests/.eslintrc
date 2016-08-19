@@ -4,5 +4,13 @@
       // Allow dev-dependencies in this directory.
       "devDependencies": true
     }],
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        // This adds ./src and `cwd` for relative imports.
+        "moduleDirectory": ["node_modules", "src", ""]
+      }
+    }
   }
 }

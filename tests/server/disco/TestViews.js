@@ -4,8 +4,7 @@ import Policy from 'csp-parse';
 import request from 'supertest-as-promised';
 
 import { runServer } from 'core/server/base';
-
-import { checkSRI } from '../helpers';
+import { checkSRI } from 'tests/server/helpers';
 
 const defaultURL = '/en-US/firefox/discovery/pane/48.0/Darwin/normal';
 

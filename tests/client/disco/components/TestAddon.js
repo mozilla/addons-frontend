@@ -43,8 +43,8 @@ import {
   SHOW_INFO,
   UNINSTALL_CATEGORY,
 } from 'disco/constants';
-
-import { getFakeAddonManagerWrapper, getFakeI18nInst } from '../../helpers';
+import { getFakeAddonManagerWrapper, getFakeI18nInst }
+  from 'tests/client/helpers';
 
 const result = {
   id: 'test-id',
