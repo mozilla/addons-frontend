@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { bindConsoleMethod } from 'core/logger';
 
 describe('logger.bindConsoleMethod()', () => {

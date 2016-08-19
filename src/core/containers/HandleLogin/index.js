@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import cookie from 'react-cookie';
 import { connect } from 'react-redux';
-
 import config from 'config';
+
 import { setJWT } from 'core/actions';
 import { login } from 'core/api';
 import LoginPage from 'core/components/LoginPage';

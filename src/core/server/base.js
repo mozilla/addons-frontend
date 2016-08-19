@@ -1,29 +1,28 @@
-import 'babel-polyfill';
-
 import fs from 'fs';
+import path from 'path';
+
+import 'babel-polyfill';
+import config from 'config';
 import Express from 'express';
 import helmet from 'helmet';
-import path from 'path';
+import Jed from 'jed';
 import cookie from 'react-cookie';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
-import { prefixMiddleWare } from 'core/middleware';
-
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
-import WebpackIsomorphicToolsConfig from 'webpack-isomorphic-tools-config';
-import ServerHtml from 'core/containers/ServerHtml';
 
-import config from 'config';
+import ServerHtml from 'core/containers/ServerHtml';
+import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setLang, setJWT } from 'core/actions';
 import log from 'core/logger';
 import { getDirection, isValidLang, langToLocale } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
-import Jed from 'jed';
+
+import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
 
 const env = config.util.getEnv('NODE_ENV');

@@ -1,7 +1,8 @@
-import { getClientConfig } from 'core/utils';
 import { assert } from 'chai';
-import requireUncached from 'require-uncached';
 import config from 'config';
+import requireUncached from 'require-uncached';
+
+import { getClientConfig } from 'core/utils';
 
 const appsList = config.get('validAppNames');
 

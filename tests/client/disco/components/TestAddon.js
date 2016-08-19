@@ -6,8 +6,11 @@ import {
 } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 import config from 'config';
+
+import I18nProvider from 'core/i18n/Provider';
+import translate from 'core/i18n/translate';
 import {
-  Addon,
+  AddonBase,
   makeProgressHandler,
   mapDispatchToProps,
   mapStateToProps,
@@ -40,9 +43,8 @@ import {
   SHOW_INFO,
   UNINSTALL_CATEGORY,
 } from 'disco/constants';
-import { getFakeAddonManagerWrapper, getFakeI18nInst } from 'tests/client/helpers';
-import I18nProvider from 'core/i18n/Provider';
-import translate from 'core/i18n/translate';
+import { getFakeAddonManagerWrapper, getFakeI18nInst }
+  from 'tests/client/helpers';
 
 const result = {
   id: 'test-id',
@@ -53,7 +55,7 @@ const result = {
 };
 
 function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
-  const MyAddon = translate({ withRef: true })(Addon);
+  const MyAddon = translate({ withRef: true })(AddonBase);
 
   return findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={getFakeI18nInst()}>

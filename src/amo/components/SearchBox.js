@@ -5,7 +5,7 @@ import translate from 'core/i18n/translate';
 import 'amo/css/SearchBox.scss';
 
 
-export class SearchBox extends React.Component {
+export class SearchBoxBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object,
   }
@@ -22,4 +22,4 @@ export class SearchBox extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(SearchBox);
+export default translate({ withRef: true })(SearchBoxBase);

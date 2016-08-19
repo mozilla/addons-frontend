@@ -3,7 +3,8 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
 import * as actions from 'core/actions';
 import * as coreApi from 'core/api';
-import { SearchForm, mapDispatchToProps, mapStateToProps } from 'search/components/SearchForm';
+import { SearchFormBase, mapDispatchToProps, mapStateToProps }
+  from 'search/components/SearchForm';
 
 const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
@@ -26,7 +27,10 @@ describe('<SearchForm />', () => {
     }
 
     render() {
-      return <SearchForm pathname={pathname} api={api} loadAddon={loadAddon} ref="root" />;
+      return (<SearchFormBase
+        pathname={pathname} api={api}
+        loadAddon={loadAddon} ref="root"
+      />);
     }
   }
 

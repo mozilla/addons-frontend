@@ -5,7 +5,7 @@ import translate from 'core/i18n/translate';
 import 'amo/css/ScreenShots.scss';
 
 
-export class ScreenShots extends React.Component {
+export class ScreenShotsBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object,
   }
@@ -36,4 +36,4 @@ export class ScreenShots extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(ScreenShots);
+export default translate({ withRef: true })(ScreenShotsBase);

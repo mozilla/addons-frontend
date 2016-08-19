@@ -3,7 +3,7 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
 import {
-  InstallButton,
+  InstallButtonBase,
 } from 'core/components/InstallButton';
 import {
   DISABLED,
@@ -36,7 +36,7 @@ describe('<InstallButton />', () => {
     };
 
     return renderIntoDocument(
-      <InstallButton {...renderProps} />);
+      <InstallButtonBase {...renderProps} />);
   }
 
   it('should be disabled if isDisabled status is UNKNOWN', () => {

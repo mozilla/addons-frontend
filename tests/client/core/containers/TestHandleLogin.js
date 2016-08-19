@@ -4,6 +4,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import cookie from 'react-cookie';
 import { createStore } from 'redux';
+
 import HandleLogin, { mapDispatchToProps } from 'core/containers/HandleLogin';
 import * as api from 'core/api';
 

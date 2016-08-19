@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
+
 import { gettext as _, loadAddonIfNeeded } from 'core/utils';
 import NotFound from 'core/components/NotFound';
 import JsonData from 'search/components/JsonData';

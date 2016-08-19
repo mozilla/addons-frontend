@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
-import translate from 'core/i18n/translate';
 import onClickOutside from 'react-onclickoutside';
 
+import translate from 'core/i18n/translate';
 import 'disco/css/InfoDialog.scss';
 
-export class InfoDialog extends React.Component {
+export class InfoDialogBase extends React.Component {
   static propTypes = {
     addonName: PropTypes.string.isRequired,
     closeAction: PropTypes.func.isRequired,
@@ -39,4 +39,4 @@ export class InfoDialog extends React.Component {
   }
 }
 
-export default translate()(onClickOutside(InfoDialog));
+export default translate()(onClickOutside(InfoDialogBase));

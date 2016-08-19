@@ -4,12 +4,13 @@ import { findDOMNode } from 'react-dom';
 
 import { loadEntities, setCurrentUser } from 'core/actions';
 import * as api from 'core/api';
-import { UserPage, mapStateToProps, loadProfileIfNeeded } from 'search/containers/UserPage';
+import { UserPageBase, mapStateToProps, loadProfileIfNeeded }
+  from 'search/containers/UserPage';
 
 describe('<UserPage />', () => {
   it('renders the username and email', () => {
     const root = findDOMNode(renderIntoDocument(
-      <UserPage email="me@example.com" username="my-username" />));
+      <UserPageBase email="me@example.com" username="my-username" />));
     assert.deepEqual(
       Array.from(root.querySelectorAll('li')).map((li) => li.textContent),
       ['username: my-username', 'email: me@example.com']);

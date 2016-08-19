@@ -1,4 +1,5 @@
 import config from 'config';
+
 import log from 'core/logger';
 
 const defaultLang = config.get('defaultLang');

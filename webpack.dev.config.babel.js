@@ -1,15 +1,17 @@
-/* eslint-disable max-len, no-console */
+/* eslint-disable max-len, no-console, import/no-extraneous-dependencies */
 
 import fs from 'fs';
 import path from 'path';
+
+import config from 'config';
 import webpack from 'webpack';
+import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
 import { getClientConfig } from 'core/utils';
-import config from 'config';
 
 import webpackConfig from './webpack.prod.config.babel';
-import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
-import webpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
+import webpackIsomorphicToolsConfig
+  from './src/core/server/webpack-isomorphic-tools-config';
 
 const clientConfig = getClientConfig(config);
 const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';

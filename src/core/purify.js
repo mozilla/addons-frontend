@@ -1,4 +1,5 @@
 import createDOMPurify from 'dompurify';
+
 import universalWindow from 'core/window';
 
 const purify = createDOMPurify(universalWindow);

@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { Route, Router, createMemoryHistory } from 'react-router';
+
 import Paginate from 'core/components/Paginate';
 
 describe('<Paginate />', () => {

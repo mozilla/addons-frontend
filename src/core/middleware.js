@@ -1,6 +1,7 @@
+import config from 'config';
+
 import { getClientApp, isValidClientApp } from 'core/utils';
 import { getLanguage, isValidLang } from 'core/i18n/utils';
-import config from 'config';
 import log from 'core/logger';
 
 

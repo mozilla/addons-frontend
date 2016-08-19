@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import translate from 'core/i18n/translate';
 
+import translate from 'core/i18n/translate';
 import {
   DOWNLOADING,
   DISABLED,
@@ -19,7 +19,7 @@ import { getThemeData } from 'disco/themePreview';
 
 import './InstallButton.scss';
 
-export class InstallButton extends React.Component {
+export class InstallButtonBase extends React.Component {
   static propTypes = {
     downloadProgress: PropTypes.number,
     enable: PropTypes.func,
@@ -122,4 +122,4 @@ export class InstallButton extends React.Component {
   }
 }
 
-export default translate()(InstallButton);
+export default translate()(InstallButtonBase);

@@ -2,13 +2,16 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
-import { discoResults } from 'disco/actions';
-import * as discoApi from 'disco/api';
-import createStore from 'disco/store';
+
+import { loadEntities } from 'core/actions';
+import I18nProvider from 'core/i18n/Provider';
 import {
   EXTENSION_TYPE,
   INSTALL_STATE,
 } from 'core/constants';
+import { discoResults } from 'disco/actions';
+import * as discoApi from 'disco/api';
+import createStore from 'disco/store';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
@@ -16,12 +19,10 @@ import {
 } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
-import { loadEntities } from 'core/actions';
-import I18nProvider from 'core/i18n/Provider';
 
 
 // Use DiscoPane that isn't wrapped in asyncConnect.
-const { DiscoPane } = helpers;
+const { DiscoPaneBase } = helpers;
 
 
 describe('AddonPage', () => {
@@ -37,7 +38,7 @@ describe('AddonPage', () => {
     return findDOMNode(renderIntoDocument(
       <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <DiscoPane results={results} i18n={i18n}
+          <DiscoPaneBase results={results} i18n={i18n}
             {...props} AddonComponent={MockedSubComponent} />
         </Provider>
       </I18nProvider>

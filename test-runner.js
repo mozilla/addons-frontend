@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 require('babel-polyfill');
-require('tests/client/init');
+
+require('./tests/client/init');
 
 const testsContext = require.context('./tests/client/', true, /\.js$/);
 const componentsContext = require.context(

@@ -8,7 +8,7 @@ import { gettext as _ } from 'core/utils';
 import 'search/css/SearchForm.scss';
 import 'search/css/lib/buttons.scss';
 
-export class SearchForm extends React.Component {
+export class SearchFormBase extends React.Component {
   static propTypes = {
     api: PropTypes.object.isRequired,
     loadAddon: PropTypes.func.isRequired,
@@ -69,4 +69,4 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchFormBase);

@@ -10,7 +10,6 @@ import {
   loadAddonIfNeeded,
   nl2br,
 } from 'core/utils';
-
 import { unexpectedSuccess } from 'tests/client/helpers';
 
 describe('camelCaseProps', () => {

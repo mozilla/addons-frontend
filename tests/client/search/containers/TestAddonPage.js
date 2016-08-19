@@ -2,6 +2,7 @@ import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
+
 import AddonPage from 'search/containers/AddonPage';
 import createStore from 'search/store';
 
