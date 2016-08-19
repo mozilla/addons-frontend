@@ -196,6 +196,10 @@ $addon-padding: 20px;
     right: 0;
     top: 0;
 
+    [dir=rtl] & {
+      padding: 15px 20px 15px 80px;
+    }
+
     &.overlay-enter.overlay-enter-active {
       transition: 300ms cubic-bezier(0.19, 0.95, 0.39, 1) 400ms;
     }
@@ -246,6 +250,11 @@ $addon-padding: 20px;
       left: 15px;
       padding: 5px;
       position: absolute;
+
+      [dir=rtl] & {
+        left: auto;
+        right: 15px;
+      }
     }
   }
 }
