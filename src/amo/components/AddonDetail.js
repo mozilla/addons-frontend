@@ -6,10 +6,10 @@ import LikeButton from 'amo/components/LikeButton';
 import ScreenShots from 'amo/components/ScreenShots';
 import SearchBox from 'amo/components/SearchBox';
 import translate from 'core/i18n/translate';
-import { nl2br, sanitizeHTML } from 'core/utils';
-
-
+import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import 'amo/css/AddonDetail.scss';
+import fallbackIcon from 'amo/img/icons/default-64.png';
+
 
 export const allowedDescriptionTags = [
   'a',
@@ -52,12 +52,14 @@ class AddonDetail extends React.Component {
         endSpan: '</span>',
       });
 
+    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url : fallbackIcon;
+
     return (
       <div className="AddonDetail">
         <header>
           <SearchBox />
           <div className="icon">
-            <img alt="" />
+            <img alt="" src={iconUrl} />
             <LikeButton />
           </div>
           <div className="title">

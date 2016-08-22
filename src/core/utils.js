@@ -1,3 +1,5 @@
+import url from 'url';
+
 import camelCase from 'camelcase';
 import config from 'config';
 
@@ -101,4 +103,15 @@ export function loadAddonIfNeeded(
   log.info(`Fetching addon ${slug} from API`);
   return fetchAddon({ slug, api: state.api })
     .then(({ entities }) => dispatch(loadEntities(entities)));
+}
+
+export function isAllowedOrigin(urlString, { allowedOrigins = [config.get('amoCDN')] } = {}) {
+  let parsedURL;
+  try {
+    parsedURL = url.parse(urlString);
+  } catch (e) {
+    log.error(`invalid urlString provided to isAllowedOrigin: ${urlString}`);
+    return false;
+  }
+  return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
