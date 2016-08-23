@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallowRender } from 'tests/client/helpers';
 import { Link } from 'react-router';
 
+import { shallowRender } from 'tests/client/helpers';
 import { NavBar, NavBarItem, NavBarLink } from 'core/components/NavBar';
 
 describe('<NavBarItem />', () => {

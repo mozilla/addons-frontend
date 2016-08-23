@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallowRender } from 'tests/client/helpers';
 
 import { NavBar, NavBarLink } from 'core/components/NavBar';
 import SearchNavBar from 'search/components/NavBar';
+import { shallowRender } from 'tests/client/helpers';
 
 describe('<SearchNavBar />', () => {
   it('renders a link to Search', () => {
