@@ -11,6 +11,7 @@ import {
 
 export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
 export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
+export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
 export const VIDEO_CATEGORY = 'Discovery Video';
 export const NAVIGATION_CATEGORY = 'Discovery Navigation';
 

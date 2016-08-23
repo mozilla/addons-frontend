@@ -5,10 +5,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import config from 'config';
 
-import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
+import translate from 'core/i18n/translate';
 import themeAction, { getThemeData } from 'disco/themePreview';
-import tracking from 'core/tracking';
+import tracking, { getAction } from 'core/tracking';
 import * as addonManager from 'disco/addonManager';
 import log from 'core/logger';
 import InstallButton from 'core/components/InstallButton';
@@ -36,6 +36,7 @@ import {
   validInstallStates,
 } from 'core/constants';
 import {
+  CLICK_CATEGORY,
   CLOSE_INFO,
   INSTALL_CATEGORY,
   SET_ENABLE_NOT_AVAILABLE,
@@ -68,12 +69,14 @@ export class AddonBase extends React.Component {
     textcolor: PropTypes.string,
     themeAction: PropTypes.func,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
+    _tracking: PropTypes.object,
   }
 
   static defaultProps = {
     // Defaults themeAction to the imported func.
     themeAction,
     needsRestart: false,
+    _tracking: tracking,
   }
 
   componentDidMount() {
@@ -88,6 +91,7 @@ export class AddonBase extends React.Component {
   getBrowserThemeData() {
     return JSON.stringify(getThemeData(this.props));
   }
+
 
   getError() {
     const { error, i18n, status } = this.props;
@@ -176,6 +180,18 @@ export class AddonBase extends React.Component {
     this.setCurrentStatus();
   }
 
+  clickHeadingLink = (e) => {
+    const { type, name, _tracking } = this.props;
+
+    if (e.target.nodeName.toLowerCase() === 'a') {
+      _tracking.sendEvent({
+        action: getAction(type),
+        category: CLICK_CATEGORY,
+        label: name,
+      });
+    }
+  }
+
   clickInstallTheme = (e) => {
     const { guid, installTheme, name, status, type } = this.props;
     e.preventDefault();
@@ -219,6 +235,7 @@ export class AddonBase extends React.Component {
           </ReactCSSTransitionGroup>
           <div className="copy">
             <h2
+              onClick={this.clickHeadingLink}
               ref="heading"
               className="heading"
               dangerouslySetInnerHTML={sanitizeHTML(heading, ['a', 'span'])} />
@@ -375,11 +392,8 @@ export function mapDispatchToProps(dispatch, { _tracking = tracking,
     },
 
     uninstall({ guid, name, type }) {
-      const action = {
-        [EXTENSION_TYPE]: 'addon',
-        [THEME_TYPE]: 'theme',
-      }[type] || 'invalid';
       dispatch({ type: INSTALL_STATE, payload: { guid, status: UNINSTALLING } });
+      const action = getAction(type);
       return _addonManager.uninstall(guid)
         .then(() => {
           _tracking.sendEvent({
