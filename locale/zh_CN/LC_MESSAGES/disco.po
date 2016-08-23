@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-02 15:08+0000\n"
-"PO-Revision-Date: 2016-08-01 20:02+0000\n"
-"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2016-08-23 03:13+0000\n"
+"Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -105,12 +105,10 @@ msgstr "个性化您的火狐"
 #: src/disco/containers/DiscoPane.js:101
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
+"world to help you personalize your browsing experience—everything from fun visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
-"有成千上万的附加组件让 Firefox 更具你的个性\n"
-"——像是有趣的视觉主题，强大的工具和功能。\n"
+"有成千上万的附加组件让 Firefox 更具你的个性，像是有趣的视觉主题，强大的工具和功能。\n"
 "这里有一些推荐给您。"
 
 #: src/disco/containers/DiscoPane.js:107
@@ -127,7 +125,7 @@ msgstr "关闭视频"
 
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
-msgstr "查看更多附加组件！"
+msgstr "看看更多附加组件！"
 
 #~ msgid "Install"
 #~ msgstr "安装"
