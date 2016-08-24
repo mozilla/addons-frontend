@@ -4,7 +4,7 @@ import { asyncConnect } from 'redux-async-connect';
 
 import { gettext as _, loadAddonIfNeeded } from 'core/utils';
 import NotFound from 'core/components/NotFound';
-import JsonData from 'search/components/JsonData';
+import JsonData from 'admin/components/JsonData';
 
 import './style.scss';
 

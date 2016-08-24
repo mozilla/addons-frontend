@@ -5,7 +5,7 @@ import { findDOMNode } from 'react-dom';
 import { loadEntities, setCurrentUser } from 'core/actions';
 import * as api from 'core/api';
 import { UserPageBase, mapStateToProps, loadProfileIfNeeded }
-  from 'search/containers/UserPage';
+  from 'admin/containers/UserPage';
 
 describe('<UserPage />', () => {
   it('renders the username and email', () => {

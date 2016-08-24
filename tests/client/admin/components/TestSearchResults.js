@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderIntoDocument as render, isDOMComponent } from 'react-addons-test-utils';
 
-import SearchResults from 'search/components/SearchResults';
+import SearchResults from 'admin/components/SearchResults';
 
 
 describe('<SearchResults />', () => {

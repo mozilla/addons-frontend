@@ -1,10 +1,10 @@
-import * as actions from 'search/actions';
+import * as actions from 'admin/actions';
 import {
   isLoaded,
   loadSearchResultsIfNeeded,
   mapStateToProps,
   parsePage,
-} from 'search/containers/CurrentSearchPage';
+} from 'admin/containers/CurrentSearchPage';
 import * as api from 'core/api';
 
 describe('CurrentSearchPage.mapStateToProps()', () => {

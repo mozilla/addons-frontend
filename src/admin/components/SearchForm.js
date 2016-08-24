@@ -5,8 +5,8 @@ import { fetchAddon } from 'core/api';
 import { loadEntities } from 'core/actions';
 import { gettext as _ } from 'core/utils';
 
-import 'search/css/SearchForm.scss';
-import 'search/css/lib/buttons.scss';
+import 'admin/css/SearchForm.scss';
+import 'admin/css/lib/buttons.scss';
 
 export class SearchFormBase extends React.Component {
   static propTypes = {
