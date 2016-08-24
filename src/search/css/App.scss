@@ -4,8 +4,11 @@
 
 body {
   background: $body-color;
-  margin: 20px;
   color: $text-color-default;
+}
+
+.App {
+  margin: 20px;
 }
 
 * {

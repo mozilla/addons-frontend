@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
-import 'search/css/App.scss';
 import { gettext as _ } from 'core/utils';
+import NavBar from 'search/components/NavBar';
 
+import 'search/css/App.scss';
 
 export default class App extends React.Component {
   static propTypes = {
@@ -17,7 +18,10 @@ export default class App extends React.Component {
         <Helmet
           defaultTitle={_('Add-ons Search')}
         />
-        {children}
+        <NavBar />
+        <div className="App">
+          {children}
+        </div>
       </div>
     );
   }
