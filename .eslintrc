@@ -75,9 +75,13 @@
       // check for bad imports in node_modules.
       "node_modules",
       // Ignore non-JS imports.
-      "\\.scss$",
+      "\\.gif$",
+      "\\.jpeg$",
       "\\.jpg$",
       "\\.mp4$",
+      "\\.png$",
+      "\\.scss$",
+      "\\.svg$",
       "\\.webm$"
     ],
     "import/resolver": {

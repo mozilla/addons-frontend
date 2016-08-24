@@ -1,3 +1,5 @@
+import config from 'config';
+
 import * as actions from 'core/actions';
 import * as api from 'core/api';
 import {
@@ -6,6 +8,7 @@ import {
   findAddon,
   getClientApp,
   getClientConfig,
+  isAllowedOrigin,
   isValidClientApp,
   loadAddonIfNeeded,
   nl2br,
@@ -328,5 +331,29 @@ describe('nl2br', () => {
 
   it('converts multiple new lines (Windows) to multiple breaks', () => {
     assert.equal(nl2br('\r\n\r\n'), '<br /><br />');
+  });
+});
+
+describe('isAllowedOrigin', () => {
+  it('disallows a random origin', () => {
+    assert.equal(isAllowedOrigin('http://whatever.com'), false);
+  });
+
+  it('allows amoCDN by default', () => {
+    assert.equal(isAllowedOrigin(`${config.get('amoCDN')}/foo.png`), true);
+  });
+
+  it('returns false for a bogus url', () => {
+    assert.equal(isAllowedOrigin(1), false);
+  });
+
+  it('returns false for an empty string', () => {
+    assert.equal(isAllowedOrigin(''), false);
+  });
+
+  it('accepts overriding the allowed origins', () => {
+    const allowedOrigins = ['http://foo.com', 'https://foo.com'];
+    assert.equal(isAllowedOrigin('http://foo.com', { allowedOrigins }), true);
+    assert.equal(isAllowedOrigin('https://foo.com', { allowedOrigins }), true);
   });
 });

@@ -200,4 +200,27 @@ describe('AddonDetail', () => {
     assert.equal(anchor.attributes.onclick, null);
     assert.equal(anchor.attributes.href, null);
   });
+
+  it('renders an amo CDN icon image', () => {
+    const iconURL = 'https://addons.cdn.mozilla.net/foo.jpg';
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        icon_url: iconURL,
+      },
+    });
+    const src = rootNode.querySelector('.icon img').getAttribute('src');
+    assert.equal(src, iconURL);
+  });
+
+  it('renders a fall-back asset', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        icon_url: 'http://foo.com/whatever.jpg',
+      },
+    });
+    const src = rootNode.querySelector('.icon img').getAttribute('src');
+    assert.include(src, 'image/png');
+  });
 });
