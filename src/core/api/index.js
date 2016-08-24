@@ -1,3 +1,5 @@
+/* global fetch */
+
 import url from 'url';
 
 import 'isomorphic-fetch';

@@ -1,3 +1,5 @@
+/* global window */
+
 import log from 'core/logger';
 import {
   globalEvents,
@@ -59,6 +61,7 @@ export function addChangeListeners(callback, mozAddonManager) {
   function handleChangeEvent(e) {
     const { id, type, needsRestart } = e;
     log.info('Event received', { type, id, needsRestart });
+    // eslint-disable-next-line no-prototype-builtins
     if (globalEventStatusMap.hasOwnProperty(type)) {
       return callback({ guid: id, status: globalEventStatusMap[type], needsRestart });
     }

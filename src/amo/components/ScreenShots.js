@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/href-no-hash */
+
 import React, { PropTypes } from 'react';
 
 import translate from 'core/i18n/translate';

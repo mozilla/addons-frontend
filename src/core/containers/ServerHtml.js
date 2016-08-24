@@ -45,7 +45,7 @@ export default class ServerHtml extends Component {
                         key={type + index}
                         rel="stylesheet" type="text/css" />);
         case 'js':
-          return <script key={type + index} src={filePath} {...sriProps}></script>;
+          return <script key={type + index} src={filePath} {...sriProps} />;
         default:
           throw new Error('Unknown static type');
       }
@@ -56,7 +56,7 @@ export default class ServerHtml extends Component {
 
   getAnalytics() {
     if (this.props.trackingEnabled) {
-      return <script async src="https://www.google-analytics.com/analytics.js"></script>;
+      return <script async src="https://www.google-analytics.com/analytics.js" />;
     }
     return null;
   }

@@ -9,6 +9,7 @@ export class ClientConfig {
   constructor(objData) {
     // This Object.assign keeps the config data private.
     Object.assign(this, {
+      // eslint-disable-next-line no-prototype-builtins
       has: (key) => objData.hasOwnProperty(key),
 
       get: (key) => {

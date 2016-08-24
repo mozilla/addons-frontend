@@ -114,7 +114,7 @@ export class InstallButtonBase extends React.Component {
           ref="themeData"
           type="checkbox" />
         <label htmlFor={identifier}>
-          {isDownloading ? <div className="progress"></div> : null}
+          {isDownloading ? <div className="progress" /> : null}
           <span className="visually-hidden">{this.getLabel()}</span>
         </label>
       </div>

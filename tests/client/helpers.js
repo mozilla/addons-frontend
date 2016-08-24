@@ -55,6 +55,6 @@ export function getFakeI18nInst() {
 
 export class MockedSubComponent extends React.Component {
   render() {
-    return <div></div>;
+    return <div />;
   }
 }

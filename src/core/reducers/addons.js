@@ -23,15 +23,13 @@ export default function addon(state = initialState, action) {
           type: THEME_TYPE,
         };
         delete newState[key].theme_data;
+      } else if (thisAddon.current_version && thisAddon.current_version.files.length > 0) {
+        newState[key] = {
+          ...thisAddon,
+          installURL: thisAddon.current_version.files[0].url,
+        };
       } else {
-        if (thisAddon.current_version && thisAddon.current_version.files.length > 0) {
-          newState[key] = {
-            ...thisAddon,
-            installURL: thisAddon.current_version.files[0].url,
-          };
-        } else {
-          newState[key] = thisAddon;
-        }
+        newState[key] = thisAddon;
       }
     });
     return newState;

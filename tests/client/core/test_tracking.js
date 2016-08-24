@@ -1,3 +1,5 @@
+/* global window */
+
 import { Tracking, getAction } from 'core/tracking';
 import { EXTENSION_TYPE, THEME_TYPE } from 'core/constants';
 

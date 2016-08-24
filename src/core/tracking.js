@@ -1,4 +1,6 @@
+/* global window */
 /* eslint-disable no-underscore-dangle */
+
 import config from 'config';
 
 import { convertBoolean } from 'core/utils';
