@@ -73,6 +73,7 @@ export function sanitizeLanguage(langOrLocale) {
   let language = normalizeLang(langOrLocale);
   // Only look in the un-mapped lang list.
   if (!isValidLang(language)) {
+    // eslint-disable-next-line no-prototype-builtins
     language = langMap.hasOwnProperty(language) ? langMap[language] : defaultLang;
   }
   return language;

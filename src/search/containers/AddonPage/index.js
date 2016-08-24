@@ -9,7 +9,7 @@ import JsonData from 'search/components/JsonData';
 import './style.scss';
 
 function siteLink(url, text) {
-  return <a href={url} target="_blank">{text}</a>;
+  return <a href={url} rel="noopener noreferrer" target="_blank">{text}</a>;
 }
 
 class AddonPage extends React.Component {
@@ -32,7 +32,8 @@ class AddonPage extends React.Component {
     ];
     if (addon.homepage) {
       items.push([
-        <a href={addon.homepage} rel="external" target="_blank">{_('View homepage')}</a>,
+        <a href={addon.homepage}
+           rel="external noopener noreferrer" target="_blank">{_('View homepage')}</a>,
         'homepage',
       ]);
     }
@@ -44,7 +45,8 @@ class AddonPage extends React.Component {
     }
     if (addon.support_url) {
       items.push([
-        <a href={addon.support_url} rel="external" target="_blank">{_('View support site')}</a>,
+        <a href={addon.support_url}
+           rel="external noopener noreferrer" target="_blank">{_('View support site')}</a>,
         'support_url',
       ]);
     }

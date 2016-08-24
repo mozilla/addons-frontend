@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
@@ -12,6 +13,7 @@ import InstallButton from 'core/components/InstallButton';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
+// eslint-disable-next-line import/prefer-default-export
 export const fakeAddon = {
   name: 'Chill Out',
   slug: 'chill-out',

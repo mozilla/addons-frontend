@@ -1,3 +1,5 @@
+/* global document */
+
 import { validThemeActions } from 'core/constants';
 
 export default function themeAction(node, action, _doc = document) {

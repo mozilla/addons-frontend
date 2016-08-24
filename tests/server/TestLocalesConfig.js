@@ -1,3 +1,5 @@
+/* eslint-disable no-continue */
+
 import fs from 'fs';
 import path from 'path';
 

@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+/* global navigator */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
@@ -118,7 +119,7 @@ export class DiscoPaneBase extends React.Component {
         {results.map((item) => <AddonComponent {...camelCaseProps(item)} key={item.guid} />)}
         <div className="amo-link">
           <a href="https://addons.mozilla.org/" target="_blank"
-            rel="noreferrer" onClick={this.showMoreAddons}>
+            rel="noopener noreferrer" onClick={this.showMoreAddons}>
             {i18n.gettext('See more add-ons!')}
           </a>
         </div>

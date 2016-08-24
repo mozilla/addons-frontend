@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+/* global window */
+
 import config from 'config';
 
 /*

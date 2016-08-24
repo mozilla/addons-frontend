@@ -1,3 +1,5 @@
+/* global document, CustomEvent */
+
 import classNames from 'classnames';
 import { sprintf } from 'jed';
 import React, { PropTypes } from 'react';
@@ -98,6 +100,7 @@ export class AddonBase extends React.Component {
     return status === ERROR ? (<div className="notification error" key="error-overlay">
       <p className="message">{this.errorMessage()}</p>
       {error && !error.startsWith('FATAL') ?
+        // eslint-disable-next-line jsx-a11y/href-no-hash
         <a className="close" href="#" onClick={this.closeError}>{i18n.gettext('Close')}</a> : null}
     </div>) : null;
   }
@@ -119,6 +122,7 @@ export class AddonBase extends React.Component {
   getThemeImage() {
     const { i18n, name, previewURL } = this.props;
     if (this.props.type === THEME_TYPE) {
+      // eslint-disable-next-line jsx-a11y/href-no-hash
       return (<a href="#" className="theme-image"
                  data-browsertheme={this.getBrowserThemeData()}
                  onBlur={this.resetPreviewTheme}
@@ -267,7 +271,7 @@ export function makeProgressHandler(dispatch, guid) {
   return (addonInstall, e) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
-        100 * addonInstall.progress / addonInstall.maxProgress, 10);
+        (100 * addonInstall.progress) / addonInstall.maxProgress, 10);
       dispatch({ type: DOWNLOAD_PROGRESS, payload: { guid, downloadProgress } });
     } else if (e.type === 'onDownloadFailed') {
       dispatch({ type: INSTALL_ERROR, payload: { guid, error: DOWNLOAD_FAILED } });

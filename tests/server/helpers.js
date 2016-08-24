@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 import cheerio from 'cheerio';
 import { assert } from 'chai';
 

@@ -1,3 +1,5 @@
+/* global document */
+
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import ReactDOM, { findDOMNode } from 'react-dom';
@@ -88,15 +90,15 @@ describe('Clicking outside <InfoDialog />', () => {
           <I18nProvider i18n={getFakeI18nInst()}>
             <div>
               {getInfoDialog()}
-              <div ref="outsideComponent" onClick={(e) => e.stopPropagation()} />
+              <div id="outside-component" onClick={(e) => e.stopPropagation()} />
             </div>
           </I18nProvider>
         );
       }
     }
 
-    const rootComponent = ReactDOM.render(<FakeContainer />, mountNode);
-    const outsideNode = rootComponent.refs.outsideComponent;
+    ReactDOM.render(<FakeContainer />, mountNode);
+    const outsideNode = document.getElementById('outside-component');
     simulateClick(outsideNode);
     assert.ok(closeAction.called, 'closeAction stub was called');
   });

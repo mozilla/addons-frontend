@@ -1,3 +1,5 @@
+/* global window */
+
 import * as api from 'core/api';
 import { unexpectedSuccess } from 'tests/client/helpers';
 

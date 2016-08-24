@@ -1,3 +1,5 @@
+/* global window */
+
 const realSinon = sinon;
 window.sinon = realSinon.sandbox.create();
 window.sinon.createStubInstance = realSinon.createStubInstance;

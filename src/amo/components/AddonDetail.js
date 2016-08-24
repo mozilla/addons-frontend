@@ -61,11 +61,11 @@ class AddonDetail extends React.Component {
             <LikeButton />
           </div>
           <div className="title">
-            <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}></h1>
+            <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])} />
             <InstallButton slug={addon.slug} />
           </div>
           <div className="description">
-            <p dangerouslySetInnerHTML={sanitizeHTML(addon.summary)}></p>
+            <p dangerouslySetInnerHTML={sanitizeHTML(addon.summary)} />
           </div>
         </header>
 
@@ -86,8 +86,7 @@ class AddonDetail extends React.Component {
         <section className="about">
           <h2>{i18n.gettext('About this extension')}</h2>
           <div dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.description),
-                                                     allowedDescriptionTags)}>
-          </div>
+                                                     allowedDescriptionTags)} />
         </section>
       </div>
     );
