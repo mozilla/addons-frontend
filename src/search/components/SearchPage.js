@@ -9,7 +9,6 @@ import SearchResults from './SearchResults';
 export default class SearchPage extends React.Component {
   static propTypes = {
     count: PropTypes.number,
-    location: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
     page: PropTypes.number,
     results: PropTypes.arrayOf(PropTypes.shape({
@@ -17,22 +16,6 @@ export default class SearchPage extends React.Component {
       name: PropTypes.string.isRequired,
     })),
     query: PropTypes.string,
-  }
-
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-  }
-
-  componentDidMount() {
-    const { location, query } = this.props;
-    const { router } = this.context;
-    const url = {
-      ...location,
-      query: { ...location.query, q: query },
-    };
-    if (query && !router.isActive(url)) {
-      router.replace(url);
-    }
   }
 
   render() {

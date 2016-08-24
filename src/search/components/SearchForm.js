@@ -19,10 +19,6 @@ export class SearchFormBase extends React.Component {
     router: PropTypes.object,
   }
 
-  componentDidMount() {
-    this.refs.query.select();
-  }
-
   goToSearch(query) {
     const { pathname } = this.props;
     this.context.router.push(`${pathname}?q=${query}`);
