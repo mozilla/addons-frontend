@@ -5,8 +5,12 @@ import { search } from 'core/api';
 import SearchPage from 'search/components/SearchPage';
 import { searchStart, searchLoad, searchFail } from 'search/actions';
 
-export function mapStateToProps(state) {
-  return state.search;
+export function mapStateToProps(state, ownProps) {
+  const { location } = ownProps;
+  if (location.query.q === state.search.query) {
+    return state.search;
+  }
+  return {};
 }
 
 function performSearch({ dispatch, page, query, api }) {

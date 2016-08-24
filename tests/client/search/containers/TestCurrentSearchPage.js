@@ -13,10 +13,15 @@ describe('CurrentSearchPage.mapStateToProps()', () => {
              cd: { slug: 'cd', name: 'cd-block' } },
     search: { query: 'ad-block', loading: false, results: [{ slug: 'ab', name: 'ad-block' }] },
   };
-  const props = mapStateToProps(state);
 
-  it('passes the search state', () => {
+  it('passes the search state if the URL and state query matches', () => {
+    const props = mapStateToProps(state, { location: { query: { q: 'ad-block' } } });
     assert.strictEqual(props, state.search);
+  });
+
+  it('does not pass search state if the URL and state query do not match', () => {
+    const props = mapStateToProps(state, { location: { query: { q: 'more-ads' } } });
+    assert.deepEqual(props, {});
   });
 });
 
