@@ -137,14 +137,14 @@ describe('<HandleLogin />', () => {
       });
     });
 
-    it('redirects to the search endpoint', () => {
+    it('redirects to the admin endpoint', () => {
       const { apiConfig, dispatch, location, router } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
       const mockRouter = sinon.mock(router);
       mockRouter
         .expects('push')
         .once()
-        .withArgs('/search')
+        .withArgs('/admin')
         .returns(null);
       return loadData({ api: apiConfig, location, router }).then(() => {
         mockRouter.verify();

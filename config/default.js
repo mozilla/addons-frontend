@@ -8,9 +8,9 @@ const path = require('path');
 
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
+  'admin',
   'amo',
   'disco',
-  'search',
 ];
 
 // Throw if the appName supplied is not valid.

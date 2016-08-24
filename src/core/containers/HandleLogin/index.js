@@ -58,7 +58,7 @@ function createLoadData(dispatch) {
             secure: config.get('cookieSecure'),
             maxAge: config.get('cookieMaxAge'),
           });
-          router.push('/search');
+          router.push('/admin');
         });
     }
     return Promise.resolve();

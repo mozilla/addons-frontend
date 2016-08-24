@@ -47,14 +47,14 @@ component to pull its data from the redux store.
 
 ## Creating a Component
 
-We'll create our component in the search app since it will use the currently logged in user. Our
+We'll create our component in the admin app since it will use the currently logged in user. Our
 component is going to show the currently logged in user's email address and username. To start
 we'll create a component without any outside data.
 
 ### Basic component
 
 ```jsx
-// src/search/containers/UserPage/index.js
+// src/admin/containers/UserPage/index.js
 import React from 'react';
 
 export default class UserPage extends React.Component {
@@ -78,14 +78,14 @@ To render this component we'll tell [react-router](https://github.com/reactjs/re
 it at the `/user` path.
 
 ```jsx
-// src/search/routes.js
+// src/admin/routes.js
 // ... omit imports
 
 export default (
   <Route path="/" component={App}>
     <Route component={LoginRequired}>
-      <Route path="search">
-        <IndexRoute component={CurrentSearchPage} />
+      <Route path="admin">
+        <IndexRoute component={CurrentAdminPage} />
         <Route path="addons/:slug" component={AddonPage} />
       </Route>
       // Add this line to use the `UserPage` component at the `/user` path.
@@ -98,7 +98,7 @@ export default (
 
 ### Starting the server
 
-Now that the component is setup we can run `npm start dev:search` and navigate to
+Now that the component is setup we can run `npm start dev:admin` and navigate to
 [http://localhost:3000/user](http://localhost:3000/user) to see the page. Since our component is
 wrapped in the `LoginRequired` component you will need to be logged in to see the page.
 
@@ -109,7 +109,7 @@ the component so that it uses props but we won't yet connect it to redux. We wil
 react-redux's `connect()` to set the props for us as if it were pulling the data from redux.
 
 ```jsx
-// src/search/containers/UserPage/index.js
+// src/admin/containers/UserPage/index.js
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
@@ -192,13 +192,13 @@ export default function users(state = {}, { payload = {} }) {
 No we need to tell the app to use the reducer by adding it to our store.
 
 ```js
-// src/search/store.js
+// src/admin/store.js
 import users from 'core/reducers/users';
 
 export default function createStore(initialState = {}) {
   return _createStore(
     // Add the `users` reducer here.
-    combineReducers({addons, api, auth, search, reduxAsyncConnect, users}),
+    combineReducers({addons, admin, api, auth, reduxAsyncConnect, users}),
     initialState,
     middleware(),
   );
@@ -225,7 +225,7 @@ We'll also want to add an action creator to set the current user. The action cre
 simplifies interacting with redux to keep the code clean.
 
 ```js
-// src/search/actions/index.js
+// src/admin/actions/index.js
 
 // Add this at the bottom of the file.
 export function setCurrentUser(username) {
@@ -245,7 +245,7 @@ component to hit the API, update the store, and pull the data from the store. To
 use [redux-async-connect](https://github.com/Rezonans/redux-async-connect)'s `asyncConnect()`.
 
 ```jsx
-// src/search/containers/AddonPage/index.js
+// src/admin/containers/AddonPage/index.js
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
@@ -307,13 +307,13 @@ be transpiled and minified into a single bundle in production so you will still 
 your styles.
 
 ```js
-// src/search/containers/AddonPage/index.js
+// src/admin/containers/AddonPage/index.js
 // Add this line with the other imports.
 import './styles.scss';
 ```
 
 ```scss
-// src/search/containers/AddonPage/styles.scss
+// src/admin/containers/AddonPage/styles.scss
 .user-page {
   h1 {
     text-decoration: underline;

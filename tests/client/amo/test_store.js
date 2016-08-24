@@ -1,6 +1,6 @@
 import createStore from 'amo/store';
 
-describe('search createStore', () => {
+describe('ADMIN createStore', () => {
   it('sets the reducers', () => {
     const store = createStore();
     assert.deepEqual(
