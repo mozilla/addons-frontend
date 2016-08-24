@@ -8,7 +8,7 @@ describe('api', () => {
     mockWindow = sinon.mock(window);
   });
 
-  describe('search api', () => {
+  describe('ADMIN api', () => {
     function mockResponse() {
       return Promise.resolve({
         ok: true,

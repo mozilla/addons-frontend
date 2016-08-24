@@ -29,9 +29,9 @@ Generic scripts that don't need env vars. Use these for development:
 
 | Script                 | Description                                         |
 |------------------------|-----------------------------------------------------|
+| npm run dev:admin      |  Starts the dev server (admin app)                 |
 | npm run dev:amo        |  Starts the dev server (amo)                        |
 | npm run dev:disco      |  Starts the dev server (discovery pane)             |
-| npm run dev:search     |  Starts the dev server (search app)                 |
 | npm run eslint         |  Lints the JS                                       |
 | npm run stylelint      |  Lints the SCSS                                     |
 | npm run lint           |  Runs all the JS + SCSS linters                     |
@@ -96,17 +96,17 @@ The env vars are:
 | npm run start          |  Starts the express server (requires env vars)      |
 | npm run build          |  Builds the libs (all apps) (requires env vars)     |
 
-Example: Building and running a production instance of the search app:
+Example: Building and running a production instance of the admin app:
 
 ```
-NODE_APP_INSTANCE=search NODE_ENV=production npm run build && npm run start
+NODE_APP_INSTANCE=admin NODE_ENV=production npm run build && npm run start
 ```
 
 ## Overview and rationale
 
-This project will hold several distinct front-ends e.g:
+This project will hold distinct front-ends e.g:
 
-* Editors search tool
+* Editors' admin/search tool
 * Discovery Pane
 * and beyond...
 

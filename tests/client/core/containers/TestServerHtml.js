@@ -15,20 +15,20 @@ describe('<ServerHtml />', () => {
 
   const fakeAssets = {
     styles: {
+      admin: '/admin-blah.css',
       disco: '/bar/disco-blah.css',
-      search: '/search-blah.css',
     },
     javascript: {
+      admin: '/admin-blah.js',
       disco: '/foo/disco-blah.js',
-      search: '/search-blah.js',
     },
   };
 
   const fakeSRIData = {
     'disco-blah.css': 'sha512-disco-css',
-    'search-blah.css': 'sha512-search-css',
+    'admin-blah.css': 'sha512-admin-css',
     'disco-blah.js': 'sha512-disco-js',
-    'search-blah.js': 'sha512-search-js',
+    'admin-blah.js': 'sha512-admin-js',
   };
 
   class FakeApp extends React.Component {

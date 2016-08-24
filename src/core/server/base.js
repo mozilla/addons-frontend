@@ -81,9 +81,9 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
 
-  // Redirect from / for the search app it's a 302 to prevent caching.
-  if (appInstanceName === 'search') {
-    app.get('/', (req, res) => res.redirect(302, '/search'));
+  // Redirect from / for the admin app it's a 302 to prevent caching.
+  if (appInstanceName === 'admin') {
+    app.get('/', (req, res) => res.redirect(302, '/admin'));
   }
 
   if (appInstanceName === 'disco' && isDevelopment) {
