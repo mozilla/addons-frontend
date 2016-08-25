@@ -16,7 +16,7 @@ describe('<SearchResult />', () => {
   const root = renderIntoDocument(<SearchResult result={result} />);
 
   it('renders the name', () => {
-    assert.equal(root.refs.name.textContent, 'A search result');
+    assert.equal(root.refs.name.props.children, 'A search result');
   });
 
   it('renders the type', () => {
@@ -32,7 +32,7 @@ describe('<SearchResult />', () => {
   });
 
   it('links to the detail page', () => {
-    assert.equal(root.refs.container.props.to, '/search/addons/a-search-result');
+    assert.equal(root.refs.name.props.to, '/search/addons/a-search-result');
   });
 
   it('renders the number of files singularly', () => {

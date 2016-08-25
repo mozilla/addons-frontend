@@ -31,8 +31,8 @@ export default class SearchResults extends React.Component {
       messageText = sprintf(
         _('Your search for "%(query)s" returned %(count)s results.'), { query, count });
       searchResults = (
-        <ul ref="results" className="search-results">
-          {results.map((result) => <li key={result.slug}><SearchResult result={result} /></li>)}
+        <ul ref="results" className="SearchResults-list">
+          {results.map((result) => <SearchResult result={result} key={result.slug} />)}
         </ul>
       );
     } else if (query && loading) {
@@ -46,7 +46,7 @@ export default class SearchResults extends React.Component {
     const message = messageText ? <p ref="message">{messageText}</p> : null;
 
     return (
-      <div ref="container" className="search-page">
+      <div ref="container" className="SearchResults">
         {message}
         {searchResults}
       </div>

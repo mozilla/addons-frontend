@@ -40,6 +40,11 @@ button.button {
   }
 }
 
+.button.button-start {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .button.button-middle {
   border-radius: 0;
 }
