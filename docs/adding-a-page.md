@@ -242,13 +242,13 @@ export function setCurrentUser(username) {
 
 Now that we can hit the API and we can store that data in the redux store we need to update our
 component to hit the API, update the store, and pull the data from the store. To do this we will
-use [redux-async-connect](https://github.com/Rezonans/redux-async-connect)'s `asyncConnect()`.
+use [redux-connect](https://github.com/makeomatic/redux-connect)'s `asyncConnect()`.
 
 ```jsx
 // src/search/containers/AddonPage/index.js
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-async-connect';
+import { asyncConnect } from 'redux-connect';
 
 import { loadEntities, setCurrentUser } from 'core/actions';
 import { fetchProfile } from 'core/api';

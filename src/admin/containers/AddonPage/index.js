@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-async-connect';
+import { asyncConnect } from 'redux-connect';
 
 import { gettext as _, loadAddonIfNeeded } from 'core/utils';
 import NotFound from 'core/components/NotFound';
@@ -129,6 +129,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 const CurrentAddonPage = asyncConnect([{
+  key: 'AddonPage',
   deferred: true,
   promise: loadAddonIfNeeded,
 }])(connect(mapStateToProps)(AddonPage));

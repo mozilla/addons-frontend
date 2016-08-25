@@ -34,12 +34,23 @@ export function callApi({ endpoint, schema, params = {}, auth = false, state = {
       options.headers.authorization = `Bearer ${state.token}`;
     }
   }
-  return fetch(`${API_BASE}/${endpoint}/${queryString}`, options)
+  const apiURL = `${API_BASE}/${endpoint}/${queryString}`;
+
+  return fetch(apiURL, options)
     .then((response) => {
       if (response.ok) {
         return response.json();
       }
-      throw new Error('Error calling API');
+
+      // If response is not ok we'll throw.
+      // Notes that redux-connect will catch this exception and
+      // pass it up to the state as an error for this api call.
+      const apiError = new Error('Error calling API');
+      apiError.response = {
+        apiURL,
+        status: response.status,
+      };
+      throw apiError;
     })
     .then((response) => (schema ? normalize(response, schema) : response));
 }

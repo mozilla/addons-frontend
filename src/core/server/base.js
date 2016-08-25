@@ -11,7 +11,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
-import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
+import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import ServerHtml from 'core/containers/ServerHtml';
@@ -30,7 +30,20 @@ const version = path.join(config.get('basePath'), 'version.json');
 const isDeployed = config.get('isDeployed');
 const isDevelopment = config.get('isDevelopment');
 
-const errorString = 'Internal Server Error';
+const errorPageText = {
+  401: 'Unauthorized',
+  404: 'Not Found',
+  500: 'Internal Server Error',
+};
+
+function showErrorPage(res, status) {
+  const _status = status.toString();
+  if (Object.keys(errorPageText).includes(_status)) {
+    return res.status(_status).end(errorPageText[_status]);
+  }
+  return res.status('500').end(errorPageText['500']);
+}
+
 const appName = config.get('appName');
 
 function logRequests(req, res, next) {
@@ -109,11 +122,11 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
       if (err) {
         log.error({ err, req });
-        return res.status(500).end(errorString);
+        return showErrorPage(res, 500);
       }
 
       if (!renderProps) {
-        return res.status(404).end('Not found.');
+        return showErrorPage(res, 404);
       }
 
       const store = createStore();
@@ -179,11 +192,29 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             </I18nProvider>
           );
 
+          const asyncConnectLoadState = store.getState().reduxAsyncConnect.loadState || {};
+
+          // Create a list of any apiErrors detected.
+          const apiErrors = Object.keys(asyncConnectLoadState)
+            .map((item) => asyncConnectLoadState[item].error)
+            .filter((item) => item);
+
+          if (apiErrors.length === 1) {
+            // If we have a single API error reflect that in the page's response.
+            const apiStatus = apiErrors[0].response.status;
+            return showErrorPage(res, apiStatus);
+          } else if (apiErrors.length > 1) {
+            // Otherwise we have multiple api errors it should be logged
+            // and throw a 500.
+            log.error(apiErrors);
+            return showErrorPage(res, 500);
+          }
+
           return hydrateOnClient({ component: InitialComponent });
         })
         .catch((error) => {
           log.error({ err: error });
-          res.status(500).end(errorString);
+          return showErrorPage(res, 500);
         });
     });
   });
@@ -191,7 +222,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
     log.error({ err });
-    res.status(500).end(errorString);
+    return showErrorPage(500);
   });
 
   return app;

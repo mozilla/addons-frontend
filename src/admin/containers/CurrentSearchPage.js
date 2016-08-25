@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-async-connect';
+import { asyncConnect } from 'redux-connect';
 
 import { search } from 'core/api';
 import SearchPage from 'admin/components/SearchPage';
@@ -43,6 +43,7 @@ export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, locat
 }
 
 const CurrentSearchPage = asyncConnect([{
+  key: 'CurrentSearchPage',
   deferred: true,
   promise: loadSearchResultsIfNeeded,
 }])(connect(mapStateToProps)(SearchPage));

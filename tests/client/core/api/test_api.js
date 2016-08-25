@@ -11,7 +11,7 @@ describe('api', () => {
   });
 
   describe('search api', () => {
-    function mockResponse() {
+    function mockResponse(propOverrides = {}) {
       return Promise.resolve({
         ok: true,
         json() {
@@ -23,6 +23,7 @@ describe('api', () => {
             ],
           });
         },
+        ...propOverrides,
       });
     }
 
@@ -49,6 +50,21 @@ describe('api', () => {
               football: { slug: 'football' },
             },
           });
+        });
+    });
+
+    it('surfaces status and apiURL on Error instance', () => {
+      const url =
+        'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&page=3&lang=en-US';
+      mockWindow.expects('fetch')
+        .withArgs(url)
+        .once()
+        .returns(mockResponse({ ok: false, status: 401 }));
+
+      return api.search({ api: { lang: 'en-US' }, query: 'foo', page: 3 })
+        .then(unexpectedSuccess, (err) => {
+          assert.equal(err.response.status, 401);
+          assert.equal(err.response.apiURL, url);
         });
     });
   });

@@ -1,5 +1,5 @@
 import { createStore as _createStore, combineReducers } from 'redux';
-import { reducer as reduxAsyncConnect } from 'redux-async-connect';
+import { reducer as reduxAsyncConnect } from 'redux-connect';
 
 import { middleware } from 'core/store';
 import addons from 'core/reducers/addons';
