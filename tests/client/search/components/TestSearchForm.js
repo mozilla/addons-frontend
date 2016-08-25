@@ -52,10 +52,17 @@ describe('<SearchForm />', () => {
     assert.equal(input.type, 'search');
   });
 
-  it('updates the location', () => {
+  it('updates the location on enter', () => {
     assert(!router.push.called);
     input.value = 'adblock';
-    Simulate.submit(form);
+    Simulate.keyDown(input, { key: 'Enter', shiftKey: false });
+    assert(router.push.calledWith('/somewhere?q=adblock'));
+  });
+
+  it('updates the location on search click', () => {
+    assert(!router.push.called);
+    input.value = 'adblock';
+    Simulate.click(root.refs.submit);
     assert(router.push.calledWith('/somewhere?q=adblock'));
   });
 
@@ -63,6 +70,13 @@ describe('<SearchForm />', () => {
     loadAddon.returns(Promise.resolve('adblock'));
     input.value = 'adblock@adblock.com';
     Simulate.click(root.refs.go);
+    assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
+  });
+
+  it('looks up the add-on to see if you are lucky on Shift+Enter', () => {
+    loadAddon.returns(Promise.resolve('adblock'));
+    input.value = 'adblock@adblock.com';
+    Simulate.keyDown(input, { key: 'Enter', shiftKey: true });
     assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
   });
 

@@ -24,13 +24,21 @@ export class SearchFormBase extends React.Component {
     this.context.router.push(`${pathname}?q=${query}`);
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSearch = () => {
     this.goToSearch(this.refs.query.value);
   }
 
-  handleGo = (e) => {
-    e.preventDefault();
+  handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      if (e.shiftKey) {
+        this.handleGo();
+      } else {
+        this.handleSearch();
+      }
+    }
+  }
+
+  handleGo = () => {
     const query = this.refs.query.value;
     this.props.loadAddon({ api: this.props.api, query })
       .then(
@@ -41,11 +49,16 @@ export class SearchFormBase extends React.Component {
   render() {
     const { query } = this.props;
     return (
-      <form ref="form" className="search-form" onSubmit={this.handleSubmit}>
+      <form ref="form" className="search-form" onKeyDown={this.handleKeyDown}
+            onSubmit={(e) => e.preventDefault()}>
         <label className="visually-hidden" htmlFor="q">{_('Search')}</label>
         <input ref="query" type="search" name="q" placeholder={_('Search')} defaultValue={query} />
-        <button className="button button-middle" ref="submit" type="submit">{_('Search')}</button>
-        <button className="button button-end button-inverse" ref="go" onClick={this.handleGo}>
+        <button className="button button-middle" ref="submit" type="submit" title="Enter"
+                onClick={this.handleSearch}>
+          {_('Search')}
+        </button>
+        <button className="button button-end button-inverse" ref="go" onClick={this.handleGo}
+                title="Shift + Enter">
           {_("I'm Feeling Lucky")}
         </button>
       </form>
