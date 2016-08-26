@@ -41,7 +41,7 @@ export default class SearchResult extends React.Component {
   render() {
     const { result } = this.props;
     return (
-      <li className="SearchResult" ref="container">
+      <li className="SearchResult">
         <div>
           <img className="SearchResult-icon" src={result.icon_url} alt="Icon" />
         </div>
