@@ -52,6 +52,20 @@ describe('<SearchForm />', () => {
     assert.equal(input.type, 'search');
   });
 
+  it('does nothing on submit', () => {
+    assert(!router.push.called);
+    input.value = 'adblock';
+    Simulate.submit(form);
+    assert(!router.push.called);
+  });
+
+  it('does nothing on non-Enter keydowns', () => {
+    assert(!router.push.called);
+    input.value = 'adblock';
+    Simulate.keyDown(input, { key: 'A', shiftKey: true });
+    assert(!router.push.called);
+  });
+
   it('updates the location on enter', () => {
     assert(!router.push.called);
     input.value = 'adblock';
