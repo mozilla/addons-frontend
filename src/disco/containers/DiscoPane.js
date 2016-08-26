@@ -102,7 +102,7 @@ export class DiscoPaneBase extends React.Component {
                 ),
                 {
                   start_link: '<a href="https://addons.mozilla.org/" target="_blank" rel="noopener noreferrer">',
-                  end_link: '</a>'
+                  end_link: '</a>',
                 }
               )}</p>
             </div>
