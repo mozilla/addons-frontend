@@ -9,6 +9,7 @@ import {
 import {
   installEventList,
 } from 'core/constants';
+import { addQueryParams } from 'core/utils';
 
 
 export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
@@ -23,8 +24,10 @@ export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonMan
     });
 }
 
-export function install(url, eventCallback,
+export function install(_url, eventCallback,
   { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
+  const url = addQueryParams(_url, { src: 'discovery-promo' });
+
   return _mozAddonManager.createInstall({ url })
     .then((installObj) => {
       const callback = (e) => eventCallback(installObj, e);

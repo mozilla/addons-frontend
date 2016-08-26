@@ -115,3 +115,11 @@ export function isAllowedOrigin(urlString, { allowedOrigins = [config.get('amoCD
   }
   return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
+
+export function addQueryParams(urlString, queryParams = {}) {
+  const urlObj = url.parse(urlString, true);
+  // Clear search so we always use query.
+  urlObj.search = null;
+  urlObj.query = { ...urlObj.query, ...queryParams };
+  return url.format(urlObj);
+}
