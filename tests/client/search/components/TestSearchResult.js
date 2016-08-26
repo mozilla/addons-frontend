@@ -16,28 +16,28 @@ describe('<SearchResult />', () => {
   const root = renderIntoDocument(<SearchResult result={result} />);
 
   it('renders the name', () => {
-    assert.equal(root.refs.name.props.children, 'A search result');
+    assert.equal(root.name.props.children, 'A search result');
   });
 
   it('renders the type', () => {
-    assert.equal(root.refs.type.textContent, 'Extension');
+    assert.equal(root.type.textContent, 'Extension');
   });
 
   it('renders the status', () => {
-    assert.equal(root.refs.status.textContent, 'Fully Reviewed');
+    assert.equal(root.status.textContent, 'Fully Reviewed');
   });
 
   it('renders the number of files', () => {
-    assert.equal(root.refs.fileCount.textContent, '2 files');
+    assert.equal(root.fileCount.textContent, '2 files');
   });
 
   it('links to the detail page', () => {
-    assert.equal(root.refs.name.props.to, '/search/addons/a-search-result');
+    assert.equal(root.name.props.to, '/search/addons/a-search-result');
   });
 
   it('renders the number of files singularly', () => {
     const thisResult = { ...result, current_version: { files: [{}] } };
     const thisRoot = renderIntoDocument(<SearchResult result={thisResult} />);
-    assert.equal(thisRoot.refs.fileCount.textContent, '1 file');
+    assert.equal(thisRoot.fileCount.textContent, '1 file');
   });
 });

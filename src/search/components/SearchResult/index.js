@@ -43,24 +43,25 @@ export default class SearchResult extends React.Component {
     return (
       <li className="SearchResult" ref="container">
         <div>
-          <img
-            className="SearchResult-icon"
-            src={result.icon_url}
-            height="64"
-            width="64"
-            alt="Icon"
-          />
+          <img className="SearchResult-icon" src={result.icon_url} alt="Icon" />
         </div>
         <div className="SearchResult-main">
           <h2 className="SearchResult-heading">
-            <Link to={`/search/addons/${result.slug}`} className="SearchResult-name" ref="name">
+            <Link to={`/search/addons/${result.slug}`} className="SearchResult-name"
+                  ref={(el) => { this.name = el; }}>
               {result.name}
             </Link>
           </h2>
-          <div className="SearchResult-info" ref="guid">{result.guid}</div>
-          <span className="SearchResult-info" ref="type">{result.type}</span>
-          <span className="SearchResult-info" ref="status">{result.status}</span>
-          <span className="SearchResult-info" ref="fileCount">
+          <div className="SearchResult-info" ref={(el) => { this.guid = el; }}>
+            {result.guid}
+          </div>
+          <span className="SearchResult-info" ref={(el) => { this.type = el; }}>
+            {result.type}
+          </span>
+          <span className="SearchResult-info" ref={(el) => { this.status = el; }}>
+            {result.status}
+          </span>
+          <span className="SearchResult-info" ref={(el) => { this.fileCount = el; }}>
             {fileCountText(result.current_version)}
           </span>
         </div>
