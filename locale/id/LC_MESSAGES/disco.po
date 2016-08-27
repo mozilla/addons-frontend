@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-02 15:08+0000\n"
-"PO-Revision-Date: 2016-05-31 01:53+0000\n"
-"Last-Translator: alamanda <dian.ina@gmail.com>\n"
+"PO-Revision-Date: 2016-08-27 03:30+0000\n"
+"Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -16,28 +16,27 @@ msgstr ""
 
 #: src/disco/components/Addon.js:112
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Layangkan kursor untuk pratinjau atau klik untuk memasang %(name)s"
 
 #: src/disco/components/Addon.js:151
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Layangkan kursor di area gambar untuk pratinjau"
 
 #: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Pemasangan gagal. Mohon coba lagi."
 
 #: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Pengunduhan gagal. Mohon periksa koneksi anda."
 
 #: src/disco/components/Addon.js:170
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "Terjadi kesalahan yang tidak diharapkan"
+msgstr "Terjadi kesalahan yang tidak diharapkan selama pemasangan."
 
 #: src/disco/components/Addon.js:172
 #, fuzzy
@@ -45,9 +44,8 @@ msgid "An unexpected error occurred during uninstallation."
 msgstr "Terjadi kesalahan yang tidak diharapkan"
 
 #: src/disco/components/Addon.js:175
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "Terjadi kesalahan yang tidak diharapkan"
+msgstr "Terjadi kesalahan yang tidak diharapkan."
 
 #: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
@@ -59,7 +57,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Pengaya Anda telah siap digunakan"
 
 #: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
@@ -67,15 +65,15 @@ msgstr ""
 
 #: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/disco/components/InstallButton.js:50
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Mengunduh %(name)s."
 
 #: src/disco/components/InstallButton.js:53
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Memasang %(name)s."
 
 #: src/disco/components/InstallButton.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
@@ -83,7 +81,7 @@ msgstr ""
 
 #: src/disco/components/InstallButton.js:60
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s dinonaktifkan. Klik untuk mengaktifkan."
 
 #: src/disco/components/InstallButton.js:63
 msgid "Uninstalling %(name)s."
@@ -95,7 +93,7 @@ msgstr ""
 
 #: src/disco/components/InstallButton.js:69
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Status pemasangan untuk %(name)s tidak dapat dikenali."
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
@@ -109,13 +107,11 @@ msgstr "Personalisasi Firefox Anda"
 #, fuzzy
 msgid ""
 "There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
+"world to help you personalize your browsing experience—everything from fun visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 msgstr ""
 "Ada ribuan pengaya yang memungkinkan Anda membuat Firefox seperti \n"
-"milik Anda—semua hal mulai dari tema visual menyenangkan hingga fitur dan "
-"alat yang kuat.\n"
+"milik Anda—semua hal mulai dari tema visual menyenangkan hingga fitur dan alat yang kuat.\n"
 "Berikut adalah sebagian diantaranya yang luar biasa."
 
 #: src/disco/containers/DiscoPane.js:107
@@ -128,11 +124,11 @@ msgstr "untuk mengetahui lebih lanjut tentang pengaya"
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
-msgstr ""
+msgstr "Tutup video"
 
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Lihat lebih banyak pengaya!"
 
 #~ msgid "Install"
 #~ msgstr "Pasang"
