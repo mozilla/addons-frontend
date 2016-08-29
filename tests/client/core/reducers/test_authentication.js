@@ -1,3 +1,6 @@
+import cookie from 'react-cookie';
+import config from 'config';
+
 import auth from 'core/reducers/authentication';
 
 describe('authentication reducer', () => {
@@ -26,5 +29,26 @@ describe('authentication reducer', () => {
     assert.deepEqual(
       auth({ token: 'foo' }, { type: 'SET_CURRENT_USER', payload: { username } }),
       { token: 'foo', username });
+  });
+
+  describe('LOG_OUT_USER', () => {
+    let remove;
+
+    before(() => {
+      remove = sinon.stub(cookie, 'remove');
+      sinon.stub(config, 'get').returns('JWT_COOKIE_NAME');
+    });
+
+    it('clears the state', () => {
+      assert.deepEqual(
+        auth({ token: 'hey!', otherThing: 'goes away' }, { type: 'LOG_OUT_USER' }),
+        {});
+    });
+
+    it('clears the cookie', () => {
+      auth({ token: 'hey!', otherThing: 'goes away' }, { type: 'LOG_OUT_USER' });
+      assert.ok(remove.called);
+      assert.ok(remove.calledWith('JWT_COOKIE_NAME'));
+    });
   });
 });

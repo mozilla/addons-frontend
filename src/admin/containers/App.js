@@ -1,24 +1,27 @@
 import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
 
 import { gettext as _ } from 'core/utils';
 import NavBar from 'admin/components/NavBar';
 
 import 'admin/css/App.scss';
 
-export default class App extends React.Component {
+export class AppBase extends React.Component {
   static propTypes = {
+    authenticated: PropTypes.bool.isRequired,
     children: PropTypes.node,
+    logOut: PropTypes.func.isRequired,
   }
 
   render() {
-    const { children } = this.props;
+    const { authenticated, children, logOut } = this.props;
     return (
       <div className="search-page">
         <Helmet
           defaultTitle={_('Add-ons Search')}
         />
-        <NavBar />
+        <NavBar authenticated={authenticated} logOut={logOut} />
         <div className="App">
           {children}
         </div>
@@ -26,3 +29,13 @@ export default class App extends React.Component {
     );
   }
 }
+
+export const mapStateToProps = (state) => ({
+  authenticated: !!state.auth.token,
+});
+
+export const mapDispatchToProps = {
+  logOut: () => ({ type: 'LOG_OUT_USER' }),
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppBase);
