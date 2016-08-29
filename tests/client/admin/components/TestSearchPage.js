@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SearchPage from 'search/components/SearchPage';
-import SearchResults from 'search/components/SearchResults';
-import SearchForm from 'search/components/SearchForm';
+import SearchPage from 'admin/components/SearchPage';
+import SearchResults from 'admin/components/SearchResults';
+import SearchForm from 'admin/components/SearchForm';
 import Paginate from 'core/components/Paginate';
 import { findAllByTag, findByTag, shallowRender } from 'tests/client/helpers';
 

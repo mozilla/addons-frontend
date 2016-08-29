@@ -8,13 +8,13 @@
     "build": "bin/build-checks.js && better-npm-run build",
     "extract-locales": "better-npm-run extract-locales",
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json'",
+    "dev:admin": "better-npm-run dev:admin",
     "dev:amo": "better-npm-run dev:amo",
     "dev:disco": "better-npm-run dev:disco",
-    "dev:search": "better-npm-run dev:search",
     "eslint": "eslint .",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
-    "servertest": "bin/config-check.js && ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest && better-npm-run servertest:amo && better-npm-run servertest:disco && better-npm-run servertest:search",
+    "servertest": "bin/config-check.js && ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest && better-npm-run servertest:amo && better-npm-run servertest:disco && better-npm-run servertest:admin",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
     "test": "bin/config-check.js && better-npm-run test",
     "unittest": "bin/config-check.js && better-npm-run unittest",
@@ -29,6 +29,12 @@
         "NODE_PATH": "./:./src"
       }
     },
+    "dev:admin": {
+      "command": "better-npm-run start-dev",
+      "env": {
+        "NODE_APP_INSTANCE": "admin"
+      }
+    },
     "dev:amo": {
       "command": "better-npm-run start-dev",
       "env": {
@@ -39,12 +45,6 @@
       "command": "better-npm-run start-dev",
       "env": {
         "NODE_APP_INSTANCE": "disco"
-      }
-    },
-    "dev:search": {
-      "command": "better-npm-run start-dev",
-      "env": {
-        "NODE_APP_INSTANCE": "search"
       }
     },
     "extract-locales": {
@@ -70,6 +70,15 @@
         "TRACKING_ENABLED": "false"
       }
     },
+    "servertest:admin": {
+      "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/admin",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "test",
+        "NODE_APP_INSTANCE": "admin",
+        "TRACKING_ENABLED": "false"
+      }
+    },
     "servertest:amo": {
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/amo",
       "env": {
@@ -85,15 +94,6 @@
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test",
         "NODE_APP_INSTANCE": "disco",
-        "TRACKING_ENABLED": "false"
-      }
-    },
-    "servertest:search": {
-      "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/search",
-      "env": {
-        "NODE_PATH": "./:./src",
-        "NODE_ENV": "test",
-        "NODE_APP_INSTANCE": "search",
         "TRACKING_ENABLED": "false"
       }
     },

@@ -1,4 +1,4 @@
-import search from 'search/reducers/search';
+import search from 'admin/reducers/search';
 
 describe('search reducer', () => {
   it('defaults to a null query', () => {

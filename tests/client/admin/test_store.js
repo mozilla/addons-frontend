@@ -1,4 +1,4 @@
-import createStore from 'search/store';
+import createStore from 'admin/store';
 
 describe('search createStore', () => {
   it('sets the reducers', () => {

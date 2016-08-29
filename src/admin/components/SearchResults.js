@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { sprintf } from 'jed';
 
 import { gettext as _ } from 'core/utils';
-import SearchResult from 'search/components/SearchResult';
+import SearchResult from 'admin/components/SearchResult';
 
-import 'search/css/SearchResults.scss';
+import 'admin/css/SearchResults.scss';
 
 
 export default class SearchResults extends React.Component {

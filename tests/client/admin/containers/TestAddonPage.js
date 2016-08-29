@@ -3,8 +3,8 @@ import { renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import AddonPage from 'search/containers/AddonPage';
-import createStore from 'search/store';
+import AddonPage from 'admin/containers/AddonPage';
+import createStore from 'admin/store';
 
 describe('AddonPage', () => {
   const basicAddon = {

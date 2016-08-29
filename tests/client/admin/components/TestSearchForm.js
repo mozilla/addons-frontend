@@ -4,7 +4,7 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import * as actions from 'core/actions';
 import * as coreApi from 'core/api';
 import { SearchFormBase, mapDispatchToProps, mapStateToProps }
-  from 'search/components/SearchForm';
+  from 'admin/components/SearchForm';
 
 const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
 

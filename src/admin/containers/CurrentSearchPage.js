@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
 
 import { search } from 'core/api';
-import SearchPage from 'search/components/SearchPage';
-import { searchStart, searchLoad, searchFail } from 'search/actions';
+import SearchPage from 'admin/components/SearchPage';
+import { searchStart, searchLoad, searchFail } from 'admin/actions';
 
 export function mapStateToProps(state, ownProps) {
   const { location } = ownProps;

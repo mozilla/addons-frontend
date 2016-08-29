@@ -1,6 +1,6 @@
 import React from 'react';
 
-import App from 'search/containers/App';
+import App from 'admin/containers/App';
 import { shallowRender } from 'tests/client/helpers';
 
 describe('App', () => {

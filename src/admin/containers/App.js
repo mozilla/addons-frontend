@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { gettext as _ } from 'core/utils';
 import NavBar from 'search/components/NavBar';
 
-import 'search/css/App.scss';
+import 'admin/css/App.scss';
 
 export default class App extends React.Component {
   static propTypes = {

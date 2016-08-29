@@ -10,7 +10,7 @@ import { checkSRI } from '../helpers';
 describe('Search App GET requests', () => {
   let app;
 
-  before(() => runServer({ listen: false, app: 'search' })
+  before(() => runServer({ listen: false, app: 'admin' })
     .then((server) => {
       app = server;
     }));
