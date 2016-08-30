@@ -27,19 +27,51 @@ The easiest way to manage multiple node versions in development is to use
 
 Generic scripts that don't need env vars. Use these for development:
 
-| Script                 | Description                                         |
-|------------------------|-----------------------------------------------------|
-| npm run dev:admin      |  Starts the dev server (admin app)                 |
-| npm run dev:amo        |  Starts the dev server (amo)                        |
-| npm run dev:disco      |  Starts the dev server (discovery pane)             |
-| npm run eslint         |  Lints the JS                                       |
-| npm run stylelint      |  Lints the SCSS                                     |
-| npm run lint           |  Runs all the JS + SCSS linters                     |
-| npm run version-check  |  Checks you have the minimum node + npm versions    |
-| npm test               |  Runs the unittest, servertests + lint              |
-| npm run unittest       |  Runs just the unittests                            |
-| npm run unittest:dev   |  Runs the unittests and watches for changes         |
-| npm run servertest     |  Runs the servertests                               |
+| Script                  | Description                                           |
+|-------------------------|-------------------------------------------------------|
+| npm run dev:admin       |  Starts the dev server (admin app)                    |
+| npm run dev:amo         |  Starts the dev server (amo)                          |
+| npm run dev:disco       |  Starts the dev server (discovery pane)               |
+| npm run eslint          |  Lints the JS                                         |
+| npm run stylelint       |  Lints the SCSS                                       |
+| npm run lint            |  Runs all the JS + SCSS linters                       |
+| npm run version-check   |  Checks you have the minimum node + npm versions      |
+| npm test                |  Runs the unittest, servertests + lint                |
+| npm run unittest        |  Runs just the unittests                              |
+| npm run unittest:dev    |  Runs the unittests and watches for changes           |
+| npm run unittest:server |  Starts a unittest server for use with `unittest:run` |
+| npm run unittest:run    |  Executes unittests (requires `unittest:server`)      |
+| npm run servertest      |  Runs the servertests                                 |
+
+### Running tests
+
+You can run the entire test suite with `npm test` but there are a few other ways
+to run tests.
+
+#### Run all unit tests in a loop
+
+You can use `npm run unittest:dev` to run all unit tests in a loop while you
+edit the source code.
+
+#### Run a subset of the unit tests
+
+If you don't want to run the entire unit test suite, first you have to start a
+unittest server:
+
+    npm run unittest:server
+
+When you see "Connected on socket," the server has fully started.
+
+Now you can execute a more specific [mocha](https://mochajs.org/) command,
+such as using `--grep` to run only a few tests. Here is an example:
+
+    npm run unittest:run -- --grep=InfoDialog
+
+This would run all tests that either fall under the `InfoDialog` description grouping
+or have `InfoDialog` in their behavior text.
+
+Any option after the double dash (`--`) gets sent to `mocha`. Check out
+[mocha's usage](https://mochajs.org/#usage) for ideas.
 
 ### Code coverage
 

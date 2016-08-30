@@ -19,6 +19,8 @@
     "test": "bin/config-check.js && better-npm-run test",
     "unittest": "bin/config-check.js && better-npm-run unittest",
     "unittest:dev": "bin/config-check.js && better-npm-run unittest:dev",
+    "unittest:server": "bin/config-check.js && better-npm-run unittest:server",
+    "unittest:run": "bin/config-check.js && better-npm-run unittest:run",
     "version-check": "node bin/version-check.js",
     "webpack-dev-server": "better-npm-run webpack-dev-server"
   },
@@ -113,6 +115,20 @@
     },
     "unittest:dev": {
       "command": "karma start",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "test"
+      }
+    },
+    "unittest:server": {
+      "command": "karma start --no-auto-watch",
+      "env": {
+        "NODE_PATH": "./:./src",
+        "NODE_ENV": "test"
+      }
+    },
+    "unittest:run": {
+      "command": "karma run --",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
