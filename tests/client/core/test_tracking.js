@@ -40,13 +40,37 @@ describe('Tracking', () => {
     assert.ok(tracking._log.info.secondCall.calledWith(sinon.match(/OFF/), 'Missing tracking id'));
   });
 
+  it('should send initial page view when enabled', () => {
+    tracking = new Tracking({
+      trackingId: 'whatever',
+      trackingEnabled: true,
+      trackingSendInitPageView: true,
+      _log: {
+        info: sinon.stub(),
+      },
+    });
+    assert.ok(window.ga.calledWith('send', 'pageview'));
+  });
+
+  it('should not send initial page view when disabled', () => {
+    tracking = new Tracking({
+      trackingId: 'whatever',
+      trackingEnabled: true,
+      trackingSendInitPageView: false,
+      _log: {
+        info: sinon.stub(),
+      },
+    });
+    assert.notOk(window.ga.calledWith('send', 'pageview'));
+  });
+
   it('should throw if page not set', () => {
     assert.throws(() => {
       tracking.setPage();
     }, Error, /page is required/);
   });
 
-  it('should call ga', () => {
+  it('should call ga with setPage', () => {
     tracking.setPage('whatever');
     assert.ok(window.ga.called);
   });
@@ -65,12 +89,21 @@ describe('Tracking', () => {
     }, Error, /action is required/);
   });
 
-  it('should call _ga', () => {
+  it('should call _ga with sendEvent', () => {
     tracking.sendEvent({
       category: 'whatever',
       action: 'some-action',
     });
     assert.ok(window.ga.called);
+  });
+
+  it('should call _ga when pageView is called', () => {
+    const data = {
+      dimension1: 'whatever',
+      dimension2: 'whatever2',
+    };
+    tracking.pageView(data);
+    assert.ok(window.ga.calledWith('send', 'pageview', data));
   });
 });
 

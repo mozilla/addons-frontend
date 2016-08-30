@@ -94,7 +94,6 @@ export class AddonBase extends React.Component {
     return JSON.stringify(getThemeData(this.props));
   }
 
-
   getError() {
     const { error, i18n, status } = this.props;
     return status === ERROR ? (<div className="notification error" key="error-overlay">

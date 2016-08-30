@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-/* global navigator */
+/* global navigator, window */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-async-connect';
