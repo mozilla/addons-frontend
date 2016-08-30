@@ -1,8 +1,11 @@
+import url from 'url';
+
 import config from 'config';
 
 import * as actions from 'core/actions';
 import * as api from 'core/api';
 import {
+  addQueryParams,
   camelCaseProps,
   convertBoolean,
   findAddon,
@@ -355,5 +358,32 @@ describe('isAllowedOrigin', () => {
     const allowedOrigins = ['http://foo.com', 'https://foo.com'];
     assert.equal(isAllowedOrigin('http://foo.com', { allowedOrigins }), true);
     assert.equal(isAllowedOrigin('https://foo.com', { allowedOrigins }), true);
+  });
+});
+
+describe('addQueryParams', () => {
+  it('adds a query param to a plain url', () => {
+    const output = addQueryParams('http://whatever.com/', { foo: 'bar' });
+    assert.deepEqual(url.parse(output, true).query, { foo: 'bar' });
+  });
+
+  it('adds more than one query param to a plain url', () => {
+    const output = addQueryParams('http://whatever.com/', { foo: 'bar', test: 1 });
+    assert.deepEqual(url.parse(output, true).query, { foo: 'bar', test: '1' });
+  });
+
+  it('overrides an existing parameter', () => {
+    const output = addQueryParams('http://whatever.com/?foo=1', { foo: 'bar' });
+    assert.deepEqual(url.parse(output, true).query, { foo: 'bar' });
+  });
+
+  it('overrides multiple existing parameters', () => {
+    const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { foo: 'bar', bar: 'baz' });
+    assert.deepEqual(url.parse(output, true).query, { foo: 'bar', bar: 'baz' });
+  });
+
+  it('leaves other params intact', () => {
+    const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { bar: 'updated' });
+    assert.deepEqual(url.parse(output, true).query, { foo: '1', bar: 'updated' });
   });
 });

@@ -16,7 +16,7 @@ describe('addonManager', () => {
 
   beforeEach(() => {
     fakeCallback = sinon.stub();
-    fakeInstallUrl = 'https://fake-install-url';
+    fakeInstallUrl = 'https://fake-install-url/foo.xpi';
     fakeAddon = {
       uninstall: sinon.stub(),
     };
@@ -58,7 +58,8 @@ describe('addonManager', () => {
       () => addonManager.install(
         fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
         .then(() => {
-          assert.ok(fakeMozAddonManager.createInstall.calledWith({ url: fakeInstallUrl }));
+          assert.ok(fakeMozAddonManager.createInstall.calledWith(
+            { url: `${fakeInstallUrl}?src=discovery-promo` }));
         }));
 
     it(
