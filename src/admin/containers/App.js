@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
 import { gettext as _ } from 'core/utils';
-import NavBar from 'search/components/NavBar';
+import NavBar from 'admin/components/NavBar';
 
 import 'admin/css/App.scss';
 
