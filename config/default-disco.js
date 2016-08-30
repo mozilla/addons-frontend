@@ -26,6 +26,7 @@ module.exports = {
     'rtlLangs',
     'trackingEnabled',
     'trackingId',
+    'trackingSendInitPageView',
     'useUiTour',
   ],
 
@@ -51,6 +52,9 @@ module.exports = {
   },
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',
+  // We override the initial page view call in order to
+  // add custom dimension data.
+  trackingSendInitPageView: false,
 
   enablePostCssLoader: false,
 

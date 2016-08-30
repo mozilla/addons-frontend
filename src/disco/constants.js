@@ -37,3 +37,15 @@ export const CLOSE_INFO = 'CLOSE_INFO';
 // Error used to know that the setEnable method on addon is
 // not available.
 export const SET_ENABLE_NOT_AVAILABLE = 'SET_ENABLE_NOT_AVAILABLE';
+
+// Keys for extensions and theme data in the discovery pane JSON blob.
+export const DISCO_DATA_THEME = 'theme';
+export const DISCO_DATA_EXTENSION = 'extension';
+export const DISCO_DATA_UNKNOWN = 'unknown';
+// Built-in extensions and themes to ignore.
+export const DISCO_DATA_GUID_IGNORE_LIST = [
+  '{972ce4c6-7e08-4474-a285-3208198ce6fd}', // Default theme.
+  'e10srollout@mozilla.org', // e10s
+  'firefox@getpocket.com', // Pocket
+  'loop@mozilla.org', // Firefox Hello
+];

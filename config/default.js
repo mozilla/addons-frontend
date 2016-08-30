@@ -79,6 +79,7 @@ module.exports = {
     'rtlLangs',
     'trackingEnabled',
     'trackingId',
+    'trackingSendInitPageView',
   ],
 
   // Content Security Policy.
@@ -151,6 +152,8 @@ module.exports = {
   // and enabled on a per-app basis.
   trackingEnabled: false,
   trackingId: null,
+  // send a page view on initialization.
+  trackingSendInitPageView: true,
 
   enablePostCssLoader: true,
 
