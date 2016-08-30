@@ -5,13 +5,13 @@ import {
   NavBarLink,
 } from 'core/components/NavBar';
 
-const SearchNavBar = () => (
+const AdminNavBar = () => (
   <NavBar>
     <NavBarLink to="/search">Search</NavBarLink>
   </NavBar>
 );
-SearchNavBar.propTypes = {
+AdminNavBar.propTypes = {
   logout: PropTypes.func.isRequired,
 };
 
-export default SearchNavBar;
+export default AdminNavBar;
