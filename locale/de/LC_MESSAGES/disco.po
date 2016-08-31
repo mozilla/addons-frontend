@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-31 11:46+0000\n"
-"PO-Revision-Date: 2016-08-02 06:58+0000\n"
+"PO-Revision-Date: 2016-08-31 16:25+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -24,9 +24,7 @@ msgstr "%(name)s wird installiert."
 
 #: src/core/components/InstallButton/index.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu "
-"deinstallieren."
+msgstr "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu deinstallieren."
 
 #: src/core/components/InstallButton/index.js:60
 msgid "%(name)s is disabled. Click to enable."
@@ -50,13 +48,11 @@ msgstr "Schließen"
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
+msgstr "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
-msgstr ""
-"Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+msgstr "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
 
 #: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
@@ -80,8 +76,7 @@ msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
 #: src/disco/components/Addon.js:175
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
-"Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
+msgstr "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
 
 #: src/disco/components/Addon.js:177
 msgid "Please restart Firefox to use this add-on."
@@ -124,21 +119,15 @@ msgid "Personalize Your Firefox"
 msgstr "Passen Sie Ihren Firefox an."
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Es gibt Tausende von Add-ons von Entwicklern auf der ganzen Welt, mit denen "
-"Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von lustigen Themes "
-"zu mächtigen Werkzeugen und Funktionen.\n"
-"Hier sind ein paar tolle Beispiele, die Sie ausprobieren können."
+"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von lustigen Themes zu mächtigen Werkzeugen, dank "
+"denen Sie schneller und sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige besonders leistungsfähige und funktionsreiche Add-ons."
 
 #~ msgid "Install"
 #~ msgstr "Installieren"
