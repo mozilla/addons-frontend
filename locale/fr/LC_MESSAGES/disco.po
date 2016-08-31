@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-31 11:46+0000\n"
-"PO-Revision-Date: 2016-08-02 09:23+0000\n"
+"PO-Revision-Date: 2016-08-31 17:46+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -48,9 +48,7 @@ msgstr "Fermer"
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Survolez l’image pour activer la prévisualisation ou cliquez pour installer "
-"%(name)s"
+msgstr "Survolez l’image pour activer la prévisualisation ou cliquez pour installer %(name)s"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -121,21 +119,16 @@ msgid "Personalize Your Firefox"
 msgstr "Personnalisez Firefox"
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Il existe des milliers de modules qui vous permettent de personnaliser "
-"complètement votre navigation, que ce soit avec des thèmes amusants ou en "
-"ajoutant des outils ou des fonctionnalités très pratiques. En voici quelques-"
-"uns pour vous faire une idée."
+"Il existe des milliers de modules gratuits, créés par des développeurs du monde entier, que vous pouvez installer pour personnaliser Firefox. Des thèmes amusants jusqu’aux puissants outils qui "
+"rendent votre navigation encore plus rapide et sûre, les modules vous permettent de personnaliser complètement votre navigation. Pour vous aider à bien démarrer, nous en avons sélectionné quelques-"
+"uns selon leurs performances et leurs fonctionnalités."
 
 #~ msgid "Install"
 #~ msgstr "Installer"
