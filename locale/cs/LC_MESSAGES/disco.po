@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-02 15:08+0000\n"
+"POT-Creation-Date: 2016-08-31 11:46+0000\n"
 "PO-Revision-Date: 2016-08-09 16:02+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,103 +14,89 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:112
-msgid "Close"
-msgstr "Zavřít"
-
-#: src/disco/components/Addon.js:141
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Najeďte myší pro náhled nebo klepněte pro instalaci doplňku %(name)s"
-
-#: src/disco/components/Addon.js:151
-msgid "Hover over the image to preview"
-msgstr "Pro náhled přejeďte nad obrázkem myší"
-
-#: src/disco/components/Addon.js:166
-msgid "Installation failed. Please try again."
-msgstr "Instalace selhala. Zkuste to prosím znovu."
-
-#: src/disco/components/Addon.js:168
-msgid "Download failed. Please check your connection."
-msgstr "Stahování selhalo. Zkontrolujte prosím své připojení."
-
-#: src/disco/components/Addon.js:170
-msgid "An unexpected error occurred during installation."
-msgstr "Během instalace došlo k neočekávané chybě."
-
-#: src/disco/components/Addon.js:172
-msgid "An unexpected error occurred during uninstallation."
-msgstr "Během odinstalace došlo k neočekávané chybě."
-
-#: src/disco/components/Addon.js:175
-msgid "An unexpected error occurred."
-msgstr "Došlo k neočekávané chybě."
-
-#: src/disco/components/Addon.js:183
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Tento doplněk bude odinstalován jakmile restartujete Firefox."
-
-#: src/disco/components/Addon.js:185
-msgid "Please restart Firefox to use this add-on."
-msgstr "Pro použití tohoto doplňku prosím restartujte Firefox."
-
-#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
-msgid "Your add-on is ready"
-msgstr "Váš doplněk je připraven"
-
-#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Nyní můžete přistupovat k %(name)s z panelu nástrojů."
-
-#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
-msgid "OK!"
-msgstr "OK!"
-
-#: src/disco/components/InstallButton.js:50
+#: src/core/components/InstallButton/index.js:50
 msgid "Downloading %(name)s."
 msgstr "Stahování doplňku %(name)s."
 
-#: src/disco/components/InstallButton.js:53
+#: src/core/components/InstallButton/index.js:53
 msgid "Installing %(name)s."
 msgstr "Instalace doplňku %(name)s."
 
-#: src/disco/components/InstallButton.js:57
+#: src/core/components/InstallButton/index.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "Doplněk %(name)s je nainstalován a povolen. Klepněte pro odinstalaci."
 
-#: src/disco/components/InstallButton.js:60
+#: src/core/components/InstallButton/index.js:60
 msgid "%(name)s is disabled. Click to enable."
 msgstr "Doplněk %(name)s je zakázán. Klepněte pro povolení."
 
-#: src/disco/components/InstallButton.js:63
+#: src/core/components/InstallButton/index.js:63
 msgid "Uninstalling %(name)s."
 msgstr "Odinstalace doplňku %(name)s."
 
-#: src/disco/components/InstallButton.js:66
+#: src/core/components/InstallButton/index.js:66
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "Doplněk %(name)s byl odinstalován. Klepněte pro instalaci."
 
-#: src/disco/components/InstallButton.js:69
+#: src/core/components/InstallButton/index.js:69
 msgid "Install state for %(name)s is unknown."
 msgstr "Stav instalace doplňku %(name)s není známý."
+
+#: src/disco/components/Addon.js:103
+msgid "Close"
+msgstr "Zavřít"
+
+#: src/disco/components/Addon.js:133
+msgid "Hover to preview or click to install %(name)s"
+msgstr "Najeďte myší pro náhled nebo klepněte pro instalaci doplňku %(name)s"
+
+#: src/disco/components/Addon.js:143
+msgid "Hover over the image to preview"
+msgstr "Pro náhled přejeďte nad obrázkem myší"
+
+#: src/disco/components/Addon.js:158
+msgid "Installation failed. Please try again."
+msgstr "Instalace selhala. Zkuste to prosím znovu."
+
+#: src/disco/components/Addon.js:160
+msgid "Download failed. Please check your connection."
+msgstr "Stahování selhalo. Zkontrolujte prosím své připojení."
+
+#: src/disco/components/Addon.js:162
+msgid "An unexpected error occurred during installation."
+msgstr "Během instalace došlo k neočekávané chybě."
+
+#: src/disco/components/Addon.js:164
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Během odinstalace došlo k neočekávané chybě."
+
+#: src/disco/components/Addon.js:167
+msgid "An unexpected error occurred."
+msgstr "Došlo k neočekávané chybě."
+
+#: src/disco/components/Addon.js:175
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "Tento doplněk bude odinstalován jakmile restartujete Firefox."
+
+#: src/disco/components/Addon.js:177
+msgid "Please restart Firefox to use this add-on."
+msgstr "Pro použití tohoto doplňku prosím restartujte Firefox."
+
+#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+msgid "Your add-on is ready"
+msgstr "Váš doplněk je připraven"
+
+#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Nyní můžete přistupovat k %(name)s z panelu nástrojů."
+
+#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+msgid "OK!"
+msgstr "OK!"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Objevte doplňky"
-
-#: src/disco/containers/DiscoPane.js:100
-msgid "Personalize Your Firefox"
-msgstr "Přizpůsobte si svůj Firefox"
-
-#: src/disco/containers/DiscoPane.js:101
-msgid ""
-"There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun visual\n"
-"themes to powerful tools and features. Here are a few great ones to try out."
-msgstr ""
-"Jsou zde tisíce doplňků vytvořené vývojáři z celého světa, které vám pomůžou\n"
-"přizpůsobit si prohlížeč podle sebe — od nádherných motivů vzhledu až po \n"
-"produktivní nástroje a funkce. Tady jsme pro vás vybrali ty, které stojí za to vyzkoušet."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
@@ -127,6 +113,28 @@ msgstr "Zavřít video"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "Zobrazte si více doplňků!"
+
+#: src/disco/containers/DiscoPane.js:98
+msgid "Personalize Your Firefox"
+msgstr "Přizpůsobte si svůj Firefox"
+
+#: src/disco/containers/DiscoPane.js:99
+#, fuzzy
+msgid ""
+"There are thousands of free add-ons, created by developers all over\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
+"and functionality."
+msgstr ""
+"Jsou zde tisíce doplňků vytvořené vývojáři z celého světa, které vám "
+"pomůžou\n"
+"přizpůsobit si prohlížeč podle sebe — od nádherných motivů vzhledu až po \n"
+"produktivní nástroje a funkce. Tady jsme pro vás vybrali ty, které stojí za "
+"to vyzkoušet."
 
 #~ msgid "Install"
 #~ msgstr "Instalovat"
