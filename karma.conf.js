@@ -145,6 +145,7 @@ module.exports = function karmaConf(conf) {
     singleRun: false,
     concurrency: Infinity,
     webpack: newWebpackConfig,
+    failOnEmptyTestSuite: true,
     webpackServer: {
       noInfo: true,
       quiet: true,
