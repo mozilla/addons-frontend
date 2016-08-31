@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-02 15:08+0000\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-08-31 11:46+0000\n"
 "PO-Revision-Date: 2016-08-04 00:35+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -13,107 +13,92 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/disco/components/Addon.js:112
+#: src/core/components/InstallButton/index.js:50
+msgid "Downloading %(name)s."
+msgstr "Pobieranie dodatku „%(name)s”."
+
+#: src/core/components/InstallButton/index.js:53
+msgid "Installing %(name)s."
+msgstr "Instalowanie dodatku „%(name)s”."
+
+#: src/core/components/InstallButton/index.js:57
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+"Dodatek „%(name)s” jest zainstalowany i włączony. Kliknij, aby odinstalować."
+
+#: src/core/components/InstallButton/index.js:60
+msgid "%(name)s is disabled. Click to enable."
+msgstr "Dodatek „%(name)s” jest wyłączony. Kliknij, aby włączyć."
+
+#: src/core/components/InstallButton/index.js:63
+msgid "Uninstalling %(name)s."
+msgstr "Odinstalowywanie dodatku „%(name)s”."
+
+#: src/core/components/InstallButton/index.js:66
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "Dodatek „%(name)s” jest odinstalowany. Kliknij, aby zainstalować."
+
+#: src/core/components/InstallButton/index.js:69
+msgid "Install state for %(name)s is unknown."
+msgstr "Stan instalacji dodatku „%(name)s” jest nieznany."
+
+#: src/disco/components/Addon.js:103
 msgid "Close"
 msgstr "Zamknij"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Najedź, aby wyświetlić podgląd lub kliknij, aby zainstalować dodatek "
 "„%(name)s”"
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
 msgstr "Najedź na obraz, aby wyświetlić podgląd"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
 msgstr "Instalacja się nie powiodła. Proszę spróbować ponownie."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:160
 msgid "Download failed. Please check your connection."
 msgstr "Pobranie się nie powiodło. Proszę sprawdzić połączenie z Internetem."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred during installation."
 msgstr "Wystąpił nieoczekiwany błąd podczas instalacji."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:164
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Wystąpił nieoczekiwany błąd podczas dezinstalacji."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:175
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ten dodatek zostanie odinstalowany po ponownym uruchomieniu Firefoksa."
 
-#: src/disco/components/Addon.js:185
+#: src/disco/components/Addon.js:177
 msgid "Please restart Firefox to use this add-on."
 msgstr "Proszę ponownie uruchomić Firefoksa, aby użyć tego dodatku."
 
-#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Dodatek jest gotowy"
 
-#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Można teraz korzystać z dodatku „%(name)s” na pasku narzędziowym."
 
-#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "OK"
-
-#: src/disco/components/InstallButton.js:50
-msgid "Downloading %(name)s."
-msgstr "Pobieranie dodatku „%(name)s”."
-
-#: src/disco/components/InstallButton.js:53
-msgid "Installing %(name)s."
-msgstr "Instalowanie dodatku „%(name)s”."
-
-#: src/disco/components/InstallButton.js:57
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Dodatek „%(name)s” jest zainstalowany i włączony. Kliknij, aby odinstalować."
-
-#: src/disco/components/InstallButton.js:60
-msgid "%(name)s is disabled. Click to enable."
-msgstr "Dodatek „%(name)s” jest wyłączony. Kliknij, aby włączyć."
-
-#: src/disco/components/InstallButton.js:63
-msgid "Uninstalling %(name)s."
-msgstr "Odinstalowywanie dodatku „%(name)s”."
-
-#: src/disco/components/InstallButton.js:66
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "Dodatek „%(name)s” jest odinstalowany. Kliknij, aby zainstalować."
-
-#: src/disco/components/InstallButton.js:69
-msgid "Install state for %(name)s is unknown."
-msgstr "Stan instalacji dodatku „%(name)s” jest nieznany."
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Odkrywaj dodatki"
-
-#: src/disco/containers/DiscoPane.js:100
-msgid "Personalize Your Firefox"
-msgstr "Dostosuj Firefoksa"
-
-#: src/disco/containers/DiscoPane.js:101
-msgid ""
-"There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
-"themes to powerful tools and features. Here are a few great ones to try out."
-msgstr ""
-"Tysiące dodatków tworzonych przez programistów z całego świata umożliwia\n"
-"dostosowanie przeglądarki do własnych upodobań: od zabawnych motywów\n"
-"do potężnych narzędzi. Oto kilka najlepszych do wypróbowania."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
@@ -130,3 +115,23 @@ msgstr "Zamknij"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "Więcej dodatków"
+
+#: src/disco/containers/DiscoPane.js:98
+msgid "Personalize Your Firefox"
+msgstr "Dostosuj Firefoksa"
+
+#: src/disco/containers/DiscoPane.js:99
+#, fuzzy
+msgid ""
+"There are thousands of free add-ons, created by developers all over\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
+"and functionality."
+msgstr ""
+"Tysiące dodatków tworzonych przez programistów z całego świata umożliwia\n"
+"dostosowanie przeglądarki do własnych upodobań: od zabawnych motywów\n"
+"do potężnych narzędzi. Oto kilka najlepszych do wypróbowania."

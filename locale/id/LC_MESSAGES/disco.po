@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-02 15:08+0000\n"
+"POT-Creation-Date: 2016-08-31 11:46+0000\n"
 "PO-Revision-Date: 2016-08-28 14:37+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,103 +14,89 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:112
-msgid "Close"
-msgstr "Tutup"
-
-#: src/disco/components/Addon.js:141
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Layangkan kursor untuk pratinjau atau klik untuk memasang %(name)s"
-
-#: src/disco/components/Addon.js:151
-msgid "Hover over the image to preview"
-msgstr "Layangkan kursor di area gambar untuk pratinjau"
-
-#: src/disco/components/Addon.js:166
-msgid "Installation failed. Please try again."
-msgstr "Pemasangan gagal. Mohon coba lagi."
-
-#: src/disco/components/Addon.js:168
-msgid "Download failed. Please check your connection."
-msgstr "Pengunduhan gagal. Mohon periksa koneksi anda."
-
-#: src/disco/components/Addon.js:170
-msgid "An unexpected error occurred during installation."
-msgstr "Terjadi kesalahan yang tidak diharapkan selama pemasangan."
-
-#: src/disco/components/Addon.js:172
-msgid "An unexpected error occurred during uninstallation."
-msgstr "Terjadi kesalahan yang tidak diharapkan saat pencopotan."
-
-#: src/disco/components/Addon.js:175
-msgid "An unexpected error occurred."
-msgstr "Terjadi kesalahan yang tidak diharapkan."
-
-#: src/disco/components/Addon.js:183
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Pengaya ini akan dihapus setelah Anda memulai ulang Firefox."
-
-#: src/disco/components/Addon.js:185
-msgid "Please restart Firefox to use this add-on."
-msgstr "Silakan mulai ulang Firefox Anda untuk menggunakan pengaya ini."
-
-#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
-msgid "Your add-on is ready"
-msgstr "Pengaya Anda telah siap digunakan"
-
-#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
-msgid "Now you can access %(name)s from the toolbar."
-msgstr "Sekarang Anda dapat mengakses %(name)s dari bilah alat."
-
-#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
-msgid "OK!"
-msgstr "OK!"
-
-#: src/disco/components/InstallButton.js:50
+#: src/core/components/InstallButton/index.js:50
 msgid "Downloading %(name)s."
 msgstr "Mengunduh %(name)s."
 
-#: src/disco/components/InstallButton.js:53
+#: src/core/components/InstallButton/index.js:53
 msgid "Installing %(name)s."
 msgstr "Memasang %(name)s."
 
-#: src/disco/components/InstallButton.js:57
+#: src/core/components/InstallButton/index.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s telah terpasang dan dihidupkan. Klik untuk mencopotnya."
 
-#: src/disco/components/InstallButton.js:60
+#: src/core/components/InstallButton/index.js:60
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s dinonaktifkan. Klik untuk mengaktifkan."
 
-#: src/disco/components/InstallButton.js:63
+#: src/core/components/InstallButton/index.js:63
 msgid "Uninstalling %(name)s."
 msgstr "Mencopot %(name)s."
 
-#: src/disco/components/InstallButton.js:66
+#: src/core/components/InstallButton/index.js:66
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s telah dicopot. Klik untuk memasang."
 
-#: src/disco/components/InstallButton.js:69
+#: src/core/components/InstallButton/index.js:69
 msgid "Install state for %(name)s is unknown."
 msgstr "Status pemasangan untuk %(name)s tidak dapat dikenali."
+
+#: src/disco/components/Addon.js:103
+msgid "Close"
+msgstr "Tutup"
+
+#: src/disco/components/Addon.js:133
+msgid "Hover to preview or click to install %(name)s"
+msgstr "Layangkan kursor untuk pratinjau atau klik untuk memasang %(name)s"
+
+#: src/disco/components/Addon.js:143
+msgid "Hover over the image to preview"
+msgstr "Layangkan kursor di area gambar untuk pratinjau"
+
+#: src/disco/components/Addon.js:158
+msgid "Installation failed. Please try again."
+msgstr "Pemasangan gagal. Mohon coba lagi."
+
+#: src/disco/components/Addon.js:160
+msgid "Download failed. Please check your connection."
+msgstr "Pengunduhan gagal. Mohon periksa koneksi anda."
+
+#: src/disco/components/Addon.js:162
+msgid "An unexpected error occurred during installation."
+msgstr "Terjadi kesalahan yang tidak diharapkan selama pemasangan."
+
+#: src/disco/components/Addon.js:164
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Terjadi kesalahan yang tidak diharapkan saat pencopotan."
+
+#: src/disco/components/Addon.js:167
+msgid "An unexpected error occurred."
+msgstr "Terjadi kesalahan yang tidak diharapkan."
+
+#: src/disco/components/Addon.js:175
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "Pengaya ini akan dihapus setelah Anda memulai ulang Firefox."
+
+#: src/disco/components/Addon.js:177
+msgid "Please restart Firefox to use this add-on."
+msgstr "Silakan mulai ulang Firefox Anda untuk menggunakan pengaya ini."
+
+#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+msgid "Your add-on is ready"
+msgstr "Pengaya Anda telah siap digunakan"
+
+#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Sekarang Anda dapat mengakses %(name)s dari bilah alat."
+
+#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+msgid "OK!"
+msgstr "OK!"
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Temukan Pengaya"
-
-#: src/disco/containers/DiscoPane.js:100
-msgid "Personalize Your Firefox"
-msgstr "Personalisasi Firefox Anda"
-
-#: src/disco/containers/DiscoPane.js:101
-msgid ""
-"There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun visual\n"
-"themes to powerful tools and features. Here are a few great ones to try out."
-msgstr ""
-"Ada ribuan pengaya yang dibuat oleh para pengembang di seluruh\n"
-"dunia untuk membantu Anda mempersonalisasi pengalaman penjelajahan Anda—semuanya mulai dari tema\n"
-"visual yang menyenangkan sampai peralatan yang kuat dan fitur. Berikut adalah beberapa yang paling bagus untuk dicoba."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
@@ -127,6 +113,28 @@ msgstr "Tutup video"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "Lihat lebih banyak pengaya!"
+
+#: src/disco/containers/DiscoPane.js:98
+msgid "Personalize Your Firefox"
+msgstr "Personalisasi Firefox Anda"
+
+#: src/disco/containers/DiscoPane.js:99
+#, fuzzy
+msgid ""
+"There are thousands of free add-ons, created by developers all over\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
+"and functionality."
+msgstr ""
+"Ada ribuan pengaya yang dibuat oleh para pengembang di seluruh\n"
+"dunia untuk membantu Anda mempersonalisasi pengalaman penjelajahan Anda—"
+"semuanya mulai dari tema\n"
+"visual yang menyenangkan sampai peralatan yang kuat dan fitur. Berikut "
+"adalah beberapa yang paling bagus untuk dicoba."
 
 #~ msgid "Install"
 #~ msgstr "Pasang"

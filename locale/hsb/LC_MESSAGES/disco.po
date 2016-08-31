@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-02 15:08+0000\n"
+"POT-Creation-Date: 2016-08-31 11:46+0000\n"
 "PO-Revision-Date: 2016-08-01 20:25+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,108 +15,92 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:112
+#: src/core/components/InstallButton/index.js:50
+msgid "Downloading %(name)s."
+msgstr "%(name)s so sćahuje."
+
+#: src/core/components/InstallButton/index.js:53
+msgid "Installing %(name)s."
+msgstr "%(name)s so instaluje."
+
+#: src/core/components/InstallButton/index.js:57
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+"%(name)s je so instalował a zmóžnił. Klikńće, zo byšće jón wotinstalował."
+
+#: src/core/components/InstallButton/index.js:60
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s je znjemóžnjeny. Klikńće na „Zmóžnić“."
+
+#: src/core/components/InstallButton/index.js:63
+msgid "Uninstalling %(name)s."
+msgstr "%(name)s so wotinstaluje."
+
+#: src/core/components/InstallButton/index.js:66
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s je wotinstalowany. Klikńće na „Instalować“."
+
+#: src/core/components/InstallButton/index.js:69
+msgid "Install state for %(name)s is unknown."
+msgstr "Instalowanski status za %(name)s je njeznaty."
+
+#: src/disco/components/Addon.js:103
 msgid "Close"
 msgstr "Začinić"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s "
 "kliknyć"
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
 msgstr "Pohíbujće myšku nad wobraz za přehlad"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
 msgstr "Instalacija je so nimokuliła. Prošu spytajće hišće raz."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:160
 msgid "Download failed. Please check your connection."
 msgstr "Sćehnjenje je so nimokuliło. Prošu přepruwujće swój zwisk."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred during installation."
 msgstr "Njewočakowany zmylk je při instalowanju wustupił."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:164
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Njewočakowany zmylk je při wotinstalowanju wustupił."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred."
 msgstr "Njewočakowany zmylk je wustupił."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:175
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tutón přidatk so wotinstaluje, po tym zo sće Firefox znowa startował."
 
-#: src/disco/components/Addon.js:185
+#: src/disco/components/Addon.js:177
 msgid "Please restart Firefox to use this add-on."
 msgstr "Prošu startujće Firefox znowa, zo byšće tutón přidatk wužiwał."
 
-#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Waš přidatk je hotowy"
 
-#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Nětko maće přistup na %(name)s ze symboloweje lajsty."
 
-#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "W porjadku!"
-
-#: src/disco/components/InstallButton.js:50
-msgid "Downloading %(name)s."
-msgstr "%(name)s so sćahuje."
-
-#: src/disco/components/InstallButton.js:53
-msgid "Installing %(name)s."
-msgstr "%(name)s so instaluje."
-
-#: src/disco/components/InstallButton.js:57
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s je so instalował a zmóžnił. Klikńće, zo byšće jón wotinstalował."
-
-#: src/disco/components/InstallButton.js:60
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s je znjemóžnjeny. Klikńće na „Zmóžnić“."
-
-#: src/disco/components/InstallButton.js:63
-msgid "Uninstalling %(name)s."
-msgstr "%(name)s so wotinstaluje."
-
-#: src/disco/components/InstallButton.js:66
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s je wotinstalowany. Klikńće na „Instalować“."
-
-#: src/disco/components/InstallButton.js:69
-msgid "Install state for %(name)s is unknown."
-msgstr "Instalowanski status za %(name)s je njeznaty."
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "Přidatki wotkryć"
-
-#: src/disco/containers/DiscoPane.js:100
-msgid "Personalize Your Firefox"
-msgstr "Přiměrće swój Firefox"
-
-#: src/disco/containers/DiscoPane.js:101
-msgid ""
-"There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
-"themes to powerful tools and features. Here are a few great ones to try out."
-msgstr ""
-"Su tysacy přidatkow, wutworjenych wot wuwiwarjow z cyłeho swěta, kotrež wam "
-"zmóžnjeja, Firefox wašemu přehladowanskemu dožiwjenju &ndash; wšitko, wot "
-"zabawnych drastow hač do mócnych nastrojow a funkcijow. Tu su někotre, "
-"kotrež móžeće wupruwować."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
@@ -133,6 +117,27 @@ msgstr "Widejo začinić"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "Wobhladajće sej dalše přidatki!"
+
+#: src/disco/containers/DiscoPane.js:98
+msgid "Personalize Your Firefox"
+msgstr "Přiměrće swój Firefox"
+
+#: src/disco/containers/DiscoPane.js:99
+#, fuzzy
+msgid ""
+"There are thousands of free add-ons, created by developers all over\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
+"and functionality."
+msgstr ""
+"Su tysacy přidatkow, wutworjenych wot wuwiwarjow z cyłeho swěta, kotrež wam "
+"zmóžnjeja, Firefox wašemu přehladowanskemu dožiwjenju &ndash; wšitko, wot "
+"zabawnych drastow hač do mócnych nastrojow a funkcijow. Tu su někotre, "
+"kotrež móžeće wupruwować."
 
 #~ msgid "Install"
 #~ msgstr "Instalować"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-02 15:08+0000\n"
+"POT-Creation-Date: 2016-08-31 11:46+0000\n"
 "PO-Revision-Date: 2016-06-18 12:12+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,109 +14,92 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/disco/components/Addon.js:112
+#: src/core/components/InstallButton/index.js:50
+msgid "Downloading %(name)s."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:53
+msgid "Installing %(name)s."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:57
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:60
+msgid "%(name)s is disabled. Click to enable."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:63
+msgid "Uninstalling %(name)s."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:66
+msgid "%(name)s is uninstalled. Click to install."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:69
+msgid "Install state for %(name)s is unknown."
+msgstr ""
+
+#: src/disco/components/Addon.js:103
 #, fuzzy
 msgid "Close"
 msgstr "بستن ویدئو"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
 msgstr "برای پیش‌نمایش بر روی تصویر حرکت کنید"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:158
 msgid "Installation failed. Please try again."
 msgstr "نصب شکست خورد. لطفا دوباره تلاش کنید."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:160
 msgid "Download failed. Please check your connection."
 msgstr "دریافت شکست خورد. لطفا اتصال خود را بررسی کنید."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:162
 #, fuzzy
 msgid "An unexpected error occurred during installation."
 msgstr "یک خطا غیر منتظره رُخ داد."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:164
 #, fuzzy
 msgid "An unexpected error occurred during uninstallation."
 msgstr "یک خطا غیر منتظره رُخ داد."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred."
 msgstr "یک خطا غیر منتظره رُخ داد."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:175
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "این افزودنی پس از راه‌اندازی مجدد فایرفاکس حذف خواهد شد."
 
-#: src/disco/components/Addon.js:185
+#: src/disco/components/Addon.js:177
 msgid "Please restart Firefox to use this add-on."
 msgstr "لطفا برای استفاده از این افزودنی فایرفاکس را مجددا راه‌اندازی کنید."
 
-#: src/disco/components/Addon.js:299 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr ""
 
-#: src/disco/components/Addon.js:301 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr ""
 
-#: src/disco/components/Addon.js:303 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
 msgid "OK!"
-msgstr ""
-
-#: src/disco/components/InstallButton.js:50
-msgid "Downloading %(name)s."
-msgstr ""
-
-#: src/disco/components/InstallButton.js:53
-msgid "Installing %(name)s."
-msgstr ""
-
-#: src/disco/components/InstallButton.js:57
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-
-#: src/disco/components/InstallButton.js:60
-msgid "%(name)s is disabled. Click to enable."
-msgstr ""
-
-#: src/disco/components/InstallButton.js:63
-msgid "Uninstalling %(name)s."
-msgstr ""
-
-#: src/disco/components/InstallButton.js:66
-msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
-
-#: src/disco/components/InstallButton.js:69
-msgid "Install state for %(name)s is unknown."
 msgstr ""
 
 #: src/disco/containers/App.js:19
 msgid "Discover Add-ons"
 msgstr "افزونه کشف کنید"
-
-#: src/disco/containers/DiscoPane.js:100
-msgid "Personalize Your Firefox"
-msgstr "فایرفاکس خود را شخصی سازی کنید"
-
-#: src/disco/containers/DiscoPane.js:101
-#, fuzzy
-msgid ""
-"There are thousands of add-ons created by developers all over the\n"
-"world to help you personalize your browsing experience—everything from fun "
-"visual\n"
-"themes to powerful tools and features. Here are a few great ones to try out."
-msgstr ""
-"هزاران افزونه وجود دارد که به شما کمک می‌کند تمام فایرفاکس را به اختیار خود "
-"درآورید — همه چیز از ضمیمه های سرگرم کننده بصری تا ابزارهای قوی و ویژیگی های "
-"مختلف. \n"
-"در اینجا تعدادی از بهترین های آن ها را ببینید."
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
@@ -133,6 +116,27 @@ msgstr "بستن ویدئو"
 #: src/disco/containers/DiscoPane.js:125
 msgid "See more add-ons!"
 msgstr "نمایش افزودنی‌های بیشتر!"
+
+#: src/disco/containers/DiscoPane.js:98
+msgid "Personalize Your Firefox"
+msgstr "فایرفاکس خود را شخصی سازی کنید"
+
+#: src/disco/containers/DiscoPane.js:99
+#, fuzzy
+msgid ""
+"There are thousands of free add-ons, created by developers all over\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
+"and functionality."
+msgstr ""
+"هزاران افزونه وجود دارد که به شما کمک می‌کند تمام فایرفاکس را به اختیار خود "
+"درآورید — همه چیز از ضمیمه های سرگرم کننده بصری تا ابزارهای قوی و ویژیگی های "
+"مختلف. \n"
+"در اینجا تعدادی از بهترین های آن ها را ببینید."
 
 #~ msgid "Install"
 #~ msgstr "نصب"
