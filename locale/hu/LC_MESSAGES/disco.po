@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-31 11:46+0000\n"
-"PO-Revision-Date: 2016-08-01 20:24+0000\n"
+"PO-Revision-Date: 2016-08-31 18:49+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -24,8 +24,7 @@ msgstr "%(name)s telepítése."
 
 #: src/core/components/InstallButton/index.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
+msgstr "A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
 #: src/core/components/InstallButton/index.js:60
 msgid "%(name)s is disabled. Click to enable."
@@ -49,9 +48,7 @@ msgstr "Bezárás"
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
-"telepítéséhez"
+msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -122,21 +119,18 @@ msgid "Personalize Your Firefox"
 msgstr "A Firefox testreszabása"
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Kiegészítők ezreit készítik a fejlesztők a világ minden tájáról, hogy "
-"testre\n"
-"szabhassa böngészési élményét – mókás vizuális témáktól kezdve, a hatékony\n"
-"eszközökig és funkciókig. Itt van néhány nagyszerű, amelyet kipróbálhat."
+"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő fejlesztőktől,\n"
+"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól kezdve,\n"
+"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá teszik,\n"
+"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, itt van néhány,\n"
+"amelyeket ajánlunk a kiemelkedő teljesítményük és funkcionalitásuk miatt."
 
 #~ msgid "Install"
 #~ msgstr "Telepítés"
