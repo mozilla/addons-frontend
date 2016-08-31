@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-31 11:46+0000\n"
-"PO-Revision-Date: 2016-08-17 20:45+0000\n"
-"Last-Translator: ludvigs <ludvigs@kimludvigsen.dk>\n"
+"PO-Revision-Date: 2016-08-31 14:43+0000\n"
+"Last-Translator: joergenr <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -48,9 +48,7 @@ msgstr "Luk"
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Hold markøren over for at få vist et eksempel, eller klik for at installere "
-"%(name)s"
+msgstr "Hold markøren over for at få vist et eksempel, eller klik for at installere %(name)s"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -121,19 +119,12 @@ msgid "Personalize Your Firefox"
 msgstr "Tilpas Firefox"
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Udviklere over hele verden har lavet tusindvis af tilføjelser, der kan "
-"personliggøre din surfen\n"
-"på internettet — du kan tilføje alt fra sjove temaer til kraftfulde "
-"værktøjer og funktioner. \n"
+"Udviklere over hele verden har lavet tusindvis af gratis tilføjelser, der kan personliggøre din surfen på internettet — du kan tilføje alt fra sjove temaer til kraftfulde værktøjer og funktioner. "
 "Her er nogle, som du kan prøve."
