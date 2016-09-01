@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-31 11:46+0000\n"
-"PO-Revision-Date: 2016-08-01 20:02+0000\n"
+"PO-Revision-Date: 2016-09-01 09:00+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -119,19 +119,13 @@ msgid "Personalize Your Firefox"
 msgstr "個人化您的 Firefox"
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
-msgstr ""
-"有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題，或"
-"是強大的工具與功能，以下是一些可讓您先試試的附加元件。"
+msgstr "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題、讓您瀏覽時更快、更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦效能與功能都很傑出的附加元件。"
 
 #~ msgid "Install"
 #~ msgstr "安裝"
