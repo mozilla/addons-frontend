@@ -6,15 +6,15 @@ import {
   NavBarLink,
 } from 'core/components/NavBar';
 
-const AdminNavBar = ({ authenticated, logOut }) => (
+const AdminNavBar = ({ isAuthenticated, handleLogOut }) => (
   <NavBar>
     <NavBarLink to="/search">Search</NavBarLink>
-    {authenticated ? <NavBarButton onClick={logOut}>Log out</NavBarButton> : null}
+    {isAuthenticated ? <NavBarButton onClick={handleLogOut}>Log out</NavBarButton> : null}
   </NavBar>
 );
 AdminNavBar.propTypes = {
-  logOut: PropTypes.func.isRequired,
-  authenticated: PropTypes.bool.isRequired,
+  handleLogOut: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default AdminNavBar;

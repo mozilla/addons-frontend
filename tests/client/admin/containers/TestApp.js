@@ -10,7 +10,9 @@ describe('App', () => {
         return <p>The component</p>;
       }
     }
-    const root = shallowRender(<AppBase authenticated logOut={() => {}}><MyComponent /></AppBase>);
+    const root = shallowRender(
+      <AppBase isAuthenticated handleLogOut={() => {}}><MyComponent /></AppBase>
+    );
     assert.equal(root.type, 'div');
     // First child is <Helmet />.
     // Second child is <NavBar />.
@@ -20,15 +22,15 @@ describe('App', () => {
     assert.equal(wrapper.props.children.type, MyComponent);
   });
 
-  it('defines logOut to log out the user', () => {
-    assert.deepEqual(mapDispatchToProps.logOut(), { type: 'LOG_OUT_USER' });
+  it('defines handleLogOut to log out the user', () => {
+    assert.deepEqual(mapDispatchToProps.handleLogOut(), { type: 'LOG_OUT_USER' });
   });
 
   it('is authenticated when there is a token', () => {
-    assert.deepEqual(mapStateToProps({ auth: { token: 'foo' } }), { authenticated: true });
+    assert.deepEqual(mapStateToProps({ auth: { token: 'foo' } }), { isAuthenticated: true });
   });
 
   it('is not authenticated when there is no token', () => {
-    assert.deepEqual(mapStateToProps({ auth: {} }), { authenticated: false });
+    assert.deepEqual(mapStateToProps({ auth: {} }), { isAuthenticated: false });
   });
 });

@@ -9,19 +9,19 @@ import 'admin/css/App.scss';
 
 export class AppBase extends React.Component {
   static propTypes = {
-    authenticated: PropTypes.bool.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
     children: PropTypes.node,
-    logOut: PropTypes.func.isRequired,
+    handleLogOut: PropTypes.func.isRequired,
   }
 
   render() {
-    const { authenticated, children, logOut } = this.props;
+    const { isAuthenticated, children, handleLogOut } = this.props;
     return (
       <div className="search-page">
         <Helmet
           defaultTitle={_('Add-ons Search')}
         />
-        <NavBar authenticated={authenticated} logOut={logOut} />
+        <NavBar isAuthenticated={isAuthenticated} handleLogOut={handleLogOut} />
         <div className="App">
           {children}
         </div>
@@ -31,11 +31,11 @@ export class AppBase extends React.Component {
 }
 
 export const mapStateToProps = (state) => ({
-  authenticated: !!state.auth.token,
+  isAuthenticated: !!state.auth.token,
 });
 
 export const mapDispatchToProps = {
-  logOut: () => ({ type: 'LOG_OUT_USER' }),
+  handleLogOut: () => ({ type: 'LOG_OUT_USER' }),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppBase);

@@ -34,7 +34,7 @@ describe('authentication reducer', () => {
   describe('LOG_OUT_USER', () => {
     let remove;
 
-    before(() => {
+    beforeEach(() => {
       remove = sinon.stub(cookie, 'remove');
       sinon.stub(config, 'get').returns('JWT_COOKIE_NAME');
     });
@@ -47,7 +47,6 @@ describe('authentication reducer', () => {
 
     it('clears the cookie', () => {
       auth({ token: 'hey!', otherThing: 'goes away' }, { type: 'LOG_OUT_USER' });
-      assert.ok(remove.called);
       assert.ok(remove.calledWith('JWT_COOKIE_NAME'));
     });
   });
