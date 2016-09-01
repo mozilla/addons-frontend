@@ -8,6 +8,15 @@ NavBarItem.propTypes = {
   children: PropTypes.node,
 };
 
+export const NavBarButton = ({ children, ...props }) => (
+  <NavBarItem>
+    <button {...props} className="NavBarButton">{children}</button>
+  </NavBarItem>
+);
+NavBarButton.propTypes = {
+  children: PropTypes.node,
+};
+
 export const NavBarLink = ({ children, ...props }) => (
   <NavBarItem>
     <Link {...props} className="NavBarLink">{children}</Link>

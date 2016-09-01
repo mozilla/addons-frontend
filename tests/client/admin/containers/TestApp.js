@@ -1,6 +1,8 @@
+import config from 'config';
 import React from 'react';
+import cookie from 'react-cookie';
 
-import App from 'admin/containers/App';
+import { AppBase, mapDispatchToProps, mapStateToProps } from 'admin/containers/App';
 import { shallowRender } from 'tests/client/helpers';
 
 describe('App', () => {
@@ -10,7 +12,9 @@ describe('App', () => {
         return <p>The component</p>;
       }
     }
-    const root = shallowRender(<App><MyComponent /></App>);
+    const root = shallowRender(
+      <AppBase isAuthenticated handleLogOut={() => {}}><MyComponent /></AppBase>
+    );
     assert.equal(root.type, 'div');
     // First child is <Helmet />.
     // Second child is <NavBar />.
@@ -18,5 +22,31 @@ describe('App', () => {
     const wrapper = root.props.children[2];
     assert.equal(wrapper.props.className, 'App');
     assert.equal(wrapper.props.children.type, MyComponent);
+  });
+
+  describe('mapDispatchToProps.handleLogOut', () => {
+    let remove;
+
+    beforeEach(() => {
+      remove = sinon.stub(cookie, 'remove');
+      sinon.stub(config, 'get').withArgs('cookieName').returns('JWT_COOKIE_NAME');
+    });
+
+    it('clears the cookie', () => {
+      mapDispatchToProps.handleLogOut();
+      assert.ok(remove.calledWith('JWT_COOKIE_NAME'));
+    });
+
+    it('logs out the user', () => {
+      assert.deepEqual(mapDispatchToProps.handleLogOut(), { type: 'LOG_OUT_USER' });
+    });
+  });
+
+  it('is authenticated when there is a token', () => {
+    assert.deepEqual(mapStateToProps({ auth: { token: 'foo' } }), { isAuthenticated: true });
+  });
+
+  it('is not authenticated when there is no token', () => {
+    assert.deepEqual(mapStateToProps({ auth: {} }), { isAuthenticated: false });
   });
 });

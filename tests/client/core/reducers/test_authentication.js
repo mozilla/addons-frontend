@@ -27,4 +27,12 @@ describe('authentication reducer', () => {
       auth({ token: 'foo' }, { type: 'SET_CURRENT_USER', payload: { username } }),
       { token: 'foo', username });
   });
+
+  describe('LOG_OUT_USER', () => {
+    it('clears the state', () => {
+      assert.deepEqual(
+        auth({ token: 'hey!', otherThing: 'goes away' }, { type: 'LOG_OUT_USER' }),
+        {});
+    });
+  });
 });

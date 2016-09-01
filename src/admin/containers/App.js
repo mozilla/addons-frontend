@@ -1,24 +1,29 @@
+import config from 'config';
 import React, { PropTypes } from 'react';
+import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
 
 import { gettext as _ } from 'core/utils';
 import NavBar from 'admin/components/NavBar';
 
 import 'admin/css/App.scss';
 
-export default class App extends React.Component {
+export class AppBase extends React.Component {
   static propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired,
     children: PropTypes.node,
+    handleLogOut: PropTypes.func.isRequired,
   }
 
   render() {
-    const { children } = this.props;
+    const { isAuthenticated, children, handleLogOut } = this.props;
     return (
       <div className="search-page">
         <Helmet
           defaultTitle={_('Add-ons Search')}
         />
-        <NavBar />
+        <NavBar isAuthenticated={isAuthenticated} handleLogOut={handleLogOut} />
         <div className="App">
           {children}
         </div>
@@ -26,3 +31,16 @@ export default class App extends React.Component {
     );
   }
 }
+
+export const mapStateToProps = (state) => ({
+  isAuthenticated: !!state.auth.token,
+});
+
+export const mapDispatchToProps = {
+  handleLogOut: () => {
+    cookie.remove(config.get('cookieName'));
+    return { type: 'LOG_OUT_USER' };
+  },
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppBase);
