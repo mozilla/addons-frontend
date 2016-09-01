@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-async-connect';
+import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import AddonDetail from 'amo/components/AddonDetail';
@@ -31,6 +31,7 @@ function mapStateToProps(state, ownProps) {
 
 export default compose(
   asyncConnect([{
+    key: 'DetailPage',
     deferred: true,
     promise: loadAddonIfNeeded,
   }]),

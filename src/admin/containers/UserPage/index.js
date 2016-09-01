@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-async-connect';
+import { asyncConnect } from 'redux-connect';
 
 import { loadEntities, setCurrentUser } from 'core/actions';
 import { fetchProfile } from 'core/api';
@@ -49,6 +49,7 @@ export function loadProfileIfNeeded({ store: { getState, dispatch } }) {
 }
 
 export default asyncConnect([{
+  key: 'UserPage',
   deferred: true,
   promise: loadProfileIfNeeded,
 }])(connect(mapStateToProps)(UserPageBase));

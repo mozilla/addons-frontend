@@ -7,7 +7,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
-import { ReduxAsyncConnect } from 'redux-async-connect';
+import { ReduxAsyncConnect } from 'redux-connect';
 
 import { langToLocale, sanitizeLanguage } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';

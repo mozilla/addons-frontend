@@ -2,7 +2,7 @@
 /* global navigator, window */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-async-connect';
+import { asyncConnect } from 'redux-connect';
 import config from 'config';
 
 import { camelCaseProps } from 'core/utils';
@@ -168,6 +168,6 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
 }
 
 export default asyncConnect([{
-  deferred: true,
+  key: 'DiscoPane',
   promise: loadDataIfNeeded,
 }])(connect(mapStateToProps, mapDispatchToProps)(translate()(DiscoPaneBase)));
