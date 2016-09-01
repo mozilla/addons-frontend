@@ -1,4 +1,6 @@
+import config from 'config';
 import React, { PropTypes } from 'react';
+import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 
@@ -35,7 +37,10 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = {
-  handleLogOut: () => ({ type: 'LOG_OUT_USER' }),
+  handleLogOut: () => {
+    cookie.remove(config.get('cookieName'));
+    return { type: 'LOG_OUT_USER' };
+  },
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppBase);

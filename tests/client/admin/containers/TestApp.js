@@ -1,4 +1,6 @@
+import config from 'config';
 import React from 'react';
+import cookie from 'react-cookie';
 
 import { AppBase, mapDispatchToProps, mapStateToProps } from 'admin/containers/App';
 import { shallowRender } from 'tests/client/helpers';
@@ -22,8 +24,22 @@ describe('App', () => {
     assert.equal(wrapper.props.children.type, MyComponent);
   });
 
-  it('defines handleLogOut to log out the user', () => {
-    assert.deepEqual(mapDispatchToProps.handleLogOut(), { type: 'LOG_OUT_USER' });
+  describe('mapDispatchToProps.handleLogOut', () => {
+    let remove;
+
+    beforeEach(() => {
+      remove = sinon.stub(cookie, 'remove');
+      sinon.stub(config, 'get').withArgs('cookieName').returns('JWT_COOKIE_NAME');
+    });
+
+    it('clears the cookie', () => {
+      mapDispatchToProps.handleLogOut();
+      assert.ok(remove.calledWith('JWT_COOKIE_NAME'));
+    });
+
+    it('logs out the user', () => {
+      assert.deepEqual(mapDispatchToProps.handleLogOut(), { type: 'LOG_OUT_USER' });
+    });
   });
 
   it('is authenticated when there is a token', () => {
