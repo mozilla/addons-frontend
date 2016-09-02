@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-08-31 11:46+0000\n"
-"PO-Revision-Date: 2016-08-08 00:16+0000\n"
+"PO-Revision-Date: 2016-09-02 06:27+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -24,8 +24,7 @@ msgstr "%(name)s をインストールしています。"
 
 #: src/core/components/InstallButton/index.js:57
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s はインストール、有効化されています。削除するにはここをクリック。"
+msgstr "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
 
 #: src/core/components/InstallButton/index.js:60
 msgid "%(name)s is disabled. Click to enable."
@@ -49,8 +48,7 @@ msgstr "閉じる"
 
 #: src/disco/components/Addon.js:133
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
+msgstr "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
 
 #: src/disco/components/Addon.js:143
 msgid "Hover over the image to preview"
@@ -121,20 +119,13 @@ msgid "Personalize Your Firefox"
 msgstr "Firefox をパーソナライズしよう"
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
-msgstr ""
-"楽しいデザインのテーマから、パワフルなツールや機能まで、世界中の開発者によっ"
-"て作られている何千種類ものアドオンを使って、あなたのブラウジング体験を自由に"
-"パーソナライズできます。ここでいくつか優れたものを紹介します。"
+msgstr "インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジングをより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いのブラウザを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れているおすすめのアドオンをいくつか紹介します。"
 
 #~ msgid "Install"
 #~ msgstr "インストール"
