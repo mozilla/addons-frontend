@@ -31,7 +31,7 @@ describe('api', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
         .withArgs(
-          'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&page=3&lang=en-US')
+          'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US')
         .once()
         .returns(mockResponse());
       return api.search({ api: { lang: 'en-US' }, query: 'foo', page: 3 })
@@ -55,7 +55,7 @@ describe('api', () => {
 
     it('surfaces status and apiURL on Error instance', () => {
       const url =
-        'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&page=3&lang=en-US';
+        'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US';
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
@@ -149,7 +149,7 @@ describe('api', () => {
     it('sends the code and state', () => {
       mockWindow
         .expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/internal/accounts/login/?lang=en-US', {
+        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?lang=en-US', {
           body: '{"code":"my-code","state":"my-state"}',
           credentials: 'include',
           headers: { 'Content-type': 'application/json' },

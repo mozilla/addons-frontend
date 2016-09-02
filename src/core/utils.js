@@ -124,3 +124,14 @@ export function addQueryParams(urlString, queryParams = {}) {
   urlObj.query = { ...urlObj.query, ...queryParams };
   return url.format(urlObj);
 }
+
+export function browserBase64Decode(str) {
+  // This is from MDN, formatting left as is so we can compare it to the source if MDN updates.
+  // https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
+  /* global atob */
+  // eslint-disable-next-line prefer-arrow-callback, func-names
+  return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+    // eslint-disable-next-line prefer-template
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+}

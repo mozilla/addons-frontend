@@ -6,7 +6,8 @@ import config from 'config';
 import { setJWT } from 'core/actions';
 import { login } from 'core/api';
 import LoginPage from 'core/components/LoginPage';
-import { gettext as _ } from 'core/utils';
+import log from 'core/logger';
+import { browserBase64Decode, gettext as _ } from 'core/utils';
 
 class HandleLogin extends React.Component {
   static propTypes = {
@@ -58,7 +59,14 @@ function createLoadData(dispatch) {
             secure: config.get('cookieSecure'),
             maxAge: config.get('cookieMaxAge'),
           });
-          router.push('/search');
+          let to;
+          try {
+            to = browserBase64Decode(state.split(':')[1]);
+          } catch (e) {
+            log.error('Could not parse next path after log in', e);
+            to = '/';
+          }
+          router.push({ pathname: to });
         });
     }
     return Promise.resolve();

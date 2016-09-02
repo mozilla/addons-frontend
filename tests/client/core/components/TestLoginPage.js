@@ -31,9 +31,7 @@ describe('<LoginPage />', () => {
   it('has a button to the login URL', () => {
     const root = render();
     const loginLink = root.querySelector('a');
-    assert.equal(
-      loginLink.href,
-      'https://addons.mozilla.org/api/v3/internal/accounts/login/start/');
+    assert.equal(loginLink.pathname, '/api/v3/accounts/login/start/');
     assert.equal(loginLink.textContent, 'Login');
   });
 });
