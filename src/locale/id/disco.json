@@ -7,6 +7,27 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "id"
          },
+         "Downloading %(name)s.": [
+            "Mengunduh %(name)s."
+         ],
+         "Installing %(name)s.": [
+            "Memasang %(name)s."
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            "%(name)s telah terpasang dan dihidupkan. Klik untuk mencopotnya."
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            "%(name)s dinonaktifkan. Klik untuk mengaktifkan."
+         ],
+         "Uninstalling %(name)s.": [
+            "Mencopot %(name)s."
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            "%(name)s telah dicopot. Klik untuk memasang."
+         ],
+         "Install state for %(name)s is unknown.": [
+            "Status pemasangan untuk %(name)s tidak dapat dikenali."
+         ],
          "Close": [
             "Tutup"
          ],
@@ -46,35 +67,8 @@
          "OK!": [
             "OK!"
          ],
-         "Downloading %(name)s.": [
-            "Mengunduh %(name)s."
-         ],
-         "Installing %(name)s.": [
-            "Memasang %(name)s."
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            "%(name)s telah terpasang dan dihidupkan. Klik untuk mencopotnya."
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            "%(name)s dinonaktifkan. Klik untuk mengaktifkan."
-         ],
-         "Uninstalling %(name)s.": [
-            "Mencopot %(name)s."
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            "%(name)s telah dicopot. Klik untuk memasang."
-         ],
-         "Install state for %(name)s is unknown.": [
-            "Status pemasangan untuk %(name)s tidak dapat dikenali."
-         ],
          "Discover Add-ons": [
             "Temukan Pengaya"
-         ],
-         "Personalize Your Firefox": [
-            "Personalisasi Firefox Anda"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "Ada ribuan pengaya yang dibuat oleh para pengembang di seluruh\ndunia untuk membantu Anda mempersonalisasi pengalaman penjelajahan Anda—semuanya mulai dari tema\nvisual yang menyenangkan sampai peralatan yang kuat dan fitur. Berikut adalah beberapa yang paling bagus untuk dicoba."
          ],
          "Click to play": [
             "Klik untuk memainkan"
@@ -87,6 +81,9 @@
          ],
          "See more add-ons!": [
             "Lihat lebih banyak pengaya!"
+         ],
+         "Personalize Your Firefox": [
+            "Personalisasi Firefox Anda"
          ]
       }
    }

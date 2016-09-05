@@ -4,9 +4,29 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n!=1);",
-            "lang": ""
+            "plural_forms": "nplurals=2; plural=(n!=1);"
          },
+         "Downloading %(name)s.": [
+            "‮ᗡoʍuʅoɐpıuƃ %(name)s‮˙"
+         ],
+         "Installing %(name)s.": [
+            "‮Iusʇɐʅʅıuƃ %(name)s‮˙"
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            "%(name)s‮ ıs ıusʇɐʅʅǝp ɐup ǝuɐqʅǝp˙ Ↄʅıɔʞ ʇo nuıusʇɐʅʅ˙"
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            "%(name)s‮ ıs pısɐqʅǝp˙ Ↄʅıɔʞ ʇo ǝuɐqʅǝ˙"
+         ],
+         "Uninstalling %(name)s.": [
+            "‮∩uıusʇɐʅʅıuƃ %(name)s‮˙"
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            "%(name)s‮ ıs nuıusʇɐʅʅǝp˙ Ↄʅıɔʞ ʇo ıusʇɐʅʅ˙"
+         ],
+         "Install state for %(name)s is unknown.": [
+            "‮Iusʇɐʅʅ sʇɐʇǝ ɟoɹ %(name)s‮ ıs nuʞuoʍu˙"
+         ],
          "Close": [
             "‮Ↄʅosǝ"
          ],
@@ -46,35 +66,8 @@
          "OK!": [
             "‮OӼ¡"
          ],
-         "Downloading %(name)s.": [
-            "‮ᗡoʍuʅoɐpıuƃ %(name)s‮˙"
-         ],
-         "Installing %(name)s.": [
-            "‮Iusʇɐʅʅıuƃ %(name)s‮˙"
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            "%(name)s‮ ıs ıusʇɐʅʅǝp ɐup ǝuɐqʅǝp˙ Ↄʅıɔʞ ʇo nuıusʇɐʅʅ˙"
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            "%(name)s‮ ıs pısɐqʅǝp˙ Ↄʅıɔʞ ʇo ǝuɐqʅǝ˙"
-         ],
-         "Uninstalling %(name)s.": [
-            "‮∩uıusʇɐʅʅıuƃ %(name)s‮˙"
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            "%(name)s‮ ıs nuıusʇɐʅʅǝp˙ Ↄʅıɔʞ ʇo ıusʇɐʅʅ˙"
-         ],
-         "Install state for %(name)s is unknown.": [
-            "‮Iusʇɐʅʅ sʇɐʇǝ ɟoɹ %(name)s‮ ıs nuʞuoʍu˙"
-         ],
          "Discover Add-ons": [
             "‮ᗡısɔoʌǝɹ ∀pp-ous"
-         ],
-         "Personalize Your Firefox": [
-            "‮Ԁǝɹsouɐʅızǝ ⅄onɹ Ⅎıɹǝɟox"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "‮⊥ɥǝɹǝ ɐɹǝ ʇɥonsɐups oɟ ɐpp-ous ɔɹǝɐʇǝp qʎ pǝʌǝʅodǝɹs ɐʅʅ oʌǝɹ ʇɥǝ\n‮ʍoɹʅp ʇo ɥǝʅd ʎon dǝɹsouɐʅızǝ ʎonɹ qɹoʍsıuƃ ǝxdǝɹıǝuɔǝ—‮ǝʌǝɹʎʇɥıuƃ ɟɹoɯ ɟnu ʌısnɐʅ\n‮ʇɥǝɯǝs ʇo doʍǝɹɟnʅ ʇooʅs ɐup ɟǝɐʇnɹǝs˙ Hǝɹǝ ɐɹǝ ɐ ɟǝʍ ƃɹǝɐʇ ouǝs ʇo ʇɹʎ onʇ˙"
          ],
          "Click to play": [
             "‮Ↄʅıɔʞ ʇo dʅɐʎ"
@@ -87,6 +80,12 @@
          ],
          "See more add-ons!": [
             "‮Sǝǝ ɯoɹǝ ɐpp-ous¡"
+         ],
+         "Personalize Your Firefox": [
+            "‮Ԁǝɹsouɐʅızǝ ⅄onɹ Ⅎıɹǝɟox"
+         ],
+         "There are thousands of free add-ons, created by developers all over\nthe world, that you can install to personalize your Firefox. From fun visual themes\nto powerful tools that make browsing faster and safer, add-ons make your browser yours.\nTo help you get started, here are some we recommend for their stand-out performance\nand functionality.": [
+            "‮⊥ɥǝɹǝ ɐɹǝ ʇɥonsɐups oɟ ɟɹǝǝ ɐpp-ous´ ɔɹǝɐʇǝp qʎ pǝʌǝʅodǝɹs ɐʅʅ oʌǝɹ\n‮ʇɥǝ ʍoɹʅp´ ʇɥɐʇ ʎon ɔɐu ıusʇɐʅʅ ʇo dǝɹsouɐʅızǝ ʎonɹ Ⅎıɹǝɟox˙ Ⅎɹoɯ ɟnu ʌısnɐʅ ʇɥǝɯǝs\n‮ʇo doʍǝɹɟnʅ ʇooʅs ʇɥɐʇ ɯɐʞǝ qɹoʍsıuƃ ɟɐsʇǝɹ ɐup sɐɟǝɹ´ ɐpp-ous ɯɐʞǝ ʎonɹ qɹoʍsǝɹ ʎonɹs˙\n‮⊥o ɥǝʅd ʎon ƃǝʇ sʇɐɹʇǝp´ ɥǝɹǝ ɐɹǝ soɯǝ ʍǝ ɹǝɔoɯɯǝup ɟoɹ ʇɥǝıɹ sʇɐup-onʇ dǝɹɟoɹɯɐuɔǝ\n‮ɐup ɟnuɔʇıouɐʅıʇʎ˙"
          ]
       }
    }

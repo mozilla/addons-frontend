@@ -7,6 +7,27 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "bg"
          },
+         "Downloading %(name)s.": [
+            "Изтегляне на %(name)s."
+         ],
+         "Installing %(name)s.": [
+            "Инсталиране на %(name)s."
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            "%(name)s е инсталирана и активна. Натиснете за премахване."
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            "%(name)s е изключена. Натиснете за включване."
+         ],
+         "Uninstalling %(name)s.": [
+            "Премахване на %(name)s."
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            "%(name)s е премахната. Натиснете за инсталиране."
+         ],
+         "Install state for %(name)s is unknown.": [
+            "Състоянието на инсталацията на %(name)s е неизвестно."
+         ],
          "Close": [
             "Затваряне"
          ],
@@ -46,35 +67,8 @@
          "OK!": [
             "Добре!"
          ],
-         "Downloading %(name)s.": [
-            "Изтегляне на %(name)s."
-         ],
-         "Installing %(name)s.": [
-            "Инсталиране на %(name)s."
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            "%(name)s е инсталирана и активна. Натиснете за премахване."
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            "%(name)s е изключена. Натиснете за включване."
-         ],
-         "Uninstalling %(name)s.": [
-            "Премахване на %(name)s."
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            "%(name)s е премахната. Натиснете за инсталиране."
-         ],
-         "Install state for %(name)s is unknown.": [
-            "Състоянието на инсталацията на %(name)s е неизвестно."
-         ],
          "Discover Add-ons": [
             "Още добавки"
-         ],
-         "Personalize Your Firefox": [
-            "Персонализирайте вашия Firefox"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "Има хиляди добавки, създодени от разработчици от всички краища на света,\nкоито ви позволяват да направите Firefox изцяло ваш: от забавни визуални\nтеми до мощни инструменти и свойства. Ето някои страхотни, които да разгледате."
          ],
          "Click to play": [
             "Натиснете за начало"
@@ -87,6 +81,12 @@
          ],
          "See more add-ons!": [
             "Вижте още добавки!"
+         ],
+         "Personalize Your Firefox": [
+            "Персонализирайте вашия Firefox"
+         ],
+         "There are thousands of free add-ons, created by developers all over\nthe world, that you can install to personalize your Firefox. From fun visual themes\nto powerful tools that make browsing faster and safer, add-ons make your browser yours.\nTo help you get started, here are some we recommend for their stand-out performance\nand functionality.": [
+            "Има хиляди свободни добавки, създадени от разработчици цял\nсвят, които можете да инсталирате, за да направите Firefox\nизцяло ваш: от забавни визуални теми до мощни инструменти и\nсвойства. За ваше улеснение то някои, които ви препоръчваме\nпоради техните забележителни свойства и производителност."
          ]
       }
    }

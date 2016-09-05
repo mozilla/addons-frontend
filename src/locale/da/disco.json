@@ -7,6 +7,27 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "da"
          },
+         "Downloading %(name)s.": [
+            "Henter %(name)s."
+         ],
+         "Installing %(name)s.": [
+            "Installerer %(name)s."
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            "%(name)s er installeret og aktiveret. Klik for at afinstallere."
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            "%(name)s er deaktiveret. Klik for at aktivere."
+         ],
+         "Uninstalling %(name)s.": [
+            "Afinstallerer %(name)s."
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            "%(name)s er afinstalleret. Klik for at installere."
+         ],
+         "Install state for %(name)s is unknown.": [
+            "Installationstilstand for %(name)s er ukendt."
+         ],
          "Close": [
             "Luk"
          ],
@@ -46,35 +67,8 @@
          "OK!": [
             "OK!"
          ],
-         "Downloading %(name)s.": [
-            "Henter %(name)s."
-         ],
-         "Installing %(name)s.": [
-            "Installerer %(name)s."
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            "%(name)s er installeret og aktiveret. Klik for at afinstallere."
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            "%(name)s er deaktiveret. Klik for at aktivere."
-         ],
-         "Uninstalling %(name)s.": [
-            "Afinstallerer %(name)s."
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            "%(name)s er afinstalleret. Klik for at installere."
-         ],
-         "Install state for %(name)s is unknown.": [
-            "Installationstilstand for %(name)s er ukendt."
-         ],
          "Discover Add-ons": [
             "Find tilføjelser"
-         ],
-         "Personalize Your Firefox": [
-            "Tilpas Firefox"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "Udviklere over hele verden har lavet tusindvis af tilføjelser, der kan personliggøre din surfen\npå internettet — du kan tilføje alt fra sjove temaer til kraftfulde værktøjer og funktioner. \nHer er nogle, som du kan prøve."
          ],
          "Click to play": [
             "Klik for at afspille"
@@ -87,6 +81,12 @@
          ],
          "See more add-ons!": [
             "Se flere tilføjelser!"
+         ],
+         "Personalize Your Firefox": [
+            "Tilpas Firefox"
+         ],
+         "There are thousands of free add-ons, created by developers all over\nthe world, that you can install to personalize your Firefox. From fun visual themes\nto powerful tools that make browsing faster and safer, add-ons make your browser yours.\nTo help you get started, here are some we recommend for their stand-out performance\nand functionality.": [
+            "Udviklere over hele verden har lavet tusindvis af gratis tilføjelser, der kan personliggøre din surfen på internettet — du kan tilføje alt fra sjove temaer til kraftfulde værktøjer og funktioner. Her er nogle, som du kan prøve."
          ]
       }
    }

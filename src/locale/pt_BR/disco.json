@@ -7,6 +7,27 @@
             "plural_forms": "nplurals=2; plural=(n > 1);",
             "lang": "pt_BR"
          },
+         "Downloading %(name)s.": [
+            "Baixando %(name)s."
+         ],
+         "Installing %(name)s.": [
+            "Instalando %(name)s."
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            "%(name)s está instalado e habilitado. Clique para desinstalar."
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            "%(name)s está desabilitado. Clique para habilitar."
+         ],
+         "Uninstalling %(name)s.": [
+            "Desinstalando %(name)s."
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            "%(name)s está desinstalado. Clique para instalar."
+         ],
+         "Install state for %(name)s is unknown.": [
+            "Estado da instalação de %(name)s é desconhecido."
+         ],
          "Close": [
             "Fechar"
          ],
@@ -46,35 +67,8 @@
          "OK!": [
             "OK!"
          ],
-         "Downloading %(name)s.": [
-            "Baixando %(name)s."
-         ],
-         "Installing %(name)s.": [
-            "Instalando %(name)s."
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            "%(name)s está instalado e habilitado. Clique para desinstalar."
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            "%(name)s está desabilitado. Clique para habilitar."
-         ],
-         "Uninstalling %(name)s.": [
-            "Desinstalando %(name)s."
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            "%(name)s está desinstalado. Clique para instalar."
-         ],
-         "Install state for %(name)s is unknown.": [
-            "Estado da instalação de %(name)s é desconhecido."
-         ],
          "Discover Add-ons": [
             "Descobrir complementos"
-         ],
-         "Personalize Your Firefox": [
-            "Personalize seu Firefox"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "Existem milhares de complementos criados por desenvolvedores de todo o mundo para o ajudar a personalizar a sua experiência de navegação — tudo, desde temas visuais divertidos a poderosas ferramentas e recursos. Aqui estão alguns ótimos para experimentar."
          ],
          "Click to play": [
             "Clique para reproduzir"
@@ -87,6 +81,9 @@
          ],
          "See more add-ons!": [
             "Ver mais complementos!"
+         ],
+         "Personalize Your Firefox": [
+            "Personalize seu Firefox"
          ]
       }
    }
