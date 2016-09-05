@@ -6,11 +6,11 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
 
 #: src/core/components/InstallButton/index.js:50
 msgid "Downloading %(name)s."
@@ -80,15 +80,18 @@ msgstr "Ŧħīş ȧḓḓ-ǿƞ ẇīŀŀ ƀḗ ŭƞīƞşŧȧŀŀḗḓ ȧƒŧ�
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ƥŀḗȧşḗ řḗşŧȧřŧ Ƒīřḗƒǿẋ ŧǿ ŭşḗ ŧħīş ȧḓḓ-ǿƞ."
 
-#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:305
+#: src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Ẏǿŭř ȧḓḓ-ǿƞ īş řḗȧḓẏ"
 
-#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:307
+#: src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Ƞǿẇ ẏǿŭ ƈȧƞ ȧƈƈḗşş %(name)s ƒřǿḿ ŧħḗ ŧǿǿŀƀȧř."
 
-#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:309
+#: src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "ǾĶ!"
 
@@ -117,18 +120,21 @@ msgid "Personalize Your Firefox"
 msgstr "Ƥḗřşǿƞȧŀīzḗ Ẏǿŭř Ƒīřḗƒǿẋ"
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
+"the world, that you can install to personalize your Firefox. From fun "
+"visual themes\n"
 "to powerful tools that make browsing faster and safer, add-ons make your "
 "browser yours.\n"
 "To help you get started, here are some we recommend for their stand-out "
 "performance\n"
 "and functionality."
 msgstr ""
-"Ŧħḗřḗ ȧřḗ ŧħǿŭşȧƞḓş ǿƒ ȧḓḓ-ǿƞş ƈřḗȧŧḗḓ ƀẏ ḓḗṽḗŀǿƥḗřş ȧŀŀ ǿṽḗř ŧħḗ\n"
-"ẇǿřŀḓ ŧǿ ħḗŀƥ ẏǿŭ ƥḗřşǿƞȧŀīzḗ ẏǿŭř ƀřǿẇşīƞɠ ḗẋƥḗřīḗƞƈḗ—ḗṽḗřẏŧħīƞɠ ƒřǿḿ ƒŭƞ "
-"ṽīşŭȧŀ\n"
-"ŧħḗḿḗş ŧǿ ƥǿẇḗřƒŭŀ ŧǿǿŀş ȧƞḓ ƒḗȧŧŭřḗş. Ħḗřḗ ȧřḗ ȧ ƒḗẇ ɠřḗȧŧ ǿƞḗş ŧǿ ŧřẏ ǿŭŧ."
+"Ŧħḗřḗ ȧřḗ ŧħǿŭşȧƞḓş ǿƒ ƒřḗḗ ȧḓḓ-ǿƞş, ƈřḗȧŧḗḓ ƀẏ ḓḗṽḗŀǿƥḗřş ȧŀŀ ǿṽḗř\n"
+"ŧħḗ ẇǿřŀḓ, ŧħȧŧ ẏǿŭ ƈȧƞ īƞşŧȧŀŀ ŧǿ ƥḗřşǿƞȧŀīzḗ ẏǿŭř Ƒīřḗƒǿẋ. Ƒřǿḿ ƒŭƞ ṽīşŭȧŀ "
+"ŧħḗḿḗş\n"
+"ŧǿ ƥǿẇḗřƒŭŀ ŧǿǿŀş ŧħȧŧ ḿȧķḗ ƀřǿẇşīƞɠ ƒȧşŧḗř ȧƞḓ şȧƒḗř, ȧḓḓ-ǿƞş ḿȧķḗ ẏǿŭř "
+"ƀřǿẇşḗř ẏǿŭřş.\n"
+"Ŧǿ ħḗŀƥ ẏǿŭ ɠḗŧ şŧȧřŧḗḓ, ħḗřḗ ȧřḗ şǿḿḗ ẇḗ řḗƈǿḿḿḗƞḓ ƒǿř ŧħḗīř şŧȧƞḓ-ǿŭŧ "
+"ƥḗřƒǿřḿȧƞƈḗ\n"
+"ȧƞḓ ƒŭƞƈŧīǿƞȧŀīŧẏ."
