@@ -7,6 +7,27 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "bn_BD"
          },
+         "Downloading %(name)s.": [
+            "%(name)s ডাউনলোডিং"
+         ],
+         "Installing %(name)s.": [
+            "%(name)s ইন্সটলিং।"
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            "%(name)s ইন্সটল এবং চালুকৃত। অনইন্সটল করতে ক্লিক করুন।"
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            "%(name)s disabled। enable করতে ক্লিক করুন।"
+         ],
+         "Uninstalling %(name)s.": [
+            "%(name)s আনইন্সটলিং।"
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            "%(name)s আনইন্সটলড। ইন্সটল করতে ক্লিক করুন।"
+         ],
+         "Install state for %(name)s is unknown.": [
+            "%(name)s এর ইন্সটল অবস্থা অজানা।"
+         ],
          "Close": [
             "বন্ধ"
          ],
@@ -46,35 +67,8 @@
          "OK!": [
             "ওকে!"
          ],
-         "Downloading %(name)s.": [
-            "%(name)s ডাউনলোডিং"
-         ],
-         "Installing %(name)s.": [
-            "%(name)s ইন্সটলিং।"
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            "%(name)s ইন্সটল এবং চালুকৃত। অনইন্সটল করতে ক্লিক করুন।"
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            "%(name)s disabled। enable করতে ক্লিক করুন।"
-         ],
-         "Uninstalling %(name)s.": [
-            "%(name)s আনইন্সটলিং।"
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            "%(name)s আনইন্সটলড। ইন্সটল করতে ক্লিক করুন।"
-         ],
-         "Install state for %(name)s is unknown.": [
-            "%(name)s এর ইন্সটল অবস্থা অজানা।"
-         ],
          "Discover Add-ons": [
             "আরো এড-অন আবিষ্কার করুন"
-         ],
-         "Personalize Your Firefox": [
-            "আপনার ফায়ারফক্সকে ব্যক্তিগত করুন"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "আপনার ব্রাউজিং দক্ষতা পারসোনালাইজ করতে হাজারও এড-অনস তৈরি করাছে ডেভেলোপররা — সব কিছুই শক্তিশালী টুলস এবং ফিচারই মজার থিমস দৃশ্যমান। এখানে আরো একটি আছে চেস্টা করতে। "
          ],
          "Click to play": [
             "চালু করতে ক্লিক করুন"
@@ -87,6 +81,9 @@
          ],
          "See more add-ons!": [
             "আরো এড-ওন দেখুন!"
+         ],
+         "Personalize Your Firefox": [
+            "আপনার ফায়ারফক্সকে ব্যক্তিগত করুন"
          ]
       }
    }

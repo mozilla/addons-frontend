@@ -7,6 +7,27 @@
             "plural_forms": "nplurals=1; plural=0;",
             "lang": "zh_CN"
          },
+         "Downloading %(name)s.": [
+            "正在下载 %(name)s。"
+         ],
+         "Installing %(name)s.": [
+            "正在安装 %(name)s。"
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            "%(name)s 已安装成功并启用。若不喜欢可点击卸载。"
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            "%(name)s 已被禁用。点击可启用。"
+         ],
+         "Uninstalling %(name)s.": [
+            "正在卸载 %(name)s。"
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            "%(name)s 已被卸载。点击可重新安装。"
+         ],
+         "Install state for %(name)s is unknown.": [
+            "%(name)s 的安装状态未知。"
+         ],
          "Close": [
             "关闭"
          ],
@@ -46,35 +67,8 @@
          "OK!": [
             "知道了！"
          ],
-         "Downloading %(name)s.": [
-            "正在下载 %(name)s。"
-         ],
-         "Installing %(name)s.": [
-            "正在安装 %(name)s。"
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            "%(name)s 已安装成功并启用。若不喜欢可点击卸载。"
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            "%(name)s 已被禁用。点击可启用。"
-         ],
-         "Uninstalling %(name)s.": [
-            "正在卸载 %(name)s。"
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            "%(name)s 已被卸载。点击可重新安装。"
-         ],
-         "Install state for %(name)s is unknown.": [
-            "%(name)s 的安装状态未知。"
-         ],
          "Discover Add-ons": [
             "探寻附加组件"
-         ],
-         "Personalize Your Firefox": [
-            "个性化您的火狐"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "有成千上万的附加组件让 Firefox 更具你的个性，像是有趣的视觉主题，强大的工具和功能。\n这里有一些推荐给您。"
          ],
          "Click to play": [
             "点击播放"
@@ -87,6 +81,9 @@
          ],
          "See more add-ons!": [
             "看看更多附加组件！"
+         ],
+         "Personalize Your Firefox": [
+            "个性化您的火狐"
          ]
       }
    }

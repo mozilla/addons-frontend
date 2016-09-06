@@ -4,9 +4,29 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n!=1);",
-            "lang": ""
+            "plural_forms": "nplurals=2; plural=(n!=1);"
          },
+         "Downloading %(name)s.": [
+            "Ḓǿẇƞŀǿȧḓīƞɠ %(name)s."
+         ],
+         "Installing %(name)s.": [
+            "Īƞşŧȧŀŀīƞɠ %(name)s."
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            "%(name)s īş īƞşŧȧŀŀḗḓ ȧƞḓ ḗƞȧƀŀḗḓ. Ƈŀīƈķ ŧǿ ŭƞīƞşŧȧŀŀ."
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            "%(name)s īş ḓīşȧƀŀḗḓ. Ƈŀīƈķ ŧǿ ḗƞȧƀŀḗ."
+         ],
+         "Uninstalling %(name)s.": [
+            "Ŭƞīƞşŧȧŀŀīƞɠ %(name)s."
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            "%(name)s īş ŭƞīƞşŧȧŀŀḗḓ. Ƈŀīƈķ ŧǿ īƞşŧȧŀŀ."
+         ],
+         "Install state for %(name)s is unknown.": [
+            "Īƞşŧȧŀŀ şŧȧŧḗ ƒǿř %(name)s īş ŭƞķƞǿẇƞ."
+         ],
          "Close": [
             "Ƈŀǿşḗ"
          ],
@@ -46,35 +66,8 @@
          "OK!": [
             "ǾĶ!"
          ],
-         "Downloading %(name)s.": [
-            "Ḓǿẇƞŀǿȧḓīƞɠ %(name)s."
-         ],
-         "Installing %(name)s.": [
-            "Īƞşŧȧŀŀīƞɠ %(name)s."
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            "%(name)s īş īƞşŧȧŀŀḗḓ ȧƞḓ ḗƞȧƀŀḗḓ. Ƈŀīƈķ ŧǿ ŭƞīƞşŧȧŀŀ."
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            "%(name)s īş ḓīşȧƀŀḗḓ. Ƈŀīƈķ ŧǿ ḗƞȧƀŀḗ."
-         ],
-         "Uninstalling %(name)s.": [
-            "Ŭƞīƞşŧȧŀŀīƞɠ %(name)s."
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            "%(name)s īş ŭƞīƞşŧȧŀŀḗḓ. Ƈŀīƈķ ŧǿ īƞşŧȧŀŀ."
-         ],
-         "Install state for %(name)s is unknown.": [
-            "Īƞşŧȧŀŀ şŧȧŧḗ ƒǿř %(name)s īş ŭƞķƞǿẇƞ."
-         ],
          "Discover Add-ons": [
             "Ḓīşƈǿṽḗř Ȧḓḓ-ǿƞş"
-         ],
-         "Personalize Your Firefox": [
-            "Ƥḗřşǿƞȧŀīzḗ Ẏǿŭř Ƒīřḗƒǿẋ"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "Ŧħḗřḗ ȧřḗ ŧħǿŭşȧƞḓş ǿƒ ȧḓḓ-ǿƞş ƈřḗȧŧḗḓ ƀẏ ḓḗṽḗŀǿƥḗřş ȧŀŀ ǿṽḗř ŧħḗ\nẇǿřŀḓ ŧǿ ħḗŀƥ ẏǿŭ ƥḗřşǿƞȧŀīzḗ ẏǿŭř ƀřǿẇşīƞɠ ḗẋƥḗřīḗƞƈḗ—ḗṽḗřẏŧħīƞɠ ƒřǿḿ ƒŭƞ ṽīşŭȧŀ\nŧħḗḿḗş ŧǿ ƥǿẇḗřƒŭŀ ŧǿǿŀş ȧƞḓ ƒḗȧŧŭřḗş. Ħḗřḗ ȧřḗ ȧ ƒḗẇ ɠřḗȧŧ ǿƞḗş ŧǿ ŧřẏ ǿŭŧ."
          ],
          "Click to play": [
             "Ƈŀīƈķ ŧǿ ƥŀȧẏ"
@@ -87,6 +80,12 @@
          ],
          "See more add-ons!": [
             "Şḗḗ ḿǿřḗ ȧḓḓ-ǿƞş!"
+         ],
+         "Personalize Your Firefox": [
+            "Ƥḗřşǿƞȧŀīzḗ Ẏǿŭř Ƒīřḗƒǿẋ"
+         ],
+         "There are thousands of free add-ons, created by developers all over\nthe world, that you can install to personalize your Firefox. From fun visual themes\nto powerful tools that make browsing faster and safer, add-ons make your browser yours.\nTo help you get started, here are some we recommend for their stand-out performance\nand functionality.": [
+            "Ŧħḗřḗ ȧřḗ ŧħǿŭşȧƞḓş ǿƒ ƒřḗḗ ȧḓḓ-ǿƞş, ƈřḗȧŧḗḓ ƀẏ ḓḗṽḗŀǿƥḗřş ȧŀŀ ǿṽḗř\nŧħḗ ẇǿřŀḓ, ŧħȧŧ ẏǿŭ ƈȧƞ īƞşŧȧŀŀ ŧǿ ƥḗřşǿƞȧŀīzḗ ẏǿŭř Ƒīřḗƒǿẋ. Ƒřǿḿ ƒŭƞ ṽīşŭȧŀ ŧħḗḿḗş\nŧǿ ƥǿẇḗřƒŭŀ ŧǿǿŀş ŧħȧŧ ḿȧķḗ ƀřǿẇşīƞɠ ƒȧşŧḗř ȧƞḓ şȧƒḗř, ȧḓḓ-ǿƞş ḿȧķḗ ẏǿŭř ƀřǿẇşḗř ẏǿŭřş.\nŦǿ ħḗŀƥ ẏǿŭ ɠḗŧ şŧȧřŧḗḓ, ħḗřḗ ȧřḗ şǿḿḗ ẇḗ řḗƈǿḿḿḗƞḓ ƒǿř ŧħḗīř şŧȧƞḓ-ǿŭŧ ƥḗřƒǿřḿȧƞƈḗ\nȧƞḓ ƒŭƞƈŧīǿƞȧŀīŧẏ."
          ]
       }
    }

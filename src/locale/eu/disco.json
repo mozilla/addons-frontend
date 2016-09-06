@@ -7,6 +7,27 @@
             "plural_forms": "nplurals=2; plural=(n!=1);",
             "lang": "eu"
          },
+         "Downloading %(name)s.": [
+            ""
+         ],
+         "Installing %(name)s.": [
+            ""
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            ""
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            ""
+         ],
+         "Uninstalling %(name)s.": [
+            ""
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            ""
+         ],
+         "Install state for %(name)s is unknown.": [
+            ""
+         ],
          "Close": [
             ""
          ],
@@ -46,34 +67,7 @@
          "OK!": [
             ""
          ],
-         "Downloading %(name)s.": [
-            ""
-         ],
-         "Installing %(name)s.": [
-            ""
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            ""
-         ],
-         "Uninstalling %(name)s.": [
-            ""
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            ""
-         ],
-         "Install state for %(name)s is unknown.": [
-            ""
-         ],
          "Discover Add-ons": [
-            ""
-         ],
-         "Personalize Your Firefox": [
-            ""
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
             ""
          ],
          "Click to play": [
@@ -86,6 +80,12 @@
             ""
          ],
          "See more add-ons!": [
+            ""
+         ],
+         "Personalize Your Firefox": [
+            ""
+         ],
+         "There are thousands of free add-ons, created by developers all over\nthe world, that you can install to personalize your Firefox. From fun visual themes\nto powerful tools that make browsing faster and safer, add-ons make your browser yours.\nTo help you get started, here are some we recommend for their stand-out performance\nand functionality.": [
             ""
          ]
       }

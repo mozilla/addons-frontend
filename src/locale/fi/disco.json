@@ -7,6 +7,27 @@
             "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "fi"
          },
+         "Downloading %(name)s.": [
+            "Ladataan %(name)s."
+         ],
+         "Installing %(name)s.": [
+            "Asennetaan %(name)s."
+         ],
+         "%(name)s is installed and enabled. Click to uninstall.": [
+            ""
+         ],
+         "%(name)s is disabled. Click to enable.": [
+            ""
+         ],
+         "Uninstalling %(name)s.": [
+            "Poistetaan %(name)s asennus."
+         ],
+         "%(name)s is uninstalled. Click to install.": [
+            ""
+         ],
+         "Install state for %(name)s is unknown.": [
+            ""
+         ],
          "Close": [
             "Sulje"
          ],
@@ -46,35 +67,8 @@
          "OK!": [
             "OK!"
          ],
-         "Downloading %(name)s.": [
-            "Ladataan %(name)s."
-         ],
-         "Installing %(name)s.": [
-            "Asennetaan %(name)s."
-         ],
-         "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
-         ],
-         "%(name)s is disabled. Click to enable.": [
-            ""
-         ],
-         "Uninstalling %(name)s.": [
-            "Poistetaan %(name)s asennus."
-         ],
-         "%(name)s is uninstalled. Click to install.": [
-            ""
-         ],
-         "Install state for %(name)s is unknown.": [
-            ""
-         ],
          "Discover Add-ons": [
             "Löydä lisäosia"
-         ],
-         "Personalize Your Firefox": [
-            "Mukauta Firefoxiasi"
-         ],
-         "There are thousands of add-ons created by developers all over the\nworld to help you personalize your browsing experience—everything from fun visual\nthemes to powerful tools and features. Here are a few great ones to try out.": [
-            "Firefoxille on tuhansia lisäosia, joilla teet siitä omanlaisesi – kaikkea hauskoista teemoista tehokkaisiin työkaluihin ja ominaisuuksiin. Tässä on muutamia hyviä lisäosia katsottavaksi."
          ],
          "Click to play": [
             "Toista painamalla"
@@ -87,6 +81,9 @@
          ],
          "See more add-ons!": [
             "Katso lisää lisäosia!"
+         ],
+         "Personalize Your Firefox": [
+            "Mukauta Firefoxiasi"
          ]
       }
    }
