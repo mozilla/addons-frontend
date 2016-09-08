@@ -9,6 +9,19 @@
 Front-end infrastructure and code to complement
 [mozilla/addons-server](https://github.com/mozilla/addons-server).
 
+## Security Bug Reports
+
+This code and it’s associated production website are included in Mozilla’s web and services [bug bounty program]. If you find a security vulnerability, please submit it via the process outlined in the program and [FAQ pages]. Further technical details about this application are available from the [Bug Bounty Onramp page].
+
+Please submit all security-related bugs through Bugzilla using the [web security bug form].
+
+Never submit security-related bugs through a Github Issue or by email.
+
+  [bug bounty program]: https://www.mozilla.org/en-US/security/web-bug-bounty/
+  [FAQ pages]: https://www.mozilla.org/en-US/security/bug-bounty/faq-webapp/
+  [Bug Bounty Onramp page]: https://wiki.mozilla.org/Security/BugBountyOnramp/
+  [web security bug form]: https://bugzilla.mozilla.org/form.web.bounty
+
 ## Requirements
 
 * Node 4.x LTS
