@@ -1,0 +1,39 @@
+.OverallRating {
+  form {
+    display: flex;
+    justify-content: center;
+
+    input {
+      appearance: none;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    label {
+      font-size: 0.8em;
+      font-weight: bold;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      padding-top: 90px;
+      width: 120px;
+      height: 100px;
+      background-size: 85px;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &.love-it {
+        background-image: url('../img/ratings/smiley-love-it.svg');
+      }
+
+      &.it-is-ok {
+        background-image: url('../img/ratings/smiley-it-is-ok.svg');
+      }
+
+      &.huh {
+        background-image: url('../img/ratings/smiley-huh.svg');
+      }
+    }
+  }
+}
