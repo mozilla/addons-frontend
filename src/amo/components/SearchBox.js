@@ -7,7 +7,7 @@ import 'amo/css/SearchBox.scss';
 
 export class SearchBoxBase extends React.Component {
   static propTypes = {
-    i18n: PropTypes.object,
+    i18n: PropTypes.shape({}).isRequired,
   }
 
   render() {

@@ -10,10 +10,15 @@ import { gettext as _ } from 'core/utils';
 
 class HandleLogin extends React.Component {
   static propTypes = {
-    api: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired,
+    api: PropTypes.shape({}).isRequired,
+    auth: PropTypes.shape({}).isRequired,
     loadData: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
+    location: PropTypes.shape({
+      query: PropTypes.shape({
+        code: PropTypes.string,
+        state: PropTypes.shape({}),
+      }),
+    }).isRequired,
   }
 
   static contextTypes = {

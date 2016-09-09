@@ -16,7 +16,7 @@ export default class Paginate extends React.Component {
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
     pathname: PropTypes.string.isRequired,
-    query: PropTypes.object,
+    query: PropTypes.shape({}),
     perPage: PropTypes.number,
     showPages: PropTypes.number,
   }

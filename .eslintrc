@@ -13,6 +13,11 @@
   "parser": "babel-eslint",
   "rules": {
     "arrow-parens": ["error", "always"],
+    // Beware about turning this rule back on. The rule encourages you to create
+    // static class methods on React components when they don't use `this`.
+    // However, it will not warn you if you access `this` in a static method
+    // accidentally (which would most likely be a mistake).
+    "class-methods-use-this": "off",
     // This makes sure imported modules exist.
     "import/no-unresolved": ["error"],
     // This makes sure imported names exist.
@@ -56,13 +61,15 @@
     }],
     // This ensures a new line after all import statements.
     "import/newline-after-import": ["error"],
+    "jsx-a11y/no-static-element-interactions": "off",
+    "no-plusplus": "off",
     "no-underscore-dangle": "off",
     "space-before-function-paren": ["error", "never"],
     "react/prefer-stateless-function": "off",
     "react/jsx-indent-props": "off",
     "react/jsx-closing-bracket-location": "off",
     "react/jsx-first-prop-new-line": "off",
-    // FIXME: Use funcs for refs https://github.com/mozilla/addons-frontend/issues/970 
+    // FIXME: Use funcs for refs https://github.com/mozilla/addons-frontend/issues/970
     "react/no-string-refs": "off",
     // FIXME: Deprecate use of findDOMNode https://github.com/mozilla/addons-frontend/issues/968
     "react/no-find-dom-node": "off",

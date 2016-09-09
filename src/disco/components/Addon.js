@@ -1,4 +1,5 @@
 /* global document, CustomEvent */
+/* eslint-disable react/no-danger */
 
 import classNames from 'classnames';
 import { sprintf } from 'jed';
@@ -50,17 +51,12 @@ import 'disco/css/Addon.scss';
 
 export class AddonBase extends React.Component {
   static propTypes = {
-    accentcolor: PropTypes.string,
     description: PropTypes.string,
-    editorialDescription: PropTypes.string.isRequired,
     error: PropTypes.string,
-    footerURL: PropTypes.string,
     guid: PropTypes.string.isRequired,
-    headerURL: PropTypes.string,
     heading: PropTypes.string.isRequired,
-    i18n: PropTypes.object.isRequired,
+    i18n: PropTypes.shape({}).isRequired,
     iconUrl: PropTypes.string,
-    id: PropTypes.string.isRequired,
     installTheme: PropTypes.func.isRequired,
     installURL: PropTypes.string,
     needsRestart: PropTypes.bool.isRequired,
@@ -68,10 +64,9 @@ export class AddonBase extends React.Component {
     name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
-    textcolor: PropTypes.string,
     themeAction: PropTypes.func,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
-    _tracking: PropTypes.object,
+    _tracking: PropTypes.shape({}),
   }
 
   static defaultProps = {

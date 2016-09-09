@@ -14,10 +14,8 @@ function siteLink(url, text) {
 
 class AddonPage extends React.Component {
   static propTypes = {
-    addon: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }),
+    addon: PropTypes.shape({}).isRequired,
+    // eslint-disable-next-line react/no-unused-prop-types
     slug: PropTypes.string.isRequired,
   }
 

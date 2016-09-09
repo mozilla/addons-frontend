@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
@@ -8,9 +8,6 @@ import translate from 'core/i18n/translate';
 import { loadAddonIfNeeded } from 'core/utils';
 
 export class DetailPageBase extends React.Component {
-  static propTypes = {
-    addon: PropTypes.object,
-  }
 
   render() {
     return (

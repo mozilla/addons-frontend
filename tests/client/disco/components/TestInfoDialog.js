@@ -90,7 +90,7 @@ describe('Clicking outside <InfoDialog />', () => {
           <I18nProvider i18n={getFakeI18nInst()}>
             <div>
               {getInfoDialog()}
-              <div id="outside-component" onClick={(e) => e.stopPropagation()} />
+              <button id="outside-component" onClick={(e) => e.stopPropagation()} />
             </div>
           </I18nProvider>
         );

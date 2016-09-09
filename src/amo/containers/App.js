@@ -9,7 +9,7 @@ import translate from 'core/i18n/translate';
 export class AppBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    i18n: PropTypes.object.isRequired,
+    i18n: PropTypes.shape({}).isRequired,
   }
 
   render() {
