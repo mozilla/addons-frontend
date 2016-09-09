@@ -40,11 +40,11 @@ export class AppBase extends React.Component {
   }
 }
 
-export const makeMapStateToProps = ({ _window = window } = {}) => (state) => ({
+export const makeMapStateToProps = ({ _window } = {}) => (state) => ({
   isAuthenticated: !!state.auth.token,
   handleLogIn() {
     // eslint-disable-next-line no-param-reassign
-    _window.location = startLoginUrl();
+    (_window || window).location = startLoginUrl();
   },
 });
 
