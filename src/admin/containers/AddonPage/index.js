@@ -15,6 +15,9 @@ function siteLink(url, text) {
 class AddonPage extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
+    // This `slug` property is used by mapStateToProps() to inject
+    // an `addon` property but it's never used directly.
+    //
     // eslint-disable-next-line react/no-unused-prop-types
     slug: PropTypes.string.isRequired,
   }
