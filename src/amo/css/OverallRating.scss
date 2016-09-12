@@ -23,15 +23,15 @@
       background-position: center;
       background-repeat: no-repeat;
 
-      &.love-it {
+      &.OverallRating-love-it {
         background-image: url('../img/ratings/smiley-love-it.svg');
       }
 
-      &.it-is-ok {
+      &.OverallRating-it-is-ok {
         background-image: url('../img/ratings/smiley-it-is-ok.svg');
       }
 
-      &.huh {
+      &.OverallRating-huh {
         background-image: url('../img/ratings/smiley-huh.svg');
       }
     }

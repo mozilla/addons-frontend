@@ -21,16 +21,16 @@ export class OverallRatingBase extends React.Component {
       <div className="OverallRating">
         <p>{prompt}</p>
         <form action="">
-          <input id="love-it" value="love-it" name="overall-rating" type="radio" />
-          <label htmlFor="love-it" className="love-it">
+          <input id="OverallRating-love-it" value="love-it" name="overall-rating" type="radio" />
+          <label htmlFor="OverallRating-love-it" className="OverallRating-love-it">
             {i18n.gettext('Love it!')}
           </label>
-          <input id="it-is-ok" value="it-is-ok" name="overall-rating" type="radio" />
-          <label htmlFor="it-is-ok" className="it-is-ok">
+          <input id="OverallRating-it-is-ok" value="it-is-ok" name="overall-rating" type="radio" />
+          <label htmlFor="OverallRating-it-is-ok" className="OverallRating-it-is-ok">
             {i18n.gettext("It's OK")}
           </label>
-          <input id="huh" value="huh" name="overall-rating" type="radio" />
-          <label htmlFor="huh" className="huh">
+          <input id="OverallRating-huh" value="huh" name="overall-rating" type="radio" />
+          <label htmlFor="OverallRating-huh" className="OverallRating-huh">
             {i18n.gettext('Huh?')}
           </label>
         </form>
