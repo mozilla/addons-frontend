@@ -11,7 +11,7 @@ export default class SearchPage extends React.Component {
     count: PropTypes.number,
     loading: PropTypes.bool.isRequired,
     page: PropTypes.number,
-    results: PropTypes.arrayOf(PropTypes.shape({})),
+    results: PropTypes.arrayOf(PropTypes.object),
     query: PropTypes.string,
   }
 

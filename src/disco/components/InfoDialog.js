@@ -9,7 +9,7 @@ export class InfoDialogBase extends React.Component {
     addonName: PropTypes.string.isRequired,
     closeAction: PropTypes.func.isRequired,
     imageURL: PropTypes.string.isRequired,
-    i18n: PropTypes.shape({}).isRequired,
+    i18n: PropTypes.object.isRequired,
   }
 
   handleClickOutside() {

@@ -10,13 +10,13 @@ import 'admin/css/lib/buttons.scss';
 
 export class SearchFormBase extends React.Component {
   static propTypes = {
-    api: PropTypes.shape({}).isRequired,
+    api: PropTypes.object.isRequired,
     loadAddon: PropTypes.func.isRequired,
     pathname: PropTypes.string.isRequired,
     query: PropTypes.string.isRequired,
   }
   static contextTypes = {
-    router: PropTypes.shape({}),
+    router: PropTypes.object,
   }
 
   goToSearch(query) {

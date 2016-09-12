@@ -35,7 +35,7 @@ ResultLink.propTypes = {
 
 export default class SearchResult extends React.Component {
   static propTypes = {
-    result: PropTypes.shape({}).isRequired,
+    result: PropTypes.object.isRequired,
   }
 
   render() {

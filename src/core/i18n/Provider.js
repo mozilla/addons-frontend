@@ -7,12 +7,12 @@ import { Children, Component, PropTypes } from 'react';
 
 export default class I18nProvider extends Component {
   static propTypes = {
-    i18n: PropTypes.shape({}).isRequired,
+    i18n: PropTypes.object.isRequired,
     children: PropTypes.element.isRequired,
   }
 
   static childContextTypes = {
-    i18n: PropTypes.shape({}).isRequired,
+    i18n: PropTypes.object.isRequired,
   }
 
   constructor(props, context) {

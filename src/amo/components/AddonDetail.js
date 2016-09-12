@@ -31,8 +31,8 @@ export const allowedDescriptionTags = [
 
 class AddonDetail extends React.Component {
   static propTypes = {
-    i18n: PropTypes.shape({}).isRequired,
-    addon: PropTypes.shape({}),
+    i18n: PropTypes.object.isRequired,
+    addon: PropTypes.object.isRequired,
   }
 
   render() {

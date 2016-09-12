@@ -55,7 +55,7 @@ export class AddonBase extends React.Component {
     error: PropTypes.string,
     guid: PropTypes.string.isRequired,
     heading: PropTypes.string.isRequired,
-    i18n: PropTypes.shape({}).isRequired,
+    i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
     installURL: PropTypes.string,
@@ -66,7 +66,7 @@ export class AddonBase extends React.Component {
     status: PropTypes.oneOf(validInstallStates).isRequired,
     themeAction: PropTypes.func,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
-    _tracking: PropTypes.shape({}),
+    _tracking: PropTypes.object,
   }
 
   static defaultProps = {

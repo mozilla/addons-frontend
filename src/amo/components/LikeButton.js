@@ -6,7 +6,7 @@ import 'amo/css/LikeButton.scss';
 
 export class LikeButtonBase extends React.Component {
   static propTypes = {
-    i18n: PropTypes.shape({}).isRequired,
+    i18n: PropTypes.object.isRequired,
   }
 
   render() {

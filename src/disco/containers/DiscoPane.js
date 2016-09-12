@@ -28,13 +28,13 @@ export class DiscoPaneBase extends React.Component {
   static propTypes = {
     AddonComponent: PropTypes.func,
     handleGlobalEvent: PropTypes.func.isRequired,
-    i18n: PropTypes.shape({}).isRequired,
-    infoDialogData: PropTypes.shape({}).isRequired,
-    mozAddonManager: PropTypes.shape({}),
-    results: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    i18n: PropTypes.object.isRequired,
+    infoDialogData: PropTypes.object.isRequired,
+    mozAddonManager: PropTypes.object,
+    results: PropTypes.arrayOf(PropTypes.object).isRequired,
     showInfoDialog: PropTypes.bool.isRequired,
     _addChangeListeners: PropTypes.func,
-    _tracking: PropTypes.shape({}),
+    _tracking: PropTypes.object,
   }
 
   static defaultProps = {

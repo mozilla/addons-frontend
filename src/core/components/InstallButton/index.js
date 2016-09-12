@@ -25,7 +25,7 @@ export class InstallButtonBase extends React.Component {
     enable: PropTypes.func,
     guid: PropTypes.string.isRequired,
     handleChange: PropTypes.func,
-    i18n: PropTypes.shape({}).isRequired,
+    i18n: PropTypes.object.isRequired,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     installURL: PropTypes.string,

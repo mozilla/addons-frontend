@@ -9,16 +9,13 @@ export default class ServerHtml extends Component {
 
   static propTypes = {
     appName: PropTypes.string.isRequired,
-    assets: PropTypes.shape({
-      javascript: PropTypes.shape({}),
-      styles: PropTypes.shape({}),
-    }).isRequired,
+    assets: PropTypes.object.isRequired,
     component: PropTypes.element.isRequired,
     htmlDir: PropTypes.string,
     htmlLang: PropTypes.string,
     includeSri: PropTypes.bool.isRequired,
-    sriData: PropTypes.shape({}).isRequired,
-    store: PropTypes.shape({}).isRequired,
+    sriData: PropTypes.object.isRequired,
+    store: PropTypes.object.isRequired,
     trackingEnabled: PropTypes.bool,
   };
 

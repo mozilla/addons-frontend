@@ -65,6 +65,9 @@
     "no-plusplus": "off",
     "no-underscore-dangle": "off",
     "space-before-function-paren": ["error", "never"],
+    // The airbnb default of this rule mainly encourages `shape` over `object`
+    // but there are too many bugs in the linter to use this accurately.
+    'react/forbid-prop-types': "off",
     "react/prefer-stateless-function": "off",
     "react/jsx-indent-props": "off",
     "react/jsx-closing-bracket-location": "off",

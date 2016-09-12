@@ -5,7 +5,7 @@ import './style.scss';
 
 export default class JsonData extends React.Component {
   static propTypes = {
-    data: PropTypes.shape({}).isRequired,
+    data: PropTypes.object.isRequired,
   }
 
   constructor() {

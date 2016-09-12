@@ -6,7 +6,7 @@ import 'amo/css/AddonMeta.scss';
 
 export class AddonMetaBase extends React.Component {
   static propTypes = {
-    i18n: PropTypes.shape({}).isRequired,
+    i18n: PropTypes.object.isRequired,
   }
 
   render() {
