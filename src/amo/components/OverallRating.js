@@ -23,14 +23,17 @@ export class OverallRatingBase extends React.Component {
         <form action="">
           <input id="OverallRating-love-it" value="love-it" name="overall-rating" type="radio" />
           <label htmlFor="OverallRating-love-it" className="OverallRating-love-it">
+            {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
             {i18n.gettext('Love it!')}
           </label>
           <input id="OverallRating-it-is-ok" value="it-is-ok" name="overall-rating" type="radio" />
           <label htmlFor="OverallRating-it-is-ok" className="OverallRating-it-is-ok">
+            {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
             {i18n.gettext("It's OK")}
           </label>
           <input id="OverallRating-huh" value="huh" name="overall-rating" type="radio" />
           <label htmlFor="OverallRating-huh" className="OverallRating-huh">
+            {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
             {i18n.gettext('Huh?')}
           </label>
         </form>
