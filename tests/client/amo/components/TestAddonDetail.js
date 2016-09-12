@@ -8,6 +8,7 @@ import {
 
 import AddonDetail, { allowedDescriptionTags }
   from 'amo/components/AddonDetail';
+import OverallRating from 'amo/components/OverallRating';
 import I18nProvider from 'core/i18n/Provider';
 import InstallButton from 'core/components/InstallButton';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -115,6 +116,11 @@ describe('AddonDetail', () => {
   it('configures the install button', () => {
     const root = findRenderedComponentWithType(render(), InstallButton);
     assert.equal(root.props.slug, fakeAddon.slug);
+  });
+
+  it('configures the overall ratings section', () => {
+    const root = findRenderedComponentWithType(render(), OverallRating);
+    assert.equal(root.props.addonName, fakeAddon.name);
   });
 
   it('renders a summary', () => {
