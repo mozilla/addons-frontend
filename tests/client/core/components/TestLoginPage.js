@@ -3,11 +3,12 @@ import { renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
 import LoginPage from 'core/components/LoginPage';
+import * as api from 'core/api';
 
 describe('<LoginPage />', () => {
   const location = { pathname: '/foo' };
 
-  function render(props = {}) {
+  function render(props) {
     return findDOMNode(renderIntoDocument(<LoginPage {...props} />));
   }
 
@@ -31,9 +32,11 @@ describe('<LoginPage />', () => {
   });
 
   it('has a button to the login URL', () => {
+    const startLoginUrl = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login/start/');
     const root = render({ location });
     const loginLink = root.querySelector('a');
-    assert.equal(loginLink.pathname, '/api/v3/accounts/login/start/');
+    assert.equal(loginLink.href, 'https://a.m.org/login/start/');
     assert.equal(loginLink.textContent, 'Login');
+    assert.ok(startLoginUrl.calledWith({ location }));
   });
 });

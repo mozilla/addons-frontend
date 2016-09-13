@@ -86,7 +86,7 @@ export function login({ api, code, state }) {
 }
 
 export function startLoginUrl({ location }) {
-  const query = makeQueryString({ to: url.format({ pathname: location.pathname }) });
+  const query = makeQueryString({ to: url.format({ ...location }) });
   return `${API_BASE}/accounts/login/start/${query}`;
 }
 

@@ -54,10 +54,7 @@ export const setupMapStateToProps = (_window) => (state) => ({
   },
 });
 
-
-export const mapStateToProps = setupMapStateToProps();
-
 export default compose(
-  connect(mapStateToProps),
+  connect(setupMapStateToProps()),
   translate({ withRef: true }),
 )(AppBase);

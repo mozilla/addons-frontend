@@ -187,4 +187,13 @@ describe('api', () => {
         });
     });
   });
+
+  describe('startLoginUrl', () => {
+    it('includes the next path', () => {
+      const location = { pathname: '/foo', query: { bar: 'BAR' } };
+      assert.equal(
+        api.startLoginUrl({ location }),
+        'https://addons.mozilla.org/api/v3/accounts/login/start/?to=%2Ffoo%3Fbar%3DBAR');
+    });
+  });
 });
