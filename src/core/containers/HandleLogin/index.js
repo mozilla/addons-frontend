@@ -69,7 +69,7 @@ function createLoadData(dispatch) {
           try {
             to = browserBase64Decode(state.split(':')[1]);
           } catch (e) {
-            log.error('Could not parse next path after log in', e);
+            log.error('Could not parse next path after log in', e, state);
             to = '/';
           }
           router.push({ pathname: to });
