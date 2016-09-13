@@ -43,7 +43,7 @@ describe('<HandleLogin />', () => {
   describe('while loading', () => {
     const code = 'fxacode';
     const state = 'statedata:base64path';
-    const location = { query: { code, state } };
+    const location = { path: '/fxa-authenticate', query: { code, state } };
     const store = createStore((s = {}) => s, { api: {}, auth: {} });
     let mockApi;
     let router;
@@ -69,7 +69,7 @@ describe('<HandleLogin />', () => {
   });
 
   describe('when missing code or state', () => {
-    const location = { query: {} };
+    const location = { pathname: '/', query: {} };
     const store = createStore((s = {}) => s, { api: {}, auth: {} });
     let router;
     let mockApi;
@@ -112,7 +112,6 @@ describe('<HandleLogin />', () => {
       };
       if (to) {
         data.state += `:${btoa(to).replace(/=/g, '')}`;
-        console.log(data.state);
       }
       data.location = { query: { code: data.code, state: data.state } };
       sinon.stub(api, 'login').withArgs({

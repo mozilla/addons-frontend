@@ -13,17 +13,23 @@ import { startLoginUrl } from 'core/api';
 export class AppBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
+    handleLogIn: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool,
-    handleLogIn: PropTypes.func,
+    location: PropTypes.object.isRequired,
   }
 
   logIn() {
-    const { i18n, isAuthenticated, handleLogIn } = this.props;
+    const { handleLogIn, i18n, isAuthenticated, location } = this.props;
     if (isAuthenticated) {
       return <p>You are logged in</p>;
     }
-    return <button className="button" onClick={handleLogIn}>{i18n.gettext('Log in')}</button>;
+    return (
+      <button className="button" onClick={() => handleLogIn(location)}
+              ref={(ref) => { this.logInButton = ref; }}>
+        {i18n.gettext('Log in')}
+      </button>
+    );
   }
 
   render() {
@@ -40,16 +46,18 @@ export class AppBase extends React.Component {
   }
 }
 
-export const makeMapStateToProps = ({ _window } = {}) => (state) => ({
+export const setupMapStateToProps = (_window) => (state) => ({
   isAuthenticated: !!state.auth.token,
-  handleLogIn() {
+  handleLogIn(location) {
     // eslint-disable-next-line no-param-reassign
-    (_window || window).location = startLoginUrl();
+    (_window || window).location = startLoginUrl({ location });
   },
 });
 
 
+export const mapStateToProps = setupMapStateToProps();
+
 export default compose(
-  connect(makeMapStateToProps()),
+  connect(mapStateToProps),
   translate({ withRef: true }),
 )(AppBase);

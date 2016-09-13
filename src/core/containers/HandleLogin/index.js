@@ -34,7 +34,8 @@ class HandleLogin extends React.Component {
   }
 
   render() {
-    const { code, state } = this.props.location.query;
+    const { location } = this.props;
+    const { code, state } = location.query;
     const { error } = this.state;
     if (!error && code && state) {
       return (
@@ -43,7 +44,12 @@ class HandleLogin extends React.Component {
         </div>
       );
     }
-    return <LoginPage message={_('There was an error logging you in, please try again.')} />;
+    return (
+      <LoginPage
+        message={_('There was an error logging you in, please try again.')}
+        location={location}
+      />
+    );
   }
 }
 

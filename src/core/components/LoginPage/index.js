@@ -6,12 +6,13 @@ import { gettext as _ } from 'core/utils';
 
 export default class LoginPage extends React.Component {
   static propTypes = {
+    location: PropTypes.object.isRequired,
     message: PropTypes.string,
   }
 
   render() {
     const title = _('Login Required');
-    const { message } = this.props;
+    const { location, message } = this.props;
     return (
       <div>
         <Helmet title={title} />
@@ -20,7 +21,7 @@ export default class LoginPage extends React.Component {
           {message || _('You must be logged in to access this page.')}
         </p>
         <p>
-          <a className="button" href={startLoginUrl()}>
+          <a className="button" href={startLoginUrl({ location })}>
             {_('Login')}
           </a>
         </p>

@@ -1,4 +1,3 @@
-/* global window */
 /* global fetch */
 
 import url from 'url';
@@ -86,8 +85,8 @@ export function login({ api, code, state }) {
   });
 }
 
-export function startLoginUrl() {
-  const query = makeQueryString({ to: window.location.pathname });
+export function startLoginUrl({ location }) {
+  const query = makeQueryString({ to: url.format({ pathname: location.pathname }) });
   return `${API_BASE}/accounts/login/start/${query}`;
 }
 
