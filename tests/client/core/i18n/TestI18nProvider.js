@@ -22,7 +22,7 @@ class OuterComponent extends Component {
 
 class InnerComponent extends Component {
   static propTypes = {
-    i18n: PropTypes.shape({}).isRequired,
+    i18n: PropTypes.object.isRequired,
   }
   render() {
     const { i18n } = this.props;

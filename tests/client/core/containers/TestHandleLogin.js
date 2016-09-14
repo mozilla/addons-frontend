@@ -12,7 +12,7 @@ describe('<HandleLogin />', () => {
   class MyRouter extends React.Component {
     static propTypes = {
       children: React.PropTypes.node.isRequired,
-      router: React.PropTypes.shape({}).isRequired,
+      router: React.PropTypes.object.isRequired,
     }
 
     static childContextTypes = {
