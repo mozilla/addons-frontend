@@ -2,8 +2,7 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-connect';
 
 import { search } from 'core/api';
-import SearchPage from 'admin/components/SearchPage';
-import { searchStart, searchLoad, searchFail } from 'admin/actions';
+import { searchStart, searchLoad, searchFail } from 'core/actions/search';
 
 export function mapStateToProps(state, ownProps) {
   const { location } = ownProps;
@@ -13,12 +12,12 @@ export function mapStateToProps(state, ownProps) {
   return {};
 }
 
-function performSearch({ dispatch, page, query, api }) {
+function performSearch({ dispatch, page, query, api, auth = false }) {
   if (!query) {
     return Promise.resolve();
   }
   dispatch(searchStart(query, page));
-  return search({ page, query, api })
+  return search({ page, query, api, auth })
     .then((response) => dispatch(searchLoad({ page, query, ...response })))
     .catch(() => dispatch(searchFail({ page, query })));
 }
@@ -37,15 +36,14 @@ export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, locat
   const page = parsePage(location.query.page);
   const state = getState();
   if (!isLoaded({ state: state.search, query, page })) {
-    return performSearch({ dispatch, page, query, api: state.api });
+    return performSearch({ dispatch, page, query, api: state.api, auth: state.auth });
   }
   return true;
 }
 
-const CurrentSearchPage = asyncConnect([{
-  key: 'CurrentSearchPage',
-  deferred: true,
-  promise: loadSearchResultsIfNeeded,
-}])(connect(mapStateToProps)(SearchPage));
-
-export default CurrentSearchPage;
+export default function createSearchPage(SearchPageComponent) {
+  return asyncConnect([{
+    deferred: true,
+    promise: loadSearchResultsIfNeeded,
+  }])(connect(mapStateToProps)(SearchPageComponent));
+}

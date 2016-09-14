@@ -1,9 +1,9 @@
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 
-import SearchResult from 'admin/components/SearchResult';
+import AdminSearchResult from 'admin/components/SearchResult';
 
-describe('<SearchResult />', () => {
+describe('<AdminSearchResult />', () => {
   const result = {
     name: 'A search result',
     type: 'Extension',
@@ -13,7 +13,7 @@ describe('<SearchResult />', () => {
       files: [{}, {}],
     },
   };
-  const root = renderIntoDocument(<SearchResult result={result} />);
+  const root = renderIntoDocument(<AdminSearchResult result={result} />);
 
   it('renders the name', () => {
     assert.equal(root.name.props.children, 'A search result');
@@ -31,13 +31,21 @@ describe('<SearchResult />', () => {
     assert.equal(root.fileCount.textContent, '2 files');
   });
 
+  it('outputs zero if no files exist', () => {
+    const thisResult = { ...result, current_version: { } };
+    const thisRoot = renderIntoDocument(
+      <AdminSearchResult result={thisResult} />);
+    assert.equal(thisRoot.fileCount.textContent, '0 files');
+  });
+
   it('links to the detail page', () => {
     assert.equal(root.name.props.to, '/search/addons/a-search-result');
   });
 
   it('renders the number of files singularly', () => {
     const thisResult = { ...result, current_version: { files: [{}] } };
-    const thisRoot = renderIntoDocument(<SearchResult result={thisResult} />);
+    const thisRoot = renderIntoDocument(
+      <AdminSearchResult result={thisResult} />);
     assert.equal(thisRoot.fileCount.textContent, '1 file');
   });
 });

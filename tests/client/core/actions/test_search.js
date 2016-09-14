@@ -1,4 +1,4 @@
-import * as actions from 'admin/actions';
+import * as actions from 'core/actions/search';
 
 describe('SEARCH_STARTED', () => {
   const action = actions.searchStart('foo', 5);

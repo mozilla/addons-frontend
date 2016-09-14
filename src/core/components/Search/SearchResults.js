@@ -2,27 +2,32 @@ import React, { PropTypes } from 'react';
 import { sprintf } from 'jed';
 
 import { gettext as _ } from 'core/utils';
-import SearchResult from 'admin/components/SearchResult';
 
-import 'admin/css/SearchResults.scss';
+import 'core/css/SearchResults.scss';
+
+import SearchResult from './SearchResult';
 
 
 export default class SearchResults extends React.Component {
   static propTypes = {
     count: PropTypes.number,
+    lang: PropTypes.string.isRequired,
     loading: PropTypes.bool,
     query: PropTypes.string,
     results: PropTypes.arrayOf(PropTypes.object),
+    ResultComponent: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
     count: 0,
     query: null,
+    ResultComponent: SearchResult,
     results: [],
   }
 
   render() {
-    const { count, loading, query, results } = this.props;
+    const { count, lang, loading, query, ResultComponent,
+            results } = this.props;
 
     let searchResults;
     let messageText;
@@ -32,7 +37,9 @@ export default class SearchResults extends React.Component {
         _('Your search for "%(query)s" returned %(count)s results.'), { query, count });
       searchResults = (
         <ul ref="results" className="SearchResults-list">
-          {results.map((result) => <SearchResult result={result} key={result.slug} />)}
+          {results.map((result) => (
+            <ResultComponent result={result} key={result.slug} lang={lang} />
+          ))}
         </ul>
       );
     } else if (query && loading) {

@@ -1,8 +1,7 @@
 @import "~normalize.css";
 @import "~core/css/inc/lib";
+@import "~core/css/inc/vars";
 @import "~core/css/inc/mixins";
-@import "~amo/css/inc/vars";
-@import "~amo/css/inc/mixins";
 
 html,
 body {
@@ -22,7 +21,7 @@ html {
 body {
   @include font-regular();
 
-  font-size: 14px;
+  font-size: $font-size-default;
   color: $body-font-color;
   line-height: 19px;
   padding-top: 50px;
