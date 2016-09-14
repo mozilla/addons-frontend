@@ -9,7 +9,7 @@ import 'amo/css/ScreenShots.scss';
 
 export class ScreenShotsBase extends React.Component {
   static propTypes = {
-    i18n: PropTypes.object,
+    i18n: PropTypes.object.isRequired,
   }
 
   render() {

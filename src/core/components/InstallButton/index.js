@@ -34,7 +34,6 @@ export class InstallButtonBase extends React.Component {
     status: PropTypes.oneOf(validStates),
     type: PropTypes.oneOf(validAddonTypes),
     uninstall: PropTypes.func.isRequired,
-    url: PropTypes.string,
   }
 
   static defaultProps = {

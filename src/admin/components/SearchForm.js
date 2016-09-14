@@ -13,7 +13,7 @@ export class SearchFormBase extends React.Component {
     api: PropTypes.object.isRequired,
     loadAddon: PropTypes.func.isRequired,
     pathname: PropTypes.string.isRequired,
-    query: PropTypes.string,
+    query: PropTypes.string.isRequired,
   }
   static contextTypes = {
     router: PropTypes.object,

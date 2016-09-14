@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom/server';
 import serialize from 'serialize-javascript';
@@ -9,11 +10,11 @@ export default class ServerHtml extends Component {
   static propTypes = {
     appName: PropTypes.string.isRequired,
     assets: PropTypes.object.isRequired,
-    component: PropTypes.object.isRequired,
+    component: PropTypes.element.isRequired,
     htmlDir: PropTypes.string,
     htmlLang: PropTypes.string,
-    includeSri: PropTypes.bool,
-    sriData: PropTypes.object,
+    includeSri: PropTypes.bool.isRequired,
+    sriData: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired,
     trackingEnabled: PropTypes.bool,
   };

@@ -26,13 +26,13 @@ import videoWebm from 'disco/video/AddOns.webm';
 
 export class DiscoPaneBase extends React.Component {
   static propTypes = {
-    AddonComponent: PropTypes.func.isRequred,
+    AddonComponent: PropTypes.func,
     handleGlobalEvent: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    infoDialogData: PropTypes.object,
+    infoDialogData: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
-    results: PropTypes.arrayOf(PropTypes.object),
-    showInfoDialog: PropTypes.boolean,
+    results: PropTypes.arrayOf(PropTypes.object).isRequired,
+    showInfoDialog: PropTypes.bool.isRequired,
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
   }

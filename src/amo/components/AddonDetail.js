@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React, { PropTypes } from 'react';
 
 import AddonMeta from 'amo/components/AddonMeta';
@@ -30,12 +31,8 @@ export const allowedDescriptionTags = [
 
 class AddonDetail extends React.Component {
   static propTypes = {
-    i18n: PropTypes.object,
-    addon: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      authors: PropTypes.array.isRequired,
-      slug: PropTypes.string.isRequired,
-    }),
+    i18n: PropTypes.object.isRequired,
+    addon: PropTypes.object.isRequired,
   }
 
   render() {

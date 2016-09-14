@@ -11,7 +11,6 @@ import { gettext as _ } from 'core/utils';
 class HandleLogin extends React.Component {
   static propTypes = {
     api: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired,
     loadData: PropTypes.func.isRequired,
     location: PropTypes.object.isRequired,
   }
@@ -65,8 +64,8 @@ function createLoadData(dispatch) {
   };
 }
 
-function mapStateToProps({ api, auth }) {
-  return { api, auth };
+function mapStateToProps({ api }) {
+  return { api };
 }
 
 export function mapDispatchToProps(dispatch) {
