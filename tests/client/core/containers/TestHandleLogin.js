@@ -1,3 +1,5 @@
+/* global btoa */
+
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
@@ -41,7 +43,7 @@ describe('<HandleLogin />', () => {
   describe('while loading', () => {
     const code = 'fxacode';
     const state = 'statedata:base64path';
-    const location = { query: { code, state } };
+    const location = { path: '/fxa-authenticate', query: { code, state } };
     const store = createStore((s = {}) => s, { api: {}, auth: {} });
     let mockApi;
     let router;
@@ -67,7 +69,7 @@ describe('<HandleLogin />', () => {
   });
 
   describe('when missing code or state', () => {
-    const location = { query: {} };
+    const location = { pathname: '/', query: {} };
     const store = createStore((s = {}) => s, { api: {}, auth: {} });
     let router;
     let mockApi;
@@ -88,7 +90,7 @@ describe('<HandleLogin />', () => {
     it('shows a login link', () => {
       const root = render(store, location, router);
       const link = root.querySelector('a');
-      assert.equal(link.pathname, '/api/v3/internal/accounts/login/start/');
+      assert.equal(link.pathname, '/api/v3/accounts/login/start/');
       assert.equal(link.textContent, 'Login');
     });
 
@@ -99,7 +101,7 @@ describe('<HandleLogin />', () => {
   });
 
   describe('loadData helper', () => {
-    function setupData() {
+    function setupData({ to } = {}) {
       const data = {
         apiConfig: {},
         dispatch: sinon.stub(),
@@ -108,6 +110,9 @@ describe('<HandleLogin />', () => {
         state: 'thestatefromamo',
         payload: { token: 'sometoken' },
       };
+      if (to) {
+        data.state += `:${btoa(to).replace(/=/g, '')}`;
+      }
       data.location = { query: { code: data.code, state: data.state } };
       sinon.stub(api, 'login').withArgs({
         api: data.apiConfig,
@@ -137,14 +142,28 @@ describe('<HandleLogin />', () => {
       });
     });
 
-    it('redirects to the search endpoint', () => {
+    it('redirects to the root endpoint without a next path', () => {
       const { apiConfig, dispatch, location, router } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
       const mockRouter = sinon.mock(router);
       mockRouter
         .expects('push')
         .once()
-        .withArgs('/search')
+        .withArgs({ pathname: '/' })
+        .returns(null);
+      return loadData({ api: apiConfig, location, router }).then(() => {
+        mockRouter.verify();
+      });
+    });
+
+    it('redirects to the next path', () => {
+      const { apiConfig, dispatch, location, router } = setupData({ to: '/foo' });
+      const { loadData } = mapDispatchToProps(dispatch);
+      const mockRouter = sinon.mock(router);
+      mockRouter
+        .expects('push')
+        .once()
+        .withArgs({ pathname: '/foo' })
         .returns(null);
       return loadData({ api: apiConfig, location, router }).then(() => {
         mockRouter.verify();

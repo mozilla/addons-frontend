@@ -14,14 +14,15 @@ export class LoginRequiredBase extends React.Component {
   static propTypes = {
     authenticated: PropTypes.bool.isRequired,
     children: PropTypes.node,
+    location: PropTypes.object,
   }
 
   render() {
-    const { authenticated, children } = this.props;
+    const { authenticated, children, location } = this.props;
     if (authenticated) {
       return children;
     }
-    return <LoginPage />;
+    return <LoginPage location={location} />;
   }
 }
 

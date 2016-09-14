@@ -1,4 +1,5 @@
 /* global window */
+import config from 'config';
 
 import * as api from 'core/api';
 import { unexpectedSuccess } from 'tests/client/helpers';
@@ -31,7 +32,7 @@ describe('api', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
         .withArgs(
-          'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&page=3&lang=en-US')
+          'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US')
         .once()
         .returns(mockResponse());
       return api.search({ api: { lang: 'en-US' }, query: 'foo', page: 3 })
@@ -55,7 +56,7 @@ describe('api', () => {
 
     it('surfaces status and apiURL on Error instance', () => {
       const url =
-        'https://addons.mozilla.org/api/v3/internal/addons/search/?q=foo&page=3&lang=en-US';
+        'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US';
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
@@ -149,7 +150,7 @@ describe('api', () => {
     it('sends the code and state', () => {
       mockWindow
         .expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/internal/accounts/login/?lang=en-US', {
+        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?lang=en-US', {
           body: '{"code":"my-code","state":"my-state"}',
           credentials: 'include',
           headers: { 'Content-type': 'application/json' },
@@ -185,6 +186,23 @@ describe('api', () => {
           assert.deepEqual(apiResponse, { entities: { users: { foo: user } }, result: 'foo' });
           mockWindow.verify();
         });
+    });
+  });
+
+  describe('startLoginUrl', () => {
+    it('includes the next path', () => {
+      const location = { pathname: '/foo', query: { bar: 'BAR' } };
+      assert.equal(
+        api.startLoginUrl({ location }),
+        'https://addons.mozilla.org/api/v3/accounts/login/start/?to=%2Ffoo%3Fbar%3DBAR');
+    });
+
+    it('includes the next path the config if set', () => {
+      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
+      const location = { pathname: '/foo' };
+      assert.equal(
+        api.startLoginUrl({ location }),
+        'https://addons.mozilla.org/api/v3/accounts/login/start/?to=%2Ffoo&config=my-config');
     });
   });
 });

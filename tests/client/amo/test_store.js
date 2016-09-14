@@ -1,11 +1,11 @@
 import createStore from 'amo/store';
 
-describe('search createStore', () => {
+describe('amo createStore', () => {
   it('sets the reducers', () => {
     const store = createStore();
     assert.deepEqual(
       Object.keys(store.getState()).sort(),
-      ['addons', 'api', 'reduxAsyncConnect']);
+      ['addons', 'api', 'auth', 'reduxAsyncConnect']);
   });
 
   it('creates an empty store', () => {

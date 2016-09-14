@@ -58,7 +58,7 @@ export function callApi({ endpoint, schema, params = {}, auth = false, state = {
 export function search({ api, page, query }) {
   // TODO: Get the language from the server.
   return callApi({
-    endpoint: 'internal/addons/search',
+    endpoint: 'addons/search',
     schema: { results: arrayOf(addon) },
     params: { q: query, page },
     state: api,
@@ -77,7 +77,7 @@ export function fetchAddon({ api, slug }) {
 
 export function login({ api, code, state }) {
   return callApi({
-    endpoint: 'internal/accounts/login',
+    endpoint: 'accounts/login',
     method: 'post',
     body: { code, state },
     state: api,
@@ -85,8 +85,14 @@ export function login({ api, code, state }) {
   });
 }
 
-export function startLoginUrl() {
-  return `${API_BASE}/internal/accounts/login/start/`;
+export function startLoginUrl({ location }) {
+  const configName = config.get('fxaConfig');
+  const params = { to: url.format({ ...location }) };
+  if (configName) {
+    params.config = configName;
+  }
+  const query = makeQueryString(params);
+  return `${API_BASE}/accounts/login/start/${query}`;
 }
 
 export function fetchProfile({ api }) {

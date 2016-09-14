@@ -335,6 +335,10 @@ describe('nl2br', () => {
   it('converts multiple new lines (Windows) to multiple breaks', () => {
     assert.equal(nl2br('\r\n\r\n'), '<br /><br />');
   });
+
+  it('handles null text', () => {
+    assert.equal(nl2br(null), '');
+  });
 });
 
 describe('isAllowedOrigin', () => {

@@ -6,7 +6,8 @@ import config from 'config';
 import { setJWT } from 'core/actions';
 import { login } from 'core/api';
 import LoginPage from 'core/components/LoginPage';
-import { gettext as _ } from 'core/utils';
+import log from 'core/logger';
+import { browserBase64Decode, gettext as _ } from 'core/utils';
 
 class HandleLogin extends React.Component {
   static propTypes = {
@@ -26,13 +27,15 @@ class HandleLogin extends React.Component {
   componentDidMount() {
     const { api, loadData, location } = this.props;
     const { router } = this.context;
-    loadData({ api, location, router }).catch(() => {
+    loadData({ api, location, router }).catch((e) => {
       this.setState({ error: true });
+      log.error('Error when logging in', e);
     });
   }
 
   render() {
-    const { code, state } = this.props.location.query;
+    const { location } = this.props;
+    const { code, state } = location.query;
     const { error } = this.state;
     if (!error && code && state) {
       return (
@@ -41,7 +44,12 @@ class HandleLogin extends React.Component {
         </div>
       );
     }
-    return <LoginPage message={_('There was an error logging you in, please try again.')} />;
+    return (
+      <LoginPage
+        message={_('There was an error logging you in, please try again.')}
+        location={location}
+      />
+    );
   }
 }
 
@@ -57,7 +65,14 @@ function createLoadData(dispatch) {
             secure: config.get('cookieSecure'),
             maxAge: config.get('cookieMaxAge'),
           });
-          router.push('/search');
+          let to;
+          try {
+            to = browserBase64Decode(state.split(':')[1]);
+          } catch (e) {
+            log.error('Could not parse next path after log in', e, state);
+            to = '/';
+          }
+          router.push({ pathname: to });
         });
     }
     return Promise.resolve();
