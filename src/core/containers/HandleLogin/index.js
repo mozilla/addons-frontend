@@ -28,8 +28,9 @@ class HandleLogin extends React.Component {
   componentDidMount() {
     const { api, loadData, location } = this.props;
     const { router } = this.context;
-    loadData({ api, location, router }).catch(() => {
+    loadData({ api, location, router }).catch((e) => {
       this.setState({ error: true });
+      log.error('Error when logging in', e);
     });
   }
 

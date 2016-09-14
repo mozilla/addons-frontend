@@ -19,7 +19,7 @@ export class AppBase extends React.Component {
     location: PropTypes.object.isRequired,
   }
 
-  logIn() {
+  accountButton() {
     const { handleLogIn, i18n, isAuthenticated, location } = this.props;
     if (isAuthenticated) {
       return <p>You are logged in</p>;
@@ -40,7 +40,7 @@ export class AppBase extends React.Component {
           defaultTitle={i18n.gettext('Add-ons for Firefox')}
         />
         {children}
-        <footer>{this.logIn()}</footer>
+        <footer>{this.accountButton()}</footer>
       </div>
     );
   }
