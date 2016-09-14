@@ -1,4 +1,5 @@
 /* global window */
+import config from 'config';
 
 import * as api from 'core/api';
 import { unexpectedSuccess } from 'tests/client/helpers';
@@ -194,6 +195,14 @@ describe('api', () => {
       assert.equal(
         api.startLoginUrl({ location }),
         'https://addons.mozilla.org/api/v3/accounts/login/start/?to=%2Ffoo%3Fbar%3DBAR');
+    });
+
+    it('includes the next path the config if set', () => {
+      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
+      const location = { pathname: '/foo' };
+      assert.equal(
+        api.startLoginUrl({ location }),
+        'https://addons.mozilla.org/api/v3/accounts/login/start/?to=%2Ffoo&config=my-config');
     });
   });
 });

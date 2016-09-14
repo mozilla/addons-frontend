@@ -63,15 +63,16 @@ module.exports = {
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
   clientConfigKeys: [
-    'appName',
     'amoCDN',
     'apiHost',
     'apiPath',
-    'cookieName',
+    'appName',
     'cookieMaxAge',
+    'cookieName',
     'cookieSecure',
-    'enableClientConsole',
     'defaultLang',
+    'enableClientConsole',
+    'fxaConfig',
     'isDeployed',
     'isDevelopment',
     'langs',
@@ -166,4 +167,6 @@ module.exports = {
 
   // The default app used in the URL.
   defaultClientApp: 'firefox',
+
+  fxaConfig: null,
 };

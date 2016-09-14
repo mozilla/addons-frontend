@@ -86,7 +86,12 @@ export function login({ api, code, state }) {
 }
 
 export function startLoginUrl({ location }) {
-  const query = makeQueryString({ to: url.format({ ...location }) });
+  const configName = config.get('fxaConfig');
+  const params = { to: url.format({ ...location }) };
+  if (configName) {
+    params.config = configName;
+  }
+  const query = makeQueryString(params);
   return `${API_BASE}/accounts/login/start/${query}`;
 }
 
