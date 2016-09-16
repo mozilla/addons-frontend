@@ -147,10 +147,11 @@ describe('api', () => {
       });
     }
 
-    it('sends the code and state', () => {
+    it('sends the config, code and state', () => {
+      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-conf');
       mockWindow
         .expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?lang=en-US', {
+        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?config=my-conf&lang=en-US', {
           body: '{"code":"my-code","state":"my-state"}',
           credentials: 'include',
           headers: { 'Content-type': 'application/json' },
