@@ -169,19 +169,11 @@ describe('api', () => {
       sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
       mockWindow
         .expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?config=my-config&lang=fr', {
-          body: '{"code":"my-code","state":"my-state"}',
-          credentials: 'include',
-          headers: { 'Content-type': 'application/json' },
-          method: 'post',
-        })
+        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?config=my-config&lang=fr')
         .once()
         .returns(mockResponse());
       return api.login({ api: { lang: 'fr' }, code: 'my-code', state: 'my-state' })
-        .then((apiResponse) => {
-          assert.strictEqual(apiResponse, response);
-          mockWindow.verify();
-        });
+        .then(() => mockWindow.verify());
     });
   });
 
