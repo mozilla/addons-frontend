@@ -76,10 +76,16 @@ export function fetchAddon({ api, slug }) {
 }
 
 export function login({ api, code, state }) {
+  const params = {};
+  const configName = config.get('fxaConfig');
+  if (configName) {
+    params.config = configName;
+  }
   return callApi({
     endpoint: 'accounts/login',
     method: 'post',
     body: { code, state },
+    params,
     state: api,
     credentials: true,
   });
