@@ -164,6 +164,17 @@ describe('api', () => {
           mockWindow.verify();
         });
     });
+
+    it('sends the config when set', () => {
+      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
+      mockWindow
+        .expects('fetch')
+        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?config=my-config&lang=fr')
+        .once()
+        .returns(mockResponse());
+      return api.login({ api: { lang: 'fr' }, code: 'my-code', state: 'my-state' })
+        .then(() => mockWindow.verify());
+    });
   });
 
   describe('fetchProfile', () => {
