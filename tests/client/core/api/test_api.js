@@ -147,11 +147,10 @@ describe('api', () => {
       });
     }
 
-    it('sends the config, code and state', () => {
-      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-conf');
+    it('sends the code and state', () => {
       mockWindow
         .expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?config=my-conf&lang=en-US', {
+        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?lang=en-US', {
           body: '{"code":"my-code","state":"my-state"}',
           credentials: 'include',
           headers: { 'Content-type': 'application/json' },
@@ -160,6 +159,25 @@ describe('api', () => {
         .once()
         .returns(mockResponse());
       return api.login({ api: { lang: 'en-US' }, code: 'my-code', state: 'my-state' })
+        .then((apiResponse) => {
+          assert.strictEqual(apiResponse, response);
+          mockWindow.verify();
+        });
+    });
+
+    it('sends the config when set', () => {
+      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
+      mockWindow
+        .expects('fetch')
+        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?config=my-config&lang=fr', {
+          body: '{"code":"my-code","state":"my-state"}',
+          credentials: 'include',
+          headers: { 'Content-type': 'application/json' },
+          method: 'post',
+        })
+        .once()
+        .returns(mockResponse());
+      return api.login({ api: { lang: 'fr' }, code: 'my-code', state: 'my-state' })
         .then((apiResponse) => {
           assert.strictEqual(apiResponse, response);
           mockWindow.verify();
