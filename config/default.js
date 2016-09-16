@@ -129,7 +129,7 @@ module.exports = {
   langs: [
     'af', 'ar', 'bg', 'bn-BD', 'ca', 'cs', 'da', 'de', 'dbl', 'dbr', 'dsb', 'el',
     'en-GB', 'en-US', 'es', 'eu', 'fa', 'fi', 'fr', 'ga-IE', 'he', 'hsb', 'hu', 'id',
-    'it', 'ja', 'ko', 'mk', 'mn', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk',
+    'it', 'ja', 'kab', 'ko', 'mk', 'mn', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk',
     'sl', 'sq', 'sv-SE', 'uk', 'vi', 'zh-CN', 'zh-TW',
   ],
   // Map of short langs to longer ones.
