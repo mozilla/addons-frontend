@@ -8,7 +8,7 @@ import {
 
 import AddonDetail, { allowedDescriptionTags }
   from 'amo/components/AddonDetail';
-import OverallRating from 'amo/components/OverallRating';
+import { OverallRatingWithI18n } from 'amo/components/OverallRating';
 import I18nProvider from 'core/i18n/Provider';
 import InstallButton from 'core/components/InstallButton';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -16,19 +16,27 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 // eslint-disable-next-line import/prefer-default-export
 export const fakeAddon = {
+  id: 1234,
   name: 'Chill Out',
   slug: 'chill-out',
   authors: [{
     name: 'Krupa',
     url: 'http://olympia.dev/en-US/firefox/user/krupa/',
   }],
+  current_version: { id: 123, version: '2.0.0' },
   summary: 'This is a summary of the chill out add-on',
   description: 'This is a longer description of the chill out add-on',
 };
 
 function render({ addon = fakeAddon, ...customProps } = {}) {
   const i18n = getFakeI18nInst();
-  const props = { i18n, addon, ...customProps };
+  const props = {
+    i18n,
+    addon,
+    // Configure AddonDetail with a non-redux depdendent OverallRating.
+    OverallRating: OverallRatingWithI18n,
+    ...customProps,
+  };
 
   return findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={i18n}>
@@ -119,8 +127,10 @@ describe('AddonDetail', () => {
   });
 
   it('configures the overall ratings section', () => {
-    const root = findRenderedComponentWithType(render(), OverallRating);
+    const root = findRenderedComponentWithType(render(),
+                                               OverallRatingWithI18n);
     assert.equal(root.props.addonName, fakeAddon.name);
+    assert.equal(root.props.addonID, fakeAddon.id);
   });
 
   it('renders a summary', () => {
