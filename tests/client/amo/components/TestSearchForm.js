@@ -4,14 +4,13 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import * as actions from 'core/actions';
 import * as coreApi from 'core/api';
 import {
-  AdminSearchFormBase,
+  SearchFormBase,
   mapDispatchToProps,
   mapStateToProps,
-} from 'admin/components/SearchForm';
+} from 'amo/components/SearchForm';
 
-const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
-describe('<AdminSearchForm />', () => {
+describe('<SearchForm />', () => {
   const pathname = '/somewhere';
   let api;
   let loadAddon;
@@ -30,7 +29,7 @@ describe('<AdminSearchForm />', () => {
     }
 
     render() {
-      return (<AdminSearchFormBase
+      return (<SearchFormBase
         pathname={pathname} api={api}
         loadAddon={loadAddon} ref="root"
       />);
@@ -46,49 +45,34 @@ describe('<AdminSearchForm />', () => {
     input = root.refs.query;
   });
 
-  it('does nothing on submit', () => {
+  it('renders a form', () => {
+    assert.ok(form.classList.contains('search-form'));
+  });
+
+  it('renders a search input', () => {
+    assert.equal(input.placeholder, 'Search');
+    assert.equal(input.type, 'search');
+  });
+
+  it('does changes the URL on submit', () => {
     assert(!router.push.called);
     input.value = 'adblock';
     Simulate.submit(form);
-    assert(!router.push.called);
+    assert(router.push.called);
   });
 
-  it('updates the location on enter', () => {
+  it('does nothing on non-Enter keydowns', () => {
     assert(!router.push.called);
     input.value = 'adblock';
-    Simulate.keyDown(input, { key: 'Enter', shiftKey: false });
-    assert(router.push.calledWith('/somewhere?q=adblock'));
-  });
-
-  it('looks up the add-on to see if you are lucky', () => {
-    loadAddon.returns(Promise.resolve('adblock'));
-    input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
-    assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
-  });
-
-  it('looks up the add-on to see if you are lucky on Shift+Enter', () => {
-    loadAddon.returns(Promise.resolve('adblock'));
-    input.value = 'adblock@adblock.com';
-    Simulate.keyDown(input, { key: 'Enter', shiftKey: true });
-    assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
-  });
-
-  it('redirects to the add-on if you are lucky', () => {
-    loadAddon.returns(Promise.resolve('adblock'));
+    Simulate.keyDown(input, { key: 'A', shiftKey: true });
     assert(!router.push.called);
-    input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
-    return wait(1)
-      .then(() => assert(router.push.calledWith('/search/addons/adblock')));
   });
 
-  it('searches if it is not found', () => {
-    loadAddon.returns(Promise.reject());
-    input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
-    return wait(1)
-      .then(() => assert(router.push.calledWith('/somewhere?q=adblock@adblock.com')));
+  it('updates the location on form submit', () => {
+    assert(!router.push.called);
+    input.value = 'adblock';
+    Simulate.click(root.submitButton);
+    assert(router.push.calledWith('/somewhere?q=adblock'));
   });
 });
 

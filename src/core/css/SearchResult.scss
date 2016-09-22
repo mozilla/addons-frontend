@@ -1,12 +1,6 @@
 .SearchResult {
   border: solid #cfcfcf;
   border-width: 1px 1px 0;
-  color: #333;
-  display: flex;
-  margin: 0;
-  padding: 1em;
-  text-decoration: none;
-  width: 100%;
 
   &:last-of-type {
     border-bottom-width: 1px;
@@ -15,6 +9,15 @@
   &:hover {
     background-color: #efefef;
   }
+}
+
+.SearchResult-link {
+  color: #333;
+  display: flex;
+  margin: 0;
+  padding: 1em;
+  text-decoration: none;
+  width: 100%;
 }
 
 .SearchResult-main {

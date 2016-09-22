@@ -5,7 +5,8 @@ import { sprintf } from 'jed';
 
 import { ngettext } from 'core/utils';
 
-import './style.scss';
+import 'core/css/SearchResult.scss';
+
 
 function fileCount(version) {
   if (version && version.files) {
@@ -26,6 +27,7 @@ const ResultLink = ({ children, end, middle, start, ...props }) =>
       'button-middle': middle,
       'button-start': start,
     })} rel="noopener noreferrer" target="_blank" {...props} >{children}</a>;
+
 ResultLink.propTypes = {
   children: PropTypes.node.isRequired,
   end: PropTypes.bool,
@@ -33,7 +35,7 @@ ResultLink.propTypes = {
   start: PropTypes.bool,
 };
 
-export default class SearchResult extends React.Component {
+export default class AdminSearchResult extends React.Component {
   static propTypes = {
     result: PropTypes.object.isRequired,
   }
@@ -45,7 +47,7 @@ export default class SearchResult extends React.Component {
         <div>
           <img className="SearchResult-icon" src={result.icon_url} alt="Icon" />
         </div>
-        <div className="SearchResult-main">
+        <section className="SearchResult-main">
           <h2 className="SearchResult-heading">
             <Link to={`/search/addons/${result.slug}`} className="SearchResult-name"
                   ref={(el) => { this.name = el; }}>
@@ -64,12 +66,12 @@ export default class SearchResult extends React.Component {
           <span className="SearchResult-info" ref={(el) => { this.fileCount = el; }}>
             {fileCountText(result.current_version)}
           </span>
-        </div>
-        <div className="SearchResult-actions">
+        </section>
+        <section className="SearchResult-actions">
           <ResultLink href={result.url} start>Listing</ResultLink>
           <ResultLink href={result.edit_url} middle>Edit</ResultLink>
           <ResultLink href={result.review_url} end>Editors</ResultLink>
-        </div>
+        </section>
       </li>
     );
   }

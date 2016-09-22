@@ -1,16 +1,15 @@
 import React from 'react';
 
-import SearchPage from 'admin/components/SearchPage';
-import SearchResults from 'admin/components/SearchResults';
-import SearchForm from 'admin/components/SearchForm';
+import AdminSearchPage from 'admin/components/SearchPage';
+import AdminSearchForm from 'admin/components/SearchForm';
 import Paginate from 'core/components/Paginate';
 import { findAllByTag, findByTag, shallowRender } from 'tests/client/helpers';
 
-describe('<SearchPage />', () => {
+describe('<AdminSearchPage />', () => {
   let props;
 
   function render(extra = {}) {
-    return shallowRender(<SearchPage {...{ ...props, ...extra }} />);
+    return shallowRender(<AdminSearchPage {...{ ...props, ...extra }} />);
   }
 
   beforeEach(() => {
@@ -30,21 +29,9 @@ describe('<SearchPage />', () => {
     assert.equal(heading.props.children, 'Add-on Search');
   });
 
-  it('renders the results', () => {
-    const root = render();
-    const results = findByTag(root, SearchResults);
-    assert.strictEqual(results.props.count, props.count);
-    assert.strictEqual(results.props.results, props.results);
-    assert.strictEqual(results.props.query, props.query);
-    assert.strictEqual(results.props.loading, props.loading);
-    assert.deepEqual(
-      Object.keys(results.props).sort(),
-      ['count', 'loading', 'results', 'query'].sort());
-  });
-
   it('renders the query', () => {
     const root = render();
-    const form = findByTag(root, SearchForm);
+    const form = findByTag(root, AdminSearchForm);
     assert.deepEqual(form.props, {
       pathname: '/search/',
       query: 'foo',

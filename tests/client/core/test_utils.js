@@ -1,6 +1,7 @@
 import url from 'url';
 
 import config from 'config';
+import { sprintf } from 'jed';
 
 import * as actions from 'core/actions';
 import * as api from 'core/api';
@@ -11,6 +12,7 @@ import {
   findAddon,
   getClientApp,
   getClientConfig,
+  ngettext,
   isAllowedOrigin,
   isValidClientApp,
   loadAddonIfNeeded,
@@ -389,5 +391,24 @@ describe('addQueryParams', () => {
   it('leaves other params intact', () => {
     const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { bar: 'updated' });
     assert.deepEqual(url.parse(output, true).query, { foo: '1', bar: 'updated' });
+  });
+});
+
+describe('ngettext', () => {
+  function fileCount(count) {
+    return sprintf(ngettext('%(count)s file', '%(count)s files', count),
+                   { count });
+  }
+
+  it('outputs singular when count is one', () => {
+    assert.equal('1 file', fileCount(1));
+  });
+
+  it('outputs plural when count is zero', () => {
+    assert.equal('0 files', fileCount(0));
+  });
+
+  it('outputs plural when count is above one', () => {
+    assert.equal('2 files', fileCount(2));
   });
 });

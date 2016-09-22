@@ -1,12 +1,12 @@
-@import "inc/vars";
+@import "~core/css/inc/vars";
 
 .search-form {
   display: flex;
 
   input[type="search"] {
     box-sizing: border-box;
-    flex-grow: 1;
     font-size: $font-size-l;
+    flex-grow: 1;
     height: 3rem;
     margin: 0;
     max-width: 640px;

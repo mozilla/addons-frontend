@@ -5,21 +5,22 @@ import { gettext as _ } from 'core/utils';
 import SearchResults from 'core/components/Search/SearchResults';
 
 import SearchForm from './SearchForm';
-import AdminSearchResult from './SearchResult';
+import SearchResult from './SearchResult';
 
 
-export default class AdminSearchPage extends React.Component {
+export default class SearchPage extends React.Component {
   static propTypes = {
     count: PropTypes.number,
+    lang: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
     page: PropTypes.number,
-    results: PropTypes.arrayOf(PropTypes.object),
+    results: PropTypes.array,
     query: PropTypes.string,
   }
 
   render() {
-    const { count, loading, page, query, results } = this.props;
-    const pathname = '/search/';
+    const { count, lang, loading, page, query, results } = this.props;
+    const pathname = `/${lang}/firefox/search/`;
     const paginator = query && count > 0 ?
       <Paginate count={count} pathname={pathname} query={{ q: query }} currentPage={page} /> : [];
     return (
@@ -28,7 +29,7 @@ export default class AdminSearchPage extends React.Component {
         <SearchForm pathname={pathname} query={query} />
         {paginator}
         <SearchResults results={results} query={query} loading={loading}
-          count={count} ResultComponent={AdminSearchResult} />
+          count={count} ResultComponent={SearchResult} lang={lang} />
       </div>
     );
   }

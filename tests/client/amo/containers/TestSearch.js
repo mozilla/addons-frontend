@@ -1,13 +1,13 @@
-import * as actions from 'admin/actions';
+import * as searchActions from 'core/actions/search';
 import {
   isLoaded,
   loadSearchResultsIfNeeded,
   mapStateToProps,
   parsePage,
-} from 'admin/containers/CurrentSearchPage';
+} from 'core/containers/SearchPage';
 import * as api from 'core/api';
 
-describe('CurrentSearchPage.mapStateToProps()', () => {
+describe('Search.mapStateToProps()', () => {
   const state = {
     addons: { ab: { slug: 'ab', name: 'ad-block' },
              cd: { slug: 'cd', name: 'cd-block' } },
@@ -25,7 +25,7 @@ describe('CurrentSearchPage.mapStateToProps()', () => {
   });
 });
 
-describe('CurrentSearchPage.isLoaded()', () => {
+describe('Search.isLoaded()', () => {
   const state = {
     page: 2,
     query: 'ad-block',
@@ -39,7 +39,7 @@ describe('CurrentSearchPage.isLoaded()', () => {
 
   it('is not loaded when loading', () => {
     assert(!isLoaded({
-      state: Object.assign({}, state, { loading: true }),
+      state: { ...state, loading: true },
       page: 2,
       query: 'ad-block',
     }));
@@ -88,7 +88,10 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
   it('does not dispatch on undefined query', () => {
     const dispatchSpy = sinon.spy();
     const state = { loading: false };
-    const store = { dispatch: dispatchSpy, getState: () => ({ search: state }) };
+    const store = {
+      dispatch: dispatchSpy,
+      getState: () => ({ search: state }),
+    };
     const location = { query: { page: undefined, q: undefined } };
     loadSearchResultsIfNeeded({ store, location });
     assert.notOk(dispatchSpy.called);
@@ -119,16 +122,18 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     mockApi
       .expects('search')
       .once()
-      .withArgs({ page, query, api: state.api })
+      .withArgs({ page, query, api: state.api, auth: false })
       .returns(Promise.resolve({ entities, result }));
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       assert(
-        dispatch.firstCall.calledWith(actions.searchStart(query, page)),
-        'searchStart not called');
+        dispatch.firstCall.calledWith(
+          searchActions.searchStart(query, page)),
+          'searchStart not called');
       assert(
-        dispatch.secondCall.calledWith(actions.searchLoad({ query, entities, result })),
-        'searchLoad not called');
+        dispatch.secondCall.calledWith(
+          searchActions.searchLoad({ query, entities, result })),
+          'searchLoad not called');
     });
   });
 
@@ -146,16 +151,18 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     mockApi
       .expects('search')
       .once()
-      .withArgs({ page, query, api: state.api })
+      .withArgs({ page, query, api: state.api, auth: false })
       .returns(Promise.reject());
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       assert(
-        dispatch.firstCall.calledWith(actions.searchStart(query, page)),
-        'searchStart not called');
+        dispatch.firstCall.calledWith(
+          searchActions.searchStart(query, page)),
+          'searchStart not called');
       assert(
-        dispatch.secondCall.calledWith(actions.searchFail({ page, query })),
-        'searchFail not called');
+        dispatch.secondCall.calledWith(
+          searchActions.searchFail({ page, query })),
+          'searchFail not called');
     });
   });
 });

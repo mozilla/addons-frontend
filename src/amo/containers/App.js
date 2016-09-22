@@ -47,6 +47,7 @@ export class AppBase extends React.Component {
 }
 
 export const setupMapStateToProps = (_window) => (state) => ({
+  lang: state.lang,
   isAuthenticated: !!state.auth.token,
   handleLogIn(location) {
     // eslint-disable-next-line no-param-reassign
