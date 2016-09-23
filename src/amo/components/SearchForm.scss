@@ -1,0 +1,36 @@
+@import "~core/css/inc/vars";
+
+.SearchForm-form {
+  background: rgba(255, 255, 255, 0.2);
+  border: 0;
+  display: flex;
+
+  .SearchForm-query {
+    background: url('~amo/img/icons/magnifying-glass.svg') 18px 50% no-repeat;
+    border: 0;
+    color: $header-font-color;
+    font-size: $font-size-m;
+    flex-grow: 1;
+    height: 3rem;
+    margin: 0 auto;
+    max-width: 320px;
+    opacity: 0.75;
+    padding: 0 8px 0 56px;
+    text-align: left;
+    transition: opacity $transition-short linear;
+    width: 100%;
+
+    html[dir=rtl] & {
+      background-position: calc(100% - 18px) 50%;
+      padding: 0 56px 0 8px;
+    }
+
+    &:focus {
+      opacity: 1;
+    }
+
+    &::placeholder {
+      opacity: 1;
+    }
+  }
+}

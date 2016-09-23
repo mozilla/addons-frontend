@@ -1,0 +1,28 @@
+.AdminSearchForm-form {
+  display: flex;
+
+  .AdminSearchForm-query {
+    background: url('~amo/img/icons/magnifying-glass.svg') 18px 50% no-repeat;
+    background-size: 26px;
+    border: 0;
+    color: $header-font-color;
+    font-size: $font-size-m;
+    flex-grow: 1;
+    height: 3rem;
+    margin: 0 auto;
+    max-width: 320px;
+    opacity: 0.75;
+    padding: 0 8px 0 56px;
+    text-align: left;
+    transition: opacity $transition-short linear;
+    width: 100%;
+
+    &:focus {
+      opacity: 1;
+    }
+
+    &::placeholder {
+      opacity: 1;
+    }
+  }
+}

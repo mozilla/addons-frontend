@@ -31,8 +31,10 @@ export default class SearchResults extends React.Component {
 
     let searchResults;
     let messageText;
+    let hideMessageText = false;
 
     if (query && count > 0) {
+      hideMessageText = true;
       messageText = sprintf(
         _('Your search for "%(query)s" returned %(count)s results.'), { query, count });
       searchResults = (
@@ -52,7 +54,8 @@ export default class SearchResults extends React.Component {
     }
 
     const message = messageText ?
-      <p ref={(ref) => { this.message = ref; }}>{messageText}</p> : null;
+      <p className={hideMessageText ? 'visually-hidden' : ''}
+         ref={(ref) => { this.message = ref; }}>{messageText}</p> : null;
 
     return (
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">

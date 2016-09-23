@@ -2,7 +2,6 @@ import React from 'react';
 
 import SearchPage from 'amo/components/SearchPage';
 import SearchResult from 'amo/components/SearchResult';
-import SearchForm from 'amo/components/SearchForm';
 import SearchResults from 'core/components/Search/SearchResults';
 import Paginate from 'core/components/Paginate';
 import { findAllByTag, findByTag, shallowRender } from 'tests/client/helpers';
@@ -28,12 +27,6 @@ describe('<SearchPage />', () => {
     };
   });
 
-  it('has a nice heading', () => {
-    const root = render();
-    const heading = findByTag(root, 'h1');
-    assert.equal(heading.props.children, 'Add-on Search');
-  });
-
   it('renders the results', () => {
     const root = render();
     const results = findByTag(root, SearchResults);
@@ -47,15 +40,6 @@ describe('<SearchPage />', () => {
       Object.keys(results.props).sort(),
         ['count', 'lang', 'loading', 'results', 'ResultComponent',
          'query'].sort());
-  });
-
-  it('renders the query', () => {
-    const root = render();
-    const form = findByTag(root, SearchForm);
-    assert.deepEqual(form.props, {
-      pathname: '/en-GB/firefox/search/',
-      query: 'foo',
-    });
   });
 
   it('renders a Paginate', () => {
