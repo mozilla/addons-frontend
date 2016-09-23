@@ -9,6 +9,7 @@ import * as api from 'core/api';
 
 describe('Search.mapStateToProps()', () => {
   const state = {
+    api: { lang: 'fr-CA' },
     addons: { ab: { slug: 'ab', name: 'ad-block' },
              cd: { slug: 'cd', name: 'cd-block' } },
     search: { query: 'ad-block', loading: false, results: [{ slug: 'ab', name: 'ad-block' }] },
@@ -16,12 +17,12 @@ describe('Search.mapStateToProps()', () => {
 
   it('passes the search state if the URL and state query matches', () => {
     const props = mapStateToProps(state, { location: { query: { q: 'ad-block' } } });
-    assert.strictEqual(props, state.search);
+    assert.deepEqual(props, { lang: 'fr-CA', ...state.search });
   });
 
   it('does not pass search state if the URL and state query do not match', () => {
     const props = mapStateToProps(state, { location: { query: { q: 'more-ads' } } });
-    assert.deepEqual(props, {});
+    assert.deepEqual(props, { lang: 'fr-CA' });
   });
 });
 
