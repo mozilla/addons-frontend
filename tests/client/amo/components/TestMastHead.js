@@ -4,8 +4,6 @@ import {
   findRenderedComponentWithType,
 } from 'react-addons-test-utils';
 
-
-import { findDOMNode } from 'react-dom';
 import { MastHeadBase } from 'amo/components/MastHead';
 import { getFakeI18nInst } from 'tests/client/helpers';
 import I18nProvider from 'core/i18n/Provider';
