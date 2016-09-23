@@ -19,6 +19,11 @@ export class AppBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool,
     location: PropTypes.object.isRequired,
+    MastHeadComponent: PropTypes.node,
+  }
+
+  static defaultProps = {
+    MastHeadComponent: MastHead,
   }
 
   accountButton() {
@@ -26,17 +31,17 @@ export class AppBase extends React.Component {
     return (
       <button className="button AccountButton" onClick={() => handleLogIn(location)}
               ref={(ref) => { this.logInButton = ref; }}>
-        <span>{ isAuthenticated ? i18n.gettext('Logout') : i18n.gettext('Login/Sign Up') }</span>
+        <span>{ isAuthenticated ? i18n.gettext('Logout') : i18n.gettext('Login/Sign up') }</span>
       </button>
     );
   }
 
   render() {
-    const { children, i18n } = this.props;
+    const { MastHeadComponent, children, i18n } = this.props;
     return (
       <div className="amo">
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
-        <MastHead>{this.accountButton()}</MastHead>
+        <MastHeadComponent>{this.accountButton()}</MastHeadComponent>
         {children}
       </div>
     );

@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 
 import translate from 'core/i18n/translate';
+import SearchBox from 'amo/components/SearchBox';
 
 import 'mozilla-tabzilla/css/_tabzilla.scss';
 import './MastHead.scss';
+
 
 export class MastHeadBase extends React.Component {
   static propTypes = {
@@ -28,9 +30,12 @@ export class MastHeadBase extends React.Component {
         {children}
         <header className="MastHead-header">
           { isHomePage ?
-            <h1 className="MastHead-title MastHead-homepage">{ headerTitle }</h1> :
-            <a href="/" className="MastHead-title">{ headerTitle }</a> }
+            <h1 ref={(ref) => { this.title = ref; }}
+                className="MastHead-title MastHead-homepage">{ headerTitle }</h1> :
+            <a ref={(ref) => { this.title = ref; }}
+               href="/" className="MastHead-title">{ headerTitle }</a> }
         </header>
+        <SearchBox />
       </div>
     );
   }

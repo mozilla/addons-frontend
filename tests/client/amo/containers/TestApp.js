@@ -10,8 +10,17 @@ import * as api from 'core/api';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
+class FakeMastHeadComponent extends React.Component {
+  render() {
+    // eslint-disable-next-line react/prop-types
+    return <div>{this.props.children}</div>;
+  }
+}
+
+
 describe('App', () => {
   it('renders its children', () => {
+    // eslint-disable-next-line react/no-multi-comp
     class MyComponent extends React.Component {
       render() {
         return <p>The component</p>;
@@ -19,10 +28,11 @@ describe('App', () => {
     }
     const i18n = getFakeI18nInst();
     const root = renderIntoDocument(
-      <AppBase i18n={i18n} isAuthenticated>
+      <AppBase i18n={i18n} isAuthenticated
+        MastHeadComponent={FakeMastHeadComponent}>
         <MyComponent />
       </AppBase>
-      );
+    );
 
     const rootNode = findDOMNode(root);
     assert.equal(rootNode.tagName.toLowerCase(), 'div');
@@ -34,18 +44,21 @@ describe('App', () => {
     const handleLogIn = sinon.spy();
     const location = sinon.stub();
     const root = renderIntoDocument(
-      <AppBase i18n={i18n} isAuthenticated={false} handleLogIn={handleLogIn} location={location} />
+      <AppBase i18n={i18n} isAuthenticated={false}
+        MastHeadComponent={FakeMastHeadComponent}
+        handleLogIn={handleLogIn} location={location} />
     );
     const button = root.logInButton;
-    assert.equal(button.textContent, 'Log in');
+    assert.equal(button.textContent, 'Login/Sign up');
     Simulate.click(button);
     assert.ok(handleLogIn.calledWith(location));
   });
 
   it('tells you if you are logged in', () => {
     const i18n = getFakeI18nInst();
-    const root = renderIntoDocument(<AppBase i18n={i18n} isAuthenticated />);
-    assert.equal(findDOMNode(root).querySelector('footer').textContent, 'You are logged in');
+    const root = renderIntoDocument(<AppBase i18n={i18n}
+      isAuthenticated MastHeadComponent={FakeMastHeadComponent} />);
+    assert.equal(root.logInButton.textContent, 'Logout');
   });
 
   it('updates the location on handleLogIn', () => {
