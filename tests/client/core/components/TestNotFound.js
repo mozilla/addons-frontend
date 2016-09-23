@@ -7,7 +7,7 @@ describe('<NotFound />', () => {
   const root = renderIntoDocument(<NotFound />);
 
   it('sets a heading', () => {
-    assert.equal(
-      root.refs.heading.textContent, "We're sorry, but we can't find what you're looking for.");
+    assert.equal(root.heading.textContent,
+                 "We're sorry, but we can't find what you're looking for.");
   });
 });

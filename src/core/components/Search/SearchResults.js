@@ -36,7 +36,8 @@ export default class SearchResults extends React.Component {
       messageText = sprintf(
         _('Your search for "%(query)s" returned %(count)s results.'), { query, count });
       searchResults = (
-        <ul ref="results" className="SearchResults-list">
+        <ul className="SearchResults-list"
+            ref={(ref) => { this.results = ref; }}>
           {results.map((result) => (
             <ResultComponent result={result} key={result.slug} lang={lang} />
           ))}
@@ -50,10 +51,11 @@ export default class SearchResults extends React.Component {
       messageText = _('Please supply a valid search');
     }
 
-    const message = messageText ? <p ref="message">{messageText}</p> : null;
+    const message = messageText ?
+      <p ref={(ref) => { this.message = ref; }}>{messageText}</p> : null;
 
     return (
-      <div ref="container" className="SearchResults">
+      <div ref={(ref) => { this.container = ref; }} className="SearchResults">
         {message}
         {searchResults}
       </div>

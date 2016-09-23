@@ -20,7 +20,7 @@ describe('<AdminSearchForm />', () => {
   let form;
   let input;
 
-  class SearchFormWrapper extends React.Component {
+  class AdminSearchFormWrapper extends React.Component {
     static childContextTypes = {
       router: React.PropTypes.object,
     }
@@ -32,7 +32,7 @@ describe('<AdminSearchForm />', () => {
     render() {
       return (<AdminSearchFormBase
         pathname={pathname} api={api}
-        loadAddon={loadAddon} ref="root"
+        loadAddon={loadAddon} ref={(ref) => { this.root = ref; }}
       />);
     }
   }
@@ -41,9 +41,9 @@ describe('<AdminSearchForm />', () => {
     router = { push: sinon.spy() };
     loadAddon = sinon.stub();
     api = sinon.stub();
-    root = renderIntoDocument(<SearchFormWrapper />).refs.root;
-    form = root.refs.form;
-    input = root.refs.query;
+    root = renderIntoDocument(<AdminSearchFormWrapper />).root;
+    form = root.form;
+    input = root.searchQuery;
   });
 
   it('does nothing on submit', () => {
@@ -63,7 +63,7 @@ describe('<AdminSearchForm />', () => {
   it('looks up the add-on to see if you are lucky', () => {
     loadAddon.returns(Promise.resolve('adblock'));
     input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
+    Simulate.click(root.go);
     assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
   });
 
@@ -78,7 +78,7 @@ describe('<AdminSearchForm />', () => {
     loadAddon.returns(Promise.resolve('adblock'));
     assert(!router.push.called);
     input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
+    Simulate.click(root.go);
     return wait(1)
       .then(() => assert(router.push.calledWith('/search/addons/adblock')));
   });
@@ -86,7 +86,7 @@ describe('<AdminSearchForm />', () => {
   it('searches if it is not found', () => {
     loadAddon.returns(Promise.reject());
     input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
+    Simulate.click(root.go);
     return wait(1)
       .then(() => assert(router.push.calledWith('/somewhere?q=adblock@adblock.com')));
   });

@@ -24,16 +24,17 @@ export class SearchFormBase extends React.Component {
 
   handleSearch = (e) => {
     e.preventDefault();
-    this.goToSearch(this.refs.query.value);
+    this.goToSearch(this.searchQuery.value);
   }
 
   render() {
     const { pathname, query } = this.props;
     return (
-      <form ref="form" className="search-form" method="GET"
-            action={pathname} onSubmit={this.handleSearch}>
+      <form method="GET" action={pathname} onSubmit={this.handleSearch}
+            className="SearchForm-form" ref={(ref) => { this.form = ref; }}>
         <label className="visually-hidden" htmlFor="q">{_('Search')}</label>
-        <input ref="query" type="search" name="q" placeholder={_('Search')}
+        <input ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
+               placeholder={_('Search extensions and themes')}
                defaultValue={query} />
         <button className="button button-middle" type="submit" title="Enter"
                 ref={(ref) => { this.submitButton = ref; }}

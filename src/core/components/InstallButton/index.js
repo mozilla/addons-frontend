@@ -77,7 +77,7 @@ export class InstallButtonBase extends React.Component {
       guid, enable, install, installURL, name, status, installTheme, type, uninstall,
     } = this.props;
     if (type === THEME_TYPE && [UNINSTALLED, DISABLED].includes(status)) {
-      installTheme(this.refs.themeData, guid, name);
+      installTheme(this.themeData, guid, name);
     } else if (status === UNINSTALLED) {
       install();
     } else if (status === DISABLED) {
@@ -110,7 +110,7 @@ export class InstallButtonBase extends React.Component {
           disabled={isDisabled}
           onChange={this.props.handleChange}
           data-browsertheme={JSON.stringify(getThemeData(this.props))}
-          ref="themeData"
+          ref={(ref) => { this.themeData = ref; }}
           type="checkbox" />
         <label htmlFor={identifier}>
           {isDownloading ? <div className="progress" /> : null}

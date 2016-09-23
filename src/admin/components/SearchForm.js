@@ -26,7 +26,7 @@ export class AdminSearchFormBase extends React.Component {
   }
 
   handleGo = () => {
-    const query = this.refs.query.value;
+    const query = this.searchQuery.value;
     this.props.loadAddon({ api: this.props.api, query })
       .then(
         (slug) => this.context.router.push(`/search/addons/${slug}`),
@@ -44,24 +44,25 @@ export class AdminSearchFormBase extends React.Component {
   }
 
   handleSearch = () => {
-    this.goToSearch(this.refs.query.value);
+    this.goToSearch(this.searchQuery.value);
   }
 
   render() {
     const { pathname, query } = this.props;
     return (
-      <form ref="form" className="search-form" method="GET"
-            action={pathname} onKeyDown={this.handleKeyDown}
+      <form method="GET" action={pathname} className="AdminSearchForm-form"
+            ref={(ref) => { this.form = ref; }} onKeyDown={this.handleKeyDown}
             onSubmit={(e) => e.preventDefault()}>
         <label className="visually-hidden" htmlFor="q">{_('Search')}</label>
-        <input ref="query" type="search" name="q" placeholder={_('Search')}
-               defaultValue={query} />
+        <input ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
+               placeholder={_('Search')} defaultValue={query} />
         <button className="button button-middle" type="submit" title="Enter"
                 ref={(ref) => { this.submitButton = ref; }}
                 onClick={this.handleSearch}>
           {_('Search')}
         </button>
-        <button className="button button-end button-inverse" ref="go"
+        <button className="button button-end button-inverse"
+                ref={(ref) => { this.go = ref; }}
                 onClick={this.handleGo} title="Shift + Enter">
           {_("I'm Feeling Lucky")}
         </button>
