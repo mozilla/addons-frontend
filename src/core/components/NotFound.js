@@ -6,7 +6,9 @@ export default class NotFound extends React.Component {
   render() {
     return (
       <div className="not-found">
-        <h1 ref="heading">{_("We're sorry, but we can't find what you're looking for.")}</h1>
+        <h1 ref={(ref) => { this.heading = ref; }}>
+          {_("We're sorry, but we can't find what you're looking for.")}
+        </h1>
         <p>{_(dedent`The page or file you requested wasn't found on our site. It's possible that you
               clicked a link that's out of date, or typed in the address incorrectly.`)}</p>
       </div>

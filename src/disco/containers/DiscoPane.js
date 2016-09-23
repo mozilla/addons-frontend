@@ -59,7 +59,7 @@ export class DiscoPaneBase extends React.Component {
     const { _tracking } = this.props;
     e.preventDefault();
     this.setState({ showVideo: true });
-    this.refs.video.play();
+    this.video.play();
     _tracking.sendEvent({
       action: 'play',
       category: VIDEO_CATEGORY,
@@ -70,7 +70,7 @@ export class DiscoPaneBase extends React.Component {
     const { _tracking } = this.props;
     e.preventDefault();
     this.setState({ showVideo: false });
-    this.refs.video.pause();
+    this.video.pause();
     _tracking.sendEvent({
       action: 'close',
       category: VIDEO_CATEGORY,
@@ -91,7 +91,7 @@ export class DiscoPaneBase extends React.Component {
     const { showVideo } = this.state;
 
     return (
-      <div id="app-view" ref="container">
+      <div id="app-view" ref={(ref) => { this.container = ref; }}>
         <header className={showVideo ? 'show-video' : ''}>
           <div className="disco-header">
             <div className="disco-content">
@@ -107,8 +107,9 @@ export class DiscoPaneBase extends React.Component {
                 <span className="play-video-text">{i18n.gettext('Click to play')}</span>
                 <span className="visually-hidden">{i18n.gettext('to find out more about add-ons')}</span>
               </a>
-              <video poster={videoPoster} controls={showVideo} width="512" height="288"
-                     className="disco-video" ref="video">
+              <video poster={videoPoster} controls={showVideo} width="512"
+                     height="288" className="disco-video"
+                     ref={(ref) => { this.video = ref; }}>
                 <source src={videoWebm} type="video/webm" />
                 <source src={videoMp4} type="video/mp4" />
               </video>

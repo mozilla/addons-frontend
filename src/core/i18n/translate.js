@@ -24,14 +24,14 @@ export default function translate(options = {}) {
           throw new Error(dedent`To access the wrapped instance, you need to specify
             { withRef: true } as the second argument of the translate() call.`);
         }
-        return this.refs.wrappedInstance;
+        return this.wrappedInstance;
       }
 
       render() {
         const extraProps = { i18n: this.i18n };
 
         if (withRef) {
-          extraProps.ref = 'wrappedInstance';
+          extraProps.ref = (ref) => { this.wrappedInstance = ref; };
         }
 
         return <WrappedComponent {...this.props} {...extraProps} />;

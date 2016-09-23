@@ -31,7 +31,7 @@ describe('<SearchForm />', () => {
     render() {
       return (<SearchFormBase
         pathname={pathname} api={api}
-        loadAddon={loadAddon} ref="root"
+        loadAddon={loadAddon} ref={(ref) => { this.root = ref; }}
       />);
     }
   }
@@ -40,17 +40,17 @@ describe('<SearchForm />', () => {
     router = { push: sinon.spy() };
     loadAddon = sinon.stub();
     api = sinon.stub();
-    root = renderIntoDocument(<SearchFormWrapper />).refs.root;
-    form = root.refs.form;
-    input = root.refs.query;
+    root = renderIntoDocument(<SearchFormWrapper />).root;
+    form = root.form;
+    input = root.searchQuery;
   });
 
   it('renders a form', () => {
-    assert.ok(form.classList.contains('search-form'));
+    assert.ok(form.classList.contains('SearchForm-form'));
   });
 
   it('renders a search input', () => {
-    assert.equal(input.placeholder, 'Search');
+    assert.equal(input.placeholder, 'Search extensions and themes');
     assert.equal(input.type, 'search');
   });
 

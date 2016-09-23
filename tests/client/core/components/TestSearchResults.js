@@ -11,20 +11,20 @@ describe('<SearchResults />', () => {
 
   it('renders empty search results container', () => {
     const root = renderResults();
-    const searchResults = root.refs.container;
+    const searchResults = root.container;
     assert.ok(isDOMComponent(searchResults));
     assert.equal(searchResults.childNodes.length, 0);
   });
 
   it('renders error when query is an empty string', () => {
     const root = renderResults({ query: '' });
-    const searchResultsMsg = root.refs.message;
+    const searchResultsMsg = root.message;
     assert.include(searchResultsMsg.firstChild.nodeValue, 'supply a valid search');
   });
 
   it('renders error when no results and valid query', () => {
     const root = renderResults({ query: 'test' });
-    const searchResultsMsg = root.refs.message;
+    const searchResultsMsg = root.message;
     // Using textContent here since we want to see the text inside the p.
     // Since it has dynamic content is wrapped in a span implicitly.
     assert.include(searchResultsMsg.textContent, 'No results were found');
@@ -35,7 +35,7 @@ describe('<SearchResults />', () => {
       query: 'test',
       loading: true,
     });
-    const searchResultsMsg = root.refs.message;
+    const searchResultsMsg = root.message;
     assert.equal(searchResultsMsg.textContent, 'Searching...');
   });
 
@@ -48,10 +48,10 @@ describe('<SearchResults />', () => {
         { name: 'result 2', slug: '2' },
       ],
     });
-    const searchResultsMsg = root.refs.message;
+    const searchResultsMsg = root.message;
     assert.include(searchResultsMsg.textContent, 'Your search for "test" returned 5 results');
 
-    const searchResultsList = root.refs.results;
+    const searchResultsList = root.results;
     assert.include(searchResultsList.textContent, 'result 1');
     assert.include(searchResultsList.textContent, 'result 2');
   });

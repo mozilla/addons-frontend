@@ -167,7 +167,7 @@ describe('<InstallButton />', () => {
       name,
       status: UNINSTALLED,
     });
-    const themeData = button.refs.themeData;
+    const themeData = button.themeData;
     const root = findDOMNode(button);
     Simulate.click(root);
     assert(installTheme.calledWith(themeData, guid, name));
