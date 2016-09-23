@@ -55,7 +55,6 @@ class AddonDetail extends React.Component {
     return (
       <div className="AddonDetail">
         <header>
-          <SearchBox />
           <div className="icon">
             <img alt="" src={iconUrl} />
             <LikeButton />

@@ -1,0 +1,66 @@
+@import "~amo/css/inc/vars";
+
+#tabzilla {
+  left: 14px;
+  position: absolute;
+}
+
+.MastHead {
+  background: $header-background;
+  min-height: 100px;
+  position: relative;
+}
+
+.MastHead-header {
+  padding-top: 80px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.MastHead-title {
+  align-items: center;
+  color: $header-font-color;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+
+  &:link {
+    font-size: 24px;
+    text-decoration: none;
+  }
+
+  &::before {
+    background: url(../img/icons/fox-puzzle.svg) no-repeat 50% 50%;
+    content: '';
+    display: inline-block;
+    height: 50px;
+    margin-right: 10px;
+    width: 50px;
+  }
+}
+
+.AccountButton.button {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  padding: 8px;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      display: inline-block;
+      content: '';
+      width: 13px;
+      height: 16px;
+      background: url('../img/icons/login-person.svg') no-repeat 0 0;
+      margin-right: 5px;
+      position: relative;
+    }
+  }
+}
