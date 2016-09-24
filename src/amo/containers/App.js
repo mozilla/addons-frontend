@@ -36,9 +36,7 @@ export class AppBase extends React.Component {
     const { children, i18n } = this.props;
     return (
       <div className="amo">
-        <Helmet
-          defaultTitle={i18n.gettext('Add-ons for Firefox')}
-        />
+        <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         {children}
         <footer>{this.accountButton()}</footer>
       </div>
