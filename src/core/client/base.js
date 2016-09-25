@@ -42,7 +42,9 @@ export default function makeClient(routes, createStore) {
     render(
       <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <Router render={reduxAsyncConnectRender} children={routes} history={browserHistory} />
+          <Router render={reduxAsyncConnectRender} history={browserHistory}>
+            {routes}
+          </Router>
         </Provider>
       </I18nProvider>,
       document.getElementById('react-view')
@@ -52,7 +54,7 @@ export default function makeClient(routes, createStore) {
 
   try {
     if (locale !== langToLocale(config.get('defaultLang'))) {
-      // eslint-disable-next-line max-len, global-require
+      // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
       require(`bundle?name=[name]-i18n-[folder]!json!../../locale/${locale}/${appName}.json`)(renderApp);
     } else {
       renderApp({});

@@ -176,7 +176,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           let jedData = {};
           try {
             if (locale !== langToLocale(config.get('defaultLang'))) {
-              // eslint-disable-next-line global-require
+              // eslint-disable-next-line global-require, import/no-dynamic-require
               jedData = require(`json!../../locale/${locale}/${appInstanceName}.json`);
             }
           } catch (e) {
@@ -245,10 +245,10 @@ export function runServer({ listen = true, app = appName } = {}) {
       // Webpack Isomorphic tools is ready
       // now fire up the actual server.
       return new Promise((resolve, reject) => {
-        /* eslint-disable global-require */
+        /* eslint-disable global-require, import/no-dynamic-require */
         const routes = require(`${app}/routes`).default;
         const createStore = require(`${app}/store`).default;
-        /* eslint-enable global-require */
+        /* eslint-enable global-require, import/no-dynamic-require */
         const server = baseServer(routes, createStore, { appInstanceName: app });
         if (listen === true) {
           server.listen(port, host, (err) => {
