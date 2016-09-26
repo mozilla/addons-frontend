@@ -7,7 +7,7 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 
-import * as amoAPI from 'amo/api';
+import * as amoApi from 'amo/api';
 import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
@@ -115,7 +115,7 @@ describe('OverallRating', () => {
       let actions;
 
       beforeEach(() => {
-        mockApi = sinon.mock(amoAPI);
+        mockApi = sinon.mock(amoApi);
         dispatch = sinon.stub();
         actions = mapDispatchToProps(dispatch);
       });
