@@ -1,11 +1,6 @@
 import { postRating } from 'amo/api';
 import * as api from 'core/api';
-
-// TODO: move to fixture
-const signedInApiState = {
-  lang: 'en-US',
-  token: 'secret-token',
-};
+import { signedInApiState } from 'tests/client/amo/helpers';
 
 describe('amo.api', () => {
   let mockApi;

@@ -13,13 +13,10 @@ import {
 } from 'amo/components/OverallRating';
 import { SET_USER_RATING } from 'amo/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { createRatingResponse, fakeAddon } from 'tests/client/amo/helpers';
+import {
+  createRatingResponse, fakeAddon, signedInApiState,
+} from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
-
-const signedInApiState = {
-  lang: 'en-US',
-  token: 'secret-token',
-};
 
 function render(customProps = {}) {
   const props = {

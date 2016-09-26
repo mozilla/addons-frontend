@@ -26,3 +26,11 @@ export function createRatingResponse(customProps = {}) {
     ...customProps,
   };
 }
+
+/*
+ * Redux store state for when a user has signed in.
+ */
+export const signedInApiState = {
+  lang: 'en-US',
+  token: 'secret-token',
+};
