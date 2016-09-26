@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setUserRating } from 'amo/actions/ratingActions';
-import { callApi } from 'core/api';
+import { postRating } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
@@ -79,25 +79,10 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ rating, apiState, addonID, versionID }) {
-    const postData = { rating, version: versionID };
-    log.debug('about to call API with', postData);
-    return callApi(
-      {
-        endpoint: `addons/addon/${addonID}/reviews`,
-        body: postData,
-        method: 'post',
-        auth: true,
-        state: apiState,
-      })
+  createRating({ addonID, ...params }) {
+    return postRating({ addonID, ...params })
       .then((userRating) => {
         dispatch(setUserRating({ addonID, userRating }));
-      })
-      .catch((error) => {
-        log.error('API error:', error);
-        // TODO: dispatch an error action instead.
-        // See https://github.com/mozilla/addons-frontend/issues/1032
-        throw error;
       });
   },
 });

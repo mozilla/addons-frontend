@@ -7,11 +7,11 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 
+import * as amoAPI from 'amo/api';
 import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
 import { SET_USER_RATING } from 'amo/constants';
-import * as api from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -41,6 +41,7 @@ function render(customProps = {}) {
   return findDOMNode(root);
 }
 
+// TODO: move to fixture
 export function createRatingResponse(customProps = {}) {
   return {
     id: 123,
@@ -127,46 +128,33 @@ describe('OverallRating', () => {
   describe('mapDispatchToProps', () => {
     describe('createRating', () => {
       let mockApi;
-      let actions;
       let dispatch;
+      let actions;
 
       beforeEach(() => {
-        mockApi = sinon.mock(api);
+        mockApi = sinon.mock(amoAPI);
         dispatch = sinon.stub();
         actions = mapDispatchToProps(dispatch);
       });
 
-      const createRating = (customProps = {}) => actions.createRating({
-        rating: 5,
-        apiState: signedInApiState,
-        addonID: fakeAddon.id,
-        versionID: fakeAddon.current_version.id,
-        ...customProps,
-      });
-
-      it('posts and dispatches the user rating', () => {
+      it('posts the rating and dispatches the created rating', () => {
         const params = {
           rating: 5,
           apiState: { ...signedInApiState, token: 'new-token' },
           addonID: 123456,
           versionID: 321,
         };
+
         const ratingResponse = createRatingResponse({
           rating: params.rating,
         });
 
         mockApi
-          .expects('callApi')
-          .withArgs({
-            endpoint: `addons/addon/${params.addonID}/reviews`,
-            body: { rating: params.rating, version: params.versionID },
-            method: 'post',
-            auth: true,
-            state: params.apiState,
-          })
+          .expects('postRating')
+          .withArgs(params)
           .returns(Promise.resolve(ratingResponse));
 
-        return createRating(params).then(() => {
+        return actions.createRating(params).then(() => {
           assert.equal(dispatch.called, true);
           const action = dispatch.firstCall.args[0];
 
@@ -176,21 +164,6 @@ describe('OverallRating', () => {
 
           mockApi.verify();
         });
-      });
-
-      it('throws API errors', () => {
-        mockApi
-          .expects('callApi')
-          .returns(Promise.reject(new Error('API Error')));
-
-        return createRating()
-          .then(() => {
-            assert.ok(false, 'unexpected success');
-          })
-          .catch((error) => {
-            assert.match(error.message, /API Error/);
-            mockApi.verify();
-          });
       });
     });
 
