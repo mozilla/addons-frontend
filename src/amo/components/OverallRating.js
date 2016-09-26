@@ -20,22 +20,16 @@ export class OverallRatingBase extends React.Component {
     createRating: PropTypes.func.isRequired,
   }
 
-  onChange = ({ currentTarget: form }) => {
-    const input = form.querySelector('input:checked');
-    if (!input) {
-      // I don't think any user input would cause a form change like
-      // this. I'm not sure what would cause this at all but it's probably
-      // better not to throw an exception.
-      log.error('The form changed but no input was selected');
-    } else {
-      log.debug('Selected rating from form input:', input.value);
-      this.props.createRating({
-        rating: parseInt(input.value, 10),
-        versionID: this.props.version.id,
-        apiState: this.props.apiState,
-        addonID: this.props.addonID,
-      });
-    }
+  onClickRating = (event) => {
+    event.preventDefault();
+    const button = event.currentTarget;
+    log.debug('Selected rating from form button:', button.value);
+    this.props.createRating({
+      rating: parseInt(button.value, 10),
+      versionID: this.props.version.id,
+      apiState: this.props.apiState,
+      addonID: this.props.addonID,
+    });
   }
 
   render() {
@@ -51,23 +45,30 @@ export class OverallRatingBase extends React.Component {
 
     return (
       <div className="OverallRating">
-        <p>{prompt}</p>
-        <form action="" onChange={this.onChange}>
-          <input id="OverallRating-love-it" value={5} name="overall-rating" type="radio" />
-          <label htmlFor="OverallRating-love-it" className="OverallRating-love-it">
-            {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
-            {i18n.gettext('Love it!')}
-          </label>
-          <input id="OverallRating-it-is-ok" value={3} name="overall-rating" type="radio" />
-          <label htmlFor="OverallRating-it-is-ok" className="OverallRating-it-is-ok">
-            {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
-            {i18n.gettext("It's OK")}
-          </label>
-          <input id="OverallRating-huh" value={1} name="overall-rating" type="radio" />
-          <label htmlFor="OverallRating-huh" className="OverallRating-huh">
-            {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
-            {i18n.gettext('Huh?')}
-          </label>
+        <form action="">
+          <fieldset>
+            <legend>{prompt}</legend>
+            <div className="OverallRating-selectors">
+              <label htmlFor="OverallRating-love-it">
+                <button value={5} onClick={this.onClickRating} className="OverallRating-love-it" id="OverallRating-love-it">
+                  {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
+                  {i18n.gettext('Love it!')}
+                </button>
+              </label>
+              <label htmlFor="OverallRating-it-is-ok">
+                <button value={3} onClick={this.onClickRating} className="OverallRating-it-is-ok" id="OverallRating-it-is-ok">
+                  {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
+                  {i18n.gettext("It's OK")}
+                </button>
+              </label>
+              <label htmlFor="OverallRating-huh">
+                <button value={1} onClick={this.onClickRating} className="OverallRating-huh" id="OverallRating-huh">
+                  {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
+                  {i18n.gettext('Huh?')}
+                </button>
+              </label>
+            </div>
+          </fieldset>
         </form>
       </div>
     );

@@ -38,24 +38,21 @@ function render(customProps = {}) {
 }
 
 describe('OverallRating', () => {
-  function selectRating(root, inputSelector) {
-    // Select a rating checkbox and simulate a form change event.
-    const input = root.querySelector(inputSelector);
-    assert.ok(input, `No input returned for selector: ${inputSelector}`);
-    input.checked = true;
-    const form = root.querySelector('form');
-    Simulate.change(form, { currentTarget: form });
+  function selectRating(root, selector) {
+    const button = root.querySelector(selector);
+    assert.ok(button, `No button returned for selector: ${selector}`);
+    Simulate.click(button);
   }
 
   it('prompts you to rate the add-on by name', () => {
     const rootNode = render({ addonName: 'Some Add-on' });
-    assert.include(rootNode.querySelector('p').textContent,
+    assert.include(rootNode.querySelector('legend').textContent,
                    'Some Add-on');
   });
 
   it('prompts you to rate the add-on at an exact version', () => {
     const rootNode = render({ version: { id: 1, version: '2.0.14' } });
-    assert.include(rootNode.querySelector('p').textContent,
+    assert.include(rootNode.querySelector('legend').textContent,
                    '2.0.14');
   });
 
@@ -67,7 +64,7 @@ describe('OverallRating', () => {
       version: { id: 321 },
       addonID: 12345,
     });
-    selectRating(root, 'input#OverallRating-love-it');
+    selectRating(root, '#OverallRating-love-it');
     assert.equal(createRating.called, true);
 
     const call = createRating.firstCall.args[0];
@@ -79,7 +76,7 @@ describe('OverallRating', () => {
   it('lets you submit a "love it" rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
-    selectRating(root, 'input#OverallRating-love-it');
+    selectRating(root, '#OverallRating-love-it');
     assert.equal(createRating.called, true);
     assert.equal(createRating.firstCall.args[0].rating, 5);
   });
@@ -87,7 +84,7 @@ describe('OverallRating', () => {
   it('lets you submit a "it is OK" rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
-    selectRating(root, 'input#OverallRating-it-is-ok');
+    selectRating(root, '#OverallRating-it-is-ok');
     assert.equal(createRating.called, true);
     assert.equal(createRating.firstCall.args[0].rating, 3);
   });
@@ -95,17 +92,22 @@ describe('OverallRating', () => {
   it('lets you submit a "huh?" rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
-    selectRating(root, 'input#OverallRating-huh');
+    selectRating(root, '#OverallRating-huh');
     assert.equal(createRating.called, true);
     assert.equal(createRating.firstCall.args[0].rating, 1);
   });
 
-  it('ignores form changes without a selected rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
-    const form = root.querySelector('form');
-    Simulate.change(form, { currentTarget: form });
-    assert.equal(createRating.called, false);
+  it('prevents form submission when selecting a rating', () => {
+    const root = render();
+
+    const fakeEvent = {
+      preventDefault: sinon.stub(),
+      currentTarget: {},
+    };
+    const button = root.querySelector('#OverallRating-love-it');
+    Simulate.click(button, fakeEvent);
+
+    assert.equal(fakeEvent.preventDefault.called, true);
   });
 
   describe('mapDispatchToProps', () => {
