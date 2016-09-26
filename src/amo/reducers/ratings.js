@@ -4,7 +4,7 @@ export const initialState = {
   userRatings: {},
 };
 
-export default function ratingsReducer(state = initialState, action) {
+export default function ratings(state = initialState, action) {
   switch (action.type) {
     case SET_USER_RATING:
       return {

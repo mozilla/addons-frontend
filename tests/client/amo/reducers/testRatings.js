@@ -1,12 +1,12 @@
 import { setUserRating } from 'amo/actions/ratingActions';
-import ratingsReducer, { initialState } from 'amo/reducers/ratings';
+import ratings, { initialState } from 'amo/reducers/ratings';
 
 import { fakeAddon } from '../components/TestAddonDetail';
 import { createRatingResponse } from '../components/TestOverallRating';
 
-describe('ratingsReducer', () => {
+describe('amo.reducers.ratings', () => {
   it('defaults to an empty object', () => {
-    assert.deepEqual(ratingsReducer(undefined, { type: 'SOME_OTHER_ACTION' }),
+    assert.deepEqual(ratings(undefined, { type: 'SOME_OTHER_ACTION' }),
                      initialState);
   });
 
@@ -20,7 +20,7 @@ describe('ratingsReducer', () => {
         version: { ...fakeAddon.current_version, id: versionID },
       }),
     });
-    const state = ratingsReducer(undefined, action);
+    const state = ratings(undefined, action);
     assert.deepEqual(state.userRatings[addonID],
                      { rating: 5, versionID });
   });
@@ -28,14 +28,14 @@ describe('ratingsReducer', () => {
   it('preserves existing user rating data', () => {
     let state = {};
 
-    state = ratingsReducer(state, setUserRating({
+    state = ratings(state, setUserRating({
       addonID: 1,
       userRating: createRatingResponse({
         rating: 1,
       }),
     }));
 
-    state = ratingsReducer(state, setUserRating({
+    state = ratings(state, setUserRating({
       addonID: 2,
       userRating: createRatingResponse({
         rating: 5,
@@ -50,7 +50,7 @@ describe('ratingsReducer', () => {
   it('preserves unrelated state', () => {
     let state = { somethingUnrelated: 'erp' };
 
-    state = ratingsReducer(state, setUserRating({
+    state = ratings(state, setUserRating({
       addonID: 1,
       userRating: createRatingResponse({
         rating: 1,
