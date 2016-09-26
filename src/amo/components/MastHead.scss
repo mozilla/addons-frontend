@@ -39,27 +39,27 @@
 }
 
 .AccountButton.button {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  font-size: 12px;
+  padding: 8px;
   position: absolute;
   right: 15px;
   top: 15px;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.2);
-  font-size: 12px;
-  padding: 8px;
 
   span {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
 
     &::before {
-      display: inline-block;
-      content: '';
-      width: 13px;
-      height: 16px;
       background: url('../img/icons/login-person.svg') no-repeat 0 0;
+      content: '';
+      display: inline-block;
+      height: 16px;
       margin-right: 5px;
       position: relative;
+      width: 13px;
     }
   }
 }
