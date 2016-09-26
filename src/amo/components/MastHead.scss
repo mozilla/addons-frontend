@@ -12,8 +12,7 @@
 }
 
 .MastHead-header {
-  padding-top: 80px;
-  padding-bottom: 30px;
+  padding: 80px 0 30px;
   text-align: center;
 }
 
@@ -30,7 +29,7 @@
   }
 
   &::before {
-    background: url(../img/icons/fox-puzzle.svg) no-repeat 50% 50%;
+    background: url('../img/icons/fox-puzzle.svg') no-repeat 50% 50%;
     content: '';
     display: inline-block;
     height: 50px;
