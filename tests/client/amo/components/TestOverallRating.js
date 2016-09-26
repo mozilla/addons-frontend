@@ -16,11 +16,16 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 import { fakeAddon } from './TestAddonDetail';
 
+const signedInApiState = {
+  lang: 'en-US',
+  token: 'secret-token',
+};
+
 function render(customProps = {}) {
   const props = {
     addonName: fakeAddon.name,
     addonID: fakeAddon.id,
-    authToken: 'secret-token',
+    apiState: signedInApiState,
     version: fakeAddon.current_version,
     i18n: getFakeI18nInst(),
     createRating: () => {},
@@ -73,7 +78,7 @@ describe('OverallRating', () => {
     const createRating = sinon.stub();
     const root = render({
       createRating,
-      authToken: 'token',
+      apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addonID: 12345,
     });
@@ -82,7 +87,7 @@ describe('OverallRating', () => {
 
     const call = createRating.firstCall.args[0];
     assert.equal(call.versionID, 321);
-    assert.equal(call.authToken, 'token');
+    assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonID, 12345);
   });
 
@@ -132,7 +137,7 @@ describe('OverallRating', () => {
 
       const createRating = (customProps = {}) => actions.createRating({
         rating: 5,
-        authToken: 'auth-token',
+        apiState: signedInApiState,
         addonID: fakeAddon.id,
         versionID: fakeAddon.current_version.id,
         ...customProps,
@@ -141,7 +146,7 @@ describe('OverallRating', () => {
       it('posts and dispatches the user rating', () => {
         const params = {
           rating: 5,
-          authToken: 'auth-token',
+          apiState: { ...signedInApiState, token: 'new-token' },
           addonID: 123456,
           versionID: 321,
         };
@@ -156,7 +161,7 @@ describe('OverallRating', () => {
             body: { rating: params.rating, version: params.versionID },
             method: 'post',
             auth: true,
-            state: { token: params.authToken },
+            state: params.apiState,
           })
           .returns(Promise.resolve(ratingResponse));
 
@@ -189,14 +194,15 @@ describe('OverallRating', () => {
     });
 
     describe('mapStateToProps', () => {
-      it('sets the authToken property from the state', () => {
-        const props = mapStateToProps({ auth: { token: 'some-token' } });
-        assert.equal(props.authToken, 'some-token');
+      it('sets the apiState property from the state', () => {
+        const apiState = { ...signedInApiState, token: 'new-token' };
+        const props = mapStateToProps({ api: apiState });
+        assert.deepEqual(props.apiState, apiState);
       });
 
-      it('sets an empty authToken when not signed in', () => {
+      it('sets an empty apiState when not signed in', () => {
         const props = mapStateToProps({});
-        assert.equal(props.authToken, undefined);
+        assert.equal(props.apiState, undefined);
       });
     });
   });

@@ -14,7 +14,7 @@ export class OverallRatingBase extends React.Component {
   static propTypes = {
     addonName: PropTypes.string.isRequired,
     addonID: PropTypes.number.isRequired,
-    authToken: PropTypes.string,
+    apiState: PropTypes.object,
     version: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     createRating: PropTypes.func.isRequired,
@@ -32,7 +32,7 @@ export class OverallRatingBase extends React.Component {
       this.props.createRating({
         rating: parseInt(input.value, 10),
         versionID: this.props.version.id,
-        authToken: this.props.authToken,
+        apiState: this.props.apiState,
         addonID: this.props.addonID,
       });
     }
@@ -47,7 +47,7 @@ export class OverallRatingBase extends React.Component {
       { addonName, version: version.version });
 
     // TODO: Disable rating ability when not logged in
-    // (when this.props.authToken is empty)
+    // (when state.auth is empty)
 
     return (
       <div className="OverallRating">
@@ -75,11 +75,11 @@ export class OverallRatingBase extends React.Component {
 }
 
 export const mapStateToProps = (state) => ({
-  authToken: state.auth && state.auth.token,
+  apiState: state.api,
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ rating, authToken, addonID, versionID }) {
+  createRating({ rating, apiState, addonID, versionID }) {
     const postData = { rating, version: versionID };
     log.debug('about to call API with', postData);
     return callApi(
@@ -88,7 +88,7 @@ export const mapDispatchToProps = (dispatch) => ({
         body: postData,
         method: 'post',
         auth: true,
-        state: { token: authToken },
+        state: apiState,
       })
       .then((userRating) => {
         dispatch(setUserRating({ addonID, userRating }));
