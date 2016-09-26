@@ -6,7 +6,6 @@ import InstallButton from 'core/components/InstallButton';
 import LikeButton from 'amo/components/LikeButton';
 import OverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
-import SearchBox from 'amo/components/SearchBox';
 import translate from 'core/i18n/translate';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import 'amo/css/AddonDetail.scss';
@@ -55,7 +54,6 @@ class AddonDetail extends React.Component {
     return (
       <div className="AddonDetail">
         <header>
-          <SearchBox />
           <div className="icon">
             <img alt="" src={iconUrl} />
             <LikeButton />
