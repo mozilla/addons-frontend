@@ -33,12 +33,10 @@ export class OverallRatingBase extends React.Component {
   }
 
   render() {
-    const { i18n, addonName, version } = this.props;
+    const { i18n, addonName } = this.props;
     const prompt = i18n.sprintf(
-      i18n.gettext(
-        'How are you enjoying your experience with ' +
-        '%(addonName)s %(version)s?'),
-      { addonName, version: version.version });
+      i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
+      { addonName });
 
     // TODO: Disable rating ability when not logged in
     // (when state.auth is empty)

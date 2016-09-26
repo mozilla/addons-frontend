@@ -50,12 +50,6 @@ describe('OverallRating', () => {
                    'Some Add-on');
   });
 
-  it('prompts you to rate the add-on at an exact version', () => {
-    const rootNode = render({ version: { id: 1, version: '2.0.14' } });
-    assert.include(rootNode.querySelector('legend').textContent,
-                   '2.0.14');
-  });
-
   it('creates a rating with add-on and version info', () => {
     const createRating = sinon.stub();
     const root = render({
