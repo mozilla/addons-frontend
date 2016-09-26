@@ -3,6 +3,11 @@
 #tabzilla {
   left: 14px;
   position: absolute;
+
+  [dir=rtl] & {
+    left: auto;
+    right: 14px;
+  }
 }
 
 .MastHead {
@@ -35,6 +40,10 @@
     height: 50px;
     margin-right: 10px;
     width: 50px;
+
+    [dir=rtl] & {
+      margin: 0 0 0 10px;
+    }
   }
 }
 
@@ -46,6 +55,11 @@
   position: absolute;
   right: 15px;
   top: 15px;
+
+  [dir=rtl] & {
+    left: 15px;
+    right: auto;
+  }
 
   span {
     align-items: center;
@@ -60,6 +74,10 @@
       margin-right: 5px;
       position: relative;
       width: 13px;
+
+      [dir=rtl] & {
+        margin: 0 0 0 5px;
+      }
     }
   }
 }
