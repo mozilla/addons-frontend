@@ -7,8 +7,9 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 
-import { mapDispatchToProps, mapStateToProps, OverallRatingBase }
-  from 'amo/components/OverallRating';
+import {
+  mapDispatchToProps, mapStateToProps, OverallRatingBase,
+} from 'amo/components/OverallRating';
 import { SET_USER_RATING } from 'amo/constants';
 import * as api from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
