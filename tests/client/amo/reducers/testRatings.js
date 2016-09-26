@@ -1,4 +1,4 @@
-import { setUserRating } from 'amo/actions/ratingActions';
+import { setUserRating } from 'amo/actions/ratings';
 import ratings, { initialState } from 'amo/reducers/ratings';
 import { createRatingResponse, fakeAddon } from 'tests/client/amo/helpers';
 

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { setUserRating } from 'amo/actions/ratingActions';
+import { setUserRating } from 'amo/actions/ratings';
 import { postRating } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
