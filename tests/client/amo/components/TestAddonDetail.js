@@ -11,22 +11,9 @@ import AddonDetail, { allowedDescriptionTags }
 import { OverallRatingWithI18n } from 'amo/components/OverallRating';
 import I18nProvider from 'core/i18n/Provider';
 import InstallButton from 'core/components/InstallButton';
+import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
-
-// eslint-disable-next-line import/prefer-default-export
-export const fakeAddon = {
-  id: 1234,
-  name: 'Chill Out',
-  slug: 'chill-out',
-  authors: [{
-    name: 'Krupa',
-    url: 'http://olympia.dev/en-US/firefox/user/krupa/',
-  }],
-  current_version: { id: 123, version: '2.0.0' },
-  summary: 'This is a summary of the chill out add-on',
-  description: 'This is a longer description of the chill out add-on',
-};
 
 function render({ addon = fakeAddon, ...customProps } = {}) {
   const i18n = getFakeI18nInst();

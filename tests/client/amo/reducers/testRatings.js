@@ -1,8 +1,6 @@
 import { setUserRating } from 'amo/actions/ratingActions';
 import ratings, { initialState } from 'amo/reducers/ratings';
-
-import { fakeAddon } from '../components/TestAddonDetail';
-import { createRatingResponse } from '../components/TestOverallRating';
+import { createRatingResponse, fakeAddon } from 'tests/client/amo/helpers';
 
 describe('amo.reducers.ratings', () => {
   it('defaults to an empty object', () => {

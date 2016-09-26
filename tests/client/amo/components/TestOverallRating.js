@@ -13,9 +13,8 @@ import {
 } from 'amo/components/OverallRating';
 import { SET_USER_RATING } from 'amo/constants';
 import I18nProvider from 'core/i18n/Provider';
+import { createRatingResponse, fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
-
-import { fakeAddon } from './TestAddonDetail';
 
 const signedInApiState = {
   lang: 'en-US',
@@ -39,19 +38,6 @@ function render(customProps = {}) {
   ), OverallRatingBase);
 
   return findDOMNode(root);
-}
-
-// TODO: move to fixture
-export function createRatingResponse(customProps = {}) {
-  return {
-    id: 123,
-    user: { name: 'the_username' },
-    rating: 5,
-    version: fakeAddon.current_version,
-    body: null,
-    title: null,
-    ...customProps,
-  };
 }
 
 describe('OverallRating', () => {
