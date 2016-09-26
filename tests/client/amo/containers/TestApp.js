@@ -49,7 +49,7 @@ describe('App', () => {
         handleLogIn={handleLogIn} location={location} />
     );
     const button = root.logInButton;
-    assert.equal(button.textContent, 'Login/Sign up');
+    assert.equal(button.textContent, 'Log in/Sign up');
     Simulate.click(button);
     assert.ok(handleLogIn.calledWith(location));
   });
@@ -58,7 +58,7 @@ describe('App', () => {
     const i18n = getFakeI18nInst();
     const root = renderIntoDocument(<AppBase i18n={i18n}
       isAuthenticated MastHeadComponent={FakeMastHeadComponent} />);
-    assert.equal(root.logInButton.textContent, 'Logout');
+    assert.equal(root.logInButton.textContent, 'Log out');
   });
 
   it('updates the location on handleLogIn', () => {

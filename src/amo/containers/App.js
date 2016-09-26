@@ -31,7 +31,7 @@ export class AppBase extends React.Component {
     return (
       <button className="button AccountButton" onClick={() => handleLogIn(location)}
               ref={(ref) => { this.logInButton = ref; }}>
-        <span>{ isAuthenticated ? i18n.gettext('Logout') : i18n.gettext('Login/Sign up') }</span>
+        <span>{ isAuthenticated ? i18n.gettext('Log out') : i18n.gettext('Log in/Sign up') }</span>
       </button>
     );
   }
