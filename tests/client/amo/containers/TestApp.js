@@ -33,10 +33,11 @@ describe('App', () => {
       }
     }
     const i18n = getFakeI18nInst();
+    const location = sinon.stub();
     const root = renderIntoDocument(
       <AppBase i18n={i18n} isAuthenticated
         MastHeadComponent={FakeMastHeadComponent}
-        SearchFormComponent={FakeSearchFormComponent}>
+        SearchFormComponent={FakeSearchFormComponent} location={location}>
         <MyComponent />
       </AppBase>
     );
@@ -64,9 +65,10 @@ describe('App', () => {
 
   it('tells you if you are logged in', () => {
     const i18n = getFakeI18nInst();
+    const location = sinon.stub();
     const root = renderIntoDocument(<AppBase i18n={i18n}
       isAuthenticated MastHeadComponent={FakeMastHeadComponent}
-      SearchFormComponent={FakeSearchFormComponent} />);
+      SearchFormComponent={FakeSearchFormComponent} location={location} />);
     assert.equal(root.logInButton.textContent, 'Log out');
   });
 

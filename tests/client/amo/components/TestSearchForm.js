@@ -30,7 +30,7 @@ describe('<SearchForm />', () => {
 
     render() {
       return (<SearchFormBase
-        pathname={pathname} api={api}
+        pathname={pathname} api={api} query="foo"
         loadAddon={loadAddon} ref={(ref) => { this.root = ref; }}
       />);
     }
@@ -52,6 +52,10 @@ describe('<SearchForm />', () => {
   it('renders a search input', () => {
     assert.equal(input.placeholder, 'Search extensions and themes');
     assert.equal(input.type, 'search');
+  });
+
+  it('renders the query', () => {
+    assert.equal(input.value, 'foo');
   });
 
   it('does changes the URL on submit', () => {

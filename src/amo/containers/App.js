@@ -22,7 +22,6 @@ export class AppBase extends React.Component {
     lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     MastHeadComponent: PropTypes.node,
-    query: PropTypes.string,
   }
 
   static defaultProps = {
@@ -41,7 +40,8 @@ export class AppBase extends React.Component {
   }
 
   render() {
-    const { MastHeadComponent, children, i18n, lang, query } = this.props;
+    const { MastHeadComponent, children, i18n, lang, location } = this.props;
+    const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
