@@ -13,7 +13,7 @@ import 'amo/css/OverallRating.scss';
 export class OverallRatingBase extends React.Component {
   static propTypes = {
     addonName: PropTypes.string.isRequired,
-    addonID: PropTypes.number.isRequired,
+    addonId: PropTypes.number.isRequired,
     apiState: PropTypes.object,
     version: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -28,7 +28,7 @@ export class OverallRatingBase extends React.Component {
       rating: parseInt(button.value, 10),
       versionID: this.props.version.id,
       apiState: this.props.apiState,
-      addonID: this.props.addonID,
+      addonId: this.props.addonId,
     });
   }
 
@@ -75,10 +75,10 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ addonID, ...params }) {
-    return postRating({ addonID, ...params })
+  createRating({ addonId, ...params }) {
+    return postRating({ addonId, ...params })
       .then((userRating) => {
-        dispatch(setUserRating({ addonID, userRating }));
+        dispatch(setUserRating({ addonId, userRating }));
       });
   },
 });

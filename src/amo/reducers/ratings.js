@@ -13,7 +13,7 @@ export default function ratings(state = initialState, action) {
         // TODO: this will change once we can track users by ID more easily.
         userRatings: {
           ...state.userRatings,
-          [action.data.addonID]: {
+          [action.data.addonId]: {
             rating: action.data.userRating.rating,
             versionID: action.data.userRating.version.id,
           },

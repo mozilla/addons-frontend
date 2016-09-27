@@ -99,7 +99,7 @@ class AddonDetail extends React.Component {
         <section className="overall-rating">
           <h2>{i18n.gettext('Rate your experience')}</h2>
           <OverallRating
-            addonName={addon.name} addonID={addon.id}
+            addonName={addon.name} addonId={addon.id}
             version={addon.current_version}
           />
         </section>

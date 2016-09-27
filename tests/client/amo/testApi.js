@@ -14,7 +14,7 @@ describe('amo.api', () => {
       const params = {
         rating: 5,
         apiState: { ...signedInApiState, token: 'new-token' },
-        addonID: 123456,
+        addonId: 123456,
         versionID: 321,
       };
       const genericApiResponse = { field: 'value' };
@@ -22,7 +22,7 @@ describe('amo.api', () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `addons/addon/${params.addonID}/reviews`,
+          endpoint: `addons/addon/${params.addonId}/reviews`,
           body: { rating: params.rating, version: params.versionID },
           method: 'post',
           auth: true,

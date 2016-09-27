@@ -117,7 +117,7 @@ describe('AddonDetail', () => {
     const root = findRenderedComponentWithType(render(),
                                                OverallRatingWithI18n);
     assert.equal(root.props.addonName, fakeAddon.name);
-    assert.equal(root.props.addonID, fakeAddon.id);
+    assert.equal(root.props.addonId, fakeAddon.id);
   });
 
   it('renders a summary', () => {

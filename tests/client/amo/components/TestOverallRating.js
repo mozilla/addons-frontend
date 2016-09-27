@@ -21,7 +21,7 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 function render(customProps = {}) {
   const props = {
     addonName: fakeAddon.name,
-    addonID: fakeAddon.id,
+    addonId: fakeAddon.id,
     apiState: signedInApiState,
     version: fakeAddon.current_version,
     i18n: getFakeI18nInst(),
@@ -56,7 +56,7 @@ describe('OverallRating', () => {
       createRating,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
-      addonID: 12345,
+      addonId: 12345,
     });
     selectRating(root, '#OverallRating-love-it');
     assert.equal(createRating.called, true);
@@ -64,7 +64,7 @@ describe('OverallRating', () => {
     const call = createRating.firstCall.args[0];
     assert.equal(call.versionID, 321);
     assert.equal(call.apiState.token, 'new-token');
-    assert.equal(call.addonID, 12345);
+    assert.equal(call.addonId, 12345);
   });
 
   it('lets you submit a "love it" rating', () => {
@@ -120,7 +120,7 @@ describe('OverallRating', () => {
         const params = {
           rating: 5,
           apiState: { ...signedInApiState, token: 'new-token' },
-          addonID: 123456,
+          addonId: 123456,
           versionID: 321,
         };
 
@@ -138,7 +138,7 @@ describe('OverallRating', () => {
           const action = dispatch.firstCall.args[0];
 
           assert.equal(action.type, SET_USER_RATING);
-          assert.equal(action.data.addonID, params.addonID);
+          assert.equal(action.data.addonId, params.addonId);
           assert.deepEqual(action.data.userRating, ratingResponse);
 
           mockApi.verify();

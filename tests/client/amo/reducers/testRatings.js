@@ -9,17 +9,17 @@ describe('amo.reducers.ratings', () => {
   });
 
   it('adds a user ratings map', () => {
-    const addonID = 321;
+    const addonId = 321;
     const versionID = 12345;
     const action = setUserRating({
-      addonID,
+      addonId,
       userRating: createRatingResponse({
         rating: 5,
         version: { ...fakeAddon.current_version, id: versionID },
       }),
     });
     const state = ratings(undefined, action);
-    assert.deepEqual(state.userRatings[addonID],
+    assert.deepEqual(state.userRatings[addonId],
                      { rating: 5, versionID });
   });
 
@@ -27,14 +27,14 @@ describe('amo.reducers.ratings', () => {
     let state = {};
 
     state = ratings(state, setUserRating({
-      addonID: 1,
+      addonId: 1,
       userRating: createRatingResponse({
         rating: 1,
       }),
     }));
 
     state = ratings(state, setUserRating({
-      addonID: 2,
+      addonId: 2,
       userRating: createRatingResponse({
         rating: 5,
       }),
@@ -49,7 +49,7 @@ describe('amo.reducers.ratings', () => {
     let state = { somethingUnrelated: 'erp' };
 
     state = ratings(state, setUserRating({
-      addonID: 1,
+      addonId: 1,
       userRating: createRatingResponse({
         rating: 1,
       }),
