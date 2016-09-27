@@ -62,7 +62,7 @@ describe('OverallRating', () => {
     assert.equal(createRating.called, true);
 
     const call = createRating.firstCall.args[0];
-    assert.equal(call.versionID, 321);
+    assert.equal(call.versionId, 321);
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
   });
@@ -121,7 +121,7 @@ describe('OverallRating', () => {
           rating: 5,
           apiState: { ...signedInApiState, token: 'new-token' },
           addonId: 123456,
-          versionID: 321,
+          versionId: 321,
         };
 
         const ratingResponse = createRatingResponse({

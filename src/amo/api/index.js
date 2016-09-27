@@ -2,8 +2,8 @@
 import { callApi } from 'core/api';
 import log from 'core/logger';
 
-export function postRating({ rating, apiState, addonId, versionID }) {
-  const postData = { rating, version: versionID };
+export function postRating({ rating, apiState, addonId, versionId }) {
+  const postData = { rating, version: versionId };
   log.debug('about to post add-on rating with', postData);
   return callApi({
     endpoint: `addons/addon/${addonId}/reviews`,

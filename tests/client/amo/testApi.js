@@ -15,7 +15,7 @@ describe('amo.api', () => {
         rating: 5,
         apiState: { ...signedInApiState, token: 'new-token' },
         addonId: 123456,
-        versionID: 321,
+        versionId: 321,
       };
       const genericApiResponse = { field: 'value' };
 
@@ -23,7 +23,7 @@ describe('amo.api', () => {
         .expects('callApi')
         .withArgs({
           endpoint: `addons/addon/${params.addonId}/reviews`,
-          body: { rating: params.rating, version: params.versionID },
+          body: { rating: params.rating, version: params.versionId },
           method: 'post',
           auth: true,
           state: params.apiState,

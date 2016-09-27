@@ -15,7 +15,7 @@ export default function ratings(state = initialState, action) {
           ...state.userRatings,
           [action.data.addonId]: {
             rating: action.data.userRating.rating,
-            versionID: action.data.userRating.version.id,
+            versionId: action.data.userRating.version.id,
           },
         },
       };

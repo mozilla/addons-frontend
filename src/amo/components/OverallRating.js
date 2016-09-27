@@ -26,7 +26,7 @@ export class OverallRatingBase extends React.Component {
     log.debug('Selected rating from form button:', button.value);
     this.props.createRating({
       rating: parseInt(button.value, 10),
-      versionID: this.props.version.id,
+      versionId: this.props.version.id,
       apiState: this.props.apiState,
       addonId: this.props.addonId,
     });

@@ -10,17 +10,17 @@ describe('amo.reducers.ratings', () => {
 
   it('adds a user ratings map', () => {
     const addonId = 321;
-    const versionID = 12345;
+    const versionId = 12345;
     const action = setUserRating({
       addonId,
       userRating: createRatingResponse({
         rating: 5,
-        version: { ...fakeAddon.current_version, id: versionID },
+        version: { ...fakeAddon.current_version, id: versionId },
       }),
     });
     const state = ratings(undefined, action);
     assert.deepEqual(state.userRatings[addonId],
-                     { rating: 5, versionID });
+                     { rating: 5, versionId });
   });
 
   it('preserves existing user rating data', () => {
