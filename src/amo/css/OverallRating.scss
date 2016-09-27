@@ -15,15 +15,15 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  &.OverallRating-love-it {
-    background-image: url('../img/ratings/smiley-love-it.svg');
+  &.OverallRating-rating-5 {
+    background-image: url('../img/ratings/smiley-rating-5.svg');
   }
 
-  &.OverallRating-it-is-ok {
-    background-image: url('../img/ratings/smiley-it-is-ok.svg');
+  &.OverallRating-rating-3 {
+    background-image: url('../img/ratings/smiley-rating-3.svg');
   }
 
-  &.OverallRating-huh {
-    background-image: url('../img/ratings/smiley-huh.svg');
+  &.OverallRating-rating-1 {
+    background-image: url('../img/ratings/smiley-rating-1.svg');
   }
 }

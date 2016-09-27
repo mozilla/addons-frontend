@@ -58,7 +58,7 @@ describe('OverallRating', () => {
       version: { id: 321 },
       addonId: 12345,
     });
-    selectRating(root, '#OverallRating-love-it');
+    selectRating(root, '#OverallRating-rating-5');
     assert.equal(createRating.called, true);
 
     const call = createRating.firstCall.args[0];
@@ -70,7 +70,7 @@ describe('OverallRating', () => {
   it('lets you submit a "love it" rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
-    selectRating(root, '#OverallRating-love-it');
+    selectRating(root, '#OverallRating-rating-5');
     assert.equal(createRating.called, true);
     assert.equal(createRating.firstCall.args[0].rating, 5);
   });
@@ -78,7 +78,7 @@ describe('OverallRating', () => {
   it('lets you submit a "it is OK" rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
-    selectRating(root, '#OverallRating-it-is-ok');
+    selectRating(root, '#OverallRating-rating-3');
     assert.equal(createRating.called, true);
     assert.equal(createRating.firstCall.args[0].rating, 3);
   });
@@ -86,7 +86,7 @@ describe('OverallRating', () => {
   it('lets you submit a "huh?" rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
-    selectRating(root, '#OverallRating-huh');
+    selectRating(root, '#OverallRating-rating-1');
     assert.equal(createRating.called, true);
     assert.equal(createRating.firstCall.args[0].rating, 1);
   });
@@ -98,7 +98,7 @@ describe('OverallRating', () => {
       preventDefault: sinon.stub(),
       currentTarget: {},
     };
-    const button = root.querySelector('#OverallRating-love-it');
+    const button = root.querySelector('#OverallRating-rating-5');
     Simulate.click(button, fakeEvent);
 
     assert.equal(fakeEvent.preventDefault.called, true);
