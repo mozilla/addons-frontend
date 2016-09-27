@@ -5,7 +5,6 @@ import { fetchAddon } from 'core/api';
 import { loadEntities } from 'core/actions';
 import { gettext as _ } from 'core/utils';
 
-import 'core/css/SearchForm.scss';
 import 'core/css/lib/buttons.scss';
 
 
@@ -54,7 +53,8 @@ export class AdminSearchFormBase extends React.Component {
             ref={(ref) => { this.form = ref; }} onKeyDown={this.handleKeyDown}
             onSubmit={(e) => e.preventDefault()}>
         <label className="visually-hidden" htmlFor="q">{_('Search')}</label>
-        <input ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
+        <input className="AdminSearchForm-query" type="search" name="q"
+               ref={(ref) => { this.searchQuery = ref; }}
                placeholder={_('Search')} defaultValue={query} />
         <button className="button button-middle" type="submit" title="Enter"
                 ref={(ref) => { this.submitButton = ref; }}

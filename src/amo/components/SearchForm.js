@@ -5,8 +5,9 @@ import { loadEntities } from 'core/actions';
 import { fetchAddon } from 'core/api';
 import { gettext as _ } from 'core/utils';
 
-import 'core/css/SearchForm.scss';
-import 'core/css/lib/buttons.scss';
+import 'core/css/inc/lib.scss';
+import './SearchForm.scss';
+
 
 export class SearchFormBase extends React.Component {
   static propTypes = {
@@ -35,8 +36,8 @@ export class SearchFormBase extends React.Component {
         <label className="visually-hidden" htmlFor="q">{_('Search')}</label>
         <input ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
                placeholder={_('Search extensions and themes')}
-               defaultValue={query} />
-        <button className="button button-middle" type="submit" title="Enter"
+               defaultValue={query} className="SearchForm-query" />
+        <button className="visually-hidden" type="submit" title="Enter"
                 ref={(ref) => { this.submitButton = ref; }}
                 onClick={this.handleSearch}>
           {_('Search')}

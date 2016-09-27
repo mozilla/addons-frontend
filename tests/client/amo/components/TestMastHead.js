@@ -29,13 +29,23 @@ describe('MastHead', () => {
 
 
   it('renders a heading when isHomepage is true', () => {
-    const root = renderMastHead({ isHomePage: true, children: FakeChild });
+    const root = renderMastHead({
+      isHomePage: true,
+      children: FakeChild,
+      lang: 'en-GB',
+      SearchFormComponent: FakeChild,
+    });
     assert.equal(root.title.textContent, 'Firefox Add-ons');
     assert.equal(root.title.tagName, 'H1');
   });
 
   it('renders a link when isHomepage is false', () => {
-    const root = renderMastHead({ isHomePage: false, children: FakeChild });
+    const root = renderMastHead({
+      isHomePage: false,
+      children: FakeChild,
+      lang: 'en-GB',
+      SearchFormComponent: FakeChild,
+    });
     assert.equal(root.title.textContent, 'Firefox Add-ons');
     assert.equal(root.title.tagName, 'A');
   });

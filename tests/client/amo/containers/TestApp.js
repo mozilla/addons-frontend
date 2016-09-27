@@ -10,15 +10,21 @@ import * as api from 'core/api';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
-class FakeMastHeadComponent extends React.Component {
-  render() {
-    // eslint-disable-next-line react/prop-types
-    return <div>{this.props.children}</div>;
-  }
-}
-
-
 describe('App', () => {
+  class FakeMastHeadComponent extends React.Component {
+    render() {
+      // eslint-disable-next-line react/prop-types
+      return <div>{this.props.children}</div>;
+    }
+  }
+
+  // eslint-disable-next-line react/no-multi-comp
+  class FakeSearchFormComponent extends React.Component {
+    render() {
+      return <form />;
+    }
+  }
+
   it('renders its children', () => {
     // eslint-disable-next-line react/no-multi-comp
     class MyComponent extends React.Component {
@@ -29,7 +35,8 @@ describe('App', () => {
     const i18n = getFakeI18nInst();
     const root = renderIntoDocument(
       <AppBase i18n={i18n} isAuthenticated
-        MastHeadComponent={FakeMastHeadComponent}>
+        MastHeadComponent={FakeMastHeadComponent}
+        SearchFormComponent={FakeSearchFormComponent}>
         <MyComponent />
       </AppBase>
     );
@@ -46,6 +53,7 @@ describe('App', () => {
     const root = renderIntoDocument(
       <AppBase i18n={i18n} isAuthenticated={false}
         MastHeadComponent={FakeMastHeadComponent}
+        SearchFormComponent={FakeSearchFormComponent}
         handleLogIn={handleLogIn} location={location} />
     );
     const button = root.logInButton;
@@ -57,7 +65,8 @@ describe('App', () => {
   it('tells you if you are logged in', () => {
     const i18n = getFakeI18nInst();
     const root = renderIntoDocument(<AppBase i18n={i18n}
-      isAuthenticated MastHeadComponent={FakeMastHeadComponent} />);
+      isAuthenticated MastHeadComponent={FakeMastHeadComponent}
+      SearchFormComponent={FakeSearchFormComponent} />);
     assert.equal(root.logInButton.textContent, 'Log out');
   });
 
@@ -65,7 +74,10 @@ describe('App', () => {
     const _window = { location: '/foo' };
     const location = { pathname: '/bar', query: { q: 'wat' } };
     const startLoginUrlStub = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
-    const { handleLogIn } = setupMapStateToProps(_window)({ auth: {} });
+    const { handleLogIn } = setupMapStateToProps(_window)({
+      auth: {},
+      api: { lang: 'en-GB' },
+    });
     handleLogIn(location);
     assert.equal(_window.location, 'https://a.m.org/login');
     assert.ok(startLoginUrlStub.calledWith({ location }));
