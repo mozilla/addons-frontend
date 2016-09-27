@@ -1,16 +1,17 @@
+import classNames from 'classnames';
 import React, { PropTypes } from 'react';
-import { sprintf } from 'jed';
 
-import { gettext as _ } from 'core/utils';
+import translate from 'core/i18n/translate';
 
 import 'core/css/SearchResults.scss';
 
 import SearchResult from './SearchResult';
 
 
-export default class SearchResults extends React.Component {
+class SearchResults extends React.Component {
   static propTypes = {
     count: PropTypes.number,
+    i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
     loading: PropTypes.bool,
     query: PropTypes.string,
@@ -26,7 +27,7 @@ export default class SearchResults extends React.Component {
   }
 
   render() {
-    const { count, lang, loading, query, ResultComponent,
+    const { ResultComponent, count, i18n, lang, loading, query,
             results } = this.props;
 
     let searchResults;
@@ -35,8 +36,14 @@ export default class SearchResults extends React.Component {
 
     if (query && count > 0) {
       hideMessageText = true;
-      messageText = sprintf(
-        _('Your search for "%(query)s" returned %(count)s results.'), { query, count });
+      messageText = i18n.sprintf(
+        i18n.ngettext(
+          'Your search for "%(query)s" returned %(count)s result.',
+          'Your search for "%(query)s" returned %(count)s results.',
+          count,
+        ),
+        { query, count }
+      );
       searchResults = (
         <ul className="SearchResults-list"
             ref={(ref) => { this.results = ref; }}>
@@ -46,16 +53,19 @@ export default class SearchResults extends React.Component {
         </ul>
       );
     } else if (query && loading) {
-      messageText = _('Searching...');
+      messageText = i18n.gettext('Searching...');
     } else if (query && results.length === 0) {
-      messageText = sprintf(_('No results were found for "%(query)s".'), { query });
+      messageText = i18n.sprintf(
+        i18n.gettext('No results were found for "%(query)s".'), { query });
     } else if (query !== null) {
-      messageText = _('Please supply a valid search');
+      messageText = i18n.gettext('Please supply a valid search');
     }
 
     const message = messageText ?
-      <p className={hideMessageText ? 'visually-hidden' : ''}
-         ref={(ref) => { this.message = ref; }}>{messageText}</p> : null;
+      <p ref={(ref) => { this.message = ref; }} className={classNames({
+        'visually-hidden': hideMessageText,
+        'SearchReuslts-message': !hideMessageText,
+      })}>{messageText}</p> : null;
 
     return (
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
@@ -65,3 +75,5 @@ export default class SearchResults extends React.Component {
     );
   }
 }
+
+export default translate({ withRef: true })(SearchResults);
