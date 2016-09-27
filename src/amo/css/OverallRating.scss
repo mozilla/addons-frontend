@@ -1,31 +1,29 @@
-.OverallRating form fieldset {
-  .OverallRating-selectors {
-    display: flex;
-    justify-content: center;
+.OverallRating-choices {
+  display: flex;
+  justify-content: center;
+}
+
+.OverallRating-choice {
+  font-size: 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 90px;
+  width: 100px;
+  height: 100px;
+  background-size: 85px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.OverallRating-love-it {
+    background-image: url('../img/ratings/smiley-love-it.svg');
   }
 
-  button {
-    font-size: 0.8em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    padding-top: 90px;
-    width: 100px;
-    height: 100px;
-    background-size: 85px;
-    background-position: center;
-    background-repeat: no-repeat;
+  &.OverallRating-it-is-ok {
+    background-image: url('../img/ratings/smiley-it-is-ok.svg');
+  }
 
-    &.OverallRating-love-it {
-      background-image: url('../img/ratings/smiley-love-it.svg');
-    }
-
-    &.OverallRating-it-is-ok {
-      background-image: url('../img/ratings/smiley-it-is-ok.svg');
-    }
-
-    &.OverallRating-huh {
-      background-image: url('../img/ratings/smiley-huh.svg');
-    }
+  &.OverallRating-huh {
+    background-image: url('../img/ratings/smiley-huh.svg');
   }
 }

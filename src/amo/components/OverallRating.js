@@ -46,25 +46,22 @@ export class OverallRatingBase extends React.Component {
         <form action="">
           <fieldset>
             <legend>{prompt}</legend>
-            <div className="OverallRating-selectors">
-              <label htmlFor="OverallRating-love-it">
-                <button value={5} onClick={this.onClickRating} className="OverallRating-love-it" id="OverallRating-love-it">
-                  {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
-                  {i18n.gettext('Love it!')}
-                </button>
-              </label>
-              <label htmlFor="OverallRating-it-is-ok">
-                <button value={3} onClick={this.onClickRating} className="OverallRating-it-is-ok" id="OverallRating-it-is-ok">
-                  {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
-                  {i18n.gettext("It's OK")}
-                </button>
-              </label>
-              <label htmlFor="OverallRating-huh">
-                <button value={1} onClick={this.onClickRating} className="OverallRating-huh" id="OverallRating-huh">
-                  {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
-                  {i18n.gettext('Huh?')}
-                </button>
-              </label>
+            <div className="OverallRating-choices">
+              <button value={5} onClick={this.onClickRating}
+                className="OverallRating-choice OverallRating-love-it" id="OverallRating-love-it">
+                {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
+                {i18n.gettext('Love it!')}
+              </button>
+              <button value={3} onClick={this.onClickRating}
+                className="OverallRating-choice OverallRating-it-is-ok" id="OverallRating-it-is-ok">
+                {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
+                {i18n.gettext("It's OK")}
+              </button>
+              <button value={1} onClick={this.onClickRating}
+                className="OverallRating-choice OverallRating-huh" id="OverallRating-huh">
+                {/* L10n: This should be a very short phrase for layout reasons, if possible. */}
+                {i18n.gettext('Huh?')}
+              </button>
             </div>
           </fieldset>
         </form>
