@@ -15,12 +15,16 @@ function makeQueryString(query) {
   return url.format({ query });
 }
 
-export function callApi({ endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
-                         body, credentials }) {
+export function callApi({
+  endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
+  body, credentials,
+}) {
   const queryString = makeQueryString({ ...params, lang: state.lang });
   const options = {
     headers: {},
-    method,
+    // Always make sure the method is upper case so that the browser won't
+    // complain about CORS problems.
+    method: method.toUpperCase(),
   };
   if (credentials) {
     options.credentials = 'include';

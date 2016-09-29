@@ -10,7 +10,7 @@ describe('amo.api', () => {
   });
 
   describe('postRatings', () => {
-    it('posts a add-on rating', () => {
+    it('posts an add-on rating', () => {
       const params = {
         rating: 5,
         apiState: { ...signedInApiState, token: 'new-token' },
@@ -23,8 +23,10 @@ describe('amo.api', () => {
         .expects('callApi')
         .withArgs({
           endpoint: `addons/addon/${params.addonId}/reviews`,
-          body: { rating: params.rating, version: params.versionId },
-          method: 'post',
+          body: {
+            rating: params.rating, version: params.versionId, body: undefined,
+          },
+          method: 'POST',
           auth: true,
           state: params.apiState,
         })
