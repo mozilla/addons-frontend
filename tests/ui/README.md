@@ -20,7 +20,7 @@ The tests must be run in Firefox 48 or later.
 1. Install [Tox]
 1. Download geckodriver [v0.10.0][geckodriver] and ensure it's executable and
    in your path
-1. Run `tox -e discopane-ui-tests`
+1. Run `tox`
 
 To run against a different environment, pass in a value for `--base-url`, like so:
 
