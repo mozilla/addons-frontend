@@ -1,6 +1,83 @@
+# These environment variables must be set in CircleCI UI
+#
+# DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
+# DOCKER_EMAIL   - login info for docker hub
+# DOCKER_USER
+# DOCKER_PASS
+
 machine:
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
   node:
     version: 4.3.1
+  services:
+    - docker
+
 dependencies:
+  cache_directories:
+    - "~/docker"
   pre:
     - npm install -g npm@3
+    - sudo apt-get update; sudo apt-get install pigz
+    - sudo pip install tox mozdownload mozinstall
+    - mozdownload --version latest --destination firefox.tar.bz2
+    - mozinstall firefox.tar.bz2
+    - wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.10.0/geckodriver-v0.10.0-linux64.tar.gz
+    - gunzip -c geckodriver.tar.gz | tar xopf -
+    - chmod +x geckodriver && mv geckodriver /home/ubuntu/bin/
+
+  override:
+    - docker info
+
+    # Build the container, using Circle's Docker cache. Only use 1 image per
+    # day to keep the cache size down.
+    - I="image-$(date +%j).gz"; if [[ -e ~/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/docker/$I | docker load; fi
+
+    - docker build --pull -t $DOCKERHUB_REPO:amo --build-arg NODE_APP_INSTANCE=amo .
+    - docker build --pull -t $DOCKERHUB_REPO:disco --build-arg NODE_APP_INSTANCE=disco .
+    - docker build --pull -t $DOCKERHUB_REPO:admin --build-arg NODE_APP_INSTANCE=admin .
+
+    - docker images
+
+    # write the sha256 sum to an artifact to make image verification easier
+    - docker images --no-trunc | awk '/^app/ {print $3}' | tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
+
+    # Clean up any old images; save the new one.
+    - I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*; docker save ${DOCKERHUB_REPO} | pigz --fast -c > ~/docker/$I; ls -l ~/docker
+
+test:
+  override:
+    - docker run -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests $DOCKERHUB_REPO:disco /bin/sh -c "npm run build && npm run start" && sleep 60
+    - tox -e discopane-ui-tests --
+      --base-url=http://localhost:4000
+      --firefox-path=firefox/firefox
+
+# appropriately tag and push the container to dockerhub
+deployment:
+  hub_latest:
+    branch: "master"
+    commands:
+      - "[ ! -z $DOCKERHUB_REPO ]"
+      - "docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS"
+      - "docker tag $DOCKERHUB_REPO:amo $DOCKERHUB_REPO:amo-latest"
+      - "docker tag $DOCKERHUB_REPO:disco $DOCKERHUB_REPO:disco-latest"
+      - "docker tag $DOCKERHUB_REPO:admin $DOCKERHUB_REPO:admin-latest"
+      - "docker images"
+      - "docker push $DOCKERHUB_REPO:amo-latest"
+      - "docker push $DOCKERHUB_REPO:disco-latest"
+      - "docker push $DOCKERHUB_REPO:admin-latest"
+
+  hub_releases:
+    # push all tags
+    tag: /.*/
+    commands:
+      - "[ ! -z $DOCKERHUB_REPO ]"
+      - "docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS"
+      - "echo $DOCKERHUB_REPO:$CIRCLE_TAG"
+      - "docker tag $DOCKERHUB_REPO:amo $DOCKERHUB_REPO:amo-$CIRCLE_TAG"
+      - "docker tag $DOCKERHUB_REPO:disco $DOCKERHUB_REPO:disco-$CIRCLE_TAG"
+      - "docker tag $DOCKERHUB_REPO:admin $DOCKERHUB_REPO:admin-$CIRCLE_TAG"
+      - "docker images"
+      - "docker push $DOCKERHUB_REPO:amo-$CIRCLE_TAG"
+      - "docker push $DOCKERHUB_REPO:disco-$CIRCLE_TAG"
+      - "docker push $DOCKERHUB_REPO:admin-$CIRCLE_TAG"
