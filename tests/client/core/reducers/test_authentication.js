@@ -1,3 +1,5 @@
+import base64url from 'base64url';
+
 import auth from 'core/reducers/authentication';
 import { userAuthToken } from 'tests/client/helpers';
 
@@ -32,8 +34,8 @@ describe('authentication reducer', () => {
     })
 
     it('sets auth state based on the token', () => {
-      const token = userAuthToken({ username: 'some_user' });
-      assert.deepEqual(setJwt(token), { token, username: 'some_user' });
+      const token = userAuthToken({ user_id: 91234 });
+      assert.deepEqual(setJwt(token), { token, user_id: 91234 });
     });
 
     it('throws a parse error for malformed token data', () => {
@@ -55,6 +57,16 @@ describe('authentication reducer', () => {
       assert.throws(
         () => setJwt('algo.incorrectly-encoded-data-segment.sig'),
         Error, /Error parsing token .* unexpected character at line 1/);
+    });
+
+    it('throws an error for a missing user_id', () => {
+      const token = userAuthToken({}, {
+        // Simulate a JWT without any user_id data.
+        tokenData: base64url.encode('{"iss": "some-issuer"}'),
+      });
+      assert.throws(
+        () => setJwt(token),
+        Error, /Error parsing token .* user_id is missing/);
     });
   });
 

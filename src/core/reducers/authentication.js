@@ -1,5 +1,7 @@
 import base64url from 'base64url';
 
+import log from 'core/logger';
+
 export default function authentication(state = {}, action) {
   const { payload, type } = action;
   switch (type) {
@@ -10,7 +12,7 @@ export default function authentication(state = {}, action) {
         // Extract user data from the JWT (which is loaded from a cookie
         // on each request). This doesn't check the token's siganture
         // because the server is responsible for that.
-        username: getUserNameFromJwt(payload.token),
+        user_id: decodeUserIdFromJwt(payload.token),
       };
     case 'SET_CURRENT_USER':
       return { ...state, username: payload.username };
@@ -20,7 +22,7 @@ export default function authentication(state = {}, action) {
   return state;
 }
 
-function getUserNameFromJwt(token) {
+function decodeUserIdFromJwt(token) {
   let data;
   try {
     const parts = token.split('.');
@@ -28,8 +30,12 @@ function getUserNameFromJwt(token) {
       throw new Error('not enough JWT segments');
     }
     data = JSON.parse(base64url.decode(parts[1]));
+    log.info('decoded JWT data:', data);
+    if (!data.user_id) {
+      throw new Error('user_id is missing from decoded data');
+    }
+    return data.user_id;
   } catch (error) {
     throw new Error(`Error parsing token "${token}": ${error}`);
   }
-  return data.username;
 }
