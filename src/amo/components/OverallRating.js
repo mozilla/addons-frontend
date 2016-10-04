@@ -30,6 +30,7 @@ export class OverallRatingBase extends React.Component {
       versionId: this.props.version.id,
       apiState: this.props.apiState,
       addonId: this.props.addonId,
+      userId: this.props.userId,
     });
   }
 
@@ -77,10 +78,13 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ addonId, ...params }) {
+  createRating({ addonId, userId, ...params }) {
     return postRating({ addonId, ...params })
       .then((userRating) => {
-        dispatch(setUserRating({ addonId, userRating }));
+        // TODO: when we have a user_id in the API response, we
+        // could probably use that instead.
+        // https://github.com/mozilla/addons-server/issues/3672
+        dispatch(setUserRating({ addonId, userRating, userId }));
       });
   },
 });
