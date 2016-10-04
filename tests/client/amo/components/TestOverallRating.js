@@ -157,18 +157,18 @@ describe('OverallRating', () => {
         assert.equal(props.apiState, undefined);
       });
 
-      it('sets an empty userName when not signed in', () => {
+      it('sets an empty userId when not signed in', () => {
         const props = mapStateToProps({});
-        assert.equal(props.userName, undefined);
+        assert.equal(props.userId, undefined);
       });
 
-      it('sets the username property from the state', () => {
+      it('sets the userId property from the state', () => {
         const authState = {
           token: signedInApiState.token,
-          username: 'some_username',
+          user_id: 91234,
         };
         const props = mapStateToProps({ auth: authState });
-        assert.equal(props.userName, 'some_username');
+        assert.equal(props.userId, 91234);
       });
     });
   });

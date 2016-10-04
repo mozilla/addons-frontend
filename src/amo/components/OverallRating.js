@@ -18,6 +18,7 @@ export class OverallRatingBase extends React.Component {
     version: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     createRating: PropTypes.func.isRequired,
+    userId: PropTypes.number,
   }
 
   onClickRating = (event) => {
@@ -39,7 +40,7 @@ export class OverallRatingBase extends React.Component {
       { addonName });
 
     // TODO: Disable rating ability when not logged in
-    // (when state.auth is empty)
+    // (when props.userId is empty)
 
     return (
       <div className="OverallRating">
@@ -72,7 +73,7 @@ export class OverallRatingBase extends React.Component {
 
 export const mapStateToProps = (state) => ({
   apiState: state.api,
-  userName: state.auth && state.auth.username,
+  userId: state.auth && state.auth.user_id,
 });
 
 export const mapDispatchToProps = (dispatch) => ({
