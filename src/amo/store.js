@@ -6,10 +6,11 @@ import addons from 'core/reducers/addons';
 import api from 'core/reducers/api';
 import auth from 'core/reducers/authentication';
 import search from 'core/reducers/search';
+import ratings from 'amo/reducers/ratings';
 
 export default function createStore(initialState = {}) {
   return _createStore(
-    combineReducers({ addons, api, auth, search, reduxAsyncConnect }),
+    combineReducers({ addons, api, auth, search, ratings, reduxAsyncConnect }),
     initialState,
     middleware(),
   );

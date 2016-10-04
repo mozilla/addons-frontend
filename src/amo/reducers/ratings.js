@@ -7,15 +7,15 @@ export const initialState = {
 export default function ratings(state = initialState, action) {
   switch (action.type) {
     case SET_USER_RATING:
+      const data = action.data;
       return {
         ...state,
-        // This maps user ratings by addon ID.
-        // TODO: this will change once we can track users by ID more easily.
+        // This maps user ratings by user ID and addon ID.
         userRatings: {
           ...state.userRatings,
-          [action.data.addonId]: {
-            rating: action.data.userRating.rating,
-            versionId: action.data.userRating.version.id,
+          [`userId:${data.userId}-addonId:${data.addonId}`]: {
+            rating: data.userRating.rating,
+            versionId: data.userRating.version.id,
           },
         },
       };
