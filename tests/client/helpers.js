@@ -1,8 +1,33 @@
+import base64url from 'base64url';
 import { sprintf } from 'jed';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 
 import { EXTENSION_TYPE } from 'core/constants';
+
+/*
+ * Return a fake authentication token (a JWT) that can be
+ * at least decoded like a real JWT.
+ */
+export function userAuthToken(dataOverrides = {}, { tokenData } = {}) {
+  const data = {
+    iss: 'some issuer',
+    exp: 12345,
+    iat: 12345,
+    username: 'some-username',
+    user_id: 102345,
+    email: 'some-username@somewhere.org',
+    ...dataOverrides,
+  };
+
+  const algo = base64url.encode('{"example": "of JWT algorithms"}');
+  if (!tokenData) {
+    tokenData = base64url.encode(JSON.stringify(data));
+  }
+  const sig = base64url.encode('pretend this is a signature of the content');
+
+  return `${algo}.${tokenData}.${sig}`;
+}
 
 export function shallowRender(stuff) {
   const renderer = createRenderer();

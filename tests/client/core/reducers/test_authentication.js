@@ -1,4 +1,5 @@
 import auth from 'core/reducers/authentication';
+import { userAuthToken } from 'tests/client/helpers';
 
 describe('authentication reducer', () => {
   it('defaults to an empty object', () => {
@@ -6,32 +7,62 @@ describe('authentication reducer', () => {
   });
 
   it('ignore unrelated actions', () => {
-    const state = { token: 'the.JWT.payload' };
+    const state = { token: userAuthToken() };
     assert.strictEqual(auth(state, { type: 'UNRELATED' }), state);
-  });
-
-  it('sets the JWT token on SET_JWT', () => {
-    const token = 'json.WEB.t0k3n';
-    assert.deepEqual(auth(undefined, { type: 'SET_JWT', payload: { token } }), { token });
   });
 
   it('sets the user on SET_CURRENT_USER', () => {
     const username = 'my-username';
-    assert.deepEqual(auth(undefined,
-      { type: 'SET_CURRENT_USER', payload: { username } }), { username });
+    assert.deepEqual(
+      auth(undefined, { type: 'SET_CURRENT_USER', payload: { username } }),
+      { username });
   });
 
   it('maintains the token when adding a username', () => {
     const username = 'name-of-user';
+    const token = userAuthToken();
     assert.deepEqual(
-      auth({ token: 'foo' }, { type: 'SET_CURRENT_USER', payload: { username } }),
-      { token: 'foo', username });
+      auth({ token, }, { type: 'SET_CURRENT_USER', payload: { username } }),
+      { token, username });
+  });
+
+  describe('SET_JWT', () => {
+    const setJwt = (token) => auth(undefined, {
+      type: 'SET_JWT', payload: { token },
+    })
+
+    it('sets auth state based on the token', () => {
+      const token = userAuthToken({ username: 'some_user' });
+      assert.deepEqual(setJwt(token), { token, username: 'some_user' });
+    });
+
+    it('throws a parse error for malformed token data', () => {
+      const token = userAuthToken({}, {
+        tokenData: '{"malformed JSON"}',
+      });
+      assert.throws(
+        () => setJwt(token),
+        Error, /Error parsing token .* JSON\.parse: unexpected character/);
+    });
+
+    it('throws an error for a JWT without a data segment', () => {
+      assert.throws(
+        () => setJwt('fake-JWT-without-enough-segments'),
+        Error, /Error parsing token .* not enough JWT segments/);
+    });
+
+    it('throws an error for an incorrectly encoded data segment', () => {
+      assert.throws(
+        () => setJwt('algo.incorrectly-encoded-data-segment.sig'),
+        Error, /Error parsing token .* unexpected character at line 1/);
+    });
   });
 
   describe('LOG_OUT_USER', () => {
     it('clears the state', () => {
+      const token = userAuthToken();
       assert.deepEqual(
-        auth({ token: 'hey!', otherThing: 'goes away' }, { type: 'LOG_OUT_USER' }),
+        auth({ token, otherThing: 'goes away' }, { type: 'LOG_OUT_USER' }),
         {});
     });
   });

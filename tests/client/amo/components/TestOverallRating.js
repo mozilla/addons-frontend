@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
@@ -156,6 +155,20 @@ describe('OverallRating', () => {
       it('sets an empty apiState when not signed in', () => {
         const props = mapStateToProps({});
         assert.equal(props.apiState, undefined);
+      });
+
+      it('sets an empty userName when not signed in', () => {
+        const props = mapStateToProps({});
+        assert.equal(props.userName, undefined);
+      });
+
+      it('sets the username property from the state', () => {
+        const authState = {
+          token: signedInApiState.token,
+          username: 'some_username',
+        };
+        const props = mapStateToProps({ auth: authState });
+        assert.equal(props.userName, 'some_username');
       });
     });
   });

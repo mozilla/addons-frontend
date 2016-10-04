@@ -72,6 +72,7 @@ export class OverallRatingBase extends React.Component {
 
 export const mapStateToProps = (state) => ({
   apiState: state.api,
+  userName: state.auth && state.auth.username,
 });
 
 export const mapDispatchToProps = (dispatch) => ({
