@@ -2,11 +2,13 @@ import React, { PropTypes } from 'react';
 
 import Paginate from 'core/components/Paginate';
 import { gettext as _ } from 'core/utils';
+import SearchResults from 'core/components/Search/SearchResults';
 
 import SearchForm from './SearchForm';
-import SearchResults from './SearchResults';
+import AdminSearchResult from './SearchResult';
 
-export default class SearchPage extends React.Component {
+
+export default class AdminSearchPage extends React.Component {
   static propTypes = {
     count: PropTypes.number,
     loading: PropTypes.bool.isRequired,
@@ -25,7 +27,8 @@ export default class SearchPage extends React.Component {
         <h1>{_('Add-on Search')}</h1>
         <SearchForm pathname={pathname} query={query} />
         {paginator}
-        <SearchResults results={results} query={query} loading={loading} count={count} />
+        <SearchResults results={results} query={query} loading={loading}
+          count={count} ResultComponent={AdminSearchResult} />
       </div>
     );
   }

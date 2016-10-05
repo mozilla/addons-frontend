@@ -1,39 +1,29 @@
-.OverallRating {
-  form {
-    display: flex;
-    justify-content: center;
+.OverallRating-choices {
+  display: flex;
+  justify-content: center;
+}
 
-    input {
-      appearance: none;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
+.OverallRating-choice {
+  font-size: 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 90px;
+  width: 100px;
+  height: 100px;
+  background-size: 85px;
+  background-position: center;
+  background-repeat: no-repeat;
 
-    label {
-      font-size: 0.8em;
-      font-weight: bold;
-      cursor: pointer;
-      display: block;
-      text-align: center;
-      padding-top: 90px;
-      width: 120px;
-      height: 100px;
-      background-size: 85px;
-      background-position: center;
-      background-repeat: no-repeat;
+  &.OverallRating-rating-5 {
+    background-image: url('../img/ratings/smiley-rating-5.svg');
+  }
 
-      &.OverallRating-love-it {
-        background-image: url('../img/ratings/smiley-love-it.svg');
-      }
+  &.OverallRating-rating-3 {
+    background-image: url('../img/ratings/smiley-rating-3.svg');
+  }
 
-      &.OverallRating-it-is-ok {
-        background-image: url('../img/ratings/smiley-it-is-ok.svg');
-      }
-
-      &.OverallRating-huh {
-        background-image: url('../img/ratings/smiley-huh.svg');
-      }
-    }
+  &.OverallRating-rating-1 {
+    background-image: url('../img/ratings/smiley-rating-1.svg');
   }
 }

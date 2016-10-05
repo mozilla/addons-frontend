@@ -11,7 +11,7 @@ describe('api', () => {
     mockWindow = sinon.mock(window);
   });
 
-  describe('search api', () => {
+  describe('admin search api', () => {
     function mockResponse(propOverrides = {}) {
       return Promise.resolve({
         ok: true,
@@ -25,6 +25,74 @@ describe('api', () => {
           });
         },
         ...propOverrides,
+      });
+    }
+
+    it('sets the lang, limit, page and query', () => {
+      // FIXME: This shouldn't fail if the args are in a different order.
+      mockWindow.expects('fetch')
+        .withArgs(
+          'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US')
+        .once()
+        .returns(mockResponse());
+      return api.search({
+        api: { lang: 'en-US' },
+        auth: true,
+        query: 'foo',
+        page: 3,
+      })
+        .then(() => mockWindow.verify());
+    });
+
+    it('normalizes the response', () => {
+      mockWindow.expects('fetch').once().returns(mockResponse());
+      return api.search({ auth: true, query: 'foo' })
+        .then((results) => {
+          assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
+          assert.deepEqual(results.entities, {
+            addons: {
+              foo: { slug: 'foo' },
+              food: { slug: 'food' },
+              football: { slug: 'football' },
+            },
+          });
+        });
+    });
+
+    it('surfaces status and apiURL on Error instance', () => {
+      const url =
+        'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US';
+      mockWindow.expects('fetch')
+        .withArgs(url)
+        .once()
+        .returns(mockResponse({ ok: false, status: 401 }));
+
+      return api.search({
+        api: { lang: 'en-US' },
+        auth: true,
+        query: 'foo',
+        page: 3,
+      })
+        .then(unexpectedSuccess, (err) => {
+          assert.equal(err.response.status, 401);
+          assert.equal(err.response.apiURL, url);
+        });
+    });
+  });
+
+  describe('search api', () => {
+    function mockResponse() {
+      return Promise.resolve({
+        ok: true,
+        json() {
+          return Promise.resolve({
+            results: [
+              { slug: 'foo' },
+              { slug: 'food' },
+              { slug: 'football' },
+            ],
+          });
+        },
       });
     }
 
@@ -51,21 +119,6 @@ describe('api', () => {
               football: { slug: 'football' },
             },
           });
-        });
-    });
-
-    it('surfaces status and apiURL on Error instance', () => {
-      const url =
-        'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US';
-      mockWindow.expects('fetch')
-        .withArgs(url)
-        .once()
-        .returns(mockResponse({ ok: false, status: 401 }));
-
-      return api.search({ api: { lang: 'en-US' }, query: 'foo', page: 3 })
-        .then(unexpectedSuccess, (err) => {
-          assert.equal(err.response.status, 401);
-          assert.equal(err.response.apiURL, url);
         });
     });
   });

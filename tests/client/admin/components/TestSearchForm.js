@@ -3,12 +3,15 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
 import * as actions from 'core/actions';
 import * as coreApi from 'core/api';
-import { SearchFormBase, mapDispatchToProps, mapStateToProps }
-  from 'admin/components/SearchForm';
+import {
+  AdminSearchFormBase,
+  mapDispatchToProps,
+  mapStateToProps,
+} from 'admin/components/SearchForm';
 
 const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
-describe('<SearchForm />', () => {
+describe('<AdminSearchForm />', () => {
   const pathname = '/somewhere';
   let api;
   let loadAddon;
@@ -17,7 +20,7 @@ describe('<SearchForm />', () => {
   let form;
   let input;
 
-  class SearchFormWrapper extends React.Component {
+  class AdminSearchFormWrapper extends React.Component {
     static childContextTypes = {
       router: React.PropTypes.object,
     }
@@ -27,9 +30,9 @@ describe('<SearchForm />', () => {
     }
 
     render() {
-      return (<SearchFormBase
+      return (<AdminSearchFormBase
         pathname={pathname} api={api}
-        loadAddon={loadAddon} ref="root"
+        loadAddon={loadAddon} ref={(ref) => { this.root = ref; }}
       />);
     }
   }
@@ -38,31 +41,15 @@ describe('<SearchForm />', () => {
     router = { push: sinon.spy() };
     loadAddon = sinon.stub();
     api = sinon.stub();
-    root = renderIntoDocument(<SearchFormWrapper />).refs.root;
-    form = root.refs.form;
-    input = root.refs.query;
-  });
-
-  it('renders a form', () => {
-    assert.ok(form.classList.contains('search-form'));
-  });
-
-  it('renders a search input', () => {
-    assert.equal(input.placeholder, 'Search');
-    assert.equal(input.type, 'search');
+    root = renderIntoDocument(<AdminSearchFormWrapper />).root;
+    form = root.form;
+    input = root.searchQuery;
   });
 
   it('does nothing on submit', () => {
     assert(!router.push.called);
     input.value = 'adblock';
     Simulate.submit(form);
-    assert(!router.push.called);
-  });
-
-  it('does nothing on non-Enter keydowns', () => {
-    assert(!router.push.called);
-    input.value = 'adblock';
-    Simulate.keyDown(input, { key: 'A', shiftKey: true });
     assert(!router.push.called);
   });
 
@@ -73,17 +60,10 @@ describe('<SearchForm />', () => {
     assert(router.push.calledWith('/somewhere?q=adblock'));
   });
 
-  it('updates the location on search click', () => {
-    assert(!router.push.called);
-    input.value = 'adblock';
-    Simulate.click(root.refs.submit);
-    assert(router.push.calledWith('/somewhere?q=adblock'));
-  });
-
   it('looks up the add-on to see if you are lucky', () => {
     loadAddon.returns(Promise.resolve('adblock'));
     input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
+    Simulate.click(root.go);
     assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
   });
 
@@ -98,7 +78,7 @@ describe('<SearchForm />', () => {
     loadAddon.returns(Promise.resolve('adblock'));
     assert(!router.push.called);
     input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
+    Simulate.click(root.go);
     return wait(1)
       .then(() => assert(router.push.calledWith('/search/addons/adblock')));
   });
@@ -106,7 +86,7 @@ describe('<SearchForm />', () => {
   it('searches if it is not found', () => {
     loadAddon.returns(Promise.reject());
     input.value = 'adblock@adblock.com';
-    Simulate.click(root.refs.go);
+    Simulate.click(root.go);
     return wait(1)
       .then(() => assert(router.push.calledWith('/somewhere?q=adblock@adblock.com')));
   });

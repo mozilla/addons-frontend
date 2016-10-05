@@ -18,5 +18,6 @@
     "max-nesting-depth": [3, {
       "ignore": ["at-rules-without-declaration-blocks"],
     }],
+    "function-url-quotes": ["always"],
   }
 }

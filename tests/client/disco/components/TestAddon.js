@@ -189,11 +189,11 @@ describe('<Addon />', () => {
     });
 
     it('renders the heading', () => {
-      assert.include(root.refs.heading.textContent, 'test-heading');
+      assert.include(root.heading.textContent, 'test-heading');
     });
 
     it('renders the editorial description', () => {
-      assert.equal(root.refs.editorialDescription.textContent, 'test-editorial-description');
+      assert.equal(root.editorialDescription.textContent, 'test-editorial-description');
     });
 
     it('purifies the heading', () => {
@@ -201,7 +201,7 @@ describe('<Addon />', () => {
         ...result,
         heading: '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
       });
-      assert.include(root.refs.heading.innerHTML, 'Hey! This is <span>an add-on</span>');
+      assert.include(root.heading.innerHTML, 'Hey! This is <span>an add-on</span>');
     });
 
     it('purifies the heading with a link and adds link attrs', () => {
@@ -209,7 +209,7 @@ describe('<Addon />', () => {
         ...result,
         heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
       });
-      const link = root.refs.heading.querySelector('a');
+      const link = root.heading.querySelector('a');
       assert.equal(link.getAttribute('rel'), 'noopener noreferrer');
       assert.equal(link.getAttribute('target'), '_blank');
     });
@@ -219,7 +219,7 @@ describe('<Addon />', () => {
         ...result,
         heading: 'This is <span>an <a href="javascript:alert(1)">add-on</a>/span>',
       });
-      const link = root.refs.heading.querySelector('a');
+      const link = root.heading.querySelector('a');
       assert.equal(link.getAttribute('href'), null);
     });
 
@@ -230,7 +230,7 @@ describe('<Addon />', () => {
                      '<i>Reviewed by <cite>a person</cite></i>',
       });
       assert.equal(
-        root.refs.editorialDescription.innerHTML,
+        root.editorialDescription.innerHTML,
         '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>');
     });
 
@@ -243,7 +243,7 @@ describe('<Addon />', () => {
     });
 
     it('throws on invalid add-on type', () => {
-      assert.include(root.refs.heading.textContent, 'test-heading');
+      assert.include(root.heading.textContent, 'test-heading');
       const data = { ...result, type: 'Whatever' };
       assert.throws(() => {
         renderAddon(data);

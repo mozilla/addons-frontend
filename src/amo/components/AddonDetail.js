@@ -4,9 +4,8 @@ import React, { PropTypes } from 'react';
 import AddonMeta from 'amo/components/AddonMeta';
 import InstallButton from 'core/components/InstallButton';
 import LikeButton from 'amo/components/LikeButton';
-import OverallRating from 'amo/components/OverallRating';
+import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
-import SearchBox from 'amo/components/SearchBox';
 import translate from 'core/i18n/translate';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import 'amo/css/AddonDetail.scss';
@@ -33,10 +32,15 @@ class AddonDetail extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     addon: PropTypes.object.isRequired,
+    OverallRating: PropTypes.element,
+  }
+
+  static defaultProps = {
+    OverallRating: DefaultOverallRating,
   }
 
   render() {
-    const { i18n, addon } = this.props;
+    const { i18n, addon, OverallRating } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -55,7 +59,6 @@ class AddonDetail extends React.Component {
     return (
       <div className="AddonDetail">
         <header>
-          <SearchBox />
           <div className="icon">
             <img alt="" src={iconUrl} />
             <LikeButton />
@@ -93,7 +96,10 @@ class AddonDetail extends React.Component {
 
         <section className="overall-rating">
           <h2>{i18n.gettext('Rate your experience')}</h2>
-          <OverallRating addonName={addon.name} />
+          <OverallRating
+            addonName={addon.name} addonId={addon.id}
+            version={addon.current_version}
+          />
         </section>
       </div>
     );

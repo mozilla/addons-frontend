@@ -15,20 +15,17 @@ it would be a good idea to create a fork of this repository first, and then clon
 GitHub also has great instructions for [forking a repository][git-fork].
 
 ### Run the tests
-Tests are run using tox on the command line. Below are a couple of examples of running the tests:
+The tests must be run in Firefox 48 or later.
 
-Before running, ensure the [GeckoDriver executable][geckodriver] (rename to wires) is in your path.
-
-Note: The tests must be run in Firefox 48 or later, and geckodriver (wires) must be 0.9.0.
-
-```bash
-$ tox -e ui-tests
-```
+1. Install [Tox]
+1. Download geckodriver [v0.10.0][geckodriver] and ensure it's executable and
+   in your path
+1. Run `tox`
 
 To run against a different environment, pass in a value for `--base-url`, like so:
 
 ```bash
-$ tox -e ui-tests -- --base-url https://discovery.addons.mozilla.org
+$ tox -e discopane-ui-tests -- --base-url https://discovery.addons.mozilla.org
 ```
 
 The pytest plugin that we use for running tests has a number of advanced
@@ -38,6 +35,6 @@ command line options available. To see the options available, run
 
 [git-clone]: https://help.github.com/articles/cloning-a-repository/
 [git-fork]: https://help.github.com/articles/fork-a-repo/
-[geckodriver]: https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver#Setting_up_the_Marionette_executable
+[geckodriver]: https://github.com/mozilla/geckodriver/releases/tag/v0.10.0
 [pytest-selenium]: http://pytest-selenium.readthedocs.org/
-[virtualenv]: https://wiki.mozilla.org/QA/Execution/Web_Testing/Automation/Virtual_Environments
+[Tox]: http://tox.readthedocs.io/

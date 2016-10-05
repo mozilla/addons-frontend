@@ -1,5 +1,6 @@
 // Karma configuration
 /* eslint-disable max-len, no-console, strict, import/no-extraneous-dependencies */
+
 'use strict';
 
 require('babel-register');
