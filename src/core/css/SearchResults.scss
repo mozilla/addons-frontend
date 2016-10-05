@@ -1,9 +1,25 @@
-.SearchResults {
-  margin-top: 1em 0 0;
-}
+@import "~core/css/inc/vars";
 
 .SearchResults-list {
+  background: $background-accent-color;
+  border-bottom: 6px solid #fff;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   list-style-type: none;
-  margin: 0;
+  margin: 1em 0 0;
   padding: 0;
+}
+
+.SearchResults-type-header {
+  color: #000;
+  font-size: $font-size-default;
+  text-align: center;
+}
+
+.SearchResults-message {
+  background: $background-accent-color;
+  font-size: $font-size-m;
+  margin: 0;
+  padding: 1em;
+  text-align: center;
 }

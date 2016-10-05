@@ -4,6 +4,7 @@ import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 
 import { EXTENSION_TYPE } from 'core/constants';
+import { ngettext } from 'core/utils';
 
 /*
  * Return a fake authentication token (a JWT) that can be
@@ -68,7 +69,7 @@ export function getFakeI18nInst() {
   return {
     gettext: sinon.spy((str) => str),
     dgettext: sinon.stub(),
-    ngettext: sinon.stub(),
+    ngettext: sinon.spy(ngettext),
     dngettext: sinon.stub(),
     pgettext: sinon.stub(),
     dpgettext: sinon.stub(),

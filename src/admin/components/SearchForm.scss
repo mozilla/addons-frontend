@@ -1,28 +1,45 @@
+@import "~core/css/inc/vars";
+
 .AdminSearchForm-form {
   display: flex;
+}
 
-  .AdminSearchForm-query {
-    background: url('~amo/img/icons/magnifying-glass.svg') 18px 50% no-repeat;
-    background-size: 26px;
-    border: 0;
-    color: $header-font-color;
-    font-size: $font-size-m;
-    flex-grow: 1;
-    height: 3rem;
-    margin: 0 auto;
+.AdminSearchForm-query {
+  background: none;
+  border: 0;
+  color: $header-font-color;
+  font-size: $font-size-m;
+  flex-grow: 1;
+  height: 3rem;
+  margin: 0 auto;
+  opacity: 0.75;
+  padding: 0;
+  text-align: center;
+  transition: opacity $transition-short linear;
+  width: 100%;
+
+  &:focus {
+    opacity: 1;
+  }
+
+  // This selector is used so the magnifying glass only appears when no search
+  // text is entered; we do this because centring the text takes precedence
+  // over showing the magnifying glass, and we can't do that (easily) with
+  // search text that can expand.
+  &:placeholder-shown {
+    background: url('~amo/img/icons/magnifying-glass.svg') 13px 50% no-repeat;
+    padding-left: 26px;
     max-width: 320px;
-    opacity: 0.75;
-    padding: 0 8px 0 56px;
-    text-align: left;
-    transition: opacity $transition-short linear;
-    width: 100%;
 
-    &:focus {
-      opacity: 1;
+    html[dir=rtl] & {
+      background-position: calc(100% - 13px) 50%;
+      padding-left: 0;
+      padding-right: 26px;
     }
+  }
 
-    &::placeholder {
-      opacity: 1;
-    }
+  &::placeholder {
+    // This increases the contrast of the placeholder a bit.
+    opacity: 0.8;
   }
 }

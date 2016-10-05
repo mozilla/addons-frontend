@@ -41,6 +41,8 @@ sri.json
 
 config/local*
 
+# pytest/tox
+.tox
 tests/ui/.cache
 tests/ui/__pycache__
 *.pyc
