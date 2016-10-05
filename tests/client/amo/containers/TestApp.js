@@ -90,6 +90,8 @@ describe('App', () => {
     const { handleLogIn } = setupMapStateToProps(_window)({
       auth: {},
       api: { lang: 'en-GB' },
+    }, {
+      params: { application: 'firefox' },
     });
     handleLogIn(location);
     assert.equal(_window.location, 'https://a.m.org/login');

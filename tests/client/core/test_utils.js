@@ -4,6 +4,7 @@ import config from 'config';
 import { sprintf } from 'jed';
 
 import * as actions from 'core/actions';
+import * as categoriesActions from 'core/actions/categories';
 import * as api from 'core/api';
 import {
   addQueryParams,
@@ -16,6 +17,7 @@ import {
   isAllowedOrigin,
   isValidClientApp,
   loadAddonIfNeeded,
+  loadCategoriesIfNeeded,
   nl2br,
 } from 'core/utils';
 import { unexpectedSuccess } from 'tests/client/helpers';
@@ -314,6 +316,80 @@ describe('loadAddonIfNeeded', () => {
           mockApi.verify();
           mockActions.verify();
         });
+  });
+});
+
+describe('loadCategoriesIfNeeded', () => {
+  const apiState = { clientApp: 'android', lang: 'en-US' };
+  let dispatch;
+  let loadedCategories;
+
+  beforeEach(() => {
+    dispatch = sinon.spy();
+    loadedCategories = ['foo', 'bar'];
+  });
+
+  function makeProps(categories = loadedCategories) {
+    return {
+      store: {
+        getState: () => {
+          return {
+            api: apiState,
+            categories: { categories, loading: false },
+          };
+        },
+        dispatch,
+      },
+    };
+  }
+
+  it('returns the categories if loaded', () => {
+    assert.strictEqual(loadCategoriesIfNeeded(makeProps()), true);
+  });
+
+  it('loads the categories if they are not loaded', () => {
+    const props = makeProps([]);
+    const results = ['foo', 'bar'];
+    const mockApi = sinon.mock(api);
+    mockApi
+      .expects('categories')
+      .once()
+      .withArgs({ api: apiState })
+      .returns(Promise.resolve({ results }));
+    const action = sinon.stub();
+    const mockActions = sinon.mock(categoriesActions);
+    mockActions
+      .expects('categoriesLoad')
+      .once()
+      .withArgs({ results })
+      .returns(action);
+    return loadCategoriesIfNeeded(props).then(() => {
+      assert(dispatch.calledWith(action), 'dispatch not called');
+      mockApi.verify();
+      mockActions.verify();
+    });
+  });
+
+  it('sends an error when it fails', () => {
+    const props = makeProps([]);
+    const mockApi = sinon.mock(api);
+    mockApi
+      .expects('categories')
+      .once()
+      .withArgs({ api: apiState })
+      .returns(Promise.reject());
+    const action = sinon.stub();
+    const mockActions = sinon.mock(categoriesActions);
+    mockActions
+      .expects('categoriesFail')
+      .once()
+      .withArgs()
+      .returns(action);
+    return loadCategoriesIfNeeded(props).then(() => {
+      assert(dispatch.calledWith(action), 'dispatch not called');
+      mockApi.verify();
+      mockActions.verify();
+    });
   });
 });
 

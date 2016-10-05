@@ -5,7 +5,9 @@ describe('amo createStore', () => {
     const store = createStore();
     assert.deepEqual(
       Object.keys(store.getState()).sort(),
-      ['addons', 'api', 'auth', 'reduxAsyncConnect', 'reviews', 'search']);
+      ['addons', 'api', 'auth', 'categories', 'reduxAsyncConnect', 'reviews',
+       'search']
+    );
   });
 
   it('creates an empty store', () => {

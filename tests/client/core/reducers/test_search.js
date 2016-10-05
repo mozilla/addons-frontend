@@ -1,9 +1,9 @@
 import search from 'core/reducers/search';
 
 describe('search reducer', () => {
-  it('defaults to a null query', () => {
+  it('defaults to an undefined query', () => {
     const { query } = search(undefined, { type: 'unrelated' });
-    assert.strictEqual(query, null);
+    assert.strictEqual(query, undefined);
   });
 
   it('defaults to not loading', () => {
@@ -94,9 +94,24 @@ describe('search reducer', () => {
     it('resets the initialState with page and query', () => {
       const page = 5;
       const query = 'add-ons';
-      const initialState = { foo: 'bar', query: 'hi', page: 100, results: [1, 2, 3] };
-      const state = search(initialState, { type: 'SEARCH_FAILED', payload: { page, query } });
-      assert.deepEqual(state, { count: 0, loading: false, page, query, results: [] });
+      const initialState = {
+        foo: 'bar',
+        query: 'hi',
+        page: 100,
+        results: [1, 2, 3],
+      };
+      const state = search(initialState, {
+        type: 'SEARCH_FAILED',
+        payload: { page, query },
+      });
+      assert.deepEqual(state, {
+        category: undefined,
+        count: 0,
+        loading: false,
+        page,
+        query,
+        results: [],
+      });
     });
   });
 });

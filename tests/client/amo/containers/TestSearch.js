@@ -16,13 +16,13 @@ describe('Search.mapStateToProps()', () => {
   };
 
   it('passes the search state if the URL and state query matches', () => {
-    const props = mapStateToProps(state, { location: { query: { q: 'ad-block' } } });
-    assert.deepEqual(props, { lang: 'fr-CA', ...state.search });
+    const props = mapStateToProps(state, { location: { query: { q: 'ad-block' } }, params: { application: 'firefox' } });
+    assert.deepEqual(props, { hasSearchParams: true, ...state.search });
   });
 
   it('does not pass search state if the URL and state query do not match', () => {
     const props = mapStateToProps(state, { location: { query: { q: 'more-ads' } } });
-    assert.deepEqual(props, { lang: 'fr-CA' });
+    assert.deepEqual(props, { hasSearchParams: true });
   });
 });
 
@@ -30,6 +30,7 @@ describe('Search.isLoaded()', () => {
   const state = {
     page: 2,
     query: 'ad-block',
+    hasSearchParams: true,
     loading: false,
     results: [{ slug: 'ab', name: 'ad-block' }],
   };
@@ -86,22 +87,10 @@ describe('CurrentSearchPage.parsePage()', () => {
 });
 
 describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
-  it('does not dispatch on undefined query', () => {
-    const dispatchSpy = sinon.spy();
-    const state = { loading: false };
-    const store = {
-      dispatch: dispatchSpy,
-      getState: () => ({ search: state }),
-    };
-    const location = { query: { page: undefined, q: undefined } };
-    loadSearchResultsIfNeeded({ store, location });
-    assert.notOk(dispatchSpy.called);
-  });
-
   it('returns right away when loaded', () => {
     const page = 10;
     const query = 'no ads';
-    const state = { loading: false, page, query };
+    const state = { hasSearchParams: true, loading: false, page, query };
     const store = { dispatch: sinon.spy(), getState: () => ({ search: state }) };
     const location = { query: { page, q: query } };
     assert.strictEqual(loadSearchResultsIfNeeded({ store, location }), true);
@@ -112,7 +101,12 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const query = 'no ads';
     const state = {
       api: { token: 'a.jwt.token' },
-      search: { loading: false, page, query: 'old query' },
+      search: {
+        hasSearchParams: true,
+        loading: false,
+        page,
+        query: 'old query',
+      },
     };
     const dispatch = sinon.spy();
     const store = { dispatch, getState: () => state };
@@ -123,17 +117,31 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     mockApi
       .expects('search')
       .once()
-      .withArgs({ page, query, api: state.api, auth: false })
+      .withArgs({
+        addonType: undefined,
+        api: state.api,
+        auth: false,
+        category: undefined,
+        page,
+        query,
+      })
       .returns(Promise.resolve({ entities, result }));
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       assert(
         dispatch.firstCall.calledWith(
-          searchActions.searchStart(query, page)),
+          searchActions.searchStart({ query, page })),
           'searchStart not called');
       assert(
         dispatch.secondCall.calledWith(
-          searchActions.searchLoad({ query, entities, result })),
+          searchActions.searchLoad({
+            addonType: undefined,
+            app: undefined,
+            category: undefined,
+            entities,
+            query,
+            result,
+          })),
           'searchLoad not called');
     });
   });
@@ -143,7 +151,12 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const query = 'no ads';
     const state = {
       api: {},
-      search: { loading: false, page, query: 'old query' },
+      search: {
+        hasSearchParams: true,
+        loading: false,
+        page,
+        query: 'old query',
+      },
     };
     const dispatch = sinon.spy();
     const store = { dispatch, getState: () => state };
@@ -152,17 +165,30 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     mockApi
       .expects('search')
       .once()
-      .withArgs({ page, query, api: state.api, auth: false })
+      .withArgs({
+        addonType: undefined,
+        api: state.api,
+        auth: false,
+        category: undefined,
+        page,
+        query,
+      })
       .returns(Promise.reject());
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       assert(
         dispatch.firstCall.calledWith(
-          searchActions.searchStart(query, page)),
+          searchActions.searchStart({ query, page })),
           'searchStart not called');
       assert(
         dispatch.secondCall.calledWith(
-          searchActions.searchFail({ page, query })),
+          searchActions.searchFail({
+            addonType: undefined,
+            app: undefined,
+            category: undefined,
+            page,
+            query,
+          })),
           'searchFail not called');
     });
   });
