@@ -4,18 +4,20 @@ export const initialState = {
   userRatings: {},
 };
 
-export default function ratings(state = initialState, action) {
-  switch (action.type) {
+export default function ratings(state = initialState, { data, type }) {
+  switch (type) {
     case SET_USER_RATING:
-      const data = action.data;
       return {
         ...state,
-        // This maps user ratings by user ID and addon ID.
+        // This is a map of ratings by user ID and addon ID.
         userRatings: {
           ...state.userRatings,
-          [`userId:${data.userId}-addonId:${data.addonId}`]: {
-            rating: data.userRating.rating,
-            versionId: data.userRating.version.id,
+          [data.userId]: {
+            ...state.userRatings[data.userId],
+            [data.addonId]: {
+              rating: data.userRating.rating,
+              versionId: data.userRating.version.id,
+            },
           },
         },
       };

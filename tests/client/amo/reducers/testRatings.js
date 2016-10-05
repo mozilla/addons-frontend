@@ -32,13 +32,12 @@ describe('amo.reducers.ratings', () => {
       }),
     });
     const state = ratings(undefined, action);
-    assert.deepEqual(
-      state.userRatings[`userId:${userId}-addonId:${addonId}`],
-      { rating: 5, versionId });
+    assert.deepEqual(state.userRatings[userId][addonId],
+                     { rating: 5, versionId });
   });
 
   it('preserves existing user rating data', () => {
-    let state = {};
+    let state;
 
     state = ratings(state, setUserRating({
       userId: 1,
@@ -64,14 +63,14 @@ describe('amo.reducers.ratings', () => {
       }),
     }));
 
-    // Make sure all ratings co-exist.
-    assert.equal(state.userRatings['userId:1-addonId:1'].rating, 1);
-    assert.equal(state.userRatings['userId:1-addonId:2'].rating, 5);
-    assert.equal(state.userRatings['userId:2-addonId:2'].rating, 4);
+    // Make sure all ratings co-exist by user and add-on.
+    assert.equal(state.userRatings[1][1].rating, 1);
+    assert.equal(state.userRatings[1][2].rating, 5);
+    assert.equal(state.userRatings[2][2].rating, 4);
   });
 
   it('preserves unrelated state', () => {
-    let state = { somethingUnrelated: 'erp' };
+    let state = { ...initialState, somethingUnrelated: 'erp' };
     state = ratings(state, setUserRating());
     assert.equal(state.somethingUnrelated, 'erp');
   });
