@@ -8,7 +8,8 @@ describe('amo.reducers.reviews', () => {
   function setUserRating(overrides) {
     return defaultUserRatingSetter({
       addonId: 321,
-      userRating: createRatingResponse(),
+      versionId: 54321,
+      rating: 3,
       userId: 9123,
       ...overrides,
     });
@@ -26,10 +27,8 @@ describe('amo.reducers.reviews', () => {
     const action = setUserRating({
       addonId,
       userId,
-      userRating: createRatingResponse({
-        rating: 5,
-        version: { ...fakeAddon.current_version, id: versionId },
-      }),
+      rating: 5,
+      versionId,
     });
     const state = reviews(undefined, action);
     assert.deepEqual(state[userId][addonId],
@@ -42,25 +41,19 @@ describe('amo.reducers.reviews', () => {
     state = reviews(state, setUserRating({
       userId: 1,
       addonId: 1,
-      userRating: createRatingResponse({
-        rating: 1,
-      }),
+      rating: 1,
     }));
 
     state = reviews(state, setUserRating({
       userId: 1,
       addonId: 2,
-      userRating: createRatingResponse({
-        rating: 5,
-      }),
+      rating: 5,
     }));
 
     state = reviews(state, setUserRating({
       userId: 2,
       addonId: 2,
-      userRating: createRatingResponse({
-        rating: 4,
-      }),
+      rating: 4,
     }));
 
     // Make sure all reviews co-exist by user and add-on.

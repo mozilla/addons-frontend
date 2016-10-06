@@ -11,8 +11,8 @@ export default function reviews(state = initialState, { data, type }) {
         [data.userId]: {
           ...state[data.userId],
           [data.addonId]: {
-            rating: data.userRating.rating,
-            versionId: data.userRating.version.id,
+            rating: data.rating,
+            versionId: data.versionId,
           },
         },
       };

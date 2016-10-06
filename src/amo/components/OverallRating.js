@@ -80,11 +80,16 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   createRating({ addonId, userId, ...params }) {
     return postRating({ addonId, ...params })
-      .then((userRating) => {
+      .then((review) => {
         // TODO: when we have a user_id in the API response, we
         // could probably use that instead.
         // https://github.com/mozilla/addons-server/issues/3672
-        dispatch(setUserRating({ addonId, userRating, userId }));
+        dispatch(setUserRating({
+          addonId,
+          rating: review.rating,
+          versionId: review.version.id,
+          userId,
+        }));
       });
   },
 });

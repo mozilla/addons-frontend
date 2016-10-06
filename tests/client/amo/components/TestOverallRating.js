@@ -143,7 +143,8 @@ describe('OverallRating', () => {
           assert.equal(action.type, SET_USER_RATING);
           assert.equal(action.data.addonId, params.addonId);
           assert.equal(action.data.userId, userId);
-          assert.deepEqual(action.data.userRating, ratingResponse);
+          assert.deepEqual(action.data.rating, ratingResponse.rating);
+          assert.deepEqual(action.data.versionId, ratingResponse.version.id);
 
           mockApi.verify();
         });
