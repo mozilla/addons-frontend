@@ -1,12 +1,12 @@
 import {
-  setUserRating as defaultUserRatingSetter,
-} from 'amo/actions/ratings';
+  setReview as defaultReviewSetter,
+} from 'amo/actions/reviews';
 import reviews, { initialState } from 'amo/reducers/reviews';
 import { createRatingResponse, fakeAddon } from 'tests/client/amo/helpers';
 
 describe('amo.reducers.reviews', () => {
-  function setUserRating(overrides) {
-    return defaultUserRatingSetter({
+  function setReview(overrides) {
+    return defaultReviewSetter({
       addonId: 321,
       versionId: 54321,
       rating: 3,
@@ -24,7 +24,7 @@ describe('amo.reducers.reviews', () => {
     const addonId = 5321;
     const userId = 91234;
     const versionId = 12345;
-    const action = setUserRating({
+    const action = setReview({
       addonId,
       userId,
       rating: 5,
@@ -38,19 +38,19 @@ describe('amo.reducers.reviews', () => {
   it('preserves existing user rating data', () => {
     let state;
 
-    state = reviews(state, setUserRating({
+    state = reviews(state, setReview({
       userId: 1,
       addonId: 1,
       rating: 1,
     }));
 
-    state = reviews(state, setUserRating({
+    state = reviews(state, setReview({
       userId: 1,
       addonId: 2,
       rating: 5,
     }));
 
-    state = reviews(state, setUserRating({
+    state = reviews(state, setReview({
       userId: 2,
       addonId: 2,
       rating: 4,
@@ -64,7 +64,7 @@ describe('amo.reducers.reviews', () => {
 
   it('preserves unrelated state', () => {
     let state = { ...initialState, somethingUnrelated: 'erp' };
-    state = reviews(state, setUserRating());
+    state = reviews(state, setReview());
     assert.equal(state.somethingUnrelated, 'erp');
   });
 });

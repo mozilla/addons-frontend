@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { setUserRating } from 'amo/actions/ratings';
+import { setReview } from 'amo/actions/reviews';
 import { postRating } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -84,7 +84,7 @@ export const mapDispatchToProps = (dispatch) => ({
         // TODO: when we have a user_id in the API response, we
         // could probably use that instead.
         // https://github.com/mozilla/addons-server/issues/3672
-        dispatch(setUserRating({
+        dispatch(setReview({
           addonId,
           rating: review.rating,
           versionId: review.version.id,
