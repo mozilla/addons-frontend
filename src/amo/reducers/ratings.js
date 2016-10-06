@@ -1,8 +1,6 @@
 import { SET_USER_RATING } from 'amo/constants';
 
-export const initialState = {
-  userRatings: {},
-};
+export const initialState = {};
 
 export default function ratings(state = initialState, { data, type }) {
   switch (type) {
@@ -10,14 +8,11 @@ export default function ratings(state = initialState, { data, type }) {
       return {
         ...state,
         // This is a map of ratings by user ID and addon ID.
-        userRatings: {
-          ...state.userRatings,
-          [data.userId]: {
-            ...state.userRatings[data.userId],
-            [data.addonId]: {
-              rating: data.userRating.rating,
-              versionId: data.userRating.version.id,
-            },
+        [data.userId]: {
+          ...state[data.userId],
+          [data.addonId]: {
+            rating: data.userRating.rating,
+            versionId: data.userRating.version.id,
           },
         },
       };

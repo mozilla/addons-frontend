@@ -32,7 +32,7 @@ describe('amo.reducers.ratings', () => {
       }),
     });
     const state = ratings(undefined, action);
-    assert.deepEqual(state.userRatings[userId][addonId],
+    assert.deepEqual(state[userId][addonId],
                      { rating: 5, versionId });
   });
 
@@ -64,9 +64,9 @@ describe('amo.reducers.ratings', () => {
     }));
 
     // Make sure all ratings co-exist by user and add-on.
-    assert.equal(state.userRatings[1][1].rating, 1);
-    assert.equal(state.userRatings[1][2].rating, 5);
-    assert.equal(state.userRatings[2][2].rating, 4);
+    assert.equal(state[1][1].rating, 1);
+    assert.equal(state[1][2].rating, 5);
+    assert.equal(state[2][2].rating, 4);
   });
 
   it('preserves unrelated state', () => {
