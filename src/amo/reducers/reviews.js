@@ -1,10 +1,10 @@
-import { SET_USER_RATING } from 'amo/constants';
+import { SET_REVIEW } from 'amo/constants';
 
 export const initialState = {};
 
 export default function reviews(state = initialState, { data, type }) {
   switch (type) {
-    case SET_USER_RATING:
+    case SET_REVIEW:
       return {
         ...state,
         // This is a map of reviews by user ID and addon ID.

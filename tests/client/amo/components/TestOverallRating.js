@@ -10,7 +10,7 @@ import * as amoApi from 'amo/api';
 import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
-import { SET_USER_RATING } from 'amo/constants';
+import { SET_REVIEW } from 'amo/constants';
 import I18nProvider from 'core/i18n/Provider';
 import {
   createRatingResponse, fakeAddon, signedInApiState,
@@ -140,7 +140,7 @@ describe('OverallRating', () => {
           assert.equal(dispatch.called, true);
           const action = dispatch.firstCall.args[0];
 
-          assert.equal(action.type, SET_USER_RATING);
+          assert.equal(action.type, SET_REVIEW);
           assert.equal(action.data.addonId, params.addonId);
           assert.equal(action.data.userId, userId);
           assert.deepEqual(action.data.rating, ratingResponse.rating);
