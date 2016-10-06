@@ -24,14 +24,14 @@ describe('authentication reducer', () => {
     const username = 'name-of-user';
     const token = userAuthToken();
     assert.deepEqual(
-      auth({ token, }, { type: 'SET_CURRENT_USER', payload: { username } }),
+      auth({ token }, { type: 'SET_CURRENT_USER', payload: { username } }),
       { token, username });
   });
 
   describe('SET_JWT', () => {
     const setJwt = (token) => auth(undefined, {
       type: 'SET_JWT', payload: { token },
-    })
+    });
 
     it('sets auth state based on the token', () => {
       const token = userAuthToken({ user_id: 91234 });

@@ -22,12 +22,13 @@ export function userAuthToken(dataOverrides = {}, { tokenData } = {}) {
   };
 
   const algo = base64url.encode('{"example": "of JWT algorithms"}');
-  if (!tokenData) {
-    tokenData = base64url.encode(JSON.stringify(data));
+  let encodedToken = tokenData;
+  if (!encodedToken) {
+    encodedToken = base64url.encode(JSON.stringify(data));
   }
   const sig = base64url.encode('pretend this is a signature of the content');
 
-  return `${algo}.${tokenData}.${sig}`;
+  return `${algo}.${encodedToken}.${sig}`;
 }
 
 export function shallowRender(stuff) {

@@ -2,7 +2,6 @@ import {
   setReview as defaultReviewSetter,
 } from 'amo/actions/reviews';
 import reviews, { initialState } from 'amo/reducers/reviews';
-import { createRatingResponse, fakeAddon } from 'tests/client/amo/helpers';
 
 describe('amo.reducers.reviews', () => {
   function setReview(overrides) {
