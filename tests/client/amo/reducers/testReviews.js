@@ -1,10 +1,10 @@
 import {
   setUserRating as defaultUserRatingSetter,
 } from 'amo/actions/ratings';
-import ratings, { initialState } from 'amo/reducers/ratings';
+import reviews, { initialState } from 'amo/reducers/reviews';
 import { createRatingResponse, fakeAddon } from 'tests/client/amo/helpers';
 
-describe('amo.reducers.ratings', () => {
+describe('amo.reducers.reviews', () => {
   function setUserRating(overrides) {
     return defaultUserRatingSetter({
       addonId: 321,
@@ -15,11 +15,11 @@ describe('amo.reducers.ratings', () => {
   }
 
   it('defaults to an empty object', () => {
-    assert.deepEqual(ratings(undefined, { type: 'SOME_OTHER_ACTION' }),
+    assert.deepEqual(reviews(undefined, { type: 'SOME_OTHER_ACTION' }),
                      initialState);
   });
 
-  it('adds a user ratings map', () => {
+  it('adds a user reviews map', () => {
     const addonId = 5321;
     const userId = 91234;
     const versionId = 12345;
@@ -31,7 +31,7 @@ describe('amo.reducers.ratings', () => {
         version: { ...fakeAddon.current_version, id: versionId },
       }),
     });
-    const state = ratings(undefined, action);
+    const state = reviews(undefined, action);
     assert.deepEqual(state[userId][addonId],
                      { rating: 5, versionId });
   });
@@ -39,7 +39,7 @@ describe('amo.reducers.ratings', () => {
   it('preserves existing user rating data', () => {
     let state;
 
-    state = ratings(state, setUserRating({
+    state = reviews(state, setUserRating({
       userId: 1,
       addonId: 1,
       userRating: createRatingResponse({
@@ -47,7 +47,7 @@ describe('amo.reducers.ratings', () => {
       }),
     }));
 
-    state = ratings(state, setUserRating({
+    state = reviews(state, setUserRating({
       userId: 1,
       addonId: 2,
       userRating: createRatingResponse({
@@ -55,7 +55,7 @@ describe('amo.reducers.ratings', () => {
       }),
     }));
 
-    state = ratings(state, setUserRating({
+    state = reviews(state, setUserRating({
       userId: 2,
       addonId: 2,
       userRating: createRatingResponse({
@@ -63,7 +63,7 @@ describe('amo.reducers.ratings', () => {
       }),
     }));
 
-    // Make sure all ratings co-exist by user and add-on.
+    // Make sure all reviews co-exist by user and add-on.
     assert.equal(state[1][1].rating, 1);
     assert.equal(state[1][2].rating, 5);
     assert.equal(state[2][2].rating, 4);
@@ -71,7 +71,7 @@ describe('amo.reducers.ratings', () => {
 
   it('preserves unrelated state', () => {
     let state = { ...initialState, somethingUnrelated: 'erp' };
-    state = ratings(state, setUserRating());
+    state = reviews(state, setUserRating());
     assert.equal(state.somethingUnrelated, 'erp');
   });
 });
