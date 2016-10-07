@@ -1,0 +1,32 @@
+.CentredInput {
+  text-align: center;
+  width: 100%;
+}
+
+.CentredInput,
+.CentredInput-label {
+  position: relative;
+}
+
+.CentredInput-label {
+  display: inline-block;
+}
+
+.CentredInput-input {
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  left: 0;
+  outline: none;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.CentredInput-input::placeholder {
+  color: transparent;
+}
+
+.CentredInput-input:focus {
+  text-align: left;
+}

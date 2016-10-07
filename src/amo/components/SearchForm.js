@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { loadEntities } from 'core/actions';
 import { fetchAddon } from 'core/api';
 import { gettext as _ } from 'core/utils';
+import CentredInput from 'ui/components/CentredInput';
 
 import 'core/css/inc/lib.scss';
 import './SearchForm.scss';
@@ -33,10 +34,10 @@ export class SearchFormBase extends React.Component {
     return (
       <form method="GET" action={pathname} onSubmit={this.handleSearch}
             className="SearchForm-form" ref={(ref) => { this.form = ref; }}>
-        <label className="visually-hidden" htmlFor="q">{_('Search')}</label>
-        <input ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
-               placeholder={_('Search extensions and themes')}
-               defaultValue={query} className="SearchForm-query" />
+        <CentredInput
+          inputRef={(ref) => { this.searchQuery = ref; }} type="search" name="q"
+          placeholder={_('Search extensions and themes')}
+          defaultValue={query} className="SearchForm-query" />
         <button className="visually-hidden" type="submit" title="Enter"
                 ref={(ref) => { this.submitButton = ref; }}
                 onClick={this.handleSearch}>
