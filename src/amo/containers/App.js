@@ -49,7 +49,9 @@ export class AppBase extends React.Component {
                            query={query}>
           {this.accountButton()}
         </MastHeadComponent>
-        {children}
+        <div className="App-content">
+          {children}
+        </div>
       </div>
     );
   }

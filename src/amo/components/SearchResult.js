@@ -22,6 +22,9 @@ class SearchResult extends React.Component {
           <section className="SearchResult-main">
             <img className="SearchResult-icon" src={result.icon_url} alt="" />
             <h2 className="SearchResult-heading">{result.name}</h2>
+            <h3 className="SearchResult-rating">
+              <span className="visually-hidden">4/5</span>
+            </h3>
             <h3 className="SearchResult-author">{result.authors[0].name}</h3>
             <h3 className="SearchResult-users">{i18n.sprintf(
               i18n.ngettext('%(users)s user', '%(users)s users',
