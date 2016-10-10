@@ -1,15 +1,16 @@
 .CentredInput {
+  position: relative;
   text-align: center;
   width: 100%;
 }
 
-.CentredInput,
-.CentredInput-label {
-  position: relative;
-}
-
 .CentredInput-label {
   display: inline-block;
+  position: relative;
+
+  .CentredInput--centre-text & {
+    display: none;
+  }
 }
 
 .CentredInput-input {
@@ -21,22 +22,16 @@
   position: absolute;
   text-align: center;
   width: 100%;
-}
 
-.CentredInput-input::placeholder {
-  color: transparent;
-}
-
-.CentredInput-input:focus {
-  text-align: left;
-}
-
-.CentredInput--centre-text {
-  .CentredInput-label {
-    display: none;
+  &::placeholder {
+    color: transparent;
   }
 
-  .CentredInput-input {
-    text-align: center;
+  &:focus {
+    text-align: left;
+  }
+
+  .CentredInput--centre-text & {
+    text-align:center;
   }
 }
