@@ -25,10 +25,19 @@ class CentredInput extends React.Component {
       this.hidePlaceholder();
     } else {
       this.showPlaceholder();
-      const parentLeft = this.label.parentElement.getBoundingClientRect().left;
-      const { left } = this.label.getBoundingClientRect();
-      const paddingLeft = parseFloat(getComputedStyle(this.label).paddingLeft);
-      this.input.style.paddingLeft = `${left + paddingLeft - parentLeft}px`;
+      if (document.dir === 'rtl') {
+        const parentRight = this.label.parentElement.getBoundingClientRect().right;
+        const { right } = this.label.getBoundingClientRect();
+        const paddingRight = parseFloat(getComputedStyle(this.label).paddingRight);
+        this.input.style.paddingRight = `${parentRight - right + paddingRight}px`;
+        this.input.style.paddingLeft = '';
+      } else {
+        const parentLeft = this.label.parentElement.getBoundingClientRect().left;
+        const { left } = this.label.getBoundingClientRect();
+        const paddingLeft = parseFloat(getComputedStyle(this.label).paddingLeft);
+        this.input.style.paddingLeft = `${left + paddingLeft - parentLeft}px`;
+        this.input.style.paddingRight = '';
+      }
     }
   }
 
