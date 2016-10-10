@@ -2,6 +2,15 @@ import React from 'react';
 import './style.scss';
 
 class CentredInput extends React.Component {
+  componentDidMount() {
+    this.setInputPosition();
+    window.addEventListener('resize', this.setInputPosition);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.setInputPosition);
+  }
+
   hidePlaceholder() {
     this.root.classList.add('CentredInput--centre-text');
   }
