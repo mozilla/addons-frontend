@@ -24,21 +24,21 @@ $icon-size: 26px;
 .SearchForm-query .CentredInput-label {
   color: rgba(255, 255, 255, 0.7);
   text-overflow: ellipsis;
-}
 
-.SearchForm-query .CentredInput-label:before {
-  @include start(-$icon-size);
-  // This selector is used so the magnifying glass only appears when no search
-  // text is entered; we do this because centring the text takes precedence
-  // over showing the magnifying glass, and we can't do that (easily) with
-  // search text that can expand.
-  background: url('~amo/img/icons/magnifying-glass.svg') 0 50% no-repeat;
-  content: '';
-  display: inline-block;
-  margin: 9px -5px;
-  height: $icon-size;
-  position: absolute;
-  width: $icon-size;
+  &::before {
+    @include start(-$icon-size);
+    // This selector is used so the magnifying glass only appears when no search
+    // text is entered; we do this because centring the text takes precedence
+    // over showing the magnifying glass, and we can't do that (easily) with
+    // search text that can expand.
+    background: url('~amo/img/icons/magnifying-glass.svg') 0 50% no-repeat;
+    content: '';
+    display: inline-block;
+    margin: 9px -5px;
+    height: $icon-size;
+    position: absolute;
+    width: $icon-size;
+  }
 }
 
 .SearchForm-query .CentredInput-input {
