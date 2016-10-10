@@ -30,3 +30,13 @@
 .CentredInput-input:focus {
   text-align: left;
 }
+
+.CentredInput--centre-text {
+  .CentredInput-label {
+    display: none;
+  }
+
+  .CentredInput-input {
+    text-align: center;
+  }
+}

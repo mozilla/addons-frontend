@@ -3,13 +3,11 @@ import './style.scss';
 
 class CentredInput extends React.Component {
   hidePlaceholder() {
-    this.label.style.display = 'none';
-    this.input.style.textAlign = 'center';
+    this.root.classList.add('CentredInput--centre-text');
   }
 
   showPlaceholder() {
-    this.label.style.display = '';
-    this.input.style.textAlign = '';
+    this.root.classList.remove('CentredInput--centre-text');
   }
 
   setInputPosition = () => {
@@ -18,10 +16,10 @@ class CentredInput extends React.Component {
       this.hidePlaceholder();
     } else {
       this.showPlaceholder();
-      const offsetLeft = this.label.parentElement.getBoundingClientRect().left;
+      const parentLeft = this.label.parentElement.getBoundingClientRect().left;
       const { left } = this.label.getBoundingClientRect();
       const paddingLeft = parseFloat(getComputedStyle(this.label).paddingLeft);
-      this.input.style.paddingLeft = `${left + paddingLeft - offsetLeft}px`;
+      this.input.style.paddingLeft = `${left + paddingLeft - parentLeft}px`;
     }
   }
 
@@ -42,7 +40,7 @@ class CentredInput extends React.Component {
     };
     const id = `CentredInput-input-${name}`;
     return (
-      <div className={[className, 'CentredInput'].join(' ')}>
+      <div className={[className, 'CentredInput'].join(' ')} ref={(el) => { this.root = el; }}>
         <label className="CentredInput-label" ref={(el) => { this.label = el; }} htmlFor={id}>
           {placeholder}
         </label>
