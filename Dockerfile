@@ -1,11 +1,4 @@
-FROM centos:centos7
-
-ADD docker/nodesource.gpg.key /etc/pki/rpm-gpg/RPM-GPG-KEY-nodesource
-ADD docker/nodesource.repo /etc/yum.repos.d/nodesource.repo
-
-RUN yum update -y \
-    && yum install -y nodejs git \
-    && yum clean all
+FROM node:4.6
 
 # Install node_modules into a different directory to avoid npm/npm#9863.
 RUN mkdir -p /srv/node
