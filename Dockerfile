@@ -24,4 +24,7 @@ echo "{\"source\": \"$SOURCE\", \
 ENV SERVER_HOST 0.0.0.0
 ENV SERVER_PORT 4000
 
+ARG NODE_APP_INSTANCE
+RUN npm run build
+
 CMD npm start
