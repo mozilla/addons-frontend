@@ -20,7 +20,10 @@ export function createRatingResponse(customProps = {}) {
     id: 123,
     user: { name: 'the_username' },
     rating: 5,
-    version: fakeAddon.current_version,
+    version: {
+      id: 54371,
+      version: '1.0.1',
+    },
     body: null,
     title: null,
     ...customProps,

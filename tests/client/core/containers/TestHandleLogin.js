@@ -9,6 +9,7 @@ import { createStore } from 'redux';
 
 import HandleLogin, { mapDispatchToProps } from 'core/containers/HandleLogin';
 import * as api from 'core/api';
+import { userAuthToken } from 'tests/client/helpers';
 
 describe('<HandleLogin />', () => {
   class MyRouter extends React.Component {
@@ -108,7 +109,7 @@ describe('<HandleLogin />', () => {
         router: { push: () => {} },
         code: 'acodefromfxa',
         state: 'thestatefromamo',
-        payload: { token: 'sometoken' },
+        payload: { token: userAuthToken() },
       };
       if (to) {
         data.state += `:${btoa(to).replace(/=/g, '')}`;

@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
@@ -11,7 +10,7 @@ import * as amoApi from 'amo/api';
 import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
-import { SET_USER_RATING } from 'amo/constants';
+import { SET_REVIEW } from 'amo/constants';
 import I18nProvider from 'core/i18n/Provider';
 import {
   createRatingResponse, fakeAddon, signedInApiState,
@@ -25,6 +24,7 @@ function render(customProps = {}) {
     apiState: signedInApiState,
     version: fakeAddon.current_version,
     i18n: getFakeI18nInst(),
+    userId: 91234,
     createRating: () => {},
     ...customProps,
   };
@@ -57,6 +57,7 @@ describe('OverallRating', () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addonId: 12345,
+      userId: 92345,
     });
     selectRating(root, '#OverallRating-rating-5');
     assert.equal(createRating.called, true);
@@ -65,6 +66,7 @@ describe('OverallRating', () => {
     assert.equal(call.versionId, 321);
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
+    assert.equal(call.userId, 92345);
   });
 
   it('lets you submit a "love it" rating', () => {
@@ -117,6 +119,7 @@ describe('OverallRating', () => {
       });
 
       it('posts the rating and dispatches the created rating', () => {
+        const userId = 91234;
         const params = {
           rating: 5,
           apiState: { ...signedInApiState, token: 'new-token' },
@@ -133,13 +136,15 @@ describe('OverallRating', () => {
           .withArgs(params)
           .returns(Promise.resolve(ratingResponse));
 
-        return actions.createRating(params).then(() => {
+        return actions.createRating({ ...params, userId }).then(() => {
           assert.equal(dispatch.called, true);
           const action = dispatch.firstCall.args[0];
 
-          assert.equal(action.type, SET_USER_RATING);
+          assert.equal(action.type, SET_REVIEW);
           assert.equal(action.data.addonId, params.addonId);
-          assert.deepEqual(action.data.userRating, ratingResponse);
+          assert.equal(action.data.userId, userId);
+          assert.deepEqual(action.data.rating, ratingResponse.rating);
+          assert.deepEqual(action.data.versionId, ratingResponse.version.id);
 
           mockApi.verify();
         });
@@ -156,6 +161,20 @@ describe('OverallRating', () => {
       it('sets an empty apiState when not signed in', () => {
         const props = mapStateToProps({});
         assert.equal(props.apiState, undefined);
+      });
+
+      it('sets an empty userId when not signed in', () => {
+        const props = mapStateToProps({});
+        assert.equal(props.userId, undefined);
+      });
+
+      it('sets the userId property from the state', () => {
+        const authState = {
+          token: signedInApiState.token,
+          userId: 91234,
+        };
+        const props = mapStateToProps({ auth: authState });
+        assert.equal(props.userId, 91234);
       });
     });
   });

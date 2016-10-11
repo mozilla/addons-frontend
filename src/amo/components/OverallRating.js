@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { setUserRating } from 'amo/actions/ratings';
+import { setReview } from 'amo/actions/reviews';
 import { postRating } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -18,6 +18,7 @@ export class OverallRatingBase extends React.Component {
     version: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     createRating: PropTypes.func.isRequired,
+    userId: PropTypes.number,
   }
 
   onClickRating = (event) => {
@@ -29,6 +30,7 @@ export class OverallRatingBase extends React.Component {
       versionId: this.props.version.id,
       apiState: this.props.apiState,
       addonId: this.props.addonId,
+      userId: this.props.userId,
     });
   }
 
@@ -39,7 +41,7 @@ export class OverallRatingBase extends React.Component {
       { addonName });
 
     // TODO: Disable rating ability when not logged in
-    // (when state.auth is empty)
+    // (when props.userId is empty)
 
     return (
       <div className="OverallRating">
@@ -72,13 +74,22 @@ export class OverallRatingBase extends React.Component {
 
 export const mapStateToProps = (state) => ({
   apiState: state.api,
+  userId: state.auth && state.auth.userId,
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ addonId, ...params }) {
+  createRating({ addonId, userId, ...params }) {
     return postRating({ addonId, ...params })
-      .then((userRating) => {
-        dispatch(setUserRating({ addonId, userRating }));
+      .then((review) => {
+        // TODO: when we have a user_id in the API response, we
+        // could probably use that instead.
+        // https://github.com/mozilla/addons-server/issues/3672
+        dispatch(setReview({
+          addonId,
+          rating: review.rating,
+          versionId: review.version.id,
+          userId,
+        }));
       });
   },
 });
