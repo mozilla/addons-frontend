@@ -28,7 +28,7 @@ export default function authentication(state = {}, action) {
         ...state,
         token: payload.token,
         // Extract user data from the JWT (which is loaded from a cookie
-        // on each request). This doesn't check the token's siganture
+        // on each request). This doesn't check the token's signature
         // because the server is responsible for that.
         userId: decodeUserIdFromJwt(payload.token),
       };
