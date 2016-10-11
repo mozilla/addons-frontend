@@ -30,7 +30,7 @@ export default function authentication(state = {}, action) {
         // Extract user data from the JWT (which is loaded from a cookie
         // on each request). This doesn't check the token's siganture
         // because the server is responsible for that.
-        user_id: decodeUserIdFromJwt(payload.token),
+        userId: decodeUserIdFromJwt(payload.token),
       };
     case 'SET_CURRENT_USER':
       return { ...state, username: payload.username };

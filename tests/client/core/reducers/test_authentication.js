@@ -35,7 +35,7 @@ describe('authentication reducer', () => {
 
     it('sets auth state based on the token', () => {
       const token = userAuthToken({ user_id: 91234 });
-      assert.deepEqual(setJwt(token), { token, user_id: 91234 });
+      assert.deepEqual(setJwt(token), { token, userId: 91234 });
     });
 
     it('throws a parse error for malformed token data', () => {

@@ -171,7 +171,7 @@ describe('OverallRating', () => {
       it('sets the userId property from the state', () => {
         const authState = {
           token: signedInApiState.token,
-          user_id: 91234,
+          userId: 91234,
         };
         const props = mapStateToProps({ auth: authState });
         assert.equal(props.userId, 91234);
