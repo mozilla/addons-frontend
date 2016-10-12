@@ -1,9 +1,8 @@
 @import "~core/css/inc/vars";
-@import "~amo/css/inc/vars";
 
 .AddonDetail {
   header {
-    background: $header-background;
+    background: $masthead-color;
     color: $header-font-color;
   }
 
@@ -14,7 +13,9 @@
   .icon,
   .title,
   .description,
-  .screenshots {
+  .screenshots,
+  .about,
+  .overall-rating {
     overflow: hidden;
     padding: 20px;
   }
@@ -38,7 +39,7 @@
   }
 
   .title {
-    background: darken($header-background, 3%);
+    background: darken($masthead-color, 3%);
 
     h1 {
       margin-top: 0;
@@ -61,16 +62,11 @@
   }
 
   .description {
-    background: darken($header-background, 5.5%);
+    background: darken($masthead-color, 5.5%);
     font-size: 18px;
 
     p:first-child {
       margin-top: 0;
     }
-  }
-
-  .about,
-  .overall-rating {
-    padding: 20px;
   }
 }

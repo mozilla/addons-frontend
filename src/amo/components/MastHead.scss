@@ -1,4 +1,4 @@
-@import "~amo/css/inc/vars";
+@import "~core/css/inc/vars";
 
 #tabzilla {
   left: 14px;
@@ -11,7 +11,7 @@
 }
 
 .MastHead {
-  background: $header-background;
+  background: $masthead-color;
   min-height: 100px;
   position: relative;
 }

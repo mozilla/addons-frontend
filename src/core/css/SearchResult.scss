@@ -4,9 +4,9 @@ $border-radius: 9px;
 $secondary-color: #6a6a6a;
 
 .SearchResult {
-  background: $background-accent-color;
-  border-bottom: 6px solid #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: $base-color;
+  list-style-type: none;
+  margin: 0 0 1px;
 
   &:first-of-type {
     border-top-left-radius: $border-radius;
@@ -14,7 +14,6 @@ $secondary-color: #6a6a6a;
   }
 
   &:last-of-type {
-    border-bottom: 0;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
   }
@@ -24,9 +23,16 @@ $secondary-color: #6a6a6a;
   color: $text-color-default;
   display: flex;
   margin: 0;
-  padding: 1em;
+  padding: 10px;
   text-decoration: none;
   width: 100%;
+
+  &:focus,
+  &:hover {
+    .SearchResult-heading {
+      text-decoration: underline;
+    }
+  }
 }
 
 .SearchResult-main {
@@ -35,22 +41,26 @@ $secondary-color: #6a6a6a;
 
 .SearchResult-heading {
   color: $primary-font-color;
-  font-size: $font-size-m;
-  font-weight: normal;
-  margin: 0 0 0.1em;
+  font-size: $font-size-default;
+  font-weight: bold;
+  margin: 0;
   padding: 0;
   text-decoration: none;
+}
 
-  &:hover {
-    text-decoration: underline;
-  }
+.SearchResult-rating {
+  background: url('~amo/img/ratings/stars.svg') 0 50% no-repeat;
+  display: block;
+  height: 18px;
+  margin: 0;
+  width: 150px;
 }
 
 .SearchResult-author,
 .SearchResult-users {
   color: $secondary-color;
   display: inline-block;
-  font-size: $font-size-default;
+  font-size: $font-size-s;
   font-weight: normal;
   margin: 0;
   padding: 0;
