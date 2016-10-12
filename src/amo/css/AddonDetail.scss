@@ -2,7 +2,7 @@
 
 .AddonDetail {
   header {
-    background: $base-background-color;
+    background: $masthead-color;
     color: $header-font-color;
   }
 
@@ -39,7 +39,7 @@
   }
 
   .title {
-    background: darken($base-background-color, 3%);
+    background: darken($masthead-color, 3%);
 
     h1 {
       margin-top: 0;
@@ -62,7 +62,7 @@
   }
 
   .description {
-    background: darken($base-background-color, 5.5%);
+    background: darken($masthead-color, 5.5%);
     font-size: 18px;
 
     p:first-child {
