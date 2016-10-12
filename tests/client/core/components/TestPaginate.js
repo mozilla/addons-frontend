@@ -1,7 +1,7 @@
 /* global document, Node */
 
 import React from 'react';
-import { render } from 'react-dom';
+import { render, findDOMNode } from 'react-dom';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { Route, Router, createMemoryHistory } from 'react-router';
 
@@ -78,6 +78,20 @@ describe('<Paginate />', () => {
           const root = renderPaginate({ ...commonParams, currentPage: 3 });
           assert.deepEqual(root.visiblePages(), [1, 2, 3]);
         });
+      });
+    });
+
+    describe('with one page', () => {
+      const commonParams = { count: 3, perPage: 10, showPages: 5 };
+
+      it('will not render if there is only one page', () => {
+        const root = findDOMNode(renderPaginate({ ...commonParams }));
+        assert.equal(root, null);
+      });
+
+      it('will render with more than one page', () => {
+        const root = findDOMNode(renderPaginate({ ...commonParams, count: 30 }));
+        assert.ok(root.classList.contains('paginator'));
       });
     });
 

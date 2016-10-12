@@ -64,6 +64,9 @@ export default class Paginate extends React.Component {
   }
 
   render() {
+    if (this.pageCount() === 1) {
+      return null;
+    }
     const { currentPage, pathname, query } = this.props;
     return (
       <ul className="paginator">
