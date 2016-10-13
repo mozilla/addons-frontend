@@ -1,13 +1,51 @@
-.paginator {
-  display: flex;
-  justify-content: space-between;
-  margin: 1em;
-  padding: 0;
+@import '~core/css/inc/mixins';
+
+.Paginator::after {
+  clear: both;
+  content: '';
+  display: block;
 }
 
-.paginator--item {
+.Paginator-page-number {
+  font-weight: bold;
+  margin: 0 0 5px;
+  text-align: center;
+}
+
+.Paginator .Paginator-item {
+  @include button($background: #fff, $color: #000);
+
   display: inline-block;
+  font-size: $font-size-s;
+  font-variant: small-caps;
+  font-weight: normal;
+  line-height: 2;
   margin: 0 0.5em;
+  min-width: 40%;
   list-style-type: none;
   text-align: center;
+}
+
+.Paginator-previous {
+  &::before {
+    @include arrow($type: 'previous');
+  }
+
+  float: left;
+
+  [dir=rtl] & {
+    float: right;
+  }
+}
+
+.Paginator-next {
+  &::after {
+    @include arrow($type: 'next');
+  }
+
+  float: right;
+
+  [dir=rtl] & {
+    float: left;
+  }
 }

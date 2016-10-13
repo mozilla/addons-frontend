@@ -1,3 +1,5 @@
+@import './vars';
+
 /* Font mixins. Changes here affect *alL* apps */
 
 @mixin font-light() {
@@ -65,5 +67,121 @@
   } @else {
     @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
       + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+/* Arrows */
+@mixin arrow($margin: 3px, $type: 'previous') {
+  background: url('~amo/img/icons/arrow.svg') 50% 50% no-repeat;
+  border-radius: $border-radius-m;
+  content: '';
+  display: inline-block;
+  height: 16px;
+  margin-right: -$margin * 2;
+  position: relative;
+  right: -$margin;
+  top: 4px;
+  width: 22px;
+
+  @if $type == 'previous' {
+    left: -$margin;
+    margin-left: -$margin * 2;
+    margin-right: 0;
+    right: auto;
+    transform: rotate(180deg);
+  }
+
+  [dir=rtl] & {
+    left: -$margin;
+    margin-left: -$margin * 2;
+    margin-right: 0;
+    right: auto;
+    transform: rotate(180deg);
+
+    @if $type == 'previous' {
+      left: auto;
+      margin-left: 0;
+      margin-right: -$margin * 2;
+      right: -$margin;
+      transform: none;
+    }
+  }
+}
+
+/* Button */
+@mixin button($background: $button-background-color,
+  $color: $text-color-message) {
+  background: $background;
+  border-radius: $border-radius-default;
+  border: 0;
+  color: $color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-m;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: $transition-short;
+  transition-property: background-color;
+
+  &:active,
+  &:hover,
+  &:focus {
+    @if lightness($background) < 5% {
+      background: lighten($background, 9%);
+    } @else {
+      background: darken($background, 3%);
+    }
+
+    @if lightness($background) > 80% {
+      color: black;
+    } @else {
+      color: white;
+    }
+  }
+
+  &:focus {
+    @include focus();
+  }
+
+  &:disabled,
+  &.disabled {
+    @if lightness($background) > 80 {
+      background: adjust-hue(darken(desaturate($background, 85%), 13%), 6);
+    } @else {
+      background: adjust-hue(lighten(desaturate($background, 85%), 13%), 6);
+    }
+    cursor: not-allowed;
+  }
+
+  &.warning {
+    background: $warning;
+  }
+
+  &.button-start {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &.button-middle {
+    border-radius: 0;
+  }
+
+  &.button-end {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &.button-inverse {
+    background: transparent;
+    border: 1px solid $background;
+    color: $background;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
   }
 }
