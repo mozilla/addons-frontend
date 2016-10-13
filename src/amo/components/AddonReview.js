@@ -23,6 +23,10 @@ export class AddonReviewBase extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     const body = this.reviewTextarea.value;
+    if (!body) {
+      // TODO: dispatch an error action when we have support for that.
+      throw new Error('The review text cannot be empty');
+    }
     const params = {
       body,
       addonId: this.props.review.addonSlug,
@@ -33,7 +37,10 @@ export class AddonReviewBase extends React.Component {
   }
 
   render() {
-    const { i18n } = this.props;
+    const { i18n, review } = this.props;
+    if (!(review && review.id && review.addonSlug)) {
+      throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
+    }
 
     return (
       <div className="AddonReview">
@@ -51,6 +58,7 @@ export class AddonReviewBase extends React.Component {
               'Tell us what you love about this extension. ' +
               'Be specific and concise.')} />
           <div className="AddonReview-button-row">
+            {/* TODO: hook up the back button when we have link support */}
             <button className="AddonReview-button AddonReview-back-button">
               &#12296; {i18n.gettext('Back')}
             </button>
@@ -90,25 +98,21 @@ export const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-function loadAddonReview(
-  { store: { dispatch, getState }, params: { slug, reviewId } }
+export function loadAddonReview(
+  { store: { dispatch }, params: { slug, reviewId } }
 ) {
-  const state = getState();
   return callApi(
     {
       endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
       method: 'get',
     })
     .then((review) => {
-      log.info('got review', review);
-      // TODO: get the user ID from the result instead.
-      const userId = state.auth.user_id;
 
       dispatch(setReview({
         addonId: review.addon.id,
         versionId: review.version.id,
         rating: review.rating,
-        userId,
+        userId: review.user.id,
       }));
 
       const reviewData = {
