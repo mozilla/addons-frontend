@@ -6,23 +6,25 @@ export function postRating({
   rating, apiState, addonId, versionId, body, reviewId,
 }) {
   const data = { rating, version: versionId, body };
-  log.debug('about to post add-on rating with', data);
-
-  if (!addonId) {
-    throw new Error('addonId is required to build the endpoint');
-  }
   let method = 'POST';
   let endpoint = `addons/addon/${addonId}/reviews`;
-  if (reviewId) {
-    endpoint = `${endpoint}/${reviewId}`;
-    method = 'PATCH';
-  }
 
-  return callApi({
-    endpoint,
-    body: data,
-    method,
-    auth: true,
-    state: apiState,
-  });
+  return new Promise(
+    (resolve) => {
+      if (!addonId) {
+        throw new Error('addonId is required to build the endpoint');
+      }
+      if (reviewId) {
+        endpoint = `${endpoint}/${reviewId}`;
+        method = 'PATCH';
+      }
+      resolve();
+    })
+    .then(() => callApi({
+      endpoint,
+      body: data,
+      method,
+      auth: true,
+      state: apiState,
+    }));
 }
