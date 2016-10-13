@@ -4,11 +4,20 @@ import config from 'config';
 import * as api from 'core/api';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
+
+
 describe('api', () => {
   let mockWindow;
+  const apiHost = config.get('apiHost');
 
   beforeEach(() => {
     mockWindow = sinon.mock(window);
+  });
+
+  describe('all api', () => {
+    it('does not use remote host for api calls', () => {
+      assert.equal(apiHost, 'https://localhost');
+    });
   });
 
   describe('admin search api', () => {
@@ -31,8 +40,7 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(
-          'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US')
+        .withArgs(`${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.search({
@@ -60,8 +68,7 @@ describe('api', () => {
     });
 
     it('surfaces status and apiURL on Error instance', () => {
-      const url =
-        'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US';
+      const url = `${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`;
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
@@ -99,8 +106,7 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(
-          'https://addons.mozilla.org/api/v3/addons/search/?q=foo&page=3&lang=en-US')
+        .withArgs(`${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.search({ api: { lang: 'en-US' }, query: 'foo', page: 3 })
@@ -139,7 +145,7 @@ describe('api', () => {
     it('sets the lang and slug', () => {
       mockWindow.expects('fetch')
         .withArgs(
-          'https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US',
+          `${apiHost}/api/v3/addons/addon/foo/?lang=en-US`,
           { headers: {}, method: 'get' })
         .once()
         .returns(mockResponse());
@@ -161,7 +167,7 @@ describe('api', () => {
       mockWindow
         .expects('fetch')
         .withArgs(
-          'https://addons.mozilla.org/api/v3/addons/addon/foo/?lang=en-US',
+          `${apiHost}/api/v3/addons/addon/foo/?lang=en-US`,
           { headers: {}, method: 'get' })
         .once()
         .returns(Promise.resolve({ ok: false }));
@@ -175,7 +181,7 @@ describe('api', () => {
       mockWindow
         .expects('fetch')
         .withArgs(
-          'https://addons.mozilla.org/api/v3/addons/addon/bar/?lang=en-US',
+          `${apiHost}/api/v3/addons/addon/bar/?lang=en-US`,
           { headers: { authorization: `Bearer ${token}` }, method: 'get' })
         .once()
         .returns(mockResponse());
@@ -203,7 +209,7 @@ describe('api', () => {
     it('sends the code and state', () => {
       mockWindow
         .expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?lang=en-US', {
+        .withArgs(`${apiHost}/api/v3/accounts/login/?lang=en-US`, {
           body: '{"code":"my-code","state":"my-state"}',
           credentials: 'include',
           headers: { 'Content-type': 'application/json' },
@@ -222,7 +228,7 @@ describe('api', () => {
       sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
       mockWindow
         .expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/accounts/login/?config=my-config&lang=fr')
+        .withArgs(`${apiHost}/api/v3/accounts/login/?config=my-config&lang=fr`)
         .once()
         .returns(mockResponse());
       return api.login({ api: { lang: 'fr' }, code: 'my-code', state: 'my-state' })
@@ -236,7 +242,7 @@ describe('api', () => {
       const user = { username: 'foo', email: 'foo@example.com' };
       mockWindow
         .expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/accounts/profile/?lang=en-US', {
+        .withArgs(`${apiHost}/api/v3/accounts/profile/?lang=en-US`, {
           headers: { authorization: `Bearer ${token}` },
           method: 'get',
         })
@@ -258,7 +264,7 @@ describe('api', () => {
       const location = { pathname: '/foo', query: { bar: 'BAR' } };
       assert.equal(
         api.startLoginUrl({ location }),
-        'https://addons.mozilla.org/api/v3/accounts/login/start/?to=%2Ffoo%3Fbar%3DBAR');
+        `${apiHost}/api/v3/accounts/login/start/?to=%2Ffoo%3Fbar%3DBAR`);
     });
 
     it('includes the next path the config if set', () => {
@@ -266,7 +272,7 @@ describe('api', () => {
       const location = { pathname: '/foo' };
       assert.equal(
         api.startLoginUrl({ location }),
-        'https://addons.mozilla.org/api/v3/accounts/login/start/?to=%2Ffoo&config=my-config');
+        `${apiHost}/api/v3/accounts/login/start/?to=%2Ffoo&config=my-config`);
     });
   });
 });
