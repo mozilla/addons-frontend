@@ -23,21 +23,17 @@ export class AddonReviewBase extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     const body = this.reviewTextarea.value;
-    log.debug('about to submit review:', body);
     const params = {
       body,
       addonId: this.props.review.addonSlug,
       reviewId: this.props.review.id,
       apiState: this.props.apiState,
     };
-    log.debug('about to submit review with params:', params);
     this.props.updateReviewText(params);
   }
 
   render() {
     const { i18n } = this.props;
-    log.info(`rendering AddonReview with review ID ${this.props.review.id}`);
-    // TODO: add a review submitter action
 
     return (
       <div className="AddonReview">
