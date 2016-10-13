@@ -1,4 +1,4 @@
-import { postRating } from 'amo/api';
+import { submitReview } from 'amo/api';
 import * as api from 'core/api';
 import { signedInApiState } from 'tests/client/amo/helpers';
 
@@ -9,7 +9,7 @@ describe('amo.api', () => {
     mockApi = sinon.mock(api);
   });
 
-  describe('postRatings', () => {
+  describe('submitReview', () => {
     // These are all the default values for fields that can be posted to the
     // endpoint.
     const defaultParams = {
@@ -30,7 +30,7 @@ describe('amo.api', () => {
         addonId: null,
       };
 
-      return postRating(params)
+      return submitReview(params)
         .then(() => {
           throw new Error('unexpected success');
         })
@@ -60,7 +60,7 @@ describe('amo.api', () => {
         })
         .returns(Promise.resolve(genericApiResponse));
 
-      return postRating(params).then((apiResponse) => {
+      return submitReview(params).then((apiResponse) => {
         assert.deepEqual(apiResponse, genericApiResponse);
         mockApi.verify();
       });
@@ -87,7 +87,7 @@ describe('amo.api', () => {
         })
         .returns(Promise.resolve(genericApiResponse));
 
-      return postRating(params).then((apiResponse) => {
+      return submitReview(params).then((apiResponse) => {
         assert.deepEqual(apiResponse, genericApiResponse);
         mockApi.verify();
       });

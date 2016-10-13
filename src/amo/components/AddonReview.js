@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
 
-import { postRating } from 'amo/api';
+import { submitReview } from 'amo/api';
 import { setReview } from 'amo/actions/reviews';
 import { callApi } from 'core/api';
 import translate from 'core/i18n/translate';
@@ -75,13 +75,13 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   updateReviewText(params) {
-    return postRating(params)
+    return submitReview(params)
       .then((review) => {
         // TODO: when we have a user_id in the API response, we
         // could probably use that instead.
         // https://github.com/mozilla/addons-server/issues/3672
 
-        log.info('postRating() response:', review);
+        log.info('submitReview() response:', review);
         // TODO: dispatch something
 
         // dispatch(setReview({

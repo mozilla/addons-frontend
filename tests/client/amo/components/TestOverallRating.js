@@ -132,7 +132,7 @@ describe('OverallRating', () => {
         });
 
         mockApi
-          .expects('postRating')
+          .expects('submitReview')
           .withArgs(params)
           .returns(Promise.resolve(ratingResponse));
 

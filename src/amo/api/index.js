@@ -2,7 +2,10 @@
 import { callApi } from 'core/api';
 import log from 'core/logger';
 
-export function postRating({
+/*
+ * POST/PATCH an add-on review using the API.
+ */
+export function submitReview({
   rating, apiState, addonId, versionId, body, reviewId,
 }) {
   const data = { rating, version: versionId, body };

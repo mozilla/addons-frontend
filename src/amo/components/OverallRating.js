@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setReview } from 'amo/actions/reviews';
-import { postRating } from 'amo/api';
+import { submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
@@ -79,7 +79,7 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   createRating({ addonId, userId, ...params }) {
-    return postRating({ addonId, ...params })
+    return submitReview({ addonId, ...params })
       .then((review) => {
         // TODO: when we have a user_id in the API response, we
         // could probably use that instead.
