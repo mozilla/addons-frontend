@@ -199,7 +199,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             .map((item) => asyncConnectLoadState[item].error)
             .filter((item) => item);
 
-          if (apiErrors.length === 1) {
+          const isTest = env === 'test';
+          if (apiErrors.length === 1 && !isTest) {
             // If we have a single API error reflect that in the page's response.
             const apiStatus = apiErrors[0].response.status;
             return showErrorPage(res, apiStatus);
