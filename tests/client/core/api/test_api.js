@@ -21,7 +21,7 @@ describe('api', () => {
 
     it('transforms method to upper case', () => {
       mockWindow.expects('fetch')
-        .withArgs('https://addons.mozilla.org/api/v3/resource/?lang=', {
+        .withArgs(`${apiHost}/api/v3/resource/?lang=`, {
           method: 'GET', headers: {},
         })
         .once()
