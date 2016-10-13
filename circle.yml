@@ -33,9 +33,7 @@ dependencies:
     # day to keep the cache size down.
     - I="image-$(date +%j).gz"; if [[ -e ~/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/docker/$I | docker load; fi
 
-    - docker build --pull -t $DOCKERHUB_REPO:amo --build-arg NODE_APP_INSTANCE=amo .
-    - docker build --pull -t $DOCKERHUB_REPO:disco --build-arg NODE_APP_INSTANCE=disco .
-    - docker build --pull -t $DOCKERHUB_REPO:admin --build-arg NODE_APP_INSTANCE=admin .
+    - docker build --pull -t $DOCKERHUB_REPO .
 
     - docker images
 
@@ -47,7 +45,7 @@ dependencies:
 
 test:
   override:
-    - docker run -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests $DOCKERHUB_REPO:disco /bin/sh -c "npm run build && npm run start" && sleep 60
+    - docker run -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests $DOCKERHUB_REPO /bin/sh -c "npm run build && npm run start" && sleep 60
     - tox -e discopane-ui-tests --
       --base-url=http://localhost:4000
       --firefox-path=firefox/firefox
@@ -59,13 +57,7 @@ deployment:
     commands:
       - "[ ! -z $DOCKERHUB_REPO ]"
       - "docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS"
-      - "docker tag $DOCKERHUB_REPO:amo $DOCKERHUB_REPO:amo-latest"
-      - "docker tag $DOCKERHUB_REPO:disco $DOCKERHUB_REPO:disco-latest"
-      - "docker tag $DOCKERHUB_REPO:admin $DOCKERHUB_REPO:admin-latest"
-      - "docker images"
-      - "docker push $DOCKERHUB_REPO:amo-latest"
-      - "docker push $DOCKERHUB_REPO:disco-latest"
-      - "docker push $DOCKERHUB_REPO:admin-latest"
+      - "docker push $DOCKERHUB_REPO:latest"
 
   hub_releases:
     # push all tags
@@ -74,10 +66,6 @@ deployment:
       - "[ ! -z $DOCKERHUB_REPO ]"
       - "docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS"
       - "echo $DOCKERHUB_REPO:$CIRCLE_TAG"
-      - "docker tag $DOCKERHUB_REPO:amo $DOCKERHUB_REPO:amo-$CIRCLE_TAG"
-      - "docker tag $DOCKERHUB_REPO:disco $DOCKERHUB_REPO:disco-$CIRCLE_TAG"
-      - "docker tag $DOCKERHUB_REPO:admin $DOCKERHUB_REPO:admin-$CIRCLE_TAG"
+      - "docker tag $DOCKERHUB_REPO $DOCKERHUB_REPO:$CIRCLE_TAG"
       - "docker images"
-      - "docker push $DOCKERHUB_REPO:amo-$CIRCLE_TAG"
-      - "docker push $DOCKERHUB_REPO:disco-$CIRCLE_TAG"
-      - "docker push $DOCKERHUB_REPO:admin-$CIRCLE_TAG"
+      - "docker push $DOCKERHUB_REPO:$CIRCLE_TAG"
