@@ -63,16 +63,20 @@ export class PaginateBase extends React.Component {
 
   makeLink({ currentPage, page, pathname, query, text, className }) {
     if (currentPage === page || page < 1 || page > this.pageCount()) {
-      return (<span key={page}
-        className={classNames('Paginator-item', 'disabled', className )}>
-        {text || page}
-      </span>);
+      return (
+        <span key={page}
+          className={classNames('Paginator-item', 'disabled', className )}>
+          {text || page}
+        </span>
+      );
     } else {
       const newQuery = { page, ...query };
-      return (<Link to={{ pathname, query: newQuery }}
-        className={classNames('Paginator-item', className )}>
-        {text || page}
-      </Link>);
+      return (
+        <Link to={{ pathname, query: newQuery }}
+          className={classNames('Paginator-item', className )}>
+          {text || page}
+        </Link>
+      );
     }
   }
 

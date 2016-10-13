@@ -12,6 +12,11 @@
   text-align: center;
 }
 
+.Paginator-links {
+  display: flex;
+  justify-content: space-between;
+}
+
 .Paginator .Paginator-item {
   @include button($background: #fff, $color: #000);
 
@@ -22,30 +27,17 @@
   line-height: 2;
   margin: 0 0.5em;
   min-width: 40%;
-  list-style-type: none;
   text-align: center;
 }
 
 .Paginator-previous {
   &::before {
-    @include arrow($type: 'previous');
-  }
-
-  float: left;
-
-  [dir=rtl] & {
-    float: right;
+    @include arrow-previous();
   }
 }
 
 .Paginator-next {
   &::after {
-    @include arrow($type: 'next');
-  }
-
-  float: right;
-
-  [dir=rtl] & {
-    float: left;
+    @include arrow-next();
   }
 }

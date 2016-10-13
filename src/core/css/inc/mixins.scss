@@ -71,7 +71,8 @@
 }
 
 /* Arrows */
-@mixin arrow($margin: 3px, $type: 'previous') {
+$default-arrow-margin: 3px;
+@mixin arrow($margin: $default-arrow-margin) {
   background: url('~amo/img/icons/arrow.svg') 50% 50% no-repeat;
   border-radius: $border-radius-m;
   content: '';
@@ -83,28 +84,36 @@
   top: 4px;
   width: 22px;
 
-  @if $type == 'previous' {
-    left: -$margin;
-    margin-left: -$margin * 2;
-    margin-right: 0;
-    right: auto;
-    transform: rotate(180deg);
-  }
-
   [dir=rtl] & {
     left: -$margin;
     margin-left: -$margin * 2;
     margin-right: 0;
     right: auto;
     transform: rotate(180deg);
+  }
+}
 
-    @if $type == 'previous' {
-      left: auto;
-      margin-left: 0;
-      margin-right: -$margin * 2;
-      right: -$margin;
-      transform: none;
-    }
+// Just an alias to make it easier to differentiate when both mixins are used
+// near each other.
+@mixin arrow-next($margin: $default-arrow-margin) {
+  @include arrow($margin);
+}
+
+@mixin arrow-previous($margin: $default-arrow-margin) {
+  @include arrow($margin);
+
+  left: -$margin;
+  margin-left: -$margin * 2;
+  margin-right: 0;
+  right: auto;
+  transform: rotate(180deg);
+
+  [dir=rtl] & {
+    left: auto;
+    margin-left: 0;
+    margin-right: -$margin * 2;
+    right: -$margin;
+    transform: none;
   }
 }
 
