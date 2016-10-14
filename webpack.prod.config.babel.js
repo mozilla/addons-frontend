@@ -45,7 +45,7 @@ const settings = {
         loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
       }, {
         test: /\.svg$/,
-        loader: 'svg-url?limit=10000',
+        loader: 'raw-loader',
       }, {
         test: /\.jpg$/,
         loader: 'url?limit=10000&mimetype=image/jpeg',

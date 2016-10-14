@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import SearchForm from 'amo/components/SearchForm';
+import Icon from 'core/components/Icon';
 import translate from 'core/i18n/translate';
 
 import 'mozilla-tabzilla/css/_tabzilla.scss';
@@ -38,10 +39,14 @@ export class MastHeadBase extends React.Component {
           { isHomePage ?
             <h1 ref={(ref) => { this.title = ref; }}
                 className="MastHead-title MastHead-homepage">
+              <Icon name="FoxPuzzle" />
               { headerTitle }
             </h1> :
             <a ref={(ref) => { this.title = ref; }}
-               href="/" className="MastHead-title">{ headerTitle }</a> }
+              href="/" className="MastHead-title">
+              <Icon name="FoxPuzzle" />
+              { headerTitle }
+            </a> }
         </header>
         <SearchFormComponent pathname={pathname} query={query} />
       </div>

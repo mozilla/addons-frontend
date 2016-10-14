@@ -74,7 +74,7 @@ export default Object.assign({}, webpackConfig, {
         loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
       }, {
         test: /\.svg$/,
-        loader: 'svg-url?limit=10000',
+        loader: 'raw-loader',
       }, {
         test: /\.jpg$/,
         loader: 'url?limit=10000&mimetype=image/jpeg',

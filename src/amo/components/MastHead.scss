@@ -14,6 +14,17 @@
   background: $masthead-color;
   min-height: 100px;
   position: relative;
+
+  .FoxPuzzleIcon {
+    display: inline-block;
+    height: 50px;
+    margin-right: 10px;
+    width: 50px;
+
+    [dir=rtl] & {
+      margin: 0 0 0 10px;
+    }
+  }
 }
 
 .MastHead-header {
@@ -31,19 +42,6 @@
   &:link {
     font-size: 24px;
     text-decoration: none;
-  }
-
-  &::before {
-    background: url('../img/icons/fox-puzzle.svg') no-repeat 50% 50%;
-    content: '';
-    display: inline-block;
-    height: 50px;
-    margin-right: 10px;
-    width: 50px;
-
-    [dir=rtl] & {
-      margin: 0 0 0 10px;
-    }
   }
 }
 
@@ -66,19 +64,17 @@
     align-items: center;
     display: flex;
     justify-content: center;
+  }
 
-    &::before {
-      background: url('../img/icons/login-person.svg') no-repeat 0 0;
-      content: '';
-      display: inline-block;
-      height: 16px;
-      margin-right: 5px;
-      position: relative;
-      width: 13px;
+  .LoginIcon {
+    fill: $header-font-color;
+    height: 16px;
+    margin-right: 5px;
+    position: relative;
+    width: 13px;
 
-      [dir=rtl] & {
-        margin: 0 0 0 5px;
-      }
+    [dir=rtl] & {
+      margin: 0 0 0 5px;
     }
   }
 }
