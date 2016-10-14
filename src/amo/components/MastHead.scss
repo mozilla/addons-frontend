@@ -66,12 +66,10 @@
     justify-content: center;
   }
 
-  .LoginIcon {
+  .LoginPersonIcon {
     fill: $header-font-color;
-    height: 16px;
     margin-right: 5px;
     position: relative;
-    width: 13px;
 
     [dir=rtl] & {
       margin: 0 0 0 5px;
