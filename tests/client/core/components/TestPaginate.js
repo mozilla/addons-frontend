@@ -120,8 +120,10 @@ describe('<Paginate />', () => {
 
     class PaginateWrapper extends React.Component {
       render() {
-        return <Paginate count={50} currentPage={5} pathname={pathname}
-          showPages={5} />;
+        return (
+          <Paginate count={50} currentPage={5} pathname={pathname}
+            showPages={5} />
+        );
       }
     }
 
@@ -184,6 +186,7 @@ describe('<Paginate />', () => {
   describe('links', () => {
     const pathname = '/some-path/';
 
+    // eslint-disable-next-line react/no-multi-comp
     class PaginateWrapper extends React.Component {
       render() {
         return <Paginate count={250} currentPage={5} pathname={pathname} showPages={5} />;
