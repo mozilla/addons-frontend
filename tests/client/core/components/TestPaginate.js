@@ -2,16 +2,25 @@
 
 import React from 'react';
 import { render, findDOMNode } from 'react-dom';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import {
+  renderIntoDocument,
+  findRenderedComponentWithType,
+} from 'react-addons-test-utils';
 import { Route, Router, createMemoryHistory } from 'react-router';
 
+import I18nProvider from 'core/i18n/Provider';
 import Paginate from 'core/components/Paginate';
+import { getFakeI18nInst } from 'tests/client/helpers';
+
 
 describe('<Paginate />', () => {
   describe('methods', () => {
     function renderPaginate({ count = 20, currentPage = 1, pathname, ...extra }) {
-      return renderIntoDocument(
-        <Paginate count={count} currentPage={currentPage} pathname={pathname} {...extra} />);
+      return findRenderedComponentWithType(renderIntoDocument(
+        <I18nProvider i18n={getFakeI18nInst()}>
+          <Paginate count={count} currentPage={currentPage} pathname={pathname} {...extra} />
+        </I18nProvider>
+      ), Paginate).getWrappedInstance();
     }
 
     describe('pageCount()', () => {
@@ -78,6 +87,16 @@ describe('<Paginate />', () => {
           const root = renderPaginate({ ...commonParams, currentPage: 3 });
           assert.deepEqual(root.visiblePages(), [1, 2, 3]);
         });
+
+        it('will not render when showPages is false-y', () => {
+          const root = renderPaginate({ ...commonParams, currentPage: 3, showPages: 0 });
+          assert.deepEqual(root.visiblePages(), []);
+        });
+
+        it('will not render when showPages is false', () => {
+          const root = renderPaginate({ ...commonParams, currentPage: 3, showPages: false });
+          assert.deepEqual(root.visiblePages(), []);
+        });
       });
     });
 
@@ -91,27 +110,48 @@ describe('<Paginate />', () => {
 
       it('will render with more than one page', () => {
         const root = findDOMNode(renderPaginate({ ...commonParams, count: 30 }));
-        assert.ok(root.classList.contains('paginator'));
+        assert.ok(root.classList.contains('Paginator'));
       });
     });
+  });
 
-    describe('makeLink()', () => {
-      const pathname = '/some-path/';
-      let root;
+  describe('makeLink()', () => {
+    const pathname = '/some-path/';
 
-      beforeEach(() => {
-        root = new Paginate({ count: 50, currentPage: 5, pathname });
+    class PaginateWrapper extends React.Component {
+      render() {
+        return (
+          <Paginate count={50} currentPage={5} pathname={pathname}
+            showPages={5} />
+        );
+      }
+    }
+
+    function renderPaginate() {
+      return new Promise((resolve) => {
+        const node = document.createElement('div');
+        render((
+          <Router history={createMemoryHistory('/')}>
+            <Route path="/" component={PaginateWrapper} />
+          </Router>
+        ), node, () => {
+          resolve(node);
+        });
       });
+    }
 
-      describe('when the link is to the current page', () => {
-        it('does not contain a link', () => {
+    describe('when the link is to the current page', () => {
+      it('does not contain a link', () => {
+        renderPaginate().then((root) => {
           const link = renderIntoDocument(root.makeLink({ currentPage: 3, page: 3, pathname }));
           assert.equal(link.childNodes.length, 1);
           assert.equal(link.childNodes[0].nodeType, Node.TEXT_NODE);
           assert.equal(link.textContent, '3');
         });
+      });
 
-        it('uses the provided text', () => {
+      it('uses the provided text', () => {
+        renderPaginate().then((root) => {
           const link = renderIntoDocument(
             root.makeLink({ currentPage: 3, page: 3, pathname, text: 'hi' }));
           assert.equal(link.childNodes.length, 1);
@@ -119,16 +159,20 @@ describe('<Paginate />', () => {
           assert.equal(link.textContent, 'hi');
         });
       });
+    });
 
-      describe('when the link is to a different page', () => {
-        it('has a link', () => {
+    describe('when the link is to a different page', () => {
+      it('has a link', () => {
+        renderPaginate().then((root) => {
           const link = renderIntoDocument(root.makeLink({ currentPage: 2, page: 3, pathname }));
           assert.equal(link.childNodes.length, 1);
           assert.equal(link.childNodes[0].tagName, 'A');
           assert.equal(link.textContent, '3');
         });
+      });
 
-        it('uses the provided text', () => {
+      it('uses the provided text', () => {
+        renderPaginate().then((root) => {
           const link = renderIntoDocument(
             root.makeLink({ currentPage: 4, page: 3, pathname, text: 'hi' }));
           assert.equal(link.childNodes.length, 1);
@@ -142,6 +186,7 @@ describe('<Paginate />', () => {
   describe('links', () => {
     const pathname = '/some-path/';
 
+    // eslint-disable-next-line react/no-multi-comp
     class PaginateWrapper extends React.Component {
       render() {
         return <Paginate count={250} currentPage={5} pathname={pathname} showPages={5} />;

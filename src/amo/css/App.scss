@@ -26,6 +26,10 @@ body {
   line-height: 19px;
 }
 
+.App-content {
+  padding: 0 0 10px;
+}
+
 h1,
 h2 {
   @include font-bold();
