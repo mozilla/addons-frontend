@@ -9,6 +9,10 @@
 .Paginator-links {
   display: flex;
   justify-content: space-between;
+
+  [dir=rtl] & {
+    flex-direction: row-reverse;
+  }
 }
 
 .Paginator .Paginator-item {
@@ -25,13 +29,21 @@
 }
 
 .Paginator-previous {
-  &::before {
+  [dir=ltr] &::before {
+    @include arrow-previous();
+  }
+
+  [dir=rtl] &::after {
     @include arrow-previous();
   }
 }
 
 .Paginator-next {
-  &::after {
+  [dir=ltr] &::after {
+    @include arrow-next();
+  }
+
+  [dir=rtl] &::before {
     @include arrow-next();
   }
 }
