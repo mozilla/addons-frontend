@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import config from 'config';
 
 import { getClientApp, isValidClientApp } from 'core/utils';

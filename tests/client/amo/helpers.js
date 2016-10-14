@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const fakeAddon = {
   id: 1234,
   name: 'Chill Out',
