@@ -1,7 +1,11 @@
+import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
+import translate from 'core/i18n/translate';
+
 import './Paginate.scss';
+
 
 function makePageNumbers({ start, end }) {
   const pages = [];
@@ -11,10 +15,11 @@ function makePageNumbers({ start, end }) {
   return pages;
 }
 
-export default class Paginate extends React.Component {
+export class PaginateBase extends React.Component {
   static propTypes = {
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
+    i18n: PropTypes.object.isRequired,
     pathname: PropTypes.string.isRequired,
     query: PropTypes.object,
     perPage: PropTypes.number,
@@ -22,7 +27,7 @@ export default class Paginate extends React.Component {
   }
 
   static defaultProps = {
-    perPage: 25,
+    perPage: 20,
     query: {},
     showPages: 9,
   }
@@ -33,6 +38,10 @@ export default class Paginate extends React.Component {
 
   visiblePages() {
     const { currentPage, showPages } = this.props;
+    if (!showPages) {
+      return [];
+    }
+
     const pageCount = this.pageCount();
     const showExtra = Math.floor(showPages / 2);
     const start = Math.max(1, currentPage - showExtra);
@@ -52,28 +61,48 @@ export default class Paginate extends React.Component {
     return makePageNumbers({ start, end });
   }
 
-  makeLink({ currentPage, page, pathname, query, text }) {
-    let child;
+  makeLink({ currentPage, page, pathname, query, text, className }) {
     if (currentPage === page || page < 1 || page > this.pageCount()) {
-      child = text || page;
-    } else {
-      const newQuery = { page, ...query };
-      child = <Link to={{ pathname, query: newQuery }}>{text || page}</Link>;
+      return (
+        <span key={page}
+          className={classNames('Paginator-item', 'disabled', className)}>
+          {text || page}
+        </span>
+      );
     }
-    return <li key={page} className="paginator--item">{child}</li>;
+
+    const newQuery = { ...query, page };
+    return (
+      <Link to={{ pathname, query: newQuery }}
+        className={classNames('Paginator-item', className)}>
+        {text || page}
+      </Link>
+    );
   }
 
   render() {
     if (this.pageCount() === 1) {
       return null;
     }
-    const { currentPage, pathname, query } = this.props;
+
+    const { currentPage, i18n, pathname, query } = this.props;
+
     return (
-      <ul className="paginator">
-        {this.makeLink({ page: currentPage - 1, currentPage, pathname, query, text: 'Prev' })}
-        {this.visiblePages().map((page) => this.makeLink({ page, currentPage, pathname, query }))}
-        {this.makeLink({ page: currentPage + 1, currentPage, pathname, query, text: 'Next' })}
-      </ul>
+      <div className="Paginator">
+        <div className="Paginator-page-number">
+          {i18n.sprintf(
+            i18n.gettext('Page %(currentPage)s of %(totalPages)s'),
+            { currentPage, totalPages: this.pageCount() }
+          )}
+        </div>
+        <div className="Paginator-links">
+          {this.makeLink({ page: currentPage - 1, currentPage, pathname, query, text: i18n.gettext('Previous'), className: 'Paginator-previous' })}
+          {this.visiblePages().map((page) => this.makeLink({ page, currentPage, pathname, query }))}
+          {this.makeLink({ page: currentPage + 1, currentPage, pathname, query, text: i18n.gettext('Next'), className: 'Paginator-next' })}
+        </div>
+      </div>
     );
   }
 }
+
+export default translate({ withRef: true })(PaginateBase);

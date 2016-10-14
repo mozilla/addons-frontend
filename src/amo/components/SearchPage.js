@@ -20,7 +20,8 @@ export default class SearchPage extends React.Component {
     const { count, lang, loading, page, query, results } = this.props;
     const pathname = `/${lang}/firefox/search/`;
     const paginator = query && count > 0 ?
-      <Paginate count={count} pathname={pathname} query={{ q: query }} currentPage={page} /> : [];
+      <Paginate count={count} pathname={pathname} query={{ q: query }}
+        currentPage={page} showPages={0} /> : [];
     return (
       <div className="search-page">
         <SearchResults results={results} query={query} loading={loading}

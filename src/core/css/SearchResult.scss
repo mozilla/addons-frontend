@@ -1,6 +1,5 @@
 @import "~core/css/inc/vars";
 
-$border-radius: 9px;
 $secondary-color: #6a6a6a;
 
 .SearchResult {
@@ -9,13 +8,13 @@ $secondary-color: #6a6a6a;
   margin: 0 0 1px;
 
   &:first-of-type {
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius-default;
+    border-top-right-radius: $border-radius-default;
   }
 
   &:last-of-type {
-    border-bottom-left-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius-default;
+    border-bottom-right-radius: $border-radius-default;
   }
 }
 
