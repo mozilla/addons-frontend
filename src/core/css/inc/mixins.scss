@@ -73,7 +73,7 @@
 /* Arrows */
 $default-arrow-margin: 3px;
 @mixin arrow($margin: $default-arrow-margin) {
-  background: url('~amo/img/icons/arrow.svg') 50% 50% no-repeat;
+  background: url('~core/img/icons/arrow.svg') 50% 50% no-repeat;
   border-radius: $border-radius-m;
   content: '';
   display: inline-block;

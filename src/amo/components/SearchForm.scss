@@ -31,7 +31,7 @@ $search-query-padding: 26px;
   // over showing the magnifying glass, and we can't do that (easily) with
   // search text that can expand.
   &:placeholder-shown {
-    background: url('~amo/img/icons/magnifying-glass.svg') 0 50% no-repeat;
+    background: url('~core/img/icons/magnifying-glass.svg') 0 50% no-repeat;
     padding-left: $search-query-padding;
     max-width: 320px;
     text-overflow: ellipsis;
