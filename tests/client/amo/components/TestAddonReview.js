@@ -73,7 +73,7 @@ describe('AddonReview', () => {
   it('requires a review object', () => {
     const review = { nope: 'not even close' };
     try {
-      const rootNode = render({ review });
+      render({ review });
       assert(false, 'unexpected success');
     } catch (error) {
       assert.match(error.message, /Unexpected review property: {"nope".*/);
@@ -90,20 +90,21 @@ describe('AddonReview', () => {
     });
 
     function loadAddonReview({ params } = {}) {
-      if (!params) {
-        params = { slug: fakeAddon.slug, reviewId: defaultReview.id };
+      let localParams = params;
+      if (!localParams) {
+        localParams = { slug: fakeAddon.slug, reviewId: defaultReview.id };
       }
       return defaultAddonReviewLoader(
-        { store: { dispatch: fakeDispatch }, params });
+        { store: { dispatch: fakeDispatch }, params: localParams });
     }
 
-    it('requires URL params', () => {
-      return loadAddonReview({ params: {} })
+    it('requires URL params',
+      () => loadAddonReview({ params: {} })
         .then(() => assert(false, 'unexpected success'))
         .catch((error) => {
           assert.match(error.message, /missing URL params/);
-        });
-    });
+        })
+    );
 
     it('loads a review', () => {
       const reviewResponse = {
@@ -124,7 +125,6 @@ describe('AddonReview', () => {
 
       return loadAddonReview()
         .then((returnedReview) => {
-
           assert.equal(fakeDispatch.called, true);
           assert.deepEqual(fakeDispatch.firstCall.args[0],
                            setReview({
@@ -151,7 +151,6 @@ describe('AddonReview', () => {
       reviewId: 3333,
       body: 'some review text',
       addonId: 'addon-id-or-slug',
-      reviewId: 4444,
       apiState: signedInApiState,
     };
 

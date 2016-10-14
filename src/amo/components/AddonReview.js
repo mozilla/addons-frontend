@@ -7,7 +7,6 @@ import { submitReview } from 'amo/api';
 import { setReview } from 'amo/actions/reviews';
 import { callApi } from 'core/api';
 import translate from 'core/i18n/translate';
-import log from 'core/logger';
 
 import 'amo/css/AddonReview.scss';
 
@@ -85,10 +84,10 @@ export const mapStateToProps = (state) => ({
   apiState: state.api,
 });
 
-export const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (/* dispatch */) => ({
   updateReviewText({ router, ...params }) {
     return submitReview(params)
-      .then((review) => {
+      .then(() => {
         const { lang, clientApp } = params.apiState;
         router.push(`/${lang}/${clientApp}/addon/${params.addonId}/`);
       });
@@ -110,7 +109,6 @@ export function loadAddonReview(
       method: 'GET',
     }))
     .then((review) => {
-
       dispatch(setReview({
         addonId: review.addon.id,
         versionId: review.version.id,

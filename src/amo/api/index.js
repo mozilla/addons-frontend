@@ -1,6 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 import { callApi } from 'core/api';
-import log from 'core/logger';
 
 /*
  * POST/PATCH an add-on review using the API.

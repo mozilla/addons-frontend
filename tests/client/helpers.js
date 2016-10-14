@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp */
 import base64url from 'base64url';
 import { sprintf } from 'jed';
 import React from 'react';
