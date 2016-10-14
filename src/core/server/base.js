@@ -17,7 +17,7 @@ import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import ServerHtml from 'core/containers/ServerHtml';
 import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
-import { setLang, setJWT } from 'core/actions';
+import { setClientApp, setLang, setJWT } from 'core/actions';
 import log from 'core/logger';
 import { getDirection, isValidLang, langToLocale } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
@@ -145,6 +145,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       const dir = getDirection(lang);
       const locale = langToLocale(lang);
       store.dispatch(setLang(lang));
+      store.dispatch(setClientApp(res.locals.clientApp));
 
       function hydrateOnClient(props = {}) {
         const pageProps = {
@@ -222,7 +223,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
     log.error({ err });
-    return showErrorPage(500);
+    return showErrorPage(res, 500);
   });
 
   return app;

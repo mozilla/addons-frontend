@@ -7,6 +7,38 @@ import { EXTENSION_TYPE } from 'core/constants';
 import { ngettext } from 'core/utils';
 
 /*
+ * This is a stub router provider that you can wrap your
+ * component in for testing. Example:
+  renderIntoDocument(
+    <RouterStub router={fakeSinonRouterSpy}>
+      <YourComponent />
+    </RouterStub>
+  );
+ *
+ */
+export class RouterStub extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.node.isRequired,
+    router: React.PropTypes.object.isRequired,
+  }
+
+  static childContextTypes = {
+    router: React.PropTypes.object,
+  };
+
+  getChildContext() {
+    if (!this.props.router) {
+      throw new Error('router param is falsey');
+    }
+    return { router: this.props.router };
+  }
+
+  render() {
+    return this.props.children;
+  }
+}
+
+/*
  * Return a fake authentication token (a JWT) that can be
  * at least decoded like a real JWT.
  */

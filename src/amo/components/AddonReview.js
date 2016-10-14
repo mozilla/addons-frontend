@@ -20,6 +20,10 @@ export class AddonReviewBase extends React.Component {
     updateReviewText: PropTypes.func.isRequired,
   }
 
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
+  }
+
   onSubmit = (event) => {
     event.preventDefault();
     const body = this.reviewTextarea.value;
@@ -32,7 +36,9 @@ export class AddonReviewBase extends React.Component {
       addonId: this.props.review.addonSlug,
       reviewId: this.props.review.id,
       apiState: this.props.apiState,
+      router: this.context.router,
     };
+    // TODO: render a progress indicator in the UI.
     this.props.updateReviewText(params);
   }
 
@@ -42,6 +48,8 @@ export class AddonReviewBase extends React.Component {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
 
+    // TODO: I guess we should load the existing review text so it
+    // can be edited? That flow needs more thought.
     return (
       <div className="AddonReview">
         <h2>{i18n.gettext('Write a review')}</h2>
@@ -78,22 +86,11 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  updateReviewText(params) {
+  updateReviewText({ router, ...params }) {
     return submitReview(params)
       .then((review) => {
-        // TODO: when we have a user_id in the API response, we
-        // could probably use that instead.
-        // https://github.com/mozilla/addons-server/issues/3672
-
-        log.info('submitReview() response:', review);
-        // TODO: dispatch something
-
-        // dispatch(setReview({
-        //   addonId,
-        //   rating: review.rating,
-        //   versionId: review.version.id,
-        //   userId,
-        // }));
+        const { lang, clientApp } = params.apiState;
+        router.push(`/${lang}/${clientApp}/addon/${params.addonId}/`);
       });
   },
 });

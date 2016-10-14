@@ -9,34 +9,15 @@ import { createStore } from 'redux';
 
 import HandleLogin, { mapDispatchToProps } from 'core/containers/HandleLogin';
 import * as api from 'core/api';
-import { userAuthToken } from 'tests/client/helpers';
+import { RouterStub, userAuthToken } from 'tests/client/helpers';
 
 describe('<HandleLogin />', () => {
-  class MyRouter extends React.Component {
-    static propTypes = {
-      children: React.PropTypes.node.isRequired,
-      router: React.PropTypes.object.isRequired,
-    }
-
-    static childContextTypes = {
-      router: React.PropTypes.object,
-    };
-
-    getChildContext() {
-      return { router: this.props.router };
-    }
-
-    render() {
-      return this.props.children;
-    }
-  }
-
   function render(store, location, router) {
     return findDOMNode(renderIntoDocument(
       <Provider store={store}>
-        <MyRouter router={router}>
+        <RouterStub router={router}>
           <HandleLogin location={location} />
-        </MyRouter>
+        </RouterStub>
       </Provider>
     ));
   }

@@ -35,5 +35,6 @@ export function createRatingResponse(customProps = {}) {
  */
 export const signedInApiState = {
   lang: 'en-US',
+  clientApp: 'firefox',
   token: 'secret-token',
 };

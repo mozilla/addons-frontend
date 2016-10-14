@@ -7,6 +7,7 @@ import {
 } from 'react-addons-test-utils';
 
 import { setReview } from 'amo/actions/reviews';
+import * as amoApi from 'amo/api';
 import * as coreApi from 'core/api';
 import {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
@@ -14,13 +15,13 @@ import {
 } from 'amo/components/AddonReview';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, RouterStub } from 'tests/client/helpers';
 
 const defaultReview = {
   id: 3321, addonSlug: fakeAddon.slug,
 };
 
-function render(customProps = {}) {
+function render({ fakeRouter = {}, ...customProps } = {}) {
   const props = {
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
@@ -30,7 +31,9 @@ function render(customProps = {}) {
   };
   const root = findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={props.i18n}>
-      <AddonReviewBase {...props} />
+      <RouterStub router={fakeRouter}>
+        <AddonReviewBase {...props} />
+      </RouterStub>
     </I18nProvider>
   ), AddonReviewBase);
 
@@ -39,8 +42,9 @@ function render(customProps = {}) {
 
 describe('AddonReview', () => {
   it('can update a review', () => {
+    const fakeRouter = {};
     const updateReviewText = sinon.spy(() => {});
-    const rootNode = render({ updateReviewText });
+    const rootNode = render({ updateReviewText, fakeRouter });
 
     const textarea = rootNode.querySelector('textarea');
     textarea.value = 'some review';
@@ -52,6 +56,7 @@ describe('AddonReview', () => {
     assert.equal(params.addonId, defaultReview.addonSlug);
     assert.equal(params.reviewId, defaultReview.id);
     assert.equal(params.apiState, signedInApiState);
+    assert.equal(params.router, fakeRouter);
   });
 
   it('requires the review text to be non-empty', () => {
@@ -137,26 +142,57 @@ describe('AddonReview', () => {
     });
   });
 
+  describe('mapDispatchToProps', () => {
+    let mockApi;
+    let fakeDispatch;
+    let router;
+    let props;
+    const params = {
+      reviewId: 3333,
+      body: 'some review text',
+      addonId: 'addon-id-or-slug',
+      reviewId: 4444,
+      apiState: signedInApiState,
+    };
+
+    beforeEach(() => {
+      mockApi = sinon.mock(amoApi);
+      router = {
+        push: sinon.spy(() => {}),
+      };
+      fakeDispatch = sinon.spy(() => {});
+      props = mapDispatchToProps(fakeDispatch);
+    });
+
+    it('allows you to submit a review', () => {
+      mockApi
+        .expects('submitReview')
+        .withArgs(params)
+        .returns(Promise.resolve({}));
+
+      return props.updateReviewText({ router, ...params })
+        .then(() => {
+          mockApi.verify();
+        });
+    });
+
+    it('redirects to the detail page on success', () => {
+      mockApi.expects('submitReview').returns(Promise.resolve({}));
+
+      return props.updateReviewText({ router, ...params })
+        .then(() => {
+          const { lang, clientApp } = signedInApiState;
+          assert.equal(router.push.called, true);
+          assert.equal(router.push.firstCall.args[0],
+                       `/${lang}/${clientApp}/addon/addon-id-or-slug/`);
+        });
+    });
+  });
+
   describe('mapStateToProps', () => {
-    it.skip('sets the review ID from the state', () => {
-      const reviewId = 123;
-      const addonId = 321;
-      const thisUserName = 'some_user';
-
-      const api = {
-        ...signedInApiState,
-        username: thisUserName,
-      };
-      const userRatings = {
-        [thisUserName]: {
-          [addonId]: {
-            reviewId,
-          },
-        },
-      };
-
-      const props = mapStateToProps({ api, userRatings });
-      assert.equal(props.reviewId, reviewId);
+    it('maps apiState to props', () => {
+      const props = mapStateToProps({ api: signedInApiState });
+      assert.deepEqual(props.apiState, signedInApiState);
     });
   });
 });
