@@ -71,7 +71,7 @@ export class PaginateBase extends React.Component {
       );
     }
 
-    const newQuery = { page, ...query };
+    const newQuery = { ...query, page };
     return (
       <Link to={{ pathname, query: newQuery }}
         className={classNames('Paginator-item', className)}>
