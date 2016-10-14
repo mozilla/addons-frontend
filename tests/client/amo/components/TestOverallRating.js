@@ -15,9 +15,9 @@ import I18nProvider from 'core/i18n/Provider';
 import {
   createRatingResponse, fakeAddon, signedInApiState,
 } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, RouterStub } from 'tests/client/helpers';
 
-function render(customProps = {}) {
+function render({ fakeRouter = {}, ...customProps } = {}) {
   const props = {
     addonName: fakeAddon.name,
     addonId: fakeAddon.id,
@@ -30,7 +30,9 @@ function render(customProps = {}) {
   };
   const root = findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={props.i18n}>
-      <OverallRatingBase {...props} />
+      <RouterStub router={fakeRouter}>
+        <OverallRatingBase {...props} />
+      </RouterStub>
     </I18nProvider>
   ), OverallRatingBase);
 
@@ -51,6 +53,7 @@ describe('OverallRating', () => {
   });
 
   it('creates a rating with add-on and version info', () => {
+    const fakeRouter = {};
     const createRating = sinon.stub();
     const root = render({
       createRating,
@@ -58,6 +61,7 @@ describe('OverallRating', () => {
       version: { id: 321 },
       addonId: 12345,
       userId: 92345,
+      fakeRouter,
     });
     selectRating(root, '#OverallRating-rating-5');
     assert.equal(createRating.called, true);
@@ -67,6 +71,7 @@ describe('OverallRating', () => {
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
     assert.equal(call.userId, 92345);
+    assert.equal(call.router, fakeRouter);
   });
 
   it('lets you submit a "love it" rating', () => {
@@ -119,6 +124,7 @@ describe('OverallRating', () => {
       });
 
       it('posts the rating and dispatches the created rating', () => {
+        const fakeRouter = { push: sinon.spy(() => {}) };
         const userId = 91234;
         const params = {
           rating: 5,
@@ -136,18 +142,27 @@ describe('OverallRating', () => {
           .withArgs(params)
           .returns(Promise.resolve(ratingResponse));
 
-        return actions.createRating({ ...params, userId }).then(() => {
-          assert.equal(dispatch.called, true);
-          const action = dispatch.firstCall.args[0];
+        return actions.createRating({ ...params, router: fakeRouter, userId })
+          .then(() => {
+            assert.equal(dispatch.called, true);
+            const action = dispatch.firstCall.args[0];
 
-          assert.equal(action.type, SET_REVIEW);
-          assert.equal(action.data.addonId, params.addonId);
-          assert.equal(action.data.userId, userId);
-          assert.deepEqual(action.data.rating, ratingResponse.rating);
-          assert.deepEqual(action.data.versionId, ratingResponse.version.id);
+            assert.equal(action.type, SET_REVIEW);
+            assert.equal(action.data.addonId, params.addonId);
+            assert.equal(action.data.userId, userId);
+            assert.deepEqual(action.data.rating, ratingResponse.rating);
+            assert.deepEqual(action.data.versionId, ratingResponse.version.id);
 
-          mockApi.verify();
-        });
+            assert.equal(fakeRouter.push.called, true);
+            const { lang, clientApp } = signedInApiState;
+            const addonId = params.addonId;
+            const reviewId = ratingResponse.id;
+            assert.equal(
+              fakeRouter.push.firstCall.args[0],
+              `/${lang}/${clientApp}/addon/${addonId}/review/${reviewId}/`);
+
+            mockApi.verify();
+          });
       });
     });
 

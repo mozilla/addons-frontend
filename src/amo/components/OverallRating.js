@@ -21,6 +21,10 @@ export class OverallRatingBase extends React.Component {
     userId: PropTypes.number,
   }
 
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
+  }
+
   onClickRating = (event) => {
     event.preventDefault();
     const button = event.currentTarget;
@@ -31,6 +35,7 @@ export class OverallRatingBase extends React.Component {
       apiState: this.props.apiState,
       addonId: this.props.addonId,
       userId: this.props.userId,
+      router: this.context.router,
     });
   }
 
@@ -78,9 +83,10 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ addonId, userId, ...params }) {
+  createRating({ router, addonId, userId, ...params }) {
     return submitReview({ addonId, ...params })
       .then((review) => {
+        const { lang, clientApp } = params.apiState;
         // TODO: when we have a user_id in the API response, we
         // could probably use that instead.
         // https://github.com/mozilla/addons-server/issues/3672
@@ -90,6 +96,8 @@ export const mapDispatchToProps = (dispatch) => ({
           versionId: review.version.id,
           userId,
         }));
+        router.push(
+          `/${lang}/${clientApp}/addon/${addonId}/review/${review.id}/`);
       });
   },
 });
