@@ -1,11 +1,5 @@
 @import '~core/css/inc/mixins';
 
-.Paginator::after {
-  clear: both;
-  content: '';
-  display: block;
-}
-
 .Paginator-page-number {
   font-weight: bold;
   margin: 0 0 5px;

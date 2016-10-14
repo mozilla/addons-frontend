@@ -115,12 +115,13 @@ describe('<Paginate />', () => {
     });
   });
 
-  describe('links', () => {
+  describe('makeLink()', () => {
     const pathname = '/some-path/';
 
     class PaginateWrapper extends React.Component {
       render() {
-        return <Paginate count={250} currentPage={5} pathname={pathname} showPages={5} />;
+        return <Paginate count={50} currentPage={5} pathname={pathname}
+          showPages={5} />;
       }
     }
 
@@ -136,23 +137,6 @@ describe('<Paginate />', () => {
         });
       });
     }
-
-    it('renders the right links', () => {
-      renderPaginate().then((root) => {
-        const links = Array.from(root.querySelectorAll('a'));
-        assert.deepEqual(
-          links.map((link) => [link.textContent, link.getAttribute('href')]),
-          [
-            ['Prev', '/some-path/?page=4'],
-            ['3', '/some-path/?page=3'],
-            ['4', '/some-path/?page=4'],
-            ['6', '/some-path/?page=6'],
-            ['7', '/some-path/?page=7'],
-            ['Next', '/some-path/?page=6'],
-          ],
-        );
-      });
-    });
 
     describe('when the link is to the current page', () => {
       it('does not contain a link', () => {
@@ -193,6 +177,46 @@ describe('<Paginate />', () => {
           assert.equal(link.childNodes[0].tagName, 'A');
           assert.equal(link.textContent, 'hi');
         });
+      });
+    });
+  });
+
+  describe('links', () => {
+    const pathname = '/some-path/';
+
+    class PaginateWrapper extends React.Component {
+      render() {
+        return <Paginate count={250} currentPage={5} pathname={pathname} showPages={5} />;
+      }
+    }
+
+    function renderPaginate() {
+      return new Promise((resolve) => {
+        const node = document.createElement('div');
+        render((
+          <Router history={createMemoryHistory('/')}>
+            <Route path="/" component={PaginateWrapper} />
+          </Router>
+        ), node, () => {
+          resolve(node);
+        });
+      });
+    }
+
+    it('renders the right links', () => {
+      renderPaginate().then((root) => {
+        const links = Array.from(root.querySelectorAll('a'));
+        assert.deepEqual(
+          links.map((link) => [link.textContent, link.getAttribute('href')]),
+          [
+            ['Prev', '/some-path/?page=4'],
+            ['3', '/some-path/?page=3'],
+            ['4', '/some-path/?page=4'],
+            ['6', '/some-path/?page=6'],
+            ['7', '/some-path/?page=7'],
+            ['Next', '/some-path/?page=6'],
+          ],
+        );
       });
     });
   });
