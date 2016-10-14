@@ -1,5 +1,4 @@
 /* global window */
-/* eslint-disable import/prefer-default-export */
 
 import { applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';

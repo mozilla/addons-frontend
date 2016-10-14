@@ -59,6 +59,7 @@
       ],
       "newlines-between": "always"
     }],
+    "import/prefer-default-export": ["off"],
     // This ensures a new line after all import statements.
     "import/newline-after-import": ["error"],
     "jsx-a11y/no-static-element-interactions": "off",
