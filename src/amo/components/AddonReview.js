@@ -101,11 +101,17 @@ export const mapDispatchToProps = (dispatch) => ({
 export function loadAddonReview(
   { store: { dispatch }, params: { slug, reviewId } }
 ) {
-  return callApi(
-    {
-      endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
-      method: 'get',
+  return new Promise(
+    (resolve) => {
+      if (!slug || !reviewId) {
+        throw new Error('missing URL params slug (add-on slug) or reviewId');
+      }
+      resolve();
     })
+    .then(() => callApi({
+      endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
+      method: 'GET',
+    }))
     .then((review) => {
 
       dispatch(setReview({

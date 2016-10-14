@@ -6,9 +6,11 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 
-import * as amoApi from 'amo/api';
+import { setReview } from 'amo/actions/reviews';
+import * as coreApi from 'core/api';
 import {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
+  loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
@@ -71,6 +73,68 @@ describe('AddonReview', () => {
     } catch (error) {
       assert.match(error.message, /Unexpected review property: {"nope".*/);
     }
+  });
+
+  describe('loadAddonReview', () => {
+    let mockApi;
+    let fakeDispatch;
+
+    beforeEach(() => {
+      mockApi = sinon.mock(coreApi);
+      fakeDispatch = sinon.spy(() => {});
+    });
+
+    function loadAddonReview({ params } = {}) {
+      if (!params) {
+        params = { slug: fakeAddon.slug, reviewId: defaultReview.id };
+      }
+      return defaultAddonReviewLoader(
+        { store: { dispatch: fakeDispatch }, params });
+    }
+
+    it('requires URL params', () => {
+      return loadAddonReview({ params: {} })
+        .then(() => assert(false, 'unexpected success'))
+        .catch((error) => {
+          assert.match(error.message, /missing URL params/);
+        });
+    });
+
+    it('loads a review', () => {
+      const reviewResponse = {
+        id: 7776,
+        addon: { id: 1234 },
+        version: { id: 4321 },
+        rating: 2,
+        user: { id: 9876 },
+      };
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          endpoint: `addons/addon/${fakeAddon.slug}/reviews/${defaultReview.id}`,
+          method: 'GET',
+        })
+        .returns(Promise.resolve(reviewResponse));
+
+      return loadAddonReview()
+        .then((returnedReview) => {
+
+          assert.equal(fakeDispatch.called, true);
+          assert.deepEqual(fakeDispatch.firstCall.args[0],
+                           setReview({
+                             addonId: reviewResponse.addon.id,
+                             versionId: reviewResponse.version.id,
+                             rating: reviewResponse.rating,
+                             userId: reviewResponse.user.id,
+                           }));
+
+          assert.equal(returnedReview.addonSlug, fakeAddon.slug);
+          assert.equal(returnedReview.id, reviewResponse.id);
+
+          mockApi.verify();
+        });
+    });
   });
 
   describe('mapStateToProps', () => {
