@@ -145,7 +145,11 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       const dir = getDirection(lang);
       const locale = langToLocale(lang);
       store.dispatch(setLang(lang));
-      store.dispatch(setClientApp(res.locals.clientApp));
+      if (res.locals.clientApp) {
+        store.dispatch(setClientApp(res.locals.clientApp));
+      } else {
+        log.warn(`No clientApp for this URL: ${req.url}`);
+      }
 
       function hydrateOnClient(props = {}) {
         const pageProps = {
