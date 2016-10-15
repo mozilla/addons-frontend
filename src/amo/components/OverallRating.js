@@ -13,6 +13,7 @@ import 'amo/css/OverallRating.scss';
 export class OverallRatingBase extends React.Component {
   static propTypes = {
     addonName: PropTypes.string.isRequired,
+    addonSlug: PropTypes.string.isRequired,
     addonId: PropTypes.number.isRequired,
     apiState: PropTypes.object,
     version: PropTypes.object.isRequired,
@@ -34,6 +35,7 @@ export class OverallRatingBase extends React.Component {
       versionId: this.props.version.id,
       apiState: this.props.apiState,
       addonId: this.props.addonId,
+      addonSlug: this.props.addonSlug,
       userId: this.props.userId,
       router: this.context.router,
     });
@@ -83,7 +85,7 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ router, addonId, userId, ...params }) {
+  createRating({ router, addonSlug, addonId, userId, ...params }) {
     return submitReview({ addonId, ...params })
       .then((review) => {
         const { lang, clientApp } = params.apiState;
@@ -97,7 +99,7 @@ export const mapDispatchToProps = (dispatch) => ({
           userId,
         }));
         router.push(
-          `/${lang}/${clientApp}/addon/${addonId}/review/${review.id}/`);
+          `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
       });
   },
 });

@@ -20,6 +20,7 @@ import { getFakeI18nInst, RouterStub } from 'tests/client/helpers';
 function render({ fakeRouter = {}, ...customProps } = {}) {
   const props = {
     addonName: fakeAddon.name,
+    addonSlug: fakeAddon.slug,
     addonId: fakeAddon.id,
     apiState: signedInApiState,
     version: fakeAddon.current_version,
@@ -70,6 +71,7 @@ describe('OverallRating', () => {
     assert.equal(call.versionId, 321);
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
+    assert.equal(call.addonSlug, 'chill-out');
     assert.equal(call.userId, 92345);
     assert.equal(call.router, fakeRouter);
   });
@@ -126,6 +128,7 @@ describe('OverallRating', () => {
       it('posts the rating and dispatches the created rating', () => {
         const fakeRouter = { push: sinon.spy(() => {}) };
         const userId = 91234;
+        const addonSlug = 'chill-out';
         const params = {
           rating: 5,
           apiState: { ...signedInApiState, token: 'new-token' },
@@ -142,7 +145,10 @@ describe('OverallRating', () => {
           .withArgs(params)
           .returns(Promise.resolve(ratingResponse));
 
-        return actions.createRating({ ...params, router: fakeRouter, userId })
+        return actions.createRating(
+          {
+            ...params, router: fakeRouter, userId, addonSlug,
+          })
           .then(() => {
             assert.equal(dispatch.called, true);
             const action = dispatch.firstCall.args[0];
@@ -155,11 +161,10 @@ describe('OverallRating', () => {
 
             assert.equal(fakeRouter.push.called, true);
             const { lang, clientApp } = signedInApiState;
-            const addonId = params.addonId;
             const reviewId = ratingResponse.id;
             assert.equal(
               fakeRouter.push.firstCall.args[0],
-              `/${lang}/${clientApp}/addon/${addonId}/review/${reviewId}/`);
+              `/${lang}/${clientApp}/addon/${addonSlug}/review/${reviewId}/`);
 
             mockApi.verify();
           });
