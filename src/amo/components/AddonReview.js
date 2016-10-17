@@ -32,7 +32,7 @@ export class AddonReviewBase extends React.Component {
     }
     const params = {
       body,
-      addonId: this.props.review.addonSlug,
+      addonSlug: this.props.review.addonSlug,
       reviewId: this.props.review.id,
       apiState: this.props.apiState,
       router: this.context.router,
@@ -85,11 +85,11 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (/* dispatch */) => ({
-  updateReviewText({ router, ...params }) {
-    return submitReview(params)
+  updateReviewText({ router, addonSlug, ...params }) {
+    return submitReview({ addonSlug, ...params })
       .then(() => {
         const { lang, clientApp } = params.apiState;
-        router.push(`/${lang}/${clientApp}/addon/${params.addonId}/`);
+        router.push(`/${lang}/${clientApp}/addon/${addonSlug}/`);
       });
   },
 });

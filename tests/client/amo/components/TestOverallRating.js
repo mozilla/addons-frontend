@@ -128,11 +128,11 @@ describe('OverallRating', () => {
       it('posts the rating and dispatches the created rating', () => {
         const fakeRouter = { push: sinon.spy(() => {}) };
         const userId = 91234;
-        const addonSlug = 'chill-out';
+        const addonId = 123455;
         const params = {
           rating: 5,
           apiState: { ...signedInApiState, token: 'new-token' },
-          addonId: 123456,
+          addonSlug: 'chill-out',
           versionId: 321,
         };
 
@@ -147,14 +147,14 @@ describe('OverallRating', () => {
 
         return actions.createRating(
           {
-            ...params, router: fakeRouter, userId, addonSlug,
+            ...params, router: fakeRouter, userId, addonId,
           })
           .then(() => {
             assert.equal(dispatch.called, true);
             const action = dispatch.firstCall.args[0];
 
             assert.equal(action.type, SET_REVIEW);
-            assert.equal(action.data.addonId, params.addonId);
+            assert.equal(action.data.addonId, addonId);
             assert.equal(action.data.userId, userId);
             assert.deepEqual(action.data.rating, ratingResponse.rating);
             assert.deepEqual(action.data.versionId, ratingResponse.version.id);
@@ -164,7 +164,7 @@ describe('OverallRating', () => {
             const reviewId = ratingResponse.id;
             assert.equal(
               fakeRouter.push.firstCall.args[0],
-              `/${lang}/${clientApp}/addon/${addonSlug}/review/${reviewId}/`);
+              `/${lang}/${clientApp}/addon/${params.addonSlug}/review/${reviewId}/`);
 
             mockApi.verify();
           });

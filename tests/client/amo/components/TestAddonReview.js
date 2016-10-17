@@ -53,7 +53,7 @@ describe('AddonReview', () => {
     assert.equal(updateReviewText.called, true);
     const params = updateReviewText.firstCall.args[0];
     assert.equal(params.body, 'some review');
-    assert.equal(params.addonId, defaultReview.addonSlug);
+    assert.equal(params.addonSlug, defaultReview.addonSlug);
     assert.equal(params.reviewId, defaultReview.id);
     assert.equal(params.apiState, signedInApiState);
     assert.equal(params.router, fakeRouter);
@@ -150,7 +150,7 @@ describe('AddonReview', () => {
     const params = {
       reviewId: 3333,
       body: 'some review text',
-      addonId: 'addon-id-or-slug',
+      addonSlug: 'chill-out',
       apiState: signedInApiState,
     };
 
@@ -183,7 +183,7 @@ describe('AddonReview', () => {
           const { lang, clientApp } = signedInApiState;
           assert.equal(router.push.called, true);
           assert.equal(router.push.firstCall.args[0],
-                       `/${lang}/${clientApp}/addon/addon-id-or-slug/`);
+                       `/${lang}/${clientApp}/addon/chill-out/`);
         });
     });
   });

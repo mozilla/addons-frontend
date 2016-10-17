@@ -86,7 +86,7 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   createRating({ router, addonSlug, addonId, userId, ...params }) {
-    return submitReview({ addonId, ...params })
+    return submitReview({ addonSlug, ...params })
       .then((review) => {
         const { lang, clientApp } = params.apiState;
         // TODO: when we have a user_id in the API response, we
