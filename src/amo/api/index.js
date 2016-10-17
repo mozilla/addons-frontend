@@ -19,13 +19,12 @@ export function submitReview({
         endpoint = `${endpoint}/${reviewId}`;
         method = 'PATCH';
       }
-      resolve();
-    })
-    .then(() => callApi({
-      endpoint,
-      body: data,
-      method,
-      auth: true,
-      state: apiState,
-    }));
+      resolve(callApi({
+        endpoint,
+        body: data,
+        method,
+        auth: true,
+        state: apiState,
+      }));
+    });
 }
