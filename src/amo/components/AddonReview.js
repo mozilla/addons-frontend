@@ -43,7 +43,7 @@ export class AddonReviewBase extends React.Component {
 
   render() {
     const { i18n, review } = this.props;
-    if (!(review && review.id && review.addonSlug)) {
+    if (!review || !review.id || !review.addonSlug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
 
