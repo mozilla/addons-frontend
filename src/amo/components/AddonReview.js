@@ -13,11 +13,6 @@ import 'amo/css/AddonReview.scss';
 
 
 export class AddonReviewBase extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { errorMessage: null };
-  }
-
   static propTypes = {
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
@@ -26,8 +21,9 @@ export class AddonReviewBase extends React.Component {
     updateReviewText: PropTypes.func.isRequired,
   }
 
-  clearErrors() {
-    this.setState({ errorMessage: null });
+  constructor(props) {
+    super(props);
+    this.state = { errorMessage: null };
   }
 
   onSubmit = (event) => {
@@ -59,6 +55,10 @@ export class AddonReviewBase extends React.Component {
     const { addonSlug } = this.props.review;
     const { lang, clientApp } = this.props.apiState;
     router.push(`/${lang}/${clientApp}/addon/${addonSlug}/`);
+  }
+
+  clearErrors() {
+    this.setState({ errorMessage: null });
   }
 
   render() {
