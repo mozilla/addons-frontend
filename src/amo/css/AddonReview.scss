@@ -26,7 +26,7 @@
   display: flex;
 }
 
-.AddonReview-back-button:first-child:before {
+.AddonReview-back-button::before {
   // This is a left pointing angle bracket (used as an arrow).
   // Code point: &#12296;
   // TODO: switch this to an SVG.
