@@ -144,10 +144,9 @@ describe('OverallRating', () => {
           .withArgs(params)
           .returns(Promise.resolve(ratingResponse));
 
-        return actions.createRating(
-          {
-            ...params, router, userId, addonId,
-          })
+        return actions.createRating({
+          ...params, router, userId, addonId,
+        })
           .then(() => {
             assert.equal(dispatch.called, true);
             const action = dispatch.firstCall.args[0];
