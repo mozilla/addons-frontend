@@ -15,9 +15,9 @@ import I18nProvider from 'core/i18n/Provider';
 import {
   createRatingResponse, fakeAddon, signedInApiState,
 } from 'tests/client/amo/helpers';
-import { getFakeI18nInst, RouterStub } from 'tests/client/helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
-function render({ fakeRouter = {}, ...customProps } = {}) {
+function render({ ...customProps } = {}) {
   const props = {
     addonName: fakeAddon.name,
     addonSlug: fakeAddon.slug,
@@ -27,13 +27,12 @@ function render({ fakeRouter = {}, ...customProps } = {}) {
     i18n: getFakeI18nInst(),
     userId: 91234,
     createRating: () => {},
+    router: {},
     ...customProps,
   };
   const root = findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={props.i18n}>
-      <RouterStub router={fakeRouter}>
-        <OverallRatingBase {...props} />
-      </RouterStub>
+      <OverallRatingBase {...props} />
     </I18nProvider>
   ), OverallRatingBase);
 
@@ -54,7 +53,7 @@ describe('OverallRating', () => {
   });
 
   it('creates a rating with add-on and version info', () => {
-    const fakeRouter = {};
+    const router = {};
     const createRating = sinon.stub();
     const root = render({
       createRating,
@@ -62,7 +61,7 @@ describe('OverallRating', () => {
       version: { id: 321 },
       addonId: 12345,
       userId: 92345,
-      fakeRouter,
+      router,
     });
     selectRating(root, '#OverallRating-rating-5');
     assert.equal(createRating.called, true);
@@ -73,7 +72,7 @@ describe('OverallRating', () => {
     assert.equal(call.addonId, 12345);
     assert.equal(call.addonSlug, 'chill-out');
     assert.equal(call.userId, 92345);
-    assert.equal(call.router, fakeRouter);
+    assert.equal(call.router, router);
   });
 
   it('lets you submit a "love it" rating', () => {
@@ -126,7 +125,7 @@ describe('OverallRating', () => {
       });
 
       it('posts the rating and dispatches the created rating', () => {
-        const fakeRouter = { push: sinon.spy(() => {}) };
+        const router = { push: sinon.spy(() => {}) };
         const userId = 91234;
         const addonId = 123455;
         const params = {
@@ -147,7 +146,7 @@ describe('OverallRating', () => {
 
         return actions.createRating(
           {
-            ...params, router: fakeRouter, userId, addonId,
+            ...params, router, userId, addonId,
           })
           .then(() => {
             assert.equal(dispatch.called, true);
@@ -159,11 +158,11 @@ describe('OverallRating', () => {
             assert.deepEqual(action.data.rating, ratingResponse.rating);
             assert.deepEqual(action.data.versionId, ratingResponse.version.id);
 
-            assert.equal(fakeRouter.push.called, true);
+            assert.equal(router.push.called, true);
             const { lang, clientApp } = signedInApiState;
             const reviewId = ratingResponse.id;
             assert.equal(
-              fakeRouter.push.firstCall.args[0],
+              router.push.firstCall.args[0],
               `/${lang}/${clientApp}/addon/${params.addonSlug}/review/${reviewId}/`);
 
             mockApi.verify();

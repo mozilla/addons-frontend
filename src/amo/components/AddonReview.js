@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
+import { withRouter } from 'react-router';
 
 import { submitReview } from 'amo/api';
 import { setReview } from 'amo/actions/reviews';
@@ -16,11 +17,8 @@ export class AddonReviewBase extends React.Component {
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     review: PropTypes.object.isRequired,
-    updateReviewText: PropTypes.func.isRequired,
-  }
-
-  static contextTypes = {
     router: PropTypes.object.isRequired,
+    updateReviewText: PropTypes.func.isRequired,
   }
 
   onSubmit = (event) => {
@@ -35,7 +33,7 @@ export class AddonReviewBase extends React.Component {
       addonSlug: this.props.review.addonSlug,
       reviewId: this.props.review.id,
       apiState: this.props.apiState,
-      router: this.context.router,
+      router: this.props.router,
     };
     // TODO: render a progress indicator in the UI.
     this.props.updateReviewText(params);
@@ -46,6 +44,8 @@ export class AddonReviewBase extends React.Component {
     if (!review || !review.id || !review.addonSlug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
+
+    console.log('Do we have a router?', this.props.router);
 
     // TODO: I guess we should load the existing review text so it
     // can be edited? That flow needs more thought.
@@ -129,6 +129,7 @@ export default compose(
     deferred: true,
     promise: loadAddonReview,
   }]),
+  withRouter,
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AddonReviewBase);

@@ -15,25 +15,24 @@ import {
 } from 'amo/components/AddonReview';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
-import { getFakeI18nInst, RouterStub } from 'tests/client/helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 const defaultReview = {
   id: 3321, addonSlug: fakeAddon.slug,
 };
 
-function render({ fakeRouter = {}, ...customProps } = {}) {
+function render({ ...customProps } = {}) {
   const props = {
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
     review: defaultReview,
+    router: {},
     updateReviewText: () => {},
     ...customProps,
   };
   const root = findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={props.i18n}>
-      <RouterStub router={fakeRouter}>
-        <AddonReviewBase {...props} />
-      </RouterStub>
+      <AddonReviewBase {...props} />
     </I18nProvider>
   ), AddonReviewBase);
 
@@ -42,9 +41,9 @@ function render({ fakeRouter = {}, ...customProps } = {}) {
 
 describe('AddonReview', () => {
   it('can update a review', () => {
-    const fakeRouter = {};
+    const router = {};
     const updateReviewText = sinon.spy(() => {});
-    const rootNode = render({ updateReviewText, fakeRouter });
+    const rootNode = render({ updateReviewText, router });
 
     const textarea = rootNode.querySelector('textarea');
     textarea.value = 'some review';
@@ -56,7 +55,7 @@ describe('AddonReview', () => {
     assert.equal(params.addonSlug, defaultReview.addonSlug);
     assert.equal(params.reviewId, defaultReview.id);
     assert.equal(params.apiState, signedInApiState);
-    assert.equal(params.router, fakeRouter);
+    assert.equal(params.router, router);
   });
 
   it('requires the review text to be non-empty', () => {

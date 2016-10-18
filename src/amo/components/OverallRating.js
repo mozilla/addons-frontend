@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router';
 
 import { setReview } from 'amo/actions/reviews';
 import { submitReview } from 'amo/api';
@@ -16,14 +17,11 @@ export class OverallRatingBase extends React.Component {
     addonSlug: PropTypes.string.isRequired,
     addonId: PropTypes.number.isRequired,
     apiState: PropTypes.object,
-    version: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
     createRating: PropTypes.func.isRequired,
-    userId: PropTypes.number,
-  }
-
-  static contextTypes = {
+    i18n: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
+    userId: PropTypes.number,
+    version: PropTypes.object.isRequired,
   }
 
   onClickRating = (event) => {
@@ -37,7 +35,7 @@ export class OverallRatingBase extends React.Component {
       addonId: this.props.addonId,
       addonSlug: this.props.addonSlug,
       userId: this.props.userId,
-      router: this.context.router,
+      router: this.props.router,
     });
   }
 
@@ -109,5 +107,6 @@ export const OverallRatingWithI18n = compose(
 )(OverallRatingBase);
 
 export default compose(
+  withRouter,
   connect(mapStateToProps, mapDispatchToProps),
 )(OverallRatingWithI18n);

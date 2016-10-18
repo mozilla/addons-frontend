@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
 import cookie from 'react-cookie';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import config from 'config';
+import { withRouter } from 'react-router';
 
 import { setJWT } from 'core/actions';
 import { login } from 'core/api';
@@ -9,14 +11,11 @@ import LoginPage from 'core/components/LoginPage';
 import log from 'core/logger';
 import { browserBase64Decode, gettext as _ } from 'core/utils';
 
-class HandleLogin extends React.Component {
+export class HandleLoginBase extends React.Component {
   static propTypes = {
     api: PropTypes.object.isRequired,
     loadData: PropTypes.func.isRequired,
     location: PropTypes.object.isRequired,
-  }
-
-  static contextTypes = {
     router: PropTypes.object.isRequired,
   }
 
@@ -25,8 +24,7 @@ class HandleLogin extends React.Component {
   }
 
   componentDidMount() {
-    const { api, loadData, location } = this.props;
-    const { router } = this.context;
+    const { api, loadData, location, router } = this.props;
     loadData({ api, location, router }).catch((e) => {
       this.setState({ error: true });
       log.error('Error when logging in', e);
@@ -89,4 +87,7 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HandleLogin);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps),
+)(HandleLoginBase);
