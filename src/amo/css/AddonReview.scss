@@ -4,20 +4,20 @@
   text-align: center;
   margin: auto;
   width: 90%;
+}
 
-  h2 {
-    font-size: $font-size-l;
-    margin-bottom: 0.3em;
-  }
+.AddonReview-header {
+  font-size: $font-size-l;
+  margin-bottom: 0.3em;
+}
 
-  textarea {
-    width: 100%;
-    padding: 0.7em;
-    border: 2px solid $form-border-color;
-    border-radius: 8px;
-    box-shadow: none;
-    min-height: 200px;
-  }
+.AddonReview-textarea {
+  width: 100%;
+  padding: 0.7em;
+  border: 2px solid $form-border-color;
+  border-radius: 8px;
+  box-shadow: none;
+  min-height: 200px;
 }
 
 .AddonReview-error {

@@ -81,7 +81,7 @@ export class AddonReviewBase extends React.Component {
     // can be edited? That flow needs more thought.
     return (
       <div className="AddonReview">
-        <h2>{i18n.gettext('Write a review')}</h2>
+        <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p>
           {i18n.gettext(
             'Tell the world why you think this extension is fantastic!'
@@ -90,6 +90,7 @@ export class AddonReviewBase extends React.Component {
         {errorMessage}
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <textarea
+            className="AddonReview-textarea"
             ref={(ref) => { this.reviewTextarea = ref; }}
             name="review"
             placeholder={i18n.gettext(
