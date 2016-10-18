@@ -6,6 +6,7 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 
+import translate from 'core/i18n/translate';
 import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
 import * as coreApi from 'core/api';
@@ -30,24 +31,25 @@ function render({ ...customProps } = {}) {
     updateReviewText: () => {},
     ...customProps,
   };
+  const AddonReview = translate({ withRef: true })(AddonReviewBase);
   const root = findRenderedComponentWithType(renderIntoDocument(
     <I18nProvider i18n={props.i18n}>
-      <AddonReviewBase {...props} />
+      <AddonReview {...props} />
     </I18nProvider>
-  ), AddonReviewBase);
+  ), AddonReview);
 
-  return findDOMNode(root);
+  return root.getWrappedInstance();
 }
 
 describe('AddonReview', () => {
   it('can update a review', () => {
     const router = {};
     const updateReviewText = sinon.spy(() => {});
-    const rootNode = render({ updateReviewText, router });
+    const root = render({ updateReviewText, router });
 
-    const textarea = rootNode.querySelector('textarea');
+    const textarea = root.reviewTextarea;
     textarea.value = 'some review';
-    Simulate.submit(rootNode.querySelector('form'));
+    Simulate.submit(root.reviewForm);
 
     assert.equal(updateReviewText.called, true);
     const params = updateReviewText.firstCall.args[0];
@@ -59,10 +61,10 @@ describe('AddonReview', () => {
   });
 
   it('requires the review text to be non-empty', () => {
-    const rootNode = render();
+    const root = render();
     // By default the textarea for the review is empty.
     try {
-      Simulate.submit(rootNode.querySelector('form'));
+      Simulate.submit(root.reviewForm);
       assert(false, 'unexpected success');
     } catch (error) {
       assert.match(error.message, /review .* cannot be empty/);

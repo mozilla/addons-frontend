@@ -57,7 +57,7 @@ export class AddonReviewBase extends React.Component {
             'Tell the world why you think this extension is fantastic!'
           )}
         </p>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <textarea
             ref={(ref) => { this.reviewTextarea = ref; }}
             name="review"
