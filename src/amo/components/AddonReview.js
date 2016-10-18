@@ -36,7 +36,8 @@ export class AddonReviewBase extends React.Component {
       router: this.props.router,
     };
     // TODO: render a progress indicator in the UI.
-    this.props.updateReviewText(params);
+    return this.props.updateReviewText(params)
+      .then(() => this.goBackToAddonDetail());
   }
 
   goBackToAddonDetail = () => {
@@ -94,12 +95,8 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (/* dispatch */) => ({
-  updateReviewText({ router, addonSlug, ...params }) {
-    return submitReview({ addonSlug, ...params })
-      .then(() => {
-        const { lang, clientApp } = params.apiState;
-        router.push(`/${lang}/${clientApp}/addon/${addonSlug}/`);
-      });
+  updateReviewText(params) {
+    return submitReview(params);
   },
 });
 

@@ -43,21 +43,40 @@ function render({ ...customProps } = {}) {
 
 describe('AddonReview', () => {
   it('can update a review', () => {
-    const router = {};
-    const updateReviewText = sinon.spy(() => {});
+    const router = { push: sinon.stub() };
+    const updateReviewText = sinon.spy(() => Promise.resolve());
     const root = render({ updateReviewText, router });
+    const event = { preventDefault: sinon.stub() };
+
+    const textarea = root.reviewTextarea;
+    textarea.value = 'some review';
+    return root.onSubmit(event)
+      .then(() => {
+        assert.ok(updateReviewText.called);
+        assert.ok(event.preventDefault.called);
+
+        const params = updateReviewText.firstCall.args[0];
+        assert.equal(params.body, 'some review');
+        assert.equal(params.addonSlug, defaultReview.addonSlug);
+        assert.equal(params.reviewId, defaultReview.id);
+        assert.equal(params.apiState, signedInApiState);
+
+        // This just makes sure goBackToAddonDetail() is executed, which is tested
+        // separately.
+        assert.ok(router.push.called);
+      });
+  });
+
+  it('triggers the submit handler', () => {
+    const updateReviewText = sinon.spy(() => Promise.resolve());
+    const root = render({ updateReviewText });
 
     const textarea = root.reviewTextarea;
     textarea.value = 'some review';
     Simulate.submit(root.reviewForm);
 
-    assert.equal(updateReviewText.called, true);
-    const params = updateReviewText.firstCall.args[0];
-    assert.equal(params.body, 'some review');
-    assert.equal(params.addonSlug, defaultReview.addonSlug);
-    assert.equal(params.reviewId, defaultReview.id);
-    assert.equal(params.apiState, signedInApiState);
-    assert.equal(params.router, router);
+    // Make sure the submit handler is hooked up.
+    assert.ok(updateReviewText.called);
   });
 
   it('requires the review text to be non-empty', () => {
@@ -81,13 +100,24 @@ describe('AddonReview', () => {
     }
   });
 
+  it('goes to the detail page when you press the back button', () => {
+    const router = {
+      push: sinon.stub(),
+    };
+    const root = render({ router });
+    Simulate.click(root.backButton);
+    // This just makes sure goBackToAddonDetail() is executed, which is tested
+    // separately.
+    assert.ok(router.push.called);
+  });
+
   it('lets you get back to the detail page', () => {
     const { lang, clientApp } = signedInApiState;
     const router = {
-      push: sinon.spy(() => {}),
+      push: sinon.stub(),
     };
     const root = render({ router, apiState: signedInApiState });
-    Simulate.click(root.backButton);
+    root.goBackToAddonDetail();
     assert.ok(router.push.called);
     assert.equal(router.push.firstCall.args[0],
                  `/${lang}/${clientApp}/addon/${defaultReview.addonSlug}/`);
@@ -99,7 +129,7 @@ describe('AddonReview', () => {
 
     beforeEach(() => {
       mockApi = sinon.mock(coreApi);
-      fakeDispatch = sinon.spy(() => {});
+      fakeDispatch = sinon.stub();
     });
 
     function loadAddonReview({ params } = {}) {
@@ -158,7 +188,6 @@ describe('AddonReview', () => {
   describe('mapDispatchToProps', () => {
     let mockApi;
     let fakeDispatch;
-    let router;
     let props;
     const params = {
       reviewId: 3333,
@@ -169,10 +198,7 @@ describe('AddonReview', () => {
 
     beforeEach(() => {
       mockApi = sinon.mock(amoApi);
-      router = {
-        push: sinon.spy(() => {}),
-      };
-      fakeDispatch = sinon.spy(() => {});
+      fakeDispatch = sinon.stub();
       props = mapDispatchToProps(fakeDispatch);
     });
 
@@ -182,21 +208,9 @@ describe('AddonReview', () => {
         .withArgs(params)
         .returns(Promise.resolve({}));
 
-      return props.updateReviewText({ router, ...params })
+      return props.updateReviewText({ ...params })
         .then(() => {
           mockApi.verify();
-        });
-    });
-
-    it('redirects to the detail page on success', () => {
-      mockApi.expects('submitReview').returns(Promise.resolve({}));
-
-      return props.updateReviewText({ router, ...params })
-        .then(() => {
-          const { lang, clientApp } = signedInApiState;
-          assert.equal(router.push.called, true);
-          assert.equal(router.push.firstCall.args[0],
-                       `/${lang}/${clientApp}/addon/chill-out/`);
         });
     });
   });
