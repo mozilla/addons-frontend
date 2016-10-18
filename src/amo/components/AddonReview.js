@@ -102,12 +102,11 @@ export function loadAddonReview(
       if (!slug || !reviewId) {
         throw new Error('missing URL params slug (add-on slug) or reviewId');
       }
-      resolve();
+      resolve(callApi({
+        endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
+        method: 'GET',
+      }));
     })
-    .then(() => callApi({
-      endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
-      method: 'GET',
-    }))
     .then((review) => {
       dispatch(setReview({
         addonId: review.addon.id,
