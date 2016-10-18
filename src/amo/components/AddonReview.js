@@ -64,7 +64,6 @@ export class AddonReviewBase extends React.Component {
   render() {
     const { i18n, review } = this.props;
     if (!review || !review.id || !review.addonSlug) {
-      // TODO: move to error state
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
 
@@ -97,7 +96,6 @@ export class AddonReviewBase extends React.Component {
               'Tell us what you love about this extension. ' +
               'Be specific and concise.')} />
           <div className="AddonReview-button-row">
-            {/* TODO: hook up the back button when we have link support */}
             <button className="AddonReview-button AddonReview-back-button"
               onClick={this.goBackToAddonDetail}
               ref={(ref) => { this.backButton = ref; }}>
@@ -127,16 +125,15 @@ export const mapDispatchToProps = (/* dispatch */) => ({
 export function loadAddonReview(
   { store: { dispatch }, params: { slug, reviewId } }
 ) {
-  return new Promise(
-    (resolve) => {
-      if (!slug || !reviewId) {
-        throw new Error('missing URL params slug (add-on slug) or reviewId');
-      }
-      resolve(callApi({
-        endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
-        method: 'GET',
-      }));
-    })
+  return new Promise((resolve) => {
+    if (!slug || !reviewId) {
+      throw new Error('missing URL params slug (add-on slug) or reviewId');
+    }
+    resolve(callApi({
+      endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
+      method: 'GET',
+    }));
+  })
     .then((review) => {
       dispatch(setReview({
         addonId: review.addon.id,
