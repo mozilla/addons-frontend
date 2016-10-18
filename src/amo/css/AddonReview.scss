@@ -2,40 +2,33 @@
 
 .AddonReview {
   text-align: center;
+  margin: auto;
+  width: 90%;
 
   h2 {
     font-size: $font-size-l;
     margin-bottom: 0.3em;
   }
 
-  p {
-    margin: auto;
-    margin-bottom: 2em;
-    width: 80%;
-  }
-
   textarea {
+    width: 100%;
     padding: 0.7em;
     border: 2px solid #f1f1f1;
     border-radius: 8px;
     box-shadow: none;
-    width: 90%;
     min-height: 200px;
   }
 }
 
 .AddonReview-button-row {
-  margin-top: 2em;
-  padding: 17px;
-  padding-top: 0;
-  padding-bottom: 0;
+  margin-top: 1em;
   text-align: left;
   display: flex;
 }
 
 .AddonReview-back-button:first-child:before {
-  // This is a back arrow.
-  // AKA &#12296;
+  // This is a left pointing angle bracket (used as an arrow).
+  // Code point: &#12296;
   // TODO: switch this to an SVG.
   content: '〈 ';
 }
