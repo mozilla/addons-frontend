@@ -67,7 +67,7 @@ export class AddonReviewBase extends React.Component {
           <div className="AddonReview-button-row">
             {/* TODO: hook up the back button when we have link support */}
             <button className="AddonReview-button AddonReview-back-button">
-              &#12296; {i18n.gettext('Back')}
+              {i18n.gettext('Back')}
             </button>
             <input
               className="AddonReview-button AddonReview-submit-button"

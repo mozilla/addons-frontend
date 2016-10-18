@@ -33,6 +33,13 @@
   display: flex;
 }
 
+.AddonReview-back-button:first-child:before {
+  // This is a back arrow.
+  // AKA &#12296;
+  // TODO: switch this to an SVG.
+  content: '〈 ';
+}
+
 .AddonReview-button {
   border: 0;
   color: $body-font-color;
