@@ -53,8 +53,6 @@ export class AddonReviewBase extends React.Component {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
 
-    console.log('Do we have a router?', this.props.router);
-
     // TODO: I guess we should load the existing review text so it
     // can be edited? That flow needs more thought.
     return (

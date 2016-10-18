@@ -55,7 +55,7 @@ describe('<HandleLogin />', () => {
         loadData: sinon.spy(() => Promise.resolve()),
         router: {},
       };
-      renderIntoDocument(<HandleLoginBase { ...props } />);
+      renderIntoDocument(<HandleLoginBase {...props} />);
       assert.ok(props.loadData.called);
       assert.equal(props.loadData.firstCall.args[0].router, props.router);
     });
