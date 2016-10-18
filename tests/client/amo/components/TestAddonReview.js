@@ -81,6 +81,18 @@ describe('AddonReview', () => {
     }
   });
 
+  it('lets you get back to the detail page', () => {
+    const { lang, clientApp } = signedInApiState;
+    const router = {
+      push: sinon.spy(() => {}),
+    };
+    const root = render({ router, apiState: signedInApiState });
+    Simulate.click(root.backButton);
+    assert.ok(router.push.called);
+    assert.equal(router.push.firstCall.args[0],
+                 `/${lang}/${clientApp}/addon/${defaultReview.addonSlug}/`);
+  });
+
   describe('loadAddonReview', () => {
     let mockApi;
     let fakeDispatch;

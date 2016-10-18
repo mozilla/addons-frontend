@@ -39,6 +39,13 @@ export class AddonReviewBase extends React.Component {
     this.props.updateReviewText(params);
   }
 
+  goBackToAddonDetail = () => {
+    const { router } = this.props;
+    const { addonSlug } = this.props.review;
+    const { lang, clientApp } = this.props.apiState;
+    router.push(`/${lang}/${clientApp}/addon/${addonSlug}/`);
+  }
+
   render() {
     const { i18n, review } = this.props;
     if (!review || !review.id || !review.addonSlug) {
@@ -66,7 +73,9 @@ export class AddonReviewBase extends React.Component {
               'Be specific and concise.')} />
           <div className="AddonReview-button-row">
             {/* TODO: hook up the back button when we have link support */}
-            <button className="AddonReview-button AddonReview-back-button">
+            <button className="AddonReview-button AddonReview-back-button"
+              onClick={this.goBackToAddonDetail}
+              ref={(ref) => { this.backButton = ref; }}>
               {i18n.gettext('Back')}
             </button>
             <input
