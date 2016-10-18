@@ -13,6 +13,11 @@ import 'amo/css/AddonReview.scss';
 
 
 export class AddonReviewBase extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { errorMessage: null };
+  }
+
   static propTypes = {
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
@@ -21,12 +26,21 @@ export class AddonReviewBase extends React.Component {
     updateReviewText: PropTypes.func.isRequired,
   }
 
+  clearErrors() {
+    this.setState({ errorMessage: null });
+  }
+
   onSubmit = (event) => {
     event.preventDefault();
+    this.clearErrors();
     const body = this.reviewTextarea.value;
     if (!body) {
-      // TODO: dispatch an error action when we have support for that.
-      throw new Error('The review text cannot be empty');
+      this.setState({
+        errorMessage: this.props.i18n.gettext(
+          'Please enter some text'
+        ),
+      });
+      return Promise.reject();
     }
     const params = {
       body,
@@ -50,7 +64,18 @@ export class AddonReviewBase extends React.Component {
   render() {
     const { i18n, review } = this.props;
     if (!review || !review.id || !review.addonSlug) {
+      // TODO: move to error state
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
+    }
+
+    let errorMessage;
+    if (this.state.errorMessage) {
+      errorMessage = (
+        <div className="AddonReview-error"
+             ref={(ref) => { this.errorMessage = ref; }}>
+          {this.state.errorMessage}
+        </div>
+      );
     }
 
     // TODO: I guess we should load the existing review text so it
@@ -63,6 +88,7 @@ export class AddonReviewBase extends React.Component {
             'Tell the world why you think this extension is fantastic!'
           )}
         </p>
+        {errorMessage}
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <textarea
             ref={(ref) => { this.reviewTextarea = ref; }}

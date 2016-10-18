@@ -80,13 +80,13 @@ describe('AddonReview', () => {
 
   it('requires the review text to be non-empty', () => {
     const root = render();
+    assert.equal(root.errorMessage, undefined);
+
     // By default the textarea for the review is empty.
-    try {
-      Simulate.submit(root.reviewForm);
-      assert(false, 'unexpected success');
-    } catch (error) {
-      assert.match(error.message, /review .* cannot be empty/);
-    }
+    Simulate.submit(root.reviewForm);
+
+    assert.ok(root.errorMessage);
+    assert.equal(root.errorMessage.textContent, 'Please enter some text');
   });
 
   it('requires a review object', () => {
