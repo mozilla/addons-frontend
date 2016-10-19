@@ -18,7 +18,13 @@ export class AddonReviewBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     review: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
-    updateReviewText: PropTypes.func.isRequired,
+    updateReviewText: PropTypes.func,
+  }
+
+  static defaultProps = {
+    // TODO: move this to mapDispatchToProps once we need to pass dispatch()
+    // to callApi()
+    updateReviewText: (...params) => submitReview(...params),
   }
 
   constructor(props) {
@@ -115,9 +121,6 @@ export class AddonReviewBase extends React.Component {
 
 export const mapStateToProps = (state) => ({
   apiState: state.api,
-  // TODO: move this to mapDispatchToProps once we need to pass dispatch()
-  // to callApi()
-  updateReviewText: (...params) => submitReview(...params),
 });
 
 export function loadAddonReview(

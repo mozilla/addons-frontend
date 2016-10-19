@@ -122,6 +122,29 @@ describe('AddonReview', () => {
                  `/${lang}/${clientApp}/addon/${defaultReview.addonSlug}/`);
   });
 
+  it('allows you to submit a review', () => {
+    const params = {
+      reviewId: 3333,
+      body: 'some review text',
+      addonSlug: 'chill-out',
+      apiState: signedInApiState,
+    };
+
+    const mockApi = sinon.mock(amoApi)
+      .expects('submitReview')
+      .withArgs(params)
+      .returns(Promise.resolve({}));
+
+    const root = findRenderedComponentWithType(renderIntoDocument(
+      <AddonReviewBase review={defaultReview} i18n={getFakeI18nInst()} />
+    ), AddonReviewBase);
+
+    return root.props.updateReviewText({ ...params })
+      .then(() => {
+        mockApi.verify();
+      });
+  });
+
   describe('loadAddonReview', () => {
     let mockApi;
     let fakeDispatch;
@@ -188,27 +211,6 @@ describe('AddonReview', () => {
     it('maps apiState to props', () => {
       const props = mapStateToProps({ api: signedInApiState });
       assert.deepEqual(props.apiState, signedInApiState);
-    });
-
-    it('allows you to submit a review', () => {
-      const params = {
-        reviewId: 3333,
-        body: 'some review text',
-        addonSlug: 'chill-out',
-        apiState: signedInApiState,
-      };
-
-      const props = mapStateToProps({});
-
-      const mockApi = sinon.mock(amoApi)
-        .expects('submitReview')
-        .withArgs(params)
-        .returns(Promise.resolve({}));
-
-      return props.updateReviewText({ ...params })
-        .then(() => {
-          mockApi.verify();
-        });
     });
   });
 });
