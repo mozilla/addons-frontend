@@ -10,7 +10,7 @@ import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
 import * as coreApi from 'core/api';
 import {
-  mapDispatchToProps, mapStateToProps, AddonReviewBase,
+  mapStateToProps, AddonReviewBase,
   loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
 import I18nProvider from 'core/i18n/Provider';
@@ -184,25 +184,23 @@ describe('AddonReview', () => {
     });
   });
 
-  describe('mapDispatchToProps', () => {
-    let mockApi;
-    let fakeDispatch;
-    let props;
-    const params = {
-      reviewId: 3333,
-      body: 'some review text',
-      addonSlug: 'chill-out',
-      apiState: signedInApiState,
-    };
-
-    beforeEach(() => {
-      mockApi = sinon.mock(amoApi);
-      fakeDispatch = sinon.stub();
-      props = mapDispatchToProps(fakeDispatch);
+  describe('mapStateToProps', () => {
+    it('maps apiState to props', () => {
+      const props = mapStateToProps({ api: signedInApiState });
+      assert.deepEqual(props.apiState, signedInApiState);
     });
 
     it('allows you to submit a review', () => {
-      mockApi
+      const params = {
+        reviewId: 3333,
+        body: 'some review text',
+        addonSlug: 'chill-out',
+        apiState: signedInApiState,
+      };
+
+      const props = mapStateToProps({});
+
+      const mockApi = sinon.mock(amoApi)
         .expects('submitReview')
         .withArgs(params)
         .returns(Promise.resolve({}));
@@ -211,13 +209,6 @@ describe('AddonReview', () => {
         .then(() => {
           mockApi.verify();
         });
-    });
-  });
-
-  describe('mapStateToProps', () => {
-    it('maps apiState to props', () => {
-      const props = mapStateToProps({ api: signedInApiState });
-      assert.deepEqual(props.apiState, signedInApiState);
     });
   });
 });
