@@ -6,6 +6,9 @@ module.exports = {
 
   CSP: {
     directives: {
+      fontSrc: [
+        staticHost,
+      ],
       scriptSrc: [
         staticHost,
         'https://www.google-analytics.com/analytics.js',
@@ -18,7 +21,6 @@ module.exports = {
         staticHost,
         'https://www.google-analytics.com',
       ],
-      mediaSrc: [staticHost],
     },
   },
 };
