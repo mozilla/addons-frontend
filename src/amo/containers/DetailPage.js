@@ -11,7 +11,7 @@ export class DetailPageBase extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="full-width no-top-padding">
         <AddonDetail {...this.props} />
       </div>
     );
