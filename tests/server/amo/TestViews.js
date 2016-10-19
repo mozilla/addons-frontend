@@ -27,7 +27,7 @@ describe('AMO GET Requests', () => {
     .then((res) => {
       const policy = new Policy(res.header['content-security-policy']);
       assert.notInclude(policy.get('script-src'), "'self'");
-      assert.include(policy.get('script-src'), 'https://addons.cdn.mozilla.net');
+      assert.include(policy.get('script-src'), 'https://addons-amo.cdn.mozilla.net');
       assert.notInclude(policy.get('connect-src'), "'self'");
       assert.include(policy.get('connect-src'), 'https://addons.mozilla.org');
     }));
