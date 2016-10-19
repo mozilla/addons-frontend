@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withRouter } from 'react-router';
 
 import { setReview } from 'amo/actions/reviews';
-import { postRating } from 'amo/api';
+import { submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
@@ -13,12 +14,14 @@ import 'amo/css/OverallRating.scss';
 export class OverallRatingBase extends React.Component {
   static propTypes = {
     addonName: PropTypes.string.isRequired,
+    addonSlug: PropTypes.string.isRequired,
     addonId: PropTypes.number.isRequired,
     apiState: PropTypes.object,
-    version: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
     createRating: PropTypes.func.isRequired,
+    i18n: PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired,
     userId: PropTypes.number,
+    version: PropTypes.object.isRequired,
   }
 
   onClickRating = (event) => {
@@ -30,7 +33,9 @@ export class OverallRatingBase extends React.Component {
       versionId: this.props.version.id,
       apiState: this.props.apiState,
       addonId: this.props.addonId,
+      addonSlug: this.props.addonSlug,
       userId: this.props.userId,
+      router: this.props.router,
     });
   }
 
@@ -78,9 +83,10 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ addonId, userId, ...params }) {
-    return postRating({ addonId, ...params })
+  createRating({ router, addonSlug, addonId, userId, ...params }) {
+    return submitReview({ addonSlug, ...params })
       .then((review) => {
+        const { lang, clientApp } = params.apiState;
         // TODO: when we have a user_id in the API response, we
         // could probably use that instead.
         // https://github.com/mozilla/addons-server/issues/3672
@@ -90,6 +96,8 @@ export const mapDispatchToProps = (dispatch) => ({
           versionId: review.version.id,
           userId,
         }));
+        router.push(
+          `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
       });
   },
 });
@@ -99,5 +107,6 @@ export const OverallRatingWithI18n = compose(
 )(OverallRatingBase);
 
 export default compose(
+  withRouter,
   connect(mapStateToProps, mapDispatchToProps),
 )(OverallRatingWithI18n);

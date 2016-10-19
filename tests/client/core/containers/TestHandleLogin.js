@@ -7,36 +7,17 @@ import { Provider } from 'react-redux';
 import cookie from 'react-cookie';
 import { createStore } from 'redux';
 
-import HandleLogin, { mapDispatchToProps } from 'core/containers/HandleLogin';
+import HandleLogin, {
+  HandleLoginBase, mapDispatchToProps,
+} from 'core/containers/HandleLogin';
 import * as api from 'core/api';
 import { userAuthToken } from 'tests/client/helpers';
 
 describe('<HandleLogin />', () => {
-  class MyRouter extends React.Component {
-    static propTypes = {
-      children: React.PropTypes.node.isRequired,
-      router: React.PropTypes.object.isRequired,
-    }
-
-    static childContextTypes = {
-      router: React.PropTypes.object,
-    };
-
-    getChildContext() {
-      return { router: this.props.router };
-    }
-
-    render() {
-      return this.props.children;
-    }
-  }
-
   function render(store, location, router) {
     return findDOMNode(renderIntoDocument(
       <Provider store={store}>
-        <MyRouter router={router}>
-          <HandleLogin location={location} />
-        </MyRouter>
+        <HandleLogin location={location} router={router} />
       </Provider>
     ));
   }
@@ -66,6 +47,17 @@ describe('<HandleLogin />', () => {
     it('sends the code and token to the api', () => {
       render(store, location, router);
       mockApi.verify();
+    });
+
+    it('passes a router to loadData', () => {
+      const props = {
+        location,
+        loadData: sinon.spy(() => Promise.resolve()),
+        router: {},
+      };
+      renderIntoDocument(<HandleLoginBase {...props} />);
+      assert.ok(props.loadData.called);
+      assert.equal(props.loadData.firstCall.args[0].router, props.router);
     });
   });
 

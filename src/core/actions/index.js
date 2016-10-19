@@ -5,6 +5,16 @@ export function setJWT(token) {
   };
 }
 
+export function setClientApp(clientApp) {
+  if (!clientApp) {
+    throw new Error('clientApp cannot be falsey');
+  }
+  return {
+    type: 'SET_CLIENT_APP',
+    payload: { clientApp },
+  };
+}
+
 export function setLang(lang) {
   return {
     type: 'SET_LANG',

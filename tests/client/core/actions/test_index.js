@@ -16,6 +16,18 @@ describe('core actions setLang', () => {
   });
 });
 
+describe('core actions setClientApp', () => {
+  it('creates the SET_CLIENT_APP action', () => {
+    assert.deepEqual(
+      actions.setClientApp('firefox'),
+      { type: 'SET_CLIENT_APP', payload: { clientApp: 'firefox' } });
+  });
+
+  it('requires a clientApp value', () => {
+    assert.throws(() => actions.setClientApp(''), /cannot be falsey/);
+  });
+});
+
 describe('ENTITIES_LOADED', () => {
   const entities = sinon.stub();
   const action = actions.loadEntities(entities);

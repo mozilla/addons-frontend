@@ -1,14 +1,30 @@
 import { callApi } from 'core/api';
-import log from 'core/logger';
 
-export function postRating({ rating, apiState, addonId, versionId }) {
-  const postData = { rating, version: versionId };
-  log.debug('about to post add-on rating with', postData);
-  return callApi({
-    endpoint: `addons/addon/${addonId}/reviews`,
-    body: postData,
-    method: 'post',
-    auth: true,
-    state: apiState,
-  });
+/*
+ * POST/PATCH an add-on review using the API.
+ */
+export function submitReview({
+  rating, apiState, addonSlug, versionId, body, reviewId,
+}) {
+  const data = { rating, version: versionId, body };
+
+  return new Promise(
+    (resolve) => {
+      if (!addonSlug) {
+        throw new Error('addonSlug is required to build the endpoint');
+      }
+      let method = 'POST';
+      let endpoint = `addons/addon/${addonSlug}/reviews`;
+      if (reviewId) {
+        endpoint = `${endpoint}/${reviewId}`;
+        method = 'PATCH';
+      }
+      resolve(callApi({
+        endpoint,
+        body: data,
+        method,
+        auth: true,
+        state: apiState,
+      }));
+    });
 }

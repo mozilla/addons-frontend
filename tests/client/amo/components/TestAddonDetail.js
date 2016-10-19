@@ -118,6 +118,7 @@ describe('AddonDetail', () => {
                                                OverallRatingWithI18n);
     assert.equal(root.props.addonName, fakeAddon.name);
     assert.equal(root.props.addonId, fakeAddon.id);
+    assert.equal(root.props.addonSlug, fakeAddon.slug);
   });
 
   it('renders a summary', () => {

@@ -1,0 +1,59 @@
+@import "~core/css/inc/vars";
+
+.AddonReview {
+  text-align: center;
+  margin: auto;
+  width: 90%;
+}
+
+.AddonReview-header {
+  font-size: $font-size-l;
+  margin-bottom: 0.3em;
+}
+
+.AddonReview-textarea {
+  width: 100%;
+  padding: 0.7em;
+  border: 2px solid $form-border-color;
+  border-radius: 8px;
+  box-shadow: none;
+  min-height: 200px;
+}
+
+.AddonReview-error {
+  color: $error-text-color;
+  background: $error-background-color;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+.AddonReview-button-row {
+  margin-top: 1em;
+  text-align: left;
+  display: flex;
+}
+
+.AddonReview-back-button::before {
+  // This is a left pointing angle bracket (used as an arrow).
+  // Code point: &#12296;
+  // TODO: switch this to an SVG.
+  content: '〈 ';
+}
+
+.AddonReview-button {
+  border: 0;
+  color: $body-font-color;
+  padding: 0.7em;
+  background-color: $button-background-color;
+  border-radius: 8px;
+}
+
+.AddonReview-back-button {
+  // This is because the left-pointing angle bracket character
+  // seems to have a lot of whitespace on the left side.
+  padding-left: 0;
+}
+
+.AddonReview-submit-button {
+  margin-left: auto;
+}

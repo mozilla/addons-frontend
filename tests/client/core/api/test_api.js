@@ -13,9 +13,23 @@ describe('api', () => {
     mockWindow = sinon.mock(window);
   });
 
-  describe('all api', () => {
+  describe('core.callApi', () => {
     it('does not use remote host for api calls', () => {
       assert.equal(apiHost, 'https://localhost');
+    });
+
+    it('transforms method to upper case', () => {
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/resource/?lang=`, {
+          method: 'GET', headers: {},
+        })
+        .once()
+        .returns(Promise.resolve({
+          ok: true,
+          json: () => {},
+        }));
+      return api.callApi({ endpoint: 'resource', method: 'get' })
+        .then(() => mockWindow.verify());
     });
   });
 
@@ -145,7 +159,7 @@ describe('api', () => {
       mockWindow.expects('fetch')
         .withArgs(
           `${apiHost}/api/v3/addons/addon/foo/?lang=en-US`,
-          { headers: {}, method: 'get' })
+          { headers: {}, method: 'GET' })
         .once()
         .returns(mockResponse());
       return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
@@ -167,7 +181,7 @@ describe('api', () => {
         .expects('fetch')
         .withArgs(
           `${apiHost}/api/v3/addons/addon/foo/?lang=en-US`,
-          { headers: {}, method: 'get' })
+          { headers: {}, method: 'GET' })
         .once()
         .returns(Promise.resolve({ ok: false }));
       return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
@@ -181,7 +195,7 @@ describe('api', () => {
         .expects('fetch')
         .withArgs(
           `${apiHost}/api/v3/addons/addon/bar/?lang=en-US`,
-          { headers: { authorization: `Bearer ${token}` }, method: 'get' })
+          { headers: { authorization: `Bearer ${token}` }, method: 'GET' })
         .once()
         .returns(mockResponse());
       return api.fetchAddon({ api: { lang: 'en-US', token }, slug: 'bar' })
@@ -212,7 +226,7 @@ describe('api', () => {
           body: '{"code":"my-code","state":"my-state"}',
           credentials: 'include',
           headers: { 'Content-type': 'application/json' },
-          method: 'post',
+          method: 'POST',
         })
         .once()
         .returns(mockResponse());
@@ -243,7 +257,7 @@ describe('api', () => {
         .expects('fetch')
         .withArgs(`${apiHost}/api/v3/accounts/profile/?lang=en-US`, {
           headers: { authorization: `Bearer ${token}` },
-          method: 'get',
+          method: 'GET',
         })
         .once()
         .returns(Promise.resolve({

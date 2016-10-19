@@ -1,3 +1,4 @@
+import * as actions from 'core/actions';
 import api from 'core/reducers/api';
 
 describe('api reducer', () => {
@@ -16,6 +17,14 @@ describe('api reducer', () => {
     const lang = 'de';
     assert.deepEqual(api({ bar: 'baz' },
       { type: 'SET_LANG', payload: { lang } }), { bar: 'baz', lang });
+  });
+
+  it('stores the clientApp', () => {
+    const existingState = { bar: 'baz' };
+    const clientApp = 'firefox';
+    assert.deepEqual(
+      api(existingState, actions.setClientApp(clientApp)),
+      { ...existingState, clientApp });
   });
 
   it('defaults to an empty object', () => {
