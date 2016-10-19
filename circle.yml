@@ -33,7 +33,7 @@ dependencies:
     # day to keep the cache size down.
     - I="image-$(date +%j).gz"; if [[ -e ~/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/docker/$I | docker load; fi
 
-    - docker build --pull -t $DOCKERHUB_REPO .
+    - docker build --pull -t addons-frontend .
 
     - docker images
 
@@ -41,11 +41,11 @@ dependencies:
     - docker images --no-trunc | awk '/^app/ {print $3}' | tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
 
     # Clean up any old images; save the new one.
-    - I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*; docker save ${DOCKERHUB_REPO} | pigz --fast -c > ~/docker/$I; ls -l ~/docker
+    - I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*; docker save addons-frontend | pigz --fast -c > ~/docker/$I; ls -l ~/docker
 
 test:
   override:
-    - docker run -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests $DOCKERHUB_REPO /bin/sh -c "npm run build && npm run start" && sleep 60
+    - docker run -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests addons-frontend /bin/sh -c "npm run build && npm run start" && sleep 60
     - tox -e discopane-ui-tests --
       --base-url=http://localhost:4000
       --firefox-path=firefox/firefox
@@ -57,6 +57,7 @@ deployment:
     commands:
       - "[ ! -z $DOCKERHUB_REPO ]"
       - "docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS"
+      - "docker tag addons-frontend $DOCKERHUB_REPO:latest"
       - "docker push $DOCKERHUB_REPO:latest"
 
   hub_releases:
@@ -66,6 +67,6 @@ deployment:
       - "[ ! -z $DOCKERHUB_REPO ]"
       - "docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS"
       - "echo $DOCKERHUB_REPO:$CIRCLE_TAG"
-      - "docker tag $DOCKERHUB_REPO $DOCKERHUB_REPO:$CIRCLE_TAG"
+      - "docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG"
       - "docker images"
       - "docker push $DOCKERHUB_REPO:$CIRCLE_TAG"
