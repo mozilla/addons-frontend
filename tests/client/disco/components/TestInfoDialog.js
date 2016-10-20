@@ -4,7 +4,6 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import ReactDOM, { findDOMNode } from 'react-dom';
 
-import I18nProvider from 'core/i18n/Provider';
 import InfoDialog from 'disco/components/InfoDialog';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -17,6 +16,7 @@ function getInfoDialog(props = {}) {
     addonName: 'A Test Add-on',
     imageURL: 'https://addons-dev-cdn.allizom.org/whatever',
     closeAction,
+    i18n: getFakeI18nInst(),
     ...props,
   };
   return <InfoDialog {...renderProps} />;
@@ -24,10 +24,7 @@ function getInfoDialog(props = {}) {
 
 describe('<InfoDialog />', () => {
   function renderInfoDialog(props = {}) {
-    return renderIntoDocument(
-      <I18nProvider i18n={getFakeI18nInst()}>
-        {getInfoDialog(props)}
-      </I18nProvider>);
+    return renderIntoDocument(getInfoDialog(props));
   }
 
   it('Should render a dialog with aria role', () => {
@@ -87,12 +84,10 @@ describe('Clicking outside <InfoDialog />', () => {
     class FakeContainer extends React.Component {
       render() {
         return (
-          <I18nProvider i18n={getFakeI18nInst()}>
-            <div>
-              {getInfoDialog()}
-              <button id="outside-component" onClick={(e) => e.stopPropagation()} />
-            </div>
-          </I18nProvider>
+          <div>
+            {getInfoDialog()}
+            <button id="outside-component" onClick={(e) => e.stopPropagation()} />
+          </div>
         );
       }
     }

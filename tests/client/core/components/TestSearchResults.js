@@ -5,7 +5,6 @@ import {
   isDOMComponent,
 } from 'react-addons-test-utils';
 
-import I18nProvider from 'core/i18n/Provider';
 import SearchResults from 'core/components/Search/SearchResults';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -13,9 +12,7 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 describe('<SearchResults />', () => {
   function renderResults(props) {
     return findRenderedComponentWithType(render(
-      <I18nProvider i18n={getFakeI18nInst()}>
-        <SearchResults {...props} />
-      </I18nProvider>
+      <SearchResults i18n={getFakeI18nInst()} {...props} />
     ), SearchResults).getWrappedInstance();
   }
 

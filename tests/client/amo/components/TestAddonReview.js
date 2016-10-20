@@ -13,7 +13,6 @@ import {
   mapStateToProps, AddonReviewBase,
   loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
-import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -32,9 +31,7 @@ function render({ ...customProps } = {}) {
   };
   const AddonReview = translate({ withRef: true })(AddonReviewBase);
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <I18nProvider i18n={props.i18n}>
-      <AddonReview {...props} />
-    </I18nProvider>
+    <AddonReview {...props} />
   ), AddonReview);
 
   return root.getWrappedInstance();

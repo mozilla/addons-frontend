@@ -5,7 +5,6 @@ import {
   renderIntoDocument,
 } from 'react-addons-test-utils';
 
-import I18nProvider from 'core/i18n/Provider';
 import SearchResult from 'amo/components/SearchResult';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -13,9 +12,7 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 describe('<SearchResult />', () => {
   function renderResult(result) {
     return findRenderedComponentWithType(renderIntoDocument(
-      <I18nProvider i18n={getFakeI18nInst()}>
-        <SearchResult result={result} lang="en-US" />
-      </I18nProvider>
+      <SearchResult i18n={getFakeI18nInst()} result={result} lang="en-US" />
     ), SearchResult).getWrappedInstance();
   }
 

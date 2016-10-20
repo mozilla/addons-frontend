@@ -8,7 +8,6 @@ import {
 } from 'react-addons-test-utils';
 import { Route, Router, createMemoryHistory } from 'react-router';
 
-import I18nProvider from 'core/i18n/Provider';
 import Paginate from 'core/components/Paginate';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -17,9 +16,9 @@ describe('<Paginate />', () => {
   describe('methods', () => {
     function renderPaginate({ count = 20, currentPage = 1, pathname, ...extra }) {
       return findRenderedComponentWithType(renderIntoDocument(
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <Paginate count={count} currentPage={currentPage} pathname={pathname} {...extra} />
-        </I18nProvider>
+        <Paginate
+          i18n={getFakeI18nInst()} count={count} currentPage={currentPage} pathname={pathname}
+          {...extra} />
       ), Paginate).getWrappedInstance();
     }
 

@@ -7,7 +7,6 @@ import {
 import { findDOMNode } from 'react-dom';
 import config from 'config';
 
-import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
 import {
   AddonBase,
@@ -59,9 +58,7 @@ function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
   const MyAddon = translate({ withRef: true })(AddonBase);
 
   return findRenderedComponentWithType(renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
-      <MyAddon {...props} setCurrentStatus={setCurrentStatus} />
-    </I18nProvider>
+    <MyAddon i18n={getFakeI18nInst()} {...props} setCurrentStatus={setCurrentStatus} />
   ), MyAddon).getWrappedInstance();
 }
 

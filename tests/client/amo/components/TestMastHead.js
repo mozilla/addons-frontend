@@ -6,7 +6,6 @@ import {
 
 import { MastHeadBase } from 'amo/components/MastHead';
 import { getFakeI18nInst } from 'tests/client/helpers';
-import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
 
 
@@ -21,9 +20,7 @@ describe('MastHead', () => {
     const MyMastHead = translate({ withRef: true })(MastHeadBase);
 
     return findRenderedComponentWithType(renderIntoDocument(
-      <I18nProvider i18n={getFakeI18nInst()}>
-        <MyMastHead {...props} />
-      </I18nProvider>
+      <MyMastHead i18n={getFakeI18nInst()} {...props} />
     ), MyMastHead).getWrappedInstance();
   }
 
