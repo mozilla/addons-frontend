@@ -18,7 +18,6 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 function render({ addon = fakeAddon, ...customProps } = {}) {
   const i18n = getFakeI18nInst();
   const props = {
-    i18n,
     addon,
     // Configure AddonDetail with a non-redux depdendent OverallRating.
     OverallRating: OverallRatingWithI18n,

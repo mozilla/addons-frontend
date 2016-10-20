@@ -11,7 +11,6 @@ import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
 import { SET_REVIEW } from 'amo/constants';
-import I18nProvider from 'core/i18n/Provider';
 import {
   createRatingResponse, fakeAddon, signedInApiState,
 } from 'tests/client/amo/helpers';
@@ -31,9 +30,7 @@ function render({ ...customProps } = {}) {
     ...customProps,
   };
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <I18nProvider i18n={props.i18n}>
-      <OverallRatingBase {...props} />
-    </I18nProvider>
+    <OverallRatingBase {...props} />
   ), OverallRatingBase);
 
   return findDOMNode(root);

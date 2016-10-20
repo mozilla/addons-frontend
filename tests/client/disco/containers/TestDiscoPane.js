@@ -1,10 +1,8 @@
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
 
 import { loadEntities } from 'core/actions';
-import I18nProvider from 'core/i18n/Provider';
 import {
   EXTENSION_TYPE,
   INSTALL_STATE,
@@ -36,12 +34,9 @@ describe('AddonPage', () => {
 
     // We need the providers for i18n and since InstallButton will pull data from the store.
     return findDOMNode(renderIntoDocument(
-      <I18nProvider i18n={i18n}>
-        <Provider store={store} key="provider">
-          <DiscoPaneBase results={results} i18n={i18n}
-            {...props} AddonComponent={MockedSubComponent} />
-        </Provider>
-      </I18nProvider>
+      <DiscoPaneBase
+        store={store} i18n={i18n} results={results} {...props}
+        AddonComponent={MockedSubComponent} />
     ));
   }
 

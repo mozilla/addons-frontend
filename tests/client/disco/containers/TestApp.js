@@ -5,7 +5,6 @@ import {
   renderIntoDocument,
 } from 'react-addons-test-utils';
 
-import I18nProvider from 'core/i18n/Provider';
 import App from 'disco/containers/App';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -18,11 +17,10 @@ describe('App', () => {
       }
     }
     const root = findRenderedComponentWithType(renderIntoDocument(
-      <I18nProvider i18n={getFakeI18nInst()}>
-        <App>
-          <MyComponent />
-        </App>
-      </I18nProvider>), App).getWrappedInstance();
+      <App i18n={getFakeI18nInst()}>
+        <MyComponent />
+      </App>
+    ), App).getWrappedInstance();
 
     const rootNode = findDOMNode(root);
     assert.equal(rootNode.tagName.toLowerCase(), 'div');
