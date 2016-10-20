@@ -5,7 +5,7 @@
 
 html,
 body {
-  background: $accent-color;
+  background: $masthead-footer-color;
 }
 
 html {
@@ -27,7 +27,15 @@ body {
 }
 
 .App-content {
-  padding: 0 0 10px;
+  background: $accent-color;
+
+  > div {
+    padding: $padding-page;
+
+    &.full-width {
+      padding: 0 0 $padding-page;
+    }
+  }
 }
 
 h1,
@@ -45,14 +53,12 @@ h1 {
 
 h2 {
   font-size: 12px;
-  color: $primary-font-color;
 }
 
 h3 {
   @include font-bold();
 
   font-size: 14px;
-  color: $primary-font-color;
   line-height: 19px;
 }
 

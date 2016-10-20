@@ -10,21 +10,24 @@ import 'amo/css/App.scss';
 import SearchForm from 'amo/components/SearchForm';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
+import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
 
 
 export class AppBase extends React.Component {
   static propTypes = {
+    FooterComponent: PropTypes.node.isRequired,
+    MastHeadComponent: PropTypes.node.isRequired,
     children: PropTypes.node,
     handleLogIn: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool,
     lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
-    MastHeadComponent: PropTypes.node,
   }
 
   static defaultProps = {
+    FooterComponent: Footer,
     MastHeadComponent: MastHead,
   }
 
@@ -40,7 +43,14 @@ export class AppBase extends React.Component {
   }
 
   render() {
-    const { MastHeadComponent, children, i18n, lang, location } = this.props;
+    const {
+      FooterComponent,
+      MastHeadComponent,
+      children,
+      i18n,
+      lang,
+      location,
+    } = this.props;
     const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
@@ -52,6 +62,7 @@ export class AppBase extends React.Component {
         <div className="App-content">
           {children}
         </div>
+        <FooterComponent lang={lang} />
       </div>
     );
   }

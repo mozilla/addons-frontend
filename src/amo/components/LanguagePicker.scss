@@ -1,0 +1,22 @@
+@import "~core/css/inc/vars";
+
+$selector-padding: 8px;
+
+.LanguagePicker-header {
+  margin: 0 0 5px;
+}
+
+.LanguagePicker-selector {
+  appearance: none;
+  background:
+    rgba(255, 255, 255, 0.25) url('../img/icons/triangle-down.svg')
+    no-repeat calc(100% - #{$selector-padding}) 50%;
+  border: 0;
+  border-radius: $border-radius-default;
+  color: #fff;
+  display: block;
+  font-size: $font-size-s;
+  line-height: 1;
+  padding: $selector-padding $selector-padding #{$selector-padding - 1};
+  width: 100%;
+}

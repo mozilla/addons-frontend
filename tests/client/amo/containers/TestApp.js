@@ -11,6 +11,13 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('App', () => {
+  class FakeFooterComponent extends React.Component {
+    render() {
+      return <footer />;
+    }
+  }
+
+  // eslint-disable-next-line react/no-multi-comp
   class FakeMastHeadComponent extends React.Component {
     render() {
       // eslint-disable-next-line react/prop-types
@@ -36,6 +43,7 @@ describe('App', () => {
     const location = sinon.stub();
     const root = renderIntoDocument(
       <AppBase i18n={i18n} isAuthenticated
+        FooterComponent={FakeFooterComponent}
         MastHeadComponent={FakeMastHeadComponent}
         SearchFormComponent={FakeSearchFormComponent} location={location}>
         <MyComponent />
@@ -53,6 +61,7 @@ describe('App', () => {
     const location = sinon.stub();
     const root = renderIntoDocument(
       <AppBase i18n={i18n} isAuthenticated={false}
+        FooterComponent={FakeFooterComponent}
         MastHeadComponent={FakeMastHeadComponent}
         SearchFormComponent={FakeSearchFormComponent}
         handleLogIn={handleLogIn} location={location} />
@@ -67,7 +76,9 @@ describe('App', () => {
     const i18n = getFakeI18nInst();
     const location = sinon.stub();
     const root = renderIntoDocument(<AppBase i18n={i18n}
-      isAuthenticated MastHeadComponent={FakeMastHeadComponent}
+      isAuthenticated
+      FooterComponent={FakeFooterComponent}
+      MastHeadComponent={FakeMastHeadComponent}
       SearchFormComponent={FakeSearchFormComponent} location={location} />);
     assert.equal(root.logInButton.textContent, 'Log out');
   });
