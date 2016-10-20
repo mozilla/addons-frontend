@@ -34,7 +34,7 @@ export default function translate(options = {}) {
           extraProps.ref = (ref) => { this.wrappedInstance = ref; };
         }
 
-        return <WrappedComponent {...this.props} {...extraProps} />;
+        return <WrappedComponent {...extraProps} {...this.props} />;
       }
     }
 
