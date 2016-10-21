@@ -36,8 +36,11 @@ export class SearchFormBase extends React.Component {
             className="SearchForm-form" ref={(ref) => { this.form = ref; }}>
         <CentredInput
           inputRef={(ref) => { this.searchQuery = ref; }} type="search" name="q"
-          placeholder={_('Search extensions and themes')}
-          defaultValue={query} className="SearchForm-query" />
+          defaultValue={query} className="SearchForm-query" offset={31}
+        >
+          <i className="Icon-magnifying-glass" />
+          <span>{_('Search extensions and themes')}</span>
+        </CentredInput>
         <button className="visually-hidden" type="submit" title="Enter"
                 ref={(ref) => { this.submitButton = ref; }}
                 onClick={this.handleSearch}>
