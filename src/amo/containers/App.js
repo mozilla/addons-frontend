@@ -8,6 +8,8 @@ import { compose } from 'redux';
 import 'core/fonts/fira.scss';
 import 'amo/css/App.scss';
 import SearchForm from 'amo/components/SearchForm';
+import Icon from 'core/components/Icon';
+import Icons from 'amo/components/Icons';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';
@@ -37,7 +39,11 @@ export class AppBase extends React.Component {
       <button className="button AccountButton"
               onClick={() => handleLogIn(location)}
               ref={(ref) => { this.logInButton = ref; }}>
-        <span>{ isAuthenticated ? i18n.gettext('Log out') : i18n.gettext('Log in/Sign up') }</span>
+        <span>
+          <Icon name="LoginPerson" />
+          { isAuthenticated ?
+            i18n.gettext('Log out') : i18n.gettext('Log in/Sign up') }
+        </span>
       </button>
     );
   }
@@ -54,6 +60,7 @@ export class AppBase extends React.Component {
     const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
+        <Icons />
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         <MastHeadComponent SearchFormComponent={SearchForm} lang={lang}
                            query={query}>

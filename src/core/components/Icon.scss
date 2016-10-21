@@ -1,0 +1,17 @@
+@import "~core/css/inc/vars";
+
+.FoxPuzzleIcon {
+  fill: $accent-color;
+  fill-opacity: 1;
+  fill-rule: evenodd;
+  stroke: none;
+}
+
+.LoginPersonIcon {
+  fill: $text-color-default;
+  height: 16px;
+  fill-opacity: 1;
+  fill-rule: evenodd;
+  stroke: none;
+  width: 13px;
+}

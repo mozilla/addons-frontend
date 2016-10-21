@@ -72,7 +72,7 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
         loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
       }, {
         test: /\.svg$/,
-        loader: 'url?limit=10000&mimetype=image/svg+xml',
+        loader: 'raw-loader',
       }, {
         test: /\.jpg$/,
         loader: 'url?limit=10000&mimetype=image/jpeg',

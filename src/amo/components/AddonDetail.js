@@ -9,7 +9,7 @@ import ScreenShots from 'amo/components/ScreenShots';
 import translate from 'core/i18n/translate';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import 'amo/css/AddonDetail.scss';
-import fallbackIcon from 'amo/img/icons/default-64.png';
+import fallbackIcon from 'core/img/icons/default-64.png';
 
 
 export const allowedDescriptionTags = [
