@@ -1,5 +1,11 @@
 addons.mozilla.org mobile - v1
 
+changelog - october 21
+======================
++ added the all reviews page
++ added the search bar interaction flow
+
+
 changelog - october 18
 ======================
 + added incompatible warning below the install switch
