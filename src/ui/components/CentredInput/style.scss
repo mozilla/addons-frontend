@@ -1,0 +1,39 @@
+@import "~core/css/inc/mixins";
+
+.CentredInput {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.CentredInput-label {
+  display: inline-block;
+  position: relative;
+
+  .CentredInput--centre-text & {
+    display: none;
+  }
+}
+
+.CentredInput-input {
+  @include start(0);
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    @include text-align-start();
+  }
+
+  .CentredInput--centre-text & {
+    text-align: center;
+  }
+}

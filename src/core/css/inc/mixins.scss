@@ -195,3 +195,31 @@ $color: $text-color-message) {
     padding: 0;
   }
 }
+
+@mixin text-align-start() {
+  text-align: left;
+
+  [dir=rtl] & {
+    text-align: right;
+  }
+}
+
+@mixin start($pos) {
+  left: $pos;
+  right: auto;
+
+  [dir=rtl] & {
+    left: auto;
+    right: $pos;
+  }
+}
+
+@mixin end($pos) {
+  left: auto;
+  right: $pos;
+
+  [dir=rtl] & {
+    left: $pos;
+    right: auto;
+  }
+}
