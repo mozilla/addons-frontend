@@ -4,6 +4,7 @@ changelog - october 21
 ======================
 + added the all reviews page
 + added the search bar interaction flow
++ added the install button fallback
 
 
 changelog - october 18
