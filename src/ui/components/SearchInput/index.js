@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import './style.scss';
 
-class SearchInput extends React.Component {
+export default class SearchInput extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     inputRef: PropTypes.func,
@@ -65,5 +65,3 @@ class SearchInput extends React.Component {
     );
   }
 }
-
-export default SearchInput;
