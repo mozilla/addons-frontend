@@ -35,13 +35,13 @@ export class MastHeadBase extends React.Component {
         </div>
         {children}
         <header className="MastHead-header">
-          { isHomePage ?
-            <h1 ref={(ref) => { this.title = ref; }}
-                className="MastHead-title MastHead-homepage">
-              { headerTitle }
-            </h1> :
-            <a ref={(ref) => { this.title = ref; }}
-               href="/" className="MastHead-title">{ headerTitle }</a> }
+          {isHomePage
+            ? <h1 ref={(ref) => { this.title = ref; }} className="MastHead-title MastHead-homepage">
+              {headerTitle}
+            </h1>
+            : <a ref={(ref) => { this.title = ref; }} href="/" className="MastHead-title">
+              {headerTitle}
+            </a>}
         </header>
         <SearchFormComponent pathname={pathname} query={query} />
       </div>
