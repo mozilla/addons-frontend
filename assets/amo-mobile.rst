@@ -1,5 +1,11 @@
 addons.mozilla.org mobile - v1
 
+changelog - october 24
+======================
++ added the amo ui kit
+
+~ changed the install button fallback flow to match current implementation
+
 changelog - october 21
 ======================
 + added the all reviews page
