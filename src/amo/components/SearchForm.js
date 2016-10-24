@@ -39,7 +39,7 @@ export class SearchFormBase extends React.Component {
         ref={(ref) => { this.form = ref; }}>
         <label className="visually-hidden" htmlFor="q">{_('Search')}</label>
         <SearchInput
-          ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
+          inputRef={(ref) => { this.searchQuery = ref; }} type="search" name="q"
           defaultValue={query} className="SearchForm-query"
           placeholder={_('Search extensions and themes')} />
         <button className="visually-hidden" type="submit" title="Enter"
