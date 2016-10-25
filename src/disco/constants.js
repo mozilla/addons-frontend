@@ -31,6 +31,8 @@ export const globalEventStatusMap = {
 // necessarily in the disco pane.
 export const globalEvents = Object.keys(globalEventStatusMap);
 
+// Action types.
+export const DISCO_RESULTS = 'DISCO_RESULTS';
 export const SHOW_INFO = 'SHOW_INFO';
 export const CLOSE_INFO = 'CLOSE_INFO';
 

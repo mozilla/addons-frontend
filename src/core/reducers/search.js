@@ -1,3 +1,10 @@
+import {
+  SEARCH_STARTED,
+  SEARCH_LOADED,
+  SEARCH_FAILED,
+  SET_QUERY,
+} from 'core/constants';
+
 const initialState = {
   count: 0,
   loading: false,
@@ -9,11 +16,11 @@ const initialState = {
 export default function search(state = initialState, action) {
   const { payload } = action;
   switch (action.type) {
-    case 'SET_QUERY':
+    case SET_QUERY:
       return { ...state, query: payload.query };
-    case 'SEARCH_STARTED':
+    case SEARCH_STARTED:
       return { ...state, ...payload, count: 0, loading: true, results: [] };
-    case 'SEARCH_LOADED':
+    case SEARCH_LOADED:
       return {
         ...state,
         count: payload.result.count,
@@ -21,7 +28,7 @@ export default function search(state = initialState, action) {
         query: payload.query,
         results: payload.result.results.map((slug) => payload.entities.addons[slug]),
       };
-    case 'SEARCH_FAILED':
+    case SEARCH_FAILED:
       return {
         ...initialState,
         page: payload.page,

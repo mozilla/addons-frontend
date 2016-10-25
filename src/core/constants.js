@@ -43,6 +43,18 @@ export const validAddonTypes = [
   THEME_TYPE,
 ];
 
+// Action types.
+export const ENTITIES_LOADED = 'ENTITIES_LOADED';
+export const LOG_OUT_USER = 'LOG_OUT_USER';
+export const SEARCH_FAILED = 'SEARCH_FAILED';
+export const SEARCH_LOADED = 'SEARCH_LOADED';
+export const SEARCH_STARTED = 'SEARCH_STARTED';
+export const SET_CLIENT_APP = 'SET_CLIENT_APP';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const SET_JWT = 'SET_JWT';
+export const SET_LANG = 'SET_LANG';
+export const SET_QUERY = 'SET_QUERY';
+
 // Theme preview actions.
 export const THEME_INSTALL = 'InstallBrowserTheme';
 export const THEME_PREVIEW = 'PreviewBrowserTheme';

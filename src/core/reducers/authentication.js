@@ -1,6 +1,11 @@
 import base64url from 'base64url';
 
 import log from 'core/logger';
+import {
+  LOG_OUT_USER,
+  SET_JWT,
+  SET_CURRENT_USER,
+} from 'core/constants';
 
 function decodeUserIdFromJwt(token) {
   let data;
@@ -23,7 +28,7 @@ function decodeUserIdFromJwt(token) {
 export default function authentication(state = {}, action) {
   const { payload, type } = action;
   switch (type) {
-    case 'SET_JWT':
+    case SET_JWT:
       return {
         ...state,
         token: payload.token,
@@ -32,9 +37,9 @@ export default function authentication(state = {}, action) {
         // because the server is responsible for that.
         userId: decodeUserIdFromJwt(payload.token),
       };
-    case 'SET_CURRENT_USER':
+    case SET_CURRENT_USER:
       return { ...state, username: payload.username };
-    case 'LOG_OUT_USER':
+    case LOG_OUT_USER:
       return {};
     default:
       return state;
