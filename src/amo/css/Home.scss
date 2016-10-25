@@ -1,4 +1,4 @@
-.HomePage-h2 {
+.HomePage-subheading {
   text-align: center;
 }
 
@@ -59,18 +59,18 @@
 
 .HomePage-extensions-link:link,
 .HomePage-themes-link:link {
+  align-items: center;
   background: #fff;
   border-radius: 6px;
+  display: flex;
   font-size: 10px;
+  justify-content: center;
   margin: 0 auto 20px;
   padding: 10px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   width: calc(100% - 40px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &:hover,
   &:focus {

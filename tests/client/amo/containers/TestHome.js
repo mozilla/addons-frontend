@@ -12,6 +12,11 @@ describe('Home', () => {
   it('renders a heading', () => {
     const root = renderIntoDocument(<Home i18n={getFakeI18nInst()} />);
     const rootNode = findDOMNode(root);
-    assert.include(rootNode.querySelectorAll('h2')[0].textContent, 'What do you want Firefox to do?');
+    const content = [
+      'What do you want Firefox to do?',
+      'How do you want Firefox to look?',
+    ];
+    Array.from(rootNode.querySelectorAll('.HomePage-subheading'))
+      .map((el, index) => assert.equal(el.textContent, content[index]));
   });
 });
