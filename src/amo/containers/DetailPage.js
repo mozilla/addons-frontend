@@ -8,7 +8,6 @@ import translate from 'core/i18n/translate';
 import { loadAddonIfNeeded } from 'core/utils';
 
 export class DetailPageBase extends React.Component {
-
   render() {
     return (
       <div className="full-width no-top-padding">
