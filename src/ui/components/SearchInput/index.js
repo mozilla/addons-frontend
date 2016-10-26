@@ -37,6 +37,13 @@ export default class SearchInput extends React.Component {
     this.animateIcon.style.transform = `translateX(${labelLeft - animateLeft}px)`;
   }
 
+  maskClick = () => {
+    this.root.classList.add('SearchInput--text');
+    if (!this.input.value) {
+      setTimeout(() => this.input.focus(), 250);
+    }
+  }
+
   inputRefs(inputRef) {
     const refs = [(el) => { this.input = el; }];
     if (inputRef) {
@@ -65,6 +72,7 @@ export default class SearchInput extends React.Component {
           {...props} className="SearchInput-input" placeholder={placeholder} id={id} name={name}
           autoComplete="off" ref={this.inputRefs(inputRef)}
           onFocus={this.onFocus} onBlur={this.onBlur} />
+        <div className="SearchInput-mask" onClick={this.maskClick} />
       </div>
     );
   }

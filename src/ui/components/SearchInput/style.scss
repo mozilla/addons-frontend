@@ -20,7 +20,12 @@ $icon-size: 16px;
   width: 100%;
 
   .Icon-magnifying-glass {
-    @include margin(0, $icon-margin-end, 0, $icon-margin-start);
+    @include margin(
+      ($input-height - $icon-size) / 2,
+      $icon-margin-end,
+      ($input-height - $icon-size) / 2,
+      $icon-margin-start);
+    vertical-align: top;
   }
 
   .SearchInput-animation-icon {
@@ -29,12 +34,6 @@ $icon-size: 16px;
     opacity: 0;
     position: absolute;
     transition: opacity 1ms 250ms, transform 250ms;
-
-    [dir=ltr] &,
-    [dir=rtl] & {
-      margin-bottom: ($input-height - $icon-size) / 2;
-      margin-top: ($input-height - $icon-size) / 2;
-    }
   }
 }
 
@@ -56,6 +55,10 @@ $icon-size: 16px;
     transform: translateX(0) !important;
     transition: transform 250ms;
   }
+
+  .SearchInput-mask {
+    display: none;
+  }
 }
 
 .SearchInput-label {
@@ -72,7 +75,6 @@ $icon-size: 16px;
   & .Icon-magnifying-glass {
     opacity: 1;
     transition: opacity 1ms 250ms;
-    vertical-align: middle;
   }
 }
 
@@ -97,4 +99,13 @@ $icon-size: 16px;
   &:focus {
     @include text-align-start();
   }
+}
+
+.SearchInput-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
 }
