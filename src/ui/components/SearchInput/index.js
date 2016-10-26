@@ -32,8 +32,9 @@ export default class SearchInput extends React.Component {
   }
 
   setIconPosition = () => {
-    const { left } = this.label.getBoundingClientRect();
-    this.icon.style.transform = `translateX(${left}px)`;
+    const { left: labelLeft } = this.labelIcon.getBoundingClientRect();
+    const { left: animateLeft } = this.animateIcon.getBoundingClientRect();
+    this.animateIcon.style.transform = `translateX(${labelLeft - animateLeft}px)`;
   }
 
   inputRefs(inputRef) {
@@ -53,8 +54,11 @@ export default class SearchInput extends React.Component {
     const id = `SearchInput-input-${name}`;
     return (
       <div className={classNames(className, 'SearchInput')} ref={(el) => { this.root = el; }}>
-        <i className="Icon-magnifying-glass" ref={(el) => { this.icon = el; }} />
-        <label className="SearchInput-label" ref={(el) => { this.label = el; }} htmlFor={id}>
+        <i
+          className="Icon-magnifying-glass SearchInput-animation-icon"
+          ref={(el) => { this.animateIcon = el; }} />
+        <label className="SearchInput-label" htmlFor={id}>
+          <i className="Icon-magnifying-glass" ref={(el) => { this.labelIcon = el; }} />
           {placeholder}
         </label>
         <input

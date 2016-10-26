@@ -1,7 +1,18 @@
 @import "~core/css/inc/mixins";
 
-$icon-margin: 16px;
-$icon-size: 26px;
+$input-height: 48px;
+$icon-margin-start: 16px;
+$icon-margin-end: 8px;
+$icon-size: 16px;
+
+.Icon-magnifying-glass {
+  background: url('~amo/img/icons/magnifying-glass.svg') 0 50% no-repeat;
+  background-size: cover;
+  content: '';
+  display: inline-block;
+  height: $icon-size;
+  width: $icon-size;
+}
 
 .SearchInput {
   position: relative;
@@ -9,12 +20,20 @@ $icon-size: 26px;
   width: 100%;
 
   .Icon-magnifying-glass {
+    @include margin(0, $icon-margin-end, 0, $icon-margin-start);
+  }
+
+  .SearchInput-animation-icon {
     @include start(0);
-    height: 3rem;
-    margin: 0 $icon-margin;
     opacity: 0;
     position: absolute;
     transition: opacity 1ms 250ms, transform 250ms;
+
+    [dir=ltr] &,
+    [dir=rtl] & {
+      margin-bottom: ($input-height - $icon-size) / 2;
+      margin-top: ($input-height - $icon-size) / 2;
+    }
   }
 }
 
@@ -24,46 +43,34 @@ $icon-size: 26px;
   .SearchInput-label {
     color: transparent;
 
-    &::before {
+    & .Icon-magnifying-glass {
       opacity: 0;
       transition: none;
     }
   }
 
-  .Icon-magnifying-glass {
+  .SearchInput-animation-icon {
     color: #fff;
     opacity: 1;
+    transform: translateX(0) !important;
     transition: transform 250ms;
-
-    [dir=ltr] & {
-      transform: translateX(0) !important;
-    }
-
-    [dir=rtl] & {
-      // transform: translateX(-32px);
-    }
   }
 }
 
 .SearchInput-label {
   @include font-regular();
+  // Include the start margin on the end so that icon and text is centred together.
+  @include margin-end($icon-margin-start);
   color: #ccc;
   display: inline-block;
-  height: 3rem;
-  line-height: 3rem;
-  margin-right: $icon-margin;
+  height: $input-height;
+  line-height: $input-height;
   top: 0;
 
-  &::before {
-    background: url('~amo/img/icons/magnifying-glass.svg') 0 50% no-repeat;
-    content: '';
-    display: inline-block;
-    height: $icon-size;
-    margin: 0 $icon-margin;
+  & .Icon-magnifying-glass {
     opacity: 1;
     transition: opacity 1ms 250ms;
     vertical-align: middle;
-    width: $icon-size;
   }
 }
 
@@ -73,9 +80,9 @@ $icon-size: 26px;
   background: transparent;
   border: none;
   color: #fff;
-  height: 3rem;
+  height: $input-height;
   outline: none;
-  padding: 0 ($icon-size + $icon-margin * 2);
+  padding: 0 ($icon-size + $icon-margin-start + $icon-margin-end);
   position: absolute;
   top: 0;
   width: 100%;

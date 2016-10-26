@@ -223,3 +223,21 @@ $color: $text-color-message) {
     right: auto;
   }
 }
+
+@mixin margin($top, $end, $bottom, $start) {
+  margin: $top $end $bottom $start;
+
+  [dir=rtl] & {
+    margin: $top $start $bottom $end;
+  }
+}
+
+@mixin margin-end($val) {
+  [dir=ltr] & {
+    margin-right: $val;
+  }
+
+  [dir=rtl] & {
+    margin-left: $val;
+  }
+}
