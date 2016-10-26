@@ -1,5 +1,10 @@
 addons.mozilla.org mobile - v1
 
+changelog - october 26
+======================
+- added button styles and states to ui kit
+- changed custom "sort" control to a standard drop down interaction
+
 changelog - october 25
 ======================
 - added typography to the ui kit
