@@ -1,8 +1,8 @@
 @import "~core/css/inc/mixins";
 
 $input-height: 48px;
-$icon-margin-start: 16px;
-$icon-margin-end: 8px;
+$icon-margin-start: 24px;
+$icon-margin-end: 12px;
 $icon-size: 16px;
 
 .Icon-magnifying-glass {
@@ -25,6 +25,7 @@ $icon-size: 16px;
 
   .SearchInput-animation-icon {
     @include start(0);
+
     opacity: 0;
     position: absolute;
     transition: opacity 1ms 250ms, transform 250ms;
@@ -61,6 +62,7 @@ $icon-size: 16px;
   @include font-regular();
   // Include the start margin on the end so that icon and text is centred together.
   @include margin-end($icon-margin-start);
+
   color: #ccc;
   display: inline-block;
   height: $input-height;
@@ -77,6 +79,7 @@ $icon-size: 16px;
 .SearchInput-input {
   @include font-regular();
   @include start(0);
+
   background: transparent;
   border: none;
   color: #fff;
