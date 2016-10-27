@@ -22,7 +22,6 @@ export class AppBase extends React.Component {
     handleLogIn: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool,
-    lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
   }
 
@@ -44,32 +43,25 @@ export class AppBase extends React.Component {
 
   render() {
     const {
-      FooterComponent,
-      MastHeadComponent,
-      children,
-      i18n,
-      lang,
-      location,
+      FooterComponent, MastHeadComponent, children, i18n, location,
     } = this.props;
     const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
-        <MastHeadComponent SearchFormComponent={SearchForm} lang={lang}
-                           query={query}>
+        <MastHeadComponent SearchFormComponent={SearchForm} query={query}>
           {this.accountButton()}
         </MastHeadComponent>
         <div className="App-content">
           {children}
         </div>
-        <FooterComponent lang={lang} />
+        <FooterComponent />
       </div>
     );
   }
 }
 
 export const setupMapStateToProps = (_window) => (state) => ({
-  lang: state.api.lang,
   isAuthenticated: !!state.auth.token,
   handleLogIn(location) {
     // eslint-disable-next-line no-param-reassign

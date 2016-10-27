@@ -3,7 +3,10 @@ import {
   renderIntoDocument,
   findRenderedComponentWithType,
 } from 'react-addons-test-utils';
+import { findDOMNode } from 'react-dom';
+import { Provider } from 'react-redux';
 
+import createStore from 'amo/store';
 import { MastHeadBase } from 'amo/components/MastHead';
 import { getFakeI18nInst } from 'tests/client/helpers';
 import translate from 'core/i18n/translate';
@@ -18,9 +21,12 @@ class FakeChild extends React.Component {
 describe('MastHead', () => {
   function renderMastHead({ ...props }) {
     const MyMastHead = translate({ withRef: true })(MastHeadBase);
+    const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
 
     return findRenderedComponentWithType(renderIntoDocument(
-      <MyMastHead i18n={getFakeI18nInst()} {...props} />
+      <Provider store={createStore(initialState)}>
+        <MyMastHead i18n={getFakeI18nInst()} {...props} />
+      </Provider>
     ), MyMastHead).getWrappedInstance();
   }
 
@@ -29,7 +35,6 @@ describe('MastHead', () => {
     const root = renderMastHead({
       isHomePage: true,
       children: FakeChild,
-      lang: 'en-GB',
       SearchFormComponent: FakeChild,
     });
     assert.equal(root.title.textContent, 'Firefox Add-ons');
@@ -40,10 +45,11 @@ describe('MastHead', () => {
     const root = renderMastHead({
       isHomePage: false,
       children: FakeChild,
-      lang: 'en-GB',
       SearchFormComponent: FakeChild,
     });
-    assert.equal(root.title.textContent, 'Firefox Add-ons');
-    assert.equal(root.title.tagName, 'A');
+    const titleLink = findDOMNode(root).querySelectorAll('.MastHead-title')[0];
+
+    assert.equal(titleLink.textContent, 'Firefox Add-ons');
+    assert.equal(titleLink.tagName, 'A');
   });
 });

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
-import { Link } from 'react-router';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 
 import 'amo/css/Home.scss';
@@ -24,7 +24,9 @@ export class HomePageBase extends React.Component {
           <li className="HomePage-be-social"><Link to="#share-stuff"><span>{i18n.gettext('Be social')}</span></Link></li>
           <li className="HomePage-share-stuff"><Link to="#share-stuff"><span>{i18n.gettext('Share stuff')}</span></Link></li>
         </ul>
-        <Link className="HomePage-extensions-link" href="#extensions">{i18n.gettext('Browse all extensions')}</Link>
+        <Link className="HomePage-extensions-link" to="#extensions">
+          {i18n.gettext('Browse all extensions')}
+        </Link>
 
         <h2 className="HomePage-subheading">{i18n.gettext('How do you want Firefox to look?')}</h2>
         <ul className="HomePage-cat-list">
@@ -35,7 +37,9 @@ export class HomePageBase extends React.Component {
           <li className="HomePage-sporty"><Link to="#sporty"><span>{i18n.gettext('Sporty')}</span></Link></li>
           <li className="HomePage-mystical"><Link to="#mystical"><span>{i18n.gettext('Mystical')}</span></Link></li>
         </ul>
-        <Link className="HomePage-themes-link" to="#themes">{i18n.gettext('Browse all themes')}</Link>
+        <Link className="HomePage-themes-link" to="#themes">
+          {i18n.gettext('Browse all themes')}
+        </Link>
       </div>
     );
   }

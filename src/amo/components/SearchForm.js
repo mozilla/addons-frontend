@@ -11,6 +11,7 @@ import './SearchForm.scss';
 
 export class SearchFormBase extends React.Component {
   static propTypes = {
+    api: PropTypes.object.isRequired,
     pathname: PropTypes.string.isRequired,
     query: PropTypes.string.isRequired,
   }
@@ -19,8 +20,9 @@ export class SearchFormBase extends React.Component {
   }
 
   goToSearch(query) {
-    const { pathname } = this.props;
-    this.context.router.push(`${pathname}?q=${query}`);
+    const { api, pathname } = this.props;
+    this.context.router.push(
+      `/${api.lang}/${api.clientApp}${pathname}?q=${query}`);
   }
 
   handleSearch = (e) => {
@@ -29,10 +31,11 @@ export class SearchFormBase extends React.Component {
   }
 
   render() {
-    const { pathname, query } = this.props;
+    const { api, pathname, query } = this.props;
     return (
-      <form method="GET" action={pathname} onSubmit={this.handleSearch}
-            className="SearchForm-form" ref={(ref) => { this.form = ref; }}>
+      <form method="GET" action={`/${api.lang}/${api.clientApp}${pathname}`}
+        onSubmit={this.handleSearch} className="SearchForm-form"
+        ref={(ref) => { this.form = ref; }}>
         <label className="visually-hidden" htmlFor="q">{_('Search')}</label>
         <input ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
                placeholder={_('Search extensions and themes')}

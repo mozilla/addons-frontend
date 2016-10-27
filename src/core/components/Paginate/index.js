@@ -17,6 +17,7 @@ function makePageNumbers({ start, end }) {
 
 export class PaginateBase extends React.Component {
   static propTypes = {
+    LinkComponent: PropTypes.object.isRequired,
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -27,6 +28,7 @@ export class PaginateBase extends React.Component {
   }
 
   static defaultProps = {
+    LinkComponent: Link,
     perPage: 20,
     query: {},
     showPages: 9,
@@ -62,6 +64,7 @@ export class PaginateBase extends React.Component {
   }
 
   makeLink({ currentPage, page, pathname, query, text, className }) {
+    const { LinkComponent } = this.props;
     if (currentPage === page || page < 1 || page > this.pageCount()) {
       return (
         <span key={page}
@@ -73,10 +76,10 @@ export class PaginateBase extends React.Component {
 
     const newQuery = { ...query, page };
     return (
-      <Link to={{ pathname, query: newQuery }}
+      <LinkComponent to={{ pathname, query: newQuery }}
         className={classNames('Paginator-item', className)}>
         {text || page}
-      </Link>
+      </LinkComponent>
     );
   }
 

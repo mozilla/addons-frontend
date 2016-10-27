@@ -16,9 +16,7 @@ describe('LanguagePicker', () => {
   }
 
   it('renders a LanguagePicker', () => {
-    const root = renderLanguagePicker({
-      lang: 'en-GB',
-    });
+    const root = renderLanguagePicker();
 
     assert.equal(root.selector.tagName, 'SELECT');
   });

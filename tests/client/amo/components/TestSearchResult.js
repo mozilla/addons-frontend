@@ -4,15 +4,21 @@ import {
   findRenderedDOMComponentWithClass,
   renderIntoDocument,
 } from 'react-addons-test-utils';
+import { Provider } from 'react-redux';
 
+import createStore from 'amo/store';
 import SearchResult from 'amo/components/SearchResult';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<SearchResult />', () => {
   function renderResult(result) {
+    const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
+
     return findRenderedComponentWithType(renderIntoDocument(
-      <SearchResult i18n={getFakeI18nInst()} result={result} lang="en-US" />
+      <Provider store={createStore(initialState)}>
+        <SearchResult i18n={getFakeI18nInst()} result={result} />
+      </Provider>
     ), SearchResult).getWrappedInstance();
   }
 
@@ -58,6 +64,6 @@ describe('<SearchResult />', () => {
   });
 
   it('links to the detail page', () => {
-    assert.equal(root.name.props.to, '/en-US/firefox/addon/a-search-result/');
+    assert.equal(root.name.props.to, '/addon/a-search-result/');
   });
 });

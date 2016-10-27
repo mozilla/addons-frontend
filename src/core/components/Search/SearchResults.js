@@ -12,7 +12,6 @@ class SearchResults extends React.Component {
   static propTypes = {
     count: PropTypes.number,
     i18n: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired,
     loading: PropTypes.bool,
     query: PropTypes.string,
     results: PropTypes.arrayOf(PropTypes.object),
@@ -27,8 +26,9 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    const { ResultComponent, count, i18n, lang, loading, query,
-            results } = this.props;
+    const {
+      ResultComponent, count, i18n, loading, query, results,
+    } = this.props;
 
     let searchResults;
     let messageText;
@@ -48,7 +48,7 @@ class SearchResults extends React.Component {
         <ul className="SearchResults-list"
             ref={(ref) => { this.results = ref; }}>
           {results.map((result) => (
-            <ResultComponent result={result} key={result.slug} lang={lang} />
+            <ResultComponent result={result} key={result.slug} />
           ))}
         </ul>
       );

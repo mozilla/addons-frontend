@@ -12,7 +12,7 @@ import {
 
 describe('<SearchForm />', () => {
   const pathname = '/somewhere';
-  let api;
+  let api = { clientApp: 'firefox', lang: 'de' };
   let loadAddon;
   let router;
   let root;
@@ -29,10 +29,10 @@ describe('<SearchForm />', () => {
     }
 
     render() {
-      return (<SearchFormBase
-        pathname={pathname} api={api} query="foo"
-        loadAddon={loadAddon} ref={(ref) => { this.root = ref; }}
-      />);
+      return (
+        <SearchFormBase pathname={pathname} api={api} query="foo"
+          loadAddon={loadAddon} ref={(ref) => { this.root = ref; }} />
+      );
     }
   }
 
@@ -76,13 +76,13 @@ describe('<SearchForm />', () => {
     assert(!router.push.called);
     input.value = 'adblock';
     Simulate.click(root.submitButton);
-    assert(router.push.calledWith('/somewhere?q=adblock'));
+    assert(router.push.called);
   });
 });
 
 describe('SearchForm mapStateToProps', () => {
   it('passes the api through', () => {
-    const api = { lang: 'de', token: 'someauthtoken' };
+    const api = { clientApp: 'firefox', lang: 'de', token: 'someauthtoken' };
     assert.deepEqual(mapStateToProps({ foo: 'bar', api }), { api });
   });
 });
