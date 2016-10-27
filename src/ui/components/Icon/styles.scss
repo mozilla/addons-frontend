@@ -1,0 +1,13 @@
+@import "./vars";
+
+.Icon {
+  content: '';
+  display: inline-block;
+  height: $default-icon-size;
+  width: $default-icon-size;
+}
+
+.Icon-magnifying-glass {
+  background: url('~amo/img/icons/magnifying-glass.svg') 0 50% no-repeat;
+  background-size: cover;
+}
