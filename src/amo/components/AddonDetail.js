@@ -3,7 +3,6 @@ import React, { PropTypes } from 'react';
 
 import AddonMeta from 'amo/components/AddonMeta';
 import InstallButton from 'core/components/InstallButton';
-import LikeButton from 'amo/components/LikeButton';
 import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
 import translate from 'core/i18n/translate';
@@ -61,7 +60,6 @@ class AddonDetail extends React.Component {
         <header>
           <div className="icon">
             <img alt="" src={iconUrl} />
-            <LikeButton />
           </div>
           <div className="title">
             <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])} />
