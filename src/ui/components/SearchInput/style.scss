@@ -5,6 +5,7 @@ $default-icon-size: 16px;
 $input-height: 48px;
 $icon-margin-start: 24px;
 $icon-margin-end: 12px;
+$transition-duration: 250ms;
 
 .SearchInput {
   position: relative;
@@ -25,7 +26,7 @@ $icon-margin-end: 12px;
 
     opacity: 0;
     position: absolute;
-    transition: opacity 1ms 250ms, transform 250ms;
+    transition: opacity 1ms $transition-duration, transform $transition-duration;
   }
 }
 
@@ -45,7 +46,7 @@ $icon-margin-end: 12px;
     color: #fff;
     opacity: 1;
     transform: translateX(0) !important;
-    transition: transform 250ms;
+    transition: transform $transition-duration;
   }
 
   .SearchInput-mask {
@@ -66,7 +67,7 @@ $icon-margin-end: 12px;
 
   & .Icon-magnifying-glass {
     opacity: 1;
-    transition: opacity 1ms 250ms;
+    transition: opacity 1ms $transition-duration;
   }
 }
 

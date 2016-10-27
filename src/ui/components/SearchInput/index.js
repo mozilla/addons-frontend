@@ -36,7 +36,11 @@ export default class SearchInput extends React.Component {
   onMaskClick = () => {
     this.root.classList.add('SearchInput--text');
     if (!this.input.value) {
-      setTimeout(() => this.input.focus(), 250);
+      const setFocus = () => {
+        this.input.focus();
+        this.animateIcon.removeEventListener('transitionend', setFocus);
+      };
+      this.animateIcon.addEventListener('transitionend', setFocus);
     }
   }
 
