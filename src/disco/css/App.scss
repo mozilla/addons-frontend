@@ -21,16 +21,6 @@ body {
   font-size: 14px;
 }
 
-body {
-  // Match firefox's left margin to keep the content centered.
-  margin-right: 48px;
-
-  [dir=rtl] & {
-    margin-right: 0;
-    margin-left: 48px;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -49,7 +39,18 @@ img {
 
 @include respond-to('large') {
   .disco-pane {
-    padding: 50px 20px 20px;
+    padding-top: 50px;
+  }
+
+  // Special class to apply compensation
+  // for the padding applied by xul in FF < 50.
+  .padding-compensation {
+    padding-right: 68px; // 48px + 20px;
+
+    [dir=rtl] & {
+      padding-right: 0;
+      padding-left: 68px;
+    }
   }
 }
 
