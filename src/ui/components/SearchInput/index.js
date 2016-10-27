@@ -2,6 +2,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
+import Icon from 'ui/components/Icon';
+
 import './style.scss';
 
 export default class SearchInput extends React.Component {
@@ -31,17 +33,17 @@ export default class SearchInput extends React.Component {
     this.root.classList.add('SearchInput--text');
   }
 
-  setIconPosition = () => {
-    const { left: labelLeft } = this.labelIcon.getBoundingClientRect();
-    const { left: animateLeft } = this.animateIcon.getBoundingClientRect();
-    this.animateIcon.style.transform = `translateX(${labelLeft - animateLeft}px)`;
-  }
-
-  maskClick = () => {
+  onMaskClick = () => {
     this.root.classList.add('SearchInput--text');
     if (!this.input.value) {
       setTimeout(() => this.input.focus(), 250);
     }
+  }
+
+  setIconPosition = () => {
+    const { left: labelLeft } = this.labelIcon.getBoundingClientRect();
+    const { left: animateLeft } = this.animateIcon.getBoundingClientRect();
+    this.animateIcon.style.transform = `translateX(${labelLeft - animateLeft}px)`;
   }
 
   inputRefs(inputRef) {
@@ -61,18 +63,18 @@ export default class SearchInput extends React.Component {
     const id = `SearchInput-input-${name}`;
     return (
       <div className={classNames(className, 'SearchInput')} ref={(el) => { this.root = el; }}>
-        <i
-          className="Icon-magnifying-glass SearchInput-animation-icon"
-          ref={(el) => { this.animateIcon = el; }} />
+        <Icon
+          name="magnifying-glass" className="SearchInput-animation-icon"
+          getRef={(el) => { this.animateIcon = el; }} />
         <label className="SearchInput-label" htmlFor={id}>
-          <i className="Icon-magnifying-glass" ref={(el) => { this.labelIcon = el; }} />
+          <Icon name="magnifying-glass" getRef={(el) => { this.labelIcon = el; }} />
           {placeholder}
         </label>
         <input
           {...props} className="SearchInput-input" placeholder={placeholder} id={id} name={name}
           autoComplete="off" ref={this.inputRefs(inputRef)}
           onFocus={this.onFocus} onBlur={this.onBlur} />
-        <div className="SearchInput-mask" onClick={this.maskClick} />
+        <div className="SearchInput-mask" onClick={this.onMaskClick} />
       </div>
     );
   }

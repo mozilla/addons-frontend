@@ -1,18 +1,10 @@
 @import "~core/css/inc/mixins";
+// @import "~ui/Icon/vars";
 
+$default-icon-size: 16px;
 $input-height: 48px;
 $icon-margin-start: 24px;
 $icon-margin-end: 12px;
-$icon-size: 16px;
-
-.Icon-magnifying-glass {
-  background: url('~amo/img/icons/magnifying-glass.svg') 0 50% no-repeat;
-  background-size: cover;
-  content: '';
-  display: inline-block;
-  height: $icon-size;
-  width: $icon-size;
-}
 
 .SearchInput {
   position: relative;
@@ -21,9 +13,9 @@ $icon-size: 16px;
 
   .Icon-magnifying-glass {
     @include margin(
-      ($input-height - $icon-size) / 2,
+      ($input-height - $default-icon-size) / 2,
       $icon-margin-end,
-      ($input-height - $icon-size) / 2,
+      ($input-height - $default-icon-size) / 2,
       $icon-margin-start);
     vertical-align: top;
   }
@@ -87,7 +79,7 @@ $icon-size: 16px;
   color: #fff;
   height: $input-height;
   outline: none;
-  padding: 0 ($icon-size + $icon-margin-start + $icon-margin-end);
+  padding: 0 ($default-icon-size + $icon-margin-start + $icon-margin-end);
   position: absolute;
   top: 0;
   width: 100%;
