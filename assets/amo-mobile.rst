@@ -1,5 +1,10 @@
 addons.mozilla.org mobile - v1
 
+changelog - october 27
+======================
+- added spacing and sizing to ui kit
+- changed drop down in footer to be more touch friendly
+
 changelog - october 26
 ======================
 - added button styles and states to ui kit
