@@ -48,10 +48,6 @@ $transition-duration: 250ms;
     transform: translateX(0) !important;
     transition: transform $transition-duration;
   }
-
-  .SearchInput-mask {
-    display: none;
-  }
 }
 
 .SearchInput-label {
@@ -92,13 +88,4 @@ $transition-duration: 250ms;
   &:focus {
     @include text-align-start();
   }
-}
-
-.SearchInput-mask {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
 }

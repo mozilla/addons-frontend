@@ -33,9 +33,10 @@ export default class SearchInput extends React.Component {
     this.root.classList.add('SearchInput--text');
   }
 
-  onMaskClick = () => {
+  onMouseDown = (e) => {
     this.root.classList.add('SearchInput--text');
     if (!this.input.value) {
+      e.preventDefault();
       const setFocus = () => {
         this.input.focus();
         this.animateIcon.removeEventListener('transitionend', setFocus);
@@ -77,8 +78,7 @@ export default class SearchInput extends React.Component {
         <input
           {...props} className="SearchInput-input" placeholder={placeholder} id={id} name={name}
           autoComplete="off" ref={this.inputRefs(inputRef)}
-          onFocus={this.onFocus} onBlur={this.onBlur} />
-        <div className="SearchInput-mask" onClick={this.onMaskClick} />
+          onMouseDown={this.onMouseDown} onFocus={this.onFocus} onBlur={this.onBlur} />
       </div>
     );
   }
