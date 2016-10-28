@@ -77,4 +77,9 @@ describe('<SearchInput />', () => {
       resolve();
     })
   ));
+
+  it('exposes the value of the input', () => {
+    const root = renderIntoDocument(<SearchInput name="foo" defaultValue="yo" />);
+    assert.equal(root.value, 'yo');
+  });
 });

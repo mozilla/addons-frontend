@@ -42,7 +42,7 @@ describe('<SearchForm />', () => {
     api = sinon.stub();
     root = renderIntoDocument(<SearchFormWrapper />).root;
     form = root.form;
-    input = root.searchQuery;
+    input = root.searchQuery.input;
   });
 
   it('renders a form', () => {

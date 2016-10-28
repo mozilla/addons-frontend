@@ -10,7 +10,6 @@ export default class SearchInput extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     defaultValue: PropTypes.string,
-    inputRef: PropTypes.func,
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
   }
@@ -59,20 +58,12 @@ export default class SearchInput extends React.Component {
     this.animateIcon.style.transform = `translateX(${labelLeft - animateLeft}px)`;
   }
 
-  inputRefs(inputRef) {
-    const refs = [(el) => { this.input = el; }];
-    if (inputRef) {
-      refs.push(inputRef);
-    }
-    return (el) => {
-      refs.forEach((fn) => {
-        fn(el);
-      });
-    };
+  get value() {
+    return this.input.value;
   }
 
   render() {
-    const { className, name, inputRef, placeholder, ...props } = this.props;
+    const { className, name, placeholder, ...props } = this.props;
     const { focus, value } = this.state;
     const id = `SearchInput-input-${name}`;
     return (
@@ -89,7 +80,7 @@ export default class SearchInput extends React.Component {
         </label>
         <input
           {...props} className="SearchInput-input" placeholder={placeholder} id={id} name={name}
-          autoComplete="off" ref={this.inputRefs(inputRef)} onInput={this.onInput}
+          autoComplete="off" ref={(el) => { this.input = el; }} onInput={this.onInput}
           onMouseDown={this.onMouseDown} onFocus={this.onFocus} onBlur={this.onBlur} />
       </div>
     );
