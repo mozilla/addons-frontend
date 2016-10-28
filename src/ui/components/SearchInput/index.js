@@ -37,8 +37,8 @@ export default class SearchInput extends React.Component {
     this.setState({ focus: true });
   }
 
-  onInput = () => {
-    this.setState({ value: this.input.value });
+  onInput = (e) => {
+    this.setState({ value: e.target.value });
   }
 
   onMouseDown = (e) => {

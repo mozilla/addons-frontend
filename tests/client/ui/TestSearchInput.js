@@ -20,6 +20,13 @@ describe('<SearchInput />', () => {
     assert.ok(root.root.classList.contains('SearchInput--text'));
   });
 
+  it('sets the value in state on input', () => {
+    const root = renderIntoDocument(<SearchInput name="foo" />);
+    assert.equal(root.state.value, undefined);
+    Simulate.input(root.input, { target: { value: 'test' } });
+    assert.equal(root.state.value, 'test');
+  });
+
   it('sets and removes the --text class on focus and blur when empty', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
     assert.notOk(root.root.classList.contains('SearchInput--text'));
