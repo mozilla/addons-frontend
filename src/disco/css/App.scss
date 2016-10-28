@@ -41,16 +41,16 @@ img {
   .disco-pane {
     padding-top: 50px;
   }
+}
 
-  // Special class to apply compensation
-  // for the padding applied by xul in FF < 50.
-  .padding-compensation {
-    padding-right: 68px; // 48px + 20px;
+// Special class to apply compensation
+// for the padding applied by xul in FF < 50.
+.padding-compensation {
+  padding-right: 68px; // 48px + 20px;
 
-    [dir=rtl] & {
-      padding-right: 0;
-      padding-left: 68px;
-    }
+  [dir=rtl] & {
+    padding-right: 0;
+    padding-left: 68px;
   }
 }
 

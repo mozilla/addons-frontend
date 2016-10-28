@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import classNames from 'classnames';
-import mozVersionCompare from 'mozilla-version-comparator';
 
 import 'disco/css/App.scss';
 import translate from 'core/i18n/translate';
@@ -19,13 +18,7 @@ export class AppBase extends React.Component {
   render() {
     const { browserVersion, children, i18n } = this.props;
     const classes = classNames('disco-pane', {
-      /*
-       * mozVersionCompare(v1, v2) returns:
-       * 0 if the two versions are considered equal.
-       * -1 if v1 is less than v2
-       * 1 if v1 is greater than v2
-       */
-      'padding-compensation': mozVersionCompare(browserVersion || '', '50') === -1,
+      'padding-compensation': parseInt(browserVersion, 10) < 50,
     });
 
     return (
