@@ -40,14 +40,14 @@ describe('App', () => {
     assert.include(rootNode.className, 'padding-compensation');
   });
 
-  it('renders padding compensation class for a bogus value', () => {
+  it('does not render padding compensation class for a bogus value', () => {
     const rootNode = renderApp({ browserVersion: 'whatever' });
-    assert.include(rootNode.className, 'padding-compensation');
+    assert.notInclude(rootNode.className, 'padding-compensation');
   });
 
-  it('renders padding compensation class for a undefined value', () => {
+  it('does not render padding compensation class for a undefined value', () => {
     const rootNode = renderApp({ browserVersion: undefined });
-    assert.include(rootNode.className, 'padding-compensation');
+    assert.notInclude(rootNode.className, 'padding-compensation');
   });
 
   it('does not render padding compensation class for FF == 50', () => {
