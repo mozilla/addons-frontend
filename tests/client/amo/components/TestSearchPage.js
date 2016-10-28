@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchPage from 'amo/components/SearchPage';
+import { SearchPageBase, mapStateToProps } from 'amo/components/SearchPage';
 import SearchResult from 'amo/components/SearchResult';
 import SearchResults from 'core/components/Search/SearchResults';
 import Paginate from 'core/components/Paginate';
@@ -10,16 +10,16 @@ describe('<SearchPage />', () => {
   let props;
 
   function render(extra = {}) {
-    return shallowRender(
-      <SearchPage {...{ ...props, ...extra }} />);
+    return shallowRender(<SearchPageBase {...{ ...props, ...extra }} />);
   }
 
   beforeEach(() => {
     props = {
+      clientApp: 'firefox',
       count: 80,
+      lang: 'en-GB',
       page: 3,
       handleSearch: sinon.spy(),
-      lang: 'en-GB',
       loading: false,
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
       query: 'foo',
@@ -31,15 +31,14 @@ describe('<SearchPage />', () => {
     const root = render();
     const results = findByTag(root, SearchResults);
     assert.strictEqual(results.props.count, props.count);
-    assert.strictEqual(results.props.lang, props.lang);
     assert.strictEqual(results.props.results, props.results);
     assert.strictEqual(results.props.query, props.query);
     assert.strictEqual(results.props.loading, props.loading);
     assert.strictEqual(results.props.ResultComponent, props.ResultComponent);
     assert.deepEqual(
       Object.keys(results.props).sort(),
-        ['count', 'lang', 'loading', 'results', 'ResultComponent',
-         'query'].sort());
+      ['count', 'loading', 'results', 'ResultComponent', 'query'].sort()
+    );
   });
 
   it('renders a Paginate', () => {
@@ -47,13 +46,21 @@ describe('<SearchPage />', () => {
     const paginator = findByTag(root, Paginate);
     assert.equal(paginator.props.count, 80);
     assert.equal(paginator.props.currentPage, 3);
-    assert.equal(paginator.props.pathname, '/en-GB/firefox/search/');
+    assert.equal(paginator.props.pathname, '/search/');
     assert.deepEqual(paginator.props.query, { q: 'foo' });
   });
 
   it('does not render a Paginate when there is no search term', () => {
-    const root = render({ query: null, count: 0, lang: 'en-GB' });
+    const root = render({ query: null, count: 0 });
     const paginators = findAllByTag(root, Paginate);
     assert.deepEqual(paginators, []);
+  });
+
+  it('maps api state to props', () => {
+    const stateProps = mapStateToProps({
+      api: { clientApp: 'android', lang: 'de' },
+    });
+
+    assert.deepEqual(stateProps, { clientApp: 'android', lang: 'de' });
   });
 });

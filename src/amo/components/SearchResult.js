@@ -1,19 +1,20 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 
 import 'core/css/SearchResult.scss';
 
-class SearchResult extends React.Component {
+
+export class SearchResultBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired,
     result: PropTypes.object.isRequired,
   }
 
   render() {
-    const { i18n, lang, result } = this.props;
+    const { i18n, result } = this.props;
 
     // TODO: Implement a rating component and style the stars.
     const rating = result.ratings && result.ratings.average ? (
@@ -30,7 +31,7 @@ class SearchResult extends React.Component {
     );
     return (
       <li className="SearchResult">
-        <Link to={`/${lang}/firefox/addon/${result.slug}/`}
+        <Link to={`/addon/${result.slug}/`}
               className="SearchResult-link"
               ref={(el) => { this.name = el; }}>
           <section className="SearchResult-main">
@@ -51,4 +52,6 @@ class SearchResult extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(SearchResult);
+export default compose(
+  translate({ withRef: true }),
+)(SearchResultBase);
