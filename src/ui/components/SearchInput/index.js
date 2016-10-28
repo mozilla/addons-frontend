@@ -9,9 +9,15 @@ import './style.scss';
 export default class SearchInput extends React.Component {
   static propTypes = {
     className: PropTypes.string,
+    defaultValue: PropTypes.string,
     inputRef: PropTypes.func,
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { focus: false, value: props.defaultValue };
   }
 
   componentDidMount() {
@@ -24,17 +30,19 @@ export default class SearchInput extends React.Component {
   }
 
   onBlur = () => {
-    if (!this.input.value) {
-      this.root.classList.remove('SearchInput--text');
-    }
+    this.setState({ focus: false });
   }
 
   onFocus = () => {
-    this.root.classList.add('SearchInput--text');
+    this.setState({ focus: true });
+  }
+
+  onInput = () => {
+    this.setState({ value: this.input.value });
   }
 
   onMouseDown = (e) => {
-    this.root.classList.add('SearchInput--text');
+    this.setState({ focus: true });
     if (!this.input.value) {
       e.preventDefault();
       const setFocus = () => {
@@ -65,9 +73,13 @@ export default class SearchInput extends React.Component {
 
   render() {
     const { className, name, inputRef, placeholder, ...props } = this.props;
+    const { focus, value } = this.state;
     const id = `SearchInput-input-${name}`;
     return (
-      <div className={classNames(className, 'SearchInput')} ref={(el) => { this.root = el; }}>
+      <div
+        className={classNames(className, 'SearchInput', { 'SearchInput--text': focus || value })}
+        ref={(el) => { this.root = el; }}
+      >
         <Icon
           name="magnifying-glass" className="SearchInput-animation-icon"
           getRef={(el) => { this.animateIcon = el; }} />
@@ -77,7 +89,7 @@ export default class SearchInput extends React.Component {
         </label>
         <input
           {...props} className="SearchInput-input" placeholder={placeholder} id={id} name={name}
-          autoComplete="off" ref={this.inputRefs(inputRef)}
+          autoComplete="off" ref={this.inputRefs(inputRef)} onInput={this.onInput}
           onMouseDown={this.onMouseDown} onFocus={this.onFocus} onBlur={this.onBlur} />
       </div>
     );
