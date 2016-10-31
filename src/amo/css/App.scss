@@ -6,6 +6,7 @@
 html,
 body {
   background: $masthead-color;
+  height: 100%;
 }
 
 html {
@@ -26,8 +27,19 @@ body {
   line-height: 19px;
 }
 
+#react-view {
+  height: 100%;
+}
+
+.amo {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .App-content {
   background: $accent-color;
+  flex-grow: 1;
 
   > div {
     padding: $padding-page;

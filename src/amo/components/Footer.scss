@@ -4,6 +4,7 @@
   background: $footer-color;
   color: $text-color-message;
   display: block;
+  justify-content: flex-end;
   padding: 10px 10px 20px;
 
   &::after {
