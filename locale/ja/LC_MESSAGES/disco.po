@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-31 11:46+0000\n"
+"POT-Creation-Date: 2016-11-01 10:47+0000\n"
 "PO-Revision-Date: 2016-10-22 06:34+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,87 +14,89 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:50
+#: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
 msgstr "%(name)s をダウンロードしています。"
 
-#: src/core/components/InstallButton/index.js:53
+#: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
 msgstr "%(name)s をインストールしています。"
 
-#: src/core/components/InstallButton/index.js:57
+#: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
+msgstr ""
+"%(name)s はインストール、有効化されています。削除するにはここをクリック。"
 
-#: src/core/components/InstallButton/index.js:60
+#: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s は無効化されています。有効化するにはここをクリック。"
 
-#: src/core/components/InstallButton/index.js:63
+#: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s を削除しています。"
 
-#: src/core/components/InstallButton/index.js:66
+#: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s は削除されています。インストールするにはここをクリック。"
 
-#: src/core/components/InstallButton/index.js:69
+#: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s のインストール状態は不明です。"
 
-#: src/disco/components/Addon.js:103
-msgid "Close"
-msgstr "閉じる"
-
-#: src/disco/components/Addon.js:133
+#: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
+msgstr ""
+"%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
 msgstr "画像にマウスオーバーしてプレビュー"
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
 msgstr "インストールに失敗しました。再度試してください。"
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
 msgstr "ダウンロードに失敗しました。接続状況を確認してください。"
 
-#: src/disco/components/Addon.js:162
+#: src/disco/components/Addon.js:157
 msgid "An unexpected error occurred during installation."
 msgstr "インストール中に予期せぬ問題が発生しました。"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:159
 msgid "An unexpected error occurred during uninstallation."
 msgstr "アンインストール中に予期せぬ問題が発生しました。"
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "予期せぬ問題が発生しました。"
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "このアドオンは Firefox の再起動後に削除されます。"
 
-#: src/disco/components/Addon.js:177
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "このアドオンを使うには Firefox を再起動してください。"
 
-#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "アドオンのインストールが完了しました"
 
-#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "今後はツールバーから %(name)s にアクセスできます"
 
-#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "了解"
 
-#: src/disco/containers/App.js:19
+#: src/disco/components/Addon.js:98
+msgid "Close"
+msgstr "閉じる"
+
+#: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr "アドオンを見つける"
 
@@ -106,11 +108,11 @@ msgstr "クリックして再生"
 msgid "to find out more about add-ons"
 msgstr "し、アドオンについて詳しく知る"
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:117
 msgid "Close video"
 msgstr "動画を閉じる"
 
-#: src/disco/containers/DiscoPane.js:125
+#: src/disco/containers/DiscoPane.js:126
 msgid "See more add-ons!"
 msgstr "アドオンをもっと見る"
 
@@ -121,11 +123,19 @@ msgstr "Firefox をパーソナライズしよう"
 #: src/disco/containers/DiscoPane.js:99
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
-msgstr "インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジングをより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いのブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れているおすすめのアドオンをいくつか紹介します。"
+msgstr ""
+"インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発"
+"者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジング"
+"をより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いの"
+"ブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れ"
+"ているおすすめのアドオンをいくつか紹介します。"
 
 #~ msgid "Install"
 #~ msgstr "インストール"

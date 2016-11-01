@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-31 11:46+0000\n"
+"POT-Creation-Date: 2016-11-01 10:47+0000\n"
 "PO-Revision-Date: 2016-09-01 17:39+0000\n"
 "Last-Translator: Tymur Faradzhev <faradzhev.timur@gmail.com>\n"
 "Language-Team: none\n"
@@ -11,90 +11,91 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:50
+#: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
 msgstr "Завантаження %(name)s."
 
-#: src/core/components/InstallButton/index.js:53
+#: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
 msgstr "Встановлення %(name)s."
 
-#: src/core/components/InstallButton/index.js:57
+#: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s встановлено й увімкнено. Натисніть для видалення."
 
-#: src/core/components/InstallButton/index.js:60
+#: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s вимкнено. Натисніть для увімкнення."
 
-#: src/core/components/InstallButton/index.js:63
+#: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr "Видалення %(name)s."
 
-#: src/core/components/InstallButton/index.js:66
+#: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s видалено. Натисніть для встановлення."
 
-#: src/core/components/InstallButton/index.js:69
+#: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr "Стан встановлення для %(name)s невідомий."
 
-#: src/disco/components/Addon.js:103
-msgid "Close"
-msgstr "Закрити"
-
-#: src/disco/components/Addon.js:133
+#: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Наведіть для перегляду, або натисніть для встановлення %(name)s"
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
 msgstr "Наведіть курсор на зображення для перегляду"
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
 msgstr "Не вдалося встановити. Повторіть спробу."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
 msgstr "Не вдалося завантажити. Будь ласка, перевірте підключення."
 
-#: src/disco/components/Addon.js:162
+#: src/disco/components/Addon.js:157
 msgid "An unexpected error occurred during installation."
 msgstr "Сталася неочікувана помилка під час встановлення."
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:159
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Сталася неочікувана помилка під час видалення."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "Сталася неочікувана помилка."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Цей додаток буде видалений після перезапуску Firefox."
 
-#: src/disco/components/Addon.js:177
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "Перезапустіть Firefox для використання цього додатку."
 
-#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Ваш додаток готовий"
 
-#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Тепер ви можете отримати доступ до %(name)s з панелі інструментів."
 
-#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "Гаразд!"
 
-#: src/disco/containers/App.js:19
+#: src/disco/components/Addon.js:98
+msgid "Close"
+msgstr "Закрити"
+
+#: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr "Відкрийте для себе додатки"
 
@@ -106,11 +107,11 @@ msgstr "Натисніть для відтворення"
 msgid "to find out more about add-ons"
 msgstr "щоб дізнатись більше про додатки"
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:117
 msgid "Close video"
 msgstr "Закрити відео"
 
-#: src/disco/containers/DiscoPane.js:125
+#: src/disco/containers/DiscoPane.js:126
 msgid "See more add-ons!"
 msgstr "Перегляньте інші додатки!"
 
@@ -121,13 +122,20 @@ msgstr "Персоналізуйте ваш Firefox"
 #: src/disco/containers/DiscoPane.js:99
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
-"Існують тисячі додатків, створені розробниками з усього світу, які ви можете встановити для персоналізації Firefox. Починаючи від візуальних тем до потужних інструментів, які роблять перегляд швидшим і безпечнішим; додатки роблять ваш браузер вашим.\n"
-"Щоб допомогти вам розпочати, ось декілька додатків, рекомендованих нами за незрівнянну продуктивність та функціональність."
+"Існують тисячі додатків, створені розробниками з усього світу, які ви можете "
+"встановити для персоналізації Firefox. Починаючи від візуальних тем до "
+"потужних інструментів, які роблять перегляд швидшим і безпечнішим; додатки "
+"роблять ваш браузер вашим.\n"
+"Щоб допомогти вам розпочати, ось декілька додатків, рекомендованих нами за "
+"незрівнянну продуктивність та функціональність."
 
 #~ msgid "Install"
 #~ msgstr "Встановити"
