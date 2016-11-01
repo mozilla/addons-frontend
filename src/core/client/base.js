@@ -6,8 +6,9 @@ import Jed from 'jed';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
+import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-connect';
+import useScroll from 'react-router-scroll/lib/useScroll';
 
 import { langToLocale, sanitizeLanguage } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
@@ -35,14 +36,20 @@ export default function makeClient(routes, createStore) {
     }
     const store = createStore(initialState);
 
-    function reduxAsyncConnectRender(props) {
-      return <ReduxAsyncConnect {...props} />;
-    }
+    // wrapper to make redux-connect applyRouterMiddleware compatible see
+    // https://github.com/taion/react-router-scroll/issues/3
+    const useReduxAsyncConnect = () => ({
+      renderRouterContext: (child, props) => (
+        <ReduxAsyncConnect {...props}>{child}</ReduxAsyncConnect>
+      ),
+    });
+
+    const middleware = applyRouterMiddleware(useScroll(), useReduxAsyncConnect());
 
     render(
       <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <Router render={reduxAsyncConnectRender} history={browserHistory}>
+          <Router render={middleware} history={browserHistory}>
             {routes}
           </Router>
         </Provider>
