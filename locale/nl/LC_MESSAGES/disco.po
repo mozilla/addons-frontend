@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-31 11:46+0000\n"
+"POT-Creation-Date: 2016-11-01 10:47+0000\n"
 "PO-Revision-Date: 2016-09-01 11:55+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,87 +14,90 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:50
+#: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
 msgstr "%(name)s wordt gedownload."
 
-#: src/core/components/InstallButton/index.js:53
+#: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
 msgstr "%(name)s wordt geïnstalleerd."
 
-#: src/core/components/InstallButton/index.js:57
+#: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
+msgstr ""
+"%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
 
-#: src/core/components/InstallButton/index.js:60
+#: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s is uitgeschakeld. Klik om de add-on in te schakelen."
 
-#: src/core/components/InstallButton/index.js:63
+#: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s wordt verwijderd."
 
-#: src/core/components/InstallButton/index.js:66
+#: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s is verwijderd. Klik om de add-on te installeren."
 
-#: src/core/components/InstallButton/index.js:69
+#: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr "Installatiestatus voor %(name)s is niet bekend."
 
-#: src/disco/components/Addon.js:103
-msgid "Close"
-msgstr "Sluiten"
-
-#: src/disco/components/Addon.js:133
+#: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te installeren"
+msgstr ""
+"Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te "
+"installeren"
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
 msgstr "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
 msgstr "Installatie mislukt. Probeer het opnieuw."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
 msgstr "Downloaden mislukt. Controleer uw verbinding."
 
-#: src/disco/components/Addon.js:162
+#: src/disco/components/Addon.js:157
 msgid "An unexpected error occurred during installation."
 msgstr "Er is een onverwachte fout opgetreden tijdens het installeren."
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:159
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Er is een onverwachte fout opgetreden tijdens het verwijderen."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "Er is een onverwachte fout opgetreden."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Deze add-on zal worden gede-installeerd nadat u Firefox herstart."
 
-#: src/disco/components/Addon.js:177
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "Herstart Firefox om deze add-on te gebruiken."
 
-#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Uw add-on is gereed"
 
-#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "U kunt %(name)s nu benaderen vanaf de werkbalk."
 
-#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/containers/App.js:19
+#: src/disco/components/Addon.js:98
+msgid "Close"
+msgstr "Sluiten"
+
+#: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr "Add-ons ontdekken"
 
@@ -106,11 +109,11 @@ msgstr "Klik om de video af te spelen"
 msgid "to find out more about add-ons"
 msgstr "en meer over add-ons te ontdekken"
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:117
 msgid "Close video"
 msgstr "Video sluiten"
 
-#: src/disco/containers/DiscoPane.js:125
+#: src/disco/containers/DiscoPane.js:126
 msgid "See more add-ons!"
 msgstr "Bekijk meer add-ons!"
 
@@ -121,15 +124,22 @@ msgstr "Personaliseer uw Firefox"
 #: src/disco/containers/DiscoPane.js:99
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
-"Er zijn duizenden gratis add-ons, gemaakt door ontwikkelaars van over de hele wereld,\n"
-"die u kunt installeren om uw Firefox te personaliseren. Variërend van leuke visuele thema’s\n"
-"tot krachtige hulpmiddelen die het browsen sneller en veiliger maken, maken add-ons uw browser van u.\n"
-"Om u op gang te helpen, zijn hier een paar add-ons die we aanbevelen vanwege hun uitstekende prestaties\n"
+"Er zijn duizenden gratis add-ons, gemaakt door ontwikkelaars van over de "
+"hele wereld,\n"
+"die u kunt installeren om uw Firefox te personaliseren. Variërend van leuke "
+"visuele thema’s\n"
+"tot krachtige hulpmiddelen die het browsen sneller en veiliger maken, maken "
+"add-ons uw browser van u.\n"
+"Om u op gang te helpen, zijn hier een paar add-ons die we aanbevelen vanwege "
+"hun uitstekende prestaties\n"
 "en functionaliteit."
 
 #~ msgid "Install"

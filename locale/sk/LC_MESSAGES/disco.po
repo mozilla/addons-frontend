@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-31 11:46+0000\n"
+"POT-Creation-Date: 2016-11-01 10:47+0000\n"
 "PO-Revision-Date: 2016-09-01 10:20+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,87 +14,89 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:50
+#: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
 msgstr "Preberanie doplnku %(name)s."
 
-#: src/core/components/InstallButton/index.js:53
+#: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
 msgstr "Inštalovanie doplnku %(name)s."
 
-#: src/core/components/InstallButton/index.js:57
+#: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+msgstr ""
+"Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
-#: src/core/components/InstallButton/index.js:60
+#: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr "Doplnok %(name)s je zakázaný. Kliknutím ho povolíte."
 
-#: src/core/components/InstallButton/index.js:63
+#: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr "Odinštalovanie doplnku %(name)s."
 
-#: src/core/components/InstallButton/index.js:66
+#: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "Doplnok %(name)s bol odinštalovaný. Kliknutím ho nainštalujete."
 
-#: src/core/components/InstallButton/index.js:69
+#: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr "Stav inštalácie doplnku %(name)s nie je známy."
 
-#: src/disco/components/Addon.js:103
-msgid "Close"
-msgstr "Zavrieť"
-
-#: src/disco/components/Addon.js:133
+#: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
+msgstr ""
+"Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
 msgstr "Pre náhľad prejdite nad obrázok myšou"
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
 msgstr "Inštalácia zlyhala. Skúste to prosím znova."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
 msgstr "Prevzatie zlyhalo. Skontrolujte prosím vaše pripojenie."
 
-#: src/disco/components/Addon.js:162
+#: src/disco/components/Addon.js:157
 msgid "An unexpected error occurred during installation."
 msgstr "Počas inštalácie nastala neočakávaná chyba."
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:159
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Počas odinštalovania nastala neočakávaná chyba."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "Nastala neočakávaná chyba."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tento doplnok bude odinštalovaný po reštarte Firefoxu."
 
-#: src/disco/components/Addon.js:177
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "Pre použitie tohto doplnku, prosím, reštartujte Firefox."
 
-#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Váš doplnok je pripravený"
 
-#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Teraz môžete pristupovať k %(name)s z panela nástrojov."
 
-#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/containers/App.js:19
+#: src/disco/components/Addon.js:98
+msgid "Close"
+msgstr "Zavrieť"
+
+#: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr "Objavte doplnky"
 
@@ -106,11 +108,11 @@ msgstr "Pre prehranie kliknite sem"
 msgid "to find out more about add-ons"
 msgstr "a zistite viac informácií o doplnkoch"
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:117
 msgid "Close video"
 msgstr "Zavrieť video"
 
-#: src/disco/containers/DiscoPane.js:125
+#: src/disco/containers/DiscoPane.js:126
 msgid "See more add-ons!"
 msgstr "Zobraziť ďalšie doplnky!"
 
@@ -121,14 +123,19 @@ msgstr "Prispôsobte si svoj Firefox"
 #: src/disco/containers/DiscoPane.js:99
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
 "Existujú tisíce doplnkov, ktoré vytvárajú tisíce vývojárov po celom svete.\n"
-"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od zábavných tém \n"
-"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a bezpečnejšie.\n"
+"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od "
+"zábavných tém \n"
+"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a "
+"bezpečnejšie.\n"
 "Tu je niekoľko velikánov, čo stoja za vyskúšanie."
 
 #~ msgid "Install"

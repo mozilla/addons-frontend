@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-31 11:46+0000\n"
+"POT-Creation-Date: 2016-11-01 10:47+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -12,87 +12,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/core/components/InstallButton/index.js:50
+#: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:53
+#: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:57
+#: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:60
+#: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:63
+#: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:66
+#: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:69
+#: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
-#: src/disco/components/Addon.js:103
-msgid "Close"
-msgstr ""
-
-#: src/disco/components/Addon.js:133
+#: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
 msgstr ""
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/disco/components/Addon.js:162
+#: src/disco/components/Addon.js:157
 msgid "An unexpected error occurred during installation."
 msgstr ""
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:159
 msgid "An unexpected error occurred during uninstallation."
 msgstr ""
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ""
 
-#: src/disco/components/Addon.js:177
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr ""
 
-#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr ""
 
-#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr ""
 
-#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr ""
 
-#: src/disco/containers/App.js:19
+#: src/disco/components/Addon.js:98
+msgid "Close"
+msgstr ""
+
+#: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr ""
 
@@ -104,11 +104,11 @@ msgstr ""
 msgid "to find out more about add-ons"
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:117
 msgid "Close video"
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:125
+#: src/disco/containers/DiscoPane.js:126
 msgid "See more add-ons!"
 msgstr ""
 

@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-08-31 11:46+0000\n"
+"POT-Creation-Date: 2016-11-01 10:47+0000\n"
 "PO-Revision-Date: 2016-08-31 19:35+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,90 +11,94 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:50
+#: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
 msgstr "%(name)s se ześěgujo."
 
-#: src/core/components/InstallButton/index.js:53
+#: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
 msgstr "%(name)s se instalěrujo."
 
-#: src/core/components/InstallButton/index.js:57
+#: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s jo se instalěrował a zmóžnił. Klikniśo, aby jen wótinstalěrował."
+msgstr ""
+"%(name)s jo se instalěrował a zmóžnił. Klikniśo, aby jen wótinstalěrował."
 
-#: src/core/components/InstallButton/index.js:60
+#: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s jo znjemóžnjony. Klikniśo na „Zmóžniś“."
 
-#: src/core/components/InstallButton/index.js:63
+#: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s se wótinstalěrujo."
 
-#: src/core/components/InstallButton/index.js:66
+#: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s jo wótinstalěrowany. Klikniśo na „Instalěrowaś“."
 
-#: src/core/components/InstallButton/index.js:69
+#: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr "Instalěrowański status za %(name)s jo njeznaty."
 
-#: src/disco/components/Addon.js:103
-msgid "Close"
-msgstr "Zacyniś"
-
-#: src/disco/components/Addon.js:133
+#: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Za pśeglěd špěrku myški nad tym źaržaś abo za instalěrowanje %(name)s kliknuś"
+msgstr ""
+"Za pśeglěd špěrku myški nad tym źaržaś abo za instalěrowanje %(name)s kliknuś"
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
 msgstr "Gibniśo myšku nad wobraz za pśeglěd"
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
 msgstr "Instalacija njejo se raźiła. Pšosym wopytajśo hyšći raz."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
 msgstr "Ześěgnjenje njejo se raźiło. Pšosym pśeglědujśo swój zwisk."
 
-#: src/disco/components/Addon.js:162
+#: src/disco/components/Addon.js:157
 msgid "An unexpected error occurred during installation."
 msgstr "Njewótcakana zmólka jo pśi instalěrowanju nastała."
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:159
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Njewótcakana zmólka jo pśi wótinstalěrowanju nastała."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
 msgstr "Njewótcakana zmólka jo nastała."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Toś ten dodank se wótinstalěrujo, za tym až sćo Firefox znowego startował."
+msgstr ""
+"Toś ten dodank se wótinstalěrujo, za tym až sćo Firefox znowego startował."
 
-#: src/disco/components/Addon.js:177
+#: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
 msgstr "Pšosym startujśo Firefox znowego, aby toś ten dodank wužywał."
 
-#: src/disco/components/Addon.js:305 src/disco/components/InfoDialog.js:29
+#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
 msgstr "Waš dodank jo gótowy"
 
-#: src/disco/components/Addon.js:307 src/disco/components/InfoDialog.js:31
+#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Něnto maśo pśistup na %(name)s ze symboloweje rědki."
 
-#: src/disco/components/Addon.js:309 src/disco/components/InfoDialog.js:36
+#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
 msgstr "W pórěźe!"
 
-#: src/disco/containers/App.js:19
+#: src/disco/components/Addon.js:98
+msgid "Close"
+msgstr "Zacyniś"
+
+#: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr "Dodanki namakaś"
 
@@ -106,11 +110,11 @@ msgstr "Klikniśo, aby wótgrał"
 msgid "to find out more about add-ons"
 msgstr "aby wěcej wó dodankach zgónił"
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:117
 msgid "Close video"
 msgstr "Wideo zacyniś"
 
-#: src/disco/containers/DiscoPane.js:125
+#: src/disco/containers/DiscoPane.js:126
 msgid "See more add-ons!"
 msgstr "Woglědajśo se dalšne dodanki!"
 
@@ -121,13 +125,19 @@ msgstr "Pśiměrśo swój Firefox"
 #: src/disco/containers/DiscoPane.js:99
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
-"Su towzynty dermotnych dodankwo, napóranych wót wuwijarjow z cełego swěta, kótrež wam zmóžnjaju, Firefox wašym pótrěbnosćam pśiměriś &ndash; wšykno, wót směšnych drastwow až do mócnych rědow, "
-"kótarež póspěšuju pśeglědowanje a cynje jo wěsćejše. Dodanki cynje waš wobglědowak k wašomu. Za zachopjeńk dopórucujomy wam někotare wugbałe dodanki z wjele funkcijami."
+"Su towzynty dermotnych dodankwo, napóranych wót wuwijarjow z cełego swěta, "
+"kótrež wam zmóžnjaju, Firefox wašym pótrěbnosćam pśiměriś &ndash; wšykno, "
+"wót směšnych drastwow až do mócnych rědow, kótarež póspěšuju pśeglědowanje a "
+"cynje jo wěsćejše. Dodanki cynje waš wobglědowak k wašomu. Za zachopjeńk "
+"dopórucujomy wam někotare wugbałe dodanki z wjele funkcijami."
 
 #~ msgid "Install"
 #~ msgstr "Instalěrowaś"
