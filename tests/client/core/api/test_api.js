@@ -142,6 +142,49 @@ describe('api', () => {
     });
   });
 
+  describe('featured add-ons api', () => {
+    function mockResponse() {
+      return Promise.resolve({
+        ok: true,
+        json() {
+          return Promise.resolve({
+            results: [
+              { slug: 'foo' },
+              { slug: 'food' },
+              { slug: 'football' },
+            ],
+          });
+        },
+      });
+    }
+
+    it('sets the app, lang, and type query', () => {
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=theme&lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.featured({
+        addonType: 'theme',
+        api: { clientApp: 'android', lang: 'en-US' },
+      })
+        .then((response) => {
+          assert.deepEqual(response, {
+            entities: {
+              addons: {
+                foo: { slug: 'foo' },
+                food: { slug: 'food' },
+                football: { slug: 'football' },
+              },
+            },
+            result: {
+              results: ['foo', 'food', 'football'],
+            },
+          });
+          return mockWindow.verify();
+        });
+    });
+  });
+
   describe('add-on api', () => {
     function mockResponse() {
       return Promise.resolve({
