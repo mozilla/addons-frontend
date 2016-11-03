@@ -1,0 +1,92 @@
+@import "~core/css/inc/mixins";
+@import "~ui/components/Icon/vars";
+
+$input-height: 48px;
+$icon-margin-start: 24px;
+$icon-margin-end: 12px;
+$transition-duration: 250ms;
+
+.SearchInput {
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  .Icon-magnifying-glass {
+    @include margin(
+      ($input-height - $default-icon-size) / 2,
+      $icon-margin-end,
+      ($input-height - $default-icon-size) / 2,
+      $icon-margin-start);
+
+    vertical-align: top;
+  }
+
+  .SearchInput-animation-icon {
+    @include start(0);
+
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1ms $transition-duration, transform $transition-duration;
+  }
+}
+
+.SearchInput--text {
+  @include text-align-start();
+
+  .SearchInput-label {
+    color: transparent;
+
+    & .Icon-magnifying-glass {
+      opacity: 0;
+      transition: none;
+    }
+  }
+
+  .SearchInput-animation-icon {
+    color: #fff;
+    opacity: 1;
+    // Use !important to overwrite the inline styles added by JS.
+    transform: translateX(0) !important;
+    transition: transform $transition-duration;
+  }
+}
+
+.SearchInput-label {
+  @include font-regular();
+  // Include the start margin on the end so that icon and text is centred together.
+  @include margin-end($icon-margin-start);
+
+  color: #ccc;
+  display: inline-block;
+  height: $input-height;
+  line-height: $input-height;
+  top: 0;
+
+  & .Icon-magnifying-glass {
+    opacity: 1;
+    transition: opacity 1ms $transition-duration;
+  }
+}
+
+.SearchInput-input {
+  @include font-regular();
+  @include start(0);
+
+  background: transparent;
+  border: none;
+  color: #fff;
+  height: $input-height;
+  outline: none;
+  padding: 0 ($default-icon-size + $icon-margin-start + $icon-margin-end);
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    @include text-align-start();
+  }
+}

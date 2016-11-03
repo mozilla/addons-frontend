@@ -195,3 +195,49 @@ $color: $text-color-message) {
     padding: 0;
   }
 }
+
+@mixin text-align-start() {
+  text-align: left;
+
+  [dir=rtl] & {
+    text-align: right;
+  }
+}
+
+@mixin start($pos) {
+  left: $pos;
+  right: auto;
+
+  [dir=rtl] & {
+    left: auto;
+    right: $pos;
+  }
+}
+
+@mixin end($pos) {
+  left: auto;
+  right: $pos;
+
+  [dir=rtl] & {
+    left: $pos;
+    right: auto;
+  }
+}
+
+@mixin margin($top, $end, $bottom, $start) {
+  margin: $top $end $bottom $start;
+
+  [dir=rtl] & {
+    margin: $top $start $bottom $end;
+  }
+}
+
+@mixin margin-end($val) {
+  [dir=ltr] & {
+    margin-right: $val;
+  }
+
+  [dir=rtl] & {
+    margin-left: $val;
+  }
+}
