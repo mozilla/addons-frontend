@@ -121,10 +121,14 @@ export function fetchProfile({ api }) {
   });
 }
 
-export function featured({ addonType, api }) {
+export function featured({ addonType, api, page_size }) {
   return callApi({
     endpoint: 'addons/featured',
-    params: { app: api.clientApp, type: addonType },
+    params: {
+      app: api.clientApp,
+      page_size,
+      type: addonType,
+    },
     schema: { results: arrayOf(addon) },
     state: api,
   });

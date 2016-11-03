@@ -7,7 +7,9 @@ import { searchStart, searchLoad, searchFail } from 'core/actions/search';
 export const paramsToFilter = {
   app: 'clientApp',
   category: 'category',
+  page_size: 'page_size',
   q: 'query',
+  sort: 'sort',
   type: 'addonType',
 };
 
@@ -84,7 +86,9 @@ export function isLoaded({ page, state, filters }) {
   ) && !state.loading;
 }
 
-export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, location }) {
+export function loadSearchResultsIfNeeded(
+  { store: { dispatch, getState }, location }
+) {
   const page = parsePage(location.query.page);
   const state = getState();
   const filters = convertQueryParamsToFilters({
@@ -92,8 +96,14 @@ export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, locat
     clientApp: state.api.clientApp,
   });
 
-  if (!isLoaded({ state: state.search, page, filters })) {
-    return performSearch({ dispatch, page, api: state.api, auth: state.auth, filters });
+  if (!isLoaded({ filters, page, state: state.search })) {
+    return performSearch({
+      api: state.api,
+      auth: state.auth,
+      dispatch,
+      filters,
+      page,
+    });
   }
   return true;
 }

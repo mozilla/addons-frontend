@@ -1,0 +1,9 @@
+@import "~core/css/inc/vars";
+
+.LandingPage {
+  padding: $padding-page;
+
+  .AddonsCard {
+    margin-bottom: $padding-page;
+  }
+}
