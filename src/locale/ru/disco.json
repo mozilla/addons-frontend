@@ -28,9 +28,6 @@
          "Install state for %(name)s is unknown.": [
             "Состояние установки %(name)s неизвестно."
          ],
-         "Close": [
-            "Закрыть"
-         ],
          "Hover to preview or click to install %(name)s": [
             "Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
          ],
@@ -66,6 +63,9 @@
          ],
          "OK!": [
             "ОК!"
+         ],
+         "Close": [
+            "Закрыть"
          ],
          "Discover Add-ons": [
             "Откройте для себя дополнения"

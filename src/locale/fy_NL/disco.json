@@ -4,89 +4,89 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=1; plural=0;",
-            "lang": "zh_TW"
+            "plural_forms": "nplurals=2; plural=(n != 1);",
+            "lang": "fy_NL"
          },
          "Downloading %(name)s.": [
-            "正在下載 %(name)s。"
+            "%(name)s wurdt download."
          ],
          "Installing %(name)s.": [
-            "正在安裝 %(name)s。"
+            "%(name)s wurdt ynstallearre."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            "已安裝啟用 %(name)s，點擊移除。"
+            "%(name)s is ynstallearre en ynskeakele. Klik om de add-on fuort te smiten."
          ],
          "%(name)s is disabled. Click to enable.": [
-            "%(name)s 已停用，點擊啟用。"
+            "%(name)s is útskeakele. Klik om de add-on yn te skeakeljen."
          ],
          "Uninstalling %(name)s.": [
-            "正在移除 %(name)s。"
+            "%(name)s wurdt fuortsmiten."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            "已移除 %(name)s，點擊安裝。"
+            "%(name)s is fuortsmiten. Klik om de add-on te ynstallearjen."
          ],
          "Install state for %(name)s is unknown.": [
-            "%(name)s 的安裝狀態未知。"
+            "Ynstallaasjesteat foar %(name)s is net bekend."
          ],
          "Hover to preview or click to install %(name)s": [
-            "滑動以預覽或點擊安裝 %(name)s"
+            "Hâld de mûsoanwizer hjir foar in foarbyld of klik om %(name)s te ynstallearjen"
          ],
          "Hover over the image to preview": [
-            "滑過圖片進行預覽"
+            "Hâld de mûsoanwizer boppe de ôfbylding foar in foarbyld"
          ],
          "Installation failed. Please try again.": [
-            "安裝失敗，請再試一次。"
+            "Ynstallaasje mislearre. Probearje it opnij."
          ],
          "Download failed. Please check your connection.": [
-            "下載失敗，請檢查網路連線。"
+            "Downloaden mislearre. Kontrolearje jo ferbining."
          ],
          "An unexpected error occurred during installation.": [
-            "安裝時發生未預期的錯誤。"
+            "Der is in ûnferwachte flater bard wylst it ynstallearjen."
          ],
          "An unexpected error occurred during uninstallation.": [
-            "移除時發生未預期的錯誤。"
+            "Der is in ûnferwachte flater bard wylst it fuortsmiten."
          ],
          "An unexpected error occurred.": [
-            "發生未預期的錯誤。"
+            "Der is in ûnferwachte flater bard."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            "您重新啟動 Firefox 後將移除此附加元件。"
+            "Dizze add-on sil de-ynstallearre wurde neidat jo Firefox opnij starte."
          ],
          "Please restart Firefox to use this add-on.": [
-            "重新啟動 Firefox 後即可使用此附加元件。"
+            "Start Firefox opnij om dizze add-on te brûken."
          ],
          "Your add-on is ready": [
-            "您的附加元件已就緒"
+            "Jo add-on is ree"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            "您現在可在工具列使用 %(name)s。"
+            "Jo kinne %(name)s no benaderje fan de arkbalke ôf."
          ],
          "OK!": [
-            "好！"
+            "OK!"
          ],
          "Close": [
-            "關閉"
+            "Slute"
          ],
          "Discover Add-ons": [
-            "探索附加元件"
+            "Add-ons ûntdekke"
          ],
          "Click to play": [
-            "點擊播放"
+            "Klik om de fideo ôf te spyljen"
          ],
          "to find out more about add-ons": [
-            "以了解附加元件的更多資訊"
+            "en mear oer add-ons te ûntdekken"
          ],
          "Close video": [
-            "關閉影片"
+            "Fideo slute"
          ],
          "See more add-ons!": [
-            "看看更多附加元件！"
+            "Besjoch mear add-ons!"
          ],
          "Personalize Your Firefox": [
-            "個人化您的 Firefox"
+            "Personalisearje jo Firefox"
          ],
          "There are thousands of free add-ons, created by developers all over\nthe world, that you can install to personalize your Firefox. From fun visual themes\nto powerful tools that make browsing faster and safer, add-ons make your browser yours.\nTo help you get started, here are some we recommend for their stand-out performance\nand functionality.": [
-            "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題、讓您瀏覽時更快、更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦效能與功能都很傑出的附加元件。"
+            "Der binne tûzenen fergese add-ons, makke troch ûntwikkelers fan oer de hiele wrâld,\ndy jo ynstallearje kinne om jo Firefox te personalisearjen. Fariearjend fan aardige fisuele tema’s\noant krêftige helpmiddelen dy't it browsen flugger en feiliger meitsje, meitsje add-ons jo browser fan jo.\nOm jo op gong te helpen, binne hjir in pear add-ons dy't wy oanrekkomandearre fanwege harren bjusterbaarlike prestaasjes\nen funksjonaliteit."
          ]
       }
    }
