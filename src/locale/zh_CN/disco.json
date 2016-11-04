@@ -28,9 +28,6 @@
          "Install state for %(name)s is unknown.": [
             "%(name)s 的安装状态未知。"
          ],
-         "Close": [
-            "关闭"
-         ],
          "Hover to preview or click to install %(name)s": [
             "鼠标悬停在上面即可预览，点击可安装 %(name)s"
          ],
@@ -66,6 +63,9 @@
          ],
          "OK!": [
             "知道了！"
+         ],
+         "Close": [
+            "关闭"
          ],
          "Discover Add-ons": [
             "探寻附加组件"

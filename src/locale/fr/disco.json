@@ -28,9 +28,6 @@
          "Install state for %(name)s is unknown.": [
             "État d’installation inconnu pour %(name)s."
          ],
-         "Close": [
-            "Fermer"
-         ],
          "Hover to preview or click to install %(name)s": [
             "Survolez l’image pour activer la prévisualisation ou cliquez pour installer %(name)s"
          ],
@@ -66,6 +63,9 @@
          ],
          "OK!": [
             "OK"
+         ],
+         "Close": [
+            "Fermer"
          ],
          "Discover Add-ons": [
             "Découvrez des modules"

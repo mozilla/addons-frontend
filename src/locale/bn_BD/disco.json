@@ -28,9 +28,6 @@
          "Install state for %(name)s is unknown.": [
             "%(name)s এর ইন্সটল অবস্থা অজানা।"
          ],
-         "Close": [
-            "বন্ধ"
-         ],
          "Hover to preview or click to install %(name)s": [
             "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"
          ],
@@ -66,6 +63,9 @@
          ],
          "OK!": [
             "ওকে!"
+         ],
+         "Close": [
+            "বন্ধ"
          ],
          "Discover Add-ons": [
             "আরো এড-অন আবিষ্কার করুন"
