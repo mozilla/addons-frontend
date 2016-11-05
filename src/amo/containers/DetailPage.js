@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 
 import AddonDetail from 'amo/components/AddonDetail';
 import translate from 'core/i18n/translate';
-import { loadAddonIfNeeded } from 'core/utils';
+import { loadAddonAndVersionDetail } from 'core/utils';
+
 
 export class DetailPageBase extends React.Component {
   render() {
@@ -19,9 +20,12 @@ export class DetailPageBase extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
+  const addon = state.addons[slug];
   return {
-    addon: state.addons[slug],
+    addon,
     slug,
+    versionDetails: addon && state.version[addon.current_version.id] ?
+      state.version[addon.current_version.id] : state.version,
   };
 }
 
@@ -29,7 +33,7 @@ export default compose(
   asyncConnect([{
     key: 'DetailPage',
     deferred: true,
-    promise: loadAddonIfNeeded,
+    promise: loadAddonAndVersionDetail,
   }]),
   connect(mapStateToProps),
   translate({ withRef: true }),

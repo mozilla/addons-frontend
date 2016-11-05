@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
 import AddonMeta from 'amo/components/AddonMeta';
 import InstallButton from 'core/components/InstallButton';
 import DefaultOverallRating from 'amo/components/OverallRating';
+import MoreInfo from 'amo/components/MoreInfo';
 import ScreenShots from 'amo/components/ScreenShots';
 import translate from 'core/i18n/translate';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
@@ -29,9 +30,10 @@ export const allowedDescriptionTags = [
 
 class AddonDetail extends React.Component {
   static propTypes = {
-    i18n: PropTypes.object.isRequired,
-    addon: PropTypes.object.isRequired,
     OverallRating: PropTypes.element,
+    addon: PropTypes.object.isRequired,
+    i18n: PropTypes.object.isRequired,
+    versionDetails: PropTypes.object,
   }
 
   static defaultProps = {
@@ -39,7 +41,7 @@ class AddonDetail extends React.Component {
   }
 
   render() {
-    const { i18n, addon, OverallRating } = this.props;
+    const { OverallRating, addon, i18n, versionDetails } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -101,6 +103,8 @@ class AddonDetail extends React.Component {
             version={addon.current_version}
           />
         </section>
+
+        <MoreInfo addon={addon} versionDetails={versionDetails} />
       </div>
     );
   }
