@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-01 10:47+0000\n"
-"PO-Revision-Date: 2016-06-06 08:28+0000\n"
+"PO-Revision-Date: 2016-11-06 01:30+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -59,19 +59,16 @@ msgid "Download failed. Please check your connection."
 msgstr ""
 
 #: src/disco/components/Addon.js:157
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "예상치 못 한 오류 발생"
+msgstr "설치 중에 예상치 못 한 오류가 발생하였습니다."
 
 #: src/disco/components/Addon.js:159
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "예상치 못 한 오류 발생"
+msgstr "설치 제거 중에 예상치 못 한 오류가 발생하였습니다."
 
 #: src/disco/components/Addon.js:162
-#, fuzzy
 msgid "An unexpected error occurred."
-msgstr "예상치 못 한 오류 발생"
+msgstr "예상치 못 한 오류가 발생하였습니다."
 
 #: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
@@ -94,9 +91,8 @@ msgid "OK!"
 msgstr ""
 
 #: src/disco/components/Addon.js:98
-#, fuzzy
 msgid "Close"
-msgstr "동영상 닫기"
+msgstr "닫기"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
@@ -123,20 +119,13 @@ msgid "Personalize Your Firefox"
 msgstr "Firefox 개인화하기"
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
-msgstr ""
-"재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 \n"
-"Firefox를 나만의 것으로 만들 수 있는 수천개의 부가기능이 있습니다. \n"
-"— 저희가 추천드리는 몇가지 기능이 있습니다."
+msgstr "전세계의 개발자들이 만든 Firefox를 나만의 것으로 만들 수 있는 수천개의 부가기능이 있습니다. 재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 브라우징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지고 있는 저희가 추천드리는 몇가지 부가기능이 있습니다."
 
 #~ msgid "Install"
 #~ msgstr "설치"
