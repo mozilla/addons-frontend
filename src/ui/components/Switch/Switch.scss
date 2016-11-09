@@ -51,7 +51,7 @@ $installStripeColor2: #00c42e;
   background-color: $stripeBackgroundColor;
 }
 
-.switch {
+.Switch {
   position: relative;
 
   input:focus + label {
@@ -110,82 +110,6 @@ $installStripeColor2: #00c42e;
     }
   }
 
-  &.uninstalling {
-    input + label::before {
-      @include stripes(
-        $uninstallStripeColor1,
-        $uninstallStripeColor2,
-        $switchBackgroundOff);
-      // Reverse the stripe direction without
-      // impacting the animation speed.
-      transform: scaleX(-1);
-    }
-
-    input + label {
-      &::after {
-        transform: translateX($switchHandleGap);
-
-        /* stylelint-disable max-nesting-depth */
-        [dir=rtl] & {
-          transform: translateX(-$switchHandleGap);
-        }
-        /* stylelint-enable */
-      }
-
-      &:hover::after {
-        box-shadow: none;
-      }
-    }
-  }
-
-  &.downloading {
-    overflow: hidden;
-    position: relative;
-
-    input + label {
-      border: 1px solid $switchStrokeOff;
-      overflow: hidden;
-
-      &::after {
-        background: $switchHandleActive;
-        transform: translateX($switchHandleActivePosition);
-
-        /* stylelint-disable max-nesting-depth */
-        [dir=rtl] & {
-          transform: translateX(-$switchHandleActivePosition);
-        }
-        /* stylelint-enable */
-      }
-    }
-  }
-
-  &.installing {
-    input + label {
-      border-color: $switchStrokeOn;
-
-      &::before {
-        @include stripes(
-          $installStripeColor1,
-          $installStripeColor2,
-          $switchBackgroundOn);
-      }
-
-      &::after {
-        transform: translateX($switchHandleActivePosition);
-
-        /* stylelint-disable max-nesting-depth */
-        [dir=rtl] & {
-          transform: translateX(-$switchHandleActivePosition);
-        }
-        /* stylelint-enable */
-      }
-
-      &:hover::after {
-        box-shadow: none;
-      }
-    }
-  }
-
   // Disabled State
   input:disabled + label,
   input:checked:disabled + label {
@@ -216,11 +140,9 @@ $installStripeColor2: #00c42e;
     }
   }
 
-  // When add-on status is enabled installed is implied.
-  &.enabled,
-  &.installed {
+  &.Switch--success {
     input + label::before {
-      background: $switchBackgroundOn url('./img/tick.svg') no-repeat 35% 50%;
+      background: $switchBackgroundOn url('./tick.svg') no-repeat 35% 50%;
 
       [dir=rtl] & {
         background-position: 65% 50%;
@@ -229,7 +151,83 @@ $installStripeColor2: #00c42e;
   }
 }
 
-.progress {
+.Switch--indefinite-reverse {
+  input + label::before {
+    @include stripes(
+      $uninstallStripeColor1,
+      $uninstallStripeColor2,
+      $switchBackgroundOff);
+    // Reverse the stripe direction without
+    // impacting the animation speed.
+    transform: scaleX(-1);
+  }
+
+  input + label {
+    &::after {
+      transform: translateX($switchHandleGap);
+
+      /* stylelint-disable max-nesting-depth */
+      [dir=rtl] & {
+        transform: translateX(-$switchHandleGap);
+      }
+      /* stylelint-enable */
+    }
+
+    &:hover::after {
+      box-shadow: none;
+    }
+  }
+}
+
+.Switch--progress {
+  overflow: hidden;
+  position: relative;
+
+  input + label {
+    border: 1px solid $switchStrokeOff;
+    overflow: hidden;
+
+    &::after {
+      background: $switchHandleActive;
+      transform: translateX($switchHandleActivePosition);
+
+      /* stylelint-disable max-nesting-depth */
+      [dir=rtl] & {
+        transform: translateX(-$switchHandleActivePosition);
+      }
+      /* stylelint-enable */
+    }
+  }
+}
+
+.Switch--indefinite {
+  input:checked + label {
+    border-color: $switchStrokeOn;
+
+    &::before {
+      @include stripes(
+        $installStripeColor1,
+        $installStripeColor2,
+        $switchBackgroundOn);
+    }
+
+    &::after {
+      transform: translateX($switchHandleActivePosition);
+
+      /* stylelint-disable max-nesting-depth */
+      [dir=rtl] & {
+        transform: translateX(-$switchHandleActivePosition);
+      }
+      /* stylelint-enable */
+    }
+
+    &:hover::after {
+      box-shadow: none;
+    }
+  }
+}
+
+.Switch-progress-bar {
   background: transparentize(#3ef827, 0.5);
   bottom: 0;
   left: 0;
@@ -246,7 +244,7 @@ $installStripeColor2: #00c42e;
 }
 
 @for $i from 1 through 100 {
-  [data-download-progress="#{$i}"] .progress {
+  [data-progress="#{$i}"] .Switch-progress-bar {
     transform: translateX(#{percentage($i - 100) / 100});
 
     [dir=rtl] & {
