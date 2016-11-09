@@ -72,15 +72,23 @@ describe('OverallRating', () => {
     assert.equal(call.router, router);
   });
 
-  it('lets you submit a "love it" rating', () => {
+  it('lets you submit a one star rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
-    selectRating(root, '#OverallRating-rating-5');
+    selectRating(root, '#OverallRating-rating-1');
     assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 5);
+    assert.equal(createRating.firstCall.args[0].rating, 1);
   });
 
-  it('lets you submit a "it is OK" rating', () => {
+  it('lets you submit a two star rating', () => {
+    const createRating = sinon.stub();
+    const root = render({ createRating });
+    selectRating(root, '#OverallRating-rating-2');
+    assert.equal(createRating.called, true);
+    assert.equal(createRating.firstCall.args[0].rating, 2);
+  });
+
+  it('lets you submit a three star rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
     selectRating(root, '#OverallRating-rating-3');
@@ -88,12 +96,20 @@ describe('OverallRating', () => {
     assert.equal(createRating.firstCall.args[0].rating, 3);
   });
 
-  it('lets you submit a "huh?" rating', () => {
+  it('lets you submit a four star rating', () => {
     const createRating = sinon.stub();
     const root = render({ createRating });
-    selectRating(root, '#OverallRating-rating-1');
+    selectRating(root, '#OverallRating-rating-4');
     assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 1);
+    assert.equal(createRating.firstCall.args[0].rating, 4);
+  });
+
+  it('lets you submit a five star rating', () => {
+    const createRating = sinon.stub();
+    const root = render({ createRating });
+    selectRating(root, '#OverallRating-rating-5');
+    assert.equal(createRating.called, true);
+    assert.equal(createRating.firstCall.args[0].rating, 5);
   });
 
   it('prevents form submission when selecting a rating', () => {
