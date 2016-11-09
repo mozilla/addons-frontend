@@ -7,15 +7,14 @@
 $star-size: 46px;
 
 .OverallRating-choice {
-  font-weight: bold;
-  cursor: pointer;
-  padding-top: 80px;
-  width: $star-size + 10px;
-  height: $star-size + 10px;
-  background-size: $star-size;
+  background-image: url('../img/ratings/big-star.svg');
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('../img/ratings/big-star.svg');
+  background-size: $star-size;
+  cursor: pointer;
+  height: $star-size + 10px;
+  padding-top: 80px;
+  width: $star-size + 10px;
 }
 
 // The following rules make the ranges of stars appear selected when
