@@ -7,10 +7,7 @@
 $star-size: 46px;
 
 .OverallRating-choice {
-  background-image: url('../img/ratings/big-star.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: $star-size;
+  background: url('../img/ratings/big-star.svg') center/$star-size no-repeat;
   cursor: pointer;
   height: $star-size + 10px;
   padding-top: 80px;
