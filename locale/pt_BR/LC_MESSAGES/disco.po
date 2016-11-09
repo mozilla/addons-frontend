@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-01 10:47+0000\n"
-"PO-Revision-Date: 2016-11-09 00:01+0000\n"
+"PO-Revision-Date: 2016-11-09 00:06+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -52,7 +52,7 @@ msgstr "Passe o mouse sobre a imagem para visualizar"
 
 #: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
-msgstr "A instalação falhou. Por favor tente novamente."
+msgstr "A instalação falhou. Tente novamente."
 
 #: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
@@ -72,11 +72,11 @@ msgstr "Ocorreu um erro inesperado."
 
 #: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Este complemento será removido quando o Firefox for reiniciado."
+msgstr "Este complemento será desinstalado depois de reiniciar o Firefox."
 
 #: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
-msgstr "Por favor reinicie o Firefox para usar este complemento."
+msgstr "Por favor, reinicie o Firefox para usar este complemento."
 
 #: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
