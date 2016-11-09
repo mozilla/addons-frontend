@@ -113,3 +113,12 @@ export function fetchProfile({ api }) {
     state: api,
   });
 }
+
+export function featured({ addonType, api }) {
+  return callApi({
+    endpoint: 'addons/featured',
+    params: { app: api.clientApp, type: addonType },
+    schema: { results: arrayOf(addon) },
+    state: api,
+  });
+}
