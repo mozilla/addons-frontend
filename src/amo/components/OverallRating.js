@@ -55,21 +55,12 @@ export class OverallRatingBase extends React.Component {
             <legend>{prompt}</legend>
             <div className="OverallRating-choices">
               <span className="OverallRating-star-group">
-                <button value={1} onClick={this.onClickRating}
-                  className="OverallRating-choice"
-                  id="OverallRating-rating-1" />
-                <button value={2} onClick={this.onClickRating}
-                  className="OverallRating-choice"
-                  id="OverallRating-rating-2" />
-                <button value={3} onClick={this.onClickRating}
-                  className="OverallRating-choice"
-                  id="OverallRating-rating-3" />
-                <button value={4} onClick={this.onClickRating}
-                  className="OverallRating-choice"
-                  id="OverallRating-rating-4" />
-                <button value={5} onClick={this.onClickRating}
-                  className="OverallRating-choice"
-                  id="OverallRating-rating-5" />
+                {[1, 2, 3, 4, 5].map((rating) =>
+                  <button
+                    value={rating} onClick={this.onClickRating}
+                    className="OverallRating-choice"
+                    id={`OverallRating-rating-${rating}`} />
+                )}
               </span>
             </div>
           </fieldset>
