@@ -1,29 +1,29 @@
+
 .OverallRating-choices {
   display: flex;
   justify-content: center;
 }
 
+$star-size: 46px;
+
 .OverallRating-choice {
-  font-size: 0.8em;
-  font-weight: bold;
+  background: url('../img/ratings/big-star.svg') center/$star-size no-repeat;
   cursor: pointer;
-  text-align: center;
-  padding-top: 90px;
-  width: 100px;
-  height: 100px;
-  background-size: 85px;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: $star-size + 10px;
+  padding-top: 80px;
+  width: $star-size + 10px;
+}
 
-  &.OverallRating-rating-5 {
-    background-image: url('../img/ratings/smiley-rating-5.svg');
-  }
+// The following rules make the ranges of stars appear selected when
+// you hover over them. For example, when you hover over the third star,
+// only the first three stars appear selected.
 
-  &.OverallRating-rating-3 {
-    background-image: url('../img/ratings/smiley-rating-3.svg');
-  }
+// First, make all stars appear selected when you hover over the group.
+.OverallRating-star-group:hover .OverallRating-choice {
+  background-image: url('../img/ratings/big-star-selected.svg');
+}
 
-  &.OverallRating-rating-1 {
-    background-image: url('../img/ratings/smiley-rating-1.svg');
-  }
+// Second, de-select all stars to the right of the cursor.
+.OverallRating-choice:hover ~ .OverallRating-choice {
+  background-image: url('../img/ratings/big-star.svg');
 }
