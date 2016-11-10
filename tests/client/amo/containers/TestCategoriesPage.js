@@ -5,15 +5,19 @@ describe('<CategoriesPage />', () => {
   it('maps state to props', () => {
     const props = mapStateToProps({
       api: { clientApp: 'android', lang: 'pt' },
-      categories: { categories: [], loading: true },
+      categories: {
+        categories: { android: {}, firefox: {} },
+        error: false,
+        loading: true,
+      },
     }, {
-      params: { addonType: 'theme' },
+      params: { addonType: 'themes' },
     });
 
     assert.deepEqual(props, {
       addonType: 'theme',
-      categories: [],
-      clientApp: 'android',
+      categories: {},
+      error: false,
       loading: true,
     });
   });

@@ -17,7 +17,7 @@ describe('CATEGORIES_GET', () => {
 
 describe('CATEGORIES_LOAD', () => {
   const params = {
-    result: { 0: 'foo', 1: 'bar' },
+    result: ['foo', 'bar'],
     loading: false,
   };
   const action = actions.categoriesLoad(params);
@@ -28,7 +28,7 @@ describe('CATEGORIES_LOAD', () => {
 
   it('sets the payload', () => {
     assert.deepEqual(action.payload.loading, false);
-    assert.deepEqual(action.payload.results, ['foo', 'bar']);
+    assert.deepEqual(action.payload.result, ['foo', 'bar']);
   });
 });
 

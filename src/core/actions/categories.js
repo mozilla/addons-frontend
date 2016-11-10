@@ -16,9 +16,7 @@ export function categoriesLoad({ result }) {
     type: CATEGORIES_LOAD,
     payload: {
       loading: false,
-      results: Object.keys(result).map((key) => {
-        return result[key];
-      }),
+      result,
     },
   };
 }

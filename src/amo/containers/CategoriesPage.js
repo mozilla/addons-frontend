@@ -7,10 +7,16 @@ import { loadCategoriesIfNeeded } from 'core/utils';
 
 
 export function mapStateToProps(state, ownProps) {
+  const addonType = ownProps.params.addonType.replace(/s$/, '');
+  const clientApp = state.api.clientApp;
+  const categories = state.categories.categories[clientApp][addonType] ?
+    state.categories.categories[clientApp][addonType] : {};
+
   return {
-    addonType: ownProps.params.addonType.replace(/s$/, ''),
-    clientApp: state.api.clientApp,
-    ...state.categories,
+    addonType,
+    categories,
+    error: state.categories.error,
+    loading: state.categories.loading,
   };
 }
 

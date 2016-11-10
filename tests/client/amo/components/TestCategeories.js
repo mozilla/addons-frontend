@@ -7,7 +7,7 @@ import {
 import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
-import Categories, { filterAndSortCategories } from 'amo/components/Categories';
+import Categories from 'amo/components/Categories';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
@@ -97,24 +97,5 @@ describe('Categories', () => {
     });
 
     assert.equal(root.textContent, 'Failed to load categories.');
-  });
-});
-
-describe('filterAndSortCategories', () => {
-  it('filters out categories by addonType and clientApp', () => {
-    assert.lengthOf(
-      filterAndSortCategories(categories, 'extension', 'firefox'), 1);
-    assert.lengthOf(
-      filterAndSortCategories(categories, 'extension', 'android'), 2);
-    assert.lengthOf(
-      filterAndSortCategories(categories, 'theme', 'android'), 1);
-  });
-
-  it('sorts categories by name and weight', () => {
-    const sortedCategories = filterAndSortCategories(
-      categories, 'extension', 'android');
-
-    assert.equal(sortedCategories[0].slug, 'Games');
-    assert.equal(sortedCategories[1].slug, 'travel');
   });
 });

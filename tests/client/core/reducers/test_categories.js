@@ -1,11 +1,15 @@
-import categories from 'core/reducers/categories';
+import categories, { emptyCategoryList } from 'core/reducers/categories';
 
 describe('categories reducer', () => {
-  const initialState = { categories: [], error: false, loading: true };
+  const initialState = {
+    categories: emptyCategoryList(), error: false, loading: true,
+  };
 
   it('defaults to an empty set of categories', () => {
-    const state = categories(undefined, { type: 'unrelated' });
-    assert.deepEqual(state.categories, []);
+    const state = categories(initialState, { type: 'unrelated' });
+    assert.deepEqual(state.categories, {
+      android: {}, firefox: {},
+    });
   });
 
   it('defaults to not loading', () => {
@@ -22,21 +26,139 @@ describe('categories reducer', () => {
     it('sets loading', () => {
       const state = categories(initialState,
         { type: 'CATEGORIES_GET', payload: { loading: true } });
-      assert.deepEqual(state.categories, []);
+      assert.deepEqual(state.categories, {
+        android: {}, firefox: {},
+      });
       assert.equal(state.error, false);
       assert.equal(state.loading, true);
     });
   });
 
   describe('CATEGORIES_LOAD', () => {
-    const results = ['foo', 'bar'];
+    const result = [
+      {
+        application: 'android',
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: 'extension',
+      },
+      {
+        application: 'android',
+        name: 'Games',
+        slug: 'Games',
+        type: 'extension',
+      },
+      {
+        application: 'android',
+        name: 'Blogging',
+        slug: 'blogging',
+        type: 'extension',
+      },
+      {
+        application: 'android',
+        name: 'Naturé',
+        slug: 'naturé',
+        type: 'theme',
+      },
+      {
+        application: 'android',
+        name: 'Painting',
+        slug: 'painting',
+        type: 'theme',
+      },
+      {
+        application: 'firefox',
+        name: 'Anime',
+        slug: 'anime',
+        type: 'theme',
+      },
+      {
+        application: 'firefox',
+        name: 'Alerts & Update',
+        slug: 'alert-update',
+        type: 'extension',
+      },
+      {
+        application: 'firefox',
+        name: 'Security',
+        slug: 'security',
+        type: 'extension',
+      },
+      {
+        application: 'netscape',
+        name: 'I should not appear',
+        slug: 'i-should-not-appear',
+        type: 'extension',
+      },
+    ];
     const state = categories(initialState, {
       type: 'CATEGORIES_LOAD',
-      payload: { results },
+      payload: { result },
     });
 
     it('sets the categories', () => {
-      assert.deepEqual(state.categories, ['foo', 'bar']);
+      assert.deepEqual(state.categories, {
+        firefox: {
+          extension: {
+            'alert-update': {
+              application: 'firefox',
+              name: 'Alerts & Update',
+              slug: 'alert-update',
+              type: 'extension',
+            },
+            security: {
+              application: 'firefox',
+              name: 'Security',
+              slug: 'security',
+              type: 'extension',
+            },
+          },
+          theme: {
+            anime: {
+              application: 'firefox',
+              name: 'Anime',
+              slug: 'anime',
+              type: 'theme',
+            },
+          },
+        },
+        android: {
+          extension: {
+            'alert-update': {
+              application: 'android',
+              name: 'Alerts & Update',
+              slug: 'alert-update',
+              type: 'extension',
+            },
+            blogging: {
+              application: 'android',
+              name: 'Blogging',
+              slug: 'blogging',
+              type: 'extension',
+            },
+            Games: {
+              application: 'android',
+              name: 'Games',
+              slug: 'Games',
+              type: 'extension',
+            },
+          },
+          theme: {
+            'naturé': {
+              application: 'android',
+              name: 'Naturé',
+              slug: 'naturé',
+              type: 'theme',
+            },
+            painting: {
+              application: 'android',
+              name: 'Painting',
+              slug: 'painting',
+              type: 'theme',
+            },
+          },
+        },
+      });
     });
 
     it('sets loading', () => {
@@ -56,8 +178,11 @@ describe('categories reducer', () => {
       const loading = false;
 
       const state = categories(initialState, {
-        type: 'CATEGORIES_FAILED', payload: { error, loading } });
-      assert.deepEqual(state, { categories: [], error, loading });
+        type: 'CATEGORIES_FAILED', payload: { error, loading },
+      });
+      assert.deepEqual(state, {
+        categories: emptyCategoryList(), error, loading,
+      });
     });
   });
 });
