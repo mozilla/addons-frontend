@@ -39,7 +39,6 @@ export default class Switch extends React.Component {
       success,
     } = this.props;
     const identifier = `install-button-${name}`;
-
     const hasProgress = progress !== undefined;
     const classes = classNames('Switch', className, {
       'Switch--indefinite': progress === Infinity,
