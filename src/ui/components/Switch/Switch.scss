@@ -166,11 +166,9 @@ $installStripeColor2: #00c42e;
     &::after {
       transform: translateX($switchHandleGap);
 
-      /* stylelint-disable max-nesting-depth */
       [dir=rtl] & {
         transform: translateX(-$switchHandleGap);
       }
-      /* stylelint-enable */
     }
 
     &:hover::after {
@@ -191,11 +189,9 @@ $installStripeColor2: #00c42e;
       background: $switchHandleActive;
       transform: translateX($switchHandleActivePosition);
 
-      /* stylelint-disable max-nesting-depth */
       [dir=rtl] & {
         transform: translateX(-$switchHandleActivePosition);
       }
-      /* stylelint-enable */
     }
   }
 }
@@ -214,11 +210,9 @@ $installStripeColor2: #00c42e;
     &::after {
       transform: translateX($switchHandleActivePosition);
 
-      /* stylelint-disable max-nesting-depth */
       [dir=rtl] & {
         transform: translateX(-$switchHandleActivePosition);
       }
-      /* stylelint-enable */
     }
 
     &:hover::after {
