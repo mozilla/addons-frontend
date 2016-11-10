@@ -1,0 +1,241 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: amo\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-11-10 09:55+0000\n"
+"PO-Revision-Date: 2016-11-10 09:55+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/amo/components/AddonDetail.js:49
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+
+#: src/amo/components/AddonDetail.js:74
+msgid "Extension Metadata"
+msgstr "Extension Metadata"
+
+#: src/amo/components/AddonDetail.js:81
+msgid "Screenshots"
+msgstr "Screenshots"
+
+#: src/amo/components/AddonDetail.js:88
+msgid "About this extension"
+msgstr "About this extension"
+
+#: src/amo/components/AddonDetail.js:96
+msgid "Rate your experience"
+msgstr "Rate your experience"
+
+#: src/amo/components/AddonMeta.js:19
+msgid "Category"
+msgstr "Category"
+
+#: src/amo/components/AddonMeta.js:24
+msgid "Used by"
+msgstr "Used by"
+
+#: src/amo/components/AddonMeta.js:29
+msgid "Sentiment"
+msgstr "Sentiment"
+
+#: src/amo/components/AddonReview.js:109
+msgid "Back"
+msgstr "Back"
+
+#: src/amo/components/AddonReview.js:113
+msgid "Submit"
+msgstr "Submit"
+
+#: src/amo/components/AddonReview.js:41
+msgid "Please enter some text"
+msgstr "Please enter some text"
+
+#: src/amo/components/AddonReview.js:90
+msgid "Write a review"
+msgstr "Write a review"
+
+#: src/amo/components/AddonReview.js:92
+msgid "Tell the world why you think this extension is fantastic!"
+msgstr "Tell the world why you think this extension is fantastic!"
+
+#: src/amo/components/Footer.js:27
+msgid "Privacy policy"
+msgstr "Privacy policy"
+
+#: src/amo/components/Footer.js:33
+msgid "Legal notices"
+msgstr "Legal notices"
+
+#: src/amo/components/Footer.js:39
+msgid "View desktop site"
+msgstr "View desktop site"
+
+#: src/amo/components/LanguagePicker.js:20
+msgid "Browse in your language"
+msgstr "Browse in your language"
+
+#: src/amo/components/MastHead.js:29
+msgid "Firefox Add-ons"
+msgstr "Firefox Add-ons"
+
+#: src/amo/components/OverallRating.js:45
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "How are you enjoying your experience with %(addonName)s?"
+
+#: src/amo/components/ScreenShots.js:28
+msgid "screenshot %(imageNumber)s of %(totalImages)s"
+msgstr "screenshot %(imageNumber)s of %(totalImages)s"
+
+#: src/amo/components/SearchResult.js:23
+msgid "Average rating: %(rating)s out of 5"
+msgstr "Average rating: %(rating)s out of 5"
+
+#: src/amo/components/SearchResult.js:29
+msgid "No ratings"
+msgstr "No ratings"
+
+#: src/amo/components/SearchResult.js:43
+msgid "%(users)s user"
+msgid_plural "%(users)s users"
+msgstr[0] "%(users)s user"
+msgstr[1] "%(users)s users"
+
+#: src/amo/containers/App.js:39
+msgid "Log out"
+msgstr "Log out"
+
+#: src/amo/containers/App.js:39
+msgid "Log in/Sign up"
+msgstr "Log in/Sign up"
+
+#: src/amo/containers/App.js:51
+msgid "Add-ons for Firefox"
+msgstr "Add-ons for Firefox"
+
+#: src/amo/containers/Home.js:18
+msgid "What do you want Firefox to do?"
+msgstr "What do you want Firefox to do?"
+
+#: src/amo/containers/Home.js:20
+msgid "Block ads"
+msgstr "Block ads"
+
+#: src/amo/containers/Home.js:21
+msgid "Screenshot"
+msgstr "Screenshot"
+
+#: src/amo/containers/Home.js:22
+msgid "Save stuff"
+msgstr "Save stuff"
+
+#: src/amo/containers/Home.js:23
+msgid "Shop online"
+msgstr "Shop online"
+
+#: src/amo/containers/Home.js:24
+msgid "Be social"
+msgstr "Be social"
+
+#: src/amo/containers/Home.js:25
+msgid "Share stuff"
+msgstr "Share stuff"
+
+#: src/amo/containers/Home.js:28
+msgid "Browse all extensions"
+msgstr "Browse all extensions"
+
+#: src/amo/containers/Home.js:31
+msgid "How do you want Firefox to look?"
+msgstr "How do you want Firefox to look?"
+
+#: src/amo/containers/Home.js:33
+msgid "Wild"
+msgstr "Wild"
+
+#: src/amo/containers/Home.js:34
+msgid "Abstract"
+msgstr "Abstract"
+
+#: src/amo/containers/Home.js:35
+msgid "Fashionable"
+msgstr "Fashionable"
+
+#: src/amo/containers/Home.js:36
+msgid "Scenic"
+msgstr "Scenic"
+
+#: src/amo/containers/Home.js:37
+msgid "Sporty"
+msgstr "Sporty"
+
+#: src/amo/containers/Home.js:38
+msgid "Mystical"
+msgstr "Mystical"
+
+#: src/amo/containers/Home.js:41
+msgid "Browse all themes"
+msgstr "Browse all themes"
+
+#: src/core/components/InstallButton/index.js:49
+msgid "Downloading %(name)s."
+msgstr "Downloading %(name)s."
+
+#: src/core/components/InstallButton/index.js:52
+msgid "Installing %(name)s."
+msgstr "Installing %(name)s."
+
+#: src/core/components/InstallButton/index.js:56
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr "%(name)s is installed and enabled. Click to uninstall."
+
+#: src/core/components/InstallButton/index.js:59
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s is disabled. Click to enable."
+
+#: src/core/components/InstallButton/index.js:62
+msgid "Uninstalling %(name)s."
+msgstr "Uninstalling %(name)s."
+
+#: src/core/components/InstallButton/index.js:65
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s is uninstalled. Click to install."
+
+#: src/core/components/InstallButton/index.js:68
+msgid "Install state for %(name)s is unknown."
+msgstr "Install state for %(name)s is unknown."
+
+#: src/core/components/Paginate/index.js:102
+msgid "Previous"
+msgstr "Previous"
+
+#: src/core/components/Paginate/index.js:104
+msgid "Next"
+msgstr "Next"
+
+#: src/core/components/Paginate/index.js:97
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr "Page %(currentPage)s of %(totalPages)s"
+
+#: src/core/components/Search/SearchResults.js:40
+msgid "Your search for \"%(query)s\" returned %(count)s result."
+msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
+msgstr[0] "Your search for \"%(query)s\" returned %(count)s result."
+msgstr[1] "Your search for \"%(query)s\" returned %(count)s results."
+
+#: src/core/components/Search/SearchResults.js:56
+msgid "Searching..."
+msgstr "Searching..."
+
+#: src/core/components/Search/SearchResults.js:59
+msgid "No results were found for \"%(query)s\"."
+msgstr "No results were found for \"%(query)s\"."
+
+#: src/core/components/Search/SearchResults.js:61
+msgid "Please supply a valid search"
+msgstr "Please supply a valid search"

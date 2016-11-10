@@ -1,0 +1,241 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: amo\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-11-10 09:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
+
+#: src/amo/components/AddonDetail.js:49
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "‮%(ɐppouNɐɯǝ)s %(sʇɐɹʇSdɐu)sqʎ %(ɐnʇɥoɹ⅂ısʇ)s%(ǝupSdɐu)s"
+
+#: src/amo/components/AddonDetail.js:74
+msgid "Extension Metadata"
+msgstr "‮Ǝxʇǝusıou Wǝʇɐpɐʇɐ"
+
+#: src/amo/components/AddonDetail.js:81
+msgid "Screenshots"
+msgstr "‮Sɔɹǝǝusɥoʇs"
+
+#: src/amo/components/AddonDetail.js:88
+msgid "About this extension"
+msgstr "‮∀qonʇ ʇɥıs ǝxʇǝusıou"
+
+#: src/amo/components/AddonDetail.js:96
+msgid "Rate your experience"
+msgstr "‮ᴚɐʇǝ ʎonɹ ǝxdǝɹıǝuɔǝ"
+
+#: src/amo/components/AddonMeta.js:19
+msgid "Category"
+msgstr "‮Ↄɐʇǝƃoɹʎ"
+
+#: src/amo/components/AddonMeta.js:24
+msgid "Used by"
+msgstr "‮∩sǝp qʎ"
+
+#: src/amo/components/AddonMeta.js:29
+msgid "Sentiment"
+msgstr "‮Sǝuʇıɯǝuʇ"
+
+#: src/amo/components/AddonReview.js:109
+msgid "Back"
+msgstr "‮Ԑɐɔʞ"
+
+#: src/amo/components/AddonReview.js:113
+msgid "Submit"
+msgstr "‮Snqɯıʇ"
+
+#: src/amo/components/AddonReview.js:41
+msgid "Please enter some text"
+msgstr "‮Ԁʅǝɐsǝ ǝuʇǝɹ soɯǝ ʇǝxʇ"
+
+#: src/amo/components/AddonReview.js:90
+msgid "Write a review"
+msgstr "‮Ｍɹıʇǝ ɐ ɹǝʌıǝʍ"
+
+#: src/amo/components/AddonReview.js:92
+msgid "Tell the world why you think this extension is fantastic!"
+msgstr "‮⊥ǝʅʅ ʇɥǝ ʍoɹʅp ʍɥʎ ʎon ʇɥıuʞ ʇɥıs ǝxʇǝusıou ıs ɟɐuʇɐsʇıɔ¡"
+
+#: src/amo/components/Footer.js:27
+msgid "Privacy policy"
+msgstr "‮Ԁɹıʌɐɔʎ doʅıɔʎ"
+
+#: src/amo/components/Footer.js:33
+msgid "Legal notices"
+msgstr "‮⅂ǝƃɐʅ uoʇıɔǝs"
+
+#: src/amo/components/Footer.js:39
+msgid "View desktop site"
+msgstr "‮Ʌıǝʍ pǝsʞʇod sıʇǝ"
+
+#: src/amo/components/LanguagePicker.js:20
+msgid "Browse in your language"
+msgstr "‮Ԑɹoʍsǝ ıu ʎonɹ ʅɐuƃnɐƃǝ"
+
+#: src/amo/components/MastHead.js:29
+msgid "Firefox Add-ons"
+msgstr "‮Ⅎıɹǝɟox ∀pp-ous"
+
+#: src/amo/components/OverallRating.js:45
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "‮Hoʍ ɐɹǝ ʎon ǝuɾoʎıuƃ ʎonɹ ǝxdǝɹıǝuɔǝ ʍıʇɥ %(ɐppouNɐɯǝ)s¿"
+
+#: src/amo/components/ScreenShots.js:28
+msgid "screenshot %(imageNumber)s of %(totalImages)s"
+msgstr "‮sɔɹǝǝusɥoʇ %(ıɯɐƃǝNnɯqǝɹ)s oɟ %(ʇoʇɐʅIɯɐƃǝs)s"
+
+#: src/amo/components/SearchResult.js:23
+msgid "Average rating: %(rating)s out of 5"
+msgstr "‮∀ʌǝɹɐƃǝ ɹɐʇıuƃ: %(rating)s‮ onʇ oɟ 5"
+
+#: src/amo/components/SearchResult.js:29
+msgid "No ratings"
+msgstr "‮No ɹɐʇıuƃs"
+
+#: src/amo/components/SearchResult.js:43
+msgid "%(users)s user"
+msgid_plural "%(users)s users"
+msgstr[0] "%(users)s‮ nsǝɹ"
+msgstr[1] "%(users)s‮ nsǝɹs"
+
+#: src/amo/containers/App.js:39
+msgid "Log out"
+msgstr "‮⅂oƃ onʇ"
+
+#: src/amo/containers/App.js:39
+msgid "Log in/Sign up"
+msgstr "‮⅂oƃ ıu/Sign‮ nd"
+
+#: src/amo/containers/App.js:51
+msgid "Add-ons for Firefox"
+msgstr "‮∀pp-ous ɟoɹ Ⅎıɹǝɟox"
+
+#: src/amo/containers/Home.js:18
+msgid "What do you want Firefox to do?"
+msgstr "‮Ｍɥɐʇ po ʎon ʍɐuʇ Ⅎıɹǝɟox ʇo po¿"
+
+#: src/amo/containers/Home.js:20
+msgid "Block ads"
+msgstr "‮Ԑʅoɔʞ ɐps"
+
+#: src/amo/containers/Home.js:21
+msgid "Screenshot"
+msgstr "‮Sɔɹǝǝusɥoʇ"
+
+#: src/amo/containers/Home.js:22
+msgid "Save stuff"
+msgstr "‮Sɐʌǝ sʇnɟɟ"
+
+#: src/amo/containers/Home.js:23
+msgid "Shop online"
+msgstr "‮Sɥod ouʅıuǝ"
+
+#: src/amo/containers/Home.js:24
+msgid "Be social"
+msgstr "‮Ԑǝ soɔıɐʅ"
+
+#: src/amo/containers/Home.js:25
+msgid "Share stuff"
+msgstr "‮Sɥɐɹǝ sʇnɟɟ"
+
+#: src/amo/containers/Home.js:28
+msgid "Browse all extensions"
+msgstr "‮Ԑɹoʍsǝ ɐʅʅ ǝxʇǝusıous"
+
+#: src/amo/containers/Home.js:31
+msgid "How do you want Firefox to look?"
+msgstr "‮Hoʍ po ʎon ʍɐuʇ Ⅎıɹǝɟox ʇo ʅooʞ¿"
+
+#: src/amo/containers/Home.js:33
+msgid "Wild"
+msgstr "‮Ｍıʅp"
+
+#: src/amo/containers/Home.js:34
+msgid "Abstract"
+msgstr "‮∀qsʇɹɐɔʇ"
+
+#: src/amo/containers/Home.js:35
+msgid "Fashionable"
+msgstr "‮Ⅎɐsɥıouɐqʅǝ"
+
+#: src/amo/containers/Home.js:36
+msgid "Scenic"
+msgstr "‮Sɔǝuıɔ"
+
+#: src/amo/containers/Home.js:37
+msgid "Sporty"
+msgstr "‮Sdoɹʇʎ"
+
+#: src/amo/containers/Home.js:38
+msgid "Mystical"
+msgstr "‮Wʎsʇıɔɐʅ"
+
+#: src/amo/containers/Home.js:41
+msgid "Browse all themes"
+msgstr "‮Ԑɹoʍsǝ ɐʅʅ ʇɥǝɯǝs"
+
+#: src/core/components/InstallButton/index.js:49
+msgid "Downloading %(name)s."
+msgstr "‮ᗡoʍuʅoɐpıuƃ %(name)s‮˙"
+
+#: src/core/components/InstallButton/index.js:52
+msgid "Installing %(name)s."
+msgstr "‮Iusʇɐʅʅıuƃ %(name)s‮˙"
+
+#: src/core/components/InstallButton/index.js:56
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr "%(name)s‮ ıs ıusʇɐʅʅǝp ɐup ǝuɐqʅǝp˙ Ↄʅıɔʞ ʇo nuıusʇɐʅʅ˙"
+
+#: src/core/components/InstallButton/index.js:59
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s‮ ıs pısɐqʅǝp˙ Ↄʅıɔʞ ʇo ǝuɐqʅǝ˙"
+
+#: src/core/components/InstallButton/index.js:62
+msgid "Uninstalling %(name)s."
+msgstr "‮∩uıusʇɐʅʅıuƃ %(name)s‮˙"
+
+#: src/core/components/InstallButton/index.js:65
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s‮ ıs nuıusʇɐʅʅǝp˙ Ↄʅıɔʞ ʇo ıusʇɐʅʅ˙"
+
+#: src/core/components/InstallButton/index.js:68
+msgid "Install state for %(name)s is unknown."
+msgstr "‮Iusʇɐʅʅ sʇɐʇǝ ɟoɹ %(name)s‮ ıs nuʞuoʍu˙"
+
+#: src/core/components/Paginate/index.js:102
+msgid "Previous"
+msgstr "‮Ԁɹǝʌıons"
+
+#: src/core/components/Paginate/index.js:104
+msgid "Next"
+msgstr "‮Nǝxʇ"
+
+#: src/core/components/Paginate/index.js:97
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr "‮Ԁɐƃǝ %(ɔnɹɹǝuʇԀɐƃǝ)s oɟ %(ʇoʇɐʅԀɐƃǝs)s"
+
+#: src/core/components/Search/SearchResults.js:40
+msgid "Your search for \"%(query)s\" returned %(count)s result."
+msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
+msgstr[0] "‮⅄onɹ sǝɐɹɔɥ ɟoɹ „%(query)s‮„ ɹǝʇnɹuǝp %(count)s‮ ɹǝsnʅʇ˙"
+msgstr[1] "‮⅄onɹ sǝɐɹɔɥ ɟoɹ „%(query)s‮„ ɹǝʇnɹuǝp %(count)s‮ ɹǝsnʅʇs˙"
+
+#: src/core/components/Search/SearchResults.js:56
+msgid "Searching..."
+msgstr "‮Sǝɐɹɔɥıuƃ˙˙˙"
+
+#: src/core/components/Search/SearchResults.js:59
+msgid "No results were found for \"%(query)s\"."
+msgstr "‮No ɹǝsnʅʇs ʍǝɹǝ ɟonup ɟoɹ „%(query)s‮„˙"
+
+#: src/core/components/Search/SearchResults.js:61
+msgid "Please supply a valid search"
+msgstr "‮Ԁʅǝɐsǝ snddʅʎ ɐ ʌɐʅıp sǝɐɹɔɥ"
