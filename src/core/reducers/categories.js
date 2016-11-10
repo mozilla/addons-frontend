@@ -8,11 +8,12 @@ import {
 
 
 export function emptyCategoryList() {
-  const categoryList = {};
-  config.get('validClientApplications').forEach((appName) => {
-    categoryList[appName] = {};
-  });
-  return categoryList;
+  return config.get('validClientApplications')
+    .reduce((object, appName) => {
+      // eslint-disable-next-line no-param-reassign
+      object[appName] = {};
+      return object;
+    }, {});
 }
 
 const initialState = {
@@ -49,7 +50,7 @@ export default function categories(state = initialState, action) {
         });
       });
 
-      config.get('validClientApplications').forEach((appName) => {
+      Object.keys(categoryList).forEach((appName) => {
         Object.keys(categoryList[appName]).forEach((addonType) => {
           categoryList[appName][addonType] = categoryList[appName][addonType]
             .sort((a, b) => a.name > b.name)
@@ -65,7 +66,7 @@ export default function categories(state = initialState, action) {
         ...state,
         ...payload,
         loading: false,
-        categoryList,
+        categories: categoryList,
       };
     case CATEGORIES_FAILED:
       return { ...initialState, ...payload, error: true };
