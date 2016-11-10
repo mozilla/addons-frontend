@@ -19,7 +19,9 @@ $star-size: 46px;
 // only the first three stars appear selected.
 
 // First, make all stars appear selected when you hover over the group.
-.OverallRating-star-group:hover .OverallRating-choice {
+.OverallRating-star-group:hover .OverallRating-choice,
+// For keyboard navigation, make the focused star appear selected.
+.OverallRating-choice:focus {
   background-image: url('../img/ratings/big-star-selected.svg');
 }
 
