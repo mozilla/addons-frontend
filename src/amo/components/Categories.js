@@ -47,16 +47,14 @@ export class CategoriesBase extends React.Component {
       <div className="Categories">
         <ul className="Categories-list"
           ref={(ref) => { this.categories = ref; }}>
-          {Object.values(categories).map((category) => {
-            return (
-              <li className="Categories-list-item">
-                <Link className="Categories-link"
-                  to={`/${addonType}s/${category.slug}/`}>
-                  {category.name}
-                </Link>
-              </li>
-            );
-          })}
+          {Object.values(categories).map((category) => (
+            <li className="Categories-list-item">
+              <Link className="Categories-link"
+                to={`/${addonType}s/${category.slug}/`}>
+                {category.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     );

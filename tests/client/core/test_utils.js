@@ -332,12 +332,12 @@ describe('loadCategoriesIfNeeded', () => {
   function makeProps(categories = loadedCategories) {
     return {
       store: {
-        getState: () => {
-          return {
+        getState: () => (
+          {
             api: apiState,
             categories: { categories, loading: false },
-          };
-        },
+          }
+        ),
         dispatch,
       },
     };

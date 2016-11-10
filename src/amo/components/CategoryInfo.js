@@ -25,10 +25,10 @@ export class CategoryInfoBase extends React.Component {
       return null;
     }
 
-    const categoryMatch = categories.filter((category) => {
-      return (category.application === clientApp && category.slug === slug &&
-        category.type === addonType);
-    });
+    const categoryMatch = categories.filter((category) => (
+      category.application === clientApp && category.slug === slug &&
+        category.type === addonType
+    ));
     const category = categoryMatch.length ? categoryMatch[0] : false;
 
     if (!category) {

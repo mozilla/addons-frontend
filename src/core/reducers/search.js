@@ -29,9 +29,9 @@ export default function search(state = initialState, action) {
         ...payload,
         count: payload.result.count,
         loading: false,
-        results: payload.result.results.map((slug) => {
-          return payload.entities.addons[slug];
-        }),
+        results: payload.result.results.map((slug) => (
+          payload.entities.addons[slug]
+        )),
       };
     case SEARCH_FAILED:
       return { ...initialState, ...payload, page: payload.page };

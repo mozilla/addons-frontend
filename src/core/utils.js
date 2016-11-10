@@ -115,12 +115,8 @@ export function loadAddonIfNeeded(
 export function getCategories({ dispatch, api }) {
   dispatch(categoriesGet());
   return categories({ api })
-    .then((response) => {
-      return dispatch(categoriesLoad(response));
-    })
-    .catch(() => {
-      return dispatch(categoriesFail());
-    });
+    .then((response) => dispatch(categoriesLoad(response)))
+    .catch(() => dispatch(categoriesFail()));
 }
 
 export function isLoaded({ state }) {

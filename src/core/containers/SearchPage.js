@@ -14,14 +14,13 @@ export function mapStateToProps(state, ownProps) {
     q: 'query',
     type: 'addonType',
   };
-  const hasSearchParams = Object.keys(queryStringMap).some((queryKey) => {
-    return location.query[queryKey] !== undefined &&
-      location.query[queryKey].length;
-  });
-  const searchParamsMatch = Object.keys(queryStringMap).some((queryKey) => {
-    return location.query[queryKey] !== undefined &&
-      location.query[queryKey] === state.search[queryStringMap[queryKey]];
-  });
+  const hasSearchParams = Object.keys(queryStringMap).some((queryKey) => (
+    location.query[queryKey] !== undefined && location.query[queryKey].length
+  ));
+  const searchParamsMatch = Object.keys(queryStringMap).some((queryKey) => (
+    location.query[queryKey] !== undefined &&
+      location.query[queryKey] === state.search[queryStringMap[queryKey]]
+  ));
 
   if (searchParamsMatch) {
     return { hasSearchParams, ...state.search };
@@ -35,18 +34,14 @@ function performSearch({
 }) {
   dispatch(searchStart({ addonType, category, page, query }));
   return search({ addonType, api, auth, category, page, query })
-    .then((response) => {
-      return dispatch(searchLoad({
-        addonType,
-        category,
-        page,
-        query,
-        ...response,
-      }));
-    })
-    .catch(() => {
-      return dispatch(searchFail({ addonType, category, page, query }));
-    });
+    .then((response) => dispatch(searchLoad({
+      addonType,
+      category,
+      page,
+      query,
+      ...response,
+    })))
+    .catch(() => dispatch(searchFail({ addonType, category, page, query })));
 }
 
 export function isLoaded({ addonType, category, page, query, state }) {
