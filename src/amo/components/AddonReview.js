@@ -85,7 +85,7 @@ export class AddonReviewBase extends React.Component {
 
     let placeholder;
     let prompt;
-    if (review.rating && (review.rating > 3)) {
+    if (review.rating && review.rating > 3) {
       prompt = i18n.gettext(
         'Tell the world why you think this extension is fantastic!'
       );
@@ -93,9 +93,7 @@ export class AddonReviewBase extends React.Component {
         'Tell us what you love about this extension. Be specific and concise.'
       );
     } else {
-      prompt = i18n.gettext(
-        'Tell the world about this extension.'
-      );
+      prompt = i18n.gettext('Tell the world about this extension.');
       placeholder = i18n.gettext(
         'Tell us about your experience with this extension. ' +
         'Be specific and concise.'
