@@ -1,4 +1,5 @@
 import config from 'config';
+
 import {
   CATEGORIES_GET,
   CATEGORIES_LOAD,
@@ -7,11 +8,11 @@ import {
 
 
 export function emptyCategoryList() {
-  let categories = {};
+  const categoryList = {};
   config.get('validClientApplications').forEach((appName) => {
-    categories[appName] = {};
+    categoryList[appName] = {};
   });
-  return categories;
+  return categoryList;
 }
 
 const initialState = {
@@ -22,24 +23,25 @@ const initialState = {
 
 export default function categories(state = initialState, action) {
   const { payload } = action;
+  let categoryList;
 
   switch (action.type) {
     case CATEGORIES_GET:
       return { ...state, ...payload, loading: true };
     case CATEGORIES_LOAD:
-      let categories = emptyCategoryList();
+      categoryList = emptyCategoryList();
       payload.result.forEach((result) => {
         // If the API returns data for an application we don't support,
         // we'll ignore it for now.
-        if (!categories[result.application]) {
+        if (!categoryList[result.application]) {
           return;
         }
 
-        if (!categories[result.application][result.type]) {
-          categories[result.application][result.type] = [];
+        if (!categoryList[result.application][result.type]) {
+          categoryList[result.application][result.type] = [];
         }
 
-        categories[result.application][result.type].push({
+        categoryList[result.application][result.type].push({
           ...result,
           // count: 0,
           // page: null,
@@ -48,10 +50,11 @@ export default function categories(state = initialState, action) {
       });
 
       config.get('validClientApplications').forEach((appName) => {
-        Object.keys(categories[appName]).forEach((addonType) => {
-          categories[appName][addonType] = categories[appName][addonType]
+        Object.keys(categoryList[appName]).forEach((addonType) => {
+          categoryList[appName][addonType] = categoryList[appName][addonType]
             .sort((a, b) => a.name > b.name)
-            .reduce((object, value, index) => {
+            .reduce((object, value) => {
+              // eslint-disable-next-line no-param-reassign
               object[value.slug] = value;
               return object;
             }, {});
@@ -62,7 +65,7 @@ export default function categories(state = initialState, action) {
         ...state,
         ...payload,
         loading: false,
-        categories,
+        categoryList,
       };
     case CATEGORIES_FAILED:
       return { ...initialState, ...payload, error: true };

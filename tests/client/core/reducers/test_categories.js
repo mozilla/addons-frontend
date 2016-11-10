@@ -144,7 +144,7 @@ describe('categories reducer', () => {
             },
           },
           theme: {
-            'naturé': {
+            naturé: {
               application: 'android',
               name: 'Naturé',
               slug: 'naturé',
