@@ -331,4 +331,33 @@ describe('api', () => {
         `${apiHost}/api/v3/accounts/login/start/?to=%2Ffoo&config=my-config`);
     });
   });
+
+  describe('categories api', () => {
+    function mockResponse() {
+      return Promise.resolve({
+        ok: true,
+        json() {
+          return Promise.resolve({
+            results: [
+              { slug: 'foo' },
+              { slug: 'food' },
+              { slug: 'football' },
+            ],
+          });
+        },
+      });
+    }
+
+    it('sets the lang and calls the right API endpoint', () => {
+      mockWindow.expects('fetch')
+        .withArgs(
+          `${apiHost}/api/v3/addons/categories/?lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.categories({
+        api: { clientApp: 'android', lang: 'en-US' },
+      })
+        .then(() => mockWindow.verify());
+    });
+  });
 });
