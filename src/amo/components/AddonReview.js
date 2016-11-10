@@ -83,25 +83,38 @@ export class AddonReviewBase extends React.Component {
       );
     }
 
+    let placeholder;
+    let prompt;
+    if (review.rating && (review.rating > 3)) {
+      prompt = i18n.gettext(
+        'Tell the world why you think this extension is fantastic!'
+      );
+      placeholder = i18n.gettext(
+        'Tell us what you love about this extension. Be specific and concise.'
+      );
+    } else {
+      prompt = i18n.gettext(
+        'Tell the world about this extension.'
+      );
+      placeholder = i18n.gettext(
+        'Tell us about your experience with this extension. ' +
+        'Be specific and concise.'
+      );
+    }
+
     // TODO: I guess we should load the existing review text so it
     // can be edited? That flow needs more thought.
     return (
       <div className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
-        <p>
-          {i18n.gettext(
-            'Tell the world why you think this extension is fantastic!'
-          )}
-        </p>
+        <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         {errorMessage}
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <textarea
             className="AddonReview-textarea"
             ref={(ref) => { this.reviewTextarea = ref; }}
             name="review"
-            placeholder={i18n.gettext(
-              'Tell us what you love about this extension. ' +
-              'Be specific and concise.')} />
+            placeholder={placeholder} />
           <div className="AddonReview-button-row">
             <button className="AddonReview-button AddonReview-back-button"
               onClick={this.goBackToAddonDetail}
@@ -144,6 +157,7 @@ export function loadAddonReview(
       }));
 
       const reviewData = {
+        rating: review.rating,
         addonSlug: slug,
         id: review.id,
       };
