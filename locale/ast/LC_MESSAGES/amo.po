@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-10 12:19+0000\n"
+"PO-Revision-Date: 2016-11-10 12:33+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
 "Language: ast\n"
@@ -64,109 +64,109 @@ msgstr "Escribi una reseña"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "¡Cúnta-y al mundu por qué pienses qu'esta estensión ye fantástica!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "Política de privacidá"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "Avisos llegales"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "Ver sitiu d'escritoriu"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "Restola a to llingüa"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Add-ons de Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "¿Cómo tas esfrutando de la to esperiencia con %(addonName)s?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "captura de pantalla %(imageNumber)s de %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "Valoración media: %(rating)s de 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "Nun hai valoraciones"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(users)s usuariu"
+msgstr[1] "%(users)s usuarios"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
-msgstr ""
+msgstr "Zarrar sesión"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Aniciar sesión/Rexistrase"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Add-ons pa Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "¿Qué quies que Firefox faiga?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr ""
+msgstr "Bloquiar anuncios"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr ""
+msgstr "Capturar pantalla"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr ""
+msgstr "Guardar coses"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "Mercar en llinia"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
-msgstr ""
+msgstr "Ser social"
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr ""
+msgstr "Compartir coses"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Restolar toles estensiones"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "¿Cómo quies que seya l'aspeutu de Firefox?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
-msgstr ""
+msgstr "Llocu"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
-msgstr ""
+msgstr "Abstrautu"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
-msgstr ""
+msgstr "Fashion"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
@@ -174,70 +174,70 @@ msgstr ""
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
-msgstr ""
+msgstr "Deportivu"
 
 #: src/amo/containers/Home.js:38
 msgid "Mystical"
-msgstr ""
+msgstr "Místicu"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Restolar tolos temes"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Baxando %(name)s."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Instalando %(name)s."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s instalóse y habilitóse. Primi pa desinstalar."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s deshabilitóse. Primi pa habilitar."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Desinstalando %(name)s."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s desinstalóse. Primi pa instalar."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Desconozse l'estáu d'instalación pa %(name)s."
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "Previo"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Páxina %(currentPage)s de %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "La to gueta pa «%(query)s» devolvió %(count)s resultáu."
+msgstr[1] "La to gueta pa «%(query)s» devolvió %(count)s resultaos."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Guetando..."
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nun s'alcontraron resultaos pa «%(query)s»."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Fai una gueta válida, por favor"
