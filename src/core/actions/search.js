@@ -4,23 +4,23 @@ import {
   SEARCH_FAILED,
 } from 'core/constants';
 
-export function searchStart(query, page) {
+export function searchStart({ page, query, addonType, app, category }) {
   return {
     type: SEARCH_STARTED,
-    payload: { page, query },
+    payload: { page, addonType, app, category, query },
   };
 }
 
-export function searchLoad({ query, entities, result }) {
+export function searchLoad({ query, entities, result, addonType, app, category }) {
   return {
     type: SEARCH_LOADED,
-    payload: { entities, query, result },
+    payload: { entities, result, addonType, app, category, query },
   };
 }
 
-export function searchFail({ page, query }) {
+export function searchFail({ page, query, addonType, app, category }) {
   return {
     type: SEARCH_FAILED,
-    payload: { page, query },
+    payload: { page, addonType, app, category, query },
   };
 }

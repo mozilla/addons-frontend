@@ -1,30 +1,52 @@
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-connect';
+import { compose } from 'redux';
 
 import { search } from 'core/api';
 import { searchStart, searchLoad, searchFail } from 'core/actions/search';
 
+
 export function mapStateToProps(state, ownProps) {
   const { location } = ownProps;
-  const lang = state.api.lang;
-  if (location.query.q === state.search.query) {
-    return { lang, ...state.search };
+
+  const queryStringMap = {
+    category: 'category',
+    q: 'query',
+    type: 'addonType',
+  };
+  const hasSearchParams = Object.keys(queryStringMap).some((queryKey) => (
+    location.query[queryKey] !== undefined && location.query[queryKey].length
+  ));
+  const searchParamsMatch = Object.keys(queryStringMap).some((queryKey) => (
+    location.query[queryKey] !== undefined &&
+      location.query[queryKey] === state.search[queryStringMap[queryKey]]
+  ));
+
+  if (searchParamsMatch) {
+    return { hasSearchParams, ...state.search };
   }
-  return { lang };
+
+  return { hasSearchParams };
 }
 
-function performSearch({ dispatch, page, query, api, auth = false }) {
-  if (!query) {
-    return Promise.resolve();
-  }
-  dispatch(searchStart(query, page));
-  return search({ page, query, api, auth })
-    .then((response) => dispatch(searchLoad({ page, query, ...response })))
-    .catch(() => dispatch(searchFail({ page, query })));
+function performSearch({
+  addonType, api, auth = false, category, dispatch, page, query,
+}) {
+  dispatch(searchStart({ addonType, category, page, query }));
+  return search({ addonType, api, auth, category, page, query })
+    .then((response) => dispatch(searchLoad({
+      addonType,
+      category,
+      page,
+      query,
+      ...response,
+    })))
+    .catch(() => dispatch(searchFail({ addonType, category, page, query })));
 }
 
-export function isLoaded({ page, query, state }) {
-  return state.query === query && state.page === page && !state.loading;
+export function isLoaded({ addonType, category, page, query, state }) {
+  return state.addonType === addonType && state.category === category &&
+    state.page === page && state.query === query && !state.loading;
 }
 
 export function parsePage(page) {
@@ -32,19 +54,43 @@ export function parsePage(page) {
   return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
 }
 
-export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, location }) {
+export function loadSearchResultsIfNeeded({
+  location, store: { dispatch, getState },
+}) {
+  const addonType = location.query.type;
+  const category = location.query.category;
   const query = location.query.q;
   const page = parsePage(location.query.page);
   const state = getState();
-  if (!isLoaded({ state: state.search, query, page })) {
-    return performSearch({ dispatch, page, query, api: state.api, auth: state.auth });
+  const loaded = isLoaded({
+    addonType,
+    category,
+    page,
+    query,
+    state: state.search,
+  });
+
+  if (!loaded) {
+    return performSearch({
+      addonType,
+      api: state.api,
+      auth: state.auth,
+      category,
+      dispatch,
+      page,
+      query,
+    });
   }
+
   return true;
 }
 
 export default function createSearchPage(SearchPageComponent) {
-  return asyncConnect([{
-    deferred: true,
-    promise: loadSearchResultsIfNeeded,
-  }])(connect(mapStateToProps)(SearchPageComponent));
+  return compose(
+    asyncConnect([{
+      deferred: true,
+      promise: loadSearchResultsIfNeeded,
+    }]),
+    connect(mapStateToProps)
+  )(SearchPageComponent);
 }

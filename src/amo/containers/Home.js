@@ -6,6 +6,7 @@ import translate from 'core/i18n/translate';
 
 import 'amo/css/Home.scss';
 
+
 export class HomePageBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
@@ -24,7 +25,7 @@ export class HomePageBase extends React.Component {
           <li className="HomePage-be-social"><Link to="#share-stuff"><span>{i18n.gettext('Be social')}</span></Link></li>
           <li className="HomePage-share-stuff"><Link to="#share-stuff"><span>{i18n.gettext('Share stuff')}</span></Link></li>
         </ul>
-        <Link className="HomePage-extensions-link" to="#extensions">
+        <Link className="HomePage-extensions-link" to="/search/?type=extension">
           {i18n.gettext('Browse all extensions')}
         </Link>
 
@@ -37,7 +38,7 @@ export class HomePageBase extends React.Component {
           <li className="HomePage-sporty"><Link to="#sporty"><span>{i18n.gettext('Sporty')}</span></Link></li>
           <li className="HomePage-mystical"><Link to="#mystical"><span>{i18n.gettext('Mystical')}</span></Link></li>
         </ul>
-        <Link className="HomePage-themes-link" to="#themes">
+        <Link className="HomePage-themes-link" to="/search/?type=theme">
           {i18n.gettext('Browse all themes')}
         </Link>
       </div>

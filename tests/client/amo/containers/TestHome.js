@@ -7,25 +7,31 @@ import {
 import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
-import { getFakeI18nInst } from 'tests/client/helpers';
 import Home from 'amo/containers/Home';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('Home', () => {
-  it('renders a heading', () => {
+  function render(props) {
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
 
-    const root = findRenderedComponentWithType(renderIntoDocument(
+    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore(initialState)}>
-        <Home i18n={getFakeI18nInst()} />
+        <Home i18n={getFakeI18nInst()} {...props} />
       </Provider>
-    ), Home).getWrappedInstance();
-    const rootNode = findDOMNode(root);
+    ), Home).getWrappedInstance());
+  }
+
+  it('renders a heading', () => {
+    const root = render();
     const content = [
       'What do you want Firefox to do?',
       'How do you want Firefox to look?',
     ];
-    Array.from(rootNode.querySelectorAll('.HomePage-subheading'))
-      .map((el, index) => assert.equal(el.textContent, content[index]));
+
+    Array.from(root.querySelectorAll('.HomePage-subheading'))
+      .forEach((element, index) => {
+        assert.equal(element.textContent, content[index]);
+      });
   });
 });

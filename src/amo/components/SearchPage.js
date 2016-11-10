@@ -1,43 +1,51 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
 import SearchResults from 'core/components/Search/SearchResults';
 
+import CategoryInfo from './CategoryInfo';
 import SearchResult from './SearchResult';
 
 
-export class SearchPageBase extends React.Component {
+export default class SearchPage extends React.Component {
   static propTypes = {
+    CategoryInfoComponent: PropTypes.node.isRequired,
+    LinkComponent: PropTypes.node.isRequired,
+    ResultComponent: PropTypes.node.isRequired,
+    addonType: PropTypes.string.isRequired,
+    category: PropTypes.string,
     count: PropTypes.number,
+    hasSearchParams: PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
     page: PropTypes.number,
     results: PropTypes.array,
     query: PropTypes.string,
   }
 
+  static defaultProps = {
+    CategoryInfoComponent: CategoryInfo,
+    LinkComponent: Link,
+    ResultComponent: SearchResult,
+  }
+
   render() {
-    const { count, loading, page, query, results } = this.props;
+    const { CategoryInfoComponent, LinkComponent, ResultComponent,
+      addonType, category, count, hasSearchParams, loading, page, query,
+      results,
+    } = this.props;
     const paginator = query && count > 0 ?
-      <Paginate LinkComponent={Link} count={count} currentPage={page}
+      <Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
         pathname="/search/" query={{ q: query }} showPages={0} /> : [];
 
     return (
       <div className="search-page">
-        <SearchResults results={results} query={query} loading={loading}
-          count={count} ResultComponent={SearchResult} />
+        <SearchResults CategoryInfoComponent={CategoryInfoComponent}
+          ResultComponent={ResultComponent} addonType={addonType}
+          category={category} count={count} hasSearchParams={hasSearchParams}
+          loading={loading} query={query} results={results} />
         {paginator}
       </div>
     );
   }
 }
-
-export function mapStateToProps(state) {
-  return { clientApp: state.api.clientApp, lang: state.api.lang };
-}
-
-export default compose(
-  connect(mapStateToProps),
-)(SearchPageBase);

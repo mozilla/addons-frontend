@@ -44,6 +44,9 @@ export const validAddonTypes = [
 ];
 
 // Action types.
+export const CATEGORIES_GET = 'CATEGORIES_GET';
+export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
+export const CATEGORIES_FAILED = 'CATEGORIES_FAILED';
 export const ENTITIES_LOADED = 'ENTITIES_LOADED';
 export const LOG_OUT_USER = 'LOG_OUT_USER';
 export const SEARCH_FAILED = 'SEARCH_FAILED';

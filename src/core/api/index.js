@@ -9,6 +9,7 @@ import config from 'config';
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
 export const addon = new Schema('addons', { idAttribute: 'slug' });
+export const categorySchema = new Schema('categories', { idAttribute: 'slug' });
 export const user = new Schema('users', { idAttribute: 'username' });
 
 function makeQueryString(query) {
@@ -59,12 +60,20 @@ export function callApi({
     .then((response) => (schema ? normalize(response, schema) : response));
 }
 
-export function search({ api, page, query, auth = false }) {
+export function categories({ api }) {
+  return callApi({
+    endpoint: 'addons/categories',
+    schema: { results: arrayOf(categorySchema) },
+    state: api,
+  });
+}
+
+export function search({ api, page, query, auth = false, category, addonType }) {
   // TODO: Get the language from the server.
   return callApi({
     endpoint: 'addons/search',
     schema: { results: arrayOf(addon) },
-    params: { q: query, page },
+    params: { q: query, page, app: api.clientApp, category, type: addonType },
     state: api,
     auth,
   });

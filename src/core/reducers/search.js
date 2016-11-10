@@ -5,35 +5,36 @@ import {
   SET_QUERY,
 } from 'core/constants';
 
+
 const initialState = {
+  category: undefined,
   count: 0,
   loading: false,
   page: 1,
-  query: null,
+  query: undefined,
   results: [],
 };
 
 export default function search(state = initialState, action) {
   const { payload } = action;
+
   switch (action.type) {
     case SET_QUERY:
-      return { ...state, query: payload.query };
+      return { ...state, ...payload };
     case SEARCH_STARTED:
       return { ...state, ...payload, count: 0, loading: true, results: [] };
     case SEARCH_LOADED:
       return {
         ...state,
+        ...payload,
         count: payload.result.count,
         loading: false,
-        query: payload.query,
-        results: payload.result.results.map((slug) => payload.entities.addons[slug]),
+        results: payload.result.results.map((slug) => (
+          payload.entities.addons[slug]
+        )),
       };
     case SEARCH_FAILED:
-      return {
-        ...initialState,
-        page: payload.page,
-        query: payload.query,
-      };
+      return { ...initialState, ...payload, page: payload.page };
     default:
       return state;
   }

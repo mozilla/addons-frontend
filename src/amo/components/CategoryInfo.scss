@@ -1,0 +1,27 @@
+@import "~core/css/inc/vars";
+
+$padding-icon: 20px;
+
+.CategoryInfo {
+  background: $padding-icon 50% no-repeat;
+  margin: 0 auto;
+  min-height: 72px;
+  padding: 0 0 0 ($padding-icon * 6);
+
+  &.alerts-updates {
+    background-image: url('../img/categories/alerts-updates.svg');
+  }
+}
+
+.CategoryInfo-header {
+  font-size: $font-size-default;
+  margin: $padding-icon 0 0;
+  padding: 0;
+}
+
+.CategoryInfo-description {
+  line-height: 1.2;
+  font-size: $font-size-s;
+  margin: 0;
+  max-width: 275px;
+}

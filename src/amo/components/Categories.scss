@@ -1,0 +1,21 @@
+.Categories-list {
+  margin: 0;
+  padding: 0;
+}
+
+.Categories-list-item {
+  background: url('../img/icons/arrow.svg') 100% 50% no-repeat;
+  border-bottom: 2px solid #000;
+  display: block;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 95%;
+}
+
+.Categories-link {
+  color: #000;
+  display: block;
+  padding: 1.1em 0 0.9em;
+  text-decoration: none;
+}

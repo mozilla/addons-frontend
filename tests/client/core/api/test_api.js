@@ -53,11 +53,12 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`)
+        .withArgs(
+          `${apiHost}/api/v3/addons/search/?q=foo&page=3&app=android&category=&type=&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.search({
-        api: { lang: 'en-US' },
+        api: { clientApp: 'android', lang: 'en-US' },
         auth: true,
         query: 'foo',
         page: 3,
@@ -67,7 +68,11 @@ describe('api', () => {
 
     it('normalizes the response', () => {
       mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.search({ auth: true, query: 'foo' })
+      return api.search({
+        api: { clientApp: 'android', lang: 'en-US' },
+        auth: true,
+        query: 'foo',
+      })
         .then((results) => {
           assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
           assert.deepEqual(results.entities, {
@@ -81,14 +86,15 @@ describe('api', () => {
     });
 
     it('surfaces status and apiURL on Error instance', () => {
-      const url = `${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`;
+      const url =
+        `${apiHost}/api/v3/addons/search/?q=foo&page=3&app=firefox&category=&type=&lang=en-US`;
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
         .returns(mockResponse({ ok: false, status: 401 }));
 
       return api.search({
-        api: { lang: 'en-US' },
+        api: { clientApp: 'firefox', lang: 'en-US' },
         auth: true,
         query: 'foo',
         page: 3,
@@ -97,6 +103,36 @@ describe('api', () => {
           assert.equal(err.response.status, 401);
           assert.equal(err.response.apiURL, url);
         });
+    });
+  });
+
+  describe('categories api', () => {
+    function mockResponse() {
+      return Promise.resolve({
+        ok: true,
+        json() {
+          return Promise.resolve({
+            results: [
+              { slug: 'foo' },
+              { slug: 'food' },
+              { slug: 'football' },
+            ],
+          });
+        },
+      });
+    }
+
+    it('sets the addonType, clientApp, and lang', () => {
+      // FIXME: This shouldn't fail if the args are in a different order.
+      mockWindow.expects('fetch')
+        .withArgs(
+          `${apiHost}/api/v3/addons/categories/?lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.categories({
+        api: { clientApp: 'android', lang: 'en-US' },
+      })
+        .then(() => mockWindow.verify());
     });
   });
 
@@ -119,16 +155,24 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`)
+        .withArgs(
+          `${apiHost}/api/v3/addons/search/?q=foo&page=3&app=firefox&category=&type=&lang=en-US`)
         .once()
         .returns(mockResponse());
-      return api.search({ api: { lang: 'en-US' }, query: 'foo', page: 3 })
+      return api.search({
+        api: { clientApp: 'firefox', lang: 'en-US' },
+        query: 'foo',
+        page: 3,
+      })
         .then(() => mockWindow.verify());
     });
 
     it('normalizes the response', () => {
       mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.search({ query: 'foo' })
+      return api.search({
+        api: { clientApp: 'android', lang: 'en-US' },
+        query: 'foo',
+      })
         .then((results) => {
           assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
           assert.deepEqual(results.entities, {
@@ -205,7 +249,10 @@ describe('api', () => {
           { headers: {}, method: 'GET' })
         .once()
         .returns(mockResponse());
-      return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
+      return api.fetchAddon({
+        api: { clientApp: 'android', lang: 'en-US' },
+        slug: 'foo',
+      })
         .then(() => mockWindow.verify());
     });
 
@@ -227,7 +274,10 @@ describe('api', () => {
           { headers: {}, method: 'GET' })
         .once()
         .returns(Promise.resolve({ ok: false }));
-      return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
+      return api.fetchAddon({
+        api: { clientApp: 'android', lang: 'en-US' },
+        slug: 'foo',
+      })
         .then(unexpectedSuccess,
           (error) => assert.equal(error.message, 'Error calling API'));
     });
@@ -241,7 +291,10 @@ describe('api', () => {
           { headers: { authorization: `Bearer ${token}` }, method: 'GET' })
         .once()
         .returns(mockResponse());
-      return api.fetchAddon({ api: { lang: 'en-US', token }, slug: 'bar' })
+      return api.fetchAddon({
+        api: { clientApp: 'android', lang: 'en-US', token },
+        slug: 'bar',
+      })
         .then((results) => {
           const foo = { slug: 'foo', name: 'Foo!' };
           assert.deepEqual(results.result, 'foo');
@@ -273,7 +326,11 @@ describe('api', () => {
         })
         .once()
         .returns(mockResponse());
-      return api.login({ api: { lang: 'en-US' }, code: 'my-code', state: 'my-state' })
+      return api.login({
+        api: { clientApp: 'android', lang: 'en-US' },
+        code: 'my-code',
+        state: 'my-state',
+      })
         .then((apiResponse) => {
           assert.strictEqual(apiResponse, response);
           mockWindow.verify();
@@ -287,7 +344,11 @@ describe('api', () => {
         .withArgs(`${apiHost}/api/v3/accounts/login/?config=my-config&lang=fr`)
         .once()
         .returns(mockResponse());
-      return api.login({ api: { lang: 'fr' }, code: 'my-code', state: 'my-state' })
+      return api.login({
+        api: { clientApp: 'android', lang: 'fr' },
+        code: 'my-code',
+        state: 'my-state',
+      })
         .then(() => mockWindow.verify());
     });
   });
@@ -307,7 +368,9 @@ describe('api', () => {
           ok: true,
           json() { return user; },
         }));
-      return api.fetchProfile({ api: { lang: 'en-US', token } })
+      return api.fetchProfile({
+        api: { clientApp: 'android', lang: 'en-US', token },
+      })
         .then((apiResponse) => {
           assert.deepEqual(apiResponse, { entities: { users: { foo: user } }, result: 'foo' });
           mockWindow.verify();
