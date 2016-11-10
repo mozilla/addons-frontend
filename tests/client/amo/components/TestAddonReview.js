@@ -17,7 +17,7 @@ import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 const defaultReview = {
-  id: 3321, addonSlug: fakeAddon.slug,
+  id: 3321, addonSlug: fakeAddon.slug, rating: 5,
 };
 
 function render({ ...customProps } = {}) {
@@ -61,6 +61,22 @@ describe('AddonReview', () => {
         // separately.
         assert.ok(router.push.called);
       });
+  });
+
+  it('prompts you appropriately when you are happy', () => {
+    const root = render({ review: { ...defaultReview, rating: 4 } });
+    assert.match(root.reviewPrompt.textContent,
+                 /Tell the world why you think this extension is fantastic!/);
+    assert.match(root.reviewTextarea.placeholder,
+                 /Tell us what you love/);
+  });
+
+  it('prompts you appropriately when you are unhappy', () => {
+    const root = render({ review: { ...defaultReview, rating: 3 } });
+    assert.match(root.reviewPrompt.textContent,
+                 /Tell the world about this extension./);
+    assert.match(root.reviewTextarea.placeholder,
+                 /Tell us about your experience/);
   });
 
   it('triggers the submit handler', () => {
@@ -197,6 +213,7 @@ describe('AddonReview', () => {
                            }));
 
           assert.equal(returnedReview.addonSlug, fakeAddon.slug);
+          assert.equal(returnedReview.rating, reviewResponse.rating);
           assert.equal(returnedReview.id, reviewResponse.id);
 
           mockApi.verify();
