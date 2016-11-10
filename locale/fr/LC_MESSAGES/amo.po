@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-10 20:40+0000\n"
+"PO-Revision-Date: 2016-11-10 20:48+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -48,15 +48,15 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "Envoyer"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "Veuillez saisir du texte"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
@@ -96,49 +96,49 @@ msgstr "capture d’écran %(imageNumber)s sur %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "Note moyenne : %(rating)s sur 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "Aucune note"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(users)s utilisateur"
+msgstr[1] "%(users)s utilisateurs"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
-msgstr ""
+msgstr "Se déconnecter"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Se connecter/S’inscrire"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Modules pour Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "Que souhaitez-vous que Firefox soit capable de faire ?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr ""
+msgstr "Bloquer les publicités"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr ""
+msgstr "Prendre des captures d’écran"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr ""
+msgstr "Enregistrer des choses"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "Effectuer des achats en ligne"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
@@ -146,15 +146,15 @@ msgstr ""
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr ""
+msgstr "Partager des choses"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Parcourir toutes les extensions"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "Quelle apparence voulez-vous donner à Firefox ?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
@@ -182,62 +182,62 @@ msgstr ""
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Parcourir tous les thèmes"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Téléchargement de %(name)s en cours."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Installation de %(name)s en cours."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s est installé et activé. Cliquez pour le désinstaller."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s est désactivé. Cliquez pour l’activer."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Désinstallation de %(name)s en cours."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s est désinstallé. Cliquez pour l’installer."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "L’état d’installation de %(name)s est inconnu."
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "Précédent"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Page %(currentPage)s sur %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Votre recherche « %(query)s » a renvoyé %(count)s résultat."
+msgstr[1] "Votre recherche « %(query)s » a renvoyé %(count)s résultats."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Recherche…"
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Aucun résultat trouvé pour « %(query)s »."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Veuillez saisir une recherche valide"
