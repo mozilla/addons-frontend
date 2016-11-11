@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-11 08:20+0000\n"
+"PO-Revision-Date: 2016-11-11 08:27+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -20,7 +20,7 @@ msgstr "%(addonName)s %(startSpan)s, készítette: %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr "Kiegészítő metaadatai"
+msgstr "Kiterjesztés metaadatai"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
@@ -28,7 +28,7 @@ msgstr "Képernyőképek"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr "A kiegészítő névjegye"
+msgstr "A kiterjesztés névjegye"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
@@ -122,122 +122,122 @@ msgstr "Kiegészítők a Firefoxhoz"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "Mit tegyen a Firefox?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr "Hirdetések blokkolása"
+msgstr "Blokkolja a hirdetéseket"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr "Képernyőkép"
+msgstr "Készítsen képernyőképet"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr "Dolgok mentése"
+msgstr "Mentsen dolgokat"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr "Online vásárlás"
+msgstr "Vásároljon online"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
-msgstr ""
+msgstr "Legyen közösségi"
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr "Dolgok megosztása"
+msgstr "Osszon meg dolgokat"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Összes kiterjesztés tallózása"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "Milyen legyen a Firefox kinézete?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
-msgstr ""
+msgstr "Vad"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
-msgstr ""
+msgstr "Absztrakt"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
-msgstr ""
+msgstr "Divatos"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
-msgstr ""
+msgstr "Festői"
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
-msgstr ""
+msgstr "Sportos"
 
 #: src/amo/containers/Home.js:38
 msgid "Mystical"
-msgstr ""
+msgstr "Misztikus"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Összes téma tallózása"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s letöltése."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s telepítése."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "A(z) %(name)s le van tiltva. Kattintson az engedélyezéshez."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s eltávolítása."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "A(z) %(name)s el lett távolítva. Kattintson a telepítéshez."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "A(z) %(name)s telepítési állapota ismeretlen."
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "Előző"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr ""
+msgstr "Következő"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Oldal %(currentPage)s / %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "A „%(query)s” keresés %(count)s találatot adott."
+msgstr[1] "A „%(query)s” keresés %(count)s találatot adott."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Keresés…"
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nincs találat a „%(query)s” keresésre."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Adjon meg egy érvényes keresést"
