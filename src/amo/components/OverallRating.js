@@ -97,6 +97,10 @@ export const mapStateToProps = (state, componentProps = {}) => {
 };
 
 export const mapDispatchToProps = (dispatch) => ({
+
+  // TODO: create a load function that will load a user review
+  // and dispatch it if it exists.
+
   createRating({ router, addonSlug, addonId, userId, ...params }) {
     return submitReview({ addonSlug, ...params })
       .then((review) => {
