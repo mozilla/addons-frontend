@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-11 13:05+0000\n"
+"PO-Revision-Date: 2016-11-11 17:30+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -122,7 +122,7 @@ msgstr "Componenti aggiuntivi per Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "Quali funzioni vuoi aggiungere a Firefox?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
@@ -130,7 +130,7 @@ msgstr "Blocco di annunci pubblicitari"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr ""
+msgstr "Istantanee schermo"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
@@ -138,11 +138,11 @@ msgstr "Salvataggio di contenuti"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "Acquisti online"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
-msgstr ""
+msgstr "Integrazione con i social network"
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
@@ -154,11 +154,11 @@ msgstr "Esplora tutte le estensioni"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "Che stile vuoi dare a Firefox?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
-msgstr ""
+msgstr "Naturalistico"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
@@ -170,7 +170,7 @@ msgstr "Alla moda"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
-msgstr ""
+msgstr "Paesaggistico"
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
@@ -194,11 +194,11 @@ msgstr "Installazione di %(name)s in corso…"
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s è installato e attivo. Puoi disinstallarlo con un clic."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s è disattivato. Puoi riattivarlo con un clic."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
@@ -206,7 +206,7 @@ msgstr "Disinstallazione di %(name)s in corso."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s è stato disinstallato. Puoi reiinstallarlo con un clic."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
@@ -236,8 +236,8 @@ msgstr "Ricerca in corso…"
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nessun risultato per “%(query)s”."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Inserisci almeno un termine valido per la ricerca"
