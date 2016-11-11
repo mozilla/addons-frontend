@@ -1,122 +1,124 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-10 09:55+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-11-11 08:20+0000\n"
+"Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)s, készítette: %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Kiegészítő metaadatai"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
-msgstr ""
+msgstr "Képernyőképek"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr ""
+msgstr "A kiegészítő névjegye"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr ""
+msgstr "Értékelje a tapasztalatait"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
-msgstr ""
+msgstr "Kategória"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "Használja"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "Érzet"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "Vissza"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "Elküldés"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "Írjon be valamilyen szöveget"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
-msgstr ""
+msgstr "Értékelés írása"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus kiegészítő!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "Adatvédelmi irányelvek"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "Jogi megjegyzések"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "Asztali oldal megtekintése"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "Tallózás az Ön nyelvén"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox kiegészítők"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Mit tapasztal a(z) %(addonName)s kiegészítővel?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "képernyőkép %(imageNumber)s / %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "Átlagos értékelés: %(rating)s / 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "Nincsenek értékelések"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(users)s felhasználó"
+msgstr[1] "%(users)s felhasználó"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
-msgstr ""
+msgstr "Kijelentkezés"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Bejelentkezés/Regisztráció"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Kiegészítők a Firefoxhoz"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
@@ -124,19 +126,19 @@ msgstr ""
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr ""
+msgstr "Hirdetések blokkolása"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr ""
+msgstr "Képernyőkép"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr ""
+msgstr "Dolgok mentése"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "Online vásárlás"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
@@ -144,7 +146,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr ""
+msgstr "Dolgok megosztása"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
