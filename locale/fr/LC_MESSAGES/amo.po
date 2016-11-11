@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-10 20:48+0000\n"
+"PO-Revision-Date: 2016-11-11 01:52+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -16,19 +16,19 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)spar %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Métadonnées de l’extension"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
-msgstr ""
+msgstr "Captures d’écran"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr ""
+msgstr "Informations sur cette extension"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
@@ -36,15 +36,15 @@ msgstr ""
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "Utilisé par"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "Impression"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
@@ -60,11 +60,11 @@ msgstr "Veuillez saisir du texte"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
-msgstr ""
+msgstr "Rédigez un avis"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Expliquez publiquement pourquoi vous trouvez cette extension exceptionnelle."
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
