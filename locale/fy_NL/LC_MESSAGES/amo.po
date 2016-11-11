@@ -1,241 +1,243 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-10 09:55+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-11-11 07:59+0000\n"
+"Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
-"Language: fy\n"
+"Language: fy_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)s troch %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadata útwreiding"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
-msgstr ""
+msgstr "Skermôfbyldingen"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr ""
+msgstr "Oer dizze útwreiding"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr ""
+msgstr "Wurdearje jo ûnderfining"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
-msgstr ""
+msgstr "Kategory"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "Brûkt troch"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "Sentimint"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "Tebek"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "Yntsjinje"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "Fier wat tekst yn"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
-msgstr ""
+msgstr "In beoardieling skriuwe"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Fertel de wrâld wêrom't jo tinke dat dizze útwreiding bjusterbaarlik is!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "Privacybelied"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "Juridyske betingsten"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "Desktopwebsite besjen"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "Sneup yn jo taal"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox-add-ons"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Hoe foldocht jo %(addonName)s?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "skermôfdruk %(imageNumber)s fan %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "Gemiddelde wurdearring: %(rating)s út 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "Gjin wurdearringen"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(users)s brûker"
+msgstr[1] "%(users)s brûkers"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
-msgstr ""
+msgstr "Ofmelde"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Oanmelde/registrearje"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Add-ons foar Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "Wat wolle jo dat Firefox docht?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr ""
+msgstr "Advertinsjes blokkearje"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr ""
+msgstr "Skermôfdruk"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr ""
+msgstr "Guod bewarje"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "Online winkelje"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
-msgstr ""
+msgstr "Sosjaal wêze"
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr ""
+msgstr "Guod diele"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Alle útwreidingen besjen"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "Hoe wolle jo dat Firefox der út sjocht?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
-msgstr ""
+msgstr "Wyld"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
-msgstr ""
+msgstr "Abstrakt"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
-msgstr ""
+msgstr "Moadysk"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
-msgstr ""
+msgstr "Skildereftich"
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
-msgstr ""
+msgstr "Sportyf"
 
 #: src/amo/containers/Home.js:38
 msgid "Mystical"
-msgstr ""
+msgstr "Mystyk"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Alle tema's besjen"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s wurdt download."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s wurdt ynstallearre."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s is ynstallearre en ynskeakele. Klik om de add-on fuort te smiten."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s is útskeakele. Klik om de add-on yn te skeakeljen."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s wurdt fuortsmiten."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s is fuortsmiten. Klik om de add-on te ynstallearjen."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Ynstallaasjesteat foar %(name)s is net bekend."
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "Foarige"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr ""
+msgstr "Folgjende"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Side %(currentPage)s fan %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Jo sykopdracht nei ‘%(query)s’ hat %(count)s resultaat opsmiten."
+msgstr[1] "Jo sykopdracht nei ‘%(query)s’ hat %(count)s resultaten opsmiten."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Siket…"
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Gjin resultaten fûn foar ‘%(query)s’."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Fier in jildige sykopdracht yn"
