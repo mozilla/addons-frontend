@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-11 18:29+0000\n"
+"PO-Revision-Date: 2016-11-11 19:10+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -88,11 +88,11 @@ msgstr "Dodatki za Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Kako vam ugaja %(addonName)s?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "posnetek zaslona %(imageNumber)s od %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
@@ -144,7 +144,7 @@ msgstr "Nakupuje na spletu"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
-msgstr ""
+msgstr "Postane družaben"
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
@@ -229,10 +229,10 @@ msgstr "Stran %(currentPage)s od %(totalPages)s"
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Najden je %(count)s rezultat za \"%(query)s\"."
+msgstr[1] "Najdena sta %(count)s rezultata za \"%(query)s\"."
+msgstr[2] "Najdeni so %(count)s rezultati za \"%(query)s\"."
+msgstr[3] "Najdenih je %(count)s rezultatov za \"%(query)s\"."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
@@ -244,4 +244,4 @@ msgstr "Ni najdenih rezultatov za \"%(query)s\"."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Vnesite veljavno iskalno poizvedbo"
