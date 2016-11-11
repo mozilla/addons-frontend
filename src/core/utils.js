@@ -4,7 +4,12 @@ import camelCase from 'camelcase';
 import config from 'config';
 
 import { loadEntities } from 'core/actions';
-import { fetchAddon } from 'core/api';
+import {
+  categoriesGet,
+  categoriesLoad,
+  categoriesFail,
+} from 'core/actions/categories';
+import { categories, fetchAddon } from 'core/api';
 import log from 'core/logger';
 import purify from 'core/purify';
 
@@ -103,6 +108,27 @@ export function loadAddonIfNeeded(
   log.info(`Fetching addon ${slug} from API`);
   return fetchAddon({ slug, api: state.api })
     .then(({ entities }) => dispatch(loadEntities(entities)));
+}
+
+// asyncConnect() helper for loading categories for browsing and displaying
+// info.
+export function getCategories({ dispatch, api }) {
+  dispatch(categoriesGet());
+  return categories({ api })
+    .then((response) => dispatch(categoriesLoad(response)))
+    .catch(() => dispatch(categoriesFail()));
+}
+
+export function isLoaded({ state }) {
+  return state.categories.length && !state.loading;
+}
+
+export function loadCategoriesIfNeeded({ store: { dispatch, getState } }) {
+  const state = getState();
+  if (!isLoaded({ state: state.categories })) {
+    return getCategories({ dispatch, api: state.api });
+  }
+  return true;
 }
 
 export function isAllowedOrigin(urlString, { allowedOrigins = [config.get('amoCDN')] } = {}) {

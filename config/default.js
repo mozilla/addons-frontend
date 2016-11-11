@@ -81,6 +81,7 @@ module.exports = {
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
+    'validClientApplications',
   ],
 
   // Content Security Policy.
@@ -158,11 +159,11 @@ module.exports = {
 
   enablePostCssLoader: true,
 
-  // The list of valid client application names. These are derived from UA strings when
-  // not supplied in the URL.
+  // The list of valid client application names.
+  // These are derived from UA strings when not supplied in the URL.
   validClientApplications: [
-    'firefox',
     'android',
+    'firefox',
   ],
 
   // The default app used in the URL.

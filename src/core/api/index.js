@@ -9,6 +9,7 @@ import config from 'config';
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
 export const addon = new Schema('addons', { idAttribute: 'slug' });
+export const category = new Schema('categories', { idAttribute: 'slug' });
 export const user = new Schema('users', { idAttribute: 'username' });
 
 function makeQueryString(query) {
@@ -119,6 +120,14 @@ export function featured({ addonType, api }) {
     endpoint: 'addons/featured',
     params: { app: api.clientApp, type: addonType },
     schema: { results: arrayOf(addon) },
+    state: api,
+  });
+}
+
+export function categories({ api }) {
+  return callApi({
+    endpoint: 'addons/categories',
+    schema: { results: arrayOf(category) },
     state: api,
   });
 }
