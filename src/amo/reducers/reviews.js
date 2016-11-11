@@ -11,6 +11,7 @@ export default function reviews(state = initialState, { data, type }) {
         [data.userId]: {
           ...state[data.userId],
           [data.addonId]: {
+            // TODO: expand this into a map of reviews keyed by version.
             rating: data.rating,
             versionId: data.versionId,
           },

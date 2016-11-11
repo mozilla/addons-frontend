@@ -70,10 +70,31 @@ export class OverallRatingBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-  apiState: state.api,
-  userId: state.auth && state.auth.userId,
-});
+export const mapStateToProps = (state, componentProps = {}) => {
+  const userId = state.auth && state.auth.userId;
+  let userReview;
+
+  // Look for an already saved review by this user for this add-on/version.
+  if (userId && state.reviews) {
+    const allUserReviews = state.reviews[userId];
+    if (allUserReviews) {
+      // TODO: adjust this when multiple reviews per version are stored
+      // in state.
+      const addonReview = allUserReviews[componentProps.addonId];
+      if (addonReview && addonReview.versionId === componentProps.version.id) {
+        // We have found an existing review by this user for this
+        // add-on and version.
+        userReview = addonReview;
+      }
+    }
+  }
+
+  return {
+    apiState: state.api,
+    userReview,
+    userId,
+  };
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   createRating({ router, addonSlug, addonId, userId, ...params }) {

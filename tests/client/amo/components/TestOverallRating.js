@@ -6,7 +6,10 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 
+import { setJWT } from 'core/actions';
 import * as amoApi from 'amo/api';
+import createStore from 'amo/store';
+import { setReview } from 'amo/actions/reviews';
 import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
@@ -14,7 +17,7 @@ import { SET_REVIEW } from 'amo/constants';
 import {
   createRatingResponse, fakeAddon, signedInApiState,
 } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 function render({ ...customProps } = {}) {
   const props = {
@@ -206,6 +209,122 @@ describe('OverallRating', () => {
         };
         const props = mapStateToProps({ auth: authState });
         assert.equal(props.userId, 91234);
+      });
+
+      it('sets an empty user review when no reviews are in state', () => {
+        const authState = {
+          token: signedInApiState.token,
+          userId: 91234,
+        };
+        const props = mapStateToProps({ auth: authState });
+        assert.strictEqual(props.userReview, undefined);
+      });
+
+      it('sets a user review when a matching review is in state', () => {
+        const someUserId = 99821;
+        const savedRating = 5;
+        const store = createStore();
+
+        store.dispatch(setJWT(userAuthToken({
+          user_id: someUserId,
+        })));
+
+        store.dispatch(setReview({
+          userId: someUserId,
+          addonId: fakeAddon.id,
+          versionId: fakeAddon.current_version.id,
+          rating: savedRating,
+        }));
+
+        const componentProps = {
+          addonId: fakeAddon.id,
+          version: fakeAddon.current_version,
+        };
+
+        const props = mapStateToProps(store.getState(), componentProps);
+
+        assert.equal(props.userReview.rating, savedRating);
+      });
+
+      it('ignores reviews from other users', () => {
+        const userIdOne = 1;
+        const userIdTwo = 2;
+        const savedRating = 5;
+        const store = createStore();
+
+        // Sign in as user one.
+        store.dispatch(setJWT(userAuthToken({
+          user_id: userIdOne,
+        })));
+
+        // Save a review for user two.
+        store.dispatch(setReview({
+          userId: userIdTwo,
+          addonId: fakeAddon.id,
+          versionId: fakeAddon.current_version.id,
+          rating: savedRating,
+        }));
+
+        const componentProps = {
+          addonId: fakeAddon.id,
+          version: fakeAddon.current_version,
+        };
+
+        const props = mapStateToProps(store.getState(), componentProps);
+        assert.strictEqual(props.userReview, undefined);
+      });
+
+      it('ignores reviews for another add-on', () => {
+        const someUserId = 99821;
+        const savedRating = 5;
+        const store = createStore();
+
+        store.dispatch(setJWT(userAuthToken({
+          user_id: someUserId,
+        })));
+
+        store.dispatch(setReview({
+          userId: someUserId,
+          addonId: 554433, // this is a review for an unrelated add-on
+          versionId: fakeAddon.current_version.id,
+          rating: savedRating,
+        }));
+
+        const componentProps = {
+          addonId: fakeAddon.id,
+          version: fakeAddon.current_version,
+        };
+
+        const props = mapStateToProps(store.getState(), componentProps);
+        assert.strictEqual(props.userReview, undefined);
+      });
+
+      it('ignores reviews for another add-on version', () => {
+        const someUserId = 99821;
+        const savedRating = 5;
+        const store = createStore();
+
+        store.dispatch(setJWT(userAuthToken({
+          user_id: someUserId,
+        })));
+
+        store.dispatch(setReview({
+          userId: someUserId,
+          addonId: fakeAddon.id,
+          versionId: {
+            ...fakeAddon.current_version,
+            id: 44422, // this is a review for another version
+          },
+          rating: savedRating,
+        }));
+
+        const componentProps = {
+          addonId: fakeAddon.id,
+          version: fakeAddon.current_version,
+        };
+
+        const props = mapStateToProps(store.getState(), componentProps);
+        assert.strictEqual(props.userReview, undefined);
       });
     });
   });
