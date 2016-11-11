@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-11 11:06+0000\n"
-"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
+"PO-Revision-Date: 2016-11-11 13:08+0000\n"
+"Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Screenshot"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr ""
+msgstr "Informazioni sull’estensione"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
@@ -64,7 +64,7 @@ msgstr "Scrivi una recensione"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Spiega agli altri utenti i motivi per cui apprezzi questa estensione."
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
@@ -84,11 +84,11 @@ msgstr "Visualizza nella lingua preferita"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Componenti aggiuntivi per Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Come valuti la tua esperienza utente con %(addonName)s?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
@@ -126,7 +126,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr ""
+msgstr "Blocco di annunci pubblicitari"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
@@ -134,7 +134,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr ""
+msgstr "Salvataggio di contenuti"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
@@ -146,7 +146,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr ""
+msgstr "Condivisione di contenuti"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
@@ -166,7 +166,7 @@ msgstr "Astratto"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
-msgstr ""
+msgstr "Alla moda"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
@@ -218,7 +218,7 @@ msgstr "Precedente"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr ""
+msgstr "Successiva"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
