@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-11 13:08+0000\n"
+"PO-Revision-Date: 2016-11-11 13:05+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -194,11 +194,11 @@ msgstr "Installazione di %(name)s in corso…"
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s è installato e attivo. Puoi disinstallarlo con un clic."
+msgstr ""
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s è disattivato. Puoi attivarlo con un clic."
+msgstr ""
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
@@ -227,8 +227,8 @@ msgstr "Pagina %(currentPage)s di %(totalPages)s"
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "La ricerca di “%(query)s” ha restituito %(count)s risultato."
+msgstr[1] "La ricerca di “%(query)s” ha restituito %(count)s risultati."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
