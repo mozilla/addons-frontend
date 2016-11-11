@@ -53,13 +53,13 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=android&q=foo&page=3&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.search({
-        api: { lang: 'en-US' },
+        api: { clientApp: 'android', lang: 'en-US' },
         auth: true,
-        query: 'foo',
+        filters: { query: 'foo' },
         page: 3,
       })
         .then(() => mockWindow.verify());
@@ -67,7 +67,7 @@ describe('api', () => {
 
     it('normalizes the response', () => {
       mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.search({ auth: true, query: 'foo' })
+      return api.search({ api: {}, auth: true, filters: { query: 'foo' } })
         .then((results) => {
           assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
           assert.deepEqual(results.entities, {
@@ -81,7 +81,7 @@ describe('api', () => {
     });
 
     it('surfaces status and apiURL on Error instance', () => {
-      const url = `${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`;
+      const url = `${apiHost}/api/v3/addons/search/?app=&q=foo&page=3&lang=en-US`;
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
@@ -90,7 +90,7 @@ describe('api', () => {
       return api.search({
         api: { lang: 'en-US' },
         auth: true,
-        query: 'foo',
+        filters: { query: 'foo' },
         page: 3,
       })
         .then(unexpectedSuccess, (err) => {
@@ -119,16 +119,23 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&q=foo&page=3&lang=en-US`)
         .once()
         .returns(mockResponse());
-      return api.search({ api: { lang: 'en-US' }, query: 'foo', page: 3 })
+      return api.search({
+        api: { clientApp: 'firefox', lang: 'en-US' },
+        filters: { query: 'foo' },
+        page: 3,
+      })
         .then(() => mockWindow.verify());
     });
 
     it('normalizes the response', () => {
       mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.search({ query: 'foo' })
+      return api.search({
+        api: { clientApp: 'firefox', lang: 'en-US' },
+        filters: { query: 'foo' },
+      })
         .then((results) => {
           assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
           assert.deepEqual(results.entities, {
