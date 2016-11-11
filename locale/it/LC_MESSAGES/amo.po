@@ -1,28 +1,30 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-10 09:55+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-11-11 11:06+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s%(startSpan)sdi %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadati estensione"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
-msgstr ""
+msgstr "Screenshot"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
@@ -30,35 +32,35 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr ""
+msgstr "Valuta la tua esperienza utente"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "Utilizzato da"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "Impressione"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "Indietro"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "Invia"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "Scrivi qualcosa"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
-msgstr ""
+msgstr "Scrivi una recensione"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
@@ -66,19 +68,19 @@ msgstr ""
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "Informativa sulla privacy"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "Note legali"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "Visualizza versione desktop"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "Visualizza nella lingua preferita"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
@@ -90,33 +92,33 @@ msgstr ""
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "screenshot %(imageNumber)s di %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "Media valutazioni: %(rating)s su 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "Nessuna valutazione disponibile"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(users)s utente"
+msgstr[1] "%(users)s utenti"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
-msgstr ""
+msgstr "Disconnetti"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Accedi / Registrati"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Componenti aggiuntivi per Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
@@ -148,7 +150,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Esplora tutte le estensioni"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
@@ -160,7 +162,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
-msgstr ""
+msgstr "Astratto"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
@@ -172,35 +174,35 @@ msgstr ""
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
-msgstr ""
+msgstr "Sportivo"
 
 #: src/amo/containers/Home.js:38
 msgid "Mystical"
-msgstr ""
+msgstr "Mistico"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Esplora tutti i temi"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Download di %(name)s in corso…"
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Installazione di %(name)s in corso…"
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s è installato e attivo. Puoi disinstallarlo con un clic."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s è disattivato. Puoi attivarlo con un clic."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Disinstallazione di %(name)s in corso."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
@@ -208,11 +210,11 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "Precedente"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
@@ -220,7 +222,7 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Pagina %(currentPage)s di %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
@@ -230,7 +232,7 @@ msgstr[1] ""
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Ricerca in corso…"
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
