@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router';
 
 import { setReview } from 'amo/actions/reviews';
-import { submitReview } from 'amo/api';
+import { getUserReviews, submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
@@ -19,9 +19,20 @@ export class OverallRatingBase extends React.Component {
     apiState: PropTypes.object,
     createRating: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    loadSavedRating: PropTypes.func.isRequired,
     router: PropTypes.object.isRequired,
     userId: PropTypes.number,
+    userReview: PropTypes.object,
     version: PropTypes.object.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+    const { loadSavedRating, userId, addonId, version } = props;
+    if (userId) {
+      log.info(`loading a saved rating (if it exists) for user ${userId}`);
+      loadSavedRating({ userId, addonId, versionId: version.id });
+    }
   }
 
   onClickRating = (event) => {
@@ -40,13 +51,15 @@ export class OverallRatingBase extends React.Component {
   }
 
   render() {
-    const { i18n, addonName } = this.props;
+    const { i18n, addonName, userReview } = this.props;
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName });
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
+
+    // TODO: disable rating submission if userReview is set.
 
     return (
       <div className="OverallRating">
@@ -55,12 +68,26 @@ export class OverallRatingBase extends React.Component {
             <legend>{prompt}</legend>
             <div className="OverallRating-choices">
               <span className="OverallRating-star-group">
-                {[1, 2, 3, 4, 5].map((rating) =>
-                  <button
+                {[1, 2, 3, 4, 5].map((rating) => {
+
+                  let disabled = false;
+                  let cls;
+                  if (userReview) {
+                    // All the stars are read-only now.
+                    disabled = true;
+                    if (rating <= userReview.rating) {
+                      log.info(`Star ${rating} is selected`);
+                      cls = 'OverallRating-selected-star';
+                    }
+                  } else {
+                    cls = 'OverallRating-choice';
+                  }
+
+                  return <button
                     value={rating} onClick={this.onClickRating}
-                    className="OverallRating-choice"
-                    id={`OverallRating-rating-${rating}`} />
-                )}
+                    className={cls} id={`OverallRating-rating-${rating}`}
+                    disabled={disabled} />;
+                })}
               </span>
             </div>
           </fieldset>
@@ -70,13 +97,17 @@ export class OverallRatingBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state, componentProps = {}) => {
+export const mapStateToProps = (state, componentProps) => {
   const userId = state.auth && state.auth.userId;
   let userReview;
 
   // Look for an already saved review by this user for this add-on/version.
   if (userId && state.reviews) {
     const allUserReviews = state.reviews[userId];
+    log.info(`Checking state for review by user ${userId},
+      addonId ${componentProps.addonId},
+      versionId ${componentProps.version.id}`);
+
     if (allUserReviews) {
       // TODO: adjust this when multiple reviews per version are stored
       // in state.
@@ -85,6 +116,8 @@ export const mapStateToProps = (state, componentProps = {}) => {
         // We have found an existing review by this user for this
         // add-on and version.
         userReview = addonReview;
+        log.info(`Re-rendering component with user review from state`,
+                 userReview);
       }
     }
   }
@@ -98,8 +131,32 @@ export const mapStateToProps = (state, componentProps = {}) => {
 
 export const mapDispatchToProps = (dispatch) => ({
 
-  // TODO: create a load function that will load a user review
-  // and dispatch it if it exists.
+  loadSavedRating({ addonId, versionId, userId }) {
+    return getUserReviews({ userId })
+      .then((response) => {
+        const relevantReviews = response.results.filter((review) => {
+          if (review.addon.id === addonId && review.version.id === versionId) {
+            return review;
+          }
+        });
+        if (relevantReviews.length === 1) {
+          const review = relevantReviews[0];
+          log.info(`Found a review for user ${userId}`, review);
+
+          dispatch(setReview({
+            addonId: review.addon.id,
+            rating: review.rating,
+            versionId: review.version.id,
+            userId,
+          }));
+
+        } else if (relevantReviews.length > 1) {
+          throw new Error(
+            `Unexpectedly received more than one review for
+            user ${userId}, addonId ${addonId}, versionId ${versionId}`);
+        }
+      });
+  },
 
   createRating({ router, addonSlug, addonId, userId, ...params }) {
     return submitReview({ addonSlug, ...params })

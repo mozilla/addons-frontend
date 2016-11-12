@@ -28,3 +28,11 @@ export function submitReview({
       }));
     });
 }
+
+export function getUserReviews({ userId }) {
+  // Warning: if you rely on this API as is, you'll have to implement
+  // your own paging.
+  return callApi({
+    endpoint: `accounts/account/${userId}/reviews`,
+  });
+}

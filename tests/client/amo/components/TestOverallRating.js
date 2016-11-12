@@ -29,6 +29,7 @@ function render({ ...customProps } = {}) {
     i18n: getFakeI18nInst(),
     userId: 91234,
     createRating: () => {},
+    loadSavedRating: () => {},
     router: {},
     ...customProps,
   };

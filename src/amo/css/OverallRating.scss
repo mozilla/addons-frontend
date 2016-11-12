@@ -6,12 +6,16 @@
 
 $star-size: 46px;
 
-.OverallRating-choice {
+.OverallRating-choices button {
   background: url('../img/ratings/big-star.svg') center/$star-size no-repeat;
   cursor: pointer;
   height: $star-size + 10px;
   padding-top: 80px;
   width: $star-size + 10px;
+}
+
+.OverallRating-choices button:disabled {
+  cursor: not-allowed;
 }
 
 // The following rules make the ranges of stars appear selected when
@@ -21,7 +25,9 @@ $star-size: 46px;
 // First, make all stars appear selected when you hover over the group.
 .OverallRating-star-group:hover .OverallRating-choice,
 // For keyboard navigation, make the focused star appear selected.
-.OverallRating-choice:focus {
+.OverallRating-choice:focus,
+// Stars can be selected explicitly.
+button.OverallRating-selected-star {
   background-image: url('../img/ratings/big-star-selected.svg');
 }
 
