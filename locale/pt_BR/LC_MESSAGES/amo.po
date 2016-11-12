@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-12 15:40+0000\n"
+"PO-Revision-Date: 2016-11-12 15:44+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)spor %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadados da extensão"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
@@ -56,7 +56,7 @@ msgstr "Enviar"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "Por favor, digite algum texto"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
@@ -64,7 +64,7 @@ msgstr "Escreva uma análise"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Diga ao mundo porque você acha que essa extensão é fantástica!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
@@ -182,7 +182,7 @@ msgstr "Místico"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Navegar todos os temas"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
@@ -222,7 +222,7 @@ msgstr "Próximo"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Página %(currentPage)s de %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
@@ -232,7 +232,7 @@ msgstr[1] ""
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Pesquisando..."
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
@@ -240,4 +240,4 @@ msgstr ""
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Por favor, forneça uma pesquisa válida"
