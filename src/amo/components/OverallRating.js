@@ -29,6 +29,7 @@ export class OverallRatingBase extends React.Component {
   constructor(props) {
     super(props);
     const { loadSavedRating, userId, addonId, version } = props;
+    this.ratingButtons = {};
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
       loadSavedRating({ userId, addonId, versionId: version.id });
@@ -54,19 +55,21 @@ export class OverallRatingBase extends React.Component {
     const { userReview } = this.props;
     return [1, 2, 3, 4, 5].map((rating) => {
       let disabled = false;
-      let cls;
+      let cls = '';
       if (userReview) {
-        // All the stars are read-only now.
         disabled = true;
+        // Render selected stars for the saved review.
         if (rating <= userReview.rating) {
           log.info(`Star ${rating} is selected`);
           cls = 'OverallRating-selected-star';
         }
       } else {
+        // Make all stars selectable.
         cls = 'OverallRating-choice';
       }
 
       return (<button
+        ref={(ref) => { this.ratingButtons[rating] = ref; }}
         value={rating} onClick={this.onClickRating}
         className={cls} id={`OverallRating-rating-${rating}`}
         disabled={disabled} />);
@@ -82,13 +85,13 @@ export class OverallRatingBase extends React.Component {
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
 
-    // TODO: disable rating submission if userReview is set.
-
     return (
       <div className="OverallRating">
         <form action="">
           <fieldset>
-            <legend>{prompt}</legend>
+            <legend ref={(ref) => { this.ratingLegend = ref; }}>
+              {prompt}
+            </legend>
             <div className="OverallRating-choices">
               <span className="OverallRating-star-group">
                 {this.renderRatings()}
