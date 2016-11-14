@@ -285,11 +285,6 @@ describe('OverallRating', () => {
           rating: savedRating,
         }));
 
-        const componentProps = {
-          addonId: fakeAddon.id,
-          version: fakeAddon.current_version,
-        };
-
         assert.strictEqual(getMappedProps().userReview, undefined);
       });
 
@@ -308,11 +303,6 @@ describe('OverallRating', () => {
           },
           rating: savedRating,
         }));
-
-        const componentProps = {
-          addonId: fakeAddon.id,
-          version: fakeAddon.current_version,
-        };
 
         assert.strictEqual(getMappedProps().userReview, undefined);
       });

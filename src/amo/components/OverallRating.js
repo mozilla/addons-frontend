@@ -50,8 +50,31 @@ export class OverallRatingBase extends React.Component {
     });
   }
 
+  renderRatings() {
+    const { userReview } = this.props;
+    return [1, 2, 3, 4, 5].map((rating) => {
+      let disabled = false;
+      let cls;
+      if (userReview) {
+        // All the stars are read-only now.
+        disabled = true;
+        if (rating <= userReview.rating) {
+          log.info(`Star ${rating} is selected`);
+          cls = 'OverallRating-selected-star';
+        }
+      } else {
+        cls = 'OverallRating-choice';
+      }
+
+      return (<button
+        value={rating} onClick={this.onClickRating}
+        className={cls} id={`OverallRating-rating-${rating}`}
+        disabled={disabled} />);
+    });
+  }
+
   render() {
-    const { i18n, addonName, userReview } = this.props;
+    const { i18n, addonName } = this.props;
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName });
@@ -68,26 +91,7 @@ export class OverallRatingBase extends React.Component {
             <legend>{prompt}</legend>
             <div className="OverallRating-choices">
               <span className="OverallRating-star-group">
-                {[1, 2, 3, 4, 5].map((rating) => {
-
-                  let disabled = false;
-                  let cls;
-                  if (userReview) {
-                    // All the stars are read-only now.
-                    disabled = true;
-                    if (rating <= userReview.rating) {
-                      log.info(`Star ${rating} is selected`);
-                      cls = 'OverallRating-selected-star';
-                    }
-                  } else {
-                    cls = 'OverallRating-choice';
-                  }
-
-                  return <button
-                    value={rating} onClick={this.onClickRating}
-                    className={cls} id={`OverallRating-rating-${rating}`}
-                    disabled={disabled} />;
-                })}
+                {this.renderRatings()}
               </span>
             </div>
           </fieldset>
@@ -116,7 +120,7 @@ export const mapStateToProps = (state, componentProps) => {
         // We have found an existing review by this user for this
         // add-on and version.
         userReview = addonReview;
-        log.info(`Re-rendering component with user review from state`,
+        log.info('Re-rendering component with user review from state',
                  userReview);
       }
     }
@@ -138,6 +142,7 @@ export const mapDispatchToProps = (dispatch) => ({
           if (review.addon.id === addonId && review.version.id === versionId) {
             return review;
           }
+          return false;
         });
         if (relevantReviews.length === 1) {
           const review = relevantReviews[0];
@@ -149,7 +154,6 @@ export const mapDispatchToProps = (dispatch) => ({
             versionId: review.version.id,
             userId,
           }));
-
         } else if (relevantReviews.length > 1) {
           throw new Error(
             `Unexpectedly received more than one review for
