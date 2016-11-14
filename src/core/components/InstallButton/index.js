@@ -108,7 +108,7 @@ export class InstallButtonBase extends React.Component {
 
     const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(status);
     const isDisabled = status === UNKNOWN;
-    const isSuccess = status === INSTALLED;
+    const isSuccess = [ENABLED, INSTALLED].includes(status);
 
     return (
       <div data-browsertheme={browsertheme} ref={(el) => { this.themeData = el; }}>

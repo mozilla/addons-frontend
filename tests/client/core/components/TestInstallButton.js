@@ -66,6 +66,7 @@ describe('<InstallButton />', () => {
     const button = renderButton({ status: INSTALLED });
     const switchEl = button.switchEl;
     assert.equal(switchEl.props.checked, true);
+    assert.equal(switchEl.props.success, true);
   });
 
   it('should reflect ENABLED status', () => {
@@ -74,6 +75,7 @@ describe('<InstallButton />', () => {
     assert.equal(switchEl.props.checked, true);
     assert.include(switchEl.props.label, 'test-addon is installed and enabled');
     assert.include(switchEl.props.label, 'Click to uninstall');
+    assert.equal(switchEl.props.success, true);
   });
 
   it('should reflect download downloadProgress', () => {
