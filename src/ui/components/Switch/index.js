@@ -5,7 +5,6 @@ import './Switch.scss';
 
 export default class Switch extends React.Component {
   static propTypes = {
-    browsertheme: PropTypes.string,
     checked: PropTypes.bool,
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -35,8 +34,7 @@ export default class Switch extends React.Component {
 
   render() {
     const {
-      browsertheme, checked, className, disabled, label, name, onChange, onClick, progress,
-      success,
+      checked, className, disabled, label, name, onChange, onClick, progress, success,
     } = this.props;
     const identifier = `install-button-${name}`;
     const hasProgress = progress !== undefined;
@@ -56,9 +54,7 @@ export default class Switch extends React.Component {
           checked={checked}
           disabled={disabled}
           onChange={onChange}
-          ref={(ref) => { this.themeData = ref; }}
-          type="checkbox"
-          data-browsertheme={browsertheme} />
+          type="checkbox" />
         <label htmlFor={identifier}>
           {hasProgress ? <div className="Switch-progress-bar" /> : null}
           <span className="visually-hidden">{label}</span>

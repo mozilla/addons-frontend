@@ -97,6 +97,7 @@ export class InstallButtonBase extends React.Component {
       uninstall({ guid, installURL, name, type });
     }
   }
+
   render() {
     const browsertheme = JSON.stringify(getThemeData(this.props));
     const { handleChange, slug, status } = this.props;
@@ -110,12 +111,14 @@ export class InstallButtonBase extends React.Component {
     const isSuccess = status === INSTALLED;
 
     return (
-      <Switch
-        checked={isChecked} disabled={isDisabled} progress={this.getDownloadProgress()} name={slug}
-        success={isSuccess} label={this.getLabel()} browsertheme={browsertheme}
-        onChange={handleChange} onClick={this.handleClick}
-        ref={(el) => { this.switchEl = el; }}
-      />
+      <div data-browsertheme={browsertheme} ref={(el) => { this.themeData = el; }}>
+        <Switch
+          checked={isChecked} disabled={isDisabled} progress={this.getDownloadProgress()}
+          name={slug} success={isSuccess} label={this.getLabel()}
+          onChange={handleChange} onClick={this.handleClick}
+          ref={(el) => { this.switchEl = el; }}
+        />
+      </div>
     );
   }
 }

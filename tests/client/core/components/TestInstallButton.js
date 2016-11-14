@@ -18,6 +18,7 @@ import {
   UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
+import * as themePreview from 'disco/themePreview';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
@@ -136,6 +137,8 @@ describe('<InstallButton />', () => {
 
   it('should call installTheme function on click when uninstalled theme', () => {
     const installTheme = sinon.spy();
+    const browsertheme = { theme: 'data' };
+    sinon.stub(themePreview, 'getThemeData').returns(browsertheme);
     const guid = 'test-guid';
     const name = 'hai';
     const button = renderButton({
@@ -145,10 +148,11 @@ describe('<InstallButton />', () => {
       name,
       status: UNINSTALLED,
     });
-    const themeData = button.themeData;
-    const root = findDOMNode(button);
+    const root = findDOMNode(button.switchEl);
     Simulate.click(root);
-    assert(installTheme.calledWith(themeData, guid, name));
+    assert.ok(installTheme.calledOnce, installTheme.callCount);
+    const themeDataEl = installTheme.args[0][0];
+    assert.equal(themeDataEl.getAttribute('data-browsertheme'), JSON.stringify(browsertheme));
   });
 
   it('should call install function on click when uninstalled', () => {
@@ -158,7 +162,7 @@ describe('<InstallButton />', () => {
     const i18n = getFakeI18nInst();
     const installURL = 'https://my.url/download';
     const button = renderButton({ guid, i18n, install, installURL, name, status: UNINSTALLED });
-    const root = findDOMNode(button);
+    const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     assert(install.calledWith());
   });
@@ -170,7 +174,7 @@ describe('<InstallButton />', () => {
     const i18n = getFakeI18nInst();
     const installURL = 'https://my.url/download';
     const button = renderButton({ guid, i18n, enable, installURL, name, status: DISABLED });
-    const root = findDOMNode(button);
+    const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     assert(enable.calledWith());
   });
@@ -182,7 +186,7 @@ describe('<InstallButton />', () => {
     const type = 'whatevs';
     const uninstall = sinon.spy();
     const button = renderButton({ guid, installURL, name, status: INSTALLED, type, uninstall });
-    const root = findDOMNode(button);
+    const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     assert(uninstall.calledWith({ guid, installURL, name, type }));
   });

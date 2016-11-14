@@ -95,12 +95,6 @@ describe('<Switch />', () => {
     assert.ok(onChange.calledWith());
   });
 
-  it('sets data-browsertheme', () => {
-    const root = findDOMNode(renderButton({ browsertheme: 'foo' }));
-    const checkbox = root.querySelector('input[type=checkbox]');
-    assert.equal(checkbox.getAttribute('data-browsertheme'), 'foo');
-  });
-
   it('associates the label and input with id and for attributes', () => {
     const button = renderButton({ name: 'foo' });
     const root = findDOMNode(button);
