@@ -156,17 +156,17 @@ describe('OverallRating', () => {
   });
 
   describe('mapDispatchToProps', () => {
+    let mockApi;
+    let dispatch;
+    let actions;
+
+    beforeEach(() => {
+      mockApi = sinon.mock(amoApi);
+      dispatch = sinon.stub();
+      actions = mapDispatchToProps(dispatch);
+    });
+
     describe('createRating', () => {
-      let mockApi;
-      let dispatch;
-      let actions;
-
-      beforeEach(() => {
-        mockApi = sinon.mock(amoApi);
-        dispatch = sinon.stub();
-        actions = mapDispatchToProps(dispatch);
-      });
-
       it('posts the rating and dispatches the created rating', () => {
         const router = { push: sinon.spy(() => {}) };
         const userId = 91234;
@@ -212,126 +212,234 @@ describe('OverallRating', () => {
       });
     });
 
-    describe('mapStateToProps', () => {
-      let store;
+    describe('loadSavedRating', () => {
+      const fakeReview = {
+        addon: fakeAddon,
+        rating: 3,
+        version: fakeAddon.current_version,
+        userId: 1234,
+      };
 
-      beforeEach(() => {
-        store = createStore();
-      });
-
-      function getMappedProps({
-        state = store.getState(),
-        componentProps = {
-          addonId: fakeAddon.id,
-          version: fakeAddon.current_version,
-        },
+      function loadSavedRating({
+        userId = 123,
+        addonId = fakeAddon.id,
+        versionId = fakeAddon.current_version.id,
       } = {}) {
-        return mapStateToProps(state, componentProps);
+        return actions.loadSavedRating({ userId, addonId, versionId });
       }
 
-      function signIn({ userId = 98765 } = {}) {
-        store.dispatch(setJWT(userAuthToken({
-          user_id: userId,
-        })));
-      }
+      it('finds and dispatches a review', () => {
+        const userId = 77664;
+        const response = { results: [{ ...fakeReview, userId }] };
 
-      it('copies api state to props', () => {
-        signIn();
+        mockApi
+          .expects('getUserReviews')
+          .withArgs({ userId })
+          .returns(Promise.resolve(response));
 
-        const state = store.getState();
-        assert(state.api.token, 'a valid token exists in state');
-
-        const props = getMappedProps();
-        assert.deepEqual(props.apiState, state.api);
+        return loadSavedRating({ userId })
+          .then(() => {
+            mockApi.verify();
+            assert.equal(dispatch.called, true);
+            assert.deepEqual(dispatch.firstCall.args[0], setReview({
+              addonId: fakeReview.addon.id,
+              rating: fakeReview.rating,
+              versionId: fakeReview.version.id,
+              userId,
+            }));
+          });
       });
 
-      it('sets an empty apiState when not signed in', () => {
-        assert.deepEqual(getMappedProps().apiState, {});
+      it('only dispatches reviews for the right add-on', () => {
+        const userId = 77664;
+        const addonId = 8765;
+        const response = {
+          results: [
+            // The first one should be ignored.
+            { ...fakeReview, userId, addon: { ...fakeAddon, id: 123 } },
+            { ...fakeReview, userId, addon: { ...fakeAddon, id: addonId } },
+          ],
+        };
+        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
+
+        return loadSavedRating({ userId, addonId })
+          .then(() => {
+            assert.equal(dispatch.called, true);
+            assert.deepEqual(dispatch.firstCall.args[0], setReview({
+              addonId,
+              rating: fakeReview.rating,
+              versionId: fakeReview.version.id,
+              userId,
+            }));
+          });
       });
 
-      it('sets an empty userId when not signed in', () => {
-        assert.equal(getMappedProps().userId, undefined);
+      it('only dispatches reviews for the right version', () => {
+        const userId = 77664;
+        const versionId = 6672;
+        const response = {
+          results: [
+            // The first one should be ignored.
+            {
+              ...fakeReview,
+              userId,
+              version: { ...fakeAddon.current_version, id: 123 },
+            },
+            {
+              ...fakeReview,
+              userId,
+              version: { ...fakeAddon.current_version, id: versionId },
+            },
+          ],
+        };
+        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
+
+        return loadSavedRating({ userId, versionId })
+          .then(() => {
+            assert.equal(dispatch.called, true);
+            assert.deepEqual(dispatch.firstCall.args[0], setReview({
+              addonId: fakeReview.addon.id,
+              rating: fakeReview.rating,
+              versionId,
+              userId,
+            }));
+          });
       });
 
-      it('sets the userId property from the state', () => {
-        const userId = 91234;
-        signIn({ userId });
-        assert.equal(getMappedProps().userId, userId);
+      it('expects to only find one matching review', () => {
+        const response = { results: [fakeReview, fakeReview] };
+        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
+
+        return loadSavedRating()
+          .then(() => {
+            throw new Error('unexpected success');
+          })
+          .catch((error) => {
+            assert.match(error.message, /received more than one review/);
+          });
       });
+    });
+  });
 
-      it('sets an empty user review when no reviews are in state', () => {
-        signIn();
-        assert.strictEqual(getMappedProps().userReview, undefined);
-      });
+  describe('mapStateToProps', () => {
+    let store;
 
-      it('sets a user review when a matching review is in state', () => {
-        const userId = 99821;
-        const savedRating = 5;
+    beforeEach(() => {
+      store = createStore();
+    });
 
-        signIn({ userId });
+    function getMappedProps({
+      state = store.getState(),
+      componentProps = {
+        addonId: fakeAddon.id,
+        version: fakeAddon.current_version,
+      },
+    } = {}) {
+      return mapStateToProps(state, componentProps);
+    }
 
-        store.dispatch(setReview({
-          userId,
-          addonId: fakeAddon.id,
-          versionId: fakeAddon.current_version.id,
-          rating: savedRating,
-        }));
+    function signIn({ userId = 98765 } = {}) {
+      store.dispatch(setJWT(userAuthToken({
+        user_id: userId,
+      })));
+    }
 
-        assert.equal(getMappedProps().userReview.rating, savedRating);
-      });
+    it('copies api state to props', () => {
+      signIn();
 
-      it('ignores reviews from other users', () => {
-        const userIdOne = 1;
-        const userIdTwo = 2;
-        const savedRating = 5;
+      const state = store.getState();
+      assert(state.api.token, 'a valid token exists in state');
 
-        signIn({ userId: userIdOne });
+      const props = getMappedProps();
+      assert.deepEqual(props.apiState, state.api);
+    });
 
-        // Save a review for user two.
-        store.dispatch(setReview({
-          userId: userIdTwo,
-          addonId: fakeAddon.id,
-          versionId: fakeAddon.current_version.id,
-          rating: savedRating,
-        }));
+    it('sets an empty apiState when not signed in', () => {
+      assert.deepEqual(getMappedProps().apiState, {});
+    });
 
-        assert.strictEqual(getMappedProps().userReview, undefined);
-      });
+    it('sets an empty userId when not signed in', () => {
+      assert.equal(getMappedProps().userId, undefined);
+    });
 
-      it('ignores reviews for another add-on', () => {
-        const userId = 99821;
-        const savedRating = 5;
+    it('sets the userId property from the state', () => {
+      const userId = 91234;
+      signIn({ userId });
+      assert.equal(getMappedProps().userId, userId);
+    });
 
-        signIn({ userId });
+    it('sets an empty user review when no reviews are in state', () => {
+      signIn();
+      assert.strictEqual(getMappedProps().userReview, undefined);
+    });
 
-        store.dispatch(setReview({
-          userId,
-          addonId: 554433, // this is a review for an unrelated add-on
-          versionId: fakeAddon.current_version.id,
-          rating: savedRating,
-        }));
+    it('sets a user review when a matching review is in state', () => {
+      const userId = 99821;
+      const savedRating = 5;
 
-        assert.strictEqual(getMappedProps().userReview, undefined);
-      });
+      signIn({ userId });
 
-      it('ignores reviews for another add-on version', () => {
-        const userId = 99821;
-        const savedRating = 5;
+      store.dispatch(setReview({
+        userId,
+        addonId: fakeAddon.id,
+        versionId: fakeAddon.current_version.id,
+        rating: savedRating,
+      }));
 
-        signIn({ userId });
+      assert.equal(getMappedProps().userReview.rating, savedRating);
+    });
 
-        store.dispatch(setReview({
-          userId,
-          addonId: fakeAddon.id,
-          versionId: {
-            ...fakeAddon.current_version,
-            id: 44422, // this is a review for another version
-          },
-          rating: savedRating,
-        }));
+    it('ignores reviews from other users', () => {
+      const userIdOne = 1;
+      const userIdTwo = 2;
+      const savedRating = 5;
 
-        assert.strictEqual(getMappedProps().userReview, undefined);
-      });
+      signIn({ userId: userIdOne });
+
+      // Save a review for user two.
+      store.dispatch(setReview({
+        userId: userIdTwo,
+        addonId: fakeAddon.id,
+        versionId: fakeAddon.current_version.id,
+        rating: savedRating,
+      }));
+
+      assert.strictEqual(getMappedProps().userReview, undefined);
+    });
+
+    it('ignores reviews for another add-on', () => {
+      const userId = 99821;
+      const savedRating = 5;
+
+      signIn({ userId });
+
+      store.dispatch(setReview({
+        userId,
+        addonId: 554433, // this is a review for an unrelated add-on
+        versionId: fakeAddon.current_version.id,
+        rating: savedRating,
+      }));
+
+      assert.strictEqual(getMappedProps().userReview, undefined);
+    });
+
+    it('ignores reviews for another add-on version', () => {
+      const userId = 99821;
+      const savedRating = 5;
+
+      signIn({ userId });
+
+      store.dispatch(setReview({
+        userId,
+        addonId: fakeAddon.id,
+        versionId: {
+          ...fakeAddon.current_version,
+          id: 44422, // this is a review for another version
+        },
+        rating: savedRating,
+      }));
+
+      assert.strictEqual(getMappedProps().userReview, undefined);
     });
   });
 });
