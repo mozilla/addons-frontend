@@ -53,42 +53,38 @@ describe('<Switch />', () => {
   it('shows success when success is set', () => {
     const button = renderButton({ success: true });
     const root = findDOMNode(button);
-    assert.ok(root.classList.contains('success'));
+    assert.ok(root.classList.contains('Switch--success'));
   });
 
-  it('should not include the progress when it is undefined', () => {
+  it('does not include the progress when it is undefined', () => {
     const button = renderButton();
     const root = findDOMNode(button);
     assert.equal(root.getAttribute('data-progress'), 0);
   });
 
-  it('should not include the progress when it is Infinity', () => {
-    const button = renderButton({ progress: Infinity });
-    const root = findDOMNode(button);
-    assert.equal(root.getAttribute('data-progress'), 0);
-  });
-
-  it('should reflect progress', () => {
+  it('reflects valid progress values', () => {
     const button = renderButton({ progress: 50 });
     const root = findDOMNode(button);
-    assert.ok(root.classList.contains('downloading'));
+    assert.ok(root.classList.contains('Switch--progress'));
     assert.equal(root.getAttribute('data-progress'), 50);
   });
 
-  it('should reflect indefinite progress', () => {
+  it('reflects indefinite progress', () => {
     const button = renderButton({ checked: true, progress: Infinity });
     const root = findDOMNode(button);
-    assert.ok(root.classList.contains('installing'));
+    assert.ok(root.classList.contains('Switch--indefinite'));
     const checkbox = root.querySelector('input[type=checkbox]');
     assert.equal(checkbox.checked, true, 'checked is true');
+    assert.equal(root.getAttribute('data-progress'), 100);
   });
 
-  it('should reflect indefinite reverse progress', () => {
-    const button = renderButton({ checked: false, progress: Infinity });
+  it('reflects indefinite reverse progress', () => {
+    const button = renderButton({ checked: false, progress: -Infinity });
     const root = findDOMNode(button);
-    assert.ok(root.classList.contains('uninstalling'));
+    assert.ok(root.classList.contains('Switch--indefinite-reverse'));
     const checkbox = root.querySelector('input[type=checkbox]');
     assert.equal(checkbox.checked, false, 'checked is false');
+    assert.equal(root.getAttribute('data-progress'), 0);
   });
 
   it('passes change calls to onChange', () => {
@@ -105,7 +101,7 @@ describe('<Switch />', () => {
     assert.equal(checkbox.getAttribute('data-browsertheme'), 'foo');
   });
 
-  it('should associate the label and input with id and for attributes', () => {
+  it('associates the label and input with id and for attributes', () => {
     const button = renderButton({ name: 'foo' });
     const root = findDOMNode(button);
     assert.equal(root.querySelector('input').getAttribute('id'),
