@@ -118,6 +118,7 @@ export const mapStateToProps = (state, componentProps) => {
     if (allUserReviews) {
       // TODO: adjust this when multiple reviews per version are stored
       // in state.
+      // See https://github.com/mozilla/addons-server/issues/3986
       const addonReview = allUserReviews[componentProps.addonId];
       if (addonReview && addonReview.versionId === componentProps.version.id) {
         // We have found an existing review by this user for this
