@@ -29,10 +29,15 @@ export function submitReview({
     });
 }
 
-export function getUserReviews({ userId }) {
-  // Warning: if you rely on this API as is, you'll have to implement
-  // your own paging.
-  return callApi({
-    endpoint: `accounts/account/${userId}/reviews`,
+export function getUserReviews({ userId } = {}) {
+  return new Promise((resolve) => {
+    if (!userId) {
+      throw new Error('userId cannot be falsey');
+    }
+    // Warning: if you rely on this API as is, you'll have to implement
+    // your own paging.
+    resolve(callApi({
+      endpoint: `accounts/account/${userId}/reviews`,
+    }));
   });
 }

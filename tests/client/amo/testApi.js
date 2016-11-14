@@ -1,4 +1,4 @@
-import { submitReview } from 'amo/api';
+import { getUserReviews, submitReview } from 'amo/api';
 import * as api from 'core/api';
 import { signedInApiState } from 'tests/client/amo/helpers';
 
@@ -91,6 +91,37 @@ describe('amo.api', () => {
         assert.deepEqual(apiResponse, genericApiResponse);
         mockApi.verify();
       });
+    });
+  });
+
+  describe('getUserReviews', () => {
+    it('gets all user reviews', () => {
+      const userId = 8877;
+      const response = { reviews: [] };
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          endpoint: `accounts/account/${userId}/reviews`,
+        })
+        .returns(Promise.resolve(response));
+
+      return getUserReviews({ userId })
+        .then((actualResponse) => {
+          mockApi.verify();
+          assert.deepEqual(actualResponse, response);
+        });
+    });
+
+    it('requires a user ID', () => {
+      mockApi.expects('callApi').never();
+      return getUserReviews()
+        .then(() => {
+          throw new Error('unexpected success');
+        })
+        .catch((error) => {
+          assert.equal(error.message, 'userId cannot be falsey');
+          mockApi.verify();
+        });
     });
   });
 });
