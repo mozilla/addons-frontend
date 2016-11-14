@@ -53,6 +53,32 @@ describe('OverallRating', () => {
                    'Some Add-on');
   });
 
+  it('loads saved ratings on construction', () => {
+    const userId = 12889;
+    const addonId = 3344;
+    const version = {
+      ...fakeAddon.current_version,
+      id: 9966,
+    };
+    const loadSavedRating = sinon.spy();
+
+    render({ userId, addonId, version, loadSavedRating });
+
+    assert.equal(loadSavedRating.called, true);
+    const args = loadSavedRating.firstCall.args[0];
+    assert.equal(args.userId, userId);
+    assert.equal(args.addonId, addonId);
+    assert.equal(args.versionId, version.id);
+  });
+
+  it('does not load saved ratings when userId is empty', () => {
+    const userId = null;
+    const loadSavedRating = sinon.spy();
+
+    render({ userId, loadSavedRating });
+    assert.equal(loadSavedRating.called, false);
+  });
+
   it('creates a rating with add-on and version info', () => {
     const router = {};
     const createRating = sinon.stub();
