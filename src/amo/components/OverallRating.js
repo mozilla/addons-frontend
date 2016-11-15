@@ -104,7 +104,7 @@ export class OverallRatingBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state, componentProps) => {
+export const mapStateToProps = (state, ownProps) => {
   const userId = state.auth && state.auth.userId;
   let userReview;
 
@@ -112,15 +112,15 @@ export const mapStateToProps = (state, componentProps) => {
   if (userId && state.reviews) {
     const allUserReviews = state.reviews[userId];
     log.info(`Checking state for review by user ${userId},
-      addonId ${componentProps.addonId},
-      versionId ${componentProps.version.id}`);
+      addonId ${ownProps.addonId},
+      versionId ${ownProps.version.id}`);
 
     if (allUserReviews) {
       // TODO: adjust this when multiple reviews per version are stored
       // in state.
       // See https://github.com/mozilla/addons-server/issues/3986
-      const addonReview = allUserReviews[componentProps.addonId];
-      if (addonReview && addonReview.versionId === componentProps.version.id) {
+      const addonReview = allUserReviews[ownProps.addonId];
+      if (addonReview && addonReview.versionId === ownProps.version.id) {
         // We have found an existing review by this user for this
         // add-on and version.
         userReview = addonReview;
