@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-01 10:47+0000\n"
-"PO-Revision-Date: 2016-08-10 18:51+0000\n"
-"Last-Translator: Alfredos-Panagiotis Damkalis <fredy@fredy.gr>\n"
+"PO-Revision-Date: 2016-11-15 13:01+0000\n"
+"Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -24,9 +24,7 @@ msgstr "Εγκατάσταση %(name)s."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Το %(name)s είναι εγκατεστημένο και ενεργοποιημένο. Κάντε κλικ για "
-"απεγκατάσταση."
+msgstr "Το %(name)s είναι εγκατεστημένο και ενεργοποιημένο. Κάντε κλικ για απεγκατάσταση."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -46,9 +44,7 @@ msgstr "Η κατάσταση εγκατάστασης για το %(name)s εί
 
 #: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Περάστε από πάνω τον κέρσορα για προεπισκόπηση ή κάντε κλικ για εγκατάσταση "
-"του %(name)s"
+msgstr "Περάστε από πάνω τον κέρσορα για προεπισκόπηση ή κάντε κλικ για εγκατάσταση του %(name)s"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
@@ -123,18 +119,13 @@ msgid "Personalize Your Firefox"
 msgstr "Εξατομίκευση Firefox"
 
 #: src/disco/containers/DiscoPane.js:99
-#, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Υπάρχουν χιλιάδες πρόσθετα που δημιουργούνται από προγραμματιστές απ' όλο "
-"τον κόσμο για να σας βοηθήσουν να εξατομικεύσετε την εμπειρία της περιήγησής "
-"σας—τα πάντα από διασκεδαστικά θέματα εμφάνισης μέχρι ισχυρά εργαλεία και "
-"δυνατότητες. Ορίστε μερικά υπέροχα για να δοκιμάσετε."
+"Υπάρχουν χιλιάδες δωρεάν πρόσθετα, που δημιουργούνται από προγραμματιστές απ' όλο τον κόσμο, που μπορείτε να εγκαταστήσετε για να εξατομικεύσετε το Firefox. Από διασκεδαστικά θέματα μέχρι ισχυρά "
+"εργαλεία που κάνουν την περιήγηση πιο γρήγορη και ασφαλή, τα πρόσθετα κάνουν το πρόγραμμα περιήγησής σας μοναδικό. Για να σας βοηθήσουμε να ξεκινήσετε, ορίστε μερικά πρόσθετα που προτείνουμε για την"
+" ξεχωριστή απόδοση και λειτουργικότητά τους."
