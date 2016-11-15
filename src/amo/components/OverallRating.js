@@ -141,12 +141,8 @@ export const mapDispatchToProps = (dispatch) => ({
   loadSavedRating({ addonId, versionId, userId }) {
     return getUserReviews({ userId })
       .then((response) => {
-        const relevantReviews = response.results.filter((review) => {
-          if (review.addon.id === addonId && review.version.id === versionId) {
-            return review;
-          }
-          return false;
-        });
+        const relevantReviews = response.results.filter(
+          (review) => review.addon.id === addonId && review.version.id === versionId);
         if (relevantReviews.length === 1) {
           const review = relevantReviews[0];
           log.info(`Found a review for user ${userId}`, review);
