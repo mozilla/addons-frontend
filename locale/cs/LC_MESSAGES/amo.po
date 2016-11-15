@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-15 17:19+0000\n"
+"PO-Revision-Date: 2016-11-15 17:30+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -24,11 +24,11 @@ msgstr "Metadata rozšíření"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
-msgstr ""
+msgstr "Snímky obrazovky"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr ""
+msgstr "O tomto rozšíření"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
@@ -36,11 +36,11 @@ msgstr ""
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "Používá"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
@@ -48,11 +48,11 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "Zpět"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "Odeslat"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
@@ -68,58 +68,58 @@ msgstr "Řekněte celému světu, proč si myslíte, že je tenhle doplněk úž
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "Zásady ochrany soukromí"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "Právní informace"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "Zobrazit verzi pro desktop"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "Procházet ve vašem jazyce"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Doplňky pro Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Jak si užíváte používání doplňku %(addonName)s?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "snímek obrazovky %(imageNumber)s/%(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "Průměrné hodnocení: %(rating)s z 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "Nehodnoceno"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(users)s uživatel"
+msgstr[1] "%(users)s uživatelé"
+msgstr[2] "%(users)s uživatelů"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
-msgstr ""
+msgstr "Odhlásit se"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Přihlásit se / Zaregistrovat se"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Doplňky pro Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
@@ -127,7 +127,7 @@ msgstr "Co chcete, aby váš Firefox uměl?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr ""
+msgstr "Blokovat reklamy"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
@@ -151,7 +151,7 @@ msgstr "Sdílet věci"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Procházet všechna rozšíření"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
@@ -163,11 +163,11 @@ msgstr "Divoce"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
-msgstr ""
+msgstr "Abstraktně"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
-msgstr ""
+msgstr "Módně"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
@@ -183,23 +183,23 @@ msgstr "Tajemně"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Procházet všechny motivy"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Stahování doplňku %(name)s."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Instalace doplňku %(name)s."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "Doplněk %(name)s je nainstalován a povolen. Klepněte pro odinstalaci."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "Doplněk %(name)s je zakázán. Klepněte pro povolení."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
@@ -207,19 +207,19 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "Doplněk %(name)s byl odinstalován. Klepněte pro instalaci."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Stav instalace doplňku %(name)s není známý."
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "Předchozí"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr ""
+msgstr "Další"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
@@ -234,7 +234,7 @@ msgstr[2] ""
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Vyhledávání…"
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
@@ -242,4 +242,4 @@ msgstr ""
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Zadejte prosím platný vyhledávací dotaz"
