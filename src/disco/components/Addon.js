@@ -12,7 +12,7 @@ import { sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
 import themeAction, { getThemeData } from 'disco/themePreview';
 import tracking, { getAction } from 'core/tracking';
-import * as addonManager from 'disco/addonManager';
+import * as addonManager from 'core/addonManager';
 import log from 'core/logger';
 import InstallButton from 'core/components/InstallButton';
 import {

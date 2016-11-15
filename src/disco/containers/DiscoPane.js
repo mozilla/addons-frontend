@@ -10,7 +10,7 @@ import { loadEntities } from 'core/actions';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
-import { addChangeListeners } from 'disco/addonManager';
+import { addChangeListeners } from 'core/addonManager';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,

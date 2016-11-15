@@ -1,4 +1,4 @@
-import * as addonManager from 'disco/addonManager';
+import * as addonManager from 'core/addonManager';
 import { installEventList } from 'core/constants';
 import {
   globalEventStatusMap,
