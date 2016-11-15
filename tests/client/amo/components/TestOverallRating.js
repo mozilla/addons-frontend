@@ -352,6 +352,33 @@ describe('OverallRating', () => {
             assert.match(error.message, /received more than one review/);
           });
       });
+
+      it('does nothing when there are not any matching reviews', () => {
+        const addonId = 8765;
+        const response = {
+          results: [
+            // All of these have the wrong IDs:
+            { ...fakeReview, addon: { ...fakeAddon, id: 123 } },
+            { ...fakeReview, addon: { ...fakeAddon, id: 321 } },
+          ],
+        };
+        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
+
+        return loadSavedRating({ addonId })
+          .then(() => {
+            assert.equal(dispatch.called, false);
+          });
+      });
+
+      it('does nothing when the API returns no reviews at all', () => {
+        const response = { results: [] };
+        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
+
+        return loadSavedRating()
+          .then(() => {
+            assert.equal(dispatch.called, false);
+          });
+      });
     });
   });
 
