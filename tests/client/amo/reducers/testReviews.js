@@ -20,10 +20,12 @@ describe('amo.reducers.reviews', () => {
   });
 
   it('adds a user reviews map', () => {
+    const id = 96644;
     const addonId = 5321;
     const userId = 91234;
     const versionId = 12345;
     const action = setReview({
+      id,
       addonId,
       userId,
       rating: 5,
@@ -31,7 +33,7 @@ describe('amo.reducers.reviews', () => {
     });
     const state = reviews(undefined, action);
     assert.deepEqual(state[userId][addonId],
-                     { rating: 5, versionId });
+                     { id, rating: 5, versionId });
   });
 
   it('preserves existing user rating data', () => {

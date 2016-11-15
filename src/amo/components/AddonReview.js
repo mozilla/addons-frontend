@@ -148,6 +148,7 @@ export function loadAddonReview(
   })
     .then((review) => {
       dispatch(setReview({
+        id: review.id,
         addonId: review.addon.id,
         versionId: review.version.id,
         rating: review.rating,

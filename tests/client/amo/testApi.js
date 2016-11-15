@@ -92,6 +92,34 @@ describe('amo.api', () => {
         mockApi.verify();
       });
     });
+
+    it('does not patch the version for existing reviews', () => {
+      const params = {
+        ...baseParams,
+        reviewId: 987,
+        body: 'some new body',
+        versionId: 99876,
+        addonSlug: 'chill-out',
+      };
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          endpoint: `addons/addon/${params.addonSlug}/reviews/${params.reviewId}`,
+          body: {
+            // Make sure that version is not passed in.
+            ...defaultParams, body: params.body, version: undefined,
+          },
+          method: 'PATCH',
+          auth: true,
+          state: params.apiState,
+        })
+        .returns(Promise.resolve(genericApiResponse));
+
+      return submitReview(params).then(() => {
+        mockApi.verify();
+      });
+    });
   });
 
   describe('getUserReviews', () => {

@@ -13,13 +13,13 @@ import { setReview } from 'amo/actions/reviews';
 import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
-import { SET_REVIEW } from 'amo/constants';
 import {
   createRatingResponse, fakeAddon, signedInApiState,
 } from 'tests/client/amo/helpers';
 import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 const fakeReview = {
+  id: 8876,
   addon: fakeAddon,
   rating: 3,
   version: fakeAddon.current_version,
@@ -35,7 +35,7 @@ function render({ ...customProps } = {}) {
     version: fakeAddon.current_version,
     i18n: getFakeI18nInst(),
     userId: 91234,
-    createRating: () => {},
+    submitRating: () => {},
     loadSavedRating: () => {},
     router: {},
     ...customProps,
@@ -86,9 +86,9 @@ describe('OverallRating', () => {
 
   it('creates a rating with add-on and version info', () => {
     const router = {};
-    const createRating = sinon.stub();
+    const submitRating = sinon.stub();
     const root = render({
-      createRating,
+      submitRating,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addonId: 12345,
@@ -96,55 +96,73 @@ describe('OverallRating', () => {
       router,
     });
     selectRating(root, 5);
-    assert.equal(createRating.called, true);
+    assert.equal(submitRating.called, true);
 
-    const call = createRating.firstCall.args[0];
+    const call = submitRating.firstCall.args[0];
     assert.equal(call.versionId, 321);
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
     assert.equal(call.addonSlug, 'chill-out');
     assert.equal(call.userId, 92345);
     assert.equal(call.router, router);
+    assert.strictEqual(call.reviewId, undefined);
+  });
+
+  it('updates a rating with the review ID', () => {
+    const submitRating = sinon.stub();
+    const root = render({
+      submitRating,
+      apiState: { ...signedInApiState, token: 'new-token' },
+      version: { id: 321 },
+      addonId: 12345,
+      userId: 92345,
+      userReview: fakeReview,
+    });
+    selectRating(root, 5);
+    assert.equal(submitRating.called, true);
+
+    const call = submitRating.firstCall.args[0];
+    assert.equal(call.reviewId, fakeReview.id);
   });
 
   it('lets you submit a one star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
+    const submitRating = sinon.stub();
+    const root = render({ submitRating });
     selectRating(root, 1);
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 1);
+    assert.equal(submitRating.called, true);
+    assert.equal(submitRating.firstCall.args[0].rating, 1);
   });
 
   it('lets you submit a two star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
+    const submitRating = sinon.stub();
+    const root = render({ submitRating });
     selectRating(root, 2);
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 2);
+    assert.equal(submitRating.called, true);
+    assert.equal(submitRating.firstCall.args[0].rating, 2);
   });
 
   it('lets you submit a three star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
+    const submitRating = sinon.stub();
+    const root = render({ submitRating });
     selectRating(root, 3);
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 3);
+    assert.equal(submitRating.called, true);
+    assert.equal(submitRating.firstCall.args[0].rating, 3);
   });
 
   it('lets you submit a four star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
+    const submitRating = sinon.stub();
+    const root = render({ submitRating });
     selectRating(root, 4);
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 4);
+    assert.equal(submitRating.called, true);
+    assert.equal(submitRating.firstCall.args[0].rating, 4);
   });
 
   it('lets you submit a five star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
+    const submitRating = sinon.stub();
+    const root = render({ submitRating });
     selectRating(root, 5);
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 5);
+    assert.equal(submitRating.called, true);
+    assert.equal(submitRating.firstCall.args[0].rating, 5);
   });
 
   it('renders selected stars corresponding to a saved review', () => {
@@ -162,13 +180,6 @@ describe('OverallRating', () => {
     });
     [4, 5].forEach((rating) => {
       assert.equal(root.ratingButtons[rating].className, '');
-    });
-  });
-
-  it('renders all stars as disabled for existing reviews', () => {
-    const root = render({ userReview: fakeReview });
-    [1, 2, 3, 4, 5].forEach((rating) => {
-      assert.equal(root.ratingButtons[rating].disabled, true);
     });
   });
 
@@ -205,7 +216,7 @@ describe('OverallRating', () => {
       actions = mapDispatchToProps(dispatch);
     });
 
-    describe('createRating', () => {
+    describe('submitRating', () => {
       it('posts the rating and dispatches the created rating', () => {
         const router = { push: sinon.spy(() => {}) };
         const userId = 91234;
@@ -226,18 +237,19 @@ describe('OverallRating', () => {
           .withArgs(params)
           .returns(Promise.resolve(ratingResponse));
 
-        return actions.createRating({
+        return actions.submitRating({
           ...params, router, userId, addonId,
         })
           .then(() => {
             assert.equal(dispatch.called, true);
             const action = dispatch.firstCall.args[0];
-
-            assert.equal(action.type, SET_REVIEW);
-            assert.equal(action.data.addonId, addonId);
-            assert.equal(action.data.userId, userId);
-            assert.deepEqual(action.data.rating, ratingResponse.rating);
-            assert.deepEqual(action.data.versionId, ratingResponse.version.id);
+            assert.deepEqual(action, setReview({
+              id: ratingResponse.id,
+              addonId,
+              userId,
+              rating: ratingResponse.rating,
+              versionId: ratingResponse.version.id,
+            }));
 
             assert.equal(router.push.called, true);
             const { lang, clientApp } = signedInApiState;
@@ -274,6 +286,7 @@ describe('OverallRating', () => {
             mockApi.verify();
             assert.equal(dispatch.called, true);
             assert.deepEqual(dispatch.firstCall.args[0], setReview({
+              id: fakeReview.id,
               addonId: fakeReview.addon.id,
               rating: fakeReview.rating,
               versionId: fakeReview.version.id,
@@ -298,6 +311,7 @@ describe('OverallRating', () => {
           .then(() => {
             assert.equal(dispatch.called, true);
             assert.deepEqual(dispatch.firstCall.args[0], setReview({
+              id: fakeReview.id,
               addonId,
               rating: fakeReview.rating,
               versionId: fakeReview.version.id,
@@ -330,6 +344,7 @@ describe('OverallRating', () => {
           .then(() => {
             assert.equal(dispatch.called, true);
             assert.deepEqual(dispatch.firstCall.args[0], setReview({
+              id: fakeReview.id,
               addonId: fakeReview.addon.id,
               rating: fakeReview.rating,
               versionId,
@@ -433,19 +448,27 @@ describe('OverallRating', () => {
     });
 
     it('sets a user review when a matching review is in state', () => {
+      const id = 888;
       const userId = 99821;
-      const savedRating = 5;
+      const rating = 5;
+      const versionId = fakeAddon.current_version.id;
 
       signIn({ userId });
 
       store.dispatch(setReview({
+        id,
         userId,
+        versionId,
         addonId: fakeAddon.id,
-        versionId: fakeAddon.current_version.id,
-        rating: savedRating,
+        rating,
       }));
 
-      assert.equal(getMappedProps().userReview.rating, savedRating);
+      const userReview = getMappedProps().userReview;
+      assert.deepEqual(userReview, {
+        id,
+        versionId,
+        rating,
+      });
     });
 
     it('ignores reviews from other users', () => {

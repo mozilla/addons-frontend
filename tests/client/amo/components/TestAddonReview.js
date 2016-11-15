@@ -206,6 +206,7 @@ describe('AddonReview', () => {
           assert.equal(fakeDispatch.called, true);
           assert.deepEqual(fakeDispatch.firstCall.args[0],
                            setReview({
+                             id: reviewResponse.id,
                              addonId: reviewResponse.addon.id,
                              versionId: reviewResponse.version.id,
                              rating: reviewResponse.rating,

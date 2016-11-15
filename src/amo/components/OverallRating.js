@@ -17,10 +17,10 @@ export class OverallRatingBase extends React.Component {
     addonSlug: PropTypes.string.isRequired,
     addonId: PropTypes.number.isRequired,
     apiState: PropTypes.object,
-    createRating: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     loadSavedRating: PropTypes.func.isRequired,
     router: PropTypes.object.isRequired,
+    submitRating: PropTypes.func.isRequired,
     userId: PropTypes.number,
     userReview: PropTypes.object,
     version: PropTypes.object.isRequired,
@@ -40,7 +40,8 @@ export class OverallRatingBase extends React.Component {
     event.preventDefault();
     const button = event.currentTarget;
     log.debug('Selected rating from form button:', button.value);
-    this.props.createRating({
+    this.props.submitRating({
+      reviewId: this.props.userReview && this.props.userReview.id,
       rating: parseInt(button.value, 10),
       versionId: this.props.version.id,
       apiState: this.props.apiState,
@@ -54,10 +55,8 @@ export class OverallRatingBase extends React.Component {
   renderRatings() {
     const { userReview } = this.props;
     return [1, 2, 3, 4, 5].map((rating) => {
-      let disabled = false;
       let cls = '';
       if (userReview) {
-        disabled = true;
         // Render selected stars for the saved review.
         if (rating <= userReview.rating) {
           log.info(`Star ${rating} is selected`);
@@ -67,12 +66,13 @@ export class OverallRatingBase extends React.Component {
         // Make all stars selectable.
         cls = 'OverallRating-choice';
       }
-
-      return (<button
-        ref={(ref) => { this.ratingButtons[rating] = ref; }}
-        value={rating} onClick={this.onClickRating}
-        className={cls} id={`OverallRating-rating-${rating}`}
-        disabled={disabled} />);
+      return (
+        <button
+          ref={(ref) => { this.ratingButtons[rating] = ref; }}
+          value={rating} onClick={this.onClickRating}
+          className={cls} id={`OverallRating-rating-${rating}`}
+        />
+      );
     });
   }
 
@@ -148,6 +148,7 @@ export const mapDispatchToProps = (dispatch) => ({
           log.info(`Found a review for user ${userId}`, review);
 
           dispatch(setReview({
+            id: review.id,
             addonId: review.addon.id,
             rating: review.rating,
             versionId: review.version.id,
@@ -163,7 +164,7 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  createRating({ router, addonSlug, addonId, userId, ...params }) {
+  submitRating({ router, addonSlug, addonId, userId, ...params }) {
     return submitReview({ addonSlug, ...params })
       .then((review) => {
         const { lang, clientApp } = params.apiState;
@@ -171,6 +172,7 @@ export const mapDispatchToProps = (dispatch) => ({
         // could probably use that instead.
         // https://github.com/mozilla/addons-server/issues/3672
         dispatch(setReview({
+          id: review.id,
           addonId,
           rating: review.rating,
           versionId: review.version.id,
