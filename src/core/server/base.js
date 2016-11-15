@@ -60,8 +60,12 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   app.use(logRequests);
 
-  // Set HSTS, note: helmet uses ms not seconds.
-  app.use(helmet.hsts({ maxAge: 31536000000, force: true }));
+  // Set HTTP Strict Transport Security headers
+  app.use(helmet.hsts({
+    force: true,
+    includeSubDomains: false,
+    maxAge: 31536000, // seconds
+  }));
 
   // Sets X-Frame-Options
   app.use(helmet.frameguard(config.get('frameGuard')));
