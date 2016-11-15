@@ -73,9 +73,7 @@ describe('OverallRating', () => {
 
     assert.equal(loadSavedRating.called, true);
     const args = loadSavedRating.firstCall.args[0];
-    assert.equal(args.userId, userId);
-    assert.equal(args.addonId, addonId);
-    assert.equal(args.versionId, version.id);
+    assert.deepEqual(args, { userId, addonId, versionId: version.id });
   });
 
   it('does not load saved ratings when userId is empty', () => {
