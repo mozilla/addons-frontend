@@ -111,9 +111,8 @@ export const mapStateToProps = (state, ownProps) => {
   // Look for an already saved review by this user for this add-on/version.
   if (userId && state.reviews) {
     const allUserReviews = state.reviews[userId];
-    log.info(`Checking state for review by user ${userId},
-      addonId ${ownProps.addonId},
-      versionId ${ownProps.version.id}`);
+    log.info(dedent`Checking state for review by user ${userId},
+      addonId ${ownProps.addonId}, versionId ${ownProps.version.id}`);
 
     if (allUserReviews) {
       // TODO: adjust this when multiple reviews per version are stored
