@@ -1,5 +1,7 @@
 import * as addonManager from 'core/addonManager';
-import { installEventList } from 'core/constants';
+import {
+  installEventList,
+} from 'core/constants';
 import {
   globalEventStatusMap,
   SET_ENABLE_NOT_AVAILABLE,

@@ -1,5 +1,4 @@
 /* global window */
-
 import log from 'core/logger';
 import {
   globalEvents,
