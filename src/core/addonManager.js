@@ -22,7 +22,8 @@ export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonMan
 }
 
 export function install(_url, eventCallback, {
-  _mozAddonManager = window.navigator.mozAddonManager, src,
+  _mozAddonManager = window.navigator.mozAddonManager,
+    src,
 } = {}) {
   if (src === undefined) {
     return new Promise(() => {
