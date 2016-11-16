@@ -1,12 +1,10 @@
 /* global window */
 import log from 'core/logger';
 import {
+  installEventList,
   globalEvents,
   globalEventStatusMap,
   SET_ENABLE_NOT_AVAILABLE,
-} from 'disco/constants';
-import {
-  installEventList,
 } from 'core/constants';
 import { addQueryParams } from 'core/utils';
 
@@ -23,9 +21,15 @@ export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonMan
     });
 }
 
-export function install(_url, eventCallback,
-  { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
-  const url = addQueryParams(_url, { src: 'discovery-promo' });
+export function install(_url, eventCallback, {
+  _mozAddonManager = window.navigator.mozAddonManager, src,
+} = {}) {
+  if (src === undefined) {
+    return new Promise(() => {
+      throw new Error('No src for add-on install');
+    });
+  }
+  const url = addQueryParams(_url, { src });
 
   return _mozAddonManager.createInstall({ url })
     .then((installObj) => {

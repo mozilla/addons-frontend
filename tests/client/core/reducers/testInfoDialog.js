@@ -1,5 +1,5 @@
-import infoDialog from 'disco/reducers/infoDialog';
-import { SHOW_INFO, CLOSE_INFO } from 'disco/constants';
+import infoDialog from 'core/reducers/infoDialog';
+import { SHOW_INFO, CLOSE_INFO } from 'core/constants';
 
 describe('infoDialog reducer', () => {
   it('defaults to an empty object', () => {

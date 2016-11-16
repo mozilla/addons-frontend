@@ -1,11 +1,9 @@
 import * as addonManager from 'core/addonManager';
 import {
-  installEventList,
-} from 'core/constants';
-import {
   globalEventStatusMap,
+  installEventList,
   SET_ENABLE_NOT_AVAILABLE,
-} from 'disco/constants';
+} from 'core/constants';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
 
@@ -58,23 +56,23 @@ describe('addonManager', () => {
     it(
       'should call mozAddonManager.createInstall() with url',
       () => addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
         .then(() => {
           assert.ok(fakeMozAddonManager.createInstall.calledWith(
-            { url: `${fakeInstallUrl}?src=discovery-promo` }));
+            { url: `${fakeInstallUrl}?src=home` }));
         }));
 
     it(
       'should call installObj.addEventListener to setup events',
       () => addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
         .then(() => {
           // It registers an extra onInstallFailed and onInstallEnded listener.
           assert.equal(fakeInstallObj.addEventListener.callCount, installEventList.length + 2);
         }));
 
     it('should call installObj.install()', () => addonManager.install(
-      fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+      fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
       .then(() => {
         assert.ok(fakeInstallObj.install.called);
       }));
@@ -84,7 +82,7 @@ describe('addonManager', () => {
         this.onInstallFailedListener();
       });
       return addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
         .then(
           unexpectedSuccess,
           () => assert.ok(fakeInstallObj.install.called));
@@ -93,12 +91,20 @@ describe('addonManager', () => {
     it('passes the installObj, the event and the id to the callback', () => {
       const fakeEvent = { type: 'fakeEvent' };
       return addonManager.install(
-        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
         .then(() => {
           fakeInstallObj.onDownloadProgressListener(fakeEvent);
           assert.ok(fakeCallback.calledWith(fakeInstallObj, fakeEvent));
         });
     });
+
+    it('requires a src', () => (
+      addonManager.install(
+        fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
+          .then(
+            () => assert.ok(false, 'unexpected success'),
+            (e) => assert.equal(e.message, 'No src for add-on install'))
+    ));
   });
 
   describe('uninstall()', () => {

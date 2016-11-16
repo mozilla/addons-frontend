@@ -9,10 +9,11 @@ import { compose } from 'redux';
 
 import { sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
-import themeAction, { getThemeData } from 'disco/themePreview';
+import themeAction, { getThemeData } from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import InstallButton from 'core/components/InstallButton';
 import {
+  CLICK_CATEGORY,
   DISABLED,
   DOWNLOAD_FAILED,
   ERROR,
@@ -20,6 +21,7 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
+  INSTALL_CATEGORY,
   INSTALL_FAILED,
   THEME_INSTALL,
   THEME_PREVIEW,
@@ -30,10 +32,6 @@ import {
   validAddonTypes,
   validInstallStates,
 } from 'core/constants';
-import {
-  CLICK_CATEGORY,
-  INSTALL_CATEGORY,
-} from 'disco/constants';
 import { withInstallHelpers } from 'core/installAddon';
 
 import 'disco/css/Addon.scss';
@@ -246,6 +244,6 @@ export function mapStateToProps(state, ownProps, { _tracking = tracking } = {}) 
 
 export default compose(
   translate({ withRef: true }),
-  withInstallHelpers,
+  withInstallHelpers({ src: 'discovery-promo' }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
 )(AddonBase);

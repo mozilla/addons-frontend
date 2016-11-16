@@ -4,7 +4,7 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import ReactDOM, { findDOMNode } from 'react-dom';
 
-import InfoDialog from 'disco/components/InfoDialog';
+import InfoDialog from 'core/components/InfoDialog';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 

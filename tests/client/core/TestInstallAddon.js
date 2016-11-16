@@ -1,6 +1,7 @@
 import config from 'config';
 
 import {
+  CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
@@ -10,27 +11,47 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
+  INSTALL_CATEGORY,
   INSTALL_FAILED,
   INSTALL_STATE,
+  SET_ENABLE_NOT_AVAILABLE,
+  SHOW_INFO,
   START_DOWNLOAD,
   THEME_TYPE,
+  UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
 import {
-  CLOSE_INFO,
-  INSTALL_CATEGORY,
-  SET_ENABLE_NOT_AVAILABLE,
-  SHOW_INFO,
-  UNINSTALL_CATEGORY,
-} from 'disco/constants';
-import {
   getFakeAddonManagerWrapper, getFakeI18nInst,
 } from 'tests/client/helpers';
-import { makeProgressHandler, mapDispatchToProps } from 'core/installAddon';
+import * as installAddon from 'core/installAddon';
+
+const { makeProgressHandler, makeMapDispatchToProps, withInstallHelpers } = installAddon;
 
 
 describe('withInstallHelpers', () => {
+  it('connects mapDispatchToProps for the component', () => {
+    const _makeMapDispatchToProps = sinon.spy();
+    withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
+    assert.ok(_makeMapDispatchToProps.calledWith({ src: 'Howdy' }));
+  });
+
+  it('throws without a src', () => {
+    assert.throws(() => {
+      withInstallHelpers({})(() => {});
+    }, /src is required/);
+  });
+});
+
+describe('withInstallHelpers inner functions', () => {
+  const src = 'TestInstallAddon';
+  let mapDispatchToProps;
+
+  before(() => {
+    mapDispatchToProps = makeMapDispatchToProps({ src });
+  });
+
   describe('setCurrentStatus', () => {
     it('sets the status to ENABLED when an enabled add-on found', () => {
       const dispatch = sinon.spy();
@@ -210,6 +231,14 @@ describe('withInstallHelpers', () => {
         payload: { guid, error: INSTALL_FAILED },
       }));
     });
+
+    it('does nothing on unknown events', () => {
+      const dispatch = sinon.spy();
+      const guid = 'foo@addon';
+      const handler = makeProgressHandler(dispatch, guid);
+      handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
+      assert.notOk(dispatch.called);
+    });
   });
 
   describe('enable', () => {
@@ -282,7 +311,7 @@ describe('withInstallHelpers', () => {
         { _addonManager: fakeAddonManager, i18n, installURL });
       return install({ guid, installURL })
         .then(() => {
-          assert(fakeAddonManager.install.calledWith(installURL, sinon.match.func));
+          assert(fakeAddonManager.install.calledWith(installURL, sinon.match.func, { src }));
         });
     });
 

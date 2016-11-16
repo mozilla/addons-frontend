@@ -12,6 +12,7 @@ import {
   mapStateToProps,
 } from 'disco/components/Addon';
 import {
+  CLICK_CATEGORY,
   DISABLED,
   DOWNLOAD_FAILED,
   ERROR,
@@ -19,8 +20,9 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALLED,
+  INSTALL_CATEGORY,
   INSTALL_FAILED,
+  INSTALLED,
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
@@ -28,10 +30,6 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import {
-  CLICK_CATEGORY,
-  INSTALL_CATEGORY,
-} from 'disco/constants';
 import { getFakeI18nInst }
   from 'tests/client/helpers';
 

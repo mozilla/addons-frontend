@@ -4,6 +4,7 @@ import { findDOMNode } from 'react-dom';
 
 import { loadEntities } from 'core/actions';
 import {
+  globalEvents,
   EXTENSION_TYPE,
   INSTALL_STATE,
 } from 'core/constants';
@@ -13,7 +14,6 @@ import createStore from 'disco/store';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
-  globalEvents,
 } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
