@@ -153,6 +153,7 @@ export function loadAddonReview(
         versionId: review.version.id,
         rating: review.rating,
         userId: review.user.id,
+        isLatest: review.is_latest,
       }));
 
       const reviewData = {

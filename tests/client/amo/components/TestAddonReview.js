@@ -191,6 +191,7 @@ describe('AddonReview', () => {
         version: { id: 4321 },
         rating: 2,
         user: { id: 9876 },
+        is_latest: true,
       };
 
       mockApi
@@ -211,6 +212,7 @@ describe('AddonReview', () => {
                              versionId: reviewResponse.version.id,
                              rating: reviewResponse.rating,
                              userId: reviewResponse.user.id,
+                             isLatest: reviewResponse.is_latest,
                            }));
 
           assert.equal(returnedReview.addonSlug, fakeAddon.slug);

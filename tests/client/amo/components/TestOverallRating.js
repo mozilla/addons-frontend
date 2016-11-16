@@ -14,7 +14,7 @@ import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
 import {
-  createRatingResponse, fakeAddon, fakeReview, signedInApiState,
+  fakeAddon, fakeReview, signedInApiState,
 } from 'tests/client/amo/helpers';
 import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
@@ -221,9 +221,10 @@ describe('OverallRating', () => {
           versionId: 321,
         };
 
-        const ratingResponse = createRatingResponse({
+        const ratingResponse = {
+          ...fakeReview,
           rating: params.rating,
-        });
+        };
 
         mockApi
           .expects('submitReview')
@@ -242,6 +243,7 @@ describe('OverallRating', () => {
               userId,
               rating: ratingResponse.rating,
               versionId: ratingResponse.version.id,
+              isLatest: ratingResponse.is_latest,
             }));
 
             assert.equal(router.push.called, true);
@@ -286,6 +288,7 @@ describe('OverallRating', () => {
               addonId: fakeReview.addon.id,
               rating: fakeReview.rating,
               versionId: fakeReview.version.id,
+              isLatest: fakeReview.is_latest,
               userId,
             }));
           });
@@ -359,6 +362,7 @@ describe('OverallRating', () => {
       const id = 888;
       const userId = 99821;
       const rating = 5;
+      const isLatest = true;
       const versionId = fakeAddon.current_version.id;
 
       signIn({ userId });
@@ -369,6 +373,7 @@ describe('OverallRating', () => {
         versionId,
         addonId: fakeAddon.id,
         rating,
+        isLatest,
       }));
 
       const userReview = getMappedProps().userReview;
@@ -376,6 +381,7 @@ describe('OverallRating', () => {
         id,
         versionId,
         rating,
+        isLatest,
       });
     });
 
@@ -388,6 +394,7 @@ describe('OverallRating', () => {
 
       // Save a review for user two.
       store.dispatch(setReview({
+        isLatest: true,
         userId: userIdTwo,
         addonId: fakeAddon.id,
         versionId: fakeAddon.current_version.id,
@@ -404,6 +411,7 @@ describe('OverallRating', () => {
       signIn({ userId });
 
       store.dispatch(setReview({
+        isLatest: true,
         userId,
         addonId: 554433, // this is a review for an unrelated add-on
         versionId: fakeAddon.current_version.id,
@@ -413,23 +421,33 @@ describe('OverallRating', () => {
       assert.strictEqual(getMappedProps().userReview, undefined);
     });
 
-    it('ignores reviews for another add-on version', () => {
+    it('only finds the latest review for an add-on', () => {
       const userId = 99821;
-      const savedRating = 5;
+      const addonId = fakeAddon.id;
 
       signIn({ userId });
 
-      store.dispatch(setReview({
-        userId,
-        addonId: fakeAddon.id,
-        versionId: {
-          ...fakeAddon.current_version,
-          id: 44422, // this is a review for another version
-        },
-        rating: savedRating,
-      }));
+      const reviewBase = {
+        versionId: fakeAddon.current_version.id,
+        rating: 5,
+      };
 
-      assert.strictEqual(getMappedProps().userReview, undefined);
+      const oldReview = {
+        ...reviewBase,
+        id: 1,
+        isLatest: false,
+      };
+
+      const latestReview = {
+        ...reviewBase,
+        id: 2,
+        isLatest: true,
+      };
+
+      store.dispatch(setReview({ ...oldReview, addonId, userId }));
+      store.dispatch(setReview({ ...latestReview, addonId, userId }));
+
+      assert.deepEqual(getMappedProps().userReview, latestReview);
     });
   });
 });

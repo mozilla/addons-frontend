@@ -106,18 +106,18 @@ export const mapStateToProps = (state, ownProps) => {
     const allUserReviews = state.reviews[userId];
     log.info(dedent`Checking state for review by user ${userId},
       addonId ${ownProps.addonId}, versionId ${ownProps.version.id}`);
+    const addonReviews =
+      allUserReviews ? allUserReviews[ownProps.addonId] : null;
 
-    if (allUserReviews) {
-      // TODO: adjust this when multiple reviews per version are stored
-      // in state.
-      // See https://github.com/mozilla/addons-server/issues/3986
-      const addonReview = allUserReviews[ownProps.addonId];
-      if (addonReview && addonReview.versionId === ownProps.version.id) {
-        // We have found an existing review by this user for this
-        // add-on and version.
-        userReview = addonReview;
-        log.info('Re-rendering component with user review from state',
-                 userReview);
+    if (addonReviews) {
+      for (const reviewId of Object.keys(addonReviews)) {
+        const review = addonReviews[reviewId];
+        if (review.isLatest) {
+          userReview = review;
+          log.info('Found the latest review in state for this component',
+                   userReview);
+          break;
+        }
       }
     }
   }
@@ -140,6 +140,7 @@ export const mapDispatchToProps = (dispatch) => ({
             addonId: review.addon.id,
             rating: review.rating,
             versionId: review.version.id,
+            isLatest: review.is_latest,
             userId,
           }));
         } else {
@@ -161,6 +162,7 @@ export const mapDispatchToProps = (dispatch) => ({
           addonId,
           rating: review.rating,
           versionId: review.version.id,
+          isLatest: review.is_latest,
           userId,
         }));
         router.push(
