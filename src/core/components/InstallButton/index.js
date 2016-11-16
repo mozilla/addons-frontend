@@ -16,8 +16,7 @@ import {
   validInstallStates as validStates,
 } from 'core/constants';
 import { getThemeData } from 'disco/themePreview';
-
-import './InstallButton.scss';
+import Switch from 'ui/components/Switch';
 
 export class InstallButtonBase extends React.Component {
   static propTypes = {
@@ -71,6 +70,18 @@ export class InstallButtonBase extends React.Component {
     return i18n.sprintf(label, { name });
   }
 
+  getDownloadProgress() {
+    const { downloadProgress, status } = this.props;
+    if (status === DOWNLOADING) {
+      return downloadProgress;
+    } else if ([INSTALLING, ENABLING].includes(status)) {
+      return Infinity;
+    } else if (status === UNINSTALLING) {
+      return -Infinity;
+    }
+    return undefined;
+  }
+
   handleClick = (e) => {
     e.preventDefault();
     const {
@@ -88,7 +99,8 @@ export class InstallButtonBase extends React.Component {
   }
 
   render() {
-    const { downloadProgress, slug, status } = this.props;
+    const browsertheme = JSON.stringify(getThemeData(this.props));
+    const { handleChange, slug, status } = this.props;
 
     if (!validStates.includes(status)) {
       throw new Error('Invalid add-on status');
@@ -96,26 +108,16 @@ export class InstallButtonBase extends React.Component {
 
     const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(status);
     const isDisabled = status === UNKNOWN;
-    const isDownloading = status === DOWNLOADING;
-    const switchClasses = `switch ${status.toLowerCase()}`;
-    const identifier = `install-button-${slug}`;
+    const isSuccess = [ENABLED, INSTALLED].includes(status);
 
     return (
-      <div className={switchClasses} onClick={this.handleClick}
-        data-download-progress={isDownloading ? downloadProgress : 0}>
-        <input
-          id={identifier}
-          className="visually-hidden"
-          checked={isChecked}
-          disabled={isDisabled}
-          onChange={this.props.handleChange}
-          data-browsertheme={JSON.stringify(getThemeData(this.props))}
-          ref={(ref) => { this.themeData = ref; }}
-          type="checkbox" />
-        <label htmlFor={identifier}>
-          {isDownloading ? <div className="progress" /> : null}
-          <span className="visually-hidden">{this.getLabel()}</span>
-        </label>
+      <div data-browsertheme={browsertheme} ref={(el) => { this.themeData = el; }}>
+        <Switch
+          checked={isChecked} disabled={isDisabled} progress={this.getDownloadProgress()}
+          name={slug} success={isSuccess} label={this.getLabel()}
+          onChange={handleChange} onClick={this.handleClick}
+          ref={(el) => { this.switchEl = el; }}
+        />
       </div>
     );
   }
