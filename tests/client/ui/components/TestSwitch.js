@@ -14,8 +14,7 @@ describe('<Switch />', () => {
       ...props,
     };
 
-    return renderIntoDocument(
-      <Switch {...renderProps} />);
+    return renderIntoDocument(<Switch {...renderProps} />);
   }
 
   it('is off when not checked or disabled', () => {
