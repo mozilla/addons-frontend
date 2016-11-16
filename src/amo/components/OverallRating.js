@@ -149,7 +149,7 @@ export const mapDispatchToProps = (dispatch) => ({
           }));
         } else if (relevantReviews.length > 1) {
           throw new Error(
-            `Unexpectedly received more than one review for
+            dedent`Unexpectedly received more than one review for
             user ${userId}, addonId ${addonId}, versionId ${versionId}`);
         } else {
           log.info('No reviews found for', { addonId, versionId, userId });
