@@ -55,19 +55,18 @@ export class OverallRatingBase extends React.Component {
 
   renderRatings() {
     const { userReview } = this.props;
-    return [1, 2, 3, 4, 5].map((rating) => {
-      const cls = classNames('OverallRating-choice', {
-        'OverallRating-selected-star':
-          userReview && rating <= userReview.rating,
-      });
-      return (
-        <button
-          ref={(ref) => { this.ratingButtons[rating] = ref; }}
-          value={rating} onClick={this.onClickRating}
-          className={cls} id={`OverallRating-rating-${rating}`}
-        />
-      );
-    });
+    return [1, 2, 3, 4, 5].map((rating) =>
+      <button
+        className={classNames('OverallRating-choice', {
+          'OverallRating-selected-star':
+            userReview && rating <= userReview.rating,
+        })}
+        ref={(ref) => { this.ratingButtons[rating] = ref; }}
+        value={rating}
+        onClick={this.onClickRating}
+        id={`OverallRating-rating-${rating}`}
+      />
+    );
   }
 
   render() {
