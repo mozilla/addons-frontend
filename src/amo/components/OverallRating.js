@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
+import classNames from 'classnames';
 
 import { setReview } from 'amo/actions/reviews';
 import { getUserReviews, submitReview } from 'amo/api';
@@ -55,17 +56,10 @@ export class OverallRatingBase extends React.Component {
   renderRatings() {
     const { userReview } = this.props;
     return [1, 2, 3, 4, 5].map((rating) => {
-      let cls = '';
-      if (userReview) {
-        // Render selected stars for the saved review.
-        if (rating <= userReview.rating) {
-          log.info(`Star ${rating} is selected`);
-          cls = 'OverallRating-selected-star';
-        }
-      } else {
-        // Make all stars selectable.
-        cls = 'OverallRating-choice';
-      }
+      const cls = classNames('OverallRating-choice', {
+        'OverallRating-selected-star':
+          userReview && rating <= userReview.rating,
+      });
       return (
         <button
           ref={(ref) => { this.ratingButtons[rating] = ref; }}

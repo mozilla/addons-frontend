@@ -176,10 +176,11 @@ describe('OverallRating', () => {
     // Make sure only the first 3 stars are selected.
     [1, 2, 3].forEach((rating) => {
       assert.equal(root.ratingButtons[rating].className,
-                   'OverallRating-selected-star');
+                   'OverallRating-choice OverallRating-selected-star');
     });
     [4, 5].forEach((rating) => {
-      assert.equal(root.ratingButtons[rating].className, '');
+      assert.equal(root.ratingButtons[rating].className,
+                   'OverallRating-choice');
     });
   });
 
