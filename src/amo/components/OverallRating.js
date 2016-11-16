@@ -29,11 +29,11 @@ export class OverallRatingBase extends React.Component {
 
   constructor(props) {
     super(props);
-    const { loadSavedRating, userId, addonId, version } = props;
+    const { loadSavedRating, userId, addonId } = props;
     this.ratingButtons = {};
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedRating({ userId, addonId, versionId: version.id });
+      loadSavedRating({ userId, addonId });
     }
   }
 
@@ -131,15 +131,10 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch) => ({
 
-  loadSavedRating({ addonId, versionId, userId }) {
-    return getUserReviews({ userId })
-      .then((response) => {
-        const relevantReviews = response.results.filter(
-          (review) => review.addon.id === addonId && review.version.id === versionId);
-        if (relevantReviews.length === 1) {
-          const review = relevantReviews[0];
-          log.info(`Found a review for user ${userId}`, review);
-
+  loadSavedRating({ userId, addonId }) {
+    return getUserReviews({ userId, addonId, onlyTheLatest: true })
+      .then((review) => {
+        if (review) {
           dispatch(setReview({
             id: review.id,
             addonId: review.addon.id,
@@ -147,12 +142,9 @@ export const mapDispatchToProps = (dispatch) => ({
             versionId: review.version.id,
             userId,
           }));
-        } else if (relevantReviews.length > 1) {
-          throw new Error(
-            dedent`Unexpectedly received more than one review for
-            user ${userId}, addonId ${addonId}, versionId ${versionId}`);
         } else {
-          log.info('No reviews found for', { addonId, versionId, userId });
+          log.info(
+            `No saved review found for userId ${userId}, addonId ${addonId}`);
         }
       });
   },

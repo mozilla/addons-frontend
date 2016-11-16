@@ -1,6 +1,6 @@
 import { getUserReviews, submitReview } from 'amo/api';
 import * as api from 'core/api';
-import { signedInApiState } from 'tests/client/amo/helpers';
+import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 
 describe('amo.api', () => {
   let mockApi;
@@ -125,7 +125,8 @@ describe('amo.api', () => {
   describe('getUserReviews', () => {
     it('gets all user reviews', () => {
       const userId = 8877;
-      const response = { reviews: [] };
+      const reviewList = [fakeReview];
+      const response = { results: reviewList };
       mockApi
         .expects('callApi')
         .withArgs({
@@ -134,9 +135,9 @@ describe('amo.api', () => {
         .returns(Promise.resolve(response));
 
       return getUserReviews({ userId })
-        .then((actualResponse) => {
+        .then((reviews) => {
           mockApi.verify();
-          assert.deepEqual(actualResponse, response);
+          assert.deepEqual(reviews, reviewList);
         });
     });
 
@@ -149,6 +150,75 @@ describe('amo.api', () => {
         .catch((error) => {
           assert.equal(error.message, 'userId cannot be falsey');
           mockApi.verify();
+        });
+    });
+
+    it('does not support paging yet', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({
+          results: [],
+          next: '/reviews/next-page/',
+        }));
+
+      return getUserReviews({ userId: 123 })
+        .then(() => {
+          throw new Error('unexpected success');
+        })
+        .catch((error) => {
+          assert.match(error.message, /not yet implemented/);
+        });
+    });
+
+    it('allows you to fetch reviews for a specific add-on', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({
+          results: [
+            fakeReview,
+            // This review should be ignored.
+            { ...fakeReview, addon: { ...fakeReview.addon, id: 33998 } },
+          ],
+        }));
+
+      return getUserReviews({ userId: 123, addonId: fakeReview.addon.id })
+        .then((reviews) => {
+          assert.deepEqual(reviews, [fakeReview]);
+        });
+    });
+
+    it('allows you to fetch only the latest review', () => {
+      const latestReview = { ...fakeReview, is_latest: true };
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({
+          results: [
+            fakeReview,
+            latestReview,
+          ],
+        }));
+
+      return getUserReviews({
+        userId: 123,
+        addonId: fakeReview.addon.id,
+        onlyTheLatest: true,
+      })
+        .then((review) => {
+          assert.deepEqual(review, latestReview);
+        });
+    });
+
+    it('returns latest review as null when there are no reviews at all', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({ results: [] }));
+
+      return getUserReviews({
+        userId: 123,
+        onlyTheLatest: true,
+      })
+        .then((review) => {
+          assert.strictEqual(review, null);
         });
     });
   });

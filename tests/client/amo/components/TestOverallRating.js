@@ -14,17 +14,9 @@ import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
 import {
-  createRatingResponse, fakeAddon, signedInApiState,
+  createRatingResponse, fakeAddon, fakeReview, signedInApiState,
 } from 'tests/client/amo/helpers';
 import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
-
-const fakeReview = {
-  id: 8876,
-  addon: fakeAddon,
-  rating: 3,
-  version: fakeAddon.current_version,
-  userId: 1234,
-};
 
 function render({ ...customProps } = {}) {
   const props = {
@@ -73,7 +65,7 @@ describe('OverallRating', () => {
 
     assert.equal(loadSavedRating.called, true);
     const args = loadSavedRating.firstCall.args[0];
-    assert.deepEqual(args, { userId, addonId, versionId: version.id });
+    assert.deepEqual(args, { userId, addonId });
   });
 
   it('does not load saved ratings when userId is empty', () => {
@@ -268,18 +260,21 @@ describe('OverallRating', () => {
       function loadSavedRating({
         userId = 123,
         addonId = fakeAddon.id,
-        versionId = fakeAddon.current_version.id,
       } = {}) {
-        return actions.loadSavedRating({ userId, addonId, versionId });
+        return actions.loadSavedRating({ userId, addonId });
       }
 
       it('finds and dispatches a review', () => {
         const userId = 77664;
-        const response = { results: [{ ...fakeReview, userId }] };
+        const response = { ...fakeReview, userId };
 
         mockApi
           .expects('getUserReviews')
-          .withArgs({ userId })
+          .withArgs({
+            userId,
+            addonId: fakeReview.addon.id,
+            onlyTheLatest: true,
+          })
           .returns(Promise.resolve(response));
 
         return loadSavedRating({ userId })
@@ -296,99 +291,11 @@ describe('OverallRating', () => {
           });
       });
 
-      it('only dispatches reviews for the right add-on', () => {
-        const userId = 77664;
-        const addonId = 8765;
-        const response = {
-          results: [
-            // The first one should be ignored.
-            { ...fakeReview, userId, addon: { ...fakeAddon, id: 123 } },
-            { ...fakeReview, userId, addon: { ...fakeAddon, id: addonId } },
-          ],
-        };
-        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
-
-        return loadSavedRating({ userId, addonId })
-          .then(() => {
-            assert.equal(dispatch.called, true);
-            assert.deepEqual(dispatch.firstCall.args[0], setReview({
-              id: fakeReview.id,
-              addonId,
-              rating: fakeReview.rating,
-              versionId: fakeReview.version.id,
-              userId,
-            }));
-          });
-      });
-
-      it('only dispatches reviews for the right version', () => {
-        const userId = 77664;
-        const versionId = 6672;
-        const response = {
-          results: [
-            // The first one should be ignored.
-            {
-              ...fakeReview,
-              userId,
-              version: { ...fakeAddon.current_version, id: 123 },
-            },
-            {
-              ...fakeReview,
-              userId,
-              version: { ...fakeAddon.current_version, id: versionId },
-            },
-          ],
-        };
-        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
-
-        return loadSavedRating({ userId, versionId })
-          .then(() => {
-            assert.equal(dispatch.called, true);
-            assert.deepEqual(dispatch.firstCall.args[0], setReview({
-              id: fakeReview.id,
-              addonId: fakeReview.addon.id,
-              rating: fakeReview.rating,
-              versionId,
-              userId,
-            }));
-          });
-      });
-
-      it('expects to only find one matching review', () => {
-        const response = { results: [fakeReview, fakeReview] };
-        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
-
-        return loadSavedRating()
-          .then(() => {
-            throw new Error('unexpected success');
-          })
-          .catch((error) => {
-            assert.match(error.message, /received more than one review/);
-          });
-      });
-
       it('does nothing when there are not any matching reviews', () => {
         const addonId = 8765;
-        const response = {
-          results: [
-            // All of these have the wrong IDs:
-            { ...fakeReview, addon: { ...fakeAddon, id: 123 } },
-            { ...fakeReview, addon: { ...fakeAddon, id: 321 } },
-          ],
-        };
-        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
+        mockApi.expects('getUserReviews').returns(Promise.resolve(null));
 
         return loadSavedRating({ addonId })
-          .then(() => {
-            assert.equal(dispatch.called, false);
-          });
-      });
-
-      it('does nothing when the API returns no reviews at all', () => {
-        const response = { results: [] };
-        mockApi.expects('getUserReviews').returns(Promise.resolve(response));
-
-        return loadSavedRating()
           .then(() => {
             assert.equal(dispatch.called, false);
           });

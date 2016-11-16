@@ -11,6 +11,15 @@ export const fakeAddon = {
   description: 'This is a longer description of the chill out add-on',
 };
 
+export const fakeReview = {
+  id: 8876,
+  addon: fakeAddon,
+  rating: 3,
+  version: fakeAddon.current_version,
+  userId: 1234,
+  is_latest: false,
+};
+
 /*
  * Return a realistic API response to any call that creates an add-on rating.
  */
