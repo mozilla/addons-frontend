@@ -1,4 +1,3 @@
-/* global document, CustomEvent */
 /* eslint-disable react/no-danger */
 
 import classNames from 'classnames';
@@ -6,29 +5,24 @@ import { sprintf } from 'jed';
 import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
-import config from 'config';
+import { compose } from 'redux';
 
 import { sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
-import themeAction, { getThemeData } from 'disco/themePreview';
+import themeAction, { getThemeData } from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
-import * as addonManager from 'disco/addonManager';
-import log from 'core/logger';
 import InstallButton from 'core/components/InstallButton';
 import {
+  CLICK_CATEGORY,
   DISABLED,
   DOWNLOAD_FAILED,
-  DOWNLOAD_PROGRESS,
-  ENABLED,
   ERROR,
   EXTENSION_TYPE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_ERROR,
+  INSTALL_CATEGORY,
   INSTALL_FAILED,
-  INSTALL_STATE,
-  START_DOWNLOAD,
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
@@ -38,14 +32,7 @@ import {
   validAddonTypes,
   validInstallStates,
 } from 'core/constants';
-import {
-  CLICK_CATEGORY,
-  CLOSE_INFO,
-  INSTALL_CATEGORY,
-  SET_ENABLE_NOT_AVAILABLE,
-  SHOW_INFO,
-  UNINSTALL_CATEGORY,
-} from 'disco/constants';
+import { withInstallHelpers } from 'core/installAddon';
 
 import 'disco/css/Addon.scss';
 
@@ -58,7 +45,6 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
-    installURL: PropTypes.string,
     needsRestart: PropTypes.bool.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
@@ -77,12 +63,7 @@ export class AddonBase extends React.Component {
   }
 
   componentDidMount() {
-    this.setCurrentStatus();
-  }
-
-  setCurrentStatus() {
-    const { guid, installURL, setCurrentStatus } = this.props;
-    setCurrentStatus({ guid, installURL });
+    this.props.setCurrentStatus();
   }
 
   getBrowserThemeData() {
@@ -175,7 +156,7 @@ export class AddonBase extends React.Component {
 
   closeError = (e) => {
     e.preventDefault();
-    this.setCurrentStatus();
+    this.props.setCurrentStatus();
   }
 
   clickHeadingLink = (e) => {
@@ -261,156 +242,8 @@ export function mapStateToProps(state, ownProps, { _tracking = tracking } = {}) 
   };
 }
 
-export function makeProgressHandler(dispatch, guid) {
-  return (addonInstall, e) => {
-    if (addonInstall.state === 'STATE_DOWNLOADING') {
-      const downloadProgress = parseInt(
-        (100 * addonInstall.progress) / addonInstall.maxProgress, 10);
-      dispatch({ type: DOWNLOAD_PROGRESS, payload: { guid, downloadProgress } });
-    } else if (e.type === 'onDownloadFailed') {
-      dispatch({ type: INSTALL_ERROR, payload: { guid, error: DOWNLOAD_FAILED } });
-    } else if (e.type === 'onInstallFailed') {
-      dispatch({ type: INSTALL_ERROR, payload: { guid, error: INSTALL_FAILED } });
-    }
-  };
-}
-
-export function mapDispatchToProps(dispatch, { _tracking = tracking,
-                                               _addonManager = addonManager,
-                                               _config = config,
-                                               _dispatchEvent,
-                                               ...ownProps } = {}) {
-  if (config.get('server')) {
-    return {};
-  }
-
-  // Set the default here otherwise server code will blow up.
-  // eslint-disable-next-line no-param-reassign
-  _dispatchEvent = _dispatchEvent || document.dispatchEvent;
-
-  function showInfo({ name, iconUrl, i18n }) {
-    if (_config.has('useUiTour') && _config.get('useUiTour')) {
-      _dispatchEvent(new CustomEvent('mozUITour', {
-        bubbles: true,
-        detail: {
-          action: 'showInfo',
-          data: {
-            target: 'appMenu',
-            icon: iconUrl,
-            title: i18n.gettext('Your add-on is ready'),
-            text: i18n.sprintf(
-              i18n.gettext('Now you can access %(name)s from the toolbar.'),
-              { name }),
-            buttons: [{ label: i18n.gettext('OK!'), callbackID: 'add-on-installed' }],
-          },
-        },
-      }));
-    } else {
-      dispatch({
-        type: SHOW_INFO,
-        payload: {
-          addonName: name,
-          imageURL: iconUrl,
-          closeAction: () => {
-            dispatch({ type: CLOSE_INFO });
-          },
-        },
-      });
-    }
-  }
-
-  return {
-    setCurrentStatus({ guid, installURL }) {
-      const payload = { guid, url: installURL };
-      return _addonManager.getAddon(guid)
-        .then(
-          (addon) => {
-            const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { ...payload, status },
-            });
-          },
-          () => {
-            log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { ...payload, status: UNINSTALLED },
-            });
-          }
-        )
-        .catch((err) => {
-          log.error(err);
-          // Dispatch a generic error should the success/error functions throw.
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { guid, status: ERROR, error: FATAL_ERROR },
-          });
-        });
-    },
-
-    enable({ _showInfo = showInfo } = {}) {
-      const { guid, name, iconUrl, i18n } = ownProps;
-      return _addonManager.enable(guid)
-        .then(() => {
-          _showInfo({ name, iconUrl, i18n });
-        })
-        .catch((err) => {
-          if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
-            log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
-          } else {
-            log.error(err);
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { guid, status: ERROR, error: FATAL_ERROR },
-            });
-          }
-        });
-    },
-
-    install() {
-      const { guid, i18n, iconUrl, installURL, name } = ownProps;
-      dispatch({ type: START_DOWNLOAD, payload: { guid } });
-      return _addonManager.install(installURL, makeProgressHandler(dispatch, guid))
-        .then(() => {
-          _tracking.sendEvent({
-            action: 'addon',
-            category: INSTALL_CATEGORY,
-            label: name,
-          });
-          showInfo({ name, iconUrl, i18n });
-        })
-        .catch((err) => {
-          log.error(err);
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { guid, status: ERROR, error: FATAL_INSTALL_ERROR },
-          });
-        });
-    },
-
-    uninstall({ guid, name, type }) {
-      dispatch({ type: INSTALL_STATE, payload: { guid, status: UNINSTALLING } });
-      const action = getAction(type);
-      return _addonManager.uninstall(guid)
-        .then(() => {
-          _tracking.sendEvent({
-            action,
-            category: UNINSTALL_CATEGORY,
-            label: name,
-          });
-        })
-        .catch((err) => {
-          log.error(err);
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },
-          });
-        });
-    },
-  };
-}
-
-export default translate({ withRef: true })(connect(
-  mapStateToProps, mapDispatchToProps, undefined, { withRef: true }
-)(AddonBase));
+export default compose(
+  translate({ withRef: true }),
+  withInstallHelpers({ src: 'discovery-promo' }),
+  connect(mapStateToProps, undefined, undefined, { withRef: true }),
+)(AddonBase);

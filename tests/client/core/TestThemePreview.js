@@ -1,4 +1,4 @@
-import themeAction from 'disco/themePreview';
+import themeAction from 'core/themePreview';
 import { THEME_PREVIEW } from 'core/constants';
 
 

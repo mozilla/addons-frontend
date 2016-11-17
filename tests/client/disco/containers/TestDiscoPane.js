@@ -4,6 +4,7 @@ import { findDOMNode } from 'react-dom';
 
 import { loadEntities } from 'core/actions';
 import {
+  GLOBAL_EVENTS,
   EXTENSION_TYPE,
   INSTALL_STATE,
 } from 'core/constants';
@@ -13,7 +14,6 @@ import createStore from 'disco/store';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
-  globalEvents,
 } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import { getFakeI18nInst, MockedSubComponent } from 'tests/client/helpers';
@@ -171,7 +171,7 @@ describe('AddonPage', () => {
         addEventListener: sinon.stub(),
       };
       render({ mozAddonManager: fakeMozAddonManager });
-      assert.equal(fakeMozAddonManager.addEventListener.callCount, globalEvents.length);
+      assert.equal(fakeMozAddonManager.addEventListener.callCount, GLOBAL_EVENTS.length);
     });
   });
 

@@ -1,4 +1,4 @@
-import { CLOSE_INFO, SHOW_INFO } from 'disco/constants';
+import { CLOSE_INFO, SHOW_INFO } from 'core/constants';
 
 export default function infoDialog(state = {}, { type, payload }) {
   switch (type) {

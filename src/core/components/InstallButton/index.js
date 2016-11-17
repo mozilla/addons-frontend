@@ -15,7 +15,7 @@ import {
   validAddonTypes,
   validInstallStates as validStates,
 } from 'core/constants';
-import { getThemeData } from 'disco/themePreview';
+import { getThemeData } from 'core/themePreview';
 import Switch from 'ui/components/Switch';
 
 export class InstallButtonBase extends React.Component {

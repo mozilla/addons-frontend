@@ -57,6 +57,10 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SET_JWT = 'SET_JWT';
 export const SET_LANG = 'SET_LANG';
 
+// InfoDialog action types.
+export const CLOSE_INFO = 'CLOSE_INFO';
+export const SHOW_INFO = 'SHOW_INFO';
+
 // Theme preview actions.
 export const THEME_INSTALL = 'InstallBrowserTheme';
 export const THEME_PREVIEW = 'PreviewBrowserTheme';
@@ -67,7 +71,7 @@ export const validThemeActions = [
   THEME_RESET_PREVIEW,
 ];
 
-export const installEventList = [
+export const INSTALL_EVENT_LIST = [
   'onDownloadStarted',
   'onDownloadProgress',
   'onDownloadEnded',
@@ -96,3 +100,28 @@ export const acceptedInstallTypes = [
   UNINSTALL_COMPLETE,
   INSTALL_ERROR,
 ];
+
+// Tracking categories.
+export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
+export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
+export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
+
+// Error used to know that the setEnable method on addon is
+// not available.
+export const SET_ENABLE_NOT_AVAILABLE = 'SET_ENABLE_NOT_AVAILABLE';
+
+// Add-on statuses for mozAddonManager events.
+export const GLOBAL_EVENT_STATUS_MAP = {
+  onDisabled: DISABLED,
+  onEnabled: ENABLED,
+  onInstalling: INSTALLING,
+  onInstalled: INSTALLED,
+  onUninstalling: UNINSTALLING,
+  onUninstalled: UNINSTALLED,
+  onEnabling: ENABLING,
+  onDisabling: DISABLING,
+};
+
+// The events here are set directly on mozAddonManager
+// they will be fired by addons and themes.
+export const GLOBAL_EVENTS = Object.keys(GLOBAL_EVENT_STATUS_MAP);

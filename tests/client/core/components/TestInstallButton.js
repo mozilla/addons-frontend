@@ -18,7 +18,7 @@ import {
   UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import * as themePreview from 'disco/themePreview';
+import * as themePreview from 'core/themePreview';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 

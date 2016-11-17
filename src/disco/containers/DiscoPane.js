@@ -9,8 +9,9 @@ import { camelCaseProps } from 'core/utils';
 import { loadEntities } from 'core/actions';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
+import InfoDialog from 'core/components/InfoDialog';
 import { INSTALL_STATE } from 'core/constants';
-import { addChangeListeners } from 'disco/addonManager';
+import { addChangeListeners } from 'core/addonManager';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
@@ -18,7 +19,6 @@ import {
 import { getDiscoveryAddons } from 'disco/api';
 import { discoResults } from 'disco/actions';
 import Addon from 'disco/components/Addon';
-import InfoDialog from 'disco/components/InfoDialog';
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';

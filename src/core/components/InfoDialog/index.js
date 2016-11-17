@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import onClickOutside from 'react-onclickoutside';
 
 import translate from 'core/i18n/translate';
-import 'disco/css/InfoDialog.scss';
+import './InfoDialog.scss';
 
 export class InfoDialogBase extends React.Component {
   static propTypes = {
