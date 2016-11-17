@@ -101,24 +101,20 @@ export const mapStateToProps = (state, ownProps) => {
   const userId = state.auth && state.auth.userId;
   let userReview;
 
-  // Look for an already saved review by this user for this add-on/version.
+  // Look for the latest saved review by this user for this add-on.
   if (userId && state.reviews) {
-    const allUserReviews = state.reviews[userId];
     log.info(dedent`Checking state for review by user ${userId},
       addonId ${ownProps.addonId}, versionId ${ownProps.version.id}`);
-    const addonReviews =
-      allUserReviews ? allUserReviews[ownProps.addonId] : null;
 
-    if (addonReviews) {
-      for (const reviewId of Object.keys(addonReviews)) {
-        const review = addonReviews[reviewId];
-        if (review.isLatest) {
-          userReview = review;
-          log.info('Found the latest review in state for this component',
-                   userReview);
-          break;
-        }
-      }
+    const allUserReviews = state.reviews[userId] || {};
+    const addonReviews = allUserReviews[ownProps.addonId] || {};
+    const latestId = Object.keys(addonReviews).find(
+      (reviewId) => addonReviews[reviewId].isLatest);
+
+    if (latestId) {
+      userReview = addonReviews[latestId];
+      log.info('Found the latest review in state for this component',
+               userReview);
     }
   }
 
