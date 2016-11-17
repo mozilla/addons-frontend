@@ -95,22 +95,19 @@ export function makeMapDispatchToProps({ src }) {
         const { guid, installURL } = ownProps;
         const payload = { guid, url: installURL };
         return _addonManager.getAddon(guid)
-        .then(
-          (addon) => {
-            const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { ...payload, status },
-            });
-          },
-          () => {
-            log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { ...payload, status: UNINSTALLED },
-            });
-          }
-        )
+        .then((addon) => {
+          const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
+          dispatch({
+            type: INSTALL_STATE,
+            payload: { ...payload, status },
+          });
+        }, () => {
+          log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
+          dispatch({
+            type: INSTALL_STATE,
+            payload: { ...payload, status: UNINSTALLED },
+          });
+        })
         .catch((err) => {
           log.error(err);
           // Dispatch a generic error should the success/error functions throw.
