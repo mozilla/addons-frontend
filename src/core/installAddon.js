@@ -121,61 +121,61 @@ export function makeMapDispatchToProps({ src }) {
       enable({ _showInfo = showInfo } = {}) {
         const { guid, i18n, iconUrl, name } = ownProps;
         return _addonManager.enable(guid)
-        .then(() => {
-          _showInfo({ name, iconUrl, i18n });
-        })
-        .catch((err) => {
-          if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
-            log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
-          } else {
-            log.error(err);
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { guid, status: ERROR, error: FATAL_ERROR },
-            });
-          }
-        });
+          .then(() => {
+            _showInfo({ name, iconUrl, i18n });
+          })
+          .catch((err) => {
+            if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
+              log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
+            } else {
+              log.error(err);
+              dispatch({
+                type: INSTALL_STATE,
+                payload: { guid, status: ERROR, error: FATAL_ERROR },
+              });
+            }
+          });
       },
 
       install() {
         const { guid, i18n, iconUrl, installURL, name } = ownProps;
         dispatch({ type: START_DOWNLOAD, payload: { guid } });
         return _addonManager.install(installURL, makeProgressHandler(dispatch, guid), { src })
-        .then(() => {
-          _tracking.sendEvent({
-            action: 'addon',
-            category: INSTALL_CATEGORY,
-            label: name,
+          .then(() => {
+            _tracking.sendEvent({
+              action: 'addon',
+              category: INSTALL_CATEGORY,
+              label: name,
+            });
+            showInfo({ name, iconUrl, i18n });
+          })
+          .catch((err) => {
+            log.error(err);
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { guid, status: ERROR, error: FATAL_INSTALL_ERROR },
+            });
           });
-          showInfo({ name, iconUrl, i18n });
-        })
-        .catch((err) => {
-          log.error(err);
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { guid, status: ERROR, error: FATAL_INSTALL_ERROR },
-          });
-        });
       },
 
       uninstall({ guid, name, type }) {
         dispatch({ type: INSTALL_STATE, payload: { guid, status: UNINSTALLING } });
         const action = getAction(type);
         return _addonManager.uninstall(guid)
-        .then(() => {
-          _tracking.sendEvent({
-            action,
-            category: UNINSTALL_CATEGORY,
-            label: name,
+          .then(() => {
+            _tracking.sendEvent({
+              action,
+              category: UNINSTALL_CATEGORY,
+              label: name,
+            });
+          })
+          .catch((err) => {
+            log.error(err);
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },
+            });
           });
-        })
-        .catch((err) => {
-          log.error(err);
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },
-          });
-        });
       },
     };
   };
