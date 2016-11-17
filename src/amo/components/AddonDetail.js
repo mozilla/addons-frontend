@@ -1,16 +1,17 @@
 /* eslint-disable react/no-danger */
 import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import InstallButton from 'core/components/InstallButton';
 import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
-import translate from 'core/i18n/translate';
-import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
-
+import { withInstallHelpers } from 'core/installAddon';
+import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
+import translate from 'core/i18n/translate';
 
 export const allowedDescriptionTags = [
   'a',
@@ -28,15 +29,20 @@ export const allowedDescriptionTags = [
   'ul',
 ];
 
-class AddonDetail extends React.Component {
+export class AddonDetailBase extends React.Component {
   static propTypes = {
     OverallRating: PropTypes.element,
     addon: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
+    setCurrentStatus: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     OverallRating: DefaultOverallRating,
+  }
+
+  componentDidMount() {
+    this.props.setCurrentStatus();
   }
 
   render() {
@@ -65,7 +71,7 @@ class AddonDetail extends React.Component {
           </div>
           <div className="title">
             <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])} />
-            <InstallButton slug={addon.slug} />
+            <InstallButton {...this.props} />
           </div>
           <div className="description">
             <p dangerouslySetInnerHTML={sanitizeHTML(addon.summary)} />
@@ -110,4 +116,7 @@ class AddonDetail extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(AddonDetail);
+export default compose(
+  translate({ withRef: true }),
+  withInstallHelpers({ src: 'dp-btn-primary' }),
+)(AddonDetailBase);

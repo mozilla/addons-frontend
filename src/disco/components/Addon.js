@@ -21,9 +21,7 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_CATEGORY,
   INSTALL_FAILED,
-  THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
   THEME_TYPE,
@@ -229,16 +227,12 @@ export class AddonBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps, { _tracking = tracking } = {}) {
+export function mapStateToProps(state, ownProps) {
   const installation = state.installations[ownProps.guid] || {};
   const addon = state.addons[ownProps.guid] || {};
   return {
     ...installation,
     ...addon,
-    installTheme(node, guid, name, _themeAction = themeAction) {
-      _themeAction(node, THEME_INSTALL);
-      _tracking.sendEvent({ action: 'theme', category: INSTALL_CATEGORY, label: name });
-    },
   };
 }
 

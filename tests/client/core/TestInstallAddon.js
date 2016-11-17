@@ -17,6 +17,7 @@ import {
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
+  THEME_INSTALL,
   THEME_TYPE,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
@@ -27,7 +28,9 @@ import {
 } from 'tests/client/helpers';
 import * as installAddon from 'core/installAddon';
 
-const { makeProgressHandler, makeMapDispatchToProps, withInstallHelpers } = installAddon;
+const {
+  makeProgressHandler, makeMapDispatchToProps, mapStateToProps, withInstallHelpers,
+} = installAddon;
 
 
 describe('withInstallHelpers', () => {
@@ -559,6 +562,37 @@ describe('withInstallHelpers inner functions', () => {
       assert.doesNotThrow(() => {
         makeMapDispatchToProps({})(sinon.spy(), { type: THEME_TYPE });
       });
+    });
+  });
+
+  describe('installTheme', () => {
+    it('installs the theme', () => {
+      const name = 'hai-theme';
+      const guid = '{install-theme}';
+      const node = sinon.stub();
+      const spyThemeAction = sinon.spy();
+      const props = mapStateToProps({ installations: {}, addons: {} }, {});
+      props.installTheme(node, guid, name, spyThemeAction);
+      assert(spyThemeAction.calledWith(node, THEME_INSTALL));
+    });
+
+    it('tracks a theme install', () => {
+      const name = 'hai-theme';
+      const guid = '{install-theme}';
+      const node = sinon.stub();
+      const spyThemeAction = sinon.spy();
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { installTheme } = mapStateToProps({ installations: {}, addons: {} }, {}, {
+        _tracking: fakeTracking,
+      });
+      installTheme(node, guid, name, spyThemeAction);
+      assert(fakeTracking.sendEvent.calledWith({
+        action: 'theme',
+        category: INSTALL_CATEGORY,
+        label: 'hai-theme',
+      }));
     });
   });
 });
