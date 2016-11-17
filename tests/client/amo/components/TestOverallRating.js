@@ -28,7 +28,7 @@ function render({ ...customProps } = {}) {
     i18n: getFakeI18nInst(),
     userId: 91234,
     submitReview: () => {},
-    loadSavedRating: () => {},
+    loadSavedReview: () => {},
     router: {},
     ...customProps,
   };
@@ -59,21 +59,21 @@ describe('OverallRating', () => {
       ...fakeAddon.current_version,
       id: 9966,
     };
-    const loadSavedRating = sinon.spy();
+    const loadSavedReview = sinon.spy();
 
-    render({ userId, addonId, version, loadSavedRating });
+    render({ userId, addonId, version, loadSavedReview });
 
-    assert.equal(loadSavedRating.called, true);
-    const args = loadSavedRating.firstCall.args[0];
+    assert.equal(loadSavedReview.called, true);
+    const args = loadSavedReview.firstCall.args[0];
     assert.deepEqual(args, { userId, addonId });
   });
 
   it('does not load saved ratings when userId is empty', () => {
     const userId = null;
-    const loadSavedRating = sinon.spy();
+    const loadSavedReview = sinon.spy();
 
-    render({ userId, loadSavedRating });
-    assert.equal(loadSavedRating.called, false);
+    render({ userId, loadSavedReview });
+    assert.equal(loadSavedReview.called, false);
   });
 
   it('creates a rating with add-on and version info', () => {
@@ -242,24 +242,16 @@ describe('OverallRating', () => {
       });
     });
 
-    describe('loadSavedRating', () => {
-      function loadSavedRating({
-        userId = 123,
-        addonId = fakeAddon.id,
-      } = {}) {
-        return actions.loadSavedRating({ userId, addonId });
-      }
-
+    describe('loadSavedReview', () => {
       it('finds and dispatches a review', () => {
+        const userId = fakeReview.user.id;
+        const addonId = fakeReview.addon.id;
         mockApi
           .expects('getLatestUserReview')
-          .withArgs({
-            userId: fakeReview.user.id,
-            addonId: fakeReview.addon.id,
-          })
+          .withArgs({ userId, addonId })
           .returns(Promise.resolve(fakeReview));
 
-        return loadSavedRating({ userId: fakeReview.user.id })
+        return actions.loadSavedReview({ userId, addonId })
           .then(() => {
             mockApi.verify();
             assert.equal(dispatch.called, true);
@@ -271,7 +263,7 @@ describe('OverallRating', () => {
         const addonId = 8765;
         mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
 
-        return loadSavedRating({ addonId })
+        return actions.loadSavedReview({ userId: 123, addonId })
           .then(() => {
             assert.equal(dispatch.called, false);
           });

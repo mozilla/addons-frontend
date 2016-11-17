@@ -19,7 +19,7 @@ export class OverallRatingBase extends React.Component {
     addonId: PropTypes.number.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
-    loadSavedRating: PropTypes.func.isRequired,
+    loadSavedReview: PropTypes.func.isRequired,
     router: PropTypes.object.isRequired,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
@@ -29,11 +29,11 @@ export class OverallRatingBase extends React.Component {
 
   constructor(props) {
     super(props);
-    const { loadSavedRating, userId, addonId } = props;
+    const { loadSavedReview, userId, addonId } = props;
     this.ratingButtons = {};
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedRating({ userId, addonId });
+      loadSavedReview({ userId, addonId });
     }
   }
 
@@ -127,7 +127,7 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch) => ({
 
-  loadSavedRating({ userId, addonId }) {
+  loadSavedReview({ userId, addonId }) {
     return getLatestUserReview({ userId, addonId })
       .then((review) => {
         if (review) {
