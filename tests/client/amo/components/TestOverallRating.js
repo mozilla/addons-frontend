@@ -332,27 +332,17 @@ describe('OverallRating', () => {
       assert.strictEqual(getMappedProps().userReview, undefined);
     });
 
-    it('sets a user review when a matching review is in state', () => {
-      const id = 888;
-      const userId = 99821;
-      const rating = 5;
+    it('sets a user review to the latest matching one in state', () => {
       const isLatest = true;
+      signIn({ userId: fakeReview.user.id });
 
-      signIn({ userId });
-
-      store.dispatch(setReview(fakeReview, {
-        id,
-        userId,
-        addonId: fakeAddon.id,
-        rating,
-        isLatest,
-      }));
+      store.dispatch(setReview(fakeReview, { isLatest }));
 
       const userReview = getMappedProps().userReview;
       assert.deepEqual(userReview, {
-        id,
+        id: fakeReview.id,
         versionId: fakeReview.version.id,
-        rating,
+        rating: fakeReview.rating,
         isLatest,
       });
     });
@@ -375,16 +365,11 @@ describe('OverallRating', () => {
     });
 
     it('ignores reviews for another add-on', () => {
-      const userId = 99821;
-      const savedRating = 5;
-
-      signIn({ userId });
+      signIn({ userId: fakeReview.user.id });
 
       store.dispatch(setReview(fakeReview, {
         isLatest: true,
-        userId,
         addonId: 554433, // this is a review for an unrelated add-on
-        rating: savedRating,
       }));
 
       assert.strictEqual(getMappedProps().userReview, undefined);

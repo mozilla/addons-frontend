@@ -1,56 +1,44 @@
-import {
-  setReview as defaultReviewSetter,
-} from 'amo/actions/reviews';
+import { setReview } from 'amo/actions/reviews';
 import reviews, { initialState } from 'amo/reducers/reviews';
 import { fakeReview } from 'tests/client/amo/helpers';
 
 describe('amo.reducers.reviews', () => {
-  function setReview(overrides) {
-    return defaultReviewSetter(fakeReview, overrides);
-  }
-
   it('defaults to an empty object', () => {
     assert.deepEqual(reviews(undefined, { type: 'SOME_OTHER_ACTION' }),
                      initialState);
   });
 
-  it('adds a user reviews map', () => {
-    const id = 96644;
-    const addonId = 5321;
-    const userId = 91234;
-    const versionId = 12345;
-    const isLatest = true;
-    const action = setReview({
-      id,
-      addonId,
-      userId,
-      rating: 5,
-      versionId,
-      isLatest,
-    });
+  it('stores a user review', () => {
+    const action = setReview(fakeReview);
     const state = reviews(undefined, action);
-    assert.deepEqual(state[userId][addonId][id],
-                     { id, rating: 5, versionId, isLatest });
+    const storedReview =
+      state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
+    assert.deepEqual(storedReview, {
+      id: fakeReview.id,
+      rating: fakeReview.rating,
+      versionId: fakeReview.version.id,
+      isLatest: fakeReview.is_latest,
+    });
   });
 
   it('preserves existing user rating data', () => {
     let state;
 
-    state = reviews(state, setReview({
+    state = reviews(state, setReview(fakeReview, {
       id: 1,
       userId: 1,
       addonId: 1,
       rating: 1,
     }));
 
-    state = reviews(state, setReview({
+    state = reviews(state, setReview(fakeReview, {
       id: 2,
       userId: 1,
       addonId: 2,
       rating: 5,
     }));
 
-    state = reviews(state, setReview({
+    state = reviews(state, setReview(fakeReview, {
       id: 3,
       userId: 2,
       addonId: 2,
@@ -65,28 +53,20 @@ describe('amo.reducers.reviews', () => {
 
   it('preserves existing add-on reviews', () => {
     let state;
-    const userId = 1;
-    const addonId = 1;
-    const reviewBase = {
-      userId,
-      addonId,
-      rating: 1,
-    };
+    const userId = fakeReview.user.id;
+    const addonId = fakeReview.addon.id;
 
-    state = reviews(state, setReview({
-      ...reviewBase,
+    state = reviews(state, setReview(fakeReview, {
       id: 1,
       versionId: 1,
     }));
 
-    state = reviews(state, setReview({
-      ...reviewBase,
+    state = reviews(state, setReview(fakeReview, {
       id: 2,
       versionId: 2,
     }));
 
-    state = reviews(state, setReview({
-      ...reviewBase,
+    state = reviews(state, setReview(fakeReview, {
       id: 3,
       versionId: 3,
     }));
@@ -99,7 +79,7 @@ describe('amo.reducers.reviews', () => {
 
   it('preserves unrelated state', () => {
     let state = { ...initialState, somethingUnrelated: 'erp' };
-    state = reviews(state, setReview());
+    state = reviews(state, setReview(fakeReview));
     assert.equal(state.somethingUnrelated, 'erp');
   });
 });
