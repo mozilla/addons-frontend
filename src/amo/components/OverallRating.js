@@ -41,16 +41,26 @@ export class OverallRatingBase extends React.Component {
     event.preventDefault();
     const button = event.currentTarget;
     log.debug('Selected rating from form button:', button.value);
-    this.props.submitReview({
-      reviewId: this.props.userReview && this.props.userReview.id,
+    const { userReview, userId, version } = this.props;
+
+    const params = {
       rating: parseInt(button.value, 10),
-      versionId: this.props.version.id,
       apiState: this.props.apiState,
       addonId: this.props.addonId,
       addonSlug: this.props.addonSlug,
-      userId: this.props.userId,
       router: this.props.router,
-    });
+      versionId: version.id,
+      userId,
+    };
+
+    if (userReview && userReview.versionId === params.versionId) {
+      log.info(
+        `Updating reviewId ${userReview.id} for versionId ${params.versionId}`);
+      params.reviewId = userReview.id;
+    } else {
+      log.info(`Submitting a new review for versionId ${params.versionId}`);
+    }
+    this.props.submitReview(params);
   }
 
   renderRatings() {

@@ -105,17 +105,52 @@ describe('OverallRating', () => {
     const root = render({
       submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
-      version: { id: 321 },
+      version: { id: fakeReview.version.id },
       addonId: 12345,
       userId: 92345,
-      userReview: fakeReview,
+      userReview: setReview(fakeReview).data,
     });
     selectRating(root, 5);
-    assert.equal(submitReview.called, true);
+    assert.ok(submitReview.called);
 
     const call = submitReview.firstCall.args[0];
     assert.ok(call.reviewId);
     assert.equal(call.reviewId, fakeReview.id);
+    assert.equal(call.versionId, fakeReview.version.id);
+  });
+
+  it('does not update an existing review if its version does not match', () => {
+    const submitReview = sinon.stub();
+
+    // Set up a situation where the user is viewing a new version
+    // but their latest saved review is for an older version.
+    const oldVersionId = 1;
+    const newReview = {
+      ...fakeReview,
+      version: {
+        ...fakeReview.version,
+        id: 2,
+      },
+    };
+
+    const root = render({
+      submitReview,
+      apiState: { ...signedInApiState, token: 'new-token' },
+      version: { id: oldVersionId },
+      addonId: newReview.addon.id,
+      userId: 92345,
+      userReview: setReview(newReview).data,
+    });
+    selectRating(root, newReview.rating);
+    assert.ok(submitReview.called);
+
+    // Make sure the review is submitted in a way where it will be
+    // newly created against the current version.
+    const call = submitReview.firstCall.args[0];
+    assert.equal(call.reviewId, undefined);
+    assert.equal(call.versionId, oldVersionId);
+    assert.equal(call.rating, newReview.rating);
+    assert.equal(call.addonId, newReview.addon.id);
   });
 
   it('lets you submit a one star rating', () => {
@@ -160,10 +195,9 @@ describe('OverallRating', () => {
 
   it('renders selected stars corresponding to a saved review', () => {
     const root = render({
-      userReview: {
-        ...fakeReview,
+      userReview: setReview(fakeReview, {
         rating: 3,
-      },
+      }).data,
     });
 
     // Make sure only the first 3 stars are selected.
