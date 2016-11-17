@@ -95,4 +95,31 @@ describe('App', () => {
     assert.equal(_window.location, 'https://a.m.org/login');
     assert.ok(startLoginUrlStub.calledWith({ location }));
   });
+
+  it('removes the mamo cookie', () => {
+    const fakeEvent = {
+      preventDefault: sinon.stub(),
+    };
+    const fakeWindow = {
+      location: {
+        reload: sinon.stub(),
+      },
+    };
+    const fakeCookieLib = {
+      remove: sinon.stub(),
+    };
+    const i18n = getFakeI18nInst();
+    const location = sinon.stub();
+    const root = renderIntoDocument(
+      <AppBase FooterComponent={FakeFooterComponent}
+        MastHeadComponent={FakeMastHeadComponent}
+        SearchFormComponent={FakeSearchFormComponent}
+        i18n={i18n}
+        location={location} />
+    );
+    root.onViewDesktop(fakeEvent, { window_: fakeWindow, cookie_: fakeCookieLib });
+    assert.ok(fakeEvent.preventDefault.called);
+    assert.ok(fakeCookieLib.remove.calledWith('mamo'));
+    assert.ok(fakeWindow.location.reload.called);
+  });
 });
