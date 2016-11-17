@@ -13,7 +13,7 @@ import {
   mapStateToProps, AddonReviewBase,
   loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
-import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
+import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 const defaultReview = {
@@ -178,43 +178,29 @@ describe('AddonReview', () => {
 
     it('requires URL params',
       () => loadAddonReview({ params: {} })
-        .then(() => assert(false, 'unexpected success'))
-        .catch((error) => {
+        .then(() => assert(false, 'unexpected success'), (error) => {
           assert.match(error.message, /missing URL params/);
         })
     );
 
     it('loads a review', () => {
-      const reviewResponse = {
-        id: 7776,
-        addon: { id: 1234 },
-        version: { id: 4321 },
-        rating: 2,
-        user: { id: 9876 },
-      };
-
       mockApi
         .expects('callApi')
         .withArgs({
           endpoint: `addons/addon/${fakeAddon.slug}/reviews/${defaultReview.id}`,
           method: 'GET',
         })
-        .returns(Promise.resolve(reviewResponse));
+        .returns(Promise.resolve(fakeReview));
 
       return loadAddonReview()
         .then((returnedReview) => {
           assert.equal(fakeDispatch.called, true);
           assert.deepEqual(fakeDispatch.firstCall.args[0],
-                           setReview({
-                             addonId: reviewResponse.addon.id,
-                             versionId: reviewResponse.version.id,
-                             rating: reviewResponse.rating,
-                             userId: reviewResponse.user.id,
-                           }));
+                           setReview(fakeReview));
 
           assert.equal(returnedReview.addonSlug, fakeAddon.slug);
-          assert.equal(returnedReview.rating, reviewResponse.rating);
-          assert.equal(returnedReview.id, reviewResponse.id);
+          assert.equal(returnedReview.rating, fakeReview.rating);
+          assert.equal(returnedReview.id, fakeReview.id);
 
           mockApi.verify();
         });

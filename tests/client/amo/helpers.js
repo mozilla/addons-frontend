@@ -11,23 +11,18 @@ export const fakeAddon = {
   description: 'This is a longer description of the chill out add-on',
 };
 
-/*
- * Return a realistic API response to any call that creates an add-on rating.
- */
-export function createRatingResponse(customProps = {}) {
-  return {
-    id: 123,
-    user: { name: 'the_username' },
-    rating: 5,
-    version: {
-      id: 54371,
-      version: '1.0.1',
-    },
-    body: null,
-    title: null,
-    ...customProps,
-  };
-}
+export const fakeReview = {
+  id: 8876,
+  addon: fakeAddon,
+  rating: 3,
+  version: fakeAddon.current_version,
+  user: {
+    id: 1234,
+  },
+  is_latest: false,
+  body: null,
+  title: null,
+};
 
 /*
  * Redux store state for when a user has signed in.

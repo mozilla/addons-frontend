@@ -1,20 +1,22 @@
 import React from 'react';
-import { findDOMNode } from 'react-dom';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
   Simulate,
 } from 'react-addons-test-utils';
 
+import translate from 'core/i18n/translate';
+import { setJWT } from 'core/actions';
 import * as amoApi from 'amo/api';
+import createStore from 'amo/store';
+import { setReview } from 'amo/actions/reviews';
 import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
 } from 'amo/components/OverallRating';
-import { SET_REVIEW } from 'amo/constants';
 import {
-  createRatingResponse, fakeAddon, signedInApiState,
+  fakeAddon, fakeReview, signedInApiState,
 } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 function render({ ...customProps } = {}) {
   const props = {
@@ -25,91 +27,197 @@ function render({ ...customProps } = {}) {
     version: fakeAddon.current_version,
     i18n: getFakeI18nInst(),
     userId: 91234,
-    createRating: () => {},
+    submitReview: () => {},
+    loadSavedReview: () => {},
     router: {},
     ...customProps,
   };
+  const OverallRating = translate({ withRef: true })(OverallRatingBase);
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <OverallRatingBase {...props} />
-  ), OverallRatingBase);
+    <OverallRating {...props} />
+  ), OverallRating);
 
-  return findDOMNode(root);
+  return root.getWrappedInstance();
 }
 
 describe('OverallRating', () => {
-  function selectRating(root, selector) {
-    const button = root.querySelector(selector);
-    assert.ok(button, `No button returned for selector: ${selector}`);
+  function selectRating(root, ratingNumber) {
+    const button = root.ratingButtons[ratingNumber];
+    assert.ok(button, `No button returned for rating: ${ratingNumber}`);
     Simulate.click(button);
   }
 
   it('prompts you to rate the add-on by name', () => {
-    const rootNode = render({ addonName: 'Some Add-on' });
-    assert.include(rootNode.querySelector('legend').textContent,
-                   'Some Add-on');
+    const root = render({ addonName: 'Some Add-on' });
+    assert.include(root.ratingLegend.textContent, 'Some Add-on');
+  });
+
+  it('loads saved ratings on construction', () => {
+    const userId = 12889;
+    const addonId = 3344;
+    const version = {
+      ...fakeAddon.current_version,
+      id: 9966,
+    };
+    const loadSavedReview = sinon.spy();
+
+    render({ userId, addonId, version, loadSavedReview });
+
+    assert.equal(loadSavedReview.called, true);
+    const args = loadSavedReview.firstCall.args[0];
+    assert.deepEqual(args, { userId, addonId });
+  });
+
+  it('does not load saved ratings when userId is empty', () => {
+    const userId = null;
+    const loadSavedReview = sinon.spy();
+
+    render({ userId, loadSavedReview });
+    assert.equal(loadSavedReview.called, false);
   });
 
   it('creates a rating with add-on and version info', () => {
     const router = {};
-    const createRating = sinon.stub();
+    const submitReview = sinon.stub();
     const root = render({
-      createRating,
+      submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addonId: 12345,
       userId: 92345,
       router,
     });
-    selectRating(root, '#OverallRating-rating-5');
-    assert.equal(createRating.called, true);
+    selectRating(root, 5);
+    assert.equal(submitReview.called, true);
 
-    const call = createRating.firstCall.args[0];
+    const call = submitReview.firstCall.args[0];
     assert.equal(call.versionId, 321);
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
     assert.equal(call.addonSlug, 'chill-out');
     assert.equal(call.userId, 92345);
     assert.equal(call.router, router);
+    assert.strictEqual(call.reviewId, undefined);
+  });
+
+  it('updates a rating with the review ID', () => {
+    const submitReview = sinon.stub();
+    const root = render({
+      submitReview,
+      apiState: { ...signedInApiState, token: 'new-token' },
+      version: { id: fakeReview.version.id },
+      addonId: 12345,
+      userId: 92345,
+      userReview: setReview(fakeReview).data,
+    });
+    selectRating(root, 5);
+    assert.ok(submitReview.called);
+
+    const call = submitReview.firstCall.args[0];
+    assert.ok(call.reviewId);
+    assert.equal(call.reviewId, fakeReview.id);
+    assert.equal(call.versionId, fakeReview.version.id);
+  });
+
+  it('does not update an existing review if its version does not match', () => {
+    const submitReview = sinon.stub();
+
+    // Set up a situation where the user is viewing a new version
+    // but their latest saved review is for an older version.
+    const oldVersionId = 1;
+    const newReview = {
+      ...fakeReview,
+      version: {
+        ...fakeReview.version,
+        id: 2,
+      },
+    };
+
+    const root = render({
+      submitReview,
+      apiState: { ...signedInApiState, token: 'new-token' },
+      version: { id: oldVersionId },
+      addonId: newReview.addon.id,
+      userId: 92345,
+      userReview: setReview(newReview).data,
+    });
+    selectRating(root, newReview.rating);
+    assert.ok(submitReview.called);
+
+    // Make sure the review is submitted in a way where it will be
+    // newly created against the current version.
+    const call = submitReview.firstCall.args[0];
+    assert.equal(call.reviewId, undefined);
+    assert.equal(call.versionId, oldVersionId);
+    assert.equal(call.rating, newReview.rating);
+    assert.equal(call.addonId, newReview.addon.id);
   });
 
   it('lets you submit a one star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
-    selectRating(root, '#OverallRating-rating-1');
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 1);
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
+    selectRating(root, 1);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 1);
   });
 
   it('lets you submit a two star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
-    selectRating(root, '#OverallRating-rating-2');
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 2);
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
+    selectRating(root, 2);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 2);
   });
 
   it('lets you submit a three star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
-    selectRating(root, '#OverallRating-rating-3');
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 3);
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
+    selectRating(root, 3);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 3);
   });
 
   it('lets you submit a four star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
-    selectRating(root, '#OverallRating-rating-4');
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 4);
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
+    selectRating(root, 4);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 4);
   });
 
   it('lets you submit a five star rating', () => {
-    const createRating = sinon.stub();
-    const root = render({ createRating });
-    selectRating(root, '#OverallRating-rating-5');
-    assert.equal(createRating.called, true);
-    assert.equal(createRating.firstCall.args[0].rating, 5);
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
+    selectRating(root, 5);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 5);
+  });
+
+  it('renders selected stars corresponding to a saved review', () => {
+    const root = render({
+      userReview: setReview(fakeReview, {
+        rating: 3,
+      }).data,
+    });
+
+    // Make sure only the first 3 stars are selected.
+    [1, 2, 3].forEach((rating) => {
+      assert.equal(root.ratingButtons[rating].className,
+                   'OverallRating-choice OverallRating-selected-star');
+    });
+    [4, 5].forEach((rating) => {
+      assert.equal(root.ratingButtons[rating].className,
+                   'OverallRating-choice');
+    });
+  });
+
+  it('renders all stars as selectable by default', () => {
+    const root = render();
+    [1, 2, 3, 4, 5].forEach((rating) => {
+      const button = root.ratingButtons[rating];
+      assert.equal(button.className, 'OverallRating-choice');
+      assert.equal(button.disabled, false);
+    });
   });
 
   it('prevents form submission when selecting a rating', () => {
@@ -119,60 +227,47 @@ describe('OverallRating', () => {
       preventDefault: sinon.stub(),
       currentTarget: {},
     };
-    const button = root.querySelector('#OverallRating-rating-5');
+    const button = root.ratingButtons[4];
     Simulate.click(button, fakeEvent);
 
     assert.equal(fakeEvent.preventDefault.called, true);
   });
 
   describe('mapDispatchToProps', () => {
-    describe('createRating', () => {
-      let mockApi;
-      let dispatch;
-      let actions;
+    let mockApi;
+    let dispatch;
+    let actions;
 
-      beforeEach(() => {
-        mockApi = sinon.mock(amoApi);
-        dispatch = sinon.stub();
-        actions = mapDispatchToProps(dispatch);
-      });
+    beforeEach(() => {
+      mockApi = sinon.mock(amoApi);
+      dispatch = sinon.stub();
+      actions = mapDispatchToProps(dispatch);
+    });
 
-      it('posts the rating and dispatches the created rating', () => {
+    describe('submitReview', () => {
+      it('posts the reviw and dispatches the created review', () => {
         const router = { push: sinon.spy(() => {}) };
-        const userId = 91234;
-        const addonId = 123455;
         const params = {
-          rating: 5,
+          rating: fakeReview.rating,
           apiState: { ...signedInApiState, token: 'new-token' },
-          addonSlug: 'chill-out',
-          versionId: 321,
+          addonSlug: fakeAddon.slug,
+          versionId: fakeReview.version.id,
         };
-
-        const ratingResponse = createRatingResponse({
-          rating: params.rating,
-        });
 
         mockApi
           .expects('submitReview')
           .withArgs(params)
-          .returns(Promise.resolve(ratingResponse));
+          .returns(Promise.resolve({ ...fakeReview, ...params }));
 
-        return actions.createRating({
-          ...params, router, userId, addonId,
-        })
+        return actions.submitReview({ ...params, router })
           .then(() => {
             assert.equal(dispatch.called, true);
             const action = dispatch.firstCall.args[0];
-
-            assert.equal(action.type, SET_REVIEW);
-            assert.equal(action.data.addonId, addonId);
-            assert.equal(action.data.userId, userId);
-            assert.deepEqual(action.data.rating, ratingResponse.rating);
-            assert.deepEqual(action.data.versionId, ratingResponse.version.id);
+            assert.deepEqual(action, setReview(fakeReview));
 
             assert.equal(router.push.called, true);
             const { lang, clientApp } = signedInApiState;
-            const reviewId = ratingResponse.id;
+            const reviewId = fakeReview.id;
             assert.equal(
               router.push.firstCall.args[0],
               `/${lang}/${clientApp}/addon/${params.addonSlug}/review/${reviewId}/`);
@@ -182,31 +277,154 @@ describe('OverallRating', () => {
       });
     });
 
-    describe('mapStateToProps', () => {
-      it('sets the apiState property from the state', () => {
-        const apiState = { ...signedInApiState, token: 'new-token' };
-        const props = mapStateToProps({ api: apiState });
-        assert.deepEqual(props.apiState, apiState);
+    describe('loadSavedReview', () => {
+      it('finds and dispatches a review', () => {
+        const userId = fakeReview.user.id;
+        const addonId = fakeReview.addon.id;
+        mockApi
+          .expects('getLatestUserReview')
+          .withArgs({ userId, addonId })
+          .returns(Promise.resolve(fakeReview));
+
+        return actions.loadSavedReview({ userId, addonId })
+          .then(() => {
+            mockApi.verify();
+            assert.equal(dispatch.called, true);
+            assert.deepEqual(dispatch.firstCall.args[0], setReview(fakeReview));
+          });
       });
 
-      it('sets an empty apiState when not signed in', () => {
-        const props = mapStateToProps({});
-        assert.equal(props.apiState, undefined);
-      });
+      it('does nothing when there are not any matching reviews', () => {
+        const addonId = 8765;
+        mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
 
-      it('sets an empty userId when not signed in', () => {
-        const props = mapStateToProps({});
-        assert.equal(props.userId, undefined);
+        return actions.loadSavedReview({ userId: 123, addonId })
+          .then(() => {
+            assert.equal(dispatch.called, false);
+          });
       });
+    });
+  });
 
-      it('sets the userId property from the state', () => {
-        const authState = {
-          token: signedInApiState.token,
-          userId: 91234,
-        };
-        const props = mapStateToProps({ auth: authState });
-        assert.equal(props.userId, 91234);
+  describe('mapStateToProps', () => {
+    let store;
+
+    beforeEach(() => {
+      store = createStore();
+    });
+
+    function getMappedProps({
+      state = store.getState(),
+      componentProps = {
+        addonId: fakeAddon.id,
+        version: fakeAddon.current_version,
+      },
+    } = {}) {
+      return mapStateToProps(state, componentProps);
+    }
+
+    function signIn({ userId = 98765 } = {}) {
+      store.dispatch(setJWT(userAuthToken({
+        user_id: userId,
+      })));
+    }
+
+    it('copies api state to props', () => {
+      signIn();
+
+      const state = store.getState();
+      assert(state.api.token, 'a valid token exists in state');
+
+      const props = getMappedProps();
+      assert.deepEqual(props.apiState, state.api);
+    });
+
+    it('sets an empty apiState when not signed in', () => {
+      assert.deepEqual(getMappedProps().apiState, {});
+    });
+
+    it('sets an empty userId when not signed in', () => {
+      assert.equal(getMappedProps().userId, undefined);
+    });
+
+    it('sets the userId property from the state', () => {
+      const userId = 91234;
+      signIn({ userId });
+      assert.equal(getMappedProps().userId, userId);
+    });
+
+    it('sets an empty user review when no reviews are in state', () => {
+      signIn();
+      assert.strictEqual(getMappedProps().userReview, undefined);
+    });
+
+    it('sets a user review to the latest matching one in state', () => {
+      const isLatest = true;
+      signIn({ userId: fakeReview.user.id });
+
+      store.dispatch(setReview(fakeReview, { isLatest }));
+
+      const userReview = getMappedProps().userReview;
+      assert.deepEqual(userReview, {
+        id: fakeReview.id,
+        versionId: fakeReview.version.id,
+        rating: fakeReview.rating,
+        isLatest,
       });
+    });
+
+    it('ignores reviews from other users', () => {
+      const userIdOne = 1;
+      const userIdTwo = 2;
+      const savedRating = 5;
+
+      signIn({ userId: userIdOne });
+
+      // Save a review for user two.
+      store.dispatch(setReview(fakeReview, {
+        isLatest: true,
+        userId: userIdTwo,
+        rating: savedRating,
+      }));
+
+      assert.strictEqual(getMappedProps().userReview, undefined);
+    });
+
+    it('ignores reviews for another add-on', () => {
+      signIn({ userId: fakeReview.user.id });
+
+      store.dispatch(setReview(fakeReview, {
+        isLatest: true,
+        addonId: 554433, // this is a review for an unrelated add-on
+      }));
+
+      assert.strictEqual(getMappedProps().userReview, undefined);
+    });
+
+    it('only finds the latest review for an add-on', () => {
+      signIn({ userId: fakeReview.user.id });
+
+      const reviewBase = {
+        versionId: fakeReview.version.id,
+        rating: 5,
+      };
+
+      const oldReview = {
+        ...reviewBase,
+        id: 1,
+        isLatest: false,
+      };
+
+      const latestReview = {
+        ...reviewBase,
+        id: 2,
+        isLatest: true,
+      };
+
+      store.dispatch(setReview(fakeReview, oldReview));
+      store.dispatch(setReview(fakeReview, latestReview));
+
+      assert.deepEqual(getMappedProps().userReview, latestReview);
     });
   });
 });

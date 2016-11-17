@@ -1,6 +1,6 @@
-import { submitReview } from 'amo/api';
+import { getLatestUserReview, getUserReviews, submitReview } from 'amo/api';
 import * as api from 'core/api';
-import { signedInApiState } from 'tests/client/amo/helpers';
+import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 
 describe('amo.api', () => {
   let mockApi;
@@ -31,10 +31,7 @@ describe('amo.api', () => {
       };
 
       return submitReview(params)
-        .then(() => {
-          throw new Error('unexpected success');
-        })
-        .catch((error) => {
+        .then(() => assert(false, 'unexpected success'), (error) => {
           assert.match(error.message, /addonSlug is required/);
         });
     });
@@ -91,6 +88,129 @@ describe('amo.api', () => {
         assert.deepEqual(apiResponse, genericApiResponse);
         mockApi.verify();
       });
+    });
+
+    it('does not patch the version for existing reviews', () => {
+      const params = {
+        ...baseParams,
+        reviewId: 987,
+        body: 'some new body',
+        versionId: 99876,
+        addonSlug: 'chill-out',
+      };
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          endpoint: `addons/addon/${params.addonSlug}/reviews/${params.reviewId}`,
+          body: {
+            // Make sure that version is not passed in.
+            ...defaultParams, body: params.body, version: undefined,
+          },
+          method: 'PATCH',
+          auth: true,
+          state: params.apiState,
+        })
+        .returns(Promise.resolve(genericApiResponse));
+
+      return submitReview(params).then(() => {
+        mockApi.verify();
+      });
+    });
+  });
+
+  describe('getUserReviews', () => {
+    it('gets all user reviews', () => {
+      const userId = 8877;
+      const reviewList = [fakeReview];
+      const response = { results: reviewList };
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          endpoint: `accounts/account/${userId}/reviews`,
+        })
+        .returns(Promise.resolve(response));
+
+      return getUserReviews({ userId })
+        .then((reviews) => {
+          mockApi.verify();
+          assert.deepEqual(reviews, reviewList);
+        });
+    });
+
+    it('requires a user ID', () => {
+      mockApi.expects('callApi').never();
+      return getUserReviews()
+        .then(() => assert(false, 'unexpected success'), (error) => {
+          assert.equal(error.message, 'userId cannot be falsey');
+          mockApi.verify();
+        });
+    });
+
+    it('does not support paging yet', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({
+          results: [],
+          next: '/reviews/next-page/',
+        }));
+
+      return getUserReviews({ userId: 123 })
+        .then(() => assert(false, 'unexpected success'), (error) => {
+          assert.match(error.message, /not yet implemented/);
+        });
+    });
+
+    it('allows you to fetch reviews for a specific add-on', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({
+          results: [
+            fakeReview,
+            // This review should be ignored.
+            { ...fakeReview, addon: { ...fakeReview.addon, id: 33998 } },
+          ],
+        }));
+
+      return getUserReviews({ userId: 123, addonId: fakeReview.addon.id })
+        .then((reviews) => {
+          assert.deepEqual(reviews, [fakeReview]);
+        });
+    });
+  });
+
+  describe('getLatestUserReview', () => {
+    it('allows you to fetch only the latest review', () => {
+      const latestReview = { ...fakeReview, is_latest: true };
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({
+          results: [
+            fakeReview,
+            latestReview,
+          ],
+        }));
+
+      return getLatestUserReview({
+        userId: 123,
+        addonId: fakeReview.addon.id,
+      })
+        .then((review) => {
+          assert.deepEqual(review, latestReview);
+        });
+    });
+
+    it('returns latest review as null when there are no reviews at all', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({ results: [] }));
+
+      return getLatestUserReview({
+        userId: 123,
+      })
+        .then((review) => {
+          assert.strictEqual(review, null);
+        });
     });
   });
 });

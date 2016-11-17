@@ -2,9 +2,10 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
+import classNames from 'classnames';
 
 import { setReview } from 'amo/actions/reviews';
-import { submitReview } from 'amo/api';
+import { getLatestUserReview, submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
@@ -17,26 +18,65 @@ export class OverallRatingBase extends React.Component {
     addonSlug: PropTypes.string.isRequired,
     addonId: PropTypes.number.isRequired,
     apiState: PropTypes.object,
-    createRating: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    loadSavedReview: PropTypes.func.isRequired,
     router: PropTypes.object.isRequired,
+    submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
+    userReview: PropTypes.object,
     version: PropTypes.object.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+    const { loadSavedReview, userId, addonId } = props;
+    this.ratingButtons = {};
+    if (userId) {
+      log.info(`loading a saved rating (if it exists) for user ${userId}`);
+      loadSavedReview({ userId, addonId });
+    }
   }
 
   onClickRating = (event) => {
     event.preventDefault();
     const button = event.currentTarget;
     log.debug('Selected rating from form button:', button.value);
-    this.props.createRating({
+    const { userReview, userId, version } = this.props;
+
+    const params = {
       rating: parseInt(button.value, 10),
-      versionId: this.props.version.id,
       apiState: this.props.apiState,
       addonId: this.props.addonId,
       addonSlug: this.props.addonSlug,
-      userId: this.props.userId,
       router: this.props.router,
-    });
+      versionId: version.id,
+      userId,
+    };
+
+    if (userReview && userReview.versionId === params.versionId) {
+      log.info(
+        `Updating reviewId ${userReview.id} for versionId ${params.versionId}`);
+      params.reviewId = userReview.id;
+    } else {
+      log.info(`Submitting a new review for versionId ${params.versionId}`);
+    }
+    this.props.submitReview(params);
+  }
+
+  renderRatings() {
+    const { userReview } = this.props;
+    return [1, 2, 3, 4, 5].map((rating) =>
+      <button
+        className={classNames('OverallRating-choice', {
+          'OverallRating-selected-star':
+            userReview && rating <= userReview.rating,
+        })}
+        ref={(ref) => { this.ratingButtons[rating] = ref; }}
+        value={rating}
+        onClick={this.onClickRating}
+        id={`OverallRating-rating-${rating}`}
+      />
+    );
   }
 
   render() {
@@ -52,15 +92,12 @@ export class OverallRatingBase extends React.Component {
       <div className="OverallRating">
         <form action="">
           <fieldset>
-            <legend>{prompt}</legend>
+            <legend ref={(ref) => { this.ratingLegend = ref; }}>
+              {prompt}
+            </legend>
             <div className="OverallRating-choices">
               <span className="OverallRating-star-group">
-                {[1, 2, 3, 4, 5].map((rating) =>
-                  <button
-                    value={rating} onClick={this.onClickRating}
-                    className="OverallRating-choice"
-                    id={`OverallRating-rating-${rating}`} />
-                )}
+                {this.renderRatings()}
               </span>
             </div>
           </fieldset>
@@ -70,25 +107,53 @@ export class OverallRatingBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-  apiState: state.api,
-  userId: state.auth && state.auth.userId,
-});
+export const mapStateToProps = (state, ownProps) => {
+  const userId = state.auth && state.auth.userId;
+  let userReview;
+
+  // Look for the latest saved review by this user for this add-on.
+  if (userId && state.reviews) {
+    log.info(dedent`Checking state for review by user ${userId},
+      addonId ${ownProps.addonId}, versionId ${ownProps.version.id}`);
+
+    const allUserReviews = state.reviews[userId] || {};
+    const addonReviews = allUserReviews[ownProps.addonId] || {};
+    const latestId = Object.keys(addonReviews).find(
+      (reviewId) => addonReviews[reviewId].isLatest);
+
+    if (latestId) {
+      userReview = addonReviews[latestId];
+      log.info('Found the latest review in state for this component',
+               userReview);
+    }
+  }
+
+  return {
+    apiState: state.api,
+    userReview,
+    userId,
+  };
+};
 
 export const mapDispatchToProps = (dispatch) => ({
-  createRating({ router, addonSlug, addonId, userId, ...params }) {
+
+  loadSavedReview({ userId, addonId }) {
+    return getLatestUserReview({ userId, addonId })
+      .then((review) => {
+        if (review) {
+          dispatch(setReview(review));
+        } else {
+          log.info(
+            `No saved review found for userId ${userId}, addonId ${addonId}`);
+        }
+      });
+  },
+
+  submitReview({ router, addonSlug, ...params }) {
     return submitReview({ addonSlug, ...params })
       .then((review) => {
         const { lang, clientApp } = params.apiState;
-        // TODO: when we have a user_id in the API response, we
-        // could probably use that instead.
-        // https://github.com/mozilla/addons-server/issues/3672
-        dispatch(setReview({
-          addonId,
-          rating: review.rating,
-          versionId: review.version.id,
-          userId,
-        }));
+        dispatch(setReview(review));
         router.push(
           `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
       });
