@@ -21,10 +21,9 @@ export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonMan
     });
 }
 
-export function install(_url, eventCallback, {
-  _mozAddonManager = window.navigator.mozAddonManager,
-    src,
-} = {}) {
+export function install(
+  _url, eventCallback, { _mozAddonManager = window.navigator.mozAddonManager, src } = {}
+) {
   if (src === undefined) {
     return new Promise(() => {
       throw new Error('No src for add-on install');
