@@ -1,15 +1,14 @@
 import { SET_REVIEW } from 'amo/constants';
 
-export const setReview = ({
-  id, addonId, versionId, rating, userId, isLatest,
-}) => ({
+export const setReview = (review, reviewOverrides = {}) => ({
   type: SET_REVIEW,
   data: {
-    id,
-    userId,
-    addonId,
-    versionId,
-    rating,
-    isLatest,
+    id: review.id,
+    addonId: review.addon.id,
+    rating: review.rating,
+    versionId: review.version.id,
+    isLatest: review.is_latest,
+    userId: review.user.id,
+    ...reviewOverrides,
   },
 });

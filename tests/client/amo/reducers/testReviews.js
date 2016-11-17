@@ -2,18 +2,11 @@ import {
   setReview as defaultReviewSetter,
 } from 'amo/actions/reviews';
 import reviews, { initialState } from 'amo/reducers/reviews';
+import { fakeReview } from 'tests/client/amo/helpers';
 
 describe('amo.reducers.reviews', () => {
   function setReview(overrides) {
-    return defaultReviewSetter({
-      id: 11422,
-      addonId: 321,
-      versionId: 54321,
-      rating: 3,
-      userId: 9123,
-      isLatest: false,
-      ...overrides,
-    });
+    return defaultReviewSetter(fakeReview, overrides);
   }
 
   it('defaults to an empty object', () => {

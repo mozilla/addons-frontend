@@ -13,7 +13,7 @@ import {
   mapStateToProps, AddonReviewBase,
   loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
-import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
+import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 const defaultReview = {
@@ -185,39 +185,23 @@ describe('AddonReview', () => {
     );
 
     it('loads a review', () => {
-      const reviewResponse = {
-        id: 7776,
-        addon: { id: 1234 },
-        version: { id: 4321 },
-        rating: 2,
-        user: { id: 9876 },
-        is_latest: true,
-      };
-
       mockApi
         .expects('callApi')
         .withArgs({
           endpoint: `addons/addon/${fakeAddon.slug}/reviews/${defaultReview.id}`,
           method: 'GET',
         })
-        .returns(Promise.resolve(reviewResponse));
+        .returns(Promise.resolve(fakeReview));
 
       return loadAddonReview()
         .then((returnedReview) => {
           assert.equal(fakeDispatch.called, true);
           assert.deepEqual(fakeDispatch.firstCall.args[0],
-                           setReview({
-                             id: reviewResponse.id,
-                             addonId: reviewResponse.addon.id,
-                             versionId: reviewResponse.version.id,
-                             rating: reviewResponse.rating,
-                             userId: reviewResponse.user.id,
-                             isLatest: reviewResponse.is_latest,
-                           }));
+                           setReview(fakeReview));
 
           assert.equal(returnedReview.addonSlug, fakeAddon.slug);
-          assert.equal(returnedReview.rating, reviewResponse.rating);
-          assert.equal(returnedReview.id, reviewResponse.id);
+          assert.equal(returnedReview.rating, fakeReview.rating);
+          assert.equal(returnedReview.id, fakeReview.id);
 
           mockApi.verify();
         });

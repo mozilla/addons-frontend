@@ -147,15 +147,7 @@ export function loadAddonReview(
     }));
   })
     .then((review) => {
-      dispatch(setReview({
-        id: review.id,
-        addonId: review.addon.id,
-        versionId: review.version.id,
-        rating: review.rating,
-        userId: review.user.id,
-        isLatest: review.is_latest,
-      }));
-
+      dispatch(setReview(review));
       const reviewData = {
         rating: review.rating,
         addonSlug: slug,

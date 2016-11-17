@@ -212,43 +212,27 @@ describe('OverallRating', () => {
     describe('submitRating', () => {
       it('posts the rating and dispatches the created rating', () => {
         const router = { push: sinon.spy(() => {}) };
-        const userId = 91234;
-        const addonId = 123455;
         const params = {
-          rating: 5,
+          rating: fakeReview.rating,
           apiState: { ...signedInApiState, token: 'new-token' },
-          addonSlug: 'chill-out',
-          versionId: 321,
-        };
-
-        const ratingResponse = {
-          ...fakeReview,
-          rating: params.rating,
+          addonSlug: fakeAddon.slug,
+          versionId: fakeReview.version.id,
         };
 
         mockApi
           .expects('submitReview')
           .withArgs(params)
-          .returns(Promise.resolve(ratingResponse));
+          .returns(Promise.resolve({ ...fakeReview, ...params }));
 
-        return actions.submitRating({
-          ...params, router, userId, addonId,
-        })
+        return actions.submitRating({ ...params, router })
           .then(() => {
             assert.equal(dispatch.called, true);
             const action = dispatch.firstCall.args[0];
-            assert.deepEqual(action, setReview({
-              id: ratingResponse.id,
-              addonId,
-              userId,
-              rating: ratingResponse.rating,
-              versionId: ratingResponse.version.id,
-              isLatest: ratingResponse.is_latest,
-            }));
+            assert.deepEqual(action, setReview(fakeReview));
 
             assert.equal(router.push.called, true);
             const { lang, clientApp } = signedInApiState;
-            const reviewId = ratingResponse.id;
+            const reviewId = fakeReview.id;
             assert.equal(
               router.push.firstCall.args[0],
               `/${lang}/${clientApp}/addon/${params.addonSlug}/review/${reviewId}/`);
@@ -267,30 +251,20 @@ describe('OverallRating', () => {
       }
 
       it('finds and dispatches a review', () => {
-        const userId = 77664;
-        const response = { ...fakeReview, userId };
-
         mockApi
           .expects('getUserReviews')
           .withArgs({
-            userId,
+            userId: fakeReview.user.id,
             addonId: fakeReview.addon.id,
             onlyTheLatest: true,
           })
-          .returns(Promise.resolve(response));
+          .returns(Promise.resolve(fakeReview));
 
-        return loadSavedRating({ userId })
+        return loadSavedRating({ userId: fakeReview.user.id })
           .then(() => {
             mockApi.verify();
             assert.equal(dispatch.called, true);
-            assert.deepEqual(dispatch.firstCall.args[0], setReview({
-              id: fakeReview.id,
-              addonId: fakeReview.addon.id,
-              rating: fakeReview.rating,
-              versionId: fakeReview.version.id,
-              isLatest: fakeReview.is_latest,
-              userId,
-            }));
+            assert.deepEqual(dispatch.firstCall.args[0], setReview(fakeReview));
           });
       });
 
@@ -363,14 +337,12 @@ describe('OverallRating', () => {
       const userId = 99821;
       const rating = 5;
       const isLatest = true;
-      const versionId = fakeAddon.current_version.id;
 
       signIn({ userId });
 
-      store.dispatch(setReview({
+      store.dispatch(setReview(fakeReview, {
         id,
         userId,
-        versionId,
         addonId: fakeAddon.id,
         rating,
         isLatest,
@@ -379,7 +351,7 @@ describe('OverallRating', () => {
       const userReview = getMappedProps().userReview;
       assert.deepEqual(userReview, {
         id,
-        versionId,
+        versionId: fakeReview.version.id,
         rating,
         isLatest,
       });
@@ -393,11 +365,9 @@ describe('OverallRating', () => {
       signIn({ userId: userIdOne });
 
       // Save a review for user two.
-      store.dispatch(setReview({
+      store.dispatch(setReview(fakeReview, {
         isLatest: true,
         userId: userIdTwo,
-        addonId: fakeAddon.id,
-        versionId: fakeAddon.current_version.id,
         rating: savedRating,
       }));
 
@@ -410,11 +380,10 @@ describe('OverallRating', () => {
 
       signIn({ userId });
 
-      store.dispatch(setReview({
+      store.dispatch(setReview(fakeReview, {
         isLatest: true,
         userId,
         addonId: 554433, // this is a review for an unrelated add-on
-        versionId: fakeAddon.current_version.id,
         rating: savedRating,
       }));
 
@@ -422,13 +391,10 @@ describe('OverallRating', () => {
     });
 
     it('only finds the latest review for an add-on', () => {
-      const userId = 99821;
-      const addonId = fakeAddon.id;
-
-      signIn({ userId });
+      signIn({ userId: fakeReview.user.id });
 
       const reviewBase = {
-        versionId: fakeAddon.current_version.id,
+        versionId: fakeReview.version.id,
         rating: 5,
       };
 
@@ -444,8 +410,8 @@ describe('OverallRating', () => {
         isLatest: true,
       };
 
-      store.dispatch(setReview({ ...oldReview, addonId, userId }));
-      store.dispatch(setReview({ ...latestReview, addonId, userId }));
+      store.dispatch(setReview(fakeReview, oldReview));
+      store.dispatch(setReview(fakeReview, latestReview));
 
       assert.deepEqual(getMappedProps().userReview, latestReview);
     });

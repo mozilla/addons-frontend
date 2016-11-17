@@ -135,14 +135,7 @@ export const mapDispatchToProps = (dispatch) => ({
     return getUserReviews({ userId, addonId, onlyTheLatest: true })
       .then((review) => {
         if (review) {
-          dispatch(setReview({
-            id: review.id,
-            addonId: review.addon.id,
-            rating: review.rating,
-            versionId: review.version.id,
-            isLatest: review.is_latest,
-            userId,
-          }));
+          dispatch(setReview(review));
         } else {
           log.info(
             `No saved review found for userId ${userId}, addonId ${addonId}`);
@@ -150,21 +143,11 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitRating({ router, addonSlug, addonId, userId, ...params }) {
+  submitRating({ router, addonSlug, ...params }) {
     return submitReview({ addonSlug, ...params })
       .then((review) => {
         const { lang, clientApp } = params.apiState;
-        // TODO: when we have a user_id in the API response, we
-        // could probably use that instead.
-        // https://github.com/mozilla/addons-server/issues/3672
-        dispatch(setReview({
-          id: review.id,
-          addonId,
-          rating: review.rating,
-          versionId: review.version.id,
-          isLatest: review.is_latest,
-          userId,
-        }));
+        dispatch(setReview(review));
         router.push(
           `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
       });
