@@ -4,7 +4,7 @@ import { findDOMNode } from 'react-dom';
 
 import { loadEntities } from 'core/actions';
 import {
-  globalEvents,
+  GLOBAL_EVENTS,
   EXTENSION_TYPE,
   INSTALL_STATE,
 } from 'core/constants';
@@ -171,7 +171,7 @@ describe('AddonPage', () => {
         addEventListener: sinon.stub(),
       };
       render({ mozAddonManager: fakeMozAddonManager });
-      assert.equal(fakeMozAddonManager.addEventListener.callCount, globalEvents.length);
+      assert.equal(fakeMozAddonManager.addEventListener.callCount, GLOBAL_EVENTS.length);
     });
   });
 

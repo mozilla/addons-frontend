@@ -72,7 +72,7 @@ export const validThemeActions = [
   THEME_RESET_PREVIEW,
 ];
 
-export const installEventList = [
+export const INSTALL_EVENT_LIST = [
   'onDownloadStarted',
   'onDownloadProgress',
   'onDownloadEnded',
@@ -112,7 +112,7 @@ export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
 export const SET_ENABLE_NOT_AVAILABLE = 'SET_ENABLE_NOT_AVAILABLE';
 
 // Add-on statuses for mozAddonManager events.
-export const globalEventStatusMap = {
+export const GLOBAL_EVENT_STATUS_MAP = {
   onDisabled: DISABLED,
   onEnabled: ENABLED,
   onInstalling: INSTALLING,
@@ -125,4 +125,4 @@ export const globalEventStatusMap = {
 
 // The events here are set directly on mozAddonManager
 // they will be fired by addons and themes.
-export const globalEvents = Object.keys(globalEventStatusMap);
+export const GLOBAL_EVENTS = Object.keys(GLOBAL_EVENT_STATUS_MAP);

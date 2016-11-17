@@ -1,9 +1,9 @@
 /* global window */
 import log from 'core/logger';
 import {
-  installEventList,
-  globalEvents,
-  globalEventStatusMap,
+  GLOBAL_EVENT_STATUS_MAP,
+  GLOBAL_EVENTS,
+  INSTALL_EVENT_LIST,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'core/constants';
 import { addQueryParams } from 'core/utils';
@@ -32,7 +32,7 @@ export function install(
   return _mozAddonManager.createInstall({ url })
     .then((installObj) => {
       const callback = (e) => eventCallback(installObj, e);
-      for (const event of installEventList) {
+      for (const event of INSTALL_EVENT_LIST) {
         log.info(`[install] Adding listener for ${event}`);
         installObj.addEventListener(event, callback);
       }
@@ -66,14 +66,14 @@ export function addChangeListeners(callback, mozAddonManager) {
     const { id, type, needsRestart } = e;
     log.info('Event received', { type, id, needsRestart });
     // eslint-disable-next-line no-prototype-builtins
-    if (globalEventStatusMap.hasOwnProperty(type)) {
-      return callback({ guid: id, status: globalEventStatusMap[type], needsRestart });
+    if (GLOBAL_EVENT_STATUS_MAP.hasOwnProperty(type)) {
+      return callback({ guid: id, status: GLOBAL_EVENT_STATUS_MAP[type], needsRestart });
     }
     throw new Error(`Unknown global event: ${type}`);
   }
 
   if (mozAddonManager && mozAddonManager.addEventListener) {
-    for (const event of globalEvents) {
+    for (const event of GLOBAL_EVENTS) {
       log.info(`adding event listener for "${event}"`);
       mozAddonManager.addEventListener(event, handleChangeEvent);
     }

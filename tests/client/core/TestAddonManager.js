@@ -1,7 +1,8 @@
 import * as addonManager from 'core/addonManager';
 import {
-  globalEventStatusMap,
-  installEventList,
+  GLOBAL_EVENT_STATUS_MAP,
+  GLOBAL_EVENTS,
+  INSTALL_EVENT_LIST,
   SET_ENABLE_NOT_AVAILABLE,
 } from 'core/constants';
 import { unexpectedSuccess } from 'tests/client/helpers';
@@ -68,7 +69,7 @@ describe('addonManager', () => {
         fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager, src: 'home' })
         .then(() => {
           // It registers an extra onInstallFailed and onInstallEnded listener.
-          assert.equal(fakeInstallObj.addEventListener.callCount, installEventList.length + 2);
+          assert.equal(fakeInstallObj.addEventListener.callCount, INSTALL_EVENT_LIST.length + 2);
         }));
 
     it('should call installObj.install()', () => addonManager.install(
@@ -148,8 +149,8 @@ describe('addonManager', () => {
     const handleChangeEvent =
       addonManager.addChangeListeners(fakeEventCallback, fakeMozAddonManager);
 
-    Object.keys(globalEventStatusMap).forEach((event) => {
-      const status = globalEventStatusMap[event];
+    GLOBAL_EVENTS.forEach((event) => {
+      const status = GLOBAL_EVENT_STATUS_MAP[event];
       it(`calls callback with status ${status}`, () => {
         const id = 'foo@whatever';
         const needsRestart = false;
