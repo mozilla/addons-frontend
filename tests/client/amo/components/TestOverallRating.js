@@ -252,11 +252,10 @@ describe('OverallRating', () => {
 
       it('finds and dispatches a review', () => {
         mockApi
-          .expects('getUserReviews')
+          .expects('getLatestUserReview')
           .withArgs({
             userId: fakeReview.user.id,
             addonId: fakeReview.addon.id,
-            onlyTheLatest: true,
           })
           .returns(Promise.resolve(fakeReview));
 
@@ -270,7 +269,7 @@ describe('OverallRating', () => {
 
       it('does nothing when there are not any matching reviews', () => {
         const addonId = 8765;
-        mockApi.expects('getUserReviews').returns(Promise.resolve(null));
+        mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
 
         return loadSavedRating({ addonId })
           .then(() => {

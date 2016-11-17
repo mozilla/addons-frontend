@@ -34,9 +34,7 @@ export function submitReview({
     });
 }
 
-export function getUserReviews({
-  userId, addonId, onlyTheLatest = false,
-} = {}) {
+export function getUserReviews({ userId, addonId } = {}) {
   return new Promise((resolve) => {
     if (!userId) {
       throw new Error('userId cannot be falsey');
@@ -58,16 +56,16 @@ export function getUserReviews({
         return reviews.filter((review) => review.addon.id === addonId);
       }
       return reviews;
-    })
+    });
+}
+
+export function getLatestUserReview(params) {
+  return getUserReviews(params)
     .then((reviews) => {
-      if (onlyTheLatest) {
-        log.info(`Only fetching the latest review by user ${userId}`);
-        const latest = reviews.filter((review) => review.is_latest);
-        if (latest.length === 0) {
-          return null;
-        }
-        return latest[0];
+      const latest = reviews.filter((review) => review.is_latest);
+      if (latest.length === 0) {
+        return null;
       }
-      return reviews;
+      return latest[0];
     });
 }

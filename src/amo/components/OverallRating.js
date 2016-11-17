@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import classNames from 'classnames';
 
 import { setReview } from 'amo/actions/reviews';
-import { getUserReviews, submitReview } from 'amo/api';
+import { getLatestUserReview, submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
@@ -132,7 +132,7 @@ export const mapStateToProps = (state, ownProps) => {
 export const mapDispatchToProps = (dispatch) => ({
 
   loadSavedRating({ userId, addonId }) {
-    return getUserReviews({ userId, addonId, onlyTheLatest: true })
+    return getLatestUserReview({ userId, addonId })
       .then((review) => {
         if (review) {
           dispatch(setReview(review));

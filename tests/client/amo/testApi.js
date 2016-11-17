@@ -1,4 +1,4 @@
-import { getUserReviews, submitReview } from 'amo/api';
+import { getLatestUserReview, getUserReviews, submitReview } from 'amo/api';
 import * as api from 'core/api';
 import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 
@@ -186,7 +186,9 @@ describe('amo.api', () => {
           assert.deepEqual(reviews, [fakeReview]);
         });
     });
+  });
 
+  describe('getLatestUserReview', () => {
     it('allows you to fetch only the latest review', () => {
       const latestReview = { ...fakeReview, is_latest: true };
       mockApi
@@ -198,10 +200,9 @@ describe('amo.api', () => {
           ],
         }));
 
-      return getUserReviews({
+      return getLatestUserReview({
         userId: 123,
         addonId: fakeReview.addon.id,
-        onlyTheLatest: true,
       })
         .then((review) => {
           assert.deepEqual(review, latestReview);
@@ -213,9 +214,8 @@ describe('amo.api', () => {
         .expects('callApi')
         .returns(Promise.resolve({ results: [] }));
 
-      return getUserReviews({
+      return getLatestUserReview({
         userId: 123,
-        onlyTheLatest: true,
       })
         .then((review) => {
           assert.strictEqual(review, null);
