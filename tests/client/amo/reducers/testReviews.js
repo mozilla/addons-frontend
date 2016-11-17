@@ -82,4 +82,49 @@ describe('amo.reducers.reviews', () => {
     state = reviews(state, setReview(fakeReview));
     assert.equal(state.somethingUnrelated, 'erp');
   });
+
+  it('only allows one review to be the latest', () => {
+    const addonId = fakeReview.addon.id;
+    const userId = fakeReview.user.id;
+    let state;
+
+    state = reviews(state, setReview(fakeReview, {
+      id: 1,
+      isLatest: true,
+    }));
+
+    state = reviews(state, setReview(fakeReview, {
+      id: 2,
+      isLatest: true,
+    }));
+
+    state = reviews(state, setReview(fakeReview, {
+      id: 3,
+      isLatest: true,
+    }));
+
+    // Make sure only the newest submitted one is the latest:
+    assert.equal(state[userId][addonId][1].isLatest, false);
+    assert.equal(state[userId][addonId][2].isLatest, false);
+    assert.equal(state[userId][addonId][3].isLatest, true);
+  });
+
+  it('preserves an older latest review', () => {
+    const addonId = fakeReview.addon.id;
+    const userId = fakeReview.user.id;
+    let state;
+
+    state = reviews(state, setReview(fakeReview, {
+      id: 1,
+      isLatest: true,
+    }));
+
+    state = reviews(state, setReview(fakeReview, {
+      id: 2,
+      isLatest: false,
+    }));
+
+    assert.equal(state[userId][addonId][1].isLatest, true);
+    assert.equal(state[userId][addonId][2].isLatest, false);
+  });
 });
