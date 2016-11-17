@@ -27,7 +27,7 @@ function render({ ...customProps } = {}) {
     version: fakeAddon.current_version,
     i18n: getFakeI18nInst(),
     userId: 91234,
-    submitRating: () => {},
+    submitReview: () => {},
     loadSavedRating: () => {},
     router: {},
     ...customProps,
@@ -78,9 +78,9 @@ describe('OverallRating', () => {
 
   it('creates a rating with add-on and version info', () => {
     const router = {};
-    const submitRating = sinon.stub();
+    const submitReview = sinon.stub();
     const root = render({
-      submitRating,
+      submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addonId: 12345,
@@ -88,9 +88,9 @@ describe('OverallRating', () => {
       router,
     });
     selectRating(root, 5);
-    assert.equal(submitRating.called, true);
+    assert.equal(submitReview.called, true);
 
-    const call = submitRating.firstCall.args[0];
+    const call = submitReview.firstCall.args[0];
     assert.equal(call.versionId, 321);
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
@@ -101,9 +101,9 @@ describe('OverallRating', () => {
   });
 
   it('updates a rating with the review ID', () => {
-    const submitRating = sinon.stub();
+    const submitReview = sinon.stub();
     const root = render({
-      submitRating,
+      submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addonId: 12345,
@@ -111,50 +111,50 @@ describe('OverallRating', () => {
       userReview: fakeReview,
     });
     selectRating(root, 5);
-    assert.equal(submitRating.called, true);
+    assert.equal(submitReview.called, true);
 
-    const call = submitRating.firstCall.args[0];
+    const call = submitReview.firstCall.args[0];
     assert.equal(call.reviewId, fakeReview.id);
   });
 
   it('lets you submit a one star rating', () => {
-    const submitRating = sinon.stub();
-    const root = render({ submitRating });
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
     selectRating(root, 1);
-    assert.equal(submitRating.called, true);
-    assert.equal(submitRating.firstCall.args[0].rating, 1);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 1);
   });
 
   it('lets you submit a two star rating', () => {
-    const submitRating = sinon.stub();
-    const root = render({ submitRating });
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
     selectRating(root, 2);
-    assert.equal(submitRating.called, true);
-    assert.equal(submitRating.firstCall.args[0].rating, 2);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 2);
   });
 
   it('lets you submit a three star rating', () => {
-    const submitRating = sinon.stub();
-    const root = render({ submitRating });
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
     selectRating(root, 3);
-    assert.equal(submitRating.called, true);
-    assert.equal(submitRating.firstCall.args[0].rating, 3);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 3);
   });
 
   it('lets you submit a four star rating', () => {
-    const submitRating = sinon.stub();
-    const root = render({ submitRating });
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
     selectRating(root, 4);
-    assert.equal(submitRating.called, true);
-    assert.equal(submitRating.firstCall.args[0].rating, 4);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 4);
   });
 
   it('lets you submit a five star rating', () => {
-    const submitRating = sinon.stub();
-    const root = render({ submitRating });
+    const submitReview = sinon.stub();
+    const root = render({ submitReview });
     selectRating(root, 5);
-    assert.equal(submitRating.called, true);
-    assert.equal(submitRating.firstCall.args[0].rating, 5);
+    assert.equal(submitReview.called, true);
+    assert.equal(submitReview.firstCall.args[0].rating, 5);
   });
 
   it('renders selected stars corresponding to a saved review', () => {
@@ -209,8 +209,8 @@ describe('OverallRating', () => {
       actions = mapDispatchToProps(dispatch);
     });
 
-    describe('submitRating', () => {
-      it('posts the rating and dispatches the created rating', () => {
+    describe('submitReview', () => {
+      it('posts the reviw and dispatches the created review', () => {
         const router = { push: sinon.spy(() => {}) };
         const params = {
           rating: fakeReview.rating,
@@ -224,7 +224,7 @@ describe('OverallRating', () => {
           .withArgs(params)
           .returns(Promise.resolve({ ...fakeReview, ...params }));
 
-        return actions.submitRating({ ...params, router })
+        return actions.submitReview({ ...params, router })
           .then(() => {
             assert.equal(dispatch.called, true);
             const action = dispatch.firstCall.args[0];

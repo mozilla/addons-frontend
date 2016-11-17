@@ -21,7 +21,7 @@ export class OverallRatingBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     loadSavedRating: PropTypes.func.isRequired,
     router: PropTypes.object.isRequired,
-    submitRating: PropTypes.func.isRequired,
+    submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
     userReview: PropTypes.object,
     version: PropTypes.object.isRequired,
@@ -41,7 +41,7 @@ export class OverallRatingBase extends React.Component {
     event.preventDefault();
     const button = event.currentTarget;
     log.debug('Selected rating from form button:', button.value);
-    this.props.submitRating({
+    this.props.submitReview({
       reviewId: this.props.userReview && this.props.userReview.id,
       rating: parseInt(button.value, 10),
       versionId: this.props.version.id,
@@ -139,7 +139,7 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitRating({ router, addonSlug, ...params }) {
+  submitReview({ router, addonSlug, ...params }) {
     return submitReview({ addonSlug, ...params })
       .then((review) => {
         const { lang, clientApp } = params.apiState;
