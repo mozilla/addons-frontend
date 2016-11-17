@@ -119,7 +119,7 @@ export function makeMapDispatchToProps({ src }) {
       },
 
       enable({ _showInfo = showInfo } = {}) {
-        const { guid, name, iconUrl, i18n } = ownProps;
+        const { guid, i18n, iconUrl, name } = ownProps;
         return _addonManager.enable(guid)
         .then(() => {
           _showInfo({ name, iconUrl, i18n });
