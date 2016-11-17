@@ -31,10 +31,7 @@ describe('amo.api', () => {
       };
 
       return submitReview(params)
-        .then(() => {
-          throw new Error('unexpected success');
-        })
-        .catch((error) => {
+        .then(() => assert(false, 'unexpected success'), (error) => {
           assert.match(error.message, /addonSlug is required/);
         });
     });
@@ -144,10 +141,7 @@ describe('amo.api', () => {
     it('requires a user ID', () => {
       mockApi.expects('callApi').never();
       return getUserReviews()
-        .then(() => {
-          throw new Error('unexpected success');
-        })
-        .catch((error) => {
+        .then(() => assert(false, 'unexpected success'), (error) => {
           assert.equal(error.message, 'userId cannot be falsey');
           mockApi.verify();
         });
@@ -162,10 +156,7 @@ describe('amo.api', () => {
         }));
 
       return getUserReviews({ userId: 123 })
-        .then(() => {
-          throw new Error('unexpected success');
-        })
-        .catch((error) => {
+        .then(() => assert(false, 'unexpected success'), (error) => {
           assert.match(error.message, /not yet implemented/);
         });
     });

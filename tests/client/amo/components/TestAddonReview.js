@@ -178,8 +178,7 @@ describe('AddonReview', () => {
 
     it('requires URL params',
       () => loadAddonReview({ params: {} })
-        .then(() => assert(false, 'unexpected success'))
-        .catch((error) => {
+        .then(() => assert(false, 'unexpected success'), (error) => {
           assert.match(error.message, /missing URL params/);
         })
     );
