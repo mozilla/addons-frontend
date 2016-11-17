@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-16 03:21+0000\n"
-"Last-Translator: Thiago Escarrone <thiago.escarrone@gmail.com>\n"
+"PO-Revision-Date: 2016-11-17 22:03+0000\n"
+"Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -28,11 +28,11 @@ msgstr "Capturas de tela"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr "Sobre este complemento"
+msgstr "Sobre esta extensão"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr "Classifique a sua experiência"
+msgstr "Avalie a sua experiência"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
@@ -64,7 +64,7 @@ msgstr "Escreva uma análise"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr "Diga ao mundo porque você acha que essa extensão é fantástica!"
+msgstr "Diga ao mundo porquê que acha que esta extensão é fantástica!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
@@ -76,37 +76,37 @@ msgstr "Avisos legais"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "Ver site para computadores"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "Navegue no seu idioma"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Extensões do Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Como está desfrutando da sua experiência com %(addonName)s?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "captura de tela %(imageNumber)s de %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "Média de avaliações: %(rating)s de 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "Sem avaliações"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(users)s usuário"
+msgstr[1] "%(users)s usuários"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
@@ -118,15 +118,15 @@ msgstr ""
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr "Complementos para o Firefox"
+msgstr "Extensões para o Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "O que quer que o Firefox faça?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr ""
+msgstr "Bloqueie anúncios"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
@@ -134,19 +134,19 @@ msgstr "Captura de tela"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr ""
+msgstr "Salve coisas"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "Compre online"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
-msgstr ""
+msgstr "Seja social"
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr ""
+msgstr "Compartilhe coisas"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
@@ -154,11 +154,11 @@ msgstr ""
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "Como quer que o Firefox se pareça?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
-msgstr ""
+msgstr "Selvagem"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
@@ -227,8 +227,8 @@ msgstr "Página %(currentPage)s de %(totalPages)s"
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "A sua pesquisa por \"%(query)s\" retornou %(count)s resultado."
+msgstr[1] "A sua pesquisa por \"%(query)s\" retornou %(count)s resultados."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
