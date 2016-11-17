@@ -1,9 +1,9 @@
 import search from 'core/reducers/search';
 
 describe('search reducer', () => {
-  it('defaults to a null query', () => {
-    const { query } = search(undefined, { type: 'unrelated' });
-    assert.strictEqual(query, null);
+  it('defaults to an set of filters', () => {
+    const { filters } = search(undefined, { type: 'unrelated' });
+    assert.deepEqual(filters, {});
   });
 
   it('defaults to not loading', () => {
@@ -16,21 +16,16 @@ describe('search reducer', () => {
     assert.deepEqual(results, []);
   });
 
-  describe('SET_QUERY', () => {
-    it('sets the query', () => {
-      const state = search(undefined, { type: 'SET_QUERY', payload: { query: 'foo' } });
-      assert.equal(state.query, 'foo');
-      const newState = search(state, { type: 'SET_QUERY', payload: { query: 'bar' } });
-      assert.equal(newState.query, 'bar');
-    });
-  });
-
   describe('SEARCH_STARTED', () => {
-    it('sets the query and loading', () => {
+    it('sets the filters and loading', () => {
       const state = search(
-        { query: 'bar', loading: false, results: [{ slug: 'bar' }] },
-        { type: 'SEARCH_STARTED', payload: { query: 'foo' } });
-      assert.equal(state.query, 'foo');
+        {
+          filters: { query: 'bar' },
+          loading: false,
+          results: [{ slug: 'bar' }],
+        },
+        { type: 'SEARCH_STARTED', payload: { filters: { query: 'foo' } } });
+      assert.deepEqual(state.filters, { query: 'foo' });
       assert.strictEqual(state.loading, true);
       assert.deepEqual(state.results, []);
     });
@@ -42,7 +37,7 @@ describe('search reducer', () => {
 
     beforeEach(() => {
       initialState = {
-        query: 'foo',
+        filters: { query: 'foo' },
         loading: false,
         results: [],
       };
@@ -62,15 +57,15 @@ describe('search reducer', () => {
       return search(initialState, {
         type: 'SEARCH_LOADED',
         payload: {
-          query: 'foo',
+          filters: { query: 'foo' },
           ...response,
         },
       });
     }
 
-    it('sets the query', () => {
-      const { query } = getNextState();
-      assert.equal(query, 'foo');
+    it('sets the filters', () => {
+      const { filters } = getNextState();
+      assert.deepEqual(filters, { query: 'foo' });
     });
 
     it('sets loading', () => {
@@ -91,12 +86,17 @@ describe('search reducer', () => {
   });
 
   describe('SEARCH_FAILED', () => {
-    it('resets the initialState with page and query', () => {
+    it('overrides the initialState with page and filters', () => {
       const page = 5;
-      const query = 'add-ons';
-      const initialState = { foo: 'bar', query: 'hi', page: 100, results: [1, 2, 3] };
-      const state = search(initialState, { type: 'SEARCH_FAILED', payload: { page, query } });
-      assert.deepEqual(state, { count: 0, loading: false, page, query, results: [] });
+      const filters = { query: 'add-ons' };
+      const initialState = {
+        foo: 'bar',
+        filters: { query: 'nothing' },
+        page: 100,
+        results: [1, 2, 3],
+      };
+      const state = search(initialState, { type: 'SEARCH_FAILED', payload: { page, filters } });
+      assert.deepEqual(state, { count: 0, loading: false, page, filters, results: [] });
     });
   });
 });

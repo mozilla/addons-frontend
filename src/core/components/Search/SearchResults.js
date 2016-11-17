@@ -10,31 +10,35 @@ import SearchResult from './SearchResult';
 
 class SearchResults extends React.Component {
   static propTypes = {
+    ResultComponent: PropTypes.object.isRequired,
     count: PropTypes.number,
+    filters: PropTypes.object,
+    hasSearchParams: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
-    query: PropTypes.string,
     results: PropTypes.arrayOf(PropTypes.object),
-    ResultComponent: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
-    count: 0,
-    query: null,
     ResultComponent: SearchResult,
+    count: 0,
+    filters: {},
+    hasSearchParams: false,
     results: [],
   }
 
   render() {
     const {
-      ResultComponent, count, i18n, loading, query, results,
+      ResultComponent, count, hasSearchParams, filters, i18n, loading, results,
     } = this.props;
+    const { query } = filters;
 
-    let searchResults;
-    let messageText;
     let hideMessageText = false;
+    let messageText;
+    let resultHeader;
+    let searchResults;
 
-    if (query && count > 0) {
+    if (hasSearchParams && count > 0) {
       hideMessageText = true;
       messageText = i18n.sprintf(
         i18n.ngettext(
@@ -52,23 +56,32 @@ class SearchResults extends React.Component {
           ))}
         </ul>
       );
-    } else if (query && loading) {
+    } else if (hasSearchParams && loading) {
       messageText = i18n.gettext('Searching...');
-    } else if (query && results.length === 0) {
-      messageText = i18n.sprintf(
-        i18n.gettext('No results were found for "%(query)s".'), { query });
-    } else if (query !== null) {
-      messageText = i18n.gettext('Please supply a valid search');
+    } else if (!loading && count === 0) {
+      if (query) {
+        messageText = i18n.sprintf(
+          i18n.gettext('No results were found for "%(query)s".'), { query });
+      } else if (hasSearchParams) {
+        // TODO: Add the extension type, if available, so it says
+        // "no extensions" found that match your search or something.
+        messageText = i18n.gettext('No results were found.');
+      } else {
+        messageText = i18n.gettext(
+          'Please enter a search term to search Mozilla Add-ons.');
+      }
     }
 
-    const message = messageText ?
+    const message = (
       <p ref={(ref) => { this.message = ref; }} className={classNames({
         'visually-hidden': hideMessageText,
-        'SearchReuslts-message': !hideMessageText,
-      })}>{messageText}</p> : null;
+        'SearchResults-message': !hideMessageText,
+      })}>{messageText}</p>
+    );
 
     return (
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
+        {resultHeader}
         {message}
         {searchResults}
       </div>

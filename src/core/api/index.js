@@ -6,6 +6,9 @@ import 'isomorphic-fetch';
 import { Schema, arrayOf, normalize } from 'normalizr';
 import config from 'config';
 
+import { convertFiltersToQueryParams } from 'core/searchUtils';
+
+
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
 export const addon = new Schema('addons', { idAttribute: 'slug' });
@@ -60,12 +63,15 @@ export function callApi({
     .then((response) => (schema ? normalize(response, schema) : response));
 }
 
-export function search({ api, page, query, auth = false }) {
-  // TODO: Get the language from the server.
+export function search({ api, page, auth = false, filters = {} }) {
   return callApi({
     endpoint: 'addons/search',
     schema: { results: arrayOf(addon) },
-    params: { q: query, page },
+    params: {
+      app: api.clientApp,
+      ...convertFiltersToQueryParams(filters),
+      page,
+    },
     state: api,
     auth,
   });

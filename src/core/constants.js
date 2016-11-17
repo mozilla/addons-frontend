@@ -56,7 +56,6 @@ export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SET_JWT = 'SET_JWT';
 export const SET_LANG = 'SET_LANG';
-export const SET_QUERY = 'SET_QUERY';
 
 // Theme preview actions.
 export const THEME_INSTALL = 'InstallBrowserTheme';

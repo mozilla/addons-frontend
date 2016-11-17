@@ -4,54 +4,61 @@ import {
   loadSearchResultsIfNeeded,
   mapStateToProps,
   parsePage,
-} from 'core/containers/SearchPage';
+} from 'core/searchUtils';
 import * as api from 'core/api';
 
 describe('Search.mapStateToProps()', () => {
   const state = {
     api: { lang: 'fr-CA' },
-    addons: { ab: { slug: 'ab', name: 'ad-block' },
-             cd: { slug: 'cd', name: 'cd-block' } },
-    search: { query: 'ad-block', loading: false, results: [{ slug: 'ab', name: 'ad-block' }] },
+    addons: {
+      ab: { slug: 'ab', name: 'ad-block' },
+      cd: { slug: 'cd', name: 'cd-block' },
+    },
+    search: {
+      filters: { query: 'ad-block' },
+      hasSearchParams: true,
+      loading: false,
+      results: [{ slug: 'ab', name: 'ad-block' }],
+    },
   };
 
   it('passes the search state if the URL and state query matches', () => {
     const props = mapStateToProps(state, { location: { query: { q: 'ad-block' } } });
-    assert.deepEqual(props, { lang: 'fr-CA', ...state.search });
+    assert.deepEqual(props, state.search);
   });
 
   it('does not pass search state if the URL and state query do not match', () => {
     const props = mapStateToProps(state, { location: { query: { q: 'more-ads' } } });
-    assert.deepEqual(props, { lang: 'fr-CA' });
+    assert.deepEqual(props, { hasSearchParams: true });
   });
 });
 
 describe('Search.isLoaded()', () => {
   const state = {
     page: 2,
-    query: 'ad-block',
+    filters: { query: 'ad-block' },
     loading: false,
     results: [{ slug: 'ab', name: 'ad-block' }],
   };
 
-  it('is loaded when not loading and page and query page', () => {
-    assert(isLoaded({ state, page: 2, query: 'ad-block' }));
+  it('is loaded when not loading and page + filters match', () => {
+    assert(isLoaded({ state, page: 2, filters: { query: 'ad-block' } }));
   });
 
   it('is not loaded when loading', () => {
     assert(!isLoaded({
       state: { ...state, loading: true },
       page: 2,
-      query: 'ad-block',
+      filters: { query: 'ad-block' },
     }));
   });
 
   it('is not loaded when the query does not match', () => {
-    assert(!isLoaded({ state, page: 2, query: 'youtube' }));
+    assert(!isLoaded({ state, page: 2, filters: { query: 'youtube' } }));
   });
 
   it('is not loaded when the page does not match', () => {
-    assert(!isLoaded({ state, page: 3, query: 'ad-block' }));
+    assert(!isLoaded({ state, page: 3, filters: { query: 'ad-block' } }));
   });
 });
 
@@ -91,7 +98,7 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const state = { loading: false };
     const store = {
       dispatch: dispatchSpy,
-      getState: () => ({ search: state }),
+      getState: () => ({ api: {}, search: state }),
     };
     const location = { query: { page: undefined, q: undefined } };
     loadSearchResultsIfNeeded({ store, location });
@@ -100,69 +107,78 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
 
   it('returns right away when loaded', () => {
     const page = 10;
-    const query = 'no ads';
-    const state = { loading: false, page, query };
-    const store = { dispatch: sinon.spy(), getState: () => ({ search: state }) };
-    const location = { query: { page, q: query } };
+    const filters = { query: 'no ads' };
+    const state = {
+      api: { clientApp: 'firefox' },
+      filters,
+      hasSearchParams: true,
+      loading: false,
+      page,
+    };
+    const store = {
+      dispatch: sinon.spy(),
+      getState: () => ({ api: { clientApp: 'firefox' }, search: state }),
+    };
+    const location = { query: { page, q: filters.query } };
     assert.strictEqual(loadSearchResultsIfNeeded({ store, location }), true);
   });
 
   it('loads the search results when needed', () => {
     const page = 10;
-    const query = 'no ads';
+    const filters = { query: 'no ads' };
     const state = {
       api: { token: 'a.jwt.token' },
-      search: { loading: false, page, query: 'old query' },
+      search: { loading: false, page, filters: { query: 'old query' } },
     };
     const dispatch = sinon.spy();
     const store = { dispatch, getState: () => state };
-    const location = { query: { page, q: query } };
+    const location = { query: { page, q: filters.query } };
     const mockApi = sinon.mock(api);
     const entities = sinon.stub();
     const result = sinon.stub();
     mockApi
       .expects('search')
       .once()
-      .withArgs({ page, query, api: state.api, auth: false })
+      .withArgs({ page, filters, api: state.api, auth: false })
       .returns(Promise.resolve({ entities, result }));
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       assert(
         dispatch.firstCall.calledWith(
-          searchActions.searchStart(query, page)),
+          searchActions.searchStart({ filters, page })),
           'searchStart not called');
       assert(
         dispatch.secondCall.calledWith(
-          searchActions.searchLoad({ query, entities, result })),
+          searchActions.searchLoad({ filters, entities, result })),
           'searchLoad not called');
     });
   });
 
   it('triggers searchFail when it fails', () => {
     const page = 11;
-    const query = 'no ads';
+    const filters = { query: 'no ads' };
     const state = {
       api: {},
-      search: { loading: false, page, query: 'old query' },
+      search: { loading: false, page, filters: { query: 'old query' } },
     };
     const dispatch = sinon.spy();
     const store = { dispatch, getState: () => state };
-    const location = { query: { page, q: query } };
+    const location = { query: { page, q: filters.query } };
     const mockApi = sinon.mock(api);
     mockApi
       .expects('search')
       .once()
-      .withArgs({ page, query, api: state.api, auth: false })
+      .withArgs({ page, filters, api: state.api, auth: false })
       .returns(Promise.reject());
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       assert(
         dispatch.firstCall.calledWith(
-          searchActions.searchStart(query, page)),
+          searchActions.searchStart({ filters, page })),
           'searchStart not called');
       assert(
         dispatch.secondCall.calledWith(
-          searchActions.searchFail({ page, query })),
+          searchActions.searchFail({ page, filters })),
           'searchFail not called');
     });
   });
