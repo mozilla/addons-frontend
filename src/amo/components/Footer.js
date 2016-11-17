@@ -10,12 +10,13 @@ import './Footer.scss';
 
 export class FooterBase extends React.Component {
   static propTypes = {
+    handleViewDesktop: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
   }
 
   render() {
-    const { i18n, lang } = this.props;
+    const { handleViewDesktop, i18n, lang } = this.props;
 
     return (
       <footer className="Footer">
@@ -35,6 +36,7 @@ export class FooterBase extends React.Component {
           </li>
           <li>
             <a href="#desktop" className="Footer-link Footer-desktop"
+              onClick={handleViewDesktop}
               ref={(ref) => { this.desktopLink = ref; }}>
               {i18n.gettext('View desktop site')}
             </a>

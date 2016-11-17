@@ -2,6 +2,7 @@
 
 import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
+import cookie from 'react-cookie';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -30,6 +31,14 @@ export class AppBase extends React.Component {
     MastHeadComponent: MastHead,
   }
 
+  onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {
+    event.preventDefault();
+    if (window_ && window_.location) {
+      cookie_.remove('mamo', { path: '/' });
+      window_.location.reload();
+    }
+  }
+
   accountButton() {
     const { handleLogIn, i18n, isAuthenticated, location } = this.props;
     return (
@@ -55,7 +64,7 @@ export class AppBase extends React.Component {
         <div className="App-content">
           {children}
         </div>
-        <FooterComponent />
+        <FooterComponent handleViewDesktop={this.onViewDesktop} />
       </div>
     );
   }
