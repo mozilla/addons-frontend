@@ -114,6 +114,7 @@ describe('OverallRating', () => {
     assert.equal(submitReview.called, true);
 
     const call = submitReview.firstCall.args[0];
+    assert.ok(call.reviewId);
     assert.equal(call.reviewId, fakeReview.id);
   });
 
