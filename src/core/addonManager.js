@@ -25,9 +25,7 @@ export function install(
   _url, eventCallback, { _mozAddonManager = window.navigator.mozAddonManager, src } = {}
 ) {
   if (src === undefined) {
-    return new Promise(() => {
-      throw new Error('No src for add-on install');
-    });
+    return Promise.reject(new Error('No src for add-on install'));
   }
   const url = addQueryParams(_url, { src });
 
