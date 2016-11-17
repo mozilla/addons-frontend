@@ -28,14 +28,14 @@ import {
 import * as addonManager from 'core/addonManager';
 
 export function makeProgressHandler(dispatch, guid) {
-  return (addonInstall, e) => {
+  return (addonInstall, event) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
         (100 * addonInstall.progress) / addonInstall.maxProgress, 10);
       dispatch({ type: DOWNLOAD_PROGRESS, payload: { guid, downloadProgress } });
-    } else if (e.type === 'onDownloadFailed') {
+    } else if (event.type === 'onDownloadFailed') {
       dispatch({ type: INSTALL_ERROR, payload: { guid, error: DOWNLOAD_FAILED } });
-    } else if (e.type === 'onInstallFailed') {
+    } else if (event.type === 'onInstallFailed') {
       dispatch({ type: INSTALL_ERROR, payload: { guid, error: INSTALL_FAILED } });
     }
   };
