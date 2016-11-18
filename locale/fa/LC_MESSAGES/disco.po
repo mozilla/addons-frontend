@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-01 10:47+0000\n"
-"PO-Revision-Date: 2016-06-18 12:12+0000\n"
+"PO-Revision-Date: 2016-11-18 14:38+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -16,35 +16,35 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "در حال دریافت %(name)s."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "در حال نصب %(name)s."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s نصب و فعال شده است. برای حذف کلیک کنید."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s غیر فعال شده است. برای فعال‌سازی کلیک کنید."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "در حال حذف %(name)s."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s حذف شده. برای نصب کلیک کنید."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "وضعیت نصب برای %(name)s ناشناس است."
 
 #: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "برای پیش‌نمایش موس را بر روی‌اش نگه دارید یا برای نصب %(name)s کلیک کنید"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
@@ -59,14 +59,12 @@ msgid "Download failed. Please check your connection."
 msgstr "دریافت شکست خورد. لطفا اتصال خود را بررسی کنید."
 
 #: src/disco/components/Addon.js:157
-#, fuzzy
 msgid "An unexpected error occurred during installation."
-msgstr "یک خطا غیر منتظره رُخ داد."
+msgstr "یک خطا غیر منتظره در هنگام نصب رُخ داد."
 
 #: src/disco/components/Addon.js:159
-#, fuzzy
 msgid "An unexpected error occurred during uninstallation."
-msgstr "یک خطا غیر منتظره رُخ داد."
+msgstr "یک خطا غیر منتظره در هنگام حذف رُخ داد."
 
 #: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
@@ -82,20 +80,19 @@ msgstr "لطفا برای استفاده از این افزودنی فایرفا
 
 #: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "افزودنی شما حاضر است"
 
 #: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "حالا شما می‌توانید به %(name)s از طریق نوار ابزار دسترسی داشته باشید."
 
 #: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
-msgstr ""
+msgstr "باشه!"
 
 #: src/disco/components/Addon.js:98
-#, fuzzy
 msgid "Close"
-msgstr "بستن ویدئو"
+msgstr "بستن"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
@@ -125,17 +122,12 @@ msgstr "فایرفاکس خود را شخصی سازی کنید"
 #, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"هزاران افزونه وجود دارد که به شما کمک می‌کند تمام فایرفاکس را به اختیار خود "
-"درآورید — همه چیز از ضمیمه های سرگرم کننده بصری تا ابزارهای قوی و ویژیگی های "
-"مختلف. \n"
+"هزاران افزونه وجود دارد که به شما کمک می‌کند تمام فایرفاکس را به اختیار خود درآورید — همه چیز از ضمیمه های سرگرم کننده بصری تا ابزارهای قوی و ویژیگی های مختلف. \n"
 "در اینجا تعدادی از بهترین های آن ها را ببینید."
 
 #~ msgid "Install"
