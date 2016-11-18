@@ -1,44 +1,46 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-10 09:55+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-11-18 14:20+0000\n"
+"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)s از %(authorList)s %(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "فرادادهٔ ضمیمه"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
-msgstr ""
+msgstr "تصاویر صفحه"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr ""
+msgstr "درباره این ضمیمه"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr ""
+msgstr "به تجربه خود امتیاز بدهید"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
-msgstr ""
+msgstr "دسته‌بندی"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "استفاده شده توسط"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
@@ -46,27 +48,27 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "برگشت"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "لطفا متنی وارد کنید"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
-msgstr ""
+msgstr "یک بررسی بنویسید"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "به همه دنیا بگویید که چرا این ضمیمه باحال است!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "سیاست‌های حریم‌خصوصی"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
@@ -104,7 +106,6 @@ msgstr ""
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
@@ -226,7 +227,6 @@ msgstr ""
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
