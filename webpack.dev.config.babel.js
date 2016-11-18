@@ -45,6 +45,7 @@ const appName = config.get('appName');
 const appsBuildList = appName ? [appName] : config.get('validAppNames');
 
 const entryPoints = {};
+// eslint-disable-next-line no-restricted-syntax
 for (const app of appsBuildList) {
   entryPoints[app] = [
     hmr,

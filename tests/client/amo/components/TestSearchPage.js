@@ -39,7 +39,7 @@ describe('<SearchPage />', () => {
     assert.deepEqual(
       Object.keys(results.props).sort(),
       ['count', 'filters', 'hasSearchParams', 'loading', 'results',
-       'ResultComponent'].sort()
+        'ResultComponent'].sort()
     );
   });
 

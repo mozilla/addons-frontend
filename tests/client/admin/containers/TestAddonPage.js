@@ -88,7 +88,7 @@ describe('AddonPage', () => {
       assert.deepEqual(
         infoText,
         ['extension', 'public', 'View on site', 'Edit on site', 'View on editors',
-         'View homepage', 'Email support', 'View support site']);
+          'View homepage', 'Email support', 'View support site']);
     });
 
     it('renders the AMO page as a link', () => {

@@ -7,6 +7,7 @@ import { getClientConfig } from 'core/utils';
 const appsList = config.get('validAppNames');
 
 
+// eslint-disable-next-line no-restricted-syntax
 for (const appName of appsList) {
   describe(`Config for ${appName}`, () => {
     let oldNodeEnv;
