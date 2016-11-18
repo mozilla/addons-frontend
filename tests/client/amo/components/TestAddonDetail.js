@@ -1,14 +1,15 @@
-
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
 } from 'react-addons-test-utils';
+import { Provider } from 'react-redux';
 
 import AddonDetail, { allowedDescriptionTags }
   from 'amo/components/AddonDetail';
 import { OverallRatingWithI18n } from 'amo/components/OverallRating';
+import createStore from 'amo/store';
 import I18nProvider from 'core/i18n/Provider';
 import InstallButton from 'core/components/InstallButton';
 import { fakeAddon } from 'tests/client/amo/helpers';
@@ -17,6 +18,7 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 function render({ addon = fakeAddon, ...customProps } = {}) {
   const i18n = getFakeI18nInst();
+  const initialState = { api: { clientApp: 'android', lang: 'pt' } };
   const props = {
     addon,
     // Configure AddonDetail with a non-redux depdendent OverallRating.
@@ -25,9 +27,11 @@ function render({ addon = fakeAddon, ...customProps } = {}) {
   };
 
   return findRenderedComponentWithType(renderIntoDocument(
-    <I18nProvider i18n={i18n}>
-      <AddonDetail {...props} />
-    </I18nProvider>
+    <Provider store={createStore(initialState)}>
+      <I18nProvider i18n={i18n}>
+        <AddonDetail {...props} />
+      </I18nProvider>
+    </Provider>
   ), AddonDetail);
 }
 
@@ -226,5 +230,11 @@ describe('AddonDetail', () => {
     });
     const src = rootNode.querySelector('.icon img').getAttribute('src');
     assert.include(src, 'image/png');
+  });
+
+  it('renders an AddonMoreInfo component when there is an add-on', () => {
+    const rootNode = renderAsDOMNode();
+
+    assert.ok(rootNode.querySelector('.AddonMoreInfo-contents'));
   });
 });

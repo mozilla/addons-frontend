@@ -2,6 +2,7 @@
 import React, { PropTypes } from 'react';
 
 import AddonMeta from 'amo/components/AddonMeta';
+import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import InstallButton from 'core/components/InstallButton';
 import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
@@ -29,9 +30,9 @@ export const allowedDescriptionTags = [
 
 class AddonDetail extends React.Component {
   static propTypes = {
-    i18n: PropTypes.object.isRequired,
-    addon: PropTypes.object.isRequired,
     OverallRating: PropTypes.element,
+    addon: PropTypes.object.isRequired,
+    i18n: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -39,7 +40,7 @@ class AddonDetail extends React.Component {
   }
 
   render() {
-    const { i18n, addon, OverallRating } = this.props;
+    const { OverallRating, addon, i18n } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -53,7 +54,8 @@ class AddonDetail extends React.Component {
         endSpan: '</span>',
       });
 
-    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url : fallbackIcon;
+    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
+      fallbackIcon;
 
     return (
       <div className="AddonDetail">
@@ -71,7 +73,9 @@ class AddonDetail extends React.Component {
         </header>
 
         <section className="addon-metadata">
-          <h2 className="visually-hidden">{i18n.gettext('Extension Metadata')}</h2>
+          <h2 className="visually-hidden">
+            {i18n.gettext('Extension Metadata')}
+          </h2>
           <AddonMeta />
         </section>
 
@@ -101,6 +105,8 @@ class AddonDetail extends React.Component {
             version={addon.current_version}
           />
         </section>
+
+        <AddonMoreInfo addon={addon} />
       </div>
     );
   }

@@ -6,9 +6,15 @@ export const fakeAddon = {
     name: 'Krupa',
     url: 'http://olympia.dev/en-US/firefox/user/krupa/',
   }],
-  current_version: { id: 123, version: '2.0.0' },
+  current_version: {
+    id: 123,
+    license: { name: 'tofulicense', url: 'http://license.com/' },
+    version: '2.0.0',
+  },
   summary: 'This is a summary of the chill out add-on',
   description: 'This is a longer description of the chill out add-on',
+  has_privacy_policy: true,
+  homepage: 'http://hamsterdance.com/',
 };
 
 export const fakeReview = {
