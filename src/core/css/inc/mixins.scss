@@ -241,3 +241,10 @@ $color: $text-color-message) {
     margin-left: $val;
   }
 }
+
+@mixin addonSection() {
+  background: $base-color;
+  margin: 0 10px;
+  padding: 10px;
+  overflow: hidden;
+}
