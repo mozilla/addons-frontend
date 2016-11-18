@@ -25,6 +25,7 @@ describe('CSP Config Defaults', () => {
     process.env.NODE_ENV = 'production';
   });
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const env of deployedEnvs) {
     it(`should have a source-list config for ${env}`, () => {
       process.env.NODE_ENV = env;

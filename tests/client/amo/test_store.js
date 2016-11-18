@@ -6,7 +6,7 @@ describe('amo createStore', () => {
     assert.deepEqual(
       Object.keys(store.getState()).sort(),
       ['addons', 'api', 'auth', 'categories', 'reduxAsyncConnect', 'reviews',
-       'search']
+        'search']
     );
   });
 

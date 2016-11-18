@@ -30,9 +30,9 @@ export default class AdminSearchPage extends React.Component {
     } = this.props;
     const pathname = '/search/';
     const paginator = hasSearchParams && count > 0 ?
-      <Paginate count={count} currentPage={page}
+      (<Paginate count={count} currentPage={page}
         pathname={pathname}
-        queryParams={convertFiltersToQueryParams(filters)} /> : [];
+        queryParams={convertFiltersToQueryParams(filters)} />) : [];
     return (
       <div className="search-page">
         <h1>{_('Add-on Search')}</h1>

@@ -73,10 +73,10 @@ class SearchResults extends React.Component {
     }
 
     const message = (
-      <p ref={(ref) => { this.message = ref; }} className={classNames({
+      (<p ref={(ref) => { this.message = ref; }} className={classNames({
         'visually-hidden': hideMessageText,
         'SearchResults-message': !hideMessageText,
-      })}>{messageText}</p>
+      })}>{messageText}</p>)
     );
 
     return (

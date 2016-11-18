@@ -18,6 +18,13 @@
     // However, it will not warn you if you access `this` in a static method
     // accidentally (which would most likely be a mistake).
     "class-methods-use-this": "off",
+    "comma-dangle": ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'ignore',
+    }],
     // This makes sure imported modules exist.
     "import/no-unresolved": ["error"],
     // This makes sure imported names exist.

@@ -32,9 +32,9 @@ export default class SearchPage extends React.Component {
       loading, page, results,
     } = this.props;
     const paginator = count && hasSearchParams > 0 ?
-      <Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
+      (<Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
         pathname="/search/" queryParams={convertFiltersToQueryParams(filters)}
-        showPages={0} /> : [];
+        showPages={0} />) : [];
 
     return (
       <div className="search-page">

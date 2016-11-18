@@ -177,13 +177,14 @@ describe('AddonDetail', () => {
     const allowedTags = [...allowedDescriptionTags];
     // Ignore <br/> since it's checked elsewhere.
     allowedTags.splice(allowedTags.indexOf('br'), 1);
-
+    // eslint-disable-next-line no-restricted-syntax
     for (const tag of allowedTags) {
       description = `${description} <${tag}>placeholder</${tag}>`;
     }
     const rootNode = renderAsDOMNode({
       addon: { ...fakeAddon, description },
     });
+    // eslint-disable-next-line no-restricted-syntax
     for (const tagToCheck of allowedTags) {
       assert.equal(
         rootNode.querySelectorAll(`section.about ${tagToCheck}`).length, 1,

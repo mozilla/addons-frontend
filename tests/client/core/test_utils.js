@@ -158,42 +158,49 @@ describe('getClientApplication', () => {
     assert.equal(getClientApp(1), 'firefox');
   });
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const ua of androidWebkit) {
     it(`should return 'android' for a androidWebkit UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'android');
     });
   }
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const ua of chromeAndroid) {
     it(`should return 'android' for a chromeAndroid UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'android');
     });
   }
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const ua of chrome) {
     it(`should fallback to 'firefox' for a chrome UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'firefox');
     });
   }
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const ua of firefox) {
     it(`should return firefox by default for a Firefox UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'firefox');
     });
   }
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const ua of firefoxOS) {
     it(`should return firefox by default for a Firefox OS UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'firefox');
     });
   }
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const ua of firefoxAndroid) {
     it(`should return android for a Firefox Android UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'android');
     });
   }
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const ua of firefoxIOS) {
     it(`should return 'firefox' for a Firefox iOS UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'firefox');

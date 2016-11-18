@@ -32,6 +32,7 @@ export function install(
   return _mozAddonManager.createInstall({ url })
     .then((installObj) => {
       const callback = (e) => eventCallback(installObj, e);
+      // eslint-disable-next-line no-restricted-syntax
       for (const event of INSTALL_EVENT_LIST) {
         log.info(`[install] Adding listener for ${event}`);
         installObj.addEventListener(event, callback);
@@ -57,7 +58,6 @@ export function uninstall(guid, { _mozAddonManager = window.navigator.mozAddonMa
       if (result === false) {
         throw new Error('Uninstall failed');
       }
-      return;
     });
 }
 
@@ -73,6 +73,7 @@ export function addChangeListeners(callback, mozAddonManager) {
   }
 
   if (mozAddonManager && mozAddonManager.addEventListener) {
+    // eslint-disable-next-line no-restricted-syntax
     for (const event of GLOBAL_EVENTS) {
       log.info(`adding event listener for "${event}"`);
       mozAddonManager.addEventListener(event, handleChangeEvent);
