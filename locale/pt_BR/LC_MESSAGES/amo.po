@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-17 22:03+0000\n"
+"PO-Revision-Date: 2016-11-18 15:18+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -114,7 +114,7 @@ msgstr "Sair"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Entre / Registre-se"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
@@ -150,7 +150,7 @@ msgstr "Compartilhe coisas"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Navegue por todas as extensões"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
@@ -182,7 +182,7 @@ msgstr "Místico"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr "Navegar todos os temas"
+msgstr "Navegue por todos os temas"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
@@ -236,7 +236,7 @@ msgstr "Pesquisando..."
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nenhum resultado foi encontrados para \"%(query)s\"."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
