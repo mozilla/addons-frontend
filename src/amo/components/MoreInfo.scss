@@ -1,0 +1,38 @@
+@import "~core/css/inc/mixins";
+@import "~core/css/inc/vars";
+
+.MoreInfo-header {
+  @include addonSection();
+
+  border-top-left-radius: $border-radius-default;
+  border-top-right-radius: $border-radius-default;
+  font-size: $font-size-default;
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+.MoreInfo-contents {
+  @include addonSection();
+
+  border-bottom-left-radius: $border-radius-default;
+  border-bottom-right-radius: $border-radius-default;
+  font-size: $font-size-s;
+
+  dt {
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+  }
+
+  dd {
+    line-height: 1.2;
+    margin: 0 0 3px;
+    padding: 0;
+
+    a:link {
+      font-size: $font-size-s;
+      font-weight: 400;
+    }
+  }
+}

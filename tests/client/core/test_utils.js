@@ -5,6 +5,7 @@ import { sprintf } from 'jed';
 
 import * as actions from 'core/actions';
 import * as categoriesActions from 'core/actions/categories';
+import * as versionActions from 'core/actions/version';
 import * as api from 'core/api';
 import {
   addQueryParams,
@@ -17,6 +18,7 @@ import {
   isAllowedOrigin,
   isValidClientApp,
   loadAddonIfNeeded,
+  loadAddonAndVersionDetail,
   loadCategoriesIfNeeded,
   nl2br,
 } from 'core/utils';
@@ -289,11 +291,12 @@ describe('loadAddonIfNeeded', () => {
       .once()
       .withArgs(entities)
       .returns(action);
-    return loadAddonIfNeeded(props).then(() => {
-      assert(dispatch.calledWith(action), 'dispatch not called');
-      mockApi.verify();
-      mockActions.verify();
-    });
+    return loadAddonIfNeeded(props)
+      .then(() => {
+        assert(dispatch.calledWith(action), 'dispatch not called');
+        mockApi.verify();
+        mockActions.verify();
+      });
   });
 
   it('handles 404s when loading the add-on', () => {
@@ -390,6 +393,130 @@ describe('loadCategoriesIfNeeded', () => {
       mockApi.verify();
       mockActions.verify();
     });
+  });
+});
+
+describe('loadAddonAndVersionDetail', () => {
+  const apiState = { clientApp: 'android', lang: 'pt' };
+  let dispatch;
+
+  beforeEach(() => {
+    dispatch = sinon.spy();
+  });
+
+  function makeProps({ slug, loadedAddon, loadedVersionDetail }) {
+    return {
+      store: {
+        getState: () => ({
+          addons: {
+            'my-addon': loadedAddon || sinon.stub(),
+          },
+          api: apiState,
+          version: {
+            20: loadedVersionDetail || sinon.stub(),
+          },
+        }),
+        dispatch,
+      },
+      params: { slug },
+    };
+  }
+
+  it('returns the version if loaded', () => {
+    const slug = 'my-addon';
+    const loadedAddon = { current_version: { id: 20 }, slug };
+    const loadedVersionDetail = { license: { url: 'http://foo.com/license' } };
+
+    assert.strictEqual(
+      loadAddonAndVersionDetail(makeProps({
+        loadedAddon, loadedVersionDetail, slug,
+      })),
+      loadedVersionDetail,
+    );
+  });
+
+  it('loads the version details if they are not loaded', () => {
+    const slug = 'my-addon';
+    const versionID = 5383583;
+    const loadedAddon = { current_version: { id: versionID }, slug };
+    const loadedVersionDetail = { license: { url: 'http://foo.com/license' } };
+    const props = makeProps({ loadedAddon, slug });
+    const response = { versions: { [versionID]: loadedVersionDetail } };
+
+    const mockApi = sinon.mock(api);
+    mockApi
+      .expects('versionDetail')
+      .once()
+      .withArgs({ api: apiState, slug, versionID })
+      .returns(Promise.resolve(response));
+    const action = sinon.stub();
+    const mockActions = sinon.mock(versionActions);
+    mockActions
+      .expects('versionLoad')
+      .once()
+      .withArgs(response)
+      .returns(action);
+    return loadAddonAndVersionDetail(props)
+      .then(() => {
+        assert(dispatch.calledWith(action), 'dispatch not called');
+        mockApi.verify();
+        mockActions.verify();
+      });
+  });
+
+  it('loads the addon if it is not loaded', () => {
+    const slug = 'other-addon';
+    const versionID = 20;
+    const loadedAddon = { current_version: { id: versionID }, slug };
+    const props = makeProps({ loadedAddon, slug });
+    const addonResponse = { 'other-addon': loadedAddon };
+
+    const mockApi = sinon.mock(api);
+    mockApi
+      .expects('fetchAddon')
+      .once()
+      .withArgs({ api: apiState, slug })
+      .returns(Promise.resolve({ entities: { addonResponse } }));
+    const action = sinon.stub();
+    const mockActions = sinon.mock(actions);
+    mockActions
+      .expects('loadEntities')
+      .once()
+      .withArgs({ addonResponse })
+      .returns(action);
+    return loadAddonAndVersionDetail(props)
+      .then(() => {
+        assert(dispatch.calledWith(action), 'dispatch not called');
+        mockApi.verify();
+        mockActions.verify();
+      });
+  });
+
+  it('handles errors for the version load', () => {
+    const slug = 'my-addon';
+    const versionID = 5383583;
+    const loadedAddon = { current_version: { id: versionID }, slug };
+    const props = makeProps({ loadedAddon, slug });
+
+    const mockApi = sinon.mock(api);
+    mockApi
+      .expects('versionDetail')
+      .once()
+      .withArgs({ api: apiState, slug, versionID })
+      .returns(Promise.reject());
+    const action = sinon.stub();
+    const mockActions = sinon.mock(versionActions);
+    mockActions
+      .expects('versionFail')
+      .once()
+      .withArgs()
+      .returns(action);
+    return loadAddonAndVersionDetail(props)
+      .then(() => {
+        assert(dispatch.calledWith(action), 'dispatch not called');
+        mockApi.verify();
+        mockActions.verify();
+      });
   });
 });
 

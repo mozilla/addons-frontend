@@ -14,6 +14,7 @@ const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 export const addon = new Schema('addons', { idAttribute: 'slug' });
 export const category = new Schema('categories', { idAttribute: 'slug' });
 export const user = new Schema('users', { idAttribute: 'username' });
+export const version = new Schema('versions', { idAttribute: 'id' });
 
 function makeQueryString(query) {
   return url.format({ query });
@@ -81,6 +82,15 @@ export function fetchAddon({ api, slug }) {
   return callApi({
     endpoint: `addons/addon/${slug}`,
     schema: addon,
+    auth: true,
+    state: api,
+  });
+}
+
+export function versionDetail({ api, slug, versionID }) {
+  return callApi({
+    endpoint: `addons/addon/${slug}/versions/${versionID}`,
+    schema: version,
     auth: true,
     state: api,
   });

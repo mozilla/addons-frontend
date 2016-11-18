@@ -9,9 +9,11 @@ import {
   categoriesLoad,
   categoriesFail,
 } from 'core/actions/categories';
-import { categories, fetchAddon } from 'core/api';
+import { categories, fetchAddon, versionDetail } from 'core/api';
+import { versionGet, versionLoad, versionFail } from 'core/actions/version';
 import log from 'core/logger';
 import purify from 'core/purify';
+
 
 export function gettext(str) {
   return str;
@@ -129,6 +131,56 @@ export function loadCategoriesIfNeeded({ store: { dispatch, getState } }) {
     return getCategories({ dispatch, api: state.api });
   }
   return true;
+}
+
+export function fetchVersionDetails(
+  { store: { dispatch, getState }, params: { slug } }
+) {
+  const state = getState();
+  const addon = findAddon(state, slug);
+
+  if (!addon) {
+    return null;
+  }
+  dispatch(versionGet({ slug, versionID: addon.current_version.id }));
+
+  return versionDetail({
+    api: state.api,
+    slug: addon.slug,
+    versionID: addon.current_version.id,
+  })
+    .then((fetchedVersion) => dispatch(versionLoad(fetchedVersion)))
+    .catch((response) => dispatch(versionFail(response)));
+}
+
+export function loadAddonAndVersionDetail(
+  { store: { dispatch, getState }, params: { slug } }
+) {
+  const state = getState();
+  const addon = loadAddonIfNeeded({
+    store: { dispatch, getState },
+    params: { slug },
+  });
+
+  if (!addon.current_version) {
+    return addon
+      .then(() => fetchVersionDetails({
+        store: { dispatch, getState },
+        params: { slug },
+      }));
+  }
+
+  // Check for this add-on's current version details in the existing state.
+  if (state.version && state.version[addon.current_version.id]) {
+    dispatch(versionGet({ slug, versionID: addon.current_version.id }));
+    log.info(`Found version ${addon.current_version.id} for addon ${addon.id} in state`);
+    return state.version[addon.current_version.id];
+  }
+
+  return fetchVersionDetails({
+    store: { dispatch, getState },
+    params: { slug },
+  });
 }
 
 export function isAllowedOrigin(urlString, { allowedOrigins = [config.get('amoCDN')] } = {}) {

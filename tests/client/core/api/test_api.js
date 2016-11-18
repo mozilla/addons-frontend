@@ -192,6 +192,53 @@ describe('api', () => {
     });
   });
 
+  describe('versionDetail api', () => {
+    function mockResponse() {
+      return Promise.resolve({
+        ok: true,
+        json() {
+          return Promise.resolve({
+            id: 20,
+            license: { url: 'http://foo.com/license.html' },
+          });
+        },
+      });
+    }
+
+    it('sets the lang query and id/slug params', () => {
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/addon/my-addon/versions/3/?lang=fr`)
+        .once()
+        .returns(mockResponse());
+      return api.versionDetail({
+        api: { lang: 'fr' },
+        slug: 'my-addon',
+        versionID: 3,
+      })
+        .then(() => mockWindow.verify());
+    });
+
+    it('normalizes the response', () => {
+      mockWindow.expects('fetch').once().returns(mockResponse());
+      return api.versionDetail({
+        api: { lang: 'en-US' }, slug: 'my-addon', versionID: 20,
+      })
+        .then((response) => {
+          assert.deepEqual(response, {
+            entities: {
+              versions: {
+                20: {
+                  id: 20,
+                  license: { url: 'http://foo.com/license.html' },
+                },
+              },
+            },
+            result: 20,
+          });
+        });
+    });
+  });
+
   describe('add-on api', () => {
     function mockResponse() {
       return Promise.resolve({
