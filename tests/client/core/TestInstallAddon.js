@@ -548,5 +548,17 @@ describe('withInstallHelpers inner functions', () => {
       assert(configStub.calledOnce);
       assert(configStub.calledWith('server'));
     });
+
+    it('requires an installURL for extensions', () => {
+      assert.throws(() => {
+        makeMapDispatchToProps({})(sinon.spy(), { type: EXTENSION_TYPE });
+      }, /installURL is required/);
+      assert.doesNotThrow(() => {
+        makeMapDispatchToProps({})(sinon.spy(), { type: EXTENSION_TYPE, installURL: 'foo.com' });
+      });
+      assert.doesNotThrow(() => {
+        makeMapDispatchToProps({})(sinon.spy(), { type: THEME_TYPE });
+      });
+    });
   });
 });

@@ -1,5 +1,6 @@
 /* global CustomEvent, document, window */
 import { connect } from 'react-redux';
+import { oneLine } from 'common-tags';
 import config from 'config';
 
 import log from 'core/logger';
@@ -11,6 +12,7 @@ import {
   DOWNLOAD_PROGRESS,
   ENABLED,
   ERROR,
+  EXTENSION_TYPE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -54,6 +56,11 @@ export function makeMapDispatchToProps({ src }) {
   ) {
     if (config.get('server')) {
       return {};
+    }
+
+    if (ownProps.type === EXTENSION_TYPE && ownProps.installURL === undefined) {
+      throw new Error(oneLine`installURL is required, ensure component props are set before
+        withInstallHelpers is called`);
     }
 
     // Set the default here otherwise server code will blow up.
