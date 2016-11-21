@@ -94,8 +94,6 @@ export class AddonReviewBase extends React.Component {
       );
     }
 
-    // TODO: I guess we should load the existing review text so it
-    // can be edited? That flow needs more thought.
     return (
       <div className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
@@ -106,7 +104,9 @@ export class AddonReviewBase extends React.Component {
             className="AddonReview-textarea"
             ref={(ref) => { this.reviewTextarea = ref; }}
             name="review"
-            placeholder={placeholder} />
+            placeholder={placeholder}>
+            {this.props.review.body}
+          </textarea>
           <div className="AddonReview-button-row">
             <button className="AddonReview-button AddonReview-back-button"
               onClick={this.goBackToAddonDetail}
@@ -153,6 +153,7 @@ export function loadAddonReview(
         rating: review.rating,
         addonSlug: slug,
         id: review.id,
+        body: review.body,
       };
       return reviewData;
     });

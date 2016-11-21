@@ -79,6 +79,12 @@ describe('AddonReview', () => {
                  /Tell us about your experience/);
   });
 
+  it('allows you to edit existing review text', () => {
+    const body = 'I am disappointed that it does not glow in the dark';
+    const root = render({ review: { ...defaultReview, body } });
+    assert.equal(root.reviewTextarea.textContent, body);
+  });
+
   it('triggers the submit handler', () => {
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const root = render({ updateReviewText });
@@ -178,6 +184,7 @@ describe('AddonReview', () => {
           assert.equal(returnedReview.addonSlug, fakeAddon.slug);
           assert.equal(returnedReview.rating, fakeReview.rating);
           assert.equal(returnedReview.id, fakeReview.id);
+          assert.equal(returnedReview.body, fakeReview.body);
 
           mockApi.verify();
         });

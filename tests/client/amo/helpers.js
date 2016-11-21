@@ -26,7 +26,7 @@ export const fakeReview = {
     id: 1234,
   },
   is_latest: false,
-  body: null,
+  body: 'It is Okay',
   title: null,
 };
 
