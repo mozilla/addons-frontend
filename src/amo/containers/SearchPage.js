@@ -11,5 +11,5 @@ export default compose(
     deferred: true,
     promise: loadSearchResultsIfNeeded,
   }]),
-  connect(mapStateToProps)
+  connect(mapStateToProps),
 )(SearchPage);

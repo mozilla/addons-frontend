@@ -2,10 +2,12 @@ import React, { PropTypes } from 'react';
 
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
-import SearchResults from 'core/components/Search/SearchResults';
+import SearchResults from 'amo/components/SearchResults';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 import SearchResult from './SearchResult';
+
+import './SearchPage.scss';
 
 
 export default class SearchPage extends React.Component {
@@ -42,7 +44,7 @@ export default class SearchPage extends React.Component {
     ) : [];
 
     return (
-      <div className="search-page">
+      <div className="SearchPage">
         <SearchResults ResultComponent={ResultComponent} count={count}
           hasSearchParams={hasSearchParams} loading={loading} results={results}
           filters={filters} />
