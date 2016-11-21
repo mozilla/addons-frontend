@@ -357,18 +357,14 @@ describe('OverallRating', () => {
     });
 
     it('sets a user review to the latest matching one in state', () => {
-      const isLatest = true;
       signIn({ userId: fakeReview.user.id });
 
-      store.dispatch(setReview(fakeReview, { isLatest }));
+      const action = setReview(fakeReview, { isLatest: true });
+      store.dispatch(action);
+      const dispatchedReview = action.data;
 
       const userReview = getMappedProps().userReview;
-      assert.deepEqual(userReview, {
-        id: fakeReview.id,
-        versionId: fakeReview.version.id,
-        rating: fakeReview.rating,
-        isLatest,
-      });
+      assert.deepEqual(userReview, dispatchedReview);
     });
 
     it('ignores reviews from other users', () => {
@@ -402,25 +398,20 @@ describe('OverallRating', () => {
     it('only finds the latest review for an add-on', () => {
       signIn({ userId: fakeReview.user.id });
 
-      const reviewBase = {
-        versionId: fakeReview.version.id,
-        rating: 5,
-      };
+      function createReview(overrides) {
+        const action = setReview(fakeReview, overrides);
+        store.dispatch(action);
+        return action.data;
+      }
 
-      const oldReview = {
-        ...reviewBase,
+      createReview({
         id: 1,
         isLatest: false,
-      };
-
-      const latestReview = {
-        ...reviewBase,
+      });
+      const latestReview = createReview({
         id: 2,
         isLatest: true,
-      };
-
-      store.dispatch(setReview(fakeReview, oldReview));
-      store.dispatch(setReview(fakeReview, latestReview));
+      });
 
       assert.deepEqual(getMappedProps().userReview, latestReview);
     });

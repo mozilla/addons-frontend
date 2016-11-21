@@ -22,12 +22,7 @@ export default function reviews(state = initialState, { data, type }) {
     case SET_REVIEW: {
       const existingReviews =
         state[data.userId] ? state[data.userId][data.addonId] : {};
-      const latestReview = {
-        id: data.id,
-        rating: data.rating,
-        versionId: data.versionId,
-        isLatest: data.isLatest,
-      };
+      const latestReview = data;
       return {
         ...state,
         // This is a map of reviews by user ID, addon ID, and review ID.

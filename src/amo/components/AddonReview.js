@@ -148,14 +148,14 @@ export function loadAddonReview(
     }));
   })
     .then((review) => {
-      dispatch(setReview(review));
-      const reviewData = {
-        rating: review.rating,
+      const action = setReview(review);
+      const reviewData = action.data;
+      dispatch(action);
+      return {
+        ...reviewData,
+        // TODO: get addon.slug added to the API response.
         addonSlug: slug,
-        id: review.id,
-        body: review.body,
       };
-      return reviewData;
     });
 }
 
