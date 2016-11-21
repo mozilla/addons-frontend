@@ -10,7 +10,7 @@ import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
 import * as coreApi from 'core/api';
 import {
-  mapStateToProps, AddonReviewBase,
+  mapDispatchToProps, mapStateToProps, AddonReviewBase,
   loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
 import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helpers';
@@ -135,29 +135,6 @@ describe('AddonReview', () => {
                  `/${lang}/${clientApp}/addon/${defaultReview.addonSlug}/`);
   });
 
-  it('allows you to submit a review', () => {
-    const params = {
-      reviewId: 3333,
-      body: 'some review text',
-      addonSlug: 'chill-out',
-      apiState: signedInApiState,
-    };
-
-    const mockApi = sinon.mock(amoApi)
-      .expects('submitReview')
-      .withArgs(params)
-      .returns(Promise.resolve({}));
-
-    const root = findRenderedComponentWithType(renderIntoDocument(
-      <AddonReviewBase review={defaultReview} i18n={getFakeI18nInst()} />
-    ), AddonReviewBase);
-
-    return root.props.updateReviewText({ ...params })
-      .then(() => {
-        mockApi.verify();
-      });
-  });
-
   describe('loadAddonReview', () => {
     let mockApi;
     let fakeDispatch;
@@ -211,6 +188,41 @@ describe('AddonReview', () => {
     it('maps apiState to props', () => {
       const props = mapStateToProps({ api: signedInApiState });
       assert.deepEqual(props.apiState, signedInApiState);
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    let mockApi;
+    let dispatch;
+    let actions;
+
+    beforeEach(() => {
+      mockApi = sinon.mock(amoApi);
+      dispatch = sinon.stub();
+      actions = mapDispatchToProps(dispatch);
+    });
+
+    describe('updateReviewText', () => {
+      it('allows you to update a review', () => {
+        const params = {
+          reviewId: 3333,
+          body: 'some review text',
+          addonSlug: 'chill-out',
+          apiState: signedInApiState,
+        };
+
+        mockApi
+          .expects('submitReview')
+          .withArgs(params)
+          .returns(Promise.resolve(fakeReview));
+
+        return actions.updateReviewText({ ...params })
+          .then(() => {
+            mockApi.verify();
+            assert.ok(dispatch.called, 'the new review should be dispatched');
+            assert.deepEqual(dispatch.firstCall.args[0], setReview(fakeReview));
+          });
+      });
     });
   });
 });

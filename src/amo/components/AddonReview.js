@@ -21,12 +21,6 @@ export class AddonReviewBase extends React.Component {
     updateReviewText: PropTypes.func,
   }
 
-  static defaultProps = {
-    // TODO: move this to mapDispatchToProps once we need to pass dispatch()
-    // to callApi()
-    updateReviewText: (...params) => submitReview(...params),
-  }
-
   constructor(props) {
     super(props);
     this.state = { errorMessage: null };
@@ -134,6 +128,13 @@ export const mapStateToProps = (state) => ({
   apiState: state.api,
 });
 
+export const mapDispatchToProps = (dispatch) => ({
+  updateReviewText(...params) {
+    return submitReview(...params)
+      .then((review) => dispatch(setReview(review)));
+  },
+});
+
 export function loadAddonReview(
   { store: { dispatch }, params: { slug, reviewId } }
 ) {
@@ -164,6 +165,6 @@ export default compose(
     promise: loadAddonReview,
   }]),
   withRouter,
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AddonReviewBase);
