@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-15 17:30+0000\n"
+"PO-Revision-Date: 2016-11-21 17:25+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -32,7 +32,7 @@ msgstr "O tomto rozšíření"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr ""
+msgstr "Ohodnoťte svou zkušenost"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
@@ -60,7 +60,7 @@ msgstr "Zadejte prosím nějaký text"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
-msgstr ""
+msgstr "Napsat recenzi"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
@@ -223,14 +223,14 @@ msgstr "Další"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Stránka %(currentPage)s z %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Na dotaz \"%(query)s\" byl nalezen %(count)s výsledek."
+msgstr[1] "Na dotaz \"%(query)s\" byly nalezeny %(count)s výsledky."
+msgstr[2] "Na dotaz \"%(query)s\" bylo nalezeno %(count)s výsledků."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
@@ -238,7 +238,7 @@ msgstr "Vyhledávání…"
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Na dotaz \"%(query)s\" nebyly nalezeny žádné výsledky."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
