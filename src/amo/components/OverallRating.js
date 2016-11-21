@@ -14,9 +14,7 @@ import 'amo/css/OverallRating.scss';
 
 export class OverallRatingBase extends React.Component {
   static propTypes = {
-    addonName: PropTypes.string.isRequired,
-    addonSlug: PropTypes.string.isRequired,
-    addonId: PropTypes.number.isRequired,
+    addon: PropTypes.object.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
@@ -29,11 +27,11 @@ export class OverallRatingBase extends React.Component {
 
   constructor(props) {
     super(props);
-    const { loadSavedReview, userId, addonId } = props;
+    const { loadSavedReview, userId, addon } = props;
     this.ratingButtons = {};
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedReview({ userId, addonId });
+      loadSavedReview({ userId, addonId: addon.id });
     }
   }
 
@@ -46,8 +44,8 @@ export class OverallRatingBase extends React.Component {
     const params = {
       rating: parseInt(button.value, 10),
       apiState: this.props.apiState,
-      addonId: this.props.addonId,
-      addonSlug: this.props.addonSlug,
+      addonId: this.props.addon.id,
+      addonSlug: this.props.addon.slug,
       router: this.props.router,
       versionId: version.id,
       userId,
@@ -80,10 +78,10 @@ export class OverallRatingBase extends React.Component {
   }
 
   render() {
-    const { i18n, addonName } = this.props;
+    const { i18n, addon } = this.props;
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
-      { addonName });
+      { addonName: addon.name });
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
@@ -112,12 +110,12 @@ export const mapStateToProps = (state, ownProps) => {
   let userReview;
 
   // Look for the latest saved review by this user for this add-on.
-  if (userId && state.reviews) {
+  if (userId && state.reviews && ownProps.addon) {
     log.info(dedent`Checking state for review by user ${userId},
-      addonId ${ownProps.addonId}, versionId ${ownProps.version.id}`);
+      addonId ${ownProps.addon.id}, versionId ${ownProps.version.id}`);
 
     const allUserReviews = state.reviews[userId] || {};
-    const addonReviews = allUserReviews[ownProps.addonId] || {};
+    const addonReviews = allUserReviews[ownProps.addon.id] || {};
     const latestId = Object.keys(addonReviews).find(
       (reviewId) => addonReviews[reviewId].isLatest);
 
