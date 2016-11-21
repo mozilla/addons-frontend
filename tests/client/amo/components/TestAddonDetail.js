@@ -119,9 +119,7 @@ describe('AddonDetail', () => {
   it('configures the overall ratings section', () => {
     const root = findRenderedComponentWithType(render(),
                                                OverallRatingWithI18n);
-    assert.equal(root.props.addonName, fakeAddon.name);
-    assert.equal(root.props.addonId, fakeAddon.id);
-    assert.equal(root.props.addonSlug, fakeAddon.slug);
+    assert.deepEqual(root.props.addon, fakeAddon);
   });
 
   it('renders a summary', () => {

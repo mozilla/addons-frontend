@@ -20,9 +20,7 @@ import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 function render({ ...customProps } = {}) {
   const props = {
-    addonName: fakeAddon.name,
-    addonSlug: fakeAddon.slug,
-    addonId: fakeAddon.id,
+    addon: fakeAddon,
     apiState: signedInApiState,
     version: fakeAddon.current_version,
     i18n: getFakeI18nInst(),
@@ -48,24 +46,24 @@ describe('OverallRating', () => {
   }
 
   it('prompts you to rate the add-on by name', () => {
-    const root = render({ addonName: 'Some Add-on' });
+    const root = render({ addon: { ...fakeAddon, name: 'Some Add-on' } });
     assert.include(root.ratingLegend.textContent, 'Some Add-on');
   });
 
   it('loads saved ratings on construction', () => {
     const userId = 12889;
-    const addonId = 3344;
+    const addon = { ...fakeAddon, id: 3344 };
     const version = {
       ...fakeAddon.current_version,
       id: 9966,
     };
     const loadSavedReview = sinon.spy();
 
-    render({ userId, addonId, version, loadSavedReview });
+    render({ userId, addon, version, loadSavedReview });
 
     assert.equal(loadSavedReview.called, true);
     const args = loadSavedReview.firstCall.args[0];
-    assert.deepEqual(args, { userId, addonId });
+    assert.deepEqual(args, { userId, addonId: addon.id });
   });
 
   it('does not load saved ratings when userId is empty', () => {
@@ -83,7 +81,7 @@ describe('OverallRating', () => {
       submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
-      addonId: 12345,
+      addon: { ...fakeAddon, id: 12345, slug: 'some-slug' },
       userId: 92345,
       router,
     });
@@ -94,7 +92,7 @@ describe('OverallRating', () => {
     assert.equal(call.versionId, 321);
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
-    assert.equal(call.addonSlug, 'chill-out');
+    assert.equal(call.addonSlug, 'some-slug');
     assert.equal(call.userId, 92345);
     assert.equal(call.router, router);
     assert.strictEqual(call.reviewId, undefined);
@@ -106,7 +104,6 @@ describe('OverallRating', () => {
       submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: fakeReview.version.id },
-      addonId: 12345,
       userId: 92345,
       userReview: setReview(fakeReview).data,
     });
@@ -132,14 +129,15 @@ describe('OverallRating', () => {
         id: 2,
       },
     };
+    const addon = { ...fakeAddon, id: newReview.addon.id };
 
     const root = render({
-      submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: oldVersionId },
-      addonId: newReview.addon.id,
       userId: 92345,
       userReview: setReview(newReview).data,
+      submitReview,
+      addon,
     });
     selectRating(root, newReview.rating);
     assert.ok(submitReview.called);
@@ -148,7 +146,7 @@ describe('OverallRating', () => {
     // newly created against the current version.
     const call = submitReview.firstCall.args[0];
     assert.equal(call.reviewId, undefined);
-    assert.equal(call.versionId, oldVersionId);
+    assert.equal(call.versionId, addon.current_version.id);
     assert.equal(call.rating, newReview.rating);
     assert.equal(call.addonId, newReview.addon.id);
   });
@@ -316,7 +314,7 @@ describe('OverallRating', () => {
     function getMappedProps({
       state = store.getState(),
       componentProps = {
-        addonId: fakeAddon.id,
+        addon: fakeAddon,
         version: fakeAddon.current_version,
       },
     } = {}) {
