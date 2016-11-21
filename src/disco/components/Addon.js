@@ -244,6 +244,6 @@ export function mapStateToProps(state, ownProps, { _tracking = tracking } = {}) 
 
 export default compose(
   translate({ withRef: true }),
-  withInstallHelpers({ src: 'discovery-promo' }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
+  withInstallHelpers({ src: 'discovery-promo' }),
 )(AddonBase);
