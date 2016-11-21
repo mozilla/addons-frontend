@@ -51,10 +51,18 @@ export class OverallRatingBase extends React.Component {
       userId,
     };
 
-    if (userReview && userReview.versionId === params.versionId) {
-      log.info(
-        `Updating reviewId ${userReview.id} for versionId ${params.versionId}`);
-      params.reviewId = userReview.id;
+    if (userReview) {
+      log.info(`Editing reviewId ${userReview.id}`);
+      if (userReview.versionId === params.versionId) {
+        log.info(
+          `Updating reviewId ${userReview.id} for versionId ${params.versionId}`);
+        params.reviewId = userReview.id;
+      } else {
+        // Since we have a version mismatch, submit the review against the
+        // current most version, similar to how new reviews are created.
+        params.versionId = this.props.addon.current_version.id;
+        log.info(`Submitting a new review for versionId ${params.versionId}`);
+      }
     } else {
       log.info(`Submitting a new review for versionId ${params.versionId}`);
     }

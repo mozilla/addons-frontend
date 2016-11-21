@@ -129,14 +129,15 @@ describe('OverallRating', () => {
         id: 2,
       },
     };
+    const addon = { ...fakeAddon, id: newReview.addon.id };
 
     const root = render({
-      submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: oldVersionId },
-      addon: { ...fakeAddon, id: newReview.addon.id },
       userId: 92345,
       userReview: setReview(newReview).data,
+      submitReview,
+      addon,
     });
     selectRating(root, newReview.rating);
     assert.ok(submitReview.called);
@@ -145,7 +146,7 @@ describe('OverallRating', () => {
     // newly created against the current version.
     const call = submitReview.firstCall.args[0];
     assert.equal(call.reviewId, undefined);
-    assert.equal(call.versionId, oldVersionId);
+    assert.equal(call.versionId, addon.current_version.id);
     assert.equal(call.rating, newReview.rating);
     assert.equal(call.addonId, newReview.addon.id);
   });
