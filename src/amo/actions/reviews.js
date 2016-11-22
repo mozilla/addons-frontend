@@ -4,6 +4,7 @@ export const setReview = (review, reviewOverrides = {}) => ({
   type: SET_REVIEW,
   data: {
     addonId: review.addon.id,
+    addonSlug: review.addon.slug,
     body: review.body,
     id: review.id,
     isLatest: review.is_latest,

@@ -149,14 +149,8 @@ export function loadAddonReview(
   })
     .then((review) => {
       const action = setReview(review);
-      const reviewData = action.data;
       dispatch(action);
-      return {
-        ...reviewData,
-        // TODO: get addon.slug added to the API response.
-        // https://github.com/mozilla/addons-server/issues/4038
-        addonSlug: slug,
-      };
+      return action.data;
     });
 }
 
