@@ -154,6 +154,7 @@ export function loadAddonReview(
       return {
         ...reviewData,
         // TODO: get addon.slug added to the API response.
+        // https://github.com/mozilla/addons-server/issues/4038
         addonSlug: slug,
       };
     });
