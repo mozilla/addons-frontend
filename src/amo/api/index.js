@@ -13,30 +13,24 @@ export function submitReview({
     data.version = undefined;
   }
 
-  return new Promise((resolve) => {
-    if (!addonSlug) {
-      throw new Error('addonSlug is required to build the endpoint');
-    }
-    resolve();
-  })
-    .then(() => {
+  return new Promise(
+    (resolve) => {
+      if (!addonSlug) {
+        throw new Error('addonSlug is required to build the endpoint');
+      }
       let method = 'POST';
       let endpoint = `addons/addon/${addonSlug}/reviews`;
       if (reviewId) {
         endpoint = `${endpoint}/${reviewId}`;
         method = 'PATCH';
       }
-      return callApi({
+      resolve(callApi({
         endpoint,
         body: data,
         method,
         auth: true,
         state: apiState,
-      });
-    })
-    .catch((error) => {
-      console.log('Caught error in submitReview', error);
-      throw error;
+      }));
     });
 }
 
