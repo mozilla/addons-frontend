@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-22 20:04+0000\n"
+"PO-Revision-Date: 2016-11-23 07:09+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -40,7 +40,7 @@ msgstr "Taggayt"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "Ittwaqdec sɣur"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
@@ -48,7 +48,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "Uɣal ɣer deffir"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
