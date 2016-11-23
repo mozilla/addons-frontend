@@ -1,11 +1,29 @@
 import {
+  API_ERROR,
   SET_JWT,
   SET_LANG,
   SET_CLIENT_APP,
 } from 'core/constants';
 
-export default function api(state = {}, action) {
+const initialState = {
+  errors: {},
+};
+
+export default function api(state = initialState, action) {
   switch (action.type) {
+    case API_ERROR:
+      return {
+        ...state,
+        errors: {
+          ...state.errors,
+          [action.payload.id]: {
+            error: {
+              messages: action.payload.messages,
+              error: action.payload.error,
+            },
+          },
+        },
+      };
     case SET_JWT:
       return { ...state, token: action.payload.token };
     case SET_LANG:

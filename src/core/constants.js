@@ -44,6 +44,7 @@ export const validAddonTypes = [
 ];
 
 // Action types.
+export const API_ERROR = 'API_ERROR';
 export const CATEGORIES_GET = 'CATEGORIES_GET';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CATEGORIES_FAILED = 'CATEGORIES_FAILED';

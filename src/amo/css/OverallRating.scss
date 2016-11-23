@@ -31,3 +31,12 @@ $star-size: 46px;
 .OverallRating-choice:hover ~ .OverallRating-choice {
   background-image: url('../img/ratings/big-star.svg');
 }
+
+// Move this into some kind of error component
+.OverallRating-error {
+  text-align: center;
+  background-color: #f00;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+}

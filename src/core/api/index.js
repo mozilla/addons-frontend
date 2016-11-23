@@ -19,6 +19,10 @@ function makeQueryString(query) {
   return url.format({ query });
 }
 
+export function getApiResultId({ prefix = '' } = {}) {
+  return `${prefix}-${Math.random().toString(36).substr(2, 9)}`;
+}
+
 export function callApi({
   endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
   body, credentials,
@@ -46,21 +50,37 @@ export function callApi({
 
   return fetch(apiURL, options)
     .then((response) => {
+      return response.json().then((jsonResponse) => {
+        return { response, jsonResponse };
+      });
+    }, (error) => {
+      console.warn('Could not parse response as JSON:', error);
+      return response.text().then((textRespone) => {
+        return { response, jsonResponse: { text: textRespone } };
+      });
+    })
+    .then(({ response, jsonResponse }) => {
       if (response.ok) {
-        return response.json();
+        return jsonResponse;
       }
 
       // If response is not ok we'll throw.
-      // Notes that redux-connect will catch this exception and
-      // pass it up to the state as an error for this api call.
+      // Note that if callApi is executed by an asyncConnect() handler,
+      // then redux-connect will catch this exception and
+      // dispatch a LOAD_FAIL action which puts the error in state.
       const apiError = new Error('Error calling API');
       apiError.response = {
         apiURL,
         status: response.status,
+        data: jsonResponse,
       };
       throw apiError;
     })
-    .then((response) => (schema ? normalize(response, schema) : response));
+    .then((response) => (schema ? normalize(response, schema) : response))
+    .catch((error) => {
+      console.log('Caught error in callApi', error);
+      throw error;
+    });
 }
 
 export function search({ api, page, auth = false, filters = {} }) {

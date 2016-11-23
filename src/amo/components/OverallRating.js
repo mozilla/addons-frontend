@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
+import { setApiError } from 'core/actions';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
@@ -15,6 +16,8 @@ import 'amo/css/OverallRating.scss';
 export class OverallRatingBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
+    apiError: PropTypes.object,
+    apiResultId: PropTypes.string.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
@@ -42,6 +45,7 @@ export class OverallRatingBase extends React.Component {
     const { userReview, userId, version } = this.props;
 
     const params = {
+      apiResultId: this.props.apiResultId,
       rating: parseInt(button.value, 10),
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
@@ -86,7 +90,7 @@ export class OverallRatingBase extends React.Component {
   }
 
   render() {
-    const { i18n, addon } = this.props;
+    const { apiError, i18n, addon } = this.props;
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName: addon.name });
@@ -94,8 +98,23 @@ export class OverallRatingBase extends React.Component {
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
 
+    // Move this to some kind of shared error reporting component.
+    let errorInfo;
+    let errorMessages = [];
+    if (apiError) {
+      errorMessages = apiError.error.messages.map((error) => {
+        return <li>{error}</li>;
+      });
+      errorInfo = (
+        <ul className='OverallRating-error'>
+          {errorMessages}
+        </ul>
+      );
+    }
+
     return (
       <div className="OverallRating">
+        {errorInfo}
         <form action="">
           <fieldset>
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
@@ -134,7 +153,10 @@ export const mapStateToProps = (state, ownProps) => {
     }
   }
 
+  log.info(`Looking for API errors with ID ${ownProps.apiResultId}`);
+
   return {
+    apiError: state.api.errors[ownProps.apiResultId],
     apiState: state.api,
     userReview,
     userId,
@@ -155,13 +177,20 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitReview({ router, addonSlug, ...params }) {
+  submitReview({ router, apiResultId, addonSlug, ...params }) {
     return submitReview({ addonSlug, ...params })
       .then((review) => {
         const { lang, clientApp } = params.apiState;
         dispatch(setReview(review));
         router.push(
           `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
+      })
+      .catch((error) => {
+        const info = {
+          error, id: apiResultId,
+        };
+        console.log('About to dispatch error ', info);
+        dispatch(setApiError(info));
       });
   },
 });

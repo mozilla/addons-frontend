@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react';
 
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import { getApiResultId } from 'core/api';
 import InstallButton from 'core/components/InstallButton';
 import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
@@ -99,6 +100,7 @@ class AddonDetail extends React.Component {
         <section className="overall-rating">
           <h2>{i18n.gettext('Rate your experience')}</h2>
           <OverallRating
+            apiResultId={getApiResultId({ prefix: 'OverallRating' })}
             addon={addon}
             version={addon.current_version}
           />
