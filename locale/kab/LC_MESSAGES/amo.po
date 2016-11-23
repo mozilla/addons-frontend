@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-23 09:21+0000\n"
+"PO-Revision-Date: 2016-11-23 09:40+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -44,7 +44,7 @@ msgstr "Ittwaqdec sɣur"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "Aḥulfu"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
@@ -52,7 +52,7 @@ msgstr "Uɣal ɣer deffir"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "Azen"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
@@ -114,15 +114,15 @@ msgstr "Tufɣa"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Kcem//Sign"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Izegrar i Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "D acu tebɣiḍ ad ixdem Fairefox ?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
@@ -222,22 +222,22 @@ msgstr "Ar zdat"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Asebter %(currentPage)s seg %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Anadi inek %(query)s yufa-d tifin-agi %(count)s"
+msgstr[1] "Anadi-inek %(query)s yufa-d tiifin-agi %(count)s."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Anadi..."
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Ulac tiffin i \"%(query)s\"."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Ttxilek sekcem anadi ameɣtu"
