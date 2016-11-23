@@ -19,10 +19,6 @@ function makeQueryString(query) {
   return url.format({ query });
 }
 
-export function getApiResultId({ prefix = '' } = {}) {
-  return `${prefix}-${Math.random().toString(36).substr(2, 9)}`;
-}
-
 export function callApi({
   endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
   body, credentials,

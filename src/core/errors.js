@@ -2,10 +2,13 @@ import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { getApiResultId } from 'core/api';
 import { setApiError } from 'core/actions';
 
 import 'core/css/ErrorHandler.scss';
+
+function getApiResultId({ prefix = '' } = {}) {
+  return `${prefix}-${Math.random().toString(36).substr(2, 9)}`;
+}
 
 export function withErrorHandling({ name } = {}) {
   return (WrappedComponent) => {
