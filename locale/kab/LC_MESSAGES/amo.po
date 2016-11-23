@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-23 07:09+0000\n"
+"PO-Revision-Date: 2016-11-23 07:33+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -56,7 +56,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "Ttxilek sekcem kra n weḍris"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "Tasertit n tbaḍnit"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
@@ -84,7 +84,7 @@ msgstr ""
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Izegrar Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
