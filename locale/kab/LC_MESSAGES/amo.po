@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-23 09:40+0000\n"
+"PO-Revision-Date: 2016-11-23 10:00+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -20,7 +20,7 @@ msgstr "%(addonName)s %(startSpan)ssɣuṛ %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Asiɣzef aɣefisefka"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
@@ -64,7 +64,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Ini-d i medden ayɣer asiɣzef-agi ifaz!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
@@ -130,7 +130,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr ""
+msgstr "Tuṭṭfa n ugdil"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
@@ -182,43 +182,43 @@ msgstr ""
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Inig ɣer akk isental"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Assali n %(name)s."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Asbed n %(name)s."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ittwasbed u yttwarmed . senned i wakken ad tekseḍ-t."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s ittwarurmed.Senned i wakken ad ittwarmed."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Asbed n %(name)s."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s ittwakkes. Senned i wakken ad tesbdeḍ-t"
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Addad n usebdi n %(name)s d arussin."
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "Azewwar"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr "Ar zdat"
+msgstr "Ddu ɣer zdat"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
