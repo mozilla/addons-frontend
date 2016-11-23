@@ -92,8 +92,32 @@ export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, locat
     ...location.query,
     clientApp: state.api.clientApp,
   });
+
   if (!isLoaded({ state: state.search, page, filters })) {
     return performSearch({ dispatch, page, api: state.api, auth: state.auth, filters });
+  }
+  return true;
+}
+
+export function loadByCategoryIfNeeded(
+  { store: { dispatch, getState }, location, params }
+) {
+  const state = getState();
+  const filters = {
+    addonType: params.addonType,
+    category: params.slug,
+    clientApp: params.application,
+  };
+  const page = parsePage(location.query.page);
+
+  if (!isLoaded({ state: state.search, page, filters })) {
+    return performSearch({
+      api: state.api,
+      auth: state.auth,
+      dispatch,
+      filters,
+      page,
+    });
   }
   return true;
 }
