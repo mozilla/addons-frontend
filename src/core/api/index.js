@@ -52,11 +52,11 @@ export function callApi({
     .then((response) => {
       return response.json().then((jsonResponse) => {
         return { response, jsonResponse };
-      });
-    }, (error) => {
-      console.warn('Could not parse response as JSON:', error);
-      return response.text().then((textRespone) => {
-        return { response, jsonResponse: { text: textRespone } };
+      }, (error) => {
+        console.warn('Could not parse response as JSON:', error);
+        return response.text().then((textRespone) => {
+          return { response, jsonResponse: { text: textRespone } };
+        });
       });
     })
     .then(({ response, jsonResponse }) => {
