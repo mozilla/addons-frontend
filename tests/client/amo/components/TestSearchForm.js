@@ -65,6 +65,14 @@ describe('<SearchForm />', () => {
     assert(router.push.called);
   });
 
+  it('blurs the form on submit', () => {
+    const blurSpy = sinon.stub(input, 'blur');
+    assert(!blurSpy.called);
+    input.value = 'something';
+    Simulate.submit(form);
+    assert(blurSpy.called);
+  });
+
   it('does nothing on non-Enter keydowns', () => {
     assert(!router.push.called);
     input.value = 'adblock';

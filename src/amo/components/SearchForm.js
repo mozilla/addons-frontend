@@ -28,6 +28,7 @@ export class SearchFormBase extends React.Component {
 
   handleSearch = (e) => {
     e.preventDefault();
+    this.searchQuery.input.blur();
     this.goToSearch(this.searchQuery.value);
   }
 
