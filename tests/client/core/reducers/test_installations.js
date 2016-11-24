@@ -14,7 +14,7 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import installations from 'disco/reducers/installations';
+import installations from 'core/reducers/installations';
 
 describe('installations reducer', () => {
   it('is an empty object by default', () => {

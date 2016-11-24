@@ -103,7 +103,7 @@ export class InstallButtonBase extends React.Component {
     const { handleChange, slug, status } = this.props;
 
     if (!validStates.includes(status)) {
-      throw new Error('Invalid add-on status');
+      throw new Error(`Invalid add-on status ${status}`);
     }
 
     const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(status);
