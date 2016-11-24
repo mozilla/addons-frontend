@@ -19,8 +19,8 @@ function render({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customPr
   const i18n = getFakeI18nInst();
   const initialState = { api: { clientApp: 'android', lang: 'pt' } };
   const props = {
-    ...addon,
     addon,
+    ...addon,
     i18n,
     // Configure AddonDetail with a non-redux depdendent OverallRating.
     OverallRating: OverallRatingWithI18n,
