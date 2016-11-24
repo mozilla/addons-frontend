@@ -6,7 +6,10 @@ import {
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 
-import { AddonDetailBase, allowedDescriptionTags } from 'amo/components/AddonDetail';
+import {
+  AddonDetailBase,
+  allowedDescriptionTags,
+} from 'amo/components/AddonDetail';
 import { OverallRatingWithI18n } from 'amo/components/OverallRating';
 import createStore from 'amo/store';
 import I18nProvider from 'core/i18n/Provider';
