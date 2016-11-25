@@ -36,6 +36,16 @@ describe('addonManager', () => {
     };
   });
 
+  describe('hasAddonManager', () => {
+    it('is true if mozAddonManager is in navigator', () => {
+      assert.ok(addonManager.hasAddonManager({ navigator: { mozAddonManager: {} } }));
+    });
+
+    it('is false if mozAddonManager is not in navigator', () => {
+      assert.notOk(addonManager.hasAddonManager());
+    });
+  });
+
   describe('getAddon()', () => {
     it('should call mozAddonManager.getAddonByID() with id', () => {
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
@@ -50,6 +60,12 @@ describe('addonManager', () => {
       return addonManager.getAddon('test-id', { _mozAddonManager: fakeMozAddonManager })
         .then(unexpectedSuccess,
           (err) => assert.equal(err.message, 'Addon not found'));
+    });
+
+    it('rejects if thre is no addon manager', () => {
+      sinon.stub(addonManager, 'hasAddonManager').returns(false);
+      return addonManager.getAddon('foo')
+        .then(unexpectedSuccess, (err) => assert.equal(err.message, 'Cannot check add-on status'));
     });
   });
 

@@ -9,16 +9,23 @@ import {
 import { addQueryParams } from 'core/utils';
 
 
+export function hasAddonManager({ navigator } = {}) {
+  return typeof window !== 'undefined' && 'mozAddonManager' in (navigator || window.navigator);
+}
+
 export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
-  // Resolves a promise with the addon on success.
-  return _mozAddonManager.getAddonByID(guid)
-    .then((addon) => {
-      if (!addon) {
-        throw new Error('Addon not found');
-      }
-      log.info('Add-on found', addon);
-      return addon;
-    });
+  if (_mozAddonManager || module.exports.hasAddonManager()) {
+    // Resolves a promise with the addon on success.
+    return _mozAddonManager.getAddonByID(guid)
+      .then((addon) => {
+        if (!addon) {
+          throw new Error('Addon not found');
+        }
+        log.info('Add-on found', addon);
+        return addon;
+      });
+  }
+  return Promise.reject(new Error('Cannot check add-on status'));
 }
 
 export function install(

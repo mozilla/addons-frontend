@@ -9,12 +9,11 @@ import { compose } from 'redux';
 
 import { sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
-import themeAction, { getThemeData } from 'core/themePreview';
+import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import InstallButton from 'core/components/InstallButton';
 import {
   CLICK_CATEGORY,
-  DISABLED,
   DOWNLOAD_FAILED,
   ERROR,
   EXTENSION_TYPE,
@@ -23,7 +22,6 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
   THEME_TYPE,
-  UNINSTALLED,
   UNINSTALLING,
   validAddonTypes,
   validInstallStates,
@@ -34,10 +32,11 @@ import 'disco/css/Addon.scss';
 
 export class AddonBase extends React.Component {
   static propTypes = {
+    addon: PropTypes.object.isRequired,
     description: PropTypes.string,
     error: PropTypes.string,
-    guid: PropTypes.string.isRequired,
     heading: PropTypes.string.isRequired,
+    getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
@@ -57,14 +56,6 @@ export class AddonBase extends React.Component {
     themeAction,
     needsRestart: false,
     _tracking: tracking,
-  }
-
-  componentDidMount() {
-    this.props.setCurrentStatus();
-  }
-
-  getBrowserThemeData() {
-    return JSON.stringify(getThemeData(this.props));
   }
 
   getError() {
@@ -92,13 +83,13 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { i18n, name, previewURL } = this.props;
+    const { getBrowserThemeData, i18n, name, previewURL } = this.props;
     if (this.props.type === THEME_TYPE) {
       // eslint-disable-next-line jsx-a11y/href-no-hash
       return (<a href="#" className="theme-image"
-                 data-browsertheme={this.getBrowserThemeData()}
+                 data-browsertheme={getBrowserThemeData()}
                  onBlur={this.resetPreviewTheme}
-                 onClick={this.clickInstallTheme}
+                 onClick={this.installTheme}
                  onFocus={this.previewTheme}
                  onMouseOut={this.resetPreviewTheme}
                  onMouseOver={this.previewTheme}>
@@ -122,6 +113,12 @@ export class AddonBase extends React.Component {
         className="editorial-description"
         dangerouslySetInnerHTML={sanitizeHTML(description, ['blockquote', 'cite'])} />
     );
+  }
+
+  installTheme = (event) => {
+    event.preventDefault();
+    const { addon, installTheme } = this.props;
+    installTheme(event.currentTarget, addon);
   }
 
   errorMessage() {
@@ -165,14 +162,6 @@ export class AddonBase extends React.Component {
         category: CLICK_CATEGORY,
         label: name,
       });
-    }
-  }
-
-  clickInstallTheme = (e) => {
-    const { guid, installTheme, name, status, type } = this.props;
-    e.preventDefault();
-    if (type === THEME_TYPE && [UNINSTALLED, DISABLED].includes(status)) {
-      installTheme(e.currentTarget, guid, name);
     }
   }
 
@@ -230,8 +219,9 @@ export function mapStateToProps(state, ownProps) {
   const installation = state.installations[ownProps.guid] || {};
   const addon = state.addons[ownProps.guid] || {};
   return {
-    ...installation,
+    addon,
     ...addon,
+    ...installation,
   };
 }
 

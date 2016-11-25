@@ -52,6 +52,7 @@ $installStripeColor2: #00c42e;
 }
 
 .Switch {
+  display: inline-block;
   position: relative;
 
   input:focus + label {
