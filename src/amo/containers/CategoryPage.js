@@ -1,13 +1,10 @@
+import deepEqual from 'deep-eql';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-connect';
 import { compose } from 'redux';
 
 import SearchPage from 'amo/components/SearchPage';
-import {
-  filtersMatch,
-  loadByCategoryIfNeeded,
-  parsePage,
-} from 'core/searchUtils';
+import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
 
 
 export function mapStateToProps(state, ownProps) {
@@ -19,7 +16,11 @@ export function mapStateToProps(state, ownProps) {
   const pathname = `/${filters.addonType}s/${filters.category}/`;
   const queryParams = { page: parsePage(ownProps.location.query.page) };
 
-  if (filtersMatch(state.search.filters, filters)) {
+  const filtersMatchState = deepEqual(
+    { ...state.search.filters, page: parsePage(state.search.page) },
+    { ...filters, page: queryParams.page },
+  );
+  if (filtersMatchState) {
     return {
       hasSearchParams: true,
       filters,

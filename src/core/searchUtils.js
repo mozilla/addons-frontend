@@ -1,3 +1,5 @@
+import deepEqual from 'deep-eql';
+
 import { search } from 'core/api';
 import { searchStart, searchLoad, searchFail } from 'core/actions/search';
 
@@ -33,10 +35,9 @@ export function convertQueryParamsToFilters(params) {
   }, {});
 }
 
-export function filtersMatch(filters, otherFilters) {
-  return Object.keys(filters).every((key) => (
-    filters[key] === otherFilters[key]
-  ));
+export function parsePage(page) {
+  const parsed = parseInt(page, 10);
+  return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
 }
 
 export function mapStateToProps(state, ownProps) {
@@ -54,8 +55,10 @@ export function mapStateToProps(state, ownProps) {
     typeof param !== 'undefined' && param.length
   ));
 
-  const stateMatchesLocation = filtersMatch(location.query,
-    convertFiltersToQueryParams(state.search.filters));
+  const stateMatchesLocation = deepEqual(
+    { ...filters, page: parsePage(location.query.page) },
+    { ...state.search.filters, page: parsePage(state.search.page) },
+  );
 
   if (hasSearchParams && stateMatchesLocation) {
     return { hasSearchParams, filters, ...state.search };
@@ -76,13 +79,9 @@ export function performSearch({ dispatch, page, api, auth = false, filters }) {
 }
 
 export function isLoaded({ page, state, filters }) {
-  return filtersMatch(filters, state.filters) && state.page === page &&
-    !state.loading;
-}
-
-export function parsePage(page) {
-  const parsed = parseInt(page, 10);
-  return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
+  return deepEqual(
+    { ...filters, page }, { ...state.filters, page: state.page }
+  ) && !state.loading;
 }
 
 export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, location }) {
