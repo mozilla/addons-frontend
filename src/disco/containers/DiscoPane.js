@@ -119,7 +119,9 @@ export class DiscoPaneBase extends React.Component {
             </div>
           </div>
         </header>
-        {results.map((item) => <AddonComponent {...camelCaseProps(item)} key={item.guid} />)}
+        {results.map((item) => (
+          <AddonComponent addon={item} {...camelCaseProps(item)} key={item.guid} />
+        ))}
         <div className="amo-link">
           <a href="https://addons.mozilla.org/" target="_blank"
             rel="noopener noreferrer" onClick={this.showMoreAddons}>

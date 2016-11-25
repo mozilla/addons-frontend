@@ -14,6 +14,7 @@ import {
   INSTALL_CATEGORY,
   INSTALL_FAILED,
   INSTALL_STATE,
+  INSTALLED,
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
@@ -32,15 +33,17 @@ import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
 
 const {
-  makeProgressHandler, makeMapDispatchToProps, mapStateToProps, withInstallHelpers,
+  WithInstallHelpers, installTheme, makeProgressHandler, makeMapDispatchToProps,
+  mapStateToProps, withInstallHelpers,
 } = installAddon;
 
 
 describe('withInstallHelpers', () => {
   it('connects mapDispatchToProps for the component', () => {
     const _makeMapDispatchToProps = sinon.spy();
-    withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
-    assert.ok(_makeMapDispatchToProps.calledWith({ src: 'Howdy' }));
+    const WrappedComponent = sinon.stub();
+    withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(WrappedComponent);
+    assert.ok(_makeMapDispatchToProps.calledWith({ WrappedComponent, src: 'Howdy' }));
   });
 
   it('throws without a src', () => {
@@ -48,10 +51,27 @@ describe('withInstallHelpers', () => {
       withInstallHelpers({})(() => {});
     }, /src is required/);
   });
+
+  it('sets the current status in componentDidMount with an addonManager', () => {
+    const setCurrentStatus = sinon.spy();
+    renderIntoDocument(
+      <WithInstallHelpers WrappedComponent={() => <div />} hasAddonManager
+      setCurrentStatus={setCurrentStatus} />);
+    assert.ok(setCurrentStatus.called);
+  });
+
+  it('does not set the current status in componentDidMount without an addonManager', () => {
+    const setCurrentStatus = sinon.spy();
+    renderIntoDocument(
+      <WithInstallHelpers WrappedComponent={() => <div />} hasAddonManager={false}
+      setCurrentStatus={setCurrentStatus} />);
+    assert.notOk(setCurrentStatus.called);
+  });
 });
 
 describe('withInstallHelpers inner functions', () => {
   const src = 'TestInstallAddon';
+  const WrappedComponent = sinon.stub();
   let mapDispatchToProps;
 
   function getMapStateToProps({ _tracking } = {}) {
@@ -59,7 +79,7 @@ describe('withInstallHelpers inner functions', () => {
   }
 
   before(() => {
-    mapDispatchToProps = makeMapDispatchToProps({ src });
+    mapDispatchToProps = makeMapDispatchToProps({ WrappedComponent, src });
   });
 
   describe('setCurrentStatus', () => {
@@ -554,7 +574,7 @@ describe('withInstallHelpers inner functions', () => {
   describe('mapDispatchToProps', () => {
     it('is empty when there is no navigator', () => {
       const configStub = sinon.stub(config, 'get').returns(true);
-      assert.deepEqual(mapDispatchToProps(sinon.spy()), {});
+      assert.deepEqual(mapDispatchToProps(sinon.spy()), { WrappedComponent });
       assert(configStub.calledOnce);
       assert(configStub.calledWith('server'));
     });
@@ -573,31 +593,58 @@ describe('withInstallHelpers inner functions', () => {
   });
 
   describe('installTheme', () => {
-    it('installs the theme', () => {
-      const name = 'hai-theme';
-      const guid = '{install-theme}';
+    const baseAddon = {
+      name: 'hai-theme',
+      guid: '{install-theme}',
+      status: UNINSTALLED,
+      type: THEME_TYPE,
+    };
+
+    function installThemeStubs() {
+      return {
+        _themeAction: sinon.spy(),
+        _tracking: {
+          sendEvent: sinon.spy(),
+        },
+      };
+    }
+
+    it('installs the theme when it is not installed', () => {
+      const addon = { ...baseAddon };
       const node = sinon.stub();
-      const spyThemeAction = sinon.spy();
-      const props = mapStateToProps({ installations: {}, addons: {} }, {});
-      props.installTheme(node, guid, name, spyThemeAction);
-      assert(spyThemeAction.calledWith(node, THEME_INSTALL));
+      const stubs = installThemeStubs();
+      installTheme(node, addon, stubs);
+      assert(stubs._themeAction.calledWith(node, THEME_INSTALL));
     });
 
     it('tracks a theme install', () => {
-      const name = 'hai-theme';
-      const guid = '{install-theme}';
+      const addon = { ...baseAddon };
       const node = sinon.stub();
-      const spyThemeAction = sinon.spy();
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const { installTheme } = getMapStateToProps({ _tracking: fakeTracking });
-      installTheme(node, guid, name, spyThemeAction);
-      assert(fakeTracking.sendEvent.calledWith({
+      const stubs = installThemeStubs();
+      installTheme(node, addon, stubs);
+      assert(stubs._tracking.sendEvent.calledWith({
         action: 'theme',
         category: INSTALL_CATEGORY,
         label: 'hai-theme',
       }));
+    });
+
+    it('does not try to install theme if INSTALLED', () => {
+      const addon = { ...baseAddon, status: INSTALLED };
+      const node = sinon.stub();
+      const stubs = installThemeStubs();
+      installTheme(node, addon, stubs);
+      assert.notOk(stubs._tracking.sendEvent.called);
+      assert.notOk(stubs._themeAction.called);
+    });
+
+    it('does not try to install theme if it is an extension', () => {
+      const addon = { ...baseAddon, type: EXTENSION_TYPE };
+      const node = sinon.stub();
+      const stubs = installThemeStubs();
+      installTheme(node, addon, stubs);
+      assert.notOk(stubs._tracking.sendEvent.called);
+      assert.notOk(stubs._themeAction.called);
     });
   });
 
