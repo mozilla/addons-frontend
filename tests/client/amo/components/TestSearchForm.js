@@ -8,6 +8,7 @@ import {
   mapDispatchToProps,
   mapStateToProps,
 } from 'amo/components/SearchForm';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<SearchForm />', () => {
@@ -31,7 +32,8 @@ describe('<SearchForm />', () => {
     render() {
       return (
         <SearchFormBase pathname={pathname} api={api} query="foo"
-          loadAddon={loadAddon} ref={(ref) => { this.root = ref; }} />
+          loadAddon={loadAddon} ref={(ref) => { this.root = ref; }}
+          i18n={getFakeI18nInst()} />
       );
     }
   }
