@@ -1,22 +1,13 @@
 @import "~core/css/inc/mixins";
 @import "~core/css/inc/vars";
 
-.AddonMoreInfo-header {
-  @include addonSection();
-
-  border-top-left-radius: $border-radius-default;
-  border-top-right-radius: $border-radius-default;
-  font-size: $font-size-default;
-  margin-bottom: 1px;
-  text-align: center;
+.AddonMoreInfo {
+  padding: $padding-page;
 }
 
 .AddonMoreInfo-contents {
-  @include addonSection();
-
-  border-bottom-left-radius: $border-radius-default;
-  border-bottom-right-radius: $border-radius-default;
-  font-size: $font-size-s;
+  margin: 0;
+  padding: 0;
 
   dt {
     font-weight: bold;

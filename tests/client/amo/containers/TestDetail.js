@@ -10,7 +10,7 @@ import { shallowRender } from 'tests/client/helpers';
 describe('DetailPage', () => {
   it('renders AddonDetail with the same props', () => {
     const root = shallowRender(<DetailPageBase foo="bar" baz="quux" />);
-    assert.equal(root.props.className, 'full-width no-top-padding', sinon.format(root));
+    assert.equal(root.props.className, 'DetailPage', sinon.format(root));
     assert.deepEqual(root.props.children.props, { foo: 'bar', baz: 'quux' });
     assert.equal(root.props.children.type, AddonDetail);
   });

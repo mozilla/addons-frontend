@@ -9,19 +9,19 @@ import 'core/css/SearchResult.scss';
 
 export class SearchResultBase extends React.Component {
   static propTypes = {
+    addon: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
-    result: PropTypes.object.isRequired,
   }
 
   render() {
-    const { i18n, result } = this.props;
+    const { addon, i18n } = this.props;
 
     // TODO: Implement a rating component and style the stars.
-    const rating = result.ratings && result.ratings.average ? (
+    const rating = addon.ratings && addon.ratings.average ? (
       <h3 className="SearchResult-rating">
         <span className="visually-hidden">{i18n.sprintf(
           i18n.gettext('Average rating: %(rating)s out of 5'),
-          { rating: Math.round(result.ratings.average * 2) / 2 }
+          { rating: Math.round(addon.ratings.average * 2) / 2 }
         )}</span>
       </h3>
     ) : (
@@ -31,18 +31,18 @@ export class SearchResultBase extends React.Component {
     );
     return (
       <li className="SearchResult">
-        <Link to={`/addon/${result.slug}/`}
+        <Link to={`/addon/${addon.slug}/`}
               className="SearchResult-link"
               ref={(el) => { this.name = el; }}>
           <section className="SearchResult-main">
-            <img className="SearchResult-icon" src={result.icon_url} alt="" />
-            <h2 className="SearchResult-heading">{result.name}</h2>
+            <img className="SearchResult-icon" src={addon.icon_url} alt="" />
+            <h2 className="SearchResult-heading">{addon.name}</h2>
             {rating}
-            <h3 className="SearchResult-author">{result.authors[0].name}</h3>
+            <h3 className="SearchResult-author">{addon.authors[0].name}</h3>
             <h3 className="SearchResult-users">{i18n.sprintf(
               i18n.ngettext('%(users)s user', '%(users)s users',
-                            result.average_daily_users),
-              { users: result.average_daily_users }
+                            addon.average_daily_users),
+              { users: addon.average_daily_users }
             )}
             </h3>
           </section>

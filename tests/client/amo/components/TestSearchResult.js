@@ -17,7 +17,7 @@ describe('<SearchResult />', () => {
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore(initialState)}>
-        <SearchResult i18n={getFakeI18nInst()} result={result} />
+        <SearchResult i18n={getFakeI18nInst()} addon={result} />
       </Provider>
     ), SearchResult).getWrappedInstance();
   }

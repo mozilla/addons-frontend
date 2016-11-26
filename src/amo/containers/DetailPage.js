@@ -11,7 +11,7 @@ import { loadAddonIfNeeded } from 'core/utils';
 export class DetailPageBase extends React.Component {
   render() {
     return (
-      <div className="full-width no-top-padding">
+      <div className="DetailPage">
         <AddonDetail {...this.props} />
       </div>
     );
