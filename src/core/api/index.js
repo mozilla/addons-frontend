@@ -50,8 +50,8 @@ export function callApi({
         return { response, jsonResponse };
       }, (error) => {
         console.warn('Could not parse response as JSON:', error);
-        return response.text().then((textRespone) => {
-          return { response, jsonResponse: { text: textRespone } };
+        return response.text().then((textResponse) => {
+          return { response, jsonResponse: { text: textResponse } };
         });
       });
     })
