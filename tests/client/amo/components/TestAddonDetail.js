@@ -54,12 +54,6 @@ describe('AddonDetail', () => {
                    'Chill Out');
   });
 
-  it('gets the add-on status on componentDidMount()', () => {
-    const setCurrentStatus = sinon.spy();
-    renderAsDOMNode({ setCurrentStatus });
-    assert.ok(setCurrentStatus.called);
-  });
-
   it('renders a single author', () => {
     const authorUrl = 'http://olympia.dev/en-US/firefox/user/krupa/';
     const rootNode = renderAsDOMNode({
