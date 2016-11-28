@@ -1,4 +1,6 @@
 /* global CustomEvent, document, window */
+import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { oneLine } from 'common-tags';
 import config from 'config';

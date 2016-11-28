@@ -40,15 +40,10 @@ export class AddonDetailBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     previewTheme: PropTypes.func.isRequired,
     resetPreviewTheme: PropTypes.func.isRequired,
-    setCurrentStatus: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     OverallRating: DefaultOverallRating,
-  }
-
-  componentDidMount() {
-    this.props.setCurrentStatus();
   }
 
   onTouchStart = (event) => {

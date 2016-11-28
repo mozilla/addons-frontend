@@ -1,5 +1,8 @@
 import config from 'config';
+import React from 'react';
+import { renderIntoDocument } from 'react-addons-test-utils';
 
+import createStore from 'amo/store';
 import {
   CLOSE_INFO,
   DISABLED,
@@ -27,7 +30,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import {
-  getFakeAddonManagerWrapper, getFakeI18nInst,
+  getFakeAddonManagerWrapper, getFakeI18nInst, shallowRender,
 } from 'tests/client/helpers';
 import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
@@ -44,6 +47,14 @@ describe('withInstallHelpers', () => {
     const WrappedComponent = sinon.stub();
     withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(WrappedComponent);
     assert.ok(_makeMapDispatchToProps.calledWith({ WrappedComponent, src: 'Howdy' }));
+  });
+
+  it('wraps the component in WithInstallHelpers', () => {
+    const _makeMapDispatchToProps = sinon.spy();
+    const Component = withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
+    const store = createStore();
+    const root = shallowRender(<Component store={store} />);
+    assert.equal(root.type, WithInstallHelpers);
   });
 
   it('throws without a src', () => {
