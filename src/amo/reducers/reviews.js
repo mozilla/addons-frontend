@@ -17,18 +17,18 @@ function mergeInNewReview(latestReview, oldReviews = {}) {
   return mergedReviews;
 }
 
-export default function reviews(state = initialState, { data, type }) {
+export default function reviews(state = initialState, { payload, type }) {
   switch (type) {
     case SET_REVIEW: {
       const existingReviews =
-        state[data.userId] ? state[data.userId][data.addonId] : {};
-      const latestReview = data;
+        state[payload.userId] ? state[payload.userId][payload.addonId] : {};
+      const latestReview = payload;
       return {
         ...state,
         // This is a map of reviews by user ID, addon ID, and review ID.
-        [data.userId]: {
-          ...state[data.userId],
-          [data.addonId]: mergeInNewReview(latestReview, existingReviews),
+        [payload.userId]: {
+          ...state[payload.userId],
+          [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
         },
       };
     }

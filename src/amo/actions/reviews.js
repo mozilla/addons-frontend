@@ -2,7 +2,7 @@ import { SET_REVIEW } from 'amo/constants';
 
 export const setReview = (review, reviewOverrides = {}) => ({
   type: SET_REVIEW,
-  data: {
+  payload: {
     addonId: review.addon.id,
     addonSlug: review.addon.slug,
     body: review.body,

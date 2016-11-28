@@ -105,7 +105,7 @@ export class AddonReviewBase extends React.Component {
             ref={(ref) => { this.reviewTextarea = ref; }}
             name="review"
             placeholder={placeholder}>
-            {this.props.review.body}
+            {review.body}
           </textarea>
           <div className="AddonReview-button-row">
             <button className="AddonReview-button AddonReview-back-button"
@@ -150,7 +150,7 @@ export function loadAddonReview(
     .then((review) => {
       const action = setReview(review);
       dispatch(action);
-      return action.data;
+      return action.payload;
     });
 }
 

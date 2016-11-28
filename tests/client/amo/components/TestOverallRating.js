@@ -105,7 +105,7 @@ describe('OverallRating', () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: fakeReview.version.id },
       userId: 92345,
-      userReview: setReview(fakeReview).data,
+      userReview: setReview(fakeReview).payload,
     });
     selectRating(root, 5);
     assert.ok(submitReview.called);
@@ -135,7 +135,7 @@ describe('OverallRating', () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: oldVersionId },
       userId: 92345,
-      userReview: setReview(newReview).data,
+      userReview: setReview(newReview).payload,
       submitReview,
       addon,
     });
@@ -192,11 +192,8 @@ describe('OverallRating', () => {
   });
 
   it('renders selected stars corresponding to a saved review', () => {
-    const root = render({
-      userReview: setReview(fakeReview, {
-        rating: 3,
-      }).data,
-    });
+    const action = setReview(fakeReview, { rating: 3 });
+    const root = render({ userReview: action.payload });
 
     // Make sure only the first 3 stars are selected.
     [1, 2, 3].forEach((rating) => {
@@ -361,7 +358,7 @@ describe('OverallRating', () => {
 
       const action = setReview(fakeReview, { isLatest: true });
       store.dispatch(action);
-      const dispatchedReview = action.data;
+      const dispatchedReview = action.payload;
 
       const userReview = getMappedProps().userReview;
       assert.deepEqual(userReview, dispatchedReview);
@@ -401,7 +398,7 @@ describe('OverallRating', () => {
       function createReview(overrides) {
         const action = setReview(fakeReview, overrides);
         store.dispatch(action);
-        return action.data;
+        return action.payload;
       }
 
       createReview({
