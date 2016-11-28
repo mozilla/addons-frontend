@@ -16,6 +16,11 @@ class ErrorHandler {
     this.dispatch = dispatch;
   }
 
+  clear() {
+    console.log('Clearing last error for ', this.apiResultId);
+    this.dispatch(setApiError({ id: this.apiResultId, error: null }));
+  }
+
   handle(error) {
     const info = {
       error, id: this.apiResultId,

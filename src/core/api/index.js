@@ -23,6 +23,9 @@ export function callApi({
   endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
   body, credentials, errorHandler,
 }) {
+  if (errorHandler) {
+    errorHandler.clear();
+  }
   const queryString = makeQueryString({ ...params, lang: state.lang });
   const options = {
     headers: {},

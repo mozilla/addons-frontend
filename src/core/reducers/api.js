@@ -11,19 +11,24 @@ const initialState = {
 
 export default function api(state = initialState, action) {
   switch (action.type) {
-    case API_ERROR:
+    case API_ERROR: {
+      let errorData = null;
+      if (action.payload.error) {
+        errorData = {
+          error: {
+            messages: action.payload.messages,
+            error: action.payload.error,
+          },
+        };
+      }
       return {
         ...state,
         errors: {
           ...state.errors,
-          [action.payload.id]: {
-            error: {
-              messages: action.payload.messages,
-              error: action.payload.error,
-            },
-          },
+          [action.payload.id]: errorData,
         },
       };
+    }
     case SET_JWT:
       return { ...state, token: action.payload.token };
     case SET_LANG:

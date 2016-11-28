@@ -49,7 +49,8 @@ export function setCurrentUser(username) {
 
 export function setApiError({ error, id }) {
   let messages = ['Unexpected server error'];
-  if (error.response &&
+  if (error &&
+      error.response &&
       error.response.data &&
       error.response.data.non_field_errors) {
     // TODO: check for all field errors.
