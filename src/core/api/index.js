@@ -21,7 +21,7 @@ function makeQueryString(query) {
 
 export function callApi({
   endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
-  body, credentials,
+  body, credentials, errorHandler,
 }) {
   const queryString = makeQueryString({ ...params, lang: state.lang });
   const options = {
@@ -70,13 +70,12 @@ export function callApi({
         status: response.status,
         data: jsonResponse,
       };
+      if (errorHandler) {
+        errorHandler.handle(apiError);
+      }
       throw apiError;
     })
-    .then((response) => (schema ? normalize(response, schema) : response))
-    .catch((error) => {
-      console.log('Caught error in callApi', error);
-      throw error;
-    });
+    .then((response) => (schema ? normalize(response, schema) : response));
 }
 
 export function search({ api, page, auth = false, filters = {} }) {

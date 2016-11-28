@@ -16,7 +16,7 @@ import 'amo/css/OverallRating.scss';
 export class OverallRatingBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
-    createErrorAction: PropTypes.func.isRequired,
+    errorHandler: PropTypes.func.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
@@ -44,7 +44,7 @@ export class OverallRatingBase extends React.Component {
     const { userReview, userId, version } = this.props;
 
     const params = {
-      createErrorAction: this.props.createErrorAction,
+      errorHandler: this.props.errorHandler,
       rating: parseInt(button.value, 10),
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
@@ -159,7 +159,7 @@ export const mapDispatchToProps = (dispatch) => ({
   },
 
   submitReview({
-    router, createErrorAction, addonSlug, ...params,
+    router, addonSlug, ...params,
   }) {
     return submitReview({ addonSlug, ...params })
       .then((review) => {
@@ -167,9 +167,6 @@ export const mapDispatchToProps = (dispatch) => ({
         dispatch(setReview(review));
         router.push(
           `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
-      })
-      .catch((error) => {
-        dispatch(createErrorAction(error));
       });
   },
 });

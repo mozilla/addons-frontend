@@ -10,26 +10,40 @@ function getApiResultId({ prefix = '' } = {}) {
   return `${prefix}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
+class ErrorHandler {
+  constructor({ apiResultId, dispatch }) {
+    this.apiResultId = apiResultId;
+    this.dispatch = dispatch;
+  }
+
+  handle(error) {
+    const info = {
+      error, id: this.apiResultId,
+    };
+    console.log('Dispatching error action', info);
+    this.dispatch(setApiError(info));
+  }
+}
+
 export function withErrorHandling({ name } = {}) {
   return (WrappedComponent) => {
     const apiResultId = getApiResultId({ prefix: name });
 
-    class ErrorHandler extends React.Component {
+    class ErrorHandlerComponent extends React.Component {
       static propTypes = {
         apiError: PropTypes.object,
+        dispatch: PropTypes.func,
       }
 
       render() {
-        const { apiError, ...otherProps } = this.props;
-        const props = { apiResultId, ...otherProps };
+        const { apiError, dispatch, ...otherProps } = this.props;
 
-        props.createErrorAction = (error) => {
-          const info = {
-            error, id: apiResultId,
-          };
-          console.log('Created error action', info);
-          return setApiError(info);
-        }
+        const errorHandler = new ErrorHandler({
+          apiResultId,
+          dispatch,
+        });
+
+        const props = { ...otherProps, errorHandler };
 
         let errorInfo;
         let errorMessages = [];
@@ -60,9 +74,11 @@ export function withErrorHandling({ name } = {}) {
       };
     };
 
+    const mapDispatchToProps = (dispatch) => ({ dispatch });
+
     return compose(
-      connect(mapStateToProps),
-    )(ErrorHandler);
+      connect(mapStateToProps, mapDispatchToProps),
+    )(ErrorHandlerComponent);
 
   }
 }
