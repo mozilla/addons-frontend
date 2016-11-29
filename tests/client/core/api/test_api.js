@@ -26,7 +26,7 @@ describe('api', () => {
         .once()
         .returns(Promise.resolve({
           ok: true,
-          json: () => {},
+          json: () => Promise.resolve({}),
         }));
       return api.callApi({ endpoint: 'resource', method: 'get' })
         .then(() => mockWindow.verify());
@@ -193,9 +193,9 @@ describe('api', () => {
   });
 
   describe('add-on api', () => {
-    function mockResponse() {
+    function mockResponse({ ok = true } = {}) {
       return Promise.resolve({
-        ok: true,
+        ok,
         json() {
           return Promise.resolve({
             name: 'Foo!',
@@ -233,7 +233,7 @@ describe('api', () => {
           `${apiHost}/api/v3/addons/addon/foo/?lang=en-US`,
           { headers: {}, method: 'GET' })
         .once()
-        .returns(Promise.resolve({ ok: false }));
+        .returns(mockResponse({ ok: false }));
       return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
         .then(unexpectedSuccess,
           (error) => assert.equal(error.message, 'Error calling API'));
@@ -312,7 +312,7 @@ describe('api', () => {
         .once()
         .returns(Promise.resolve({
           ok: true,
-          json() { return user; },
+          json() { return Promise.resolve(user); },
         }));
       return api.fetchProfile({ api: { lang: 'en-US', token } })
         .then((apiResponse) => {
