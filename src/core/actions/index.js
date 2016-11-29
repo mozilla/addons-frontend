@@ -1,5 +1,5 @@
 import {
-  API_ERROR,
+  SET_ERROR,
   SET_JWT,
   SET_CLIENT_APP,
   SET_LANG,
@@ -57,7 +57,7 @@ export function setApiError({ error, id }) {
     messages = error.response.data.non_field_errors;
   }
   return {
-    type: API_ERROR,
+    type: SET_ERROR,
     payload: {
       error, id, messages,
     },

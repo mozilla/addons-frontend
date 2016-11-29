@@ -75,7 +75,7 @@ export function withErrorHandling({ name } = {}) {
     const mapStateToProps = (state) => {
       console.log(`Looking for API errors with ID ${apiResultId}`);
       return {
-        apiError: state.api.errors[apiResultId],
+        apiError: state.errors[apiResultId],
       };
     };
 

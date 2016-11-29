@@ -44,7 +44,6 @@ export const validAddonTypes = [
 ];
 
 // Action types.
-export const API_ERROR = 'API_ERROR';
 export const CATEGORIES_GET = 'CATEGORIES_GET';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CATEGORIES_FAILED = 'CATEGORIES_FAILED';
@@ -55,6 +54,7 @@ export const SEARCH_LOADED = 'SEARCH_LOADED';
 export const SEARCH_STARTED = 'SEARCH_STARTED';
 export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const SET_ERROR = 'SET_ERROR';
 export const SET_JWT = 'SET_JWT';
 export const SET_LANG = 'SET_LANG';
 
