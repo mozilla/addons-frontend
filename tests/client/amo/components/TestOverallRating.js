@@ -22,6 +22,7 @@ function render({ ...customProps } = {}) {
   const props = {
     addon: fakeAddon,
     apiState: signedInApiState,
+    errorHandler: sinon.stub(),
     version: fakeAddon.current_version,
     i18n: getFakeI18nInst(),
     userId: 91234,
@@ -76,8 +77,10 @@ describe('OverallRating', () => {
 
   it('creates a rating with add-on and version info', () => {
     const router = {};
+    const errorHandler = sinon.stub();
     const submitReview = sinon.stub();
     const root = render({
+      errorHandler,
       submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
@@ -93,6 +96,7 @@ describe('OverallRating', () => {
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
     assert.equal(call.addonSlug, 'some-slug');
+    assert.equal(call.errorHandler, errorHandler);
     assert.equal(call.userId, 92345);
     assert.equal(call.router, router);
     assert.strictEqual(call.reviewId, undefined);

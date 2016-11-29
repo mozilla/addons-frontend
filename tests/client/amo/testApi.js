@@ -42,6 +42,7 @@ describe('amo.api', () => {
         rating: 5,
         addonSlug: 'chill-out',
         versionId: 321,
+        errorHandler: sinon.stub(),
       };
 
       mockApi
@@ -54,6 +55,7 @@ describe('amo.api', () => {
           method: 'POST',
           auth: true,
           state: params.apiState,
+          errorHandler: params.errorHandler,
         })
         .returns(Promise.resolve(genericApiResponse));
 
