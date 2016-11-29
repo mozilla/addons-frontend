@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-01 10:47+0000\n"
-"PO-Revision-Date: 2016-11-29 01:21+0000\n"
+"PO-Revision-Date: 2016-11-29 01:30+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -36,15 +36,15 @@ msgstr "%(name)s를 제거하는 중입니다."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s가 제거되었습니다. 설치하시려면 클릭하십시오."
+msgstr "%(name)s가 제거되었습니다. 설치하려면 클릭하세요."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s의 설치 상태를 알 수 없습니다."
 
 #: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "마우스를 올려서 %(name)s를 미리보거나 클릭해서 설치"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
@@ -52,11 +52,11 @@ msgstr "마우스 올려서 미리보기"
 
 #: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "설치하지 못했습니다. 다시 시도해 주세요."
 
 #: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
 
 #: src/disco/components/Addon.js:157
 msgid "An unexpected error occurred during installation."
@@ -72,23 +72,23 @@ msgstr "예상치 못 한 오류가 발생하였습니다."
 
 #: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "이 부가 기능은 Firefox를 재시작한 후에 제거될 것입니다."
 
 #: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "이 부가 기능을 사용하려면 Firefox를 재시작 해주십시오."
 
 #: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "부가 기능 준비됨"
 
 #: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "이제 도구 모음에서 %(name)s를 접근할 수 있습니다."
 
 #: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
-msgstr ""
+msgstr "좋습니다!"
 
 #: src/disco/components/Addon.js:98
 msgid "Close"
