@@ -1,16 +1,11 @@
 @import "~core/css/inc/vars";
 
 .AddonDetail {
-  header {
-    background: $masthead-color;
-    color: $header-font-color;
-  }
-
   hr {
     margin: 0 20px;
   }
 
-  .icon,
+  .AddonDetail-icon,
   .title,
   .screenshots,
   .about,
@@ -18,29 +13,6 @@
   .overall-rating {
     overflow: hidden;
     padding: 20px;
-  }
-
-  .icon {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-
-    img {
-      background: #fff;
-      border-radius: 5px;
-      display: inline-block;
-      height: 64px;
-      width: 64px;
-    }
-  }
-
-  .title {
-    background: darken($masthead-color, 3%);
-
-    h1 {
-      margin-top: 0;
-      color: $header-font-color;
-    }
   }
 
   .author {
@@ -61,4 +33,40 @@
 .AddonDetail-summary {
   margin-bottom: 0;
   margin-top: 0;
+}
+
+.AddonDetail-header {
+  background: $masthead-color;
+  color: $header-font-color;
+
+  h1 {
+    margin-top: 0;
+    color: $header-font-color;
+  }
+}
+
+.AddonDetail-theme-header {
+  display: flex;
+  line-height: 0;
+}
+
+.AddonDetail-theme-header-image {
+  border-radius: 8px;
+  flex-grow: 1;
+  margin: 20px 10px 0;
+  width: 100%;
+}
+
+.AddonDetail-icon {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  img {
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+  }
 }

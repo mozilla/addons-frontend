@@ -4,7 +4,7 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 
 import log from 'core/logger';
-import themeAction from 'core/themePreview';
+import themeAction, { getThemeData } from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import {
   CLOSE_INFO,
@@ -25,6 +25,8 @@ import {
   SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
@@ -47,9 +49,18 @@ export function makeProgressHandler(dispatch, guid) {
 
 export function mapStateToProps(state, ownProps, { _tracking = tracking } = {}) {
   return {
+    getBrowserThemeData() {
+      return JSON.stringify(getThemeData(ownProps));
+    },
     installTheme(node, guid, name, _themeAction = themeAction) {
       _themeAction(node, THEME_INSTALL);
       _tracking.sendEvent({ action: 'theme', category: INSTALL_CATEGORY, label: name });
+    },
+    previewTheme(node, _themeAction = themeAction) {
+      _themeAction(node, THEME_PREVIEW);
+    },
+    resetPreviewTheme(node, _themeAction = themeAction) {
+      _themeAction(node, THEME_RESET_PREVIEW);
     },
   };
 }
