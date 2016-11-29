@@ -6,6 +6,7 @@ import 'isomorphic-fetch';
 import { Schema, arrayOf, normalize } from 'normalizr';
 import config from 'config';
 
+import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 
@@ -48,16 +49,15 @@ export function callApi({
   const apiURL = `${API_BASE}/${endpoint}/${queryString}`;
 
   return fetch(apiURL, options)
-    .then((response) => {
-      return response.json().then((jsonResponse) => {
-        return { response, jsonResponse };
-      }, (error) => {
-        console.warn('Could not parse response as JSON:', error);
-        return response.text().then((textResponse) => {
-          return { response, jsonResponse: { text: textResponse } };
-        });
-      });
-    })
+    .then((response) => response.json().then(
+      (jsonResponse) => ({ response, jsonResponse }),
+      (error) => {
+        log.warn('Could not parse response as JSON:', error);
+        return response.text().then((textResponse) =>
+          ({ response, jsonResponse: { text: textResponse } })
+        );
+      }
+    ))
     .then(({ response, jsonResponse }) => {
       if (response.ok) {
         return jsonResponse;

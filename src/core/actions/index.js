@@ -1,5 +1,4 @@
 import {
-  SET_ERROR,
   SET_JWT,
   SET_CLIENT_APP,
   SET_LANG,
@@ -43,23 +42,6 @@ export function setCurrentUser(username) {
     type: SET_CURRENT_USER,
     payload: {
       username,
-    },
-  };
-}
-
-export function setApiError({ error, id }) {
-  let messages = ['Unexpected server error'];
-  if (error &&
-      error.response &&
-      error.response.data &&
-      error.response.data.non_field_errors) {
-    // TODO: check for all field errors.
-    messages = error.response.data.non_field_errors;
-  }
-  return {
-    type: SET_ERROR,
-    payload: {
-      error, id, messages,
     },
   };
 }

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { setApiError } from 'core/actions';
+import { setError } from 'core/actions/errors';
 import log from 'core/logger';
 
 import 'core/css/ErrorHandler.scss';
@@ -19,7 +19,7 @@ class ErrorHandler {
 
   clear() {
     log.info('Clearing last error for ', this.apiResultId);
-    this.dispatch(setApiError({ id: this.apiResultId, error: null }));
+    this.dispatch(setError({ id: this.apiResultId, error: null }));
   }
 
   handle(error) {
@@ -27,7 +27,7 @@ class ErrorHandler {
       error, id: this.apiResultId,
     };
     log.info('Dispatching error action', info);
-    this.dispatch(setApiError(info));
+    this.dispatch(setError(info));
   }
 }
 
