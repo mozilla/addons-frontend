@@ -158,9 +158,7 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitReview({
-    router, addonSlug, ...params,
-  }) {
+  submitReview({ router, addonSlug, ...params }) {
     return submitReview({ addonSlug, ...params })
       .then((review) => {
         const { lang, clientApp } = params.apiState;

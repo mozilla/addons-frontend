@@ -3,6 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import { setApiError } from 'core/actions';
+import log from 'core/logger';
 
 import 'core/css/ErrorHandler.scss';
 
@@ -17,7 +18,7 @@ class ErrorHandler {
   }
 
   clear() {
-    console.log('Clearing last error for ', this.apiResultId);
+    log.info('Clearing last error for ', this.apiResultId);
     this.dispatch(setApiError({ id: this.apiResultId, error: null }));
   }
 
@@ -25,7 +26,7 @@ class ErrorHandler {
     const info = {
       error, id: this.apiResultId,
     };
-    console.log('Dispatching error action', info);
+    log.info('Dispatching error action', info);
     this.dispatch(setApiError(info));
   }
 }
@@ -53,11 +54,10 @@ export function withErrorHandling({ name } = {}) {
         let errorInfo;
         let errorMessages = [];
         if (apiError) {
-          errorMessages = apiError.error.messages.map((error) => {
-            return <li>{error}</li>;
-          });
+          errorMessages = apiError.error.messages.map(
+            (error) => <li>{error}</li>);
           errorInfo = (
-            <ul className='ErrorHandler-list'>
+            <ul className="ErrorHandler-list">
               {errorMessages}
             </ul>
           );
@@ -73,7 +73,7 @@ export function withErrorHandling({ name } = {}) {
     }
 
     const mapStateToProps = (state) => {
-      console.log(`Looking for API errors with ID ${apiResultId}`);
+      log.info(`Looking for API errors with ID ${apiResultId}`);
       return {
         apiError: state.errors[apiResultId],
       };
@@ -84,6 +84,5 @@ export function withErrorHandling({ name } = {}) {
     return compose(
       connect(mapStateToProps, mapDispatchToProps),
     )(ErrorHandlerComponent);
-
-  }
+  };
 }

@@ -11,7 +11,7 @@ export function submitReview({
   versionId,
   body,
   reviewId,
-  ...apiCallParams,
+  ...apiCallParams
 }) {
   const data = { rating, version: versionId, body };
   if (reviewId) {
