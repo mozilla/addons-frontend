@@ -1,8 +1,10 @@
 /* global CustomEvent, document, window */
 import { connect } from 'react-redux';
+import { oneLine } from 'common-tags';
 import config from 'config';
 
 import log from 'core/logger';
+import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import {
   CLOSE_INFO,
@@ -11,6 +13,7 @@ import {
   DOWNLOAD_PROGRESS,
   ENABLED,
   ERROR,
+  EXTENSION_TYPE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -21,6 +24,7 @@ import {
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
+  THEME_INSTALL,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
@@ -41,6 +45,15 @@ export function makeProgressHandler(dispatch, guid) {
   };
 }
 
+export function mapStateToProps(state, ownProps, { _tracking = tracking } = {}) {
+  return {
+    installTheme(node, guid, name, _themeAction = themeAction) {
+      _themeAction(node, THEME_INSTALL);
+      _tracking.sendEvent({ action: 'theme', category: INSTALL_CATEGORY, label: name });
+    },
+  };
+}
+
 export function makeMapDispatchToProps({ src }) {
   return function mapDispatchToProps(
     dispatch,
@@ -54,6 +67,11 @@ export function makeMapDispatchToProps({ src }) {
   ) {
     if (config.get('server')) {
       return {};
+    }
+
+    if (ownProps.type === EXTENSION_TYPE && ownProps.installURL === undefined) {
+      throw new Error(oneLine`installURL is required, ensure component props are set before
+        withInstallHelpers is called`);
     }
 
     // Set the default here otherwise server code will blow up.
@@ -92,30 +110,31 @@ export function makeMapDispatchToProps({ src }) {
 
     return {
       setCurrentStatus() {
-        const { guid, installURL } = ownProps;
+        const { installURL } = ownProps;
+        const guid = ownProps.guid || (ownProps.addon && ownProps.addon.guid);
         const payload = { guid, url: installURL };
         return _addonManager.getAddon(guid)
-        .then((addon) => {
-          const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { ...payload, status },
+          .then((addon) => {
+            const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { ...payload, status },
+            });
+          }, () => {
+            log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { ...payload, status: UNINSTALLED },
+            });
+          })
+          .catch((err) => {
+            log.error(err);
+            // Dispatch a generic error should the success/error functions throw.
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { guid, status: ERROR, error: FATAL_ERROR },
+            });
           });
-        }, () => {
-          log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { ...payload, status: UNINSTALLED },
-          });
-        })
-        .catch((err) => {
-          log.error(err);
-          // Dispatch a generic error should the success/error functions throw.
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { guid, status: ERROR, error: FATAL_ERROR },
-          });
-        });
       },
 
       enable({ _showInfo = showInfo } = {}) {
@@ -185,5 +204,5 @@ export function withInstallHelpers({ _makeMapDispatchToProps = makeMapDispatchTo
   if (!src) {
     throw new Error('src is required for withInstallHelpers');
   }
-  return (Component) => connect(undefined, _makeMapDispatchToProps({ src }))(Component);
+  return (Component) => connect(mapStateToProps, _makeMapDispatchToProps({ src }))(Component);
 }

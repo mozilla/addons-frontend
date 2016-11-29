@@ -37,40 +37,40 @@ ResultLink.propTypes = {
 
 export default class AdminSearchResult extends React.Component {
   static propTypes = {
-    result: PropTypes.object.isRequired,
+    addon: PropTypes.object.isRequired,
   }
 
   render() {
-    const { result } = this.props;
+    const { addon } = this.props;
     return (
       <li className="SearchResult">
         <div>
-          <img className="SearchResult-icon" src={result.icon_url} alt="Icon" />
+          <img className="SearchResult-icon" src={addon.icon_url} alt="Icon" />
         </div>
         <section className="SearchResult-main">
           <h2 className="SearchResult-heading">
-            <Link to={`/search/addons/${result.slug}`} className="SearchResult-name"
+            <Link to={`/search/addons/${addon.slug}`} className="SearchResult-name"
                   ref={(el) => { this.name = el; }}>
-              {result.name}
+              {addon.name}
             </Link>
           </h2>
           <div className="SearchResult-info" ref={(el) => { this.guid = el; }}>
-            {result.guid}
+            {addon.guid}
           </div>
           <span className="SearchResult-info" ref={(el) => { this.type = el; }}>
-            {result.type}
+            {addon.type}
           </span>
           <span className="SearchResult-info" ref={(el) => { this.status = el; }}>
-            {result.status}
+            {addon.status}
           </span>
           <span className="SearchResult-info" ref={(el) => { this.fileCount = el; }}>
-            {fileCountText(result.current_version)}
+            {fileCountText(addon.current_version)}
           </span>
         </section>
         <section className="SearchResult-actions">
-          <ResultLink href={result.url} start>Listing</ResultLink>
-          <ResultLink href={result.edit_url} middle>Edit</ResultLink>
-          <ResultLink href={result.review_url} end>Editors</ResultLink>
+          <ResultLink href={addon.url} start>Listing</ResultLink>
+          <ResultLink href={addon.edit_url} middle>Edit</ResultLink>
+          <ResultLink href={addon.review_url} end>Editors</ResultLink>
         </section>
       </li>
     );

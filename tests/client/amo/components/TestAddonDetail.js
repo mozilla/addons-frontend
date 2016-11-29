@@ -6,8 +6,10 @@ import {
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 
-import AddonDetail, { allowedDescriptionTags }
-  from 'amo/components/AddonDetail';
+import {
+  AddonDetailBase,
+  allowedDescriptionTags,
+} from 'amo/components/AddonDetail';
 import { OverallRatingWithI18n } from 'amo/components/OverallRating';
 import createStore from 'amo/store';
 import I18nProvider from 'core/i18n/Provider';
@@ -16,23 +18,26 @@ import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
-function render({ addon = fakeAddon, ...customProps } = {}) {
+function render({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
   const i18n = getFakeI18nInst();
   const initialState = { api: { clientApp: 'android', lang: 'pt' } };
   const props = {
     addon,
+    ...addon,
+    i18n,
     // Configure AddonDetail with a non-redux depdendent OverallRating.
     OverallRating: OverallRatingWithI18n,
+    setCurrentStatus,
     ...customProps,
   };
 
   return findRenderedComponentWithType(renderIntoDocument(
     <Provider store={createStore(initialState)}>
       <I18nProvider i18n={i18n}>
-        <AddonDetail {...props} />
+        <AddonDetailBase {...props} />
       </I18nProvider>
     </Provider>
-  ), AddonDetail);
+  ), AddonDetailBase);
 }
 
 function renderAsDOMNode(...args) {
@@ -45,6 +50,12 @@ describe('AddonDetail', () => {
     const rootNode = renderAsDOMNode();
     assert.include(rootNode.querySelector('h1').textContent,
                    'Chill Out');
+  });
+
+  it('gets the add-on status on componentDidMount()', () => {
+    const setCurrentStatus = sinon.spy();
+    renderAsDOMNode({ setCurrentStatus });
+    assert.ok(setCurrentStatus.called);
   });
 
   it('renders a single author', () => {

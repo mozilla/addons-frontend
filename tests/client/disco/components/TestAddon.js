@@ -20,10 +20,8 @@ import {
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_CATEGORY,
   INSTALL_FAILED,
   INSTALLED,
-  THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
   THEME_TYPE,
@@ -377,7 +375,6 @@ describe('<Addon />', () => {
         guid: 'foo@addon',
         downloadProgress: 75,
         addonProp: 'addonValue',
-        installTheme: props.installTheme,
       });
     });
 
@@ -386,38 +383,7 @@ describe('<Addon />', () => {
         installations: {},
         addons: {},
       }, { guid: 'nope@addon' });
-      assert.deepEqual(props, { installTheme: props.installTheme });
-    });
-  });
-
-  describe('installTheme', () => {
-    it('installs the theme', () => {
-      const name = 'hai-theme';
-      const guid = '{install-theme}';
-      const node = sinon.stub();
-      const spyThemeAction = sinon.spy();
-      const props = mapStateToProps({ installations: {}, addons: {} }, {});
-      props.installTheme(node, guid, name, spyThemeAction);
-      assert(spyThemeAction.calledWith(node, THEME_INSTALL));
-    });
-
-    it('tracks a theme install', () => {
-      const name = 'hai-theme';
-      const guid = '{install-theme}';
-      const node = sinon.stub();
-      const spyThemeAction = sinon.spy();
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const { installTheme } = mapStateToProps({ installations: {}, addons: {} }, {}, {
-        _tracking: fakeTracking,
-      });
-      installTheme(node, guid, name, spyThemeAction);
-      assert(fakeTracking.sendEvent.calledWith({
-        action: 'theme',
-        category: INSTALL_CATEGORY,
-        label: 'hai-theme',
-      }));
+      assert.deepEqual(props, {});
     });
   });
 });

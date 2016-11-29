@@ -1,4 +1,8 @@
-import { mapStateToProps } from 'core/searchUtils';
+import createStore from 'amo/store';
+import * as searchActions from 'core/actions/search';
+import * as api from 'core/api';
+import { loadByCategoryIfNeeded, mapStateToProps } from 'core/searchUtils';
+
 
 describe('searchUtils mapStateToProps()', () => {
   const state = {
@@ -14,5 +18,71 @@ describe('searchUtils mapStateToProps()', () => {
     // don't allow searches on it.
     const props = mapStateToProps(state, { location: { query: { } } });
     assert.deepEqual(props, { hasSearchParams: false });
+  });
+});
+
+describe('searchUtils loadByCategoryIfNeeded()', () => {
+  let filters;
+  let ownProps;
+
+  before(() => {
+    filters = {
+      addonType: 'theme',
+      category: 'anime',
+      clientApp: 'android',
+    };
+    ownProps = {
+      location: { query: {} },
+      params: {
+        addonType: 'theme',
+        application: 'android',
+        slug: 'anime',
+      },
+    };
+  });
+
+  it('returns right away when loaded', () => {
+    const store = createStore();
+    store.dispatch(searchActions.searchStart({ filters }));
+    const mockApi = sinon.mock(api);
+    const entities = sinon.stub();
+    const result = sinon.stub();
+
+    mockApi
+      .expects('search')
+      .once()
+      .withArgs({ page: 1, filters, api: {}, auth: {} })
+      .returns(Promise.resolve({ entities, result }));
+    return loadByCategoryIfNeeded({
+      store,
+      location: ownProps.location,
+      params: ownProps.params,
+    }).then(() => {
+      assert.strictEqual(loadByCategoryIfNeeded({
+        store,
+        location: ownProps.location,
+        params: ownProps.params,
+      }), true);
+    });
+  });
+
+  it('sets the page', () => {
+    const store = createStore();
+    store.dispatch(searchActions.searchStart({ filters }));
+    const mockApi = sinon.mock(api);
+    const entities = sinon.stub();
+    const result = sinon.stub();
+
+    mockApi
+      .expects('search')
+      .once()
+      .withArgs({ page: 1, filters, api: {}, auth: {} })
+      .returns(Promise.resolve({ entities, result }));
+    return loadByCategoryIfNeeded({
+      store,
+      location: ownProps.location,
+      params: ownProps.params,
+    })
+      .then(() => mockApi.verify());
   });
 });

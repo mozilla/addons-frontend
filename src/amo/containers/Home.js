@@ -24,7 +24,7 @@ export class HomePageBase extends React.Component {
           <li className="HomePage-be-social"><Link to="#share-stuff"><span>{i18n.gettext('Be social')}</span></Link></li>
           <li className="HomePage-share-stuff"><Link to="#share-stuff"><span>{i18n.gettext('Share stuff')}</span></Link></li>
         </ul>
-        <Link className="HomePage-extensions-link" to="#extensions">
+        <Link className="HomePage-extensions-link" to="/extensions/">
           {i18n.gettext('Browse all extensions')}
         </Link>
 
@@ -37,7 +37,7 @@ export class HomePageBase extends React.Component {
           <li className="HomePage-sporty"><Link to="#sporty"><span>{i18n.gettext('Sporty')}</span></Link></li>
           <li className="HomePage-mystical"><Link to="#mystical"><span>{i18n.gettext('Mystical')}</span></Link></li>
         </ul>
-        <Link className="HomePage-themes-link" to="#themes">
+        <Link className="HomePage-themes-link" to="/themes/">
           {i18n.gettext('Browse all themes')}
         </Link>
       </div>

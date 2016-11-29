@@ -1,44 +1,49 @@
 import React from 'react';
-import { findDOMNode } from 'react-dom';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-} from 'react-addons-test-utils';
-import { Provider } from 'react-redux';
 
-import createStore from 'amo/store';
-import DetailPage from 'amo/containers/DetailPage';
-import I18nProvider from 'core/i18n/Provider';
+import { DetailPageBase, mapStateToProps } from 'amo/containers/DetailPage';
+import AddonDetail from 'amo/components/AddonDetail';
+import { INSTALLED, UNKNOWN } from 'core/constants';
 import { fakeAddon } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
-
-function render(
-  {
-    props = { params: { slug: fakeAddon.slug } },
-    state = {
-      addons: {
-        [fakeAddon.slug]: fakeAddon,
-      },
-    },
-  } = {}
-) {
-  const store = createStore(state);
-
-  return findRenderedComponentWithType(renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
-      <Provider store={store}>
-        <DetailPage {...props} />
-      </Provider>
-    </I18nProvider>
-  ), DetailPage);
-}
+import { shallowRender } from 'tests/client/helpers';
 
 
 describe('DetailPage', () => {
-  it('renders an add-on', () => {
-    const root = render();
-    const rootNode = findDOMNode(root);
-    assert.include(rootNode.querySelector('h1').textContent,
-                   `${fakeAddon.name} by ${fakeAddon.authors[0].name}`);
+  it('renders AddonDetail with the same props', () => {
+    const root = shallowRender(<DetailPageBase foo="bar" baz="quux" />);
+    assert.equal(root.props.className, 'DetailPage', sinon.format(root));
+    assert.deepEqual(root.props.children.props, { foo: 'bar', baz: 'quux' });
+    assert.equal(root.props.children.type, AddonDetail);
+  });
+
+  describe('mapStateToProps', () => {
+    it('pulls the add-on from state', () => {
+      const addon = { ...fakeAddon, status: 'public' };
+      const ownProps = { params: { slug: addon.slug } };
+      const installation = { guid: addon.guid, needsRestart: false, status: INSTALLED };
+      const state = {
+        addons: {
+          [addon.slug]: addon,
+        },
+        installations: {
+          [addon.guid]: installation,
+        },
+      };
+      const props = mapStateToProps(state, ownProps);
+      assert.deepEqual(props, { addon, ...addon, ...installation });
+      assert.equal(props.status, INSTALLED);
+    });
+
+    it('sets status to UNKNOWN if no installation', () => {
+      const addon = { ...fakeAddon, status: 'public' };
+      const ownProps = { params: { slug: addon.slug } };
+      const state = {
+        addons: {
+          [addon.slug]: addon,
+        },
+        installations: {},
+      };
+      const props = mapStateToProps(state, ownProps);
+      assert.deepEqual(props, { addon, ...addon, status: UNKNOWN });
+    });
   });
 });

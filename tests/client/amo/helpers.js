@@ -1,5 +1,6 @@
 export const fakeAddon = {
   id: 1234,
+  guid: '1234@my-addons.firefox',
   name: 'Chill Out',
   slug: 'chill-out',
   authors: [{
