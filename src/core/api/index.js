@@ -67,6 +67,8 @@ export function callApi({
       // Note that if callApi is executed by an asyncConnect() handler,
       // then redux-connect will catch this exception and
       // dispatch a LOAD_FAIL action which puts the error in state.
+
+      // TODO: share createApiError() with core/reducers/test_errors
       const apiError = new Error('Error calling API');
       apiError.response = {
         apiURL,

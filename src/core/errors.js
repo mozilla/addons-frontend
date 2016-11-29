@@ -54,7 +54,7 @@ export function withErrorHandling({ name } = {}) {
         let errorInfo;
         let errorMessages = [];
         if (apiError) {
-          errorMessages = apiError.error.messages.map(
+          errorMessages = apiError.messages.map(
             (error) => <li>{error}</li>);
           errorInfo = (
             <ul className="ErrorHandler-list">
