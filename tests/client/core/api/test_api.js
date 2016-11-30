@@ -83,7 +83,7 @@ describe('api', () => {
         },
         text() {
           return Promise.resolve('actual error response');
-        }
+        },
       }));
 
       const errorHandler = newErrorHandler();
