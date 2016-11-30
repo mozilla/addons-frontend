@@ -2,7 +2,7 @@
 import config from 'config';
 
 import * as api from 'core/api';
-import { ErrorHandler } from 'core/errors';
+import { ErrorHandler } from 'core/errorHandler';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
 
