@@ -230,19 +230,30 @@ describe('AddonDetail', () => {
   });
 
   it('renders a theme preview image', () => {
-    const getBrowserThemeData = () => '{"the":"themedata"}';
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
         type: THEME_TYPE,
         previewURL: 'https://amo/preview.png',
       },
-      getBrowserThemeData,
+      getBrowserThemeData: () => '{}',
     });
     const img = rootNode.querySelector('.AddonDetail-theme-header-image');
     assert.equal(img.src, 'https://amo/preview.png');
-    assert.equal(img.dataset.browsertheme, '{"the":"themedata"}');
     assert.equal(img.alt, 'Press to preview');
+  });
+
+  it('sets the browserthem data on the header', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+        previewURL: 'https://amo/preview.png',
+      },
+      getBrowserThemeData: () => '{"the":"themedata"}',
+    });
+    const header = rootNode.querySelector('.AddonDetail-theme-header');
+    assert.equal(header.dataset.browsertheme, '{"the":"themedata"}');
   });
 
   it('previews a theme on touchstart', () => {
@@ -255,11 +266,11 @@ describe('AddonDetail', () => {
       getBrowserThemeData: () => '{}',
       previewTheme,
     });
-    const img = rootNode.querySelector('.AddonDetail-theme-header-image');
+    const header = rootNode.querySelector('.AddonDetail-theme-header');
     const event = { preventDefault: sinon.spy() };
-    Simulate.touchStart(img, event);
+    Simulate.touchStart(header, event);
     assert.ok(event.preventDefault.called);
-    assert.ok(previewTheme.calledWith(img));
+    assert.ok(previewTheme.calledWith(header));
   });
 
   it('resets a theme preview on touchend', () => {
@@ -272,9 +283,9 @@ describe('AddonDetail', () => {
       getBrowserThemeData: () => '{}',
       resetPreviewTheme,
     });
-    const img = rootNode.querySelector('.AddonDetail-theme-header-image');
-    Simulate.touchEnd(img);
-    assert.ok(resetPreviewTheme.calledWith(img));
+    const header = rootNode.querySelector('.AddonDetail-theme-header');
+    Simulate.touchEnd(header);
+    assert.ok(resetPreviewTheme.calledWith(header));
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {
