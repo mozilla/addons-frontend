@@ -1,12 +1,15 @@
 import React, { PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 import translate from 'core/i18n/translate';
+import { clearError, setError } from 'core/actions/errors';
 import { ErrorHandler, withErrorHandling } from 'core/errorHandler';
 import errors from 'core/reducers/errors';
+import { createApiError } from 'tests/client/core/reducers/test_errors';
 
 class SomeComponentBase extends React.Component {
   static propTypes = {
@@ -17,20 +20,24 @@ class SomeComponentBase extends React.Component {
   }
 }
 
-function createWrappedComponent() {
+function createErrorStore() {
+  return createStore(combineReducers({ errors }));
+}
+
+function createWrappedComponent({ id, store = createErrorStore() } = {}) {
   const SomeComponent = translate({ withRef: true })(SomeComponentBase);
   const ComponentWithErrorHandling =
-    withErrorHandling({ name: 'SomeComponent' })(SomeComponent);
+    withErrorHandling({ id, name: 'SomeComponent' })(SomeComponent);
 
-  const store = createStore(combineReducers({ errors }));
-
-  const component = findRenderedComponentWithType(renderIntoDocument(
+  const provider = renderIntoDocument(
     <Provider store={store}>
       <ComponentWithErrorHandling />
     </Provider>
-  ), SomeComponent).getWrappedInstance();
+  );
+  const component = findRenderedComponentWithType(provider, SomeComponent)
+    .getWrappedInstance();
 
-  return { store, component };
+  return { store, component, dom: findDOMNode(provider) };
 }
 
 describe('errorHandler', () => {
@@ -40,6 +47,55 @@ describe('errorHandler', () => {
       const errorHandler = component.props.errorHandler;
       assert.instanceOf(errorHandler, ErrorHandler);
       assert.match(errorHandler.generateId(), /^SomeComponent-/);
+    });
+
+    it('renders an error', () => {
+      const id = 'some-handler-id';
+
+      const store = createErrorStore();
+      store.dispatch(setError({ id, error: new Error() }));
+
+      const { dom } = createWrappedComponent({ store, id });
+      assert.equal(dom.querySelector('.ErrorHandler-list').textContent,
+                   'An unexpected error occurred');
+    });
+
+    it('renders multiple error messages', () => {
+      const id = 'some-handler-id';
+
+      const store = createErrorStore();
+      const error = createApiError({
+        nonFieldErrors: ['first error', 'second error'],
+      });
+      store.dispatch(setError({ id, error }));
+
+      const { dom } = createWrappedComponent({ store, id });
+      const items = dom.querySelectorAll('.ErrorHandler-list li');
+      assert.equal(items[0].textContent, 'first error');
+      assert.equal(items[1].textContent, 'second error');
+    });
+
+    it('erases cleared errors', () => {
+      const id = 'some-handler-id';
+
+      const store = createErrorStore();
+      store.dispatch(setError({ id, error: new Error() }));
+      store.dispatch(clearError(id));
+
+      const { dom } = createWrappedComponent({ store, id });
+      assert.equal(dom.querySelector('.ErrorHandler-list'), null);
+    });
+
+    it('ignores errors sent by other error handlers', () => {
+      const store = createErrorStore();
+      store.dispatch(setError({
+        id: 'another-handler-id', error: new Error(),
+      }));
+
+      const { dom } = createWrappedComponent({
+        store, id: 'this-handler-id',
+      });
+      assert.equal(dom.querySelector('.ErrorHandler-list'), null);
     });
   });
 });

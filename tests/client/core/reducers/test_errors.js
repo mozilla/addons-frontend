@@ -1,28 +1,28 @@
 import { setError } from 'core/actions/errors';
 import errors, { initialState } from 'core/reducers/errors';
 
-describe('errors reducer', () => {
-  function createApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
-    const response = {
-      ok: false,
-      status: 400,
-    };
+export function createApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
+  const response = {
+    ok: false,
+    status: 400,
+  };
 
-    const data = fieldErrors;
-    if (nonFieldErrors) {
-      data.non_field_errors = nonFieldErrors;
-    }
-
-    const apiError = new Error('Error calling API');
-    apiError.response = {
-      apiURL: '/some/url',
-      status: response.status,
-      data,
-    };
-
-    return apiError;
+  const data = fieldErrors;
+  if (nonFieldErrors) {
+    data.non_field_errors = nonFieldErrors;
   }
 
+  const apiError = new Error('Error calling API');
+  apiError.response = {
+    apiURL: '/some/url',
+    status: response.status,
+    data,
+  };
+
+  return apiError;
+}
+
+describe('errors reducer', () => {
   it('defaults to an empty object', () => {
     assert.deepEqual(errors(undefined, { type: 'UNRELATED' }), initialState);
   });

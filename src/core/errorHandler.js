@@ -36,9 +36,9 @@ export class ErrorHandler {
   }
 }
 
-export function withErrorHandling({ name } = {}) {
+export function withErrorHandling({ name, id } = {}) {
   return (WrappedComponent) => {
-    const apiResultId = getApiResultId({ prefix: name });
+    const apiResultId = id || getApiResultId({ prefix: name });
 
     class ErrorHandlerComponent extends React.Component {
       static propTypes = {
