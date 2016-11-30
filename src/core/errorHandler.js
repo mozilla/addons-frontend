@@ -12,9 +12,14 @@ function getApiResultId({ prefix = '' } = {}) {
 }
 
 export class ErrorHandler {
-  constructor({ apiResultId, dispatch }) {
+  constructor({ name, apiResultId, dispatch }) {
     this.apiResultId = apiResultId;
     this.dispatch = dispatch;
+    this.name = name;
+  }
+
+  generateId() {
+    return `${this.name}-${Math.random().toString(36).substr(2, 9)}`;
   }
 
   clear() {
@@ -45,6 +50,7 @@ export function withErrorHandling({ name } = {}) {
         const { apiError, dispatch, ...otherProps } = this.props;
 
         const errorHandler = new ErrorHandler({
+          name,
           apiResultId,
           dispatch,
         });

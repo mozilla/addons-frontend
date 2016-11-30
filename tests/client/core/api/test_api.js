@@ -68,7 +68,7 @@ describe('api', () => {
       return api.callApi({ endpoint: 'resource', errorHandler })
         .then(() => {
           assert(false, 'unexpected success');
-        }, (error) => {
+        }, () => {
           assert.ok(errorHandler.handle.called);
           const args = errorHandler.handle.firstCall.args;
           assert.deepEqual(args[0].response.data.non_field_errors,
