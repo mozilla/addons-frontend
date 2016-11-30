@@ -20,14 +20,18 @@ export const fakeAddon = {
 
 export const fakeReview = {
   id: 8876,
-  addon: fakeAddon,
+  // The API only provides a minimal add-on representation.
+  addon: {
+    id: fakeAddon.id,
+    slug: fakeAddon.slug,
+  },
   rating: 3,
   version: fakeAddon.current_version,
   user: {
     id: 1234,
   },
   is_latest: false,
-  body: null,
+  body: 'It is Okay',
   title: null,
 };
 

@@ -105,7 +105,7 @@ describe('OverallRating', () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: fakeReview.version.id },
       userId: 92345,
-      userReview: setReview(fakeReview).data,
+      userReview: setReview(fakeReview).payload,
     });
     selectRating(root, 5);
     assert.ok(submitReview.called);
@@ -135,7 +135,7 @@ describe('OverallRating', () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: oldVersionId },
       userId: 92345,
-      userReview: setReview(newReview).data,
+      userReview: setReview(newReview).payload,
       submitReview,
       addon,
     });
@@ -192,11 +192,8 @@ describe('OverallRating', () => {
   });
 
   it('renders selected stars corresponding to a saved review', () => {
-    const root = render({
-      userReview: setReview(fakeReview, {
-        rating: 3,
-      }).data,
-    });
+    const action = setReview(fakeReview, { rating: 3 });
+    const root = render({ userReview: action.payload });
 
     // Make sure only the first 3 stars are selected.
     [1, 2, 3].forEach((rating) => {
@@ -357,18 +354,14 @@ describe('OverallRating', () => {
     });
 
     it('sets a user review to the latest matching one in state', () => {
-      const isLatest = true;
       signIn({ userId: fakeReview.user.id });
 
-      store.dispatch(setReview(fakeReview, { isLatest }));
+      const action = setReview(fakeReview, { isLatest: true });
+      store.dispatch(action);
+      const dispatchedReview = action.payload;
 
       const userReview = getMappedProps().userReview;
-      assert.deepEqual(userReview, {
-        id: fakeReview.id,
-        versionId: fakeReview.version.id,
-        rating: fakeReview.rating,
-        isLatest,
-      });
+      assert.deepEqual(userReview, dispatchedReview);
     });
 
     it('ignores reviews from other users', () => {
@@ -402,25 +395,20 @@ describe('OverallRating', () => {
     it('only finds the latest review for an add-on', () => {
       signIn({ userId: fakeReview.user.id });
 
-      const reviewBase = {
-        versionId: fakeReview.version.id,
-        rating: 5,
-      };
+      function createReview(overrides) {
+        const action = setReview(fakeReview, overrides);
+        store.dispatch(action);
+        return action.payload;
+      }
 
-      const oldReview = {
-        ...reviewBase,
+      createReview({
         id: 1,
         isLatest: false,
-      };
-
-      const latestReview = {
-        ...reviewBase,
+      });
+      const latestReview = createReview({
         id: 2,
         isLatest: true,
-      };
-
-      store.dispatch(setReview(fakeReview, oldReview));
-      store.dispatch(setReview(fakeReview, latestReview));
+      });
 
       assert.deepEqual(getMappedProps().userReview, latestReview);
     });

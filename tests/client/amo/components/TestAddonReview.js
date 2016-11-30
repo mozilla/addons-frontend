@@ -10,7 +10,7 @@ import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
 import * as coreApi from 'core/api';
 import {
-  mapStateToProps, AddonReviewBase,
+  mapDispatchToProps, mapStateToProps, AddonReviewBase,
   loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
 import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helpers';
@@ -79,6 +79,12 @@ describe('AddonReview', () => {
                  /Tell us about your experience/);
   });
 
+  it('allows you to edit existing review text', () => {
+    const body = 'I am disappointed that it does not glow in the dark';
+    const root = render({ review: { ...defaultReview, body } });
+    assert.equal(root.reviewTextarea.textContent, body);
+  });
+
   it('triggers the submit handler', () => {
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const root = render({ updateReviewText });
@@ -135,29 +141,6 @@ describe('AddonReview', () => {
                  `/${lang}/${clientApp}/addon/${defaultReview.addonSlug}/`);
   });
 
-  it('allows you to submit a review', () => {
-    const params = {
-      reviewId: 3333,
-      body: 'some review text',
-      addonSlug: 'chill-out',
-      apiState: signedInApiState,
-    };
-
-    const mockApi = sinon.mock(amoApi)
-      .expects('submitReview')
-      .withArgs(params)
-      .returns(Promise.resolve({}));
-
-    const root = findRenderedComponentWithType(renderIntoDocument(
-      <AddonReviewBase review={defaultReview} i18n={getFakeI18nInst()} />
-    ), AddonReviewBase);
-
-    return root.props.updateReviewText({ ...params })
-      .then(() => {
-        mockApi.verify();
-      });
-  });
-
   describe('loadAddonReview', () => {
     let mockApi;
     let fakeDispatch;
@@ -201,6 +184,7 @@ describe('AddonReview', () => {
           assert.equal(returnedReview.addonSlug, fakeAddon.slug);
           assert.equal(returnedReview.rating, fakeReview.rating);
           assert.equal(returnedReview.id, fakeReview.id);
+          assert.equal(returnedReview.body, fakeReview.body);
 
           mockApi.verify();
         });
@@ -211,6 +195,41 @@ describe('AddonReview', () => {
     it('maps apiState to props', () => {
       const props = mapStateToProps({ api: signedInApiState });
       assert.deepEqual(props.apiState, signedInApiState);
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    let mockApi;
+    let dispatch;
+    let actions;
+
+    beforeEach(() => {
+      mockApi = sinon.mock(amoApi);
+      dispatch = sinon.stub();
+      actions = mapDispatchToProps(dispatch);
+    });
+
+    describe('updateReviewText', () => {
+      it('allows you to update a review', () => {
+        const params = {
+          reviewId: 3333,
+          body: 'some review text',
+          addonSlug: 'chill-out',
+          apiState: signedInApiState,
+        };
+
+        mockApi
+          .expects('submitReview')
+          .withArgs(params)
+          .returns(Promise.resolve(fakeReview));
+
+        return actions.updateReviewText({ ...params })
+          .then(() => {
+            mockApi.verify();
+            assert.ok(dispatch.called, 'the new review should be dispatched');
+            assert.deepEqual(dispatch.firstCall.args[0], setReview(fakeReview));
+          });
+      });
     });
   });
 });
