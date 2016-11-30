@@ -69,10 +69,12 @@ export class AddonDetailBase extends React.Component {
       fallbackIcon;
 
     if (type === THEME_TYPE) {
+      const label = i18n.gettext('Press to preview');
       return (
         <div className="AddonDetail-theme-header">
+          <div className="AddonDetail-theme-header-label">{label}</div>
           <img
-            alt={i18n.gettext('Press to preview')}
+            alt={label}
             className="AddonDetail-theme-header-image"
             data-browsertheme={getBrowserThemeData()}
             onTouchStart={this.onTouchStart}
