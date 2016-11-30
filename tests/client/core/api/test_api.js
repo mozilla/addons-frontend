@@ -73,6 +73,31 @@ describe('api', () => {
                            nonFieldErrors);
         });
     });
+
+    it('handles error responses with JSON syntax errors', () => {
+      mockWindow.expects('fetch').returns(Promise.resolve({
+        ok: false,
+        json() {
+          return Promise.reject(
+            new SyntaxError('pretend this was a response with invalid JSON'));
+        },
+        text() {
+          return Promise.resolve('actual error response');
+        }
+      }));
+
+      const errorHandler = newErrorHandler();
+      sinon.stub(errorHandler, 'handle');
+
+      return api.callApi({ endpoint: 'resource', errorHandler })
+        .then(() => {
+          assert(false, 'unexpected success');
+        }, () => {
+          assert.ok(errorHandler.handle.called);
+          const args = errorHandler.handle.firstCall.args;
+          assert.equal(args[0].response.data.text, 'actual error response');
+        });
+    });
   });
 
   describe('admin search api', () => {
