@@ -22,8 +22,6 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
   INSTALLED,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
   THEME_TYPE,
   UNINSTALLED,
   UNINSTALLING,
@@ -278,33 +276,35 @@ describe('<Addon />', () => {
   describe('Theme Previews', () => {
     let root;
     let themeImage;
-    let themeAction;
+    let previewTheme;
+    let resetPreviewTheme;
 
     beforeEach(() => {
-      themeAction = sinon.stub();
-      const data = { ...result, type: THEME_TYPE, themeAction };
+      previewTheme = sinon.spy();
+      resetPreviewTheme = sinon.spy();
+      const data = { ...result, type: THEME_TYPE, previewTheme, resetPreviewTheme };
       root = renderAddon(data);
       themeImage = findDOMNode(root).querySelector('.theme-image');
     });
 
     it('runs theme preview onMouseOver on theme image', () => {
       Simulate.mouseOver(themeImage);
-      assert.ok(themeAction.calledWith(themeImage, THEME_PREVIEW));
+      assert.ok(previewTheme.calledWith(themeImage));
     });
 
     it('resets theme preview onMouseOut on theme image', () => {
       Simulate.mouseOut(themeImage);
-      assert.ok(themeAction.calledWith(themeImage, THEME_RESET_PREVIEW));
+      assert.ok(resetPreviewTheme.calledWith(themeImage));
     });
 
     it('runs theme preview onFocus on theme image', () => {
       Simulate.focus(themeImage);
-      assert.ok(themeAction.calledWith(themeImage, THEME_PREVIEW));
+      assert.ok(previewTheme.calledWith(themeImage));
     });
 
     it('resets theme preview onBlur on theme image', () => {
       Simulate.blur(themeImage);
-      assert.ok(themeAction.calledWith(themeImage, THEME_RESET_PREVIEW));
+      assert.ok(resetPreviewTheme.calledWith(themeImage));
     });
 
     it('installs a theme when the theme image is clicked', () => {
@@ -314,7 +314,6 @@ describe('<Addon />', () => {
       const data = {
         ...result,
         type: THEME_TYPE,
-        themeAction,
         status: UNINSTALLED,
         installTheme,
       };
@@ -332,7 +331,6 @@ describe('<Addon />', () => {
       const data = {
         ...result,
         type: THEME_TYPE,
-        themeAction,
         status: DISABLED,
         installTheme,
       };
@@ -349,7 +347,6 @@ describe('<Addon />', () => {
       const data = {
         ...result,
         type: THEME_TYPE,
-        themeAction,
         status: INSTALLED,
         installTheme,
       };

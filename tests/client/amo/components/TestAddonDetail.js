@@ -212,7 +212,7 @@ describe('AddonDetail', () => {
         icon_url: iconURL,
       },
     });
-    const src = rootNode.querySelector('.icon img').getAttribute('src');
+    const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
     assert.equal(src, iconURL);
   });
 
@@ -223,7 +223,7 @@ describe('AddonDetail', () => {
         icon_url: 'http://foo.com/whatever.jpg',
       },
     });
-    const src = rootNode.querySelector('.icon img').getAttribute('src');
+    const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
     assert.include(src, 'image/png');
   });
 
