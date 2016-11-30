@@ -9,7 +9,7 @@ import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
 import { ErrorHandler, withErrorHandling } from 'core/errorHandler';
 import errors from 'core/reducers/errors';
-import { createApiError } from 'tests/client/core/reducers/test_errors';
+import { createFakeApiError } from 'tests/client/core/reducers/test_errors';
 
 class SomeComponentBase extends React.Component {
   static propTypes = {
@@ -78,7 +78,7 @@ describe('errorHandler', () => {
       const id = 'some-handler-id';
 
       const store = createErrorStore();
-      const error = createApiError({
+      const error = createFakeApiError({
         nonFieldErrors: ['first error', 'second error'],
       });
       store.dispatch(setError({ id, error }));

@@ -20,6 +20,16 @@ function makeQueryString(query) {
   return url.format({ query });
 }
 
+export function createApiError({ apiURL, response, jsonResponse }) {
+  const apiError = new Error('Error calling API');
+  apiError.response = {
+    apiURL,
+    status: response.status,
+    data: jsonResponse,
+  };
+  return apiError;
+}
+
 export function callApi({
   endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
   body, credentials, errorHandler,
@@ -68,13 +78,7 @@ export function callApi({
       // then redux-connect will catch this exception and
       // dispatch a LOAD_FAIL action which puts the error in state.
 
-      // TODO: share createApiError() with core/reducers/test_errors
-      const apiError = new Error('Error calling API');
-      apiError.response = {
-        apiURL,
-        status: response.status,
-        data: jsonResponse,
-      };
+      const apiError = createApiError({ apiURL, response, jsonResponse });
       if (errorHandler) {
         errorHandler.handle(apiError);
       }

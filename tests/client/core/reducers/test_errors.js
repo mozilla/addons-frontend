@@ -1,7 +1,8 @@
+import { createApiError } from 'core/api/index';
 import { setError } from 'core/actions/errors';
 import errors, { initialState } from 'core/reducers/errors';
 
-export function createApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
+export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
   const response = {
     ok: false,
     status: 400,
@@ -12,14 +13,9 @@ export function createApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
     data.non_field_errors = nonFieldErrors;
   }
 
-  const apiError = new Error('Error calling API');
-  apiError.response = {
-    apiURL: '/some/url',
-    status: response.status,
-    data,
-  };
-
-  return apiError;
+  return createApiError({
+    response, jsonResponse: data, apiURL: '/some/url/',
+  });
 }
 
 describe('errors reducer', () => {
@@ -38,10 +34,10 @@ describe('errors reducer', () => {
 
   it('preserves existing errors', () => {
     const action1 = setError({
-      id: 'action1', error: createApiError({ nonFieldErrors: ['action1'] }),
+      id: 'action1', error: createFakeApiError({ nonFieldErrors: ['action1'] }),
     });
     const action2 = setError({
-      id: 'action2', error: createApiError({ nonFieldErrors: ['action2'] }),
+      id: 'action2', error: createFakeApiError({ nonFieldErrors: ['action2'] }),
     });
 
     let state;
@@ -75,7 +71,7 @@ describe('errors reducer', () => {
     ];
     const action = setError({
       id: 'action1',
-      error: createApiError({ nonFieldErrors }),
+      error: createFakeApiError({ nonFieldErrors }),
     });
     const state = errors(undefined, action);
     assert.deepEqual(state[action.payload.id].messages, nonFieldErrors);
@@ -88,7 +84,7 @@ describe('errors reducer', () => {
     };
     const action = setError({
       id: 'action1',
-      error: createApiError({ fieldErrors }),
+      error: createFakeApiError({ fieldErrors }),
     });
 
     const state = errors(undefined, action);
@@ -101,7 +97,7 @@ describe('errors reducer', () => {
 
   it('handles API responses without any messages', () => {
     // This API error has no messages (hopefully this won't ever happen).
-    const action = setError({ id: 'some-id', error: createApiError() });
+    const action = setError({ id: 'some-id', error: createFakeApiError() });
     const state = errors(undefined, action);
     assert.deepEqual(state[action.payload.id], {
       messages: ['An unexpected error occurred'],
