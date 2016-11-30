@@ -1,6 +1,7 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
+  Simulate,
   findRenderedComponentWithType,
   renderIntoDocument,
 } from 'react-addons-test-utils';
@@ -12,8 +13,9 @@ import {
 } from 'amo/components/AddonDetail';
 import { OverallRatingWithI18n } from 'amo/components/OverallRating';
 import createStore from 'amo/store';
-import I18nProvider from 'core/i18n/Provider';
+import { THEME_TYPE } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
+import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -225,6 +227,54 @@ describe('AddonDetail', () => {
     });
     const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
     assert.include(src, 'image/png');
+  });
+
+  it('renders a theme preview image', () => {
+    const getBrowserThemeData = () => '{"the":"themedata"}';
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+        previewURL: 'https://amo/preview.png',
+      },
+      getBrowserThemeData,
+    });
+    const img = rootNode.querySelector('.AddonDetail-theme-header-image');
+    assert.equal(img.src, 'https://amo/preview.png');
+    assert.equal(img.dataset.browsertheme, '{"the":"themedata"}');
+    assert.equal(img.alt, 'Press to preview');
+  });
+
+  it('previews a theme on touchstart', () => {
+    const previewTheme = sinon.spy();
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+      },
+      getBrowserThemeData: () => '{}',
+      previewTheme,
+    });
+    const img = rootNode.querySelector('.AddonDetail-theme-header-image');
+    const event = { preventDefault: sinon.spy() };
+    Simulate.touchStart(img, event);
+    assert.ok(event.preventDefault.called);
+    assert.ok(previewTheme.calledWith(img));
+  });
+
+  it('resets a theme preview on touchend', () => {
+    const resetPreviewTheme = sinon.spy();
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+      },
+      getBrowserThemeData: () => '{}',
+      resetPreviewTheme,
+    });
+    const img = rootNode.querySelector('.AddonDetail-theme-header-image');
+    Simulate.touchEnd(img);
+    assert.ok(resetPreviewTheme.calledWith(img));
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {

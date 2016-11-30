@@ -52,6 +52,8 @@ export class AddonDetailBase extends React.Component {
   }
 
   onTouchStart = (event) => {
+    // We preventDefault so that the image long-press menu doesn't appear.
+    // This unfortunately prevents scrolling :(
     event.preventDefault();
     this.props.previewTheme(event.currentTarget);
   }
