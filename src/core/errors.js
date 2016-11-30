@@ -11,7 +11,7 @@ function getApiResultId({ prefix = '' } = {}) {
   return `${prefix}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
-class ErrorHandler {
+export class ErrorHandler {
   constructor({ apiResultId, dispatch }) {
     this.apiResultId = apiResultId;
     this.dispatch = dispatch;

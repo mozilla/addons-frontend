@@ -2,6 +2,7 @@
 import config from 'config';
 
 import * as api from 'core/api';
+import { ErrorHandler } from 'core/errors';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
 
@@ -14,6 +15,19 @@ describe('api', () => {
   });
 
   describe('core.callApi', () => {
+    function createApiResponse({ ok = true, jsonData = {} } = {}) {
+      return Promise.resolve({
+        ok,
+        json: () => Promise.resolve(jsonData),
+      });
+    }
+
+    function newErrorHandler() {
+      return new ErrorHandler({
+        apiResultId: '123', dispatch: sinon.stub(),
+      });
+    }
+
     it('does not use remote host for api calls', () => {
       assert.equal(apiHost, 'https://localhost');
     });
@@ -24,12 +38,42 @@ describe('api', () => {
           method: 'GET', headers: {},
         })
         .once()
-        .returns(Promise.resolve({
-          ok: true,
-          json: () => Promise.resolve({}),
-        }));
+        .returns(createApiResponse());
       return api.callApi({ endpoint: 'resource', method: 'get' })
         .then(() => mockWindow.verify());
+    });
+
+    it('clears an error handler before making a request', () => {
+      mockWindow.expects('fetch').returns(createApiResponse());
+
+      const errorHandler = newErrorHandler();
+      sinon.stub(errorHandler, 'clear');
+
+      return api.callApi({ endpoint: 'resource', errorHandler })
+        .then(() => {
+          assert.ok(errorHandler.clear.called);
+        });
+    });
+
+    it('passes errors to the error handler', () => {
+      const nonFieldErrors = ['user_id and password cannot be blank'];
+      mockWindow.expects('fetch').returns(createApiResponse({
+        ok: false,
+        jsonData: { non_field_errors: nonFieldErrors },
+      }));
+
+      const errorHandler = newErrorHandler();
+      sinon.stub(errorHandler, 'handle');
+
+      return api.callApi({ endpoint: 'resource', errorHandler })
+        .then(() => {
+          assert(false, 'unexpected success');
+        }, (error) => {
+          assert.ok(errorHandler.handle.called);
+          const args = errorHandler.handle.firstCall.args;
+          assert.deepEqual(args[0].response.data.non_field_errors,
+                           nonFieldErrors);
+        });
     });
   });
 
