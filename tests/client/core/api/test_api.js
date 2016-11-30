@@ -23,9 +23,7 @@ describe('api', () => {
     }
 
     function newErrorHandler() {
-      return new ErrorHandler({
-        apiResultId: '123', dispatch: sinon.stub(),
-      });
+      return new ErrorHandler({ id: '123', dispatch: sinon.stub() });
     }
 
     it('does not use remote host for api calls', () => {

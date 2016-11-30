@@ -46,7 +46,21 @@ describe('errorHandler', () => {
       const { component } = createWrappedComponent();
       const errorHandler = component.props.errorHandler;
       assert.instanceOf(errorHandler, ErrorHandler);
-      assert.match(errorHandler.generateId(), /^SomeComponent-/);
+      assert.match(errorHandler.id, /^SomeComponent-/);
+    });
+
+    it('configures an error handler for action dispatching', () => {
+      const store = createErrorStore();
+      sinon.spy(store, 'dispatch');
+      const { component } = createWrappedComponent({ store });
+
+      const errorHandler = component.props.errorHandler;
+      const error = new Error();
+      errorHandler.handle(error);
+
+      assert.ok(store.dispatch.called);
+      assert.deepEqual(store.dispatch.firstCall.args[0],
+                       setError({ id: errorHandler.id, error }));
     });
 
     it('renders an error', () => {
@@ -96,6 +110,31 @@ describe('errorHandler', () => {
         store, id: 'this-handler-id',
       });
       assert.equal(dom.querySelector('.ErrorHandler-list'), null);
+    });
+  });
+
+  describe('ErrorHandler', () => {
+    let errorHandler;
+
+    beforeEach(() => {
+      errorHandler = new ErrorHandler({
+        id: 'some-handler', dispatch: sinon.stub(),
+      });
+    });
+
+    it('dispatches an error', () => {
+      const error = new Error();
+      errorHandler.handle(error);
+      assert.ok(errorHandler.dispatch.called);
+      assert.deepEqual(errorHandler.dispatch.firstCall.args[0],
+                       setError({ id: errorHandler.id, error }));
+    });
+
+    it('clears an error', () => {
+      errorHandler.clear();
+      assert.ok(errorHandler.dispatch.called);
+      assert.deepEqual(errorHandler.dispatch.firstCall.args[0],
+                       clearError(errorHandler.id));
     });
   });
 });
