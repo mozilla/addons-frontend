@@ -71,14 +71,19 @@ export class AddonDetailBase extends React.Component {
     if (type === THEME_TYPE) {
       const label = i18n.gettext('Press to preview');
       return (
-        <div className="AddonDetail-theme-header">
-          <div className="AddonDetail-theme-header-label">{label}</div>
+        <div
+          className="AddonDetail-theme-header"
+          id="AddonDetail-theme-header"
+          data-browsertheme={getBrowserThemeData()}
+          onTouchStart={this.onTouchStart}
+          onTouchEnd={this.onTouchEnd}
+        >
+          <label className="AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
+            {label}
+          </label>
           <img
             alt={label}
             className="AddonDetail-theme-header-image"
-            data-browsertheme={getBrowserThemeData()}
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
             src={previewURL} />
         </div>
       );

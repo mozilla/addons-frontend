@@ -46,29 +46,33 @@
   }
 }
 
+$theme-header-horizontal-padding: 10px;
+
 .AddonDetail-theme-header {
-  display: flex;
   line-height: 0;
+  padding: 20px $theme-header-horizontal-padding 0;
   position: relative;
 }
 
 .AddonDetail-theme-header-image {
-  border-radius: 8px;
-  flex-grow: 1;
-  margin: 20px 10px 0;
+  border-radius: 12px;
+  height: 100px;
+  object-fit: cover;
+  object-position: right;
   width: 100%;
 }
 
 .AddonDetail-theme-header-label {
-  @include start(18px);
+  $label-margin: 12px;
+  @include start($theme-header-horizontal-padding + $label-margin);
 
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 4px;
-  bottom: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  bottom: $label-margin;
   color: #fff;
   font-size: 12px;
   line-height: 12px;
-  padding: 8px;
+  padding: 12px;
   position: absolute;
   text-transform: uppercase;
 }
