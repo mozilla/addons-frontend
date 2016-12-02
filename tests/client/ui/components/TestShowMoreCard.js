@@ -29,6 +29,17 @@ describe('<ShowMoreCard />', () => {
     assert.strictEqual(root.state.expanded, true);
   });
 
+  it('is expanded by default', () => {
+    const root = render({ children: 'Hello I am description' });
+    assert.strictEqual(root.state.expanded, true);
+  });
+
+  it('truncates the contents if they are too long', () => {
+    const root = render({ children: 'Hello I am description' });
+    root.truncateToMaxHeight({ clientHeight: 101 });
+    assert.strictEqual(root.state.expanded, false);
+  });
+
   it('renders className', () => {
     const root = render({
       children: <p>Hi</p>,
