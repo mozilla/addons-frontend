@@ -16,6 +16,7 @@ export const fakeAddon = {
   description: 'This is a longer description of the chill out add-on',
   has_privacy_policy: true,
   homepage: 'http://hamsterdance.com/',
+  type: 'extension',
 };
 
 export const fakeReview = {
