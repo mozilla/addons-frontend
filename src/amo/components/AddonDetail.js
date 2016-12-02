@@ -12,6 +12,8 @@ import fallbackIcon from 'amo/img/icons/default-64.png';
 import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
+import ShowMoreCard from 'ui/components/ShowMoreCard';
+
 
 export const allowedDescriptionTags = [
   'a',
@@ -63,6 +65,7 @@ export class AddonDetailBase extends React.Component {
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
 
+    // eslint-disable react/no-danger
     return (
       <div className="AddonDetail">
         <header>
@@ -73,9 +76,8 @@ export class AddonDetailBase extends React.Component {
             <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])} />
             <InstallButton {...this.props} />
           </div>
-          <div className="description">
-            <p dangerouslySetInnerHTML={sanitizeHTML(addon.summary)} />
-          </div>
+          <p className="AddonDetail-summary"
+            dangerouslySetInnerHTML={sanitizeHTML(addon.summary)} />
         </header>
 
         <section className="addon-metadata">
@@ -94,13 +96,15 @@ export class AddonDetailBase extends React.Component {
 
         <hr />
 
-        <section className="about">
-          <h2>{i18n.gettext('About this extension')}</h2>
-          <div dangerouslySetInnerHTML={sanitizeHTML(nl2br(addon.description),
-                                                     allowedDescriptionTags)} />
-        </section>
-
-        <hr />
+        <ShowMoreCard header={i18n.sprintf(
+          i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
+        )} className="AddonDescription">
+          <div className="AddonDescription-contents"
+            ref={(ref) => { this.addonDescription = ref; }}
+            dangerouslySetInnerHTML={
+              sanitizeHTML(nl2br(addon.description), allowedDescriptionTags)
+            } />
+        </ShowMoreCard>
 
         <section className="overall-rating">
           <h2>{i18n.gettext('Rate your experience')}</h2>
@@ -113,6 +117,7 @@ export class AddonDetailBase extends React.Component {
         <AddonMoreInfo addon={addon} />
       </div>
     );
+    // eslint-enable react/no-danger
   }
 }
 

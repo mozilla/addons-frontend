@@ -127,37 +127,10 @@ describe('AddonDetail', () => {
     assert.equal(root.props.slug, fakeAddon.slug);
   });
 
-  it('configures the overall ratings section', () => {
-    const root = findRenderedComponentWithType(render(),
-                                               OverallRatingWithI18n);
-    assert.deepEqual(root.props.addon, fakeAddon);
-  });
-
-  it('renders a summary', () => {
+  it('sets the type in the header', () => {
     const rootNode = renderAsDOMNode();
-    assert.include(rootNode.querySelector('div.description').textContent,
-                   fakeAddon.summary);
-  });
-
-  it('sanitizes a summary', () => {
-    const scriptHTML = '<script>alert(document.cookie);</script>';
-    const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        summary: scriptHTML,
-      },
-    });
-    // Make sure an actual script tag was not created.
-    assert.equal(rootNode.querySelector('div.description script'), null);
-    // Make sure the script HTML has been escaped and removed.
-    assert.notInclude(rootNode.querySelector('div.description').textContent,
-                      scriptHTML);
-  });
-
-  it('renders a description', () => {
-    const rootNode = renderAsDOMNode();
-    assert.include(rootNode.querySelector('section.about').textContent,
-                   fakeAddon.description);
+    assert.include(rootNode.querySelector('.AddonDescription h2').textContent,
+                   'About this extension');
   });
 
   it('sanitizes bad description HTML', () => {
@@ -169,10 +142,10 @@ describe('AddonDetail', () => {
       },
     });
     // Make sure an actual script tag was not created.
-    assert.equal(rootNode.querySelector('section.about script'), null);
+    assert.equal(rootNode.querySelector('.AddonDescription script'), null);
     // Make sure the script HTML has been escaped and removed.
-    assert.notInclude(rootNode.querySelector('section.about').textContent,
-                      scriptHTML);
+    assert.notInclude(
+      rootNode.querySelector('.AddonDescription').textContent, scriptHTML);
   });
 
   it('converts new lines in the description to breaks', () => {
@@ -182,7 +155,7 @@ describe('AddonDetail', () => {
         description: '\n\n\n',
       },
     });
-    assert.equal(rootNode.querySelectorAll('section.about br').length, 3);
+    assert.lengthOf(rootNode.querySelectorAll('.AddonDescription br'), 3);
   });
 
   it('preserves certain HTML tags in the description', () => {
@@ -194,14 +167,13 @@ describe('AddonDetail', () => {
     for (const tag of allowedTags) {
       description = `${description} <${tag}>placeholder</${tag}>`;
     }
-    const rootNode = renderAsDOMNode({
-      addon: { ...fakeAddon, description },
-    });
+    const rootNode = renderAsDOMNode({ addon: { ...fakeAddon, description } });
     // eslint-disable-next-line no-restricted-syntax
     for (const tagToCheck of allowedTags) {
-      assert.equal(
-        rootNode.querySelectorAll(`section.about ${tagToCheck}`).length, 1,
-        `${tagToCheck} tag was not whitelisted`);
+      assert.lengthOf(
+        rootNode.querySelectorAll(`.AddonDescription-contents ${tagToCheck}`),
+        1, `${tagToCheck} tag was not whitelisted`
+      );
     }
   });
 
@@ -213,9 +185,23 @@ describe('AddonDetail', () => {
           '<a href="javascript:alert(document.cookie)" onclick="sneaky()">placeholder</a>',
       },
     });
-    const anchor = rootNode.querySelector('section.about a');
+    const anchor = rootNode.querySelector('.AddonDescription a');
     assert.equal(anchor.attributes.onclick, null);
     assert.equal(anchor.attributes.href, null);
+  });
+
+  it('configures the overall ratings section', () => {
+    const root = findRenderedComponentWithType(render(),
+                                               OverallRatingWithI18n);
+    assert.deepEqual(root.props.addon, fakeAddon);
+  });
+
+  it('renders a summary', () => {
+    const rootNode = renderAsDOMNode();
+    assert.include(
+      rootNode.querySelector('.AddonDetail-summary').textContent,
+      fakeAddon.summary
+    );
   });
 
   it('renders an amo CDN icon image', () => {

@@ -12,9 +12,9 @@
 
   .icon,
   .title,
-  .description,
   .screenshots,
   .about,
+  .AddonDetail-summary,
   .overall-rating {
     overflow: hidden;
     padding: 20px;
@@ -56,13 +56,9 @@
   .switch {
     float: right;
   }
+}
 
-  .description {
-    background: darken($masthead-color, 5.5%);
-    font-size: 18px;
-
-    p:first-child {
-      margin-top: 0;
-    }
-  }
+.AddonDetail-summary {
+  margin-bottom: 0;
+  margin-top: 0;
 }
