@@ -1,13 +1,18 @@
+/* eslint-disable react/no-danger */
+
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 
 import './ShowMoreCard.scss';
 
+
+const MAX_HEIGHT = 100;
 
 export class ShowMoreCardBase extends React.Component {
   static propTypes = {
@@ -20,24 +25,24 @@ export class ShowMoreCardBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { expanded: false };
+    this.state = { expanded: true };
   }
 
   componentDidMount() {
-    this.expandIfDescriptionIsShortEnough();
-  }
-
-  expandIfDescriptionIsShortEnough = () => {
-    // If the add-on description is short enough it doesn't need a "show more"
-    // link, we'll expand the description by default.
-    if (ReactDOM.findDOMNode(this.contents).clientHeight < 100) {
-      this.setState({ expanded: true });
-    }
+    this.truncateToMaxHeight(ReactDOM.findDOMNode(this.contents));
   }
 
   expandText = (event) => {
     event.preventDefault();
     this.setState({ expanded: true });
+  }
+
+  truncateToMaxHeight = (contents) => {
+    // If the contents are short enough they don't need a "show more" link; the
+    // contents are expanded by default.
+    if (contents.clientHeight > MAX_HEIGHT) {
+      this.setState({ expanded: false });
+    }
   }
 
   render() {
@@ -53,9 +58,14 @@ export class ShowMoreCardBase extends React.Component {
           {children}
         </div>
         <a className="ShowMoreCard-revealMoreLink" href="#show-more"
-          onClick={this.expandText}>
-          {i18n.gettext('Show more info…')}
-        </a>
+          onClick={this.expandText} dangerouslySetInnerHTML={sanitizeHTML(
+            i18n.gettext(
+              // l10n: The "Expand to" text is for screenreaders so the link
+              // makes sense out of context. The HTML makes it hidden from
+              // non-screenreaders and must stay.
+              '<span class="visually-hidden">Expand to </span> Read more'
+            ), ['span']
+          )} />
       </Card>
     );
   }
