@@ -4,9 +4,7 @@ import {
   SET_CLIENT_APP,
 } from 'core/constants';
 
-const initialState = {};
-
-export default function api(state = initialState, action) {
+export default function api(state = {}, action) {
   switch (action.type) {
     case SET_JWT:
       return { ...state, token: action.payload.token };
