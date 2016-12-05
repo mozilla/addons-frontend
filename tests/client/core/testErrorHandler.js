@@ -3,7 +3,6 @@ import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
 import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
 
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
@@ -30,9 +29,7 @@ function createWrappedComponent({ id, store = createErrorStore() } = {}) {
     withErrorHandling({ id, name: 'SomeComponent' })(SomeComponent);
 
   const provider = renderIntoDocument(
-    <Provider store={store}>
-      <ComponentWithErrorHandling />
-    </Provider>
+    <ComponentWithErrorHandling store={store} />
   );
   const component = findRenderedComponentWithType(provider, SomeComponent);
 
