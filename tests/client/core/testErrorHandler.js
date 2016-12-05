@@ -34,8 +34,7 @@ function createWrappedComponent({ id, store = createErrorStore() } = {}) {
       <ComponentWithErrorHandling />
     </Provider>
   );
-  const component = findRenderedComponentWithType(provider, SomeComponent)
-    .getWrappedInstance();
+  const component = findRenderedComponentWithType(provider, SomeComponent);
 
   return { store, component, dom: findDOMNode(provider) };
 }
