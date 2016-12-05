@@ -64,7 +64,7 @@ export function withErrorHandling({
     }
 
     const mapStateToProps = (state) => {
-      log.info(`Looking for errors in state with ID ${id}`);
+      log.debug(`Looking for errors in state with ID ${id}`);
       return { error: state.errors[id] };
     };
 
