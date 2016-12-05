@@ -47,11 +47,9 @@ export function withErrorHandling({
 
         let errorInfo;
         if (error) {
-          let errorMessages = [];
-          errorMessages = error.messages.map((msg) => <li>{msg}</li>);
           errorInfo = (
             <ul className="ErrorHandler-list">
-              {errorMessages}
+              {error.messages.map((msg) => <li>{msg}</li>)}
             </ul>
           );
         }
