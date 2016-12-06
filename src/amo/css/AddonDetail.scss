@@ -71,8 +71,8 @@ $theme-header-horizontal-padding: 10px;
   bottom: $label-margin;
   color: #fff;
   font-size: 12px;
-  line-height: 12px;
-  padding: 12px;
+  line-height: 1;
+  padding: $label-margin;
   position: absolute;
   text-transform: uppercase;
 }
