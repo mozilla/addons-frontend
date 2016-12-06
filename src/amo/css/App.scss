@@ -71,7 +71,7 @@ a:link {
   @include font-medium();
 
   font-size: 14px;
-  color: #0568ba;
+  color: $link-color;
 }
 
 em {
