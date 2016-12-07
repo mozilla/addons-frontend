@@ -63,8 +63,8 @@ $theme-header-horizontal-padding: 10px;
 }
 
 .AddonDetail-theme-header-label {
-  $label-margin: 12px;
   @include start($theme-header-horizontal-padding + $label-margin);
+  $label-margin: 12px;
 
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
