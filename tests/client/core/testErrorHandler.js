@@ -45,6 +45,32 @@ describe('errorHandler', () => {
       assert.match(errorHandler.id, /^SomeComponent-/);
     });
 
+    it('creates a unique handler ID per wrapped component', () => {
+      const { component: component1 } = createWrappedComponent();
+      const { component: component2 } = createWrappedComponent();
+      assert.notEqual(component1.props.errorHandler.id,
+                      component2.props.errorHandler.id);
+    });
+
+    it('creates a unique handler ID per component instance', () => {
+      const SomeComponent = translate({ withRef: true })(SomeComponentBase);
+      const ComponentWithErrorHandling =
+        withErrorHandling({ name: 'SomeComponent' })(SomeComponent);
+
+      const getRenderedComponent = () => {
+        const provider = renderIntoDocument(
+          <ComponentWithErrorHandling store={createErrorStore()} />
+        );
+        return findRenderedComponentWithType(provider, SomeComponent);
+      };
+
+      const component1 = getRenderedComponent();
+      const component2 = getRenderedComponent();
+
+      assert.notEqual(component1.props.errorHandler.id,
+                      component2.props.errorHandler.id);
+    });
+
     it('configures an error handler for action dispatching', () => {
       const store = createErrorStore();
       sinon.spy(store, 'dispatch');
@@ -81,6 +107,7 @@ describe('errorHandler', () => {
 
       const { dom } = createWrappedComponent({ store, id });
       const items = dom.querySelectorAll('.ErrorHandler-list li');
+      assert(items.length, 'error list was not rendered');
       assert.equal(items[0].textContent, 'first error');
       assert.equal(items[1].textContent, 'second error');
     });

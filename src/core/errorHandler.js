@@ -29,46 +29,54 @@ export class ErrorHandler {
   }
 }
 
-export function withErrorHandling({
-  name, id = generateHandlerId({ name }),
-} = {}) {
-  return (WrappedComponent) => {
-    class ErrorHandlerComponent extends React.Component {
-      static propTypes = {
-        error: PropTypes.object,
-        dispatch: PropTypes.func,
-      }
+class ErrorHandlerComponent extends React.Component {
+  static propTypes = {
+    error: PropTypes.object,
+    errorHandler: PropTypes.func,
+    WrappedComponent: PropTypes.object,
+  }
 
-      render() {
-        const { error, dispatch, ...otherProps } = this.props;
+  render() {
+    const { WrappedComponent, error, ...props } = this.props;
+    const wrappedOutput = <WrappedComponent {...props} />;
 
-        const errorHandler = new ErrorHandler({ id, dispatch });
-        const props = { ...otherProps, errorHandler };
-
-        let errorInfo;
-        if (error) {
-          errorInfo = (
-            <ul className="ErrorHandler-list">
-              {error.messages.map((msg) => <li>{msg}</li>)}
-            </ul>
-          );
-        }
-
-        return (
-          <div>
-            {errorInfo}
-            <WrappedComponent {...props} />
-          </div>
-        );
-      }
+    if (error) {
+      return (
+        <div>
+          <ul className="ErrorHandler-list">
+            {error.messages.map((msg) => <li>{msg}</li>)}
+          </ul>
+          {wrappedOutput}
+        </div>
+      );
     }
 
-    const mapStateToProps = (state) => {
-      log.debug(`Looking for errors in state with ID ${id}`);
-      return { error: state.errors[id] };
+    return wrappedOutput;
+  }
+}
+
+export function withErrorHandling({ name, id } = {}) {
+  return (WrappedComponent) => {
+    let localId;
+
+    const mapStateToProps = () => (state) => {
+      if (!id) {
+        // Generate a new ID per rendered instance of the wrapped component.
+        localId = generateHandlerId({ name })
+        log.debug('Created new error handler ID', localId);
+      } else {
+        localId = id;
+      }
+      log.debug(`Looking for errors in state with ID ${localId}`);
+      return { error: state.errors[localId] };
     };
 
-    const mapDispatchToProps = (dispatch) => ({ dispatch });
+    const mapDispatchToProps = () => (dispatch) => {
+      return {
+        WrappedComponent,
+        errorHandler: new ErrorHandler({ id: localId, dispatch }),
+      };
+    };
 
     return compose(
       connect(mapStateToProps, mapDispatchToProps),
