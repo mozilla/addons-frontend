@@ -1,5 +1,5 @@
 import { createApiError } from 'core/api/index';
-import { setError } from 'core/actions/errors';
+import { clearError, setError } from 'core/actions/errors';
 import errors, { initialState } from 'core/reducers/errors';
 
 export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
@@ -52,9 +52,25 @@ describe('errors reducer', () => {
     const id = 'action1';
     let state;
     state = errors(state, setError({ id, error: new Error('action1') }));
-    state = errors(state, setError({ id, error: null }));
+    state = errors(state, clearError(id));
 
     assert.strictEqual(state[id], null);
+  });
+
+  it('only clears a single error', () => {
+    let state;
+    state = errors(state, setError({
+      id: 'action1',
+      error: createFakeApiError({ nonFieldErrors: ['action1'] }),
+    }));
+    state = errors(state, setError({
+      id: 'action2',
+      error: createFakeApiError({ nonFieldErrors: ['action2'] }),
+    }));
+    state = errors(state, clearError('action1'));
+
+    // Make sure the other error was not cleared.
+    assert.equal(state.action2.messages[0], 'action2');
   });
 
   it('creates a default error message', () => {

@@ -1,4 +1,4 @@
-import { SET_ERROR } from 'core/constants';
+import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
 import log from 'core/logger';
 import { gettext } from 'core/utils';
 
@@ -41,12 +41,17 @@ export const initialState = {};
 
 export default function errors(state = initialState, action) {
   switch (action.type) {
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        [action.payload.id]: null,
+      };
     case SET_ERROR:
       return {
         ...state,
-        [action.payload.id]: action.payload.error ? {
+        [action.payload.id]: {
           messages: getMessagesFromError(action.payload.error),
-        } : null,
+        },
       };
     default:
       return state;
