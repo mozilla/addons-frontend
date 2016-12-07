@@ -4,7 +4,7 @@
       "messages": {
          "": {
             "domain": "messages",
-            "plural_forms": "nplurals=2; plural=(n!=1);",
+            "plural_forms": "nplurals=2; plural=(n != 1);",
             "lang": "bn_BD"
          },
          "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s": [
@@ -74,7 +74,7 @@
             ""
          ],
          "%(users)s user": [
-            "",
+            "%(users)s জন ব্যবহারকারী",
             "%(users)s users"
          ],
          "Log out": [
@@ -165,7 +165,7 @@
             ""
          ],
          "Your search for \"%(query)s\" returned %(count)s result.": [
-            "",
+            "আপনি \"%(query)s\" এর জন্য খোঁজ করেছেন কিন্ত %(count)s এর জন্য ফলাফল দেখাচ্ছে।",
             "Your search for \"%(query)s\" returned %(count)s results."
          ],
          "Searching...": [

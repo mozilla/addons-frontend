@@ -8,176 +8,176 @@
             "lang": "sk"
          },
          "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s": [
-            ""
+            "%(addonName)s %(startSpan)s od %(authorList)s%(endSpan)s"
          ],
          "Extension Metadata": [
-            ""
+            "Metadáta rozšírenia"
          ],
          "Screenshots": [
-            ""
+            "Snímky obrazovky"
          ],
          "About this extension": [
-            ""
+            "O tomto rozšírení"
          ],
          "Rate your experience": [
-            ""
+            "Ohodnoťte svoju skúsenosť"
          ],
          "Category": [
-            ""
+            "Kategória"
          ],
          "Used by": [
-            ""
+            "Používa"
          ],
          "Sentiment": [
-            ""
+            "Sentiment"
          ],
          "Back": [
-            ""
+            "Naspäť"
          ],
          "Submit": [
-            ""
+            "Odoslať"
          ],
          "Please enter some text": [
-            ""
+            "Zadajte, prosím, nejaký text"
          ],
          "Write a review": [
-            ""
+            "Napísať recenziu"
          ],
          "Tell the world why you think this extension is fantastic!": [
-            ""
+            "Povedzte svetu, prečo si myslíte, že je toto rozšírenie úžasné!"
          ],
          "Privacy policy": [
-            ""
+            "Zásady ochrany súkromia"
          ],
          "Legal notices": [
-            ""
+            "Právne informácie"
          ],
          "View desktop site": [
-            ""
+            "Zobraziť verziu stránky pre počítače"
          ],
          "Browse in your language": [
-            ""
+            "Prehliadanie vo vašom jazyku"
          ],
          "Firefox Add-ons": [
-            ""
+            "Doplnky pre Firefox"
          ],
          "How are you enjoying your experience with %(addonName)s?": [
-            ""
+            "Ako si užívate používanie doplnku %(addonName)s?"
          ],
          "screenshot %(imageNumber)s of %(totalImages)s": [
-            ""
+            "snímka obrazovky %(imageNumber)s z %(totalImages)s"
          ],
          "Average rating: %(rating)s out of 5": [
-            ""
+            "Priemerné hodnotenie %(rating)s z 5"
          ],
          "No ratings": [
-            ""
+            "Žiadne hodnotenie"
          ],
          "%(users)s user": [
-            "",
-            "%(users)s users",
-            "%(users)s users"
+            "%(users)s používateľ",
+            "%(users)s používatelia",
+            "%(users)s používateľov"
          ],
          "Log out": [
-            ""
+            "Odhlásiť sa"
          ],
          "Log in/Sign up": [
-            ""
+            "Prihlásiť sa/Zaregistrovať sa"
          ],
          "Add-ons for Firefox": [
-            ""
+            "Doplnky pre Firefox"
          ],
          "What do you want Firefox to do?": [
-            ""
+            "Čo chcete, aby váš Firefox dokázal?"
          ],
          "Block ads": [
-            ""
+            "Blokovať reklamy"
          ],
          "Screenshot": [
-            ""
+            "Vytvárať snímky obrazovky"
          ],
          "Save stuff": [
-            ""
+            "Ukladať veci"
          ],
          "Shop online": [
-            ""
+            "Nakupovať online"
          ],
          "Be social": [
-            ""
+            "Byť aktívny na sociálnych sieťach"
          ],
          "Share stuff": [
-            ""
+            "Zdielať veci"
          ],
          "Browse all extensions": [
-            ""
+            "Prehliadať všetky rozšírenia"
          ],
          "How do you want Firefox to look?": [
-            ""
+            "Ako chcete, aby váš Firefox vyzeral?"
          ],
          "Wild": [
-            ""
+            "Divoko"
          ],
          "Abstract": [
-            ""
+            "Abstraktne"
          ],
          "Fashionable": [
-            ""
+            "Módne"
          ],
          "Scenic": [
-            ""
+            "Malebne"
          ],
          "Sporty": [
-            ""
+            "Športovo"
          ],
          "Mystical": [
-            ""
+            "Tajomne"
          ],
          "Browse all themes": [
-            ""
+            "Prehliadať všetky témy vzhľadu"
          ],
          "Downloading %(name)s.": [
-            ""
+            "Preberanie doplnku %(name)s."
          ],
          "Installing %(name)s.": [
-            ""
+            "Inštalovanie doplnku %(name)s."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "Doplnok %(name)s je zakázaný. Kliknutím ho povolíte."
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "Odinštalovanie doplnku %(name)s."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "Doplnok %(name)s bol odinštalovaný. Kliknutím ho nainštalujete."
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "Stav inštalácie doplnku %(name)s nie je známy."
          ],
          "Previous": [
-            ""
+            "Predchádzajúca"
          ],
          "Next": [
-            ""
+            "Ďalšia"
          ],
          "Page %(currentPage)s of %(totalPages)s": [
-            ""
+            "Stránka %(currentPage)s z %(totalPages)s"
          ],
          "Your search for \"%(query)s\" returned %(count)s result.": [
-            "",
-            "Your search for \"%(query)s\" returned %(count)s results.",
-            "Your search for \"%(query)s\" returned %(count)s results."
+            "Pre vyhľadávaný výraz \"%(query)s\" bol nájdený %(count)s výsledok.",
+            "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky.",
+            "Pre vyhľadávaný výraz \"%(query)s\" bol nájdených %(count)s výsledkov."
          ],
          "Searching...": [
-            ""
+            "Vyhľadáva sa…"
          ],
          "No results were found for \"%(query)s\".": [
-            ""
+            "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok."
          ],
          "Please supply a valid search": [
-            ""
+            "Prosím, zadajte platný výraz vyhľadávania"
          ]
       }
    }

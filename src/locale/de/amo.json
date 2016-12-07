@@ -8,174 +8,174 @@
             "lang": "de"
          },
          "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s": [
-            ""
+            "%(addonName)s %(startSpan)s von %(authorList)s %(endSpan)s"
          ],
          "Extension Metadata": [
-            ""
+            "Metadaten zur Erweiterung"
          ],
          "Screenshots": [
-            ""
+            "Screenshots"
          ],
          "About this extension": [
-            ""
+            "Über diese Erweiterung"
          ],
          "Rate your experience": [
-            ""
+            "Bewertung Ihres Eindrucks"
          ],
          "Category": [
-            ""
+            "Kategorie"
          ],
          "Used by": [
-            ""
+            "Verwendet von"
          ],
          "Sentiment": [
-            ""
+            "Eindruck"
          ],
          "Back": [
-            ""
+            "Zurück"
          ],
          "Submit": [
-            ""
+            "Absenden"
          ],
          "Please enter some text": [
-            ""
+            "Bitte geben Sie Text ein"
          ],
          "Write a review": [
-            ""
+            "Schreiben Sie eine Bewertung"
          ],
          "Tell the world why you think this extension is fantastic!": [
-            ""
+            "Beschreiben Sie, warum Ihnen diese Erweiterung gefällt."
          ],
          "Privacy policy": [
-            ""
+            "Datenschutzrichtlinie"
          ],
          "Legal notices": [
-            ""
+            "Rechtliche Hinweise"
          ],
          "View desktop site": [
-            ""
+            "Desktop-Website anzeigen"
          ],
          "Browse in your language": [
-            ""
+            "In Ihrer Sprache ansehen"
          ],
          "Firefox Add-ons": [
-            ""
+            "Add-ons für Firefox"
          ],
          "How are you enjoying your experience with %(addonName)s?": [
-            ""
+            "Wie gefällt Ihnen %(addonName)s?"
          ],
          "screenshot %(imageNumber)s of %(totalImages)s": [
-            ""
+            "Screenshot %(imageNumber)s von %(totalImages)s"
          ],
          "Average rating: %(rating)s out of 5": [
-            ""
+            "Durchschnittliche Bewertung: %(rating)s von 5"
          ],
          "No ratings": [
-            ""
+            "Keine Bewertungen"
          ],
          "%(users)s user": [
-            "",
-            "%(users)s users"
+            "%(users)s Benutzer",
+            "%(users)s Benutzer"
          ],
          "Log out": [
-            ""
+            "Abmelden"
          ],
          "Log in/Sign up": [
-            ""
+            "Anmelden / Registrieren"
          ],
          "Add-ons for Firefox": [
-            ""
+            "Add-ons für Firefox"
          ],
          "What do you want Firefox to do?": [
-            ""
+            "Was soll Firefox tun?"
          ],
          "Block ads": [
-            ""
+            "Werbung blockieren"
          ],
          "Screenshot": [
-            ""
+            "Screenshot"
          ],
          "Save stuff": [
-            ""
+            "Inhalte speichern"
          ],
          "Shop online": [
-            ""
+            "Online einkaufen"
          ],
          "Be social": [
-            ""
+            "Sozial sein"
          ],
          "Share stuff": [
-            ""
+            "Inhalte teilen"
          ],
          "Browse all extensions": [
-            ""
+            "Alle Erweiterungen durchsehen"
          ],
          "How do you want Firefox to look?": [
-            ""
+            "Wie soll Firefox aussehen?"
          ],
          "Wild": [
-            ""
+            "Wild"
          ],
          "Abstract": [
-            ""
+            "Abstrakt"
          ],
          "Fashionable": [
-            ""
+            "Modisch"
          ],
          "Scenic": [
-            ""
+            "Malerisch"
          ],
          "Sporty": [
-            ""
+            "Sportlich"
          ],
          "Mystical": [
-            ""
+            "Geheimnisvoll"
          ],
          "Browse all themes": [
-            ""
+            "Alle Themes durchsehen"
          ],
          "Downloading %(name)s.": [
-            ""
+            "%(name)s wird heruntergeladen."
          ],
          "Installing %(name)s.": [
-            ""
+            "%(name)s wird installiert."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu deinstallieren."
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s wurde deaktiviert. Klicken Sie, um es zu aktivieren."
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "%(name)s wird deinstalliert."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s wurde deinstalliert. Klicken Sie, um es zu installieren."
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "Installationsstatus für %(name)s ist unbekannt."
          ],
          "Previous": [
-            ""
+            "Vorherige"
          ],
          "Next": [
-            ""
+            "Nächste"
          ],
          "Page %(currentPage)s of %(totalPages)s": [
-            ""
+            "Seite %(currentPage)s von %(totalPages)s"
          ],
          "Your search for \"%(query)s\" returned %(count)s result.": [
-            "",
-            "Your search for \"%(query)s\" returned %(count)s results."
+            "Ihre Suche nach „%(query)s“ ergab %(count)s Ergebnis.",
+            "Ihre Suche nach „%(query)s“ ergab %(count)s Ergebnisse."
          ],
          "Searching...": [
-            ""
+            "Suche läuft…"
          ],
          "No results were found for \"%(query)s\".": [
-            ""
+            "Ihre Suche nach „%(query)s“ ergab keine Ergebnisse."
          ],
          "Please supply a valid search": [
-            ""
+            "Bitte geben Sie einen gültigen Suchbegriff ein."
          ]
       }
    }
