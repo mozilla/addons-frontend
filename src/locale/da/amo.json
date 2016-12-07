@@ -8,174 +8,174 @@
             "lang": "da"
          },
          "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s": [
-            ""
+            "%(addonName)s %(startSpan)s af %(authorList)s%(endSpan)s"
          ],
          "Extension Metadata": [
-            ""
+            "Metadata for udvidelsen"
          ],
          "Screenshots": [
-            ""
+            "Skærmbilleder"
          ],
          "About this extension": [
-            ""
+            "Om denne udvidelse"
          ],
          "Rate your experience": [
-            ""
+            "Bedøm din oplevelse"
          ],
          "Category": [
-            ""
+            "Kategori"
          ],
          "Used by": [
-            ""
+            "Brugt af"
          ],
          "Sentiment": [
-            ""
+            "Indtryk"
          ],
          "Back": [
-            ""
+            "Tilbage"
          ],
          "Submit": [
-            ""
+            "Indsend"
          ],
          "Please enter some text": [
-            ""
+            "Indtast noget tekst"
          ],
          "Write a review": [
-            ""
+            "Skriv en anmeldelse"
          ],
          "Tell the world why you think this extension is fantastic!": [
-            ""
+            "Fortæl verden, hvorfor du synes denne udvidelse er fantastisk!"
          ],
          "Privacy policy": [
-            ""
+            "Privatlivspolitik"
          ],
          "Legal notices": [
-            ""
+            "Juridiske betingelser"
          ],
          "View desktop site": [
-            ""
+            "Vis desktop-site"
          ],
          "Browse in your language": [
-            ""
+            "Surf på dit sprog"
          ],
          "Firefox Add-ons": [
-            ""
+            "Tilføjelser til Firefox"
          ],
          "How are you enjoying your experience with %(addonName)s?": [
-            ""
+            "Hvordan er din oplevelse med %(addonName)s?"
          ],
          "screenshot %(imageNumber)s of %(totalImages)s": [
-            ""
+            "skærmbillede %(imageNumber)s af %(totalImages)s"
          ],
          "Average rating: %(rating)s out of 5": [
-            ""
+            "Gennemsnitlig bedømmelse: %(rating)s ud af 5"
          ],
          "No ratings": [
-            ""
+            "Ingen bedømmelser"
          ],
          "%(users)s user": [
-            "",
-            "%(users)s users"
+            "%(users)s bruger",
+            "%(users)s brugere"
          ],
          "Log out": [
-            ""
+            "Log ud"
          ],
          "Log in/Sign up": [
-            ""
+            "Log ind/registrer dig"
          ],
          "Add-ons for Firefox": [
-            ""
+            "Tilføjelser til Firefox"
          ],
          "What do you want Firefox to do?": [
-            ""
+            "Hvad skal Firefox gøre?"
          ],
          "Block ads": [
-            ""
+            "Blokere reklamer"
          ],
          "Screenshot": [
-            ""
+            "Skærmbillede"
          ],
          "Save stuff": [
-            ""
+            "Gemme ting"
          ],
          "Shop online": [
-            ""
+            "Shoppe online"
          ],
          "Be social": [
-            ""
+            "Være social"
          ],
          "Share stuff": [
-            ""
+            "Dele ting"
          ],
          "Browse all extensions": [
-            ""
+            "Gennemse alle udvidelser"
          ],
          "How do you want Firefox to look?": [
-            ""
+            "Hvordan skal Firefox se ud?"
          ],
          "Wild": [
-            ""
+            "Vild"
          ],
          "Abstract": [
-            ""
+            "Abstrakt"
          ],
          "Fashionable": [
-            ""
+            "Moderne"
          ],
          "Scenic": [
-            ""
+            "Malerisk"
          ],
          "Sporty": [
-            ""
+            "Sporty"
          ],
          "Mystical": [
-            ""
+            "Mystisk"
          ],
          "Browse all themes": [
-            ""
+            "Gennemse alle temaer"
          ],
          "Downloading %(name)s.": [
-            ""
+            "Henter %(name)s."
          ],
          "Installing %(name)s.": [
-            ""
+            "Installerer %(name)s."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s er installeret og aktiveret. Klik for at afinstallere."
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s er deaktiveret. Klik for at aktivere."
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "Afinstallerer %(name)s."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s er afinstalleret. Klik for at installere."
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "Installationstilstand for %(name)s er ukendt."
          ],
          "Previous": [
-            ""
+            "Forrige"
          ],
          "Next": [
-            ""
+            "Næste"
          ],
          "Page %(currentPage)s of %(totalPages)s": [
-            ""
+            "Side %(currentPage)s af %(totalPages)s"
          ],
          "Your search for \"%(query)s\" returned %(count)s result.": [
-            "",
-            "Your search for \"%(query)s\" returned %(count)s results."
+            "Din søgning efter \"%(query)s\" returnerede %(count)s resultat.",
+            "Din søgning efter \"%(query)s\" returnerede %(count)s resultater."
          ],
          "Searching...": [
-            ""
+            "Søger..."
          ],
          "No results were found for \"%(query)s\".": [
-            ""
+            "Der blev ikke fundet nogen forekomster af \"%(query)s\"."
          ],
          "Please supply a valid search": [
-            ""
+            "Angiv en gyldig søgning"
          ]
       }
    }
