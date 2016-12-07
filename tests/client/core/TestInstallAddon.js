@@ -18,6 +18,8 @@ import {
   SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
   THEME_TYPE,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
@@ -27,6 +29,7 @@ import {
   getFakeAddonManagerWrapper, getFakeI18nInst,
 } from 'tests/client/helpers';
 import * as installAddon from 'core/installAddon';
+import * as themePreview from 'core/themePreview';
 
 const {
   makeProgressHandler, makeMapDispatchToProps, mapStateToProps, withInstallHelpers,
@@ -50,6 +53,10 @@ describe('withInstallHelpers', () => {
 describe('withInstallHelpers inner functions', () => {
   const src = 'TestInstallAddon';
   let mapDispatchToProps;
+
+  function getMapStateToProps({ _tracking } = {}) {
+    return mapStateToProps({ installations: {}, addons: {} }, {}, { _tracking });
+  }
 
   before(() => {
     mapDispatchToProps = makeMapDispatchToProps({ src });
@@ -584,15 +591,41 @@ describe('withInstallHelpers inner functions', () => {
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { installTheme } = mapStateToProps({ installations: {}, addons: {} }, {}, {
-        _tracking: fakeTracking,
-      });
+      const { installTheme } = getMapStateToProps({ _tracking: fakeTracking });
       installTheme(node, guid, name, spyThemeAction);
       assert(fakeTracking.sendEvent.calledWith({
         action: 'theme',
         category: INSTALL_CATEGORY,
         label: 'hai-theme',
       }));
+    });
+  });
+
+  describe('getBrowserThemeData', () => {
+    it('formats the browser theme data', () => {
+      const { getBrowserThemeData } = getMapStateToProps();
+      sinon.stub(themePreview, 'getThemeData').returns({ foo: 'wat' });
+      assert.equal(getBrowserThemeData({ some: 'data' }), '{"foo":"wat"}');
+    });
+  });
+
+  describe('previewTheme', () => {
+    it('calls theme action with THEME_PREVIEW', () => {
+      const { previewTheme } = getMapStateToProps();
+      const themeAction = sinon.spy();
+      const node = sinon.stub();
+      previewTheme(node, themeAction);
+      assert.ok(themeAction.calledWith(node, THEME_PREVIEW));
+    });
+  });
+
+  describe('resetPreviewTheme', () => {
+    it('calls theme action with THEME_RESET_PREVIEW', () => {
+      const { resetPreviewTheme } = getMapStateToProps();
+      const themeAction = sinon.spy();
+      const node = sinon.stub();
+      resetPreviewTheme(node, themeAction);
+      assert.ok(themeAction.calledWith(node, THEME_RESET_PREVIEW));
     });
   });
 });

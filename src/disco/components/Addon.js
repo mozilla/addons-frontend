@@ -22,8 +22,6 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
   THEME_TYPE,
   UNINSTALLED,
   UNINSTALLING,
@@ -44,11 +42,12 @@ export class AddonBase extends React.Component {
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
     needsRestart: PropTypes.bool.isRequired,
+    previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
+    resetPreviewTheme: PropTypes.func.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
-    themeAction: PropTypes.func,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     _tracking: PropTypes.object,
   }
@@ -178,11 +177,11 @@ export class AddonBase extends React.Component {
   }
 
   previewTheme = (e) => {
-    this.props.themeAction(e.currentTarget, THEME_PREVIEW);
+    this.props.previewTheme(e.currentTarget);
   }
 
   resetPreviewTheme = (e) => {
-    this.props.themeAction(e.currentTarget, THEME_RESET_PREVIEW);
+    this.props.resetPreviewTheme(e.currentTarget);
   }
 
   render() {

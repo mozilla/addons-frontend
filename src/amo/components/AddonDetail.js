@@ -4,11 +4,12 @@ import { compose } from 'redux';
 
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
-import InstallButton from 'core/components/InstallButton';
 import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
+import InstallButton from 'core/components/InstallButton';
+import { THEME_TYPE } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -35,7 +36,10 @@ export class AddonDetailBase extends React.Component {
   static propTypes = {
     OverallRating: PropTypes.element,
     addon: PropTypes.object.isRequired,
+    getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    previewTheme: PropTypes.func.isRequired,
+    resetPreviewTheme: PropTypes.func.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
   }
 
@@ -45,6 +49,50 @@ export class AddonDetailBase extends React.Component {
 
   componentDidMount() {
     this.props.setCurrentStatus();
+  }
+
+  onTouchStart = (event) => {
+    // We preventDefault so that the image long-press menu doesn't appear.
+    // This unfortunately prevents scrolling :(
+    event.preventDefault();
+    this.props.previewTheme(event.currentTarget);
+  }
+
+  onTouchEnd = (event) => {
+    this.props.resetPreviewTheme(event.currentTarget);
+  }
+
+  headerImage() {
+    const { addon, getBrowserThemeData, i18n } = this.props;
+    const { previewURL, type } = addon;
+    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
+      fallbackIcon;
+
+    if (type === THEME_TYPE) {
+      const label = i18n.gettext('Press to preview');
+      return (
+        <div
+          className="AddonDetail-theme-header"
+          id="AddonDetail-theme-header"
+          data-browsertheme={getBrowserThemeData()}
+          onTouchStart={this.onTouchStart}
+          onTouchEnd={this.onTouchEnd}
+        >
+          <label className="AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
+            {label}
+          </label>
+          <img
+            alt={label}
+            className="AddonDetail-theme-header-image"
+            src={previewURL} />
+        </div>
+      );
+    }
+    return (
+      <div className="AddonDetail-icon">
+        <img alt="" src={iconUrl} />
+      </div>
+    );
   }
 
   render() {
@@ -62,16 +110,11 @@ export class AddonDetailBase extends React.Component {
         endSpan: '</span>',
       });
 
-    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
-      fallbackIcon;
-
     // eslint-disable react/no-danger
     return (
       <div className="AddonDetail">
-        <header>
-          <div className="icon">
-            <img alt="" src={iconUrl} />
-          </div>
+        <header className="AddonDetail-header">
+          {this.headerImage()}
           <div className="title">
             <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])} />
             <InstallButton {...this.props} />
