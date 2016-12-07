@@ -43,7 +43,7 @@ class ErrorHandlerComponent extends React.Component {
       errorHandlerId,
       dispatch,
       error,
-      ...props,
+      ...props
     } = this.props;
     const errorHandler = new ErrorHandler({ id: errorHandlerId, dispatch });
     const wrappedOutput = (
