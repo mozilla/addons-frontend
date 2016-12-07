@@ -63,7 +63,7 @@ export function withErrorHandling({ name, id } = {}) {
     const mapStateToProps = () => (state) => {
       if (!id) {
         // Generate a new ID per rendered instance of the wrapped component.
-        localId = generateHandlerId({ name })
+        localId = generateHandlerId({ name });
         log.debug('Created new error handler ID', localId);
       } else {
         localId = id;
@@ -72,12 +72,10 @@ export function withErrorHandling({ name, id } = {}) {
       return { error: state.errors[localId] };
     };
 
-    const mapDispatchToProps = () => (dispatch) => {
-      return {
-        WrappedComponent,
-        errorHandler: new ErrorHandler({ id: localId, dispatch }),
-      };
-    };
+    const mapDispatchToProps = () => (dispatch) => ({
+      WrappedComponent,
+      errorHandler: new ErrorHandler({ id: localId, dispatch }),
+    });
 
     return compose(
       connect(mapStateToProps, mapDispatchToProps),
