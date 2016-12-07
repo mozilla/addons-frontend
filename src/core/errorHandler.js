@@ -18,13 +18,13 @@ export class ErrorHandler {
   }
 
   clear() {
-    log.info('Clearing last error for ', this.id);
+    log.debug('Clearing last error for ', this.id);
     this.dispatch(clearError(this.id));
   }
 
   handle(error) {
     const info = { error, id: this.id };
-    log.info('Dispatching error action', info);
+    log.debug('Dispatching error action', info);
     this.dispatch(setError(info));
   }
 }
