@@ -31,15 +31,24 @@ export class ErrorHandler {
 
 class ErrorHandlerComponent extends React.Component {
   static propTypes = {
+    dispatch: PropTypes.func,
     error: PropTypes.object,
-    // This property gets passed to the wrapper.
-    errorHandler: PropTypes.object,
+    errorHandlerId: PropTypes.string,
     WrappedComponent: PropTypes.object,
   }
 
   render() {
-    const { WrappedComponent, error, ...props } = this.props;
-    const wrappedOutput = <WrappedComponent {...props} />;
+    const {
+      WrappedComponent,
+      errorHandlerId,
+      dispatch,
+      error,
+      ...props,
+    } = this.props;
+    const errorHandler = new ErrorHandler({ id: errorHandlerId, dispatch });
+    const wrappedOutput = (
+      <WrappedComponent errorHandler={errorHandler} {...props} />
+    );
 
     if (error) {
       return (
@@ -56,22 +65,24 @@ class ErrorHandlerComponent extends React.Component {
   }
 }
 
-export function withErrorHandling({
-  name, id = generateHandlerId({ name }),
-} = {}) {
+export function withErrorHandling({ name, id } = {}) {
   return (WrappedComponent) => {
-    const mapStateToProps = (state) => {
-      log.debug(`Looking for errors in state with ID ${id}`);
-      return { error: state.errors[id] };
+    const mapStateToProps = () => {
+      // Each component instance gets its own error handler ID.
+      let instanceId = id;
+      if (!instanceId) {
+        instanceId = generateHandlerId({ name });
+        log.debug(`Generated error handler ID: ${instanceId}`);
+      }
+      return (state) => ({
+        WrappedComponent,
+        errorHandlerId: instanceId,
+        error: state.errors[instanceId],
+      });
     };
 
-    const mapDispatchToProps = (dispatch) => ({
-      WrappedComponent,
-      errorHandler: new ErrorHandler({ id, dispatch }),
-    });
-
     return compose(
-      connect(mapStateToProps, mapDispatchToProps),
+      connect(mapStateToProps),
     )(ErrorHandlerComponent);
   };
 }
