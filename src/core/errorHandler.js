@@ -56,25 +56,18 @@ class ErrorHandlerComponent extends React.Component {
   }
 }
 
-export function withErrorHandling({ name, id } = {}) {
+export function withErrorHandling({
+  name, id = generateHandlerId({ name }),
+} = {}) {
   return (WrappedComponent) => {
-    let localId;
-
-    const mapStateToProps = () => (state) => {
-      if (!id) {
-        // Generate a new ID per rendered instance of the wrapped component.
-        localId = generateHandlerId({ name });
-        log.debug('Created new error handler ID', localId);
-      } else {
-        localId = id;
-      }
-      log.debug(`Looking for errors in state with ID ${localId}`);
-      return { error: state.errors[localId] };
+    const mapStateToProps = (state) => {
+      log.debug(`Looking for errors in state with ID ${id}`);
+      return { error: state.errors[id] };
     };
 
-    const mapDispatchToProps = () => (dispatch) => ({
+    const mapDispatchToProps = (dispatch) => ({
       WrappedComponent,
-      errorHandler: new ErrorHandler({ id: localId, dispatch }),
+      errorHandler: new ErrorHandler({ id, dispatch }),
     });
 
     return compose(

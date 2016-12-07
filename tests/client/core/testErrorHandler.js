@@ -52,7 +52,7 @@ describe('errorHandler', () => {
                       component2.props.errorHandler.id);
     });
 
-    it('creates a unique handler ID per component instance', () => {
+    it('maintains the handler ID per component instance', () => {
       const SomeComponent = translate({ withRef: true })(SomeComponentBase);
       const ComponentWithErrorHandling =
         withErrorHandling({ name: 'SomeComponent' })(SomeComponent);
@@ -67,8 +67,8 @@ describe('errorHandler', () => {
       const component1 = getRenderedComponent();
       const component2 = getRenderedComponent();
 
-      assert.notEqual(component1.props.errorHandler.id,
-                      component2.props.errorHandler.id);
+      assert.equal(component1.props.errorHandler.id,
+                   component2.props.errorHandler.id);
     });
 
     it('configures an error handler for action dispatching', () => {
