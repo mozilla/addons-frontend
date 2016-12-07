@@ -32,7 +32,8 @@ export class ErrorHandler {
 class ErrorHandlerComponent extends React.Component {
   static propTypes = {
     error: PropTypes.object,
-    errorHandler: PropTypes.func,
+    // This property gets passed to the wrapper.
+    errorHandler: PropTypes.object,
     WrappedComponent: PropTypes.object,
   }
 
