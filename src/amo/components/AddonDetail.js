@@ -76,7 +76,6 @@ export class AddonDetailBase extends React.Component {
         >
           <label className="AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
             <Icon name="eye" className="AddonDetail-theme-preview-icon" />
-            {' '}
             {label}
           </label>
           <img
