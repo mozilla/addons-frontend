@@ -6,16 +6,6 @@ $secondary-color: #6a6a6a;
   background: $base-color;
   list-style-type: none;
   margin: 0 0 1px;
-
-  &:first-of-type {
-    border-top-left-radius: $border-radius-default;
-    border-top-right-radius: $border-radius-default;
-  }
-
-  &:last-of-type {
-    border-bottom-left-radius: $border-radius-default;
-    border-bottom-right-radius: $border-radius-default;
-  }
 }
 
 .SearchResult-link {
@@ -25,14 +15,6 @@ $secondary-color: #6a6a6a;
   padding: 10px 0;
   text-decoration: none;
   width: 100%;
-
-  .SearchResult:first-of-type & {
-    padding-top: 0;
-  }
-
-  .SearchResult:last-of-type & {
-    padding-bottom: 0;
-  }
 
   &:focus,
   &:hover {
