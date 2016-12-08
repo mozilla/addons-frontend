@@ -1,5 +1,6 @@
 @import "~core/css/inc/mixins";
 @import "~core/css/inc/vars";
+@import "~ui/components/Icon/vars";
 
 .AddonDetail {
   hr {
@@ -72,10 +73,14 @@ $theme-header-horizontal-padding: 10px;
   bottom: $label-margin;
   color: #fff;
   font-size: 12px;
-  line-height: 1;
+  line-height: $default-icon-size;
   padding: $label-margin;
   position: absolute;
   text-transform: uppercase;
+}
+
+.AddonDetail-theme-preview-icon {
+  vertical-align: top;
 }
 
 .AddonDetail-icon {
