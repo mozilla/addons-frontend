@@ -13,14 +13,16 @@ export class FooterBase extends React.Component {
     handleViewDesktop: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
+    location: PropTypes.object.isRequired,
   }
 
   render() {
-    const { handleViewDesktop, i18n, lang } = this.props;
+    const { handleViewDesktop, i18n, lang, location } = this.props;
 
     return (
       <footer className="Footer">
-        <LanguagePicker ref={(ref) => { this.languagePicker = ref; }} />
+        <LanguagePicker location={location}
+          ref={(ref) => { this.languagePicker = ref; }} />
         <ul className="Footer-links">
           <li>
             <a href={`https://www.mozilla.org/${lang}/privacy/websites/`}
