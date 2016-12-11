@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router';
 import classNames from 'classnames';
 
+import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
@@ -15,6 +16,7 @@ import 'amo/css/OverallRating.scss';
 export class OverallRatingBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
+    errorHandler: PropTypes.func.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
@@ -42,6 +44,7 @@ export class OverallRatingBase extends React.Component {
     const { userReview, userId, version } = this.props;
 
     const params = {
+      errorHandler: this.props.errorHandler,
       rating: parseInt(button.value, 10),
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
@@ -171,6 +174,7 @@ export const OverallRatingWithI18n = compose(
 )(OverallRatingBase);
 
 export default compose(
+  withErrorHandling({ name: 'OverallRating' }),
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
 )(OverallRatingWithI18n);

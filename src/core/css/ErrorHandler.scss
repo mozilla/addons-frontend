@@ -1,0 +1,9 @@
+@import "~core/css/inc/vars";
+
+.ErrorHandler-list {
+  text-align: center;
+  background-color: $error-background-color;
+  color: $error-text-color;
+  padding: 10px;
+  margin-bottom: 10px;
+}
