@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-01 10:47+0000\n"
-"PO-Revision-Date: 2016-11-15 13:01+0000\n"
+"PO-Revision-Date: 2016-12-11 14:54+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -16,23 +16,23 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr "Λήψη %(name)s."
+msgstr "Γίνεται λήψη του %(name)s."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr "Εγκατάσταση %(name)s."
+msgstr "Γίνεται εγκατάσταση του %(name)s."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "Το %(name)s είναι εγκατεστημένο και ενεργοποιημένο. Κάντε κλικ για απεγκατάσταση."
+msgstr "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για απεγκατάσταση."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr "Το %(name)s είναι απενεργοποιημένο. Κάντε κλικ για ενεργοποίηση."
+msgstr "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ για ενεργοποίηση."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr "Απεγκατάσταση %(name)s."
+msgstr "Γίνεται απεγκατάσταση του %(name)s."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
@@ -84,7 +84,7 @@ msgstr "Το πρόσθετό σας είναι έτοιμο"
 
 #: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
-msgstr "Μπορείτε πλέον να έχετε πρόσβαση στο %(name)s από τη γραμμή εργαλείων."
+msgstr "Έχετε πλέον πρόσβαση στο %(name)s από τη γραμμή εργαλείων."
 
 #: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"

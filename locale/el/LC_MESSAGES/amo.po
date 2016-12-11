@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-12-11 14:41+0000\n"
+"PO-Revision-Date: 2016-12-11 14:51+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -16,97 +16,97 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)s από %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Μεταδεδομένα επέκτασης"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
-msgstr ""
+msgstr "Στιγμιότυπα"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr ""
+msgstr "Σχετικά με την επέκταση"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr ""
+msgstr "Αξιολογήστε την εμπειρία σας"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
-msgstr ""
+msgstr "Κατηγορία"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "Χρήση από"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "Αίσθηση"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "Πίσω"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "Υποβολή"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "Παρακαλώ εισάγετε κείμενο"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
-msgstr ""
+msgstr "Γράψτε μια κριτική"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Πείτε στον κόσμο γιατί θεωρείτε ότι αυτή η επέκταση είναι φανταστική!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "Πολιτική απορρήτου"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "Νομικές σημειώσεις"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "Προβολή ιστοσελίδας για υπολογιστές"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "Περιήγηση στη γλώσσα σας"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Πρόσθετα Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Απολαμβάνετε την εμπειρία σας με το %(addonName)s;"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "Στιγμιότυπο %(imageNumber)s από %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "Μέση βαθμολογία: %(rating)s από 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "Καμία κριτική"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(users)s χρήστης"
+msgstr[1] "%(users)s χρήστες"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
@@ -170,31 +170,31 @@ msgstr "Μοδάτη"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
-msgstr ""
+msgstr "Σκηνική"
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
-msgstr ""
+msgstr "Αθλητική"
 
 #: src/amo/containers/Home.js:38
 msgid "Mystical"
-msgstr ""
+msgstr "Μυστική"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Περιήγηση σε όλα τα θέματα"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Γίνεται λήψη του %(name)s."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Γίνεται εγκατάσταση του %(name)s."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για απεγκατάσταση."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
