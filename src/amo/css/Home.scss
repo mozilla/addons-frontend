@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-.HomePage-cat-list {
+.HomePage-category-list {
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
@@ -16,8 +16,8 @@
   width: 100%;
 }
 
-.HomePage-cat-li {
-  background-color: #fff;
+.HomePage-category-li {
+  background-color: $base-color;
   background-size: 50% auto;
   background-position: 50% 35%;
   background-repeat: no-repeat;
@@ -55,7 +55,7 @@
 .HomePage-extensions-link:link,
 .HomePage-themes-link:link {
   align-items: center;
-  background: #fff;
+  background: $base-color;
   border-radius: 6px;
   display: flex;
   font-size: 10px;
