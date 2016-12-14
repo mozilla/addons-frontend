@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-16 16:35+0000\n"
+"PO-Revision-Date: 2016-12-14 18:36+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -20,71 +20,71 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "এক্সটেনশন মেটাডাটা"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
-msgstr ""
+msgstr "স্ক্রীনশট"
 
 #: src/amo/components/AddonDetail.js:88
 msgid "About this extension"
-msgstr ""
+msgstr "এক্সটেনশন সম্বন্ধে"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr ""
+msgstr "আমাদের অভিজ্ঞতার মূল্যায়ন দিন"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
-msgstr ""
+msgstr "তালিকা"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "এর দ্বারা ব্যবহৃত"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "অনুভূতি"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "পিছনে"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "জমা দিন"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "অনুগ্রহ করে কিছু টেক্সট দিন"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
-msgstr ""
+msgstr "পর্যালোচনা লিখুন"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "পৃথিবীকে বলুন কেন আপনি এক্সটেনশনটিকে অসাধারণ মনে করেন!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "গোপনীয়তা নীতি"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "আইনি বিজ্ঞপ্তি"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "ডেক্সটপ সাইট দেখুন"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "আপনার ভাষায় ব্রাউজ করুন"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox অ্যাড-অনস"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -100,7 +100,7 @@ msgstr ""
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
-msgstr ""
+msgstr "কোন রেটিং নেই"
 
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
@@ -110,7 +110,7 @@ msgstr[1] ""
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
-msgstr ""
+msgstr "লগ আউট"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
@@ -118,75 +118,75 @@ msgstr ""
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Firefox এর জন্য অ্যাড-অন"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "আপনি Firefox কি করতে চান?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
-msgstr ""
+msgstr "বিজ্ঞাপন ব্লক করুন"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr ""
+msgstr "স্ক্রিনসট"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr ""
+msgstr "স্টাফ সংরক্ষণ করুন"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "অনলাইনে বাজার করুন"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
-msgstr ""
+msgstr "সামাজিক হন"
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr ""
+msgstr "স্টাফ শেয়ার করুন"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "সব এক্সটেনশন ব্রাউজ করুন"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "আপনি Firefox কেমন পেতে চান?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
-msgstr ""
+msgstr "বন্য"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
-msgstr ""
+msgstr "নির্বস্তুক"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
-msgstr ""
+msgstr "ফ্যাশনসমৃদ্ধ"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
-msgstr ""
+msgstr "দৃশ্য সম্বন্ধীয়"
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
-msgstr ""
+msgstr "খেলাধুলা সংক্রান্ত"
 
 #: src/amo/containers/Home.js:38
 msgid "Mystical"
-msgstr ""
+msgstr "রহস্যময়"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "সব থিম ব্রাউজ করুন"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s ডাউনলোডিং।"
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
@@ -214,15 +214,15 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "পূর্ববর্তী"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr ""
+msgstr "পরবর্তী"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "%(totalPages)s এর %(currentPage)s পাতা"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
@@ -232,7 +232,7 @@ msgstr[1] ""
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "অনুসন্ধান করা হচ্ছে..."
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
