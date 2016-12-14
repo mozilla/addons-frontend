@@ -1,38 +1,45 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
+  Simulate,
   findRenderedComponentWithType,
   renderIntoDocument,
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 
-import AddonDetail, { allowedDescriptionTags }
-  from 'amo/components/AddonDetail';
+import {
+  AddonDetailBase,
+  allowedDescriptionTags,
+} from 'amo/components/AddonDetail';
 import { OverallRatingWithI18n } from 'amo/components/OverallRating';
 import createStore from 'amo/store';
-import I18nProvider from 'core/i18n/Provider';
+import { THEME_TYPE } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
+import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
-function render({ addon = fakeAddon, ...customProps } = {}) {
+function render({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
   const i18n = getFakeI18nInst();
   const initialState = { api: { clientApp: 'android', lang: 'pt' } };
   const props = {
     addon,
+    ...addon,
+    i18n,
     // Configure AddonDetail with a non-redux depdendent OverallRating.
     OverallRating: OverallRatingWithI18n,
+    setCurrentStatus,
     ...customProps,
   };
 
   return findRenderedComponentWithType(renderIntoDocument(
     <Provider store={createStore(initialState)}>
       <I18nProvider i18n={i18n}>
-        <AddonDetail {...props} />
+        <AddonDetailBase {...props} />
       </I18nProvider>
     </Provider>
-  ), AddonDetail);
+  ), AddonDetailBase);
 }
 
 function renderAsDOMNode(...args) {
@@ -116,37 +123,10 @@ describe('AddonDetail', () => {
     assert.equal(root.props.slug, fakeAddon.slug);
   });
 
-  it('configures the overall ratings section', () => {
-    const root = findRenderedComponentWithType(render(),
-                                               OverallRatingWithI18n);
-    assert.deepEqual(root.props.addon, fakeAddon);
-  });
-
-  it('renders a summary', () => {
+  it('sets the type in the header', () => {
     const rootNode = renderAsDOMNode();
-    assert.include(rootNode.querySelector('div.description').textContent,
-                   fakeAddon.summary);
-  });
-
-  it('sanitizes a summary', () => {
-    const scriptHTML = '<script>alert(document.cookie);</script>';
-    const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        summary: scriptHTML,
-      },
-    });
-    // Make sure an actual script tag was not created.
-    assert.equal(rootNode.querySelector('div.description script'), null);
-    // Make sure the script HTML has been escaped and removed.
-    assert.notInclude(rootNode.querySelector('div.description').textContent,
-                      scriptHTML);
-  });
-
-  it('renders a description', () => {
-    const rootNode = renderAsDOMNode();
-    assert.include(rootNode.querySelector('section.about').textContent,
-                   fakeAddon.description);
+    assert.include(rootNode.querySelector('.AddonDescription h2').textContent,
+                   'About this extension');
   });
 
   it('sanitizes bad description HTML', () => {
@@ -158,10 +138,10 @@ describe('AddonDetail', () => {
       },
     });
     // Make sure an actual script tag was not created.
-    assert.equal(rootNode.querySelector('section.about script'), null);
+    assert.equal(rootNode.querySelector('.AddonDescription script'), null);
     // Make sure the script HTML has been escaped and removed.
-    assert.notInclude(rootNode.querySelector('section.about').textContent,
-                      scriptHTML);
+    assert.notInclude(
+      rootNode.querySelector('.AddonDescription').textContent, scriptHTML);
   });
 
   it('converts new lines in the description to breaks', () => {
@@ -171,7 +151,7 @@ describe('AddonDetail', () => {
         description: '\n\n\n',
       },
     });
-    assert.equal(rootNode.querySelectorAll('section.about br').length, 3);
+    assert.lengthOf(rootNode.querySelectorAll('.AddonDescription br'), 3);
   });
 
   it('preserves certain HTML tags in the description', () => {
@@ -183,14 +163,13 @@ describe('AddonDetail', () => {
     for (const tag of allowedTags) {
       description = `${description} <${tag}>placeholder</${tag}>`;
     }
-    const rootNode = renderAsDOMNode({
-      addon: { ...fakeAddon, description },
-    });
+    const rootNode = renderAsDOMNode({ addon: { ...fakeAddon, description } });
     // eslint-disable-next-line no-restricted-syntax
     for (const tagToCheck of allowedTags) {
-      assert.equal(
-        rootNode.querySelectorAll(`section.about ${tagToCheck}`).length, 1,
-        `${tagToCheck} tag was not whitelisted`);
+      assert.lengthOf(
+        rootNode.querySelectorAll(`.AddonDescription-contents ${tagToCheck}`),
+        1, `${tagToCheck} tag was not whitelisted`
+      );
     }
   });
 
@@ -202,9 +181,23 @@ describe('AddonDetail', () => {
           '<a href="javascript:alert(document.cookie)" onclick="sneaky()">placeholder</a>',
       },
     });
-    const anchor = rootNode.querySelector('section.about a');
+    const anchor = rootNode.querySelector('.AddonDescription a');
     assert.equal(anchor.attributes.onclick, null);
     assert.equal(anchor.attributes.href, null);
+  });
+
+  it('configures the overall ratings section', () => {
+    const root = findRenderedComponentWithType(render(),
+                                               OverallRatingWithI18n);
+    assert.deepEqual(root.props.addon, fakeAddon);
+  });
+
+  it('renders a summary', () => {
+    const rootNode = renderAsDOMNode();
+    assert.include(
+      rootNode.querySelector('.AddonDetail-summary').textContent,
+      fakeAddon.summary
+    );
   });
 
   it('renders an amo CDN icon image', () => {
@@ -215,7 +208,7 @@ describe('AddonDetail', () => {
         icon_url: iconURL,
       },
     });
-    const src = rootNode.querySelector('.icon img').getAttribute('src');
+    const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
     assert.equal(src, iconURL);
   });
 
@@ -226,8 +219,67 @@ describe('AddonDetail', () => {
         icon_url: 'http://foo.com/whatever.jpg',
       },
     });
-    const src = rootNode.querySelector('.icon img').getAttribute('src');
+    const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
     assert.include(src, 'image/png');
+  });
+
+  it('renders a theme preview image', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+        previewURL: 'https://amo/preview.png',
+      },
+      getBrowserThemeData: () => '{}',
+    });
+    const img = rootNode.querySelector('.AddonDetail-theme-header-image');
+    assert.equal(img.src, 'https://amo/preview.png');
+    assert.equal(img.alt, 'Press to preview');
+  });
+
+  it('sets the browserthem data on the header', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+        previewURL: 'https://amo/preview.png',
+      },
+      getBrowserThemeData: () => '{"the":"themedata"}',
+    });
+    const header = rootNode.querySelector('.AddonDetail-theme-header');
+    assert.equal(header.dataset.browsertheme, '{"the":"themedata"}');
+  });
+
+  it('previews a theme on touchstart', () => {
+    const previewTheme = sinon.spy();
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+      },
+      getBrowserThemeData: () => '{}',
+      previewTheme,
+    });
+    const header = rootNode.querySelector('.AddonDetail-theme-header');
+    const event = { preventDefault: sinon.spy() };
+    Simulate.touchStart(header, event);
+    assert.ok(event.preventDefault.called);
+    assert.ok(previewTheme.calledWith(header));
+  });
+
+  it('resets a theme preview on touchend', () => {
+    const resetPreviewTheme = sinon.spy();
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+      },
+      getBrowserThemeData: () => '{}',
+      resetPreviewTheme,
+    });
+    const header = rootNode.querySelector('.AddonDetail-theme-header');
+    Simulate.touchEnd(header);
+    assert.ok(resetPreviewTheme.calledWith(header));
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {

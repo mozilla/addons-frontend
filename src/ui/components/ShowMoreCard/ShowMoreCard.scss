@@ -1,0 +1,38 @@
+@import "~core/css/inc/vars";
+
+.ShowMoreCard {
+  margin: 0 $padding-page;
+}
+
+.ShowMoreCard-contents {
+  &::after {
+    background: linear-gradient(transparent 10px, $base-color);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  max-height: 150px;
+  position: relative;
+  overflow: hidden;
+
+  .ShowMoreCard--expanded & {
+    &::after {
+      display: none;
+    }
+
+    max-height: none;
+  }
+}
+
+.ShowMoreCard-revealMoreLink {
+  display: block;
+  text-align: center;
+
+  .ShowMoreCard--expanded & {
+    display: none;
+  }
+}

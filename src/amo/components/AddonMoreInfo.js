@@ -3,6 +3,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
+import Card from 'ui/components/Card';
 
 import './AddonMoreInfo.scss';
 
@@ -16,14 +17,8 @@ export class AddonMoreInfoBase extends React.Component {
   render() {
     const { addon, i18n } = this.props;
 
-    // TODO: Use the addonType for the privacy text, so it reads
-    // "for this extension", "for this theme", etc.
     return (
-      <section className="AddonMoreInfo">
-        <h2 className="AddonMoreInfo-header">
-          {i18n.gettext('More information')}
-        </h2>
-
+      <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
         <dl className="AddonMoreInfo-contents">
           {addon.homepage ? <dt>{i18n.gettext('Website')}</dt> : null}
           {addon.homepage ? (
@@ -62,7 +57,7 @@ export class AddonMoreInfoBase extends React.Component {
             </dd>
           ) : null}
         </dl>
-      </section>
+      </Card>
     );
   }
 }

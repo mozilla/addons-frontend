@@ -5,7 +5,13 @@ import log from 'core/logger';
  * POST/PATCH an add-on review using the API.
  */
 export function submitReview({
-  rating, apiState, addonSlug, versionId, body, reviewId,
+  rating,
+  apiState,
+  addonSlug,
+  versionId,
+  body,
+  reviewId,
+  ...apiCallParams
 }) {
   const data = { rating, version: versionId, body };
   if (reviewId) {
@@ -30,6 +36,7 @@ export function submitReview({
         method,
         auth: true,
         state: apiState,
+        ...apiCallParams,
       }));
     });
 }

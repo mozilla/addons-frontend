@@ -1,5 +1,5 @@
-/* global window */
-
+/* global navigator, window */
+import config from 'config';
 import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import cookie from 'react-cookie';
@@ -9,6 +9,8 @@ import { compose } from 'redux';
 import 'core/fonts/fira.scss';
 import 'amo/css/App.scss';
 import SearchForm from 'amo/components/SearchForm';
+import { addChangeListeners } from 'core/addonManager';
+import { INSTALL_STATE } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';
@@ -19,22 +21,33 @@ export class AppBase extends React.Component {
   static propTypes = {
     FooterComponent: PropTypes.node.isRequired,
     MastHeadComponent: PropTypes.node.isRequired,
+    _addChangeListeners: PropTypes.func,
     children: PropTypes.node,
+    handleGlobalEvent: PropTypes.func.isRequired,
     handleLogIn: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool,
     location: PropTypes.object.isRequired,
+    mozAddonManager: PropTypes.object,
   }
 
   static defaultProps = {
     FooterComponent: Footer,
     MastHeadComponent: MastHead,
+    _addChangeListeners: addChangeListeners,
+    mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+  }
+
+  componentDidMount() {
+    const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
+    // Use addonManager.addChangeListener to setup and filter events.
+    _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
 
   onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {
     event.preventDefault();
     if (window_ && window_.location) {
-      cookie_.remove('mamo', { path: '/' });
+      cookie_.save('mamo', 'off', { path: '/' });
       window_.location.reload();
     }
   }
@@ -78,7 +91,15 @@ export const setupMapStateToProps = (_window) => (state) => ({
   },
 });
 
+export function mapDispatchToProps(dispatch) {
+  return {
+    handleGlobalEvent(payload) {
+      dispatch({ type: INSTALL_STATE, payload });
+    },
+  };
+}
+
 export default compose(
-  connect(setupMapStateToProps()),
+  connect(setupMapStateToProps(), mapDispatchToProps),
   translate({ withRef: true }),
 )(AppBase);

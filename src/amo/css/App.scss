@@ -40,14 +40,7 @@ body {
 .App-content {
   background: $accent-color;
   flex-grow: 1;
-
-  > div {
-    padding: $padding-page;
-
-    &.full-width {
-      padding: 0 0 $padding-page;
-    }
-  }
+  padding: 0 0 $padding-page;
 }
 
 h1,
@@ -78,7 +71,7 @@ a:link {
   @include font-medium();
 
   font-size: 14px;
-  color: #0568ba;
+  color: $link-color;
 }
 
 em {

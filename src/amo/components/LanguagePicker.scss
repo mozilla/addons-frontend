@@ -1,6 +1,6 @@
 @import "~core/css/inc/vars";
 
-$selector-padding: 8px;
+$selector-padding: 10px;
 
 .LanguagePicker-header {
   margin: 0 0 5px;
@@ -9,14 +9,25 @@ $selector-padding: 8px;
 .LanguagePicker-selector {
   appearance: none;
   background:
-    rgba(255, 255, 255, 0.25) url('../img/icons/triangle-down.svg')
+    url('../img/icons/globe.svg') no-repeat #{$selector-padding} 50%,
+    $base-color url('../img/icons/triangle-down.svg')
     no-repeat calc(100% - #{$selector-padding}) 50%;
+  background-size: 20px 20px, 15px 15px;
   border: 0;
   border-radius: $border-radius-default;
-  color: #fff;
+  color: $link-color;
   display: block;
   font-size: $font-size-s;
   line-height: 1;
-  padding: $selector-padding $selector-padding #{$selector-padding - 1};
+  padding: $selector-padding $selector-padding #{$selector-padding - 1} #{$selector-padding * 3};
   width: 100%;
+
+  [dir=rtl] & {
+    background:
+      url('../img/icons/globe.svg') no-repeat calc(100% - #{$selector-padding}) 50%,
+      $base-color url('../img/icons/triangle-down.svg')
+      no-repeat #{$selector-padding} 50%;
+    background-size: 20px 20px, 15px 15px;
+    padding: $selector-padding #{$selector-padding * 3} #{$selector-padding - 1} $selector-padding;
+  }
 }

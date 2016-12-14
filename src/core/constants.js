@@ -47,6 +47,7 @@ export const validAddonTypes = [
 export const CATEGORIES_GET = 'CATEGORIES_GET';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CATEGORIES_FAILED = 'CATEGORIES_FAILED';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const ENTITIES_LOADED = 'ENTITIES_LOADED';
 export const LOG_OUT_USER = 'LOG_OUT_USER';
 export const SEARCH_FAILED = 'SEARCH_FAILED';
@@ -54,6 +55,7 @@ export const SEARCH_LOADED = 'SEARCH_LOADED';
 export const SEARCH_STARTED = 'SEARCH_STARTED';
 export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const SET_ERROR = 'SET_ERROR';
 export const SET_JWT = 'SET_JWT';
 export const SET_LANG = 'SET_LANG';
 

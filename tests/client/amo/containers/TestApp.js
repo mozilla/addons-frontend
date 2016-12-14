@@ -5,8 +5,9 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 
-import { AppBase, setupMapStateToProps } from 'amo/containers/App';
+import { AppBase, mapDispatchToProps, setupMapStateToProps } from 'amo/containers/App';
 import * as api from 'core/api';
+import { INSTALL_STATE } from 'core/constants';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
@@ -96,7 +97,7 @@ describe('App', () => {
     assert.ok(startLoginUrlStub.calledWith({ location }));
   });
 
-  it('removes the mamo cookie', () => {
+  it('sets the mamo cookie to "off"', () => {
     const fakeEvent = {
       preventDefault: sinon.stub(),
     };
@@ -106,7 +107,7 @@ describe('App', () => {
       },
     };
     const fakeCookieLib = {
-      remove: sinon.stub(),
+      save: sinon.stub(),
     };
     const i18n = getFakeI18nInst();
     const location = sinon.stub();
@@ -119,7 +120,15 @@ describe('App', () => {
     );
     root.onViewDesktop(fakeEvent, { window_: fakeWindow, cookie_: fakeCookieLib });
     assert.ok(fakeEvent.preventDefault.called);
-    assert.ok(fakeCookieLib.remove.calledWith('mamo'));
+    assert.ok(fakeCookieLib.save.calledWith('mamo', 'off'));
     assert.ok(fakeWindow.location.reload.called);
+  });
+
+  it('sets up a callback for setting add-on status', () => {
+    const dispatch = sinon.spy();
+    const { handleGlobalEvent } = mapDispatchToProps(dispatch);
+    const payload = { guid: '@my-addon', status: 'some-status' };
+    handleGlobalEvent(payload);
+    assert.ok(dispatch.calledWith({ type: INSTALL_STATE, payload }));
   });
 });

@@ -8,19 +8,19 @@
             "lang": "el"
          },
          "Downloading %(name)s.": [
-            "Λήψη %(name)s."
+            "Γίνεται λήψη του %(name)s."
          ],
          "Installing %(name)s.": [
-            "Εγκατάσταση %(name)s."
+            "Γίνεται εγκατάσταση του %(name)s."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            "Το %(name)s είναι εγκατεστημένο και ενεργοποιημένο. Κάντε κλικ για απεγκατάσταση."
+            "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για απεγκατάσταση."
          ],
          "%(name)s is disabled. Click to enable.": [
-            "Το %(name)s είναι απενεργοποιημένο. Κάντε κλικ για ενεργοποίηση."
+            "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ για ενεργοποίηση."
          ],
          "Uninstalling %(name)s.": [
-            "Απεγκατάσταση %(name)s."
+            "Γίνεται απεγκατάσταση του %(name)s."
          ],
          "%(name)s is uninstalled. Click to install.": [
             "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ για εγκατάσταση."
@@ -59,7 +59,7 @@
             "Το πρόσθετό σας είναι έτοιμο"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            "Μπορείτε πλέον να έχετε πρόσβαση στο %(name)s από τη γραμμή εργαλείων."
+            "Έχετε πλέον πρόσβαση στο %(name)s από τη γραμμή εργαλείων."
          ],
          "OK!": [
             "ΟΚ!"
@@ -84,6 +84,9 @@
          ],
          "Personalize Your Firefox": [
             "Εξατομίκευση Firefox"
+         ],
+         "There are thousands of free add-ons, created by developers all over\nthe world, that you can install to personalize your Firefox. From fun visual themes\nto powerful tools that make browsing faster and safer, add-ons make your browser yours.\nTo help you get started, here are some we recommend for their stand-out performance\nand functionality.": [
+            "Υπάρχουν χιλιάδες δωρεάν πρόσθετα, που δημιουργούνται από προγραμματιστές απ' όλο τον κόσμο, που μπορείτε να εγκαταστήσετε για να εξατομικεύσετε το Firefox. Από διασκεδαστικά θέματα μέχρι ισχυρά εργαλεία που κάνουν την περιήγηση πιο γρήγορη και ασφαλή, τα πρόσθετα κάνουν το πρόγραμμα περιήγησής σας μοναδικό. Για να σας βοηθήσουμε να ξεκινήσετε, ορίστε μερικά πρόσθετα που προτείνουμε για την ξεχωριστή απόδοση και λειτουργικότητά τους."
          ]
       }
    }

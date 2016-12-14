@@ -2,10 +2,12 @@ import React, { PropTypes } from 'react';
 
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
-import SearchResults from 'core/components/Search/SearchResults';
+import SearchResults from 'amo/components/SearchResults';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 import SearchResult from './SearchResult';
+
+import './SearchPage.scss';
 
 
 export default class SearchPage extends React.Component {
@@ -17,6 +19,8 @@ export default class SearchPage extends React.Component {
     hasSearchParams: PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
     page: PropTypes.number,
+    pathname: PropTypes.string,
+    queryParams: PropTypes.object,
     results: PropTypes.array,
   }
 
@@ -24,20 +28,23 @@ export default class SearchPage extends React.Component {
     LinkComponent: Link,
     ResultComponent: SearchResult,
     filters: {},
+    pathname: '/search/',
   }
 
   render() {
     const {
       LinkComponent, ResultComponent, count, filters, hasSearchParams,
-      loading, page, results,
+      loading, page, pathname, results,
     } = this.props;
-    const paginator = count && hasSearchParams > 0 ?
-      (<Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
-        pathname="/search/" queryParams={convertFiltersToQueryParams(filters)}
-        showPages={0} />) : [];
+    const queryParams = this.props.queryParams ||
+      convertFiltersToQueryParams(filters);
+    const paginator = count && hasSearchParams > 0 ? (
+      <Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
+        pathname={pathname} queryParams={queryParams} showPages={0} />
+    ) : [];
 
     return (
-      <div className="search-page">
+      <div className="SearchPage">
         <SearchResults ResultComponent={ResultComponent} count={count}
           hasSearchParams={hasSearchParams} loading={loading} results={results}
           filters={filters} />

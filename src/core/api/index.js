@@ -6,6 +6,7 @@ import 'isomorphic-fetch';
 import { Schema, arrayOf, normalize } from 'normalizr';
 import config from 'config';
 
+import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 
@@ -19,10 +20,23 @@ function makeQueryString(query) {
   return url.format({ query });
 }
 
+export function createApiError({ apiURL, response, jsonResponse }) {
+  const apiError = new Error('Error calling API');
+  apiError.response = {
+    apiURL,
+    status: response.status,
+    data: jsonResponse,
+  };
+  return apiError;
+}
+
 export function callApi({
   endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
-  body, credentials,
+  body, credentials, errorHandler,
 }) {
+  if (errorHandler) {
+    errorHandler.clear();
+  }
   const queryString = makeQueryString({ ...params, lang: state.lang });
   const options = {
     headers: {},
@@ -45,19 +59,29 @@ export function callApi({
   const apiURL = `${API_BASE}/${endpoint}/${queryString}`;
 
   return fetch(apiURL, options)
-    .then((response) => {
+    .then((response) => response.json().then(
+      (jsonResponse) => ({ response, jsonResponse }),
+      (error) => {
+        log.warn('Could not parse response as JSON:', error);
+        return response.text().then((textResponse) =>
+          ({ response, jsonResponse: { text: textResponse } })
+        );
+      }
+    ))
+    .then(({ response, jsonResponse }) => {
       if (response.ok) {
-        return response.json();
+        return jsonResponse;
       }
 
       // If response is not ok we'll throw.
-      // Notes that redux-connect will catch this exception and
-      // pass it up to the state as an error for this api call.
-      const apiError = new Error('Error calling API');
-      apiError.response = {
-        apiURL,
-        status: response.status,
-      };
+      // Note that if callApi is executed by an asyncConnect() handler,
+      // then redux-connect will catch this exception and
+      // dispatch a LOAD_FAIL action which puts the error in state.
+
+      const apiError = createApiError({ apiURL, response, jsonResponse });
+      if (errorHandler) {
+        errorHandler.handle(apiError);
+      }
       throw apiError;
     })
     .then((response) => (schema ? normalize(response, schema) : response));

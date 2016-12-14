@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import Paginate from 'core/components/Paginate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { gettext as _ } from 'core/utils';
-import SearchResults from 'core/components/Search/SearchResults';
+import SearchResults from 'admin/components/SearchResults';
 
 import SearchForm from './SearchForm';
 import AdminSearchResult from './SearchResult';

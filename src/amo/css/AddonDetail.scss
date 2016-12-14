@@ -1,46 +1,19 @@
+@import "~core/css/inc/mixins";
 @import "~core/css/inc/vars";
 
 .AddonDetail {
-  header {
-    background: $masthead-color;
-    color: $header-font-color;
-  }
-
   hr {
     margin: 0 20px;
   }
 
-  .icon,
+  .AddonDetail-icon,
   .title,
-  .description,
   .screenshots,
   .about,
+  .AddonDetail-summary,
   .overall-rating {
     overflow: hidden;
     padding: 20px;
-  }
-
-  .icon {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-
-    img {
-      background: #fff;
-      border-radius: 5px;
-      display: inline-block;
-      height: 64px;
-      width: 64px;
-    }
-  }
-
-  .title {
-    background: darken($masthead-color, 3%);
-
-    h1 {
-      margin-top: 0;
-      color: $header-font-color;
-    }
   }
 
   .author {
@@ -56,13 +29,65 @@
   .switch {
     float: right;
   }
+}
 
-  .description {
-    background: darken($masthead-color, 5.5%);
-    font-size: 18px;
+.AddonDetail-summary {
+  margin-bottom: 0;
+  margin-top: 0;
+}
 
-    p:first-child {
-      margin-top: 0;
-    }
+.AddonDetail-header {
+  background: $masthead-color;
+  color: $header-font-color;
+
+  h1 {
+    margin-top: 0;
+    color: $header-font-color;
+  }
+}
+
+$theme-header-horizontal-padding: 10px;
+
+.AddonDetail-theme-header {
+  line-height: 0;
+  padding: 20px $theme-header-horizontal-padding 0;
+  position: relative;
+}
+
+.AddonDetail-theme-header-image {
+  border-radius: 12px;
+  height: 100px;
+  object-fit: cover;
+  object-position: top right;
+  width: 100%;
+}
+
+.AddonDetail-theme-header-label {
+  $label-margin: 12px;
+
+  @include start($theme-header-horizontal-padding + $label-margin);
+
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  bottom: $label-margin;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  padding: $label-margin;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.AddonDetail-icon {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  img {
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    height: 64px;
+    width: 64px;
   }
 }

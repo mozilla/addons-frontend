@@ -27,14 +27,24 @@ describe('Details Page', () => {
   });
 
   it('should surface a 401 error from the API', () => {
-    fetchMock.get(detailsAPIURL, 401);
+    fetchMock.get(detailsAPIURL, undefined, {
+      response: {
+        status: 401,
+        body: { error: 'not authorized' },
+      },
+    });
     return request(app)
       .get(defaultURL)
       .expect(401);
   });
 
   it('should surface a 404 error from the API', () => {
-    fetchMock.get(detailsAPIURL, 404);
+    fetchMock.get(detailsAPIURL, undefined, {
+      response: {
+        status: 404,
+        body: { error: 'not found' },
+      },
+    });
     return request(app)
       .get(defaultURL)
       .expect(404);

@@ -13,7 +13,7 @@ describe('<AdminSearchResult />', () => {
       files: [{}, {}],
     },
   };
-  const root = renderIntoDocument(<AdminSearchResult result={result} />);
+  const root = renderIntoDocument(<AdminSearchResult addon={result} />);
 
   it('renders the name', () => {
     assert.equal(root.name.props.children, 'A search result');
@@ -34,7 +34,7 @@ describe('<AdminSearchResult />', () => {
   it('outputs zero if no files exist', () => {
     const thisResult = { ...result, current_version: { } };
     const thisRoot = renderIntoDocument(
-      <AdminSearchResult result={thisResult} />);
+      <AdminSearchResult addon={thisResult} />);
     assert.equal(thisRoot.fileCount.textContent, '0 files');
   });
 
@@ -45,7 +45,7 @@ describe('<AdminSearchResult />', () => {
   it('renders the number of files singularly', () => {
     const thisResult = { ...result, current_version: { files: [{}] } };
     const thisRoot = renderIntoDocument(
-      <AdminSearchResult result={thisResult} />);
+      <AdminSearchResult addon={thisResult} />);
     assert.equal(thisRoot.fileCount.textContent, '1 file');
   });
 });

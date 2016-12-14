@@ -8,37 +8,37 @@
             "lang": "ko"
          },
          "Downloading %(name)s.": [
-            ""
+            "%(name)s를 다운로드 중입니다."
          ],
          "Installing %(name)s.": [
-            ""
+            "%(name)s를 설치 중입니다."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s가 설치되었고 활성화되었습니다. 제거하려면 클릭하세요."
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s가 비활성화되었습니다. 활성화 하려면 클릭하세요."
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "%(name)s를 제거하는 중입니다."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s가 제거되었습니다. 설치하려면 클릭하세요."
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "%(name)s의 설치 상태를 알 수 없습니다."
          ],
          "Hover to preview or click to install %(name)s": [
-            ""
+            "마우스를 올려서 %(name)s를 미리보거나 클릭해서 설치"
          ],
          "Hover over the image to preview": [
             "마우스 올려서 미리보기"
          ],
          "Installation failed. Please try again.": [
-            ""
+            "설치하지 못했습니다. 다시 시도해 주세요."
          ],
          "Download failed. Please check your connection.": [
-            ""
+            "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
          ],
          "An unexpected error occurred during installation.": [
             "설치 중에 예상치 못 한 오류가 발생하였습니다."
@@ -50,19 +50,19 @@
             "예상치 못 한 오류가 발생하였습니다."
          ],
          "This add-on will be uninstalled after you restart Firefox.": [
-            ""
+            "이 부가 기능은 Firefox를 재시작한 후에 제거될 것입니다."
          ],
          "Please restart Firefox to use this add-on.": [
-            ""
+            "이 부가 기능을 사용하려면 Firefox를 재시작 해주십시오."
          ],
          "Your add-on is ready": [
-            ""
+            "부가 기능 준비됨"
          ],
          "Now you can access %(name)s from the toolbar.": [
-            ""
+            "이제 도구 모음에서 %(name)s를 접근할 수 있습니다."
          ],
          "OK!": [
-            ""
+            "좋습니다!"
          ],
          "Close": [
             "닫기"

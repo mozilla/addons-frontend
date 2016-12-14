@@ -21,12 +21,6 @@ export class AddonReviewBase extends React.Component {
     updateReviewText: PropTypes.func,
   }
 
-  static defaultProps = {
-    // TODO: move this to mapDispatchToProps once we need to pass dispatch()
-    // to callApi()
-    updateReviewText: (...params) => submitReview(...params),
-  }
-
   constructor(props) {
     super(props);
     this.state = { errorMessage: null };
@@ -100,8 +94,6 @@ export class AddonReviewBase extends React.Component {
       );
     }
 
-    // TODO: I guess we should load the existing review text so it
-    // can be edited? That flow needs more thought.
     return (
       <div className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
@@ -112,7 +104,9 @@ export class AddonReviewBase extends React.Component {
             className="AddonReview-textarea"
             ref={(ref) => { this.reviewTextarea = ref; }}
             name="review"
-            placeholder={placeholder} />
+            placeholder={placeholder}>
+            {review.body}
+          </textarea>
           <div className="AddonReview-button-row">
             <button className="AddonReview-button AddonReview-back-button"
               onClick={this.goBackToAddonDetail}
@@ -134,6 +128,13 @@ export const mapStateToProps = (state) => ({
   apiState: state.api,
 });
 
+export const mapDispatchToProps = (dispatch) => ({
+  updateReviewText(...params) {
+    return submitReview(...params)
+      .then((review) => dispatch(setReview(review)));
+  },
+});
+
 export function loadAddonReview(
   { store: { dispatch }, params: { slug, reviewId } }
 ) {
@@ -147,13 +148,9 @@ export function loadAddonReview(
     }));
   })
     .then((review) => {
-      dispatch(setReview(review));
-      const reviewData = {
-        rating: review.rating,
-        addonSlug: slug,
-        id: review.id,
-      };
-      return reviewData;
+      const action = setReview(review);
+      dispatch(action);
+      return action.payload;
     });
 }
 
@@ -164,6 +161,6 @@ export default compose(
     promise: loadAddonReview,
   }]),
   withRouter,
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AddonReviewBase);

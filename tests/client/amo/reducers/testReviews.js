@@ -15,9 +15,13 @@ describe('amo.reducers.reviews', () => {
       state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
     assert.deepEqual(storedReview, {
       id: fakeReview.id,
+      addonId: fakeReview.addon.id,
+      addonSlug: fakeReview.addon.slug,
       rating: fakeReview.rating,
       versionId: fakeReview.version.id,
       isLatest: fakeReview.is_latest,
+      userId: fakeReview.user.id,
+      body: fakeReview.body,
     });
   });
 

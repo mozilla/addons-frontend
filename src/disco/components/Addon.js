@@ -9,25 +9,19 @@ import { compose } from 'redux';
 
 import { sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
-import themeAction, { getThemeData } from 'core/themePreview';
+import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import InstallButton from 'core/components/InstallButton';
 import {
   CLICK_CATEGORY,
-  DISABLED,
   DOWNLOAD_FAILED,
   ERROR,
   EXTENSION_TYPE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_CATEGORY,
   INSTALL_FAILED,
-  THEME_INSTALL,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
   THEME_TYPE,
-  UNINSTALLED,
   UNINSTALLING,
   validAddonTypes,
   validInstallStates,
@@ -38,19 +32,21 @@ import 'disco/css/Addon.scss';
 
 export class AddonBase extends React.Component {
   static propTypes = {
+    addon: PropTypes.object.isRequired,
     description: PropTypes.string,
     error: PropTypes.string,
-    guid: PropTypes.string.isRequired,
     heading: PropTypes.string.isRequired,
+    getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
     needsRestart: PropTypes.bool.isRequired,
+    previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
+    resetPreviewTheme: PropTypes.func.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
-    themeAction: PropTypes.func,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     _tracking: PropTypes.object,
   }
@@ -60,14 +56,6 @@ export class AddonBase extends React.Component {
     themeAction,
     needsRestart: false,
     _tracking: tracking,
-  }
-
-  componentDidMount() {
-    this.props.setCurrentStatus();
-  }
-
-  getBrowserThemeData() {
-    return JSON.stringify(getThemeData(this.props));
   }
 
   getError() {
@@ -95,13 +83,13 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { i18n, name, previewURL } = this.props;
+    const { getBrowserThemeData, i18n, name, previewURL } = this.props;
     if (this.props.type === THEME_TYPE) {
       // eslint-disable-next-line jsx-a11y/href-no-hash
       return (<a href="#" className="theme-image"
-                 data-browsertheme={this.getBrowserThemeData()}
+                 data-browsertheme={getBrowserThemeData()}
                  onBlur={this.resetPreviewTheme}
-                 onClick={this.clickInstallTheme}
+                 onClick={this.installTheme}
                  onFocus={this.previewTheme}
                  onMouseOut={this.resetPreviewTheme}
                  onMouseOver={this.previewTheme}>
@@ -125,6 +113,12 @@ export class AddonBase extends React.Component {
         className="editorial-description"
         dangerouslySetInnerHTML={sanitizeHTML(description, ['blockquote', 'cite'])} />
     );
+  }
+
+  installTheme = (event) => {
+    event.preventDefault();
+    const { addon, installTheme } = this.props;
+    installTheme(event.currentTarget, addon);
   }
 
   errorMessage() {
@@ -171,20 +165,12 @@ export class AddonBase extends React.Component {
     }
   }
 
-  clickInstallTheme = (e) => {
-    const { guid, installTheme, name, status, type } = this.props;
-    e.preventDefault();
-    if (type === THEME_TYPE && [UNINSTALLED, DISABLED].includes(status)) {
-      installTheme(e.currentTarget, guid, name);
-    }
-  }
-
   previewTheme = (e) => {
-    this.props.themeAction(e.currentTarget, THEME_PREVIEW);
+    this.props.previewTheme(e.currentTarget);
   }
 
   resetPreviewTheme = (e) => {
-    this.props.themeAction(e.currentTarget, THEME_RESET_PREVIEW);
+    this.props.resetPreviewTheme(e.currentTarget);
   }
 
   render() {
@@ -229,16 +215,13 @@ export class AddonBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps, { _tracking = tracking } = {}) {
+export function mapStateToProps(state, ownProps) {
   const installation = state.installations[ownProps.guid] || {};
   const addon = state.addons[ownProps.guid] || {};
   return {
-    ...installation,
+    addon,
     ...addon,
-    installTheme(node, guid, name, _themeAction = themeAction) {
-      _themeAction(node, THEME_INSTALL);
-      _tracking.sendEvent({ action: 'theme', category: INSTALL_CATEGORY, label: name });
-    },
+    ...installation,
   };
 }
 

@@ -1,9 +1,12 @@
 /* global CustomEvent, document, window */
+import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
 import log from 'core/logger';
+import themeAction, { getThemeData } from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import {
   CLOSE_INFO,
@@ -23,11 +26,26 @@ import {
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
+  THEME_INSTALL,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
+  THEME_TYPE,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
+  UNKNOWN,
 } from 'core/constants';
 import * as addonManager from 'core/addonManager';
+
+export function installTheme(
+  node, addon, { _themeAction = themeAction, _tracking = tracking } = {},
+) {
+  const { name, status, type } = addon;
+  if (type === THEME_TYPE && [DISABLED, UNINSTALLED, UNKNOWN].includes(status)) {
+    _themeAction(node, THEME_INSTALL);
+    _tracking.sendEvent({ action: 'theme', category: INSTALL_CATEGORY, label: name });
+  }
+}
 
 export function makeProgressHandler(dispatch, guid) {
   return (addonInstall, event) => {
@@ -43,7 +61,21 @@ export function makeProgressHandler(dispatch, guid) {
   };
 }
 
-export function makeMapDispatchToProps({ src }) {
+export function mapStateToProps(state, ownProps) {
+  return {
+    getBrowserThemeData() {
+      return JSON.stringify(getThemeData(ownProps));
+    },
+    previewTheme(node, _themeAction = themeAction) {
+      _themeAction(node, THEME_PREVIEW);
+    },
+    resetPreviewTheme(node, _themeAction = themeAction) {
+      _themeAction(node, THEME_RESET_PREVIEW);
+    },
+  };
+}
+
+export function makeMapDispatchToProps({ WrappedComponent, src }) {
   return function mapDispatchToProps(
     dispatch,
     {
@@ -55,7 +87,7 @@ export function makeMapDispatchToProps({ src }) {
     } = {},
   ) {
     if (config.get('server')) {
-      return {};
+      return { WrappedComponent };
     }
 
     if (ownProps.type === EXTENSION_TYPE && ownProps.installURL === undefined) {
@@ -98,31 +130,33 @@ export function makeMapDispatchToProps({ src }) {
     }
 
     return {
+      WrappedComponent,
       setCurrentStatus() {
-        const { guid, installURL } = ownProps;
+        const { installURL } = ownProps;
+        const guid = ownProps.guid || (ownProps.addon && ownProps.addon.guid);
         const payload = { guid, url: installURL };
         return _addonManager.getAddon(guid)
-        .then((addon) => {
-          const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { ...payload, status },
+          .then((addon) => {
+            const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { ...payload, status },
+            });
+          }, () => {
+            log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { ...payload, status: UNINSTALLED },
+            });
+          })
+          .catch((err) => {
+            log.error(err);
+            // Dispatch a generic error should the success/error functions throw.
+            dispatch({
+              type: INSTALL_STATE,
+              payload: { guid, status: ERROR, error: FATAL_ERROR },
+            });
           });
-        }, () => {
-          log.info(`Add-on "${guid}" not found so setting status to UNINSTALLED`);
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { ...payload, status: UNINSTALLED },
-          });
-        })
-        .catch((err) => {
-          log.error(err);
-          // Dispatch a generic error should the success/error functions throw.
-          dispatch({
-            type: INSTALL_STATE,
-            payload: { guid, status: ERROR, error: FATAL_ERROR },
-          });
-        });
       },
 
       enable({ _showInfo = showInfo } = {}) {
@@ -188,9 +222,43 @@ export function makeMapDispatchToProps({ src }) {
   };
 }
 
+export class WithInstallHelpers extends React.Component {
+  static propTypes = {
+    WrappedComponent: PropTypes.func.isRequired,
+    hasAddonManager: PropTypes.bool.isRequired,
+    installTheme: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    setCurrentStatus: PropTypes.func.isRequired,
+    status: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  }
+
+  static defaultProps = {
+    hasAddonManager: addonManager.hasAddonManager(),
+    installTheme,
+  }
+
+  componentDidMount() {
+    const { hasAddonManager, setCurrentStatus } = this.props;
+    if (hasAddonManager) {
+      log.info('Setting add-on status');
+      setCurrentStatus();
+    } else {
+      log.info('No addon manager, cannot set add-on status');
+    }
+  }
+
+  render() {
+    const { WrappedComponent, ...props } = this.props;
+    return <WrappedComponent {...props} />;
+  }
+}
+
 export function withInstallHelpers({ _makeMapDispatchToProps = makeMapDispatchToProps, src }) {
   if (!src) {
     throw new Error('src is required for withInstallHelpers');
   }
-  return (Component) => connect(undefined, _makeMapDispatchToProps({ src }))(Component);
+  return (WrappedComponent) => compose(
+    connect(mapStateToProps, _makeMapDispatchToProps({ WrappedComponent, src })),
+  )(WithInstallHelpers);
 }

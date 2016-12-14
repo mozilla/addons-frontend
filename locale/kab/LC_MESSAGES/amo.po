@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-22 20:04+0000\n"
+"PO-Revision-Date: 2016-11-24 12:11+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -20,7 +20,7 @@ msgstr "%(addonName)s %(startSpan)ssɣuṛ %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Asiɣzef aɣefisefka"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
@@ -40,23 +40,23 @@ msgstr "Taggayt"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "Ittwaqdec sɣur"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "Aḥulfu"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
-msgstr ""
+msgstr "Uɣal ɣer deffir"
 
 #: src/amo/components/AddonReview.js:113
 msgid "Submit"
-msgstr ""
+msgstr "Azen"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "Ttxilek sekcem kra n weḍris"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
@@ -64,11 +64,11 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Ini-d i medden ayɣer asiɣzef-agi ifaz!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "Tasertit n tbaḍnit"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
@@ -76,15 +76,15 @@ msgstr ""
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "Sken asmel afellaru"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
-msgstr ""
+msgstr "Inig s tutlayt-ik"
 
 #: src/amo/components/MastHead.js:29
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Izegrar Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -105,24 +105,24 @@ msgstr ""
 #: src/amo/components/SearchResult.js:43
 msgid "%(users)s user"
 msgid_plural "%(users)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(users)s aseqdac"
+msgstr[1] "%(users)s iseqdacen"
 
 #: src/amo/containers/App.js:39
 msgid "Log out"
-msgstr ""
+msgstr "Tufɣa"
 
 #: src/amo/containers/App.js:39
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Kcem//Sign"
 
 #: src/amo/containers/App.js:51
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Izegrar i Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "D acu tebɣiḍ ad ixdem Fairefox ?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
@@ -130,7 +130,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr ""
+msgstr "Tuṭṭfa n ugdil"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
@@ -138,7 +138,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "Tiɣin s srid"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
@@ -150,11 +150,11 @@ msgstr ""
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Inig akk isiɣzaf"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "amek tebɣiḍ Firefox ad iban?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
@@ -182,62 +182,62 @@ msgstr ""
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "Inig ɣer akk isental"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Assali n %(name)s."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Asbed n %(name)s."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ittwasbed u yttwarmed . senned i wakken ad tekseḍ-t."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s ittwarurmed.Senned i wakken ad ittwarmed."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Asbed n %(name)s."
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s ittwakkes. Senned i wakken ad tesbdeḍ-t"
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Addad n usebdi n %(name)s d arussin."
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
-msgstr ""
+msgstr "Azewwar"
 
 #: src/core/components/Paginate/index.js:104
 msgid "Next"
-msgstr ""
+msgstr "Ddu ɣer zdat"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Asebter %(currentPage)s seg %(totalPages)s"
 
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Anadi inek %(query)s yufa-d tifin-agi %(count)s"
+msgstr[1] "Anadi-inek %(query)s yufa-d tiifin-agi %(count)s."
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
-msgstr ""
+msgstr "Anadi..."
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Ulac tiffin i \"%(query)s\"."
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "Ttxilek sekcem anadi ameɣtu"

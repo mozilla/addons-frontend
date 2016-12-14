@@ -2,7 +2,7 @@ import React from 'react';
 
 import SearchPage from 'amo/components/SearchPage';
 import SearchResult from 'amo/components/SearchResult';
-import SearchResults from 'core/components/Search/SearchResults';
+import SearchResults from 'amo/components/SearchResults';
 import Paginate from 'core/components/Paginate';
 import { findAllByTag, findByTag, shallowRender } from 'tests/client/helpers';
 

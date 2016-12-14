@@ -124,6 +124,9 @@ module.exports = function karmaConf(conf) {
     files: [
       'test-runner.js',
     ],
+    mochaReporter: {
+      showDiff: true,
+    },
     preprocessors: {
       'test-runner.js': ['webpack', 'sourcemap'],
     },

@@ -8,174 +8,174 @@
             "lang": "bg"
          },
          "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s": [
-            ""
+            "%(addonName)s %(startSpan)sот %(authorList)s%(endSpan)s"
          ],
          "Extension Metadata": [
-            ""
+            "Метаданни за разширението"
          ],
          "Screenshots": [
-            ""
+            "Снимки на екрана"
          ],
          "About this extension": [
-            ""
+            "Относно добавката"
          ],
          "Rate your experience": [
-            ""
+            "Дайте оценка"
          ],
          "Category": [
-            ""
+            "Категория"
          ],
          "Used by": [
-            ""
+            "Ползвател"
          ],
          "Sentiment": [
-            ""
+            "Мнение"
          ],
          "Back": [
-            ""
+            "Назад"
          ],
          "Submit": [
-            ""
+            "Изпращане"
          ],
          "Please enter some text": [
-            ""
+            "Моля, въведете текст"
          ],
          "Write a review": [
-            ""
+            "Писане на отзив"
          ],
          "Tell the world why you think this extension is fantastic!": [
-            ""
+            "Разкажете на света защо смятате, че това разширение е чудесно!"
          ],
          "Privacy policy": [
-            ""
+            "Политика на поверителност"
          ],
          "Legal notices": [
-            ""
+            "Правни бележки"
          ],
          "View desktop site": [
-            ""
+            "Настолна версия"
          ],
          "Browse in your language": [
-            ""
+            "Четете на своя език"
          ],
          "Firefox Add-ons": [
-            ""
+            "Добавки за Firefox"
          ],
          "How are you enjoying your experience with %(addonName)s?": [
-            ""
+            "До каква степен ви харесва %(addonName)s?"
          ],
          "screenshot %(imageNumber)s of %(totalImages)s": [
-            ""
+            "снимка %(imageNumber)s от %(totalImages)s"
          ],
          "Average rating: %(rating)s out of 5": [
-            ""
+            "Средна оценка: %(rating)s от 5"
          ],
          "No ratings": [
-            ""
+            "Без оценка"
          ],
          "%(users)s user": [
-            "",
-            "%(users)s users"
+            "%(users)s потребител",
+            "%(users)s потребителя"
          ],
          "Log out": [
-            ""
+            "Изход"
          ],
          "Log in/Sign up": [
-            ""
+            "Вход/Регистрация"
          ],
          "Add-ons for Firefox": [
-            ""
+            "Добавки за Firefox"
          ],
          "What do you want Firefox to do?": [
-            ""
+            "Какво бихте желали Firefox да направи?"
          ],
          "Block ads": [
-            ""
+            "Блокиране на реклами"
          ],
          "Screenshot": [
-            ""
+            "Снимка на екрана"
          ],
          "Save stuff": [
-            ""
+            "Запазване на неща"
          ],
          "Shop online": [
-            ""
+            "Пазаруване он-лайн"
          ],
          "Be social": [
-            ""
+            "Бъде социален"
          ],
          "Share stuff": [
-            ""
+            "Споделя неща"
          ],
          "Browse all extensions": [
-            ""
+            "Преглед на всички разширения"
          ],
          "How do you want Firefox to look?": [
-            ""
+            "Как бихте желали Firefox да изглежда?"
          ],
          "Wild": [
-            ""
+            "Див"
          ],
          "Abstract": [
-            ""
+            "Абстрактен"
          ],
          "Fashionable": [
-            ""
+            "Модерен"
          ],
          "Scenic": [
-            ""
+            "Жовиписен"
          ],
          "Sporty": [
-            ""
+            "Спортен"
          ],
          "Mystical": [
-            ""
+            "Мистичен"
          ],
          "Browse all themes": [
-            ""
+            "Преглед на всички теми"
          ],
          "Downloading %(name)s.": [
-            ""
+            "Изтегляне на %(name)s."
          ],
          "Installing %(name)s.": [
-            ""
+            "Инсталиране на %(name)s."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s е инсталирана и включена. Натиснете за премахване."
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s е изключена. Натиснете за включване."
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "Премахване на %(name)s."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s е премахната. Натиснете за инсталиране."
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "Състоянието на инсталацията на %(name)s е неизвестно."
          ],
          "Previous": [
-            ""
+            "Предишна"
          ],
          "Next": [
-            ""
+            "Следваща"
          ],
          "Page %(currentPage)s of %(totalPages)s": [
-            ""
+            "Страница %(currentPage)s от %(totalPages)s"
          ],
          "Your search for \"%(query)s\" returned %(count)s result.": [
-            "",
-            "Your search for \"%(query)s\" returned %(count)s results."
+            "Търсенето ви за „%(query)s“ върна %(count)s резултат.",
+            "Търсенето ви за „%(query)s“ върна %(count)s резултата."
          ],
          "Searching...": [
-            ""
+            "Търсене…"
          ],
          "No results were found for \"%(query)s\".": [
-            ""
+            "Не бяха намерени резултати за „%(query)s“."
          ],
          "Please supply a valid search": [
-            ""
+            "Въведете термин"
          ]
       }
    }

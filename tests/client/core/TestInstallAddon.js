@@ -1,5 +1,8 @@
 import config from 'config';
+import React from 'react';
+import { renderIntoDocument } from 'react-addons-test-utils';
 
+import createStore from 'amo/store';
 import {
   CLOSE_INFO,
   DISABLED,
@@ -14,27 +17,44 @@ import {
   INSTALL_CATEGORY,
   INSTALL_FAILED,
   INSTALL_STATE,
+  INSTALLED,
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
+  THEME_INSTALL,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
   THEME_TYPE,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
 import {
-  getFakeAddonManagerWrapper, getFakeI18nInst,
+  getFakeAddonManagerWrapper, getFakeI18nInst, shallowRender,
 } from 'tests/client/helpers';
 import * as installAddon from 'core/installAddon';
+import * as themePreview from 'core/themePreview';
 
-const { makeProgressHandler, makeMapDispatchToProps, withInstallHelpers } = installAddon;
+const {
+  WithInstallHelpers, installTheme, makeProgressHandler, makeMapDispatchToProps,
+  mapStateToProps, withInstallHelpers,
+} = installAddon;
 
 
 describe('withInstallHelpers', () => {
   it('connects mapDispatchToProps for the component', () => {
     const _makeMapDispatchToProps = sinon.spy();
-    withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
-    assert.ok(_makeMapDispatchToProps.calledWith({ src: 'Howdy' }));
+    const WrappedComponent = sinon.stub();
+    withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(WrappedComponent);
+    assert.ok(_makeMapDispatchToProps.calledWith({ WrappedComponent, src: 'Howdy' }));
+  });
+
+  it('wraps the component in WithInstallHelpers', () => {
+    const _makeMapDispatchToProps = sinon.spy();
+    const Component = withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
+    const store = createStore();
+    const root = shallowRender(<Component store={store} />);
+    assert.equal(root.type, WithInstallHelpers);
   });
 
   it('throws without a src', () => {
@@ -42,14 +62,35 @@ describe('withInstallHelpers', () => {
       withInstallHelpers({})(() => {});
     }, /src is required/);
   });
+
+  it('sets the current status in componentDidMount with an addonManager', () => {
+    const setCurrentStatus = sinon.spy();
+    renderIntoDocument(
+      <WithInstallHelpers WrappedComponent={() => <div />} hasAddonManager
+      setCurrentStatus={setCurrentStatus} />);
+    assert.ok(setCurrentStatus.called);
+  });
+
+  it('does not set the current status in componentDidMount without an addonManager', () => {
+    const setCurrentStatus = sinon.spy();
+    renderIntoDocument(
+      <WithInstallHelpers WrappedComponent={() => <div />} hasAddonManager={false}
+      setCurrentStatus={setCurrentStatus} />);
+    assert.notOk(setCurrentStatus.called);
+  });
 });
 
 describe('withInstallHelpers inner functions', () => {
   const src = 'TestInstallAddon';
+  const WrappedComponent = sinon.stub();
   let mapDispatchToProps;
 
+  function getMapStateToProps({ _tracking } = {}) {
+    return mapStateToProps({ installations: {}, addons: {} }, {}, { _tracking });
+  }
+
   before(() => {
-    mapDispatchToProps = makeMapDispatchToProps({ src });
+    mapDispatchToProps = makeMapDispatchToProps({ WrappedComponent, src });
   });
 
   describe('setCurrentStatus', () => {
@@ -544,7 +585,7 @@ describe('withInstallHelpers inner functions', () => {
   describe('mapDispatchToProps', () => {
     it('is empty when there is no navigator', () => {
       const configStub = sinon.stub(config, 'get').returns(true);
-      assert.deepEqual(mapDispatchToProps(sinon.spy()), {});
+      assert.deepEqual(mapDispatchToProps(sinon.spy()), { WrappedComponent });
       assert(configStub.calledOnce);
       assert(configStub.calledWith('server'));
     });
@@ -559,6 +600,90 @@ describe('withInstallHelpers inner functions', () => {
       assert.doesNotThrow(() => {
         makeMapDispatchToProps({})(sinon.spy(), { type: THEME_TYPE });
       });
+    });
+  });
+
+  describe('installTheme', () => {
+    const baseAddon = {
+      name: 'hai-theme',
+      guid: '{install-theme}',
+      status: UNINSTALLED,
+      type: THEME_TYPE,
+    };
+
+    function installThemeStubs() {
+      return {
+        _themeAction: sinon.spy(),
+        _tracking: {
+          sendEvent: sinon.spy(),
+        },
+      };
+    }
+
+    it('installs the theme when it is not installed', () => {
+      const addon = { ...baseAddon };
+      const node = sinon.stub();
+      const stubs = installThemeStubs();
+      installTheme(node, addon, stubs);
+      assert(stubs._themeAction.calledWith(node, THEME_INSTALL));
+    });
+
+    it('tracks a theme install', () => {
+      const addon = { ...baseAddon };
+      const node = sinon.stub();
+      const stubs = installThemeStubs();
+      installTheme(node, addon, stubs);
+      assert(stubs._tracking.sendEvent.calledWith({
+        action: 'theme',
+        category: INSTALL_CATEGORY,
+        label: 'hai-theme',
+      }));
+    });
+
+    it('does not try to install theme if INSTALLED', () => {
+      const addon = { ...baseAddon, status: INSTALLED };
+      const node = sinon.stub();
+      const stubs = installThemeStubs();
+      installTheme(node, addon, stubs);
+      assert.notOk(stubs._tracking.sendEvent.called);
+      assert.notOk(stubs._themeAction.called);
+    });
+
+    it('does not try to install theme if it is an extension', () => {
+      const addon = { ...baseAddon, type: EXTENSION_TYPE };
+      const node = sinon.stub();
+      const stubs = installThemeStubs();
+      installTheme(node, addon, stubs);
+      assert.notOk(stubs._tracking.sendEvent.called);
+      assert.notOk(stubs._themeAction.called);
+    });
+  });
+
+  describe('getBrowserThemeData', () => {
+    it('formats the browser theme data', () => {
+      const { getBrowserThemeData } = getMapStateToProps();
+      sinon.stub(themePreview, 'getThemeData').returns({ foo: 'wat' });
+      assert.equal(getBrowserThemeData({ some: 'data' }), '{"foo":"wat"}');
+    });
+  });
+
+  describe('previewTheme', () => {
+    it('calls theme action with THEME_PREVIEW', () => {
+      const { previewTheme } = getMapStateToProps();
+      const themeAction = sinon.spy();
+      const node = sinon.stub();
+      previewTheme(node, themeAction);
+      assert.ok(themeAction.calledWith(node, THEME_PREVIEW));
+    });
+  });
+
+  describe('resetPreviewTheme', () => {
+    it('calls theme action with THEME_RESET_PREVIEW', () => {
+      const { resetPreviewTheme } = getMapStateToProps();
+      const themeAction = sinon.spy();
+      const node = sinon.stub();
+      resetPreviewTheme(node, themeAction);
+      assert.ok(themeAction.calledWith(node, THEME_RESET_PREVIEW));
     });
   });
 });

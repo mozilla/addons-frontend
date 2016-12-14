@@ -4,25 +4,28 @@ import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import AddonDetail from 'amo/components/AddonDetail';
-import translate from 'core/i18n/translate';
+import { UNKNOWN } from 'core/constants';
 import { loadAddonIfNeeded } from 'core/utils';
 
 
 export class DetailPageBase extends React.Component {
   render() {
     return (
-      <div className="full-width no-top-padding">
+      <div className="DetailPage">
         <AddonDetail {...this.props} />
       </div>
     );
   }
 }
 
-function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
+  const addon = state.addons[slug];
+  const installation = state.installations[addon.guid] || { status: UNKNOWN };
   return {
-    addon: state.addons[slug],
-    slug,
+    addon,
+    ...addon,
+    ...installation,
   };
 }
 
@@ -33,5 +36,4 @@ export default compose(
     promise: loadAddonIfNeeded,
   }]),
   connect(mapStateToProps),
-  translate({ withRef: true }),
 )(DetailPageBase);

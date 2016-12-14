@@ -8,174 +8,174 @@
             "lang": "nl"
          },
          "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s": [
-            ""
+            "%(addonName)s %(startSpan)s door %(authorList)s%(endSpan)s"
          ],
          "Extension Metadata": [
-            ""
+            "Metagegevens van extensie"
          ],
          "Screenshots": [
-            ""
+            "Schermafbeeldingen"
          ],
          "About this extension": [
-            ""
+            "Over deze extensie"
          ],
          "Rate your experience": [
-            ""
+            "Uw ervaring beoordelen"
          ],
          "Category": [
-            ""
+            "Categorie"
          ],
          "Used by": [
-            ""
+            "Gebruikt door"
          ],
          "Sentiment": [
-            ""
+            "Gevoel"
          ],
          "Back": [
-            ""
+            "Terug"
          ],
          "Submit": [
-            ""
+            "Indienen"
          ],
          "Please enter some text": [
-            ""
+            "Voer tekst in"
          ],
          "Write a review": [
-            ""
+            "Schrijf een beoordeling"
          ],
          "Tell the world why you think this extension is fantastic!": [
-            ""
+            "Beschrijf waarom u deze extensie fantastisch vindt!"
          ],
          "Privacy policy": [
-            ""
+            "Privacybeleid"
          ],
          "Legal notices": [
-            ""
+            "Juridische kennisgevingen"
          ],
          "View desktop site": [
-            ""
+            "Desktopwebsite weergeven"
          ],
          "Browse in your language": [
-            ""
+            "Bladeren in uw taal"
          ],
          "Firefox Add-ons": [
-            ""
+            "Add-ons voor Firefox"
          ],
          "How are you enjoying your experience with %(addonName)s?": [
-            ""
+            "Hoe beleeft u uw ervaring met %(addonName)s?"
          ],
          "screenshot %(imageNumber)s of %(totalImages)s": [
-            ""
+            "schermafbeelding %(imageNumber)s van %(totalImages)s"
          ],
          "Average rating: %(rating)s out of 5": [
-            ""
+            "Gemiddelde waardering: %(rating)s van 5"
          ],
          "No ratings": [
-            ""
+            "Geen waarderingen"
          ],
          "%(users)s user": [
-            "",
-            "%(users)s users"
+            "%(users)s gebruiker",
+            "%(users)s gebruikers"
          ],
          "Log out": [
-            ""
+            "Afmelden"
          ],
          "Log in/Sign up": [
-            ""
+            "Aanmelden/Registreren"
          ],
          "Add-ons for Firefox": [
-            ""
+            "Add-ons voor Firefox"
          ],
          "What do you want Firefox to do?": [
-            ""
+            "Wat wilt u dat Firefox doet?"
          ],
          "Block ads": [
-            ""
+            "Advertenties blokkeren"
          ],
          "Screenshot": [
-            ""
+            "Schermafbeelding"
          ],
          "Save stuff": [
-            ""
+            "Dingen opslaan"
          ],
          "Shop online": [
-            ""
+            "Online winkelen"
          ],
          "Be social": [
-            ""
+            "Sociaal zijn"
          ],
          "Share stuff": [
-            ""
+            "Dingen delen"
          ],
          "Browse all extensions": [
-            ""
+            "Door alle extensies bladeren"
          ],
          "How do you want Firefox to look?": [
-            ""
+            "Hoe wilt u Firefox eruit laten zien?"
          ],
          "Wild": [
-            ""
+            "Wild"
          ],
          "Abstract": [
-            ""
+            "Abstract"
          ],
          "Fashionable": [
-            ""
+            "Hip"
          ],
          "Scenic": [
-            ""
+            "Schilderachtig"
          ],
          "Sporty": [
-            ""
+            "Sportief"
          ],
          "Mystical": [
-            ""
+            "Mystiek"
          ],
          "Browse all themes": [
-            ""
+            "Door alle thema’s bladeren"
          ],
          "Downloading %(name)s.": [
-            ""
+            "%(name)s wordt gedownload."
          ],
          "Installing %(name)s.": [
-            ""
+            "%(name)s wordt geïnstalleerd."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s is geïnstalleerd en ingeschakeld. Klik om te verwijderen."
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s is uitgeschakeld. Klik om in te schakelen."
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "%(name)s wordt verwijderd."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s is verwijderd. Klik om te installeren."
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "Installatiestatus voor %(name)s is onbekend."
          ],
          "Previous": [
-            ""
+            "Vorige"
          ],
          "Next": [
-            ""
+            "Volgende"
          ],
          "Page %(currentPage)s of %(totalPages)s": [
-            ""
+            "Pagina %(currentPage)s van %(totalPages)s"
          ],
          "Your search for \"%(query)s\" returned %(count)s result.": [
-            "",
-            "Your search for \"%(query)s\" returned %(count)s results."
+            "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaat opgeleverd.",
+            "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaten opgeleverd."
          ],
          "Searching...": [
-            ""
+            "Zoeken..."
          ],
          "No results were found for \"%(query)s\".": [
-            ""
+            "Geen resultaten voor ‘%(query)s’ gevonden."
          ],
          "Please supply a valid search": [
-            ""
+            "Geef een geldige zoekopdracht op"
          ]
       }
    }

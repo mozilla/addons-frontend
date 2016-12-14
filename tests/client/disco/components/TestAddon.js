@@ -13,19 +13,13 @@ import {
 } from 'disco/components/Addon';
 import {
   CLICK_CATEGORY,
-  DISABLED,
   DOWNLOAD_FAILED,
   ERROR,
   EXTENSION_TYPE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
-  INSTALL_CATEGORY,
   INSTALL_FAILED,
-  INSTALLED,
-  THEME_INSTALL,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
   THEME_TYPE,
   UNINSTALLED,
   UNINSTALLING,
@@ -43,9 +37,12 @@ const result = {
 
 function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
   const MyAddon = translate({ withRef: true })(AddonBase);
+  const getBrowserThemeData = () => '{"theme":"data"}';
 
   return findRenderedComponentWithType(renderIntoDocument(
-    <MyAddon i18n={getFakeI18nInst()} {...props} setCurrentStatus={setCurrentStatus} />
+    <MyAddon
+      getBrowserThemeData={getBrowserThemeData} i18n={getFakeI18nInst()} {...props}
+      setCurrentStatus={setCurrentStatus} hasAddonManager />
   ), MyAddon).getWrappedInstance();
 }
 
@@ -280,86 +277,52 @@ describe('<Addon />', () => {
   describe('Theme Previews', () => {
     let root;
     let themeImage;
-    let themeAction;
+    let previewTheme;
+    let resetPreviewTheme;
 
     beforeEach(() => {
-      themeAction = sinon.stub();
-      const data = { ...result, type: THEME_TYPE, themeAction };
+      previewTheme = sinon.spy();
+      resetPreviewTheme = sinon.spy();
+      const data = { ...result, type: THEME_TYPE, previewTheme, resetPreviewTheme };
       root = renderAddon(data);
       themeImage = findDOMNode(root).querySelector('.theme-image');
     });
 
     it('runs theme preview onMouseOver on theme image', () => {
       Simulate.mouseOver(themeImage);
-      assert.ok(themeAction.calledWith(themeImage, THEME_PREVIEW));
+      assert.ok(previewTheme.calledWith(themeImage));
     });
 
     it('resets theme preview onMouseOut on theme image', () => {
       Simulate.mouseOut(themeImage);
-      assert.ok(themeAction.calledWith(themeImage, THEME_RESET_PREVIEW));
+      assert.ok(resetPreviewTheme.calledWith(themeImage));
     });
 
     it('runs theme preview onFocus on theme image', () => {
       Simulate.focus(themeImage);
-      assert.ok(themeAction.calledWith(themeImage, THEME_PREVIEW));
+      assert.ok(previewTheme.calledWith(themeImage));
     });
 
     it('resets theme preview onBlur on theme image', () => {
       Simulate.blur(themeImage);
-      assert.ok(themeAction.calledWith(themeImage, THEME_RESET_PREVIEW));
+      assert.ok(resetPreviewTheme.calledWith(themeImage));
     });
 
-    it('installs a theme when the theme image is clicked', () => {
-      const preventDefault = sinon.stub();
-      Simulate.click(themeImage, { preventDefault });
+    it('calls installTheme on click', () => {
       const installTheme = sinon.stub();
       const data = {
         ...result,
+        addon: sinon.stub(),
         type: THEME_TYPE,
-        themeAction,
         status: UNINSTALLED,
         installTheme,
       };
       root = renderAddon(data);
       themeImage = findDOMNode(root).querySelector('.theme-image');
-      Simulate.click(themeImage, { currentTarget: themeImage, preventDefault });
-      assert.ok(preventDefault.called);
-      assert.ok(installTheme.called);
-    });
-
-    it('installs a theme when a disabled theme image is clicked', () => {
-      const preventDefault = sinon.stub();
+      const preventDefault = sinon.spy();
       Simulate.click(themeImage, { preventDefault });
-      const installTheme = sinon.stub();
-      const data = {
-        ...result,
-        type: THEME_TYPE,
-        themeAction,
-        status: DISABLED,
-        installTheme,
-      };
-      root = renderAddon(data);
-      themeImage = findDOMNode(root).querySelector('.theme-image');
-      Simulate.click(themeImage, { currentTarget: themeImage, preventDefault });
       assert.ok(preventDefault.called);
-      assert.ok(installTheme.called);
-    });
-
-    it('does not try to install theme if not UNINSTALLED', () => {
-      const preventDefault = sinon.stub();
-      const installTheme = sinon.stub();
-      const data = {
-        ...result,
-        type: THEME_TYPE,
-        themeAction,
-        status: INSTALLED,
-        installTheme,
-      };
-      root = renderAddon(data);
-      themeImage = findDOMNode(root).querySelector('.theme-image');
-      Simulate.click(themeImage, { currentTarget: themeImage, preventDefault });
-      assert.ok(preventDefault.called);
-      assert.notOk(installTheme.called);
+      assert.ok(installTheme.calledWith(themeImage, data.addon));
     });
   });
 
@@ -374,10 +337,12 @@ describe('<Addon />', () => {
         addons: { 'foo@addon': { addonProp: 'addonValue' } },
       }, { guid: 'foo@addon' });
       assert.deepEqual(props, {
+        addon: {
+          addonProp: 'addonValue',
+        },
         guid: 'foo@addon',
         downloadProgress: 75,
         addonProp: 'addonValue',
-        installTheme: props.installTheme,
       });
     });
 
@@ -386,38 +351,7 @@ describe('<Addon />', () => {
         installations: {},
         addons: {},
       }, { guid: 'nope@addon' });
-      assert.deepEqual(props, { installTheme: props.installTheme });
-    });
-  });
-
-  describe('installTheme', () => {
-    it('installs the theme', () => {
-      const name = 'hai-theme';
-      const guid = '{install-theme}';
-      const node = sinon.stub();
-      const spyThemeAction = sinon.spy();
-      const props = mapStateToProps({ installations: {}, addons: {} }, {});
-      props.installTheme(node, guid, name, spyThemeAction);
-      assert(spyThemeAction.calledWith(node, THEME_INSTALL));
-    });
-
-    it('tracks a theme install', () => {
-      const name = 'hai-theme';
-      const guid = '{install-theme}';
-      const node = sinon.stub();
-      const spyThemeAction = sinon.spy();
-      const fakeTracking = {
-        sendEvent: sinon.spy(),
-      };
-      const { installTheme } = mapStateToProps({ installations: {}, addons: {} }, {}, {
-        _tracking: fakeTracking,
-      });
-      installTheme(node, guid, name, spyThemeAction);
-      assert(fakeTracking.sendEvent.calledWith({
-        action: 'theme',
-        category: INSTALL_CATEGORY,
-        label: 'hai-theme',
-      }));
+      assert.deepEqual(props, { addon: {} });
     });
   });
 });

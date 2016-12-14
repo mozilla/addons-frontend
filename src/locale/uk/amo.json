@@ -8,176 +8,176 @@
             "lang": "uk"
          },
          "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s": [
-            ""
+            "%(addonName)s %(startSpan)s від %(authorList)s%(endSpan)s"
          ],
          "Extension Metadata": [
-            ""
+            "Метадані розширення"
          ],
          "Screenshots": [
-            ""
+            "Знімки екрану"
          ],
          "About this extension": [
-            ""
+            "Про це розширення"
          ],
          "Rate your experience": [
-            ""
+            "Оцініть"
          ],
          "Category": [
-            ""
+            "Категорія"
          ],
          "Used by": [
-            ""
+            "Використовується"
          ],
          "Sentiment": [
-            ""
+            "Враження"
          ],
          "Back": [
-            ""
+            "Назад"
          ],
          "Submit": [
-            ""
+            "Відправити"
          ],
          "Please enter some text": [
-            ""
+            "Введіть якийсь текст"
          ],
          "Write a review": [
-            ""
+            "Напишіть відгук"
          ],
          "Tell the world why you think this extension is fantastic!": [
-            ""
+            "Розкажіть світу, чому ви вважаєте це розширення фантастичним!"
          ],
          "Privacy policy": [
-            ""
+            "Політика приватності"
          ],
          "Legal notices": [
-            ""
+            "Юридичні відомості"
          ],
          "View desktop site": [
-            ""
+            "Повна версія сайту"
          ],
          "Browse in your language": [
-            ""
+            "Перегляд вашою мовою"
          ],
          "Firefox Add-ons": [
-            ""
+            "Додатки Firefox"
          ],
          "How are you enjoying your experience with %(addonName)s?": [
-            ""
+            "Які ваші враження від роботи з %(addonName)s?"
          ],
          "screenshot %(imageNumber)s of %(totalImages)s": [
-            ""
+            "знімок екрану %(imageNumber)s із %(totalImages)s"
          ],
          "Average rating: %(rating)s out of 5": [
-            ""
+            "Середня оцінка: %(rating)s із 5"
          ],
          "No ratings": [
-            ""
+            "Немає оцінок"
          ],
          "%(users)s user": [
-            "",
-            "%(users)s users",
-            "%(users)s users"
+            "%(users)s користувач",
+            "%(users)s користувача",
+            "%(users)s користувачів"
          ],
          "Log out": [
-            ""
+            "Вийти"
          ],
          "Log in/Sign up": [
-            ""
+            "Вхід/Реєстрація"
          ],
          "Add-ons for Firefox": [
-            ""
+            "Додатки для Firefox"
          ],
          "What do you want Firefox to do?": [
-            ""
+            "Що ви хочете робити з Firefox?"
          ],
          "Block ads": [
-            ""
+            "Блокувати рекламу"
          ],
          "Screenshot": [
-            ""
+            "Знімок екрану"
          ],
          "Save stuff": [
-            ""
+            "Зберігати"
          ],
          "Shop online": [
-            ""
+            "Покупки онлайн"
          ],
          "Be social": [
-            ""
+            "Спілкуватися"
          ],
          "Share stuff": [
-            ""
+            "Ділитися"
          ],
          "Browse all extensions": [
-            ""
+            "Перегляд всіх розширень"
          ],
          "How do you want Firefox to look?": [
-            ""
+            "Який ви хочете вигляд Firefox?"
          ],
          "Wild": [
-            ""
+            "Природний"
          ],
          "Abstract": [
-            ""
+            "Абстрактний"
          ],
          "Fashionable": [
-            ""
+            "Модний"
          ],
          "Scenic": [
-            ""
+            "Сценічний"
          ],
          "Sporty": [
-            ""
+            "Спортивний"
          ],
          "Mystical": [
-            ""
+            "Містичний"
          ],
          "Browse all themes": [
-            ""
+            "Перегляд всіх тем"
          ],
          "Downloading %(name)s.": [
-            ""
+            "Завантаження %(name)s."
          ],
          "Installing %(name)s.": [
-            ""
+            "Встановлення %(name)s."
          ],
          "%(name)s is installed and enabled. Click to uninstall.": [
-            ""
+            "%(name)s встановлено й активовано. Натисніть для видалення."
          ],
          "%(name)s is disabled. Click to enable.": [
-            ""
+            "%(name)s вимкнено. Натисніть для увімкнення."
          ],
          "Uninstalling %(name)s.": [
-            ""
+            "Видалення %(name)s."
          ],
          "%(name)s is uninstalled. Click to install.": [
-            ""
+            "%(name)s видалено. Натисніть для встановлення."
          ],
          "Install state for %(name)s is unknown.": [
-            ""
+            "Стан встановлення для %(name)s невідомий."
          ],
          "Previous": [
-            ""
+            "Назад"
          ],
          "Next": [
-            ""
+            "Далі"
          ],
          "Page %(currentPage)s of %(totalPages)s": [
-            ""
+            "Сторінка %(currentPage)s із %(totalPages)s"
          ],
          "Your search for \"%(query)s\" returned %(count)s result.": [
-            "",
-            "Your search for \"%(query)s\" returned %(count)s results.",
-            "Your search for \"%(query)s\" returned %(count)s results."
+            "За вашим запитом \"%(query)s\" знайдено %(count)s результат.",
+            "За вашим запитом \"%(query)s\" знайдено %(count)s результати.",
+            "За вашим запитом \"%(query)s\" знайдено %(count)s результатів."
          ],
          "Searching...": [
-            ""
+            "Пошук..."
          ],
          "No results were found for \"%(query)s\".": [
-            ""
+            "Не знайдено результатів для запиту \"%(query)s\"."
          ],
          "Please supply a valid search": [
-            ""
+            "Введіть точніший запит"
          ]
       }
    }
