@@ -47,7 +47,7 @@ export class AppBase extends React.Component {
   onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {
     event.preventDefault();
     if (window_ && window_.location) {
-      cookie_.remove('mamo', { path: '/' });
+      cookie_.save('mamo', 'off', { path: '/' });
       window_.location.reload();
     }
   }
