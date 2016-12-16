@@ -13,6 +13,7 @@ import { THEME_TYPE } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
+import Icon from 'ui/components/Icon';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
 
@@ -74,6 +75,7 @@ export class AddonDetailBase extends React.Component {
           onTouchEnd={this.onTouchEnd}
         >
           <label className="AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
+            <Icon name="eye" className="AddonDetail-theme-preview-icon" />
             {label}
           </label>
           <img
