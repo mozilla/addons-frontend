@@ -8,6 +8,9 @@ import config from 'config';
 
 import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
+//import {
+//  getDefaultErrorHandler as _getDefaultErrorHandler,
+//} from 'core/errorHandler';
 
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
@@ -33,10 +36,17 @@ export function createApiError({ apiURL, response, jsonResponse }) {
 export function callApi({
   endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
   body, credentials, errorHandler,
+  getDefaultErrorHandler = require('core/errorHandler').getDefaultErrorHandler,
 }) {
-  if (errorHandler) {
-    errorHandler.clear();
+  let localErrorHandler = errorHandler;
+  if (!localErrorHandler) {
+    localErrorHandler = getDefaultErrorHandler();
   }
+  log.warn('Local error handler:', localErrorHandler);
+  if (localErrorHandler) {
+    localErrorHandler.clear();
+  }
+
   const queryString = makeQueryString({ ...params, lang: state.lang });
   const options = {
     headers: {},
@@ -79,8 +89,11 @@ export function callApi({
       // dispatch a LOAD_FAIL action which puts the error in state.
 
       const apiError = createApiError({ apiURL, response, jsonResponse });
-      if (errorHandler) {
-        errorHandler.handle(apiError);
+      if (localErrorHandler) {
+        localErrorHandler.handle(apiError);
+        log.warn('handled error with', localErrorHandler);
+      } else {
+        log.warn('no localErrorHandler to handle error');
       }
       throw apiError;
     })

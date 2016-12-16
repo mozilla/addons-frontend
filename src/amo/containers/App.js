@@ -10,7 +10,11 @@ import 'core/fonts/fira.scss';
 import 'amo/css/App.scss';
 import SearchForm from 'amo/components/SearchForm';
 import { addChangeListeners } from 'core/addonManager';
+import { withErrorHandling } from 'core/errorHandler';
+import { setDefaultErrorHandler as _setDefaultErrorHandler }
+  from 'core/errorHandler';
 import { INSTALL_STATE } from 'core/constants';
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';
@@ -23,12 +27,14 @@ export class AppBase extends React.Component {
     MastHeadComponent: PropTypes.node.isRequired,
     _addChangeListeners: PropTypes.func,
     children: PropTypes.node,
+    errorHandler: PropTypes.object,
     handleGlobalEvent: PropTypes.func.isRequired,
     handleLogIn: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
+    setDefaultErrorHandler: PropTypes.func,
   }
 
   static defaultProps = {
@@ -36,10 +42,24 @@ export class AppBase extends React.Component {
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    setDefaultErrorHandler: _setDefaultErrorHandler,
+  }
+
+  constructor(props) {
+    super(props);
+    const { errorHandler, setDefaultErrorHandler } = this.props;
+    if (errorHandler) {
+      log.warn('<App/> set default error handler', errorHandler);
+      setDefaultErrorHandler(errorHandler);
+    } else {
+      log.warn('<App/> did not receive an errorHandler property');
+    }
   }
 
   componentDidMount() {
-    const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
+    const {
+      _addChangeListeners, handleGlobalEvent, mozAddonManager,
+    } = this.props;
     // Use addonManager.addChangeListener to setup and filter events.
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
@@ -100,6 +120,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default compose(
+  withErrorHandling({ name: 'App' }),
   connect(setupMapStateToProps(), mapDispatchToProps),
   translate({ withRef: true }),
 )(AppBase);

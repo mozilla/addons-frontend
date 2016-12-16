@@ -8,6 +8,7 @@ import {
 import { AppBase, mapDispatchToProps, setupMapStateToProps } from 'amo/containers/App';
 import * as api from 'core/api';
 import { INSTALL_STATE } from 'core/constants';
+import { ErrorHandler } from 'core/errorHandler';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
@@ -130,5 +131,27 @@ describe('App', () => {
     const payload = { guid: '@my-addon', status: 'some-status' };
     handleGlobalEvent(payload);
     assert.ok(dispatch.calledWith({ type: INSTALL_STATE, payload }));
+  });
+
+  it('registers a default error handler', () => {
+    const i18n = getFakeI18nInst();
+    const location = sinon.stub();
+    const setDefaultErrorHandler = sinon.stub();
+    const errorHandler = new ErrorHandler({
+      id: 'some-handler',
+      dispatch: sinon.stub(),
+    });
+    const root = renderIntoDocument(
+      <AppBase errorHandler={errorHandler} i18n={i18n} isAuthenticated
+        setDefaultErrorHandler={setDefaultErrorHandler}
+        FooterComponent={FakeFooterComponent}
+        MastHeadComponent={FakeMastHeadComponent}
+        SearchFormComponent={FakeSearchFormComponent} location={location}>
+      </AppBase>
+    );
+
+    assert.ok(setDefaultErrorHandler.called,
+              'setDefaultErrorHandler should be called on instantiation');
+    assert.equal(setDefaultErrorHandler.firstCall.args[0], errorHandler);
   });
 });

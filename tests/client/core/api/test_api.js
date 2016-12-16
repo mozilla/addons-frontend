@@ -74,6 +74,25 @@ describe('api', () => {
         });
     });
 
+    it('uses a default error handler if none is passed in', () => {
+      mockWindow.expects('fetch').returns(createApiResponse({ ok: false }));
+
+      const errorHandler = newErrorHandler();
+      sinon.stub(errorHandler, 'clear');
+      sinon.stub(errorHandler, 'handle');
+
+      return api.callApi({
+        endpoint: 'resource',
+        getDefaultErrorHandler: () => errorHandler,
+      })
+        .then(() => {
+          assert(false, 'unexpected success');
+        }, () => {
+          assert.ok(errorHandler.clear.called);
+          assert.ok(errorHandler.handle.called);
+        });
+    });
+
     it('handles error responses with JSON syntax errors', () => {
       mockWindow.expects('fetch').returns(Promise.resolve({
         ok: false,

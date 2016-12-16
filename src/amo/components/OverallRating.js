@@ -174,7 +174,7 @@ export const OverallRatingWithI18n = compose(
 )(OverallRatingBase);
 
 export default compose(
-  withErrorHandling({ name: 'OverallRating' }),
+  //withErrorHandling({ name: 'OverallRating' }),
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
 )(OverallRatingWithI18n);
