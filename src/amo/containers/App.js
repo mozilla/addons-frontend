@@ -77,7 +77,8 @@ export class AppBase extends React.Component {
         <div className="App-content">
           {children}
         </div>
-        <FooterComponent handleViewDesktop={this.onViewDesktop} />
+        <FooterComponent handleViewDesktop={this.onViewDesktop}
+          location={location} />
       </div>
     );
   }
