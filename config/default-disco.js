@@ -27,7 +27,6 @@ module.exports = {
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
-    'useUiTour',
   ],
 
   staticHost,
@@ -57,10 +56,6 @@ module.exports = {
   trackingSendInitPageView: false,
 
   enablePostCssLoader: false,
-
-  // If this is false we'll use an in-page
-  // stand-in for the ui-tour.
-  useUiTour: false,
 
   po2jsonFuzzyOutput: false,
 };
