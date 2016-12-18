@@ -6,7 +6,10 @@ import { createStore, combineReducers } from 'redux';
 
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
-import { ErrorHandler, withErrorHandling } from 'core/errorHandler';
+import {
+  getDefaultErrorHandler, clearDefaultErrorHandler, setDefaultErrorHandler,
+  ErrorHandler, withErrorHandling,
+} from 'core/errorHandler';
 import errors from 'core/reducers/errors';
 import { createFakeApiError } from 'tests/client/core/reducers/test_errors';
 
@@ -158,6 +161,45 @@ describe('errorHandler', () => {
       assert.ok(errorHandler.dispatch.called);
       assert.deepEqual(errorHandler.dispatch.firstCall.args[0],
                        clearError(errorHandler.id));
+    });
+  });
+
+  describe('default error handlers', () => {
+    let handler;
+
+    beforeEach(() => {
+      clearDefaultErrorHandler();
+      handler = new ErrorHandler({
+        id: 'some-handler', dispatch: sinon.stub(),
+      });
+    });
+
+    describe('set/getDefaultErrorHandler', () => {
+      it('sets and returns a registered error handler', () => {
+        setDefaultErrorHandler(handler);
+        assert.equal(getDefaultErrorHandler(), handler);
+      });
+    });
+
+    describe('setDefaultErrorHandler', () => {
+      it('allows you to set a handler twice', () => {
+        setDefaultErrorHandler(handler);
+        setDefaultErrorHandler(handler);
+      });
+    });
+
+    describe('getDefaultErrorHandler', () => {
+      it('returns null when no handler has been registered', () => {
+        assert.strictEqual(getDefaultErrorHandler(), null);
+      });
+    });
+
+    describe('clearDefaultErrorHandler', () => {
+      it('lets you clear the default error handler', () => {
+        setDefaultErrorHandler(handler);
+        clearDefaultErrorHandler();
+        assert.strictEqual(getDefaultErrorHandler(), null);
+      });
     });
   });
 });

@@ -7,6 +7,8 @@ import log from 'core/logger';
 
 import 'core/css/ErrorHandler.scss';
 
+let defaultErrorHandler;
+
 function generateHandlerId({ name = '' } = {}) {
   return `${name}-${Math.random().toString(36).substr(2, 9)}`;
 }
@@ -85,4 +87,24 @@ export function withErrorHandling({ name, id } = {}) {
       connect(mapStateToProps),
     )(ErrorHandlerComponent);
   };
+}
+
+export function clearDefaultErrorHandler() {
+  defaultErrorHandler = undefined;
+}
+
+export function getDefaultErrorHandler() {
+  if (!defaultErrorHandler) {
+    log.warn('Cannot get default error handler because none has been registered');
+    return null;
+  }
+  return defaultErrorHandler;
+}
+
+export function setDefaultErrorHandler(errorHandler) {
+  if (defaultErrorHandler) {
+    log.warn('Overwriting existing default error handler:',
+             defaultErrorHandler);
+  }
+  defaultErrorHandler = errorHandler;
 }
