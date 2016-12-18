@@ -31,25 +31,25 @@ class SearchResults extends React.Component {
 
     let messageText;
 
-    if (hasSearchParams && loading) {
+    if (loading) {
       messageText = i18n.gettext('Searching...');
-    } else if (!loading && count === 0) {
+    } else if (count === 0 && hasSearchParams) {
       if (query) {
         messageText = i18n.sprintf(
           i18n.gettext('No results were found for "%(query)s".'), { query });
-      } else if (hasSearchParams) {
+      } else {
         // TODO: Add the extension type, if available, so it says
         // "no extensions" found that match your search or something.
         messageText = i18n.gettext('No results were found.');
-      } else {
-        messageText = i18n.gettext(
-          'Please enter a search term to search Mozilla Add-ons.');
       }
+    } else if (!hasSearchParams) {
+      messageText = i18n.gettext(
+        'Please enter a search term to search Mozilla Add-ons.');
     }
 
     return (
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
-        <AddonsCard addons={results}>
+        <AddonsCard addons={hasSearchParams ? results : null}>
           {messageText ? (
             <p ref={(ref) => { this.message = ref; }}
               className="SearchResults-message">

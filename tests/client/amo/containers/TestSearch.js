@@ -15,6 +15,7 @@ describe('Search.mapStateToProps()', () => {
       cd: { slug: 'cd', name: 'cd-block' },
     },
     search: {
+      count: 5,
       filters: { query: 'ad-block' },
       hasSearchParams: true,
       loading: false,
@@ -23,13 +24,22 @@ describe('Search.mapStateToProps()', () => {
   };
 
   it('passes the search state if the URL and state query matches', () => {
-    const props = mapStateToProps(state, { location: { query: { q: 'ad-block' } } });
+    const props = mapStateToProps(
+      state,
+      { location: { query: { q: 'ad-block' } } }
+    );
     assert.deepEqual(props, state.search);
   });
 
-  it('does not pass search state if the URL and state query do not match', () => {
-    const props = mapStateToProps(state, { location: { query: { q: 'more-ads' } } });
-    assert.deepEqual(props, { hasSearchParams: true });
+  it('passes search state even if the URL and state query do not match', () => {
+    const props = mapStateToProps(
+      state,
+      { location: { query: { q: 'more-ads' } } }
+    );
+    assert.deepEqual(
+      props,
+      { ...state.search, filters: { query: 'more-ads' } }
+    );
   });
 });
 

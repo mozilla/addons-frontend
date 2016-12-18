@@ -5,6 +5,7 @@ import {
 } from 'react-addons-test-utils';
 
 import SearchResults from 'amo/components/SearchResults';
+import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
@@ -18,6 +19,16 @@ describe('<SearchResults />', () => {
   it('renders empty search results container', () => {
     const root = renderResults();
     assert.include(root.message.textContent, 'enter a search term');
+  });
+
+  it('renders no results if hasSearchParams is false', () => {
+    const root = renderResults({
+      hasSearchParams: false,
+      loading: false,
+      results: [fakeAddon],
+    });
+    assert.include(root.message.textContent, 'enter a search term');
+    assert.notInclude(root.container.textContent, fakeAddon.name);
   });
 
   it('renders no results when searched but nothing is found', () => {

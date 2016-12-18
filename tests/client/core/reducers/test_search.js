@@ -27,7 +27,7 @@ describe('search reducer', () => {
         { type: 'SEARCH_STARTED', payload: { filters: { query: 'foo' } } });
       assert.deepEqual(state.filters, { query: 'foo' });
       assert.strictEqual(state.loading, true);
-      assert.deepEqual(state.results, []);
+      assert.deepEqual(state.results, [{ slug: 'bar' }]);
     });
   });
 

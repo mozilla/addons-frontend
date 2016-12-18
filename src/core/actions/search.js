@@ -5,10 +5,10 @@ import {
 } from 'core/constants';
 
 
-export function searchStart({ page, filters }) {
+export function searchStart({ filters, page, results }) {
   return {
     type: SEARCH_STARTED,
-    payload: { page, filters },
+    payload: { filters, page, results },
   };
 }
 

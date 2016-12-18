@@ -47,6 +47,7 @@ export function mapStateToProps(state, ownProps) {
     ...location.query,
     clientApp: state.api.clientApp,
   });
+
   // We don't count ALL filters here (eg clientApp) because it's not enough
   // to search on and it's in every request on AMO. If admin search wanted
   // to be able to search on only clientApp this would need changing or
@@ -55,24 +56,17 @@ export function mapStateToProps(state, ownProps) {
     typeof param !== 'undefined' && param.length
   ));
 
-  const stateMatchesLocation = deepEqual(
-    { ...filters, page: parsePage(location.query.page) },
-    { ...state.search.filters, page: parsePage(state.search.page) },
-  );
-
-  if (hasSearchParams && stateMatchesLocation) {
-    return { hasSearchParams, filters, ...state.search };
-  }
-
-  return { hasSearchParams };
+  return { ...state.search, filters, hasSearchParams };
 }
 
-export function performSearch({ dispatch, page, api, auth = false, filters }) {
+export function performSearch(
+  { api, auth = false, dispatch, filters, page, results }
+) {
   if (!filters || !Object.values(filters).length) {
     return Promise.resolve();
   }
 
-  dispatch(searchStart({ page, filters }));
+  dispatch(searchStart({ filters, page, results }));
   return search({ page, api, auth, filters })
     .then((response) => dispatch(searchLoad({ page, filters, ...response })))
     .catch(() => dispatch(searchFail({ page, filters })));
@@ -84,7 +78,9 @@ export function isLoaded({ page, state, filters }) {
   ) && !state.loading;
 }
 
-export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, location }) {
+export function loadSearchResultsIfNeeded(
+  { store: { dispatch, getState }, location }
+) {
   const page = parsePage(location.query.page);
   const state = getState();
   const filters = convertQueryParamsToFilters({
@@ -93,7 +89,14 @@ export function loadSearchResultsIfNeeded({ store: { dispatch, getState }, locat
   });
 
   if (!isLoaded({ state: state.search, page, filters })) {
-    return performSearch({ dispatch, page, api: state.api, auth: state.auth, filters });
+    return performSearch({
+      api: state.api,
+      auth: state.auth,
+      dispatch,
+      filters,
+      page,
+      results: state.search.results,
+    });
   }
   return true;
 }
