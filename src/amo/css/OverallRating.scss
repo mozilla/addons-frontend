@@ -2,6 +2,7 @@
 .OverallRating-choices {
   display: flex;
   justify-content: center;
+  margin: 15px 0;
 }
 
 $star-size: 46px;
@@ -10,7 +11,6 @@ $star-size: 46px;
   background: url('../img/ratings/big-star.svg') center/$star-size no-repeat;
   cursor: pointer;
   height: $star-size + 10px;
-  padding-top: 80px;
   width: $star-size + 10px;
 }
 
