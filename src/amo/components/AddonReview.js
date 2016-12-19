@@ -23,10 +23,6 @@ export class AddonReviewBase extends React.Component {
     updateReviewText: PropTypes.func,
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   onSubmit = (event) => {
     event.preventDefault();
     const body = this.reviewTextarea.value;
