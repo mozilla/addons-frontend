@@ -27,7 +27,8 @@ describe('Details Page', () => {
   });
 
   it('should surface a 401 error from the API', () => {
-    fetchMock.get(detailsAPIURL, undefined, {
+    fetchMock.get({
+      matcher: detailsAPIURL,
       response: {
         status: 401,
         body: { error: 'not authorized' },
@@ -39,7 +40,8 @@ describe('Details Page', () => {
   });
 
   it('should surface a 404 error from the API', () => {
-    fetchMock.get(detailsAPIURL, undefined, {
+    fetchMock.get({
+      matcher: detailsAPIURL,
       response: {
         status: 404,
         body: { error: 'not found' },
