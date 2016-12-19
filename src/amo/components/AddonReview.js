@@ -7,6 +7,7 @@ import { withRouter } from 'react-router';
 import { submitReview } from 'amo/api';
 import { setReview } from 'amo/actions/reviews';
 import { callApi } from 'core/api';
+import { withErrorHandling } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 
 import 'amo/css/AddonReview.scss';
@@ -15,6 +16,7 @@ import 'amo/css/AddonReview.scss';
 export class AddonReviewBase extends React.Component {
   static propTypes = {
     apiState: PropTypes.object,
+    errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     review: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
@@ -23,24 +25,15 @@ export class AddonReviewBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { errorMessage: null };
   }
 
   onSubmit = (event) => {
     event.preventDefault();
-    this.clearErrors();
     const body = this.reviewTextarea.value;
-    if (!body) {
-      this.setState({
-        errorMessage: this.props.i18n.gettext(
-          'Please enter some text'
-        ),
-      });
-      return Promise.reject();
-    }
     const params = {
       body,
       addonSlug: this.props.review.addonSlug,
+      errorHandler: this.props.errorHandler,
       reviewId: this.props.review.id,
       apiState: this.props.apiState,
       router: this.props.router,
@@ -57,24 +50,10 @@ export class AddonReviewBase extends React.Component {
     router.push(`/${lang}/${clientApp}/addon/${addonSlug}/`);
   }
 
-  clearErrors() {
-    this.setState({ errorMessage: null });
-  }
-
   render() {
     const { i18n, review } = this.props;
     if (!review || !review.id || !review.addonSlug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
-    }
-
-    let errorMessage;
-    if (this.state.errorMessage) {
-      errorMessage = (
-        <div className="AddonReview-error"
-             ref={(ref) => { this.errorMessage = ref; }}>
-          {this.state.errorMessage}
-        </div>
-      );
     }
 
     let placeholder;
@@ -98,7 +77,6 @@ export class AddonReviewBase extends React.Component {
       <div className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
-        {errorMessage}
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <textarea
             className="AddonReview-textarea"
@@ -160,6 +138,7 @@ export default compose(
     deferred: true,
     promise: loadAddonReview,
   }]),
+  withErrorHandling({ name: 'AddonReview' }),
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),

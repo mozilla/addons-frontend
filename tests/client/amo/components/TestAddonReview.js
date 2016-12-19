@@ -22,6 +22,7 @@ const defaultReview = {
 
 function render({ ...customProps } = {}) {
   const props = {
+    errorHandler: sinon.stub(),
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
     review: defaultReview,
@@ -41,7 +42,8 @@ describe('AddonReview', () => {
   it('can update a review', () => {
     const router = { push: sinon.stub() };
     const updateReviewText = sinon.spy(() => Promise.resolve());
-    const root = render({ updateReviewText, router });
+    const errorHandler = sinon.stub();
+    const root = render({ updateReviewText, router, errorHandler });
     const event = { preventDefault: sinon.stub() };
 
     const textarea = root.reviewTextarea;
@@ -54,6 +56,7 @@ describe('AddonReview', () => {
         const params = updateReviewText.firstCall.args[0];
         assert.equal(params.body, 'some review');
         assert.equal(params.addonSlug, defaultReview.addonSlug);
+        assert.equal(params.errorHandler, errorHandler);
         assert.equal(params.reviewId, defaultReview.id);
         assert.equal(params.apiState, signedInApiState);
 
@@ -95,17 +98,6 @@ describe('AddonReview', () => {
 
     // Make sure the submit handler is hooked up.
     assert.ok(updateReviewText.called);
-  });
-
-  it('requires the review text to be non-empty', () => {
-    const root = render();
-    assert.equal(root.errorMessage, undefined);
-
-    // By default the textarea for the review is empty.
-    Simulate.submit(root.reviewForm);
-
-    assert.ok(root.errorMessage);
-    assert.equal(root.errorMessage.textContent, 'Please enter some text');
   });
 
   it('requires a review object', () => {
