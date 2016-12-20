@@ -1,14 +1,16 @@
 import * as actions from 'core/actions/search';
 
 describe('SEARCH_STARTED', () => {
-  const action = actions.searchStart({ filters: { query: 'foo' }, page: 5 });
+  const action = actions.searchStart(
+    { filters: { query: 'foo' }, page: 5, results: [] });
 
   it('sets the type', () => {
     assert.equal(action.type, 'SEARCH_STARTED');
   });
 
-  it('sets the query', () => {
-    assert.deepEqual(action.payload, { filters: { query: 'foo' }, page: 5 });
+  it('sets the query and existing results', () => {
+    assert.deepEqual(action.payload,
+      { filters: { query: 'foo' }, page: 5, results: [] });
   });
 });
 

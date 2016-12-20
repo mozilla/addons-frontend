@@ -25,7 +25,7 @@ describe('CategoryPage.mapStateToProps()', () => {
 
   it('passes the search state if the filters and state matches', () => {
     const store = createStore();
-    store.dispatch(searchStart({ filters }));
+    store.dispatch(searchStart({ filters, results: [] }));
     const props = mapStateToProps(store.getState(), ownProps);
 
     assert.deepEqual(props, {

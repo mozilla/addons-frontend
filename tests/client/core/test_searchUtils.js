@@ -17,7 +17,7 @@ describe('searchUtils mapStateToProps()', () => {
     // clientApp is always supplied and it's not enough to search on, so we
     // don't allow searches on it.
     const props = mapStateToProps(state, { location: { query: { } } });
-    assert.deepEqual(props, { hasSearchParams: false });
+    assert.deepEqual(props, { filters: {}, hasSearchParams: false });
   });
 });
 
