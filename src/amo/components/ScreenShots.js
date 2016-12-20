@@ -1,41 +1,59 @@
-/* eslint-disable jsx-a11y/href-no-hash */
+/* global document, requestAnimationFrame, window
+ * eslint-disable jsx-a11y/href-no-hash */
 
 import React, { PropTypes } from 'react';
-
-import translate from 'core/i18n/translate';
+import { PhotoSwipeGallery } from 'react-photoswipe';
+import 'react-photoswipe/lib/photoswipe.css';
 
 import 'amo/css/ScreenShots.scss';
 
+const HEIGHT = 200;
+const WIDTH = 320;
 
-export class ScreenShotsBase extends React.Component {
+export default class ScreenShots extends React.Component {
   static propTypes = {
-    i18n: PropTypes.object.isRequired,
+    previews: PropTypes.array.isRequired,
   }
 
-  render() {
-    const { i18n } = this.props;
-    const totalImages = 5;
+  onClose = (photoswipe) => {
+    const index = photoswipe.getCurrentIndex();
+    const list = this.viewport.querySelector('.pswp-thumbnails');
+    const currentItem = list.children[index];
+    const offset = currentItem.getBoundingClientRect().x;
+    list.scrollLeft += offset - list.getBoundingClientRect().x;
+  }
 
-    // This is just a placeholder.
+  thumbnailContent = (item) => (
+    <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" />
+  )
+
+  render() {
+    const { previews } = this.props;
+    const items = previews.map((preview) => ({
+      src: preview.image_url,
+      thumbnail_src: preview.thumbnail_url,
+      h: HEIGHT,
+      w: WIDTH,
+      title: preview.caption,
+    }));
+    const photoSwipeOptions = {
+      closeEl: true,
+      captionEl: true,
+      fullscreenEl: false,
+      zoomEl: false,
+      shareEl: false,
+      counterEl: true,
+      arrowEl: true,
+      preloaderEl: true,
+    };
     return (
       <div className="ScreenShots">
-        <img alt="" />
-        <ol>
-          {[...Array(totalImages)].map((x, i) =>
-            (<li>
-              <a href="#" className={i + 1 === 2 ? 'active' : null}>
-                <span className="visually-hidden">
-                  {i18n.sprintf(i18n.gettext(
-                    'screenshot %(imageNumber)s of %(totalImages)s'
-                  ), { imageNumber: i + 1, totalImages })}
-                </span>
-              </a>
-            </li>)
-          )}
-        </ol>
+        <div className="ScreenShots-viewport" ref={(el) => { this.viewport = el; }}>
+          <PhotoSwipeGallery
+            className="ScreenShots-list" close={this.onClose} items={items}
+            options={photoSwipeOptions} thumbnailContent={this.thumbnailContent} />
+        </div>
       </div>
     );
   }
 }
-
-export default translate({ withRef: true })(ScreenShotsBase);

@@ -42,6 +42,9 @@ const settings = {
         exclude: /node_modules/,
         loader: 'babel',
       }, {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
+      }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
       }, {
@@ -53,6 +56,9 @@ const settings = {
       }, {
         test: /\.png$/,
         loader: 'url?limit=10000&mimetype=image/png',
+      }, {
+        test: /\.gif/,
+        loader: 'url?limit=10000&mimetype=image/gif',
       }, {
         test: /\.webm$/,
         loader: 'url?limit=10000&mimetype=video/webm',
@@ -110,8 +116,9 @@ const settings = {
     },
     root: [
       path.resolve(__dirname),
+      path.resolve('./src'),
     ],
-    modulesDirectories: ['node_modules', 'src'],
+    modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.jsx'],
   },
 };
