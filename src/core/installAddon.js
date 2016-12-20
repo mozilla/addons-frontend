@@ -80,8 +80,6 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
     dispatch,
     {
       _addonManager = addonManager,
-      _config = config,
-      _dispatchEvent,
       _tracking = tracking,
       ...ownProps
     } = {},
@@ -95,38 +93,17 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
         withInstallHelpers is called`);
     }
 
-    // Set the default here otherwise server code will blow up.
-    const dispatchEvent = _dispatchEvent || document.dispatchEvent;
-
-    function showInfo({ name, iconUrl, i18n }) {
-      if (_config.has('useUiTour') && _config.get('useUiTour')) {
-        dispatchEvent(new CustomEvent('mozUITour', {
-          bubbles: true,
-          detail: {
-            action: 'showInfo',
-            data: {
-              target: 'appMenu',
-              icon: iconUrl,
-              title: i18n.gettext('Your add-on is ready'),
-              text: i18n.sprintf(
-                i18n.gettext('Now you can access %(name)s from the toolbar.'),
-              { name }),
-              buttons: [{ label: i18n.gettext('OK!'), callbackID: 'add-on-installed' }],
-            },
+    function showInfo({ name, iconUrl }) {
+      dispatch({
+        type: SHOW_INFO,
+        payload: {
+          addonName: name,
+          imageURL: iconUrl,
+          closeAction: () => {
+            dispatch({ type: CLOSE_INFO });
           },
-        }));
-      } else {
-        dispatch({
-          type: SHOW_INFO,
-          payload: {
-            addonName: name,
-            imageURL: iconUrl,
-            closeAction: () => {
-              dispatch({ type: CLOSE_INFO });
-            },
-          },
-        });
-      }
+        },
+      });
     }
 
     return {
@@ -160,10 +137,10 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       },
 
       enable({ _showInfo = showInfo } = {}) {
-        const { guid, i18n, iconUrl, name } = ownProps;
+        const { guid, iconUrl, name } = ownProps;
         return _addonManager.enable(guid)
           .then(() => {
-            _showInfo({ name, iconUrl, i18n });
+            _showInfo({ name, iconUrl });
           })
           .catch((err) => {
             if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
@@ -179,7 +156,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       },
 
       install() {
-        const { guid, i18n, iconUrl, installURL, name } = ownProps;
+        const { guid, iconUrl, installURL, name } = ownProps;
         dispatch({ type: START_DOWNLOAD, payload: { guid } });
         return _addonManager.install(installURL, makeProgressHandler(dispatch, guid), { src })
           .then(() => {
@@ -188,7 +165,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
               category: INSTALL_CATEGORY,
               label: name,
             });
-            showInfo({ name, iconUrl, i18n });
+            showInfo({ name, iconUrl });
           })
           .catch((err) => {
             log.error(err);

@@ -30,7 +30,7 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import {
-  getFakeAddonManagerWrapper, getFakeI18nInst, shallowRender,
+  getFakeAddonManagerWrapper, shallowRender,
 } from 'tests/client/helpers';
 import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
@@ -252,8 +252,7 @@ describe('withInstallHelpers inner functions', () => {
     it('sets status to error on onDownloadFailed', () => {
       const dispatch = sinon.spy();
       const guid = '{my-addon}';
-      const i18n = getFakeI18nInst();
-      const handler = makeProgressHandler(dispatch, guid, i18n);
+      const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
       assert(dispatch.calledWith({
         type: 'INSTALL_ERROR',
@@ -264,8 +263,7 @@ describe('withInstallHelpers inner functions', () => {
     it('sets status to error on onInstallFailed', () => {
       const dispatch = sinon.spy();
       const guid = '{my-addon}';
-      const i18n = getFakeI18nInst();
-      const handler = makeProgressHandler(dispatch, guid, i18n);
+      const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
       assert(dispatch.calledWith({
         type: 'INSTALL_ERROR',
@@ -290,15 +288,14 @@ describe('withInstallHelpers inner functions', () => {
     it('calls addonManager.enable()', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
-      const i18n = getFakeI18nInst();
       const { enable } = mapDispatchToProps(
         dispatch,
-        { name, iconUrl, guid, _addonManager: fakeAddonManager, i18n });
+        { name, iconUrl, guid, _addonManager: fakeAddonManager });
       const fakeShowInfo = sinon.stub();
       return enable({ _showInfo: fakeShowInfo })
         .then(() => {
           assert.ok(fakeAddonManager.enable.calledWith(guid));
-          assert.ok(fakeShowInfo.calledWith({ name, i18n, iconUrl }));
+          assert.ok(fakeShowInfo.calledWith({ name, iconUrl }));
         });
     });
 
@@ -307,10 +304,9 @@ describe('withInstallHelpers inner functions', () => {
         enable: sinon.stub().returns(Promise.reject(new Error('hai'))),
       };
       const dispatch = sinon.spy();
-      const i18n = getFakeI18nInst();
       const { enable } = mapDispatchToProps(
         dispatch,
-        { name, iconUrl, guid, _addonManager: fakeAddonManager, i18n });
+        { name, iconUrl, guid, _addonManager: fakeAddonManager });
       return enable()
         .then(() => {
           assert.ok(dispatch.calledWith({
@@ -325,10 +321,9 @@ describe('withInstallHelpers inner functions', () => {
         enable: sinon.stub().returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
       };
       const dispatch = sinon.spy();
-      const i18n = getFakeI18nInst();
       const { enable } = mapDispatchToProps(
         dispatch,
-        { name, iconUrl, guid, _addonManager: fakeAddonManager, i18n });
+        { name, iconUrl, guid, _addonManager: fakeAddonManager });
       return enable()
         .then(() => {
           assert.notOk(dispatch.calledWith({
@@ -346,10 +341,9 @@ describe('withInstallHelpers inner functions', () => {
     it('calls addonManager.install()', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const dispatch = sinon.spy();
-      const i18n = getFakeI18nInst();
       const { install } = mapDispatchToProps(
         dispatch,
-        { _addonManager: fakeAddonManager, i18n, installURL });
+        { _addonManager: fakeAddonManager, installURL });
       return install({ guid, installURL })
         .then(() => {
           assert(fakeAddonManager.install.calledWith(installURL, sinon.match.func, { src }));
@@ -360,14 +354,13 @@ describe('withInstallHelpers inner functions', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const name = 'hai-addon';
       const type = 'extension';
-      const i18n = getFakeI18nInst();
       const dispatch = sinon.spy();
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
       const { install } = mapDispatchToProps(
         dispatch,
-        { _tracking: fakeTracking, _addonManager: fakeAddonManager, i18n, name });
+        { _tracking: fakeTracking, _addonManager: fakeAddonManager, name });
       return install({ guid, installURL, name, type })
         .then(() => {
           assert(fakeTracking.sendEvent.calledWith({
@@ -380,11 +373,10 @@ describe('withInstallHelpers inner functions', () => {
 
     it('should dispatch START_DOWNLOAD', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
-      const i18n = getFakeI18nInst();
       const dispatch = sinon.spy();
       const { install } = mapDispatchToProps(
         dispatch,
-        { _addonManager: fakeAddonManager, guid, i18n });
+        { _addonManager: fakeAddonManager, guid });
       return install({ guid, installURL })
         .then(() => assert(dispatch.calledWith({
           type: START_DOWNLOAD,
@@ -394,20 +386,14 @@ describe('withInstallHelpers inner functions', () => {
 
     it('should dispatch SHOW_INFO', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
-      const i18n = getFakeI18nInst();
       const dispatch = sinon.spy();
       const iconUrl = 'whatevs';
       const name = 'test-addon';
 
-      const fakeConfig = {
-        has: sinon.stub().withArgs('useUiTour').returns(false),
-      };
       const { install } = mapDispatchToProps(
         dispatch,
         {
           _addonManager: fakeAddonManager,
-          _config: fakeConfig,
-          i18n,
           iconUrl,
           name,
         });
@@ -435,40 +421,13 @@ describe('withInstallHelpers inner functions', () => {
         });
     });
 
-    it('should use uiTour', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
-      const i18n = getFakeI18nInst();
-      const dispatch = sinon.spy();
-      const iconUrl = 'whatevs';
-      const name = 'test-addon';
-
-      const fakeConfig = {
-        has: sinon.stub().withArgs('useUiTour').returns(true),
-        get: sinon.stub().withArgs('useUiTour').returns(true),
-      };
-      const fakeDispatchEvent = sinon.stub();
-      const { install } = mapDispatchToProps(
-        dispatch,
-        {
-          _addonManager: fakeAddonManager,
-          _dispatchEvent: fakeDispatchEvent,
-          _config: fakeConfig,
-          i18n,
-          iconUrl,
-          name,
-        });
-      return install({ guid, installURL })
-        .then(() => assert.ok(fakeDispatchEvent.called));
-    });
-
     it('dispatches error when addonManager.install throws', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
       fakeAddonManager.install = sinon.stub().returns(Promise.reject());
-      const i18n = getFakeI18nInst();
       const dispatch = sinon.stub();
       const { install } = mapDispatchToProps(
         dispatch,
-        { _addonManager: fakeAddonManager, guid, i18n });
+        { _addonManager: fakeAddonManager, guid });
 
       return install({ guid, installURL })
         .then(() => {
