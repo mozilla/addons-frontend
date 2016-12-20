@@ -78,6 +78,8 @@ const settings = {
     }),
     // Replaces server config module with the subset clientConfig object.
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
+    // Prevent locales with moment require calls from crashing
+    new webpack.NormalModuleReplacementPlugin(/\.\.\/moment$/, 'moment'),
     // Substitutes client only config.
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
     // Use the browser's window for window.
@@ -85,7 +87,7 @@ const settings = {
     // This allow us to exclude locales for other apps being built.
     new webpack.ContextReplacementPlugin(
       /locale$/,
-      new RegExp(`^\\.\\/.*?\\/${appName}\\.json$`)
+      new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
     ),
     new ExtractTextPlugin('[name]-[contenthash].css', { allChunks: true }),
     new SriStatsPlugin({

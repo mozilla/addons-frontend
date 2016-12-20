@@ -5,7 +5,6 @@ import 'babel-polyfill';
 import config from 'config';
 import Express from 'express';
 import helmet from 'helmet';
-import Jed from 'jed';
 import cookie from 'react-cookie';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -19,7 +18,12 @@ import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setClientApp, setLang, setJWT } from 'core/actions';
 import log from 'core/logger';
-import { getDirection, isValidLang, langToLocale } from 'core/i18n/utils';
+import {
+  getDirection,
+  isValidLang,
+  langToLocale,
+  makeI18n,
+} from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
@@ -121,7 +125,9 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       webpackIsomorphicTools.refresh();
     }
 
-    match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+    match({ location: req.url, routes }, (
+      err, redirectLocation, renderProps
+    ) => {
       cookie.plugToRequest(req, res);
 
       if (err) {
@@ -182,17 +188,19 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       return loadOnServer({ ...renderProps, store })
         .then(() => {
           // eslint-disable-next-line global-require
-          let jedData = {};
+          let i18nData = {};
           try {
             if (locale !== langToLocale(config.get('defaultLang'))) {
               // eslint-disable-next-line global-require, import/no-dynamic-require
-              jedData = require(`json!../../locale/${locale}/${appInstanceName}.json`);
+              i18nData = require(
+                `../../locale/${locale}/${appInstanceName}.js`);
             }
           } catch (e) {
             log.info(`Locale JSON not found or required for locale: "${locale}"`);
             log.info(`Falling back to default lang: "${config.get('defaultLang')}".`);
           }
-          const i18n = new Jed(jedData);
+          const i18n = makeI18n(i18nData);
+
           const InitialComponent = (
             <I18nProvider i18n={i18n}>
               <Provider store={store} key="provider">
