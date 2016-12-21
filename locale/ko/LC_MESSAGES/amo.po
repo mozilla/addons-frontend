@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-29 01:35+0000\n"
+"PO-Revision-Date: 2016-12-21 08:06+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(startSpan)s%(authorList)s에 의해 제작된%(endSpan)s %(addonName)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
@@ -44,7 +44,7 @@ msgstr ""
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "심리"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
@@ -76,7 +76,7 @@ msgstr "법적 고지 사항"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "데스크톱 사이트 보기"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
@@ -157,27 +157,27 @@ msgstr "파이어폭스가 어떻게 보여지길 바라십니까?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
-msgstr ""
+msgstr "거친"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
-msgstr ""
+msgstr "추상적인"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
-msgstr ""
+msgstr "멋있는"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
-msgstr ""
+msgstr "경치가 좋은"
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
-msgstr ""
+msgstr "활발한"
 
 #: src/amo/containers/Home.js:38
 msgid "Mystical"
-msgstr ""
+msgstr "신비로운"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
