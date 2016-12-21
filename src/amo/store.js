@@ -8,6 +8,7 @@ import api from 'core/reducers/api';
 import auth from 'core/reducers/authentication';
 import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
+import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import search from 'core/reducers/search';
 import { middleware } from 'core/store';
@@ -21,6 +22,7 @@ export default function createStore(initialState = {}) {
       auth,
       categories,
       errors,
+      infoDialog,
       installations,
       landing,
       reduxAsyncConnect,

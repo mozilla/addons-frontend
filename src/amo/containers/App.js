@@ -11,6 +11,7 @@ import 'amo/css/App.scss';
 import SearchForm from 'amo/components/SearchForm';
 import { addChangeListeners } from 'core/addonManager';
 import { INSTALL_STATE } from 'core/constants';
+import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';
@@ -71,6 +72,7 @@ export class AppBase extends React.Component {
     return (
       <div className="amo">
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
+        <InfoDialog />
         <MastHeadComponent SearchFormComponent={SearchForm} query={query}>
           {this.accountButton()}
         </MastHeadComponent>

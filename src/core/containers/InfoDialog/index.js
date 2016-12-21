@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import onClickOutside from 'react-onclickoutside';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import './InfoDialog.scss';
@@ -39,4 +41,19 @@ export class InfoDialogBase extends React.Component {
   }
 }
 
-export default translate()(onClickOutside(InfoDialogBase));
+export const InfoDialog = compose(
+  translate(),
+  onClickOutside,
+)(InfoDialogBase);
+
+const ShowInfoDialog = ({ data, show }) => (show ? <InfoDialog {...data} /> : null);
+ShowInfoDialog.propTypes = {
+  data: PropTypes.object.isRequired,
+  show: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => state.infoDialog;
+
+export default compose(
+  connect(mapStateToProps),
+)(ShowInfoDialog);
