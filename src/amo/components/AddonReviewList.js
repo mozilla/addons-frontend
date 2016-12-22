@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
+import OverallRating from 'amo/components/OverallRating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { callApi } from 'core/api';
 import translate from 'core/i18n/translate';
@@ -28,13 +29,21 @@ export class AddonReviewListBase extends React.Component {
   }
 
   renderReview(review) {
+    const { addon } = this.props.initialData;
+    // FIXME: get actual review version.
+    const version = addon.current_version;
     return (
       <li className="AddonReviewList-li">
         <h3>{review.title}</h3>
         <p>
           {review.body}
         </p>
-        <span>{this.props.i18n.gettext('from')} {review.userName}</span>
+        <span>
+          <OverallRating
+            addon={addon} userReview={review} version={version}
+            readOnly={true} />
+          {this.props.i18n.gettext('from')} {review.userName}
+        </span>
       </li>
     );
   }
@@ -77,6 +86,8 @@ function loadAddonReviews({ addonSlug, dispatch }) {
     method: 'GET',
   })
     .then((response) => {
+      // TODO: ignore reviews with null bodies as those
+      // are legitimately incomplete.
       const action = setAddonReviews(
         { addonSlug, reviews: response.results });
       dispatch(action);
