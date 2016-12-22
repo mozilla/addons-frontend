@@ -68,6 +68,9 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
         loader: 'babel',
         query: babelQuery,
       }, {
+        test: /\.css$/,
+        loader: 'style!css?importLoaders=2!postcss?outputStyle=expanded',
+      }, {
         test: /\.scss$/,
         loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
       }, {
@@ -79,6 +82,9 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
       }, {
         test: /\.png$/,
         loader: 'url?limit=10000&mimetype=image/png',
+      }, {
+        test: /\.gif/,
+        loader: 'url?limit=10000&mimetype=image/gif',
       }, {
         test: /\.webm$/,
         loader: 'url?limit=10000&mimetype=video/webm',

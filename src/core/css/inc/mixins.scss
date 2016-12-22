@@ -232,6 +232,16 @@ $color: $text-color-message) {
   }
 }
 
+@mixin margin-start($val) {
+  [dir=ltr] & {
+    margin-left: $val;
+  }
+
+  [dir=rtl] & {
+    margin-right: $val;
+  }
+}
+
 @mixin margin-end($val) {
   [dir=ltr] & {
     margin-right: $val;

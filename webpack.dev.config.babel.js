@@ -71,6 +71,9 @@ export default Object.assign({}, webpackConfig, {
         loader: 'babel',
         query: BABEL_QUERY,
       }, {
+        test: /\.css$/,
+        loader: 'style!css?importLoaders=2!postcss?outputStyle=expanded',
+      }, {
         test: /\.scss$/,
         loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
       }, {
@@ -82,6 +85,9 @@ export default Object.assign({}, webpackConfig, {
       }, {
         test: /\.png$/,
         loader: 'url?limit=10000&mimetype=image/png',
+      }, {
+        test: /\.gif/,
+        loader: 'url?limit=10000&mimetype=image/gif',
       }, {
         test: /\.webm$/,
         loader: 'url?limit=10000&mimetype=video/webm',
