@@ -127,14 +127,9 @@ export class AddonDetailBase extends React.Component {
           <AddonMeta />
         </section>
 
-        <hr />
-
         <section className="screenshots">
-          <h2>{i18n.gettext('Screenshots')}</h2>
-          <ScreenShots />
+          <ScreenShots previews={addon.previews} />
         </section>
-
-        <hr />
 
         <ShowMoreCard header={i18n.sprintf(
           i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
