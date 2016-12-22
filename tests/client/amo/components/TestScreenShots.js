@@ -2,11 +2,10 @@ import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
-import ScreenShots from 'amo/components/ScreenShots';
+import ScreenShots, { thumbnailContent } from 'amo/components/ScreenShots';
 import { shallowRender } from 'tests/client/helpers';
 
 describe('<ScreenShots />', () => {
-  const onePxImg = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
   const previews = [
     {
       caption: 'A screenshot',
@@ -41,12 +40,12 @@ describe('<ScreenShots />', () => {
     const gallery = root.props.children.props.children;
     assert.equal(gallery.type, PhotoSwipeGallery);
     assert.deepEqual(gallery.props.items, items);
+    assert.deepEqual(gallery.props.thumbnailContent, thumbnailContent);
   });
 
-  it('sets renders thumbnails', () => {
-    const root = renderIntoDocument(<ScreenShots previews={[]} />);
+  it('renders custom thumbnail', () => {
     const item = { src: 'https://foo.com/img.png' };
-    const thumbnail = root.thumbnailContent(item);
+    const thumbnail = thumbnailContent(item);
     assert.equal(thumbnail.type, 'img');
     assert.equal(thumbnail.props.src, 'https://foo.com/img.png');
     assert.equal(thumbnail.props.height, '200');
@@ -55,7 +54,8 @@ describe('<ScreenShots />', () => {
   });
 
   it('scrolls to the active item on close', () => {
-    const newPreviews = previews.map((preview) => ({ ...preview, image_url: onePxImg }));
+    const onePixelImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+    const newPreviews = previews.map((preview) => ({ ...preview, image_url: onePixelImage }));
     const root = renderIntoDocument(<ScreenShots previews={newPreviews} />);
     const item = { getBoundingClientRect: () => ({ x: 500 }) };
     const list = {

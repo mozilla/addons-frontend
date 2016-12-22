@@ -9,6 +9,30 @@ import 'amo/css/ScreenShots.scss';
 
 const HEIGHT = 200;
 const WIDTH = 320;
+const PHOTO_SWIPE_OPTIONS = {
+  closeEl: true,
+  captionEl: true,
+  fullscreenEl: false,
+  zoomEl: false,
+  shareEl: false,
+  counterEl: true,
+  arrowEl: true,
+  preloaderEl: true,
+};
+
+const formatPreviews = (previews) => (
+  previews.map((preview) => ({
+    src: preview.image_url,
+    thumbnail_src: preview.thumbnail_url,
+    h: HEIGHT,
+    w: WIDTH,
+    title: preview.caption,
+  }))
+);
+
+export const thumbnailContent = (item) => (
+  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" />
+);
 
 export default class ScreenShots extends React.Component {
   static propTypes = {
@@ -23,35 +47,14 @@ export default class ScreenShots extends React.Component {
     list.scrollLeft += offset - list.getBoundingClientRect().x;
   }
 
-  thumbnailContent = (item) => (
-    <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" />
-  )
-
   render() {
     const { previews } = this.props;
-    const items = previews.map((preview) => ({
-      src: preview.image_url,
-      thumbnail_src: preview.thumbnail_url,
-      h: HEIGHT,
-      w: WIDTH,
-      title: preview.caption,
-    }));
-    const photoSwipeOptions = {
-      closeEl: true,
-      captionEl: true,
-      fullscreenEl: false,
-      zoomEl: false,
-      shareEl: false,
-      counterEl: true,
-      arrowEl: true,
-      preloaderEl: true,
-    };
     return (
       <div className="ScreenShots">
         <div className="ScreenShots-viewport" ref={(el) => { this.viewport = el; }}>
           <PhotoSwipeGallery
-            className="ScreenShots-list" close={this.onClose} items={items}
-            options={photoSwipeOptions} thumbnailContent={this.thumbnailContent} />
+            className="ScreenShots-list" close={this.onClose} items={formatPreviews(previews)}
+            options={PHOTO_SWIPE_OPTIONS} thumbnailContent={thumbnailContent} />
         </div>
       </div>
     );
