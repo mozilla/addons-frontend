@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-01 10:47+0000\n"
-"PO-Revision-Date: 2016-12-22 20:52+0000\n"
-"Last-Translator: Tomer Cohen <tomer.mozilla@tomercohen.com>\n"
+"PO-Revision-Date: 2016-12-22 21:12+0000\n"
+"Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr "%(name)s בהורדה."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s בהתקנה."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
@@ -44,11 +44,11 @@ msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 
 #: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "רחפו לתצוגה מקדימה או לחצו להתקנת %(name)s"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "רחפו על התמונה לתצוגה מקדימה"
 
 #: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
@@ -100,11 +100,11 @@ msgstr "גילוי תוספות"
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
-msgstr ""
+msgstr "הקישו להפעלה"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "כדי ללמוד עוד על תוספות"
 
 #: src/disco/containers/DiscoPane.js:117
 msgid "Close video"
