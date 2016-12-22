@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import 'babel-polyfill';
+import { oneLine } from 'common-tags';
 import config from 'config';
 import Express from 'express';
 import helmet from 'helmet';
@@ -119,7 +120,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   app.use((req, res) => {
     if (isDevelopment) {
-      log.info('Clearing require cache for webpack isomorphic tools. [Development Mode]');
+      log.info(oneLine`Clearing require cache for webpack isomorphic tools.
+        [Development Mode]`);
 
       // clear require() cache if in development mode
       webpackIsomorphicTools.refresh();
@@ -151,7 +153,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
       // Check the lang supplied by res.locals.lang for validity
       // or fall-back to the default.
-      const lang = isValidLang(res.locals.lang) ? res.locals.lang : config.get('defaultLang');
+      const lang = isValidLang(res.locals.lang) ?
+        res.locals.lang : config.get('defaultLang');
       const dir = getDirection(lang);
       const locale = langToLocale(lang);
       store.dispatch(setLang(lang));
@@ -196,8 +199,10 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
                 `../../locale/${locale}/${appInstanceName}.js`);
             }
           } catch (e) {
-            log.info(`Locale JSON not found or required for locale: "${locale}"`);
-            log.info(`Falling back to default lang: "${config.get('defaultLang')}".`);
+            log.info(
+              `Locale JSON not found or required for locale: "${locale}"`);
+            log.info(
+              `Falling back to default lang: "${config.get('defaultLang')}".`);
           }
           const i18n = makeI18n(i18nData);
 
@@ -255,7 +260,8 @@ export function runServer({ listen = true, app = appName } = {}) {
   const port = config.get('serverPort');
   const host = config.get('serverHost');
 
-  const isoMorphicServer = new WebpackIsomorphicTools(WebpackIsomorphicToolsConfig);
+  const isoMorphicServer = new WebpackIsomorphicTools(
+    WebpackIsomorphicToolsConfig);
   return isoMorphicServer
     .server(config.get('basePath'))
     .then(() => {
@@ -267,16 +273,19 @@ export function runServer({ listen = true, app = appName } = {}) {
         const routes = require(`${app}/routes`).default;
         const createStore = require(`${app}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        const server = baseServer(routes, createStore, { appInstanceName: app });
+        const server = baseServer(
+          routes, createStore, { appInstanceName: app });
         if (listen === true) {
           server.listen(port, host, (err) => {
             if (err) {
               reject(err);
             }
-            log.info(`🔥  Addons-frontend server is running [ENV:${env}] [APP:${app}] ` +
-                     `[isDevelopment:${isDevelopment}] [isDeployed:${isDeployed}] ` +
-                     `[apiHost:${config.get('apiHost')}] [apiPath:${config.get('apiPath')}]`);
-            log.info(`👁  Open your browser at http://${host}:${port} to view it.`);
+            log.info(oneLine`🔥  Addons-frontend server is running [ENV:${env}]
+              [APP:${app}] [isDevelopment:${isDevelopment}
+              [isDeployed:${isDeployed}] [apiHost:${config.get('apiHost')}]
+              [apiPath:${config.get('apiPath')}]`);
+            log.info(
+              `👁  Open your browser at http://${host}:${port} to view it.`);
             resolve(server);
           });
         } else {

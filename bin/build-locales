@@ -13,6 +13,7 @@ const glob = require('glob');
 const shelljs = require('shelljs');
 const chalk = require('chalk');
 const toSource = require('tosource');
+const oneLine = require('common-tags').oneLine;
 
 const appName = config.get('appName');
 
@@ -31,7 +32,7 @@ poFiles.forEach((pofile) => {
   const subdir = path.dirname(dir);
   const locale = path.basename(subdir);
   const stem = path.basename(pofile, '.po');
-  const jsonfile = path.join(dest, locale, `${stem}.js`);
+  const localeOutputFilePath = path.join(dest, locale, `${stem}.js`);
   shelljs.mkdir('-p', path.join(dest, locale));
 
   const json = po2json.parseFileSync(pofile, {
@@ -70,5 +71,6 @@ poFiles.forEach((pofile) => {
     localeObject._momentDefineLocale = defineLocale;
   }
 
-  fs.writeFileSync(jsonfile, `module.exports = ${toSource(localeObject)}`);
+  fs.writeFileSync(
+    localeOutputFilePath, `module.exports = ${toSource(localeObject)}`);
 });
