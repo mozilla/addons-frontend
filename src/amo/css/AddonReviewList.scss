@@ -1,0 +1,60 @@
+@import "~core/css/inc/vars";
+
+.AddonReviewList {
+  padding: 10px;
+}
+
+.AddonReviewList-header {
+  margin: 15px 0;
+
+  > h2, > h4 {
+    font-size: 1.1em;
+  }
+
+  > h2 {
+    padding-top: 10px;
+    margin: 0 0 5px 0;
+  }
+
+  > h4 {
+    font-weight: normal;
+    margin: 0;
+  }
+
+  > img {
+    float: left;
+    margin: 0 20px;
+  }
+
+  &:after {
+    clear: both;
+    display: block;
+    content: "";
+  }
+}
+
+.AddonReviewList-ul {
+  list-style: none;
+  background-color: white;
+  margin: 10px 0;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.AddonReviewList-li {
+  margin: 0;
+  padding: 10px;
+  border-bottom: 2px solid $accent-color;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  > h3 {
+    margin-bottom: 0;
+  }
+
+  > p {
+    margin-top: 0;
+  }
+}

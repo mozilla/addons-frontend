@@ -21,7 +21,10 @@ describe('amo.reducers.reviews', () => {
       versionId: fakeReview.version.id,
       isLatest: fakeReview.is_latest,
       userId: fakeReview.user.id,
+      userName: fakeReview.user.name,
+      userUrl: fakeReview.user.url,
       body: fakeReview.body,
+      title: fakeReview.title,
     });
   });
 

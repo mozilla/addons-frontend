@@ -30,10 +30,12 @@ export const fakeReview = {
   version: fakeAddon.current_version,
   user: {
     id: 1234,
+    name: 'fred',
+    url: 'http://some.com/link/to/profile',
   },
   is_latest: false,
   body: 'It is Okay',
-  title: null,
+  title: 'Review Title',
 };
 
 /*
