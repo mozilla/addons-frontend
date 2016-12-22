@@ -20,11 +20,16 @@ export class OverallRatingBase extends React.Component {
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
+    readOnly: PropTypes.boolean,
     router: PropTypes.object.isRequired,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
     userReview: PropTypes.object,
     version: PropTypes.object.isRequired,
+  }
+
+  static defaultProps = {
+    readOnly: false,
   }
 
   constructor(props) {
@@ -73,44 +78,63 @@ export class OverallRatingBase extends React.Component {
   }
 
   renderRatings() {
-    const { userReview } = this.props;
+    const { readOnly, userReview } = this.props;
     return [1, 2, 3, 4, 5].map((rating) =>
       <button
         className={classNames('OverallRating-choice', {
           'OverallRating-selected-star':
             userReview && rating <= userReview.rating,
         })}
+        disabled={readOnly}
         ref={(ref) => { this.ratingButtons[rating] = ref; }}
         value={rating}
-        onClick={this.onClickRating}
+        onClick={readOnly ? null : this.onClickRating}
         id={`OverallRating-rating-${rating}`}
       />
     );
   }
 
   render() {
-    const { i18n, addon } = this.props;
-    const prompt = i18n.sprintf(
-      i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
-      { addonName: addon.name });
+    const { readOnly, i18n, addon } = this.props;
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
 
-    return (
-      <div className="OverallRating">
+    const starRatings = (
+      <div className="OverallRating-choices">
+        <span className="OverallRating-star-group">
+          {this.renderRatings()}
+        </span>
+      </div>
+    );
+
+    let ratingContainer;
+    if (readOnly) {
+      ratingContainer = starRatings;
+    } else {
+      const prompt = i18n.sprintf(
+        i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
+        { addonName: addon.name });
+
+      ratingContainer = (
         <form action="">
           <fieldset>
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
               {prompt}
             </legend>
-            <div className="OverallRating-choices">
-              <span className="OverallRating-star-group">
-                {this.renderRatings()}
-              </span>
-            </div>
+            {starRatings}
           </fieldset>
         </form>
+      );
+    }
+
+    const cls = classNames('OverallRating', {
+      'OverallRating-editable': !readOnly,
+    });
+
+    return (
+      <div className={cls} ref={(ref) => { this.element = ref; }}>
+        {ratingContainer}
       </div>
     );
   }
