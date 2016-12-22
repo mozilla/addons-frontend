@@ -57,7 +57,7 @@
       }
     },
     "start-dev": {
-      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js'",
+      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | ./node_modules/.bin/bunyan'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
