@@ -1,41 +1,45 @@
-.ScreenShots {
-  ol {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
+@import "~core/css/inc/mixins";
+@import "~core/css/inc/vars";
+
+$screenshot-height: 200px;
+$screenshot-width: 320px;
+
+.ScreenShots .pswp-thumbnails {
+  line-height: 0;
+}
+
+.ScreenShots-viewport {
+  height: $screenshot-height;
+}
+
+.ScreenShots-list .pswp-thumbnails {
+  display: flex;
+  height: $screenshot-height;
+  list-style-type: none;
+  margin: 0;
+  overflow-x: scroll;
+  padding: 0;
+  width: auto;
+}
+
+.ScreenShots-list .pswp-thumbnail {
+  display: inline-block;
+  margin: 0 10px;
+
+  &:first-of-type {
+    @include margin-start(0);
   }
+}
 
-  li {
-    display: inline-block;
-  }
+.ScreenShots-image {
+  cursor: pointer;
+  display: inline-block;
+  height: $screenshot-height;
+  width: $screenshot-width;
+}
 
-  li a {
-    display: inline-block;
-    padding: 5px;
-
-    &::before {
-      background: #000;
-      border-radius: 50%;
-      content: '';
-      display: block;
-      flex-direction: row;
-      height: 12px;
-      width: 12px;
-    }
-
-    &.active::before {
-      border: 3px solid #000;
-      background: #fff;
-    }
-  }
-
-  img {
-    width: 100%;
-    padding-bottom: 75%;
-    display: block;
-    background: #eee;
-  }
+// Don't stretch the images.
+.ScreenShots-image,
+.pswp__img {
+  object-fit: contain;
 }
