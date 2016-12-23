@@ -44,7 +44,10 @@ describe('AddonReview', () => {
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const errorHandler = sinon.stub();
     const root = render({ updateReviewText, router, errorHandler });
-    const event = { preventDefault: sinon.stub() };
+    const event = {
+      preventDefault: sinon.stub(),
+      stopPropagation: sinon.stub(),
+    };
 
     const textarea = root.reviewTextarea;
     textarea.value = 'some review';

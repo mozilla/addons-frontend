@@ -2,15 +2,13 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
-import classNames from 'classnames';
 
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-
-import './styles.scss';
+import DefaultRating from 'ui/components/Rating';
 
 
 export class RatingManagerBase extends React.Component {
@@ -20,6 +18,7 @@ export class RatingManagerBase extends React.Component {
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
+    Rating: PropTypes.object,
     readOnly: PropTypes.boolean,
     router: PropTypes.object.isRequired,
     submitReview: PropTypes.func.isRequired,
@@ -29,28 +28,25 @@ export class RatingManagerBase extends React.Component {
   }
 
   static defaultProps = {
+    Rating: DefaultRating,
     readOnly: false,
   }
 
   constructor(props) {
     super(props);
     const { loadSavedReview, userId, addon } = props;
-    this.ratingButtons = {};
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({ userId, addonId: addon.id });
     }
   }
 
-  onClickRating = (event) => {
-    event.preventDefault();
-    const button = event.currentTarget;
-    log.debug('Selected rating from form button:', button.value);
+  onSelectRating = (rating) => {
     const { userReview, userId, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
-      rating: parseInt(button.value, 10),
+      rating,
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
       addonSlug: this.props.addon.slug,
@@ -77,35 +73,17 @@ export class RatingManagerBase extends React.Component {
     this.props.submitReview(params);
   }
 
-  renderRatings() {
-    const { readOnly, userReview } = this.props;
-    return [1, 2, 3, 4, 5].map((rating) =>
-      <button
-        className={classNames('RatingManager-choice', {
-          'RatingManager-selected-star':
-            userReview && rating <= userReview.rating,
-        })}
-        disabled={readOnly}
-        ref={(ref) => { this.ratingButtons[rating] = ref; }}
-        value={rating}
-        onClick={readOnly ? null : this.onClickRating}
-        id={`RatingManager-rating-${rating}`}
-      />
-    );
-  }
-
   render() {
-    const { readOnly, i18n, addon } = this.props;
+    const { Rating, readOnly, i18n, addon, userReview } = this.props;
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
 
     const starRatings = (
-      <div className="RatingManager-choices">
-        <span className="RatingManager-star-group">
-          {this.renderRatings()}
-        </span>
-      </div>
+      <Rating
+        onSelectRating={this.onSelectRating}
+        rating={userReview ? userReview.rating : undefined}
+      />
     );
 
     let ratingContainer;
@@ -128,12 +106,8 @@ export class RatingManagerBase extends React.Component {
       );
     }
 
-    const cls = classNames('RatingManager', {
-      'RatingManager--editable': !readOnly,
-    });
-
     return (
-      <div className={cls} ref={(ref) => { this.element = ref; }}>
+      <div className="RatingManager">
         {ratingContainer}
       </div>
     );

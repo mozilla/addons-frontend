@@ -2,7 +2,6 @@ import React from 'react';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
-  Simulate,
 } from 'react-addons-test-utils';
 
 import translate from 'core/i18n/translate';
@@ -40,18 +39,6 @@ function render({ ...customProps } = {}) {
 }
 
 describe('RatingManager', () => {
-  function selectRating(root, ratingNumber) {
-    const button = root.ratingButtons[ratingNumber];
-    assert.ok(button, `No button returned for rating: ${ratingNumber}`);
-    Simulate.click(button);
-  }
-
-  it('classifies as editable by default', () => {
-    const root = render();
-    assert.equal(root.element.className,
-                 'RatingManager RatingManager--editable');
-  });
-
   it('prompts you to rate the add-on by name', () => {
     const root = render({ addon: { ...fakeAddon, name: 'Some Add-on' } });
     assert.include(root.ratingLegend.textContent, 'Some Add-on');
@@ -94,7 +81,7 @@ describe('RatingManager', () => {
       userId: 92345,
       router,
     });
-    selectRating(root, 5);
+    root.onSelectRating(5);
     assert.equal(submitReview.called, true);
 
     const call = submitReview.firstCall.args[0];
@@ -117,7 +104,7 @@ describe('RatingManager', () => {
       userId: 92345,
       userReview: setReview(fakeReview).payload,
     });
-    selectRating(root, 5);
+    root.onSelectRating(5);
     assert.ok(submitReview.called);
 
     const call = submitReview.firstCall.args[0];
@@ -149,7 +136,7 @@ describe('RatingManager', () => {
       submitReview,
       addon,
     });
-    selectRating(root, newReview.rating);
+    root.onSelectRating(newReview.rating);
     assert.ok(submitReview.called);
 
     // Make sure the review is submitted in a way where it will be
@@ -161,128 +148,26 @@ describe('RatingManager', () => {
     assert.equal(call.addonId, newReview.addon.id);
   });
 
-  it('lets you submit a one star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 1);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 1);
+  it('configures a rating component', () => {
+    const userReview = setReview(fakeReview).payload;
+    const RatingStub = sinon.spy(() => (<div />));
+
+    const root = render({ Rating: RatingStub, userReview });
+
+    assert.equal(RatingStub.called, true);
+    const props = RatingStub.firstCall.args[0];
+    assert.equal(props.onSelectRating, root.onSelectRating);
+    assert.equal(props.rating, userReview.rating);
   });
 
-  it('lets you submit a two star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 2);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 2);
-  });
+  it('sets a blank rating when there is no saved review', () => {
+    const RatingStub = sinon.spy(() => (<div />));
 
-  it('lets you submit a three star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 3);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 3);
-  });
+    render({ Rating: RatingStub, userReview: null });
 
-  it('lets you submit a four star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 4);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 4);
-  });
-
-  it('lets you submit a five star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 5);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 5);
-  });
-
-  it('renders selected stars corresponding to a saved review', () => {
-    const action = setReview(fakeReview, { rating: 3 });
-    const root = render({ userReview: action.payload });
-
-    // Make sure only the first 3 stars are selected.
-    [1, 2, 3].forEach((rating) => {
-      assert.equal(root.ratingButtons[rating].className,
-                   'RatingManager-choice RatingManager-selected-star');
-    });
-    [4, 5].forEach((rating) => {
-      assert.equal(root.ratingButtons[rating].className,
-                   'RatingManager-choice');
-    });
-  });
-
-  it('renders all stars as selectable by default', () => {
-    const root = render();
-    [1, 2, 3, 4, 5].forEach((rating) => {
-      const button = root.ratingButtons[rating];
-      assert.equal(button.className, 'RatingManager-choice');
-      assert.equal(button.disabled, false);
-    });
-  });
-
-  it('prevents form submission when selecting a rating', () => {
-    const root = render();
-
-    const fakeEvent = {
-      preventDefault: sinon.stub(),
-      currentTarget: {},
-    };
-    const button = root.ratingButtons[4];
-    Simulate.click(button, fakeEvent);
-
-    assert.equal(fakeEvent.preventDefault.called, true);
-  });
-
-  describe('readOnly=true', () => {
-    it('prevents you from submitting ratings', () => {
-      const submitReview = sinon.stub();
-      const root = render({
-        submitReview,
-        readOnly: true,
-        userReview: setReview(fakeReview).payload,
-      });
-      selectRating(root, 5);
-      assert.equal(submitReview.called, false);
-    });
-
-    it('does not prompt you to rate the add-on', () => {
-      const root = render({
-        addon: { ...fakeAddon, name: 'Some Add-on' },
-        readOnly: true,
-      });
-      assert.equal(root.ratingLegend, undefined);
-    });
-
-    it('does not classify as editable', () => {
-      const root = render({
-        readOnly: true,
-      });
-      // Make sure it doesn't have the -editable class.
-      assert.equal(root.element.className, 'RatingManager');
-    });
-
-    it('renders read-only rating buttons', () => {
-      const root = render({
-        readOnly: true,
-      });
-      const buttonKeys = Object.keys(root.ratingButtons);
-
-      // Make sure we actually have 5 buttons.
-      assert.equal(buttonKeys.length, 5);
-
-      let allDisabled = true;
-      buttonKeys.forEach((key) => {
-        if (!root.ratingButtons[key].disabled) {
-          allDisabled = false;
-        }
-      });
-      assert.ok(allDisabled, 'At least one button was not disabled');
-    });
+    assert.equal(RatingStub.called, true);
+    const props = RatingStub.firstCall.args[0];
+    assert.strictEqual(props.rating, undefined);
   });
 
   describe('mapDispatchToProps', () => {
