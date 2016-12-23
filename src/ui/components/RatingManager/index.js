@@ -10,10 +10,10 @@ import { getLatestUserReview, submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
-import './OverallRating.scss';
+import './styles.scss';
 
 
-export class OverallRatingBase extends React.Component {
+export class RatingManagerBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
     errorHandler: PropTypes.func.isRequired,
@@ -81,15 +81,15 @@ export class OverallRatingBase extends React.Component {
     const { readOnly, userReview } = this.props;
     return [1, 2, 3, 4, 5].map((rating) =>
       <button
-        className={classNames('OverallRating-choice', {
-          'OverallRating-selected-star':
+        className={classNames('RatingManager-choice', {
+          'RatingManager-selected-star':
             userReview && rating <= userReview.rating,
         })}
         disabled={readOnly}
         ref={(ref) => { this.ratingButtons[rating] = ref; }}
         value={rating}
         onClick={readOnly ? null : this.onClickRating}
-        id={`OverallRating-rating-${rating}`}
+        id={`RatingManager-rating-${rating}`}
       />
     );
   }
@@ -101,8 +101,8 @@ export class OverallRatingBase extends React.Component {
     // (when props.userId is empty)
 
     const starRatings = (
-      <div className="OverallRating-choices">
-        <span className="OverallRating-star-group">
+      <div className="RatingManager-choices">
+        <span className="RatingManager-star-group">
           {this.renderRatings()}
         </span>
       </div>
@@ -128,8 +128,8 @@ export class OverallRatingBase extends React.Component {
       );
     }
 
-    const cls = classNames('OverallRating', {
-      'OverallRating--editable': !readOnly,
+    const cls = classNames('RatingManager', {
+      'RatingManager--editable': !readOnly,
     });
 
     return (
@@ -193,12 +193,12 @@ export const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export const OverallRatingWithI18n = compose(
+export const RatingManagerWithI18n = compose(
   translate({ withRef: true }),
-)(OverallRatingBase);
+)(RatingManagerBase);
 
 export default compose(
-  withErrorHandling({ name: 'OverallRating' }),
+  withErrorHandling({ name: 'RatingManager' }),
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
-)(OverallRatingWithI18n);
+)(RatingManagerWithI18n);

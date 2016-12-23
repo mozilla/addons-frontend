@@ -1,5 +1,5 @@
 
-.OverallRating-choices {
+.RatingManager-choices {
   display: flex;
   justify-content: center;
   margin: 15px 0;
@@ -7,18 +7,18 @@
 
 $star-size: 46px;
 
-.OverallRating-choice {
+.RatingManager-choice {
   background: url('./img/big-star.svg') center/$star-size no-repeat;
   height: $star-size + 10px;
   width: $star-size + 10px;
 }
 
-.OverallRating-selected-star {
+.RatingManager-selected-star {
   background-image: url('./img/big-star-selected.svg');
 }
 
-.OverallRating--editable {
-  .OverallRating-choice {
+.RatingManager--editable {
+  .RatingManager-choice {
     cursor: pointer;
   }
 
@@ -27,14 +27,14 @@ $star-size: 46px;
   // only the first three stars appear selected.
 
   // First, make all stars appear selected when you hover over the group.
-  .OverallRating-star-group:hover .OverallRating-choice,
+  .RatingManager-star-group:hover .RatingManager-choice,
   // For keyboard navigation, make the focused star appear selected.
-  .OverallRating-choice:focus {
+  .RatingManager-choice:focus {
     background-image: url('./img/big-star-selected.svg');
   }
 
   // Second, de-select all stars to the right of the cursor.
-  .OverallRating-choice:hover ~ .OverallRating-choice {
+  .RatingManager-choice:hover ~ .RatingManager-choice {
     background-image: url('./img/big-star.svg');
   }
 }

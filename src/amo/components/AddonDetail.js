@@ -13,7 +13,7 @@ import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon';
-import DefaultOverallRating from 'ui/components/OverallRating';
+import DefaultRatingManager from 'ui/components/RatingManager';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
 
@@ -35,7 +35,7 @@ export const allowedDescriptionTags = [
 
 export class AddonDetailBase extends React.Component {
   static propTypes = {
-    OverallRating: PropTypes.element,
+    RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -44,7 +44,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   static defaultProps = {
-    OverallRating: DefaultOverallRating,
+    RatingManager: DefaultRatingManager,
   }
 
   onTouchStart = (event) => {
@@ -93,7 +93,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   render() {
-    const { OverallRating, addon, i18n } = this.props;
+    const { RatingManager, addon, i18n } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -148,7 +148,7 @@ export class AddonDetailBase extends React.Component {
 
         <section className="overall-rating">
           <h2>{i18n.gettext('Rate your experience')}</h2>
-          <OverallRating
+          <RatingManager
             addon={addon}
             version={addon.current_version}
           />

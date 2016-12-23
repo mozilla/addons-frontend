@@ -11,7 +11,7 @@ import {
   AddonDetailBase,
   allowedDescriptionTags,
 } from 'amo/components/AddonDetail';
-import { OverallRatingWithI18n } from 'ui/components/OverallRating';
+import { RatingManagerWithI18n } from 'ui/components/RatingManager';
 import createStore from 'amo/store';
 import { THEME_TYPE } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
@@ -27,8 +27,8 @@ function render({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customPr
     addon,
     ...addon,
     i18n,
-    // Configure AddonDetail with a non-redux depdendent OverallRating.
-    OverallRating: OverallRatingWithI18n,
+    // Configure AddonDetail with a non-redux depdendent RatingManager.
+    RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
     ...customProps,
   };
@@ -188,7 +188,7 @@ describe('AddonDetail', () => {
 
   it('configures the overall ratings section', () => {
     const root = findRenderedComponentWithType(render(),
-                                               OverallRatingWithI18n);
+                                               RatingManagerWithI18n);
     assert.deepEqual(root.props.addon, fakeAddon);
   });
 

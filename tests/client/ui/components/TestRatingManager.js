@@ -11,8 +11,8 @@ import * as amoApi from 'amo/api';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
 import {
-  mapDispatchToProps, mapStateToProps, OverallRatingBase,
-} from 'ui/components/OverallRating';
+  mapDispatchToProps, mapStateToProps, RatingManagerBase,
+} from 'ui/components/RatingManager';
 import {
   fakeAddon, fakeReview, signedInApiState,
 } from 'tests/client/amo/helpers';
@@ -31,15 +31,15 @@ function render({ ...customProps } = {}) {
     router: {},
     ...customProps,
   };
-  const OverallRating = translate({ withRef: true })(OverallRatingBase);
+  const RatingManager = translate({ withRef: true })(RatingManagerBase);
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <OverallRating {...props} />
-  ), OverallRating);
+    <RatingManager {...props} />
+  ), RatingManager);
 
   return root.getWrappedInstance();
 }
 
-describe('OverallRating', () => {
+describe('RatingManager', () => {
   function selectRating(root, ratingNumber) {
     const button = root.ratingButtons[ratingNumber];
     assert.ok(button, `No button returned for rating: ${ratingNumber}`);
@@ -49,7 +49,7 @@ describe('OverallRating', () => {
   it('classifies as editable by default', () => {
     const root = render();
     assert.equal(root.element.className,
-                 'OverallRating OverallRating--editable');
+                 'RatingManager RatingManager--editable');
   });
 
   it('prompts you to rate the add-on by name', () => {
@@ -208,11 +208,11 @@ describe('OverallRating', () => {
     // Make sure only the first 3 stars are selected.
     [1, 2, 3].forEach((rating) => {
       assert.equal(root.ratingButtons[rating].className,
-                   'OverallRating-choice OverallRating-selected-star');
+                   'RatingManager-choice RatingManager-selected-star');
     });
     [4, 5].forEach((rating) => {
       assert.equal(root.ratingButtons[rating].className,
-                   'OverallRating-choice');
+                   'RatingManager-choice');
     });
   });
 
@@ -220,7 +220,7 @@ describe('OverallRating', () => {
     const root = render();
     [1, 2, 3, 4, 5].forEach((rating) => {
       const button = root.ratingButtons[rating];
-      assert.equal(button.className, 'OverallRating-choice');
+      assert.equal(button.className, 'RatingManager-choice');
       assert.equal(button.disabled, false);
     });
   });
@@ -263,7 +263,7 @@ describe('OverallRating', () => {
         readOnly: true,
       });
       // Make sure it doesn't have the -editable class.
-      assert.equal(root.element.className, 'OverallRating');
+      assert.equal(root.element.className, 'RatingManager');
     });
 
     it('renders read-only rating buttons', () => {
