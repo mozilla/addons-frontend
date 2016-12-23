@@ -19,7 +19,6 @@ export class RatingManagerBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
     Rating: PropTypes.object,
-    readOnly: PropTypes.boolean,
     router: PropTypes.object.isRequired,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
@@ -29,7 +28,6 @@ export class RatingManagerBase extends React.Component {
 
   static defaultProps = {
     Rating: DefaultRating,
-    readOnly: false,
   }
 
   constructor(props) {
@@ -74,41 +72,28 @@ export class RatingManagerBase extends React.Component {
   }
 
   render() {
-    const { Rating, readOnly, i18n, addon, userReview } = this.props;
+    const { Rating, i18n, addon, userReview } = this.props;
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
 
-    const starRatings = (
-      <Rating
-        onSelectRating={this.onSelectRating}
-        rating={userReview ? userReview.rating : undefined}
-      />
-    );
+    const prompt = i18n.sprintf(
+      i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
+      { addonName: addon.name });
 
-    let ratingContainer;
-    if (readOnly) {
-      ratingContainer = starRatings;
-    } else {
-      const prompt = i18n.sprintf(
-        i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
-        { addonName: addon.name });
-
-      ratingContainer = (
+    return (
+      <div className="RatingManager">
         <form action="">
           <fieldset>
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
               {prompt}
             </legend>
-            {starRatings}
+            <Rating
+              onSelectRating={this.onSelectRating}
+              rating={userReview ? userReview.rating : undefined}
+            />
           </fieldset>
         </form>
-      );
-    }
-
-    return (
-      <div className="RatingManager">
-        {ratingContainer}
       </div>
     );
   }
