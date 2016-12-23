@@ -49,7 +49,7 @@ describe('OverallRating', () => {
   it('classifies as editable by default', () => {
     const root = render();
     assert.equal(root.element.className,
-                 'OverallRating OverallRating-editable');
+                 'OverallRating OverallRating--editable');
   });
 
   it('prompts you to rate the add-on by name', () => {

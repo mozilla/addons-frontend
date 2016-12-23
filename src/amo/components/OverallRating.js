@@ -129,7 +129,7 @@ export class OverallRatingBase extends React.Component {
     }
 
     const cls = classNames('OverallRating', {
-      'OverallRating-editable': !readOnly,
+      'OverallRating--editable': !readOnly,
     });
 
     return (
