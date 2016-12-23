@@ -11,7 +11,7 @@ import {
   AddonDetailBase,
   allowedDescriptionTags,
 } from 'amo/components/AddonDetail';
-import { OverallRatingWithI18n } from 'amo/components/OverallRating';
+import { OverallRatingWithI18n } from 'ui/components/OverallRating';
 import createStore from 'amo/store';
 import { THEME_TYPE } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';

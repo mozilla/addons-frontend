@@ -4,7 +4,6 @@ import { compose } from 'redux';
 
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
-import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
@@ -14,6 +13,7 @@ import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon';
+import DefaultOverallRating from 'ui/components/OverallRating';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
 

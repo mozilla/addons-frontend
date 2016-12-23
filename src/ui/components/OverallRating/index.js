@@ -10,7 +10,7 @@ import { getLatestUserReview, submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 
-import 'amo/css/OverallRating.scss';
+import './OverallRating.scss';
 
 
 export class OverallRatingBase extends React.Component {

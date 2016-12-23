@@ -12,7 +12,7 @@ import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
 import {
   mapDispatchToProps, mapStateToProps, OverallRatingBase,
-} from 'amo/components/OverallRating';
+} from 'ui/components/OverallRating';
 import {
   fakeAddon, fakeReview, signedInApiState,
 } from 'tests/client/amo/helpers';

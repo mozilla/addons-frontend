@@ -8,13 +8,13 @@
 $star-size: 46px;
 
 .OverallRating-choice {
-  background: url('../img/ratings/big-star.svg') center/$star-size no-repeat;
+  background: url('./img/big-star.svg') center/$star-size no-repeat;
   height: $star-size + 10px;
   width: $star-size + 10px;
 }
 
 .OverallRating-selected-star {
-  background-image: url('../img/ratings/big-star-selected.svg');
+  background-image: url('./img/big-star-selected.svg');
 }
 
 .OverallRating--editable {
@@ -30,11 +30,11 @@ $star-size: 46px;
   .OverallRating-star-group:hover .OverallRating-choice,
   // For keyboard navigation, make the focused star appear selected.
   .OverallRating-choice:focus {
-    background-image: url('../img/ratings/big-star-selected.svg');
+    background-image: url('./img/big-star-selected.svg');
   }
 
   // Second, de-select all stars to the right of the cursor.
   .OverallRating-choice:hover ~ .OverallRating-choice {
-    background-image: url('../img/ratings/big-star.svg');
+    background-image: url('./img/big-star.svg');
   }
 }
