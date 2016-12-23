@@ -2,7 +2,6 @@
 
 import 'babel-polyfill';
 import config from 'config';
-import Jed from 'jed';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -10,7 +9,7 @@ import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-connect';
 import useScroll from 'react-router-scroll/lib/useScroll';
 
-import { langToLocale, sanitizeLanguage } from 'core/i18n/utils';
+import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 import log from 'core/logger';
 
@@ -24,8 +23,8 @@ export default function makeClient(routes, createStore) {
   const locale = langToLocale(lang);
   const appName = config.get('appName');
 
-  function renderApp(jedData) {
-    const i18n = new Jed(jedData);
+  function renderApp(i18nData) {
+    const i18n = makeI18n(i18nData);
 
     if (initialStateContainer) {
       try {
@@ -44,7 +43,10 @@ export default function makeClient(routes, createStore) {
       ),
     });
 
-    const middleware = applyRouterMiddleware(useScroll(), useReduxAsyncConnect());
+    const middleware = applyRouterMiddleware(
+      useScroll(),
+      useReduxAsyncConnect(),
+    );
 
     render(
       <I18nProvider i18n={i18n}>
@@ -62,7 +64,7 @@ export default function makeClient(routes, createStore) {
   try {
     if (locale !== langToLocale(config.get('defaultLang'))) {
       // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-      require(`bundle?name=[name]-i18n-[folder]!json!../../locale/${locale}/${appName}.json`)(renderApp);
+      require(`bundle?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(renderApp);
     } else {
       renderApp({});
     }

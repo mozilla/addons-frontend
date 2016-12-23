@@ -2,10 +2,10 @@ import fs from 'fs';
 import path from 'path';
 
 import 'babel-polyfill';
+import { oneLine } from 'common-tags';
 import config from 'config';
 import Express from 'express';
 import helmet from 'helmet';
-import Jed from 'jed';
 import cookie from 'react-cookie';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -19,7 +19,12 @@ import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setClientApp, setLang, setJWT } from 'core/actions';
 import log from 'core/logger';
-import { getDirection, isValidLang, langToLocale } from 'core/i18n/utils';
+import {
+  getDirection,
+  isValidLang,
+  langToLocale,
+  makeI18n,
+} from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
@@ -115,13 +120,16 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   app.use((req, res) => {
     if (isDevelopment) {
-      log.info('Clearing require cache for webpack isomorphic tools. [Development Mode]');
+      log.info(oneLine`Clearing require cache for webpack isomorphic tools.
+        [Development Mode]`);
 
       // clear require() cache if in development mode
       webpackIsomorphicTools.refresh();
     }
 
-    match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+    match({ location: req.url, routes }, (
+      err, redirectLocation, renderProps
+    ) => {
       cookie.plugToRequest(req, res);
 
       if (err) {
@@ -145,7 +153,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
       // Check the lang supplied by res.locals.lang for validity
       // or fall-back to the default.
-      const lang = isValidLang(res.locals.lang) ? res.locals.lang : config.get('defaultLang');
+      const lang = isValidLang(res.locals.lang) ?
+        res.locals.lang : config.get('defaultLang');
       const dir = getDirection(lang);
       const locale = langToLocale(lang);
       store.dispatch(setLang(lang));
@@ -182,17 +191,21 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       return loadOnServer({ ...renderProps, store })
         .then(() => {
           // eslint-disable-next-line global-require
-          let jedData = {};
+          let i18nData = {};
           try {
             if (locale !== langToLocale(config.get('defaultLang'))) {
               // eslint-disable-next-line global-require, import/no-dynamic-require
-              jedData = require(`json!../../locale/${locale}/${appInstanceName}.json`);
+              i18nData = require(
+                `../../locale/${locale}/${appInstanceName}.js`);
             }
           } catch (e) {
-            log.info(`Locale JSON not found or required for locale: "${locale}"`);
-            log.info(`Falling back to default lang: "${config.get('defaultLang')}".`);
+            log.info(
+              `Locale JSON not found or required for locale: "${locale}"`);
+            log.info(
+              `Falling back to default lang: "${config.get('defaultLang')}".`);
           }
-          const i18n = new Jed(jedData);
+          const i18n = makeI18n(i18nData);
+
           const InitialComponent = (
             <I18nProvider i18n={i18n}>
               <Provider store={store} key="provider">
@@ -247,7 +260,8 @@ export function runServer({ listen = true, app = appName } = {}) {
   const port = config.get('serverPort');
   const host = config.get('serverHost');
 
-  const isoMorphicServer = new WebpackIsomorphicTools(WebpackIsomorphicToolsConfig);
+  const isoMorphicServer = new WebpackIsomorphicTools(
+    WebpackIsomorphicToolsConfig);
   return isoMorphicServer
     .server(config.get('basePath'))
     .then(() => {
@@ -259,16 +273,19 @@ export function runServer({ listen = true, app = appName } = {}) {
         const routes = require(`${app}/routes`).default;
         const createStore = require(`${app}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        const server = baseServer(routes, createStore, { appInstanceName: app });
+        const server = baseServer(
+          routes, createStore, { appInstanceName: app });
         if (listen === true) {
           server.listen(port, host, (err) => {
             if (err) {
               reject(err);
             }
-            log.info(`🔥  Addons-frontend server is running [ENV:${env}] [APP:${app}] ` +
-                     `[isDevelopment:${isDevelopment}] [isDeployed:${isDeployed}] ` +
-                     `[apiHost:${config.get('apiHost')}] [apiPath:${config.get('apiPath')}]`);
-            log.info(`👁  Open your browser at http://${host}:${port} to view it.`);
+            log.info(oneLine`🔥  Addons-frontend server is running [ENV:${env}]
+              [APP:${app}] [isDevelopment:${isDevelopment}
+              [isDeployed:${isDeployed}] [apiHost:${config.get('apiHost')}]
+              [apiPath:${config.get('apiPath')}]`);
+            log.info(
+              `👁  Open your browser at http://${host}:${port} to view it.`);
             resolve(server);
           });
         } else {

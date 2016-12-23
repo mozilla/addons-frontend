@@ -5,7 +5,6 @@ function getDisplayName(component) {
   return component.displayName || component.name || 'Component';
 }
 
-
 export default function translate(options = {}) {
   const { withRef = false } = options;
 
