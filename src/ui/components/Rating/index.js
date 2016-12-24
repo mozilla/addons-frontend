@@ -19,7 +19,7 @@ export default class Rating extends React.Component {
 
   constructor(props) {
     super(props);
-    this.ratingButtons = {};
+    this.ratingElements = {};
   }
 
   onSelectRating = (event) => {
@@ -38,18 +38,29 @@ export default class Rating extends React.Component {
 
   renderRatings() {
     const { readOnly, rating } = this.props;
-    return [1, 2, 3, 4, 5].map((thisRating) =>
-      <button
-        className={classNames('Rating-choice', {
+
+    return [1, 2, 3, 4, 5].map((thisRating) => {
+      const props = {
+        className: classNames('Rating-choice', {
           'Rating-selected-star': rating && thisRating <= rating,
-        })}
-        disabled={readOnly}
-        ref={(ref) => { this.ratingButtons[thisRating] = ref; }}
-        value={thisRating}
-        onClick={readOnly ? null : this.onSelectRating}
-        id={`Rating-rating-${thisRating}`}
-      />
-    );
+        }),
+        id: `Rating-rating-${thisRating}`,
+        ref: (ref) => {
+          this.ratingElements[thisRating] = ref;
+        },
+      };
+
+      if (readOnly) {
+        return <div {...props} />;
+      }
+      return (
+        <button
+          onClick={readOnly ? null : this.onSelectRating}
+          value={thisRating}
+          {...props}
+        />
+      );
+    });
   }
 
   render() {

@@ -15,7 +15,7 @@ function render({ ...props } = {}) {
 
 describe('ui/components/Rating', () => {
   function selectRating(root, ratingNumber) {
-    const button = root.ratingButtons[ratingNumber];
+    const button = root.ratingElements[ratingNumber];
     assert.ok(button, `No button returned for rating: ${ratingNumber}`);
     Simulate.click(button);
   }
@@ -66,16 +66,16 @@ describe('ui/components/Rating', () => {
     assert.equal(onSelectRating.firstCall.args[0], 5);
   });
 
-  it('renders selected stars corresponding to a saved review', () => {
+  it('renders selected stars corresponding to rating number', () => {
     const root = render({ rating: 3 });
 
     // Make sure only the first 3 stars are selected.
     [1, 2, 3].forEach((rating) => {
-      assert.equal(root.ratingButtons[rating].className,
+      assert.equal(root.ratingElements[rating].className,
                    'Rating-choice Rating-selected-star');
     });
     [4, 5].forEach((rating) => {
-      assert.equal(root.ratingButtons[rating].className,
+      assert.equal(root.ratingElements[rating].className,
                    'Rating-choice');
     });
   });
@@ -83,9 +83,23 @@ describe('ui/components/Rating', () => {
   it('renders all stars as selectable by default', () => {
     const root = render();
     [1, 2, 3, 4, 5].forEach((rating) => {
-      const button = root.ratingButtons[rating];
-      assert.equal(button.className, 'Rating-choice');
-      assert.equal(button.disabled, false);
+      const star = root.ratingElements[rating];
+      assert.equal(star.className, 'Rating-choice');
+      assert.equal(star.tagName, 'BUTTON');
+    });
+  });
+
+  it('renders read-only selected stars', () => {
+    const root = render({ rating: 3, readOnly: true });
+
+    // Make sure only the first 3 stars are selected.
+    [1, 2, 3].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice Rating-selected-star');
+    });
+    [4, 5].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice');
     });
   });
 
@@ -97,7 +111,7 @@ describe('ui/components/Rating', () => {
       stopPropagation: sinon.stub(),
       currentTarget: {},
     };
-    const button = root.ratingButtons[4];
+    const button = root.ratingElements[4];
     Simulate.click(button, fakeEvent);
 
     assert.equal(fakeEvent.preventDefault.called, true);
@@ -121,20 +135,20 @@ describe('ui/components/Rating', () => {
       assert.equal(root.element.className, 'Rating');
     });
 
-    it('renders read-only rating buttons', () => {
+    it('does not render buttons in read-only mode', () => {
       const root = render({ readOnly: true });
-      const buttonKeys = Object.keys(root.ratingButtons);
+      const elementKeys = Object.keys(root.ratingElements);
 
-      // Make sure we actually have 5 buttons.
-      assert.equal(buttonKeys.length, 5);
+      // Make sure we actually have 5 stars.
+      assert.equal(elementKeys.length, 5);
 
-      let allDisabled = true;
-      buttonKeys.forEach((key) => {
-        if (!root.ratingButtons[key].disabled) {
-          allDisabled = false;
+      let allDivs = true;
+      elementKeys.forEach((key) => {
+        if (root.ratingElements[key].tagName !== 'DIV') {
+          allDivs = false;
         }
       });
-      assert.ok(allDisabled, 'At least one button was not disabled');
+      assert.ok(allDivs, 'At least one star element was not a div');
     });
   });
 });
