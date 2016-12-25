@@ -234,12 +234,12 @@ describe('api', () => {
 
     it('sets the app, lang, and type query', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=theme&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=theme&page=&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.featured({
-        addonType: 'theme',
         api: { clientApp: 'android', lang: 'en-US' },
+        filters: { addonType: 'theme' },
       })
         .then((response) => {
           assert.deepEqual(response, {

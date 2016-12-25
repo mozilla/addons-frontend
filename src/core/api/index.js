@@ -145,10 +145,14 @@ export function fetchProfile({ api }) {
   });
 }
 
-export function featured({ addonType, api }) {
+export function featured({ api, filters, page }) {
   return callApi({
     endpoint: 'addons/featured',
-    params: { app: api.clientApp, type: addonType },
+    params: {
+      app: api.clientApp,
+      ...convertFiltersToQueryParams(filters),
+      page,
+    },
     schema: { results: arrayOf(addon) },
     state: api,
   });
