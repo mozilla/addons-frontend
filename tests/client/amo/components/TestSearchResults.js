@@ -3,16 +3,25 @@ import {
   renderIntoDocument as render,
   findRenderedComponentWithType,
 } from 'react-addons-test-utils';
+import { Provider } from 'react-redux';
 
+import createStore from 'amo/store';
 import SearchResults from 'amo/components/SearchResults';
+import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<SearchResults />', () => {
   function renderResults(props) {
+    const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
+
     return findRenderedComponentWithType(render(
-      <SearchResults i18n={getFakeI18nInst()} {...props} />
+      <Provider store={createStore(initialState)}>
+        <I18nProvider i18n={getFakeI18nInst()}>
+          <SearchResults {...props} />
+        </I18nProvider>
+      </Provider>
     ), SearchResults).getWrappedInstance();
   }
 

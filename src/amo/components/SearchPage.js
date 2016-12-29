@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react';
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
 import SearchResults from 'amo/components/SearchResults';
+import SearchSort from 'amo/components/SearchSort';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 import SearchResult from './SearchResult';
@@ -29,6 +30,7 @@ export default class SearchPage extends React.Component {
     ResultComponent: SearchResult,
     filters: {},
     pathname: '/search/',
+    results: [],
   }
 
   render() {
@@ -42,12 +44,16 @@ export default class SearchPage extends React.Component {
       <Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
         pathname={pathname} queryParams={queryParams} showPages={0} />
     ) : [];
+    const searchSort = hasSearchParams && results.length ? (
+      <SearchSort filters={filters} pathname={pathname} />
+    ) : null;
 
     return (
       <div className="SearchPage">
+        {searchSort}
         <SearchResults ResultComponent={ResultComponent} count={count}
           hasSearchParams={hasSearchParams} loading={loading} results={results}
-          filters={filters} />
+          filters={filters} pathname={pathname} />
         {paginator}
       </div>
     );

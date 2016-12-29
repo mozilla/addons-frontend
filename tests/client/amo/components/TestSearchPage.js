@@ -3,6 +3,7 @@ import React from 'react';
 import SearchPage from 'amo/components/SearchPage';
 import SearchResult from 'amo/components/SearchResult';
 import SearchResults from 'amo/components/SearchResults';
+import SearchSort from 'amo/components/SearchSort';
 import Paginate from 'core/components/Paginate';
 import { findAllByTag, findByTag, shallowRender } from 'tests/client/helpers';
 
@@ -16,30 +17,39 @@ describe('<SearchPage />', () => {
 
   beforeEach(() => {
     props = {
+      ResultComponent: SearchResult,
       count: 80,
       filters: { query: 'foo' },
       hasSearchParams: true,
       page: 3,
+      pathname: '/search/',
       handleSearch: sinon.spy(),
       loading: false,
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
-      ResultComponent: SearchResult,
     };
   });
 
   it('renders the results', () => {
     const root = render();
     const results = findByTag(root, SearchResults);
+    assert.strictEqual(results.props.ResultComponent, props.ResultComponent);
     assert.strictEqual(results.props.count, props.count);
     assert.strictEqual(results.props.results, props.results);
     assert.strictEqual(results.props.hasSearchParams, props.hasSearchParams);
     assert.strictEqual(results.props.filters, props.filters);
     assert.strictEqual(results.props.loading, props.loading);
-    assert.strictEqual(results.props.ResultComponent, props.ResultComponent);
+    assert.strictEqual(results.props.pathname, props.pathname);
     assert.deepEqual(
       Object.keys(results.props).sort(),
-      ['count', 'filters', 'hasSearchParams', 'loading', 'results',
-        'ResultComponent'].sort()
+      [
+        'ResultComponent',
+        'count',
+        'filters',
+        'hasSearchParams',
+        'loading',
+        'pathname',
+        'results',
+      ].sort()
     );
   });
 
@@ -56,5 +66,22 @@ describe('<SearchPage />', () => {
     const root = render({ filters: { query: null }, count: 0 });
     const paginators = findAllByTag(root, Paginate);
     assert.deepEqual(paginators, []);
+  });
+
+  it('does render a SearchSort when there are filters and results', () => {
+    const root = render();
+    const sort = findByTag(root, SearchSort);
+    assert.equal(sort.props.filters, props.filters);
+    assert.equal(sort.props.pathname, props.pathname);
+  });
+
+  it('does not render a SearchSort when there are no filters', () => {
+    const root = render({ hasSearchParams: false, results: [] });
+    assert.throws(() => findByTag(root, SearchSort), 'child is null');
+  });
+
+  it('does not render a SearchSort when there are no results', () => {
+    const root = render({ hasSearchParams: true, results: [] });
+    assert.throws(() => findByTag(root, SearchSort), 'child is null');
   });
 });
