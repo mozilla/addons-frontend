@@ -52,6 +52,16 @@
   }
 }
 
+
+.HomePage-category-link,
+.HomePage-extensions-link,
+.HomePage-themes-link {
+  &,
+  &:visited {
+    color: $link-color;
+  }
+}
+
 .HomePage-extensions-link:link,
 .HomePage-themes-link:link {
   align-items: center;

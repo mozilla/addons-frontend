@@ -9,7 +9,7 @@ import 'amo/css/Home.scss';
 
 const CategoryLink = ({ name, slug, text, type }) => (
   <li className={classNames('HomePage-category-li', `HomePage-${name}`)}>
-    <Link to={`/${type}/${slug}/`}>
+    <Link to={`/${type}/${slug}/`} className="HomePage-category-link">
       <span>{text}</span>
     </Link>
   </li>
