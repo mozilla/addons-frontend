@@ -85,7 +85,7 @@ export class DiscoPaneBase extends React.Component {
   }
 
   render() {
-    const { results, i18n, AddonComponent } = this.props;
+    const { AddonComponent, results, i18n } = this.props;
     const { showVideo } = this.state;
 
     return (
