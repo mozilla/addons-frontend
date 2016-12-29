@@ -26,11 +26,14 @@ export default function addon(state = initialState, action) {
       } else if (thisAddon.current_version && thisAddon.current_version.files.length > 0) {
         newState[key] = {
           ...thisAddon,
-          iconUrl: thisAddon.icon_url,
           installURL: thisAddon.current_version.files[0].url,
         };
       } else {
         newState[key] = thisAddon;
+      }
+      // Set iconUrl to be consistent between disco and amo.
+      if (thisAddon.icon_url) {
+        newState[key].iconUrl = thisAddon.icon_url;
       }
     });
     return newState;

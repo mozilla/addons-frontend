@@ -21,6 +21,7 @@ import MastHead from 'amo/components/MastHead';
 export class AppBase extends React.Component {
   static propTypes = {
     FooterComponent: PropTypes.node.isRequired,
+    InfoDialogComponent: PropTypes.node.isRequired,
     MastHeadComponent: PropTypes.node.isRequired,
     _addChangeListeners: PropTypes.func,
     children: PropTypes.node,
@@ -34,6 +35,7 @@ export class AppBase extends React.Component {
 
   static defaultProps = {
     FooterComponent: Footer,
+    InfoDialogComponent: InfoDialog,
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
@@ -66,13 +68,13 @@ export class AppBase extends React.Component {
 
   render() {
     const {
-      FooterComponent, MastHeadComponent, children, i18n, location,
+      FooterComponent, InfoDialogComponent, MastHeadComponent, children, i18n, location,
     } = this.props;
     const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
-        <InfoDialog />
+        <InfoDialogComponent />
         <MastHeadComponent SearchFormComponent={SearchForm} query={query}>
           {this.accountButton()}
         </MastHeadComponent>

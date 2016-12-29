@@ -4,8 +4,8 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import ReactDOM, { findDOMNode } from 'react-dom';
 
-import InfoDialog from 'core/components/InfoDialog';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { InfoDialogBase, ShowInfoDialog, mapStateToProps } from 'core/containers/InfoDialog';
+import { getFakeI18nInst, shallowRender } from 'tests/client/helpers';
 
 
 let closeAction;
@@ -19,10 +19,10 @@ function getInfoDialog(props = {}) {
     i18n: getFakeI18nInst(),
     ...props,
   };
-  return <InfoDialog {...renderProps} />;
+  return <InfoDialogBase {...renderProps} />;
 }
 
-describe('<InfoDialog />', () => {
+describe('<InfoDialogBase />', () => {
   function renderInfoDialog(props = {}) {
     return renderIntoDocument(getInfoDialog(props));
   }
@@ -60,7 +60,7 @@ describe('<InfoDialog />', () => {
 });
 
 
-describe('Clicking outside <InfoDialog />', () => {
+describe('Clicking outside <InfoDialogBase />', () => {
   let mountNode;
 
   function simulateClick(node) {
@@ -96,5 +96,24 @@ describe('Clicking outside <InfoDialog />', () => {
     const outsideNode = document.getElementById('outside-component');
     simulateClick(outsideNode);
     assert.ok(closeAction.called, 'closeAction stub was called');
+  });
+});
+
+describe('<ShowInfoDialog />', () => {
+  it('renders InfoDialogBase when it is told to', () => {
+    const data = { some: 'data' };
+    const root = shallowRender(<ShowInfoDialog data={data} show />);
+    assert.equal(root.type, InfoDialogBase);
+    assert.deepEqual(root.props, data);
+  });
+
+  it('does not render InfoDialogBase when not told to', () => {
+    const root = shallowRender(<ShowInfoDialog show={false} />);
+    assert.equal(root, null);
+  });
+
+  it('mapStateToProps pulls infoDialog state', () => {
+    const infoDialog = { infoDialogState: 'you bet' };
+    assert.strictEqual(mapStateToProps({ addons: [], infoDialog }), infoDialog);
   });
 });

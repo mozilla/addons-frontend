@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import translate from 'core/i18n/translate';
 import './InfoDialog.scss';
 
-export class InfoDialogBase extends React.Component {
+class InfoDialogRaw extends React.Component {
   static propTypes = {
     addonName: PropTypes.string.isRequired,
     closeAction: PropTypes.func.isRequired,
@@ -41,18 +41,18 @@ export class InfoDialogBase extends React.Component {
   }
 }
 
-export const InfoDialog = compose(
+export const InfoDialogBase = compose(
   translate(),
   onClickOutside,
-)(InfoDialogBase);
+)(InfoDialogRaw);
 
-const ShowInfoDialog = ({ data, show }) => (show ? <InfoDialog {...data} /> : null);
+export const ShowInfoDialog = ({ data, show }) => (show ? <InfoDialogBase {...data} /> : null);
 ShowInfoDialog.propTypes = {
   data: PropTypes.object.isRequired,
   show: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state) => state.infoDialog;
+export const mapStateToProps = (state) => state.infoDialog;
 
 export default compose(
   connect(mapStateToProps),
