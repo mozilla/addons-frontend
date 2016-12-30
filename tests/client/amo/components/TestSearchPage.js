@@ -1,7 +1,6 @@
 import React from 'react';
 
 import SearchPage from 'amo/components/SearchPage';
-import SearchResult from 'amo/components/SearchResult';
 import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import Paginate from 'core/components/Paginate';
@@ -17,7 +16,6 @@ describe('<SearchPage />', () => {
 
   beforeEach(() => {
     props = {
-      ResultComponent: SearchResult,
       count: 80,
       filters: { query: 'foo' },
       hasSearchParams: true,
@@ -32,7 +30,6 @@ describe('<SearchPage />', () => {
   it('renders the results', () => {
     const root = render();
     const results = findByTag(root, SearchResults);
-    assert.strictEqual(results.props.ResultComponent, props.ResultComponent);
     assert.strictEqual(results.props.count, props.count);
     assert.strictEqual(results.props.results, props.results);
     assert.strictEqual(results.props.hasSearchParams, props.hasSearchParams);
@@ -42,7 +39,6 @@ describe('<SearchPage />', () => {
     assert.deepEqual(
       Object.keys(results.props).sort(),
       [
-        'ResultComponent',
         'count',
         'filters',
         'hasSearchParams',
