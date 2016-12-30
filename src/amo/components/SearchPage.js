@@ -6,13 +6,10 @@ import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
-import SearchResult from './SearchResult';
-
-import './SearchPage.scss';
-
 
 export default class SearchPage extends React.Component {
   static propTypes = {
+    LinkComponent: PropTypes.node.isRequired,
     count: PropTypes.number,
     filters: PropTypes.object,
     hasSearchParams: PropTypes.bool.isRequired,
@@ -24,6 +21,8 @@ export default class SearchPage extends React.Component {
   }
 
   static defaultProps = {
+    LinkComponent: Link,
+    count: 0,
     filters: {},
     pathname: '/search/',
     results: [],
@@ -31,7 +30,8 @@ export default class SearchPage extends React.Component {
 
   render() {
     const {
-      count, filters, hasSearchParams, loading, page, pathname, results,
+      LinkComponent, count, filters, hasSearchParams, loading, page, pathname,
+      results,
     } = this.props;
     const queryParams = this.props.queryParams ||
       convertFiltersToQueryParams(filters);
