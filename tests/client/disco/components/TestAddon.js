@@ -12,15 +12,16 @@ import {
   mapStateToProps,
 } from 'disco/components/Addon';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
-  EXTENSION_TYPE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
-  THEME_TYPE,
+  TRACKING_TYPE_EXTENSION,
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
@@ -245,7 +246,7 @@ describe('<Addon />', () => {
         _tracking: fakeTracking,
         name: 'foo',
         heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
-        type: EXTENSION_TYPE,
+        type: ADDON_TYPE_EXTENSION,
       };
       const root = renderAddon({ addon: data, ...data });
       const heading = findDOMNode(root).querySelector('.heading');
@@ -253,7 +254,7 @@ describe('<Addon />', () => {
       // bubbling.
       Simulate.click(heading, { target: { nodeName: 'A' } });
       assert.ok(fakeTracking.sendEvent.calledWith({
-        action: 'addon',
+        action: TRACKING_TYPE_EXTENSION,
         category: CLICK_CATEGORY,
         label: 'foo',
       }), sinon.format(fakeTracking.sendEvent.firstCall.args));
@@ -265,7 +266,7 @@ describe('<Addon />', () => {
     let root;
 
     beforeEach(() => {
-      const data = { ...result, type: THEME_TYPE };
+      const data = { ...result, type: ADDON_TYPE_THEME };
       root = renderAddon({ addon: data, ...data });
     });
 
@@ -288,7 +289,7 @@ describe('<Addon />', () => {
     beforeEach(() => {
       previewTheme = sinon.spy();
       resetPreviewTheme = sinon.spy();
-      const data = { ...result, type: THEME_TYPE, previewTheme, resetPreviewTheme };
+      const data = { ...result, type: ADDON_TYPE_THEME, previewTheme, resetPreviewTheme };
       root = renderAddon({ addon: data, ...data });
       themeImage = findDOMNode(root).querySelector('.theme-image');
     });
@@ -318,7 +319,7 @@ describe('<Addon />', () => {
       const data = {
         ...result,
         addon: sinon.stub(),
-        type: THEME_TYPE,
+        type: ADDON_TYPE_THEME,
         status: UNINSTALLED,
         installTheme,
       };

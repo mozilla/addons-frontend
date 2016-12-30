@@ -14,7 +14,7 @@ import {
 import AddonMeta from 'amo/components/AddonMeta';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
-import { THEME_TYPE } from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
@@ -233,7 +233,7 @@ describe('AddonDetail', () => {
     const root = render({
       addon: {
         ...fakeAddon,
-        type: THEME_TYPE,
+        type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
       },
       getBrowserThemeData: () => '{}',
@@ -252,7 +252,7 @@ describe('AddonDetail', () => {
     const root = render({
       addon: {
         ...fakeAddon,
-        type: THEME_TYPE,
+        type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
       },
       getBrowserThemeData: () => '{}',
@@ -268,7 +268,7 @@ describe('AddonDetail', () => {
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
-        type: THEME_TYPE,
+        type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
       },
       getBrowserThemeData: () => '{}',
@@ -281,7 +281,7 @@ describe('AddonDetail', () => {
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
-        type: THEME_TYPE,
+        type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
       },
       getBrowserThemeData: () => '{"the":"themedata"}',
@@ -295,7 +295,7 @@ describe('AddonDetail', () => {
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
-        type: THEME_TYPE,
+        type: ADDON_TYPE_THEME,
       },
       getBrowserThemeData: () => '{}',
       previewTheme,
@@ -310,7 +310,7 @@ describe('AddonDetail', () => {
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
-        type: THEME_TYPE,
+        type: ADDON_TYPE_THEME,
       },
       getBrowserThemeData: () => '{}',
       resetPreviewTheme,

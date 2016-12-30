@@ -15,7 +15,6 @@ import {
   DOWNLOAD_PROGRESS,
   ENABLED,
   ERROR,
-  EXTENSION_TYPE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -29,7 +28,10 @@ import {
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
-  THEME_TYPE,
+  TRACKING_TYPE_EXTENSION,
+  TRACKING_TYPE_THEME,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
@@ -37,13 +39,21 @@ import {
 } from 'core/constants';
 import * as addonManager from 'core/addonManager';
 
+
 export function installTheme(
   node, addon, { _themeAction = themeAction, _tracking = tracking } = {},
 ) {
   const { name, status, type } = addon;
-  if (type === THEME_TYPE && [DISABLED, UNINSTALLED, UNKNOWN].includes(status)) {
+  if (
+    type === ADDON_TYPE_THEME &&
+    [DISABLED, UNINSTALLED, UNKNOWN].includes(status)
+  ) {
     _themeAction(node, THEME_INSTALL);
-    _tracking.sendEvent({ action: 'theme', category: INSTALL_CATEGORY, label: name });
+    _tracking.sendEvent({
+      action: TRACKING_TYPE_THEME,
+      category: INSTALL_CATEGORY,
+      label: name,
+    });
   }
 }
 
@@ -88,7 +98,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       return { WrappedComponent };
     }
 
-    if (ownProps.type === EXTENSION_TYPE && ownProps.installURL === undefined) {
+    if (ownProps.type === ADDON_TYPE_EXTENSION && ownProps.installURL === undefined) {
       throw new Error(oneLine`installURL is required, ensure component props are set before
         withInstallHelpers is called`);
     }
@@ -161,7 +171,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
         return _addonManager.install(installURL, makeProgressHandler(dispatch, guid), { src })
           .then(() => {
             _tracking.sendEvent({
-              action: 'addon',
+              action: TRACKING_TYPE_EXTENSION,
               category: INSTALL_CATEGORY,
               label: name,
             });

@@ -1,5 +1,7 @@
 import { getLanding } from 'amo/actions/landing';
 import landing from 'amo/reducers/landing';
+import { ADDON_TYPE_THEME } from 'core/constants';
+
 
 describe('landing reducer', () => {
   let initialData;
@@ -48,9 +50,9 @@ describe('landing reducer', () => {
       };
       const {
         addonType, featured, highlyRated, loading, popular,
-      } = landing(initialState, getLanding({ addonType: 'theme' }));
+      } = landing(initialState, getLanding({ addonType: ADDON_TYPE_THEME }));
 
-      assert.equal(addonType, 'theme');
+      assert.equal(addonType, ADDON_TYPE_THEME);
       assert.equal(loading, true);
       assert.deepEqual(featured, { foo: 'bar' });
       assert.deepEqual(highlyRated, { count: 0 });
@@ -70,7 +72,7 @@ describe('landing reducer', () => {
       const { featured, highlyRated, popular } = landing(initialData, {
         type: 'LANDING_LOADED',
         payload: {
-          addonType: 'theme',
+          addonType: ADDON_TYPE_THEME,
           featured: {
             entities,
             result: { count: 2, results: ['foo', 'food'] },
@@ -99,7 +101,7 @@ describe('landing reducer', () => {
       }, {
         type: 'LANDING_LOADED',
         payload: {
-          addonType: 'theme',
+          addonType: ADDON_TYPE_THEME,
           featured: {
             entities,
             result: { count: 2, results: ['foo', 'food'] },
@@ -113,12 +115,12 @@ describe('landing reducer', () => {
 
   describe('LANDING_FAILED', () => {
     it('sets loading to false on failure', () => {
-      const initialState = landing(initialData, { type: 'LANDING_GET', payload: { addonType: 'theme' } });
+      const initialState = landing(initialData, { type: 'LANDING_GET', payload: { addonType: ADDON_TYPE_THEME } });
       const state = landing(initialState,
-        { type: 'LANDING_FAILED', payload: { page: 2, addonType: 'theme' } });
+        { type: 'LANDING_FAILED', payload: { page: 2, addonType: ADDON_TYPE_THEME } });
 
       assert.deepEqual(state, {
-        addonType: 'theme',
+        addonType: ADDON_TYPE_THEME,
         featured: { count: 0, results: [] },
         highlyRated: { count: 0, results: [] },
         loading: false,

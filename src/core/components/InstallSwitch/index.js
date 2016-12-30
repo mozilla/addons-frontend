@@ -8,7 +8,7 @@ import {
   ENABLING,
   INSTALLING,
   INSTALLED,
-  THEME_TYPE,
+  ADDON_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
@@ -88,7 +88,7 @@ export class InstallSwitchBase extends React.Component {
     const {
       addon, guid, enable, install, installURL, name, status, installTheme, type, uninstall,
     } = this.props;
-    if (type === THEME_TYPE && [UNINSTALLED, DISABLED].includes(status)) {
+    if (type === ADDON_TYPE_THEME && [UNINSTALLED, DISABLED].includes(status)) {
       installTheme(this.themeData, { ...addon, status });
     } else if (status === UNINSTALLED) {
       install();

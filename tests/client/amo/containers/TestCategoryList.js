@@ -1,4 +1,5 @@
 import { mapStateToProps } from 'amo/containers/CategoryList';
+import { ADDON_TYPE_THEME } from 'core/constants';
 
 
 describe('<CategoryList />', () => {
@@ -8,7 +9,7 @@ describe('<CategoryList />', () => {
       categories: {
         categories: {
           android: {
-            theme: {
+            [ADDON_TYPE_THEME]: {
               nature: {
                 name: 'Nature',
                 slug: 'nature',
@@ -21,11 +22,11 @@ describe('<CategoryList />', () => {
         loading: true,
       },
     }, {
-      params: { addonType: 'themes' },
+      params: { visibleAddonType: 'themes' },
     });
 
     assert.deepEqual(props, {
-      addonType: 'theme',
+      addonType: ADDON_TYPE_THEME,
       categories: {
         nature: {
           name: 'Nature',

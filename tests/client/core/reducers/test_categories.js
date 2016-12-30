@@ -1,3 +1,4 @@
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import categories, { emptyCategoryList } from 'core/reducers/categories';
 
 
@@ -62,19 +63,19 @@ describe('categories reducer', () => {
           application: 'android',
           name: 'Naturé',
           slug: 'naturé',
-          type: 'theme',
+          type: ADDON_TYPE_THEME,
         },
         {
           application: 'android',
           name: 'Painting',
           slug: 'painting',
-          type: 'theme',
+          type: ADDON_TYPE_THEME,
         },
         {
           application: 'firefox',
           name: 'Anime',
           slug: 'anime',
-          type: 'theme',
+          type: ADDON_TYPE_THEME,
         },
         {
           application: 'firefox',
@@ -104,7 +105,7 @@ describe('categories reducer', () => {
     it('sets the categories', () => {
       assert.deepEqual(state.categories, {
         firefox: {
-          extension: {
+          [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
               application: 'firefox',
               name: 'Alerts & Update',
@@ -118,17 +119,17 @@ describe('categories reducer', () => {
               type: 'extension',
             },
           },
-          theme: {
+          [ADDON_TYPE_THEME]: {
             anime: {
               application: 'firefox',
               name: 'Anime',
               slug: 'anime',
-              type: 'theme',
+              type: ADDON_TYPE_THEME,
             },
           },
         },
         android: {
-          extension: {
+          [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
               application: 'android',
               name: 'Alerts & Update',
@@ -148,18 +149,18 @@ describe('categories reducer', () => {
               type: 'extension',
             },
           },
-          theme: {
+          [ADDON_TYPE_THEME]: {
             naturé: {
               application: 'android',
               name: 'Naturé',
               slug: 'naturé',
-              type: 'theme',
+              type: ADDON_TYPE_THEME,
             },
             painting: {
               application: 'android',
               name: 'Painting',
               slug: 'painting',
-              type: 'theme',
+              type: ADDON_TYPE_THEME,
             },
           },
         },

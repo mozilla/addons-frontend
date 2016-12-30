@@ -18,10 +18,10 @@ export default (
     <IndexRoute component={Home} />
     <Route path="addon/:slug/" component={DetailPage} />
     <Route path="addon/:slug/review/:reviewId/" component={AddonReview} />
-    <Route path=":addonType/categories/" component={CategoryList} />
-    <Route path=":addonType/:slug/" component={CategoryPage} />
+    <Route path=":visibleAddonType/categories/" component={CategoryList} />
+    <Route path=":visibleAddonType/:slug/" component={CategoryPage} />
     <Route path="fxa-authenticate" component={HandleLogin} />
     <Route path="search/" component={SearchPage} />
-    <Route path=":pluralAddonType/" component={LandingPage} />
+    <Route path=":visibleAddonType/" component={LandingPage} />
   </Route>
 );

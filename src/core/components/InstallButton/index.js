@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
 import InstallSwitch from 'core/components/InstallSwitch';
-import { THEME_TYPE } from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getThemeData } from 'core/themePreview';
 import Button from 'ui/components/Button';
@@ -32,7 +32,7 @@ export class InstallButtonBase extends React.Component {
     const { addon, className, hasAddonManager, i18n, size } = this.props;
     const useButton = hasAddonManager !== undefined && !hasAddonManager;
     let button;
-    if (addon.type === THEME_TYPE) {
+    if (addon.type === ADDON_TYPE_THEME) {
       button = (
         <Button
           data-browsertheme={JSON.stringify(getThemeData(addon))}

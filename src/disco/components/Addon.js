@@ -16,12 +16,12 @@ import {
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
-  EXTENSION_TYPE,
+  ADDON_TYPE_EXTENSION,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
-  THEME_TYPE,
+  ADDON_TYPE_THEME,
   UNINSTALLING,
   validAddonTypes,
   validInstallStates,
@@ -76,7 +76,7 @@ export class AddonBase extends React.Component {
 
   getLogo() {
     const { iconUrl } = this.props;
-    if (this.props.type === EXTENSION_TYPE) {
+    if (this.props.type === ADDON_TYPE_EXTENSION) {
       return <div className="logo"><img src={iconUrl} alt="" /></div>;
     }
     return null;
@@ -84,7 +84,7 @@ export class AddonBase extends React.Component {
 
   getThemeImage() {
     const { getBrowserThemeData, i18n, name, previewURL } = this.props;
-    if (this.props.type === THEME_TYPE) {
+    if (this.props.type === ADDON_TYPE_THEME) {
       // eslint-disable-next-line jsx-a11y/href-no-hash
       return (<a href="#" className="theme-image"
                  data-browsertheme={getBrowserThemeData()}
@@ -102,7 +102,7 @@ export class AddonBase extends React.Component {
 
   getDescription() {
     const { i18n, description, type } = this.props;
-    if (type === THEME_TYPE) {
+    if (type === ADDON_TYPE_THEME) {
       return (
         <p className="editorial-description">{i18n.gettext('Hover over the image to preview')}</p>
       );
@@ -181,8 +181,8 @@ export class AddonBase extends React.Component {
     }
 
     const addonClasses = classNames('addon', {
-      theme: type === THEME_TYPE,
-      extension: type === EXTENSION_TYPE,
+      theme: type === ADDON_TYPE_THEME,
+      extension: type === ADDON_TYPE_EXTENSION,
     });
 
     return (
