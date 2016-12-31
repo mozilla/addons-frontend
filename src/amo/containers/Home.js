@@ -20,7 +20,9 @@ CategoryLink.propTypes = {
   slug: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
+
 const ExtensionLink = (props) => <CategoryLink type="extensions" {...props} />;
+
 const ThemeLink = (props) => <CategoryLink type="themes" {...props} />;
 
 export class HomePageBase extends React.Component {
