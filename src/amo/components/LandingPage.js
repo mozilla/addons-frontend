@@ -28,7 +28,10 @@ export class LandingPageBase extends React.Component {
         featuredHeader: i18n.gettext('Featured extensions'),
         // TODO: Add this search/route, see:
         // https://github.com/mozilla/addons-frontend/issues/1535
-        featuredFooterLink: '#/extensions/featured',
+        featuredFooterLink: {
+          pathname: '#/extensions/featured',
+          query: { addonType: 'theme' },
+        },
         featuredFooterText: i18n.gettext('More featured extensions'),
         popularHeader: i18n.gettext('Most popular extensions'),
         popularFooterLink: {
@@ -47,7 +50,10 @@ export class LandingPageBase extends React.Component {
         featuredHeader: i18n.gettext('Featured themes'),
         // TODO: Add this search/route, see:
         // https://github.com/mozilla/addons-frontend/issues/1535
-        featuredFooterLink: '#/themes/featured',
+        featuredFooterLink: {
+          pathname: '#/themes/featured',
+          query: { addonType: 'theme' },
+        },
         featuredFooterText: i18n.gettext('More featured themes'),
         popularHeader: i18n.gettext('Most popular themes'),
         popularFooterLink: {
