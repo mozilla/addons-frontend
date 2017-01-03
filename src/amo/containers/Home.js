@@ -42,7 +42,7 @@ export class HomePageBase extends React.Component {
           <ExtensionLink name="screenshot" slug="photos-media">
             {i18n.gettext('Screenshot')}
           </ExtensionLink>
-          <ExtensionLink name="news" slug="feeds-news-blogging">
+          <ExtensionLink name="find-news" slug="feeds-news-blogging">
             {i18n.gettext('Find news')}
           </ExtensionLink>
           <ExtensionLink name="shop-online" slug="shopping">
