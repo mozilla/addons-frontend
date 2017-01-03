@@ -148,27 +148,28 @@ Changing the values in `mapStateToProps` will now update the values shown on the
 NOTE: You may need to restart your server to see any changes as there is currently a bug that
 does not update the server rendered code on the dev server.
 
-### Hitting the API
+### Making API Requests
 
 To access the user's data we'll add a new API function and a
-[normalizr](https://github.com/paularmstrong/normalizr) schema for user objects. Our API function
+[`normalizr`](https://github.com/paularmstrong/normalizr) schema for user objects. Our API function
 will be pretty basic since it will use our internal `callApi()` function to handle accessing the
-API along with the normalizr schema to format the response data.
+API along with the `normalizr` schema to format the response data.
 
 ```js
 // src/core/api/index.js
 // ... omit imports
 
-const addon = new Schema('addons', {idAttribute: 'slug'});
-// Tell normalizr we have "users" and they use the `username` property for their primary key.
-const user = new Schema('users', {idAttribute: 'username'});
+const addon = new schema.Entity('addons', {}, { idAttribute: 'slug' });
+// Tell normalizr we have "users" and they use the `username` property for
+// their primary key.
+const user = new schema.Entity('users', {}, { idAttribute: 'username' });
 
 // Add this function.
 export function fetchProfile({ api }) {
   return callApi({
     endpoint: 'accounts/profile',
     schema: user,
-    params: {lang: 'en-US'},
+    params: { lang: 'en-US' },
     auth: true,
     state: api,
   });
