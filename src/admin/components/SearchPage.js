@@ -31,7 +31,7 @@ export default class AdminSearchPage extends React.Component {
     const pathname = '/search/';
     const paginator = hasSearchParams && count > 0 ?
       (<Paginate count={count} currentPage={page}
-        pathname={pathname}
+        pathname={pathname} showPages={9}
         queryParams={convertFiltersToQueryParams(filters)} />) : [];
     return (
       <div className="search-page">
