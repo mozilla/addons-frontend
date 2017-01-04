@@ -38,6 +38,12 @@ describe('<Paginate />', () => {
       describe('with lots of pages', () => {
         const commonParams = { count: 30, perPage: 3, showPages: 5 };
 
+        it('will be 0 by default', () => {
+          const root = renderPaginate({
+            count: 30, perPage: 3, currentPage: 1 });
+          assert.deepEqual(root.visiblePages(), []);
+        });
+
         it('will not be less than 0', () => {
           const root = renderPaginate({ ...commonParams, currentPage: 1 });
           assert.deepEqual(root.visiblePages(), [1, 2, 3, 4, 5]);
