@@ -240,7 +240,7 @@ describe('AddonDetail', () => {
     const rootNode = findDOMNode(root);
     root.setState({ mounted: false });
 
-    let image = rootNode.querySelector('.AddonDetail-theme-header-image');
+    const image = rootNode.querySelector('.AddonDetail-theme-header-image');
     assert.equal(image.tagName, 'IMG');
     assert.ok(image.classList.contains('AddonDetail-theme-header-image'));
     assert.equal(image.src, 'https://amo/preview.png');
@@ -256,7 +256,6 @@ describe('AddonDetail', () => {
       },
       getBrowserThemeData: () => '{}',
     });
-    const rootNode = findDOMNode(root);
     root.setState({ mounted: false });
 
     root.componentDidMount();
