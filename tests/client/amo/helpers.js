@@ -3,6 +3,7 @@ export const fakeAddon = {
   guid: '1234@my-addons.firefox',
   name: 'Chill Out',
   slug: 'chill-out',
+  average_daily_users: 100,
   authors: [{
     name: 'Krupa',
     url: 'http://olympia.dev/en-US/firefox/user/krupa/',

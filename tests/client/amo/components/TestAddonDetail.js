@@ -11,6 +11,7 @@ import {
   AddonDetailBase,
   allowedDescriptionTags,
 } from 'amo/components/AddonDetail';
+import AddonMeta from 'amo/components/AddonMeta';
 import { OverallRatingWithI18n } from 'amo/components/OverallRating';
 import createStore from 'amo/store';
 import { THEME_TYPE } from 'core/constants';
@@ -323,5 +324,13 @@ describe('AddonDetail', () => {
     const rootNode = renderAsDOMNode();
 
     assert.ok(rootNode.querySelector('.AddonMoreInfo-contents'));
+  });
+
+  it('renders meta data', () => {
+    const root = render({ addon: fakeAddon });
+    const metaData = findRenderedComponentWithType(root, AddonMeta);
+    assert.ok(fakeAddon.average_daily_users);
+    assert.equal(metaData.props.averageDailyUsers,
+                 fakeAddon.average_daily_users);
   });
 });
