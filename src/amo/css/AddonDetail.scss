@@ -2,33 +2,31 @@
 @import "~core/css/inc/vars";
 @import "~ui/components/Icon/vars";
 
-.AddonDetail {
-  hr {
-    margin: 0 20px;
-  }
+$page-margin: 20px 10px;
 
-  .AddonDetail-icon,
-  .title,
-  .screenshots,
-  .about,
-  .AddonDetail-summary,
-  .overall-rating {
-    overflow: hidden;
-    padding: 20px;
-  }
 
-  .author {
-    display: block;
+// Put the margin on the immediate children so that the header can be full width and blue.
+.AddonDetail > * {
+  margin: $page-margin;
+}
+
+.AddonDetail-title {
+  margin-top: 10px;
+}
+
+.AddonDetail-title-heading {
+  margin-bottom: 10px;
+}
+
+.AddonDetail-author {
+  display: block;
+  font-size: 20px;
+  opacity: 0.75;
+
+  a {
+    color: $header-font-color;
     font-size: 20px;
-
-    a {
-      color: $header-font-color;
-      font-size: 20px;
-    }
-  }
-
-  .switch {
-    float: right;
+    text-decoration: none;
   }
 }
 
@@ -40,6 +38,8 @@
 .AddonDetail-header {
   background: $masthead-color;
   color: $header-font-color;
+  margin: 0;
+  padding: $page-margin;
 
   h1 {
     margin-top: 0;
@@ -97,4 +97,9 @@ $theme-header-horizontal-padding: 10px;
     height: 64px;
     width: 64px;
   }
+}
+
+.AddonDetail-install {
+  display: flex;
+  justify-content: flex-end;
 }

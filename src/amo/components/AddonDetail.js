@@ -13,6 +13,7 @@ import { THEME_TYPE } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
+import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
@@ -103,7 +104,7 @@ export class AddonDetailBase extends React.Component {
       i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
         addonName: addon.name,
         authorList: authorList.join(', '),
-        startSpan: '<span class="author">',
+        startSpan: '<span class="AddonDetail-author">',
         endSpan: '</span>',
       });
 
@@ -112,24 +113,22 @@ export class AddonDetailBase extends React.Component {
       <div className="AddonDetail">
         <header className="AddonDetail-header">
           {this.headerImage()}
-          <div className="title">
-            <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])} />
-            <InstallButton {...this.props} />
+          <div className="AddonDetail-title">
+            <h1
+              dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
+              className="AddonDetail-title-heading" />
           </div>
           <p className="AddonDetail-summary"
             dangerouslySetInnerHTML={sanitizeHTML(addon.summary)} />
         </header>
 
-        <section className="addon-metadata">
-          <h2 className="visually-hidden">
-            {i18n.gettext('Extension Metadata')}
-          </h2>
-          <AddonMeta />
+        <section className="AddonDetail-install">
+          <InstallButton {...this.props} />
         </section>
 
-        <section className="screenshots">
+        <Card className="AddonDetail-screenshots">
           <ScreenShots previews={addon.previews} />
-        </section>
+        </Card>
 
         <ShowMoreCard header={i18n.sprintf(
           i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
@@ -141,13 +140,11 @@ export class AddonDetailBase extends React.Component {
             } />
         </ShowMoreCard>
 
-        <section className="overall-rating">
-          <h2>{i18n.gettext('Rate your experience')}</h2>
-          <OverallRating
-            addon={addon}
-            version={addon.current_version}
-          />
-        </section>
+        <Card
+          header={i18n.gettext('Rate your experience')}
+          className="AddonDetail-overall-rating">
+          <OverallRating addon={addon} version={addon.current_version} />
+        </Card>
 
         <AddonMoreInfo addon={addon} />
       </div>
