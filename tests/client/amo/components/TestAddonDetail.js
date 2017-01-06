@@ -245,11 +245,23 @@ describe('AddonDetail', () => {
     assert.ok(image.classList.contains('AddonDetail-theme-header-image'));
     assert.equal(image.src, 'https://amo/preview.png');
     assert.equal(image.alt, 'Press to preview');
+  });
+
+  it('sets mounted in the state in componentDidMount', () => {
+    const root = render({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+        previewURL: 'https://amo/preview.png',
+      },
+      getBrowserThemeData: () => '{}',
+    });
+    const rootNode = findDOMNode(root);
+    root.setState({ mounted: false });
 
     root.componentDidMount();
 
-    image = rootNode.querySelector('.AddonDetail-theme-header-image');
-    assert.equal(image.style.backgroundImage, 'url("https://amo/preview.png")');
+    assert.equal(root.state.mounted, true);
   });
 
   it('renders a theme preview as a background image when mounted', () => {
