@@ -47,10 +47,21 @@ export class AddonDetailBase extends React.Component {
     OverallRating: DefaultOverallRating,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { mounted: false };
+  }
+
+  componentDidMount() {
+    // Disabling react/no-did-mount-set-state because it is to prevent additional renders, but
+    // that's exactly what we want in this case. We want to render an img tag on the server since
+    // we can't use inline styles there, but use an inline background-image in JS to prevent the
+    // context menu you get from long pressing on an image.
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({ mounted: true });
+  }
+
   onTouchStart = (event) => {
-    // We preventDefault so that the image long-press menu doesn't appear.
-    // This unfortunately prevents scrolling :(
-    event.preventDefault();
     this.props.previewTheme(event.currentTarget);
   }
 
@@ -61,11 +72,22 @@ export class AddonDetailBase extends React.Component {
   headerImage() {
     const { addon, getBrowserThemeData, i18n } = this.props;
     const { previewURL, type } = addon;
+    const { mounted } = this.state;
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
 
     if (type === THEME_TYPE) {
       const label = i18n.gettext('Press to preview');
+      const imageClassName = 'AddonDetail-theme-header-image';
+      let headerImage;
+
+      if (mounted) {
+        const style = { backgroundImage: `url(${previewURL})` };
+        headerImage = <div style={style} className={imageClassName} />;
+      } else {
+        headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
+      }
+
       return (
         <div
           className="AddonDetail-theme-header"
@@ -73,15 +95,13 @@ export class AddonDetailBase extends React.Component {
           data-browsertheme={getBrowserThemeData()}
           onTouchStart={this.onTouchStart}
           onTouchEnd={this.onTouchEnd}
+          ref={(el) => { this.wrapper = el; }}
         >
           <label className="AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
             <Icon name="eye" className="AddonDetail-theme-preview-icon" />
             {label}
           </label>
-          <img
-            alt={label}
-            className="AddonDetail-theme-header-image"
-            src={previewURL} />
+          {headerImage}
         </div>
       );
     }

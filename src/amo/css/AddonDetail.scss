@@ -56,11 +56,20 @@ $theme-header-horizontal-padding: 10px;
 }
 
 .AddonDetail-theme-header-image {
+  background-position: top right;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 12px;
   height: 100px;
   object-fit: cover;
   object-position: top right;
+  user-select: none;
   width: 100%;
+
+  [dir=rtl] & {
+    background-position: top left;
+  }
 }
 
 .AddonDetail-theme-header-label {
@@ -77,6 +86,7 @@ $theme-header-horizontal-padding: 10px;
   padding: $label-margin;
   position: absolute;
   text-transform: uppercase;
+  user-select: none;
 }
 
 .AddonDetail-theme-preview-icon {
