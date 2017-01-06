@@ -46,6 +46,16 @@ $page-margin: 20px 10px;
   }
 }
 
+.AddonDetail-metadata {
+  align-items: center;
+  background-color: $masthead-light-color;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px;
+}
+
 .AddonDetail-theme-header {
   line-height: 0;
   position: relative;
@@ -93,9 +103,4 @@ $page-margin: 20px 10px;
     height: 64px;
     width: 64px;
   }
-}
-
-.AddonDetail-install {
-  display: flex;
-  justify-content: flex-end;
 }

@@ -1,34 +1,24 @@
 .AddonMeta {
   font-size: 10px;
-  padding: 20px;
+}
 
-  .category,
-  .sentiment,
-  .users {
-    display: inline-block;
-    margin: 5px;
-    padding-top: 40px;
-    text-align: center;
-    vertical-align: top;
-    width: 60px;
-  }
+.AddonMeta-users {
+  // background: url('../img/icons/users.svg') no-repeat 50% 5px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80px;
+}
 
-  p {
-    display: inline-block;
-    line-height: 14px;
-    max-width: 45px;
-    text-align: center;
-  }
+.AddonMeta-users-icon {
+  height: 60px;
+  width: 40px;
+}
 
-  .category.security {
-    background: url('../img/categories/security.svg') no-repeat 50% 5px;
-  }
-
-  .users {
-    background: url('../img/icons/users.svg') no-repeat 50% 5px;
-  }
-
-  .sentiment.love-it {
-    background: url('../img/ratings/love-it-mono.svg') no-repeat 50% 5px;
-  }
+.AddonMeta-text {
+  display: inline-block;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
 }

@@ -122,7 +122,11 @@ export class AddonDetailBase extends React.Component {
             dangerouslySetInnerHTML={sanitizeHTML(addon.summary)} />
         </header>
 
-        <section className="AddonDetail-install">
+        <section className="AddonDetail-metadata">
+          <h2 className="visually-hidden">
+            {i18n.gettext('Extension Metadata')}
+          </h2>
+          <AddonMeta />
           <InstallButton {...this.props} />
         </section>
 
