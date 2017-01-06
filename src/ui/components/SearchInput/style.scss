@@ -56,7 +56,7 @@ $transition-duration: 250ms;
   // Include the start margin on the end so that icon and text is centred together.
   @include margin-end($icon-margin-start);
 
-  color: #ccc;
+  color: #fff;
   display: inline-block;
   height: $input-height;
   line-height: $input-height;
