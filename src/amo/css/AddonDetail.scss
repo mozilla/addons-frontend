@@ -47,11 +47,8 @@ $page-margin: 20px 10px;
   }
 }
 
-$theme-header-horizontal-padding: 10px;
-
 .AddonDetail-theme-header {
   line-height: 0;
-  padding: 20px $theme-header-horizontal-padding 0;
   position: relative;
 }
 
@@ -66,7 +63,7 @@ $theme-header-horizontal-padding: 10px;
 .AddonDetail-theme-header-label {
   $label-margin: 12px;
 
-  @include start($theme-header-horizontal-padding + $label-margin);
+  @include start($label-margin);
 
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;

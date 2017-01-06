@@ -126,9 +126,12 @@ export class AddonDetailBase extends React.Component {
           <InstallButton {...this.props} />
         </section>
 
-        <Card className="AddonDetail-screenshots">
-          <ScreenShots previews={addon.previews} />
-        </Card>
+        {addon.previews.length > 0
+          ? (
+            <Card className="AddonDetail-screenshots">
+              <ScreenShots previews={addon.previews} />
+            </Card>
+          ) : null}
 
         <ShowMoreCard header={i18n.sprintf(
           i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
