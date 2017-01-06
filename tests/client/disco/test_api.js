@@ -1,4 +1,4 @@
-import { arrayOf, normalize } from 'normalizr';
+import { normalize } from 'normalizr';
 
 import { discoResult, getDiscoveryAddons } from 'disco/api';
 import * as coreApi from 'core/api';
@@ -11,7 +11,7 @@ describe('disco api', () => {
       getDiscoveryAddons({ api });
       assert.ok(callApi.calledWith({
         endpoint: 'discovery',
-        schema: { results: arrayOf(discoResult) },
+        schema: { results: [discoResult] },
         state: api,
       }));
     });

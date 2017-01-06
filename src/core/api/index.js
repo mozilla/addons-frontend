@@ -3,7 +3,7 @@
 import url from 'url';
 
 import 'isomorphic-fetch';
-import { Schema, arrayOf, normalize } from 'normalizr';
+import { schema as normalizrSchema, normalize } from 'normalizr';
 import config from 'config';
 
 import log from 'core/logger';
@@ -11,10 +11,11 @@ import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
+const Entity = normalizrSchema.Entity;
 
-export const addon = new Schema('addons', { idAttribute: 'slug' });
-export const category = new Schema('categories', { idAttribute: 'slug' });
-export const user = new Schema('users', { idAttribute: 'username' });
+export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
+export const category = new Entity('categories', {}, { idAttribute: 'slug' });
+export const user = new Entity('users', {}, { idAttribute: 'username' });
 
 function makeQueryString(query) {
   return url.format({ query });
@@ -90,7 +91,7 @@ export function callApi({
 export function search({ api, page, auth = false, filters = {} }) {
   return callApi({
     endpoint: 'addons/search',
-    schema: { results: arrayOf(addon) },
+    schema: { results: [addon] },
     params: {
       app: api.clientApp,
       ...convertFiltersToQueryParams(filters),
@@ -153,7 +154,7 @@ export function featured({ api, filters, page }) {
       ...convertFiltersToQueryParams(filters),
       page,
     },
-    schema: { results: arrayOf(addon) },
+    schema: { results: [addon] },
     state: api,
   });
 }
@@ -161,7 +162,7 @@ export function featured({ api, filters, page }) {
 export function categories({ api }) {
   return callApi({
     endpoint: 'addons/categories',
-    schema: { results: arrayOf(category) },
+    schema: { results: [category] },
     state: api,
   });
 }

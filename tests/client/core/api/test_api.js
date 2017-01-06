@@ -383,7 +383,10 @@ describe('api', () => {
         }));
       return api.fetchProfile({ api: { lang: 'en-US', token } })
         .then((apiResponse) => {
-          assert.deepEqual(apiResponse, { entities: { users: { foo: user } }, result: 'foo' });
+          assert.deepEqual(apiResponse, {
+            entities: { users: { foo: user } },
+            result: 'foo',
+          });
           mockWindow.verify();
         });
     });
