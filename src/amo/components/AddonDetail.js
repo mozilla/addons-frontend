@@ -54,7 +54,9 @@ export class AddonDetailBase extends React.Component {
 
   componentDidMount() {
     // Disabling react/no-did-mount-set-state because it is to prevent additional renders, but
-    // that's exactly what we want in this case (use background-image with JS).
+    // that's exactly what we want in this case. We want to render an img tag on the server since
+    // we can't use inline styles there, but use an inline background-image in JS to prevent the
+    // context menu you get from long pressing on an image.
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ mounted: true });
   }
