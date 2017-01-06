@@ -2,6 +2,7 @@
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
+import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
