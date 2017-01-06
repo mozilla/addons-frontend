@@ -43,7 +43,6 @@ $transition-duration: 250ms;
   }
 
   .SearchInput-animation-icon {
-    color: #fff;
     opacity: 1;
     // Use !important to overwrite style properties added in JS.
     transform: translateX(0) !important;
@@ -56,7 +55,6 @@ $transition-duration: 250ms;
   // Include the start margin on the end so that icon and text is centred together.
   @include margin-end($icon-margin-start);
 
-  color: #fff;
   display: inline-block;
   height: $input-height;
   line-height: $input-height;
@@ -74,7 +72,6 @@ $transition-duration: 250ms;
 
   background: transparent;
   border: none;
-  color: #fff;
   height: $input-height;
   outline: none;
   padding: 0 ($default-icon-size + $icon-margin-start + $icon-margin-end);
