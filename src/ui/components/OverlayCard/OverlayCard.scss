@@ -1,0 +1,11 @@
+@import "~core/css/inc/vars";
+
+.OverlayCard {
+  margin: 0 $padding-page;
+  width: 100%;
+
+  .Card-contents {
+    max-height: 75vh;
+    overflow: scroll;
+  }
+}
