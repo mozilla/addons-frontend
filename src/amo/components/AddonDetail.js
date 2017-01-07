@@ -146,7 +146,7 @@ export class AddonDetailBase extends React.Component {
           <h2 className="visually-hidden">
             {i18n.gettext('Extension Metadata')}
           </h2>
-          <AddonMeta />
+          <AddonMeta averageDailyUsers={addon.average_daily_users} />
           <InstallButton {...this.props} />
         </section>
 
