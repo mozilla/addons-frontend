@@ -10,7 +10,10 @@ import { addQueryParams } from 'core/utils';
 
 
 export function hasAddonManager({ navigator } = {}) {
-  return typeof window !== 'undefined' && 'mozAddonManager' in (navigator || window.navigator);
+  if (!navigator && typeof window === 'undefined') {
+    return undefined;
+  }
+  return 'mozAddonManager' in (navigator || window.navigator);
 }
 
 export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonManager } = {}) {

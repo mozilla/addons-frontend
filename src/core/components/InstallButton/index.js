@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
@@ -7,12 +8,17 @@ import translate from 'core/i18n/translate';
 import { getThemeData } from 'core/themePreview';
 import Button from 'ui/components/Button';
 
+import './styles.scss';
+
+
 export class InstallButtonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
-    hasAddonManager: PropTypes.bool.isRequired,
+    className: PropTypes.string,
+    hasAddonManager: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     installTheme: PropTypes.func.isRequired,
+    size: PropTypes.string,
     status: PropTypes.string.isRequired,
   }
 
@@ -23,17 +29,34 @@ export class InstallButtonBase extends React.Component {
   }
 
   render() {
-    const { addon, hasAddonManager, i18n } = this.props;
-    if (hasAddonManager) {
-      return <InstallSwitch {...this.props} />;
-    } else if (addon.type === THEME_TYPE) {
-      return (
-        <Button data-browsertheme={JSON.stringify(getThemeData(addon))} onClick={this.installTheme}>
+    const { addon, className, hasAddonManager, i18n, size } = this.props;
+    const useButton = hasAddonManager !== undefined && !hasAddonManager;
+    let button;
+    if (addon.type === THEME_TYPE) {
+      button = (
+        <Button
+          data-browsertheme={JSON.stringify(getThemeData(addon))}
+          onClick={this.installTheme}
+          size={size}
+          className="InstallButton-button">
           {i18n.gettext('Install Theme')}
         </Button>
       );
+    } else {
+      button = (
+        <Button href={addon.installURL} size={size} className="InstallButton-button">
+          {i18n.gettext('Add to Firefox')}
+        </Button>
+      );
     }
-    return <Button href={addon.installURL}>{i18n.gettext('Add to Firefox')}</Button>;
+    return (
+      <div className={classNames('InstallButton', className, {
+        'InstallButton--use-button': useButton,
+      })}>
+        <InstallSwitch {...this.props} className="InstallButton-switch" />
+        {button}
+      </div>
+    );
   }
 }
 

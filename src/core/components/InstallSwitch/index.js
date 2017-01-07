@@ -101,7 +101,7 @@ export class InstallSwitchBase extends React.Component {
 
   render() {
     const browsertheme = JSON.stringify(getThemeData(this.props));
-    const { handleChange, slug, status } = this.props;
+    const { handleChange, slug, status, ...props } = this.props;
 
     if (!validStates.includes(status)) {
       throw new Error(`Invalid add-on status ${status}`);
@@ -118,6 +118,7 @@ export class InstallSwitchBase extends React.Component {
           name={slug} success={isSuccess} label={this.getLabel()}
           onChange={handleChange} onClick={this.handleClick}
           ref={(el) => { this.switchEl = el; }}
+          {...props}
         />
       </div>
     );
