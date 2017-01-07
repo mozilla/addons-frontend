@@ -326,11 +326,9 @@ describe('AddonDetail', () => {
     assert.ok(rootNode.querySelector('.AddonMoreInfo-contents'));
   });
 
-  it('renders meta data', () => {
-    const root = render({ addon: fakeAddon });
+  it('renders meta data with add-on props', () => {
+    const root = render({ addon: { ...fakeAddon, average_daily_users: 25 } });
     const metaData = findRenderedComponentWithType(root, AddonMeta);
-    assert.ok(fakeAddon.average_daily_users);
-    assert.equal(metaData.props.averageDailyUsers,
-                 fakeAddon.average_daily_users);
+    assert.equal(metaData.props.averageDailyUsers, 25);
   });
 });
