@@ -111,6 +111,19 @@ const settings = {
       },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
+    // This function helps ensure we do bail if a compilation error
+    // is encountered since --bail doesn't cause the build to fail with
+    // uglify errors.
+    // Remove when https://github.com/webpack/webpack/issues/2390 is fixed.
+    function bailOnStatsError() {
+      this.plugin('done', (stats) => {
+        if (stats.compilation.errors && stats.compilation.errors.length) {
+          // eslint-disable-next-line no-console
+          console.log(stats.compilation.errors);
+          process.exit(1);
+        }
+      });
+    },
   ],
   resolve: {
     alias: {

@@ -26,7 +26,7 @@
   },
   "betterScripts": {
     "build": {
-      "command": "npm run clean && npm run version-check && webpack --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
+      "command": "npm run clean && npm run version-check && webpack --bail --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src"
       }
