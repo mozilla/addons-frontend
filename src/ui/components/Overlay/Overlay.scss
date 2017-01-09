@@ -1,0 +1,35 @@
+@import "~core/css/inc/vars";
+
+.Overlay {
+  display: none;
+}
+
+.Overlay--visible {
+  display: block;
+}
+
+.Overlay-background {
+  background: transparentize($link-color, 0.1);
+  // This only works in WebKit right now, but it will look nice.
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1178765
+  // http://caniuse.com/#feat=css-backdrop-filter
+  backdrop-filter: blur(2px);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.Overlay-contents {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 100%;
+  z-index: 1001;
+}

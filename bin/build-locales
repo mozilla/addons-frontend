@@ -12,6 +12,8 @@ const po2json = require('po2json');
 const glob = require('glob');
 const shelljs = require('shelljs');
 const chalk = require('chalk');
+const toSource = require('tosource');
+const oneLine = require('common-tags').oneLine;
 
 const appName = config.get('appName');
 
@@ -30,7 +32,7 @@ poFiles.forEach((pofile) => {
   const subdir = path.dirname(dir);
   const locale = path.basename(subdir);
   const stem = path.basename(pofile, '.po');
-  const jsonfile = path.join(dest, locale, `${stem}.json`);
+  const localeOutputFilePath = path.join(dest, locale, `${stem}.js`);
   shelljs.mkdir('-p', path.join(dest, locale));
 
   const json = po2json.parseFileSync(pofile, {
@@ -39,5 +41,36 @@ poFiles.forEach((pofile) => {
     format: 'jed1.x',
     fuzzy: config.get('po2jsonFuzzyOutput'),
   });
-  fs.writeFileSync(jsonfile, json);
+  const localeObject = JSON.parse(json);
+
+  // Add the moment locale JS into our locale file, if one is available and
+  // we're building for AMO (which is the only app that uses moment right
+  // now).
+  if (appName === 'amo') {
+    var defineLocale = null;
+    try {
+      const momentLocale = locale.replace('_', '-').toLowerCase();
+      // We're using `new Function()` here to create a function out of the
+      // raw code in this file; this function won't be executed but will be
+      // written out by `toSource()` so that it can be used later (at runtime,
+      // by moment).
+      defineLocale = new Function(
+        fs.readFileSync(
+          `./node_modules/moment/locale/${momentLocale}.js`, 'utf8'
+        )
+      );
+    } catch (e) {
+      // We ignore missing locale errors for en_US as its moment's default
+      // locale so we don't need to provide a translation.
+      if (locale !== 'en_US') {
+        console.info(oneLine`No moment i18n available for ${locale};
+          consider adding one or creating a mapping.`);
+      }
+    }
+
+    localeObject._momentDefineLocale = defineLocale;
+  }
+
+  fs.writeFileSync(
+    localeOutputFilePath, `module.exports = ${toSource(localeObject)}`);
 });

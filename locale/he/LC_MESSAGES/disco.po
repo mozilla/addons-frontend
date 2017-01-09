@@ -1,32 +1,34 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-01 10:47+0000\n"
-"PO-Revision-Date: 2016-05-20 11:26+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2016-12-22 21:12+0000\n"
+"Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s בהורדה."
 
 #: src/core/components/InstallButton/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s בהתקנה."
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s הותקן והופעל. יש ללחוץ להסרה."
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s מנוטרל. יש ללחוץ להפעלה."
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
@@ -34,96 +36,95 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s הוסר. יש ללחוץ להתקנה."
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 
 #: src/disco/components/Addon.js:128
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "רחפו לתצוגה מקדימה או לחצו להתקנת %(name)s"
 
 #: src/disco/components/Addon.js:138
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "רחפו על התמונה לתצוגה מקדימה"
 
 #: src/disco/components/Addon.js:153
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "ההתקנה נכשלה. נא לנסות שנית."
 
 #: src/disco/components/Addon.js:155
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "ההורדה נכשלה. נא לבדוק את החיבור שלך."
 
 #: src/disco/components/Addon.js:157
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "אירעה שגיאה לא צפויה במהלך ההתקנה."
 
 #: src/disco/components/Addon.js:159
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "אירעה שגיאה לא צפויה במהלך הסרת ההתקנה."
 
 #: src/disco/components/Addon.js:162
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "אירעה שגיאה לא צפויה."
 
 #: src/disco/components/Addon.js:170
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "תוספת זו תוסר לאחר ש־Firefox יופעל מחדש."
 
 #: src/disco/components/Addon.js:172
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "נא להפעיל מחדש את Firefox כדי להשתמש בתוספת זו."
 
 #: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "התוספת שלך מוכנה"
 
 #: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "כעת ניתן לגשת אל %(name)s מסרגל הכלים."
 
 #: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
 msgid "OK!"
-msgstr ""
+msgstr "בסדר!"
 
 #: src/disco/components/Addon.js:98
 msgid "Close"
-msgstr ""
+msgstr "סגירה"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "גילוי תוספות"
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Click to play"
-msgstr ""
+msgstr "הקישו להפעלה"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "כדי ללמוד עוד על תוספות"
 
 #: src/disco/containers/DiscoPane.js:117
 msgid "Close video"
-msgstr ""
+msgstr "סגירת וידאו"
 
 #: src/disco/containers/DiscoPane.js:126
 msgid "See more add-ons!"
-msgstr ""
+msgstr "גלו תוספות נוספות!"
 
 #: src/disco/containers/DiscoPane.js:98
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "התאמה אישית של ה־Firefox שלך"
 
 #: src/disco/containers/DiscoPane.js:99
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
+"ישנן אלפי תוספות חינמיות שנוצרו על־ידי מפתחים מכל רחבי העולם, הניתנות להתקנה על מנת לעצב ולהתאים אישית את ה־Firefox שלך. מערכות נושא ועד כלים רבי עצמה ההופכים את הגלישה שלך למהירה ובטוחה יותר, "
+"תוספות הופכות את הדפדפן שלך – לשלך. על־מנת לעזור לך להתחיל, להלן מספר תוספות שאנו ממליצים עליהן בזכות הפונקציונליות והביצועים שלהן."

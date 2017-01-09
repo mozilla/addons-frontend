@@ -12,6 +12,7 @@ import { THEME_TYPE } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
+import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import DefaultRatingManager from 'ui/components/RatingManager';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
@@ -47,10 +48,21 @@ export class AddonDetailBase extends React.Component {
     RatingManager: DefaultRatingManager,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { mounted: false };
+  }
+
+  componentDidMount() {
+    // Disabling react/no-did-mount-set-state because it is to prevent additional renders, but
+    // that's exactly what we want in this case. We want to render an img tag on the server since
+    // we can't use inline styles there, but use an inline background-image in JS to prevent the
+    // context menu you get from long pressing on an image.
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({ mounted: true });
+  }
+
   onTouchStart = (event) => {
-    // We preventDefault so that the image long-press menu doesn't appear.
-    // This unfortunately prevents scrolling :(
-    event.preventDefault();
     this.props.previewTheme(event.currentTarget);
   }
 
@@ -61,11 +73,22 @@ export class AddonDetailBase extends React.Component {
   headerImage() {
     const { addon, getBrowserThemeData, i18n } = this.props;
     const { previewURL, type } = addon;
+    const { mounted } = this.state;
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
 
     if (type === THEME_TYPE) {
       const label = i18n.gettext('Press to preview');
+      const imageClassName = 'AddonDetail-theme-header-image';
+      let headerImage;
+
+      if (mounted) {
+        const style = { backgroundImage: `url(${previewURL})` };
+        headerImage = <div style={style} className={imageClassName} />;
+      } else {
+        headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
+      }
+
       return (
         <div
           className="AddonDetail-theme-header"
@@ -73,15 +96,13 @@ export class AddonDetailBase extends React.Component {
           data-browsertheme={getBrowserThemeData()}
           onTouchStart={this.onTouchStart}
           onTouchEnd={this.onTouchEnd}
+          ref={(el) => { this.wrapper = el; }}
         >
           <label className="AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
             <Icon name="eye" className="AddonDetail-theme-preview-icon" />
             {label}
           </label>
-          <img
-            alt={label}
-            className="AddonDetail-theme-header-image"
-            src={previewURL} />
+          {headerImage}
         </div>
       );
     }
@@ -103,7 +124,7 @@ export class AddonDetailBase extends React.Component {
       i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
         addonName: addon.name,
         authorList: authorList.join(', '),
-        startSpan: '<span class="author">',
+        startSpan: '<span class="AddonDetail-author">',
         endSpan: '</span>',
       });
 
@@ -112,29 +133,29 @@ export class AddonDetailBase extends React.Component {
       <div className="AddonDetail">
         <header className="AddonDetail-header">
           {this.headerImage()}
-          <div className="title">
-            <h1 dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])} />
-            <InstallButton {...this.props} />
+          <div className="AddonDetail-title">
+            <h1
+              dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
+              className="AddonDetail-title-heading" />
           </div>
           <p className="AddonDetail-summary"
             dangerouslySetInnerHTML={sanitizeHTML(addon.summary)} />
         </header>
 
-        <section className="addon-metadata">
+        <section className="AddonDetail-metadata">
           <h2 className="visually-hidden">
             {i18n.gettext('Extension Metadata')}
           </h2>
-          <AddonMeta />
+          <AddonMeta averageDailyUsers={addon.average_daily_users} />
+          <InstallButton {...this.props} />
         </section>
 
-        <hr />
-
-        <section className="screenshots">
-          <h2>{i18n.gettext('Screenshots')}</h2>
-          <ScreenShots />
-        </section>
-
-        <hr />
+        {addon.previews.length > 0
+          ? (
+            <Card className="AddonDetail-screenshots">
+              <ScreenShots previews={addon.previews} />
+            </Card>
+          ) : null}
 
         <ShowMoreCard header={i18n.sprintf(
           i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
@@ -146,13 +167,14 @@ export class AddonDetailBase extends React.Component {
             } />
         </ShowMoreCard>
 
-        <section className="overall-rating">
-          <h2>{i18n.gettext('Rate your experience')}</h2>
+        <Card
+          header={i18n.gettext('Rate your experience')}
+          className="AddonDetail-overall-rating">
           <RatingManager
             addon={addon}
             version={addon.current_version}
           />
-        </section>
+        </Card>
 
         <AddonMoreInfo addon={addon} />
       </div>

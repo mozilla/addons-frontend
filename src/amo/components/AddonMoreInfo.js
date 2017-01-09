@@ -32,7 +32,16 @@ export class AddonMoreInfoBase extends React.Component {
             {addon.current_version.version}
           </dd>
           <dt>{i18n.gettext('Last updated')}</dt>
-          <dd>{addon.last_updated}</dd>
+          <dd>
+            {i18n.sprintf(
+              // L10n: This will output, in English:
+              // "2 months ago (Dec 12 2016)"
+              i18n.gettext('%(timeFromNow)s (%(date)s)'), {
+                timeFromNow: i18n.moment(addon.last_updated).fromNow(),
+                date: i18n.moment(addon.last_updated).format('ll'),
+              }
+            )}
+          </dd>
           {addon.current_version.license ? (
             <dt ref={(ref) => { this.licenseHeader = ref; }}>
               {i18n.gettext('License')}

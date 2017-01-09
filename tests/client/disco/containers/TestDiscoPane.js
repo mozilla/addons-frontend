@@ -8,6 +8,7 @@ import {
   EXTENSION_TYPE,
   INSTALL_STATE,
 } from 'core/constants';
+import * as InfoDialog from 'core/containers/InfoDialog';
 import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
@@ -25,6 +26,8 @@ const { DiscoPaneBase } = helpers;
 
 describe('AddonPage', () => {
   function render(props) {
+    // Stub InfoDialog since it uses the store and is irrelevant.
+    sinon.stub(InfoDialog, 'default', () => <p>InfoDialog</p>);
     const store = createStore({
       addons: { foo: { type: EXTENSION_TYPE } },
       discoResults: [{ addon: 'foo' }],
@@ -128,13 +131,8 @@ describe('AddonPage', () => {
     it('only sets results', () => {
       const props = helpers.mapStateToProps({
         discoResults: [],
-        infoDialog: {
-          show: false,
-          data: {},
-        },
       });
-      assert.sameMembers(Object.keys(props),
-        ['results', 'infoDialogData', 'showInfoDialog']);
+      assert.sameMembers(Object.keys(props), ['results']);
     });
 
     it('sets the results', () => {

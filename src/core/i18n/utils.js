@@ -1,4 +1,6 @@
 import config from 'config';
+import Jed from 'jed';
+import moment from 'moment';
 
 import log from 'core/logger';
 
@@ -172,4 +174,27 @@ export function getLanguage({ lang, acceptLanguage } = {}) {
   // - mapping e.g. pt -> pt-PT.
   // - normalization e.g: en-us -> en-US.
   return { lang: sanitizeLanguage(userLang), isLangFromHeader };
+}
+
+// moment uses locales like "en-gb" whereas we use "en_GB".
+export function makeMomentLocale(locale) {
+  return locale.replace('_', '-').toLowerCase();
+}
+
+// Create an i18n object with a translated moment object available we can
+// use for translated dates across the app.
+export function makeI18n(i18nData, _Jed = Jed) {
+  const i18n = new _Jed(i18nData);
+
+  // This adds the correct moment locale for the active locale so we can get
+  // localised dates, times, etc.
+  if (i18n.options && typeof i18n.options._momentDefineLocale === 'function') {
+    i18n.options._momentDefineLocale();
+    moment.locale(makeMomentLocale(i18n.options.locale_data.messages[''].lang));
+  }
+
+  // We add a translated "moment" property to our `i18n` object
+  // to make translated date/time/etc. easy.
+  i18n.moment = moment;
+  return i18n;
 }

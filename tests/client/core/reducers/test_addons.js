@@ -44,6 +44,21 @@ describe('addon reducer', () => {
       });
   });
 
+  it('sets the icon_url as iconUrl', () => {
+    const addon = {
+      slug: 'installable',
+      icon_url: 'http://foo.com/img.png',
+    };
+    assert.deepEqual(
+      addons(undefined, { payload: { entities: { addons: { installable: addon } } } }),
+      {
+        installable: {
+          ...addon,
+          iconUrl: 'http://foo.com/img.png',
+        },
+      });
+  });
+
   it('flattens theme data', () => {
     const type = API_THEME_TYPE;
     const state = addons(originalState, {

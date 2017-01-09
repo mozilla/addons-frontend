@@ -1,37 +1,41 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import Icon from 'ui/components/Icon';
 
 import 'amo/css/AddonMeta.scss';
 
 export class AddonMetaBase extends React.Component {
   static propTypes = {
+    averageDailyUsers: PropTypes.number.isRequired,
     i18n: PropTypes.object.isRequired,
+    lang: PropTypes.string.isRequired,
   }
 
   render() {
-    const { i18n } = this.props;
+    const { lang, averageDailyUsers, i18n } = this.props;
 
-    // This is just a placeholder.
+    const userCount = i18n.sprintf(
+      i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
+      { total: averageDailyUsers.toLocaleString(lang) },
+    );
     return (
       <div className="AddonMeta">
-        <div className="category security">
-          <h3 className="visually-hidden">{i18n.gettext('Category')}</h3>
-          <p>Security &amp; Privacy</p>
-        </div>
-
-        <div className="users">
+        <div className="AddonMeta-users">
           <h3 className="visually-hidden">{i18n.gettext('Used by')}</h3>
-          <p>1,342 users</p>
-        </div>
-
-        <div className="sentiment love-it">
-          <h3 className="visually-hidden">{i18n.gettext('Sentiment')}</h3>
-          <p>89% love it!</p>
+          <Icon className="AddonMeta-users-icon" name="user" />
+          <p className="AddonMeta-text">{userCount}</p>
         </div>
       </div>
     );
   }
 }
 
-export default translate({ withRef: true })(AddonMetaBase);
+const mapStateToProps = (state) => ({ lang: state.api.lang });
+
+export default compose(
+  connect(mapStateToProps),
+  translate({ withRef: true }),
+)(AddonMetaBase);

@@ -7,7 +7,9 @@ import { searchStart, searchLoad, searchFail } from 'core/actions/search';
 export const paramsToFilter = {
   app: 'clientApp',
   category: 'category',
+  page_size: 'page_size',
   q: 'query',
+  sort: 'sort',
   type: 'addonType',
 };
 
@@ -88,7 +90,7 @@ export function loadSearchResultsIfNeeded(
     clientApp: state.api.clientApp,
   });
 
-  if (!isLoaded({ state: state.search, page, filters })) {
+  if (!isLoaded({ filters, page, state: state.search })) {
     return performSearch({
       api: state.api,
       auth: state.auth,

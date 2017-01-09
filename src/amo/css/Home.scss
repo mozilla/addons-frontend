@@ -52,6 +52,15 @@
   }
 }
 
+.HomePage-category-link,
+.HomePage-extensions-link,
+.HomePage-themes-link {
+  &,
+  &:visited {
+    color: $link-color;
+  }
+}
+
 .HomePage-extensions-link:link,
 .HomePage-themes-link:link {
   align-items: center;
@@ -99,8 +108,8 @@
   background-image: url('../img/home/screenshot.svg');
 }
 
-.HomePage-save-stuff {
-  background-image: url('../img/home/save-stuff.svg');
+.HomePage-find-news {
+  background-image: url('../img/home/find-news.svg');
   background-size: 40% auto;
 }
 
@@ -112,8 +121,8 @@
   background-image: url('../img/home/be-social.svg');
 }
 
-.HomePage-share-stuff {
-  background-image: url('../img/home/share-stuff.svg');
+.HomePage-play-games {
+  background-image: url('../img/home/play-games.svg');
 }
 
 .HomePage-wild {
@@ -125,7 +134,7 @@
 }
 
 .HomePage-fashionable {
-  background-image: url('../img/home/fashion.svg');
+  background-image: url('../img/home/fashionable.svg');
 }
 
 .HomePage-scenic {
@@ -136,6 +145,6 @@
   background-image: url('../img/home/sporty.svg');
 }
 
-.HomePage-mystical {
-  background-image: url('../img/home/mystical.svg');
+.HomePage-solid {
+  background-image: url('../img/home/solid.svg');
 }

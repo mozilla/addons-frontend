@@ -13,7 +13,13 @@
 }
 
 .Icon-eye {
-  background: url('~ui/components/Icon/eye.svg') 0 50% no-repeat;
+  background: url('./eye.svg') 0 50% no-repeat;
   background-size: cover;
+  width: 23px;
+}
+
+.Icon-user {
+  background: url('./user.svg') 0 50% no-repeat;
+  background-size: contain;
   width: 23px;
 }
