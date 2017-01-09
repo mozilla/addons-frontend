@@ -12,9 +12,16 @@ import Button from 'ui/components/Button';
 describe('<InstallButton />', () => {
   it('renders InstallSwitch when mozAddonManager is available', () => {
     const i18n = getFakeI18nInst();
-    const root = shallowRender(<InstallButtonBase foo="foo" hasAddonManager i18n={i18n} />);
-    assert.equal(root.type, InstallSwitch);
-    assert.deepEqual(root.props, {
+    const addon = { type: THEME_TYPE, id: 'foo@personas.mozilla.org' };
+    const root = shallowRender(
+      <InstallButtonBase foo="foo" addon={addon} hasAddonManager i18n={i18n} />);
+    assert.equal(root.type, 'div');
+    assert.equal(root.props.className, 'InstallButton InstallButton--use-switch');
+    const switchComponent = root.props.children[0];
+    assert.equal(switchComponent.type, InstallSwitch);
+    assert.deepEqual(switchComponent.props, {
+      addon,
+      className: 'InstallButton-switch',
       foo: 'foo',
       hasAddonManager: true,
       i18n,
@@ -27,9 +34,14 @@ describe('<InstallButton />', () => {
     const root = shallowRender(
       <InstallButtonBase
         addon={addon} foo="foo" hasAddonManager={false} i18n={i18n} />);
-    assert.equal(root.type, Button);
-    assert.equal(root.props.children, 'Install Theme');
-    assert.equal(root.props['data-browsertheme'], JSON.stringify(themePreview.getThemeData(addon)));
+    assert.equal(root.type, 'div');
+    assert.equal(root.props.className, 'InstallButton InstallButton--use-button');
+    const buttonComponent = root.props.children[1];
+    assert.equal(buttonComponent.type, Button);
+    assert.equal(buttonComponent.props.children, 'Install Theme');
+    assert.equal(
+        buttonComponent.props['data-browsertheme'],
+        JSON.stringify(themePreview.getThemeData(addon)));
   });
 
 
@@ -42,10 +54,11 @@ describe('<InstallButton />', () => {
         addon={addon} foo="foo" hasAddonManager={false} i18n={i18n}
         status={UNKNOWN} installTheme={installTheme} />));
     const preventDefault = sinon.spy();
-    Simulate.click(root, { preventDefault });
+    const buttonComponent = root.querySelector('.InstallButton-button');
+    Simulate.click(buttonComponent, { preventDefault });
     assert.ok(preventDefault.called);
     assert.ok(installTheme.called);
-    assert.ok(installTheme.calledWith(root, { ...addon, status: UNKNOWN }));
+    assert.ok(installTheme.calledWith(buttonComponent, { ...addon, status: UNKNOWN }));
   });
 
   it('renders an add-on button when mozAddonManager is not available', () => {
@@ -53,10 +66,15 @@ describe('<InstallButton />', () => {
     const addon = { type: EXTENSION_TYPE, installURL: 'https://addons.mozilla.org/download' };
     const root = shallowRender(
       <InstallButtonBase addon={addon} foo="foo" hasAddonManager={false} i18n={i18n} />);
-    assert.equal(root.type, Button);
-    assert.deepEqual(root.props, {
+    assert.equal(root.type, 'div');
+    assert.equal(root.props.className, 'InstallButton InstallButton--use-button');
+    const buttonComponent = root.props.children[1];
+    assert.equal(buttonComponent.type, Button);
+    assert.deepEqual(buttonComponent.props, {
       children: 'Add to Firefox',
+      className: 'InstallButton-button',
       href: 'https://addons.mozilla.org/download',
+      size: 'normal',
     });
   });
 });

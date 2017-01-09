@@ -1,0 +1,17 @@
+.InstallButton {
+  .InstallButton-button {
+    white-space: nowrap;
+  }
+
+  &.InstallButton--use-button {
+    .InstallButton-switch {
+      display: none;
+    }
+  }
+
+  &.InstallButton--use-switch {
+    .InstallButton-button {
+      display: none;
+    }
+  }
+}
