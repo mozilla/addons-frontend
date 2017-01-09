@@ -53,7 +53,7 @@ $addon-padding: 20px;
     }
   }
 
-  .install-button {
+  .Addon-install-button {
     margin: 0 20px 0 30px;
 
     [dir=rtl] & {
@@ -61,7 +61,7 @@ $addon-padding: 20px;
     }
   }
 
-  &:not(.theme) .install-button {
+  &:not(.theme) .Addon-install-button {
     align-self: stretch;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     margin: 0 0 15px;
@@ -77,7 +77,7 @@ $addon-padding: 20px;
   }
 
   @include respond-to('large') {
-    &:not(.theme) .install-button {
+    &:not(.theme) .Addon-install-button {
       align-self: center;
       border: 0;
       margin: 0 20px 0 30px;
