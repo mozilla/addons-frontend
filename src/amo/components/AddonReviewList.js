@@ -30,8 +30,6 @@ export class AddonReviewListBase extends React.Component {
 
   renderReview(review) {
     const { addon } = this.props.initialData;
-    // FIXME: get actual review version.
-    const version = addon.current_version;
     return (
       <li className="AddonReviewList-li">
         <h3>{review.title}</h3>
