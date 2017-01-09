@@ -1,15 +1,16 @@
 .InstallButton {
   .InstallButton-button {
-    display: none;
     white-space: nowrap;
   }
 
   &.InstallButton--use-button {
-    .InstallButton-button {
-      display: inline-block;
-    }
-
     .InstallButton-switch {
+      display: none;
+    }
+  }
+
+  &.InstallButton--use-button {
+    .InstallButton-button {
       display: none;
     }
   }

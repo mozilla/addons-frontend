@@ -114,11 +114,11 @@ export class InstallSwitchBase extends React.Component {
     return (
       <div data-browsertheme={browsertheme} ref={(el) => { this.themeData = el; }}>
         <Switch
+          {...props}
           checked={isChecked} disabled={isDisabled} progress={this.getDownloadProgress()}
           name={slug} success={isSuccess} label={this.getLabel()}
           onChange={handleChange} onClick={this.handleClick}
           ref={(el) => { this.switchEl = el; }}
-          {...props}
         />
       </div>
     );

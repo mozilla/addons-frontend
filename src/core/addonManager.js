@@ -9,8 +9,10 @@ import {
 import { addQueryParams } from 'core/utils';
 
 
-export function hasAddonManager({ navigator } = {}) {
-  if (!navigator && typeof window === 'undefined') {
+const testHasWindow = () => typeof window !== 'undefined';
+
+export function hasAddonManager({ hasWindow = testHasWindow, navigator } = {}) {
+  if (!navigator && !hasWindow()) {
     return undefined;
   }
   return 'mozAddonManager' in (navigator || window.navigator);
