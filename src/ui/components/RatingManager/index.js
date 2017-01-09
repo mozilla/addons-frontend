@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
-import classNames from 'classnames';
 
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
@@ -20,7 +19,6 @@ export class RatingManagerBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
     Rating: PropTypes.object,
-    readOnly: PropTypes.boolean,
     router: PropTypes.object.isRequired,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
@@ -30,7 +28,6 @@ export class RatingManagerBase extends React.Component {
 
   static defaultProps = {
     Rating: DefaultRating,
-    readOnly: false,
   }
 
   constructor(props) {
