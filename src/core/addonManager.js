@@ -12,6 +12,8 @@ import { addQueryParams } from 'core/utils';
 const testHasWindow = () => typeof window !== 'undefined';
 
 export function hasAddonManager({ hasWindow = testHasWindow, navigator } = {}) {
+  // Returns undefined if it cannot be determined if mozAddonManager is supperted (likely server
+  // rendering with no window). Otherwise returns true/false based on mozAddonManager in navigator.
   if (!navigator && !hasWindow()) {
     return undefined;
   }
