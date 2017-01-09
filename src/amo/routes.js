@@ -8,6 +8,7 @@ import AddonReviewList from './components/AddonReviewList';
 import App from './containers/App';
 import CategoryList from './containers/CategoryList';
 import CategoryPage from './containers/CategoryPage';
+import LandingPage from './components/LandingPage';
 import Home from './containers/Home';
 import DetailPage from './containers/DetailPage';
 import SearchPage from './containers/SearchPage';
@@ -23,5 +24,6 @@ export default (
     <Route path=":addonType/:slug/" component={CategoryPage} />
     <Route path="fxa-authenticate" component={HandleLogin} />
     <Route path="search/" component={SearchPage} />
+    <Route path=":pluralAddonType/" component={LandingPage} />
   </Route>
 );

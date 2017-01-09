@@ -1,5 +1,6 @@
 import base64url from 'base64url';
 import { sprintf } from 'jed';
+import moment from 'moment';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 
@@ -77,6 +78,7 @@ export function getFakeI18nInst() {
     npgettext: sinon.stub(),
     dnpgettext: sinon.stub(),
     sprintf: sinon.spy(sprintf),
+    moment,
   };
 }
 

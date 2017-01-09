@@ -71,6 +71,9 @@ export default Object.assign({}, webpackConfig, {
         loader: 'babel',
         query: BABEL_QUERY,
       }, {
+        test: /\.css$/,
+        loader: 'style!css?importLoaders=2!postcss?outputStyle=expanded',
+      }, {
         test: /\.scss$/,
         loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
       }, {
@@ -82,6 +85,9 @@ export default Object.assign({}, webpackConfig, {
       }, {
         test: /\.png$/,
         loader: 'url?limit=10000&mimetype=image/png',
+      }, {
+        test: /\.gif/,
+        loader: 'url?limit=10000&mimetype=image/gif',
       }, {
         test: /\.webm$/,
         loader: 'url?limit=10000&mimetype=video/webm',
@@ -107,10 +113,12 @@ export default Object.assign({}, webpackConfig, {
     }),
     // Replaces server config module with the subset clientConfig object.
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
+    // Prevent locales with moment require calls from crashing
+    new webpack.NormalModuleReplacementPlugin(/\.\.\/moment$/, 'moment'),
     // This allow us to exclude locales for other apps being built.
     new webpack.ContextReplacementPlugin(
       /locale$/,
-      new RegExp(`^\\.\\/.*?\\/${appName}\\.json$`)
+      new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
     ),
     // Substitutes client only config.
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),

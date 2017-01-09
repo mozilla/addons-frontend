@@ -11,6 +11,7 @@ describe('amo createStore', () => {
         'auth',
         'categories',
         'errors',
+        'infoDialog',
         'installations',
         'landing',
         'reduxAsyncConnect',

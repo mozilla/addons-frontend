@@ -33,6 +33,8 @@ describe('App', () => {
     }
   }
 
+  const FakeInfoDialogComponent = () => <div />;
+
   it('renders its children', () => {
     // eslint-disable-next-line react/no-multi-comp
     class MyComponent extends React.Component {
@@ -45,8 +47,10 @@ describe('App', () => {
     const root = renderIntoDocument(
       <AppBase i18n={i18n} isAuthenticated
         FooterComponent={FakeFooterComponent}
+        InfoDialogComponent={FakeInfoDialogComponent}
         MastHeadComponent={FakeMastHeadComponent}
-        SearchFormComponent={FakeSearchFormComponent} location={location}>
+        SearchFormComponent={FakeSearchFormComponent}
+        location={location}>
         <MyComponent />
       </AppBase>
     );
@@ -63,6 +67,7 @@ describe('App', () => {
     const root = renderIntoDocument(
       <AppBase i18n={i18n} isAuthenticated={false}
         FooterComponent={FakeFooterComponent}
+        InfoDialogComponent={FakeInfoDialogComponent}
         MastHeadComponent={FakeMastHeadComponent}
         SearchFormComponent={FakeSearchFormComponent}
         handleLogIn={handleLogIn} location={location} />
@@ -79,8 +84,10 @@ describe('App', () => {
     const root = renderIntoDocument(<AppBase i18n={i18n}
       isAuthenticated
       FooterComponent={FakeFooterComponent}
+      InfoDialogComponent={FakeInfoDialogComponent}
       MastHeadComponent={FakeMastHeadComponent}
-      SearchFormComponent={FakeSearchFormComponent} location={location} />);
+      SearchFormComponent={FakeSearchFormComponent}
+      location={location} />);
     assert.equal(root.logInButton.textContent, 'Log out');
   });
 
@@ -112,7 +119,9 @@ describe('App', () => {
     const i18n = getFakeI18nInst();
     const location = sinon.stub();
     const root = renderIntoDocument(
-      <AppBase FooterComponent={FakeFooterComponent}
+      <AppBase
+        FooterComponent={FakeFooterComponent}
+        InfoDialogComponent={FakeInfoDialogComponent}
         MastHeadComponent={FakeMastHeadComponent}
         SearchFormComponent={FakeSearchFormComponent}
         i18n={i18n}

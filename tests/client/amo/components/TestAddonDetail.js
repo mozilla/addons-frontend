@@ -11,7 +11,8 @@ import {
   AddonDetailBase,
   allowedDescriptionTags,
 } from 'amo/components/AddonDetail';
-import { OverallRatingWithI18n } from 'amo/components/OverallRating';
+import AddonMeta from 'amo/components/AddonMeta';
+import { RatingManagerWithI18n } from 'ui/components/RatingManager';
 import createStore from 'amo/store';
 import { THEME_TYPE } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
@@ -20,21 +21,26 @@ import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
-function render({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
+function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
   const i18n = getFakeI18nInst();
   const initialState = { api: { clientApp: 'android', lang: 'pt' } };
-  const props = {
+  return {
     addon,
     ...addon,
     i18n,
-    // Configure AddonDetail with a non-redux depdendent OverallRating.
-    OverallRating: OverallRatingWithI18n,
+    // Configure AddonDetail with a non-redux depdendent RatingManager.
+    RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
+    store: createStore(initialState),
     ...customProps,
   };
+}
 
+function render(...args) {
+  const { store, i18n, ...props } = renderProps(...args);
+  props.i18n = i18n;
   return findRenderedComponentWithType(renderIntoDocument(
-    <Provider store={createStore(initialState)}>
+    <Provider store={store}>
       <I18nProvider i18n={i18n}>
         <AddonDetailBase {...props} />
       </I18nProvider>
@@ -188,7 +194,7 @@ describe('AddonDetail', () => {
 
   it('configures the overall ratings section', () => {
     const root = findRenderedComponentWithType(render(),
-                                               OverallRatingWithI18n);
+                                               RatingManagerWithI18n);
     assert.deepEqual(root.props.addon, fakeAddon);
   });
 
@@ -223,7 +229,42 @@ describe('AddonDetail', () => {
     assert.include(src, 'image/png');
   });
 
-  it('renders a theme preview image', () => {
+  it('renders a theme preview as an img before mounting', () => {
+    const root = render({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+        previewURL: 'https://amo/preview.png',
+      },
+      getBrowserThemeData: () => '{}',
+    });
+    const rootNode = findDOMNode(root);
+    root.setState({ mounted: false });
+
+    const image = rootNode.querySelector('.AddonDetail-theme-header-image');
+    assert.equal(image.tagName, 'IMG');
+    assert.ok(image.classList.contains('AddonDetail-theme-header-image'));
+    assert.equal(image.src, 'https://amo/preview.png');
+    assert.equal(image.alt, 'Press to preview');
+  });
+
+  it('sets mounted in the state in componentDidMount', () => {
+    const root = render({
+      addon: {
+        ...fakeAddon,
+        type: THEME_TYPE,
+        previewURL: 'https://amo/preview.png',
+      },
+      getBrowserThemeData: () => '{}',
+    });
+    root.setState({ mounted: false });
+
+    root.componentDidMount();
+
+    assert.equal(root.state.mounted, true);
+  });
+
+  it('renders a theme preview as a background image when mounted', () => {
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
@@ -232,12 +273,11 @@ describe('AddonDetail', () => {
       },
       getBrowserThemeData: () => '{}',
     });
-    const img = rootNode.querySelector('.AddonDetail-theme-header-image');
-    assert.equal(img.src, 'https://amo/preview.png');
-    assert.equal(img.alt, 'Press to preview');
+    const image = rootNode.querySelector('.AddonDetail-theme-header-image');
+    assert.equal(image.style.backgroundImage, 'url("https://amo/preview.png")');
   });
 
-  it('sets the browserthem data on the header', () => {
+  it('sets the browsertheme data on the header', () => {
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
@@ -261,9 +301,7 @@ describe('AddonDetail', () => {
       previewTheme,
     });
     const header = rootNode.querySelector('.AddonDetail-theme-header');
-    const event = { preventDefault: sinon.spy() };
-    Simulate.touchStart(header, event);
-    assert.ok(event.preventDefault.called);
+    Simulate.touchStart(header);
     assert.ok(previewTheme.calledWith(header));
   });
 
@@ -286,5 +324,11 @@ describe('AddonDetail', () => {
     const rootNode = renderAsDOMNode();
 
     assert.ok(rootNode.querySelector('.AddonMoreInfo-contents'));
+  });
+
+  it('renders meta data with add-on props', () => {
+    const root = render({ addon: { ...fakeAddon, average_daily_users: 25 } });
+    const metaData = findRenderedComponentWithType(root, AddonMeta);
+    assert.equal(metaData.props.averageDailyUsers, 25);
   });
 });

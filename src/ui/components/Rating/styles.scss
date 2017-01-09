@@ -1,0 +1,39 @@
+.Rating {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+$star-size: 46px;
+
+.Rating-choice {
+  background: url('./img/big-star.svg') center/$star-size no-repeat;
+  height: $star-size + 10px;
+  width: $star-size + 10px;
+}
+
+.Rating-selected-star {
+  background-image: url('./img/big-star-selected.svg');
+}
+
+.Rating--editable {
+  .Rating-choice {
+    cursor: pointer;
+  }
+
+  // The following rules make the ranges of stars appear selected when
+  // you hover over them. For example, when you hover over the third star,
+  // only the first three stars appear selected.
+
+  // First, make all stars appear selected when you hover over the group.
+  .Rating-star-group:hover .Rating-choice,
+  // For keyboard navigation, make the focused star appear selected.
+  .Rating-choice:focus {
+    background-image: url('./img/big-star-selected.svg');
+  }
+
+  // Second, de-select all stars to the right of the cursor.
+  .Rating-choice:hover ~ .Rating-choice {
+    background-image: url('./img/big-star.svg');
+  }
+}

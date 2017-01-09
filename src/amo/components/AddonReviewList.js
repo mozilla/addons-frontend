@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
-import OverallRating from 'amo/components/OverallRating';
+import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { callApi } from 'core/api';
 import translate from 'core/i18n/translate';
@@ -39,9 +39,7 @@ export class AddonReviewListBase extends React.Component {
           {review.body}
         </p>
         <span>
-          <OverallRating
-            addon={addon} userReview={review} version={version}
-            readOnly={true} />
+          <Rating rating={userReview.rating} readOnly={true} />
           {this.props.i18n.gettext('from')} {review.userName}
         </span>
       </li>

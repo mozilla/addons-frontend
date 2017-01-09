@@ -1,16 +1,16 @@
 /* eslint-disable max-len */
 /* global navigator, window */
 import React, { PropTypes } from 'react';
+import { camelizeKeys } from 'humps';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-connect';
 import config from 'config';
 
-import { camelCaseProps } from 'core/utils';
 import { loadEntities } from 'core/actions';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
-import InfoDialog from 'core/components/InfoDialog';
 import { INSTALL_STATE } from 'core/constants';
+import InfoDialog from 'core/containers/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
 import {
   NAVIGATION_CATEGORY,
@@ -29,10 +29,8 @@ export class DiscoPaneBase extends React.Component {
     AddonComponent: PropTypes.func,
     handleGlobalEvent: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    infoDialogData: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
-    showInfoDialog: PropTypes.bool.isRequired,
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
   }
@@ -87,7 +85,7 @@ export class DiscoPaneBase extends React.Component {
   }
 
   render() {
-    const { results, i18n, AddonComponent, showInfoDialog, infoDialogData } = this.props;
+    const { AddonComponent, results, i18n } = this.props;
     const { showVideo } = this.state;
 
     return (
@@ -120,7 +118,7 @@ export class DiscoPaneBase extends React.Component {
           </div>
         </header>
         {results.map((item) => (
-          <AddonComponent addon={item} {...camelCaseProps(item)} key={item.guid} />
+          <AddonComponent addon={item} {...camelizeKeys(item)} key={item.guid} />
         ))}
         <div className="amo-link">
           <a href="https://addons.mozilla.org/" target="_blank"
@@ -128,7 +126,7 @@ export class DiscoPaneBase extends React.Component {
             {i18n.gettext('See more add-ons!')}
           </a>
         </div>
-        {showInfoDialog === true ? <InfoDialog {...infoDialogData} /> : null}
+        <InfoDialog />
       </div>
     );
   }
@@ -154,8 +152,6 @@ export function loadDataIfNeeded({ store: { dispatch, getState } }) {
 export function mapStateToProps(state) {
   return {
     results: loadedAddons(state),
-    showInfoDialog: state.infoDialog.show,
-    infoDialogData: state.infoDialog.data,
   };
 }
 

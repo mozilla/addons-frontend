@@ -3,6 +3,7 @@ export const fakeAddon = {
   guid: '1234@my-addons.firefox',
   name: 'Chill Out',
   slug: 'chill-out',
+  average_daily_users: 100,
   authors: [{
     name: 'Krupa',
     url: 'http://olympia.dev/en-US/firefox/user/krupa/',
@@ -12,6 +13,7 @@ export const fakeAddon = {
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
   },
+  previews: [],
   summary: 'This is a summary of the chill out add-on',
   description: 'This is a longer description of the chill out add-on',
   has_privacy_policy: true,

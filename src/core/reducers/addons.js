@@ -31,6 +31,10 @@ export default function addon(state = initialState, action) {
       } else {
         newState[key] = thisAddon;
       }
+      // Set iconUrl to be consistent between disco and amo.
+      if (thisAddon.icon_url) {
+        newState[key].iconUrl = thisAddon.icon_url;
+      }
     });
     return newState;
   }

@@ -18,9 +18,9 @@ $switchStrokeWidth: 1px;
 $switchHandleActivePosition: round(($size * $switchToBackgroundRatio) - ($size + ($switchHandleGap * 2 + $switchStrokeWidth)));
 
 $switchBackgroundOn: #57bd35;
-$switchBackgroundOff: #919191;
+$switchBackgroundOff: #b1b1b1;
 
-$uninstallStripeColor1: #b1b1b1;
+$uninstallStripeColor1: $switchBackgroundOff;
 $uninstallStripeColor2: #d4d4d4;
 
 $installStripeColor1: #00a920;
@@ -60,7 +60,7 @@ $installStripeColor2: #00c42e;
   }
 
   input + label {
-    background: #919191;
+    background: $switchBackgroundOff;
     border-radius: $size;
     border: $switchStrokeWidth solid $switchStrokeOff;
     cursor: pointer;

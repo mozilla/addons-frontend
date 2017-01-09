@@ -42,6 +42,9 @@ const settings = {
         exclude: /node_modules/,
         loader: 'babel',
       }, {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
+      }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
       }, {
@@ -53,6 +56,9 @@ const settings = {
       }, {
         test: /\.png$/,
         loader: 'url?limit=10000&mimetype=image/png',
+      }, {
+        test: /\.gif/,
+        loader: 'url?limit=10000&mimetype=image/gif',
       }, {
         test: /\.webm$/,
         loader: 'url?limit=10000&mimetype=video/webm',
@@ -78,6 +84,8 @@ const settings = {
     }),
     // Replaces server config module with the subset clientConfig object.
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
+    // Prevent locales with moment require calls from crashing
+    new webpack.NormalModuleReplacementPlugin(/\.\.\/moment$/, 'moment'),
     // Substitutes client only config.
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
     // Use the browser's window for window.
@@ -85,7 +93,7 @@ const settings = {
     // This allow us to exclude locales for other apps being built.
     new webpack.ContextReplacementPlugin(
       /locale$/,
-      new RegExp(`^\\.\\/.*?\\/${appName}\\.json$`)
+      new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
     ),
     new ExtractTextPlugin('[name]-[contenthash].css', { allChunks: true }),
     new SriStatsPlugin({
@@ -103,6 +111,19 @@ const settings = {
       },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
+    // This function helps ensure we do bail if a compilation error
+    // is encountered since --bail doesn't cause the build to fail with
+    // uglify errors.
+    // Remove when https://github.com/webpack/webpack/issues/2390 is fixed.
+    function bailOnStatsError() {
+      this.plugin('done', (stats) => {
+        if (stats.compilation.errors && stats.compilation.errors.length) {
+          // eslint-disable-next-line no-console
+          console.log(stats.compilation.errors);
+          process.exit(1);
+        }
+      });
+    },
   ],
   resolve: {
     alias: {
@@ -110,8 +131,9 @@ const settings = {
     },
     root: [
       path.resolve(__dirname),
+      path.resolve('./src'),
     ],
-    modulesDirectories: ['node_modules', 'src'],
+    modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.jsx'],
   },
 };

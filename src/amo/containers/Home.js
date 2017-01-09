@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
@@ -5,6 +6,24 @@ import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 
 import 'amo/css/Home.scss';
+
+const CategoryLink = ({ children, name, slug, type }) => (
+  <li className={classNames('HomePage-category-li', `HomePage-${name}`)}>
+    <Link to={`/${type}/${slug}/`} className="HomePage-category-link">
+      <span>{children}</span>
+    </Link>
+  </li>
+);
+CategoryLink.propTypes = {
+  children: PropTypes.node.isRequired,
+  name: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
+
+const ExtensionLink = (props) => <CategoryLink type="extensions" {...props} />;
+
+const ThemeLink = (props) => <CategoryLink type="themes" {...props} />;
 
 export class HomePageBase extends React.Component {
   static propTypes = {
@@ -17,24 +36,24 @@ export class HomePageBase extends React.Component {
       <div className="HomePage">
         <h2 className="HomePage-subheading">{i18n.gettext('What do you want Firefox to do?')}</h2>
         <ul className="HomePage-category-list">
-          <li className="HomePage-category-li HomePage-block-ads">
-            <Link to="#block-ads"><span>{i18n.gettext('Block ads')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-screenshot">
-            <Link to="#screenshot"><span>{i18n.gettext('Screenshot')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-save-stuff">
-            <Link to="#save-stuff"><span>{i18n.gettext('Save stuff')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-shop-online">
-            <Link to="#shop-online"><span>{i18n.gettext('Shop online')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-be-social">
-            <Link to="#share-stuff"><span>{i18n.gettext('Be social')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-share-stuff">
-            <Link to="#share-stuff"><span>{i18n.gettext('Share stuff')}</span></Link>
-          </li>
+          <ExtensionLink name="block-ads" slug="security-privacy">
+            {i18n.gettext('Block ads')}
+          </ExtensionLink>
+          <ExtensionLink name="screenshot" slug="photos-media">
+            {i18n.gettext('Screenshot')}
+          </ExtensionLink>
+          <ExtensionLink name="find-news" slug="feeds-news-blogging">
+            {i18n.gettext('Find news')}
+          </ExtensionLink>
+          <ExtensionLink name="shop-online" slug="shopping">
+            {i18n.gettext('Shop online')}
+          </ExtensionLink>
+          <ExtensionLink name="be-social" slug="social-networking">
+            {i18n.gettext('Be social')}
+          </ExtensionLink>
+          <ExtensionLink name="play-games" slug="sports-games">
+            {i18n.gettext('Play games')}
+          </ExtensionLink>
         </ul>
         <Link className="HomePage-extensions-link" to="/extensions/">
           {i18n.gettext('Browse all extensions')}
@@ -42,24 +61,12 @@ export class HomePageBase extends React.Component {
 
         <h2 className="HomePage-subheading">{i18n.gettext('How do you want Firefox to look?')}</h2>
         <ul className="HomePage-category-list">
-          <li className="HomePage-category-li HomePage-wild">
-            <Link to="#wild"><span>{i18n.gettext('Wild')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-abstract">
-            <Link to="#abstract"><span>{i18n.gettext('Abstract')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-fashionable">
-            <Link to="#fashionable"><span>{i18n.gettext('Fashionable')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-scenic">
-            <Link to="#scenic"><span>{i18n.gettext('Scenic')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-sporty">
-            <Link to="#sporty"><span>{i18n.gettext('Sporty')}</span></Link>
-          </li>
-          <li className="HomePage-category-li HomePage-mystical">
-            <Link to="#mystical"><span>{i18n.gettext('Mystical')}</span></Link>
-          </li>
+          <ThemeLink name="wild" slug="nature">{i18n.gettext('Wild')}</ThemeLink>
+          <ThemeLink name="abstract" slug="abstract">{i18n.gettext('Abstract')}</ThemeLink>
+          <ThemeLink name="fashionable" slug="fashion">{i18n.gettext('Fashionable')}</ThemeLink>
+          <ThemeLink name="scenic" slug="scenery">{i18n.gettext('Scenic')}</ThemeLink>
+          <ThemeLink name="sporty" slug="sports">{i18n.gettext('Sporty')}</ThemeLink>
+          <ThemeLink name="solid" slug="solid">{i18n.gettext('Solid')}</ThemeLink>
         </ul>
         <Link className="HomePage-themes-link" to="/themes/">
           {i18n.gettext('Browse all themes')}

@@ -1,6 +1,8 @@
 import config from 'config';
+import moment from 'moment';
 
 import * as utils from 'core/i18n/utils';
+
 
 const defaultLang = config.get('defaultLang');
 
@@ -385,6 +387,56 @@ describe('i18n utils', () => {
       const acceptLanguage = null;
       const result = utils.getLangFromHeader(acceptLanguage);
       assert.equal(result, undefined);
+    });
+  });
+
+  describe('makeI18n', () => {
+    let FakeJed;
+
+    before(() => {
+      FakeJed = class {
+        constructor(i18nData) {
+          return i18nData;
+        }
+      };
+    });
+
+    beforeEach(() => {
+      // FIXME: Our moment is not immutable so we reset it before each test.
+      // This is annoying to work around because of the locale `require()`s
+      // and it only affects tests so it'd be nice to fix but doesn't break
+      // anything.
+      moment.locale('en');
+    });
+
+    it('adds a localised moment to the i18n object', () => {
+      const i18nData = {};
+      const i18n = utils.makeI18n(i18nData, FakeJed);
+      assert.ok(i18n.moment);
+      assert.typeOf(i18n.moment, 'function');
+    });
+
+    it('tries to localise moment', () => {
+      const i18nData = {
+        options: {
+          _momentDefineLocale: sinon.stub(),
+          locale_data: { messages: { '': { lang: 'fr' } } },
+        },
+      };
+      const i18n = utils.makeI18n(i18nData, FakeJed);
+      assert.equal(i18n.moment.locale(), 'fr');
+    });
+
+    it('does not localise if _momentDefineLocale is not a function', () => {
+      const i18nData = {
+        options: {
+          _momentDefineLocale: null,
+          locale_data: { messages: { '': { lang: 'fr' } } },
+        },
+      };
+
+      const i18n = utils.makeI18n(i18nData, FakeJed);
+      assert.equal(i18n.moment.locale(), 'en');
     });
   });
 });

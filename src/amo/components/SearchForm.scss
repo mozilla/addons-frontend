@@ -4,6 +4,11 @@
 $icon-size: 26px;
 
 .SearchForm-form {
-  background: rgba(255, 255, 255, 0.2);
+  background: $masthead-light-color;
   border: 0;
+}
+
+.SearchInput-input,
+.SearchForm-form {
+  color: $base-color;
 }

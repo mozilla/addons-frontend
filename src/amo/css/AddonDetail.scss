@@ -2,33 +2,30 @@
 @import "~core/css/inc/vars";
 @import "~ui/components/Icon/vars";
 
-.AddonDetail {
-  hr {
-    margin: 0 20px;
-  }
+$page-margin: 20px 10px;
 
-  .AddonDetail-icon,
-  .title,
-  .screenshots,
-  .about,
-  .AddonDetail-summary,
-  .overall-rating {
-    overflow: hidden;
-    padding: 20px;
-  }
+// Put the margin on the immediate children so that the header can be full width and blue.
+.AddonDetail > * {
+  margin: $page-margin;
+}
 
-  .author {
-    display: block;
+.AddonDetail-title {
+  margin-top: 10px;
+}
+
+.AddonDetail-title-heading {
+  margin-bottom: 10px;
+}
+
+.AddonDetail-author {
+  display: block;
+  font-size: 20px;
+  opacity: 0.75;
+
+  a {
+    color: $header-font-color;
     font-size: 20px;
-
-    a {
-      color: $header-font-color;
-      font-size: 20px;
-    }
-  }
-
-  .switch {
-    float: right;
+    text-decoration: none;
   }
 }
 
@@ -40,6 +37,8 @@
 .AddonDetail-header {
   background: $masthead-color;
   color: $header-font-color;
+  margin: 0;
+  padding: $page-margin;
 
   h1 {
     margin-top: 0;
@@ -47,26 +46,42 @@
   }
 }
 
-$theme-header-horizontal-padding: 10px;
+.AddonDetail-metadata {
+  align-items: center;
+  background-color: $masthead-light-color;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px;
+}
 
 .AddonDetail-theme-header {
   line-height: 0;
-  padding: 20px $theme-header-horizontal-padding 0;
   position: relative;
 }
 
 .AddonDetail-theme-header-image {
+  background-position: top right;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 12px;
   height: 100px;
   object-fit: cover;
   object-position: top right;
+  user-select: none;
   width: 100%;
+
+  [dir=rtl] & {
+    background-position: top left;
+  }
 }
 
 .AddonDetail-theme-header-label {
   $label-margin: 12px;
 
-  @include start($theme-header-horizontal-padding + $label-margin);
+  @include start($label-margin);
 
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
@@ -77,6 +92,7 @@ $theme-header-horizontal-padding: 10px;
   padding: $label-margin;
   position: absolute;
   text-transform: uppercase;
+  user-select: none;
 }
 
 .AddonDetail-theme-preview-icon {
