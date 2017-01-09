@@ -25,7 +25,7 @@ export const setReview = (review, reviewOverrides = {}) => ({
   },
 });
 
-export const setAddonReviews = ({addonSlug, reviews}) => ({
+export const setAddonReviews = ({ addonSlug, reviews }) => ({
   type: SET_ADDON_REVIEWS,
   payload: {
     addonSlug,

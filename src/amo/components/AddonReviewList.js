@@ -39,7 +39,7 @@ export class AddonReviewListBase extends React.Component {
           {review.body}
         </p>
         <span>
-          <Rating rating={userReview.rating} readOnly={true} />
+          <Rating rating={review.rating} readOnly />
           {this.props.i18n.gettext('from')} {review.userName}
         </span>
       </li>
@@ -57,7 +57,7 @@ export class AddonReviewListBase extends React.Component {
     const subTitle = i18n.sprintf(
       i18n.gettext('for %(addonName)s'), { addonName: addon.name });
     console.log('AddonReviewList reviews', reviews);
-    const allReviews = reviews ? reviews : [];
+    const allReviews = reviews || [];
 
     return (
       <div className="AddonReviewList">
@@ -105,7 +105,8 @@ export function loadInitialData({ store, params }) {
       loadAddonIfNeeded({ store, params }),
       loadAddonReviews({ addonSlug: slug, dispatch: store.dispatch }),
     ]))
-    .then(([_, reviews]) => {
+    .then((results) => {
+      const reviews = results[1];
       const addon = findAddon(store.getState(), slug);
       const initialData = { addon, reviews };
       return initialData;
