@@ -170,53 +170,6 @@ describe('RatingManager', () => {
     assert.strictEqual(props.rating, undefined);
   });
 
-  describe('readOnly=true', () => {
-    it('prevents you from submitting ratings', () => {
-      const submitReview = sinon.stub();
-      const root = render({
-        submitReview,
-        readOnly: true,
-        userReview: setReview(fakeReview).payload,
-      });
-      selectRating(root, 5);
-      assert.equal(submitReview.called, false);
-    });
-
-    it('does not prompt you to rate the add-on', () => {
-      const root = render({
-        addon: { ...fakeAddon, name: 'Some Add-on' },
-        readOnly: true,
-      });
-      assert.equal(root.ratingLegend, undefined);
-    });
-
-    it('does not classify as editable', () => {
-      const root = render({
-        readOnly: true,
-      });
-      // Make sure it doesn't have the -editable class.
-      assert.equal(root.element.className, 'OverallRating');
-    });
-
-    it('renders read-only rating buttons', () => {
-      const root = render({
-        readOnly: true,
-      });
-      const buttonKeys = Object.keys(root.ratingButtons);
-
-      // Make sure we actually have 5 buttons.
-      assert.equal(buttonKeys.length, 5);
-
-      let allDisabled = true;
-      buttonKeys.forEach((key) => {
-        if (!root.ratingButtons[key].disabled) {
-          allDisabled = false;
-        }
-      });
-      assert.ok(allDisabled, 'At least one button was not disabled');
-    });
-  });
-
   describe('mapDispatchToProps', () => {
     let mockApi;
     let dispatch;
