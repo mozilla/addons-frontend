@@ -1,6 +1,5 @@
 import url from 'url';
 
-import camelCase from 'camelcase';
 import config from 'config';
 
 import { loadEntities } from 'core/actions';
@@ -22,14 +21,6 @@ export function ngettext(singular, plural, n) {
     return singular;
   }
   return plural;
-}
-
-export function camelCaseProps(obj) {
-  const newObj = {};
-  Object.keys(obj).forEach((key) => {
-    newObj[camelCase(key)] = obj[key];
-  });
-  return newObj;
 }
 
 export function getClientConfig(_config) {
