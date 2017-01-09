@@ -25,6 +25,7 @@ export class AddonReviewBase extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    event.stopPropagation();
     const body = this.reviewTextarea.value;
     const params = {
       body,
@@ -39,7 +40,11 @@ export class AddonReviewBase extends React.Component {
       .then(() => this.goBackToAddonDetail());
   }
 
-  goBackToAddonDetail = () => {
+  goBackToAddonDetail = (event) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
     const { router } = this.props;
     const { addonSlug } = this.props.review;
     const { lang, clientApp } = this.props.apiState;

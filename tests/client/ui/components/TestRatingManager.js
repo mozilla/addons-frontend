@@ -2,7 +2,6 @@ import React from 'react';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
-  Simulate,
 } from 'react-addons-test-utils';
 
 import translate from 'core/i18n/translate';
@@ -11,8 +10,8 @@ import * as amoApi from 'amo/api';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
 import {
-  mapDispatchToProps, mapStateToProps, OverallRatingBase,
-} from 'amo/components/OverallRating';
+  mapDispatchToProps, mapStateToProps, RatingManagerBase,
+} from 'ui/components/RatingManager';
 import {
   fakeAddon, fakeReview, signedInApiState,
 } from 'tests/client/amo/helpers';
@@ -31,21 +30,15 @@ function render({ ...customProps } = {}) {
     router: {},
     ...customProps,
   };
-  const OverallRating = translate({ withRef: true })(OverallRatingBase);
+  const RatingManager = translate({ withRef: true })(RatingManagerBase);
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <OverallRating {...props} />
-  ), OverallRating);
+    <RatingManager {...props} />
+  ), RatingManager);
 
   return root.getWrappedInstance();
 }
 
-describe('OverallRating', () => {
-  function selectRating(root, ratingNumber) {
-    const button = root.ratingButtons[ratingNumber];
-    assert.ok(button, `No button returned for rating: ${ratingNumber}`);
-    Simulate.click(button);
-  }
-
+describe('RatingManager', () => {
   it('prompts you to rate the add-on by name', () => {
     const root = render({ addon: { ...fakeAddon, name: 'Some Add-on' } });
     assert.include(root.ratingLegend.textContent, 'Some Add-on');
@@ -88,7 +81,7 @@ describe('OverallRating', () => {
       userId: 92345,
       router,
     });
-    selectRating(root, 5);
+    root.onSelectRating(5);
     assert.equal(submitReview.called, true);
 
     const call = submitReview.firstCall.args[0];
@@ -111,7 +104,7 @@ describe('OverallRating', () => {
       userId: 92345,
       userReview: setReview(fakeReview).payload,
     });
-    selectRating(root, 5);
+    root.onSelectRating(5);
     assert.ok(submitReview.called);
 
     const call = submitReview.firstCall.args[0];
@@ -143,7 +136,7 @@ describe('OverallRating', () => {
       submitReview,
       addon,
     });
-    selectRating(root, newReview.rating);
+    root.onSelectRating(newReview.rating);
     assert.ok(submitReview.called);
 
     // Make sure the review is submitted in a way where it will be
@@ -155,81 +148,26 @@ describe('OverallRating', () => {
     assert.equal(call.addonId, newReview.addon.id);
   });
 
-  it('lets you submit a one star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 1);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 1);
+  it('configures a rating component', () => {
+    const userReview = setReview(fakeReview).payload;
+    const RatingStub = sinon.spy(() => (<div />));
+
+    const root = render({ Rating: RatingStub, userReview });
+
+    assert.equal(RatingStub.called, true);
+    const props = RatingStub.firstCall.args[0];
+    assert.equal(props.onSelectRating, root.onSelectRating);
+    assert.equal(props.rating, userReview.rating);
   });
 
-  it('lets you submit a two star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 2);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 2);
-  });
+  it('sets a blank rating when there is no saved review', () => {
+    const RatingStub = sinon.spy(() => (<div />));
 
-  it('lets you submit a three star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 3);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 3);
-  });
+    render({ Rating: RatingStub, userReview: null });
 
-  it('lets you submit a four star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 4);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 4);
-  });
-
-  it('lets you submit a five star rating', () => {
-    const submitReview = sinon.stub();
-    const root = render({ submitReview });
-    selectRating(root, 5);
-    assert.equal(submitReview.called, true);
-    assert.equal(submitReview.firstCall.args[0].rating, 5);
-  });
-
-  it('renders selected stars corresponding to a saved review', () => {
-    const action = setReview(fakeReview, { rating: 3 });
-    const root = render({ userReview: action.payload });
-
-    // Make sure only the first 3 stars are selected.
-    [1, 2, 3].forEach((rating) => {
-      assert.equal(root.ratingButtons[rating].className,
-                   'OverallRating-choice OverallRating-selected-star');
-    });
-    [4, 5].forEach((rating) => {
-      assert.equal(root.ratingButtons[rating].className,
-                   'OverallRating-choice');
-    });
-  });
-
-  it('renders all stars as selectable by default', () => {
-    const root = render();
-    [1, 2, 3, 4, 5].forEach((rating) => {
-      const button = root.ratingButtons[rating];
-      assert.equal(button.className, 'OverallRating-choice');
-      assert.equal(button.disabled, false);
-    });
-  });
-
-  it('prevents form submission when selecting a rating', () => {
-    const root = render();
-
-    const fakeEvent = {
-      preventDefault: sinon.stub(),
-      currentTarget: {},
-    };
-    const button = root.ratingButtons[4];
-    Simulate.click(button, fakeEvent);
-
-    assert.equal(fakeEvent.preventDefault.called, true);
+    assert.equal(RatingStub.called, true);
+    const props = RatingStub.firstCall.args[0];
+    assert.strictEqual(props.rating, undefined);
   });
 
   describe('mapDispatchToProps', () => {

@@ -4,7 +4,6 @@ import { compose } from 'redux';
 
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
-import DefaultOverallRating from 'amo/components/OverallRating';
 import ScreenShots from 'amo/components/ScreenShots';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
@@ -15,6 +14,7 @@ import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import DefaultRatingManager from 'ui/components/RatingManager';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
 
@@ -36,7 +36,7 @@ export const allowedDescriptionTags = [
 
 export class AddonDetailBase extends React.Component {
   static propTypes = {
-    OverallRating: PropTypes.element,
+    RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -45,7 +45,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   static defaultProps = {
-    OverallRating: DefaultOverallRating,
+    RatingManager: DefaultRatingManager,
   }
 
   constructor(props) {
@@ -114,7 +114,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   render() {
-    const { OverallRating, addon, i18n } = this.props;
+    const { RatingManager, addon, i18n } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -170,7 +170,10 @@ export class AddonDetailBase extends React.Component {
         <Card
           header={i18n.gettext('Rate your experience')}
           className="AddonDetail-overall-rating">
-          <OverallRating addon={addon} version={addon.current_version} />
+          <RatingManager
+            addon={addon}
+            version={addon.current_version}
+          />
         </Card>
 
         <AddonMoreInfo addon={addon} />

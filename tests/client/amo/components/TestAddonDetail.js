@@ -12,7 +12,7 @@ import {
   allowedDescriptionTags,
 } from 'amo/components/AddonDetail';
 import AddonMeta from 'amo/components/AddonMeta';
-import { OverallRatingWithI18n } from 'amo/components/OverallRating';
+import { RatingManagerWithI18n } from 'ui/components/RatingManager';
 import createStore from 'amo/store';
 import { THEME_TYPE } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
@@ -28,8 +28,8 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
     addon,
     ...addon,
     i18n,
-    // Configure AddonDetail with a non-redux depdendent OverallRating.
-    OverallRating: OverallRatingWithI18n,
+    // Configure AddonDetail with a non-redux depdendent RatingManager.
+    RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
     store: createStore(initialState),
     ...customProps,
@@ -194,7 +194,7 @@ describe('AddonDetail', () => {
 
   it('configures the overall ratings section', () => {
     const root = findRenderedComponentWithType(render(),
-                                               OverallRatingWithI18n);
+                                               RatingManagerWithI18n);
     assert.deepEqual(root.props.addon, fakeAddon);
   });
 

@@ -2,24 +2,23 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
-import classNames from 'classnames';
 
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import DefaultRating from 'ui/components/Rating';
 
-import 'amo/css/OverallRating.scss';
 
-
-export class OverallRatingBase extends React.Component {
+export class RatingManagerBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
     errorHandler: PropTypes.func.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
+    Rating: PropTypes.object,
     router: PropTypes.object.isRequired,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
@@ -27,25 +26,25 @@ export class OverallRatingBase extends React.Component {
     version: PropTypes.object.isRequired,
   }
 
+  static defaultProps = {
+    Rating: DefaultRating,
+  }
+
   constructor(props) {
     super(props);
     const { loadSavedReview, userId, addon } = props;
-    this.ratingButtons = {};
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({ userId, addonId: addon.id });
     }
   }
 
-  onClickRating = (event) => {
-    event.preventDefault();
-    const button = event.currentTarget;
-    log.debug('Selected rating from form button:', button.value);
+  onSelectRating = (rating) => {
     const { userReview, userId, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
-      rating: parseInt(button.value, 10),
+      rating,
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
       addonSlug: this.props.addon.slug,
@@ -72,43 +71,27 @@ export class OverallRatingBase extends React.Component {
     this.props.submitReview(params);
   }
 
-  renderRatings() {
-    const { userReview } = this.props;
-    return [1, 2, 3, 4, 5].map((rating) =>
-      <button
-        className={classNames('OverallRating-choice', {
-          'OverallRating-selected-star':
-            userReview && rating <= userReview.rating,
-        })}
-        ref={(ref) => { this.ratingButtons[rating] = ref; }}
-        value={rating}
-        onClick={this.onClickRating}
-        id={`OverallRating-rating-${rating}`}
-      />
-    );
-  }
-
   render() {
-    const { i18n, addon } = this.props;
-    const prompt = i18n.sprintf(
-      i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
-      { addonName: addon.name });
+    const { Rating, i18n, addon, userReview } = this.props;
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
 
+    const prompt = i18n.sprintf(
+      i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
+      { addonName: addon.name });
+
     return (
-      <div className="OverallRating">
+      <div className="RatingManager">
         <form action="">
           <fieldset>
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
               {prompt}
             </legend>
-            <div className="OverallRating-choices">
-              <span className="OverallRating-star-group">
-                {this.renderRatings()}
-              </span>
-            </div>
+            <Rating
+              onSelectRating={this.onSelectRating}
+              rating={userReview ? userReview.rating : undefined}
+            />
           </fieldset>
         </form>
       </div>
@@ -169,12 +152,12 @@ export const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export const OverallRatingWithI18n = compose(
+export const RatingManagerWithI18n = compose(
   translate({ withRef: true }),
-)(OverallRatingBase);
+)(RatingManagerBase);
 
 export default compose(
-  withErrorHandling({ name: 'OverallRating' }),
+  withErrorHandling({ name: 'RatingManager' }),
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
-)(OverallRatingWithI18n);
+)(RatingManagerWithI18n);
