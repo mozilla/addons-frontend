@@ -13,6 +13,14 @@ function render({ ...props } = {}) {
   ), Rating);
 }
 
+function makeFakeEvent() {
+  return {
+    preventDefault: sinon.stub(),
+    stopPropagation: sinon.stub(),
+    currentTarget: {},
+  };
+}
+
 describe('ui/components/Rating', () => {
   function selectRating(root, ratingNumber) {
     const button = root.ratingElements[ratingNumber];
@@ -106,16 +114,20 @@ describe('ui/components/Rating', () => {
   it('prevents form submission when selecting a rating', () => {
     const root = render({ onSelectRating: sinon.stub() });
 
-    const fakeEvent = {
-      preventDefault: sinon.stub(),
-      stopPropagation: sinon.stub(),
-      currentTarget: {},
-    };
+    const fakeEvent = makeFakeEvent();
     const button = root.ratingElements[4];
     Simulate.click(button, fakeEvent);
 
     assert.equal(fakeEvent.preventDefault.called, true);
     assert.equal(fakeEvent.stopPropagation.called, true);
+  });
+
+  it('requires a valid onSelectRating callback', () => {
+    const root = render({ onSelectRating: null });
+
+    const button = root.ratingElements[4];
+    assert.throws(() => Simulate.click(button, makeFakeEvent()),
+                  /onSelectRating was empty/);
   });
 
   describe('readOnly=true', () => {
