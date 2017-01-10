@@ -152,4 +152,21 @@ describe('<ServerHtml />', () => {
       render({ sriData: {} });
     }, Error, /SRI Data is missing/);
   });
+
+  it('does not render empty noscript styles', () => {
+    const html = findRenderedDOMComponentWithTag(render(), 'html');
+    const noScript = html.querySelector('noscript');
+    assert.notOk(noScript);
+  });
+
+  it('renders noscript styles when provided', () => {
+    const noScriptStyles = '.MyComponent { display: none; }';
+    const html = findRenderedDOMComponentWithTag(render({ noScriptStyles }), 'html');
+    const noScript = html.querySelector('noscript');
+    assert.ok(noScript);
+    assert.equal(noScript.children.length, 1);
+    const style = noScript.children[0];
+    assert.equal(style.tagName, 'STYLE');
+    assert.equal(style.textContent, noScriptStyles);
+  });
 });

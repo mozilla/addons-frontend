@@ -1,0 +1,6 @@
+.InstallButton .InstallButton-button {
+  display: inline-block !important;
+}
+.InstallButton .InstallButton-switch {
+  display: none !important;
+}

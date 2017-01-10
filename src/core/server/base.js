@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
@@ -41,6 +42,18 @@ const errorPageText = {
   500: 'Internal Server Error',
 };
 
+function getNoScriptStyles({ appName }) {
+  const cssPath = path.join(config.get('basePath'), `src/${appName}/noscript.css`);
+  try {
+    return fs.readFileSync(cssPath);
+  } catch (e) {
+    if (e.code !== 'ENOENT') {
+      log.info(`noscript styles could not be parsed from ${cssPath}`);
+    }
+  }
+  return undefined;
+}
+
 function showErrorPage(res, status) {
   const _status = status.toString();
   if (Object.keys(errorPageText).includes(_status)) {
@@ -82,7 +95,16 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   app.use(helmet.xssFilter());
 
   // CSP configuration.
-  app.use(helmet.contentSecurityPolicy(config.get('CSP')));
+  const csp = config.get('CSP');
+  const noScriptStyles = getNoScriptStyles({ appName: appInstanceName });
+  if (noScriptStyles) {
+    const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
+    const cspValue = `'sha256-${hash}'`;
+    if (!csp.directives.styleSrc.includes(cspValue)) {
+      csp.directives.styleSrc.push(cspValue);
+    }
+  }
+  app.use(helmet.contentSecurityPolicy(csp));
 
   if (config.get('enableNodeStatics')) {
     app.use(Express.static(path.join(config.get('basePath'), 'dist')));
@@ -171,6 +193,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           htmlLang: lang,
           htmlDir: dir,
           includeSri: isDeployed,
+          noScriptStyles,
           sriData,
           store,
           trackingEnabled: convertBoolean(config.get('trackingEnabled')),
