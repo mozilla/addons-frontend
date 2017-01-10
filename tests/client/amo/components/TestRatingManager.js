@@ -11,7 +11,7 @@ import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
 import {
   mapDispatchToProps, mapStateToProps, RatingManagerBase,
-} from 'ui/components/RatingManager';
+} from 'amo/components/RatingManager';
 import {
   fakeAddon, fakeReview, signedInApiState,
 } from 'tests/client/amo/helpers';

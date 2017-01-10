@@ -12,7 +12,7 @@ import {
   allowedDescriptionTags,
 } from 'amo/components/AddonDetail';
 import AddonMeta from 'amo/components/AddonMeta';
-import { RatingManagerWithI18n } from 'ui/components/RatingManager';
+import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { THEME_TYPE } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
