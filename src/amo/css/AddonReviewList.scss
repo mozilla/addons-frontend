@@ -41,6 +41,9 @@
   border-radius: 10px;
 }
 
+$star-size: 13px;
+$star-gutter: 4px;
+
 .AddonReviewList-li {
   margin: 0;
   padding: 10px;
@@ -55,6 +58,26 @@
   }
 
   > p {
-    margin-top: 0;
+    margin: 0 0 5px 0;
+  }
+
+  .AddonReview-by-line {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 0.9em;
+    color: $sub-text-color;
+  }
+
+  .Rating {
+    margin: 0 5px 0 0;
+    min-width: ($star-size + $star-gutter) * 5;
+  }
+
+  .Rating-choice {
+    margin: 0;
+    float: left;
+    background-size: $star-size;
+    height: $star-size + $star-gutter;
+    width: $star-size + $star-gutter;
   }
 }
