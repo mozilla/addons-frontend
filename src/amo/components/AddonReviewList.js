@@ -1,31 +1,26 @@
 import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router';
 import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
-import { connect } from 'react-redux';
 
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { callApi } from 'core/api';
 import translate from 'core/i18n/translate';
 import { findAddon, loadAddonIfNeeded } from 'core/utils';
+import Link from 'amo/components/Link';
 
 import 'amo/css/AddonReviewList.scss';
 
 
 export class AddonReviewListBase extends React.Component {
   static propTypes = {
-    apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     initialData: PropTypes.object,
-    router: PropTypes.object.isRequired,
   }
 
-  goBackToAddonDetail = () => {
-    const { router } = this.props;
+  addonURL() {
     const { addon } = this.props.initialData;
-    const { lang, clientApp } = this.props.apiState;
-    router.push(`/${lang}/${clientApp}/addon/${addon.slug}/`);
+    return `/addon/${addon.slug}/`;
   }
 
   renderReview(review) {
@@ -62,9 +57,15 @@ export class AddonReviewListBase extends React.Component {
     return (
       <div className="AddonReviewList">
         <div className="AddonReviewList-header">
-          <img src={addon.icon_url} alt="" />
-          <h2>{i18n.gettext('All written reviews')}</h2>
-          <h4>{subTitle}</h4>
+          <div className="AddonReviewList-header-icon">
+            <Link to={this.addonURL()}>
+              <img src={addon.icon_url} alt="" />
+            </Link>
+          </div>
+          <div className="AddonReviewList-header-text">
+            <h2>{i18n.gettext('All written reviews')}</h2>
+            <h4><Link to={this.addonURL()}>{subTitle}</Link></h4>
+          </div>
         </div>
         <ul className="AddonReviewList-ul">
           {allReviews.map((review) => this.renderReview(review))}
@@ -73,10 +74,6 @@ export class AddonReviewListBase extends React.Component {
     );
   }
 }
-
-export const mapStateToProps = (state) => ({
-  apiState: state.api,
-});
 
 function loadAddonReviews({ addonSlug, dispatch }) {
   return callApi({
@@ -119,7 +116,5 @@ export default compose(
     deferred: true,
     promise: loadInitialData,
   }]),
-  withRouter,
-  connect(mapStateToProps),
   translate({ withRef: true }),
 )(AddonReviewListBase);
