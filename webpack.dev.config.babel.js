@@ -106,6 +106,7 @@ export default Object.assign({}, webpackConfig, {
       },
     ],
   },
+  postcss: [],
   plugins: [
     new webpack.DefinePlugin({
       CLIENT_CONFIG: JSON.stringify(clientConfig),
