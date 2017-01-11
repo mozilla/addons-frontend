@@ -55,7 +55,7 @@ export default class Rating extends React.Component {
       }
       return (
         <button
-          onClick={readOnly ? null : this.onSelectRating}
+          onClick={this.onSelectRating}
           value={thisRating}
           {...props}
         />
