@@ -28,6 +28,7 @@ export const fakeReview = {
     id: fakeAddon.id,
     slug: fakeAddon.slug,
   },
+  created: "2017-01-09T21:49:14Z",
   rating: 3,
   version: fakeAddon.current_version,
   user: {

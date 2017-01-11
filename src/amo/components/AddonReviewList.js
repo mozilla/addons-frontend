@@ -38,7 +38,9 @@ export class AddonReviewListBase extends React.Component {
         </p>
         <div className="AddonReview-by-line">
           <Rating rating={review.rating} readOnly />
-          {this.props.i18n.gettext('from')} {review.userName}
+          {this.props.i18n.gettext('from')} {review.userName},
+          {" "}
+          {this.props.i18n.moment(review.created).fromNow()}
         </div>
       </li>
     );

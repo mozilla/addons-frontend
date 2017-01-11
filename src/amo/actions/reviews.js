@@ -5,6 +5,7 @@ function denormalizeReview(review) {
     addonId: review.addon.id,
     addonSlug: review.addon.slug,
     body: review.body,
+    created: review.created,
     title: review.title,
     id: review.id,
     isLatest: review.is_latest,
