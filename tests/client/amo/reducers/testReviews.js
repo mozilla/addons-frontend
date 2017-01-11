@@ -17,6 +17,7 @@ describe('amo.reducers.reviews', () => {
       id: fakeReview.id,
       addonId: fakeReview.addon.id,
       addonSlug: fakeReview.addon.slug,
+      created: fakeReview.created,
       rating: fakeReview.rating,
       versionId: fakeReview.version.id,
       isLatest: fakeReview.is_latest,
