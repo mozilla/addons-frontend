@@ -6,6 +6,7 @@ import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
+import Link from 'amo/components/Link';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
@@ -169,6 +170,12 @@ export class AddonDetailBase extends React.Component {
 
         <Card
           header={i18n.gettext('Rate your experience')}
+          footer={
+            <Link className="AddonDetail-all-reviews-link"
+              to={`/addon/${addon.slug}/reviews/`}>
+              {i18n.gettext('Read all reviews')}
+            </Link>
+          }
           className="AddonDetail-overall-rating">
           <RatingManager
             addon={addon}
