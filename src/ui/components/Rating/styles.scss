@@ -13,12 +13,12 @@ $star-size: 46px;
 }
 
 .Rating-selected-star {
-  background-image: url('./img/big-star-selected.svg');
+  background-image: url('./img/yellow-star.svg');
 }
 
 .Rating--editable {
   .Rating-choice {
-    background-image: url('./img/big-star.svg');
+    background-image: url('./img/outlined-star.svg');
     cursor: pointer;
   }
 
@@ -30,11 +30,11 @@ $star-size: 46px;
   .Rating-star-group:hover .Rating-choice,
   // For keyboard navigation, make the focused star appear selected.
   .Rating-choice:focus {
-    background-image: url('./img/big-star-selected.svg');
+    background-image: url('./img/yellow-star.svg');
   }
 
   // Second, de-select all stars to the right of the cursor.
   .Rating-choice:hover ~ .Rating-choice {
-    background-image: url('./img/big-star.svg');
+    background-image: url('./img/outlined-star.svg');
   }
 }
