@@ -25,7 +25,7 @@ The tests must be run in Firefox 48 or later.
 To run against a different environment, pass in a value for `--base-url`, like so:
 
 ```bash
-$ tox -e discopane-ui-tests -- --base-url https://discovery.addons.mozilla.org
+tox -e discopane-ui-tests -- --base-url=https://discovery.addons.mozilla.org
 ```
 
 The pytest plugin that we use for running tests has a number of advanced

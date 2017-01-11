@@ -48,15 +48,9 @@ function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
 
 describe('<Addon />', () => {
   describe('<Addon type="extension"/>', () => {
-    let root;
-
-    beforeEach(() => {
-      root = renderAddon(result);
-    });
-
     it('renders a default error overlay with no close link', () => {
       const data = { ...result, status: ERROR, setCurrentStatus: sinon.stub() };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
@@ -72,7 +66,7 @@ describe('<Addon />', () => {
         setCurrentStatus: sinon.stub(),
         error: FATAL_ERROR,
       };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
@@ -88,7 +82,7 @@ describe('<Addon />', () => {
         setCurrentStatus: sinon.stub(),
         error: FATAL_INSTALL_ERROR,
       };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
@@ -104,7 +98,7 @@ describe('<Addon />', () => {
         setCurrentStatus: sinon.stub(),
         error: FATAL_UNINSTALL_ERROR,
       };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
@@ -117,7 +111,7 @@ describe('<Addon />', () => {
       const data = {
         ...result, status: ERROR, error: INSTALL_FAILED, setCurrentStatus: sinon.stub(),
       };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
@@ -131,7 +125,7 @@ describe('<Addon />', () => {
       const data = {
         ...result, status: ERROR, error: DOWNLOAD_FAILED, setCurrentStatus: sinon.stub(),
       };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
       assert.equal(
         error.querySelector('p').textContent,
@@ -142,12 +136,13 @@ describe('<Addon />', () => {
     });
 
     it('does not normally render an error', () => {
+      const root = renderAddon({ addon: result, ...result });
       assert.notOk(findDOMNode(root).querySelector('.notification.error'));
     });
 
     it('renders a default restart notification', () => {
       const data = { ...result, needsRestart: true };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const restart = findDOMNode(root).querySelector('.notification.restart');
       assert.equal(
         restart.querySelector('p').textContent,
@@ -157,7 +152,7 @@ describe('<Addon />', () => {
 
     it('renders a uninstallation restart notification', () => {
       const data = { ...result, needsRestart: true, status: UNINSTALLING };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const restart = findDOMNode(root).querySelector('.notification.restart');
       assert.equal(
         restart.querySelector('p').textContent,
@@ -166,68 +161,78 @@ describe('<Addon />', () => {
     });
 
     it('does not normally render a restart notification', () => {
+      const root = renderAddon({ addon: result, ...result });
       assert.notOk(findDOMNode(root).querySelector('.notification.restart'));
     });
 
     it('renders the heading', () => {
+      const root = renderAddon({ addon: result, ...result });
       assert.include(root.heading.textContent, 'test-heading');
     });
 
     it('renders the editorial description', () => {
+      const root = renderAddon({ addon: result, ...result });
       assert.equal(root.editorialDescription.textContent, 'test-editorial-description');
     });
 
     it('purifies the heading', () => {
-      root = renderAddon({
+      const data = {
         ...result,
         heading: '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
-      });
+      };
+      const root = renderAddon({ addon: data, ...data });
       assert.include(root.heading.innerHTML, 'Hey! This is <span>an add-on</span>');
     });
 
     it('purifies the heading with a link and adds link attrs', () => {
-      root = renderAddon({
+      const data = {
         ...result,
         heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
-      });
+      };
+      const root = renderAddon({ addon: data, ...data });
       const link = root.heading.querySelector('a');
       assert.equal(link.getAttribute('rel'), 'noopener noreferrer');
       assert.equal(link.getAttribute('target'), '_blank');
     });
 
     it('purifies the heading with a bad link', () => {
-      root = renderAddon({
+      const data = {
         ...result,
         heading: 'This is <span>an <a href="javascript:alert(1)">add-on</a>/span>',
-      });
+      };
+      const root = renderAddon({ addon: data, ...data });
       const link = root.heading.querySelector('a');
       assert.equal(link.getAttribute('href'), null);
     });
 
     it('purifies the editorial description', () => {
-      root = renderAddon({
+      const data = {
         ...result,
         description: '<script>foo</script><blockquote>This is an add-on!</blockquote> ' +
                      '<i>Reviewed by <cite>a person</cite></i>',
-      });
+      };
+      const root = renderAddon({ addon: data, ...data });
       assert.equal(
         root.editorialDescription.innerHTML,
         '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>');
     });
 
     it('does render a logo for an extension', () => {
+      const root = renderAddon({ addon: result, ...result });
       assert.ok(findDOMNode(root).querySelector('.logo'));
     });
 
     it("doesn't render a theme image for an extension", () => {
+      const root = renderAddon({ addon: result, ...result });
       assert.equal(findDOMNode(root).querySelector('.theme-image'), null);
     });
 
     it('throws on invalid add-on type', () => {
+      const root = renderAddon({ addon: result, ...result });
       assert.include(root.heading.textContent, 'test-heading');
       const data = { ...result, type: 'Whatever' };
       assert.throws(() => {
-        renderAddon(data);
+        renderAddon({ addon: data, ...data });
       }, Error, 'Invalid addon type');
     });
 
@@ -242,7 +247,7 @@ describe('<Addon />', () => {
         heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
         type: EXTENSION_TYPE,
       };
-      root = renderAddon(data);
+      const root = renderAddon({ addon: data, ...data });
       const heading = findDOMNode(root).querySelector('.heading');
       // We click the heading providing the link nodeName to emulate
       // bubbling.
@@ -261,7 +266,7 @@ describe('<Addon />', () => {
 
     beforeEach(() => {
       const data = { ...result, type: THEME_TYPE };
-      root = renderAddon(data);
+      root = renderAddon({ addon: data, ...data });
     });
 
     it('does render the theme image for a theme', () => {
@@ -284,7 +289,7 @@ describe('<Addon />', () => {
       previewTheme = sinon.spy();
       resetPreviewTheme = sinon.spy();
       const data = { ...result, type: THEME_TYPE, previewTheme, resetPreviewTheme };
-      root = renderAddon(data);
+      root = renderAddon({ addon: data, ...data });
       themeImage = findDOMNode(root).querySelector('.theme-image');
     });
 

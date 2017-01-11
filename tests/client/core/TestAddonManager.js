@@ -44,6 +44,10 @@ describe('addonManager', () => {
     it('is false if mozAddonManager is not in navigator', () => {
       assert.notOk(addonManager.hasAddonManager());
     });
+
+    it('is undefined if there is no window', () => {
+      assert.equal(addonManager.hasAddonManager({ hasWindow: () => false }), undefined);
+    });
   });
 
   describe('getAddon()', () => {

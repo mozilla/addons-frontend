@@ -206,9 +206,7 @@ export class AddonBase extends React.Component {
               dangerouslySetInnerHTML={sanitizeHTML(heading, ['a', 'span'])} />
             {this.getDescription()}
           </div>
-          <div className="install-button">
-            <InstallButton {...this.props} />
-          </div>
+          <InstallButton className="Addon-install-button" size="small" {...this.props} />
         </div>
       </div>
     );

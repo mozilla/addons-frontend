@@ -3,4 +3,9 @@
 .Button,
 .Button:link {
   @include button();
+
+  &.Button--small {
+    border-radius: 3px;
+    font-size: 13px;
+  }
 }

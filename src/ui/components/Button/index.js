@@ -9,12 +9,19 @@ export default class Button extends React.Component {
     children: PropTypes.node,
     className: PropTypes.string,
     href: PropTypes.string,
+    size: PropTypes.string.isRequired,
   }
 
+  static defaultProps = {
+    size: 'normal',
+  };
+
   render() {
-    const { children, className, href, ...rest } = this.props;
+    const { children, className, href, size, ...rest } = this.props;
     const props = {
-      className: classNames('Button', className),
+      className: classNames('Button', className, {
+        'Button--small': size === 'small',
+      }),
       ...rest,
     };
 
