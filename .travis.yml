@@ -29,7 +29,7 @@ install:
 before_script:
 - if [ $GUI ]; then export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start && sleep 3; fi
 script:
-- if [[ $TOXENV == 'discopane-ui-tests' ]]; then docker run -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests $(docker build -q .) /bin/sh -c "npm run build && npm run start" && sleep 60; fi
+- if [[ $TOXENV == 'discopane-ui-tests' ]]; then docker run -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests $(docker build -q .) /bin/sh -c "npm run build && npm run start" && sleep 120; fi
 - if [ $TOXENV ]; then export PYTEST_ADDOPTS=--base-url=http://localhost:4000 && tox; fi
 - if [ -z $TOXENV ]; then npm run $TASK; fi
 addons:
