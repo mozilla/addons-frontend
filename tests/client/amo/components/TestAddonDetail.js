@@ -350,15 +350,15 @@ describe('AddonDetail', () => {
     assert.equal(path, '/addon/chill-out/reviews/');
 
     return new Promise((resolve, reject) => {
-      match({ location: path, routes }, (error, redirectLocation, renderProps) => {
+      match({ location: path, routes }, (error, redirectLocation, props) => {
         if (error) {
           return reject(error);
         }
         // Check to make sure it is a valid routed path.
         assert.ok(
-          renderProps,
-          `renderProps was falsey which means the path ${path} is invalid`);
-        resolve();
+          props,
+          `props was falsey which means the path ${path} is invalid`);
+        return resolve();
       });
     });
   });

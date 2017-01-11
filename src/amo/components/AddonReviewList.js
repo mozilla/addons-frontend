@@ -24,7 +24,6 @@ export class AddonReviewListBase extends React.Component {
   }
 
   renderReview(review) {
-    const { addon } = this.props.initialData;
     return (
       <li className="AddonReviewList-li">
         <h3>{review.title}</h3>
@@ -34,7 +33,7 @@ export class AddonReviewListBase extends React.Component {
         <div className="AddonReview-by-line">
           <Rating rating={review.rating} readOnly />
           {this.props.i18n.gettext('from')} {review.userName},
-          {" "}
+          {' '}
           {this.props.i18n.moment(review.created).fromNow()}
         </div>
       </li>
@@ -43,7 +42,6 @@ export class AddonReviewListBase extends React.Component {
 
   render() {
     const { i18n, initialData } = this.props;
-    console.log('Rendering AddonReviewListBase');
     if (!initialData) {
       return <div>{i18n.gettext('Loading...')}</div>;
     }
@@ -51,7 +49,6 @@ export class AddonReviewListBase extends React.Component {
     const { reviews, addon } = initialData;
     const subTitle = i18n.sprintf(
       i18n.gettext('for %(addonName)s'), { addonName: addon.name });
-    console.log('AddonReviewList reviews', reviews);
     const allReviews = reviews || [];
 
     return (

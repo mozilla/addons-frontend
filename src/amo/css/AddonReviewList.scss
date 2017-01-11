@@ -10,13 +10,14 @@
   flex-direction: row;
 
   .AddonReviewList-header-text {
-    > h2, > h4 {
+    > h2,
+    > h4 {
       font-size: 1.1em;
     }
 
     > h2 {
       padding-top: 10px;
-      margin: 0 0 5px 0;
+      margin: 0 0 5px;
     }
 
     > h4 {
@@ -64,7 +65,7 @@ $star-gutter: 4px;
   }
 
   > p {
-    margin: 0 0 5px 0;
+    margin: 0 0 5px;
   }
 
   .AddonReview-by-line {
