@@ -43,12 +43,7 @@ const errorPageText = {
 };
 
 function getNoScriptStyles({ appName }) {
-  const cssPath = path.join(config.get('basePath'), `src/${appName}/noscript.css`);
-  if (fs.statSync(cssPath)) {
-    console.log(`Found noscript CSS`);
-    return fs.readFileSync(cssPath);
-  }
-  console.log(`No noscript CSS at ${cssPath}`);
+  // TODO: How do we read the `noScriptStyles` css bundle from webpack?
   return undefined;
 }
 
@@ -280,6 +275,11 @@ export function runServer({ listen = true, app = appName } = {}) {
 
   const isoMorphicServer = new WebpackIsomorphicTools(
     WebpackIsomorphicToolsConfig);
+  // TODO: It looks like webpack isomorphic tools has some magic going on that is preventing
+  // the file from being loaded normally.
+  // Do I need to require it somewhere?
+  // How does it know about the `disco` bundle?
+  // config.get('basePath') is /Users/markstriemer/work/addons-frontend/
   return isoMorphicServer
     .server(config.get('basePath'))
     .then(() => {

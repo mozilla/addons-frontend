@@ -90,7 +90,9 @@ export default class ServerHtml extends Component {
           {head.title.toComponent()}
           {head.meta.toComponent()}
           {this.getStyle()}
-          <noscript><style dangerouslySetInnerHTML={{ __html: noScriptStyles }} /></noscript>
+          {noScriptStyles
+            ? <noscript><style dangerouslySetInnerHTML={{ __html: noScriptStyles }} /></noscript>
+            : null}
         </head>
         <body>
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />
