@@ -53,13 +53,13 @@ export class ShowMoreCardBase extends React.Component {
     const { expanded } = this.state;
 
     const readMoreLink = (
-        <a className="ShowMoreCard-revealMoreLink" href="#show-more"
-          onClick={this.onClick} dangerouslySetInnerHTML={sanitizeHTML(
+        <a href="#show-more" onClick={this.onClick}
+          dangerouslySetInnerHTML={sanitizeHTML(
             i18n.gettext(
               // l10n: The "Expand to" text is for screenreaders so the link
               // makes sense out of context. The HTML makes it hidden from
               // non-screenreaders and must stay.
-              '<span class="visually-hidden">Expand to </span> Read more'
+              '<span class="visually-hidden">Expand to</span> Read more'
             ), ['span']
           )} />
     );

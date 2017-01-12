@@ -28,7 +28,7 @@ describe('<ShowMoreCard />', () => {
     assert.include(rootNode.className, 'ShowMoreCard--expanded');
     assert.strictEqual(root.state.expanded, true);
 
-    assert.equal(rootNode.querySelector('.Card-footer').textContent, 'Expand to  Read more');
+    assert.equal(rootNode.querySelector('.Card-footer').textContent, 'Expand to Read more');
   });
 
   it('is expanded by default', () => {
