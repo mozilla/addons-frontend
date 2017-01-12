@@ -1,6 +1,6 @@
-import { setReview } from 'amo/actions/reviews';
+import { setAddonReviews, setReview } from 'amo/actions/reviews';
 import reviews, { initialState } from 'amo/reducers/reviews';
-import { fakeReview } from 'tests/client/amo/helpers';
+import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
 
 describe('amo.reducers.reviews', () => {
   it('defaults to an empty object', () => {
@@ -134,5 +134,38 @@ describe('amo.reducers.reviews', () => {
 
     assert.equal(state[userId][addonId][1].isLatest, true);
     assert.equal(state[userId][addonId][2].isLatest, false);
+  });
+
+  describe('setAddonReviews', () => {
+    it('stores multiple user reviews for an add-on', () => {
+      const review1 = fakeReview;
+      const review2 = { ...fakeReview, id: 3 };
+      const action = setAddonReviews({
+        addonSlug: fakeAddon.slug, reviews: [review1, review2],
+      });
+      const state = reviews(undefined, action);
+      const storedReviews = state.byAddon[fakeAddon.slug];
+      assert.equal(storedReviews.length, 2);
+      assert.equal(storedReviews[0].id, review1.id);
+      assert.equal(storedReviews[1].id, review2.id);
+    });
+
+    it('preserves existing add-on reviews', () => {
+      const addon1 = fakeAddon;
+      const review1 = fakeReview;
+      const addon2 = { ...fakeAddon, slug: 'something-else' };
+      const review2 = { ...fakeReview, id: 3 };
+
+      let state;
+      state = reviews(state, setAddonReviews({
+        addonSlug: addon1.slug, reviews: [review1],
+      }));
+      state = reviews(state, setAddonReviews({
+        addonSlug: addon2.slug, reviews: [review2],
+      }));
+
+      assert.equal(state.byAddon[addon1.slug][0].id, review1.id);
+      assert.equal(state.byAddon[addon2.slug][0].id, review2.id);
+    });
   });
 });

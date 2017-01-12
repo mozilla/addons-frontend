@@ -18,18 +18,31 @@ function denormalizeReview(review) {
   };
 }
 
-export const setReview = (review, reviewOverrides = {}) => ({
-  type: SET_REVIEW,
-  payload: {
-    ...denormalizeReview(review),
-    ...reviewOverrides,
-  },
-});
+export const setReview = (review, reviewOverrides = {}) => {
+  if (!review) {
+    throw new Error('review cannot be empty');
+  }
+  return {
+    type: SET_REVIEW,
+    payload: {
+      ...denormalizeReview(review),
+      ...reviewOverrides,
+    },
+  };
+};
 
-export const setAddonReviews = ({ addonSlug, reviews }) => ({
-  type: SET_ADDON_REVIEWS,
-  payload: {
-    addonSlug,
-    reviews: reviews.map((review) => denormalizeReview(review)),
-  },
-});
+export const setAddonReviews = ({ addonSlug, reviews }) => {
+  if (!addonSlug) {
+    throw new Error('addonSlug cannot be empty');
+  }
+  if (!Array.isArray(reviews)) {
+    throw new Error('reviews must be an Array');
+  }
+  return {
+    type: SET_ADDON_REVIEWS,
+    payload: {
+      addonSlug,
+      reviews: reviews.map((review) => denormalizeReview(review)),
+    },
+  };
+};
