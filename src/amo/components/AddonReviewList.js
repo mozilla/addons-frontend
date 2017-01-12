@@ -4,6 +4,7 @@ import { asyncConnect } from 'redux-connect';
 
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
+import { getAddonReviews } from 'amo/api';
 import { callApi } from 'core/api';
 import translate from 'core/i18n/translate';
 import { findAddon, loadAddonIfNeeded } from 'core/utils';
@@ -43,6 +44,7 @@ export class AddonReviewListBase extends React.Component {
   render() {
     const { i18n, initialData } = this.props;
     if (!initialData) {
+      // TODO: add a spinner
       return <div>{i18n.gettext('Loading...')}</div>;
     }
 
@@ -72,22 +74,21 @@ export class AddonReviewListBase extends React.Component {
   }
 }
 
-function loadAddonReviews({ addonSlug, dispatch }) {
-  return callApi({
-    endpoint: `addons/addon/${addonSlug}/reviews`,
-    method: 'GET',
-  })
-    .then((response) => {
+export function loadAddonReviews({ addonSlug, dispatch }) {
+  return getAddonReviews({ addonSlug })
+    .then((reviews) => {
       // TODO: ignore reviews with null bodies as those
       // are legitimately incomplete.
-      const action = setAddonReviews(
-        { addonSlug, reviews: response.results });
+      const action = setAddonReviews({ addonSlug, reviews });
       dispatch(action);
       return action.payload.reviews;
     });
 }
 
-export function loadInitialData({ store, params }) {
+export function loadInitialData(
+  { store, params },
+  { _loadAddonReviews = loadAddonReviews } = {},
+) {
   const { slug } = params;
   return new Promise((resolve) => {
     if (!slug) {
@@ -97,7 +98,7 @@ export function loadInitialData({ store, params }) {
   })
     .then(() => Promise.all([
       loadAddonIfNeeded({ store, params }),
-      loadAddonReviews({ addonSlug: slug, dispatch: store.dispatch }),
+      _loadAddonReviews({ addonSlug: slug, dispatch: store.dispatch }),
     ]))
     .then((results) => {
       const reviews = results[1];

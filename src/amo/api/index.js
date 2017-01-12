@@ -41,6 +41,25 @@ export function submitReview({
     });
 }
 
+export function getAddonReviews({ addonSlug } = {}) {
+  return new Promise((resolve) => {
+    if (!addonSlug) {
+      throw new Error('addonSlug cannot be falsey');
+    }
+    resolve(callApi({
+      endpoint: `addons/addon/${addonSlug}/reviews`,
+      method: 'GET',
+    }));
+  })
+    .then((response) => {
+      // TODO: implement paging through response.next
+      if (response.next) {
+        throw new Error('paging is not yet implemented');
+      }
+      return response.results;
+    });
+}
+
 export function getUserReviews({ userId, addonId } = {}) {
   return new Promise((resolve) => {
     if (!userId) {
