@@ -19,7 +19,6 @@ export class ShowMoreCardBase extends React.Component {
     children: PropTypes.node,
     className: PropTypes.string,
     header: PropTypes.node,
-    footer: PropTypes.node,
     i18n: PropTypes.object.isRequired,
   }
 
@@ -50,17 +49,10 @@ export class ShowMoreCardBase extends React.Component {
   }
 
   render() {
-    const { children, className, header, footer, i18n } = this.props;
+    const { children, className, header, i18n } = this.props;
     const { expanded } = this.state;
 
-    return (
-      <Card className={classNames('ShowMoreCard', className, {
-        'ShowMoreCard--expanded': expanded,
-      })} header={header} footer={footer}>
-        <div className="ShowMoreCard-contents"
-          ref={(ref) => { this.contents = ref; }}>
-          {children}
-        </div>
+    const readMoreLink = (
         <a className="ShowMoreCard-revealMoreLink" href="#show-more"
           onClick={this.onClick} dangerouslySetInnerHTML={sanitizeHTML(
             i18n.gettext(
@@ -70,6 +62,16 @@ export class ShowMoreCardBase extends React.Component {
               '<span class="visually-hidden">Expand to </span> Read more'
             ), ['span']
           )} />
+    );
+
+    return (
+      <Card className={classNames('ShowMoreCard', className, {
+        'ShowMoreCard--expanded': expanded,
+      })} header={header} footer={readMoreLink}>
+        <div className="ShowMoreCard-contents"
+          ref={(ref) => { this.contents = ref; }}>
+          {children}
+        </div>
       </Card>
     );
   }

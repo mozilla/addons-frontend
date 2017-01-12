@@ -1,3 +1,14 @@
+@import "~core/css/inc/vars";
+
+$body-font-color: #000;
+
+// This is the color used for the MastHead and Footer background and the
+// basis of the SearchForm and Footer background colors.
+$masthead-color: #343a40;
+$masthead-light-color: #495057;
+$footer-color: #212529;
+$accent-color: #ebebeb;
+
 $breakpoints: (
   small: '(max-width: 499px)',
   medium: '(min-width: 500px)',

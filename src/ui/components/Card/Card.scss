@@ -36,4 +36,10 @@
   border-bottom-right-radius: $border-radius-default;
   margin-top: 1px;
   text-align: center;
+
+  a {
+    color: $link-color;
+    font-variant: all-small-caps;
+    text-decoration: none;
+  }
 }
