@@ -15,6 +15,7 @@ env:
   - TOXENV=discopane-ui-tests GUI=1 PYTEST_ADDOPTS=--base-url=http://localhost:4000
   - TOXENV=flake8
 cache:
+  yarn: true
   directories:
   - node_modules
 before_install:
