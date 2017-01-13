@@ -51,8 +51,8 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
             }
           });
 
-          // Bail if syntax errors were encountered.
-          if (flagError) {
+          // Bail if syntax errors were encountered and we're not watching.
+          if (flagError && process.argv.indexOf('--watch') === -1) {
             throw new Error('Syntax error encountered, bailing');
           }
         }
@@ -150,7 +150,6 @@ module.exports = function karmaConf(conf) {
       'karma-sourcemap-loader',
       'karma-webpack',
     ],
-    autoWatch: true,
     browsers: ['Firefox'],
     singleRun: false,
     concurrency: Infinity,

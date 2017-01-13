@@ -114,7 +114,7 @@
       }
     },
     "unittest:dev": {
-      "command": "karma start",
+      "command": "karma start --watch",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
