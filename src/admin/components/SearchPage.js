@@ -20,8 +20,11 @@ export default class AdminSearchPage extends React.Component {
   }
 
   static defaultProps = {
+    count: 0,
     filters: {},
     hasSearchParams: false,
+    page: 1,
+    results: [],
   }
 
   render() {

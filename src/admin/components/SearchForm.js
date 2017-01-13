@@ -18,6 +18,9 @@ export class AdminSearchFormBase extends React.Component {
   static contextTypes = {
     router: PropTypes.object,
   }
+  static defaultProps = {
+    query: '',
+  }
 
   goToSearch(query) {
     const { pathname } = this.props;
