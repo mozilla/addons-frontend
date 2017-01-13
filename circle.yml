@@ -33,6 +33,15 @@ dependencies:
     # day to keep the cache size down.
     - I="image-$(date +%j).gz"; if [[ -e ~/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/docker/$I | docker load; fi
 
+    - >
+        printf '{"commit":"%s","version":"%s","source":"https://github.com/%s/%s","build":"%s"}\n'
+        "$CIRCLE_SHA1"
+        "$CIRCLE_TAG"
+        "$CIRCLE_PROJECT_USERNAME"
+        "$CIRCLE_PROJECT_REPONAME"
+        "$CIRCLE_BUILD_URL"
+        > version.json
+
     - docker build --pull -t addons-frontend .
 
     - docker images

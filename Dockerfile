@@ -14,13 +14,6 @@ WORKDIR /srv/code
 RUN rm -rf node_modules
 RUN ln -s /srv/node/node_modules
 
-RUN GITREF=$(git rev-parse HEAD) \
-GITTAG=$(git name-rev --tags --name-only $GITREF) \
-SOURCE='https://github.com/mozilla/addons-frontend' && \
-echo "{\"source\": \"$SOURCE\", \
-\"version\": \"$GITTAG\", \
-\"commit\": \"$GITREF\"}" > version.json
-
 ENV SERVER_HOST 0.0.0.0
 ENV SERVER_PORT 4000
 
