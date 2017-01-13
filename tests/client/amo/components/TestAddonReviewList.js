@@ -10,7 +10,6 @@ import createStore from 'amo/store';
 import translate from 'core/i18n/translate';
 import * as amoApi from 'amo/api';
 import * as coreApi from 'core/api';
-import { addon as addonSchema } from 'core/api';
 import { setAddonReviews } from 'amo/actions/reviews';
 import {
   loadAddonReviews,
@@ -26,11 +25,9 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 describe('amo/components/AddonReviewList', () => {
   describe('loadAddonReviews', () => {
     let mockAmoApi;
-    let mockCoreApi;
 
     beforeEach(() => {
       mockAmoApi = sinon.mock(amoApi);
-      mockCoreApi = sinon.mock(coreApi);
     });
 
     it('loads all add-on reviews', () => {
@@ -77,7 +74,9 @@ describe('amo/components/AddonReviewList', () => {
         .expects('fetchAddon')
         .once()
         .withArgs({ slug, api: {} })
-        .returns(Promise.resolve(normalize(fakeAddon, addonSchema)));
+        // Simulate how callApi() applies the add-on schema to
+        // the API server response.
+        .returns(Promise.resolve(normalize(fakeAddon, coreApi.addon)));
 
       return loadInitialData({ store, params: { slug } },
                              { _loadAddonReviews })
@@ -96,7 +95,7 @@ describe('amo/components/AddonReviewList', () => {
         })
         .catch((error) => {
           assert.match(error.message, /missing URL param slug/);
-        })
+        });
     });
   });
 });
