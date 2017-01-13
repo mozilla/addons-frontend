@@ -2,9 +2,11 @@ import React from 'react';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
+  scryRenderedComponentsWithType,
   Simulate,
 } from 'react-addons-test-utils';
 import { normalize } from 'normalizr';
+import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
 import translate from 'core/i18n/translate';
@@ -12,9 +14,11 @@ import * as amoApi from 'amo/api';
 import * as coreApi from 'core/api';
 import { setAddonReviews } from 'amo/actions/reviews';
 import {
+  AddonReviewListBase,
   loadAddonReviews,
   loadInitialData,
 } from 'amo/components/AddonReviewList';
+import Rating from 'ui/components/Rating';
 import {
   fakeAddon,
   fakeReview,
@@ -22,7 +26,45 @@ import {
 } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
+function getLoadedReviews({
+  addonSlug = fakeAddon.slug, reviews = [fakeReview] } = {},
+) {
+  const action = setAddonReviews({ addonSlug, reviews });
+  // This is how reviews look after they have been loaded.
+  return action.payload.reviews;
+}
+
 describe('amo/components/AddonReviewList', () => {
+  describe('<AddonReviewListBase/>', () => {
+    function render({ ...customProps } = {}) {
+      const store = createStore();
+      const props = {
+        i18n: getFakeI18nInst(),
+        initialData: {
+          addon: fakeAddon,
+          reviews: getLoadedReviews(),
+        },
+        ...customProps,
+      };
+
+      const AddonReviewList = translate({ withRef: true })(AddonReviewListBase);
+      const tree = renderIntoDocument(
+        <Provider store={store}>
+          <AddonReviewList {...props} />
+        </Provider>
+      );
+
+      return tree;
+    }
+
+    it('lists reviews', () => {
+      const tree = render();
+      const ratings = scryRenderedComponentsWithType(tree, Rating);
+      assert.equal(ratings.length, 1);
+      assert.equal(ratings.props.rating, fakeReview.rating);
+    });
+  });
+
   describe('loadAddonReviews', () => {
     let mockAmoApi;
 
@@ -63,10 +105,7 @@ describe('amo/components/AddonReviewList', () => {
     it('gets initial data from the API', () => {
       const store = createStore();
       const slug = fakeAddon.slug;
-      const reviews = [fakeReview];
-
-      const expectedAction = setAddonReviews({ addonSlug: slug, reviews });
-      const loadedReviews = expectedAction.payload.reviews;
+      const loadedReviews = getLoadedReviews();
       const _loadAddonReviews = sinon.spy(
         () => Promise.resolve(loadedReviews));
 
