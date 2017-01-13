@@ -75,9 +75,12 @@ export class AddonReviewListBase extends React.Component {
 
 export function loadAddonReviews({ addonSlug, dispatch }) {
   return getAddonReviews({ addonSlug })
-    .then((reviews) => {
-      // TODO: ignore reviews with null bodies as those
-      // are legitimately incomplete.
+    .then((allReviews) => {
+      // Ignore reviews with null bodies as those are incomplete.
+      // For example, the user selected a star rating but hasn't submitted
+      // review text yet.
+      const reviews = allReviews.filter((review) => Boolean(review.body));
+
       const action = setAddonReviews({ addonSlug, reviews });
       dispatch(action);
       return action.payload.reviews;

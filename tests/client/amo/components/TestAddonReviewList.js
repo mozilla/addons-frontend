@@ -135,6 +135,26 @@ describe('amo/components/AddonReviewList', () => {
           assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
         });
     });
+
+    it('ignores incomplete reviews', () => {
+      const addonSlug = fakeAddon.slug;
+      const dispatch = sinon.stub();
+      const reviews = [fakeReview, { ...fakeReview, body: null }];
+
+      mockAmoApi
+        .expects('getAddonReviews')
+        .returns(Promise.resolve(reviews));
+
+      return loadAddonReviews({ addonSlug, dispatch })
+        .then((loadedReviews) => {
+          const expectedAction = setAddonReviews({
+            addonSlug, reviews: [fakeReview],
+          });
+          assert.deepEqual(loadedReviews, expectedAction.payload.reviews);
+          assert.ok(dispatch.called);
+          assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
+        });
+    });
   });
 
   describe('loadInitialData', () => {
