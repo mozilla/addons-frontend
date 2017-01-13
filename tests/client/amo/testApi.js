@@ -1,4 +1,9 @@
-import { getLatestUserReview, getUserReviews, submitReview } from 'amo/api';
+import {
+  getAddonReviews,
+  getLatestUserReview,
+  getUserReviews,
+  submitReview,
+} from 'amo/api';
 import * as api from 'core/api';
 import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 
@@ -177,6 +182,49 @@ describe('amo.api', () => {
       return getUserReviews({ userId: 123, addonId: fakeReview.addon.id })
         .then((reviews) => {
           assert.deepEqual(reviews, [fakeReview]);
+        });
+    });
+  });
+
+  describe('getAddonReviews', () => {
+    it('gets all add-on reviews', () => {
+      const addonSlug = 'ublock';
+      const reviewList = [fakeReview];
+      const response = { results: reviewList };
+      mockApi
+        .expects('callApi')
+        .once()
+        .withArgs({
+          method: 'GET',
+          endpoint: `addons/addon/${addonSlug}/reviews`,
+        })
+        .returns(Promise.resolve(response));
+
+      return getAddonReviews({ addonSlug })
+        .then((reviews) => {
+          mockApi.verify();
+          assert.deepEqual(reviews, reviewList);
+        });
+    });
+
+    it('requires a truthy addonSlug', () => {
+      return getAddonReviews()
+        .then(() => assert(false, 'Unexpected success'), (error) => {
+          assert.match(error.message, /addonSlug cannot be falsey/);
+        });
+    });
+
+    it('does not support paging yet', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({
+          results: [],
+          next: '/reviews/next-page/',
+        }));
+
+      return getAddonReviews({ addonSlug: 'ublock' })
+        .then(() => assert(false, 'Unexpected success'), (error) => {
+          assert.match(error.message, /not yet implemented/);
         });
     });
   });
