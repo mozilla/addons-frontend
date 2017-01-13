@@ -4,11 +4,13 @@ import {
   renderIntoDocument,
   Simulate,
 } from 'react-addons-test-utils';
+import { normalize } from 'normalizr';
 
 import createStore from 'amo/store';
 import translate from 'core/i18n/translate';
 import * as amoApi from 'amo/api';
 import * as coreApi from 'core/api';
+import { addon as addonSchema } from 'core/api';
 import { setAddonReviews } from 'amo/actions/reviews';
 import {
   loadAddonReviews,
@@ -55,38 +57,46 @@ describe('amo/components/AddonReviewList', () => {
   });
 
   describe('loadInitialData', () => {
-    let mockAmoApi;
     let mockCoreApi;
 
     beforeEach(() => {
-      mockAmoApi = sinon.mock(amoApi);
       mockCoreApi = sinon.mock(coreApi);
     });
 
-    it.skip('gets initial data from the API', () => {
-      const slug = fakeAddon.slug;
+    it('gets initial data from the API', () => {
       const store = createStore();
-      sinon.stub(store, 'dispatch');
+      const slug = fakeAddon.slug;
+      const reviews = [fakeReview];
 
-      const entities = { [slug]: fakeAddon };
+      const expectedAction = setAddonReviews({ addonSlug: slug, reviews });
+      const loadedReviews = expectedAction.payload.reviews;
+      const _loadAddonReviews = sinon.spy(
+        () => Promise.resolve(loadedReviews));
+
       mockCoreApi
         .expects('fetchAddon')
         .once()
         .withArgs({ slug, api: {} })
-        .returns(Promise.resolve({ entities }));
-      mockAmoApi
-        .expects('getAddonReviews')
-        .once()
-        .withArgs({ addonSlug: slug })
-        .returns(Promise.resolve([fakeReview]));
+        .returns(Promise.resolve(normalize(fakeAddon, addonSchema)));
 
-      return loadInitialData({ store, params: { slug } })
+      return loadInitialData({ store, params: { slug } },
+                             { _loadAddonReviews })
         .then((initialData) => {
           mockCoreApi.verify();
-          mockAmoApi.verify();
-
-          assert.deepEqual(initialData.reviews, [fakeReview]);
+          assert.deepEqual(initialData.addon, fakeAddon);
+          assert.deepEqual(initialData.reviews, loadedReviews);
         });
+    });
+
+    it('requires a slug param', () => {
+      const store = createStore();
+      return loadInitialData({ store, params: { slug: null } })
+        .then(() => {
+          throw new Error('unexpected success');
+        })
+        .catch((error) => {
+          assert.match(error.message, /missing URL param slug/);
+        })
     });
   });
 });

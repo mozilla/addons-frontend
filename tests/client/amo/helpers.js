@@ -12,6 +12,7 @@ export const fakeAddon = {
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
+    files: [],
   },
   previews: [],
   summary: 'This is a summary of the chill out add-on',

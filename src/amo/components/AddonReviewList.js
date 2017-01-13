@@ -97,11 +97,10 @@ export function loadInitialData(
     resolve();
   })
     .then(() => Promise.all([
-      loadAddonIfNeeded({ store, params }),
       _loadAddonReviews({ addonSlug: slug, dispatch: store.dispatch }),
+      loadAddonIfNeeded({ store, params }),
     ]))
-    .then((results) => {
-      const reviews = results[1];
+    .then(([reviews]) => {
       const addon = findAddon(store.getState(), slug);
       const initialData = { addon, reviews };
       return initialData;
