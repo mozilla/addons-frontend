@@ -25,7 +25,7 @@ export default function reviews(state = initialState, { payload, type }) {
       const existingReviews =
         state[payload.userId] ? state[payload.userId][payload.addonId] : {};
       const latestReview = payload;
-      // FIXME: move to state.byUser
+      // TODO: make this consistent by moving it to state.byUser
       return {
         ...state,
         // This is a map of reviews by user ID, addon ID, and review ID.
