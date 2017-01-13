@@ -171,10 +171,7 @@ describe('amo/components/AddonReviewList', () => {
     it('requires a slug param', () => {
       const store = createStore();
       return loadInitialData({ store, params: { slug: null } })
-        .then(() => {
-          throw new Error('unexpected success');
-        })
-        .catch((error) => {
+        .then(() => assert(false, 'Unexpected success'), (error) => {
           assert.match(error.message, /missing URL param slug/);
         });
     });
