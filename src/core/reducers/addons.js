@@ -9,6 +9,17 @@ export function getGuid(result) {
   return result.guid;
 }
 
+export function normalizeAddon(apiAddon) {
+  if (apiAddon.icon_url) {
+    return {
+      ...apiAddon,
+      // Set iconUrl to be consistent between disco and amo.
+      iconUrl: apiAddon.icon_url,
+    };
+  }
+  return apiAddon;
+}
+
 export default function addon(state = initialState, action) {
   const { payload } = action;
   if (payload && payload.entities && payload.entities.addons) {
@@ -31,10 +42,7 @@ export default function addon(state = initialState, action) {
       } else {
         newState[key] = thisAddon;
       }
-      // Set iconUrl to be consistent between disco and amo.
-      if (thisAddon.icon_url) {
-        newState[key].iconUrl = thisAddon.icon_url;
-      }
+      newState[key] = normalizeAddon(newState[key]);
     });
     return newState;
   }

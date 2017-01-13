@@ -2,6 +2,7 @@ export const fakeAddon = {
   id: 1234,
   guid: '1234@my-addons.firefox',
   name: 'Chill Out',
+  icon_url: 'http://olympia.dev/static/img/addon-icons/webdev-64.png',
   slug: 'chill-out',
   average_daily_users: 100,
   authors: [{

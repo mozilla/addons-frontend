@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  findRenderedComponentWithType,
   renderIntoDocument,
   scryRenderedComponentsWithType,
-  Simulate,
 } from 'react-addons-test-utils';
 import { normalize } from 'normalizr';
 import { Provider } from 'react-redux';
+import { findDOMNode } from 'react-dom';
 
 import createStore from 'amo/store';
 import translate from 'core/i18n/translate';
@@ -18,12 +17,10 @@ import {
   loadAddonReviews,
   loadInitialData,
 } from 'amo/components/AddonReviewList';
+import Link from 'amo/components/Link';
+import { normalizeAddon } from 'core/reducers/addons';
 import Rating from 'ui/components/Rating';
-import {
-  fakeAddon,
-  fakeReview,
-  signedInApiState,
-} from 'tests/client/amo/helpers';
+import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 function getLoadedReviews({
@@ -36,13 +33,15 @@ function getLoadedReviews({
 
 describe('amo/components/AddonReviewList', () => {
   describe('<AddonReviewListBase/>', () => {
-    function render({ ...customProps } = {}) {
+    function render({
+      addon = fakeAddon, reviews = [fakeReview], ...customProps } = {},
+    ) {
       const store = createStore();
       const props = {
         i18n: getFakeI18nInst(),
         initialData: {
-          addon: fakeAddon,
-          reviews: getLoadedReviews(),
+          addon: normalizeAddon(addon),
+          reviews: getLoadedReviews({ reviews }),
         },
         ...customProps,
       };
@@ -57,11 +56,54 @@ describe('amo/components/AddonReviewList', () => {
       return tree;
     }
 
-    it('lists reviews', () => {
-      const tree = render();
+    function renderToDOM(...args) {
+      return findDOMNode(render(...args));
+    }
+
+    it('renders a list of reviews with ratings', () => {
+      const reviews = [
+        { ...fakeReview, rating: 1 },
+        { ...fakeReview, rating: 2 },
+      ];
+      const tree = render({ reviews });
       const ratings = scryRenderedComponentsWithType(tree, Rating);
-      assert.equal(ratings.length, 1);
-      assert.equal(ratings.props.rating, fakeReview.rating);
+      assert.equal(ratings.length, 2);
+
+      assert.equal(ratings[0].props.rating, 1);
+      assert.equal(ratings[0].props.readOnly, true);
+      assert.equal(ratings[1].props.rating, 2);
+      assert.equal(ratings[1].props.readOnly, true);
+    });
+
+    it('renders a review', () => {
+      const root = renderToDOM({ reviews: [fakeReview] });
+
+      const title = root.querySelector('.AddonReviewList-li h3');
+      assert.equal(title.textContent, fakeReview.title);
+
+      const body = root.querySelector('.AddonReviewList-li p');
+      assert.equal(body.textContent, fakeReview.body);
+
+      const byLine =
+        root.querySelector('.AddonReviewList-by-line').textContent;
+      assert.include(byLine, fakeReview.user.name);
+    });
+
+    it('renders header links', () => {
+      const tree = render({ reviews: [fakeReview] });
+      const links = scryRenderedComponentsWithType(tree, Link);
+
+      assert.equal(links.length, 2);
+      const expectedDest = '/addon/chill-out/';
+      links.forEach((link) => {
+        assert.equal(link.props.to, expectedDest);
+      });
+    });
+
+    it('renders an icon in the header', () => {
+      const root = renderToDOM({ addon: fakeAddon });
+      const img = root.querySelector('.AddonReviewList-header-icon img');
+      assert.equal(img.src, fakeAddon.icon_url);
     });
   });
 
@@ -121,7 +163,7 @@ describe('amo/components/AddonReviewList', () => {
                              { _loadAddonReviews })
         .then((initialData) => {
           mockCoreApi.verify();
-          assert.deepEqual(initialData.addon, fakeAddon);
+          assert.deepEqual(initialData.addon, normalizeAddon(fakeAddon));
           assert.deepEqual(initialData.reviews, loadedReviews);
         });
     });

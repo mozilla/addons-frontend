@@ -5,7 +5,6 @@ import { asyncConnect } from 'redux-connect';
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { getAddonReviews } from 'amo/api';
-import { callApi } from 'core/api';
 import translate from 'core/i18n/translate';
 import { findAddon, loadAddonIfNeeded } from 'core/utils';
 import Link from 'amo/components/Link';
@@ -31,7 +30,7 @@ export class AddonReviewListBase extends React.Component {
         <p>
           {review.body}
         </p>
-        <div className="AddonReview-by-line">
+        <div className="AddonReviewList-by-line">
           <Rating rating={review.rating} readOnly />
           {this.props.i18n.gettext('from')} {review.userName},
           {' '}
@@ -58,7 +57,7 @@ export class AddonReviewListBase extends React.Component {
         <div className="AddonReviewList-header">
           <div className="AddonReviewList-header-icon">
             <Link to={this.addonURL()}>
-              <img src={addon.icon_url} alt="" />
+              <img src={addon.icon_url} alt={i18n.gettext('Add-on icon')} />
             </Link>
           </div>
           <div className="AddonReviewList-header-text">
