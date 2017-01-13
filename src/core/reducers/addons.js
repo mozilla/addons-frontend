@@ -9,7 +9,7 @@ export function getGuid(result) {
   return result.guid;
 }
 
-export function normalizeAddon(apiAddon) {
+export function denormalizeAddon(apiAddon) {
   if (apiAddon.icon_url) {
     return {
       ...apiAddon,
@@ -42,7 +42,7 @@ export default function addon(state = initialState, action) {
       } else {
         newState[key] = thisAddon;
       }
-      newState[key] = normalizeAddon(newState[key]);
+      newState[key] = denormalizeAddon(newState[key]);
     });
     return newState;
   }

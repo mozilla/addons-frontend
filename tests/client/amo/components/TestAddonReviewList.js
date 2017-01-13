@@ -18,7 +18,7 @@ import {
   loadInitialData,
 } from 'amo/components/AddonReviewList';
 import Link from 'amo/components/Link';
-import { normalizeAddon } from 'core/reducers/addons';
+import { denormalizeAddon } from 'core/reducers/addons';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -40,7 +40,7 @@ describe('amo/components/AddonReviewList', () => {
       const props = {
         i18n: getFakeI18nInst(),
         initialData: {
-          addon: normalizeAddon(addon),
+          addon: denormalizeAddon(addon),
           reviews: getLoadedReviews({ reviews }),
         },
         ...customProps,
@@ -163,7 +163,7 @@ describe('amo/components/AddonReviewList', () => {
                              { _loadAddonReviews })
         .then((initialData) => {
           mockCoreApi.verify();
-          assert.deepEqual(initialData.addon, normalizeAddon(fakeAddon));
+          assert.deepEqual(initialData.addon, denormalizeAddon(fakeAddon));
           assert.deepEqual(initialData.reviews, loadedReviews);
         });
     });
