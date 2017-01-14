@@ -9,8 +9,13 @@ import {
   categoriesFail,
 } from 'core/actions/categories';
 import { categories, fetchAddon } from 'core/api';
+import {
+  API_ADDON_TYPES_MAPPING,
+  VISIBLE_ADDON_TYPES_MAPPING,
+} from 'core/constants';
 import log from 'core/logger';
 import purify from 'core/purify';
+
 
 export function gettext(str) {
   return str;
@@ -152,4 +157,22 @@ export function browserBase64Decode(str) {
     // eslint-disable-next-line prefer-template
     return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
   }).join(''));
+}
+
+export function apiAddonType(addonType) {
+  if (!Object.prototype.hasOwnProperty.call(
+    API_ADDON_TYPES_MAPPING, addonType
+  )) {
+    throw new Error(`"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
+  }
+  return API_ADDON_TYPES_MAPPING[addonType];
+}
+
+export function visibleAddonType(addonType) {
+  if (!Object.prototype.hasOwnProperty.call(
+    VISIBLE_ADDON_TYPES_MAPPING, addonType
+  )) {
+    throw new Error(`"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
+  }
+  return VISIBLE_ADDON_TYPES_MAPPING[addonType];
 }

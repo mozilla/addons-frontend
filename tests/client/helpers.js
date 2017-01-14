@@ -4,7 +4,7 @@ import moment from 'moment';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 
-import { EXTENSION_TYPE } from 'core/constants';
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { ngettext } from 'core/utils';
 
 /*
@@ -48,7 +48,11 @@ export function findByTag(root, tag) {
   return matches[0];
 }
 
-const enabledExtension = Promise.resolve({ type: EXTENSION_TYPE, isActive: true, isEnabled: true });
+const enabledExtension = Promise.resolve({
+  isActive: true,
+  isEnabled: true,
+  type: ADDON_TYPE_EXTENSION,
+});
 
 export function getFakeAddonManagerWrapper({ getAddon = enabledExtension } = {}) {
   return {

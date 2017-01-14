@@ -2,6 +2,7 @@ import deepEqual from 'deep-eql';
 
 import { search } from 'core/api';
 import { searchStart, searchLoad, searchFail } from 'core/actions/search';
+import { apiAddonType } from 'core/utils';
 
 
 export const paramsToFilter = {
@@ -108,7 +109,7 @@ export function loadByCategoryIfNeeded(
 ) {
   const state = getState();
   const filters = {
-    addonType: params.addonType,
+    addonType: apiAddonType(params.visibleAddonType),
     category: params.slug,
     clientApp: params.application,
   };

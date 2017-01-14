@@ -1,7 +1,12 @@
 /* global window */
 
 import { Tracking, getAction } from 'core/tracking';
-import { EXTENSION_TYPE, THEME_TYPE } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  TRACKING_TYPE_EXTENSION,
+  TRACKING_TYPE_THEME,
+} from 'core/constants';
 
 
 describe('Tracking', () => {
@@ -108,12 +113,12 @@ describe('Tracking', () => {
 });
 
 describe('getAction', () => {
-  it('returns addon for EXTENSION_TYPE', () => {
-    assert.equal(getAction(EXTENSION_TYPE), 'addon');
+  it('returns addon for TYPE_EXTENSION', () => {
+    assert.equal(getAction(ADDON_TYPE_EXTENSION), TRACKING_TYPE_EXTENSION);
   });
 
-  it('returns theme for THEME_TYPE', () => {
-    assert.equal(getAction(THEME_TYPE), 'theme');
+  it('returns theme for TYPE_THEME', () => {
+    assert.equal(getAction(ADDON_TYPE_THEME), TRACKING_TYPE_THEME);
   });
 
   it('returns invalid for unknown type', () => {

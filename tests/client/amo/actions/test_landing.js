@@ -1,15 +1,16 @@
 import { getLanding, loadLanding, failLanding } from 'amo/actions/landing';
+import { ADDON_TYPE_THEME } from 'core/constants';
 
 
 describe('LANDING_GET', () => {
-  const action = getLanding({ addonType: 'theme' });
+  const action = getLanding({ addonType: ADDON_TYPE_THEME });
 
   it('sets the type', () => {
     assert.equal(action.type, 'LANDING_GET');
   });
 
   it('sets the filters', () => {
-    assert.deepEqual(action.payload, { addonType: 'theme' });
+    assert.deepEqual(action.payload, { addonType: ADDON_TYPE_THEME });
   });
 
   it('throws if no addonType is set', () => {
@@ -23,14 +24,14 @@ describe('LANDING_LOADED', () => {
     highlyRated: sinon.stub(),
     popular: sinon.stub(),
   };
-  const action = loadLanding({ addonType: 'theme', ...response });
+  const action = loadLanding({ addonType: ADDON_TYPE_THEME, ...response });
 
   it('sets the type', () => {
     assert.equal(action.type, 'LANDING_LOADED');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload, { addonType: 'theme', ...response });
+    assert.deepEqual(action.payload, { addonType: ADDON_TYPE_THEME, ...response });
   });
 });
 

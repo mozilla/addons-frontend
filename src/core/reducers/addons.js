@@ -1,9 +1,9 @@
-import { API_THEME_TYPE, THEME_TYPE } from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 
 const initialState = {};
 
 export function getGuid(result) {
-  if (result.type === API_THEME_TYPE) {
+  if (result.type === ADDON_TYPE_THEME) {
     return `${result.id}@personas.mozilla.org`;
   }
   return result.guid;
@@ -20,7 +20,7 @@ export default function addon(state = initialState, action) {
           ...thisAddon,
           ...thisAddon.theme_data,
           guid: getGuid(thisAddon),
-          type: THEME_TYPE,
+          type: ADDON_TYPE_THEME,
         };
         delete newState[key].theme_data;
       } else if (thisAddon.current_version && thisAddon.current_version.files.length > 0) {

@@ -8,6 +8,7 @@ import * as categoriesActions from 'core/actions/categories';
 import * as api from 'core/api';
 import {
   addQueryParams,
+  apiAddonType,
   convertBoolean,
   findAddon,
   getClientApp,
@@ -18,9 +19,32 @@ import {
   loadAddonIfNeeded,
   loadCategoriesIfNeeded,
   nl2br,
+  visibleAddonType,
 } from 'core/utils';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
+
+describe('apiAddonType', () => {
+  it('maps plural/visible addonTypes to internal types', () => {
+    assert.equal(apiAddonType('extensions'), 'extension');
+    assert.equal(apiAddonType('themes'), 'persona');
+  });
+
+  it('fails on unrecognised plural/visible addonType', () => {
+    assert.throws(() => {
+      // "theme" is not a valid pluralAddonType mapping; it should be "themes".
+      apiAddonType('theme');
+    }, '"theme" not found in API_ADDON_TYPES_MAPPING');
+  });
+
+  // See:
+  // https://github.com/mozilla/addons-frontend/pull/1541#discussion_r95861202
+  it('does not return a false positive on a method', () => {
+    assert.throws(() => {
+      apiAddonType('hasOwnProperty');
+    }, '"hasOwnProperty" not found in API_ADDON_TYPES_MAPPING');
+  });
+});
 
 describe('getClientConfig', () => {
   const fakeConfig = new Map();
@@ -470,5 +494,27 @@ describe('ngettext', () => {
 
   it('outputs plural when count is above one', () => {
     assert.equal('2 files', fileCount(2));
+  });
+});
+
+describe('visibleAddonType', () => {
+  it('maps internal addonTypes to plural/visible types', () => {
+    assert.equal(visibleAddonType('extension'), 'extensions');
+    assert.equal(visibleAddonType('persona'), 'themes');
+  });
+
+  it('fails on unrecognised internal addonType', () => {
+    assert.throws(() => {
+      // "theme" is not a valid visible addonType; it should be "themes".
+      visibleAddonType('personas');
+    }, '"personas" not found in VISIBLE_ADDON_TYPES_MAPPING');
+  });
+
+  // See:
+  // https://github.com/mozilla/addons-frontend/pull/1541#discussion_r95861202
+  it('does not return a false positive on a method', () => {
+    assert.throws(() => {
+      visibleAddonType('hasOwnProperty');
+    }, '"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING');
   });
 });

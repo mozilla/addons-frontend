@@ -35,13 +35,36 @@ export const FATAL_UNINSTALL_ERROR = 'FATAL_UNINSTALL_ERROR';
 export const FATAL_ERROR = 'FATAL_ERROR';
 
 // Add-on types.
-export const API_THEME_TYPE = 'persona';
-export const EXTENSION_TYPE = 'extension';
-export const THEME_TYPE = 'theme';
+export const ADDON_TYPE_EXTENSION = 'extension';
+export const ADDON_TYPE_THEME = 'persona';
 export const validAddonTypes = [
-  EXTENSION_TYPE,
-  THEME_TYPE,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
 ];
+// Mapping of the add-on types we show in URLs, etc. and what they map
+// to in the API (and how they're represented internally in the app).
+//
+// Examples:
+// * '/extensions/' -> 'extension'
+// * '/themes/' -> 'persona'
+export const API_ADDON_TYPES_MAPPING = {
+  extensions: ADDON_TYPE_EXTENSION,
+  themes: ADDON_TYPE_THEME,
+};
+export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
+  .reduce((object, key) => ({
+    ...object,
+    [API_ADDON_TYPES_MAPPING[key]]: key,
+  }), {});
+
+// Tracking add-on types
+export const TRACKING_TYPE_EXTENSION = 'addon';
+export const TRACKING_TYPE_THEME = 'theme';
+export const TRACKING_TYPE_INVALID = 'invalid';
+
+// Add-on Search Sort Values
+export const SEARCH_SORT_POPULAR = 'hotness';
+export const SEARCH_SORT_TOP_RATED = 'rating';
 
 // Action types.
 export const CATEGORIES_GET = 'CATEGORIES_GET';

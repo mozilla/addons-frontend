@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import { visibleAddonType } from 'core/utils';
 import translate from 'core/i18n/translate';
 
 import './Categories.scss';
@@ -50,7 +51,7 @@ export class CategoriesBase extends React.Component {
           {Object.values(categories).map((category) => (
             <li className="Categories-list-item">
               <Link className="Categories-link"
-                to={`/${addonType}s/${category.slug}/`}>
+                to={`/${visibleAddonType(addonType)}/${category.slug}/`}>
                 {category.name}
               </Link>
             </li>

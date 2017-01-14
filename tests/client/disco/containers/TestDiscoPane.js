@@ -4,8 +4,8 @@ import { findDOMNode } from 'react-dom';
 
 import { loadEntities } from 'core/actions';
 import {
+  ADDON_TYPE_EXTENSION,
   GLOBAL_EVENTS,
-  EXTENSION_TYPE,
   INSTALL_STATE,
 } from 'core/constants';
 import * as InfoDialog from 'core/containers/InfoDialog';
@@ -29,10 +29,10 @@ describe('AddonPage', () => {
     // Stub InfoDialog since it uses the store and is irrelevant.
     sinon.stub(InfoDialog, 'default', () => <p>InfoDialog</p>);
     const store = createStore({
-      addons: { foo: { type: EXTENSION_TYPE } },
+      addons: { foo: { type: ADDON_TYPE_EXTENSION } },
       discoResults: [{ addon: 'foo' }],
     });
-    const results = [{ addon: 'foo', type: EXTENSION_TYPE }];
+    const results = [{ addon: 'foo', type: ADDON_TYPE_EXTENSION }];
     const i18n = getFakeI18nInst();
 
     // We need the providers for i18n and since InstallButton will pull data from the store.

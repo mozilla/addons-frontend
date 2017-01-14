@@ -13,7 +13,7 @@ import {
   ENABLING,
   INSTALLED,
   INSTALLING,
-  THEME_TYPE,
+  ADDON_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
@@ -145,7 +145,7 @@ describe('<InstallSwitch />', () => {
     const name = 'hai';
     const button = renderButton({
       installTheme,
-      type: THEME_TYPE,
+      type: ADDON_TYPE_THEME,
       guid,
       name,
       status: UNINSTALLED,

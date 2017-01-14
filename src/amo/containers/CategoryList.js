@@ -3,11 +3,11 @@ import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import Categories from 'amo/components/Categories';
-import { loadCategoriesIfNeeded } from 'core/utils';
+import { loadCategoriesIfNeeded, apiAddonType } from 'core/utils';
 
 
 export function mapStateToProps(state, ownProps) {
-  const addonType = ownProps.params.addonType.replace(/s$/, '');
+  const addonType = apiAddonType(ownProps.params.visibleAddonType);
   const clientApp = state.api.clientApp;
   const categories = state.categories.categories[clientApp][addonType] ?
     state.categories.categories[clientApp][addonType] : {};
