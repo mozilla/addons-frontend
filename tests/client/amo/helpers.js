@@ -16,6 +16,10 @@ export const fakeAddon = {
     files: [],
   },
   previews: [],
+  ratings: {
+    count: 10,
+    average: 3.5,
+  },
   summary: 'This is a summary of the chill out add-on',
   description: 'This is a longer description of the chill out add-on',
   has_privacy_policy: true,

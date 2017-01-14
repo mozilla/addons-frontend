@@ -12,7 +12,7 @@ import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
 import { THEME_TYPE } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
-import { isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
+import { ngettext, isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
@@ -114,6 +114,31 @@ export class AddonDetailBase extends React.Component {
     );
   }
 
+  readReviewsFooter() {
+    const { addon, i18n } = this.props;
+    let content;
+
+    if (addon.ratings.count) {
+      const count = addon.ratings.count;
+      const linkText = i18n.sprintf(
+        // TODO: localize the review count? Or YAGNI?
+        ngettext('Read %(count)s review', 'Read %(count)s reviews', count),
+        { count },
+      );
+
+      content = (
+        <Link className="AddonDetail-all-reviews-link"
+          to={`/addon/${addon.slug}/reviews/`}>
+          {linkText}
+        </Link>
+      );
+    } else {
+      content = <span>{i18n.gettext('No reviews yet')}</span>;
+    }
+
+    return <div className="AddonDetail-read-reviews-footer">{content}</div>;
+  }
+
   render() {
     const { RatingManager, addon, i18n } = this.props;
 
@@ -170,12 +195,7 @@ export class AddonDetailBase extends React.Component {
 
         <Card
           header={i18n.gettext('Rate your experience')}
-          footer={
-            <Link className="AddonDetail-all-reviews-link"
-              to={`/addon/${addon.slug}/reviews/`}>
-              {i18n.gettext('Read all reviews')}
-            </Link>
-          }
+          footer={this.readReviewsFooter()}
           className="AddonDetail-overall-rating">
           <RatingManager
             addon={addon}

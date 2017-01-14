@@ -336,29 +336,77 @@ describe('AddonDetail', () => {
     assert.equal(metaData.props.averageDailyUsers, 25);
   });
 
-  it('links to all reviews', () => {
-    const root = render({
-      addon: fakeAddon,
+  describe('read reviews footer', () => {
+    function reviewFooterDOM({ ratingsCount = 1, ...customProps }) {
+      return renderAsDOMNode({
+        addon: {
+          ...fakeAddon,
+          ratings: {
+            ...fakeAddon.ratings,
+            count: ratingsCount,
+          },
+        },
+        ...customProps,
+      });
+    }
+
+    it('only links to reviews when they exist', () => {
+      const root = reviewFooterDOM({
+        ratingsCount: 0,
+      });
+      const footer =
+        root.querySelector('.AddonDetail-read-reviews-footer');
+      assert.equal(footer.textContent, 'No reviews yet');
     });
-    const allLinks = scryRenderedComponentsWithType(root, Link)
-      .filter((component) =>
-        component.props.className === 'AddonDetail-all-reviews-link');
-    assert.equal(allLinks.length, 1);
 
-    const link = allLinks[0];
-    const path = link.props.to;
-    assert.equal(path, '/addon/chill-out/reviews/');
+    it('prompts you to read one review', () => {
+      const root = reviewFooterDOM({
+        ratingsCount: 1,
+      });
+      const footer =
+        root.querySelector('.AddonDetail-read-reviews-footer');
+      assert.equal(footer.textContent, 'Read 1 review');
+    });
 
-    return new Promise((resolve, reject) => {
-      match({ location: path, routes }, (error, redirectLocation, props) => {
-        if (error) {
-          return reject(error);
-        }
-        // Check to make sure it is a valid routed path.
-        assert.ok(
-          props,
-          `props was falsey which means the path ${path} is invalid`);
-        return resolve();
+    it('prompts you to read many reviews', () => {
+      const root = reviewFooterDOM({
+        ratingsCount: 5,
+      });
+      const footer =
+        root.querySelector('.AddonDetail-read-reviews-footer');
+      assert.equal(footer.textContent, 'Read 5 reviews');
+    });
+
+    it('links to all reviews', () => {
+      const root = render({
+        addon: {
+          ...fakeAddon,
+          ratings: {
+            ...fakeAddon.ratings,
+            count: 2,
+          },
+        },
+      });
+      const allLinks = scryRenderedComponentsWithType(root, Link)
+        .filter((component) =>
+          component.props.className === 'AddonDetail-all-reviews-link');
+      assert.equal(allLinks.length, 1);
+
+      const link = allLinks[0];
+      const path = link.props.to;
+      assert.equal(path, '/addon/chill-out/reviews/');
+
+      return new Promise((resolve, reject) => {
+        match({ location: path, routes }, (error, redirectLocation, props) => {
+          if (error) {
+            return reject(error);
+          }
+          // Check to make sure it is a valid routed path.
+          assert.ok(
+            props,
+            `props was falsey which means the path ${path} is invalid`);
+          return resolve();
+        });
       });
     });
   });

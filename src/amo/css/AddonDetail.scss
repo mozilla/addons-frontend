@@ -115,11 +115,12 @@ $page-margin: 20px 10px;
   }
 }
 
-.AddonDetail-all-reviews-link {
-  &:link,
-  &:active,
-  &:visited,
-  &:hover {
+.AddonDetail-read-reviews-footer {
+  span,
+  a:link,
+  a:active,
+  a:visited,
+  a:hover {
     color: $link-color;
     font-weight: normal;
     font-variant: all-small-caps;
