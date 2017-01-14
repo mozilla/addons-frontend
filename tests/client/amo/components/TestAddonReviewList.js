@@ -60,6 +60,11 @@ describe('amo/components/AddonReviewList', () => {
       return findDOMNode(render(...args));
     }
 
+    it('waits for initial data to load', () => {
+      const root = renderToDOM({ initialData: null });
+      assert.equal(root.textContent, 'Loading...');
+    });
+
     it('renders a list of reviews with ratings', () => {
       const reviews = [
         { ...fakeReview, rating: 1 },
