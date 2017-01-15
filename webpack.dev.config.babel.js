@@ -53,6 +53,14 @@ for (const app of appsBuildList) {
   ];
 }
 
+if (config.has('webpackEntryPoints')) {
+  const extraEntryPoints = config.get('webpackEntryPoints');
+  Object.keys(extraEntryPoints).forEach((name) => {
+    entryPoints[name] = extraEntryPoints[name];
+  });
+}
+console.log(`Entry points: ${JSON.stringify(entryPoints)}`);
+
 export default Object.assign({}, webpackConfig, {
   devtool: 'inline-source-map',
   context: path.resolve(__dirname),

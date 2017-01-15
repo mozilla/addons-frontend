@@ -31,6 +31,10 @@ module.exports = {
 
   staticHost,
 
+  webpackEntryPoints: {
+    'noScriptStyles': 'src/disco/noScriptStyles',
+  },
+
   CSP: {
     directives: {
       // Script is limited to the discovery specific CDN.

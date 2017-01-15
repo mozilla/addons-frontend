@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
@@ -41,6 +42,11 @@ const errorPageText = {
   500: 'Internal Server Error',
 };
 
+function getNoScriptStyles({ appName }) {
+  // TODO: How do we read the `noScriptStyles` css bundle from webpack?
+  return undefined;
+}
+
 function showErrorPage(res, status) {
   const _status = status.toString();
   if (Object.keys(errorPageText).includes(_status)) {
@@ -82,7 +88,13 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   app.use(helmet.xssFilter());
 
   // CSP configuration.
-  app.use(helmet.contentSecurityPolicy(config.get('CSP')));
+  const csp = config.get('CSP');
+  const noScriptStyles = getNoScriptStyles({ appName: appInstanceName });
+  if (noScriptStyles) {
+    const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
+    csp.directives.styleSrc.push(`'sha256-${hash}'`);
+  }
+  app.use(helmet.contentSecurityPolicy(csp));
 
   if (config.get('enableNodeStatics')) {
     app.use(Express.static(path.join(config.get('basePath'), 'dist')));
@@ -171,6 +183,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           htmlLang: lang,
           htmlDir: dir,
           includeSri: isDeployed,
+          noScriptStyles,
           sriData,
           store,
           trackingEnabled: convertBoolean(config.get('trackingEnabled')),
@@ -262,6 +275,11 @@ export function runServer({ listen = true, app = appName } = {}) {
 
   const isoMorphicServer = new WebpackIsomorphicTools(
     WebpackIsomorphicToolsConfig);
+  // TODO: It looks like webpack isomorphic tools has some magic going on that is preventing
+  // the file from being loaded normally.
+  // Do I need to require it somewhere?
+  // How does it know about the `disco` bundle?
+  // config.get('basePath') is /Users/markstriemer/work/addons-frontend/
   return isoMorphicServer
     .server(config.get('basePath'))
     .then(() => {
