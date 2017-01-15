@@ -30,25 +30,28 @@ describe('MastHead', () => {
     ), MyMastHead).getWrappedInstance();
   }
 
-
-  it('renders a heading when isHomepage is true', () => {
+  it('renders an <h1> when isHomepage is true', () => {
     const root = renderMastHead({
       isHomePage: true,
       children: FakeChild,
       SearchFormComponent: FakeChild,
     });
-    assert.equal(root.title.textContent, 'Firefox Add-ons');
-    assert.equal(root.title.tagName, 'H1');
+    const headerTag = findDOMNode(root)
+      .querySelector('.MastHead-title-wrapper');
+
+    assert.equal(headerTag.textContent, 'Firefox Add-ons');
+    assert.equal(headerTag.tagName, 'H1');
   });
 
-  it('renders a link when isHomepage is false', () => {
+  it('always renders a link in the header', () => {
     const root = renderMastHead({
-      isHomePage: false,
       children: FakeChild,
       SearchFormComponent: FakeChild,
     });
-    const titleLink = findDOMNode(root).querySelectorAll('.MastHead-title')[0];
+    const titleLink = findDOMNode(root).querySelector('.MastHead-title');
+    const h1Tag = findDOMNode(root).querySelector('h1');
 
+    assert(!h1Tag);
     assert.equal(titleLink.textContent, 'Firefox Add-ons');
     assert.equal(titleLink.tagName, 'A');
   });

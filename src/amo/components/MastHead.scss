@@ -19,6 +19,10 @@
 .MastHead-header {
   padding: 80px 0 30px;
   text-align: center;
+
+  h1 {
+    margin: 0;
+  }
 }
 
 .MastHead-title {
@@ -29,6 +33,7 @@
   justify-content: center;
 
   &:link {
+    color: $header-font-color;
     font-size: 24px;
     text-decoration: none;
   }
