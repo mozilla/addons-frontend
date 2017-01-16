@@ -3,8 +3,10 @@ import fs from 'fs';
 
 import chalk from 'chalk';
 import config from 'config';
+import webpack from 'webpack';
 
 import webpackConfig from './webpack.prod.config.babel';
+
 
 const appName = config.get('appName');
 
@@ -71,4 +73,7 @@ export default Object.assign({}, webpackConfig, {
   module: {
     loaders: newLoaders,
   },
+  plugins: [
+    new webpack.IgnorePlugin(new RegExp(`locale\\/.*\\/${appName}\\.js$`)),
+  ].concat(webpackConfig.plugins),
 });
