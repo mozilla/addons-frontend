@@ -49,6 +49,8 @@ function getNoScriptStyles({ appName }) {
   } catch (e) {
     if (e.code !== 'ENOENT') {
       log.info(`noscript styles could not be parsed from ${cssPath}`);
+    } else {
+      log.debug(`noscript styles not found at ${cssPath}`);
     }
   }
   return undefined;
