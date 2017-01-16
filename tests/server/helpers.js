@@ -1,5 +1,6 @@
 import cheerio from 'cheerio';
 import { assert } from 'chai';
+import { camelizeKeys as camelCaseKeys } from 'humps';
 
 export function checkSRI(res) {
   const $ = cheerio.load(res.text);
@@ -23,4 +24,15 @@ export function checkSRI(res) {
     assert.equal($elem.attr('crossorigin'),
       'anonymous', 'script should have crossorigin attr');
   });
+}
+
+export function parseCSP(rawCsp) {
+  return camelCaseKeys(
+    rawCsp
+      .split(';')
+      .map((part) => part.trim().split(' '))
+      .reduce((parts, [partName, ...partValues]) => ({
+        ...parts,
+        [partName]: partValues,
+      }), {}));
 }
