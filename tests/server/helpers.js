@@ -1,6 +1,6 @@
 import cheerio from 'cheerio';
 import { assert } from 'chai';
-import { camelizeKeys } from 'humps';
+import { camelizeKeys as camelCaseKeys } from 'humps';
 
 export function checkSRI(res) {
   const $ = cheerio.load(res.text);
@@ -27,7 +27,7 @@ export function checkSRI(res) {
 }
 
 export function parseCSP(rawCsp) {
-  return camelizeKeys(
+  return camelCaseKeys(
     rawCsp
       .split(';')
       .map((part) => part.trim().split(' '))

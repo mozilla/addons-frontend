@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* global navigator, window */
 import React, { PropTypes } from 'react';
-import { camelizeKeys } from 'humps';
+import { camelizeKeys as camelCaseKeys } from 'humps';
 import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-connect';
 import config from 'config';
@@ -118,7 +118,7 @@ export class DiscoPaneBase extends React.Component {
           </div>
         </header>
         {results.map((item) => (
-          <AddonComponent addon={item} {...camelizeKeys(item)} key={item.guid} />
+          <AddonComponent addon={item} {...camelCaseKeys(item)} key={item.guid} />
         ))}
         <div className="amo-link">
           <a href="https://addons.mozilla.org/" target="_blank"

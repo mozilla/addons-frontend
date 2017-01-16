@@ -31,7 +31,7 @@ describe('Discovery Pane GET requests', () => {
       assert.include(policy.connectSrc, 'https://addons.mozilla.org');
       assert.equal(policy.styleSrc.length, 2);
       assert.include(policy.styleSrc, cdnHost);
-      assert.include(policy.styleSrc, "'sha256-8VVSrUT/1AZpxCZNGwNROSnacmbseuppeBCace7a/Wc='");
+      assert.include(policy.styleSrc, "'sha256-DiZjxuHvKi7pvUQCxCVyk1kAFJEUWe+jf6HWMI5agj4='");
     }));
 
   it('should be using SRI for script and style', () => request(app)
