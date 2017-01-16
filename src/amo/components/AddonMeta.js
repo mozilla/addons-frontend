@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
@@ -11,15 +10,14 @@ export class AddonMetaBase extends React.Component {
   static propTypes = {
     averageDailyUsers: PropTypes.number.isRequired,
     i18n: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired,
   }
 
   render() {
-    const { lang, averageDailyUsers, i18n } = this.props;
+    const { averageDailyUsers, i18n } = this.props;
 
     const userCount = i18n.sprintf(
       i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
-      { total: averageDailyUsers.toLocaleString(lang) },
+      { total: averageDailyUsers.toLocaleString(i18n.lang) },
     );
     return (
       <div className="AddonMeta">
@@ -33,9 +31,6 @@ export class AddonMetaBase extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ lang: state.api.lang });
-
 export default compose(
-  connect(mapStateToProps),
   translate({ withRef: true }),
 )(AddonMetaBase);

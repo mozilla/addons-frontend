@@ -229,7 +229,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             log.info(
               `Falling back to default lang: "${config.get('defaultLang')}".`);
           }
-          const i18n = makeI18n(i18nData);
+          const i18n = makeI18n(i18nData, lang);
 
           const InitialComponent = (
             <I18nProvider i18n={i18n}>

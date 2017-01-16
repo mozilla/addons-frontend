@@ -411,9 +411,14 @@ describe('i18n utils', () => {
 
     it('adds a localised moment to the i18n object', () => {
       const i18nData = {};
-      const i18n = utils.makeI18n(i18nData, FakeJed);
+      const i18n = utils.makeI18n(i18nData, 'en-US', FakeJed);
       assert.ok(i18n.moment);
       assert.typeOf(i18n.moment, 'function');
+    });
+
+    it('exposes the lang', () => {
+      const i18n = utils.makeI18n({}, 'af', FakeJed);
+      assert.equal(i18n.lang, 'af');
     });
 
     it('tries to localise moment', () => {
@@ -423,7 +428,7 @@ describe('i18n utils', () => {
           locale_data: { messages: { '': { lang: 'fr' } } },
         },
       };
-      const i18n = utils.makeI18n(i18nData, FakeJed);
+      const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
       assert.equal(i18n.moment.locale(), 'fr');
     });
 
@@ -435,7 +440,7 @@ describe('i18n utils', () => {
         },
       };
 
-      const i18n = utils.makeI18n(i18nData, FakeJed);
+      const i18n = utils.makeI18n(i18nData, 'en', FakeJed);
       assert.equal(i18n.moment.locale(), 'en');
     });
   });

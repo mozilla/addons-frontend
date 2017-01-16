@@ -15,6 +15,7 @@ export class SearchResultBase extends React.Component {
 
   render() {
     const { addon, i18n } = this.props;
+    const averageDailyUsers = addon.average_daily_users;
 
     // TODO: Implement a rating component and style the stars.
     const rating = addon.ratings && addon.ratings.average ? (
@@ -40,9 +41,8 @@ export class SearchResultBase extends React.Component {
             {rating}
             <h3 className="SearchResult-author">{addon.authors[0].name}</h3>
             <h3 className="SearchResult-users">{i18n.sprintf(
-              i18n.ngettext('%(users)s user', '%(users)s users',
-                            addon.average_daily_users),
-              { users: addon.average_daily_users }
+              i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
+              { total: averageDailyUsers.toLocaleString(i18n.lang) },
             )}
             </h3>
           </section>

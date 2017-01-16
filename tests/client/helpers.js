@@ -71,7 +71,7 @@ export function unexpectedSuccess() {
 /*
  * Creates a stand-in for a jed instance,
  */
-export function getFakeI18nInst() {
+export function getFakeI18nInst({ lang = 'en-US' } = {}) {
   return {
     gettext: sinon.spy((str) => str),
     dgettext: sinon.stub(),
@@ -82,6 +82,7 @@ export function getFakeI18nInst() {
     npgettext: sinon.stub(),
     dnpgettext: sinon.stub(),
     sprintf: sinon.spy(sprintf),
+    lang,
     moment,
   };
 }
