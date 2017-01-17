@@ -130,31 +130,12 @@ to learn more about how configuration is applied.
 
 When developing locally with a webpack server, the randomly generated asset
 URL will fail our Content Security Policy (CSP) and clutter your console
-with errors. You can turn off all CSP errors by adding this to any of your
-local config files, such as `local-development-amo.js`:
+with errors. You can turn off all CSP errors by settings CSP to `false`
+in any local config file, such as `local-development-amo.js`. Example:
 
 ````javascript
-const allCspHosts = ['*', 'data:'];
-
 module.exports = {
-  CSP: {
-    directives: {
-      defaultSrc: allCspHosts,
-      baseUri: allCspHosts,
-      childSrc: allCspHosts,
-      connectSrc: allCspHosts,
-      formAction: allCspHosts,
-      frameSrc: allCspHosts,
-      imgSrc: allCspHosts,
-      mediaSrc: allCspHosts,
-      objectSrc: allCspHosts,
-      scriptSrc: allCspHosts.concat(["'unsafe-inline'", "'unsafe-eval'"]),
-      styleSrc: allCspHosts.concat(["'unsafe-inline'"]),
-      reportUri: '/__cspreport__',
-    },
-    reportOnly: true,
-  },
-  // Other configuration...
+  CSP: false,
 };
 ````
 
