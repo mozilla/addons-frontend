@@ -15,6 +15,6 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'e10srollout@mozilla.org', // e10s
   'firefox@getpocket.com', // Pocket
   'loop@mozilla.org', // Firefox Hello
-  'aushelper@mozilla.org', //Application Update Service Helper
-  'webcompat@mozilla.org', //Web Compat
+  'aushelper@mozilla.org', // Application Update Service Helper
+  'webcompat@mozilla.org', // Web Compat
 ];
