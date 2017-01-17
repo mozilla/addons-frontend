@@ -99,14 +99,18 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // CSP configuration.
   const csp = config.get('CSP');
   const noScriptStyles = getNoScriptStyles({ appName: appInstanceName });
-  if (noScriptStyles) {
-    const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
-    const cspValue = `'sha256-${hash}'`;
-    if (!csp.directives.styleSrc.includes(cspValue)) {
-      csp.directives.styleSrc.push(cspValue);
+  if (csp) {
+    if (noScriptStyles) {
+      const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
+      const cspValue = `'sha256-${hash}'`;
+      if (!csp.directives.styleSrc.includes(cspValue)) {
+        csp.directives.styleSrc.push(cspValue);
+      }
     }
+    app.use(helmet.contentSecurityPolicy(csp));
+  } else {
+    log.warn('CSP has been disabled from the config');
   }
-  app.use(helmet.contentSecurityPolicy(csp));
 
   if (config.get('enableNodeStatics')) {
     app.use(Express.static(path.join(config.get('basePath'), 'dist')));
