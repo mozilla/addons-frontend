@@ -4,8 +4,10 @@ import {
   renderIntoDocument,
   Simulate,
 } from 'react-addons-test-utils';
+import { loadFail as reduxConnectLoadFail } from 'redux-connect/lib/store';
 
 import { AppBase, mapDispatchToProps, setupMapStateToProps } from 'amo/containers/App';
+import createStore from 'amo/store';
 import * as api from 'core/api';
 import { INSTALL_STATE } from 'core/constants';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -121,5 +123,23 @@ describe('App', () => {
     const payload = { guid: '@my-addon', status: 'some-status' };
     handleGlobalEvent(payload);
     assert.ok(dispatch.calledWith({ type: INSTALL_STATE, payload }));
+  });
+
+  it('renders redux-connect errors', () => {
+    const store = createStore();
+
+    const message = 'pretend this is a fetch() error';
+    const error = new Error(message);
+    error.response = {
+      message,
+      status: 404,
+    };
+    store.dispatch(reduxConnectLoadFail('someKey', error));
+    const state = store.getState();
+
+    const rootNode = findDOMNode(render({
+      reduxAsyncConnect: state.reduxAsyncConnect,
+    }));
+    assert.include(rootNode.textContent, 'Not Found');
   });
 });
