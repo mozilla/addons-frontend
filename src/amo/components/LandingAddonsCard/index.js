@@ -5,8 +5,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
-import './LandingAddonsCard.scss';
-
 
 export default class LandingAddonsCard extends React.Component {
   static propTypes = {
