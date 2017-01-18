@@ -9,7 +9,9 @@ const errorPageText = {
 
 export function getErrorMsg(statusCode) {
   const statusKey = statusCode.toString();
-  return errorPageText[statusKey];
+  // TODO: I guess when we make a real error page handler we'll map out
+  // all possible statuses.
+  return errorPageText[statusKey] || 'Unexpected Error';
 }
 
 export function getReduxConnectError(reduxConnectLoadState) {
@@ -29,5 +31,5 @@ export function getReduxConnectError(reduxConnectLoadState) {
     status = 500;
   }
 
-  return { status, error: status ? getErrorMsg(status) : null };
+  return { status, error: status ? getErrorMsg(status) : undefined };
 }
