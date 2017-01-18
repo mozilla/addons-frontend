@@ -127,14 +127,13 @@ describe('App', () => {
 
   it('renders redux-connect errors', () => {
     const store = createStore();
-
-    const message = 'pretend this is a fetch() error';
-    const error = new Error(message);
-    error.response = {
-      message,
-      status: 404,
-    };
-    store.dispatch(reduxConnectLoadFail('someKey', error));
+    const apiError = api.createApiError({
+      apiURL: 'https://some-url',
+      response: {
+        status: 404,
+      },
+    });
+    store.dispatch(reduxConnectLoadFail('someKey', apiError));
     const state = store.getState();
 
     const rootNode = findDOMNode(render({
