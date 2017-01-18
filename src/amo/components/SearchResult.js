@@ -42,7 +42,7 @@ export class SearchResultBase extends React.Component {
             <h3 className="SearchResult-author">{addon.authors[0].name}</h3>
             <h3 className="SearchResult-users">{i18n.sprintf(
               i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
-              { total: averageDailyUsers.toLocaleString(i18n.lang) },
+              { total: i18n.formatNumber(averageDailyUsers) },
             )}
             </h3>
           </section>

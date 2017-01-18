@@ -17,7 +17,7 @@ export class AddonMetaBase extends React.Component {
 
     const userCount = i18n.sprintf(
       i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
-      { total: averageDailyUsers.toLocaleString(i18n.lang) },
+      { total: i18n.formatNumber(averageDailyUsers) },
     );
     return (
       <div className="AddonMeta">

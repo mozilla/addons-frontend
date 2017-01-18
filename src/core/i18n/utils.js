@@ -187,6 +187,8 @@ export function makeI18n(i18nData, lang, _Jed = Jed) {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
 
+  i18n.formatNumber = (number) => number.toLocaleString(lang);
+
   // This adds the correct moment locale for the active locale so we can get
   // localised dates, times, etc.
   if (i18n.options && typeof i18n.options._momentDefineLocale === 'function') {
