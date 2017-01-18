@@ -1,11 +1,12 @@
 import base64url from 'base64url';
+import config from 'config';
 import { sprintf } from 'jed';
-import moment from 'moment';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { ngettext } from 'core/utils';
+import { makeI18n } from 'core/i18n/utils';
 
 /*
  * Return a fake authentication token (a JWT) that can be
@@ -68,22 +69,23 @@ export function unexpectedSuccess() {
   return assert.fail(null, null, 'Unexpected success');
 }
 
+class FakeJed {
+  gettext = sinon.spy((str) => str)
+  dgettext = sinon.stub()
+  ngettext = sinon.spy(ngettext)
+  dngettext = sinon.stub()
+  pgettext = sinon.stub()
+  dpgettext = sinon.stub()
+  npgettext = sinon.stub()
+  dnpgettext = sinon.stub()
+  sprintf = sinon.spy(sprintf)
+}
+
 /*
  * Creates a stand-in for a jed instance,
  */
-export function getFakeI18nInst() {
-  return {
-    gettext: sinon.spy((str) => str),
-    dgettext: sinon.stub(),
-    ngettext: sinon.spy(ngettext),
-    dngettext: sinon.stub(),
-    pgettext: sinon.stub(),
-    dpgettext: sinon.stub(),
-    npgettext: sinon.stub(),
-    dnpgettext: sinon.stub(),
-    sprintf: sinon.spy(sprintf),
-    moment,
-  };
+export function getFakeI18nInst({ lang = config.get('defaultLang') } = {}) {
+  return makeI18n({}, lang, FakeJed);
 }
 
 export class MockedSubComponent extends React.Component {

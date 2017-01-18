@@ -3,16 +3,12 @@ import { renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
 import AddonMeta from 'amo/components/AddonMeta';
-import createStore from 'amo/store';
-import { setLang } from 'core/actions';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 function render({ ...customProps } = {}) {
   const props = {
     averageDailyUsers: 5,
-    store: createStore(),
     i18n: getFakeI18nInst(),
-    lang: 'en-US',
     ...customProps,
   };
   const root = renderIntoDocument(<AddonMeta {...props} />);
@@ -36,11 +32,8 @@ describe('<AddonMeta>', () => {
     });
 
     it('localizes the user count', () => {
-      const store = createStore();
-      store.dispatch(setLang('de'));
-      const root = render({
-        store, averageDailyUsers: 1000,
-      });
+      const i18n = getFakeI18nInst({ lang: 'de' });
+      const root = render({ averageDailyUsers: 1000, i18n });
       assert.match(getUserCount(root), /^1\.000/);
     });
   });
