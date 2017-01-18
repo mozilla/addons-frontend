@@ -1,7 +1,7 @@
 @import "~normalize.css";
 @import "~core/css/inc/lib";
-@import "~core/css/inc/vars";
 @import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
 
 html,
 body {
@@ -52,8 +52,8 @@ h2 {
 }
 
 h1 {
-  font-size: 32px;
-  line-height: 32px;
+  font-size: $font-size-xl;
+  line-height: 1;
 }
 
 h2 {
