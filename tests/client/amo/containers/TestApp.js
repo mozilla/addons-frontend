@@ -35,6 +35,25 @@ describe('App', () => {
 
   const FakeInfoDialogComponent = () => <div />;
 
+  function render({ children = [], ...customProps } = {}) {
+    const props = {
+      i18n: getFakeI18nInst(),
+      location: sinon.stub(),
+      isAuthenticated: true,
+      ...customProps,
+    };
+    return renderIntoDocument(
+      <AppBase
+        FooterComponent={FakeFooterComponent}
+        InfoDialogComponent={FakeInfoDialogComponent}
+        MastHeadComponent={FakeMastHeadComponent}
+        SearchFormComponent={FakeSearchFormComponent}
+        {...props}>
+        {children}
+      </AppBase>
+    );
+  }
+
   it('renders its children', () => {
     // eslint-disable-next-line react/no-multi-comp
     class MyComponent extends React.Component {
@@ -42,36 +61,16 @@ describe('App', () => {
         return <p>The component</p>;
       }
     }
-    const i18n = getFakeI18nInst();
-    const location = sinon.stub();
-    const root = renderIntoDocument(
-      <AppBase i18n={i18n} isAuthenticated
-        FooterComponent={FakeFooterComponent}
-        InfoDialogComponent={FakeInfoDialogComponent}
-        MastHeadComponent={FakeMastHeadComponent}
-        SearchFormComponent={FakeSearchFormComponent}
-        location={location}>
-        <MyComponent />
-      </AppBase>
-    );
-
+    const root = render({ children: [<MyComponent />] });
     const rootNode = findDOMNode(root);
     assert.equal(rootNode.tagName.toLowerCase(), 'div');
     assert.equal(rootNode.querySelector('p').textContent, 'The component');
   });
 
   it('shows a log in button', () => {
-    const i18n = getFakeI18nInst();
     const handleLogIn = sinon.spy();
     const location = sinon.stub();
-    const root = renderIntoDocument(
-      <AppBase i18n={i18n} isAuthenticated={false}
-        FooterComponent={FakeFooterComponent}
-        InfoDialogComponent={FakeInfoDialogComponent}
-        MastHeadComponent={FakeMastHeadComponent}
-        SearchFormComponent={FakeSearchFormComponent}
-        handleLogIn={handleLogIn} location={location} />
-    );
+    const root = render({ isAuthenticated: false, handleLogIn, location });
     const button = root.logInButton;
     assert.equal(button.textContent, 'Log in/Sign up');
     Simulate.click(button);
@@ -79,15 +78,7 @@ describe('App', () => {
   });
 
   it('tells you if you are logged in', () => {
-    const i18n = getFakeI18nInst();
-    const location = sinon.stub();
-    const root = renderIntoDocument(<AppBase i18n={i18n}
-      isAuthenticated
-      FooterComponent={FakeFooterComponent}
-      InfoDialogComponent={FakeInfoDialogComponent}
-      MastHeadComponent={FakeMastHeadComponent}
-      SearchFormComponent={FakeSearchFormComponent}
-      location={location} />);
+    const root = render({ isAuthenticated: true });
     assert.equal(root.logInButton.textContent, 'Log out');
   });
 
@@ -116,17 +107,8 @@ describe('App', () => {
     const fakeCookieLib = {
       save: sinon.stub(),
     };
-    const i18n = getFakeI18nInst();
-    const location = sinon.stub();
-    const root = renderIntoDocument(
-      <AppBase
-        FooterComponent={FakeFooterComponent}
-        InfoDialogComponent={FakeInfoDialogComponent}
-        MastHeadComponent={FakeMastHeadComponent}
-        SearchFormComponent={FakeSearchFormComponent}
-        i18n={i18n}
-        location={location} />
-    );
+
+    const root = render();
     root.onViewDesktop(fakeEvent, { window_: fakeWindow, cookie_: fakeCookieLib });
     assert.ok(fakeEvent.preventDefault.called);
     assert.ok(fakeCookieLib.save.calledWith('mamo', 'off'));
