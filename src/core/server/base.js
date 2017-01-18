@@ -166,6 +166,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       }
 
       if (!renderProps) {
+        console.log('HOWDY NO FOUND');
         return showErrorPage(res, 404);
       }
 
