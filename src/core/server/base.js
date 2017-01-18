@@ -16,6 +16,7 @@ import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import ServerHtml from 'core/containers/ServerHtml';
+import { getErrorMsg, getReduxConnectError } from 'core/reduxConnectErrors';
 import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setClientApp, setLang, setJWT } from 'core/actions';
@@ -36,12 +37,6 @@ const version = path.join(config.get('basePath'), 'version.json');
 const isDeployed = config.get('isDeployed');
 const isDevelopment = config.get('isDevelopment');
 
-const errorPageText = {
-  401: 'Unauthorized',
-  404: 'Not Found',
-  500: 'Internal Server Error',
-};
-
 function getNoScriptStyles({ appName }) {
   const cssPath = path.join(config.get('basePath'), `src/${appName}/noscript.css`);
   try {
@@ -57,11 +52,13 @@ function getNoScriptStyles({ appName }) {
 }
 
 function showErrorPage(res, status) {
-  const _status = status.toString();
-  if (Object.keys(errorPageText).includes(_status)) {
-    return res.status(_status).end(errorPageText[_status]);
+  let adjustedStatus = status;
+  let error = getErrorMsg(adjustedStatus);
+  if (!error) {
+    adjustedStatus = 500;
+    error = getErrorMsg(adjustedStatus);
   }
-  return res.status('500').end(errorPageText['500']);
+  return res.status(adjustedStatus).end(error);
 }
 
 const appName = config.get('appName');
@@ -244,21 +241,9 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           );
 
           const asyncConnectLoadState = store.getState().reduxAsyncConnect.loadState || {};
-
-          // Create a list of any apiErrors detected.
-          const apiErrors = Object.keys(asyncConnectLoadState)
-            .map((item) => asyncConnectLoadState[item].error)
-            .filter((item) => item);
-
-          if (apiErrors.length === 1) {
-            // If we have a single API error reflect that in the page's response.
-            const apiStatus = apiErrors[0].response.status;
-            return showErrorPage(res, apiStatus);
-          } else if (apiErrors.length > 1) {
-            // Otherwise we have multiple api errors it should be logged
-            // and throw a 500.
-            log.error(apiErrors);
-            return showErrorPage(res, 500);
+          const reduxResult = getReduxConnectError(asyncConnectLoadState);
+          if (reduxResult.status) {
+            return showErrorPage(res, reduxResult.status);
           }
 
           return hydrateOnClient({ component: InitialComponent });

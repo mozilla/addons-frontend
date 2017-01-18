@@ -12,7 +12,7 @@ import SearchForm from 'amo/components/SearchForm';
 import { addChangeListeners } from 'core/addonManager';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
-import { getReduxConnectError } from 'core/errorHandler';
+import { getReduxConnectError } from 'core/reduxConnectErrors';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';
@@ -81,15 +81,13 @@ export class AppBase extends React.Component {
     const query = location.query ? location.query.q : null;
 
     if (reduxAsyncConnect && reduxAsyncConnect.loadState) {
-      console.log('reduxAsyncConnect.loadState?',
-          reduxAsyncConnect.loadState);
-      const loadError = getReduxConnectError(reduxAsyncConnect.loadState);
-      if (loadError) {
+      const reduxResult = getReduxConnectError(reduxAsyncConnect.loadState);
+      if (reduxResult.error) {
         // TODO: This will be prettier once we implement real error pages.
         // https://github.com/mozilla/addons-frontend/issues/1033
         return (
           <div className="amo">
-            <div className="App-content">{loadError}</div>
+            <div className="App-content">{reduxResult.error}</div>
           </div>
         );
       }
