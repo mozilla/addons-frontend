@@ -17,7 +17,7 @@ export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
 export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 export const user = new Entity('users', {}, { idAttribute: 'username' });
 
-function makeQueryString(query) {
+export function makeQueryString(query) {
   return url.format({ query });
 }
 

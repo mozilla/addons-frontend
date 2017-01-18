@@ -2,6 +2,7 @@
 import config from 'config';
 
 import * as api from 'core/api';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
@@ -234,12 +235,12 @@ describe('api', () => {
 
     it('sets the app, lang, and type query', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=theme&page=&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&page=&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.featured({
         api: { clientApp: 'android', lang: 'en-US' },
-        filters: { addonType: 'theme' },
+        filters: { addonType: ADDON_TYPE_THEME },
       })
         .then((response) => {
           assert.deepEqual(response, {

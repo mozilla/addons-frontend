@@ -15,17 +15,15 @@ env:
   - TOXENV=discopane-ui-tests GUI=1 PYTEST_ADDOPTS=--base-url=http://localhost:4000
   - TOXENV=flake8
 cache:
+  yarn: true
   directories:
   - node_modules
 before_install:
-- npm install -g npm@3
-- npm --version
+- npm install -g npm@3 
 - if [ $TOXENV ]; then sudo pip install tox; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.10.0/geckodriver-v0.10.0-linux64.tar.gz; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then gunzip -c geckodriver.tar.gz | tar xopf -; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then chmod +x geckodriver && sudo mv geckodriver /usr/local/bin; fi
-install:
-- npm install
 before_script:
 - if [ $GUI ]; then export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start && sleep 3; fi
 script:

@@ -19,7 +19,6 @@ export class ShowMoreCardBase extends React.Component {
     children: PropTypes.node,
     className: PropTypes.string,
     header: PropTypes.node,
-    footer: PropTypes.node,
     i18n: PropTypes.object.isRequired,
   }
 
@@ -32,8 +31,12 @@ export class ShowMoreCardBase extends React.Component {
     this.truncateToMaxHeight(ReactDOM.findDOMNode(this.contents));
   }
 
-  expandText = (event) => {
+  onClick = (event) => {
     event.preventDefault();
+    this.expandText();
+  }
+
+  expandText() {
     this.setState({ expanded: true });
   }
 
@@ -46,26 +49,29 @@ export class ShowMoreCardBase extends React.Component {
   }
 
   render() {
-    const { children, className, header, footer, i18n } = this.props;
+    const { children, className, header, i18n } = this.props;
     const { expanded } = this.state;
+
+    const readMoreLink = (
+      <a className="ShowMoreCard-expand-link" href="#show-more" onClick={this.onClick}
+        dangerouslySetInnerHTML={sanitizeHTML(
+          i18n.gettext(
+            // l10n: The "Expand to" text is for screenreaders so the link
+            // makes sense out of context. The HTML makes it hidden from
+            // non-screenreaders and must stay.
+            '<span class="visually-hidden">Expand to</span> Read more'
+          ), ['span']
+        )} />
+    );
 
     return (
       <Card className={classNames('ShowMoreCard', className, {
         'ShowMoreCard--expanded': expanded,
-      })} header={header} footer={footer}>
+      })} header={header} footer={expanded ? null : readMoreLink}>
         <div className="ShowMoreCard-contents"
           ref={(ref) => { this.contents = ref; }}>
           {children}
         </div>
-        <a className="ShowMoreCard-revealMoreLink" href="#show-more"
-          onClick={this.expandText} dangerouslySetInnerHTML={sanitizeHTML(
-            i18n.gettext(
-              // l10n: The "Expand to" text is for screenreaders so the link
-              // makes sense out of context. The HTML makes it hidden from
-              // non-screenreaders and must stay.
-              '<span class="visually-hidden">Expand to </span> Read more'
-            ), ['span']
-          )} />
       </Card>
     );
   }

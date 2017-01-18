@@ -12,12 +12,12 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<SearchResult />', () => {
-  function renderResult(result) {
-    const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
+  function renderResult(result, { lang = 'en-GB' } = {}) {
+    const initialState = { api: { clientApp: 'android', lang } };
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore(initialState)}>
-        <SearchResult i18n={getFakeI18nInst()} addon={result} />
+        <SearchResult i18n={getFakeI18nInst({ lang })} addon={result} />
       </Provider>
     ), SearchResult).getWrappedInstance();
   }
@@ -27,7 +27,7 @@ describe('<SearchResult />', () => {
       { name: 'A funky déveloper' },
       { name: 'A groovy developer' },
     ],
-    average_daily_users: 553,
+    average_daily_users: 5253,
     name: 'A search result',
     slug: 'a-search-result',
   };
@@ -53,7 +53,14 @@ describe('<SearchResult />', () => {
 
   it('renders the user count', () => {
     const users = findRenderedDOMComponentWithClass(root, 'SearchResult-users');
-    assert.equal(users.textContent, '553 users');
+    assert.equal(users.textContent, '5,253 users');
+  });
+
+  it('localises the user count', () => {
+    const localisedRoot = renderResult(result, { lang: 'fr' });
+    const users = findRenderedDOMComponentWithClass(localisedRoot, 'SearchResult-users');
+    // \xa0 is a non-breaking space.
+    assert.match(users.textContent, /5\xa0253/);
   });
 
   it('renders the user count as singular', () => {

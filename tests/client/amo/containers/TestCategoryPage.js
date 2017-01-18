@@ -1,6 +1,7 @@
 import { mapStateToProps } from 'amo/containers/CategoryPage';
 import createStore from 'amo/store';
 import { searchStart } from 'core/actions/search';
+import { ADDON_TYPE_THEME } from 'core/constants';
 
 
 describe('CategoryPage.mapStateToProps()', () => {
@@ -9,7 +10,7 @@ describe('CategoryPage.mapStateToProps()', () => {
 
   before(() => {
     filters = {
-      addonType: 'theme',
+      addonType: ADDON_TYPE_THEME,
       category: 'ad-block',
       clientApp: 'firefox',
     };
@@ -17,7 +18,7 @@ describe('CategoryPage.mapStateToProps()', () => {
       location: { query: {} },
       params: {
         application: 'firefox',
-        addonType: 'theme',
+        visibleAddonType: 'themes',
         slug: 'ad-block',
       },
     };

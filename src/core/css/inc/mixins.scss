@@ -93,7 +93,14 @@ $default-arrow-margin: 3px;
   }
 }
 
-// Just an alias to make it easier to differentiate when both mixins are used
+@mixin arrow-down($margin: $default-arrow-margin) {
+  @include arrow($margin);
+
+  transform: rotate(90deg);
+}
+
+// This alias to arrow (which is the same as arrow-next) makes it easier to
+// differentiate two arrows when both arrow-next and arrow-previous are used
 // near each other.
 @mixin arrow-next($margin: $default-arrow-margin) {
   @include arrow($margin);
@@ -115,6 +122,12 @@ $default-arrow-margin: 3px;
     right: -$margin;
     transform: none;
   }
+}
+
+@mixin arrow-up($margin: $default-arrow-margin) {
+  @include arrow($margin);
+
+  transform: rotate(270deg);
 }
 
 /* Button */

@@ -5,8 +5,11 @@ import config from 'config';
 import { convertBoolean } from 'core/utils';
 import log from 'core/logger';
 import {
-  EXTENSION_TYPE,
-  THEME_TYPE,
+  TRACKING_TYPE_EXTENSION,
+  TRACKING_TYPE_INVALID,
+  TRACKING_TYPE_THEME,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
 } from 'core/constants';
 
 
@@ -97,9 +100,9 @@ export class Tracking {
 
 export function getAction(type) {
   return {
-    [EXTENSION_TYPE]: 'addon',
-    [THEME_TYPE]: 'theme',
-  }[type] || 'invalid';
+    [ADDON_TYPE_EXTENSION]: TRACKING_TYPE_EXTENSION,
+    [ADDON_TYPE_THEME]: TRACKING_TYPE_THEME,
+  }[type] || TRACKING_TYPE_INVALID;
 }
 
 export default new Tracking({

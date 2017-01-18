@@ -1,0 +1,82 @@
+@import '~core/css/inc/mixins';
+@import '~core/css/inc/vars';
+
+@mixin arrow-link-right-aligned() {
+  background-image: url('~amo/img/icons/arrow-link-color.svg');
+  margin-right: 0;
+  position: absolute;
+  right: 8px;
+  top: 14px;
+}
+
+.SearchSort {
+  background: $base-color;
+  border-radius: $border-radius-default;
+  border: 0;
+  margin: 0 ($padding-page * 2) $padding-page;
+  overflow: hidden;
+}
+
+.SearchSort-toggle {
+  @include button($background: $base-color, $color: $link-color);
+
+  // We do this so the button doesn't have weird edges on hover when the
+  // sort options are expanded.
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  font-size: $font-size-s;
+  font-variant: small-caps;
+  font-weight: normal;
+  line-height: 2;
+  margin: 0;
+  min-width: 40%;
+  position: relative;
+  text-align: center;
+
+  &::before {
+    background: url('~amo/img/icons/sort.svg') 50% 50% no-repeat;
+    background-size: cover;
+    content: '';
+    display: inline-block;
+    height: 16px;
+    left: -8px;
+    position: relative;
+    top: 4px;
+    width: 16px;
+  }
+
+  &::after {
+    @include arrow-down();
+    @include arrow-link-right-aligned();
+
+    .SearchSort--visible & {
+      @include arrow-up();
+      @include arrow-link-right-aligned();
+    }
+  }
+
+  &:focus {
+    background: transparentize($link-color, 0.8);
+    box-shadow: none;
+  }
+}
+
+.SearchSort-list {
+  display: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-flow: row;
+  flex-wrap: wrap;
+
+  .SearchSort--visible & {
+    display: flex;
+  }
+}
+
+.SearchSort-list-item {
+  display: flex;
+  width: 50%;
+}

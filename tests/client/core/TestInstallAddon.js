@@ -4,13 +4,14 @@ import { renderIntoDocument } from 'react-addons-test-utils';
 
 import createStore from 'amo/store';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   CLOSE_INFO,
   DISABLED,
   DOWNLOAD_FAILED,
   DOWNLOAD_PROGRESS,
   ENABLED,
   ERROR,
-  EXTENSION_TYPE,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
@@ -24,7 +25,8 @@ import {
   THEME_INSTALL,
   THEME_PREVIEW,
   THEME_RESET_PREVIEW,
-  THEME_TYPE,
+  TRACKING_TYPE_EXTENSION,
+  TRACKING_TYPE_THEME,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
   UNINSTALLING,
@@ -115,7 +117,11 @@ describe('withInstallHelpers inner functions', () => {
       const installURL = 'http://the.url';
       const { setCurrentStatus } = mapDispatchToProps(dispatch, {
         _addonManager: getFakeAddonManagerWrapper({
-          getAddon: Promise.resolve({ type: EXTENSION_TYPE, isActive: false, isEnabled: false }),
+          getAddon: Promise.resolve({
+            isActive: false,
+            isEnabled: false,
+            type: ADDON_TYPE_EXTENSION,
+          }),
         }),
         guid,
         installURL,
@@ -135,7 +141,11 @@ describe('withInstallHelpers inner functions', () => {
       const installURL = 'http://the.url';
       const { setCurrentStatus } = mapDispatchToProps(dispatch, {
         _addonManager: getFakeAddonManagerWrapper({
-          getAddon: Promise.resolve({ type: EXTENSION_TYPE, isActive: false, isEnabled: true }),
+          getAddon: Promise.resolve({
+            isActive: false,
+            isEnabled: true,
+            type: ADDON_TYPE_EXTENSION,
+          }),
         }),
         guid,
         installURL,
@@ -151,7 +161,7 @@ describe('withInstallHelpers inner functions', () => {
 
     it('sets the status to ENABLED when an enabled theme is found', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({ type: THEME_TYPE, isActive: true, isEnabled: true }),
+        getAddon: Promise.resolve({ type: ADDON_TYPE_THEME, isActive: true, isEnabled: true }),
       });
       const dispatch = sinon.spy();
       const guid = '@foo';
@@ -169,7 +179,11 @@ describe('withInstallHelpers inner functions', () => {
 
     it('sets the status to DISABLED when an inactive theme is found', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({ type: THEME_TYPE, isActive: false, isEnabled: true }),
+        getAddon: Promise.resolve({
+          isActive: false,
+          isEnabled: true,
+          type: ADDON_TYPE_THEME,
+        }),
       });
       const dispatch = sinon.spy();
       const guid = '@foo';
@@ -187,7 +201,11 @@ describe('withInstallHelpers inner functions', () => {
 
     it('sets the status to DISABLED when a disabled theme is found', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({ type: THEME_TYPE, isActive: true, isEnabled: false }),
+        getAddon: Promise.resolve({
+          isActive: true,
+          isEnabled: false,
+          type: ADDON_TYPE_THEME,
+        }),
       });
       const dispatch = sinon.spy();
       const guid = '@foo';
@@ -353,7 +371,7 @@ describe('withInstallHelpers inner functions', () => {
     it('tracks an addon install', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const name = 'hai-addon';
-      const type = 'extension';
+      const type = ADDON_TYPE_EXTENSION;
       const dispatch = sinon.spy();
       const fakeTracking = {
         sendEvent: sinon.spy(),
@@ -364,7 +382,7 @@ describe('withInstallHelpers inner functions', () => {
       return install({ guid, installURL, name, type })
         .then(() => {
           assert(fakeTracking.sendEvent.calledWith({
-            action: 'addon',
+            action: TRACKING_TYPE_EXTENSION,
             category: INSTALL_CATEGORY,
             label: 'hai-addon',
           }));
@@ -494,7 +512,7 @@ describe('withInstallHelpers inner functions', () => {
       return uninstall({ guid, installURL, name, type })
         .then(() => {
           assert.ok(fakeTracking.sendEvent.calledWith({
-            action: 'addon',
+            action: TRACKING_TYPE_EXTENSION,
             category: UNINSTALL_CATEGORY,
             label: 'whatevs',
           }), 'correctly called');
@@ -510,10 +528,10 @@ describe('withInstallHelpers inner functions', () => {
       };
       const { uninstall } = mapDispatchToProps(dispatch,
         { _tracking: fakeTracking, _addonManager: fakeAddonManager });
-      return uninstall({ guid, installURL, name, type: THEME_TYPE })
+      return uninstall({ guid, installURL, name, type: ADDON_TYPE_THEME })
         .then(() => {
           assert(fakeTracking.sendEvent.calledWith({
-            action: 'theme',
+            action: TRACKING_TYPE_THEME,
             category: UNINSTALL_CATEGORY,
             label: 'whatevs',
           }));
@@ -551,13 +569,16 @@ describe('withInstallHelpers inner functions', () => {
 
     it('requires an installURL for extensions', () => {
       assert.throws(() => {
-        makeMapDispatchToProps({})(sinon.spy(), { type: EXTENSION_TYPE });
+        makeMapDispatchToProps({})(sinon.spy(), { type: ADDON_TYPE_EXTENSION });
       }, /installURL is required/);
       assert.doesNotThrow(() => {
-        makeMapDispatchToProps({})(sinon.spy(), { type: EXTENSION_TYPE, installURL: 'foo.com' });
+        makeMapDispatchToProps({})(sinon.spy(), {
+          installURL: 'foo.com',
+          type: ADDON_TYPE_EXTENSION,
+        });
       });
       assert.doesNotThrow(() => {
-        makeMapDispatchToProps({})(sinon.spy(), { type: THEME_TYPE });
+        makeMapDispatchToProps({})(sinon.spy(), { type: ADDON_TYPE_THEME });
       });
     });
   });
@@ -567,7 +588,7 @@ describe('withInstallHelpers inner functions', () => {
       name: 'hai-theme',
       guid: '{install-theme}',
       status: UNINSTALLED,
-      type: THEME_TYPE,
+      type: ADDON_TYPE_THEME,
     };
 
     function installThemeStubs() {
@@ -593,7 +614,7 @@ describe('withInstallHelpers inner functions', () => {
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
       assert(stubs._tracking.sendEvent.calledWith({
-        action: 'theme',
+        action: TRACKING_TYPE_THEME,
         category: INSTALL_CATEGORY,
         label: 'hai-theme',
       }));
@@ -609,7 +630,7 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('does not try to install theme if it is an extension', () => {
-      const addon = { ...baseAddon, type: EXTENSION_TYPE };
+      const addon = { ...baseAddon, type: ADDON_TYPE_EXTENSION };
       const node = sinon.stub();
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);

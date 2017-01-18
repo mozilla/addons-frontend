@@ -10,7 +10,7 @@ import Link from 'amo/components/Link';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
-import { THEME_TYPE } from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { ngettext, isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -78,7 +78,7 @@ export class AddonDetailBase extends React.Component {
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
 
-    if (type === THEME_TYPE) {
+    if (type === ADDON_TYPE_THEME) {
       const label = i18n.gettext('Press to preview');
       const imageClassName = 'AddonDetail-theme-header-image';
       let headerImage;

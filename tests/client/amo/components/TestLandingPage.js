@@ -7,12 +7,9 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import * as landingActions from 'amo/actions/landing';
-import {
-  LandingPageBase,
-  mapStateToProps,
-  singularizeAddonType,
-} from 'amo/components/LandingPage';
+import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
 import createStore from 'amo/store';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -33,7 +30,7 @@ describe('<LandingPage />', () => {
 
   it('renders a LandingPage with no addons set', () => {
     const root = render({
-      addonType: 'extension',
+      addonType: ADDON_TYPE_EXTENSION,
     });
 
     assert.include(root.textContent, 'Featured extensions');
@@ -42,7 +39,7 @@ describe('<LandingPage />', () => {
 
   it('renders a LandingPage with themes HTML', () => {
     const root = render({
-      addonType: 'theme',
+      addonType: ADDON_TYPE_THEME,
     });
 
     assert.include(root.textContent, 'Featured themes');
@@ -93,8 +90,8 @@ describe('<LandingPage />', () => {
       },
     }));
     const root = render({
-      ...singularizeAddonType(null, { params: { pluralAddonType: 'themes' } }),
-      ...mapStateToProps(store.getState()),
+      ...mapStateToProps(
+        store.getState(), { params: { visibleAddonType: 'themes' } }),
     });
 
     assert.deepEqual(
