@@ -1,10 +1,7 @@
-import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 
 import SearchResult from 'amo/components/SearchResult';
-import Card from 'ui/components/Card';
-
-import './AddonsCard.scss';
+import CardList from 'ui/components/CardList';
 
 
 export default class AddonsCard extends React.Component {
@@ -12,16 +9,14 @@ export default class AddonsCard extends React.Component {
     addons: PropTypes.array.isRequired,
     children: PropTypes.node,
     className: PropTypes.string,
-    footer: PropTypes.node,
-    header: PropTypes.node,
   }
 
   render() {
-    const { addons, children, className, footer, header } = this.props;
+    const { addons, children, className, ...otherProps } = this.props;
 
     return (
-      <Card header={header} footer={footer}
-        className={classNames('AddonsCard', className)}
+      <CardList {...otherProps}
+        className={className}
         ref={(ref) => { this.cardContainer = ref; }}>
         {children}
         {addons && addons.length ? (
@@ -31,7 +26,7 @@ export default class AddonsCard extends React.Component {
             ))}
           </ul>
         ) : null}
-      </Card>
+      </CardList>
     );
   }
 }

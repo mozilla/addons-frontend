@@ -1,0 +1,23 @@
+@import "~amo/css/inc/vars";
+
+.CardList {
+  .Card-contents {
+    background: none;
+    padding: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    > li {
+      background: transparentize($base-color, 0.25);
+      padding: 0 $padding-page;
+      margin-bottom: 1px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
