@@ -6,7 +6,13 @@ import {
 } from 'react-addons-test-utils';
 import { loadFail as reduxConnectLoadFail } from 'redux-connect/lib/store';
 
-import { AppBase, mapDispatchToProps, setupMapStateToProps } from 'amo/containers/App';
+import {
+  // eslint-disable-next-line import/no-named-default
+  default as WrappedApp,
+  AppBase,
+  mapDispatchToProps,
+  setupMapStateToProps,
+} from 'amo/containers/App';
 import createStore from 'amo/store';
 import * as api from 'core/api';
 import { INSTALL_STATE } from 'core/constants';
@@ -126,19 +132,20 @@ describe('App', () => {
   });
 
   it('renders redux-connect errors', () => {
+    // This is just a sanity check to make sure the default component
+    // is wrapped in handleResourceErrors
     const store = createStore();
     const apiError = api.createApiError({
       apiURL: 'https://some-url',
-      response: {
-        status: 404,
-      },
+      response: { status: 404 },
     });
     store.dispatch(reduxConnectLoadFail('someKey', apiError));
-    const state = store.getState();
 
-    const rootNode = findDOMNode(render({
-      reduxAsyncConnect: state.reduxAsyncConnect,
-    }));
+    const root = renderIntoDocument(
+      <WrappedApp store={store} />
+    );
+
+    const rootNode = findDOMNode(root);
     assert.include(rootNode.textContent, 'Not Found');
   });
 });

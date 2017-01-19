@@ -12,7 +12,7 @@ import SearchForm from 'amo/components/SearchForm';
 import { addChangeListeners } from 'core/addonManager';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
-import { getReduxConnectError } from 'core/resourceErrors/reduxConnectErrors';
+import { handleResourceErrors } from 'core/resourceErrors/decorator';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';
@@ -32,7 +32,6 @@ export class AppBase extends React.Component {
     isAuthenticated: PropTypes.bool,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
-    reduxAsyncConnect: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -76,22 +75,8 @@ export class AppBase extends React.Component {
       children,
       i18n,
       location,
-      reduxAsyncConnect,
     } = this.props;
     const query = location.query ? location.query.q : null;
-
-    if (reduxAsyncConnect && reduxAsyncConnect.loadState) {
-      const reduxResult = getReduxConnectError(reduxAsyncConnect.loadState);
-      if (reduxResult.error) {
-        // TODO: This will be prettier once we implement real error pages.
-        // https://github.com/mozilla/addons-frontend/issues/1033
-        return (
-          <div className="amo">
-            <div className="App-content">{reduxResult.error}</div>
-          </div>
-        );
-      }
-    }
 
     return (
       <div className="amo">
@@ -112,7 +97,6 @@ export class AppBase extends React.Component {
 
 export const setupMapStateToProps = (_window) => (state) => ({
   isAuthenticated: !!state.auth.token,
-  reduxAsyncConnect: state.reduxAsyncConnect,
   handleLogIn(location) {
     // eslint-disable-next-line no-param-reassign
     (_window || window).location = startLoginUrl({ location });
@@ -128,6 +112,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default compose(
+  handleResourceErrors,
   connect(setupMapStateToProps(), mapDispatchToProps),
   translate({ withRef: true }),
 )(AppBase);
