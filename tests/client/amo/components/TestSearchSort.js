@@ -8,9 +8,7 @@ import {
 import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
-import I18nProvider from 'core/i18n/Provider';
 import SearchSort from 'amo/components/SearchSort';
-import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 function render(props) {
@@ -18,9 +16,7 @@ function render(props) {
 
   return findRenderedComponentWithType(renderIntoDocument(
     <Provider store={createStore(initialState)}>
-      <I18nProvider i18n={getFakeI18nInst()}>
-        <SearchSort {...props} />
-      </I18nProvider>
+      <SearchSort {...props} />
     </Provider>
   ), SearchSort).getWrappedInstance();
 }

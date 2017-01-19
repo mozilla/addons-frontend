@@ -16,18 +16,14 @@ import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
-import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
-  const i18n = getFakeI18nInst();
   const initialState = { api: { clientApp: 'android', lang: 'pt' } };
   return {
     addon,
     ...addon,
-    i18n,
     // Configure AddonDetail with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
@@ -37,13 +33,10 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
 }
 
 function render(...args) {
-  const { store, i18n, ...props } = renderProps(...args);
-  props.i18n = i18n;
+  const { store, ...props } = renderProps(...args);
   return findRenderedComponentWithType(renderIntoDocument(
     <Provider store={store}>
-      <I18nProvider i18n={i18n}>
-        <AddonDetailBase {...props} />
-      </I18nProvider>
+      <AddonDetailBase {...props} />
     </Provider>
   ), AddonDetailBase);
 }

@@ -10,9 +10,7 @@ import * as landingActions from 'amo/actions/landing';
 import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
 import createStore from 'amo/store';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
-import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<LandingPage />', () => {
@@ -21,9 +19,7 @@ describe('<LandingPage />', () => {
   function render({ ...props }) {
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore(initialState)}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <LandingPageBase i18n={getFakeI18nInst()} {...props} />
-        </I18nProvider>
+        <LandingPageBase {...props} />
       </Provider>
     ), LandingPageBase));
   }

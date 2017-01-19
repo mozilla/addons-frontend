@@ -5,7 +5,6 @@ import {
   findRenderedComponentWithType,
 } from 'react-addons-test-utils';
 
-import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -33,15 +32,12 @@ class InnerComponent extends React.Component {
 describe('translate()', () => {
   function render({
     Component = translate()(InnerComponent),
-    i18n = getFakeI18nInst(),
     componentProps = {},
   } = {}) {
     return renderIntoDocument(
-      <I18nProvider i18n={i18n}>
-        <OuterComponent>
-          <Component {...componentProps} />
-        </OuterComponent>
-      </I18nProvider>
+      <OuterComponent>
+        <Component {...componentProps} />
+      </OuterComponent>
     );
   }
 
