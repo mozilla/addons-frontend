@@ -2,7 +2,7 @@ import { loadFail as reduxConnectLoadFail } from 'redux-connect/lib/store';
 
 import createStore from 'amo/store';
 import { createApiError } from 'core/api';
-import { getReduxConnectError } from 'core/reduxConnectErrors';
+import { getReduxConnectError } from 'core/resourceErrors/reduxConnectErrors';
 
 describe('core/reduxConnectErrors', () => {
   describe('getReduxConnectError', () => {

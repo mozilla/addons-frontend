@@ -12,7 +12,7 @@ import SearchForm from 'amo/components/SearchForm';
 import { addChangeListeners } from 'core/addonManager';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
-import { getReduxConnectError } from 'core/reduxConnectErrors';
+import { getReduxConnectError } from 'core/resourceErrors/reduxConnectErrors';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';

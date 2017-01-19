@@ -16,7 +16,10 @@ import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import ServerHtml from 'core/containers/ServerHtml';
-import { getErrorMsg, getReduxConnectError } from 'core/reduxConnectErrors';
+import {
+  getErrorMsg,
+  getReduxConnectError,
+} from 'core/resourceErrors/reduxConnectErrors';
 import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setClientApp, setLang, setJWT } from 'core/actions';
