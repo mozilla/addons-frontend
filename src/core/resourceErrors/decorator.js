@@ -11,30 +11,23 @@ import { getReduxConnectError } from './reduxConnectErrors';
  * Currently, the only way to produce a resource error is if an
  * asyncConnect callback returns one from its fetch() promise.
  */
-class ResourceError extends React.Component {
-  static propTypes = {
-    reduxAsyncConnect: PropTypes.object.isRequired,
-    WrappedComponent: PropTypes.object.isRequired,
-  }
+function ResourceError(props) {
+  const {
+    reduxAsyncConnect,
+    WrappedComponent,
+    ...componentProps
+  } = props;
 
-  render() {
-    const {
-      reduxAsyncConnect,
-      WrappedComponent,
-      ...componentProps
-    } = this.props;
-
-    if (reduxAsyncConnect && reduxAsyncConnect.loadState) {
-      const reduxResult = getReduxConnectError(reduxAsyncConnect.loadState);
-      if (reduxResult.error) {
-        // TODO: This will be prettier once we implement real error pages.
-        // https://github.com/mozilla/addons-frontend/issues/1033
-        return <div>{reduxResult.error}</div>;
-      }
+  if (reduxAsyncConnect && reduxAsyncConnect.loadState) {
+    const reduxResult = getReduxConnectError(reduxAsyncConnect.loadState);
+    if (reduxResult.error) {
+      // TODO: This will be prettier once we implement real error pages.
+      // https://github.com/mozilla/addons-frontend/issues/1033
+      return <div>{reduxResult.error}</div>;
     }
-
-    return <WrappedComponent {...componentProps} />;
   }
+
+  return <WrappedComponent {...componentProps} />;
 }
 
 /*
