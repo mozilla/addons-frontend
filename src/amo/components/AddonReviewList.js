@@ -24,15 +24,17 @@ export class AddonReviewListBase extends React.Component {
   }
 
   renderReview(review) {
+    const { i18n } = this.props;
+    const timestamp = i18n.moment(review.created).fromNow();
     return (
       <li className="AddonReviewList-li">
         <h3>{review.title}</h3>
         <p>{review.body}</p>
         <div className="AddonReviewList-by-line">
           <Rating rating={review.rating} readOnly />
-          {this.props.i18n.gettext('from')} {review.userName},
-          {' '}
-          {this.props.i18n.moment(review.created).fromNow()}
+          {/* L10n: Example: "from Jose, last week" */}
+          {i18n.sprintf(i18n.gettext('from %(authorName)s, %(timestamp)s'),
+                        { authorName: review.userName, timestamp })}
         </div>
       </li>
     );
