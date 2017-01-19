@@ -27,9 +27,7 @@ export class AddonReviewListBase extends React.Component {
     return (
       <li className="AddonReviewList-li">
         <h3>{review.title}</h3>
-        <p>
-          {review.body}
-        </p>
+        <p>{review.body}</p>
         <div className="AddonReviewList-by-line">
           <Rating rating={review.rating} readOnly />
           {this.props.i18n.gettext('from')} {review.userName},
