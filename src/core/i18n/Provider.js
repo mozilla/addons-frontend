@@ -1,27 +1,25 @@
 import { Children, Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { makeI18n } from 'core/i18n/utils';
 
 /*
- * This Provider expects to be passed an initialized
- * Jed i18n object,
+ * This Provider expects to be passed the current lang.
  */
 
-export default class I18nProvider extends Component {
+class I18nProvider extends Component {
   static propTypes = {
-    i18n: PropTypes.object.isRequired,
     children: PropTypes.element.isRequired,
+    i18n: PropTypes.object.isRequired,
   }
 
   static childContextTypes = {
     i18n: PropTypes.object.isRequired,
   }
 
-  constructor(props, context) {
-    super(props, context);
-    this.i18n = props.i18n;
-  }
-
   getChildContext() {
-    return { i18n: this.i18n };
+    return { i18n: this.props.i18n };
   }
 
   render() {
@@ -29,3 +27,13 @@ export default class I18nProvider extends Component {
     return Children.only(children);
   }
 }
+
+function mapStateToProps({ api, i18n }) {
+  return {
+    i18n: makeI18n(i18n, api.lang),
+  };
+}
+
+export default compose(
+  connect(mapStateToProps),
+)(I18nProvider);

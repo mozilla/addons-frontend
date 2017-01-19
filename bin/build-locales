@@ -46,7 +46,7 @@ poFiles.forEach((pofile) => {
   // Add the moment locale JS into our locale file, if one is available and
   // we're building for AMO (which is the only app that uses moment right
   // now).
-  if (appName === 'amo') {
+  if (false && appName === 'amo') {
     var defineLocale = null;
     try {
       const momentLocale = locale.replace('_', '-').toLowerCase();

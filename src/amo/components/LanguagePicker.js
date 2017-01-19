@@ -1,8 +1,10 @@
 /* global window */
+import config from 'config';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { setLang } from 'core/actions';
 import languages from 'core/languages';
 import translate from 'core/i18n/translate';
 import { addQueryParams } from 'core/utils';
@@ -20,8 +22,7 @@ export class LanguagePickerBase extends React.Component {
   static propTypes = {
     currentLocale: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    _window: PropTypes.object,
+    dispatch: PropTypes.func.isRequired,
   }
 
   onChange = (event) => {
@@ -30,13 +31,15 @@ export class LanguagePickerBase extends React.Component {
   }
 
   changeLanguage(newLocale) {
-    const { currentLocale, location, _window } = this.props;
+    const { currentLocale } = this.props;
 
     if (currentLocale !== newLocale) {
-      const newURL = changeLocaleURL({ currentLocale, location, newLocale });
-      // We change location because a locale change requires a full page
-      // reload to get the new translations, etc.
-      (_window || window).location = newURL;
+      const appName = config.get('appName');
+      // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
+      require(`bundle?name=[name]-i18n-[folder]!../../locale/${newLocale}/${appName}.js`)((i18nData) => {
+        this.props.dispatch(setLang(newLocale));
+        this.props.dispatch({ type: 'SET_I18N', payload: i18nData });
+      });
     }
   }
 
