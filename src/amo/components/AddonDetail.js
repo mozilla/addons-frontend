@@ -12,7 +12,7 @@ import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
-import { ngettext, isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
+import { isAllowedOrigin, ngettext, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
