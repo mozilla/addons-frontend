@@ -55,7 +55,7 @@ class ResourceError extends React.Component {
       handleResourceErrors,
     )(App);
  *
- * This is complementary to server side rendering which already render
+ * This is complementary to server side rendering which already renders
  * resource errors by default. This decorator handles the case where client
  * side navigation might result in the same server 404 scenario.
  */
