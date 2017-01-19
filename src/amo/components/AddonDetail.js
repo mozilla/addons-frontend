@@ -133,7 +133,7 @@ export class AddonDetailBase extends React.Component {
         </Link>
       );
     } else {
-      content = <span>{i18n.gettext('No reviews yet')}</span>;
+      content = i18n.gettext('No reviews yet');
     }
 
     return <div className="AddonDetail-read-reviews-footer">{content}</div>;
