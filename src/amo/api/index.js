@@ -42,14 +42,12 @@ export function submitReview({
 }
 
 export function getAddonReviews({ addonSlug } = {}) {
-  return new Promise((resolve) => {
-    if (!addonSlug) {
-      throw new Error('addonSlug cannot be falsey');
-    }
-    resolve(callApi({
-      endpoint: `addons/addon/${addonSlug}/reviews`,
-      method: 'GET',
-    }));
+  if (!addonSlug) {
+    return Promise.reject(new Error('addonSlug cannot be falsey'));
+  }
+  return callApi({
+    endpoint: `addons/addon/${addonSlug}/reviews`,
+    method: 'GET',
   })
     .then((response) => {
       // TODO: implement paging through response.next
