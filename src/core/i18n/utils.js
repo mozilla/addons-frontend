@@ -184,7 +184,6 @@ export function makeMomentLocale(locale) {
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.
 export function makeI18n(i18nData, lang, _Jed = Jed) {
-  console.log(`creating i18n instance for ${lang}`);
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
 
