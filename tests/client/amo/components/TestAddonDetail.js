@@ -377,6 +377,15 @@ describe('AddonDetail', () => {
       assert.equal(footer.textContent, 'Read all 5 reviews');
     });
 
+    it('localizes the review count', () => {
+      const root = reviewFooterDOM({
+        ratingsCount: 10000,
+      });
+      const footer =
+        root.querySelector('.AddonDetail-read-reviews-footer');
+      assert.include(footer.textContent, '10,000');
+    });
+
     it('links to all reviews', () => {
       const root = render({
         addon: {

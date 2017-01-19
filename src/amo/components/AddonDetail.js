@@ -121,9 +121,8 @@ export class AddonDetailBase extends React.Component {
     if (addon.ratings.count) {
       const count = addon.ratings.count;
       const linkText = i18n.sprintf(
-        // TODO: localize the review count? Or YAGNI?
         ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
-        { count },
+        { count: i18n.formatNumber(count) },
       );
 
       content = (
