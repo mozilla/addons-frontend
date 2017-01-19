@@ -8,7 +8,7 @@ import { getReduxConnectError } from './reduxConnectErrors';
 /*
  * Display resource errors such as a 404, 500, etc.
  *
- * Currently, the only was to produce a resource error is if an
+ * Currently, the only way to produce a resource error is if an
  * asyncConnect callback returns one from its fetch() promise.
  */
 class ResourceError extends React.Component {

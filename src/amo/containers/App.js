@@ -77,7 +77,6 @@ export class AppBase extends React.Component {
       location,
     } = this.props;
     const query = location.query ? location.query.q : null;
-
     return (
       <div className="amo">
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
