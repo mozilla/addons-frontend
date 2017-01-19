@@ -10,17 +10,17 @@
   flex-direction: row;
 
   .AddonReviewList-header-text {
-    > h2,
-    > h4 {
+    > h1,
+    > h2 {
       font-size: 1.1em;
     }
 
-    > h2 {
+    > h1 {
       padding-top: 10px;
       margin: 0 0 5px;
     }
 
-    > h4 {
+    > h2 {
       font-weight: normal;
       margin: 0;
     }
