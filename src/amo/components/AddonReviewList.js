@@ -48,8 +48,6 @@ export class AddonReviewListBase extends React.Component {
     }
 
     const { reviews, addon } = initialData;
-    const subtitle = i18n.sprintf(
-      i18n.gettext('for %(addonName)s'), { addonName: addon.name });
     const allReviews = reviews || [];
 
     return (
@@ -62,7 +60,7 @@ export class AddonReviewListBase extends React.Component {
           </div>
           <div className="AddonReviewList-header-text">
             <h2>{i18n.gettext('All written reviews')}</h2>
-            <h4><Link to={this.addonURL()}>{subtitle}</Link></h4>
+            <h4><Link to={this.addonURL()}>{addon.name}</Link></h4>
           </div>
         </div>
         <ul className="AddonReviewList-ul">
