@@ -50,6 +50,6 @@ export default function translate(options = {}) {
       };
     }
 
-    return connect(mapStateToProps)(Translate);
+    return connect(mapStateToProps, undefined, undefined, { withRef: true })(Translate);
   };
 }
