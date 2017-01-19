@@ -374,7 +374,7 @@ describe('AddonDetail', () => {
       });
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
-      assert.equal(footer.textContent, 'Read 5 reviews');
+      assert.equal(footer.textContent, 'Read all 5 reviews');
     });
 
     it('links to all reviews', () => {
