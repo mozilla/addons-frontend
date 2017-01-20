@@ -8,13 +8,15 @@ import './styles.scss';
 
 export default class Rating extends React.Component {
   static propTypes = {
+    onSelectRating: PropTypes.func,
     rating: PropTypes.number,
     readOnly: PropTypes.boolean,
-    onSelectRating: PropTypes.func,
+    small: PropTypes.boolean,
   }
 
   static defaultProps = {
     readOnly: false,
+    small: false,
   }
 
   constructor(props) {
@@ -64,9 +66,10 @@ export default class Rating extends React.Component {
   }
 
   render() {
-    const { readOnly } = this.props;
+    const { readOnly, small } = this.props;
     const cls = classNames('Rating', {
       'Rating--editable': !readOnly,
+      'Rating--small': small,
     });
 
     return (

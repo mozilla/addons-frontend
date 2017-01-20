@@ -5,15 +5,12 @@
 }
 
 $star-size: 46px;
+$star-gutter: 10px;
 
 .Rating-choice {
   background: url('./img/dim-star.svg') center/$star-size no-repeat;
-  height: $star-size + 10px;
-  width: $star-size + 10px;
-}
-
-.Rating-selected-star {
-  background-image: url('./img/yellow-star.svg');
+  height: $star-size + $star-gutter;
+  width: $star-size + $star-gutter;
 }
 
 .Rating--editable {
@@ -36,5 +33,28 @@ $star-size: 46px;
   // Second, de-select all stars to the right of the cursor.
   .Rating-choice:hover ~ .Rating-choice {
     background-image: url('./img/outlined-star.svg');
+  }
+
+}
+
+.Rating-selected-star,
+.Rating--editable .Rating-selected-star {
+  background-image: url('./img/yellow-star.svg');
+}
+
+.Rating--small {
+  $star-size: 13px;
+  $star-gutter: 4px;
+
+  .Rating-star-group {
+    display: flex;
+    min-width: $star-size * 5 + $star-gutter * 4;
+  }
+
+  .Rating-choice {
+    margin: 0;
+    background-size: $star-size;
+    height: $star-size + $star-gutter;
+    width: $star-size + $star-gutter;
   }
 }

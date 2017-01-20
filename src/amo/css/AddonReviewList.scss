@@ -39,9 +39,6 @@
   }
 }
 
-$star-size: 13px;
-$star-gutter: 4px;
-
 .AddonReviewList-li {
   > h3 {
     padding: 0;
@@ -61,17 +58,5 @@ $star-gutter: 4px;
 
   .Rating {
     margin: 0 5px 0 0;
-  }
-
-  .Rating-star-group {
-    display: flex;
-    min-width: $star-size * 5 + $star-gutter * 4;
-  }
-
-  .Rating-choice {
-    margin: 0;
-    background-size: $star-size;
-    height: $star-size + $star-gutter;
-    width: $star-size + $star-gutter;
   }
 }
