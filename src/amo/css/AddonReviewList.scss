@@ -61,12 +61,15 @@ $star-gutter: 4px;
 
   .Rating {
     margin: 0 5px 0 0;
-    min-width: ($star-size + $star-gutter) * 5;
+  }
+
+  .Rating-star-group {
+    display: flex;
+    min-width: $star-size * 5 + $star-gutter * 4;
   }
 
   .Rating-choice {
     margin: 0;
-    float: left;
     background-size: $star-size;
     height: $star-size + $star-gutter;
     width: $star-size + $star-gutter;
