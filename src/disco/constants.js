@@ -17,8 +17,4 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'loop@mozilla.org', // Firefox Hello
   'aushelper@mozilla.org', // Application Update Service Helper
   'webcompat@mozilla.org', // Web Compat
-  'flyweb@mozilla.org', // FlyWeb
-  'formautofill@mozilla.org', // Form Autofill
-  'presentation@mozilla.org', // Presentation
-  'shield-recipe-client@mozilla.org', // Shield Recipe Client
 ];
