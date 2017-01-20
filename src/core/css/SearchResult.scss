@@ -1,7 +1,5 @@
 @import "~core/css/inc/vars";
 
-$secondary-color: #6a6a6a;
-
 .SearchResult {
   background: $base-color;
   list-style-type: none;
@@ -47,7 +45,7 @@ $secondary-color: #6a6a6a;
 
 .SearchResult-author,
 .SearchResult-users {
-  color: $secondary-color;
+  color: $sub-text-color;
   display: inline-block;
   font-size: $font-size-s;
   font-weight: normal;
