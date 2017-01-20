@@ -7,10 +7,8 @@ import { normalize } from 'normalizr';
 import { Provider } from 'react-redux';
 import { findDOMNode } from 'react-dom';
 
-import createStore from 'amo/store';
-import translate from 'core/i18n/translate';
 import * as amoApi from 'amo/api';
-import * as coreApi from 'core/api';
+import createStore from 'amo/store';
 import { setAddonReviews } from 'amo/actions/reviews';
 import {
   AddonReviewListBase,
@@ -19,6 +17,9 @@ import {
   mapStateToProps,
 } from 'amo/components/AddonReviewList';
 import Link from 'amo/components/Link';
+import translate from 'core/i18n/translate';
+import { loadEntities } from 'core/actions';
+import * as coreApi from 'core/api';
 import { denormalizeAddon } from 'core/reducers/addons';
 import { loadAddonIfNeeded } from 'core/utils';
 import Rating from 'ui/components/Rating';
@@ -33,6 +34,12 @@ function getLoadedReviews({
   return action.payload.reviews;
 }
 
+function createFetchAddonResult(addon) {
+  // Simulate how callApi() applies the add-on schema to
+  // the API server response.
+  return normalize(addon, coreApi.addon);
+}
+
 describe('amo/components/AddonReviewList', () => {
   describe('<AddonReviewListBase/>', () => {
     function render({
@@ -43,14 +50,13 @@ describe('amo/components/AddonReviewList', () => {
       reviews = [fakeReview],
       ...customProps
     } = {}) {
+      const loadedReviews = reviews ? getLoadedReviews({ reviews }) : null;
       const store = createStore();
       const props = {
         addon: denormalizeAddon(addon),
         params,
         i18n: getFakeI18nInst(),
-        initialData: {
-          reviews: getLoadedReviews({ reviews }),
-        },
+        reviews: loadedReviews,
         ...customProps,
       };
 
@@ -73,8 +79,8 @@ describe('amo/components/AddonReviewList', () => {
                     /addonSlug cannot be falsey/);
     });
 
-    it('waits for initial data to load', () => {
-      const root = renderToDOM({ initialData: null });
+    it('waits for reviews to load', () => {
+      const root = renderToDOM({ reviews: null });
       assert.equal(root.textContent, 'Loading...');
     });
 
@@ -144,12 +150,11 @@ describe('amo/components/AddonReviewList', () => {
         .returns(Promise.resolve(reviews));
 
       return loadAddonReviews({ addonSlug, dispatch })
-        .then((loadedReviews) => {
+        .then(() => {
           mockAmoApi.verify();
 
-          const expectedAction = setAddonReviews({ addonSlug, reviews });
-          assert.deepEqual(loadedReviews, expectedAction.payload.reviews);
           assert.ok(dispatch.called);
+          const expectedAction = setAddonReviews({ addonSlug, reviews });
           assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
         });
     });
@@ -164,11 +169,10 @@ describe('amo/components/AddonReviewList', () => {
         .returns(Promise.resolve(reviews));
 
       return loadAddonReviews({ addonSlug, dispatch })
-        .then((loadedReviews) => {
+        .then(() => {
           const expectedAction = setAddonReviews({
             addonSlug, reviews: [fakeReview],
           });
-          assert.deepEqual(loadedReviews, expectedAction.payload.reviews);
           assert.ok(dispatch.called);
           assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
         });
@@ -177,32 +181,24 @@ describe('amo/components/AddonReviewList', () => {
 
   describe('mapStateToProps', () => {
     let store;
-    let mockCoreApi;
+    const addonSlug = fakeAddon.slug;
 
     beforeEach(() => {
       store = createStore();
-      mockCoreApi = sinon.mock(coreApi);
     });
 
     it('loads addon from state', () => {
-      const addonSlug = fakeAddon.slug;
+      store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
+      const props = mapStateToProps(store.getState(),
+                                    { params: { addonSlug } });
+      assert.deepEqual(props.addon, denormalizeAddon(fakeAddon));
+    });
 
-      mockCoreApi
-        .expects('fetchAddon')
-        .once()
-        .withArgs({ slug: addonSlug, api: {} })
-        // Simulate how callApi() applies the add-on schema to
-        // the API server response.
-        .returns(Promise.resolve(normalize(fakeAddon, coreApi.addon)));
-
-      // Dispatch add-on entities.
-      return loadAddonIfNeeded({ store, params: { slug: addonSlug }})
-        .then(() => {
-          mockCoreApi.verify();
-          const props = mapStateToProps(store.getState(),
-                                        { params: { addonSlug } });
-          assert.deepEqual(props.addon, denormalizeAddon(fakeAddon));
-        });
+    it('ignores other add-ons', () => {
+      store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
+      const props = mapStateToProps(store.getState(),
+                                    { params: { addonSlug: 'other-slug' } });
+      assert.strictEqual(props.addon, undefined);
     });
 
     it('requires component properties', () => {
@@ -214,41 +210,60 @@ describe('amo/components/AddonReviewList', () => {
       assert.throws(() => mapStateToProps(store.getState(), {}),
                     /component had a falsey addonSlug parameter/);
     });
+
+    it('loads all reviews from state', () => {
+      const reviews = [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }];
+      const action = setAddonReviews({ addonSlug, reviews });
+      store.dispatch(action);
+
+      const props = mapStateToProps(store.getState(),
+                                    { params: { addonSlug } });
+      assert.deepEqual(props.reviews, action.payload.reviews);
+    });
+
+    it('only loads existing reviews', () => {
+      const props = mapStateToProps(store.getState(),
+                                    { params: { addonSlug } });
+      assert.strictEqual(props.reviews, undefined);
+    });
   });
 
   describe('loadInitialData', () => {
+    let mockAmoApi;
     let mockCoreApi;
 
     beforeEach(() => {
+      mockAmoApi = sinon.mock(amoApi);
       mockCoreApi = sinon.mock(coreApi);
     });
 
     it('gets initial data from the API', () => {
       const store = createStore();
       const addonSlug = fakeAddon.slug;
-      const loadedReviews = getLoadedReviews();
-      const _loadAddonReviews = sinon.spy(
-        () => Promise.resolve(loadedReviews));
+      const reviews = [fakeReview];
+
+      mockAmoApi
+        .expects('getAddonReviews')
+        .once()
+        .withArgs({ addonSlug })
+        .returns(Promise.resolve(reviews));
 
       mockCoreApi
         .expects('fetchAddon')
         .once()
         .withArgs({ slug: addonSlug, api: {} })
-        // Simulate how callApi() applies the add-on schema to
-        // the API server response.
-        .returns(Promise.resolve(normalize(fakeAddon, coreApi.addon)));
+        .returns(Promise.resolve(createFetchAddonResult(fakeAddon)));
 
-      return loadInitialData({ store, params: { addonSlug } },
-                             { _loadAddonReviews })
-        .then((initialData) => {
+      return loadInitialData({ store, params: { addonSlug } })
+        .then(() => {
+          mockAmoApi.verify();
           mockCoreApi.verify();
 
-          // Make sure the add-on was loaded into state.
           const props = mapStateToProps(store.getState(),
                                         { params: { addonSlug } });
           assert.deepEqual(props.addon, denormalizeAddon(fakeAddon));
 
-          assert.deepEqual(initialData.reviews, loadedReviews);
+          assert.deepEqual(props.reviews, getLoadedReviews({ reviews }));
         });
     });
 

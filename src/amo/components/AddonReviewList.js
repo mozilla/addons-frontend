@@ -17,9 +17,9 @@ import 'amo/css/AddonReviewList.scss';
 export class AddonReviewListBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-    addon: PropTypes.object.isRequired,
-    initialData: PropTypes.object,
+    addon: PropTypes.object,
     params: PropTypes.object.isRequired,
+    reviews: PropTypes.array,
   }
 
   addonURL() {
@@ -44,16 +44,15 @@ export class AddonReviewListBase extends React.Component {
   }
 
   render() {
-    const { addon, params, i18n, initialData } = this.props;
+    const { addon, params, i18n, reviews } = this.props;
     if (!params.addonSlug) {
       throw new Error('params.addonSlug cannot be falsey');
     }
-    if (!initialData) {
+    if (!reviews) {
       // TODO: add a spinner
       return <div>{i18n.gettext('Loading...')}</div>;
     }
 
-    const { reviews } = initialData;
     const allReviews = reviews || [];
 
     return (
@@ -86,42 +85,34 @@ export function loadAddonReviews({ addonSlug, dispatch }) {
       // For example, the user selected a star rating but hasn't submitted
       // review text yet.
       const reviews = allReviews.filter((review) => Boolean(review.body));
-
-      const action = setAddonReviews({ addonSlug, reviews });
-      dispatch(action);
-      return action.payload.reviews;
+      dispatch(setAddonReviews({ addonSlug, reviews }));
     });
 }
 
-export function loadInitialData(
-  { store, params },
-  { _loadAddonReviews = loadAddonReviews } = {},
-) {
+export function loadInitialData({ store, params }) {
   const { addonSlug } = params;
   if (!addonSlug) {
     return Promise.reject(new Error('missing URL param addonSlug'));
   }
   return Promise.all([
-    _loadAddonReviews({ addonSlug, dispatch: store.dispatch }),
+    loadAddonReviews({ addonSlug, dispatch: store.dispatch }),
     loadAddonIfNeeded({ store, params: { slug: addonSlug } }),
-  ])
-    .then(([reviews]) => {
-      const initialData = { reviews };
-      return initialData;
-    });
+  ]);
 }
 
 export function mapStateToProps(state, ownProps) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey addonSlug parameter');
   }
-  const addon = findAddon(state, ownProps.params.addonSlug);
-  return { addon };
+  const addonSlug = ownProps.params.addonSlug;
+  return {
+    addon: findAddon(state, addonSlug),
+    reviews: state.reviews.byAddon[addonSlug],
+  };
 }
 
 export default compose(
   asyncConnect([{
-    key: 'initialData',
     deferred: true,
     promise: loadInitialData,
   }]),
