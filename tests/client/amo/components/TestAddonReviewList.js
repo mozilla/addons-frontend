@@ -21,7 +21,6 @@ import translate from 'core/i18n/translate';
 import { loadEntities } from 'core/actions';
 import * as coreApi from 'core/api';
 import { denormalizeAddon } from 'core/reducers/addons';
-import { loadAddonIfNeeded } from 'core/utils';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -181,49 +180,50 @@ describe('amo/components/AddonReviewList', () => {
 
   describe('mapStateToProps', () => {
     let store;
-    const addonSlug = fakeAddon.slug;
 
     beforeEach(() => {
       store = createStore();
     });
 
+    function getMappedProps({
+      addonSlug = fakeAddon.slug, params = { addonSlug },
+    } = {}) {
+      return mapStateToProps(store.getState(), { params });
+    }
+
     it('loads addon from state', () => {
       store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
-      const props = mapStateToProps(store.getState(),
-                                    { params: { addonSlug } });
+      const props = getMappedProps();
       assert.deepEqual(props.addon, denormalizeAddon(fakeAddon));
     });
 
     it('ignores other add-ons', () => {
       store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
-      const props = mapStateToProps(store.getState(),
-                                    { params: { addonSlug: 'other-slug' } });
+      const props = getMappedProps({ addonSlug: 'other-slug' });
       assert.strictEqual(props.addon, undefined);
     });
 
     it('requires component properties', () => {
-      assert.throws(() => mapStateToProps(store.getState()),
+      assert.throws(() => getMappedProps({ params: null }),
                     /component had a falsey addonSlug parameter/);
     });
 
     it('requires an existing slug property', () => {
-      assert.throws(() => mapStateToProps(store.getState(), {}),
+      assert.throws(() => getMappedProps({ params: {} }),
                     /component had a falsey addonSlug parameter/);
     });
 
     it('loads all reviews from state', () => {
       const reviews = [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }];
-      const action = setAddonReviews({ addonSlug, reviews });
+      const action = setAddonReviews({ addonSlug: fakeAddon.slug, reviews });
       store.dispatch(action);
 
-      const props = mapStateToProps(store.getState(),
-                                    { params: { addonSlug } });
+      const props = getMappedProps();
       assert.deepEqual(props.reviews, action.payload.reviews);
     });
 
     it('only loads existing reviews', () => {
-      const props = mapStateToProps(store.getState(),
-                                    { params: { addonSlug } });
+      const props = getMappedProps();
       assert.strictEqual(props.reviews, undefined);
     });
   });
@@ -262,7 +262,6 @@ describe('amo/components/AddonReviewList', () => {
           const props = mapStateToProps(store.getState(),
                                         { params: { addonSlug } });
           assert.deepEqual(props.addon, denormalizeAddon(fakeAddon));
-
           assert.deepEqual(props.reviews, getLoadedReviews({ reviews }));
         });
     });
