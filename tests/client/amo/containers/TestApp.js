@@ -16,7 +16,7 @@ import {
   setupMapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
-import { setJWT } from 'core/actions';
+import { setJwt } from 'core/actions';
 import * as api from 'core/api';
 import { INSTALL_STATE } from 'core/constants';
 import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
@@ -113,7 +113,7 @@ describe('App', () => {
     sinon.stub(cookie, 'remove');
     sinon.stub(config, 'get').withArgs('cookieName').returns('authcookie');
     const store = createStore();
-    store.dispatch(setJWT(userAuthToken({ user_id: 99 })));
+    store.dispatch(setJwt(userAuthToken({ user_id: 99 })));
     const { handleLogOut } = mapDispatchToProps(store.dispatch);
     assert.ok(store.getState().api.token);
     handleLogOut();

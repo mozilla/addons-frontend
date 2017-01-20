@@ -7,7 +7,7 @@ import {
   SET_CURRENT_USER,
 } from 'core/constants';
 
-export function setJWT(token) {
+export function setJwt(token) {
   return {
     type: SET_JWT,
     payload: { token },
