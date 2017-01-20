@@ -40,26 +40,10 @@
   }
 }
 
-.AddonReviewList-ul {
-  list-style: none;
-  background-color: white;
-  margin: 10px 0;
-  padding: 0;
-  border-radius: 10px;
-}
-
 $star-size: 13px;
 $star-gutter: 4px;
 
 .AddonReviewList-li {
-  margin: 0;
-  padding: 10px;
-  border-bottom: 2px solid $accent-color;
-
-  &:last-of-type {
-    border-bottom: none;
-  }
-
   > h3 {
     padding: 0;
     margin: 0;
@@ -67,13 +51,14 @@ $star-gutter: 4px;
 
   > p {
     margin: 0 0 5px;
+    font-size: $font-size-default;
   }
 
   .AddonReviewList-by-line {
     display: flex;
     justify-content: flex-start;
-    font-size: 0.9em;
     color: $sub-text-color;
+    font-size: $font-size-s;
   }
 
   .Rating {

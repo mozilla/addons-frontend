@@ -8,6 +8,7 @@ import { getAddonReviews } from 'amo/api';
 import translate from 'core/i18n/translate';
 import { findAddon, loadAddonIfNeeded } from 'core/utils';
 import Link from 'amo/components/Link';
+import CardList from 'ui/components/CardList';
 
 import 'amo/css/AddonReviewList.scss';
 
@@ -63,9 +64,11 @@ export class AddonReviewListBase extends React.Component {
             <h2><Link to={this.addonURL()}>{addon.name}</Link></h2>
           </div>
         </div>
-        <ul className="AddonReviewList-ul">
-          {allReviews.map((review) => this.renderReview(review))}
-        </ul>
+        <CardList>
+          <ul>
+            {allReviews.map((review) => this.renderReview(review))}
+          </ul>
+        </CardList>
       </div>
     );
   }
