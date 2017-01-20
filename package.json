@@ -50,7 +50,7 @@
       }
     },
     "extract-locales": {
-      "command": "webpack --verbose --display-error-details --progress --colors --config webpack.l10n.config.babel.js",
+      "command": "webpack --verbose --bail --display-error-details --progress --colors --config webpack.l10n.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production"
