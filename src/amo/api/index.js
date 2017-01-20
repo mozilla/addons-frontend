@@ -52,7 +52,7 @@ export function getAddonReviews({ addonSlug } = {}) {
     .then((response) => {
       // TODO: implement paging through response.next
       if (response.next) {
-        throw new Error('paging is not yet implemented');
+        log.warn('paging is not yet implemented');
       }
       return response.results;
     });
@@ -70,7 +70,7 @@ export function getUserReviews({ userId, addonId } = {}) {
     .then((response) => {
       // TODO: implement paging through response.next
       if (response.next) {
-        throw new Error('paging is not yet implemented');
+        log.warn('paging is not yet implemented');
       }
       return response.results;
     })

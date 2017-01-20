@@ -163,10 +163,8 @@ describe('amo.api', () => {
           next: '/reviews/next-page/',
         }));
 
-      return getUserReviews({ userId: 123 })
-        .then(() => assert(false, 'unexpected success'), (error) => {
-          assert.match(error.message, /not yet implemented/);
-        });
+      // This will log a warning so just make sure it doesn't throw.
+      return getUserReviews({ userId: 123 });
     });
 
     it('allows you to fetch reviews for a specific add-on', () => {
@@ -223,10 +221,8 @@ describe('amo.api', () => {
           next: '/reviews/next-page/',
         }));
 
-      return getAddonReviews({ addonSlug: 'ublock' })
-        .then(() => assert(false, 'Unexpected success'), (error) => {
-          assert.match(error.message, /not yet implemented/);
-        });
+      // This will log a warning so just make sure it doesn't throw.
+      return getAddonReviews({ addonSlug: 'ublock' });
     });
   });
 
