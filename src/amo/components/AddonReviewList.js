@@ -93,16 +93,13 @@ export function loadInitialData(
   { _loadAddonReviews = loadAddonReviews } = {},
 ) {
   const { slug } = params;
-  return new Promise((resolve) => {
-    if (!slug) {
-      throw new Error('missing URL param slug (add-on slug)');
-    }
-    resolve();
-  })
-    .then(() => Promise.all([
-      _loadAddonReviews({ addonSlug: slug, dispatch: store.dispatch }),
-      loadAddonIfNeeded({ store, params }),
-    ]))
+  if (!slug) {
+    return Promise.reject(new Error('missing URL param slug (add-on slug)'));
+  }
+  return Promise.all([
+    _loadAddonReviews({ addonSlug: slug, dispatch: store.dispatch }),
+    loadAddonIfNeeded({ store, params }),
+  ])
     .then(([reviews]) => {
       const addon = findAddon(store.getState(), slug);
       const initialData = { addon, reviews };
