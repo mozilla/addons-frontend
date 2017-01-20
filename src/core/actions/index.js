@@ -1,4 +1,5 @@
 import {
+  LOG_OUT_USER,
   SET_JWT,
   SET_CLIENT_APP,
   SET_LANG,
@@ -11,6 +12,10 @@ export function setJWT(token) {
     type: SET_JWT,
     payload: { token },
   };
+}
+
+export function logOutUser() {
+  return { type: LOG_OUT_USER };
 }
 
 export function setClientApp(clientApp) {

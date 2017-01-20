@@ -1,4 +1,6 @@
+import config from 'config';
 import React from 'react';
+import cookie from 'react-cookie';
 import { findDOMNode } from 'react-dom';
 import {
   renderIntoDocument,
@@ -14,9 +16,10 @@ import {
   setupMapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
+import { setJWT } from 'core/actions';
 import * as api from 'core/api';
 import { INSTALL_STATE } from 'core/constants';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 
 describe('App', () => {
@@ -75,7 +78,7 @@ describe('App', () => {
     assert.equal(rootNode.querySelector('p').textContent, 'The component');
   });
 
-  it('shows a log in button', () => {
+  it('shows a log in button when unauthenticated', () => {
     const handleLogIn = sinon.spy();
     const location = sinon.stub();
     const root = render({ isAuthenticated: false, handleLogIn, location });
@@ -85,9 +88,12 @@ describe('App', () => {
     assert.ok(handleLogIn.calledWith(location));
   });
 
-  it('tells you if you are logged in', () => {
-    const root = render({ isAuthenticated: true });
+  it('shows a log out button when authenticated', () => {
+    const handleLogOut = sinon.spy();
+    const root = render({ handleLogOut, isAuthenticated: true });
     assert.equal(root.logInButton.textContent, 'Log out');
+    Simulate.click(root.logInButton);
+    assert.ok(handleLogOut.called);
   });
 
   it('updates the location on handleLogIn', () => {
@@ -101,6 +107,18 @@ describe('App', () => {
     handleLogIn(location);
     assert.equal(_window.location, 'https://a.m.org/login');
     assert.ok(startLoginUrlStub.calledWith({ location }));
+  });
+
+  it('clears the cookie and JWT on handleLogOut', () => {
+    sinon.stub(cookie, 'remove');
+    sinon.stub(config, 'get').withArgs('cookieName').returns('authcookie');
+    const store = createStore();
+    store.dispatch(setJWT(userAuthToken({ user_id: 99 })));
+    const { handleLogOut } = mapDispatchToProps(store.dispatch);
+    assert.ok(store.getState().api.token);
+    handleLogOut();
+    assert.notOk(store.getState().api.token);
+    assert.ok(cookie.remove.calledWith('authcookie', { path: '/' }));
   });
 
   it('sets the mamo cookie to "off"', () => {

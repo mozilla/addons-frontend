@@ -4,8 +4,8 @@ import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 
+import { logOutUser } from 'core/actions';
 import { gettext as _ } from 'core/utils';
-import { LOG_OUT_USER } from 'core/constants';
 import NavBar from 'admin/components/NavBar';
 
 import 'admin/css/App.scss';
@@ -39,8 +39,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = {
   handleLogOut: () => {
-    cookie.remove(config.get('cookieName'));
-    return { type: LOG_OUT_USER };
+    cookie.remove(config.get('cookieName'), { path: '/' });
+    return logOutUser();
   },
 };
 
