@@ -18,7 +18,7 @@ export default (
   <Route path="/:lang/:application" component={App}>
     <IndexRoute component={Home} />
     <Route path="addon/:slug/" component={DetailPage} />
-    <Route path="addon/:slug/reviews/" component={AddonReviewList} />
+    <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
     <Route path="addon/:slug/review/:reviewId/" component={AddonReview} />
     <Route path=":visibleAddonType/categories/" component={CategoryList} />
     <Route path=":visibleAddonType/:slug/" component={CategoryPage} />

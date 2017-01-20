@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
 
@@ -16,12 +17,13 @@ import 'amo/css/AddonReviewList.scss';
 export class AddonReviewListBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
+    addon: PropTypes.object.isRequired,
     initialData: PropTypes.object,
+    params: PropTypes.object.isRequired,
   }
 
   addonURL() {
-    const { addon } = this.props.initialData;
-    return `/addon/${addon.slug}/`;
+    return `/addon/${this.props.addon.slug}/`;
   }
 
   renderReview(review) {
@@ -42,13 +44,16 @@ export class AddonReviewListBase extends React.Component {
   }
 
   render() {
-    const { i18n, initialData } = this.props;
+    const { addon, params, i18n, initialData } = this.props;
+    if (!params.addonSlug) {
+      throw new Error('params.addonSlug cannot be falsey');
+    }
     if (!initialData) {
       // TODO: add a spinner
       return <div>{i18n.gettext('Loading...')}</div>;
     }
 
-    const { reviews, addon } = initialData;
+    const { reviews } = initialData;
     const allReviews = reviews || [];
 
     return (
@@ -92,19 +97,26 @@ export function loadInitialData(
   { store, params },
   { _loadAddonReviews = loadAddonReviews } = {},
 ) {
-  const { slug } = params;
-  if (!slug) {
-    return Promise.reject(new Error('missing URL param slug (add-on slug)'));
+  const { addonSlug } = params;
+  if (!addonSlug) {
+    return Promise.reject(new Error('missing URL param addonSlug'));
   }
   return Promise.all([
-    _loadAddonReviews({ addonSlug: slug, dispatch: store.dispatch }),
-    loadAddonIfNeeded({ store, params }),
+    _loadAddonReviews({ addonSlug, dispatch: store.dispatch }),
+    loadAddonIfNeeded({ store, params: { slug: addonSlug } }),
   ])
     .then(([reviews]) => {
-      const addon = findAddon(store.getState(), slug);
-      const initialData = { addon, reviews };
+      const initialData = { reviews };
       return initialData;
     });
+}
+
+export function mapStateToProps(state, ownProps) {
+  if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
+    throw new Error('The component had a falsey addonSlug parameter');
+  }
+  const addon = findAddon(state, ownProps.params.addonSlug);
+  return { addon };
 }
 
 export default compose(
@@ -113,5 +125,6 @@ export default compose(
     deferred: true,
     promise: loadInitialData,
   }]),
+  connect(mapStateToProps),
   translate({ withRef: true }),
 )(AddonReviewListBase);
