@@ -84,8 +84,6 @@ const settings = {
     }),
     // Replaces server config module with the subset clientConfig object.
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
-    // Prevent locales with moment require calls from crashing
-    new webpack.NormalModuleReplacementPlugin(/\.\.\/moment$/, 'moment'),
     // Substitutes client only config.
     new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
     // Use the browser's window for window.
