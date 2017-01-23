@@ -6,9 +6,9 @@ module.exports = { domain:"messages",
       "Extension Metadata":[ "확장 메타 데이터" ],
       Screenshots:[ "스크린샷" ],
       "About this extension":[ "이 확장 기능에 대해" ],
-      "Rate your experience":[ "" ],
+      "Rate your experience":[ "경험 평가하기" ],
       Category:[ "카테고리" ],
-      "Used by":[ "" ],
+      "Used by":[ "사용됨" ],
       Sentiment:[ "심리" ],
       Back:[ "뒤로가기" ],
       Submit:[ "제출" ],
@@ -20,20 +20,20 @@ module.exports = { domain:"messages",
       "View desktop site":[ "데스크톱 사이트 보기" ],
       "Browse in your language":[ "내 언어로 검색" ],
       "Firefox Add-ons":[ "Firefox 부가 기능" ],
-      "How are you enjoying your experience with %(addonName)s?":[ "" ],
+      "How are you enjoying your experience with %(addonName)s?":[ "%(addonName)s 부가 기능을 어떻게 사용하셨나요?" ],
       "screenshot %(imageNumber)s of %(totalImages)s":[ "스크린샷 %(totalImages)s 개 중 %(imageNumber)s 번 째" ],
       "Average rating: %(rating)s out of 5":[ "평균 점수: 5 점 중 %(rating)s" ],
       "No ratings":[ "평가 없음" ],
-      "%(users)s user":[ "" ],
+      "%(users)s user":[ "%(users)s명의 사용자" ],
       "Log out":[ "로그아웃" ],
       "Log in/Sign up":[ "로그인/가입하기" ],
       "Add-ons for Firefox":[ "Firefox 부가 기능" ],
-      "What do you want Firefox to do?":[ "" ],
+      "What do you want Firefox to do?":[ "Firefox가 무엇을 하길 바라십니까?" ],
       "Block ads":[ "광고 차단" ],
       Screenshot:[ "스크린샷" ],
       "Save stuff":[ "저장하기" ],
       "Shop online":[ "온라인 쇼핑" ],
-      "Be social":[ "" ],
+      "Be social":[ "소셜 활동" ],
       "Share stuff":[ "공유하기" ],
       "Browse all extensions":[ "모든 확장 기능 탐색하기" ],
       "How do you want Firefox to look?":[ "파이어폭스가 어떻게 보여지길 바라십니까?" ],
@@ -59,70 +59,8 @@ module.exports = { domain:"messages",
       "No results were found for \"%(query)s\".":[ "\"%(query)s\"에 대한 검색 결과가 없습니다." ],
       "Please supply a valid search":[ "유효한 검색어를 입력해 주세요" ] } },
   _momentDefineLocale:function anonymous() {
-//! moment.js locale configuration
-//! locale : Korean [ko]
-//! author : Kyungwook, Park : https://github.com/kyungw00k
-//! author : Jeeeyul Lee <jeeeyul@gmail.com>
 
-;(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined'
-       && typeof require === 'function' ? factory(require('../moment')) :
-   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
-   factory(global.moment)
-}(this, (function (moment) { 'use strict';
-
-
-var ko = moment.defineLocale('ko', {
-    months : '1월_2월_3월_4월_5월_6월_7월_8월_9월_10월_11월_12월'.split('_'),
-    monthsShort : '1월_2월_3월_4월_5월_6월_7월_8월_9월_10월_11월_12월'.split('_'),
-    weekdays : '일요일_월요일_화요일_수요일_목요일_금요일_토요일'.split('_'),
-    weekdaysShort : '일_월_화_수_목_금_토'.split('_'),
-    weekdaysMin : '일_월_화_수_목_금_토'.split('_'),
-    longDateFormat : {
-        LT : 'A h시 m분',
-        LTS : 'A h시 m분 s초',
-        L : 'YYYY.MM.DD',
-        LL : 'YYYY년 MMMM D일',
-        LLL : 'YYYY년 MMMM D일 A h시 m분',
-        LLLL : 'YYYY년 MMMM D일 dddd A h시 m분'
-    },
-    calendar : {
-        sameDay : '오늘 LT',
-        nextDay : '내일 LT',
-        nextWeek : 'dddd LT',
-        lastDay : '어제 LT',
-        lastWeek : '지난주 dddd LT',
-        sameElse : 'L'
-    },
-    relativeTime : {
-        future : '%s 후',
-        past : '%s 전',
-        s : '몇 초',
-        ss : '%d초',
-        m : '일분',
-        mm : '%d분',
-        h : '한 시간',
-        hh : '%d시간',
-        d : '하루',
-        dd : '%d일',
-        M : '한 달',
-        MM : '%d달',
-        y : '일 년',
-        yy : '%d년'
-    },
-    ordinalParse : /\d{1,2}일/,
-    ordinal : '%d일',
-    meridiemParse : /오전|오후/,
-    isPM : function (token) {
-        return token === '오후';
-    },
-    meridiem : function (hour, minute, isUpper) {
-        return hour < 12 ? '오전' : '오후';
-    }
-});
-
-return ko;
-
-})));
-
+        // By requiring this module, the new locale is defined and
+        // registered internally for moment.js
+        require('moment/locale/ko');
 } }
