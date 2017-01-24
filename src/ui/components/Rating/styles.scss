@@ -47,7 +47,6 @@ $star-gutter: 10px;
 
   .Rating-star-group {
     display: flex;
-    min-width: $star-size * 5 + $star-gutter * 4;
   }
 
   .Rating-choice {
