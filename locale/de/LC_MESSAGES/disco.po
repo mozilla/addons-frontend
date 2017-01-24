@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2016-08-31 16:25+0000\n"
+"PO-Revision-Date: 2017-01-24 15:45+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -15,13 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Installieren"
+msgstr "Theme installieren"
 
 #: src/core/components/InstallButton/index.js:48
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Zu Firefox hinzufügen"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -33,9 +32,7 @@ msgstr "%(name)s wird installiert."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu "
-"deinstallieren."
+msgstr "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu deinstallieren."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -67,8 +64,7 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:107
 msgid "Hover over the image to preview"
-msgstr ""
-"Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+msgstr "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
 
 #: src/disco/components/Addon.js:128
 msgid "Installation failed. Please try again."
@@ -92,8 +88,7 @@ msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
 #: src/disco/components/Addon.js:145
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
-"Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
+msgstr "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
 
 #: src/disco/components/Addon.js:147
 msgid "Please restart Firefox to use this add-on."
@@ -105,8 +100,7 @@ msgstr "Schließen"
 
 #: src/disco/components/Addon.js:97
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
+msgstr "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
@@ -135,19 +129,13 @@ msgstr "Passen Sie Ihren Firefox an."
 #: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen "
-"Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von "
-"lustigen Themes zu mächtigen Werkzeugen, dank denen Sie schneller und "
-"sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige "
-"besonders leistungsfähige und funktionsreiche Add-ons."
+"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von lustigen Themes zu mächtigen Werkzeugen, dank "
+"denen Sie schneller und sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige besonders leistungsfähige und funktionsreiche Add-ons."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Installiert und zur Symbolleiste hinzugefügt."
