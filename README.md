@@ -126,6 +126,19 @@ Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
 to learn more about how configuration is applied.
 
+#### Disabling CSP for local development
+
+When developing locally with a webpack server, the randomly generated asset
+URL will fail our Content Security Policy (CSP) and clutter your console
+with errors. You can turn off all CSP errors by settings CSP to `false`
+in any local config file, such as `local-development-amo.js`. Example:
+
+````javascript
+module.exports = {
+  CSP: false,
+};
+````
+
 ### Building and running services
 
 The following are scripts that are used in deployment - you generally won't

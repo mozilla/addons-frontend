@@ -24,7 +24,7 @@ export default function makeClient(routes, createStore) {
   const appName = config.get('appName');
 
   function renderApp(i18nData) {
-    const i18n = makeI18n(i18nData);
+    const i18n = makeI18n(i18nData, lang);
 
     if (initialStateContainer) {
       try {

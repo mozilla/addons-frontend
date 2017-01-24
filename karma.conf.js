@@ -39,22 +39,32 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
     function WebpackWarningPlugin() {
       this.plugin('done', (_stats) => {
         const stats = _stats;
-        let flagError;
+        let flagException = false;
 
-        if (stats.compilation.warnings.length) {
-          // Log each of the warnings
-          stats.compilation.warnings.forEach((_warning) => {
-            const warning = _warning.message || _warning || '';
-            if (warning.indexOf('SyntaxError') > -1) {
-              console.log(warning);
-              flagError = true;
-            }
-          });
+        const loggedExceptions = [
+          'SyntaxError',
+        ];
 
-          // Bail if syntax errors were encountered.
-          if (flagError) {
-            throw new Error('Syntax error encountered, bailing');
+        function strContainsException(str) {
+          return loggedExceptions.some((substring) => str.includes(substring));
+        }
+
+        ['errors', 'warnings'].forEach((key) => {
+          const loggedStack = stats.compilation[key];
+          if (loggedStack && loggedStack.length) {
+            stats.compilation[key].forEach((item) => {
+              const message = item.message || '';
+              if (strContainsException(message)) {
+                console.log(message);
+                flagException = true;
+              }
+            });
           }
+        });
+
+        // Bail if syntax errors were encountered and we're not watching.
+        if (flagException && process.argv.indexOf('--watch') === -1) {
+          throw new Error('Error encountered, bailing');
         }
       });
     },
@@ -150,7 +160,6 @@ module.exports = function karmaConf(conf) {
       'karma-sourcemap-loader',
       'karma-webpack',
     ],
-    autoWatch: true,
     browsers: ['Firefox'],
     singleRun: false,
     concurrency: Infinity,

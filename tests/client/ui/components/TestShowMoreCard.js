@@ -22,11 +22,14 @@ describe('<ShowMoreCard />', () => {
     root.setState({ expanded: false });
     assert.notInclude(rootNode.className, '.ShowMoreCard--expanded');
     assert.strictEqual(root.state.expanded, false);
+    assert.equal(rootNode.querySelector('.Card-footer').textContent, 'Expand to Read more');
 
-    Simulate.click(rootNode.querySelector('.ShowMoreCard-revealMoreLink'));
+    Simulate.click(rootNode.querySelector('.Card-footer a'));
 
     assert.include(rootNode.className, 'ShowMoreCard--expanded');
     assert.strictEqual(root.state.expanded, true);
+
+    assert.equal(rootNode.querySelector('.Card-footer'), null);
   });
 
   it('is expanded by default', () => {
@@ -47,14 +50,6 @@ describe('<ShowMoreCard />', () => {
     });
     const rootNode = findDOMNode(root);
     assert.include(rootNode.className, 'test');
-  });
-
-  it('renders header and footer', () => {
-    const root = render({ header: 'What is up', footer: 'I am down' });
-    const rootNode = findDOMNode(root);
-    assert.equal(rootNode.querySelector('h2').textContent, 'What is up');
-    assert.equal(
-      rootNode.querySelector('.Card-footer').textContent, 'I am down');
   });
 
   it('renders children', () => {

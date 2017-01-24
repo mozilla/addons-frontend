@@ -50,7 +50,7 @@
       }
     },
     "extract-locales": {
-      "command": "webpack --verbose --display-error-details --progress --colors --config webpack.l10n.config.babel.js",
+      "command": "webpack --verbose --bail --display-error-details --progress --colors --config webpack.l10n.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "production"
@@ -114,7 +114,7 @@
       }
     },
     "unittest:dev": {
-      "command": "karma start",
+      "command": "karma start --watch",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
@@ -179,10 +179,10 @@
     "react-addons-css-transition-group": "15.4.2",
     "react-cookie": "1.0.4",
     "react-dom": "15.4.1",
-    "react-helmet": "3.3.0",
+    "react-helmet": "4.0.0",
     "react-onclickoutside": "5.8.3",
     "react-photoswipe": "1.2.0",
-    "react-redux": "5.0.2",
+    "react-redux": "4.4.6",
     "react-router": "2.8.1",
     "react-router-scroll": "0.4.1",
     "redux": "3.6.0",
@@ -195,7 +195,7 @@
   },
   "devDependencies": {
     "autoprefixer": "6.6.1",
-    "babel-core": "6.21.0",
+    "babel-core": "6.22.1",
     "babel-eslint": "7.1.0",
     "babel-gettext-extractor": "git+https://github.com/muffinresearch/babel-gettext-extractor.git#ecd85dea4553247a3cb579da817df29f381df5b9",
     "babel-loader": "6.2.10",
@@ -213,7 +213,6 @@
     "chalk": "1.1.3",
     "cheerio": "0.22.0",
     "concurrently": "3.1.0",
-    "csp-parse": "0.0.2",
     "css-loader": "0.26.1",
     "deepcopy": "0.6.3",
     "eslint": "3.13.1",
@@ -225,13 +224,13 @@
     "file-loader": "0.9.0",
     "glob": "7.1.1",
     "json-loader": "0.5.4",
-    "karma": "1.3.0",
+    "karma": "1.4.0",
     "karma-chai": "0.1.0",
     "karma-coverage": "1.1.1",
     "karma-coveralls": "1.1.2",
     "karma-firefox-launcher": "1.0.0",
     "karma-mocha": "1.3.0",
-    "karma-mocha-reporter": "2.2.0",
+    "karma-mocha-reporter": "2.2.2",
     "karma-sinon": "1.0.5",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "2.0.1",

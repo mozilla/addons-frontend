@@ -5,9 +5,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
-import './LandingAddonsCard.scss';
-
-
 export default class LandingAddonsCard extends React.Component {
   static propTypes = {
     addons: PropTypes.array.isRequired,
@@ -23,11 +20,7 @@ export default class LandingAddonsCard extends React.Component {
       ...footerLink,
       query: convertFiltersToQueryParams(footerLink.query),
     };
-    const footer = (
-      <Link className="LandingAddonsCard-more-link" to={linkSearchURL}>
-        {footerText}
-      </Link>
-    );
+    const footer = <Link to={linkSearchURL}>{footerText}</Link>;
 
     return (
       <AddonsCard className={classNames('LandingAddonsCard', className)}

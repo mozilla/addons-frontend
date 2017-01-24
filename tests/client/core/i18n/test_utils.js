@@ -391,15 +391,11 @@ describe('i18n utils', () => {
   });
 
   describe('makeI18n', () => {
-    let FakeJed;
-
-    before(() => {
-      FakeJed = class {
-        constructor(i18nData) {
-          return i18nData;
-        }
-      };
-    });
+    class FakeJed {
+      constructor(i18nData) {
+        return i18nData;
+      }
+    }
 
     beforeEach(() => {
       // FIXME: Our moment is not immutable so we reset it before each test.
@@ -411,9 +407,14 @@ describe('i18n utils', () => {
 
     it('adds a localised moment to the i18n object', () => {
       const i18nData = {};
-      const i18n = utils.makeI18n(i18nData, FakeJed);
+      const i18n = utils.makeI18n(i18nData, 'en-US', FakeJed);
       assert.ok(i18n.moment);
       assert.typeOf(i18n.moment, 'function');
+    });
+
+    it('exposes the lang', () => {
+      const i18n = utils.makeI18n({}, 'af', FakeJed);
+      assert.equal(i18n.lang, 'af');
     });
 
     it('tries to localise moment', () => {
@@ -423,7 +424,7 @@ describe('i18n utils', () => {
           locale_data: { messages: { '': { lang: 'fr' } } },
         },
       };
-      const i18n = utils.makeI18n(i18nData, FakeJed);
+      const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
       assert.equal(i18n.moment.locale(), 'fr');
     });
 
@@ -435,8 +436,18 @@ describe('i18n utils', () => {
         },
       };
 
-      const i18n = utils.makeI18n(i18nData, FakeJed);
+      const i18n = utils.makeI18n(i18nData, 'en', FakeJed);
       assert.equal(i18n.moment.locale(), 'en');
+    });
+
+    it('formats a number', () => {
+      const i18n = utils.makeI18n({}, 'en', FakeJed);
+      assert.equal(i18n.formatNumber(9518231), '9,518,231');
+    });
+
+    it('localised formatting a number', () => {
+      const i18n = utils.makeI18n({}, 'de', FakeJed);
+      assert.equal(i18n.formatNumber(9518231), '9.518.231');
     });
   });
 });

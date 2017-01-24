@@ -183,14 +183,17 @@ export function makeMomentLocale(locale) {
 
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.
-export function makeI18n(i18nData, _Jed = Jed) {
+export function makeI18n(i18nData, lang, _Jed = Jed) {
   const i18n = new _Jed(i18nData);
+  i18n.lang = lang;
+
+  i18n.formatNumber = (number) => number.toLocaleString(lang);
 
   // This adds the correct moment locale for the active locale so we can get
   // localised dates, times, etc.
   if (i18n.options && typeof i18n.options._momentDefineLocale === 'function') {
     i18n.options._momentDefineLocale();
-    moment.locale(makeMomentLocale(i18n.options.locale_data.messages[''].lang));
+    moment.locale(makeMomentLocale(i18n.lang));
   }
 
   // We add a translated "moment" property to our `i18n` object

@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
@@ -15,6 +16,10 @@ import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import ServerHtml from 'core/containers/ServerHtml';
+import {
+  getErrorMsg,
+  getReduxConnectError,
+} from 'core/resourceErrors/reduxConnectErrors';
 import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setClientApp, setLang, setJWT } from 'core/actions';
@@ -35,18 +40,28 @@ const version = path.join(config.get('basePath'), 'version.json');
 const isDeployed = config.get('isDeployed');
 const isDevelopment = config.get('isDevelopment');
 
-const errorPageText = {
-  401: 'Unauthorized',
-  404: 'Not Found',
-  500: 'Internal Server Error',
-};
+function getNoScriptStyles({ appName }) {
+  const cssPath = path.join(config.get('basePath'), `src/${appName}/noscript.css`);
+  try {
+    return fs.readFileSync(cssPath);
+  } catch (e) {
+    if (e.code !== 'ENOENT') {
+      log.info(`noscript styles could not be parsed from ${cssPath}`);
+    } else {
+      log.debug(`noscript styles not found at ${cssPath}`);
+    }
+  }
+  return undefined;
+}
 
 function showErrorPage(res, status) {
-  const _status = status.toString();
-  if (Object.keys(errorPageText).includes(_status)) {
-    return res.status(_status).end(errorPageText[_status]);
+  let adjustedStatus = status;
+  let error = getErrorMsg(adjustedStatus);
+  if (!error) {
+    adjustedStatus = 500;
+    error = getErrorMsg(adjustedStatus);
   }
-  return res.status('500').end(errorPageText['500']);
+  return res.status(adjustedStatus).end(error);
 }
 
 const appName = config.get('appName');
@@ -82,7 +97,20 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   app.use(helmet.xssFilter());
 
   // CSP configuration.
-  app.use(helmet.contentSecurityPolicy(config.get('CSP')));
+  const csp = config.get('CSP');
+  const noScriptStyles = getNoScriptStyles({ appName: appInstanceName });
+  if (csp) {
+    if (noScriptStyles) {
+      const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
+      const cspValue = `'sha256-${hash}'`;
+      if (!csp.directives.styleSrc.includes(cspValue)) {
+        csp.directives.styleSrc.push(cspValue);
+      }
+    }
+    app.use(helmet.contentSecurityPolicy(csp));
+  } else {
+    log.warn('CSP has been disabled from the config');
+  }
 
   if (config.get('enableNodeStatics')) {
     app.use(Express.static(path.join(config.get('basePath'), 'dist')));
@@ -171,6 +199,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           htmlLang: lang,
           htmlDir: dir,
           includeSri: isDeployed,
+          noScriptStyles,
           sriData,
           store,
           trackingEnabled: convertBoolean(config.get('trackingEnabled')),
@@ -204,7 +233,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             log.info(
               `Falling back to default lang: "${config.get('defaultLang')}".`);
           }
-          const i18n = makeI18n(i18nData);
+          const i18n = makeI18n(i18nData, lang);
 
           const InitialComponent = (
             <I18nProvider i18n={i18n}>
@@ -215,21 +244,9 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           );
 
           const asyncConnectLoadState = store.getState().reduxAsyncConnect.loadState || {};
-
-          // Create a list of any apiErrors detected.
-          const apiErrors = Object.keys(asyncConnectLoadState)
-            .map((item) => asyncConnectLoadState[item].error)
-            .filter((item) => item);
-
-          if (apiErrors.length === 1) {
-            // If we have a single API error reflect that in the page's response.
-            const apiStatus = apiErrors[0].response.status;
-            return showErrorPage(res, apiStatus);
-          } else if (apiErrors.length > 1) {
-            // Otherwise we have multiple api errors it should be logged
-            // and throw a 500.
-            log.error(apiErrors);
-            return showErrorPage(res, 500);
+          const reduxResult = getReduxConnectError(asyncConnectLoadState);
+          if (reduxResult.status) {
+            return showErrorPage(res, reduxResult.status);
           }
 
           return hydrateOnClient({ component: InitialComponent });

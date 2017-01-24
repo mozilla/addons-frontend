@@ -1,0 +1,8 @@
+/* !important is needed to show the button, make sure switch is hidden */
+.InstallButton .InstallButton-button {
+  display: inline-block !important;
+}
+
+.InstallButton .InstallButton-switch {
+  display: none !important;
+}

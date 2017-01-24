@@ -12,6 +12,7 @@ import SearchForm from 'amo/components/SearchForm';
 import { addChangeListeners } from 'core/addonManager';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
+import { handleResourceErrors } from 'core/resourceErrors/decorator';
 import translate from 'core/i18n/translate';
 import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';
@@ -70,8 +71,14 @@ export class AppBase extends React.Component {
 
   render() {
     const {
-      FooterComponent, InfoDialogComponent, MastHeadComponent, children,
-      clientApp, i18n, lang, location,
+      FooterComponent,
+      InfoDialogComponent,
+      MastHeadComponent,
+      children,
+      clientApp,
+      i18n,
+      lang,
+      location,
     } = this.props;
     const isHomePage = Boolean(location.pathname && location.pathname.match(
       new RegExp(`^\\/${lang}\\/${clientApp}\\/?$`)));
@@ -114,6 +121,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default compose(
+  handleResourceErrors,
   connect(setupMapStateToProps(), mapDispatchToProps),
   translate({ withRef: true }),
 )(AppBase);
