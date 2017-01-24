@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-11-01 10:47+0000\n"
+"POT-Creation-Date: 2017-01-24 12:23+0000\n"
 "PO-Revision-Date: 2016-10-23 22:57+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,99 +14,108 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:49
+#: src/core/components/InstallButton/index.js:42
+#, fuzzy
+msgid "Install Theme"
+msgstr "ইন্সটল"
+
+#: src/core/components/InstallButton/index.js:48
+msgid "Add to Firefox"
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
 msgstr "%(name)s ডাউনলোডিং"
 
-#: src/core/components/InstallButton/index.js:52
+#: src/core/components/InstallSwitch/index.js:52
 msgid "Installing %(name)s."
 msgstr "%(name)s ইন্সটলিং।"
 
-#: src/core/components/InstallButton/index.js:56
+#: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s ইন্সটল এবং চালুকৃত। অনইন্সটল করতে ক্লিক করুন।"
 
-#: src/core/components/InstallButton/index.js:59
+#: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s disabled। enable করতে ক্লিক করুন।"
 
-#: src/core/components/InstallButton/index.js:62
+#: src/core/components/InstallSwitch/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s আনইন্সটলিং।"
 
-#: src/core/components/InstallButton/index.js:65
+#: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s আনইন্সটলড। ইন্সটল করতে ক্লিক করুন।"
 
-#: src/core/components/InstallButton/index.js:68
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s এর ইন্সটল অবস্থা অজানা।"
 
-#: src/disco/components/Addon.js:128
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"
-
-#: src/disco/components/Addon.js:138
-msgid "Hover over the image to preview"
-msgstr "ছবির উপর মাউস ঘুরান প্রিভিউ দেখতে"
-
-#: src/disco/components/Addon.js:153
-msgid "Installation failed. Please try again."
-msgstr "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
-
-#: src/disco/components/Addon.js:155
-msgid "Download failed. Please check your connection."
-msgstr "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
-
-#: src/disco/components/Addon.js:157
-msgid "An unexpected error occurred during installation."
-msgstr "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
-
-#: src/disco/components/Addon.js:159
-msgid "An unexpected error occurred during uninstallation."
-msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
-
-#: src/disco/components/Addon.js:162
-msgid "An unexpected error occurred."
-msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
-
-#: src/disco/components/Addon.js:170
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
-
-#: src/disco/components/Addon.js:172
-msgid "Please restart Firefox to use this add-on."
-msgstr "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
-
-#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
+#: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
 msgstr "আপনার এড-অন এখন প্রস্তুত"
 
-#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
+#: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "আপনি এখন টুলবার থেকে %(name)s এ প্রবেশ করতে পারেন।"
 
-#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
+#: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
 msgstr "ওকে!"
 
-#: src/disco/components/Addon.js:98
+#: src/disco/components/Addon.js:107
+msgid "Hover over the image to preview"
+msgstr "ছবির উপর মাউস ঘুরান প্রিভিউ দেখতে"
+
+#: src/disco/components/Addon.js:128
+msgid "Installation failed. Please try again."
+msgstr "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
+
+#: src/disco/components/Addon.js:130
+msgid "Download failed. Please check your connection."
+msgstr "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
+
+#: src/disco/components/Addon.js:132
+msgid "An unexpected error occurred during installation."
+msgstr "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
+
+#: src/disco/components/Addon.js:134
+msgid "An unexpected error occurred during uninstallation."
+msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
+
+#: src/disco/components/Addon.js:137
+msgid "An unexpected error occurred."
+msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
+
+#: src/disco/components/Addon.js:145
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
+
+#: src/disco/components/Addon.js:147
+msgid "Please restart Firefox to use this add-on."
+msgstr "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
+
+#: src/disco/components/Addon.js:67
 msgid "Close"
 msgstr "বন্ধ"
+
+#: src/disco/components/Addon.js:97
+msgid "Hover to preview or click to install %(name)s"
+msgstr "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr "আরো এড-অন আবিষ্কার করুন"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:105
 msgid "Click to play"
 msgstr "চালু করতে ক্লিক করুন"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:106
 msgid "to find out more about add-ons"
 msgstr "এড-অন সম্বন্ধে আরো খুঁজুন"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:115
 msgid "Close video"
 msgstr "ভিডিওটি বন্ধ করুন"
 
@@ -114,11 +123,11 @@ msgstr "ভিডিওটি বন্ধ করুন"
 msgid "See more add-ons!"
 msgstr "আরো এড-ওন দেখুন!"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:96
 msgid "Personalize Your Firefox"
 msgstr "আপনার Firefox ব্যক্তিগত করুন"
 
-#: src/disco/containers/DiscoPane.js:99
+#: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
 "the world, that you can install to personalize your Firefox. From fun visual "
@@ -134,6 +143,3 @@ msgstr ""
 "শক্তিশালী টুল রয়েছে যা ব্রাউজিং কে করবে দ্রুত ও নিরাপদ, অ্যাড-অন ব্রাউজারকে করবে "
 "একান্তই আপনার। সহজে আরম্ভ করতে, আমরা কিছু অ্যাড-অন কার্যক্ষমতা ও ফাংশনালিটির উপর "
 "ভিত্তি করে এখানে সুপারিশ করছি।"
-
-#~ msgid "Install"
-#~ msgstr "ইন্সটল"

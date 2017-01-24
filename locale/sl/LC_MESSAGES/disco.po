@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-11-01 10:47+0000\n"
+"POT-Creation-Date: 2017-01-24 12:23+0000\n"
 "PO-Revision-Date: 2016-09-01 16:37+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,100 +15,109 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:49
+#: src/core/components/InstallButton/index.js:42
+#, fuzzy
+msgid "Install Theme"
+msgstr "Namesti"
+
+#: src/core/components/InstallButton/index.js:48
+msgid "Add to Firefox"
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
 msgstr "Prenašanje %(name)s."
 
-#: src/core/components/InstallButton/index.js:52
+#: src/core/components/InstallSwitch/index.js:52
 msgid "Installing %(name)s."
 msgstr "Nameščanje %(name)s."
 
-#: src/core/components/InstallButton/index.js:56
+#: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s je nameščen in omogočen. Kliknite za odstranjevanje."
 
-#: src/core/components/InstallButton/index.js:59
+#: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s je onemogočen. Kliknite, da ga omogočite."
 
-#: src/core/components/InstallButton/index.js:62
+#: src/core/components/InstallSwitch/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr "Odstranjevanje %(name)s."
 
-#: src/core/components/InstallButton/index.js:65
+#: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s je bil odstranjen. Kliknite za namestitev."
 
-#: src/core/components/InstallButton/index.js:68
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr "Ni znano, ali je %(name)s nameščen ali ne."
 
-#: src/disco/components/Addon.js:128
-msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
-
-#: src/disco/components/Addon.js:138
-msgid "Hover over the image to preview"
-msgstr "Premaknite miško nad sliko za predogled"
-
-#: src/disco/components/Addon.js:153
-msgid "Installation failed. Please try again."
-msgstr "Namestitev ni uspela. Poskusite znova."
-
-#: src/disco/components/Addon.js:155
-msgid "Download failed. Please check your connection."
-msgstr "Prenos ni uspel. Preverite svojo povezavo."
-
-#: src/disco/components/Addon.js:157
-msgid "An unexpected error occurred during installation."
-msgstr "Med nameščanjem je prišlo do nepričakovane napake."
-
-#: src/disco/components/Addon.js:159
-msgid "An unexpected error occurred during uninstallation."
-msgstr "Med odstranjevanjem je prišlo do nepričakovane napake."
-
-#: src/disco/components/Addon.js:162
-msgid "An unexpected error occurred."
-msgstr "Prišlo je do nepričakovane napake."
-
-#: src/disco/components/Addon.js:170
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Dodatek bo odstranjen po ponovnem zagonu Firefoxa."
-
-#: src/disco/components/Addon.js:172
-msgid "Please restart Firefox to use this add-on."
-msgstr "Ponovno zaženite Firefox za uporabo tega dodatka."
-
-#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
+#: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
 msgstr "Vaš dodatek je pripravljen"
 
-#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
+#: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Sedaj lahko do %(name)s dostopate iz orodne vrstice."
 
-#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
+#: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
 msgstr "V redu!"
 
-#: src/disco/components/Addon.js:98
+#: src/disco/components/Addon.js:107
+msgid "Hover over the image to preview"
+msgstr "Premaknite miško nad sliko za predogled"
+
+#: src/disco/components/Addon.js:128
+msgid "Installation failed. Please try again."
+msgstr "Namestitev ni uspela. Poskusite znova."
+
+#: src/disco/components/Addon.js:130
+msgid "Download failed. Please check your connection."
+msgstr "Prenos ni uspel. Preverite svojo povezavo."
+
+#: src/disco/components/Addon.js:132
+msgid "An unexpected error occurred during installation."
+msgstr "Med nameščanjem je prišlo do nepričakovane napake."
+
+#: src/disco/components/Addon.js:134
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Med odstranjevanjem je prišlo do nepričakovane napake."
+
+#: src/disco/components/Addon.js:137
+msgid "An unexpected error occurred."
+msgstr "Prišlo je do nepričakovane napake."
+
+#: src/disco/components/Addon.js:145
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "Dodatek bo odstranjen po ponovnem zagonu Firefoxa."
+
+#: src/disco/components/Addon.js:147
+msgid "Please restart Firefox to use this add-on."
+msgstr "Ponovno zaženite Firefox za uporabo tega dodatka."
+
+#: src/disco/components/Addon.js:67
 msgid "Close"
 msgstr "Zapri"
+
+#: src/disco/components/Addon.js:97
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
+"Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr "Odkrijte dodatke"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:105
 msgid "Click to play"
 msgstr "Kliknite za predvajanje"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:106
 msgid "to find out more about add-ons"
 msgstr "in odkrijte več o dodatkih"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:115
 msgid "Close video"
 msgstr "Zapri video"
 
@@ -116,11 +125,11 @@ msgstr "Zapri video"
 msgid "See more add-ons!"
 msgstr "Oglejte si več dodatkov"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:96
 msgid "Personalize Your Firefox"
 msgstr "Prikrojite Firefox po svoji meri"
 
-#: src/disco/containers/DiscoPane.js:99
+#: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
 "the world, that you can install to personalize your Firefox. From fun visual "
@@ -136,9 +145,6 @@ msgstr ""
 "napravijo vaše brskanje hitrejše in varnejše — dodatki naredijo vaš Firefox "
 "čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi "
 "izredne zmogljivosti in uporabnosti."
-
-#~ msgid "Install"
-#~ msgstr "Namesti"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Nameščen in dodan v orodno vrstico"

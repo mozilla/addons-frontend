@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-11-01 10:47+0000\n"
+"POT-Creation-Date: 2017-01-24 12:23+0000\n"
 "PO-Revision-Date: 2016-08-01 20:02+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
@@ -14,99 +14,108 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:49
+#: src/core/components/InstallButton/index.js:42
+#, fuzzy
+msgid "Install Theme"
+msgstr "Asenna"
+
+#: src/core/components/InstallButton/index.js:48
+msgid "Add to Firefox"
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
 msgstr "Ladataan %(name)s."
 
-#: src/core/components/InstallButton/index.js:52
+#: src/core/components/InstallSwitch/index.js:52
 msgid "Installing %(name)s."
 msgstr "Asennetaan %(name)s."
 
-#: src/core/components/InstallButton/index.js:56
+#: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:59
+#: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:62
+#: src/core/components/InstallSwitch/index.js:62
 msgid "Uninstalling %(name)s."
 msgstr "Poistetaan %(name)s asennus."
 
-#: src/core/components/InstallButton/index.js:65
+#: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:68
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
-#: src/disco/components/Addon.js:128
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Esikatsele %(name)s osoittamalla tai asenna se napsauttamalla"
-
-#: src/disco/components/Addon.js:138
-msgid "Hover over the image to preview"
-msgstr "Esikatsele osoittamalla kuvaa"
-
-#: src/disco/components/Addon.js:153
-msgid "Installation failed. Please try again."
-msgstr "Asennus epäonnistui. Yritä uudestaan."
-
-#: src/disco/components/Addon.js:155
-msgid "Download failed. Please check your connection."
-msgstr "Lataus epäonnistui. Tarkista verkkoyhteys."
-
-#: src/disco/components/Addon.js:157
-msgid "An unexpected error occurred during installation."
-msgstr "Asennuksessa tapahtui odottamaton virhe."
-
-#: src/disco/components/Addon.js:159
-msgid "An unexpected error occurred during uninstallation."
-msgstr "Asennuksen poistossa tapahtui odottamaton virhe."
-
-#: src/disco/components/Addon.js:162
-msgid "An unexpected error occurred."
-msgstr "Tapahtui odottamaton virhe."
-
-#: src/disco/components/Addon.js:170
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Tämä lisäosa poistetaan, kun käynnistät Firefoxin uudestaan."
-
-#: src/disco/components/Addon.js:172
-msgid "Please restart Firefox to use this add-on."
-msgstr "Käynnistä Firefox uudestaan, jotta voit käyttää tätä lisäosaa."
-
-#: src/disco/components/Addon.js:300 src/disco/components/InfoDialog.js:29
+#: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
 msgstr "Lisäosasi on valmis"
 
-#: src/disco/components/Addon.js:302 src/disco/components/InfoDialog.js:31
+#: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
 msgstr ""
 
-#: src/disco/components/Addon.js:304 src/disco/components/InfoDialog.js:36
+#: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:98
+#: src/disco/components/Addon.js:107
+msgid "Hover over the image to preview"
+msgstr "Esikatsele osoittamalla kuvaa"
+
+#: src/disco/components/Addon.js:128
+msgid "Installation failed. Please try again."
+msgstr "Asennus epäonnistui. Yritä uudestaan."
+
+#: src/disco/components/Addon.js:130
+msgid "Download failed. Please check your connection."
+msgstr "Lataus epäonnistui. Tarkista verkkoyhteys."
+
+#: src/disco/components/Addon.js:132
+msgid "An unexpected error occurred during installation."
+msgstr "Asennuksessa tapahtui odottamaton virhe."
+
+#: src/disco/components/Addon.js:134
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Asennuksen poistossa tapahtui odottamaton virhe."
+
+#: src/disco/components/Addon.js:137
+msgid "An unexpected error occurred."
+msgstr "Tapahtui odottamaton virhe."
+
+#: src/disco/components/Addon.js:145
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "Tämä lisäosa poistetaan, kun käynnistät Firefoxin uudestaan."
+
+#: src/disco/components/Addon.js:147
+msgid "Please restart Firefox to use this add-on."
+msgstr "Käynnistä Firefox uudestaan, jotta voit käyttää tätä lisäosaa."
+
+#: src/disco/components/Addon.js:67
 msgid "Close"
 msgstr "Sulje"
+
+#: src/disco/components/Addon.js:97
+msgid "Hover to preview or click to install %(name)s"
+msgstr "Esikatsele %(name)s osoittamalla tai asenna se napsauttamalla"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
 msgstr "Löydä lisäosia"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:105
 msgid "Click to play"
 msgstr "Toista painamalla"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:106
 msgid "to find out more about add-ons"
 msgstr "saadaksesi lisätietoja lisäosista"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:115
 msgid "Close video"
 msgstr "Sulje video"
 
@@ -114,11 +123,11 @@ msgstr "Sulje video"
 msgid "See more add-ons!"
 msgstr "Katso lisää lisäosia!"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:96
 msgid "Personalize Your Firefox"
 msgstr "Mukauta Firefoxiasi"
 
-#: src/disco/containers/DiscoPane.js:99
+#: src/disco/containers/DiscoPane.js:97
 #, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
@@ -133,9 +142,6 @@ msgstr ""
 "Firefoxille on tuhansia lisäosia, joilla teet siitä omanlaisesi – kaikkea "
 "hauskoista teemoista tehokkaisiin työkaluihin ja ominaisuuksiin. Tässä on "
 "muutamia hyviä lisäosia katsottavaksi."
-
-#~ msgid "Install"
-#~ msgstr "Asenna"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Asennettu ja lisätty työkalupalkkiin"
