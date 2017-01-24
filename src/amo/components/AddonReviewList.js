@@ -64,8 +64,12 @@ export class AddonReviewListBase extends React.Component {
             </Link>
           </div>
           <div className="AddonReviewList-header-text">
-            <h1>{i18n.gettext('All written reviews')}</h1>
-            <h2><Link to={this.addonURL()}>{addon.name}</Link></h2>
+            <h1 className="visually-hidden">
+              {i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'),
+                            { addonName: addon.name })}
+            </h1>
+            <h2>{i18n.gettext('All written reviews')}</h2>
+            <h3><Link to={this.addonURL()}>{addon.name}</Link></h3>
           </div>
         </div>
         <CardList>

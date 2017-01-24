@@ -128,6 +128,13 @@ describe('amo/components/AddonReviewList', () => {
       const img = root.querySelector('.AddonReviewList-header-icon img');
       assert.equal(img.src, fakeAddon.icon_url);
     });
+
+    it('renders a hidden h1 for SEO', () => {
+      const root = renderToDOM({ addon: fakeAddon });
+      const h1 = root.querySelector('.AddonReviewList-header h1');
+      assert.equal(h1.className, 'visually-hidden');
+      assert.equal(h1.textContent, `Reviews for ${fakeAddon.name}`);
+    });
   });
 
   describe('loadAddonReviews', () => {

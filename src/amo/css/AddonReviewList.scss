@@ -9,17 +9,17 @@
   display: flex;
 
   .AddonReviewList-header-text {
-    > h1,
-    > h2 {
+    > h2,
+    > h3 {
       font-size: 1.1em;
     }
 
-    > h1 {
+    > h2 {
       padding-top: 10px;
       margin: 0 0 5px;
     }
 
-    > h2 {
+    > h3 {
       font-weight: normal;
       margin: 0;
     }
