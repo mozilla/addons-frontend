@@ -26,10 +26,12 @@ export class AppBase extends React.Component {
     MastHeadComponent: PropTypes.node.isRequired,
     _addChangeListeners: PropTypes.func,
     children: PropTypes.node,
+    clientApp: PropTypes.string.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
     handleLogIn: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool,
+    lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
   }
@@ -73,15 +75,21 @@ export class AppBase extends React.Component {
       InfoDialogComponent,
       MastHeadComponent,
       children,
+      clientApp,
       i18n,
+      lang,
       location,
     } = this.props;
+    const isHomePage = Boolean(location.pathname && location.pathname.match(
+      new RegExp(`^\\/${lang}\\/${clientApp}\\/?$`)));
     const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         <InfoDialogComponent />
-        <MastHeadComponent SearchFormComponent={SearchForm} query={query}>
+        <MastHeadComponent SearchFormComponent={SearchForm}
+          isHomePage={isHomePage} query={query}
+          ref={(ref) => { this.mastHead = ref; }}>
           {this.accountButton()}
         </MastHeadComponent>
         <div className="App-content">
@@ -95,11 +103,13 @@ export class AppBase extends React.Component {
 }
 
 export const setupMapStateToProps = (_window) => (state) => ({
+  clientApp: state.api.application,
   isAuthenticated: !!state.auth.token,
   handleLogIn(location) {
     // eslint-disable-next-line no-param-reassign
     (_window || window).location = startLoginUrl({ location });
   },
+  lang: state.api.lang,
 });
 
 export function mapDispatchToProps(dispatch) {

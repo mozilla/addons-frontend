@@ -123,6 +123,42 @@ describe('App', () => {
     assert.ok(fakeWindow.location.reload.called);
   });
 
+  it('sets isHomePage to true when on the root path', () => {
+    const location = { pathname: '/en-GB/android/' };
+    const root = renderIntoDocument(<AppBase i18n={getFakeI18nInst()}
+      FooterComponent={FakeFooterComponent}
+      InfoDialogComponent={FakeInfoDialogComponent}
+      MastHeadComponent={FakeMastHeadComponent}
+      SearchFormComponent={FakeSearchFormComponent}
+      clientApp="android" lang="en-GB" location={location} />);
+
+    assert.isTrue(root.mastHead.props.isHomePage);
+  });
+
+  it('sets isHomePage to true when on the root path without a slash', () => {
+    const location = { pathname: '/en-GB/android' };
+    const root = renderIntoDocument(<AppBase i18n={getFakeI18nInst()}
+      FooterComponent={FakeFooterComponent}
+      InfoDialogComponent={FakeInfoDialogComponent}
+      MastHeadComponent={FakeMastHeadComponent}
+      SearchFormComponent={FakeSearchFormComponent}
+      clientApp="android" lang="en-GB" location={location} />);
+
+    assert.isTrue(root.mastHead.props.isHomePage);
+  });
+
+  it('sets isHomePage to false when not on the root path', () => {
+    const location = { pathname: '/en-GB/android/404/' };
+    const root = renderIntoDocument(<AppBase i18n={getFakeI18nInst()}
+      FooterComponent={FakeFooterComponent}
+      InfoDialogComponent={FakeInfoDialogComponent}
+      MastHeadComponent={FakeMastHeadComponent}
+      SearchFormComponent={FakeSearchFormComponent}
+      clientApp="android" lang="en-GB" location={location} />);
+
+    assert.isFalse(root.mastHead.props.isHomePage);
+  });
+
   it('sets up a callback for setting add-on status', () => {
     const dispatch = sinon.spy();
     const { handleGlobalEvent } = mapDispatchToProps(dispatch);

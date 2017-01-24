@@ -11,22 +11,26 @@ import './MastHead.scss';
 export class MastHeadBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
+    isHomePage: PropTypes.bool.isRequired,
     i18n: PropTypes.object.isRequired,
-    isHomePage: PropTypes.bool,
     SearchFormComponent: PropTypes.node.isRequired,
     query: PropTypes.string,
   }
 
   static defaultPropTypes = {
-    isHomePage: false,
     SearchFormComponent: SearchForm,
+    isHomePage: false,
   }
 
   render() {
     const {
       SearchFormComponent, children, i18n, isHomePage, query,
     } = this.props;
-    const headerTitle = i18n.gettext('Firefox Add-ons');
+    const headerLink = (
+      <Link className="MastHead-title" to="/">
+        {i18n.gettext('Firefox Add-ons')}
+      </Link>
+    );
 
     return (
       <div className="MastHead">
@@ -36,14 +40,8 @@ export class MastHeadBase extends React.Component {
         {children}
         <header className="MastHead-header">
           {isHomePage
-            ? <h1 ref={(ref) => { this.title = ref; }}
-                className="MastHead-title MastHead-homepage">
-              {headerTitle}
-            </h1>
-            : <Link ref={(ref) => { this.title = ref; }} to="/"
-                className="MastHead-title">
-              {headerTitle}
-            </Link>}
+            ? <h1 className="MastHead-title-wrapper">{headerLink}</h1>
+            : headerLink}
         </header>
         <SearchFormComponent pathname="/search/" query={query} />
       </div>
