@@ -11,12 +11,12 @@ export default class Rating extends React.Component {
     onSelectRating: PropTypes.func,
     rating: PropTypes.number,
     readOnly: PropTypes.boolean,
-    small: PropTypes.boolean,
+    size: PropTypes.oneOf(['small', 'large']),
   }
 
   static defaultProps = {
     readOnly: false,
-    small: false,
+    size: 'large',
   }
 
   constructor(props) {
@@ -66,10 +66,10 @@ export default class Rating extends React.Component {
   }
 
   render() {
-    const { readOnly, small } = this.props;
+    const { readOnly, size } = this.props;
     const cls = classNames('Rating', {
       'Rating--editable': !readOnly,
-      'Rating--small': small,
+      'Rating--small': size === 'small',
     });
 
     return (

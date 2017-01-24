@@ -34,7 +34,7 @@ describe('ui/components/Rating', () => {
   });
 
   it('can be classified as small', () => {
-    const root = render({ small: true });
+    const root = render({ size: 'small' });
     assert.include(root.element.className, 'Rating--small');
   });
 
