@@ -14,6 +14,12 @@ export default class AddonsCard extends React.Component {
     header: PropTypes.node,
   }
 
+  static defaultProps = {
+    children: null,
+    footer: undefined,
+    header: undefined,
+  }
+
   render() {
     const { addons, children, footer, header } = this.props;
 
