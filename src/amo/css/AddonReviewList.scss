@@ -1,0 +1,62 @@
+@import "~amo/css/inc/vars";
+
+.AddonReviewList {
+  padding: 10px;
+}
+
+.AddonReviewList-header {
+  margin: 15px 0;
+  display: flex;
+
+  .AddonReviewList-header-text {
+    > h2,
+    > h3 {
+      font-size: 1.1em;
+    }
+
+    > h2 {
+      padding-top: 10px;
+      margin: 0 0 5px;
+    }
+
+    > h3 {
+      font-weight: normal;
+      margin: 0;
+    }
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: none;
+      color: $primary-font-color;
+      font-weight: normal;
+    }
+  }
+
+  .AddonReviewList-header-icon {
+    margin: 0 20px;
+  }
+}
+
+.AddonReviewList-li {
+  > h3 {
+    padding: 0;
+    margin: 0;
+  }
+
+  > p {
+    margin: 0 0 5px;
+    font-size: $font-size-default;
+  }
+
+  .AddonReviewList-by-line {
+    display: flex;
+    color: $sub-text-color;
+    font-size: $font-size-s;
+  }
+
+  .Rating {
+    margin: 0 5px 0 0;
+  }
+}

@@ -2,6 +2,7 @@ export const fakeAddon = {
   id: 1234,
   guid: '1234@my-addons.firefox',
   name: 'Chill Out',
+  icon_url: 'http://olympia.dev/static/img/addon-icons/webdev-64.png',
   slug: 'chill-out',
   average_daily_users: 100,
   authors: [{
@@ -12,8 +13,13 @@ export const fakeAddon = {
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
+    files: [],
   },
   previews: [],
+  ratings: {
+    count: 10,
+    average: 3.5,
+  },
   summary: 'This is a summary of the chill out add-on',
   description: 'This is a longer description of the chill out add-on',
   has_privacy_policy: true,
@@ -28,14 +34,17 @@ export const fakeReview = {
     id: fakeAddon.id,
     slug: fakeAddon.slug,
   },
+  created: '2017-01-09T21:49:14Z',
   rating: 3,
   version: fakeAddon.current_version,
   user: {
     id: 1234,
+    name: 'fred',
+    url: 'http://some.com/link/to/profile',
   },
   is_latest: false,
   body: 'It is Okay',
-  title: null,
+  title: 'Review Title',
 };
 
 /*

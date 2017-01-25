@@ -1,4 +1,10 @@
-import { getLatestUserReview, getUserReviews, submitReview } from 'amo/api';
+/* eslint-disable arrow-body-style */
+import {
+  getAddonReviews,
+  getLatestUserReview,
+  getUserReviews,
+  submitReview,
+} from 'amo/api';
 import * as api from 'core/api';
 import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 
@@ -157,10 +163,8 @@ describe('amo.api', () => {
           next: '/reviews/next-page/',
         }));
 
-      return getUserReviews({ userId: 123 })
-        .then(() => assert(false, 'unexpected success'), (error) => {
-          assert.match(error.message, /not yet implemented/);
-        });
+      // This will log a warning so just make sure it doesn't throw.
+      return getUserReviews({ userId: 123 });
     });
 
     it('allows you to fetch reviews for a specific add-on', () => {
@@ -178,6 +182,47 @@ describe('amo.api', () => {
         .then((reviews) => {
           assert.deepEqual(reviews, [fakeReview]);
         });
+    });
+  });
+
+  describe('getAddonReviews', () => {
+    it('gets all add-on reviews', () => {
+      const addonSlug = 'ublock';
+      const reviewList = [fakeReview];
+      const response = { results: reviewList };
+      mockApi
+        .expects('callApi')
+        .once()
+        .withArgs({
+          method: 'GET',
+          endpoint: `addons/addon/${addonSlug}/reviews`,
+        })
+        .returns(Promise.resolve(response));
+
+      return getAddonReviews({ addonSlug })
+        .then((reviews) => {
+          mockApi.verify();
+          assert.deepEqual(reviews, reviewList);
+        });
+    });
+
+    it('requires a truthy addonSlug', () => {
+      return getAddonReviews()
+        .then(() => assert(false, 'Unexpected success'), (error) => {
+          assert.match(error.message, /addonSlug cannot be falsey/);
+        });
+    });
+
+    it('does not support paging yet', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({
+          results: [],
+          next: '/reviews/next-page/',
+        }));
+
+      // This will log a warning so just make sure it doesn't throw.
+      return getAddonReviews({ addonSlug: 'ublock' });
     });
   });
 

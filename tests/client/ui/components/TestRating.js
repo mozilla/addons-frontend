@@ -30,8 +30,12 @@ describe('ui/components/Rating', () => {
 
   it('classifies as editable by default', () => {
     const root = render();
-    assert.equal(root.element.className,
-                 'Rating Rating--editable');
+    assert.include(root.element.className, 'Rating--editable');
+  });
+
+  it('can be classified as small', () => {
+    const root = render({ size: 'small' });
+    assert.include(root.element.className, 'Rating--small');
   });
 
   it('lets you select a one star rating', () => {

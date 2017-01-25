@@ -2,16 +2,20 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
   Simulate,
+  scryRenderedComponentsWithType,
   findRenderedComponentWithType,
   renderIntoDocument,
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
+import { match } from 'react-router';
 
 import {
   AddonDetailBase,
   allowedDescriptionTags,
 } from 'amo/components/AddonDetail';
 import AddonMeta from 'amo/components/AddonMeta';
+import Link from 'amo/components/Link';
+import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { ADDON_TYPE_THEME } from 'core/constants';
@@ -330,5 +334,89 @@ describe('AddonDetail', () => {
     const root = render({ addon: { ...fakeAddon, average_daily_users: 25 } });
     const metaData = findRenderedComponentWithType(root, AddonMeta);
     assert.equal(metaData.props.averageDailyUsers, 25);
+  });
+
+  describe('read reviews footer', () => {
+    function reviewFooterDOM({ ratingsCount = 1, ...customProps }) {
+      return renderAsDOMNode({
+        addon: {
+          ...fakeAddon,
+          ratings: {
+            ...fakeAddon.ratings,
+            count: ratingsCount,
+          },
+        },
+        ...customProps,
+      });
+    }
+
+    it('only links to reviews when they exist', () => {
+      const root = reviewFooterDOM({
+        ratingsCount: 0,
+      });
+      const footer =
+        root.querySelector('.AddonDetail-read-reviews-footer');
+      assert.equal(footer.textContent, 'No reviews yet');
+    });
+
+    it('prompts you to read one review', () => {
+      const root = reviewFooterDOM({
+        ratingsCount: 1,
+      });
+      const footer =
+        root.querySelector('.AddonDetail-read-reviews-footer');
+      assert.equal(footer.textContent, 'Read 1 review');
+    });
+
+    it('prompts you to read many reviews', () => {
+      const root = reviewFooterDOM({
+        ratingsCount: 5,
+      });
+      const footer =
+        root.querySelector('.AddonDetail-read-reviews-footer');
+      assert.equal(footer.textContent, 'Read all 5 reviews');
+    });
+
+    it('localizes the review count', () => {
+      const root = reviewFooterDOM({
+        ratingsCount: 10000,
+      });
+      const footer =
+        root.querySelector('.AddonDetail-read-reviews-footer');
+      assert.include(footer.textContent, '10,000');
+    });
+
+    it('links to all reviews', () => {
+      const root = render({
+        addon: {
+          ...fakeAddon,
+          ratings: {
+            ...fakeAddon.ratings,
+            count: 2,
+          },
+        },
+      });
+      const allLinks = scryRenderedComponentsWithType(root, Link)
+        .filter((component) =>
+          component.props.className === 'AddonDetail-all-reviews-link');
+      assert.equal(allLinks.length, 1);
+
+      const link = allLinks[0];
+      const path = link.props.to;
+      assert.equal(path, '/addon/chill-out/reviews/');
+
+      return new Promise((resolve, reject) => {
+        match({ location: path, routes }, (error, redirectLocation, props) => {
+          if (error) {
+            return reject(error);
+          }
+          // Check to make sure it is a valid routed path.
+          assert.ok(
+            props,
+            `props was falsey which means the path ${path} is invalid`);
+          return resolve();
+        });
+      });
+    });
   });
 });

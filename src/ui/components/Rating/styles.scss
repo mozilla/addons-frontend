@@ -5,19 +5,17 @@
 }
 
 $star-size: 46px;
+$star-gutter: 10px;
 
 .Rating-choice {
-  background: url('./img/big-star.svg') center/$star-size no-repeat;
-  height: $star-size + 10px;
-  width: $star-size + 10px;
-}
-
-.Rating-selected-star {
-  background-image: url('./img/big-star-selected.svg');
+  background: url('./img/dim-star.svg') center/$star-size no-repeat;
+  height: $star-size + $star-gutter;
+  width: $star-size + $star-gutter;
 }
 
 .Rating--editable {
   .Rating-choice {
+    background-image: url('./img/outlined-star.svg');
     cursor: pointer;
   }
 
@@ -29,11 +27,32 @@ $star-size: 46px;
   .Rating-star-group:hover .Rating-choice,
   // For keyboard navigation, make the focused star appear selected.
   .Rating-choice:focus {
-    background-image: url('./img/big-star-selected.svg');
+    background-image: url('./img/yellow-star.svg');
   }
 
   // Second, de-select all stars to the right of the cursor.
   .Rating-choice:hover ~ .Rating-choice {
-    background-image: url('./img/big-star.svg');
+    background-image: url('./img/outlined-star.svg');
+  }
+}
+
+.Rating-selected-star,
+.Rating--editable .Rating-selected-star {
+  background-image: url('./img/yellow-star.svg');
+}
+
+.Rating--small {
+  $star-size: 13px;
+  $star-gutter: 4px;
+
+  .Rating-star-group {
+    display: flex;
+  }
+
+  .Rating-choice {
+    margin: 0;
+    background-size: $star-size;
+    height: $star-size + $star-gutter;
+    width: $star-size + $star-gutter;
   }
 }

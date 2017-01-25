@@ -1,6 +1,8 @@
-import { SET_REVIEW } from 'amo/constants';
+import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
 
-export const initialState = {};
+export const initialState = {
+  byAddon: {},
+};
 
 function mergeInNewReview(latestReview, oldReviews = {}) {
   const mergedReviews = {};
@@ -23,12 +25,22 @@ export default function reviews(state = initialState, { payload, type }) {
       const existingReviews =
         state[payload.userId] ? state[payload.userId][payload.addonId] : {};
       const latestReview = payload;
+      // TODO: make this consistent by moving it to state.byUser
       return {
         ...state,
         // This is a map of reviews by user ID, addon ID, and review ID.
         [payload.userId]: {
           ...state[payload.userId],
           [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
+        },
+      };
+    }
+    case SET_ADDON_REVIEWS: {
+      return {
+        ...state,
+        byAddon: {
+          ...state.byAddon,
+          [payload.addonSlug]: payload.reviews,
         },
       };
     }
