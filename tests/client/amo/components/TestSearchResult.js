@@ -31,7 +31,11 @@ describe('<SearchResult />', () => {
     name: 'A search result',
     slug: 'a-search-result',
   };
-  const root = renderResult(result);
+  let root;
+
+  beforeEach(() => {
+    root = renderResult(result);
+  });
 
   it('renders the heading', () => {
     const heading = findRenderedDOMComponentWithClass(

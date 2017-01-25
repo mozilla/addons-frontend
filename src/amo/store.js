@@ -8,6 +8,7 @@ import api from 'core/reducers/api';
 import auth from 'core/reducers/authentication';
 import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
+import i18n from 'core/reducers/i18n';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import search from 'core/reducers/search';
@@ -22,6 +23,7 @@ export default function createStore(initialState = {}) {
       auth,
       categories,
       errors,
+      i18n,
       infoDialog,
       installations,
       landing,

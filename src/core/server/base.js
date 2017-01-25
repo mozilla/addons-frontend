@@ -28,9 +28,7 @@ import {
   getDirection,
   isValidLang,
   langToLocale,
-  makeI18n,
 } from 'core/i18n/utils';
-import I18nProvider from 'core/i18n/Provider';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
@@ -233,14 +231,13 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             log.info(
               `Falling back to default lang: "${config.get('defaultLang')}".`);
           }
-          const i18n = makeI18n(i18nData, lang);
+
+          store.dispatch({ type: 'SET_I18N', payload: i18nData });
 
           const InitialComponent = (
-            <I18nProvider i18n={i18n}>
-              <Provider store={store} key="provider">
-                <ReduxAsyncConnect {...renderProps} />
-              </Provider>
-            </I18nProvider>
+            <Provider store={store} key="provider">
+              <ReduxAsyncConnect {...renderProps} />
+            </Provider>
           );
 
           const asyncConnectLoadState = store.getState().reduxAsyncConnect.loadState || {};

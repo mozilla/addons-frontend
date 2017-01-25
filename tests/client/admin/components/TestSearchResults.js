@@ -5,14 +5,14 @@ import {
 } from 'react-addons-test-utils';
 
 import SearchResults from 'admin/components/SearchResults';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import createStore from 'admin/store';
 
 
 describe('<SearchResults />', () => {
   function renderResults(props) {
     return findRenderedComponentWithType(render(
-      <SearchResults i18n={getFakeI18nInst()} {...props} />
-    ), SearchResults).getWrappedInstance();
+      <SearchResults store={createStore()} {...props} />
+    ), SearchResults).getWrappedInstance().getWrappedInstance();
   }
 
   it('renders empty search results container', () => {

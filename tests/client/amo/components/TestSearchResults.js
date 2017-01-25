@@ -7,9 +7,7 @@ import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
 import SearchResults from 'amo/components/SearchResults';
-import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<SearchResults />', () => {
@@ -18,9 +16,7 @@ describe('<SearchResults />', () => {
 
     return findRenderedComponentWithType(render(
       <Provider store={createStore(initialState)}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <SearchResults {...props} />
-        </I18nProvider>
+        <SearchResults {...props} />
       </Provider>
     ), SearchResults).getWrappedInstance();
   }

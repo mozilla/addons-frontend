@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+
+import { makeI18n } from 'core/i18n/utils';
 
 
 function getDisplayName(component) {
@@ -10,14 +13,6 @@ export default function translate(options = {}) {
 
   return function Wrapper(WrappedComponent) {
     class Translate extends Component {
-      constructor(props, context) {
-        super(props, context);
-        this.i18n = context.i18n;
-        this.state = {
-          i18nLoadedAt: null,
-        };
-      }
-
       getWrappedInstance() {
         if (!withRef) {
           throw new Error(dedent`To access the wrapped instance, you need to specify
@@ -49,6 +44,12 @@ export default function translate(options = {}) {
 
     Translate.displayName = `Translate[${getDisplayName(WrappedComponent)}]`;
 
-    return Translate;
+    function mapStateToProps({ api, i18n }) {
+      return {
+        i18n: makeI18n(i18n, api.lang),
+      };
+    }
+
+    return connect(mapStateToProps, undefined, undefined, { withRef: true })(Translate);
   };
 }
