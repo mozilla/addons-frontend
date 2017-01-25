@@ -41,8 +41,9 @@ export default class SearchPage extends React.Component {
     const queryParams = this.props.queryParams ||
       convertFiltersToQueryParams(filters);
     const paginator = count && hasSearchParams > 0 ? (
-      <Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
-        pathname={pathname} queryParams={queryParams} showPages={0} />
+      <Paginate LinkComponent={LinkComponent} count={count}
+        currentPage={page}
+        pathname={pathname} queryParams={queryParams} />
     ) : [];
     const searchSort = hasSearchParams && results.length ? (
       <SearchSort filters={filters} pathname={pathname} />
