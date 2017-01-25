@@ -36,11 +36,15 @@
 }
 
 .SearchResult-rating {
-  background: url('~amo/img/ratings/stars.svg') 0 50% no-repeat;
   display: block;
   height: 18px;
   margin: 0;
   width: 150px;
+
+  .Rating {
+    margin: 0;
+    justify-content: flex-start;
+  }
 }
 
 .SearchResult-author,
