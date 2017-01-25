@@ -4,13 +4,19 @@ import {
   renderIntoDocument,
   Simulate,
 } from 'react-addons-test-utils';
+import { findDOMNode } from 'react-dom';
 
-import Rating from 'ui/components/Rating';
+import { getFakeI18nInst } from 'tests/client/helpers';
+import Rating, { RatingBase } from 'ui/components/Rating';
 
-function render({ ...props } = {}) {
+function render(customProps = {}) {
+  const props = {
+    i18n: getFakeI18nInst(),
+    ...customProps,
+  };
   return findRenderedComponentWithType(renderIntoDocument(
     <Rating {...props} />
-  ), Rating);
+  ), RatingBase);
 }
 
 function makeFakeEvent() {
@@ -92,6 +98,33 @@ describe('ui/components/Rating', () => {
     });
   });
 
+  it('renders selected stars nearest to an average rating', () => {
+    // This should be treated like a rating of 3.
+    const root = render({ rating: 3.6 });
+
+    // Make sure only the first 3 stars are selected.
+    [1, 2, 3].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice Rating-selected-star');
+    });
+    [4, 5].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice');
+    });
+  });
+
+  it('renders 0 selected stars for empty ratings', () => {
+    // This will make dealing with API data easier when
+    // an add-on hasn't been rated enough yet.
+    const root = render({ rating: null });
+
+    // Make sure no stars have the selected class.
+    [1, 2, 3, 4, 5].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice');
+    });
+  });
+
   it('renders all stars as selectable by default', () => {
     const root = render();
     [1, 2, 3, 4, 5].forEach((rating) => {
@@ -99,6 +132,26 @@ describe('ui/components/Rating', () => {
       assert.equal(star.className, 'Rating-choice');
       assert.equal(star.tagName, 'BUTTON');
     });
+  });
+
+  it('renders an accessible description for null stars', () => {
+    const root = render({ rating: null });
+    assert.equal(findDOMNode(root).textContent, 'No ratings');
+  });
+
+  it('renders an accessible description for 0 stars', () => {
+    const root = render({ rating: 0 });
+    assert.equal(findDOMNode(root).textContent, 'No ratings');
+  });
+
+  it('renders an accessible description for 1 star', () => {
+    const root = render({ rating: 1 });
+    assert.equal(findDOMNode(root).textContent, 'Rated 1 star');
+  });
+
+  it('renders an accessible description for multiple star', () => {
+    const root = render({ rating: 2 });
+    assert.equal(findDOMNode(root).textContent, 'Rated 2 stars');
   });
 
   it('renders read-only selected stars', () => {

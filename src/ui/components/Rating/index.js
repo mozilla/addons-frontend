@@ -1,13 +1,16 @@
+import { compose } from 'redux';
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 import log from 'core/logger';
+import translate from 'core/i18n/translate';
 
 import './styles.scss';
 
 
-export default class Rating extends React.Component {
+export class RatingBase extends React.Component {
   static propTypes = {
+    i18n: PropTypes.object.isRequired,
     onSelectRating: PropTypes.func,
     rating: PropTypes.number,
     readOnly: PropTypes.boolean,
@@ -39,7 +42,9 @@ export default class Rating extends React.Component {
   }
 
   renderRatings() {
-    const { readOnly, rating } = this.props;
+    const { readOnly } = this.props;
+    // Accept falsey values as if they are zeroes.
+    const rating = this.props.rating || 0;
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
       const props = {
@@ -66,18 +71,35 @@ export default class Rating extends React.Component {
   }
 
   render() {
-    const { readOnly, size } = this.props;
+    const { i18n, rating, readOnly, size } = this.props;
     const cls = classNames('Rating', {
       'Rating--editable': !readOnly,
       'Rating--small': size === 'small',
     });
+    let description;
+    if (rating) {
+      description = i18n.sprintf(
+        // L10n: This is for showing the star rating of an add-on.
+        i18n.ngettext('Rated %(starCount)s star',
+                      'Rated %(starCount)s stars',
+                      rating),
+        { starCount: rating }
+      );
+    } else {
+      description = i18n.gettext('No ratings');
+    }
 
     return (
       <div className={cls} ref={(ref) => { this.element = ref; }}>
         <span className="Rating-star-group">
           {this.renderRatings()}
+          <span className="visually-hidden">{description}</span>
         </span>
       </div>
     );
   }
 }
+
+export default compose(
+  translate({ withRef: true }),
+)(RatingBase);

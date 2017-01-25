@@ -17,14 +17,6 @@ export class SearchResultBase extends React.Component {
   render() {
     const { addon, i18n } = this.props;
     const averageDailyUsers = addon.average_daily_users;
-
-    const rating = addon.ratings && addon.ratings.average ? (
-      // TODO: round up/down average ratings.
-      <Rating rating={addon.ratings.average} readOnly size="small" />
-    ) : (
-      // TODO: hmm, make this part of Rating?
-      <h3 className="visually-hidden">{i18n.gettext('No ratings')}</h3>
-    );
     return (
       <li className="SearchResult">
         <Link to={`/addon/${addon.slug}/`}
@@ -33,7 +25,9 @@ export class SearchResultBase extends React.Component {
           <section className="SearchResult-main">
             <img className="SearchResult-icon" src={addon.icon_url} alt="" />
             <h2 className="SearchResult-heading">{addon.name}</h2>
-            <div className="SearchResult-rating">{rating}</div>
+            <div className="SearchResult-rating">
+              <Rating rating={addon.ratings.average} readOnly size="small" />
+            </div>
             <h3 className="SearchResult-author">{addon.authors[0].name}</h3>
             <h3 className="SearchResult-users">{i18n.sprintf(
               i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),

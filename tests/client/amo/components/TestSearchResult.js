@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
 import SearchResult from 'amo/components/SearchResult';
+import I18nProvider from 'core/i18n/Provider';
+import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
@@ -17,12 +19,15 @@ describe('<SearchResult />', () => {
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore(initialState)}>
-        <SearchResult i18n={getFakeI18nInst({ lang })} addon={result} />
+        <I18nProvider i18n={getFakeI18nInst({ lang })}>
+          <SearchResult addon={result} />
+        </I18nProvider>
       </Provider>
     ), SearchResult).getWrappedInstance();
   }
 
   const result = {
+    ...fakeAddon,
     authors: [
       { name: 'A funky déveloper' },
       { name: 'A groovy developer' },
@@ -72,5 +77,11 @@ describe('<SearchResult />', () => {
 
   it('links to the detail page', () => {
     assert.equal(root.name.props.to, '/addon/a-search-result/');
+  });
+
+  it('renders the star ratings', () => {
+    const node = findRenderedDOMComponentWithClass(root, 'Rating');
+    assert.equal(node.textContent,
+                 `Rated ${fakeAddon.ratings.average} stars`);
   });
 });
