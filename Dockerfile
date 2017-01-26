@@ -4,21 +4,19 @@ FROM node:6-slim
 RUN mkdir -p /srv/node
 ADD package.json /srv/node/
 WORKDIR /srv/node
-# Let's just see if this works at all.
-RUN npm install -g npm@3
-RUN npm install
 
-#RUN buildDeps=' \
-#    git \
-#    ' && \
-#    # install deps
-#    apt-get update -y && \
-#    apt-get install -y --no-install-recommends $buildDeps && \
-#	npm install -g npm@3 && \
-#	npm install && npm cache clean && \
-#    # cleanup
-#    # apt-get purge -y $buildDeps && \
-#    rm -rf /var/lib/apt/lists/*
+RUN echo "NODE_PATH:" $NODE_PATH
+RUN buildDeps=' \
+    git \
+    ' && \
+    # install deps
+    apt-get update -y && \
+    apt-get install -y --no-install-recommends $buildDeps && \
+	npm install -g npm@3 && \
+	npm install && npm cache clean && \
+    # cleanup
+    # apt-get purge -y $buildDeps && \
+    rm -rf /var/lib/apt/lists/*
 
 ADD . /srv/code/
 WORKDIR /srv/code
