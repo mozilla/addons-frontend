@@ -12,7 +12,7 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
-import { apiAddonType } from 'core/utils';
+import { apiAddonType, visibleAddonType } from 'core/utils';
 import translate from 'core/i18n/translate';
 
 import './LandingPage.scss';
@@ -33,10 +33,8 @@ export class LandingPageBase extends React.Component {
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
         featuredHeader: i18n.gettext('Featured extensions'),
-        // TODO: Add this search/route, see:
-        // https://github.com/mozilla/addons-frontend/issues/1535
         featuredFooterLink: {
-          pathname: '#/extensions/featured',
+          pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
           query: { addonType: ADDON_TYPE_EXTENSION },
         },
         featuredFooterText: i18n.gettext('More featured extensions'),
@@ -55,10 +53,8 @@ export class LandingPageBase extends React.Component {
       },
       [ADDON_TYPE_THEME]: {
         featuredHeader: i18n.gettext('Featured themes'),
-        // TODO: Add this search/route, see:
-        // https://github.com/mozilla/addons-frontend/issues/1535
         featuredFooterLink: {
-          pathname: '#/themes/featured',
+          pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
           query: { addonType: ADDON_TYPE_THEME },
         },
         featuredFooterText: i18n.gettext('More featured themes'),
