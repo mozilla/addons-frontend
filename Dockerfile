@@ -12,7 +12,7 @@ RUN buildDeps=' \
     apt-get update -y && \
     apt-get install -y --no-install-recommends $buildDeps && \
 	npm install -g npm@3 && \
-	npm install && npm cache clean && \
+	npm install && \
     # cleanup
     # apt-get purge -y $buildDeps && \
     rm -rf /var/lib/apt/lists/*
