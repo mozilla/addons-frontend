@@ -12,7 +12,7 @@ import './MastHead.scss';
 export class MastHeadBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-    isHomePage: PropTypes.bool,
+    isHomePage: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
     SearchFormComponent: PropTypes.node.isRequired,
     query: PropTypes.string,
