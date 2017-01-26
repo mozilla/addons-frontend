@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import translate from 'core/i18n/translate';
 
 import 'mozilla-tabzilla/css/_tabzilla.scss';
@@ -10,9 +11,9 @@ import './MastHead.scss';
 
 export class MastHeadBase extends React.Component {
   static propTypes = {
-    children: PropTypes.node,
-    isHomePage: PropTypes.bool.isRequired,
     i18n: PropTypes.object.isRequired,
+    isHomePage: PropTypes.bool,
+    location: PropTypes.object.isRequired,
     SearchFormComponent: PropTypes.node.isRequired,
     query: PropTypes.string,
   }
@@ -23,9 +24,7 @@ export class MastHeadBase extends React.Component {
   }
 
   render() {
-    const {
-      SearchFormComponent, children, i18n, isHomePage, query,
-    } = this.props;
+    const { SearchFormComponent, i18n, isHomePage, location, query } = this.props;
     const headerLink = (
       <Link className="MastHead-title" to="/">
         {i18n.gettext('Firefox Add-ons')}
@@ -34,10 +33,12 @@ export class MastHeadBase extends React.Component {
 
     return (
       <div className="MastHead">
-        <div id="tabzilla">
-          <a href="https://www.mozilla.org">Mozilla</a>
+        <div className="MastHead-top-row">
+          <div id="tabzilla">
+            <a href="https://www.mozilla.org">Mozilla</a>
+          </div>
+          <AuthenticateButton className="MastHead-auth-button" size="small" location={location} />
         </div>
-        {children}
         <header className="MastHead-header">
           {isHomePage
             ? <h1 className="MastHead-title-wrapper">{headerLink}</h1>

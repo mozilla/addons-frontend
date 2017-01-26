@@ -1,11 +1,6 @@
-import config from 'config';
 import React from 'react';
-import cookie from 'react-cookie';
 import { findDOMNode } from 'react-dom';
-import {
-  renderIntoDocument,
-  Simulate,
-} from 'react-addons-test-utils';
+import { renderIntoDocument } from 'react-addons-test-utils';
 import { loadFail as reduxConnectLoadFail } from 'redux-connect/lib/store';
 
 import {
@@ -13,13 +8,13 @@ import {
   default as WrappedApp,
   AppBase,
   mapDispatchToProps,
-  setupMapStateToProps,
+  mapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
-import { setJwt } from 'core/actions';
+import { setClientApp, setLang } from 'core/actions';
 import * as api from 'core/api';
 import { INSTALL_STATE } from 'core/constants';
-import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('App', () => {
@@ -76,49 +71,6 @@ describe('App', () => {
     const rootNode = findDOMNode(root);
     assert.equal(rootNode.tagName.toLowerCase(), 'div');
     assert.equal(rootNode.querySelector('p').textContent, 'The component');
-  });
-
-  it('shows a log in button when unauthenticated', () => {
-    const handleLogIn = sinon.spy();
-    const location = sinon.stub();
-    const root = render({ isAuthenticated: false, handleLogIn, location });
-    const button = root.logInButton;
-    assert.equal(button.textContent, 'Log in/Sign up');
-    Simulate.click(button);
-    assert.ok(handleLogIn.calledWith(location));
-  });
-
-  it('shows a log out button when authenticated', () => {
-    const handleLogOut = sinon.spy();
-    const root = render({ handleLogOut, isAuthenticated: true });
-    assert.equal(root.logInButton.textContent, 'Log out');
-    Simulate.click(root.logInButton);
-    assert.ok(handleLogOut.called);
-  });
-
-  it('updates the location on handleLogIn', () => {
-    const _window = { location: '/foo' };
-    const location = { pathname: '/bar', query: { q: 'wat' } };
-    const startLoginUrlStub = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
-    const { handleLogIn } = setupMapStateToProps(_window)({
-      auth: {},
-      api: { lang: 'en-GB' },
-    });
-    handleLogIn(location);
-    assert.equal(_window.location, 'https://a.m.org/login');
-    assert.ok(startLoginUrlStub.calledWith({ location }));
-  });
-
-  it('clears the cookie and JWT on handleLogOut', () => {
-    sinon.stub(cookie, 'remove');
-    sinon.stub(config, 'get').withArgs('cookieName').returns('authcookie');
-    const store = createStore();
-    store.dispatch(setJwt(userAuthToken({ user_id: 99 })));
-    const { handleLogOut } = mapDispatchToProps(store.dispatch);
-    assert.ok(store.getState().api.token);
-    handleLogOut();
-    assert.notOk(store.getState().api.token);
-    assert.ok(cookie.remove.calledWith('authcookie', { path: '/' }));
   });
 
   it('sets the mamo cookie to "off"', () => {
@@ -201,5 +153,20 @@ describe('App', () => {
 
     const rootNode = findDOMNode(root);
     assert.include(rootNode.textContent, 'Not Found');
+  });
+
+  it('sets the clientApp as props', () => {
+    const store = createStore();
+    store.dispatch(setClientApp('android'));
+    console.log(sinon.format(store.getState()));
+    const { clientApp } = mapStateToProps(store.getState());
+    assert.equal(clientApp, 'android');
+  });
+
+  it('sets the lang as props', () => {
+    const store = createStore();
+    store.dispatch(setLang('de'));
+    const { lang } = mapStateToProps(store.getState());
+    assert.equal(lang, 'de');
   });
 });

@@ -1,15 +1,5 @@
 @import "~amo/css/inc/vars";
 
-#tabzilla {
-  left: 14px;
-  position: absolute;
-
-  [dir=rtl] & {
-    left: auto;
-    right: 14px;
-  }
-}
-
 .MastHead {
   background: $masthead-color;
   min-height: 100px;
@@ -52,38 +42,22 @@
   }
 }
 
-.AccountButton.button {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 7px;
-  color: $header-font-color;
-  font-size: 12px;
-  padding: 8px;
-  position: absolute;
-  right: 15px;
-  top: 15px;
+.MastHead-top-row {
+  display: flex;
+  margin: 0 15px;
+  justify-content: space-between;
+}
 
-  [dir=rtl] & {
-    left: 15px;
-    right: auto;
+.MastHead-auth-button {
+  background: $masthead-light-color;
+  color: $header-font-color;
+  margin-top: 15px;
+
+  &:hover {
+    background: lighten($masthead-light-color, 10%);
   }
 
-  span {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    &::before {
-      background: url('../img/icons/login-person.svg') no-repeat 0 0;
-      content: '';
-      display: inline-block;
-      height: 16px;
-      margin-right: 5px;
-      position: relative;
-      width: 13px;
-
-      [dir=rtl] & {
-        margin: 0 0 0 5px;
-      }
-    }
+  .Icon {
+    vertical-align: top;
   }
 }
