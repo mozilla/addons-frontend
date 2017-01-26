@@ -10,9 +10,9 @@ RUN buildDeps=' \
     ' && \
     # install deps
     apt-get update -y && \
-    apt-get install -y --no-install-recommends $buildDeps && \
+    apt-get install -y $buildDeps && \
 	npm install -g npm@3 && \
-	npm install && \
+	npm install && npm cache clean && \
     # cleanup
     # apt-get purge -y $buildDeps && \
     rm -rf /var/lib/apt/lists/*
