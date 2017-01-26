@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import config from 'config';
 import { withRouter } from 'react-router';
 
-import { setJWT } from 'core/actions';
+import { setJwt } from 'core/actions';
 import { login } from 'core/api';
 import LoginPage from 'core/components/LoginPage';
 import log from 'core/logger';
@@ -57,7 +57,7 @@ function createLoadData(dispatch) {
     if (code && state) {
       return login({ api, code, state })
         .then(({ token }) => {
-          dispatch(setJWT(token));
+          dispatch(setJwt(token));
           cookie.save(config.get('cookieName'), token, {
             path: '/',
             secure: config.get('cookieSecure'),

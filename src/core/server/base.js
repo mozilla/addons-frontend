@@ -22,7 +22,7 @@ import {
 } from 'core/resourceErrors/reduxConnectErrors';
 import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
-import { setClientApp, setLang, setJWT } from 'core/actions';
+import { setClientApp, setLang, setJwt } from 'core/actions';
 import log from 'core/logger';
 import {
   getDirection,
@@ -172,7 +172,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       const store = createStore();
       const token = cookie.load(config.get('cookieName'));
       if (token) {
-        store.dispatch(setJWT(token));
+        store.dispatch(setJwt(token));
       }
       // Get SRI for deployed services only.
       const sriData = (isDeployed) ? JSON.parse(

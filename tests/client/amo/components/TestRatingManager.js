@@ -5,7 +5,7 @@ import {
 } from 'react-addons-test-utils';
 
 import translate from 'core/i18n/translate';
-import { setJWT } from 'core/actions';
+import { setJwt } from 'core/actions';
 import * as amoApi from 'amo/api';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
@@ -261,7 +261,7 @@ describe('RatingManager', () => {
     }
 
     function signIn({ userId = 98765 } = {}) {
-      store.dispatch(setJWT(userAuthToken({
+      store.dispatch(setJwt(userAuthToken({
         user_id: userId,
       })));
     }

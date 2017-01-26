@@ -1,9 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import {
-  renderIntoDocument,
-  Simulate,
-} from 'react-addons-test-utils';
+import { renderIntoDocument } from 'react-addons-test-utils';
 import { loadFail as reduxConnectLoadFail } from 'redux-connect/lib/store';
 
 import {
@@ -11,9 +8,10 @@ import {
   default as WrappedApp,
   AppBase,
   mapDispatchToProps,
-  setupMapStateToProps,
+  mapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
+import { setClientApp, setLang } from 'core/actions';
 import * as api from 'core/api';
 import { INSTALL_STATE } from 'core/constants';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -73,34 +71,6 @@ describe('App', () => {
     const rootNode = findDOMNode(root);
     assert.equal(rootNode.tagName.toLowerCase(), 'div');
     assert.equal(rootNode.querySelector('p').textContent, 'The component');
-  });
-
-  it('shows a log in button', () => {
-    const handleLogIn = sinon.spy();
-    const location = sinon.stub();
-    const root = render({ isAuthenticated: false, handleLogIn, location });
-    const button = root.logInButton;
-    assert.equal(button.textContent, 'Log in/Sign up');
-    Simulate.click(button);
-    assert.ok(handleLogIn.calledWith(location));
-  });
-
-  it('tells you if you are logged in', () => {
-    const root = render({ isAuthenticated: true });
-    assert.equal(root.logInButton.textContent, 'Log out');
-  });
-
-  it('updates the location on handleLogIn', () => {
-    const _window = { location: '/foo' };
-    const location = { pathname: '/bar', query: { q: 'wat' } };
-    const startLoginUrlStub = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
-    const { handleLogIn } = setupMapStateToProps(_window)({
-      auth: {},
-      api: { lang: 'en-GB' },
-    });
-    handleLogIn(location);
-    assert.equal(_window.location, 'https://a.m.org/login');
-    assert.ok(startLoginUrlStub.calledWith({ location }));
   });
 
   it('sets the mamo cookie to "off"', () => {
@@ -183,5 +153,20 @@ describe('App', () => {
 
     const rootNode = findDOMNode(root);
     assert.include(rootNode.textContent, 'Not Found');
+  });
+
+  it('sets the clientApp as props', () => {
+    const store = createStore();
+    store.dispatch(setClientApp('android'));
+    console.log(sinon.format(store.getState()));
+    const { clientApp } = mapStateToProps(store.getState());
+    assert.equal(clientApp, 'android');
+  });
+
+  it('sets the lang as props', () => {
+    const store = createStore();
+    store.dispatch(setLang('de'));
+    const { lang } = mapStateToProps(store.getState());
+    assert.equal(lang, 'de');
   });
 });
