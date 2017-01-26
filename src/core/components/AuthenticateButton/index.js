@@ -45,7 +45,7 @@ export class AuthenticateButtonBase extends React.Component {
 }
 
 export const mapStateToProps = (state) => ({
-  isAuthenticated: !!state.auth.token,
+  isAuthenticated: !!state.api.token,
   handleLogIn(location, { _window = window } = {}) {
     // eslint-disable-next-line no-param-reassign
     _window.location = startLoginUrl({ location });

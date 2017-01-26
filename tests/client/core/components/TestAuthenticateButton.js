@@ -3,8 +3,8 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import cookie from 'react-cookie';
 import { findDOMNode } from 'react-dom';
+import { combineReducers, createStore as _createStore } from 'redux';
 
-import createStore from 'amo/store';
 import { setJwt } from 'core/actions';
 import * as api from 'core/api';
 import {
@@ -12,7 +12,12 @@ import {
   mapDispatchToProps,
   mapStateToProps,
 } from 'core/components/AuthenticateButton';
+import apiReducer from 'core/reducers/api';
 import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
+
+function createStore() {
+  return _createStore(combineReducers({ api: apiReducer }));
+}
 
 describe('<AuthenticateButton />', () => {
   function render(props) {
@@ -65,5 +70,12 @@ describe('<AuthenticateButton />', () => {
     handleLogOut();
     assert.notOk(store.getState().api.token);
     assert.ok(cookie.remove.calledWith('authcookie', { path: '/' }));
+  });
+
+  it('pulls isAuthenticated from state', () => {
+    const store = createStore(combineReducers({ api }));
+    assert.equal(mapStateToProps(store.getState()).isAuthenticated, false);
+    store.dispatch(setJwt(userAuthToken({ user_id: 123 })));
+    assert.equal(mapStateToProps(store.getState()).isAuthenticated, true);
   });
 });
