@@ -5,14 +5,13 @@ RUN mkdir -p /srv/node
 ADD package.json /srv/node/
 WORKDIR /srv/node
 
-RUN echo "NODE_PATH:" $NODE_PATH
 RUN buildDeps=' \
     git \
     ' && \
     # install deps
     apt-get update -y && \
     apt-get install -y --no-install-recommends $buildDeps && \
-	npm install -g npm@3 && \
+	npm update -g npm@3 && \
 	npm install && npm cache clean && \
     # cleanup
     # apt-get purge -y $buildDeps && \
