@@ -78,10 +78,6 @@ export class RatingBase extends React.Component {
         `size=${size} is not a valid value; ` +
         `possible values: ${sizeValues.join(', ')}`);
     }
-    const cls = classNames('Rating', {
-      'Rating--editable': !readOnly,
-      'Rating--small': size === 'small',
-    });
     let description;
     if (rating) {
       description = i18n.sprintf(
@@ -95,8 +91,12 @@ export class RatingBase extends React.Component {
       description = i18n.gettext('No ratings');
     }
 
+    const className = classNames('Rating', {
+      'Rating--editable': !readOnly,
+      'Rating--small': size === 'small',
+    });
     return (
-      <div className={cls} ref={(ref) => { this.element = ref; }}>
+      <div className={className} ref={(ref) => { this.element = ref; }}>
         <span className="Rating-star-group">
           {this.renderRatings()}
           <span className="visually-hidden">{description}</span>
