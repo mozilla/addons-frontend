@@ -113,8 +113,6 @@ export default Object.assign({}, webpackConfig, {
     }),
     // Replaces server config module with the subset clientConfig object.
     new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
-    // Prevent locales with moment require calls from crashing
-    new webpack.NormalModuleReplacementPlugin(/\.\.\/moment$/, 'moment'),
     // This allow us to exclude locales for other apps being built.
     new webpack.ContextReplacementPlugin(
       /locale$/,

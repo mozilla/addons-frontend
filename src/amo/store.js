@@ -1,6 +1,7 @@
 import { createStore as _createStore, combineReducers } from 'redux';
 import { reducer as reduxAsyncConnect } from 'redux-connect';
 
+import featured from 'amo/reducers/featured';
 import landing from 'amo/reducers/landing';
 import reviews from 'amo/reducers/reviews';
 import addons from 'core/reducers/addons';
@@ -22,6 +23,7 @@ export default function createStore(initialState = {}) {
       auth,
       categories,
       errors,
+      featured,
       infoDialog,
       installations,
       landing,

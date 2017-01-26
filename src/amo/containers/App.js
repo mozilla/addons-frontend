@@ -1,8 +1,8 @@
 /* global navigator, window */
 import config from 'config';
 import React, { PropTypes } from 'react';
-import Helmet from 'react-helmet';
 import cookie from 'react-cookie';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -14,7 +14,6 @@ import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
 import { handleResourceErrors } from 'core/resourceErrors/decorator';
 import translate from 'core/i18n/translate';
-import { startLoginUrl } from 'core/api';
 import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
 
@@ -28,9 +27,7 @@ export class AppBase extends React.Component {
     children: PropTypes.node,
     clientApp: PropTypes.string.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
-    handleLogIn: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    isAuthenticated: PropTypes.bool,
     lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
@@ -58,17 +55,6 @@ export class AppBase extends React.Component {
     }
   }
 
-  accountButton() {
-    const { handleLogIn, i18n, isAuthenticated, location } = this.props;
-    return (
-      <button className="button AccountButton"
-              onClick={() => handleLogIn(location)}
-              ref={(ref) => { this.logInButton = ref; }}>
-        <span>{ isAuthenticated ? i18n.gettext('Log out') : i18n.gettext('Log in/Sign up') }</span>
-      </button>
-    );
-  }
-
   render() {
     const {
       FooterComponent,
@@ -87,11 +73,9 @@ export class AppBase extends React.Component {
       <div className="amo">
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         <InfoDialogComponent />
-        <MastHeadComponent SearchFormComponent={SearchForm}
-          isHomePage={isHomePage} query={query}
-          ref={(ref) => { this.mastHead = ref; }}>
-          {this.accountButton()}
-        </MastHeadComponent>
+        <MastHeadComponent
+          SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
+          query={query} ref={(ref) => { this.mastHead = ref; }} />
         <div className="App-content">
           {children}
         </div>
@@ -102,13 +86,8 @@ export class AppBase extends React.Component {
   }
 }
 
-export const setupMapStateToProps = (_window) => (state) => ({
-  clientApp: state.api.application,
-  isAuthenticated: !!state.auth.token,
-  handleLogIn(location) {
-    // eslint-disable-next-line no-param-reassign
-    (_window || window).location = startLoginUrl({ location });
-  },
+export const mapStateToProps = (state) => ({
+  clientApp: state.api.clientApp,
   lang: state.api.lang,
 });
 
@@ -122,6 +101,6 @@ export function mapDispatchToProps(dispatch) {
 
 export default compose(
   handleResourceErrors,
-  connect(setupMapStateToProps(), mapDispatchToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AppBase);

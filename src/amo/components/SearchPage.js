@@ -6,15 +6,10 @@ import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
-import SearchResult from './SearchResult';
-
-import './SearchPage.scss';
-
 
 export default class SearchPage extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.node.isRequired,
-    ResultComponent: PropTypes.node.isRequired,
     count: PropTypes.number,
     filters: PropTypes.object,
     hasSearchParams: PropTypes.bool.isRequired,
@@ -27,7 +22,7 @@ export default class SearchPage extends React.Component {
 
   static defaultProps = {
     LinkComponent: Link,
-    ResultComponent: SearchResult,
+    count: 0,
     filters: {},
     pathname: '/search/',
     results: [],
@@ -35,14 +30,14 @@ export default class SearchPage extends React.Component {
 
   render() {
     const {
-      LinkComponent, ResultComponent, count, filters, hasSearchParams,
-      loading, page, pathname, results,
+      LinkComponent, count, filters, hasSearchParams, loading, page, pathname,
+      results,
     } = this.props;
     const queryParams = this.props.queryParams ||
       convertFiltersToQueryParams(filters);
-    const paginator = count && hasSearchParams > 0 ? (
+    const paginator = count > 0 && hasSearchParams ? (
       <Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
-        pathname={pathname} queryParams={queryParams} showPages={0} />
+        pathname={pathname} queryParams={queryParams} />
     ) : [];
     const searchSort = hasSearchParams && results.length ? (
       <SearchSort filters={filters} pathname={pathname} />
@@ -51,9 +46,9 @@ export default class SearchPage extends React.Component {
     return (
       <div className="SearchPage">
         {searchSort}
-        <SearchResults ResultComponent={ResultComponent} count={count}
-          hasSearchParams={hasSearchParams} loading={loading} results={results}
-          filters={filters} pathname={pathname} />
+        <SearchResults count={count} hasSearchParams={hasSearchParams}
+          filters={filters} loading={loading} pathname={pathname}
+          results={results} />
         {paginator}
       </div>
     );

@@ -5,7 +5,7 @@
   @include button();
 
   &.Button--small {
-    border-radius: 3px;
+    border-radius: $border-radius-s;
     font-size: 13px;
   }
 }

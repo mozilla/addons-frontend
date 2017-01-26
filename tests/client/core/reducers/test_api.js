@@ -13,6 +13,13 @@ describe('api reducer', () => {
       { type: 'SET_JWT', payload: { token } }), { foo: 'bar', token });
   });
 
+  it('clears the JWT on log out', () => {
+    assert.deepEqual(
+      api({ lang: 'fr', clientApp: 'firefox', token: 'secret' },
+          actions.logOutUser()),
+      { lang: 'fr', clientApp: 'firefox' });
+  });
+
   it('stores the lang', () => {
     const lang = 'de';
     assert.deepEqual(api({ bar: 'baz' },

@@ -10,6 +10,7 @@ import createStore from 'amo/store';
 import { MastHeadBase } from 'amo/components/MastHead';
 import { getFakeI18nInst } from 'tests/client/helpers';
 import translate from 'core/i18n/translate';
+import I18nProvider from 'core/i18n/Provider';
 
 
 class FakeChild extends React.Component {
@@ -25,7 +26,9 @@ describe('MastHead', () => {
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore(initialState)}>
-        <MyMastHead i18n={getFakeI18nInst()} {...props} />
+        <I18nProvider i18n={getFakeI18nInst()}>
+          <MyMastHead {...props} />
+        </I18nProvider>
       </Provider>
     ), MyMastHead).getWrappedInstance();
   }
