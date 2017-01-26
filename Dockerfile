@@ -1,4 +1,4 @@
-FROM node:6-slim
+FROM node:6
 
 # Install node_modules into a different directory to avoid npm/npm#9863.
 RUN mkdir -p /srv/node
@@ -10,7 +10,7 @@ RUN buildDeps=' \
     ' && \
     # install deps
     apt-get update -y && \
-    apt-get install -y $buildDeps && \
+    apt-get install -y --no-install-recommends $buildDeps && \
 	npm install -g npm@3 && \
 	npm install && npm cache clean && \
     # cleanup
