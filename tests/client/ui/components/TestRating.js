@@ -103,7 +103,7 @@ describe('ui/components/Rating', () => {
     });
   });
 
-  it('renders selected stars nearest to an average rating', () => {
+  it('rounds down average ratings to an integer', () => {
     // This should be treated like a rating of 3.
     const root = render({ rating: 3.6 });
 
