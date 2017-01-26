@@ -82,6 +82,6 @@ describe('<SearchResult />', () => {
   it('renders the star ratings', () => {
     const node = findRenderedDOMComponentWithClass(root, 'Rating');
     assert.equal(node.textContent,
-                 `Rated ${fakeAddon.ratings.average} stars`);
+                 `Rated ${fakeAddon.ratings.average} out of 5`);
   });
 });

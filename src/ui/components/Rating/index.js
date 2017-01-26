@@ -80,13 +80,8 @@ export class RatingBase extends React.Component {
     }
     let description;
     if (rating) {
-      description = i18n.sprintf(
-        // L10n: This is for showing the star rating of an add-on.
-        i18n.ngettext('Rated %(starCount)s star',
-                      'Rated %(starCount)s stars',
-                      rating),
-        { starCount: rating }
-      );
+      description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
+                                 { rating });
     } else {
       description = i18n.gettext('No ratings');
     }

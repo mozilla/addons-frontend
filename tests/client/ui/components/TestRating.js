@@ -149,14 +149,9 @@ describe('ui/components/Rating', () => {
     assert.equal(findDOMNode(root).textContent, 'No ratings');
   });
 
-  it('renders an accessible description for 1 star', () => {
-    const root = render({ rating: 1 });
-    assert.equal(findDOMNode(root).textContent, 'Rated 1 star');
-  });
-
-  it('renders an accessible description for multiple star', () => {
+  it('renders an accessible description for ratings', () => {
     const root = render({ rating: 2 });
-    assert.equal(findDOMNode(root).textContent, 'Rated 2 stars');
+    assert.equal(findDOMNode(root).textContent, 'Rated 2 out of 5');
   });
 
   it('renders read-only selected stars', () => {
