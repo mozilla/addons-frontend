@@ -44,6 +44,11 @@ describe('ui/components/Rating', () => {
     assert.include(root.element.className, 'Rating--small');
   });
 
+  it('throws an error for invalid sizes', () => {
+    assert.throws(() => render({ size: 'x-large' }),
+      /size=x-large is not a valid value; possible values: small, large/);
+  });
+
   it('lets you select a one star rating', () => {
     const onSelectRating = sinon.stub();
     const root = render({ onSelectRating });

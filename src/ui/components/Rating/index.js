@@ -72,6 +72,12 @@ export class RatingBase extends React.Component {
 
   render() {
     const { i18n, rating, readOnly, size } = this.props;
+    const sizeValues = ['small', 'large'];
+    if (!sizeValues.includes(size)) {
+      throw new Error(
+        `size=${size} is not a valid value; ` +
+        `possible values: ${sizeValues.join(', ')}`);
+    }
     const cls = classNames('Rating', {
       'Rating--editable': !readOnly,
       'Rating--small': size === 'small',
