@@ -30,7 +30,7 @@ export class PaginateBase extends React.Component {
   static defaultProps = {
     LinkComponent: Link,
     perPage: 20,
-    showPages: 9,
+    showPages: 0,
   }
 
   pageCount() {
