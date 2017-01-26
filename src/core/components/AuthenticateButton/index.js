@@ -36,7 +36,8 @@ export class AuthenticateButtonBase extends React.Component {
     const text = isAuthenticated ? i18n.gettext('Log out') : i18n.gettext('Log in/Sign up');
     return (
       <Button onClick={this.onClick} {...otherProps}>
-        <Icon name="user" />
+        {/* TODO: Allow the caller to decide on the icon or move the content to children. */}
+        <Icon name="user-dark" />
         {text}
       </Button>
     );

@@ -1,3 +1,4 @@
+@import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
 
 .MastHead {
@@ -7,7 +8,7 @@
 }
 
 .MastHead-header {
-  padding: 80px 0 30px;
+  padding: 30px 0;
   text-align: center;
 
   h1 {
@@ -48,16 +49,17 @@
   justify-content: space-between;
 }
 
-.MastHead-auth-button {
-  background: $masthead-light-color;
-  color: $header-font-color;
+.Button.MastHead-auth-button {
+  color: $masthead-color;
   margin-top: 15px;
 
+  &,
   &:hover {
-    background: lighten($masthead-light-color, 10%);
+    background: #fff;
   }
 
   .Icon {
+    @include margin-end(0.5em);
     vertical-align: top;
   }
 }

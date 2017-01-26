@@ -133,6 +133,8 @@ $default-arrow-margin: 3px;
 /* Button */
 @mixin button($background: $button-background-color,
 $color: $text-color-message) {
+  @include font-regular();
+
   background: $background;
   border-radius: $border-radius-default;
   border: 0;

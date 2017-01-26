@@ -8,18 +8,22 @@
 }
 
 .Icon-magnifying-glass {
-  background: url('~amo/img/icons/magnifying-glass.svg') 0 50% no-repeat;
+  background: url('~amo/img/icons/magnifying-glass.svg') center no-repeat;
   background-size: cover;
 }
 
 .Icon-eye {
-  background: url('./eye.svg') 0 50% no-repeat;
+  background: url('./eye.svg') center no-repeat;
   background-size: cover;
   width: 23px;
 }
 
 .Icon-user {
-  background: url('./user.svg') 0 50% no-repeat;
+  background: url('./user.svg') center no-repeat;
   background-size: contain;
-  width: 23px;
+}
+
+.Icon-user-dark {
+  background: url('./user-dark.svg') center no-repeat;
+  background-size: contain;
 }
