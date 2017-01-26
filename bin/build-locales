@@ -50,15 +50,18 @@ poFiles.forEach((pofile) => {
     var defineLocale = null;
     try {
       const momentLocale = locale.replace('_', '-').toLowerCase();
+      const localeModulePath = `moment/locale/${momentLocale}`;
+      // Check for the locale first; if it doesn't exist we don't have
+      // a moment locale that matches.
+      fs.accessSync(`./node_modules/${localeModulePath}.js`);
+
       // We're using `new Function()` here to create a function out of the
-      // raw code in this file; this function won't be executed but will be
-      // written out by `toSource()` so that it can be used later (at runtime,
-      // by moment).
-      defineLocale = new Function(
-        fs.readFileSync(
-          `./node_modules/moment/locale/${momentLocale}.js`, 'utf8'
-        )
-      );
+      // raw code; this function won't be executed but will be written out by
+      // `toSource()` so that it can be used later (at runtime, by moment).
+      defineLocale = new Function(`
+        // By requiring this module, the new locale is defined and
+        // registered internally for moment.js
+        require('${localeModulePath}');`);
     } catch (e) {
       // We ignore missing locale errors for en_US as its moment's default
       // locale so we don't need to provide a translation.
