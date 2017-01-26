@@ -6,6 +6,7 @@ import {
 
 import translate from 'core/i18n/translate';
 import { setJwt } from 'core/actions';
+import I18nProvider from 'core/i18n/Provider';
 import * as amoApi from 'amo/api';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
@@ -17,13 +18,12 @@ import {
 } from 'tests/client/amo/helpers';
 import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
-function render({ ...customProps } = {}) {
+function render(customProps = {}) {
   const props = {
     addon: fakeAddon,
     apiState: signedInApiState,
     errorHandler: sinon.stub(),
     version: fakeAddon.current_version,
-    i18n: getFakeI18nInst(),
     userId: 91234,
     submitReview: () => {},
     loadSavedReview: () => {},
@@ -32,7 +32,9 @@ function render({ ...customProps } = {}) {
   };
   const RatingManager = translate({ withRef: true })(RatingManagerBase);
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <RatingManager {...props} />
+    <I18nProvider i18n={getFakeI18nInst()}>
+      <RatingManager {...props} />
+    </I18nProvider>
   ), RatingManager);
 
   return root.getWrappedInstance();

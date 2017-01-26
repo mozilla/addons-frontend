@@ -21,6 +21,7 @@ import translate from 'core/i18n/translate';
 import { loadEntities } from 'core/actions';
 import * as coreApi from 'core/api';
 import { denormalizeAddon } from 'core/reducers/addons';
+import I18nProvider from 'core/i18n/Provider';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -54,7 +55,6 @@ describe('amo/components/AddonReviewList', () => {
       const props = {
         addon: denormalizeAddon(addon),
         params,
-        i18n: getFakeI18nInst(),
         reviews: loadedReviews,
         ...customProps,
       };
@@ -62,7 +62,9 @@ describe('amo/components/AddonReviewList', () => {
       const AddonReviewList = translate({ withRef: true })(AddonReviewListBase);
       const tree = renderIntoDocument(
         <Provider store={store}>
-          <AddonReviewList {...props} />
+          <I18nProvider i18n={getFakeI18nInst()}>
+            <AddonReviewList {...props} />
+          </I18nProvider>
         </Provider>
       );
 
