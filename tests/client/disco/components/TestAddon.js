@@ -4,13 +4,17 @@ import {
   renderIntoDocument,
   Simulate,
 } from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
+import {
+  findDOMNode,
+  unmountComponentAtNode,
+} from 'react-dom';
 
 import translate from 'core/i18n/translate';
 import {
   AddonBase,
   mapStateToProps,
 } from 'disco/components/Addon';
+import HoverIntent from 'core/components/HoverIntent';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -287,7 +291,6 @@ describe('<Addon />', () => {
     let resetPreviewTheme;
 
     beforeEach(() => {
-      const hoverIntentInterval = 10;
       previewTheme = sinon.spy();
       resetPreviewTheme = sinon.spy();
       const data = {
@@ -295,65 +298,24 @@ describe('<Addon />', () => {
         type: ADDON_TYPE_THEME,
         previewTheme,
         resetPreviewTheme,
-        hoverIntentInterval,
       };
       root = renderAddon({ addon: data, ...data });
       themeImage = findDOMNode(root).querySelector('.theme-image');
     });
 
-    it('runs theme preview if mouse slows/stops on theme image', (done) => {
-      Simulate.mouseOver(themeImage, { clientX: 0, clientY: 0 });
-
-      setTimeout(() => {
-        Simulate.mouseMove(themeImage, { clientX: 10, clientY: 0 });
-      }, 10);
-
-      setTimeout(() => {
-        Simulate.mouseMove(themeImage, { clientX: 10, clientY: 1 });
-      }, 20);
-
-      setTimeout(() => {
-        assert.ok(previewTheme.calledWith(themeImage));
-        done();
-      }, 30);
+    afterEach(() => {
+      unmountComponentAtNode(findDOMNode(root));
     });
 
-    it("does not run theme preview if mouse doesn't slow on theme image", (done) => {
-      Simulate.mouseOver(themeImage, { clientX: 0, clientY: 0 });
-
-      setTimeout(() => {
-        Simulate.mouseMove(themeImage, { clientX: 15, clientY: 15 });
-      }, 10);
-
-      setTimeout(() => {
-        Simulate.mouseMove(themeImage, { clientX: 30, clientY: 30 });
-      }, 20);
-
-      setTimeout(() => {
-        assert.isNotOk(previewTheme.calledWith(themeImage));
-        done();
-      }, 30);
+    it('runs theme preview onHoverIntent on theme image', () => {
+      const hoverIntent = findRenderedComponentWithType(root, HoverIntent);
+      hoverIntent.props.onHoverIntent({ currentTarget: themeImage });
+      assert.ok(previewTheme.calledWith(themeImage));
     });
 
-    it("does not run theme preview if mouse doesn't move enough on theme image", (done) => {
-      Simulate.mouseOver(themeImage, { clientX: 0, clientY: 0 });
-
-      setTimeout(() => {
-        Simulate.mouseMove(themeImage, { clientX: 1, clientY: 0 });
-      }, 10);
-
-      setTimeout(() => {
-        Simulate.mouseMove(themeImage, { clientX: 1, clientY: 1 });
-      }, 20);
-
-      setTimeout(() => {
-        assert.isNotOk(previewTheme.calledWith(themeImage));
-        done();
-      }, 30);
-    });
-
-    it('resets theme preview onMouseOut on theme image', () => {
-      Simulate.mouseOut(themeImage);
+    it('resets theme preview onHoverIntentEnd on theme image', () => {
+      const hoverIntent = findRenderedComponentWithType(root, HoverIntent);
+      hoverIntent.props.onHoverIntentEnd({ currentTarget: themeImage });
       assert.ok(resetPreviewTheme.calledWith(themeImage));
     });
 
@@ -365,24 +327,6 @@ describe('<Addon />', () => {
     it('resets theme preview onBlur on theme image', () => {
       Simulate.blur(themeImage);
       assert.ok(resetPreviewTheme.calledWith(themeImage));
-    });
-
-    it('clears the hover intent interval when component unmounts', (done) => {
-      Simulate.mouseOver(themeImage, { clientX: 0, clientY: 0 });
-      root.componentWillUnmount();
-
-      setTimeout(() => {
-        Simulate.mouseMove(themeImage, { clientX: 10, clientY: 0 });
-      }, 10);
-
-      setTimeout(() => {
-        Simulate.mouseMove(themeImage, { clientX: 10, clientY: 1 });
-      }, 20);
-
-      setTimeout(() => {
-        assert.ok(previewTheme.calledWith(themeImage));
-        done();
-      }, 30);
     });
 
     it('calls installTheme on click', () => {

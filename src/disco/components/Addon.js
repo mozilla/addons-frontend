@@ -12,6 +12,7 @@ import translate from 'core/i18n/translate';
 import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import InstallButton from 'core/components/InstallButton';
+import HoverIntent from 'core/components/HoverIntent';
 import {
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
@@ -48,7 +49,6 @@ export class AddonBase extends React.Component {
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
-    hoverIntentInterval: PropTypes.number,
     _tracking: PropTypes.object,
   }
 
@@ -56,12 +56,7 @@ export class AddonBase extends React.Component {
     // Defaults themeAction to the imported func.
     themeAction,
     needsRestart: false,
-    hoverIntentInterval: 100,
     _tracking: tracking,
-  }
-
-  componentWillUnmount() {
-    this.clearHoverIntentDetection();
   }
 
   getError() {
@@ -91,18 +86,22 @@ export class AddonBase extends React.Component {
   getThemeImage() {
     const { getBrowserThemeData, i18n, name, previewURL } = this.props;
     if (this.props.type === ADDON_TYPE_THEME) {
-      // eslint-disable-next-line jsx-a11y/href-no-hash
-      return (<a href="#" className="theme-image"
-                 data-browsertheme={getBrowserThemeData()}
-                 onBlur={this.resetPreviewTheme}
-                 onClick={this.installTheme}
-                 onFocus={this.previewTheme}
-                 onMouseMove={this.trackMouseMovement}
-                 onMouseOut={this.resetPreviewTheme}
-                 onMouseOver={this.maybePreviewTheme}>
-        <img src={previewURL}
-          alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })}
-        /></a>);
+      /* eslint-disable jsx-a11y/href-no-hash */
+      return (
+        <HoverIntent
+          onHoverIntent={this.previewTheme}
+          onHoverIntentEnd={this.resetPreviewTheme}>
+          <a href="#" className="theme-image"
+            data-browsertheme={getBrowserThemeData()}
+            onBlur={this.resetPreviewTheme}
+            onClick={this.installTheme}
+            onFocus={this.previewTheme}>
+            <img src={previewURL}
+              alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })} />
+          </a>
+        </HoverIntent>
+      );
+      /* eslint-enable jsx-a11y/href-no-hash */
     }
     return null;
   }
@@ -172,59 +171,11 @@ export class AddonBase extends React.Component {
     }
   }
 
-  clearHoverIntentDetection() {
-    clearInterval(this.hoverIntentInterval);
-  }
-
-  trackMouseMovement = (e) => {
-    this.currentMousePosition = { x: e.clientX, y: e.clientY };
-  }
-
-  whenHoverIntended = (e, callback) => {
-    const sq = (x) => x * x;
-    const distanceSq = (p1, p2) => sq(p1.x - p2.x) + sq(p1.y - p2.y);
-
-    // The mouse must move 5 pixels after mouseover to preview. This prevents taking
-    // action in cases where the user only moused over the element because they switched
-    // tabs, closed a video, etc.
-    const entryThresholdDistanceSq = sq(5);
-
-    // The mouse must move less than 10 pixels in a 100ms interval in order to be
-    // considered hovering. Otherwise, it's likely that they're just mousing through
-    // the element.
-    const movementThresholdDistanceSq = sq(10);
-
-    const initialPosition = { x: e.clientX, y: e.clientY };
-    let previousPosition = initialPosition;
-    this.currentMousePosition = initialPosition;
-
-    this.hoverIntentInterval = setInterval(() => {
-      const currentPosition = this.currentMousePosition;
-      if (distanceSq(initialPosition, currentPosition) > entryThresholdDistanceSq &&
-        distanceSq(previousPosition, currentPosition) < movementThresholdDistanceSq) {
-        this.clearHoverIntentDetection();
-        callback();
-      }
-
-      previousPosition = currentPosition;
-    }, this.props.hoverIntentInterval);
-  }
-
-  maybePreviewTheme = (e) => {
-    const target = e.currentTarget;
-
-    this.whenHoverIntended(e, () => {
-      this.props.previewTheme(target);
-    });
-  }
-
   previewTheme = (e) => {
     this.props.previewTheme(e.currentTarget);
   }
 
   resetPreviewTheme = (e) => {
-    this.clearHoverIntentDetection();
-
     this.props.resetPreviewTheme(e.currentTarget);
   }
 
