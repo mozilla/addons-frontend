@@ -158,7 +158,6 @@ describe('App', () => {
   it('sets the clientApp as props', () => {
     const store = createStore();
     store.dispatch(setClientApp('android'));
-    console.log(sinon.format(store.getState()));
     const { clientApp } = mapStateToProps(store.getState());
     assert.equal(clientApp, 'android');
   });
