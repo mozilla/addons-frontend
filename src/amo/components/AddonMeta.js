@@ -8,12 +8,13 @@ import 'amo/css/AddonMeta.scss';
 
 export class AddonMetaBase extends React.Component {
   static propTypes = {
-    averageDailyUsers: PropTypes.number.isRequired,
+    addon: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
   }
 
   render() {
-    const { averageDailyUsers, i18n } = this.props;
+    const { addon, i18n } = this.props;
+    const averageDailyUsers = addon.average_daily_users;
 
     const userCount = i18n.sprintf(
       i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
@@ -21,10 +22,15 @@ export class AddonMetaBase extends React.Component {
     );
     return (
       <div className="AddonMeta">
-        <div className="AddonMeta-users">
+        <div className="AddonMeta-item AddonMeta-users">
           <h3 className="visually-hidden">{i18n.gettext('Used by')}</h3>
           <Icon className="AddonMeta-users-icon" name="user" />
           <p className="AddonMeta-text">{userCount}</p>
+        </div>
+        <div className="AddonMeta-item">
+          <Icon className="AddonMeta-ratings" name="star" />
+          <p className="AddonMeta-text">4.2 stars</p>
+          <p className="AddonMeta-text">1,000 reviews</p>
         </div>
       </div>
     );

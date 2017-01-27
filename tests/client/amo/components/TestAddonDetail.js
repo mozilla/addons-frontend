@@ -330,10 +330,10 @@ describe('AddonDetail', () => {
     assert.ok(rootNode.querySelector('.AddonMoreInfo-contents'));
   });
 
-  it('renders meta data with add-on props', () => {
-    const root = render({ addon: { ...fakeAddon, average_daily_users: 25 } });
+  it('renders meta data for the add-on', () => {
+    const root = render({ addon: fakeAddon } });
     const metaData = findRenderedComponentWithType(root, AddonMeta);
-    assert.equal(metaData.props.averageDailyUsers, 25);
+    assert.deepEqual(metaData.props.addon, fakeAddon);
   });
 
   describe('read reviews footer', () => {
