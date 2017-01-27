@@ -53,6 +53,7 @@ export class AddonReviewBase extends React.Component {
 
   render() {
     const { i18n, review } = this.props;
+    console.log('review property, nice?', review);
     if (!review || !review.id || !review.addonSlug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
@@ -114,31 +115,7 @@ export const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export function loadAddonReview(
-  { store: { dispatch }, params: { slug, reviewId } }
-) {
-  return new Promise((resolve) => {
-    if (!slug || !reviewId) {
-      throw new Error('missing URL params slug (add-on slug) or reviewId');
-    }
-    resolve(callApi({
-      endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
-      method: 'GET',
-    }));
-  })
-    .then((review) => {
-      const action = setReview(review);
-      dispatch(action);
-      return action.payload;
-    });
-}
-
 export default compose(
-  asyncConnect([{
-    key: 'review',
-    deferred: true,
-    promise: loadAddonReview,
-  }]),
   withErrorHandling({ name: 'AddonReview' }),
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),

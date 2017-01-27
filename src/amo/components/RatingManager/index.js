@@ -6,6 +6,7 @@ import { withRouter } from 'react-router';
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
+import AddonReview from 'amo/components/AddonReview';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
@@ -32,7 +33,8 @@ export class RatingManagerBase extends React.Component {
 
   constructor(props) {
     super(props);
-    const { loadSavedReview, userId, addon } = props;
+    const { loadSavedReview, userId, userReview, addon } = props;
+    this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({ userId, addonId: addon.id });
@@ -40,7 +42,7 @@ export class RatingManagerBase extends React.Component {
   }
 
   onSelectRating = (rating) => {
-    const { userReview, userId, version } = this.props;
+    const { userId, userReview, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
@@ -68,11 +70,15 @@ export class RatingManagerBase extends React.Component {
     } else {
       log.info(`Submitting a new review for versionId ${params.versionId}`);
     }
-    this.props.submitReview(params);
+    this.props.submitReview(params)
+      .then(() => {
+        this.setState({ showTextEntry: true });
+      });
   }
 
   render() {
     const { Rating, i18n, addon, userReview } = this.props;
+    const { showTextEntry } = this.state;
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
@@ -83,6 +89,7 @@ export class RatingManagerBase extends React.Component {
 
     return (
       <div className="RatingManager">
+        {showTextEntry ? <AddonReview review={userReview} /> : null}
         <form action="">
           <fieldset>
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
@@ -146,8 +153,6 @@ export const mapDispatchToProps = (dispatch) => ({
       .then((review) => {
         const { lang, clientApp } = params.apiState;
         dispatch(setReview(review));
-        router.push(
-          `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
       });
   },
 });
