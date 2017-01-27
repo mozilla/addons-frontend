@@ -16,11 +16,30 @@ export class AddonMetaBase extends React.Component {
     const { addon, i18n } = this.props;
     const averageDailyUsers = addon.average_daily_users;
     const averageRating = addon.ratings.average;
+    const addonReviewCount = addon.ratings.count;
 
     const userCount = i18n.sprintf(
       i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
       { total: i18n.formatNumber(averageDailyUsers) },
     );
+    let starCount;
+    if (averageRating) {
+      starCount = i18n.sprintf(
+        i18n.gettext('%(averageRating)s out of 5'),
+        { averageRating: i18n.formatNumber(averageRating) },
+      );
+    } else {
+      starCount = i18n.gettext('Not yet rated');
+    }
+    let reviewCount;
+    if (addonReviewCount) {
+      reviewCount = i18n.sprintf(
+        i18n.ngettext('%(total)s review', '%(total)s reviews', addonReviewCount),
+        { total: i18n.formatNumber(addonReviewCount) },
+      );
+    } else {
+      reviewCount = i18n.gettext('Not yet reviewed');
+    }
     return (
       <div className="AddonMeta">
         <div className="AddonMeta-item AddonMeta-users">
@@ -31,11 +50,10 @@ export class AddonMetaBase extends React.Component {
         <div className="AddonMeta-item AddonMeta-ratings">
           <Icon className="AddonMeta-ratings-icon" name="star" />
           <p className="AddonMeta-text AddonMeta-star-count">
-            {i18n.sprintf(i18n.gettext('%(averageRating)s out of 5'),
-                          { averageRating: i18n.formatNumber(averageRating) })}
+            {starCount}
           </p>
           <p className="AddonMeta-text AddonMeta-review-count">
-            1,000 reviews
+            {reviewCount}
           </p>
         </div>
       </div>
