@@ -331,7 +331,7 @@ describe('AddonDetail', () => {
   });
 
   it('renders meta data for the add-on', () => {
-    const root = render({ addon: fakeAddon } });
+    const root = render({ addon: fakeAddon });
     const metaData = findRenderedComponentWithType(root, AddonMeta);
     assert.deepEqual(metaData.props.addon, fakeAddon);
   });

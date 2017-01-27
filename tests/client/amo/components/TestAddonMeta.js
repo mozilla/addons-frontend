@@ -17,7 +17,7 @@ function render({ ...customProps } = {}) {
 }
 
 describe('<AddonMeta>', () => {
-  describe('averageDailyUsers', () => {
+  describe('average daily users', () => {
     function getUserCount(root) {
       return root.querySelector('.AddonMeta-users > p').textContent;
     }
@@ -43,6 +43,37 @@ describe('<AddonMeta>', () => {
         i18n,
       });
       assert.match(getUserCount(root), /^1\.000/);
+    });
+  });
+
+  describe('ratings', () => {
+    function renderRatings(ratings = {}, otherProps = {}) {
+      return render({
+        addon: {
+          ...fakeAddon,
+          ratings: {
+            ...fakeAddon.ratings,
+            ...ratings,
+          },
+        },
+        ...otherProps,
+      });
+    }
+
+    function getRating(root) {
+      return root.querySelector(
+        '.AddonMeta-ratings > p.AddonMeta-star-count').textContent;
+    }
+
+    it('renders the average rating', () => {
+      const root = renderRatings({ average: 3.5 });
+      assert.equal(getRating(root), '3.5 out of 5');
+    });
+
+    it('localizes average rating', () => {
+      const i18n = getFakeI18nInst({ lang: 'de' });
+      const root = renderRatings({ average: 3.5 }, { i18n });
+      assert.include(getRating(root), '3,5');
     });
   });
 });

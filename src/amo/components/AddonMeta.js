@@ -15,6 +15,7 @@ export class AddonMetaBase extends React.Component {
   render() {
     const { addon, i18n } = this.props;
     const averageDailyUsers = addon.average_daily_users;
+    const averageRating = addon.ratings.average;
 
     const userCount = i18n.sprintf(
       i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
@@ -27,10 +28,15 @@ export class AddonMetaBase extends React.Component {
           <Icon className="AddonMeta-users-icon" name="user" />
           <p className="AddonMeta-text">{userCount}</p>
         </div>
-        <div className="AddonMeta-item">
-          <Icon className="AddonMeta-ratings" name="star" />
-          <p className="AddonMeta-text">4.2 stars</p>
-          <p className="AddonMeta-text">1,000 reviews</p>
+        <div className="AddonMeta-item AddonMeta-ratings">
+          <Icon className="AddonMeta-ratings-icon" name="star" />
+          <p className="AddonMeta-text AddonMeta-star-count">
+            {i18n.sprintf(i18n.gettext('%(averageRating)s out of 5'),
+                          { averageRating: i18n.formatNumber(averageRating) })}
+          </p>
+          <p className="AddonMeta-text AddonMeta-review-count">
+            1,000 reviews
+          </p>
         </div>
       </div>
     );
