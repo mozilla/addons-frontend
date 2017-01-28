@@ -31,7 +31,7 @@ export function getReduxConnectError(reduxConnectLoadState) {
     status = 500;
   }
   // reduxConnectLoadState.wasHandled = true;
-  // console.log('reduxConnectLoadState', reduxConnectLoadState);
+  console.log('getReduxConnectError', { status, error: status ? getErrorMsg(status) : undefined });
 
   return { status, error: status ? getErrorMsg(status) : undefined };
 }

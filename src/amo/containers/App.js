@@ -13,7 +13,7 @@ import SearchForm from 'amo/components/SearchForm';
 import { addChangeListeners } from 'core/addonManager';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
-import { handleResourceErrors } from 'core/resourceErrors/decorator';
+import { getErrorComponent, handleResourceErrors } from 'core/resourceErrors/decorator';
 import translate from 'core/i18n/translate';
 import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
@@ -57,11 +57,6 @@ export class AppBase extends React.Component {
     }
   }
 
-  // componentWillReceiveProps() {
-  //   const { showError } = this.props;
-  //   console.log('componentWillReceiveProps', this.props);
-  // }
-
   render() {
     const {
       FooterComponent,
@@ -73,8 +68,13 @@ export class AppBase extends React.Component {
       i18n,
       lang,
       location,
-      showError,
     } = this.props;
+    console.log('errorPage', errorPage);
+    let ErrorComponent = null;
+    if (errorPage) {
+      ErrorComponent = getErrorComponent(errorPage.status);
+    }
+
     const isHomePage = Boolean(location.pathname && location.pathname.match(
       new RegExp(`^\\/${lang}\\/${clientApp}\\/?$`)));
     const query = location.query ? location.query.q : null;
@@ -87,7 +87,7 @@ export class AppBase extends React.Component {
           query={query} ref={(ref) => { this.mastHead = ref; }} />
         <div className="App-content">
           {errorPage ? 'I HAVE ERROR' : 'I AM FINE'}
-          {!errorPage ? children : errorPage}
+          {errorPage ? <ErrorComponent {...errorPage} /> : children}
         </div>
         <FooterComponent handleViewDesktop={this.onViewDesktop}
           location={location} />
@@ -111,7 +111,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default compose(
+  handleResourceErrors,
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
-  handleResourceErrors,
 )(AppBase);

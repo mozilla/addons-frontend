@@ -7,7 +7,7 @@ export default function showError(state = {}, action) {
       // console.log('SET_ERROR', state);
 
       return { ...state, errorPage: payload };
-    case '@@router/LOCATION_CHANGE':
+    case 'CLEAR_ERROR_PAGE':
       return { ...state, errorPage: false };
     default:
       return state;

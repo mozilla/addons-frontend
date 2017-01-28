@@ -8,7 +8,7 @@ import NotFoundPage from 'amo/components/NotFoundPage';
 import { getReduxConnectError } from './reduxConnectErrors';
 
 
-function getErrorComponent(statusCode) {
+export function getErrorComponent(statusCode) {
   switch (statusCode) {
     case 404:
       return NotFoundPage;
@@ -37,14 +37,10 @@ function ResourceError(props) {
     if (reduxResult.error) {
       const ErrorComponent = getErrorComponent(reduxResult.status);
 
-      // TODO: This will be prettier once we implement real error pages.
-      // https://github.com/mozilla/addons-frontend/issues/1033
-      if (ErrorComponent) {
-        const errorPage = <ErrorComponent {...reduxResult} />;
-        dispatch({ type: '@redux-conn/CLEAR', payload: 'DetailPage' });
-        dispatch({ type: '@redux-conn/END_GLOBAL_LOAD', payload: {} });
-        dispatch({ type: 'SET_ERROR_PAGE', payload: errorPage });
-      }
+      console.warn('I HAVE BEEN FOUND TO BE AN ERROR');
+      // dispatch({ type: '@redux-conn/CLEAR', payload: 'DetailPage' });
+      // dispatch({ type: '@redux-conn/END_GLOBAL_LOAD', payload: {} });
+      dispatch({ type: 'SET_ERROR_PAGE', payload: reduxResult });
       //   return (
       //     <WrappedComponent {...componentProps} />
       //   );
