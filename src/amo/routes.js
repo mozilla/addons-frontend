@@ -28,7 +28,6 @@ export default (
     <Route path="fxa-authenticate" component={HandleLogin} />
     <Route path="search/" component={SearchPage} />
     <Route path=":visibleAddonType/" component={LandingPage} />
-
+    <Route path="*" component={NotFoundPage} />
   </Route>
 );
-// <Route path="*" component={NotFoundPage} />

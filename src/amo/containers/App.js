@@ -3,6 +3,7 @@ import config from 'config';
 import React, { PropTypes } from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
+import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -39,6 +40,7 @@ export class AppBase extends React.Component {
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    errorPage: false,
   }
 
   componentDidMount() {
@@ -55,6 +57,11 @@ export class AppBase extends React.Component {
     }
   }
 
+  // componentWillReceiveProps() {
+  //   const { showError } = this.props;
+  //   console.log('componentWillReceiveProps', this.props);
+  // }
+
   render() {
     const {
       FooterComponent,
@@ -62,9 +69,11 @@ export class AppBase extends React.Component {
       MastHeadComponent,
       children,
       clientApp,
+      errorPage,
       i18n,
       lang,
       location,
+      showError,
     } = this.props;
     const isHomePage = Boolean(location.pathname && location.pathname.match(
       new RegExp(`^\\/${lang}\\/${clientApp}\\/?$`)));
@@ -77,7 +86,8 @@ export class AppBase extends React.Component {
           SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
           query={query} ref={(ref) => { this.mastHead = ref; }} />
         <div className="App-content">
-          {children}
+          {errorPage ? 'I HAVE ERROR' : 'I AM FINE'}
+          {!errorPage ? children : errorPage}
         </div>
         <FooterComponent handleViewDesktop={this.onViewDesktop}
           location={location} />
@@ -89,6 +99,7 @@ export class AppBase extends React.Component {
 export const mapStateToProps = (state) => ({
   clientApp: state.api.clientApp,
   lang: state.api.lang,
+  errorPage: state.showError.errorPage,
 });
 
 export function mapDispatchToProps(dispatch) {
@@ -100,7 +111,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default compose(
-  handleResourceErrors,
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
+  handleResourceErrors,
 )(AppBase);

@@ -55,14 +55,16 @@ function getNoScriptStyles({ appName }) {
   return undefined;
 }
 
-function showErrorPage(res, status) {
+function showErrorPage(res, status, propsForProvideAndHydrate = {}) {
   let adjustedStatus = status;
   let error = getErrorMsg(adjustedStatus);
   if (!error) {
     adjustedStatus = 500;
     error = getErrorMsg(adjustedStatus);
   }
-  return res.status(adjustedStatus).end(error);
+  return res.status(adjustedStatus).send(createProvidersAndHydrate(propsForProvideAndHydrate));
+
+  // return createProvidersAndHydrate(propsForProvideAndHydrate);
 }
 
 const appName = config.get('appName');
@@ -73,6 +75,40 @@ function logRequests(req, res, next) {
   const finish = new Date();
   const elapsed = finish - start;
   log.info({ req, res, start, finish, elapsed });
+}
+
+function createProvidersAndHydrate({ lang, locale, hydrateOnClient, renderProps, store }) {
+  // eslint-disable-next-line global-require
+  let i18nData = {};
+  try {
+    if (locale !== langToLocale(config.get('defaultLang'))) {
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      i18nData = require(
+        `../../locale/${locale}/${appName}.js`);
+    }
+  } catch (e) {
+    log.info(
+      `Locale JSON not found or required for locale: "${locale}"`);
+    log.info(
+      `Falling back to default lang: "${config.get('defaultLang')}".`);
+  }
+  const i18n = makeI18n(i18nData, lang);
+
+  const InitialComponent = (
+    <I18nProvider i18n={i18n}>
+      <Provider store={store} key="provider">
+        <ReduxAsyncConnect {...renderProps} />
+      </Provider>
+    </I18nProvider>
+  );
+
+  const asyncConnectLoadState = store.getState().reduxAsyncConnect.loadState || {};
+  const reduxResult = getReduxConnectError(asyncConnectLoadState);
+  if (reduxResult.status) {
+    return showErrorPage(res, reduxResult.status);
+  }
+
+  return hydrateOnClient({ component: InitialComponent });
 }
 
 function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
@@ -204,50 +240,28 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         res.status(httpStatus).send(`<!DOCTYPE html>\n${HTML}`);
       }
 
+      if (err) {
+        log.error({ err, req });
+        return showErrorPage(res, 500, { hydrateOnClient, lang, locale, renderProps, store });
+      }
+
+      // if (!renderProps) {
+      //   console.log('HOWDY NO FOUND');
+      //   return showErrorPage(res, 404, { hydrateOnClient, lang, locale, renderProps, store });
+      // } else {
+      //   console.log('RENDER PROPS');
+      //   console.log(renderProps);
+      // }
+
       // Set disableSSR to true to debug
       // client-side-only render.
       if (config.get('disableSSR') === true) {
         return Promise.resolve(hydrateOnClient());
       }
 
-      // if (err) {
-      //   log.error({ err, req });
-      //   return showErrorPage(res, 500);
-      // }
-
       return loadOnServer({ ...renderProps, store })
         .then(() => {
-          // eslint-disable-next-line global-require
-          let i18nData = {};
-          try {
-            if (locale !== langToLocale(config.get('defaultLang'))) {
-              // eslint-disable-next-line global-require, import/no-dynamic-require
-              i18nData = require(
-                `../../locale/${locale}/${appInstanceName}.js`);
-            }
-          } catch (e) {
-            log.info(
-              `Locale JSON not found or required for locale: "${locale}"`);
-            log.info(
-              `Falling back to default lang: "${config.get('defaultLang')}".`);
-          }
-          const i18n = makeI18n(i18nData, lang);
-
-          const InitialComponent = (
-            <I18nProvider i18n={i18n}>
-              <Provider store={store} key="provider">
-                <ReduxAsyncConnect {...renderProps} />
-              </Provider>
-            </I18nProvider>
-          );
-
-          const asyncConnectLoadState = store.getState().reduxAsyncConnect.loadState || {};
-          const reduxResult = getReduxConnectError(asyncConnectLoadState);
-          // if (reduxResult.status) {
-          //   return showErrorPage(res, reduxResult.status);
-          // }
-
-          return hydrateOnClient({ component: InitialComponent });
+          return createProvidersAndHydrate({ hydrateOnClient, lang, locale, renderProps, store });
         })
         .catch((error) => {
           log.error({ err: error });

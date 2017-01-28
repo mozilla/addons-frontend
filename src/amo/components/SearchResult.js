@@ -32,7 +32,7 @@ export class SearchResultBase extends React.Component {
     );
     return (
       <li className="SearchResult">
-        <Link to={`/addon/${addon.slug}/`}
+        <Link to={`/addon/${addon.slug}-harm/`}
               className="SearchResult-link"
               ref={(el) => { this.name = el; }}>
           <section className="SearchResult-main">
