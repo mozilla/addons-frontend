@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2017-01-29 21:47+0000\n"
+"PO-Revision-Date: 2017-01-29 22:07+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -32,7 +32,7 @@ msgstr "เกี่ยวกับส่วนขยายนี้"
 
 #: src/amo/components/AddonDetail.js:96
 msgid "Rate your experience"
-msgstr ""
+msgstr "ให้คะแนนประสบการณ์ของคุณ"
 
 #: src/amo/components/AddonMeta.js:19
 msgid "Category"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr ""
+msgstr "ภาพหน้าจอ %(imageNumber)s จาก %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
@@ -129,23 +129,23 @@ msgstr "ปิดกั้นโฆษณา"
 
 #: src/amo/containers/Home.js:21
 msgid "Screenshot"
-msgstr "ภาพหน้าจอ"
+msgstr "จับภาพหน้าจอ"
 
 #: src/amo/containers/Home.js:22
 msgid "Save stuff"
-msgstr ""
+msgstr "บันทึกสิ่งต่าง ๆ"
 
 #: src/amo/containers/Home.js:23
 msgid "Shop online"
-msgstr ""
+msgstr "ซื้อของออนไลน์"
 
 #: src/amo/containers/Home.js:24
 msgid "Be social"
-msgstr ""
+msgstr "เชื่อมต่อทางสังคม"
 
 #: src/amo/containers/Home.js:25
 msgid "Share stuff"
-msgstr ""
+msgstr "แบ่งปันสิ่งต่าง ๆ"
 
 #: src/amo/containers/Home.js:28
 msgid "Browse all extensions"
@@ -193,11 +193,11 @@ msgstr "กำลังติดตั้ง %(name)s"
 
 #: src/core/components/InstallButton/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ถูกติดตั้งและถูกเปิดใช้งาน คลิกเพื่อถอนการติดตั้ง"
 
 #: src/core/components/InstallButton/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s ถูกปิดใช้งาน คลิกเพื่อเปิดใช้งาน"
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
@@ -205,7 +205,7 @@ msgstr "กำลังถอนการติดตั้ง %(name)s"
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s ถูกถอนการติดตั้ง คลิกเพื่อติดตั้ง"
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."

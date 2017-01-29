@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2017-01-29 21:49+0000\n"
+"PO-Revision-Date: 2017-01-29 22:03+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -32,11 +32,11 @@ msgstr "กำลังติดตั้ง %(name)s"
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ถูกติดตั้งและถูกเปิดใช้งาน คลิกเพื่อถอนการติดตั้ง"
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s ถูกปิดใช้งาน คลิกเพื่อเปิดใช้งาน"
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Uninstalling %(name)s."
@@ -88,7 +88,7 @@ msgstr "เกิดข้อผิดพลาดที่ไม่คาดค
 
 #: src/disco/components/Addon.js:145
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "ส่วนเสริมนี้จะถูกถอนการติดตั้งหลังจากคุณเริ่มการทำงาน Firefox ใหม่"
 
 #: src/disco/components/Addon.js:147
 msgid "Please restart Firefox to use this add-on."
