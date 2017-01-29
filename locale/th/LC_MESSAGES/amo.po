@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2017-01-29 21:30+0000\n"
+"PO-Revision-Date: 2017-01-29 21:47+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -181,7 +181,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
-msgstr ""
+msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 
 #: src/core/components/InstallButton/index.js:49
 msgid "Downloading %(name)s."
@@ -201,7 +201,7 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "กำลังถอนการติดตั้ง %(name)s"
 
 #: src/core/components/InstallButton/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
@@ -234,7 +234,7 @@ msgstr "กำลังค้นหา..."
 
 #: src/core/components/Search/SearchResults.js:59
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
