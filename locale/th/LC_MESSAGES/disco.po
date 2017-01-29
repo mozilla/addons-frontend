@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2017-01-29 22:03+0000\n"
+"PO-Revision-Date: 2017-01-29 22:14+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -44,7 +44,7 @@ msgstr "กำลังถอนการติดตั้ง %(name)s"
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s ถูกถอนการติดตั้ง คลิกเพื่อติดตั้ง"
 
 #: src/core/components/InstallSwitch/index.js:68
 msgid "Install state for %(name)s is unknown."
