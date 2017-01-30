@@ -9,6 +9,7 @@ import { setReview } from 'amo/actions/reviews';
 import { callApi } from 'core/api';
 import { withErrorHandling } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import OverlayCard from 'ui/components/OverlayCard';
 
 import 'amo/css/AddonReview.scss';
 
@@ -21,6 +22,11 @@ export class AddonReviewBase extends React.Component {
     review: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
     updateReviewText: PropTypes.func,
+  }
+
+  constructor(props) {
+    super(props);
+    this.overlayCard = null;
   }
 
   onSubmit = (event) => {
@@ -45,10 +51,8 @@ export class AddonReviewBase extends React.Component {
       event.preventDefault();
       event.stopPropagation();
     }
-    const { router } = this.props;
-    const { addonSlug } = this.props.review;
-    const { lang, clientApp } = this.props.apiState;
-    router.push(`/${lang}/${clientApp}/addon/${addonSlug}/`);
+    // TODO: switch to redux actions maybe.
+    this.overlayCard.hide();
   }
 
   render() {
@@ -76,7 +80,8 @@ export class AddonReviewBase extends React.Component {
     }
 
     return (
-      <div className="AddonReview">
+      <OverlayCard ref={(ref) => { this.overlayCard = ref; }}
+        visibleOnLoad={true} className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
@@ -91,7 +96,7 @@ export class AddonReviewBase extends React.Component {
             <button className="AddonReview-button AddonReview-back-button"
               onClick={this.goBackToAddonDetail}
               ref={(ref) => { this.backButton = ref; }}>
-              {i18n.gettext('Back')}
+              {i18n.gettext('Cancel')}
             </button>
             <input
               className="AddonReview-button AddonReview-submit-button"
@@ -99,7 +104,7 @@ export class AddonReviewBase extends React.Component {
             />
           </div>
         </form>
-      </div>
+      </OverlayCard>
     );
   }
 }
