@@ -302,7 +302,7 @@ export function runServer({ listen = true, app = appName } = {}) {
               [apiPath:${config.get('apiPath')}]`);
             log.info(
               `👁  Open your browser at http://${host}:${port} to view it.`);
-            resolve(server);
+            return resolve(server);
           });
         } else {
           resolve(server);
