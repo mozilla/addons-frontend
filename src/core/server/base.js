@@ -269,9 +269,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
 export function runServer({ listen = true, app = appName } = {}) {
   if (!app) {
-    log.fatal(
+    throw new Error(
       `Please specify a valid appName from ${config.get('validAppNames')}`);
-    process.exit(1);
   }
 
   const port = config.get('serverPort');
@@ -295,7 +294,7 @@ export function runServer({ listen = true, app = appName } = {}) {
         if (listen === true) {
           server.listen(port, host, (err) => {
             if (err) {
-              reject(err);
+              return reject(err);
             }
             log.info(oneLine`🔥  Addons-frontend server is running [ENV:${env}]
               [APP:${app}] [isDevelopment:${isDevelopment}
@@ -312,6 +311,7 @@ export function runServer({ listen = true, app = appName } = {}) {
     })
     .catch((err) => {
       log.error({ err });
+      throw err;
     });
 }
 
