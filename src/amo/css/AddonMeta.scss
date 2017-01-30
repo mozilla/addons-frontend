@@ -1,8 +1,9 @@
 .AddonMeta {
+  display: flex;
   font-size: 10px;
 }
 
-.AddonMeta-users {
+.AddonMeta-item {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -13,6 +14,11 @@
 .AddonMeta-users-icon {
   height: 60px;
   width: 40px;
+}
+
+.AddonMeta-ratings-icon {
+  height: 50px;
+  width: 50px;
 }
 
 .AddonMeta-text {
