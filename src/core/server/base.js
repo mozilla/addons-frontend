@@ -267,19 +267,23 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   return app;
 }
 
-export function runServer({ listen = true, app = appName } = {}) {
-  if (!app) {
-    throw new Error(
-      `Please specify a valid appName from ${config.get('validAppNames')}`);
-  }
-
+export function runServer({
+  listen = true, app = appName, exitProcess = true,
+} = {}) {
   const port = config.get('serverPort');
   const host = config.get('serverHost');
 
   const isoMorphicServer = new WebpackIsomorphicTools(
     WebpackIsomorphicToolsConfig);
-  return isoMorphicServer
-    .server(config.get('basePath'))
+
+  return new Promise((resolve) => {
+    if (!app) {
+      throw new Error(
+        `Please specify a valid appName from ${config.get('validAppNames')}`);
+    }
+    resolve();
+  })
+    .then(() => isoMorphicServer.server(config.get('basePath')))
     .then(() => {
       global.webpackIsomorphicTools = isoMorphicServer;
       // Webpack Isomorphic tools is ready
@@ -311,7 +315,11 @@ export function runServer({ listen = true, app = appName } = {}) {
     })
     .catch((err) => {
       log.error({ err });
-      throw err;
+      if (exitProcess) {
+        process.exit(1);
+      } else {
+        throw err;
+      }
     });
 }
 

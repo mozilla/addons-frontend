@@ -2,6 +2,8 @@ import cheerio from 'cheerio';
 import { assert } from 'chai';
 import { camelizeKeys as camelCaseKeys } from 'humps';
 
+import { runServer } from 'core/server/base';
+
 export function checkSRI(res) {
   const $ = cheerio.load(res.text);
   const $stylesheets = $('link[rel=stylesheet]');
@@ -35,4 +37,12 @@ export function parseCSP(rawCsp) {
         ...parts,
         [partName]: partValues,
       }), {}));
+}
+
+export function runTestServer(options = {}) {
+  return runServer({
+    listen: false,
+    exitProcess: false,
+    ...options,
+  });
 }
