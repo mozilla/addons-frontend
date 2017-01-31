@@ -46,6 +46,7 @@ export class AddonReviewBase extends React.Component {
       .then(() => this.goBackToAddonDetail());
   }
 
+  // TODO: delete this and add a click-outside event.
   goBackToAddonDetail = (event) => {
     if (event) {
       event.preventDefault();
@@ -79,30 +80,29 @@ export class AddonReviewBase extends React.Component {
       );
     }
 
+    const titlePlaceholder = i18n.gettext('Give your review a title');
+
     return (
       <OverlayCard ref={(ref) => { this.overlayCard = ref; }}
         visibleOnLoad={true} className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
-          <textarea
-            className="AddonReview-textarea"
-            ref={(ref) => { this.reviewTextarea = ref; }}
-            name="review"
-            placeholder={placeholder}>
-            {review.body}
-          </textarea>
-          <div className="AddonReview-button-row">
-            <button className="AddonReview-button AddonReview-back-button"
-              onClick={this.goBackToAddonDetail}
-              ref={(ref) => { this.backButton = ref; }}>
-              {i18n.gettext('Cancel')}
-            </button>
-            <input
-              className="AddonReview-button AddonReview-submit-button"
-              type="submit" value={i18n.gettext('Submit')}
-            />
+          <div className="AddonReview-form-input">
+            <input className="AddonReview-title" name="reviewTitle"
+              placeholder={titlePlaceholder} />
+            <textarea
+              className="AddonReview-textarea"
+              ref={(ref) => { this.reviewTextarea = ref; }}
+              name="review"
+              placeholder={placeholder}>
+              {review.body}
+            </textarea>
           </div>
+          <input
+            className="AddonReview-submit"
+            type="submit" value={i18n.gettext('Submit review')}
+          />
         </form>
       </OverlayCard>
     );

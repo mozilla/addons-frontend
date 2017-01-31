@@ -1,8 +1,9 @@
 @import "~core/css/inc/vars";
 
 .OverlayCard {
-  margin: 0 $padding-page;
-  width: 100%;
+  margin: 0;
+  width: 90%;
+  text-align: center;
 
   .Card-contents {
     max-height: 75vh;

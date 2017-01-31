@@ -1,52 +1,51 @@
 @import "~amo/css/inc/vars";
 
-.AddonReview {
-  text-align: center;
-  margin: auto;
-  width: 90%;
+.AddonReview .Card-contents {
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+}
+
+.AddonReview-form-input {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0 10px;
 }
 
 .AddonReview-header {
-  font-size: $font-size-l;
+  font-size: $font-size-m + 8px;
   margin-bottom: 0.3em;
 }
 
-.AddonReview-textarea {
+.AddonReview-title,
+.AddonReview-textarea,
+.AddonReview-submit {
+  margin-bottom: 12px;
+  text-align: left;
   width: 100%;
   padding: 0.7em;
   border: 2px solid $form-border-color;
   border-radius: 8px;
   box-shadow: none;
+}
+
+.AddonReview-textarea {
   min-height: 200px;
 }
 
-.AddonReview-button-row {
-  margin-top: 1em;
-  text-align: left;
-  display: flex;
-}
-
-.AddonReview-back-button::before {
-  // This is a left pointing angle bracket (used as an arrow).
-  // Code point: &#12296;
-  // TODO: switch this to an SVG.
-  content: '〈 ';
-}
-
-.AddonReview-button {
+.AddonReview-submit {
+  font-size: 0.8em;
+  text-align: center;
+  color: $link-color;
+  text-transform: uppercase;
+  background: none;
   border: 0;
-  color: $body-font-color;
-  padding: 0.7em;
-  background-color: $button-background-color;
-  border-radius: 8px;
-}
-
-.AddonReview-back-button {
-  // This is because the left-pointing angle bracket character
-  // seems to have a lot of whitespace on the left side.
-  padding-left: 0;
-}
-
-.AddonReview-submit-button {
-  margin-left: auto;
+  border-top: 2px solid $link-color;
+  border-radius: 0;
+  margin-bottom: 0;
+  // This is an attempt at vertically centering the text. It accounts
+  // for the rounded corners of the overlay.
+  padding: 15px 0 5px;
+  vertical-align: bottom;
 }

@@ -8,7 +8,7 @@ $text-color-default: #333;
 $text-color-headings: $text-color-default;
 $text-color-message: #fff;
 $sub-text-color: #6a6a6a;
-$form-border-color: #f1f1f1;
+$form-border-color: $primary-font-color;
 $error-text-color: $text-color-message;
 $error-background-color: #f00;
 
