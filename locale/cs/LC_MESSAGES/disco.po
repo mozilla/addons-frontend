@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2016-09-02 02:18+0000\n"
+"PO-Revision-Date: 2017-01-29 20:34+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -15,13 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Instalovat"
+msgstr "Nainstalovat motiv"
 
 #: src/core/components/InstallButton/index.js:48
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Přidat do Firefoxu"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -130,20 +129,14 @@ msgstr "Přizpůsobte si svůj Firefox"
 #: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Jsou tady tisíce bezplatných doplňků vytvořených vývojáři z celého světa, "
-"které vám pomůžou přizpůsobit si prohlížeč podle sebe. Od nádherných motivů "
-"vzhledu až po produktivní nástroje, díky kterým bude prohlížení rychlejší a "
-"bezpečnější, všechny z nich pomáhají, aby se prohlížeč stal vaším "
-"prohlížečem. Abychom vám do začátku pomohli, vybrali jsme některé, které pro "
-"jejich výkon a funkce doporučujeme."
+"Jsou tady tisíce bezplatných doplňků vytvořených vývojáři z celého světa, které vám pomůžou přizpůsobit si prohlížeč podle sebe. Od nádherných motivů vzhledu až po produktivní nástroje, díky kterým "
+"bude prohlížení rychlejší a bezpečnější, všechny z nich pomáhají, aby se prohlížeč stal vaším prohlížečem. Abychom vám do začátku pomohli, vybrali jsme některé, které pro jejich výkon a funkce "
+"doporučujeme."
 
 #~ msgid "Preview %(name)s"
 #~ msgstr "Náhled %(name)s"

@@ -1,14 +1,12 @@
 import { assert } from 'chai';
 import request from 'supertest-as-promised';
 
-import { runServer } from 'core/server/base';
-
-import { checkSRI, parseCSP } from '../helpers';
+import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
 describe('Search App GET requests', () => {
   let app;
 
-  before(() => runServer({ listen: false, app: 'admin' })
+  before(() => runTestServer({ app: 'admin' })
     .then((server) => {
       app = server;
     }));

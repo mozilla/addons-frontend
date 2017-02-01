@@ -2,7 +2,7 @@
 import config from 'config';
 import request from 'supertest-as-promised';
 
-import { runServer } from 'core/server/base';
+import { runTestServer } from '../helpers';
 
 
 const fetchMock = require('fetch-mock');
@@ -13,7 +13,7 @@ const detailsAPIURL = `${config.get('apiHost')}/api/v3/addons/addon/fakeaddon/?l
 describe('Details Page', () => {
   let app;
 
-  before(() => runServer({ listen: false, app: 'amo' })
+  before(() => runTestServer({ app: 'amo' })
     .then((server) => {
       app = server;
     }));
