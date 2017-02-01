@@ -78,11 +78,16 @@ export default class HoverIntent extends React.Component {
 
   render() {
     const child = React.Children.only(this.props.children);
+    const propOverrides = ['onMouseOver', 'onMouseOut', 'onMouseMove'];
 
-    return React.cloneElement(child, {
-      onMouseOver: this.onMouseOver,
-      onMouseOut: this.onMouseOut,
-      onMouseMove: this.onMouseMove,
+    const newProps = {};
+    propOverrides.forEach((propName) => {
+      if (child.props[propName]) {
+        throw new Error(`Cannot provide the prop [${propName}] on HoverIntent child`);
+      }
+      newProps[propName] = this[propName];
     });
+
+    return React.cloneElement(child, newProps);
   }
 }
