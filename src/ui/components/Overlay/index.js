@@ -20,6 +20,12 @@ export default class Overlay extends React.Component {
     this.state = { visible: props.visibleOnLoad };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.visibleOnLoad !== undefined) {
+      this.setState({ visible: nextProps.visibleOnLoad });
+    }
+  }
+
   hide() {
     this.setState({ visible: false });
   }
@@ -32,6 +38,10 @@ export default class Overlay extends React.Component {
     this.setState({ visible: !this.state.visible });
   }
 
+  onClickBackground = () => {
+    this.hide();
+  }
+
   render() {
     const { children, className } = this.props;
 
@@ -39,8 +49,11 @@ export default class Overlay extends React.Component {
       <div className={classNames('Overlay', className, {
         'Overlay--visible': this.state.visible,
       })} ref={(ref) => { this.overlayContainer = ref; }}>
-        <div className="Overlay-background"
-          ref={(ref) => { this.overlayBackground = ref; }} />
+        <div
+          onClick={this.onClickBackground}
+          onTouchEnd={this.onClickBackground}
+          className="Overlay-background"
+        />
         <div className="Overlay-contents"
           ref={(ref) => { this.overlayContents = ref; }}>
           {children}
