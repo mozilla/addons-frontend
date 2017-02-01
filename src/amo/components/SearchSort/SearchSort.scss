@@ -13,7 +13,7 @@
   background: $base-color;
   border-radius: $border-radius-default;
   border: 0;
-  margin: 0 ($padding-page * 2) $padding-page;
+  margin: ($padding-page * 2) $padding-page;
   overflow: hidden;
 }
 
