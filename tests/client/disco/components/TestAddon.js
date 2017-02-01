@@ -6,7 +6,6 @@ import {
 } from 'react-addons-test-utils';
 import {
   findDOMNode,
-  unmountComponentAtNode,
 } from 'react-dom';
 
 import translate from 'core/i18n/translate';
@@ -301,10 +300,6 @@ describe('<Addon />', () => {
       };
       root = renderAddon({ addon: data, ...data });
       themeImage = findDOMNode(root).querySelector('.theme-image');
-    });
-
-    afterEach(() => {
-      unmountComponentAtNode(findDOMNode(root));
     });
 
     it('runs theme preview onHoverIntent on theme image', () => {
