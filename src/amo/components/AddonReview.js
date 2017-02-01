@@ -57,7 +57,7 @@ export class AddonReviewBase extends React.Component {
   }
 
   render() {
-    const { i18n, review } = this.props;
+    const { errorHandler, i18n, review } = this.props;
     console.log('review property, nice?', review);
     if (!review || !review.id || !review.addonSlug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
@@ -89,6 +89,7 @@ export class AddonReviewBase extends React.Component {
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <div className="AddonReview-form-input">
+            {errorHandler.getError()}
             <input className="AddonReview-title" name="reviewTitle"
               placeholder={titlePlaceholder} />
             <textarea
@@ -121,7 +122,7 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export default compose(
-  withErrorHandling({ name: 'AddonReview' }),
+  withErrorHandling({ name: 'AddonReview', autoRenderErrors: false }),
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),

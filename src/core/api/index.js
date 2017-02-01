@@ -60,15 +60,18 @@ export function callApi({
   const apiURL = `${API_BASE}/${endpoint}/${queryString}`;
 
   return fetch(apiURL, options)
-    .then((response) => response.json().then(
-      (jsonResponse) => ({ response, jsonResponse }),
-      (error) => {
-        log.warn('Could not parse response as JSON:', error);
-        return response.text().then((textResponse) =>
-          ({ response, jsonResponse: { text: textResponse } })
-        );
-      }
-    ))
+    .then((response) => {
+      return response.json()
+        .then(
+          (jsonResponse) => ({ response, jsonResponse }),
+          (error) => {
+            log.warn('Could not parse response as JSON:', error);
+            return response.text().then((textResponse) =>
+              ({ response, jsonResponse: { text: textResponse } })
+            );
+          }
+        )
+    })
     .then(({ response, jsonResponse }) => {
       if (response.ok) {
         return jsonResponse;
@@ -84,6 +87,11 @@ export function callApi({
         errorHandler.handle(apiError);
       }
       throw apiError;
+    }, (fetchError) => {
+      if (errorHandler) {
+        errorHandler.handle(fetchError);
+      }
+      throw fetchError;
     })
     .then((response) => (schema ? normalize(response, schema) : response));
 }

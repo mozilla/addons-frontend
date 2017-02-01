@@ -12,14 +12,23 @@ function generateHandlerId({ name = '' } = {}) {
 }
 
 export class ErrorHandler {
-  constructor({ id, dispatch }) {
+  constructor({ id, dispatch, errorContent }) {
     this.id = id;
     this.dispatch = dispatch;
+    this.errorContent = errorContent;
   }
 
   clear() {
     log.debug('Clearing last error for ', this.id);
     this.dispatch(clearError(this.id));
+  }
+
+  wasError() {
+    return Boolean(this.errorContent);
+  }
+
+  getError() {
+    return this.errorContent;
   }
 
   handle(error) {
@@ -31,41 +40,57 @@ export class ErrorHandler {
 
 class ErrorHandlerComponent extends React.Component {
   static propTypes = {
+    autoRenderErrors: PropTypes.boolean,
     dispatch: PropTypes.func,
     error: PropTypes.object,
     errorHandlerId: PropTypes.string,
     WrappedComponent: PropTypes.object,
   }
 
+  static defaultProps = {
+    autoRenderErrors: true,
+  }
+
   render() {
     const {
+      autoRenderErrors,
       WrappedComponent,
       errorHandlerId,
       dispatch,
       error,
       ...props
     } = this.props;
-    const errorHandler = new ErrorHandler({ id: errorHandlerId, dispatch });
-    const wrappedOutput = (
-      <WrappedComponent errorHandler={errorHandler} {...props} />
-    );
 
+    let errorContent;
     if (error) {
+      errorContent = (
+        <ul className="ErrorHandler-list">
+          {error.messages.map((msg) => <li>{msg}</li>)}
+        </ul>
+      );
+    }
+
+    const errorHandler = new ErrorHandler({
+      errorContent,
+      id: errorHandlerId,
+      dispatch,
+    });
+    const allProps = { ...props, errorHandler };
+
+    if (error && autoRenderErrors) {
       return (
         <div>
-          <ul className="ErrorHandler-list">
-            {error.messages.map((msg) => <li>{msg}</li>)}
-          </ul>
-          {wrappedOutput}
+          {errorContent}
+          <WrappedComponent {...allProps} />
         </div>
       );
     }
 
-    return wrappedOutput;
+    return <WrappedComponent {...allProps} />;
   }
 }
 
-export function withErrorHandling({ name, id } = {}) {
+export function withErrorHandling({ name, id, autoRenderErrors } = {}) {
   return (WrappedComponent) => {
     const mapStateToProps = () => {
       // Each component instance gets its own error handler ID.
@@ -75,6 +100,7 @@ export function withErrorHandling({ name, id } = {}) {
         log.debug(`Generated error handler ID: ${instanceId}`);
       }
       return (state) => ({
+        autoRenderErrors,
         WrappedComponent,
         errorHandlerId: instanceId,
         error: state.errors[instanceId],
