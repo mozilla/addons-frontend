@@ -26,15 +26,22 @@ export class AddonReviewBase extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { reviewTitle: null };
+    if (props.review) {
+      // TODO: also do this in componentWillReceiveProps.
+      this.state.reviewTitle = props.review.title;
+      this.state.reviewBody = props.review.body;
+    }
     this.overlayCard = null;
   }
 
   onSubmit = (event) => {
+    const { reviewBody, reviewTitle } = this.state;
     event.preventDefault();
     event.stopPropagation();
-    const body = this.reviewTextarea.value;
     const params = {
-      body,
+      body: reviewBody,
+      title: reviewTitle,
       addonSlug: this.props.review.addonSlug,
       errorHandler: this.props.errorHandler,
       reviewId: this.props.review.id,
@@ -56,9 +63,17 @@ export class AddonReviewBase extends React.Component {
     this.overlayCard.hide();
   }
 
+  onTitleInput = (event) => {
+    this.setState({ reviewTitle: event.target.value });
+  }
+
+  onBodyInput = (event) => {
+    this.setState({ reviewBody: event.target.value });
+  }
+
   render() {
     const { errorHandler, i18n, review } = this.props;
-    console.log('review property, nice?', review);
+    const { reviewBody, reviewTitle } = this.state;
     if (!review || !review.id || !review.addonSlug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
@@ -90,15 +105,19 @@ export class AddonReviewBase extends React.Component {
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <div className="AddonReview-form-input">
             {errorHandler.getError()}
-            <input className="AddonReview-title" name="reviewTitle"
+            <input
+              type="text"
+              className="AddonReview-title"
+              name="reviewTitle"
+              value={reviewTitle}
+              onInput={this.onTitleInput}
               placeholder={titlePlaceholder} />
             <textarea
               className="AddonReview-textarea"
-              ref={(ref) => { this.reviewTextarea = ref; }}
+              onInput={this.onBodyInput}
               name="review"
-              placeholder={placeholder}>
-              {review.body}
-            </textarea>
+              value={reviewBody}
+              placeholder={placeholder} />
           </div>
           <input
             className="AddonReview-submit"
