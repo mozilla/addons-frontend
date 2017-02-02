@@ -7,6 +7,20 @@ import { ErrorHandler } from 'core/errorHandler';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
 
+function createApiResponse({
+  ok = true, jsonData = {}, ...responseProps
+} = {}) {
+  const response = {
+    ok,
+    json: () => Promise.resolve(jsonData),
+    ...responseProps,
+  };
+  return Promise.resolve({
+    ...response,
+    clone: () => response,
+  });
+}
+
 describe('api', () => {
   let mockWindow;
   const apiHost = config.get('apiHost');
@@ -16,13 +30,6 @@ describe('api', () => {
   });
 
   describe('core.callApi', () => {
-    function createApiResponse({ ok = true, jsonData = {} } = {}) {
-      return Promise.resolve({
-        ok,
-        json: () => Promise.resolve(jsonData),
-      });
-    }
-
     function newErrorHandler() {
       return new ErrorHandler({ id: '123', dispatch: sinon.stub() });
     }
@@ -76,7 +83,7 @@ describe('api', () => {
     });
 
     it('handles error responses with JSON syntax errors', () => {
-      mockWindow.expects('fetch').returns(Promise.resolve({
+      mockWindow.expects('fetch').returns(createApiResponse({
         ok: false,
         json() {
           return Promise.reject(
@@ -102,19 +109,16 @@ describe('api', () => {
   });
 
   describe('admin search api', () => {
-    function mockResponse(propOverrides = {}) {
-      return Promise.resolve({
-        ok: true,
-        json() {
-          return Promise.resolve({
-            results: [
-              { slug: 'foo' },
-              { slug: 'food' },
-              { slug: 'football' },
-            ],
-          });
+    function mockResponse(responseProps = {}) {
+      return createApiResponse({
+        jsonData: {
+          results: [
+            { slug: 'foo' },
+            { slug: 'food' },
+            { slug: 'football' },
+          ],
         },
-        ...propOverrides,
+        ...responseProps,
       });
     }
 
@@ -169,20 +173,15 @@ describe('api', () => {
   });
 
   describe('search api', () => {
-    function mockResponse() {
-      return Promise.resolve({
-        ok: true,
-        json() {
-          return Promise.resolve({
-            results: [
-              { slug: 'foo' },
-              { slug: 'food' },
-              { slug: 'football' },
-            ],
-          });
-        },
-      });
-    }
+    const mockResponse = () => createApiResponse({
+      jsonData: {
+        results: [
+          { slug: 'foo' },
+          { slug: 'food' },
+          { slug: 'football' },
+        ],
+      },
+    });
 
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
@@ -218,20 +217,15 @@ describe('api', () => {
   });
 
   describe('featured add-ons api', () => {
-    function mockResponse() {
-      return Promise.resolve({
-        ok: true,
-        json() {
-          return Promise.resolve({
-            results: [
-              { slug: 'foo' },
-              { slug: 'food' },
-              { slug: 'football' },
-            ],
-          });
-        },
-      });
-    }
+    const mockResponse = () => createApiResponse({
+      jsonData: {
+        results: [
+          { slug: 'foo' },
+          { slug: 'food' },
+          { slug: 'football' },
+        ],
+      },
+    });
 
     it('sets the app, lang, and type query', () => {
       mockWindow.expects('fetch')
@@ -261,15 +255,13 @@ describe('api', () => {
   });
 
   describe('add-on api', () => {
-    function mockResponse({ ok = true } = {}) {
-      return Promise.resolve({
-        ok,
-        json() {
-          return Promise.resolve({
-            name: 'Foo!',
-            slug: 'foo',
-          });
+    function mockResponse(responseProps = {}) {
+      return createApiResponse({
+        jsonData: {
+          name: 'Foo!',
+          slug: 'foo',
         },
+        ...responseProps,
       });
     }
 
@@ -328,14 +320,9 @@ describe('api', () => {
 
   describe('login', () => {
     const response = { token: 'use.this.jwt' };
-    function mockResponse() {
-      return Promise.resolve({
-        ok: true,
-        json() {
-          return Promise.resolve(response);
-        },
-      });
-    }
+    const mockResponse = () => createApiResponse({
+      jsonData: response,
+    });
 
     it('sends the code and state', () => {
       mockWindow
@@ -378,10 +365,7 @@ describe('api', () => {
           method: 'GET',
         })
         .once()
-        .returns(Promise.resolve({
-          ok: true,
-          json() { return Promise.resolve(user); },
-        }));
+        .returns(createApiResponse({ jsonData: user }));
       return api.fetchProfile({ api: { lang: 'en-US', token } })
         .then((apiResponse) => {
           assert.deepEqual(apiResponse, {
@@ -411,18 +395,16 @@ describe('api', () => {
   });
 
   describe('categories api', () => {
-    function mockResponse() {
-      return Promise.resolve({
-        ok: true,
-        json() {
-          return Promise.resolve({
-            results: [
-              { slug: 'foo' },
-              { slug: 'food' },
-              { slug: 'football' },
-            ],
-          });
+    function mockResponse(responseProps = {}) {
+      return createApiResponse({
+        jsonData: {
+          results: [
+            { slug: 'foo' },
+            { slug: 'food' },
+            { slug: 'football' },
+          ],
         },
+        ...responseProps,
       });
     }
 
