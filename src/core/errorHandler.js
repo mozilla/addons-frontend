@@ -12,7 +12,7 @@ function generateHandlerId({ name = '' } = {}) {
 }
 
 export class ErrorHandler {
-  constructor({ id, dispatch, errorContent }) {
+  constructor({ id, dispatch, errorContent = null }) {
     this.id = id;
     this.dispatch = dispatch;
     this.errorContent = errorContent;

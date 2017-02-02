@@ -29,9 +29,11 @@ export class AddonReviewBase extends React.Component {
       this.state.reviewBody = props.review.body;
     }
     this.overlayCard = null;
+    this.reviewTextarea = null;
+    this.reviewTitleInput = null;
   }
 
-  onSubmit = (event) => {
+  onSubmit = (event, { overlayCard = this.overlayCard } = {}) => {
     const { reviewBody, reviewTitle } = this.state;
     event.preventDefault();
     event.stopPropagation();
@@ -46,7 +48,7 @@ export class AddonReviewBase extends React.Component {
     // TODO: render a progress indicator in the UI.
     return this.props.updateReviewText(params)
       .then(() => {
-        this.overlayCard.hide();
+        overlayCard.hide();
       });
   }
 
@@ -93,6 +95,7 @@ export class AddonReviewBase extends React.Component {
           <div className="AddonReview-form-input">
             {errorHandler.getError()}
             <input
+              ref={(ref) => { this.reviewTitleInput = ref; }}
               type="text"
               className="AddonReview-title"
               name="reviewTitle"
@@ -100,6 +103,7 @@ export class AddonReviewBase extends React.Component {
               onInput={this.onTitleInput}
               placeholder={titlePlaceholder} />
             <textarea
+              ref={(ref) => { this.reviewTextarea = ref; }}
               className="AddonReview-textarea"
               onInput={this.onBodyInput}
               name="review"

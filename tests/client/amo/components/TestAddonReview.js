@@ -11,6 +11,7 @@ import * as amoApi from 'amo/api';
 import {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
 } from 'amo/components/AddonReview';
+import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -20,11 +21,13 @@ const defaultReview = {
 
 function render({ ...customProps } = {}) {
   const props = {
-    errorHandler: sinon.stub(),
+    errorHandler: new ErrorHandler({
+      id: 'some-id',
+      dispatch: sinon.stub(),
+    }),
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
     review: defaultReview,
-    router: {},
     updateReviewText: () => {},
     ...customProps,
   };
@@ -38,32 +41,44 @@ function render({ ...customProps } = {}) {
 
 describe('AddonReview', () => {
   it('can update a review', () => {
-    const router = { push: sinon.stub() };
     const updateReviewText = sinon.spy(() => Promise.resolve());
-    const errorHandler = sinon.stub();
-    const root = render({ updateReviewText, router, errorHandler });
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: sinon.stub(),
+    });
+    const root = render({ updateReviewText, errorHandler });
     const event = {
       preventDefault: sinon.stub(),
       stopPropagation: sinon.stub(),
     };
 
+    const title = root.reviewTitleInput;
+    title.value = 'some title';
+    Simulate.input(title);
+
     const textarea = root.reviewTextarea;
     textarea.value = 'some review';
-    return root.onSubmit(event)
+    Simulate.input(textarea);
+
+    const overlayCard = {
+      hide: sinon.stub(),
+    };
+
+    return root.onSubmit(event, { overlayCard })
       .then(() => {
         assert.ok(updateReviewText.called);
         assert.ok(event.preventDefault.called);
 
         const params = updateReviewText.firstCall.args[0];
         assert.equal(params.body, 'some review');
+        assert.equal(params.title, 'some title');
         assert.equal(params.addonSlug, defaultReview.addonSlug);
         assert.equal(params.errorHandler, errorHandler);
         assert.equal(params.reviewId, defaultReview.id);
         assert.equal(params.apiState, signedInApiState);
 
-        // This just makes sure goBackToAddonDetail() is executed, which is tested
-        // separately.
-        assert.ok(router.push.called);
+        // Make sure the overlay was hidden after finishing.
+        assert.ok(overlayCard.hide.called);
       });
   });
 
@@ -92,12 +107,9 @@ describe('AddonReview', () => {
   it('triggers the submit handler', () => {
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const root = render({ updateReviewText });
-
-    const textarea = root.reviewTextarea;
-    textarea.value = 'some review';
     Simulate.submit(root.reviewForm);
 
-    // Make sure the submit handler is hooked up.
+    // Just make sure the submit handler is hooked up.
     assert.ok(updateReviewText.called);
   });
 
@@ -109,29 +121,6 @@ describe('AddonReview', () => {
     } catch (error) {
       assert.match(error.message, /Unexpected review property: {"nope".*/);
     }
-  });
-
-  it('goes to the detail page when you press the back button', () => {
-    const router = {
-      push: sinon.stub(),
-    };
-    const root = render({ router });
-    Simulate.click(root.backButton);
-    // This just makes sure goBackToAddonDetail() is executed, which is tested
-    // separately.
-    assert.ok(router.push.called);
-  });
-
-  it('lets you get back to the detail page', () => {
-    const { lang, clientApp } = signedInApiState;
-    const router = {
-      push: sinon.stub(),
-    };
-    const root = render({ router, apiState: signedInApiState });
-    root.goBackToAddonDetail();
-    assert.ok(router.push.called);
-    assert.equal(router.push.firstCall.args[0],
-                 `/${lang}/${clientApp}/addon/${defaultReview.addonSlug}/`);
   });
 
   describe('mapStateToProps', () => {
