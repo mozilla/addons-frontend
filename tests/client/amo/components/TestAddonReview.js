@@ -8,10 +8,8 @@ import {
 import translate from 'core/i18n/translate';
 import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
-import * as coreApi from 'core/api';
 import {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
-  loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
 import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -134,56 +132,6 @@ describe('AddonReview', () => {
     assert.ok(router.push.called);
     assert.equal(router.push.firstCall.args[0],
                  `/${lang}/${clientApp}/addon/${defaultReview.addonSlug}/`);
-  });
-
-  describe('loadAddonReview', () => {
-    let mockApi;
-    let fakeDispatch;
-
-    beforeEach(() => {
-      mockApi = sinon.mock(coreApi);
-      fakeDispatch = sinon.stub();
-    });
-
-    function loadAddonReview({ params } = {}) {
-      let localParams = params;
-      if (!localParams) {
-        localParams = { slug: fakeAddon.slug, reviewId: defaultReview.id };
-      }
-      return defaultAddonReviewLoader(
-        { store: { dispatch: fakeDispatch }, params: localParams });
-    }
-
-    it('requires URL params',
-      () => loadAddonReview({ params: {} })
-        .then(() => assert(false, 'unexpected success'), (error) => {
-          assert.match(error.message, /missing URL params/);
-        })
-    );
-
-    it('loads a review', () => {
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          endpoint: `addons/addon/${fakeAddon.slug}/reviews/${defaultReview.id}`,
-          method: 'GET',
-        })
-        .returns(Promise.resolve(fakeReview));
-
-      return loadAddonReview()
-        .then((returnedReview) => {
-          assert.equal(fakeDispatch.called, true);
-          assert.deepEqual(fakeDispatch.firstCall.args[0],
-                           setReview(fakeReview));
-
-          assert.equal(returnedReview.addonSlug, fakeAddon.slug);
-          assert.equal(returnedReview.rating, fakeReview.rating);
-          assert.equal(returnedReview.id, fakeReview.id);
-          assert.equal(returnedReview.body, fakeReview.body);
-
-          mockApi.verify();
-        });
-    });
   });
 
   describe('mapStateToProps', () => {

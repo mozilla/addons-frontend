@@ -26,6 +26,10 @@ export default class Overlay extends React.Component {
     }
   }
 
+  onClickBackground = () => {
+    this.hide();
+  }
+
   hide() {
     this.setState({ visible: false });
   }
@@ -36,10 +40,6 @@ export default class Overlay extends React.Component {
 
   toggle() {
     this.setState({ visible: !this.state.visible });
-  }
-
-  onClickBackground = () => {
-    this.hide();
   }
 
   render() {

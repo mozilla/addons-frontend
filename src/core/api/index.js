@@ -1,4 +1,5 @@
 /* global fetch */
+/* eslint-disable arrow-body-style */
 
 import url from 'url';
 
@@ -70,7 +71,7 @@ export function callApi({
               ({ response, jsonResponse: { text: textResponse } })
             );
           }
-        )
+        );
     })
     .then(({ response, jsonResponse }) => {
       if (response.ok) {
@@ -88,6 +89,8 @@ export function callApi({
       }
       throw apiError;
     }, (fetchError) => {
+      // This actually handles the case when the call to fetch() is
+      // rejected, say, for a network connection error, etc.
       if (errorHandler) {
         errorHandler.handle(fetchError);
       }

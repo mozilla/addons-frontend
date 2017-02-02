@@ -1,12 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-connect';
-import { withRouter } from 'react-router';
 
 import { submitReview } from 'amo/api';
 import { setReview } from 'amo/actions/reviews';
-import { callApi } from 'core/api';
 import { withErrorHandling } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import OverlayCard from 'ui/components/OverlayCard';
@@ -20,7 +17,6 @@ export class AddonReviewBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     review: PropTypes.object.isRequired,
-    router: PropTypes.object.isRequired,
     updateReviewText: PropTypes.func,
   }
 
@@ -46,21 +42,12 @@ export class AddonReviewBase extends React.Component {
       errorHandler: this.props.errorHandler,
       reviewId: this.props.review.id,
       apiState: this.props.apiState,
-      router: this.props.router,
     };
     // TODO: render a progress indicator in the UI.
     return this.props.updateReviewText(params)
-      .then(() => this.goBackToAddonDetail());
-  }
-
-  // TODO: delete this and add a click-outside event.
-  goBackToAddonDetail = (event) => {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    // TODO: switch to redux actions maybe.
-    this.overlayCard.hide();
+      .then(() => {
+        this.overlayCard.hide();
+      });
   }
 
   onTitleInput = (event) => {
@@ -99,7 +86,7 @@ export class AddonReviewBase extends React.Component {
 
     return (
       <OverlayCard ref={(ref) => { this.overlayCard = ref; }}
-        visibleOnLoad={true} className="AddonReview">
+        visibleOnLoad className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
@@ -142,7 +129,6 @@ export const mapDispatchToProps = (dispatch) => ({
 
 export default compose(
   withErrorHandling({ name: 'AddonReview', autoRenderErrors: false }),
-  withRouter,
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AddonReviewBase);

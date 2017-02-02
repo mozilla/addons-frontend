@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router';
 
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
@@ -20,7 +19,6 @@ export class RatingManagerBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
     Rating: PropTypes.object,
-    router: PropTypes.object.isRequired,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
     userReview: PropTypes.object,
@@ -33,7 +31,7 @@ export class RatingManagerBase extends React.Component {
 
   constructor(props) {
     super(props);
-    const { loadSavedReview, userId, userReview, addon } = props;
+    const { loadSavedReview, userId, addon } = props;
     this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
@@ -50,7 +48,6 @@ export class RatingManagerBase extends React.Component {
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
       addonSlug: this.props.addon.slug,
-      router: this.props.router,
       versionId: version.id,
       userId,
     };
@@ -148,12 +145,9 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitReview({ router, addonSlug, ...params }) {
+  submitReview({ addonSlug, ...params }) {
     return submitReview({ addonSlug, ...params })
-      .then((review) => {
-        const { lang, clientApp } = params.apiState;
-        dispatch(setReview(review));
-      });
+      .then((review) => dispatch(setReview(review)));
   },
 });
 
@@ -163,6 +157,5 @@ export const RatingManagerWithI18n = compose(
 
 export default compose(
   withErrorHandling({ name: 'RatingManager' }),
-  withRouter,
   connect(mapStateToProps, mapDispatchToProps),
 )(RatingManagerWithI18n);
