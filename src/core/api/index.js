@@ -67,7 +67,7 @@ export function callApi({
           (jsonResponse) => ({ response, jsonResponse }),
           (error) => {
             log.warn('Could not parse response as JSON:', error);
-            return response.text().then((textResponse) =>
+            return response.clone().text().then((textResponse) =>
               ({ response, jsonResponse: { text: textResponse } })
             );
           }
