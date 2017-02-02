@@ -31,7 +31,7 @@
 }
 
 .SearchResult-text {
-  width: 90%;
+  width: 350px;
 }
 
 .SearchResult-heading {
@@ -81,4 +81,16 @@
 .SearchResult-actions {
   align-items: center;
   display: flex;
+}
+
+@media (max-width: 330px) {
+  .SearchResult-text {
+    width: 170px;
+  }
+}
+
+@media (max-width: 400px) and (min-width: 330px) {
+  .SearchResult-text {
+    width: 250px;
+  }
 }
