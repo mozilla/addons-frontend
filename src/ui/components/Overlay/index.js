@@ -51,6 +51,7 @@ export default class Overlay extends React.Component {
       })} ref={(ref) => { this.overlayContainer = ref; }}>
         <div
           onClick={this.onClickBackground}
+          ref={(ref) => { this.overlayBackground = ref; }}
           onTouchEnd={this.onClickBackground}
           className="Overlay-background"
         />
