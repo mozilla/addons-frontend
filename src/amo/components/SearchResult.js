@@ -23,21 +23,17 @@ export class SearchResultBase extends React.Component {
               className="SearchResult-link"
               ref={(el) => { this.name = el; }}>
           <section className="SearchResult-main">
-            <div className="SearchResult-text">
-              <h2 className="SearchResult-heading">{addon.name}</h2>
-              <div className="SearchResult-rating">
-                <Rating rating={addon.ratings.average} readOnly size="small" />
-              </div>
-              <h3 className="SearchResult-author">{addon.authors[0].name}</h3>
-              <h3 className="SearchResult-users">{i18n.sprintf(
-                i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
-                { total: i18n.formatNumber(averageDailyUsers) },
-              )}
-              </h3>
+            <img className="SearchResult-icon" src={addon.icon_url} alt="" />
+            <h2 className="SearchResult-heading">{addon.name}</h2>
+            <div className="SearchResult-rating">
+              <Rating rating={addon.ratings.average} readOnly size="small" />
             </div>
-            <div className="SearchResult-image">
-              <img className="SearchResult-icon" src={addon.icon_url} alt="" />
-            </div>
+            <h3 className="SearchResult-author">{addon.authors[0].name}</h3>
+            <h3 className="SearchResult-users">{i18n.sprintf(
+              i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
+              { total: i18n.formatNumber(averageDailyUsers) },
+            )}
+            </h3>
           </section>
         </Link>
       </li>
