@@ -20,7 +20,6 @@ export default (
     <IndexRoute component={Home} />
     <Route path="addon/:slug/" component={DetailPage} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
-    <Route path="addon/:slug/review/:reviewId/" component={AddonReview} />
     <Route path=":visibleAddonType/categories/" component={CategoryList} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={CategoryPage} />
