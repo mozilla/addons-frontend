@@ -23,10 +23,6 @@ export class ErrorHandler {
     this.dispatch(clearError(this.id));
   }
 
-  wasError() {
-    return Boolean(this.errorContent);
-  }
-
   getError() {
     return this.errorContent;
   }
