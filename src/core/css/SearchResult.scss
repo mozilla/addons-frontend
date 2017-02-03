@@ -23,15 +23,8 @@
 }
 
 .SearchResult-main {
-  display: flex;
-  flex-direction: row;
   flex-grow: 1;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.SearchResult-text {
-  width: 350px;
+  max-width: 100%;
 }
 
 .SearchResult-heading {
@@ -58,6 +51,7 @@
 .SearchResult-author,
 .SearchResult-users {
   color: $sub-text-color;
+  display: inline-block;
   font-size: $font-size-s;
   font-weight: normal;
   margin: 0;
@@ -67,6 +61,7 @@
 .SearchResult-author {
   margin-right: 0.5em;
   word-wrap: break-word;
+  display: block;
 }
 
 .SearchResult-info {
@@ -83,14 +78,9 @@
   display: flex;
 }
 
-@media (max-width: 330px) {
-  .SearchResult-text {
-    width: 170px;
-  }
-}
-
-@media (max-width: 400px) and (min-width: 330px) {
-  .SearchResult-text {
-    width: 250px;
-  }
+.SearchResult-icon {
+  display: inline-block;
+  float: right;
+  height: 38px;
+  width: 38px;
 }
