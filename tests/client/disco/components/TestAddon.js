@@ -4,13 +4,16 @@ import {
   renderIntoDocument,
   Simulate,
 } from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
+import {
+  findDOMNode,
+} from 'react-dom';
 
 import translate from 'core/i18n/translate';
 import {
   AddonBase,
   mapStateToProps,
 } from 'disco/components/Addon';
+import HoverIntent from 'core/components/HoverIntent';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -289,18 +292,25 @@ describe('<Addon />', () => {
     beforeEach(() => {
       previewTheme = sinon.spy();
       resetPreviewTheme = sinon.spy();
-      const data = { ...result, type: ADDON_TYPE_THEME, previewTheme, resetPreviewTheme };
+      const data = {
+        ...result,
+        type: ADDON_TYPE_THEME,
+        previewTheme,
+        resetPreviewTheme,
+      };
       root = renderAddon({ addon: data, ...data });
       themeImage = findDOMNode(root).querySelector('.theme-image');
     });
 
-    it('runs theme preview onMouseOver on theme image', () => {
-      Simulate.mouseOver(themeImage);
+    it('runs theme preview onHoverIntent on theme image', () => {
+      const hoverIntent = findRenderedComponentWithType(root, HoverIntent);
+      hoverIntent.props.onHoverIntent({ currentTarget: themeImage });
       assert.ok(previewTheme.calledWith(themeImage));
     });
 
-    it('resets theme preview onMouseOut on theme image', () => {
-      Simulate.mouseOut(themeImage);
+    it('resets theme preview onHoverIntentEnd on theme image', () => {
+      const hoverIntent = findRenderedComponentWithType(root, HoverIntent);
+      hoverIntent.props.onHoverIntentEnd({ currentTarget: themeImage });
       assert.ok(resetPreviewTheme.calledWith(themeImage));
     });
 
