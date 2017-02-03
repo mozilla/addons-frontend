@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { asyncConnect } from 'redux-connect';
 
 import { gettext as _, loadAddonIfNeeded } from 'core/utils';
-import NotFound from 'core/components/NotFound';
+import NotFound from 'core/components/ErrorPage/NotFound';
 import JsonData from 'admin/components/JsonData';
 
 import './style.scss';

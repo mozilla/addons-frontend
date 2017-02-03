@@ -4,9 +4,9 @@ import {
 } from 'amo/constants';
 import { getFeatured, loadFeatured } from 'amo/actions/featured';
 import { getLanding, loadLanding, failLanding } from 'amo/actions/landing';
-import NotAuthorized from 'amo/components/NotAuthorized';
-import NotFound from 'amo/components/NotFound';
-import ServerError from 'amo/components/ServerError';
+import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import ServerError from 'amo/components/ErrorPage/ServerError';
 import { featured as featuredAPI, search } from 'core/api';
 import { SEARCH_SORT_POPULAR, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import { apiAddonType } from 'core/utils';
