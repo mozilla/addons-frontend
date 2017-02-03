@@ -60,16 +60,33 @@ describe('<AuthenticateButton />', () => {
     assert.ok(startLoginUrlStub.calledWith({ location }));
   });
 
-  it('clears the cookie and JWT on handleLogOut', () => {
+  it('clears the cookie and JWT in handleLogOut when not on the API host', () => {
     sinon.stub(cookie, 'remove');
-    sinon.stub(config, 'get').withArgs('cookieName').returns('authcookie');
+    const _config = { cookieName: 'authcookie', apiHost: 'http://someotherhost' };
+    sinon.stub(config, 'get', (key) => _config[key]);
     const store = createStore();
     store.dispatch(setJwt(userAuthToken({ user_id: 99 })));
     const { handleLogOut } = mapDispatchToProps(store.dispatch);
     assert.ok(store.getState().api.token);
-    handleLogOut();
+    handleLogOut({ api: {} });
     assert.notOk(store.getState().api.token);
     assert.ok(cookie.remove.calledWith('authcookie', { path: '/' }));
+  });
+
+  it('asks the server to clear the cookie and JWT in handleLogOut when on the API host', () => {
+    sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
+    const _config = { cookieName: 'authcookie', apiHost: 'http://localhost:9876' };
+    sinon.stub(config, 'get', (key) => _config[key]);
+    const apiConfig = { token: 'some.jwt.string' };
+    const store = createStore();
+    store.dispatch(setJwt(userAuthToken({ user_id: 99 })));
+    const { handleLogOut } = mapDispatchToProps(store.dispatch);
+    assert.ok(store.getState().api.token);
+    return handleLogOut({ api: apiConfig })
+      .then(() => {
+        assert.notOk(store.getState().api.token);
+        assert.ok(api.logOutFromServer.calledWith({ api: apiConfig }));
+      });
   });
 
   it('pulls isAuthenticated from state', () => {

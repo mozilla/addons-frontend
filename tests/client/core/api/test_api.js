@@ -467,4 +467,21 @@ describe('api', () => {
         .then(() => mockWindow.verify());
     });
   });
+
+  describe('logOutFromServer', () => {
+    it('makes a delete request to the session endpoint', () => {
+      const mockResponse = createApiResponse({ jsonData: { ok: true } });
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/accounts/session/?lang=en-US`, {
+          credentials: 'include',
+          headers: { authorization: 'Bearer my-token' },
+          method: 'DELETE',
+        })
+        .once()
+        .returns(mockResponse);
+      return api.logOutFromServer({
+        api: { lang: 'en-US', token: 'my-token' },
+      });
+    });
+  });
 });
