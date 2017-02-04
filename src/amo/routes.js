@@ -3,7 +3,6 @@ import { IndexRoute, Route } from 'react-router';
 
 import HandleLogin from 'core/containers/HandleLogin';
 
-import AddonReview from './components/AddonReview';
 import AddonReviewList from './components/AddonReviewList';
 import App from './containers/App';
 import CategoryList from './containers/CategoryList';
