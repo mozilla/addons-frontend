@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2017-01-29 22:14+0000\n"
+"PO-Revision-Date: 2017-02-04 19:56+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -64,7 +64,7 @@ msgstr "ตกลง!"
 
 #: src/disco/components/Addon.js:107
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "วางเมาส์เหนือภาพเพื่อแสดงตัวอย่าง"
 
 #: src/disco/components/Addon.js:128
 msgid "Installation failed. Please try again."
@@ -100,7 +100,7 @@ msgstr "ปิด"
 
 #: src/disco/components/Addon.js:97
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "วางเมาส์เพื่อแสดงตัวอย่างหรือคลิกเพื่อติดตั้ง %(name)s"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"

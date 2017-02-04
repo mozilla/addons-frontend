@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2017-01-29 22:16+0000\n"
+"PO-Revision-Date: 2017-02-04 20:01+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
@@ -68,11 +68,11 @@ msgstr ""
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "นโยบายความเป็นส่วนตัว"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "ข้อกฎหมาย"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
@@ -121,7 +121,7 @@ msgstr "ส่วนเสริมสำหรับ Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "คุณต้องการให้ Firefox ทำอะไร?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
@@ -153,7 +153,7 @@ msgstr "เรียกดูส่วนขยายทั้งหมด"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "คุณต้องการให้ Firefox มีลักษณะอย่างไร?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
