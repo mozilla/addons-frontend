@@ -52,10 +52,10 @@ describe('Details Page', () => {
       .expect(404);
   });
 
-  it('should surface an unknown error from the API as a 500', () => {
+  it('should surface an unknown API error with matching status', () => {
     fetchMock.get(detailsAPIURL, 503);
     return request(app)
       .get(defaultURL)
-      .expect(500);
+      .expect(503);
   });
 });

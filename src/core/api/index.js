@@ -1,4 +1,5 @@
 /* global fetch */
+/* eslint-disable arrow-body-style */
 
 import url from 'url';
 
@@ -60,15 +61,18 @@ export function callApi({
   const apiURL = `${API_BASE}/${endpoint}/${queryString}`;
 
   return fetch(apiURL, options)
-    .then((response) => response.json().then(
-      (jsonResponse) => ({ response, jsonResponse }),
-      (error) => {
-        log.warn('Could not parse response as JSON:', error);
-        return response.text().then((textResponse) =>
-          ({ response, jsonResponse: { text: textResponse } })
+    .then((response) => {
+      return response.clone().json()
+        .then(
+          (jsonResponse) => ({ response, jsonResponse }),
+          (error) => {
+            log.warn('Could not parse response as JSON:', error);
+            return response.clone().text().then((textResponse) =>
+              ({ response, jsonResponse: { text: textResponse } })
+            );
+          }
         );
-      }
-    ))
+    })
     .then(({ response, jsonResponse }) => {
       if (response.ok) {
         return jsonResponse;
