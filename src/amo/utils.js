@@ -50,7 +50,12 @@ export function fetchLandingAddons({ addonType, api, dispatch }) {
 
 export function loadLandingAddons({ store: { dispatch, getState }, params }) {
   const state = getState();
-  const addonType = apiAddonType(params.visibleAddonType);
+  let addonType;
+  try {
+    addonType = apiAddonType(params.visibleAddonType);
+  } catch (err) {
+    return Promise.reject();
+  }
 
   return fetchLandingAddons({ addonType, api: state.api, dispatch });
 }

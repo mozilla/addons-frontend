@@ -3,7 +3,19 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import NotFoundPage from 'amo/components/NotFoundPage';
+
 import { getReduxConnectError } from './reduxConnectErrors';
+
+
+export function getErrorComponent(statusCode) {
+  switch (statusCode) {
+    case 404:
+      return NotFoundPage;
+    default:
+      return null;
+  }
+}
 
 
 /*
@@ -14,6 +26,7 @@ import { getReduxConnectError } from './reduxConnectErrors';
  */
 function ResourceError(props) {
   const {
+    dispatch,
     reduxAsyncConnect,
     WrappedComponent,
     ...componentProps
@@ -22,9 +35,17 @@ function ResourceError(props) {
   if (reduxAsyncConnect && reduxAsyncConnect.loadState) {
     const reduxResult = getReduxConnectError(reduxAsyncConnect.loadState);
     if (reduxResult.error) {
-      // TODO: This will be prettier once we implement real error pages.
-      // https://github.com/mozilla/addons-frontend/issues/1033
-      return <div>{reduxResult.error}</div>;
+      const ErrorComponent = getErrorComponent(reduxResult.status);
+
+      console.warn('I HAVE BEEN FOUND TO BE AN ERROR');
+      // dispatch({ type: '@redux-conn/CLEAR', payload: 'DetailPage' });
+      // dispatch({ type: '@redux-conn/END_GLOBAL_LOAD', payload: {} });
+      dispatch({ type: 'SET_ERROR_PAGE', payload: reduxResult });
+      //   return (
+      //     <WrappedComponent {...componentProps} />
+      //   );
+      // }
+      // return <div>REDUX ERROR {reduxResult.error}</div>;
     }
   }
 

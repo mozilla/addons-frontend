@@ -30,6 +30,8 @@ export function getReduxConnectError(reduxConnectLoadState) {
     log.error(apiErrors);
     status = 500;
   }
+  // reduxConnectLoadState.wasHandled = true;
+  console.log('getReduxConnectError', { status, error: status ? getErrorMsg(status) : undefined });
 
   return { status, error: status ? getErrorMsg(status) : undefined };
 }

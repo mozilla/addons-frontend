@@ -71,6 +71,9 @@ export class HomePageBase extends React.Component {
         <Link className="HomePage-themes-link" to="/themes/">
           {i18n.gettext('Browse all themes')}
         </Link>
+        <Link className="HomePage-themes-link" to="/404/404">
+          {i18n.gettext('Get to NOT FOUND')}
+        </Link>
       </div>
     );
   }

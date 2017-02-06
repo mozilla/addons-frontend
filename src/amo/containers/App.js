@@ -3,6 +3,7 @@ import config from 'config';
 import React, { PropTypes } from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
+import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -12,7 +13,7 @@ import SearchForm from 'amo/components/SearchForm';
 import { addChangeListeners } from 'core/addonManager';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
-import { handleResourceErrors } from 'core/resourceErrors/decorator';
+import { getErrorComponent, handleResourceErrors } from 'core/resourceErrors/decorator';
 import translate from 'core/i18n/translate';
 import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
@@ -39,6 +40,7 @@ export class AppBase extends React.Component {
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    errorPage: false,
   }
 
   componentDidMount() {
@@ -62,10 +64,17 @@ export class AppBase extends React.Component {
       MastHeadComponent,
       children,
       clientApp,
+      errorPage,
       i18n,
       lang,
       location,
     } = this.props;
+    console.log('errorPage', errorPage);
+    let ErrorComponent = null;
+    if (errorPage) {
+      ErrorComponent = getErrorComponent(errorPage.status);
+    }
+
     const isHomePage = Boolean(location.pathname && location.pathname.match(
       new RegExp(`^\\/${lang}\\/${clientApp}\\/?$`)));
     const query = location.query ? location.query.q : null;
@@ -77,7 +86,8 @@ export class AppBase extends React.Component {
           SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
           query={query} ref={(ref) => { this.mastHead = ref; }} />
         <div className="App-content">
-          {children}
+          {errorPage ? 'I HAVE ERROR' : 'I AM FINE'}
+          {errorPage ? <ErrorComponent {...errorPage} /> : children}
         </div>
         <FooterComponent handleViewDesktop={this.onViewDesktop}
           location={location} />
@@ -89,6 +99,7 @@ export class AppBase extends React.Component {
 export const mapStateToProps = (state) => ({
   clientApp: state.api.clientApp,
   lang: state.api.lang,
+  errorPage: state.showError.errorPage,
 });
 
 export function mapDispatchToProps(dispatch) {

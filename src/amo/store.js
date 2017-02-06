@@ -1,5 +1,6 @@
 import { createStore as _createStore, combineReducers } from 'redux';
 import { reducer as reduxAsyncConnect } from 'redux-connect';
+import { routerReducer } from 'react-router-redux';
 
 import featured from 'amo/reducers/featured';
 import landing from 'amo/reducers/landing';
@@ -12,6 +13,7 @@ import errors from 'core/reducers/errors';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import search from 'core/reducers/search';
+import showError from 'core/reducers/showError';
 import { middleware } from 'core/store';
 
 
@@ -29,7 +31,9 @@ export default function createStore(initialState = {}) {
       landing,
       reduxAsyncConnect,
       reviews,
+      routing: routerReducer,
       search,
+      showError,
     }),
     initialState,
     middleware(),

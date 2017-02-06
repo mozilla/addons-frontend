@@ -7,6 +7,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-connect';
+import { syncHistoryWithStore } from 'react-router-redux';
 import useScroll from 'react-router-scroll/lib/useScroll';
 
 import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
@@ -48,10 +49,13 @@ export default function makeClient(routes, createStore) {
       useReduxAsyncConnect(),
     );
 
+    // const history = browserHistory;
+    const history = syncHistoryWithStore(browserHistory, store);
+
     render(
       <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <Router render={middleware} history={browserHistory}>
+          <Router render={middleware} history={history}>
             {routes}
           </Router>
         </Provider>
