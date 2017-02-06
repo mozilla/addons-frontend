@@ -303,8 +303,10 @@ describe('withInstallHelpers inner functions', () => {
     const name = 'whatever addon';
     const iconUrl = 'something.jpg';
 
-    it('calls addonManager.enable()', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
+    it('calls addonManager.enable() and content notification', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper({
+        permissionPromptsEnabled: false,
+      });
       const dispatch = sinon.spy();
       const { enable } = mapDispatchToProps(
         dispatch,
@@ -314,6 +316,22 @@ describe('withInstallHelpers inner functions', () => {
         .then(() => {
           assert.ok(fakeAddonManager.enable.calledWith(guid));
           assert.ok(fakeShowInfo.calledWith({ name, iconUrl }));
+        });
+    });
+
+    it('calls addonManager.enable() without content notification', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper({
+        permissionPromptsEnabled: true,
+      });
+      const dispatch = sinon.spy();
+      const { enable } = mapDispatchToProps(
+        dispatch,
+        { name, iconUrl, guid, _addonManager: fakeAddonManager });
+      const fakeShowInfo = sinon.stub();
+      return enable({ _showInfo: fakeShowInfo })
+        .then(() => {
+          assert.ok(fakeAddonManager.enable.calledWith(guid));
+          assert.ok(fakeShowInfo.neverCalledWith({ name, iconUrl }));
         });
     });
 
@@ -402,8 +420,8 @@ describe('withInstallHelpers inner functions', () => {
         })));
     });
 
-    it('should dispatch SHOW_INFO', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper();
+    it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper({ permissionPromptsEnabled: false });
       const dispatch = sinon.spy();
       const iconUrl = 'whatevs';
       const name = 'test-addon';
@@ -435,6 +453,32 @@ describe('withInstallHelpers inner functions', () => {
           arg.payload.closeAction();
           assert(dispatch.calledWith({
             type: CLOSE_INFO,
+          }));
+        });
+    });
+
+    it('should not dispatch SHOW_INFO if permissionPromptsEnabled is true', () => {
+      const fakeAddonManager = getFakeAddonManagerWrapper({ permissionPromptsEnabled: true });
+      const dispatch = sinon.spy();
+      const iconUrl = 'whatevs';
+      const name = 'test-addon';
+
+      const { install } = mapDispatchToProps(
+        dispatch,
+        {
+          _addonManager: fakeAddonManager,
+          iconUrl,
+          name,
+        });
+      return install({ guid, installURL })
+        .then(() => {
+          assert(dispatch.neverCalledWith({
+            type: SHOW_INFO,
+            payload: {
+              addonName: 'test-addon',
+              imageURL: iconUrl,
+              closeAction: sinon.match.func,
+            },
           }));
         });
     });
