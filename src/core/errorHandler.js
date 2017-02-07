@@ -31,7 +31,7 @@ export class ErrorHandler {
     this.dispatch(clearError(this.id));
   }
 
-  getError() {
+  renderError() {
     if (this.capturedError) {
       return (
         <ul className="ErrorHandler-list">
@@ -89,7 +89,7 @@ class ErrorHandlerComponent extends React.Component {
       if (autoRenderErrors) {
         return (
           <div>
-            {errorHandler.getError()}
+            {errorHandler.renderError()}
             <WrappedComponent {...allProps} />
           </div>
         );
@@ -97,7 +97,7 @@ class ErrorHandlerComponent extends React.Component {
 
       log.warn(
         'Not rendering this error because autoRenderErrors is false:',
-        error, 'Render it with errorHandler.getError()');
+        error, 'Render it with errorHandler.renderError()');
     }
 
     return <WrappedComponent {...allProps} />;
@@ -129,7 +129,7 @@ class ErrorHandlerComponent extends React.Component {
  * )(SomeComponent);
  *
  * If you specify withErrorHandling({ autoRenderErrors: false }) then you
- * have to render this.props.errorHandler.getError() yourself.
+ * have to render this.props.errorHandler.renderError() yourself.
  */
 export function withErrorHandling({ name, id, autoRenderErrors } = {}) {
   return (WrappedComponent) => {

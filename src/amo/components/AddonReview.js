@@ -103,7 +103,7 @@ export class AddonReviewBase extends React.Component {
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <div className="AddonReview-form-input">
-            {errorHandler.getError()}
+            {errorHandler.renderError()}
             <input
               ref={(ref) => { this.reviewTitleInput = ref; }}
               type="text"
