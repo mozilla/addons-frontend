@@ -28,7 +28,7 @@ function createWrappedComponent({
 } = {}) {
   const SomeComponent = translate({ withRef: true })(SomeComponentBase);
   const ComponentWithErrorHandling = withErrorHandling({
-    id, name: 'SomeComponent', ...options
+    id, name: 'SomeComponent', ...options,
   })(SomeComponent);
 
   const provider = renderIntoDocument(

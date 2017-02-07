@@ -89,7 +89,7 @@ describe('AddonReview', () => {
         ...defaultReview,
         title: 'New title',
         body: 'New body',
-      }
+      },
     });
     assert.equal(root.state.reviewTitle, 'New title');
     assert.equal(root.state.reviewBody, 'New body');

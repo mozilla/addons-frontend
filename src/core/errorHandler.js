@@ -81,11 +81,11 @@ class ErrorHandlerComponent extends React.Component {
             <WrappedComponent {...allProps} />
           </div>
         );
-      } else {
-        log.warn(
-          'Not rendering this error because autoRenderErrors is false:',
-          error, 'Render it with errorHandler.getError()');
       }
+
+      log.warn(
+        'Not rendering this error because autoRenderErrors is false:',
+        error, 'Render it with errorHandler.getError()');
     }
 
     return <WrappedComponent {...allProps} />;
