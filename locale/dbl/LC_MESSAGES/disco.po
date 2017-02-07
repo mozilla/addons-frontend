@@ -2,13 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
+"POT-Creation-Date: 2017-02-07 14:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
@@ -61,45 +61,45 @@ msgstr "Ƞǿẇ ẏǿŭ ƈȧƞ ȧƈƈḗşş %(name)s ƒřǿḿ ŧħḗ ŧǿǿŀ
 msgid "OK!"
 msgstr "ǾĶ!"
 
-#: src/disco/components/Addon.js:107
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr "Ħǿṽḗř ŧǿ ƥřḗṽīḗẇ ǿř ƈŀīƈķ ŧǿ īƞşŧȧŀŀ %(name)s"
+
+#: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
 msgstr "Ħǿṽḗř ǿṽḗř ŧħḗ īḿȧɠḗ ŧǿ ƥřḗṽīḗẇ"
 
-#: src/disco/components/Addon.js:128
+#: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
 msgstr "Īƞşŧȧŀŀȧŧīǿƞ ƒȧīŀḗḓ. Ƥŀḗȧşḗ ŧřẏ ȧɠȧīƞ."
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
 msgstr "Ḓǿẇƞŀǿȧḓ ƒȧīŀḗḓ. Ƥŀḗȧşḗ ƈħḗƈķ ẏǿŭř ƈǿƞƞḗƈŧīǿƞ."
 
-#: src/disco/components/Addon.js:132
+#: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
 msgstr "Ȧƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ ḓŭřīƞɠ īƞşŧȧŀŀȧŧīǿƞ."
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ȧƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ ḓŭřīƞɠ ŭƞīƞşŧȧŀŀȧŧīǿƞ."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
 msgstr "Ȧƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ."
 
-#: src/disco/components/Addon.js:145
+#: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ŧħīş ȧḓḓ-ǿƞ ẇīŀŀ ƀḗ ŭƞīƞşŧȧŀŀḗḓ ȧƒŧḗř ẏǿŭ řḗşŧȧřŧ Ƒīřḗƒǿẋ."
 
-#: src/disco/components/Addon.js:147
+#: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ƥŀḗȧşḗ řḗşŧȧřŧ Ƒīřḗƒǿẋ ŧǿ ŭşḗ ŧħīş ȧḓḓ-ǿƞ."
 
-#: src/disco/components/Addon.js:67
+#: src/disco/components/Addon.js:68
 msgid "Close"
 msgstr "Ƈŀǿşḗ"
-
-#: src/disco/components/Addon.js:97
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Ħǿṽḗř ŧǿ ƥřḗṽīḗẇ ǿř ƈŀīƈķ ŧǿ īƞşŧȧŀŀ %(name)s"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"

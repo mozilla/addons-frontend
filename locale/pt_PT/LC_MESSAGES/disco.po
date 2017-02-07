@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
+"POT-Creation-Date: 2017-02-07 14:11+0000\n"
 "PO-Revision-Date: 2017-01-24 14:20+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
@@ -62,45 +62,45 @@ msgstr "Agora pode aceder a %(name)s pela barra de ferramentas."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:107
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
+
+#: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
 msgstr "Coloque o cursor sob a imagem para pré-visualizar"
 
-#: src/disco/components/Addon.js:128
+#: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
 msgstr "A instalação falhou. Por favor, tente novamente."
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
 msgstr "A descarga falhou. Por favor, verifique a sua ligação."
 
-#: src/disco/components/Addon.js:132
+#: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
 msgstr "Ocorreu um erro inesperado durante a instalação."
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ocorreu um erro inesperado durante a desinstalação."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
 msgstr "Ocorreu um erro inesperado."
 
-#: src/disco/components/Addon.js:145
+#: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Este extra será desinstalado depois de reiniciar o Firefox."
 
-#: src/disco/components/Addon.js:147
+#: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
 msgstr "Por favor, reinicie o Firefox para utilizar este extra."
 
-#: src/disco/components/Addon.js:67
+#: src/disco/components/Addon.js:68
 msgid "Close"
 msgstr "Fechar"
-
-#: src/disco/components/Addon.js:97
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Coloque o cursor para pré-visualizar ou clique para instalar %(name)s"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
@@ -129,15 +129,21 @@ msgstr "Personalize o seu Firefox"
 #: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
 "Existem milhares de extras gratuitos, criados por programadores por todo o\n"
-"mundo, que pode instalar para personalizar o seu Firefox. Desde temas visuais divertidos\n"
-"até poderosas ferramentas que fazem a navegação ser mais rápida e segura, os extras fazem o seu navegador ser seu.\n"
-"Para o ajudar a começar, aqui estão alguns que nós recomendamos pelo seu desempenho e funcionalidade se destacarem."
+"mundo, que pode instalar para personalizar o seu Firefox. Desde temas "
+"visuais divertidos\n"
+"até poderosas ferramentas que fazem a navegação ser mais rápida e segura, os "
+"extras fazem o seu navegador ser seu.\n"
+"Para o ajudar a começar, aqui estão alguns que nós recomendamos pelo seu "
+"desempenho e funcionalidade se destacarem."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Instalado e adicionado à barra de ferramentas"
