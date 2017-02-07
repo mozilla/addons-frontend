@@ -45,12 +45,6 @@ describe('<Overlay />', () => {
     assert.notInclude(root.overlayContainer.className, 'Overlay--visible');
   });
 
-  it('hides when you touch the background', () => {
-    const root = render({ visibleOnLoad: true });
-    Simulate.touchEnd(root.overlayBackground);
-    assert.notInclude(root.overlayContainer.className, 'Overlay--visible');
-  });
-
   it('is shown and hidden when `hide()` and `show()` are called', () => {
     const root = render();
 
