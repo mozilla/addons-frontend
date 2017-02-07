@@ -73,13 +73,19 @@ class ErrorHandlerComponent extends React.Component {
     });
     const allProps = { ...props, errorHandler };
 
-    if (error && autoRenderErrors) {
-      return (
-        <div>
-          {errorContent}
-          <WrappedComponent {...allProps} />
-        </div>
-      );
+    if (error) {
+      if (autoRenderErrors) {
+        return (
+          <div>
+            {errorContent}
+            <WrappedComponent {...allProps} />
+          </div>
+        );
+      } else {
+        log.warn(
+          'Not rendering this error because autoRenderErrors is false:',
+          error, 'Render it with errorHandler.getError()');
+      }
     }
 
     return <WrappedComponent {...allProps} />;
