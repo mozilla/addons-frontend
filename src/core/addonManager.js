@@ -12,12 +12,20 @@ import { addQueryParams } from 'core/utils';
 const testHasWindow = () => typeof window !== 'undefined';
 
 export function hasAddonManager({ hasWindow = testHasWindow, navigator } = {}) {
-  // Returns undefined if it cannot be determined if mozAddonManager is supperted (likely server
+  // Returns undefined if it cannot be determined if mozAddonManager is supported (likely server
   // rendering with no window). Otherwise returns true/false based on mozAddonManager in navigator.
   if (!navigator && !hasWindow()) {
     return undefined;
   }
   return 'mozAddonManager' in (navigator || window.navigator);
+}
+
+export function hasPermissionPromptsEnabled({ navigator } = {}) {
+  if (module.exports.hasAddonManager({ navigator })) {
+    const _navigator = navigator || window.navigator;
+    return _navigator.mozAddonManager.permissionPromptsEnabled;
+  }
+  return undefined;
 }
 
 export function getAddon(guid, { _mozAddonManager = window.navigator.mozAddonManager } = {}) {
