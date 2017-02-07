@@ -46,6 +46,7 @@ export class AddonReviewBase extends React.Component {
       apiState: this.props.apiState,
     };
     // TODO: render a progress indicator in the UI.
+    // https://github.com/mozilla/addons-frontend/issues/1156
     return this.props.updateReviewText(params)
       .then(() => {
         overlayCard.hide();
