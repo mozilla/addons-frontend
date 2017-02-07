@@ -15,7 +15,7 @@ class SomeComponentBase extends React.Component {
     errorHandler: PropTypes.object,
   }
   render() {
-    return <div />;
+    return <div>Component text</div>;
   }
 }
 
@@ -23,10 +23,13 @@ function createErrorStore() {
   return createStore(combineReducers({ errors }));
 }
 
-function createWrappedComponent({ id, store = createErrorStore() } = {}) {
+function createWrappedComponent({
+  id, store = createErrorStore(), ...options
+} = {}) {
   const SomeComponent = translate({ withRef: true })(SomeComponentBase);
-  const ComponentWithErrorHandling =
-    withErrorHandling({ id, name: 'SomeComponent' })(SomeComponent);
+  const ComponentWithErrorHandling = withErrorHandling({
+    id, name: 'SomeComponent', ...options
+  })(SomeComponent);
 
   const provider = renderIntoDocument(
     <ComponentWithErrorHandling store={store} />
@@ -94,6 +97,20 @@ describe('errorHandler', () => {
       const { dom } = createWrappedComponent({ store, id });
       assert.equal(dom.querySelector('.ErrorHandler-list').textContent,
                    'An unexpected error occurred');
+    });
+
+    it('can be configured not to render an error', () => {
+      const id = 'some-handler-id';
+
+      const store = createErrorStore();
+      store.dispatch(setError({ id, error: new Error() }));
+
+      const { dom } = createWrappedComponent({
+        store, id, autoRenderErrors: false,
+      });
+      assert.strictEqual(Boolean(dom.querySelector('.ErrorHandler-list')),
+                         false);
+      assert.equal(dom.textContent, 'Component text');
     });
 
     it('renders multiple error messages', () => {
