@@ -11,6 +11,7 @@ import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
 import createStore from 'amo/store';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
+import { visibleAddonType } from 'core/utils';
 import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -30,7 +31,7 @@ describe('<LandingPage />', () => {
 
   it('renders a LandingPage with no addons set', () => {
     const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
     assert.include(root.textContent, 'Featured extensions');
@@ -39,7 +40,7 @@ describe('<LandingPage />', () => {
 
   it('renders a LandingPage with themes HTML', () => {
     const root = render({
-      addonType: ADDON_TYPE_THEME,
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
     assert.include(root.textContent, 'Featured themes');
@@ -90,8 +91,8 @@ describe('<LandingPage />', () => {
       },
     }));
     const root = render({
-      ...mapStateToProps(
-        store.getState(), { params: { visibleAddonType: 'themes' } }),
+      ...mapStateToProps(store.getState()),
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
     assert.deepEqual(
@@ -101,9 +102,17 @@ describe('<LandingPage />', () => {
     );
   });
 
-  it('throws if add-on type is not supported', () => {
+  it('renders not found if add-on type is not supported', () => {
+    const root = render({ params: { visibleAddonType: 'XUL' } });
+    assert.include(root.textContent, 'Page not found');
+  });
+
+  it('throws for any error other than an unknown addonType', () => {
     assert.throws(() => {
-      render({ addonType: 'XUL' });
-    }, 'No LandingPage content for addonType: XUL');
+      render({
+        apiAddonType: () => { throw new Error('Ice cream'); },
+        params: { visibleAddonType: 'doesnotmatter' },
+      });
+    }, 'Ice cream');
   });
 });
