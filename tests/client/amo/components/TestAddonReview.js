@@ -82,6 +82,19 @@ describe('AddonReview', () => {
       });
   });
 
+  it('updates review state from a new review property', () => {
+    const root = render();
+    root.componentWillReceiveProps({
+      review: {
+        ...defaultReview,
+        title: 'New title',
+        body: 'New body',
+      }
+    });
+    assert.equal(root.state.reviewTitle, 'New title');
+    assert.equal(root.state.reviewBody, 'New body');
+  });
+
   it('prompts you appropriately when you are happy', () => {
     const root = render({ review: { ...defaultReview, rating: 4 } });
     assert.match(root.reviewPrompt.textContent,

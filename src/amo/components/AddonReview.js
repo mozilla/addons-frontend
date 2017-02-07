@@ -22,15 +22,24 @@ export class AddonReviewBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { reviewTitle: null };
+    this.state = { reviewBody: null, reviewTitle: null };
     if (props.review) {
-      // TODO: also do this in componentWillReceiveProps.
       this.state.reviewTitle = props.review.title;
       this.state.reviewBody = props.review.body;
     }
     this.overlayCard = null;
     this.reviewTextarea = null;
     this.reviewTitleInput = null;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { review } = nextProps;
+    if (review) {
+      this.setState({
+        reviewTitle: review.title,
+        reviewBody: review.body,
+      });
+    }
   }
 
   onSubmit = (event, { overlayCard = this.overlayCard } = {}) => {
