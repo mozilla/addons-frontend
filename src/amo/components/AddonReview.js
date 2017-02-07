@@ -102,14 +102,16 @@ export class AddonReviewBase extends React.Component {
               name="reviewTitle"
               value={reviewTitle}
               onInput={this.onTitleInput}
-              placeholder={titlePlaceholder} />
+              placeholder={titlePlaceholder}
+            />
             <textarea
               ref={(ref) => { this.reviewTextarea = ref; }}
               className="AddonReview-textarea"
               onInput={this.onBodyInput}
               name="review"
               value={reviewBody}
-              placeholder={placeholder} />
+              placeholder={placeholder}
+            />
           </div>
           <input
             className="AddonReview-submit"
