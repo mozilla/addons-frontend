@@ -4,7 +4,7 @@ import { compose } from 'redux';
 
 import { submitReview } from 'amo/api';
 import { setReview } from 'amo/actions/reviews';
-import { withErrorHandling } from 'core/errorHandler';
+import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import OverlayCard from 'ui/components/OverlayCard';
 
@@ -103,7 +103,7 @@ export class AddonReviewBase extends React.Component {
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <div className="AddonReview-form-input">
-            {errorHandler.renderError()}
+            {errorHandler.hasError() ? errorHandler.renderError() : null}
             <input
               ref={(ref) => { this.reviewTitleInput = ref; }}
               type="text"
@@ -144,7 +144,7 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export default compose(
-  withErrorHandling({ name: 'AddonReview', autoRenderErrors: false }),
+  withErrorHandler({ name: 'AddonReview' }),
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AddonReviewBase);

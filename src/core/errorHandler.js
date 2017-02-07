@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -20,7 +20,7 @@ function generateHandlerId({ name = '' } = {}) {
  * Internally, this is complimentary to the ErrorHandlerComponent.
  */
 export class ErrorHandler {
-  constructor({ id, dispatch, capturedError = null }) {
+  constructor({ id, dispatch, capturedError = null } = {}) {
     this.id = id;
     this.dispatch = dispatch;
     this.capturedError = capturedError;
@@ -31,15 +31,16 @@ export class ErrorHandler {
     this.dispatch(clearError(this.id));
   }
 
+  hasError() {
+    return Boolean(this.capturedError);
+  }
+
   renderError() {
-    if (this.capturedError) {
-      return (
-        <ul className="ErrorHandler-list">
-          {this.capturedError.messages.map((msg) => <li>{msg}</li>)}
-        </ul>
-      );
-    }
-    return null;
+    return (
+      <ul className="ErrorHandler-list">
+        {this.capturedError.messages.map((msg) => <li>{msg}</li>)}
+      </ul>
+    );
   }
 
   handle(error) {
@@ -50,65 +51,71 @@ export class ErrorHandler {
 }
 
 /*
- * Error handler component.
+ * This is a decorator that gives a component the ability to handle errors.
  *
- * This works with Redux state to render errors associated with
- * a specific error handler object.
+ * The decorator will assign an ErrorHandler instance to the errorHandler
+ * property.
+ *
+ * Example:
+ *
+ * class SomeComponent extends React.Component {
+ *   static propTypes = {
+ *     errorHandler: PropTypes.object.isRequired,
+ *   }
+ *   render() {
+ *     const { errorHandler } = this.props;
+ *     return (
+ *       <div>
+ *         {errorHandler.hasError() ? errorHandler.renderError() : null}
+ *         <div>some content</div>
+ *       </div>
+ *     );
+ *   }
+ * }
+ *
+ * export default compose(
+ *   withErrorHandler({ name: 'SomeComponent' }),
+ * )(SomeComponent);
  */
-class ErrorHandlerComponent extends React.Component {
-  static propTypes = {
-    autoRenderErrors: PropTypes.boolean,
-    dispatch: PropTypes.func,
-    error: PropTypes.object,
-    errorHandlerId: PropTypes.string,
-    WrappedComponent: PropTypes.object,
-  }
-
-  static defaultProps = {
-    autoRenderErrors: true,
-  }
-
-  render() {
-    const {
-      autoRenderErrors,
-      WrappedComponent,
-      errorHandlerId,
-      dispatch,
-      error,
-      ...props
-    } = this.props;
-
-    const errorHandler = new ErrorHandler({
-      capturedError: error,
-      id: errorHandlerId,
-      dispatch,
-    });
-    const allProps = { ...props, errorHandler };
-
-    if (error) {
-      if (autoRenderErrors) {
-        return (
-          <div>
-            {errorHandler.renderError()}
-            <WrappedComponent {...allProps} />
-          </div>
-        );
+export function withErrorHandler({ name, id }) {
+  return (WrappedComponent) => {
+    const mapStateToProps = () => {
+      // Each component instance gets its own error handler ID.
+      let instanceId = id;
+      if (!instanceId) {
+        instanceId = generateHandlerId({ name });
+        log.debug(`Generated error handler ID: ${instanceId}`);
       }
 
-      log.warn(
-        'Not rendering this error because autoRenderErrors is false:',
-        error, 'Render it with errorHandler.renderError()');
-    }
+      return (state) => ({
+        error: state.errors[instanceId],
+        instanceId,
+      });
+    };
 
-    return <WrappedComponent {...allProps} />;
-  }
+    const mapDispatchToProps = (dispatch) => ({ dispatch });
+
+    const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+      ...ownProps,
+      errorHandler: new ErrorHandler({
+        capturedError: stateProps.error,
+        id: stateProps.instanceId,
+        dispatch: dispatchProps.dispatch,
+      }),
+    });
+
+    return compose(
+      connect(mapStateToProps, mapDispatchToProps, mergeProps),
+    )(WrappedComponent);
+  };
 }
 
 /*
- * This is a decorator that gives a component the ability to handle errors.
+ * This is a decorator that automatically renders errors.
  *
- * By default, it will render all errors at the top of the wrapped component's
- * content.
+ * It will render all errors at the top of the wrapped component's
+ * content and it will pass an errorHandler property for the component
+ * to use.
  *
  * Example:
  *
@@ -127,29 +134,27 @@ class ErrorHandlerComponent extends React.Component {
  * export default compose(
  *   withErrorHandling({ name: 'SomeComponent' }),
  * )(SomeComponent);
- *
- * If you specify withErrorHandling({ autoRenderErrors: false }) then you
- * have to render this.props.errorHandler.renderError() yourself.
  */
-export function withErrorHandling({ name, id, autoRenderErrors } = {}) {
+export function withErrorHandling({ name, id } = {}) {
   return (WrappedComponent) => {
-    const mapStateToProps = () => {
-      // Each component instance gets its own error handler ID.
-      let instanceId = id;
-      if (!instanceId) {
-        instanceId = generateHandlerId({ name });
-        log.debug(`Generated error handler ID: ${instanceId}`);
+    function ErrorBanner(props) {
+      // eslint-disable-next-line react/prop-types
+      const { errorHandler } = props;
+
+      if (errorHandler.hasError()) {
+        return (
+          <div>
+            {errorHandler.renderError()}
+            <WrappedComponent {...props} />
+          </div>
+        );
       }
-      return (state) => ({
-        autoRenderErrors,
-        WrappedComponent,
-        errorHandlerId: instanceId,
-        error: state.errors[instanceId],
-      });
-    };
+
+      return <WrappedComponent {...props} />;
+    }
 
     return compose(
-      connect(mapStateToProps),
-    )(ErrorHandlerComponent);
+      withErrorHandler({ name, id }),
+    )(ErrorBanner);
   };
 }
