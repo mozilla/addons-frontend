@@ -1,4 +1,4 @@
-/* global window */
+/* global Response, window */
 import config from 'config';
 
 import * as api from 'core/api';
@@ -7,18 +7,26 @@ import { ErrorHandler } from 'core/errorHandler';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
 
+export function generateHeaders(
+  headerData = { 'Content-Type': 'application/json' }
+) {
+  const response = new Response();
+  Object.keys(headerData).forEach((key) => (
+    response.headers.append(key, headerData[key])
+  ));
+  return response.headers;
+}
+
 function createApiResponse({
   ok = true, jsonData = {}, ...responseProps
 } = {}) {
   const response = {
     ok,
+    headers: generateHeaders(),
     json: () => Promise.resolve(jsonData),
     ...responseProps,
   };
-  return Promise.resolve({
-    ...response,
-    clone: () => response,
-  });
+  return Promise.resolve(response);
 }
 
 describe('api', () => {
@@ -72,9 +80,7 @@ describe('api', () => {
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource', errorHandler })
-        .then(() => {
-          assert(false, 'unexpected success');
-        }, () => {
+        .then(unexpectedSuccess, () => {
           assert.ok(errorHandler.handle.called);
           const args = errorHandler.handle.firstCall.args;
           assert.deepEqual(args[0].response.data.non_field_errors,
@@ -84,26 +90,34 @@ describe('api', () => {
 
     it('handles error responses with JSON syntax errors', () => {
       mockWindow.expects('fetch').returns(createApiResponse({
-        ok: false,
         json() {
           return Promise.reject(
             new SyntaxError('pretend this was a response with invalid JSON'));
-        },
-        text() {
-          return Promise.resolve('actual error response');
         },
       }));
 
       const errorHandler = newErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
-      return api.callApi({ endpoint: 'resource', errorHandler })
+      return api.callApi({ endpoint: 'resource' })
+        .then(unexpectedSuccess)
+        .catch((err) => {
+          assert.equal(err.message,
+            'pretend this was a response with invalid JSON');
+        });
+    });
+
+    it('handles non-JSON responses', () => {
+      mockWindow.expects('fetch').returns(createApiResponse({
+        headers: generateHeaders({ 'Content-Type': 'text/plain' }),
+        text() {
+          return Promise.resolve('some text response');
+        },
+      }));
+
+      return api.callApi({ endpoint: 'resource' })
         .then(() => {
-          assert(false, 'unexpected success');
-        }, () => {
-          assert.ok(errorHandler.handle.called);
-          const args = errorHandler.handle.firstCall.args;
-          assert.equal(args[0].response.data.text, 'actual error response');
+          mockWindow.verify();
         });
     });
 
@@ -123,6 +137,21 @@ describe('api', () => {
           const args = errorHandler.handle.firstCall.args;
           assert.equal(args[0].message, 'this could be any error');
         });
+    });
+
+    it('handles an oddly-cased Content-Type', () => {
+      const response = createApiResponse({
+        headers: generateHeaders({ 'Content-Type': 'Application/JSON' }),
+      });
+
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/resource/?lang=`, {
+          method: 'GET', headers: {},
+        })
+        .once()
+        .returns(response);
+      return api.callApi({ endpoint: 'resource', method: 'GET' })
+        .then(() => mockWindow.verify());
     });
   });
 
