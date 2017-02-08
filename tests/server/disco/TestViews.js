@@ -1,16 +1,14 @@
 import { assert } from 'chai';
 import request from 'supertest-as-promised';
 
-import { runServer } from 'core/server/base';
-
-import { checkSRI, parseCSP } from '../helpers';
+import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
 const defaultURL = '/en-US/firefox/discovery/pane/48.0/Darwin/normal';
 
 describe('Discovery Pane GET requests', () => {
   let app;
 
-  before(() => runServer({ listen: false, app: 'disco' })
+  before(() => runTestServer({ app: 'disco' })
     .then((server) => {
       app = server;
     }));

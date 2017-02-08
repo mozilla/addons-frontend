@@ -4,6 +4,7 @@ import { applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 import config from 'config';
 
+
 /*
  * Enhance a redux store with common middleware.
  *

@@ -1,16 +1,14 @@
 import { assert } from 'chai';
 import request from 'supertest-as-promised';
 
-import { runServer } from 'core/server/base';
-
-import { checkSRI, parseCSP } from '../helpers';
+import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
 const defaultURL = '/en-US/firefox/';
 
 describe('AMO GET Requests', () => {
   let app;
 
-  before(() => runServer({ listen: false, app: 'amo' })
+  before(() => runTestServer({ app: 'amo' })
     .then((server) => {
       app = server;
     }));
