@@ -106,6 +106,24 @@ describe('api', () => {
           assert.equal(args[0].response.data.text, 'actual error response');
         });
     });
+
+    it('handles any fetch error', () => {
+      mockWindow.expects('fetch').returns(Promise.reject(new Error(
+        'this could be any error'
+      )));
+
+      const errorHandler = newErrorHandler();
+      sinon.stub(errorHandler, 'handle');
+
+      return api.callApi({ endpoint: 'resource', errorHandler })
+        .then(() => {
+          assert(false, 'unexpected success');
+        }, () => {
+          assert.ok(errorHandler.handle.called);
+          const args = errorHandler.handle.firstCall.args;
+          assert.equal(args[0].message, 'this could be any error');
+        });
+    });
   });
 
   describe('admin search api', () => {

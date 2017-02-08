@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router';
 
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
+import AddonReview from 'amo/components/AddonReview';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
@@ -19,7 +19,6 @@ export class RatingManagerBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
     Rating: PropTypes.object,
-    router: PropTypes.object.isRequired,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
     userReview: PropTypes.object,
@@ -33,6 +32,7 @@ export class RatingManagerBase extends React.Component {
   constructor(props) {
     super(props);
     const { loadSavedReview, userId, addon } = props;
+    this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({ userId, addonId: addon.id });
@@ -40,7 +40,7 @@ export class RatingManagerBase extends React.Component {
   }
 
   onSelectRating = (rating) => {
-    const { userReview, userId, version } = this.props;
+    const { userId, userReview, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
@@ -48,7 +48,6 @@ export class RatingManagerBase extends React.Component {
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
       addonSlug: this.props.addon.slug,
-      router: this.props.router,
       versionId: version.id,
       userId,
     };
@@ -68,11 +67,15 @@ export class RatingManagerBase extends React.Component {
     } else {
       log.info(`Submitting a new review for versionId ${params.versionId}`);
     }
-    this.props.submitReview(params);
+    this.props.submitReview(params)
+      .then(() => {
+        this.setState({ showTextEntry: true });
+      });
   }
 
   render() {
     const { Rating, i18n, addon, userReview } = this.props;
+    const { showTextEntry } = this.state;
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
@@ -83,6 +86,7 @@ export class RatingManagerBase extends React.Component {
 
     return (
       <div className="RatingManager">
+        {showTextEntry ? <AddonReview review={userReview} /> : null}
         <form action="">
           <fieldset>
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
@@ -141,14 +145,9 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitReview({ router, addonSlug, ...params }) {
+  submitReview({ addonSlug, ...params }) {
     return submitReview({ addonSlug, ...params })
-      .then((review) => {
-        const { lang, clientApp } = params.apiState;
-        dispatch(setReview(review));
-        router.push(
-          `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
-      });
+      .then((review) => dispatch(setReview(review)));
   },
 });
 
@@ -158,6 +157,5 @@ export const RatingManagerWithI18n = compose(
 
 export default compose(
   withErrorHandling({ name: 'RatingManager' }),
-  withRouter,
   connect(mapStateToProps, mapDispatchToProps),
 )(RatingManagerWithI18n);

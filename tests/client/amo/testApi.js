@@ -22,6 +22,7 @@ describe('amo.api', () => {
       rating: undefined,
       version: undefined,
       body: undefined,
+      title: undefined,
     };
     const baseParams = {
       apiState: { ...signedInApiState, token: 'new-token' },

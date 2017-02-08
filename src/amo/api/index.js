@@ -8,12 +8,13 @@ export function submitReview({
   rating,
   apiState,
   addonSlug,
+  title,
   versionId,
   body,
   reviewId,
   ...apiCallParams
 }) {
-  const data = { rating, version: versionId, body };
+  const data = { rating, version: versionId, body, title };
   if (reviewId) {
     // You cannot update the version of an existing review.
     data.version = undefined;

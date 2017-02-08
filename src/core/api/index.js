@@ -88,6 +88,13 @@ export function callApi({
         errorHandler.handle(apiError);
       }
       throw apiError;
+    }, (fetchError) => {
+      // This actually handles the case when the call to fetch() is
+      // rejected, say, for a network connection error, etc.
+      if (errorHandler) {
+        errorHandler.handle(fetchError);
+      }
+      throw fetchError;
     })
     .then((response) => (schema ? normalize(response, schema) : response));
 }
