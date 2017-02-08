@@ -1,14 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-connect';
-import { withRouter } from 'react-router';
 
 import { submitReview } from 'amo/api';
 import { setReview } from 'amo/actions/reviews';
-import { callApi } from 'core/api';
-import { withErrorHandling } from 'core/errorHandler';
+import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import OverlayCard from 'ui/components/OverlayCard';
 
 import 'amo/css/AddonReview.scss';
 
@@ -19,40 +17,62 @@ export class AddonReviewBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     review: PropTypes.object.isRequired,
-    router: PropTypes.object.isRequired,
     updateReviewText: PropTypes.func,
   }
 
-  onSubmit = (event) => {
+  constructor(props) {
+    super(props);
+    this.state = { reviewBody: null, reviewTitle: null };
+    if (props.review) {
+      this.state.reviewTitle = props.review.title;
+      this.state.reviewBody = props.review.body;
+    }
+    this.overlayCard = null;
+    this.reviewTextarea = null;
+    this.reviewTitleInput = null;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { review } = nextProps;
+    if (review) {
+      this.setState({
+        reviewTitle: review.title,
+        reviewBody: review.body,
+      });
+    }
+  }
+
+  onSubmit = (event, { overlayCard = this.overlayCard } = {}) => {
+    const { reviewBody, reviewTitle } = this.state;
     event.preventDefault();
     event.stopPropagation();
-    const body = this.reviewTextarea.value;
     const params = {
-      body,
+      body: reviewBody,
+      title: reviewTitle,
       addonSlug: this.props.review.addonSlug,
       errorHandler: this.props.errorHandler,
       reviewId: this.props.review.id,
       apiState: this.props.apiState,
-      router: this.props.router,
     };
     // TODO: render a progress indicator in the UI.
+    // https://github.com/mozilla/addons-frontend/issues/1156
     return this.props.updateReviewText(params)
-      .then(() => this.goBackToAddonDetail());
+      .then(() => {
+        overlayCard.hide();
+      });
   }
 
-  goBackToAddonDetail = (event) => {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    const { router } = this.props;
-    const { addonSlug } = this.props.review;
-    const { lang, clientApp } = this.props.apiState;
-    router.push(`/${lang}/${clientApp}/addon/${addonSlug}/`);
+  onTitleInput = (event) => {
+    this.setState({ reviewTitle: event.target.value });
+  }
+
+  onBodyInput = (event) => {
+    this.setState({ reviewBody: event.target.value });
   }
 
   render() {
-    const { i18n, review } = this.props;
+    const { errorHandler, i18n, review } = this.props;
+    const { reviewBody, reviewTitle } = this.state;
     if (!review || !review.id || !review.addonSlug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
@@ -74,31 +94,40 @@ export class AddonReviewBase extends React.Component {
       );
     }
 
+    const titlePlaceholder = i18n.gettext('Give your review a title');
+
     return (
-      <div className="AddonReview">
+      <OverlayCard ref={(ref) => { this.overlayCard = ref; }}
+        visibleOnLoad className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
-          <textarea
-            className="AddonReview-textarea"
-            ref={(ref) => { this.reviewTextarea = ref; }}
-            name="review"
-            placeholder={placeholder}>
-            {review.body}
-          </textarea>
-          <div className="AddonReview-button-row">
-            <button className="AddonReview-button AddonReview-back-button"
-              onClick={this.goBackToAddonDetail}
-              ref={(ref) => { this.backButton = ref; }}>
-              {i18n.gettext('Back')}
-            </button>
+          <div className="AddonReview-form-input">
+            {errorHandler.hasError() ? errorHandler.renderError() : null}
             <input
-              className="AddonReview-button AddonReview-submit-button"
-              type="submit" value={i18n.gettext('Submit')}
+              ref={(ref) => { this.reviewTitleInput = ref; }}
+              type="text"
+              className="AddonReview-title"
+              name="reviewTitle"
+              value={reviewTitle}
+              onInput={this.onTitleInput}
+              placeholder={titlePlaceholder}
+            />
+            <textarea
+              ref={(ref) => { this.reviewTextarea = ref; }}
+              className="AddonReview-textarea"
+              onInput={this.onBodyInput}
+              name="review"
+              value={reviewBody}
+              placeholder={placeholder}
             />
           </div>
+          <input
+            className="AddonReview-submit"
+            type="submit" value={i18n.gettext('Submit review')}
+          />
         </form>
-      </div>
+      </OverlayCard>
     );
   }
 }
@@ -114,33 +143,8 @@ export const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export function loadAddonReview(
-  { store: { dispatch }, params: { slug, reviewId } }
-) {
-  return new Promise((resolve) => {
-    if (!slug || !reviewId) {
-      throw new Error('missing URL params slug (add-on slug) or reviewId');
-    }
-    resolve(callApi({
-      endpoint: `addons/addon/${slug}/reviews/${reviewId}`,
-      method: 'GET',
-    }));
-  })
-    .then((review) => {
-      const action = setReview(review);
-      dispatch(action);
-      return action.payload;
-    });
-}
-
 export default compose(
-  asyncConnect([{
-    key: 'review',
-    deferred: true,
-    promise: loadAddonReview,
-  }]),
-  withErrorHandling({ name: 'AddonReview' }),
-  withRouter,
+  withErrorHandler({ name: 'AddonReview' }),
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AddonReviewBase);
