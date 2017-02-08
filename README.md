@@ -43,6 +43,7 @@ Generic scripts that don't need env vars. Use these for development:
 |-------------------------|-------------------------------------------------------|
 | npm run dev:admin       |  Starts the dev server (admin app)                    |
 | npm run dev:amo         |  Starts the dev server (amo)                          |
+| npm run dev:amo:proxy   |  Starts the dev server with proxy (amo)               |
 | npm run dev:disco       |  Starts the dev server (discovery pane)               |
 | npm run eslint          |  Lints the JS                                         |
 | npm run stylelint       |  Lints the SCSS                                       |
@@ -93,6 +94,18 @@ The continuous integration process will give you a link to view the report.
 To see this report while running tests locally, type:
 
     open ./coverage/index.html
+
+### Running development AMO similar to production
+
+A proxy server is provided for running the AMO app with the API on the same host as the frontend.
+This provides a setup that is closer to production than running the frontend on its own. The only
+supported method of doing this is to also be running an instance of addons-server at
+http://olympia.dev (this is its default configuration in development mode). You can find
+instructions on settings up addons-server in the
+[addons-server docs](https://addons-server.readthedocs.io/en/latest/topics/install/index.html).
+Docker is the preferred method of running addons-server.
+
+To run the development server with the proxy use `npm run dev:amo:proxy`.
 
 ### Configuring for local development
 

@@ -1,5 +1,7 @@
 {
   "apiHost": "API_HOST",
+  "proxyApiHost": "PROXY_API_HOST",
+  "proxyPort": "PROXY_PORT",
   "serverHost": "SERVER_HOST",
   "serverPort": "SERVER_PORT",
   "staticHost": "STATIC_HOST",

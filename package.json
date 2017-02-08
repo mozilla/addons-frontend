@@ -10,10 +10,12 @@
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json'",
     "dev:admin": "better-npm-run dev:admin",
     "dev:amo": "better-npm-run dev:amo",
+    "dev:amo:proxy": "better-npm-run dev:amo:proxy",
     "dev:disco": "better-npm-run dev:disco",
     "eslint": "eslint .",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
+    "proxy": "NODE_PATH='./:./src' node bin/proxy.js",
     "servertest": "bin/config-check.js && ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest && better-npm-run servertest:amo && better-npm-run servertest:disco && better-npm-run servertest:admin",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
     "test": "bin/config-check.js && better-npm-run test",
@@ -43,6 +45,12 @@
         "NODE_APP_INSTANCE": "amo"
       }
     },
+    "dev:amo:proxy": {
+      "command": "better-npm-run start-dev-proxy",
+      "env": {
+        "NODE_APP_INSTANCE": "amo"
+      }
+    },
     "dev:disco": {
       "command": "better-npm-run start-dev",
       "env": {
@@ -62,6 +70,18 @@
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
         "NODE_PATH": "./:./src"
+      }
+    },
+    "start-dev-proxy": {
+      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | bunyan' 'npm run proxy | bunyan'",
+      "env": {
+        "API_HOST": "http://localhost:3000",
+        "ENABLE_PIPING": "true",
+        "NODE_ENV": "development",
+        "NODE_PATH": "./:./src",
+        "PROXY_API_HOST": "http://olympia.dev",
+        "PROXY_PORT": "3000",
+        "SERVER_PORT": "3333"
       }
     },
     "servertest": {
@@ -225,6 +245,7 @@
     "fetch-mock": "5.9.3",
     "file-loader": "0.10.0",
     "glob": "7.1.1",
+    "http-proxy": "1.16.2",
     "json-loader": "0.5.4",
     "karma": "1.4.1",
     "karma-chai": "0.1.0",
