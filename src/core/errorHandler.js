@@ -95,8 +95,6 @@ export function withErrorHandler({ name, id }) {
       });
     };
 
-    const mapDispatchToProps = (dispatch) => ({ dispatch });
-
     const mergeProps = (stateProps, dispatchProps, ownProps) => ({
       ...ownProps,
       errorHandler: new ErrorHandler({
@@ -107,7 +105,7 @@ export function withErrorHandler({ name, id }) {
     });
 
     return compose(
-      connect(mapStateToProps, mapDispatchToProps, mergeProps),
+      connect(mapStateToProps, undefined, mergeProps),
     )(WrappedComponent);
   };
 }
