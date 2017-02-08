@@ -2,7 +2,7 @@
 import config from 'config';
 import request from 'supertest-as-promised';
 
-import { runServer } from 'core/server/base';
+import { runTestServer } from '../helpers';
 
 
 const fetchMock = require('fetch-mock');
@@ -13,7 +13,7 @@ const detailsAPIURL = `${config.get('apiHost')}/api/v3/addons/addon/fakeaddon/?l
 describe('Details Page', () => {
   let app;
 
-  before(() => runServer({ listen: false, app: 'amo' })
+  before(() => runTestServer({ app: 'amo' })
     .then((server) => {
       app = server;
     }));
@@ -52,10 +52,10 @@ describe('Details Page', () => {
       .expect(404);
   });
 
-  it('should surface an unknown error from the API as a 500', () => {
+  it('should surface an unknown API error with matching status', () => {
     fetchMock.get(detailsAPIURL, 503);
     return request(app)
       .get(defaultURL)
-      .expect(500);
+      .expect(503);
   });
 });

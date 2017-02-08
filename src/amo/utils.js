@@ -4,6 +4,9 @@ import {
 } from 'amo/constants';
 import { getFeatured, loadFeatured } from 'amo/actions/featured';
 import { getLanding, loadLanding, failLanding } from 'amo/actions/landing';
+import NotAuthorized from 'amo/components/NotAuthorized';
+import NotFound from 'amo/components/NotFound';
+import ServerError from 'amo/components/ServerError';
 import { featured as featuredAPI, search } from 'core/api';
 import { SEARCH_SORT_POPULAR, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import { apiAddonType } from 'core/utils';
@@ -50,7 +53,23 @@ export function fetchLandingAddons({ addonType, api, dispatch }) {
 
 export function loadLandingAddons({ store: { dispatch, getState }, params }) {
   const state = getState();
-  const addonType = apiAddonType(params.visibleAddonType);
+  try {
+    const addonType = apiAddonType(params.visibleAddonType);
 
-  return fetchLandingAddons({ addonType, api: state.api, dispatch });
+    return fetchLandingAddons({ addonType, api: state.api, dispatch });
+  } catch (err) {
+    return Promise.reject(err);
+  }
+}
+
+export function getErrorComponent(status) {
+  switch (status) {
+    case 401:
+      return NotAuthorized;
+    case 404:
+      return NotFound;
+    case 500:
+    default:
+      return ServerError;
+  }
 }

@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
+"POT-Creation-Date: 2017-02-07 14:11+0000\n"
 "PO-Revision-Date: 2017-01-24 14:37+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -62,45 +62,45 @@ msgstr "您現在可在工具列使用 %(name)s。"
 msgid "OK!"
 msgstr "好！"
 
-#: src/disco/components/Addon.js:107
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr "滑動以預覽或點擊安裝 %(name)s"
+
+#: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
 msgstr "滑過圖片進行預覽"
 
-#: src/disco/components/Addon.js:128
+#: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
 msgstr "安裝失敗，請再試一次。"
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
 msgstr "下載失敗，請檢查網路連線。"
 
-#: src/disco/components/Addon.js:132
+#: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
 msgstr "安裝時發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
 msgstr "移除時發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
 msgstr "發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:145
+#: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "您重新啟動 Firefox 後將移除此附加元件。"
 
-#: src/disco/components/Addon.js:147
+#: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
 msgstr "重新啟動 Firefox 後即可使用此附加元件。"
 
-#: src/disco/components/Addon.js:67
+#: src/disco/components/Addon.js:68
 msgid "Close"
 msgstr "關閉"
-
-#: src/disco/components/Addon.js:97
-msgid "Hover to preview or click to install %(name)s"
-msgstr "滑動以預覽或點擊安裝 %(name)s"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
@@ -129,11 +129,17 @@ msgstr "個人化您的 Firefox"
 #: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
-msgstr "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題、讓您瀏覽時更快、更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦效能與功能都很傑出的附加元件。"
+msgstr ""
+"有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題、讓"
+"您瀏覽時更快、更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦效能"
+"與功能都很傑出的附加元件。"
 
 #~ msgid "Preview %(name)s"
 #~ msgstr "預覽 %(name)s"
