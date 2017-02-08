@@ -8,11 +8,10 @@ import {
 import translate from 'core/i18n/translate';
 import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
-import * as coreApi from 'core/api';
 import {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
-  loadAddonReview as defaultAddonReviewLoader,
 } from 'amo/components/AddonReview';
+import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -22,11 +21,13 @@ const defaultReview = {
 
 function render({ ...customProps } = {}) {
   const props = {
-    errorHandler: sinon.stub(),
+    errorHandler: new ErrorHandler({
+      id: 'some-id',
+      dispatch: sinon.stub(),
+    }),
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
     review: defaultReview,
-    router: {},
     updateReviewText: () => {},
     ...customProps,
   };
@@ -40,33 +41,58 @@ function render({ ...customProps } = {}) {
 
 describe('AddonReview', () => {
   it('can update a review', () => {
-    const router = { push: sinon.stub() };
     const updateReviewText = sinon.spy(() => Promise.resolve());
-    const errorHandler = sinon.stub();
-    const root = render({ updateReviewText, router, errorHandler });
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: sinon.stub(),
+    });
+    const root = render({ updateReviewText, errorHandler });
     const event = {
       preventDefault: sinon.stub(),
       stopPropagation: sinon.stub(),
     };
 
+    const title = root.reviewTitleInput;
+    title.value = 'some title';
+    Simulate.input(title);
+
     const textarea = root.reviewTextarea;
     textarea.value = 'some review';
-    return root.onSubmit(event)
+    Simulate.input(textarea);
+
+    const overlayCard = {
+      hide: sinon.stub(),
+    };
+
+    return root.onSubmit(event, { overlayCard })
       .then(() => {
         assert.ok(updateReviewText.called);
         assert.ok(event.preventDefault.called);
 
         const params = updateReviewText.firstCall.args[0];
         assert.equal(params.body, 'some review');
+        assert.equal(params.title, 'some title');
         assert.equal(params.addonSlug, defaultReview.addonSlug);
         assert.equal(params.errorHandler, errorHandler);
         assert.equal(params.reviewId, defaultReview.id);
         assert.equal(params.apiState, signedInApiState);
 
-        // This just makes sure goBackToAddonDetail() is executed, which is tested
-        // separately.
-        assert.ok(router.push.called);
+        // Make sure the overlay was hidden after finishing.
+        assert.ok(overlayCard.hide.called);
       });
+  });
+
+  it('updates review state from a new review property', () => {
+    const root = render();
+    root.componentWillReceiveProps({
+      review: {
+        ...defaultReview,
+        title: 'New title',
+        body: 'New body',
+      },
+    });
+    assert.equal(root.state.reviewTitle, 'New title');
+    assert.equal(root.state.reviewBody, 'New body');
   });
 
   it('prompts you appropriately when you are happy', () => {
@@ -94,12 +120,9 @@ describe('AddonReview', () => {
   it('triggers the submit handler', () => {
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const root = render({ updateReviewText });
-
-    const textarea = root.reviewTextarea;
-    textarea.value = 'some review';
     Simulate.submit(root.reviewForm);
 
-    // Make sure the submit handler is hooked up.
+    // Just make sure the submit handler is hooked up.
     assert.ok(updateReviewText.called);
   });
 
@@ -111,79 +134,6 @@ describe('AddonReview', () => {
     } catch (error) {
       assert.match(error.message, /Unexpected review property: {"nope".*/);
     }
-  });
-
-  it('goes to the detail page when you press the back button', () => {
-    const router = {
-      push: sinon.stub(),
-    };
-    const root = render({ router });
-    Simulate.click(root.backButton);
-    // This just makes sure goBackToAddonDetail() is executed, which is tested
-    // separately.
-    assert.ok(router.push.called);
-  });
-
-  it('lets you get back to the detail page', () => {
-    const { lang, clientApp } = signedInApiState;
-    const router = {
-      push: sinon.stub(),
-    };
-    const root = render({ router, apiState: signedInApiState });
-    root.goBackToAddonDetail();
-    assert.ok(router.push.called);
-    assert.equal(router.push.firstCall.args[0],
-                 `/${lang}/${clientApp}/addon/${defaultReview.addonSlug}/`);
-  });
-
-  describe('loadAddonReview', () => {
-    let mockApi;
-    let fakeDispatch;
-
-    beforeEach(() => {
-      mockApi = sinon.mock(coreApi);
-      fakeDispatch = sinon.stub();
-    });
-
-    function loadAddonReview({ params } = {}) {
-      let localParams = params;
-      if (!localParams) {
-        localParams = { slug: fakeAddon.slug, reviewId: defaultReview.id };
-      }
-      return defaultAddonReviewLoader(
-        { store: { dispatch: fakeDispatch }, params: localParams });
-    }
-
-    it('requires URL params',
-      () => loadAddonReview({ params: {} })
-        .then(() => assert(false, 'unexpected success'), (error) => {
-          assert.match(error.message, /missing URL params/);
-        })
-    );
-
-    it('loads a review', () => {
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          endpoint: `addons/addon/${fakeAddon.slug}/reviews/${defaultReview.id}`,
-          method: 'GET',
-        })
-        .returns(Promise.resolve(fakeReview));
-
-      return loadAddonReview()
-        .then((returnedReview) => {
-          assert.equal(fakeDispatch.called, true);
-          assert.deepEqual(fakeDispatch.firstCall.args[0],
-                           setReview(fakeReview));
-
-          assert.equal(returnedReview.addonSlug, fakeAddon.slug);
-          assert.equal(returnedReview.rating, fakeReview.rating);
-          assert.equal(returnedReview.id, fakeReview.id);
-          assert.equal(returnedReview.body, fakeReview.body);
-
-          mockApi.verify();
-        });
-    });
   });
 
   describe('mapStateToProps', () => {

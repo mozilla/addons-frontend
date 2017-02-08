@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
+"POT-Creation-Date: 2017-02-07 14:11+0000\n"
 "PO-Revision-Date: 2017-01-24 17:47+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -62,47 +62,47 @@ msgstr "Można teraz korzystać z dodatku „%(name)s” na pasku narzędziowym
 msgid "OK!"
 msgstr "OK"
 
-#: src/disco/components/Addon.js:107
-msgid "Hover over the image to preview"
-msgstr "Najedź na obraz, aby wyświetlić podgląd"
-
-#: src/disco/components/Addon.js:128
-msgid "Installation failed. Please try again."
-msgstr "Instalacja się nie powiodła. Proszę spróbować ponownie."
-
-#: src/disco/components/Addon.js:130
-msgid "Download failed. Please check your connection."
-msgstr "Pobranie się nie powiodło. Proszę sprawdzić połączenie z Internetem."
-
-#: src/disco/components/Addon.js:132
-msgid "An unexpected error occurred during installation."
-msgstr "Wystąpił nieoczekiwany błąd podczas instalacji."
-
-#: src/disco/components/Addon.js:134
-msgid "An unexpected error occurred during uninstallation."
-msgstr "Wystąpił nieoczekiwany błąd podczas dezinstalacji."
-
-#: src/disco/components/Addon.js:137
-msgid "An unexpected error occurred."
-msgstr "Wystąpił nieoczekiwany błąd."
-
-#: src/disco/components/Addon.js:145
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Ten dodatek zostanie odinstalowany po ponownym uruchomieniu Firefoksa."
-
-#: src/disco/components/Addon.js:147
-msgid "Please restart Firefox to use this add-on."
-msgstr "Proszę ponownie uruchomić Firefoksa, aby użyć tego dodatku."
-
-#: src/disco/components/Addon.js:67
-msgid "Close"
-msgstr "Zamknij"
-
-#: src/disco/components/Addon.js:97
+#: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Najedź, aby wyświetlić podgląd lub kliknij, aby zainstalować dodatek "
 "„%(name)s”"
+
+#: src/disco/components/Addon.js:113
+msgid "Hover over the image to preview"
+msgstr "Najedź na obraz, aby wyświetlić podgląd"
+
+#: src/disco/components/Addon.js:134
+msgid "Installation failed. Please try again."
+msgstr "Instalacja się nie powiodła. Proszę spróbować ponownie."
+
+#: src/disco/components/Addon.js:136
+msgid "Download failed. Please check your connection."
+msgstr "Pobranie się nie powiodło. Proszę sprawdzić połączenie z Internetem."
+
+#: src/disco/components/Addon.js:138
+msgid "An unexpected error occurred during installation."
+msgstr "Wystąpił nieoczekiwany błąd podczas instalacji."
+
+#: src/disco/components/Addon.js:140
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Wystąpił nieoczekiwany błąd podczas dezinstalacji."
+
+#: src/disco/components/Addon.js:143
+msgid "An unexpected error occurred."
+msgstr "Wystąpił nieoczekiwany błąd."
+
+#: src/disco/components/Addon.js:151
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "Ten dodatek zostanie odinstalowany po ponownym uruchomieniu Firefoksa."
+
+#: src/disco/components/Addon.js:153
+msgid "Please restart Firefox to use this add-on."
+msgstr "Proszę ponownie uruchomić Firefoksa, aby użyć tego dodatku."
+
+#: src/disco/components/Addon.js:68
+msgid "Close"
+msgstr "Zamknij"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"

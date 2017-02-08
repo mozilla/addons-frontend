@@ -55,13 +55,15 @@ const enabledExtension = Promise.resolve({
   type: ADDON_TYPE_EXTENSION,
 });
 
-export function getFakeAddonManagerWrapper({ getAddon = enabledExtension } = {}) {
+export function getFakeAddonManagerWrapper({
+  getAddon = enabledExtension, permissionPromptsEnabled = true } = {}) {
   return {
     addChangeListeners: sinon.stub(),
     enable: sinon.stub().returns(Promise.resolve()),
     getAddon: sinon.stub().returns(getAddon),
     install: sinon.stub().returns(Promise.resolve()),
     uninstall: sinon.stub().returns(Promise.resolve()),
+    hasPermissionPromptsEnabled: sinon.stub().returns(permissionPromptsEnabled),
   };
 }
 

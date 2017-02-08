@@ -9,6 +9,7 @@ import api from 'core/reducers/api';
 import auth from 'core/reducers/authentication';
 import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
+import errorPage from 'core/reducers/errorPage';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import search from 'core/reducers/search';
@@ -23,6 +24,7 @@ export default function createStore(initialState = {}) {
       auth,
       categories,
       errors,
+      errorPage,
       featured,
       infoDialog,
       installations,
