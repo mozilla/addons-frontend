@@ -14,10 +14,9 @@ function generateHandlerId({ name = '' } = {}) {
 /*
  * Error handling utility for components.
  *
- * This is an interface that components can work with
+ * This is a class that components can work with
  * to easily dispatch error actions or retrieve error
  * information from the Redux state.
- * Internally, this is complimentary to the ErrorHandlerComponent.
  */
 export class ErrorHandler {
   constructor({ id, dispatch, capturedError = null } = {}) {
@@ -55,6 +54,9 @@ export class ErrorHandler {
  *
  * The decorator will assign an ErrorHandler instance to the errorHandler
  * property.
+ *
+ * For convenience, you can use withErrorHandling() instead which will
+ * additionally renders the error automatically.
  *
  * Example:
  *
