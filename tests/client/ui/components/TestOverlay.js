@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
 
 import Overlay from 'ui/components/Overlay';
 
@@ -37,6 +37,12 @@ describe('<Overlay />', () => {
   it('is visible when the `visibleOnLoad` prop is passed', () => {
     const root = render({ visibleOnLoad: true });
     assert.include(root.overlayContainer.className, 'Overlay--visible');
+  });
+
+  it('hides when you click the background', () => {
+    const root = render({ visibleOnLoad: true });
+    Simulate.click(root.overlayBackground);
+    assert.notInclude(root.overlayContainer.className, 'Overlay--visible');
   });
 
   it('is shown and hidden when `hide()` and `show()` are called', () => {

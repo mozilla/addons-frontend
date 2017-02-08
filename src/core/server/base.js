@@ -10,16 +10,15 @@ import helmet from 'helmet';
 import cookie from 'react-cookie';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
+import { loadFail } from 'redux-connect/lib/store';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
+import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
-import {
-  getErrorMsg,
-  getReduxConnectError,
-} from 'core/resourceErrors/reduxConnectErrors';
 import { prefixMiddleWare } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setClientApp, setLang, setJwt } from 'core/actions';
@@ -54,17 +53,55 @@ function getNoScriptStyles({ appName }) {
   return undefined;
 }
 
-function showErrorPage(res, status) {
-  let adjustedStatus = status;
-  let error = getErrorMsg(adjustedStatus);
-  if (!error) {
-    adjustedStatus = 500;
-    error = getErrorMsg(adjustedStatus);
+const appName = config.get('appName');
+
+function getPageProps({ noScriptStyles = '', store, req, res }) {
+  // Get SRI for deployed services only.
+  const sriData = (isDeployed) ? JSON.parse(
+    fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
+  ) : {};
+
+  // Check the lang supplied by res.locals.lang for validity
+  // or fall-back to the default.
+  const lang = isValidLang(res.locals.lang) ?
+    res.locals.lang : config.get('defaultLang');
+  const dir = getDirection(lang);
+  store.dispatch(setLang(lang));
+  if (res.locals.clientApp) {
+    store.dispatch(setClientApp(res.locals.clientApp));
+  } else if (req && req.url) {
+    log.warn(`No clientApp for this URL: ${req.url}`);
+  } else {
+    log.warn('No clientApp (error)');
   }
-  return res.status(adjustedStatus).end(error);
+
+  return {
+    appName,
+    assets: webpackIsomorphicTools.assets(),
+    htmlLang: lang,
+    htmlDir: dir,
+    includeSri: isDeployed,
+    noScriptStyles,
+    sriData,
+    store,
+    trackingEnabled: convertBoolean(config.get('trackingEnabled')),
+  };
 }
 
-const appName = config.get('appName');
+function showErrorPage({ createStore, error = {}, req, res, status }) {
+  const store = createStore();
+  const pageProps = getPageProps({ store, req, res });
+
+  const apiError = createApiError({ response: { status } });
+  store.dispatch(loadFail('ServerBase', { ...apiError, ...error }));
+
+  const HTML = ReactDOM.renderToString(
+    <ServerHtml {...pageProps} />);
+  const httpStatus = NestedStatus.rewind();
+  return res.status(status || httpStatus)
+    .send(`<!DOCTYPE html>\n${HTML}`)
+    .end();
+}
 
 function logRequests(req, res, next) {
   const start = new Date();
@@ -160,55 +197,30 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     ) => {
       cookie.plugToRequest(req, res);
 
-      if (err) {
-        log.error({ err, req });
-        return showErrorPage(res, 500);
-      }
-
-      if (!renderProps) {
-        return showErrorPage(res, 404);
-      }
-
       const store = createStore();
       const token = cookie.load(config.get('cookieName'));
       if (token) {
         store.dispatch(setJwt(token));
       }
-      // Get SRI for deployed services only.
-      const sriData = (isDeployed) ? JSON.parse(
-        fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
-      ) : {};
 
-      // Check the lang supplied by res.locals.lang for validity
-      // or fall-back to the default.
-      const lang = isValidLang(res.locals.lang) ?
-        res.locals.lang : config.get('defaultLang');
-      const dir = getDirection(lang);
-      const locale = langToLocale(lang);
-      store.dispatch(setLang(lang));
-      if (res.locals.clientApp) {
-        store.dispatch(setClientApp(res.locals.clientApp));
-      } else {
-        log.warn(`No clientApp for this URL: ${req.url}`);
+      // github.com/mozilla/addons-frontend/pull/1685#discussion_r99705186
+      if (err) {
+        return showErrorPage({ createStore, status: 500, req, res });
       }
 
-      function hydrateOnClient(props = {}) {
-        const pageProps = {
-          appName: appInstanceName,
-          assets: webpackIsomorphicTools.assets(),
-          htmlLang: lang,
-          htmlDir: dir,
-          includeSri: isDeployed,
-          noScriptStyles,
-          sriData,
-          store,
-          trackingEnabled: convertBoolean(config.get('trackingEnabled')),
-          ...props,
-        };
+      if (!renderProps) {
+        return showErrorPage({ createStore, status: 404, req, res });
+      }
 
+      const pageProps = getPageProps({ noScriptStyles, store, req, res });
+      const { htmlLang } = pageProps;
+      const locale = langToLocale(htmlLang);
+
+      function hydrateOnClient(props = {}) {
         const HTML = ReactDOM.renderToString(
-          <ServerHtml {...pageProps} />);
-        res.send(`<!DOCTYPE html>\n${HTML}`);
+          <ServerHtml {...pageProps} {...props} />);
+        const httpStatus = NestedStatus.rewind();
+        res.status(httpStatus).send(`<!DOCTYPE html>\n${HTML}`);
       }
 
       // Set disableSSR to true to debug
@@ -233,7 +245,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             log.info(
               `Falling back to default lang: "${config.get('defaultLang')}".`);
           }
-          const i18n = makeI18n(i18nData, lang);
+          const i18n = makeI18n(i18nData, htmlLang);
 
           const InitialComponent = (
             <I18nProvider i18n={i18n}>
@@ -243,44 +255,52 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             </I18nProvider>
           );
 
-          const asyncConnectLoadState = store.getState().reduxAsyncConnect.loadState || {};
-          const reduxResult = getReduxConnectError(asyncConnectLoadState);
-          if (reduxResult.status) {
-            return showErrorPage(res, reduxResult.status);
+          const errorPage = store.getState().errorPage;
+          if (errorPage && errorPage.hasError) {
+            return showErrorPage({
+              createStore,
+              error: errorPage.error,
+              req,
+              res,
+              status: errorPage.statusCode,
+            });
           }
 
           return hydrateOnClient({ component: InitialComponent });
         })
         .catch((error) => {
           log.error({ err: error });
-          return showErrorPage(res, 500);
+          return showErrorPage({ createStore, error, status: 500, req, res });
         });
     });
   });
 
   // eslint-disable-next-line no-unused-vars
-  app.use((err, req, res, next) => {
-    log.error({ err });
-    return showErrorPage(res, 500);
+  app.use((error, req, res, next) => {
+    log.error({ err: error });
+    return showErrorPage({ createStore, error, status: 500, req, res });
   });
 
   return app;
 }
 
-export function runServer({ listen = true, app = appName } = {}) {
-  if (!app) {
-    log.fatal(
-      `Please specify a valid appName from ${config.get('validAppNames')}`);
-    process.exit(1);
-  }
-
+export function runServer({
+  listen = true, app = appName, exitProcess = true,
+} = {}) {
   const port = config.get('serverPort');
   const host = config.get('serverHost');
 
   const isoMorphicServer = new WebpackIsomorphicTools(
     WebpackIsomorphicToolsConfig);
-  return isoMorphicServer
-    .server(config.get('basePath'))
+
+  return new Promise((resolve) => {
+    if (!app) {
+      throw new Error(
+        `Please specify a valid appName from ${config.get('validAppNames')}`);
+    }
+    resolve();
+  })
+    .then(() => isoMorphicServer.server(config.get('basePath')))
     .then(() => {
       global.webpackIsomorphicTools = isoMorphicServer;
       // Webpack Isomorphic tools is ready
@@ -295,7 +315,7 @@ export function runServer({ listen = true, app = appName } = {}) {
         if (listen === true) {
           server.listen(port, host, (err) => {
             if (err) {
-              reject(err);
+              return reject(err);
             }
             log.info(oneLine`🔥  Addons-frontend server is running [ENV:${env}]
               [APP:${app}] [isDevelopment:${isDevelopment}
@@ -303,7 +323,7 @@ export function runServer({ listen = true, app = appName } = {}) {
               [apiPath:${config.get('apiPath')}]`);
             log.info(
               `👁  Open your browser at http://${host}:${port} to view it.`);
-            resolve(server);
+            return resolve(server);
           });
         } else {
           resolve(server);
@@ -312,6 +332,11 @@ export function runServer({ listen = true, app = appName } = {}) {
     })
     .catch((err) => {
       log.error({ err });
+      if (exitProcess) {
+        process.exit(1);
+      } else {
+        throw err;
+      }
     });
 }
 

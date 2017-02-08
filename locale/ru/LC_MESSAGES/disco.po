@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
+"POT-Creation-Date: 2017-02-07 14:11+0000\n"
 "PO-Revision-Date: 2017-01-24 17:28+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
@@ -11,7 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/InstallButton/index.js:42
@@ -62,45 +63,46 @@ msgstr "Теперь вы можете получить доступ к %(name)s
 msgid "OK!"
 msgstr "ОК!"
 
-#: src/disco/components/Addon.js:107
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
+"Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
+
+#: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
 msgstr "Наведите мышь на изображение для предпросмотра"
 
-#: src/disco/components/Addon.js:128
+#: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
 msgstr "Установка не удалась. Пожалуйста, попробуйте позже."
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
 msgstr "Загрузка не удалась. Пожалуйста, проверьте ваше соединение."
 
-#: src/disco/components/Addon.js:132
+#: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
 msgstr "При установке произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
 msgstr "При удалении произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
 msgstr "Произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:145
+#: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Это дополнение будет удалено после перезапуска вами Firefox."
 
-#: src/disco/components/Addon.js:147
+#: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
 msgstr "Пожалуйста, перезапустите Firefox для использования этого дополнения."
 
-#: src/disco/components/Addon.js:67
+#: src/disco/components/Addon.js:68
 msgid "Close"
 msgstr "Закрыть"
-
-#: src/disco/components/Addon.js:97
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
@@ -129,14 +131,19 @@ msgstr "Настройте под себя свой Firefox"
 #: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
 "Есть тысячи бесплатных дополнений, созданных разработчиками со всего мира, \n"
-"которые вы можете установить, чтобы настроить Firefox под себя. От весёлых визуальных\n"
-"тем до мощных инструментов, которые сделают ваш сёрфинг быстрее и безопаснее,\n"
+"которые вы можете установить, чтобы настроить Firefox под себя. От весёлых "
+"визуальных\n"
+"тем до мощных инструментов, которые сделают ваш сёрфинг быстрее и "
+"безопаснее,\n"
 "дополнения, которые делают браузер вашим.\n"
 "Чтобы помочь вам начать, вот несколько дополнений, которые мы рекомендуем\n"
 "из-за их превосходной производительности и функциональности."

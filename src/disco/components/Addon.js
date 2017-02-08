@@ -12,6 +12,7 @@ import translate from 'core/i18n/translate';
 import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import InstallButton from 'core/components/InstallButton';
+import HoverIntent from 'core/components/HoverIntent';
 import {
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
@@ -85,17 +86,22 @@ export class AddonBase extends React.Component {
   getThemeImage() {
     const { getBrowserThemeData, i18n, name, previewURL } = this.props;
     if (this.props.type === ADDON_TYPE_THEME) {
-      // eslint-disable-next-line jsx-a11y/href-no-hash
-      return (<a href="#" className="theme-image"
-                 data-browsertheme={getBrowserThemeData()}
-                 onBlur={this.resetPreviewTheme}
-                 onClick={this.installTheme}
-                 onFocus={this.previewTheme}
-                 onMouseOut={this.resetPreviewTheme}
-                 onMouseOver={this.previewTheme}>
-        <img src={previewURL}
-          alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })}
-        /></a>);
+      /* eslint-disable jsx-a11y/href-no-hash */
+      return (
+        <HoverIntent
+          onHoverIntent={this.previewTheme}
+          onHoverIntentEnd={this.resetPreviewTheme}>
+          <a href="#" className="theme-image"
+            data-browsertheme={getBrowserThemeData()}
+            onBlur={this.resetPreviewTheme}
+            onClick={this.installTheme}
+            onFocus={this.previewTheme}>
+            <img src={previewURL}
+              alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })} />
+          </a>
+        </HoverIntent>
+      );
+      /* eslint-enable jsx-a11y/href-no-hash */
     }
     return null;
   }

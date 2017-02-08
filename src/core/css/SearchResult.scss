@@ -24,6 +24,7 @@
 
 .SearchResult-main {
   flex-grow: 1;
+  max-width: 100%;
 }
 
 .SearchResult-heading {
@@ -58,7 +59,9 @@
 }
 
 .SearchResult-author {
+  display: block;
   margin-right: 0.5em;
+  word-wrap: break-word;
 }
 
 .SearchResult-info {
