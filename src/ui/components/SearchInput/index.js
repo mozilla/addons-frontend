@@ -53,9 +53,11 @@ export default class SearchInput extends React.Component {
   };
 
   setIconPosition = () => {
+    if (!this.animateLeft) {
+      this.animateLeft = this.animateIcon.getBoundingClientRect().left;
+    }
     const { left: labelLeft } = this.labelIcon.getBoundingClientRect();
-    const { left: animateLeft } = this.animateIcon.getBoundingClientRect();
-    this.animateIcon.style.transform = `translateX(${labelLeft - animateLeft}px)`;
+    this.animateIcon.style.transform = `translateX(${labelLeft - this.animateLeft}px)`;
   }
 
   get value() {

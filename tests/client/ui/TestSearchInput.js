@@ -5,6 +5,14 @@ import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
 import SearchInput from 'ui/components/SearchInput';
 
 describe('<SearchInput />', () => {
+  it('uses the initial value for the left offset', () => {
+    // Test elements don't actually get rendered so all of the offsets are 0.
+    const root = renderIntoDocument(<SearchInput name="foo" />);
+    root.animateLeft = 100;
+    root.setIconPosition();
+    assert.equal(root.animateIcon.style.transform, 'translateX(-100px)');
+  });
+
   it('sets the icon position on resize', () => {
     const addEventListener = sinon.stub(window, 'addEventListener');
     const removeEventListener = sinon.stub(window, 'removeEventListener');
