@@ -6,6 +6,7 @@ import {
 } from 'react-addons-test-utils';
 
 import translate from 'core/i18n/translate';
+import { SET_REVIEW } from 'amo/constants';
 import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
 import * as coreUtils from 'core/utils';
@@ -30,6 +31,7 @@ function render({ ...customProps } = {}) {
     apiState: signedInApiState,
     refreshAddon: () => Promise.resolve(),
     review: defaultReview,
+    setDenormalizedReview: () => {},
     updateReviewText: () => Promise.resolve(),
     ...customProps,
   };
@@ -43,13 +45,16 @@ function render({ ...customProps } = {}) {
 
 describe('AddonReview', () => {
   it('can update a review', () => {
+    const setDenormalizedReview = sinon.spy(() => {});
     const refreshAddon = sinon.spy(() => Promise.resolve());
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const errorHandler = new ErrorHandler({
       id: 'some-id',
       dispatch: sinon.stub(),
     });
-    const root = render({ refreshAddon, updateReviewText, errorHandler });
+    const root = render({
+      setDenormalizedReview, refreshAddon, updateReviewText, errorHandler,
+    });
     const event = {
       preventDefault: sinon.stub(),
       stopPropagation: sinon.stub(),
@@ -65,9 +70,15 @@ describe('AddonReview', () => {
 
     return root.onSubmit(event, { overlayCard })
       .then(() => {
-        assert.ok(updateReviewText.called);
         assert.ok(event.preventDefault.called);
 
+        assert.ok(setDenormalizedReview.called);
+        assert.deepEqual(
+          setDenormalizedReview.firstCall.args[0],
+          { ...defaultReview, body: 'some review' },
+        );
+
+        assert.ok(updateReviewText.called);
         const params = updateReviewText.firstCall.args[0];
         assert.equal(params.body, 'some review');
         assert.equal(params.addonSlug, defaultReview.addonSlug);
@@ -193,6 +204,21 @@ describe('AddonReview', () => {
 
         return actions.refreshAddon({ addonSlug: 'some-slug', apiState })
           .then(() => mockUtils.verify());
+      });
+    });
+
+    describe('setDenormalizedReview', () => {
+      it('dispatches a setReview action', () => {
+        const review = {
+          ...defaultReview,
+          body: 'some body',
+        };
+        actions.setDenormalizedReview(review);
+
+        assert.ok(dispatch.called);
+        const action = dispatch.firstCall.args[0];
+        assert.equal(action.type, SET_REVIEW);
+        assert.deepEqual(action.payload, review);
       });
     });
   });
