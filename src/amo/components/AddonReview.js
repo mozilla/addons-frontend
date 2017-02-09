@@ -63,9 +63,9 @@ export class AddonReviewBase extends React.Component {
     // TODO: render a progress indicator in the UI.
     // https://github.com/mozilla/addons-frontend/issues/1156
     return this.props.updateReviewText(params)
+      .then(() => overlayCard.hide())
       // This will update the review count on the add-on detail page.
-      .then(() => this.props.refreshAddon({ addonSlug, apiState }))
-      .then(() => { overlayCard.hide(); });
+      .then(() => this.props.refreshAddon({ addonSlug, apiState }));
   }
 
   onTitleInput = (event) => {
