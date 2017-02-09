@@ -16,7 +16,7 @@ export default class SearchInput extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { focus: false, value: props.defaultValue };
+    this.state = { animating: false, focus: false, value: props.defaultValue };
   }
 
   componentDidMount() {
@@ -30,27 +30,27 @@ export default class SearchInput extends React.Component {
 
   onBlur = () => {
     this.setState({ focus: false });
+    if (!this.value) {
+      // Animation will start if there is no value.
+      this.setState({ animating: true });
+    }
   }
 
   onFocus = () => {
     this.setState({ focus: true });
+    if (!this.value) {
+      // Animation will start if there is no value.
+      this.setState({ animating: true });
+    }
   }
 
   onInput = (e) => {
     this.setState({ value: e.target.value });
   }
 
-  onMouseDown = (e) => {
-    this.setState({ focus: true });
-    if (!this.input.value) {
-      e.preventDefault();
-      const setFocus = () => {
-        this.input.focus();
-        this.animateIcon.removeEventListener('transitionend', setFocus);
-      };
-      this.animateIcon.addEventListener('transitionend', setFocus);
-    }
-  }
+  onTransitionEnd = () => {
+    this.setState({ animating: false });
+  };
 
   setIconPosition = () => {
     const { left: labelLeft } = this.labelIcon.getBoundingClientRect();
@@ -64,16 +64,20 @@ export default class SearchInput extends React.Component {
 
   render() {
     const { className, name, placeholder, ...props } = this.props;
-    const { focus, value } = this.state;
+    const { animating, focus, value } = this.state;
     const id = `SearchInput-input-${name}`;
     return (
       <div
-        className={classNames(className, 'SearchInput', { 'SearchInput--text': focus || value })}
+        className={classNames(className, 'SearchInput', {
+          'SearchInput--text': focus || value,
+          'SearchInput--animating': animating,
+        })}
         ref={(el) => { this.root = el; }}
       >
         <Icon
           name="magnifying-glass" className="SearchInput-animation-icon"
-          getRef={(el) => { this.animateIcon = el; }} />
+          getRef={(el) => { this.animateIcon = el; }}
+          onTransitionEnd={this.onTransitionEnd} />
         <label className="SearchInput-label" htmlFor={id}>
           <Icon name="magnifying-glass" getRef={(el) => { this.labelIcon = el; }} />
           {placeholder}
@@ -81,7 +85,7 @@ export default class SearchInput extends React.Component {
         <input
           {...props} className="SearchInput-input" placeholder={placeholder} id={id} name={name}
           autoComplete="off" ref={(el) => { this.input = el; }} onInput={this.onInput}
-          onMouseDown={this.onMouseDown} onFocus={this.onFocus} onBlur={this.onBlur} />
+          onFocus={this.onFocus} onBlur={this.onBlur} />
       </div>
     );
   }

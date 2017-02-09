@@ -79,6 +79,10 @@ $transition-duration: 250ms;
   top: 0;
   width: 100%;
 
+  .SearchInput--animating & {
+    color: transparent;
+  }
+
   &::placeholder {
     color: transparent;
   }

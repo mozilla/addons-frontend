@@ -43,40 +43,45 @@ describe('<SearchInput />', () => {
     assert.ok(root.root.classList.contains('SearchInput--text'));
   });
 
-  it('adds the --test class on mousedown', () => {
+  it('sets the --animating class on blur without a value', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
-    assert.notOk(root.root.classList.contains('SearchInput--text'));
-    Simulate.mouseDown(root.input);
-    assert.ok(root.root.classList.contains('SearchInput--text'));
+    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    Simulate.blur(root.input);
+    assert.ok(root.root.classList.contains('SearchInput--animating'));
   });
 
-  it('delays the input focus on mousedown without text', () => (
-    new Promise((resolve) => {
-      const root = renderIntoDocument(<SearchInput name="foo" />);
-      const event = { preventDefault: sinon.spy() };
-      sinon.spy(root.input, 'focus');
+  it('does not set the --animating class on blur with a value', () => {
+    const root = renderIntoDocument(<SearchInput name="foo" value="yo" />);
+    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    Simulate.blur(root.input);
+    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+  });
 
-      Simulate.mouseDown(root.input, event);
-      assert.ok(event.preventDefault.called);
-      assert.notOk(root.input.focus.called);
-      root.animateIcon.dispatchEvent(new TransitionEvent('transitionend'));
-      requestAnimationFrame(() => {
-        assert.ok(root.input.focus.called);
-        resolve();
-      });
-    })
-  ));
+  it('adds the --text and --animating classes on focus without a value', () => {
+    const root = renderIntoDocument(<SearchInput name="foo" />);
+    assert.notOk(root.root.classList.contains('SearchInput--text'));
+    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    Simulate.focus(root.input);
+    assert.ok(root.root.classList.contains('SearchInput--text'));
+    assert.ok(root.root.classList.contains('SearchInput--animating'));
+  });
 
-  it('does not delay the input focus on mousedown with text', () => (
-    new Promise((resolve) => {
-      const root = renderIntoDocument(<SearchInput name="foo" defaultValue="yo" />);
-      const event = { preventDefault: sinon.spy() };
+  it('only adds the --text class on focus with a value', () => {
+    const root = renderIntoDocument(<SearchInput name="foo" value="hey" />);
+    assert.notOk(root.root.classList.contains('SearchInput--text'));
+    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    Simulate.focus(root.input);
+    assert.ok(root.root.classList.contains('SearchInput--text'));
+    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+  });
 
-      Simulate.mouseDown(root.input, event);
-      assert.notOk(event.preventDefault.called);
-      resolve();
-    })
-  ));
+  it('clears the --animating class on transitionend', () => {
+    const root = renderIntoDocument(<SearchInput name="foo" />);
+    root.setState({ animating: true });
+    assert.ok(root.root.classList.contains('SearchInput--animating'));
+    Simulate.transitionEnd(root.animateIcon);
+    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+  });
 
   it('exposes the value of the input', () => {
     const root = renderIntoDocument(<SearchInput name="foo" defaultValue="yo" />);
