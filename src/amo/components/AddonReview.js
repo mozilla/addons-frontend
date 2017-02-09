@@ -24,28 +24,23 @@ export class AddonReviewBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { reviewBody: null, reviewTitle: null };
+    this.state = { reviewBody: null };
     if (props.review) {
-      this.state.reviewTitle = props.review.title;
       this.state.reviewBody = props.review.body;
     }
     this.overlayCard = null;
     this.reviewTextarea = null;
-    this.reviewTitleInput = null;
   }
 
   componentWillReceiveProps(nextProps) {
     const { review } = nextProps;
     if (review) {
-      this.setState({
-        reviewTitle: review.title,
-        reviewBody: review.body,
-      });
+      this.setState({ reviewBody: review.body });
     }
   }
 
   onSubmit = (event, { overlayCard = this.overlayCard } = {}) => {
-    const { reviewBody, reviewTitle } = this.state;
+    const { reviewBody } = this.state;
     event.preventDefault();
     event.stopPropagation();
 
@@ -56,7 +51,6 @@ export class AddonReviewBase extends React.Component {
       addonSlug,
       apiState,
       body: reviewBody,
-      title: reviewTitle,
       errorHandler: this.props.errorHandler,
       reviewId: this.props.review.id,
     };
@@ -68,17 +62,13 @@ export class AddonReviewBase extends React.Component {
       .then(() => this.props.refreshAddon({ addonSlug, apiState }));
   }
 
-  onTitleInput = (event) => {
-    this.setState({ reviewTitle: event.target.value });
-  }
-
   onBodyInput = (event) => {
     this.setState({ reviewBody: event.target.value });
   }
 
   render() {
     const { errorHandler, i18n, review } = this.props;
-    const { reviewBody, reviewTitle } = this.state;
+    const { reviewBody } = this.state;
     if (!review || !review.id || !review.addonSlug) {
       throw new Error(`Unexpected review property: ${JSON.stringify(review)}`);
     }
@@ -100,8 +90,6 @@ export class AddonReviewBase extends React.Component {
       );
     }
 
-    const titlePlaceholder = i18n.gettext('Give your review a title');
-
     return (
       <OverlayCard ref={(ref) => { this.overlayCard = ref; }}
         visibleOnLoad className="AddonReview">
@@ -110,16 +98,11 @@ export class AddonReviewBase extends React.Component {
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <div className="AddonReview-form-input">
             {errorHandler.hasError() ? errorHandler.renderError() : null}
-            <input
-              ref={(ref) => { this.reviewTitleInput = ref; }}
-              type="text"
-              className="AddonReview-title"
-              name="reviewTitle"
-              value={reviewTitle}
-              onInput={this.onTitleInput}
-              placeholder={titlePlaceholder}
-            />
+            <label htmlFor="AddonReview-textarea" className="visually-hidden">
+              {i18n.gettext('Review text')}
+            </label>
             <textarea
+              id="AddonReview-textarea"
               ref={(ref) => { this.reviewTextarea = ref; }}
               className="AddonReview-textarea"
               onInput={this.onBodyInput}

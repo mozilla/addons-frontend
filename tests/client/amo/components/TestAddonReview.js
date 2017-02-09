@@ -55,10 +55,6 @@ describe('AddonReview', () => {
       stopPropagation: sinon.stub(),
     };
 
-    const title = root.reviewTitleInput;
-    title.value = 'some title';
-    Simulate.input(title);
-
     const textarea = root.reviewTextarea;
     textarea.value = 'some review';
     Simulate.input(textarea);
@@ -74,7 +70,6 @@ describe('AddonReview', () => {
 
         const params = updateReviewText.firstCall.args[0];
         assert.equal(params.body, 'some review');
-        assert.equal(params.title, 'some title');
         assert.equal(params.addonSlug, defaultReview.addonSlug);
         assert.equal(params.errorHandler, errorHandler);
         assert.equal(params.reviewId, defaultReview.id);
@@ -100,7 +95,6 @@ describe('AddonReview', () => {
         body: 'New body',
       },
     });
-    assert.equal(root.state.reviewTitle, 'New title');
     assert.equal(root.state.reviewBody, 'New body');
   });
 
