@@ -28,9 +28,9 @@ function render({ ...customProps } = {}) {
     }),
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
-    refreshAddon: () => {},
+    refreshAddon: () => Promise.resolve(),
     review: defaultReview,
-    updateReviewText: () => {},
+    updateReviewText: () => Promise.resolve(),
     ...customProps,
   };
   const AddonReview = translate({ withRef: true })(AddonReviewBase);
