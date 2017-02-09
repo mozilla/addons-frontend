@@ -34,6 +34,21 @@ export class HomePageBase extends React.Component {
     const { i18n } = this.props;
     return (
       <div className="HomePage">
+        <div className="HomePage-welcome">
+          <p className="HomePage-welcome-text">
+            {i18n.gettext(dedent`Extensions are special features you can add to Firefox.
+            Themes let you change your browser's appearance.`)}
+          </p>
+          <div className="HomePage-welcome-links">
+            <Link className="HomePage-extensions-link" to="/extensions/">
+              {i18n.gettext('Extensions')}
+            </Link>
+            <Link className="HomePage-themes-link" to="/themes/">
+              {i18n.gettext('Themes')}
+            </Link>
+          </div>
+        </div>
+
         <h2 className="HomePage-subheading">{i18n.gettext('What do you want Firefox to do?')}</h2>
         <ul className="HomePage-category-list">
           <ExtensionLink name="block-ads" slug="security-privacy">
