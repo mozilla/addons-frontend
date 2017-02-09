@@ -8,6 +8,7 @@ import {
 import translate from 'core/i18n/translate';
 import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
+import * as coreUtils from 'core/utils';
 import {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
 } from 'amo/components/AddonReview';
@@ -27,6 +28,7 @@ function render({ ...customProps } = {}) {
     }),
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
+    refreshAddon: () => {},
     review: defaultReview,
     updateReviewText: () => {},
     ...customProps,
@@ -41,12 +43,13 @@ function render({ ...customProps } = {}) {
 
 describe('AddonReview', () => {
   it('can update a review', () => {
+    const refreshAddon = sinon.spy(() => Promise.resolve());
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const errorHandler = new ErrorHandler({
       id: 'some-id',
       dispatch: sinon.stub(),
     });
-    const root = render({ updateReviewText, errorHandler });
+    const root = render({ refreshAddon, updateReviewText, errorHandler });
     const event = {
       preventDefault: sinon.stub(),
       stopPropagation: sinon.stub(),
@@ -76,6 +79,12 @@ describe('AddonReview', () => {
         assert.equal(params.errorHandler, errorHandler);
         assert.equal(params.reviewId, defaultReview.id);
         assert.equal(params.apiState, signedInApiState);
+
+        assert.ok(refreshAddon.called);
+        assert.deepEqual(refreshAddon.firstCall.args[0], {
+          addonSlug: defaultReview.addonSlug,
+          apiState: signedInApiState,
+        });
 
         // Make sure the overlay was hidden after finishing.
         assert.ok(overlayCard.hide.called);
@@ -144,11 +153,13 @@ describe('AddonReview', () => {
   });
 
   describe('mapDispatchToProps', () => {
+    let mockUtils;
     let mockApi;
     let dispatch;
     let actions;
 
     beforeEach(() => {
+      mockUtils = sinon.mock(coreUtils);
       mockApi = sinon.mock(amoApi);
       dispatch = sinon.stub();
       actions = mapDispatchToProps(dispatch);
@@ -174,6 +185,20 @@ describe('AddonReview', () => {
             assert.ok(dispatch.called, 'the new review should be dispatched');
             assert.deepEqual(dispatch.firstCall.args[0], setReview(fakeReview));
           });
+      });
+    });
+
+    describe('refreshAddon', () => {
+      it('binds dispatch and calls utils.refreshAddon()', () => {
+        const apiState = signedInApiState;
+        mockUtils
+          .expects('refreshAddon')
+          .once()
+          .withArgs({ addonSlug: 'some-slug', apiState, dispatch })
+          .returns(Promise.resolve());
+
+        return actions.refreshAddon({ addonSlug: 'some-slug', apiState })
+          .then(() => mockUtils.verify());
       });
     });
   });
