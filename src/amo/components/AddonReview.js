@@ -45,10 +45,10 @@ export class AddonReviewBase extends React.Component {
   }
 
   onSubmit = (event, { overlayCard = this.overlayCard } = {}) => {
+    const { reviewBody, reviewTitle } = this.state;
     event.preventDefault();
     event.stopPropagation();
 
-    const { reviewBody, reviewTitle } = this.state;
     const addonSlug = this.props.review.addonSlug;
     const apiState = this.props.apiState;
 
