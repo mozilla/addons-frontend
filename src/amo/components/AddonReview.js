@@ -35,9 +35,7 @@ export class AddonReviewBase extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { review } = nextProps;
     if (review) {
-      this.setState({
-        reviewBody: review.body,
-      });
+      this.setState({ reviewBody: review.body });
     }
   }
 
