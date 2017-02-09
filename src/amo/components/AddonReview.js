@@ -4,6 +4,7 @@ import { compose } from 'redux';
 
 import { submitReview } from 'amo/api';
 import { setReview } from 'amo/actions/reviews';
+import { refreshAddon } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import OverlayCard from 'ui/components/OverlayCard';
@@ -16,8 +17,9 @@ export class AddonReviewBase extends React.Component {
     apiState: PropTypes.object,
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
+    refreshAddon: PropTypes.func.isRequired,
     review: PropTypes.object.isRequired,
-    updateReviewText: PropTypes.func,
+    updateReviewText: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -46,20 +48,24 @@ export class AddonReviewBase extends React.Component {
     const { reviewBody, reviewTitle } = this.state;
     event.preventDefault();
     event.stopPropagation();
+
+    const addonSlug = this.props.review.addonSlug;
+    const apiState = this.props.apiState;
+
     const params = {
+      addonSlug,
+      apiState,
       body: reviewBody,
       title: reviewTitle,
-      addonSlug: this.props.review.addonSlug,
       errorHandler: this.props.errorHandler,
       reviewId: this.props.review.id,
-      apiState: this.props.apiState,
     };
     // TODO: render a progress indicator in the UI.
     // https://github.com/mozilla/addons-frontend/issues/1156
     return this.props.updateReviewText(params)
-      .then(() => {
-        overlayCard.hide();
-      });
+      .then(() => overlayCard.hide())
+      // This will update the review count on the add-on detail page.
+      .then(() => this.props.refreshAddon({ addonSlug, apiState }));
   }
 
   onTitleInput = (event) => {
@@ -137,6 +143,9 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
+  refreshAddon({ addonSlug, apiState }) {
+    return refreshAddon({ addonSlug, apiState, dispatch });
+  },
   updateReviewText(...params) {
     return submitReview(...params)
       .then((review) => dispatch(setReview(review)));
