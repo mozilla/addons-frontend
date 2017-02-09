@@ -1,6 +1,10 @@
 import config from 'config';
 
-import { getClientApp, isValidClientApp } from 'core/utils';
+import {
+  getClientApp,
+  isValidClientApp,
+  isValidUrlException,
+} from 'core/utils';
 import { getLanguage, isValidLang } from 'core/i18n/utils';
 import log from 'core/logger';
 
@@ -20,11 +24,14 @@ export function prefixMiddleWare(req, res, next, { _config = config } = {}) {
 
   const hasValidLang = isValidLang(langFromURL);
   const hasValidClientApp = isValidClientApp(appFromURL, { _config });
+  let hasValidUrlException = isValidUrlException(appFromURL, { _config });
 
   let prependedLang = false;
 
-  if ((hasValidLang && langFromURL !== lang) ||
-      (!hasValidLang && hasValidClientApp)) {
+  if (
+    (hasValidLang && langFromURL !== lang) || hasValidClientApp ||
+    hasValidUrlException
+  ) {
     // Replace the first part of the URL if:
     // * It's valid and we've mapped it e.g: pt -> pt-PT.
     // * The lang is invalid but we have a valid application
@@ -36,6 +43,9 @@ export function prefixMiddleWare(req, res, next, { _config = config } = {}) {
     log.info(`Prepending lang to URL: ${lang}`);
     URLParts.splice(0, 0, lang);
     prependedLang = true;
+    // If we've prepended the lang to the URL we need to re-check our
+    // URL exception and make sure it's valid.
+    hasValidUrlException = isValidUrlException(URLParts[1], { _config });
   }
 
   let isApplicationFromHeader = false;
@@ -45,6 +55,17 @@ export function prefixMiddleWare(req, res, next, { _config = config } = {}) {
     // We skip prepending an app if we'd previously prepended a lang and the
     // 2nd part of the URL is now a valid app.
     log.info('Application in URL is valid following prepending a lang.');
+  } else if (hasValidUrlException) {
+    if (hasValidLang) {
+      log.info('Exception in URL found; we fallback to addons-server.');
+
+      res.status(404).end(dedent`This page does not exist in addons-frontend.
+        Returning 404; this error should trigger upstream (usually
+        addons-server) to return a valid response.`);
+      return next();
+    }
+
+    log.info('Exception in URL found; prepending lang to URL.');
   } else if (!hasValidClientApp) {
     // If the app supplied is not valid we need to prepend one.
     const application = getClientApp(req.headers['user-agent']);

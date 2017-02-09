@@ -1,5 +1,6 @@
 import { prefixMiddleWare } from 'core/middleware';
 
+
 describe('Prefix Middleware', () => {
   let fakeRes;
   let fakeNext;
@@ -11,9 +12,11 @@ describe('Prefix Middleware', () => {
       locals: {},
       redirect: sinon.stub(),
       set: sinon.stub(),
+      status: () => ({ end: sinon.stub() }),
     };
     fakeConfig = new Map();
     fakeConfig.set('validClientApplications', ['firefox', 'android']);
+    fakeConfig.set('validUrlExceptions', ['developers', 'validprefix']);
   });
 
   it('should call res.redirect if changing the case', () => {
@@ -53,6 +56,46 @@ describe('Prefix Middleware', () => {
     prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     assert.deepEqual(fakeRes.redirect.firstCall.args, [302, '/en-US/firefox/whatever']);
     assert.deepEqual(fakeRes.set.firstCall.args, ['vary', []]);
+  });
+
+  it('should prepend lang when missing but preserve valid urlException', () => {
+    const fakeReq = {
+      originalUrl: '/validprefix/whatever',
+      headers: {},
+    };
+    prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(fakeRes.redirect.firstCall.args, [302, '/en-US/validprefix/whatever']);
+    assert.deepEqual(fakeRes.set.firstCall.args, ['vary', []]);
+  });
+
+  it('should render a 404 when a URL exception is found', () => {
+    const fakeReq = {
+      originalUrl: '/en-US/developers/theme/submit',
+      headers: {},
+    };
+    const resSpy = sinon.spy(fakeRes, 'status');
+    prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(resSpy.firstCall.args, [404]);
+  });
+
+  it('should set lang when invalid but preserve valid urlException', () => {
+    const fakeReq = {
+      originalUrl: '/en-USA/developers/',
+      headers: {},
+    };
+    prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(fakeRes.redirect.firstCall.args, [302, '/en-US/developers/']);
+    assert.deepEqual(fakeRes.set.firstCall.args, ['vary', []]);
+  });
+
+  it('should render a 404 when a URL exception is found at the root', () => {
+    const fakeReq = {
+      originalUrl: '/en-US/developers/',
+      headers: {},
+    };
+    const resSpy = sinon.spy(fakeRes, 'status');
+    prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(resSpy.firstCall.args, [404]);
   });
 
   it('should fallback to and vary on accept-language headers', () => {
@@ -100,7 +143,7 @@ describe('Prefix Middleware', () => {
     assert.sameMembers(fakeRes.set.firstCall.args[1], ['user-agent']);
   });
 
-  it('should populate res.locals for a sane request', () => {
+  it('should populate res.locals for a valid request', () => {
     const fakeReq = {
       originalUrl: '/en-US/firefox/',
       headers: {},

@@ -197,3 +197,7 @@ export function getErrorComponent(status) {
       return GenericError;
   }
 }
+
+export function isValidUrlException(value, { _config = config } = {}) {
+  return _config.get('validUrlExceptions').includes(value);
+}
