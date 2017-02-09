@@ -88,6 +88,11 @@ export function findAddon(state, slug) {
   return state.addons[slug];
 }
 
+export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
+  return fetchAddon({ slug: addonSlug, api: apiState })
+    .then(({ entities }) => dispatch(loadEntities(entities)));
+}
+
 // asyncConnect() helper for loading an add-on by slug.
 //
 // This accepts component properties and returns a promise
@@ -95,17 +100,19 @@ export function findAddon(state, slug) {
 // If the add-on has already been fetched, the add-on value is returned.
 //
 export function loadAddonIfNeeded(
-  { store: { dispatch, getState }, params: { slug } }
+  { store: { dispatch, getState }, params: { slug } },
+  { _refreshAddon = refreshAddon } = {},
 ) {
   const state = getState();
   const addon = findAddon(state, slug);
   if (addon) {
-    log.info(`Found addon ${addon.id} in state`);
+    log.info(`Found add-on ${slug}, ${addon.id} in state`);
     return addon;
   }
-  log.info(`Fetching addon ${slug} from API`);
-  return fetchAddon({ slug, api: state.api })
-    .then(({ entities }) => dispatch(loadEntities(entities)));
+  log.info(`Add-on ${slug} not found in state; fetching from API`);
+  // This loads the add-on into state. The return value is not always
+  // used; check each caller.
+  return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
 }
 
 // asyncConnect() helper for loading categories for browsing and displaying
