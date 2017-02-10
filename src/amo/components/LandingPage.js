@@ -5,7 +5,7 @@ import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import NotFound from 'amo/components/NotFound';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import { loadLandingAddons } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,

@@ -7,7 +7,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
-import ServerError from 'amo/components/ServerError';
+import ServerError from 'amo/components/ErrorPage/ServerError';
 import createStore from 'amo/store';
 import { createApiError } from 'core/api';
 import I18nProvider from 'core/i18n/Provider';

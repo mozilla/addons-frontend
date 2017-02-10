@@ -2,21 +2,23 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { getErrorComponent } from 'amo/utils';
+import { getErrorComponent as getErrorComponentDefault } from 'core/utils';
 
 
 export class ErrorPageBase extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     errorPage: PropTypes.object.isRequired,
+    getErrorComponent: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     errorPage: {},
+    getErrorComponent: getErrorComponentDefault,
   }
 
   render() {
-    const { children, errorPage } = this.props;
+    const { children, errorPage, getErrorComponent } = this.props;
 
     if (errorPage.hasError) {
       const ErrorComponent = getErrorComponent(errorPage.statusCode);

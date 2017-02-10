@@ -9,6 +9,8 @@ import {
   categoriesFail,
 } from 'core/actions/categories';
 import { categories, fetchAddon } from 'core/api';
+import GenericError from 'core/components/ErrorPage/GenericError';
+import NotFound from 'core/components/ErrorPage/NotFound';
 import {
   API_ADDON_TYPES_MAPPING,
   VISIBLE_ADDON_TYPES_MAPPING,
@@ -185,4 +187,13 @@ export function visibleAddonType(addonType) {
       `"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
   }
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
+}
+
+export function getErrorComponent(status) {
+  switch (status) {
+    case 404:
+      return NotFound;
+    default:
+      return GenericError;
+  }
 }

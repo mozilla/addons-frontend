@@ -7,7 +7,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
-import ErrorPage, { mapStateToProps } from 'amo/components/ErrorPage';
+import ErrorPage, { mapStateToProps } from 'core/components/ErrorPage';
 import createStore from 'amo/store';
 import { createApiError } from 'core/api';
 import { getFakeI18nInst } from 'tests/client/helpers';
@@ -43,7 +43,7 @@ describe('<ErrorPage />', () => {
     const rootNode = render({ children: <div>hello</div> }, store);
 
     assert.notEqual(rootNode.textContent, 'hello');
-    assert.include(rootNode.textContent, 'Page not found');
+    assert.include(rootNode.textContent, 'Error code: 404');
   });
 });
 

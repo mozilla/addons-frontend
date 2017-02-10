@@ -13,9 +13,9 @@ import {
   mapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
-import DefaultErrorPage from 'amo/components/ErrorPage';
 import { setClientApp, setLang } from 'core/actions';
 import { createApiError } from 'core/api';
+import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/client/helpers';

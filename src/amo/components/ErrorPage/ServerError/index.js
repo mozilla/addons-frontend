@@ -3,10 +3,9 @@ import { oneLine } from 'common-tags';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
-import Link from 'amo/components/Link';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import SuggestedPages from 'amo/components/SuggestedPages';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML, visibleAddonType } from 'core/utils';
+import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 
 import 'amo/components/ErrorPage/ErrorPage.scss';
@@ -38,25 +37,7 @@ export class ServerErrorBase extends React.Component {
               investigate it.`)}
           </p>
 
-          <h2>{i18n.gettext('Suggested Pages')}</h2>
-
-          <ul>
-            <li>
-              <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`}>
-                {i18n.gettext('Browse all extensions')}
-              </Link>
-            </li>
-            <li>
-              <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`}>
-                {i18n.gettext('Browse all themes')}
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                {i18n.gettext('Add-ons Home Page')}
-              </Link>
-            </li>
-          </ul>
+          <SuggestedPages />
 
           <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
         </Card>

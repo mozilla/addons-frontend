@@ -1,6 +1,6 @@
-import NotAuthorized from 'amo/components/NotAuthorized';
-import NotFound from 'amo/components/NotFound';
-import ServerError from 'amo/components/ServerError';
+import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import ServerError from 'amo/components/ErrorPage/ServerError';
 import createStore from 'amo/store';
 import * as featuredActions from 'amo/actions/featured';
 import * as landingActions from 'amo/actions/landing';

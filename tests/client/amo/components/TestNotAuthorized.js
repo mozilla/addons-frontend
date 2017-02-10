@@ -7,7 +7,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
-import NotAuthorized from 'amo/components/NotAuthorized';
+import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import createStore from 'amo/store';
 import { createApiError } from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
