@@ -67,12 +67,12 @@ export class AddonReviewBase extends React.Component {
     // TODO: render a progress indicator in the UI.
     // https://github.com/mozilla/addons-frontend/issues/1156
 
-    // First, put the new review in state so that the
+    // First, dispatch the new review to state so that the
     // component doesn't re-render with old data while
-    // our API request is in the air.
+    // the API request is in progress.
     this.props.setDenormalizedReview(updatedReview);
 
-    // Next, update the review for real with an API call.
+    // Next, update the review with an actual API request.
     return this.props.updateReviewText(params)
       .then(() => overlayCard.hide())
       // Finally, update the review count on the add-on detail page.
