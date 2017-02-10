@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2017-02-10 10:48+0000\n"
+"PO-Revision-Date: 2017-02-10 11:02+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -20,7 +20,7 @@ msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadata ส่วนขยาย"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
@@ -40,7 +40,7 @@ msgstr "หมวดหมู่"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "ใช้โดย"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
@@ -96,7 +96,7 @@ msgstr "ภาพหน้าจอ %(imageNumber)s จาก %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "การจัดอันดับเฉลี่ย: %(rating)s จาก 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
