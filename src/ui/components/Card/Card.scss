@@ -37,6 +37,8 @@
   margin-top: 1px;
   padding: 0;
   text-align: center;
+  font-variant: all-small-caps;
+  padding: 10px;
 
   a,
   a:active,
@@ -45,9 +47,7 @@
   a:visited {
     color: $link-color;
     display: block;
-    font-variant: all-small-caps;
     font-weight: normal;
-    padding: 10px;
     text-decoration: none;
   }
 }
