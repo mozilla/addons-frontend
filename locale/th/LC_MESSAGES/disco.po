@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-07 14:11+0000\n"
-"PO-Revision-Date: 2017-02-10 10:50+0000\n"
+"PO-Revision-Date: 2017-02-10 19:09+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -56,7 +56,7 @@ msgstr "ส่วนเสริมของคุณพร้อมแล้ว
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "ตอนนี้คุณสามารถเข้าถึง %(name)s ได้จากแถบเครื่องมือ"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
