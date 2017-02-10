@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2017-02-04 20:01+0000\n"
+"PO-Revision-Date: 2017-02-10 10:48+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -76,7 +76,7 @@ msgstr "ข้อกฎหมาย"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "ดูไซต์สำหรับเดสก์ท็อป"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
@@ -209,7 +209,7 @@ msgstr "%(name)s ถูกถอนการติดตั้ง คลิก�
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "ไม่ทราบสถานะการติดตั้ง %(name)s"
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
