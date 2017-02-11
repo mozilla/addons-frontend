@@ -31,7 +31,7 @@ export default class SearchInput extends React.Component {
   onBlur = () => {
     this.setState({ focus: false });
     if (!this.value) {
-      // Animation will start if there is no value.
+      // There is no transitionstart event, but animation will start if there is no value.
       this.setState({ animating: true });
     }
   }
@@ -39,7 +39,7 @@ export default class SearchInput extends React.Component {
   onFocus = () => {
     this.setState({ focus: true });
     if (!this.value) {
-      // Animation will start if there is no value.
+      // There is no transitionstart event, but animation will start if there is no value.
       this.setState({ animating: true });
     }
   }
