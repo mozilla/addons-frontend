@@ -4,7 +4,6 @@
 $input-height: 48px;
 $icon-margin-start: 24px;
 $icon-margin-end: 12px;
-$transition-duration: 250ms;
 
 .SearchInput {
   position: relative;
@@ -27,32 +26,16 @@ $transition-duration: 250ms;
 
   opacity: 0;
   position: absolute;
-}
+  transition: transform 250ms;
 
-.SearchInput--text {
-  .SearchInput-label {
-    color: transparent;
-
-    & .Icon-magnifying-glass {
-      opacity: 0;
-      transition: none;
-    }
+  .SearchInput--text &,
+  .SearchInput--animating & {
+    opacity: 1;
   }
 
-  .SearchInput-animation-icon {
-    opacity: 1;
+  .SearchInput--text & {
     // Use !important to overwrite style properties added in JS.
     transform: translateX(0) !important;
-  }
-}
-
-.SearchInput--animating {
-  .SearchInput-animation-icon {
-    transition: opacity 1ms $transition-duration, transform $transition-duration;
-  }
-
-  &.SearchInput--text .SearchInput-animation-icon {
-    transition: transform $transition-duration;
   }
 }
 
@@ -66,9 +49,15 @@ $transition-duration: 250ms;
   line-height: $input-height;
   top: 0;
 
-  & .Icon-magnifying-glass {
-    opacity: 1;
-    transition: opacity 1ms $transition-duration;
+  .SearchInput--text & {
+    color: transparent;
+  }
+}
+
+.SearchInput-label-icon {
+  .SearchInput--text &,
+  .SearchInput--animating & {
+    opacity: 0;
   }
 }
 

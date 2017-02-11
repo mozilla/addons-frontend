@@ -77,11 +77,17 @@ export default class SearchInput extends React.Component {
         ref={(el) => { this.root = el; }}
       >
         <Icon
-          name="magnifying-glass" className="SearchInput-animation-icon"
+          name="magnifying-glass"
+          className="SearchInput-animation-icon"
           getRef={(el) => { this.animateIcon = el; }}
-          onTransitionEnd={this.onTransitionEnd} />
+          onTransitionEnd={this.onTransitionEnd}
+        />
         <label className="SearchInput-label" htmlFor={id}>
-          <Icon name="magnifying-glass" getRef={(el) => { this.labelIcon = el; }} />
+          <Icon
+            name="magnifying-glass"
+            className="SearchInput-label-icon"
+            getRef={(el) => { this.labelIcon = el; }}
+          />
           {placeholder}
         </label>
         <input
