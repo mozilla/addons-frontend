@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2017-02-11 17:13+0000\n"
+"PO-Revision-Date: 2017-02-11 18:05+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -226,7 +226,7 @@ msgstr "หน้า %(currentPage)s จาก %(totalPages)s"
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
+msgstr[0] "การค้นหาของคุณสำหรับ \"%(query)s\" ได้ %(count)s ผลลัพธ์"
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
