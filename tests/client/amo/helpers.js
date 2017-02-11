@@ -1,3 +1,5 @@
+import { signedInApiState as coreSignedInApiState } from '../helpers';
+
 export const fakeAddon = {
   id: 1234,
   guid: '1234@my-addons.firefox',
@@ -50,8 +52,7 @@ export const fakeReview = {
 /*
  * Redux store state for when a user has signed in.
  */
-export const signedInApiState = {
-  lang: 'en-US',
+export const signedInApiState = Object.freeze({
+  ...coreSignedInApiState,
   clientApp: 'firefox',
-  token: 'secret-token',
-};
+});

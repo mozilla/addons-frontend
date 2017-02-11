@@ -4,7 +4,7 @@ import config from 'config';
 import * as api from 'core/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { unexpectedSuccess } from 'tests/client/helpers';
+import { signedInApiState, unexpectedSuccess } from 'tests/client/helpers';
 
 
 export function generateHeaders(
@@ -474,13 +474,13 @@ describe('api', () => {
       mockWindow.expects('fetch')
         .withArgs(`${apiHost}/api/v3/accounts/session/?lang=en-US`, {
           credentials: 'include',
-          headers: { authorization: 'Bearer my-token' },
+          headers: { authorization: 'Bearer secret-token' },
           method: 'DELETE',
         })
         .once()
         .returns(mockResponse);
       return api.logOutFromServer({
-        api: { lang: 'en-US', token: 'my-token' },
+        api: signedInApiState,
       });
     });
   });
