@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { submitReview } from 'amo/api';
-import { setReview } from 'amo/actions/reviews';
+import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
 import { refreshAddon } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -19,6 +19,7 @@ export class AddonReviewBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     refreshAddon: PropTypes.func.isRequired,
     review: PropTypes.object.isRequired,
+    setDenormalizedReview: PropTypes.func.isRequired,
     updateReviewText: PropTypes.func.isRequired,
   }
 
@@ -47,18 +48,34 @@ export class AddonReviewBase extends React.Component {
     const addonSlug = this.props.review.addonSlug;
     const apiState = this.props.apiState;
 
+    const newReviewParams = {
+      body: reviewBody,
+    };
+
+    const updatedReview = {
+      ...this.props.review,
+      ...newReviewParams,
+    };
+
     const params = {
       addonSlug,
       apiState,
-      body: reviewBody,
       errorHandler: this.props.errorHandler,
       reviewId: this.props.review.id,
+      ...newReviewParams,
     };
     // TODO: render a progress indicator in the UI.
     // https://github.com/mozilla/addons-frontend/issues/1156
+
+    // First, dispatch the new review to state so that the
+    // component doesn't re-render with old data while
+    // the API request is in progress.
+    this.props.setDenormalizedReview(updatedReview);
+
+    // Next, update the review with an actual API request.
     return this.props.updateReviewText(params)
       .then(() => overlayCard.hide())
-      // This will update the review count on the add-on detail page.
+      // Finally, update the review count on the add-on detail page.
       .then(() => this.props.refreshAddon({ addonSlug, apiState }));
   }
 
@@ -128,6 +145,9 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   refreshAddon({ addonSlug, apiState }) {
     return refreshAddon({ addonSlug, apiState, dispatch });
+  },
+  setDenormalizedReview(review) {
+    dispatch(setDenormalizedReview(review));
   },
   updateReviewText(...params) {
     return submitReview(...params)
