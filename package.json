@@ -10,7 +10,7 @@
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json'",
     "dev:admin": "better-npm-run dev:admin",
     "dev:amo": "better-npm-run dev:amo",
-    "dev:amo:proxy": "better-npm-run dev:amo:proxy",
+    "dev:amo:no-proxy": "better-npm-run dev:amo:no-proxy",
     "dev:disco": "better-npm-run dev:disco",
     "eslint": "eslint .",
     "stylelint": "stylelint --syntax scss **/*.scss",
@@ -40,13 +40,13 @@
       }
     },
     "dev:amo": {
-      "command": "better-npm-run start-dev",
+      "command": "better-npm-run start-dev-proxy",
       "env": {
         "NODE_APP_INSTANCE": "amo"
       }
     },
-    "dev:amo:proxy": {
-      "command": "better-npm-run start-dev-proxy",
+    "dev:amo:no-proxy": {
+      "command": "better-npm-run start-dev",
       "env": {
         "NODE_APP_INSTANCE": "amo"
       }

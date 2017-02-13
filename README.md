@@ -42,8 +42,8 @@ Generic scripts that don't need env vars. Use these for development:
 | Script                  | Description                                           |
 |-------------------------|-------------------------------------------------------|
 | npm run dev:admin       |  Starts the dev server (admin app)                    |
-| npm run dev:amo         |  Starts the dev server (amo)                          |
-| npm run dev:amo:proxy   |  Starts the dev server with proxy (amo)               |
+| npm run dev:amo         |  Starts the dev server and proxy (amo)                |
+| npm run dev:amo:no-proxy|  Starts the dev server without proxy (amo)            |
 | npm run dev:disco       |  Starts the dev server (discovery pane)               |
 | npm run eslint          |  Lints the JS                                         |
 | npm run stylelint       |  Lints the SCSS                                       |
@@ -95,17 +95,19 @@ To see this report while running tests locally, type:
 
     open ./coverage/index.html
 
-### Running development AMO similar to production
+### Running AMO for local development
 
 A proxy server is provided for running the AMO app with the API on the same host as the frontend.
-This provides a setup that is closer to production than running the frontend on its own. The only
-supported method of doing this is to also be running an instance of addons-server at
-http://olympia.dev (this is its default configuration in development mode). You can find
-instructions on settings up addons-server in the
+This provides a setup that is closer to production than running the frontend on its own. The
+default configuration for this is to use a local addons-server for the API. This comes
+pre-configured to use a local addons-server which can be setup according to the
 [addons-server docs](https://addons-server.readthedocs.io/en/latest/topics/install/index.html).
 Docker is the preferred method of running addons-server.
 
-To run the development server with the proxy use `npm run dev:amo:proxy`.
+This should work without any issues with a local addons-server and can also be configured to use
+`https://addons-dev.allizom.org` as the API but the addons-server views will not all work as
+expected. If you would like to use `https://addons-dev.allizom.org` for the API you should use the
+`npm run dev:amo:no-proxy` command to start the server without the proxy.j
 
 ### Configuring for local development
 
