@@ -107,7 +107,8 @@ Docker is the preferred method of running addons-server.
 This should work without any issues with a local addons-server and can also be configured to use
 `https://addons-dev.allizom.org` as the API but the addons-server views will not all work as
 expected. If you would like to use `https://addons-dev.allizom.org` for the API you should use the
-`npm run dev:amo:no-proxy` command to start the server without the proxy.j
+`npm run dev:amo:no-proxy` command with an `API_HOST` to start the server without the proxy. For
+example: `API_HOST=https://addons-dev.allizom.org npm run dev:amo:no-proxy`.
 
 ### Configuring for local development
 

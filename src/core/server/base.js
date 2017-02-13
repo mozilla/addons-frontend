@@ -317,14 +317,15 @@ export function runServer({
             if (err) {
               return reject(err);
             }
-            const proxyPort = config.has('proxyPort') ? config.get('proxyPort') : undefined;
+            const proxyEnabled = convertBoolean(config.get('proxyEnabled'));
             // Not using oneLine here since it seems to change '  ' to ' '.
             log.info([
               `🔥  Addons-frontend server is running [ENV:${env}] [APP:${app}]`,
               `[isDevelopment:${isDevelopment}] [isDeployed:${isDeployed}]`,
               `[apiHost:${config.get('apiHost')}] [apiPath:${config.get('apiPath')}]`,
             ].join(' '));
-            if (proxyPort) {
+            if (proxyEnabled) {
+              const proxyPort = config.get('proxyPort');
               log.info(
                 `🚦  Proxy detected, frontend running at http://${host}:${port}.`);
               log.info(

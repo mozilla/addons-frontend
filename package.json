@@ -48,7 +48,8 @@
     "dev:amo:no-proxy": {
       "command": "better-npm-run start-dev",
       "env": {
-        "NODE_APP_INSTANCE": "amo"
+        "NODE_APP_INSTANCE": "amo",
+        "PROXY_ENABLED": "false"
       }
     },
     "dev:disco": {
@@ -75,12 +76,9 @@
     "start-dev-proxy": {
       "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | bunyan' 'npm run proxy | bunyan'",
       "env": {
-        "API_HOST": "http://localhost:3000",
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
         "NODE_PATH": "./:./src",
-        "PROXY_API_HOST": "http://olympia.dev",
-        "PROXY_PORT": "3000",
         "SERVER_PORT": "3333"
       }
     },
