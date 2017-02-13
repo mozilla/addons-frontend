@@ -2,6 +2,7 @@
 import React from 'react';
 import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
 
+import { assertHasClass, assertNotHasClass } from 'tests/client/helpers';
 import SearchInput from 'ui/components/SearchInput';
 
 describe('<SearchInput />', () => {
@@ -25,7 +26,7 @@ describe('<SearchInput />', () => {
 
   it('starts with the --text class with a defaultValue', () => {
     const root = renderIntoDocument(<SearchInput name="foo" defaultValue="wat" />);
-    assert.ok(root.root.classList.contains('SearchInput--text'));
+    assertHasClass(root.root, 'SearchInput--text');
   });
 
   it('sets the value in state on input', () => {
@@ -37,58 +38,58 @@ describe('<SearchInput />', () => {
 
   it('sets and removes the --text class on focus and blur when empty', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
-    assert.notOk(root.root.classList.contains('SearchInput--text'));
+    assertNotHasClass(root.root, 'SearchInput--text');
     Simulate.focus(root.input);
-    assert.ok(root.root.classList.contains('SearchInput--text'));
+    assertHasClass(root.root, 'SearchInput--text');
     Simulate.blur(root.input);
-    assert.notOk(root.root.classList.contains('SearchInput--text'));
+    assertNotHasClass(root.root, 'SearchInput--text');
   });
 
   it('keeps the --text class on blur when it has text', () => {
     const root = renderIntoDocument(<SearchInput name="foo" defaultValue="Hello" />);
-    assert.ok(root.root.classList.contains('SearchInput--text'));
+    assertHasClass(root.root, 'SearchInput--text');
     Simulate.blur(root.input);
-    assert.ok(root.root.classList.contains('SearchInput--text'));
+    assertHasClass(root.root, 'SearchInput--text');
   });
 
   it('sets the --animating class on blur without a value', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
-    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    assertNotHasClass(root.root, 'SearchInput--animating');
     Simulate.blur(root.input);
-    assert.ok(root.root.classList.contains('SearchInput--animating'));
+    assertHasClass(root.root, 'SearchInput--animating');
   });
 
   it('does not set the --animating class on blur with a value', () => {
     const root = renderIntoDocument(<SearchInput name="foo" value="yo" />);
-    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    assertNotHasClass(root.root, 'SearchInput--animating');
     Simulate.blur(root.input);
-    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    assertNotHasClass(root.root, 'SearchInput--animating');
   });
 
   it('adds the --text and --animating classes on focus without a value', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
-    assert.notOk(root.root.classList.contains('SearchInput--text'));
-    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    assertNotHasClass(root.root, 'SearchInput--text');
+    assertNotHasClass(root.root, 'SearchInput--animating');
     Simulate.focus(root.input);
-    assert.ok(root.root.classList.contains('SearchInput--text'));
-    assert.ok(root.root.classList.contains('SearchInput--animating'));
+    assertHasClass(root.root, 'SearchInput--text');
+    assertHasClass(root.root, 'SearchInput--animating');
   });
 
   it('only adds the --text class on focus with a value', () => {
     const root = renderIntoDocument(<SearchInput name="foo" value="hey" />);
-    assert.notOk(root.root.classList.contains('SearchInput--text'));
-    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    assertNotHasClass(root.root, 'SearchInput--text');
+    assertNotHasClass(root.root, 'SearchInput--animating');
     Simulate.focus(root.input);
-    assert.ok(root.root.classList.contains('SearchInput--text'));
-    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    assertHasClass(root.root, 'SearchInput--text');
+    assertNotHasClass(root.root, 'SearchInput--animating');
   });
 
   it('clears the --animating class on transitionend', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
     root.setState({ animating: true });
-    assert.ok(root.root.classList.contains('SearchInput--animating'));
+    assertHasClass(root.root, 'SearchInput--animating');
     Simulate.transitionEnd(root.animateIcon);
-    assert.notOk(root.root.classList.contains('SearchInput--animating'));
+    assertNotHasClass(root.root, 'SearchInput--animating');
   });
 
   it('exposes the value of the input', () => {
