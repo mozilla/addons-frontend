@@ -1,6 +1,7 @@
 require('babel-register');
 
 const http = require('http');
+const url = require('url');
 
 const bunyan = require('bunyan');
 const config = require('config');
@@ -19,6 +20,26 @@ const frontendHost = `http://${config.get('serverHost')}:${config.get('serverPor
 log.info(`apiHost: ${apiHost}`);
 log.info(`frontendHost: ${frontendHost}`);
 
+const array = (value) => {
+  if (!value) {
+    return [];
+  } else if (Array.isArray(value)) {
+    return value;
+  }
+  return [value];
+};
+
+function unsecureCookie(req, res, proxyRes) {
+  const proxyCookies = array(proxyRes.headers['set-cookie']);
+  // eslint-disable-next-line no-param-reassign
+  proxyRes.headers['set-cookie'] = proxyCookies.map((rewrittenCookie) => {
+    if (!req.connection.encrypted) {
+      return rewrittenCookie.replace(/;\s*?(Secure)/i, '');
+    }
+    return rewrittenCookie;
+  });
+}
+
 function getHost(req) {
   if (!req.headers['user-agent'].includes('Android') || req.url.startsWith('/api/')) {
     return apiHost;
@@ -26,12 +47,22 @@ function getHost(req) {
   return frontendHost;
 }
 
-const server = http.createServer((req, res) => (
-  proxy.web(req, res, { target: getHost(req), changeOrigin: true, autoRewrite: true })
-));
+const server = http.createServer((req, res) => {
+  const host = getHost(req);
+  const hostUrl = url.parse(host);
+  return proxy.web(req, res, {
+    target: host,
+    changeOrigin: true,
+    autoRewrite: true,
+    hostRewrite: hostUrl.host,
+    protocolRewrite: 'http',
+    cookieDomainRewrite: '',
+  });
+});
 
-proxy.on('proxyRes', (proxyRes, req) => {
+proxy.on('proxyRes', (proxyRes, req, res) => {
   log.info(`${proxyRes.statusCode} ~> ${getHost(req)}${req.url}`);
+  unsecureCookie(req, res, proxyRes);
 });
 
 proxy.on('error', (error, req, res) => {
