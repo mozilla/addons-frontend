@@ -5,6 +5,7 @@ const url = require('url');
 
 const bunyan = require('bunyan');
 const config = require('config');
+const cookie = require('cookie');
 const httpProxy = require('http-proxy');
 
 const log = bunyan.createLogger({
@@ -41,7 +42,8 @@ function unsecureCookie(req, res, proxyRes) {
 }
 
 function getHost(req) {
-  if (!req.headers['user-agent'].includes('Android') || req.url.startsWith('/api/')) {
+  const useDesktop = cookie.parse(req.headers.cookie).mamo === 'off';
+  if (useDesktop || req.url.startsWith('/api/')) {
     return apiHost;
   }
   return frontendHost;
