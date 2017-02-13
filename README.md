@@ -99,8 +99,8 @@ To see this report while running tests locally, type:
 
 A proxy server is provided for running the AMO app with the API on the same host as the frontend.
 This provides a setup that is closer to production than running the frontend on its own. The
-default configuration for this is to use a local addons-server for the API. This comes
-pre-configured to use a local addons-server which can be setup according to the
+default configuration for this is to use a local addons-server for the API which can be setup
+according to the
 [addons-server docs](https://addons-server.readthedocs.io/en/latest/topics/install/index.html).
 Docker is the preferred method of running addons-server.
 
