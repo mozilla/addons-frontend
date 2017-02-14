@@ -4,6 +4,7 @@ import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
 import { createStore, combineReducers } from 'redux';
 
+import { createApiError } from 'core/api/index';
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
 import { ErrorHandler, withErrorHandler, withErrorHandling }
@@ -114,6 +115,25 @@ describe('errorHandler', () => {
       // It also renders component content:
       assert.equal(dom.querySelector('.SomeComponent').textContent,
                    'Component text');
+    });
+
+    it('renders a nested API response object', () => {
+      const id = 'some-handler-id';
+
+      const nestedMessage = { nested: { message: 'end' } };
+      const store = createErrorStore();
+      const error = createApiError({
+        response: { status: 401 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: nestedMessage },
+      });
+      store.dispatch(setError({ id, error }));
+
+      const { dom } = createWrappedComponent({
+        store, id, decorator: withErrorHandling,
+      });
+      assert.equal(dom.querySelector('.ErrorHandler-list').textContent,
+                   JSON.stringify(nestedMessage));
     });
 
     it('renders component content when there is no error', () => {
