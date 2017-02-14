@@ -1,7 +1,6 @@
 require('babel-register');
 
 const http = require('http');
-const url = require('url');
 
 const bunyan = require('bunyan');
 const config = require('config');
@@ -51,12 +50,10 @@ function getHost(req) {
 
 const server = http.createServer((req, res) => {
   const host = getHost(req);
-  const hostUrl = url.parse(host);
   return proxy.web(req, res, {
     target: host,
     changeOrigin: true,
     autoRewrite: true,
-    hostRewrite: hostUrl.host,
     protocolRewrite: 'http',
     cookieDomainRewrite: '',
   });
