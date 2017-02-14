@@ -104,9 +104,12 @@ according to the
 [addons-server docs](https://addons-server.readthedocs.io/en/latest/topics/install/index.html).
 Docker is the preferred method of running addons-server.
 
-This should work without any issues with a local addons-server and can also be configured to use
-`https://addons-dev.allizom.org` as the API but the addons-server views will not all work as
-expected. If you would like to use `https://addons-dev.allizom.org` for the API you should use the
+Authentication will work when initiated from addons-frontend and will persist to addons-server but
+it will not work when logging in from an addons-server page. See
+[mozilla/addons-server#4684](https://github.com/mozilla/addons-server/issues/4684) for more
+information on fixing this.
+
+If you would like to use `https://addons-dev.allizom.org` for the API you should use the
 `npm run dev:amo:no-proxy` command with an `API_HOST` to start the server without the proxy. For
 example: `API_HOST=https://addons-dev.allizom.org npm run dev:amo:no-proxy`.
 
