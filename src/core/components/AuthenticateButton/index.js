@@ -1,7 +1,5 @@
 /* global window */
-import config from 'config';
 import React, { PropTypes } from 'react';
-import cookie from 'react-cookie';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -56,16 +54,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   handleLogOut({ api }) {
-    const { location } = window;
-    if (config.get('apiHost') === `${location.protocol}//${location.host}`) {
-      // Deployed config, server manages cookie.
-      return logOutFromServer({ api })
-        .then(() => dispatch(logOutUser()));
-    }
-    // Local development, we manage our own cookie.
-    cookie.remove(config.get('cookieName'), { path: '/' });
-    dispatch(logOutUser());
-    return Promise.resolve();
+    return logOutFromServer({ api })
+      .then(() => dispatch(logOutUser()));
   },
 });
 

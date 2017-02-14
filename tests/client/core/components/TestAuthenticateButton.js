@@ -1,7 +1,6 @@
 import config from 'config';
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
-import cookie from 'react-cookie';
 import { findDOMNode } from 'react-dom';
 import { combineReducers, createStore as _createStore } from 'redux';
 
@@ -60,20 +59,7 @@ describe('<AuthenticateButton />', () => {
     assert.ok(startLoginUrlStub.calledWith({ location }));
   });
 
-  it('clears the cookie and JWT in handleLogOut when not on the API host', () => {
-    sinon.stub(cookie, 'remove');
-    const _config = { cookieName: 'authcookie', apiHost: 'http://someotherhost' };
-    sinon.stub(config, 'get', (key) => _config[key]);
-    const store = createStore();
-    store.dispatch(setJwt(userAuthToken({ user_id: 99 })));
-    const { handleLogOut } = mapDispatchToProps(store.dispatch);
-    assert.ok(store.getState().api.token);
-    handleLogOut({ api: {} });
-    assert.notOk(store.getState().api.token);
-    assert.ok(cookie.remove.calledWith('authcookie', { path: '/' }));
-  });
-
-  it('asks the server to clear the cookie and JWT in handleLogOut when on the API host', () => {
+  it('gets the server to clear the cookie and JWT in handleLogOut', () => {
     sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
     const _config = { cookieName: 'authcookie', apiHost: 'http://localhost:9876' };
     sinon.stub(config, 'get', (key) => _config[key]);
