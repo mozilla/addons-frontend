@@ -73,7 +73,7 @@
       }
     },
     "start-dev-proxy": {
-      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | bunyan' 'npm run proxy | bunyan'",
+      "command": "npm run clean && concurrently --kill-others 'npm run webpack-dev-server' 'node bin/server.js | bunyan' 'node bin/proxy.js | bunyan'",
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
