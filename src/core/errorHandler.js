@@ -37,7 +37,9 @@ export class ErrorHandler {
   renderError() {
     return (
       <ul className="ErrorHandler-list">
-        {this.capturedError.messages.map((msg) => <li>{msg}</li>)}
+        {this.capturedError.messages.map(
+          (msg) => <li className="ErrorHandler-list-item">{msg}</li>
+        )}
       </ul>
     );
   }

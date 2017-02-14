@@ -12,7 +12,8 @@ export default class OverlayCard extends React.Component {
     children: PropTypes.node,
     className: PropTypes.string,
     header: PropTypes.node,
-    footer: PropTypes.node,
+    footerLink: PropTypes.node,
+    footerText: PropTypes.node,
     visibleOnLoad: PropTypes.bool.isRequired,
   }
 
@@ -33,13 +34,19 @@ export default class OverlayCard extends React.Component {
   }
 
   render() {
-    const { children, className, header, footer, visibleOnLoad } = this.props;
+    const {
+      children, className, header, footerLink, footerText, visibleOnLoad,
+    } = this.props;
 
     return (
       <Overlay visibleOnLoad={visibleOnLoad}
         ref={(ref) => { this.overlay = ref; }}>
-        <Card className={classNames('OverlayCard', className)} header={header}
-          footer={footer} ref={(ref) => { this.overlayCard = ref; }}>
+        <Card
+          className={classNames('OverlayCard', className)}
+          header={header}
+          footerLink={footerLink}
+          footerText={footerText}
+          ref={(ref) => { this.overlayCard = ref; }}>
           {children}
         </Card>
       </Overlay>
