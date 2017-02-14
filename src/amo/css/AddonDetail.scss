@@ -21,6 +21,7 @@ $page-margin: 20px 10px;
 .AddonDetail-author {
   display: block;
   opacity: 0.75;
+  word-wrap: break-word;
 
   a,
   a:link {
