@@ -36,7 +36,7 @@ describe('<Card />', () => {
   });
 
   it('shows a footer link if supplied', () => {
-    const root = render({ footerLink: <a href="#">Some link</a> });
+    const root = render({ footerLink: <a href="/some-link">Some link</a> });
     assert(root.footer);
     assert.equal(root.footer.textContent, 'Some link');
     assert.equal(root.footer.className, 'Card-footer-link');
@@ -44,7 +44,7 @@ describe('<Card />', () => {
 
   it('throws an error if you mix footer content', () => {
     assert.throws(() => render({
-      footerLink: <a href="#">Some link</a>,
+      footerLink: <a href="/some-link">Some link</a>,
       footerText: 'something else',
     }), /cannot specify footerLink and footerText/);
   });
