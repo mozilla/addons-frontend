@@ -28,10 +28,25 @@ describe('<Card />', () => {
     assert.include(root.cardContainer.className, 'Card--no-header');
   });
 
-  it('shows footer if supplied', () => {
-    const root = render({ footer: 'foo' });
+  it('shows footer text if supplied', () => {
+    const root = render({ footerText: 'foo' });
     assert(root.footer);
     assert.equal(root.footer.textContent, 'foo');
+    assert.equal(root.footer.className, 'Card-footer-text');
+  });
+
+  it('shows a footer link if supplied', () => {
+    const root = render({ footerLink: <a href="#">Some link</a> });
+    assert(root.footer);
+    assert.equal(root.footer.textContent, 'Some link');
+    assert.equal(root.footer.className, 'Card-footer-link');
+  });
+
+  it('throws an error if you mix footer content', () => {
+    assert.throws(() => render({
+      footerLink: <a href="#">Some link</a>,
+      footerText: 'something else',
+    }), /cannot specify footerLink and footerText/);
   });
 
   it('hides footer if none supplied', () => {

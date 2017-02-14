@@ -357,6 +357,8 @@ describe('AddonDetail', () => {
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
       assert.equal(footer.textContent, 'No reviews yet');
+      assert.equal(root.querySelector('footer').className,
+                   'Card-footer-text');
     });
 
     it('prompts you to read one review', () => {
@@ -366,6 +368,8 @@ describe('AddonDetail', () => {
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
       assert.equal(footer.textContent, 'Read 1 review');
+      assert.equal(root.querySelector('footer').className,
+                   'Card-footer-link');
     });
 
     it('prompts you to read many reviews', () => {

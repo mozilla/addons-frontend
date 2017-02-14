@@ -114,9 +114,10 @@ export class AddonDetailBase extends React.Component {
     );
   }
 
-  readReviewsFooter() {
-    const { addon, i18n } = this.props;
+  renderRatingsCard() {
+    const { addon, i18n, RatingManager } = this.props;
     let content;
+    let footerPropName;
 
     if (addon.ratings.count) {
       const count = addon.ratings.count;
@@ -125,6 +126,7 @@ export class AddonDetailBase extends React.Component {
         { count: i18n.formatNumber(count) },
       );
 
+      footerPropName = 'footerLink';
       content = (
         <Link className="AddonDetail-all-reviews-link"
           to={`/addon/${addon.slug}/reviews/`}>
@@ -132,14 +134,29 @@ export class AddonDetailBase extends React.Component {
         </Link>
       );
     } else {
+      footerPropName = 'footerText';
       content = i18n.gettext('No reviews yet');
     }
 
-    return <div className="AddonDetail-read-reviews-footer">{content}</div>;
+    const props = {
+      [footerPropName]: (
+        <div className="AddonDetail-read-reviews-footer">{content}</div>),
+    };
+    return (
+      <Card
+        header={i18n.gettext('Rate your experience')}
+        className="AddonDetail-overall-rating"
+        {...props}>
+        <RatingManager
+          addon={addon}
+          version={addon.current_version}
+        />
+      </Card>
+    );
   }
 
   render() {
-    const { RatingManager, addon, i18n } = this.props;
+    const { addon, i18n } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -192,15 +209,7 @@ export class AddonDetailBase extends React.Component {
             } />
         </ShowMoreCard>
 
-        <Card
-          header={i18n.gettext('Rate your experience')}
-          footer={this.readReviewsFooter()}
-          className="AddonDetail-overall-rating">
-          <RatingManager
-            addon={addon}
-            version={addon.current_version}
-          />
-        </Card>
+        {this.renderRatingsCard()}
 
         <AddonMoreInfo addon={addon} />
       </div>
