@@ -115,7 +115,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   renderRatingsCard() {
-    const { addon, i18n, RatingManager } = this.props;
+    const { RatingManager, addon, i18n } = this.props;
     let content;
     let footerPropName;
 
