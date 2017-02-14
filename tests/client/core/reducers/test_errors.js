@@ -32,6 +32,18 @@ describe('errors reducer', () => {
     });
   });
 
+  it('handles API object responses', () => {
+    const message = 'Authentication credentials were not provided.';
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { detail: message },
+    });
+    const action = setError({ id: 'some-id', error });
+    const state = errors(undefined, action);
+    assert.deepEqual(state[action.payload.id], { messages: [message] });
+  });
+
   it('preserves existing errors', () => {
     const action1 = setError({
       id: 'action1', error: createFakeApiError({ nonFieldErrors: ['action1'] }),

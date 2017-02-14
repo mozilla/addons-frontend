@@ -17,15 +17,19 @@ function getMessagesFromError(error) {
 
     Object.keys(error.response.data).forEach((key) => {
       const val = error.response.data[key];
-      val.forEach((msg) => {
-        if (key === 'non_field_errors') {
-          // Add generic messages for the API response.
-          apiMessages.push(msg);
-        } else {
-          // Add field specific error messages.
-          apiMessages.push(`${key}: ${msg}`);
-        }
-      });
+      if (Array.isArray(val)) {
+        val.forEach((msg) => {
+          if (key === 'non_field_errors') {
+            // Add generic messages for the API response.
+            apiMessages.push(msg);
+          } else {
+            // Add field specific error messages.
+            apiMessages.push(`${key}: ${msg}`);
+          }
+        });
+      } else {
+        apiMessages.push(val);
+      }
     });
 
     if (apiMessages.length) {
