@@ -2,7 +2,6 @@ const amoCDN = 'https://addons.cdn.mozilla.net';
 const staticHost = 'https://addons-amo.cdn.mozilla.net';
 
 module.exports = {
-  fxaConfig: 'amo',
   CSP: {
     directives: {
       formAction: [
@@ -23,6 +22,8 @@ module.exports = {
       ],
     },
   },
+  enableTrailingSlashesMiddleware: true,
+  fxaConfig: 'amo',
   // This needs to be kept in sync with addons-server's SUPPORTED_NONAPPS
   // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L262
   validUrlExceptions: [

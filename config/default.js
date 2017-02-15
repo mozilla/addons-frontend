@@ -147,6 +147,7 @@ module.exports = {
   po2jsonFuzzyOutput: false,
 
   enablePrefixMiddleware: true,
+  enableTrailingSlashesMiddleware: false,
 
   localeDir: path.resolve(path.join(__dirname, '../locale')),
 

@@ -19,7 +19,7 @@ import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
 import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
-import { prefixMiddleWare } from 'core/middleware';
+import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setClientApp, setLang, setJwt } from 'core/actions';
 import log from 'core/logger';
@@ -181,6 +181,11 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // Handle application and lang redirections.
   if (config.get('enablePrefixMiddleware')) {
     app.use(prefixMiddleWare);
+  }
+
+  // Add trailing slashes to URLs
+  if (config.get('enableTrailingSlashesMiddleware')) {
+    app.use(trailingSlashesMiddleware);
   }
 
   app.use((req, res) => {
