@@ -6,16 +6,18 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import 'core/fonts/fira.scss';
-import 'amo/css/App.scss';
 import SearchForm from 'amo/components/SearchForm';
+import { getErrorComponent } from 'amo/utils';
+import Footer from 'amo/components/Footer';
+import MastHead from 'amo/components/MastHead';
 import { addChangeListeners } from 'core/addonManager';
 import { INSTALL_STATE } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
-import Footer from 'amo/components/Footer';
-import MastHead from 'amo/components/MastHead';
+
+import 'amo/css/App.scss';
+import 'core/fonts/fira.scss';
 
 
 export class AppBase extends React.Component {
@@ -81,7 +83,9 @@ export class AppBase extends React.Component {
           SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
           query={query} ref={(ref) => { this.mastHead = ref; }} />
         <div className="App-content">
-          <ErrorPage>{children}</ErrorPage>
+          <ErrorPage getErrorComponent={getErrorComponent}>
+            {children}
+          </ErrorPage>
         </div>
         <FooterComponent handleViewDesktop={this.onViewDesktop}
           location={location} />
