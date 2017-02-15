@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
-import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 
