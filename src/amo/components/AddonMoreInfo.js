@@ -17,14 +17,21 @@ export class AddonMoreInfoBase extends React.Component {
   render() {
     const { addon, i18n } = this.props;
 
+    let homepage = addon.homepage ? addon.homepage.trim() : null;
+    if (homepage && !homepage.match(/^https?:\/\//)) {
+      homepage = `http://${homepage}`;
+    }
+
     return (
       <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
         <dl className="AddonMoreInfo-contents">
           {addon.homepage ? <dt>{i18n.gettext('Website')}</dt> : null}
-          {addon.homepage ? (
+          {homepage ? (
             <dd>
-              <a href={addon.homepage}
-                ref={(ref) => { this.homepageLink = ref; }}>{addon.homepage}</a>
+              <a href={homepage}
+                ref={(ref) => { this.homepageLink = ref; }}>
+                {homepage.replace(/^https?:\/\//, '')}
+              </a>
             </dd>
           ) : null}
           <dt>{i18n.gettext('Version')}</dt>
