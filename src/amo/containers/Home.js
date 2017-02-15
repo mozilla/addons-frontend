@@ -49,7 +49,7 @@ export class HomePageBase extends React.Component {
           </div>
         </div>
 
-        <h2 className="HomePage-subheading">{i18n.gettext('What do you want Firefox to do?')}</h2>
+        <h2 className="HomePage-subheading">{i18n.gettext('You can change how Firefox works…')}</h2>
         <ul className="HomePage-category-list">
           <ExtensionLink name="block-ads" slug="security-privacy">
             {i18n.gettext('Block ads')}
@@ -74,7 +74,7 @@ export class HomePageBase extends React.Component {
           {i18n.gettext('Browse all extensions')}
         </Link>
 
-        <h2 className="HomePage-subheading">{i18n.gettext('How do you want Firefox to look?')}</h2>
+        <h2 className="HomePage-subheading">{i18n.gettext('…or what it looks like')}</h2>
         <ul className="HomePage-category-list">
           <ThemeLink name="wild" slug="nature">{i18n.gettext('Wild')}</ThemeLink>
           <ThemeLink name="abstract" slug="abstract">{i18n.gettext('Abstract')}</ThemeLink>
