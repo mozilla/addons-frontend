@@ -7,6 +7,9 @@ import { gettext } from 'core/utils';
  *
  * If the error has an API response then messages will be extracted
  * from it. Otherwise, an array containing a generic error message is returned.
+ *
+ * Read more about API responses here:
+ * http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#responses
  */
 function getMessagesFromError(error) {
   let messages = [gettext('An unexpected error occurred')];
@@ -18,16 +21,21 @@ function getMessagesFromError(error) {
     Object.keys(error.response.data).forEach((key) => {
       const val = error.response.data[key];
       if (Array.isArray(val)) {
+        // Most API reponse errors will consist of a key (which could be a
+        // form field) and an array of localized messages.
+        // More info: http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
         val.forEach((msg) => {
           if (key === 'non_field_errors') {
-            // Add generic messages for the API response.
+            // Add a generic error not related to a specific field.
             apiMessages.push(msg);
           } else {
-            // Add field specific error messages.
+            // Add field specific error message.
+            // The field is not localized but we need to show it as a hint.
             apiMessages.push(`${key}: ${msg}`);
           }
         });
       } else {
+        // This is most likely not a form field error so just show the message.
         apiMessages.push(val);
       }
     });
