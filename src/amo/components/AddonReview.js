@@ -27,7 +27,6 @@ export class AddonReviewBase extends React.Component {
   constructor(props) {
     super(props);
     this.state = { reviewBody: props.review.body };
-    this.overlayCard = null;
     this.reviewTextarea = null;
   }
 
@@ -38,7 +37,7 @@ export class AddonReviewBase extends React.Component {
     }
   }
 
-  onSubmit = (event, { overlayCard = this.overlayCard } = {}) => {
+  onSubmit = (event) => {
     const { apiState, errorHandler, onReviewSubmitted, review } = this.props;
     const { reviewBody } = this.state;
     event.preventDefault();
@@ -67,7 +66,6 @@ export class AddonReviewBase extends React.Component {
 
     // Next, update the review with an actual API request.
     return this.props.updateReviewText(params)
-      // TODO: remove overlayCard entirely.
       // This will hide the AddonReview overlay.
       .then(() => onReviewSubmitted())
       // Finally, fire this off in the background to update the review count
@@ -106,8 +104,7 @@ export class AddonReviewBase extends React.Component {
     }
 
     return (
-      <OverlayCard ref={(ref) => { this.overlayCard = ref; }}
-        visibleOnLoad className="AddonReview">
+      <OverlayCard visibleOnLoad className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
