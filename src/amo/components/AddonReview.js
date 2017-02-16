@@ -17,6 +17,7 @@ export class AddonReviewBase extends React.Component {
     apiState: PropTypes.object,
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
+    onReviewSubmitted: PropTypes.func.isRequired,
     refreshAddon: PropTypes.func.isRequired,
     review: PropTypes.object.isRequired,
     setDenormalizedReview: PropTypes.func.isRequired,
@@ -25,10 +26,7 @@ export class AddonReviewBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { reviewBody: null };
-    if (props.review) {
-      this.state.reviewBody = props.review.body;
-    }
+    this.state = { reviewBody: props.review.body };
     this.overlayCard = null;
     this.reviewTextarea = null;
   }
@@ -41,27 +39,22 @@ export class AddonReviewBase extends React.Component {
   }
 
   onSubmit = (event, { overlayCard = this.overlayCard } = {}) => {
+    const { apiState, errorHandler, onReviewSubmitted, review } = this.props;
     const { reviewBody } = this.state;
     event.preventDefault();
     event.stopPropagation();
 
-    const addonSlug = this.props.review.addonSlug;
-    const apiState = this.props.apiState;
+    const addonSlug = review.addonSlug;
 
-    const newReviewParams = {
-      body: reviewBody,
-    };
-
-    const updatedReview = {
-      ...this.props.review,
-      ...newReviewParams,
-    };
+    const newReviewParams = { body: reviewBody };
+    const updatedReview = { ...review, ...newReviewParams };
 
     const params = {
+      addonId: review.addonId,
       addonSlug,
       apiState,
-      errorHandler: this.props.errorHandler,
-      reviewId: this.props.review.id,
+      errorHandler,
+      reviewId: review.id,
       ...newReviewParams,
     };
     // TODO: render a progress indicator in the UI.
@@ -74,9 +67,14 @@ export class AddonReviewBase extends React.Component {
 
     // Next, update the review with an actual API request.
     return this.props.updateReviewText(params)
-      .then(() => overlayCard.hide())
-      // Finally, update the review count on the add-on detail page.
-      .then(() => this.props.refreshAddon({ addonSlug, apiState }));
+      // TODO: remove overlayCard entirely.
+      // This will hide the AddonReview overlay.
+      .then(() => onReviewSubmitted())
+      // Finally, fire this off in the background to update the review count
+      // on the add-on detail page.
+      .then(() => this.props.refreshAddon({
+        addonSlug: review.addonSlug, apiState,
+      }));
   }
 
   onBodyInput = (event) => {

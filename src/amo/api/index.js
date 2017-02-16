@@ -5,6 +5,7 @@ import log from 'core/logger';
  * POST/PATCH an add-on review using the API.
  */
 export function submitReview({
+  addonId,
   rating,
   apiState,
   addonSlug,
@@ -18,15 +19,21 @@ export function submitReview({
   if (reviewId) {
     // You cannot update the version of an existing review.
     data.version = undefined;
+  } else {
+    if (!addonId) {
+      throw new Error('addonId is required when posting a new review');
+    }
+    data.addon = addonId;
   }
 
   return new Promise(
     (resolve) => {
+      // TODO: remove addonSlug entirely.
       if (!addonSlug) {
         throw new Error('addonSlug is required to build the endpoint');
       }
       let method = 'POST';
-      let endpoint = `addons/addon/${addonSlug}/reviews`;
+      let endpoint = 'reviews/review';
       if (reviewId) {
         endpoint = `${endpoint}/${reviewId}`;
         method = 'PATCH';
@@ -47,7 +54,8 @@ export function getAddonReviews({ addonSlug } = {}) {
     return Promise.reject(new Error('addonSlug cannot be falsey'));
   }
   return callApi({
-    endpoint: `addons/addon/${addonSlug}/reviews`,
+    endpoint: 'reviews/review',
+    params: { addon: addonSlug },
     method: 'GET',
   })
     .then((response) => {
@@ -65,7 +73,8 @@ export function getUserReviews({ userId, addonId } = {}) {
       throw new Error('userId cannot be falsey');
     }
     resolve(callApi({
-      endpoint: `accounts/account/${userId}/reviews`,
+      endpoint: 'reviews/review',
+      params: { user: userId, addon: addonId },
     }));
   })
     .then((response) => {

@@ -84,9 +84,18 @@ export class RatingManagerBase extends React.Component {
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName: addon.name });
 
+    const onReviewSubmitted = () => {
+      this.setState({ showTextEntry: false });
+    };
+
     return (
       <div className="RatingManager">
-        {showTextEntry ? <AddonReview review={userReview} /> : null}
+        {showTextEntry ?
+          <AddonReview
+            onReviewSubmitted={onReviewSubmitted}
+            review={userReview}
+          /> : null
+        }
         <form action="">
           <fieldset>
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
