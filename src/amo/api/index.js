@@ -8,36 +8,30 @@ export function submitReview({
   addonId,
   rating,
   apiState,
-  addonSlug,
   title,
   versionId,
   body,
   reviewId,
   ...apiCallParams
 }) {
-  const data = { rating, version: versionId, body, title };
-  if (reviewId) {
-    // You cannot update the version of an existing review.
-    data.version = undefined;
-  } else {
-    if (!addonId) {
-      throw new Error('addonId is required when posting a new review');
-    }
-    data.addon = addonId;
-  }
-
   return new Promise(
     (resolve) => {
-      // TODO: remove addonSlug entirely.
-      if (!addonSlug) {
-        throw new Error('addonSlug is required to build the endpoint');
-      }
+      const data = { rating, version: versionId, body, title };
       let method = 'POST';
       let endpoint = 'reviews/review';
+
       if (reviewId) {
         endpoint = `${endpoint}/${reviewId}`;
         method = 'PATCH';
+        // You cannot update the version of an existing review.
+        data.version = undefined;
+      } else {
+        if (!addonId) {
+          throw new Error('addonId is required when posting a new review');
+        }
+        data.addon = addonId;
       }
+
       resolve(callApi({
         endpoint,
         body: data,
@@ -49,12 +43,15 @@ export function submitReview({
     });
 }
 
+// TODO: merge getAddonReviews() and getUserReviews()
+
 export function getAddonReviews({ addonSlug } = {}) {
   if (!addonSlug) {
     return Promise.reject(new Error('addonSlug cannot be falsey'));
   }
   return callApi({
     endpoint: 'reviews/review',
+    // TODO: addonId not slug
     params: { addon: addonSlug },
     method: 'GET',
   })

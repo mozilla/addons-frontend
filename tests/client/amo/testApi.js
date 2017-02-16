@@ -31,15 +31,15 @@ describe('amo.api', () => {
     // look like an error to callApi().
     const genericApiResponse = { field: 'value' };
 
-    it('requires an addonSlug', () => {
+    it('requires an addonId when posting', () => {
       const params = {
         ...baseParams,
-        addonSlug: null,
+        addonId: null,
       };
 
       return submitReview(params)
         .then(() => assert(false, 'unexpected success'), (error) => {
-          assert.match(error.message, /addonSlug is required/);
+          assert.match(error.message, /addonId is required/);
         });
     });
 
@@ -47,7 +47,7 @@ describe('amo.api', () => {
       const params = {
         ...baseParams,
         rating: 5,
-        addonSlug: 'chill-out',
+        addonId: 445,
         versionId: 321,
         errorHandler: sinon.stub(),
       };
@@ -55,9 +55,12 @@ describe('amo.api', () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `addons/addon/${params.addonSlug}/reviews`,
+          endpoint: 'reviews/review',
           body: {
-            ...defaultParams, rating: params.rating, version: params.versionId,
+            ...defaultParams,
+            addon: params.addonId,
+            rating: params.rating,
+            version: params.versionId,
           },
           method: 'POST',
           auth: true,
@@ -77,13 +80,12 @@ describe('amo.api', () => {
         ...baseParams,
         body: 'some new body',
         reviewId: 987,
-        addonSlug: 'chill-out',
       };
 
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `addons/addon/${params.addonSlug}/reviews/${params.reviewId}`,
+          endpoint: `reviews/review/${params.reviewId}`,
           body: {
             ...defaultParams, body: params.body,
           },
@@ -105,13 +107,12 @@ describe('amo.api', () => {
         reviewId: 987,
         body: 'some new body',
         versionId: 99876,
-        addonSlug: 'chill-out',
       };
 
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `addons/addon/${params.addonSlug}/reviews/${params.reviewId}`,
+          endpoint: `reviews/review/${params.reviewId}`,
           body: {
             // Make sure that version is not passed in.
             ...defaultParams, body: params.body, version: undefined,
@@ -136,7 +137,8 @@ describe('amo.api', () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `accounts/account/${userId}/reviews`,
+          endpoint: 'reviews/review',
+          params: { user: userId, addon: undefined },
         })
         .returns(Promise.resolve(response));
 
@@ -196,7 +198,8 @@ describe('amo.api', () => {
         .once()
         .withArgs({
           method: 'GET',
-          endpoint: `addons/addon/${addonSlug}/reviews`,
+          params: { addon: addonSlug },
+          endpoint: 'reviews/review',
         })
         .returns(Promise.resolve(response));
 
