@@ -25,8 +25,9 @@ export class SearchFormBase extends React.Component {
 
   goToSearch(query) {
     const { api, pathname } = this.props;
+    const encodedQuery = query ? encodeURIComponent(query) : '';
     this.context.router.push(
-      `/${api.lang}/${api.clientApp}${pathname}?q=${query}`);
+      `/${api.lang}/${api.clientApp}${pathname}?q=${encodedQuery}`);
   }
 
   handleSearch = (e) => {

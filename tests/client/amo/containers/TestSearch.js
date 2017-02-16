@@ -23,6 +23,22 @@ describe('Search.mapStateToProps()', () => {
     },
   };
 
+  it('does not have search params with undefined query params', () => {
+    const props = mapStateToProps(
+      state,
+      { location: { query: { q: undefined } } }
+    );
+    assert.isFalse(props.hasSearchParams);
+  });
+
+  it('should handle queries that need encoding', () => {
+    const props = mapStateToProps(
+      state,
+      { location: { query: { q: '&' } } }
+    );
+    assert.isTrue(props.hasSearchParams);
+  });
+
   it('passes the search state if the URL and state query matches', () => {
     const props = mapStateToProps(
       state,

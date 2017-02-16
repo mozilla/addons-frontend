@@ -12,8 +12,8 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<SearchForm />', () => {
-  const pathname = '/somewhere';
-  let api = { clientApp: 'firefox', lang: 'de' };
+  const pathname = '/search/';
+  const api = { clientApp: 'firefox', lang: 'de' };
   let loadAddon;
   let router;
   let root;
@@ -41,7 +41,6 @@ describe('<SearchForm />', () => {
   beforeEach(() => {
     router = { push: sinon.spy() };
     loadAddon = sinon.stub();
-    api = sinon.stub();
     root = renderIntoDocument(<SearchFormWrapper />).root;
     form = root.form;
     input = root.searchQuery.input;
@@ -60,7 +59,7 @@ describe('<SearchForm />', () => {
     assert.equal(input.value, 'foo');
   });
 
-  it('does changes the URL on submit', () => {
+  it('changes the URL on submit', () => {
     assert(!router.push.called);
     input.value = 'adblock';
     Simulate.submit(form);
@@ -87,6 +86,13 @@ describe('<SearchForm />', () => {
     input.value = 'adblock';
     Simulate.click(root.submitButton);
     assert(router.push.called);
+  });
+
+  it('encodes the value of the search text', () => {
+    assert(!router.push.called);
+    input.value = '& 26 %';
+    Simulate.click(root.submitButton);
+    assert(router.push.calledWith('/de/firefox/search/?q=%26%2026%20%25'));
   });
 });
 
