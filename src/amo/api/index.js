@@ -43,35 +43,16 @@ export function submitReview({
     });
 }
 
-// TODO: merge getAddonReviews() and getUserReviews()
-
-export function getAddonReviews({ addonSlug } = {}) {
-  if (!addonSlug) {
-    return Promise.reject(new Error('addonSlug cannot be falsey'));
-  }
-  return callApi({
-    endpoint: 'reviews/review',
-    // TODO: addonId not slug
-    params: { addon: addonSlug },
-    method: 'GET',
-  })
-    .then((response) => {
-      // TODO: implement paging through response.next
-      if (response.next) {
-        log.warn('paging is not yet implemented');
-      }
-      return response.results;
-    });
-}
-
-export function getUserReviews({ userId, addonId } = {}) {
+export function getReviews({ user, addon, ...params } = {}) {
   return new Promise((resolve) => {
-    if (!userId) {
-      throw new Error('userId cannot be falsey');
+    if (!user && !addon) {
+      throw new Error('Either user or addon must be specified');
     }
     resolve(callApi({
       endpoint: 'reviews/review',
-      params: { user: userId, addon: addonId },
+      params: {
+        user, addon, ...params,
+      },
     }));
   })
     .then((response) => {
@@ -80,18 +61,16 @@ export function getUserReviews({ userId, addonId } = {}) {
         log.warn('paging is not yet implemented');
       }
       return response.results;
-    })
-    .then((reviews) => {
-      if (addonId) {
-        log.info(`Filtering user ${userId} reviews by addonId ${addonId}`);
-        return reviews.filter((review) => review.addon.id === addonId);
-      }
-      return reviews;
     });
 }
 
-export function getLatestUserReview(params) {
-  return getUserReviews(params)
+export function getLatestUserReview({ user, addon } = {}) {
+  return new Promise((resolve) => {
+    if (!user || !addon) {
+      throw new Error('Both user and addon must be specified');
+    }
+    resolve(getReviews({ user, addon }));
+  })
     .then((reviews) => {
       const latest = reviews.filter((review) => review.is_latest);
       if (latest.length === 0) {

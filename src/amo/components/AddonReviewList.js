@@ -5,7 +5,7 @@ import { asyncConnect } from 'redux-connect';
 
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
-import { getAddonReviews } from 'amo/api';
+import { getReviews } from 'amo/api';
 import translate from 'core/i18n/translate';
 import { findAddon, loadAddonIfNeeded } from 'core/utils';
 import Link from 'amo/components/Link';
@@ -82,8 +82,8 @@ export class AddonReviewListBase extends React.Component {
   }
 }
 
-export function loadAddonReviews({ addonSlug, dispatch }) {
-  return getAddonReviews({ addonSlug })
+export function loadAddonReviews({ addonId, addonSlug, dispatch }) {
+  return getReviews({ addon: addonId })
     .then((allReviews) => {
       // Ignore reviews with null bodies as those are incomplete.
       // For example, the user selected a star rating but hasn't submitted
