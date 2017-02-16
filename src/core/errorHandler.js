@@ -38,7 +38,17 @@ export class ErrorHandler {
     return (
       <ul className="ErrorHandler-list">
         {this.capturedError.messages.map(
-          (msg) => <li className="ErrorHandler-list-item">{msg}</li>
+          (msg) => {
+            let msgString = msg;
+            if (typeof msgString === 'object') {
+              // This is an unlikely scenario where an API response
+              // contains nested objects within objects. If this
+              // happens in real life let's make it prettier.
+              // Until then, let's just prevent a stack trace.
+              msgString = JSON.stringify(msg);
+            }
+            return <li className="ErrorHandler-list-item">{msgString}</li>;
+          }
         )}
       </ul>
     );
