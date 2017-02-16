@@ -479,9 +479,8 @@ describe('api', () => {
         })
         .once()
         .returns(mockResponse);
-      return api.logOutFromServer({
-        api: signedInApiState,
-      });
+      return api.logOutFromServer({ api: signedInApiState })
+        .then(() => mockWindow.verify());
     });
   });
 });
