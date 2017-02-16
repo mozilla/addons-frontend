@@ -102,3 +102,15 @@ export function prefixMiddleWare(req, res, next, { _config = config } = {}) {
 
   return next();
 }
+
+export function trailingSlashesMiddleware(req, res, next) {
+  const URLParts = req.originalUrl.split('?');
+
+  // If the URL doesn't end with a trailing slash, we'll add one.
+  if (URLParts[0].substr(-1) !== '/') {
+    URLParts[0] = `${URLParts[0]}/`;
+    return res.redirect(301, URLParts.join('?'));
+  }
+
+  return next();
+}

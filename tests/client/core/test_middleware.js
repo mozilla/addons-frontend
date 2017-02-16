@@ -1,4 +1,4 @@
-import { prefixMiddleWare } from 'core/middleware';
+import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
 
 
 describe('Prefix Middleware', () => {
@@ -172,5 +172,67 @@ describe('Prefix Middleware', () => {
     };
     prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     assert.deepEqual(fakeRes.redirect.firstCall.args, [302, '/en-US/firefox/foo/bar?test=1&bar=2']);
+  });
+});
+
+describe('Trailing Slashes Middleware', () => {
+  let fakeRes;
+  let fakeNext;
+  let fakeConfig;
+
+  beforeEach(() => {
+    fakeNext = sinon.stub();
+    fakeRes = {
+      locals: {},
+      redirect: sinon.stub(),
+      set: sinon.stub(),
+    };
+    fakeConfig = new Map();
+    fakeConfig.set('enableTrailingSlashesMiddleware', true);
+  });
+
+  it('should call next and do nothing with a valid, trailing slash URL', () => {
+    const fakeReq = {
+      originalUrl: '/foo/bar/',
+      headers: {},
+    };
+    trailingSlashesMiddleware(
+      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.ok(fakeNext.called);
+  });
+
+  it('should add trailing slashes to a URL if one is not found', () => {
+    const fakeReq = {
+      originalUrl: '/foo/bar',
+      headers: {},
+    };
+    trailingSlashesMiddleware(
+      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(fakeRes.redirect.firstCall.args, [301, '/foo/bar/']);
+    assert.notOk(fakeNext.called);
+  });
+
+  it('should include query params in the redirect', () => {
+    const fakeReq = {
+      originalUrl: '/foo/search?q=foo&category=bar',
+      headers: {},
+    };
+    trailingSlashesMiddleware(
+      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(fakeRes.redirect.firstCall.args,
+      [301, '/foo/search/?q=foo&category=bar']);
+    assert.notOk(fakeNext.called);
+  });
+
+  it('should handle several ? in URL (though that should never happen)', () => {
+    const fakeReq = {
+      originalUrl: '/foo/search?q=foo&category=bar?test=bad',
+      headers: {},
+    };
+    trailingSlashesMiddleware(
+      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(fakeRes.redirect.firstCall.args,
+      [301, '/foo/search/?q=foo&category=bar?test=bad']);
+    assert.notOk(fakeNext.called);
   });
 });

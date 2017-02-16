@@ -48,4 +48,18 @@ describe('AMO GET Requests', () => {
       assert.equal(res.header.location,
         '/en-US/firefox/');
     }));
+
+  it('should NOT redirect a URL without a trailing slash if exception exists',
+  () => request(app)
+    .get('/en-US/about')
+    .expect(404)
+    );
+
+  it('should redirect a URL without a trailing slash', () => request(app)
+    .get('/en-US/firefox/search')
+    .expect(301)
+    .then((res) => {
+      assert.equal(res.header.location,
+        '/en-US/firefox/search/');
+    }));
 });
