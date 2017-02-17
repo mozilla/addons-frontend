@@ -69,7 +69,7 @@ export function getLatestUserReview({ user, addon } = {}) {
     if (!user || !addon) {
       throw new Error('Both user and addon must be specified');
     }
-    // The API will only return the latest user review.
+    // The API will only return the latest user review for this add-on.
     resolve(getReviews({ user, addon }));
   })
     .then((reviews) => {
