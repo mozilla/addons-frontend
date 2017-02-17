@@ -152,12 +152,12 @@ describe('amo/components/AddonReviewList', () => {
       const reviews = [fakeReview];
 
       mockAmoApi
-        .expects('getAddonReviews')
+        .expects('getReviews')
         .once()
-        .withArgs({ addonSlug })
+        .withArgs({ addon: fakeAddon.id })
         .returns(Promise.resolve(reviews));
 
-      return loadAddonReviews({ addonSlug, dispatch })
+      return loadAddonReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
         .then(() => {
           mockAmoApi.verify();
 
@@ -173,10 +173,10 @@ describe('amo/components/AddonReviewList', () => {
       const reviews = [fakeReview, { ...fakeReview, body: null }];
 
       mockAmoApi
-        .expects('getAddonReviews')
+        .expects('getReviews')
         .returns(Promise.resolve(reviews));
 
-      return loadAddonReviews({ addonSlug, dispatch })
+      return loadAddonReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
         .then(() => {
           const expectedAction = setAddonReviews({
             addonSlug, reviews: [fakeReview],
@@ -251,17 +251,17 @@ describe('amo/components/AddonReviewList', () => {
       const addonSlug = fakeAddon.slug;
       const reviews = [fakeReview];
 
-      mockAmoApi
-        .expects('getAddonReviews')
-        .once()
-        .withArgs({ addonSlug })
-        .returns(Promise.resolve(reviews));
-
       mockCoreApi
         .expects('fetchAddon')
         .once()
         .withArgs({ slug: addonSlug, api: {} })
         .returns(Promise.resolve(createFetchAddonResult(fakeAddon)));
+
+      mockAmoApi
+        .expects('getReviews')
+        .once()
+        .withArgs({ addon: fakeAddon.id })
+        .returns(Promise.resolve(reviews));
 
       return loadInitialData({ store, params: { addonSlug } })
         .then(() => {

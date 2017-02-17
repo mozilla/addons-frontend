@@ -209,7 +209,7 @@ describe('RatingManager', () => {
         const addonId = fakeReview.addon.id;
         mockApi
           .expects('getLatestUserReview')
-          .withArgs({ userId, addonId })
+          .withArgs({ user: userId, addon: addonId })
           .returns(Promise.resolve(fakeReview));
 
         return actions.loadSavedReview({ userId, addonId })
