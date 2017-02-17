@@ -65,7 +65,7 @@ export class AddonMoreInfoBase extends React.Component {
           ) : null}
           {addon.has_privacy_policy ? (
             <dd>
-              <a href={`/addons/addon/${addon.slug}/privacy/`}
+              <a href={`/addon/${addon.slug}/privacy/`}
                 ref={(ref) => { this.privacyPolicyLink = ref; }}>
                 {i18n.gettext('Read the privacy policy for this add-on')}
               </a>
