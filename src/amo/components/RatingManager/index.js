@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
-import AddonReview from 'amo/components/AddonReview';
+import DefaultAddonReview from 'amo/components/AddonReview';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
@@ -13,12 +13,13 @@ import DefaultRating from 'ui/components/Rating';
 
 export class RatingManagerBase extends React.Component {
   static propTypes = {
+    AddonReview: PropTypes.node,
     addon: PropTypes.object.isRequired,
     errorHandler: PropTypes.func.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
-    Rating: PropTypes.object,
+    Rating: PropTypes.node,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
     userReview: PropTypes.object,
@@ -26,6 +27,7 @@ export class RatingManagerBase extends React.Component {
   }
 
   static defaultProps = {
+    AddonReview: DefaultAddonReview,
     Rating: DefaultRating,
   }
 
@@ -66,14 +68,14 @@ export class RatingManagerBase extends React.Component {
     } else {
       log.info(`Submitting a new review for versionId ${params.versionId}`);
     }
-    this.props.submitReview(params)
+    return this.props.submitReview(params)
       .then(() => {
         this.setState({ showTextEntry: true });
       });
   }
 
   render() {
-    const { Rating, i18n, addon, userReview } = this.props;
+    const { AddonReview, Rating, i18n, addon, userReview } = this.props;
     const { showTextEntry } = this.state;
 
     // TODO: Disable rating ability when not logged in

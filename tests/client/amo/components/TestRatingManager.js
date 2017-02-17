@@ -20,13 +20,14 @@ import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 function render(customProps = {}) {
   const props = {
+    AddonReview: () => <div />,
     addon: fakeAddon,
     apiState: signedInApiState,
     errorHandler: sinon.stub(),
     version: fakeAddon.current_version,
     userId: 91234,
-    submitReview: () => {},
-    loadSavedReview: () => {},
+    submitReview: () => Promise.resolve(),
+    loadSavedReview: () => Promise.resolve(),
     ...customProps,
   };
   const RatingManager = translate({ withRef: true })(RatingManagerBase);
@@ -80,16 +81,18 @@ describe('RatingManager', () => {
       addon: { ...fakeAddon, id: 12345, slug: 'some-slug' },
       userId: 92345,
     });
-    root.onSelectRating(5);
-    assert.equal(submitReview.called, true);
+    return root.onSelectRating(5)
+      .then(() => {
+        assert.equal(submitReview.called, true);
 
-    const call = submitReview.firstCall.args[0];
-    assert.equal(call.versionId, 321);
-    assert.equal(call.apiState.token, 'new-token');
-    assert.equal(call.addonId, 12345);
-    assert.equal(call.errorHandler, errorHandler);
-    assert.equal(call.userId, 92345);
-    assert.strictEqual(call.reviewId, undefined);
+        const call = submitReview.firstCall.args[0];
+        assert.equal(call.versionId, 321);
+        assert.equal(call.apiState.token, 'new-token');
+        assert.equal(call.addonId, 12345);
+        assert.equal(call.errorHandler, errorHandler);
+        assert.equal(call.userId, 92345);
+        assert.strictEqual(call.reviewId, undefined);
+      });
   });
 
   it('updates a rating with the review ID', () => {
@@ -101,13 +104,15 @@ describe('RatingManager', () => {
       userId: 92345,
       userReview: setReview(fakeReview).payload,
     });
-    root.onSelectRating(5);
-    assert.ok(submitReview.called);
+    return root.onSelectRating(5)
+      .then(() => {
+        assert.ok(submitReview.called);
 
-    const call = submitReview.firstCall.args[0];
-    assert.ok(call.reviewId);
-    assert.equal(call.reviewId, fakeReview.id);
-    assert.equal(call.versionId, fakeReview.version.id);
+        const call = submitReview.firstCall.args[0];
+        assert.ok(call.reviewId);
+        assert.equal(call.reviewId, fakeReview.id);
+        assert.equal(call.versionId, fakeReview.version.id);
+      });
   });
 
   it('does not update an existing review if its version does not match', () => {
@@ -133,16 +138,44 @@ describe('RatingManager', () => {
       submitReview,
       addon,
     });
-    root.onSelectRating(newReview.rating);
-    assert.ok(submitReview.called);
+    return root.onSelectRating(newReview.rating)
+      .then(() => {
+        assert.ok(submitReview.called);
 
-    // Make sure the review is submitted in a way where it will be
-    // newly created against the current version.
-    const call = submitReview.firstCall.args[0];
-    assert.equal(call.reviewId, undefined);
-    assert.equal(call.versionId, addon.current_version.id);
-    assert.equal(call.rating, newReview.rating);
-    assert.equal(call.addonId, newReview.addon.id);
+        // Make sure the review is submitted in a way where it will be
+        // newly created against the current version.
+        const call = submitReview.firstCall.args[0];
+        assert.equal(call.reviewId, undefined);
+        assert.equal(call.versionId, addon.current_version.id);
+        assert.equal(call.rating, newReview.rating);
+        assert.equal(call.addonId, newReview.addon.id);
+      });
+  });
+
+  it('renders and configures AddonReview after submitting a rating', () => {
+    const userReview = setReview(fakeReview).payload;
+    const FakeAddonReview = sinon.spy(() => <div />);
+    const root = render({ AddonReview: FakeAddonReview, userReview });
+
+    assert.equal(FakeAddonReview.called, false,
+                 'expected AddonReview to initially not be visible');
+
+    return root.onSelectRating(5)
+      .then(() => {
+        assert.ok(FakeAddonReview.called,
+                  'expected AddonReview to be visible after submiting a rating');
+
+        const props = FakeAddonReview.firstCall.args[0];
+        assert.deepEqual(props.review, userReview);
+
+        // Now make sure the callback is configured.
+        assert.equal(root.state.showTextEntry, true,
+                     'expected state to indicate that AddonReview is visible');
+        // Trigger the callback just like AddonReview would after completion.
+        props.onReviewSubmitted();
+        assert.equal(root.state.showTextEntry, false,
+                     'expected state to indicate that AddonReview is hidden');
+      });
   });
 
   it('configures a rating component', () => {
