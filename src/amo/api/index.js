@@ -77,10 +77,9 @@ export function getLatestUserReview({ user, addon } = {}) {
         return reviews[0];
       } else if (reviews.length === 0) {
         return null;
-      } else {
-        throw new Error(
-          'Unexpectedly received multiple review objects: ' +
-          JSON.stringify(reviews));
       }
+      throw new Error(
+        'Unexpectedly received multiple review objects: ' +
+        `${JSON.stringify(reviews)}`);
     });
 }

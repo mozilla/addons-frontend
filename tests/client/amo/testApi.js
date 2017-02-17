@@ -217,7 +217,7 @@ describe('amo.api', () => {
       return getLatestUserReview()
         .then(() => assert(false, 'Unexpected success'), (error) => {
           assert.match(error.message, /user and addon must be specified/);
-        })
+        });
     });
   });
 });

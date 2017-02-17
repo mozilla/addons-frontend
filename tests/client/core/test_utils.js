@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import url from 'url';
 
 import config from 'config';

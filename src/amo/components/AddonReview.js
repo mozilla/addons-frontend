@@ -43,8 +43,6 @@ export class AddonReviewBase extends React.Component {
     event.preventDefault();
     event.stopPropagation();
 
-    const addonSlug = review.addonSlug;
-
     const newReviewParams = { body: reviewBody };
     const updatedReview = { ...review, ...newReviewParams };
 
@@ -58,8 +56,8 @@ export class AddonReviewBase extends React.Component {
     // TODO: render a progress indicator in the UI.
     // https://github.com/mozilla/addons-frontend/issues/1156
 
-    // First, dispatch the new review to state so that the
-    // component doesn't re-render with old data while
+    // Dispatch the new review to state so that the
+    // component doesn't re-render with stale data while
     // the API request is in progress.
     this.props.setDenormalizedReview(updatedReview);
 
@@ -67,8 +65,6 @@ export class AddonReviewBase extends React.Component {
     return this.props.updateReviewText(params)
       // This will hide the AddonReview overlay.
       .then(() => onReviewSubmitted())
-      // Finally, fire this off in the background to update the review count
-      // on the add-on detail page.
       .then(() => this.props.refreshAddon({
         addonSlug: review.addonSlug, apiState,
       }));
