@@ -1,8 +1,22 @@
-import { mapStateToProps } from 'amo/containers/CategoryPage';
+import React from 'react';
+
+import { CategoryPageBase, mapStateToProps } from 'amo/containers/CategoryPage';
 import createStore from 'amo/store';
 import { searchStart } from 'core/actions/search';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import { shallowRender } from 'tests/client/helpers';
 
+
+describe('CategoryPage.mapStateToProps()', () => {
+  function render(props = {}) {
+    return shallowRender(<CategoryPageBase {...props} />);
+  }
+
+  it('sets enableSearchSort to `false`', () => {
+    const root = render();
+    assert.equal(root.props.enableSearchSort, false);
+  });
+});
 
 describe('CategoryPage.mapStateToProps()', () => {
   let filters;

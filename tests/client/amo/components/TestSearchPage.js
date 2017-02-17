@@ -80,4 +80,12 @@ describe('<SearchPage />', () => {
     const root = render({ hasSearchParams: true, results: [] });
     assert.throws(() => findByTag(root, SearchSort), 'child is null');
   });
+
+  it('does not render SearchSort when enableSearchSort is false', () => {
+    const root = render({
+      enableSearchSort: false,
+      hasSearchParams: true,
+    });
+    assert.throws(() => findByTag(root, SearchSort), 'child is null');
+  });
 });
