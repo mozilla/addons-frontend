@@ -109,8 +109,8 @@ export function loadAddonIfNeeded(
   const addon = findAddon(state, slug);
   if (addon) {
     log.info(`Found add-on ${slug}, ${addon.id} in state`);
-    // TODO: return a promise
-    return addon;
+    // TODO: maybe don't return an addon?
+    return Promise.resolve(addon);
   }
   log.info(`Add-on ${slug} not found in state; fetching from API`);
   // This loads the add-on into state. The return value is not always

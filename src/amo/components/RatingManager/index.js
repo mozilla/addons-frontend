@@ -143,7 +143,7 @@ export const mapStateToProps = (state, ownProps) => {
 export const mapDispatchToProps = (dispatch) => ({
 
   loadSavedReview({ userId, addonId }) {
-    return getLatestUserReview({ userId, addonId })
+    return getLatestUserReview({ user: userId, addon: addonId })
       .then((review) => {
         if (review) {
           dispatch(setReview(review));

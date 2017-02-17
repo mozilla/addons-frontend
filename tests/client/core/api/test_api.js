@@ -48,7 +48,7 @@ describe('api', () => {
 
     it('transforms method to upper case', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/resource/?lang=`, {
+        .withArgs(`${apiHost}/api/v3/resource/`, {
           method: 'GET', headers: {},
         })
         .once()
@@ -145,13 +145,26 @@ describe('api', () => {
       });
 
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/resource/?lang=`, {
+        .withArgs(`${apiHost}/api/v3/resource/`, {
           method: 'GET', headers: {},
         })
         .once()
         .returns(response);
       return api.callApi({ endpoint: 'resource', method: 'GET' })
         .then(() => mockWindow.verify());
+    });
+  });
+
+  describe('makeQueryString', () => {
+    it('transforms an object to a query string', () => {
+      const query = api.makeQueryString({ user: 123, addon: 321 });
+      assert.include(query, 'user=123');
+      assert.include(query, 'addon=321');
+    });
+
+    it('handles undefined query keys', () => {
+      const query = api.makeQueryString({ user: undefined, addon: 321 });
+      assert.equal(query, '?addon=321');
     });
   });
 
@@ -200,7 +213,7 @@ describe('api', () => {
     });
 
     it('surfaces status and apiURL on Error instance', () => {
-      const url = `${apiHost}/api/v3/addons/search/?app=&q=foo&page=3&lang=en-US`;
+      const url = `${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`;
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
@@ -276,7 +289,7 @@ describe('api', () => {
 
     it('sets the app, lang, and type query', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&page=&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.featured({

@@ -319,7 +319,10 @@ describe('loadAddonIfNeeded', () => {
   }
 
   it('returns the add-on if loaded', () => {
-    assert.strictEqual(loadAddonIfNeeded(makeProps(loadedSlug)), loadedAddon);
+    return loadAddonIfNeeded(makeProps(loadedSlug))
+      .then((returnedAddon) => {
+        assert.strictEqual(returnedAddon, loadedAddon);
+      });
   });
 
   it('loads the add-on if it is not loaded', () => {
