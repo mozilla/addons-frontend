@@ -47,7 +47,6 @@ export class RatingManagerBase extends React.Component {
       rating,
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
-      addonSlug: this.props.addon.slug,
       versionId: version.id,
       userId,
     };
@@ -154,9 +153,8 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitReview({ addonSlug, ...params }) {
-    return submitReview({ addonSlug, ...params })
-      .then((review) => dispatch(setReview(review)));
+  submitReview(params) {
+    return submitReview(params).then((review) => dispatch(setReview(review)));
   },
 });
 

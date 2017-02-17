@@ -87,7 +87,6 @@ describe('RatingManager', () => {
     assert.equal(call.versionId, 321);
     assert.equal(call.apiState.token, 'new-token');
     assert.equal(call.addonId, 12345);
-    assert.equal(call.addonSlug, 'some-slug');
     assert.equal(call.errorHandler, errorHandler);
     assert.equal(call.userId, 92345);
     assert.strictEqual(call.reviewId, undefined);

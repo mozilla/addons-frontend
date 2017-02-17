@@ -18,7 +18,7 @@ import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helper
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 const defaultReview = {
-  id: 3321, addonSlug: fakeAddon.slug, rating: 5,
+  id: 3321, addonId: fakeAddon.id, addonSlug: fakeAddon.slug, rating: 5,
 };
 
 function render({ ...customProps } = {}) {
@@ -83,7 +83,7 @@ describe('AddonReview', () => {
         assert.ok(updateReviewText.called);
         const params = updateReviewText.firstCall.args[0];
         assert.equal(params.body, 'some review');
-        assert.equal(params.addonSlug, defaultReview.addonSlug);
+        assert.equal(params.addonId, defaultReview.addonId);
         assert.equal(params.errorHandler, errorHandler);
         assert.equal(params.reviewId, defaultReview.id);
         assert.equal(params.apiState, signedInApiState);

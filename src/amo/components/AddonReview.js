@@ -50,7 +50,6 @@ export class AddonReviewBase extends React.Component {
 
     const params = {
       addonId: review.addonId,
-      addonSlug,
       apiState,
       errorHandler,
       reviewId: review.id,

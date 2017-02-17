@@ -99,15 +99,8 @@ export function loadInitialData({ store, params }) {
     return Promise.reject(new Error('missing URL param addonSlug'));
   }
   return loadAddonIfNeeded({ store, params: { slug: addonSlug } })
-    .then(() => {
-      const addon = findAddon(store.getState(), addonSlug);
-      if (!addon) {
-        // This technically won't happen. It will be a 404 instead.
-        log.warn(`AddonReviewList: loadInitialData: no addon for ${addonSlug}`);
-      }
-      return addon;
-    })
-    .then((addon) =>  loadAddonReviews({
+    .then(() => findAddon(store.getState(), addonSlug))
+    .then((addon) => loadAddonReviews({
       addonId: addon.id, addonSlug, dispatch: store.dispatch,
     }));
 }
