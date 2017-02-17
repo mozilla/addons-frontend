@@ -63,7 +63,8 @@ export class AddonReviewBase extends React.Component {
 
     // Next, update the review with an actual API request.
     return this.props.updateReviewText(params)
-      // This will hide the AddonReview overlay.
+      // Give the parent a callback saying that the review has been submitted.
+      // Example: this might close the review entry overlay.
       .then(() => onReviewSubmitted())
       .then(() => this.props.refreshAddon({
         addonSlug: review.addonSlug, apiState,
