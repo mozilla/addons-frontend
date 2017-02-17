@@ -23,6 +23,6 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'formautofill@mozilla.org', // Form Autofill
   'presentation@mozilla.org', // Presentation
   'shield-recipe-client@mozilla.org', // Shield Recipe Client
-  'webcompat-reporter@mozilla.org', // WebCompat Reporter 
-  'disableSHA1rollout@mozilla.org', // SHA-1 deprecation staged rollout 
+  'webcompat-reporter@mozilla.org', // WebCompat Reporter
+  'disableSHA1rollout@mozilla.org', // SHA-1 deprecation staged rollout
 ];
