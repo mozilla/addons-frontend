@@ -109,3 +109,8 @@ export function assertNotHasClass(el, className) {
     el.classList.contains(className),
     `expected ${className} to not be in in ${formatClassList(el.classList)}`);
 }
+
+export const signedInApiState = Object.freeze({
+  lang: 'en-US',
+  token: 'secret-token',
+});

@@ -4,7 +4,7 @@ import config from 'config';
 import * as api from 'core/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { unexpectedSuccess } from 'tests/client/helpers';
+import { signedInApiState, unexpectedSuccess } from 'tests/client/helpers';
 
 
 export function generateHeaders(
@@ -464,6 +464,22 @@ describe('api', () => {
       return api.categories({
         api: { clientApp: 'android', lang: 'en-US' },
       })
+        .then(() => mockWindow.verify());
+    });
+  });
+
+  describe('logOutFromServer', () => {
+    it('makes a delete request to the session endpoint', () => {
+      const mockResponse = createApiResponse({ jsonData: { ok: true } });
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/accounts/session/?lang=en-US`, {
+          credentials: 'include',
+          headers: { authorization: 'Bearer secret-token' },
+          method: 'DELETE',
+        })
+        .once()
+        .returns(mockResponse);
+      return api.logOutFromServer({ api: signedInApiState })
         .then(() => mockWindow.verify());
     });
   });

@@ -184,3 +184,13 @@ export function categories({ api }) {
     state: api,
   });
 }
+
+export function logOutFromServer({ api }) {
+  return callApi({
+    auth: true,
+    credentials: true,
+    endpoint: 'accounts/session',
+    method: 'delete',
+    state: api,
+  });
+}
