@@ -170,20 +170,31 @@ describe('amo.api', () => {
   });
 
   describe('getLatestUserReview', () => {
-    it('allows you to fetch only the latest review', () => {
-      const latestReview = { ...fakeReview, is_latest: true };
+    it('returns the lone review result since that is the latest', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({ results: [fakeReview] }));
+
+      return getLatestUserReview({ user: 123, addon: 321 })
+        .then((review) => {
+          assert.deepEqual(review, fakeReview);
+        });
+    });
+
+    it('throws an error if multple reviews are received', () => {
       mockApi
         .expects('callApi')
         .returns(Promise.resolve({
+          // In real life, the API should never return multiple reviews like this.
           results: [
             fakeReview,
-            latestReview,
+            { id: 456, ...fakeReview },
           ],
         }));
 
       return getLatestUserReview({ user: 123, addon: fakeReview.addon.id })
-        .then((review) => {
-          assert.deepEqual(review, latestReview);
+        .then(() => assert(false, 'unexpected success'), (error) => {
+          assert.match(error.message, /received multiple review objects/);
         });
     });
 

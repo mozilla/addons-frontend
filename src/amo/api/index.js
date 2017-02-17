@@ -69,13 +69,18 @@ export function getLatestUserReview({ user, addon } = {}) {
     if (!user || !addon) {
       throw new Error('Both user and addon must be specified');
     }
+    // The API will only return the latest user review.
     resolve(getReviews({ user, addon }));
   })
     .then((reviews) => {
-      const latest = reviews.filter((review) => review.is_latest);
-      if (latest.length === 0) {
+      if (reviews.length === 1) {
+        return reviews[0];
+      } else if (reviews.length === 0) {
         return null;
+      } else {
+        throw new Error(
+          'Unexpectedly received multiple review objects: ' +
+          JSON.stringify(reviews));
       }
-      return latest[0];
     });
 }
