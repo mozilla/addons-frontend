@@ -173,4 +173,6 @@ module.exports = {
   defaultClientApp: 'firefox',
 
   fxaConfig: null,
+
+  proxyEnabled: false,
 };

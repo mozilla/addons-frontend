@@ -26,7 +26,7 @@ export default (
     <Route path=":visibleAddonType/categories/" component={CategoryList} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={CategoryPage} />
-    <Route path="fxa-authenticate" component={HandleLogin} />
+    <Route path="/api/v3/accounts/authenticate/" component={HandleLogin} />
     <Route path="search/" component={SearchPage} />
     <Route path="401/"
       component={config.get('isDevelopment') ? NotAuthorized : NotFound} />

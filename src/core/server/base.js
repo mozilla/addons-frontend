@@ -322,12 +322,23 @@ export function runServer({
             if (err) {
               return reject(err);
             }
-            log.info(oneLine`🔥  Addons-frontend server is running [ENV:${env}]
-              [APP:${app}] [isDevelopment:${isDevelopment}
-              [isDeployed:${isDeployed}] [apiHost:${config.get('apiHost')}]
-              [apiPath:${config.get('apiPath')}]`);
-            log.info(
-              `👁  Open your browser at http://${host}:${port} to view it.`);
+            const proxyEnabled = convertBoolean(config.get('proxyEnabled'));
+            // Not using oneLine here since it seems to change '  ' to ' '.
+            log.info([
+              `🔥  Addons-frontend server is running [ENV:${env}] [APP:${app}]`,
+              `[isDevelopment:${isDevelopment}] [isDeployed:${isDeployed}]`,
+              `[apiHost:${config.get('apiHost')}] [apiPath:${config.get('apiPath')}]`,
+            ].join(' '));
+            if (proxyEnabled) {
+              const proxyPort = config.get('proxyPort');
+              log.info(
+                `🚦  Proxy detected, frontend running at http://${host}:${port}.`);
+              log.info(
+                `👁  Open your browser at http://localhost:${proxyPort} to view it.`);
+            } else {
+              log.info(
+                `👁  Open your browser at http://${host}:${port} to view it.`);
+            }
             return resolve(server);
           });
         } else {

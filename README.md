@@ -42,7 +42,8 @@ Generic scripts that don't need env vars. Use these for development:
 | Script                  | Description                                           |
 |-------------------------|-------------------------------------------------------|
 | npm run dev:admin       |  Starts the dev server (admin app)                    |
-| npm run dev:amo         |  Starts the dev server (amo)                          |
+| npm run dev:amo         |  Starts the dev server and proxy (amo)                |
+| npm run dev:amo:no-proxy|  Starts the dev server without proxy (amo)            |
 | npm run dev:disco       |  Starts the dev server (discovery pane)               |
 | npm run eslint          |  Lints the JS                                         |
 | npm run stylelint       |  Lints the SCSS                                       |
@@ -93,6 +94,24 @@ The continuous integration process will give you a link to view the report.
 To see this report while running tests locally, type:
 
     open ./coverage/index.html
+
+### Running AMO for local development
+
+A proxy server is provided for running the AMO app with the API on the same host as the frontend.
+This provides a setup that is closer to production than running the frontend on its own. The
+default configuration for this is to use a local addons-server for the API which can be setup
+according to the
+[addons-server docs](https://addons-server.readthedocs.io/en/latest/topics/install/index.html).
+Docker is the preferred method of running addons-server.
+
+Authentication will work when initiated from addons-frontend and will persist to addons-server but
+it will not work when logging in from an addons-server page. See
+[mozilla/addons-server#4684](https://github.com/mozilla/addons-server/issues/4684) for more
+information on fixing this.
+
+If you would like to use `https://addons-dev.allizom.org` for the API you should use the
+`npm run dev:amo:no-proxy` command with an `API_HOST` to start the server without the proxy. For
+example: `API_HOST=https://addons-dev.allizom.org npm run dev:amo:no-proxy`.
 
 ### Configuring for local development
 
