@@ -24,7 +24,7 @@ export function makeQueryString(query) {
   Object.keys(resolvedQuery).forEach((key) => {
     if (resolvedQuery[key] === undefined) {
       // Make sure we don't turn this into ?key= (empty string) because
-      // sending an empty string to the API somtimes triggers bugs.
+      // sending an empty string to the API sometimes triggers bugs.
       delete resolvedQuery[key];
     }
   });
