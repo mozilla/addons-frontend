@@ -28,12 +28,11 @@ export class SearchResultBase extends React.Component {
             <div className="SearchResult-rating">
               <Rating rating={addon.ratings.average} readOnly size="small" />
             </div>
-            <h3 className="SearchResult-author">{addon.authors[0].name}</h3>
-            <h3 className="SearchResult-users">{i18n.sprintf(
+            <h3 className="SearchResult-author-users">{addon.authors[0].name}
+            {i18n.sprintf(
               i18n.ngettext('%(total)s user', ' — %(total)s users', averageDailyUsers),
               { total: i18n.formatNumber(averageDailyUsers) },
-            )}
-            </h3>
+            )}</h3>
           </section>
         </Link>
       </li>
