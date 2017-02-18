@@ -32,7 +32,6 @@ describe('<SearchResult />', () => {
       { name: 'A funky déveloper' },
       { name: 'A groovy developer' },
     ],
-    
     average_daily_users: 5253,
     name: 'A search result',
     slug: 'a-search-result',
