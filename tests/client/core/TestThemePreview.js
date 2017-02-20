@@ -25,5 +25,21 @@ describe('Theme Preview Lib', () => {
     assert.ok(fakeEvent.initEvent.calledWith(THEME_PREVIEW, true, false), 'Should call initEvent');
     assert.ok(fakeNode.dispatchEvent.calledWith(fakeEvent), 'should call dispatchEvent');
   });
+
+  it('returns themeData from getThemeData', () => {
+    const themeData = {
+	id: 50,
+	name: 'my theme',
+	headerURL: 'foo.com',
+	footerURL: 'bar.com',
+	textcolor: '#fff',
+	accentcolor: '#000',
+	author: 'carmen',
+    };
+
+    assert.deepEqual(themeData, getThemeData(themeData));
+    // Make sure it doesn't accept extra keys
+    assert.deepEqual(themeData, getThemeData({ ...themeData, badKey: true }));
+  });
 });
 
