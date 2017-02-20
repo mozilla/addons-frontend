@@ -1,6 +1,5 @@
-import themeAction from 'core/themePreview';
+import themeAction, { getThemeData } from 'core/themePreview';
 import { THEME_PREVIEW } from 'core/constants';
-
 
 describe('Theme Preview Lib', () => {
   it('throws for invalid action', () => {
