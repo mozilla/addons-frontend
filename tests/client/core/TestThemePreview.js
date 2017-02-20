@@ -27,13 +27,13 @@ describe('Theme Preview Lib', () => {
 
   it('returns themeData from getThemeData', () => {
     const themeData = {
-	id: 50,
-	name: 'my theme',
-	headerURL: 'foo.com',
-	footerURL: 'bar.com',
-	textcolor: '#fff',
-	accentcolor: '#000',
-	author: 'carmen',
+      id: 50,
+      name: 'my theme',
+      headerURL: 'foo.com',
+      footerURL: 'bar.com',
+      textcolor: '#fff',
+      accentcolor: '#000',
+      author: 'carmen',
     };
 
     assert.deepEqual(themeData, getThemeData(themeData));
