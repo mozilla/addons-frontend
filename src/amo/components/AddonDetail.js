@@ -161,6 +161,10 @@ export class AddonDetailBase extends React.Component {
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
 
+    const descriptionSanitized = addon.description && addon.description.length ?
+      sanitizeHTML(nl2br(addon.description), allowedDescriptionTags) :
+      sanitizeHTML(nl2br(addon.summary), allowedDescriptionTags);
+
     const title = i18n.sprintf(
       // L10n: Example: The Add-On <span>by The Author</span>
       i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
@@ -204,9 +208,7 @@ export class AddonDetailBase extends React.Component {
         )} className="AddonDescription">
           <div className="AddonDescription-contents"
             ref={(ref) => { this.addonDescription = ref; }}
-            dangerouslySetInnerHTML={
-              sanitizeHTML(nl2br(addon.description), allowedDescriptionTags)
-            } />
+            dangerouslySetInnerHTML={descriptionSanitized} />
         </ShowMoreCard>
 
         {this.renderRatingsCard()}

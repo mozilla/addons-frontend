@@ -139,6 +139,23 @@ describe('AddonDetail', () => {
                    'About this extension');
   });
 
+  it('uses the summary as the description if no description exists', () => {
+    const addon = { ...fakeAddon };
+    delete addon.description;
+    const rootNode = renderAsDOMNode({ addon });
+    assert.equal(
+      rootNode.querySelector('.AddonDescription-contents').textContent,
+      addon.summary);
+  });
+
+  it('uses the summary as the description if no description exists', () => {
+    const addon = { ...fakeAddon, description: '' };
+    const rootNode = renderAsDOMNode({ addon });
+    assert.equal(
+      rootNode.querySelector('.AddonDescription-contents').textContent,
+      addon.summary);
+  });
+
   it('sanitizes bad description HTML', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
     const rootNode = renderAsDOMNode({
