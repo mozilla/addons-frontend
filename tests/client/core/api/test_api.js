@@ -187,14 +187,14 @@ describe('api', () => {
       assert.equal(query, '?some_flag=1');
     });
 
-    it('converts false into an integer', () => {
+    it('handles false values', () => {
       const query = api.makeQueryString({ some_flag: false });
-      assert.equal(query, '?some_flag=0');
+      assert.equal(query, '?some_flag=false');
     });
 
-    it('converts true into an integer', () => {
+    it('handles true values', () => {
       const query = api.makeQueryString({ some_flag: true });
-      assert.equal(query, '?some_flag=1');
+      assert.equal(query, '?some_flag=true');
     });
   });
 
