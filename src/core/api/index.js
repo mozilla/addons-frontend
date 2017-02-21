@@ -22,10 +22,14 @@ export const user = new Entity('users', {}, { idAttribute: 'username' });
 export function makeQueryString(query) {
   const resolvedQuery = { ...query };
   Object.keys(resolvedQuery).forEach((key) => {
-    if (resolvedQuery[key] === undefined) {
+    const value = resolvedQuery[key];
+    if (value === undefined || value === null || value === '') {
       // Make sure we don't turn this into ?key= (empty string) because
       // sending an empty string to the API sometimes triggers bugs.
       delete resolvedQuery[key];
+    } else if (value === false || value === true) {
+      log.warn(`Converting query string param ${key} from boolean to int`);
+      resolvedQuery[key] = value ? 1 : 0;
     }
   });
   return url.format({ query: resolvedQuery });

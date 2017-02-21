@@ -162,9 +162,39 @@ describe('api', () => {
       assert.include(query, 'addon=321');
     });
 
-    it('handles undefined query keys', () => {
+    it('ignores undefined query string values', () => {
       const query = api.makeQueryString({ user: undefined, addon: 321 });
       assert.equal(query, '?addon=321');
+    });
+
+    it('ignores null query string values', () => {
+      const query = api.makeQueryString({ user: null, addon: 321 });
+      assert.equal(query, '?addon=321');
+    });
+
+    it('ignores empty string query string values', () => {
+      const query = api.makeQueryString({ user: '', addon: 321 });
+      assert.equal(query, '?addon=321');
+    });
+
+    it('handles falsey integers', () => {
+      const query = api.makeQueryString({ some_flag: 0 });
+      assert.equal(query, '?some_flag=0');
+    });
+
+    it('handles truthy integers', () => {
+      const query = api.makeQueryString({ some_flag: 1 });
+      assert.equal(query, '?some_flag=1');
+    });
+
+    it('converts false into an integer', () => {
+      const query = api.makeQueryString({ some_flag: false });
+      assert.equal(query, '?some_flag=0');
+    });
+
+    it('converts true into an integer', () => {
+      const query = api.makeQueryString({ some_flag: true });
+      assert.equal(query, '?some_flag=1');
     });
   });
 
