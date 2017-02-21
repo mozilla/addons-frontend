@@ -319,10 +319,11 @@ describe('loadAddonIfNeeded', () => {
     };
   }
 
-  it('returns the add-on if loaded', () => {
+  it('does not re-fetch the add-on if already loaded', () => {
     return loadAddonIfNeeded(makeProps(loadedSlug))
-      .then((returnedAddon) => {
-        assert.strictEqual(returnedAddon, loadedAddon);
+      .then(() => {
+        assert.equal(dispatch.called, false,
+          'loadAddonIfNeeded() dispatched an add-on unexpectedly');
       });
   });
 

@@ -98,8 +98,9 @@ export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
 // asyncConnect() helper for loading an add-on by slug.
 //
 // This accepts component properties and returns a promise
-// that resolves when the requested add-on has been dispatched.
-// If the add-on has already been fetched, the add-on value is returned.
+// that resolves when the requested add-on exists in state.
+//
+// If the add-on does not exist in state, it is fetched first.
 //
 export function loadAddonIfNeeded(
   { store: { dispatch, getState }, params: { slug } },
@@ -109,12 +110,10 @@ export function loadAddonIfNeeded(
   const addon = findAddon(state, slug);
   if (addon) {
     log.info(`Found add-on ${slug}, ${addon.id} in state`);
-    // TODO: maybe don't return an addon?
-    return Promise.resolve(addon);
+    return Promise.resolve();
   }
   log.info(`Add-on ${slug} not found in state; fetching from API`);
-  // This loads the add-on into state. The return value is not always
-  // used; check each caller.
+  // This loads the add-on into state.
   return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
 }
 
