@@ -24,7 +24,7 @@ import { denormalizeAddon } from 'core/reducers/addons';
 import I18nProvider from 'core/i18n/Provider';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, unexpectedSuccess } from 'tests/client/helpers';
 
 function getLoadedReviews({
   addonSlug = fakeAddon.slug, reviews = [fakeReview] } = {},
@@ -278,7 +278,7 @@ describe('amo/components/AddonReviewList', () => {
     it('requires a slug param', () => {
       const store = createStore();
       return loadInitialData({ store, params: { addonSlug: null } })
-        .then(() => assert(false, 'Unexpected success'), (error) => {
+        .then(unexpectedSuccess, (error) => {
           assert.match(error.message, /missing URL param addonSlug/);
         });
     });

@@ -164,7 +164,7 @@ describe('amo.api', () => {
         .returns(Promise.resolve({ results: [fakeReview] }));
 
       return getReviews()
-        .then(() => assert(false, 'Unexpected success'), (error) => {
+        .then(unexpectedSuccess, (error) => {
           assert.match(error.message, /user or addon must be specified/);
         });
     });
@@ -216,7 +216,7 @@ describe('amo.api', () => {
         .returns(Promise.resolve({ results: [] }));
 
       return getLatestUserReview()
-        .then(() => assert(false, 'Unexpected success'), (error) => {
+        .then(unexpectedSuccess, (error) => {
           assert.match(error.message, /user and addon must be specified/);
         });
     });
