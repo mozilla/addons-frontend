@@ -50,9 +50,7 @@ export function getReviews({ user, addon, ...params } = {}) {
     }
     resolve(callApi({
       endpoint: 'reviews/review',
-      params: {
-        user, addon, ...params,
-      },
+      params: { user, addon, ...params },
     }));
   })
     .then((response) => {
@@ -78,8 +76,7 @@ export function getLatestUserReview({ user, addon } = {}) {
       } else if (reviews.length === 0) {
         return null;
       }
-      throw new Error(
-        'Unexpectedly received multiple review objects: ' +
-        `${JSON.stringify(reviews)}`);
+      throw new Error(dedent`Unexpectedly received multiple review objects:
+        ${JSON.stringify(reviews)}`);
     });
 }
