@@ -5,6 +5,7 @@ import {
   submitReview,
 } from 'amo/api';
 import * as api from 'core/api';
+import { unexpectedSuccess } from 'tests/client/helpers';
 import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 
 describe('amo.api', () => {
@@ -37,7 +38,7 @@ describe('amo.api', () => {
       };
 
       return submitReview(params)
-        .then(() => assert(false, 'unexpected success'), (error) => {
+        .then(unexpectedSuccess, (error) => {
           assert.match(error.message, /addonId is required/);
         });
     });
@@ -193,7 +194,7 @@ describe('amo.api', () => {
         }));
 
       return getLatestUserReview({ user: 123, addon: fakeReview.addon.id })
-        .then(() => assert(false, 'unexpected success'), (error) => {
+        .then(unexpectedSuccess, (error) => {
           assert.match(error.message, /received multiple review objects/);
         });
     });

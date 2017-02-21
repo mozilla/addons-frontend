@@ -95,7 +95,7 @@ describe('AddonReview', () => {
         });
 
         assert.ok(onReviewSubmitted.called,
-                  'onReviewSubmitted() should have been called after updating');
+          'onReviewSubmitted() should have been called after updating');
       });
   });
 

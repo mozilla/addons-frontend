@@ -158,23 +158,23 @@ describe('RatingManager', () => {
     const root = render({ AddonReview: FakeAddonReview, userReview });
 
     assert.equal(FakeAddonReview.called, false,
-                 'expected AddonReview to initially not be visible');
+      'expected AddonReview to initially not be visible');
 
     return root.onSelectRating(5)
       .then(() => {
         assert.ok(FakeAddonReview.called,
-                  'expected AddonReview to be visible after submiting a rating');
+          'expected AddonReview to be visible after submiting a rating');
 
         const props = FakeAddonReview.firstCall.args[0];
         assert.deepEqual(props.review, userReview);
 
         // Now make sure the callback is configured.
         assert.equal(root.state.showTextEntry, true,
-                     'expected state to indicate that AddonReview is visible');
+          'expected state to indicate that AddonReview is visible');
         // Trigger the callback just like AddonReview would after completion.
         props.onReviewSubmitted();
         assert.equal(root.state.showTextEntry, false,
-                     'expected state to indicate that AddonReview is hidden');
+          'expected state to indicate that AddonReview is hidden');
       });
   });
 

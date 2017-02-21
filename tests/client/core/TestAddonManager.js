@@ -156,8 +156,7 @@ describe('addonManager', () => {
     it('requires a src', () => (
       addonManager.install(
         fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
-          .then(
-            () => assert.ok(false, 'unexpected success'),
+          .then(unexpectedSuccess,
             (e) => assert.equal(e.message, 'No src for add-on install'))
     ));
   });

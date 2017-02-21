@@ -100,8 +100,7 @@ describe('api', () => {
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource' })
-        .then(unexpectedSuccess)
-        .catch((err) => {
+        .then(unexpectedSuccess, (err) => {
           assert.equal(err.message,
             'pretend this was a response with invalid JSON');
         });
@@ -130,9 +129,7 @@ describe('api', () => {
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource', errorHandler })
-        .then(() => {
-          assert(false, 'unexpected success');
-        }, () => {
+        .then(unexpectedSuccess, () => {
           assert.ok(errorHandler.handle.called);
           const args = errorHandler.handle.firstCall.args;
           assert.equal(args[0].message, 'this could be any error');
