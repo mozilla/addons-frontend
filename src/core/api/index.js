@@ -20,7 +20,16 @@ export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 export const user = new Entity('users', {}, { idAttribute: 'username' });
 
 export function makeQueryString(query) {
-  return url.format({ query });
+  const resolvedQuery = { ...query };
+  Object.keys(resolvedQuery).forEach((key) => {
+    const value = resolvedQuery[key];
+    if (value === undefined || value === null || value === '') {
+      // Make sure we don't turn this into ?key= (empty string) because
+      // sending an empty string to the API sometimes triggers bugs.
+      delete resolvedQuery[key];
+    }
+  });
+  return url.format({ query: resolvedQuery });
 }
 
 export function createApiError({ apiURL, response, jsonResponse }) {

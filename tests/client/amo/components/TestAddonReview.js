@@ -18,7 +18,7 @@ import { fakeAddon, fakeReview, signedInApiState } from 'tests/client/amo/helper
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 const defaultReview = {
-  id: 3321, addonSlug: fakeAddon.slug, rating: 5,
+  id: 3321, addonId: fakeAddon.id, addonSlug: fakeAddon.slug, rating: 5,
 };
 
 function render({ ...customProps } = {}) {
@@ -29,6 +29,7 @@ function render({ ...customProps } = {}) {
     }),
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
+    onReviewSubmitted: () => {},
     refreshAddon: () => Promise.resolve(),
     review: defaultReview,
     setDenormalizedReview: () => {},
@@ -45,6 +46,7 @@ function render({ ...customProps } = {}) {
 
 describe('AddonReview', () => {
   it('can update a review', () => {
+    const onReviewSubmitted = sinon.spy(() => {});
     const setDenormalizedReview = sinon.spy(() => {});
     const refreshAddon = sinon.spy(() => Promise.resolve());
     const updateReviewText = sinon.spy(() => Promise.resolve());
@@ -53,7 +55,11 @@ describe('AddonReview', () => {
       dispatch: sinon.stub(),
     });
     const root = render({
-      setDenormalizedReview, refreshAddon, updateReviewText, errorHandler,
+      onReviewSubmitted,
+      setDenormalizedReview,
+      refreshAddon,
+      updateReviewText,
+      errorHandler,
     });
     const event = {
       preventDefault: sinon.stub(),
@@ -64,11 +70,7 @@ describe('AddonReview', () => {
     textarea.value = 'some review';
     Simulate.input(textarea);
 
-    const overlayCard = {
-      hide: sinon.stub(),
-    };
-
-    return root.onSubmit(event, { overlayCard })
+    return root.onSubmit(event)
       .then(() => {
         assert.ok(event.preventDefault.called);
 
@@ -81,7 +83,7 @@ describe('AddonReview', () => {
         assert.ok(updateReviewText.called);
         const params = updateReviewText.firstCall.args[0];
         assert.equal(params.body, 'some review');
-        assert.equal(params.addonSlug, defaultReview.addonSlug);
+        assert.equal(params.addonId, defaultReview.addonId);
         assert.equal(params.errorHandler, errorHandler);
         assert.equal(params.reviewId, defaultReview.id);
         assert.equal(params.apiState, signedInApiState);
@@ -92,8 +94,8 @@ describe('AddonReview', () => {
           apiState: signedInApiState,
         });
 
-        // Make sure the overlay was hidden after finishing.
-        assert.ok(overlayCard.hide.called);
+        assert.ok(onReviewSubmitted.called,
+          'onReviewSubmitted() should have been called after updating');
       });
   });
 

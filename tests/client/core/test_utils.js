@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import url from 'url';
 
 import config from 'config';
@@ -318,8 +319,12 @@ describe('loadAddonIfNeeded', () => {
     };
   }
 
-  it('returns the add-on if loaded', () => {
-    assert.strictEqual(loadAddonIfNeeded(makeProps(loadedSlug)), loadedAddon);
+  it('does not re-fetch the add-on if already loaded', () => {
+    return loadAddonIfNeeded(makeProps(loadedSlug))
+      .then(() => {
+        assert.equal(dispatch.called, false,
+          'loadAddonIfNeeded() dispatched an add-on unexpectedly');
+      });
   });
 
   it('loads the add-on if it is not loaded', () => {
