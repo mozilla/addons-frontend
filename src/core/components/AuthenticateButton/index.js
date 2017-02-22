@@ -19,10 +19,20 @@ export class AuthenticateButtonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
+    noIcon: PropTypes.boolean,
+    text: PropTypes.string,
   }
 
-  onClick = () => {
-    const { api, handleLogIn, handleLogOut, isAuthenticated, location } = this.props;
+  static defaultProps = {
+    noIcon: false,
+  }
+
+  onClick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const {
+      api, handleLogIn, handleLogOut, isAuthenticated, location,
+    } = this.props;
     if (isAuthenticated) {
       handleLogOut({ api });
     } else {
@@ -31,13 +41,14 @@ export class AuthenticateButtonBase extends React.Component {
   }
 
   render() {
-    const { i18n, isAuthenticated, ...otherProps } = this.props;
-    const text = isAuthenticated ? i18n.gettext('Log out') : i18n.gettext('Log in/Sign up');
+    const { i18n, isAuthenticated, noIcon, text, ...otherProps } = this.props;
+    const buttonText = text || (
+      isAuthenticated ? i18n.gettext('Log out') : i18n.gettext('Log in/Sign up')
+    );
     return (
       <Button onClick={this.onClick} {...otherProps}>
-        {/* TODO: Allow the caller to decide on the icon or move the content to children. */}
-        <Icon name="user-dark" />
-        {text}
+        {noIcon ? null : <Icon name="user-dark" />}
+        {buttonText}
       </Button>
     );
   }

@@ -6,6 +6,7 @@ import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
@@ -95,9 +96,11 @@ export class RatingManagerBase extends React.Component {
       logInToRate = (
         // TODO: change this for themes.
         <div className="RatingManager-log-in-to-rate">
-          <Button className="RatingManager-log-in-to-rate-button">
-            {i18n.gettext('Log in to rate this extension')}
-          </Button>
+          <AuthenticateButton
+            noIcon
+            className="RatingManager-log-in-to-rate-button"
+            text={i18n.gettext('Log in to rate this extension')}
+          />
         </div>
       );
     }
