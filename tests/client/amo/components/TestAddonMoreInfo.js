@@ -98,6 +98,6 @@ describe('<AddonMoreInfo />', () => {
     // TODO: Change this to an internal `<Link>` tag and use `assert.equal`
     // once https://github.com/mozilla/addons-frontend/issues/1828 is fixed.
     assert.include(root.privacyPolicyLink.href,
-      '/addons/addon/chill-out/privacy/');
+      '/addon/chill-out/privacy/');
   });
 });
