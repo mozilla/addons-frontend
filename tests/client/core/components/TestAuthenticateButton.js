@@ -29,6 +29,16 @@ describe('<AuthenticateButton />', () => {
     assert.ok(root.classList.contains('MyComponent-auth-button'));
   });
 
+  it('lets you customize the log in text', () => {
+    const root = render({ isAuthenticated: false, logInText: 'Maybe log in?' });
+    assert.equal(root.textContent, 'Maybe log in?');
+  });
+
+  it('lets you customize the log out text', () => {
+    const root = render({ isAuthenticated: true, logOutText: 'Maybe log out?' });
+    assert.equal(root.textContent, 'Maybe log out?');
+  });
+
   it('shows a log in button when unauthenticated', () => {
     const handleLogIn = sinon.spy();
     const location = sinon.stub();

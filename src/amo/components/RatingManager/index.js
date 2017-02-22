@@ -95,7 +95,7 @@ export class RatingManagerBase extends React.Component {
         <AuthenticateButton
           noIcon
           className="RatingManager-log-in-to-rate-button"
-          text={authPrompt}
+          logInText={authPrompt}
         />
       </div>
     );

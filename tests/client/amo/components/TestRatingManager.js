@@ -86,7 +86,7 @@ describe('RatingManager', () => {
       addon: { ...fakeAddon, type: ADDON_TYPE_EXTENSION },
     });
     const props = AuthenticateButton.firstCall.args[0];
-    assert.include(props.text, 'extension');
+    assert.include(props.logInText, 'extension');
   });
 
   it('renders a login message for the theme when userId is empty', () => {
@@ -97,7 +97,7 @@ describe('RatingManager', () => {
       addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
     });
     const props = AuthenticateButton.firstCall.args[0];
-    assert.include(props.text, 'theme');
+    assert.include(props.logInText, 'theme');
   });
 
   it('cannot render a login message for unknown extension types', () => {

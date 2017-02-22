@@ -19,8 +19,9 @@ export class AuthenticateButtonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
+    logInText: PropTypes.string,
+    logOutText: PropTypes.string,
     noIcon: PropTypes.boolean,
-    text: PropTypes.string,
   }
 
   static defaultProps = {
@@ -41,10 +42,12 @@ export class AuthenticateButtonBase extends React.Component {
   }
 
   render() {
-    const { i18n, isAuthenticated, noIcon, text, ...otherProps } = this.props;
-    const buttonText = text || (
-      isAuthenticated ? i18n.gettext('Log out') : i18n.gettext('Log in/Sign up')
-    );
+    const {
+      i18n, isAuthenticated, logInText, logOutText, noIcon, ...otherProps
+    } = this.props;
+    const buttonText = isAuthenticated ?
+      logOutText || i18n.gettext('Log out') :
+      logInText || i18n.gettext('Log in/Sign up');
     return (
       <Button onClick={this.onClick} {...otherProps}>
         {noIcon ? null : <Icon name="user-dark" />}
