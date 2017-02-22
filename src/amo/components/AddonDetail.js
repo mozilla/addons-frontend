@@ -41,6 +41,7 @@ export class AddonDetailBase extends React.Component {
     addon: PropTypes.object.isRequired,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
     previewTheme: PropTypes.func.isRequired,
     resetPreviewTheme: PropTypes.func.isRequired,
   }
@@ -115,7 +116,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   renderRatingsCard() {
-    const { RatingManager, addon, i18n } = this.props;
+    const { RatingManager, addon, i18n, location } = this.props;
     let content;
     let footerPropName;
 
@@ -149,6 +150,7 @@ export class AddonDetailBase extends React.Component {
         {...props}>
         <RatingManager
           addon={addon}
+          location={location}
           version={addon.current_version}
         />
       </Card>

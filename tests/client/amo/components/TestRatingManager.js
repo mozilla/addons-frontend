@@ -26,6 +26,7 @@ function render(customProps = {}) {
     addon: fakeAddon,
     apiState: signedInApiState,
     errorHandler: sinon.stub(),
+    location: { pathname: '/some/location/' },
     version: fakeAddon.current_version,
     userId: 91234,
     submitReview: () => Promise.resolve(),
@@ -74,8 +75,12 @@ describe('RatingManager', () => {
 
   it('renders an AuthenticateButton when userId is empty', () => {
     const AuthenticateButton = sinon.spy(() => <div />);
-    render({ userId: null, AuthenticateButton });
+    const location = { pathname: '/some/path/' };
+    render({ userId: null, AuthenticateButton, location });
+
     assert.ok(AuthenticateButton.called, 'AuthenticateButton was not rendered');
+    const props = AuthenticateButton.firstCall.args[0];
+    assert.deepEqual(props.location, location);
   });
 
   it('renders a login message for the extension when userId is empty', () => {

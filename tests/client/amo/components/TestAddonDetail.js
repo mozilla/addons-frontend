@@ -32,6 +32,7 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
     addon,
     ...addon,
     i18n,
+    location: { pathname: '/addon/detail/' },
     // Configure AddonDetail with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
@@ -197,9 +198,11 @@ describe('AddonDetail', () => {
   });
 
   it('configures the overall ratings section', () => {
-    const root = findRenderedComponentWithType(render(),
+    const location = { pathname: '/en-US/firefox/addon/some-slug/' };
+    const root = findRenderedComponentWithType(render({ location }),
                                                RatingManagerWithI18n);
     assert.deepEqual(root.props.addon, fakeAddon);
+    assert.deepEqual(root.props.location, location);
   });
 
   it('renders a summary', () => {

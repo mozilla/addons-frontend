@@ -24,6 +24,7 @@ export class RatingManagerBase extends React.Component {
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired,
     Rating: PropTypes.node,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
@@ -81,7 +82,7 @@ export class RatingManagerBase extends React.Component {
   }
 
   renderLogInToRate() {
-    const { AuthenticateButton, i18n, addon } = this.props;
+    const { AuthenticateButton, addon, i18n, location } = this.props;
     let authPrompt;
     if (addon.type === ADDON_TYPE_EXTENSION) {
       authPrompt = i18n.gettext('Log in to rate this extension');
@@ -95,6 +96,7 @@ export class RatingManagerBase extends React.Component {
         <AuthenticateButton
           noIcon
           className="RatingManager-log-in-to-rate-button"
+          location={location}
           logInText={authPrompt}
         />
       </div>
