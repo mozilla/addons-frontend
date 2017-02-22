@@ -2,4 +2,9 @@
 
 .SearchResults {
   margin: $padding-page;
+
+  .LoadingIndicator-container {
+    margin: 10px auto;
+    text-align: center;
+  }
 }
