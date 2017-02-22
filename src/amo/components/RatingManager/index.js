@@ -8,7 +8,10 @@ import { getLatestUserReview, submitReview } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import Button from 'ui/components/Button';
 import DefaultRating from 'ui/components/Rating';
+
+import './styles.scss';
 
 
 export class RatingManagerBase extends React.Component {
@@ -75,11 +78,9 @@ export class RatingManagerBase extends React.Component {
   }
 
   render() {
-    const { AddonReview, Rating, i18n, addon, userReview } = this.props;
+    const { AddonReview, Rating, i18n, addon, userId, userReview } = this.props;
     const { showTextEntry } = this.state;
-
-    // TODO: Disable rating ability when not logged in
-    // (when props.userId is empty)
+    const isLoggedIn = Boolean(userId);
 
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
@@ -88,6 +89,18 @@ export class RatingManagerBase extends React.Component {
     const onReviewSubmitted = () => {
       this.setState({ showTextEntry: false });
     };
+
+    let logInToRate;
+    if (!isLoggedIn) {
+      logInToRate = (
+        // TODO: change this for themes.
+        <div className="RatingManager-log-in-to-rate">
+          <Button className="RatingManager-log-in-to-rate-button">
+            {i18n.gettext('Log in to rate this extension')}
+          </Button>
+        </div>
+      );
+    }
 
     return (
       <div className="RatingManager">
@@ -102,7 +115,9 @@ export class RatingManagerBase extends React.Component {
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
               {prompt}
             </legend>
+            {logInToRate}
             <Rating
+              readOnly={!isLoggedIn}
               onSelectRating={this.onSelectRating}
               rating={userReview ? userReview.rating : undefined}
             />
