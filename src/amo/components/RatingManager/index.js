@@ -6,10 +6,10 @@ import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
-import AuthenticateButton from 'core/components/AuthenticateButton';
+import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import Button from 'ui/components/Button';
 import DefaultRating from 'ui/components/Rating';
 
 import './styles.scss';
@@ -18,6 +18,7 @@ import './styles.scss';
 export class RatingManagerBase extends React.Component {
   static propTypes = {
     AddonReview: PropTypes.node,
+    AuthenticateButton: PropTypes.node,
     addon: PropTypes.object.isRequired,
     errorHandler: PropTypes.func.isRequired,
     apiState: PropTypes.object,
@@ -32,6 +33,7 @@ export class RatingManagerBase extends React.Component {
 
   static defaultProps = {
     AddonReview: DefaultAddonReview,
+    AuthenticateButton: DefaultAuthenticateButton,
     Rating: DefaultRating,
   }
 
@@ -78,6 +80,27 @@ export class RatingManagerBase extends React.Component {
       });
   }
 
+  renderLogInToRate() {
+    const { AuthenticateButton, i18n, addon } = this.props;
+    let authPrompt;
+    if (addon.type === ADDON_TYPE_EXTENSION) {
+      authPrompt = i18n.gettext('Log in to rate this extension');
+    } else if (addon.type === ADDON_TYPE_THEME) {
+      authPrompt = i18n.gettext('Log in to rate this theme');
+    } else {
+      throw new Error(`Unknown extension type: ${addon.type}`);
+    }
+    return (
+      <div className="RatingManager-log-in-to-rate">
+        <AuthenticateButton
+          noIcon
+          className="RatingManager-log-in-to-rate-button"
+          text={authPrompt}
+        />
+      </div>
+    );
+  }
+
   render() {
     const { AddonReview, Rating, i18n, addon, userId, userReview } = this.props;
     const { showTextEntry } = this.state;
@@ -90,20 +113,6 @@ export class RatingManagerBase extends React.Component {
     const onReviewSubmitted = () => {
       this.setState({ showTextEntry: false });
     };
-
-    let logInToRate;
-    if (!isLoggedIn) {
-      logInToRate = (
-        // TODO: change this for themes.
-        <div className="RatingManager-log-in-to-rate">
-          <AuthenticateButton
-            noIcon
-            className="RatingManager-log-in-to-rate-button"
-            text={i18n.gettext('Log in to rate this extension')}
-          />
-        </div>
-      );
-    }
 
     return (
       <div className="RatingManager">
@@ -118,7 +127,7 @@ export class RatingManagerBase extends React.Component {
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
               {prompt}
             </legend>
-            {logInToRate}
+            {!isLoggedIn ? this.renderLogInToRate() : null}
             <Rating
               readOnly={!isLoggedIn}
               onSelectRating={this.onSelectRating}
