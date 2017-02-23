@@ -92,7 +92,10 @@ describe('<SearchForm />', () => {
     assert(!router.push.called);
     input.value = '& 26 %';
     Simulate.click(root.submitButton);
-    assert(router.push.calledWith('/de/firefox/search/?q=%26%2026%20%25'));
+    assert(router.push.calledWith({
+      pathname: '/de/firefox/search/',
+      query: { q: '& 26 %' },
+    }));
   });
 });
 
