@@ -1,241 +1,541 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-11-10 09:55+0000\n"
+"POT-Creation-Date: 2017-02-23 09:28+0000\n"
 "PO-Revision-Date: 2016-11-11 11:10+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:49
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)s，作者 %(authorList)s%(endSpan)s"
+#: src/amo/components/AddonDetail.js:125
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] ""
 
-#: src/amo/components/AddonDetail.js:74
-msgid "Extension Metadata"
-msgstr "扩展元数据"
+#: src/amo/components/AddonDetail.js:138
+msgid "No reviews yet"
+msgstr ""
 
-#: src/amo/components/AddonDetail.js:81
-msgid "Screenshots"
-msgstr "屏幕截图"
-
-#: src/amo/components/AddonDetail.js:88
-msgid "About this extension"
-msgstr "关于此扩展"
-
-#: src/amo/components/AddonDetail.js:96
+#: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
 msgstr "为您的体验打分"
 
-#: src/amo/components/AddonMeta.js:19
-msgid "Category"
-msgstr "分类"
+#: src/amo/components/AddonDetail.js:170
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)s，作者 %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonMeta.js:24
+#: src/amo/components/AddonDetail.js:193
+msgid "Extension Metadata"
+msgstr "扩展元数据"
+
+#: src/amo/components/AddonDetail.js:207
+msgid "About this %(addonType)s"
+msgstr ""
+
+#: src/amo/components/AddonDetail.js:82
+#, fuzzy
+msgid "Press to preview"
+msgstr "撰写评价"
+
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
+#, fuzzy
+msgid "%(total)s user"
+msgid_plural "%(total)s users"
+msgstr[0] "%(users)s 个用户"
+
+#: src/amo/components/AddonMeta.js:28
+#, fuzzy
+msgid "%(averageRating)s out of 5"
+msgstr "平均评分：%(rating)s / 5"
+
+#: src/amo/components/AddonMeta.js:32
+msgid "Not yet rated"
+msgstr ""
+
+#: src/amo/components/AddonMeta.js:37
+#, fuzzy
+msgid "%(total)s rating"
+msgid_plural "%(total)s ratings"
+msgstr[0] "无评价"
+
+#: src/amo/components/AddonMeta.js:45
 msgid "Used by"
 msgstr "用户："
 
-#: src/amo/components/AddonMeta.js:29
-msgid "Sentiment"
-msgstr "感受"
+#: src/amo/components/AddonMoreInfo.js:25
+msgid "More information"
+msgstr ""
 
-#: src/amo/components/AddonReview.js:109
-msgid "Back"
-msgstr "返回"
+#: src/amo/components/AddonMoreInfo.js:27
+msgid "Website"
+msgstr ""
 
-#: src/amo/components/AddonReview.js:113
-msgid "Submit"
-msgstr "提交"
+#: src/amo/components/AddonMoreInfo.js:36
+msgid "Version"
+msgstr ""
 
-#: src/amo/components/AddonReview.js:41
-msgid "Please enter some text"
-msgstr "请输入文字内容"
+#: src/amo/components/AddonMoreInfo.js:40
+msgid "Last updated"
+msgstr ""
 
-#: src/amo/components/AddonReview.js:90
+#: src/amo/components/AddonMoreInfo.js:45
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:53
+msgid "License"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:64
+#, fuzzy
+msgid "Privacy Policy"
+msgstr "隐私政策"
+
+#: src/amo/components/AddonMoreInfo.js:70
+msgid "Read the privacy policy for this add-on"
+msgstr ""
+
+#: src/amo/components/AddonReview.js:104
 msgid "Write a review"
 msgstr "撰写评价"
 
-#: src/amo/components/AddonReview.js:92
+#: src/amo/components/AddonReview.js:110
+msgid "Review text"
+msgstr ""
+
+#: src/amo/components/AddonReview.js:124
+#, fuzzy
+msgid "Submit review"
+msgstr "撰写评价"
+
+#: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "告诉这世界为什么您觉得这个附加组件很棒！"
 
-#: src/amo/components/Footer.js:27
+#: src/amo/components/AddonReview.js:91
+msgid "Tell us what you love about this extension. Be specific and concise."
+msgstr ""
+
+#: src/amo/components/AddonReview.js:95
+#, fuzzy
+msgid "Tell the world about this extension."
+msgstr "告诉这世界为什么您觉得这个附加组件很棒！"
+
+#: src/amo/components/AddonReviewList.js:39
+msgid "from %(authorName)s, %(timestamp)s"
+msgstr ""
+
+#: src/amo/components/AddonReviewList.js:53
+#: src/amo/components/Categories.js:26
+#, fuzzy
+msgid "Loading..."
+msgstr "正在搜索..."
+
+#: src/amo/components/AddonReviewList.js:63
+#, fuzzy
+msgid "Add-on icon"
+msgstr "Firefox 附加组件"
+
+#: src/amo/components/AddonReviewList.js:68
+msgid "Reviews for %(addonName)s"
+msgstr ""
+
+#: src/amo/components/AddonReviewList.js:71
+#, fuzzy
+msgid "All written reviews"
+msgstr "撰写评价"
+
+#: src/amo/components/Categories.js:34
+msgid "Failed to load categories."
+msgstr ""
+
+#: src/amo/components/Categories.js:42
+msgid "No categories found."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
+msgid "Not Authorized"
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
+msgid "Page not found"
+msgstr ""
+
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
+msgid "Server Error"
+msgstr ""
+
+#: src/amo/components/FeaturedAddons/index.js:32
+#, fuzzy
+msgid "More Featured Extensions"
+msgstr "浏览所有扩展"
+
+#: src/amo/components/FeaturedAddons/index.js:34
+msgid "More Featured Themes"
+msgstr ""
+
+#: src/amo/components/Footer.js:30
 msgid "Privacy policy"
 msgstr "隐私政策"
 
-#: src/amo/components/Footer.js:33
+#: src/amo/components/Footer.js:36
 msgid "Legal notices"
 msgstr "法律声明"
 
-#: src/amo/components/Footer.js:39
+#: src/amo/components/Footer.js:43
 msgid "View desktop site"
 msgstr "查看桌面版网站"
 
-#: src/amo/components/LanguagePicker.js:20
+#: src/amo/components/LandingPage.js:49
+#, fuzzy
+msgid "Featured extensions"
+msgstr "浏览所有扩展"
+
+#: src/amo/components/LandingPage.js:54
+#, fuzzy
+msgid "More featured extensions"
+msgstr "浏览所有扩展"
+
+#: src/amo/components/LandingPage.js:55
+#, fuzzy
+msgid "Most popular extensions"
+msgstr "浏览所有扩展"
+
+#: src/amo/components/LandingPage.js:60
+#, fuzzy
+msgid "More popular extensions"
+msgstr "浏览所有扩展"
+
+#: src/amo/components/LandingPage.js:61
+#, fuzzy
+msgid "Top rated extensions"
+msgstr "浏览所有扩展"
+
+#: src/amo/components/LandingPage.js:66
+#, fuzzy
+msgid "More highly rated extensions"
+msgstr "浏览所有扩展"
+
+#: src/amo/components/LandingPage.js:69
+msgid "Featured themes"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:74
+msgid "More featured themes"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:75
+#, fuzzy
+msgid "Most popular themes"
+msgstr "浏览所有主题"
+
+#: src/amo/components/LandingPage.js:80
+#, fuzzy
+msgid "More popular themes"
+msgstr "浏览所有主题"
+
+#: src/amo/components/LandingPage.js:81
+#, fuzzy
+msgid "Top rated themes"
+msgstr "浏览所有主题"
+
+#: src/amo/components/LandingPage.js:86
+msgid "More highly rated themes"
+msgstr ""
+
+#: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
 msgstr "切换界面语言"
 
-#: src/amo/components/MastHead.js:29
+#: src/amo/components/MastHead.js:30
 msgid "Firefox Add-ons"
 msgstr "Firefox 附加组件"
 
-#: src/amo/components/OverallRating.js:45
+#: src/amo/components/RatingManager/index.js:85
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "使用 %(addonName)s 的感觉如何？"
 
-#: src/amo/components/ScreenShots.js:28
-msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr "屏幕截图 %(imageNumber)s / %(totalImages)s"
+#: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
+#, fuzzy
+msgid "Search"
+msgstr "正在搜索..."
 
-#: src/amo/components/SearchResult.js:23
-msgid "Average rating: %(rating)s out of 5"
-msgstr "平均评分：%(rating)s / 5"
+#: src/amo/components/SearchForm.js:49
+msgid "Search extensions and themes"
+msgstr ""
 
-#: src/amo/components/SearchResult.js:29
-msgid "No ratings"
-msgstr "无评价"
-
-#: src/amo/components/SearchResult.js:43
-msgid "%(users)s user"
-msgid_plural "%(users)s users"
-msgstr[0] "%(users)s 个用户"
-
-#: src/amo/containers/App.js:39
-msgid "Log out"
-msgstr "退出登录"
-
-#: src/amo/containers/App.js:39
-msgid "Log in/Sign up"
-msgstr "登录/注册"
-
-#: src/amo/containers/App.js:51
-msgid "Add-ons for Firefox"
-msgstr "Firefox 附加组件"
-
-#: src/amo/containers/Home.js:18
-msgid "What do you want Firefox to do?"
-msgstr "您想用 Firefox 做什么？"
-
-#: src/amo/containers/Home.js:20
-msgid "Block ads"
-msgstr "过滤广告"
-
-#: src/amo/containers/Home.js:21
-msgid "Screenshot"
-msgstr "屏幕截图"
-
-#: src/amo/containers/Home.js:22
-msgid "Save stuff"
-msgstr "保存内容"
-
-#: src/amo/containers/Home.js:23
-msgid "Shop online"
-msgstr "网上购物"
-
-#: src/amo/containers/Home.js:24
-msgid "Be social"
-msgstr "社交"
-
-#: src/amo/containers/Home.js:25
-msgid "Share stuff"
-msgstr "分享内容"
-
-#: src/amo/containers/Home.js:28
-msgid "Browse all extensions"
-msgstr "浏览所有扩展"
-
-#: src/amo/containers/Home.js:31
-msgid "How do you want Firefox to look?"
-msgstr "您喜欢什么风格的 Firefox？"
-
-#: src/amo/containers/Home.js:33
-msgid "Wild"
-msgstr "狂野"
-
-#: src/amo/containers/Home.js:34
-msgid "Abstract"
-msgstr "抽象"
-
-#: src/amo/containers/Home.js:35
-msgid "Fashionable"
-msgstr "时髦"
-
-#: src/amo/containers/Home.js:36
-msgid "Scenic"
-msgstr "风景"
-
-#: src/amo/containers/Home.js:37
-msgid "Sporty"
-msgstr "运动"
-
-#: src/amo/containers/Home.js:38
-msgid "Mystical"
-msgstr "神秘"
-
-#: src/amo/containers/Home.js:41
-msgid "Browse all themes"
-msgstr "浏览所有主题"
-
-#: src/core/components/InstallButton/index.js:49
-msgid "Downloading %(name)s."
-msgstr "正在下载 %(name)s。"
-
-#: src/core/components/InstallButton/index.js:52
-msgid "Installing %(name)s."
-msgstr "正在安装 %(name)s。"
-
-#: src/core/components/InstallButton/index.js:56
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s 现在已安装并启用。单击可卸载。"
-
-#: src/core/components/InstallButton/index.js:59
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s 现在已禁用。单击可启用。"
-
-#: src/core/components/InstallButton/index.js:62
-msgid "Uninstalling %(name)s."
-msgstr "正在卸载 %(name)s。"
-
-#: src/core/components/InstallButton/index.js:65
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s 已卸载。点击可再次安装。"
-
-#: src/core/components/InstallButton/index.js:68
-msgid "Install state for %(name)s is unknown."
-msgstr "%(name)s 的安装状态未知。"
-
-#: src/core/components/Paginate/index.js:102
-msgid "Previous"
-msgstr "上一页"
-
-#: src/core/components/Paginate/index.js:104
-msgid "Next"
-msgstr "下一页"
-
-#: src/core/components/Paginate/index.js:97
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "页面 %(currentPage)s / %(totalPages)s"
-
-#: src/core/components/Search/SearchResults.js:40
-msgid "Your search for \"%(query)s\" returned %(count)s result."
-msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] "根据您的关键词”%(query)s“搜索到了 %(count)s 条结果。"
-
-#: src/core/components/Search/SearchResults.js:56
+#: src/amo/components/SearchResults.js:35
 msgid "Searching..."
 msgstr "正在搜索..."
 
-#: src/core/components/Search/SearchResults.js:59
+#: src/amo/components/SearchResults.js:39
 msgid "No results were found for \"%(query)s\"."
 msgstr "搜索“%(query)s”没有找到结果。"
 
-#: src/core/components/Search/SearchResults.js:61
-msgid "Please supply a valid search"
-msgstr "请提供有效的搜索关键词"
+#: src/amo/components/SearchResults.js:43
+#, fuzzy
+msgid "No results were found."
+msgstr "搜索“%(query)s”没有找到结果。"
+
+#: src/amo/components/SearchResults.js:46
+msgid "Please enter a search term to search Firefox Add-ons."
+msgstr ""
+
+#: src/amo/components/SearchSort/index.js:40
+msgid "Recently Updated"
+msgstr ""
+
+#: src/amo/components/SearchSort/index.js:41
+msgid "Relevance"
+msgstr ""
+
+#: src/amo/components/SearchSort/index.js:42
+msgid "Most Users"
+msgstr ""
+
+#: src/amo/components/SearchSort/index.js:43
+msgid "Top Rated"
+msgstr ""
+
+#: src/amo/components/SearchSort/index.js:66
+msgid "Sort"
+msgstr ""
+
+#: src/amo/components/SuggestedPages/index.js:20
+msgid "Suggested Pages"
+msgstr ""
+
+#: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
+msgid "Browse all extensions"
+msgstr "浏览所有扩展"
+
+#: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
+msgid "Browse all themes"
+msgstr "浏览所有主题"
+
+#: src/amo/components/SuggestedPages/index.js:35
+#, fuzzy
+msgid "Add-ons Home Page"
+msgstr "Firefox 附加组件"
+
+#: src/amo/containers/App.js:80
+msgid "Add-ons for Firefox"
+msgstr "Firefox 附加组件"
+
+#: src/amo/containers/Home.js:39
+msgid ""
+"Extensions are special features you can add to Firefox.\n"
+"Themes let you change your browser's appearance."
+msgstr ""
+
+#: src/amo/containers/Home.js:44
+#, fuzzy
+msgid "Extensions"
+msgstr "扩展元数据"
+
+#: src/amo/containers/Home.js:47
+msgid "Themes"
+msgstr ""
+
+#: src/amo/containers/Home.js:52
+msgid "You can change how Firefox works…"
+msgstr ""
+
+#: src/amo/containers/Home.js:55
+msgid "Block ads"
+msgstr "过滤广告"
+
+#: src/amo/containers/Home.js:58
+msgid "Screenshot"
+msgstr "屏幕截图"
+
+#: src/amo/containers/Home.js:61
+msgid "Find news"
+msgstr ""
+
+#: src/amo/containers/Home.js:64
+msgid "Shop online"
+msgstr "网上购物"
+
+#: src/amo/containers/Home.js:67
+msgid "Be social"
+msgstr "社交"
+
+#: src/amo/containers/Home.js:70
+msgid "Play games"
+msgstr ""
+
+#: src/amo/containers/Home.js:77
+msgid "…or what it looks like"
+msgstr ""
+
+#: src/amo/containers/Home.js:79
+msgid "Wild"
+msgstr "狂野"
+
+#: src/amo/containers/Home.js:80
+msgid "Abstract"
+msgstr "抽象"
+
+#: src/amo/containers/Home.js:81
+msgid "Fashionable"
+msgstr "时髦"
+
+#: src/amo/containers/Home.js:82
+msgid "Scenic"
+msgstr "风景"
+
+#: src/amo/containers/Home.js:83
+msgid "Sporty"
+msgstr "运动"
+
+#: src/amo/containers/Home.js:84
+msgid "Solid"
+msgstr ""
+
+#: src/core/components/AuthenticateButton/index.js:35
+msgid "Log in/Sign up"
+msgstr "登录/注册"
+
+#: src/core/components/AuthenticateButton/index.js:35
+msgid "Log out"
+msgstr "退出登录"
+
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
+msgid "Error code: %(status)s."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:42
+#, fuzzy
+msgid "Install Theme"
+msgstr "正在安装 %(name)s。"
+
+#: src/core/components/InstallButton/index.js:48
+#, fuzzy
+msgid "Add to Firefox"
+msgstr "Firefox 附加组件"
+
+#: src/core/components/InstallSwitch/index.js:49
+msgid "Downloading %(name)s."
+msgstr "正在下载 %(name)s。"
+
+#: src/core/components/InstallSwitch/index.js:52
+msgid "Installing %(name)s."
+msgstr "正在安装 %(name)s。"
+
+#: src/core/components/InstallSwitch/index.js:56
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr "%(name)s 现在已安装并启用。单击可卸载。"
+
+#: src/core/components/InstallSwitch/index.js:59
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s 现在已禁用。单击可启用。"
+
+#: src/core/components/InstallSwitch/index.js:62
+msgid "Uninstalling %(name)s."
+msgstr "正在卸载 %(name)s。"
+
+#: src/core/components/InstallSwitch/index.js:65
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s 已卸载。点击可再次安装。"
+
+#: src/core/components/InstallSwitch/index.js:68
+msgid "Install state for %(name)s is unknown."
+msgstr "%(name)s 的安装状态未知。"
+
+#: src/core/components/Paginate/index.js:107
+msgid "Previous"
+msgstr "上一页"
+
+#: src/core/components/Paginate/index.js:118
+msgid "Next"
+msgstr "下一页"
+
+#: src/core/components/Paginate/index.js:96
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr "页面 %(currentPage)s / %(totalPages)s"
+
+#: src/core/containers/InfoDialog/index.js:31
+msgid "Your add-on is ready"
+msgstr ""
+
+#: src/core/containers/InfoDialog/index.js:33
+msgid "Now you can access %(name)s from the toolbar."
+msgstr ""
+
+#: src/core/containers/InfoDialog/index.js:38
+msgid "OK!"
+msgstr ""
+
+#: src/core/reducers/errors.js:15
+msgid "An unexpected error occurred"
+msgstr ""
+
+#: src/ui/components/Rating/index.js:83
+#, fuzzy
+msgid "Rated %(rating)s out of 5"
+msgstr "平均评分：%(rating)s / 5"
+
+#: src/ui/components/Rating/index.js:86
+msgid "No ratings"
+msgstr "无评价"
+
+#: src/ui/components/ShowMoreCard/index.js:58
+msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
+msgstr ""
+
+#~ msgid "Screenshots"
+#~ msgstr "屏幕截图"
+
+#~ msgid "About this extension"
+#~ msgstr "关于此扩展"
+
+#~ msgid "Category"
+#~ msgstr "分类"
+
+#~ msgid "Sentiment"
+#~ msgstr "感受"
+
+#~ msgid "Back"
+#~ msgstr "返回"
+
+#~ msgid "Submit"
+#~ msgstr "提交"
+
+#~ msgid "Please enter some text"
+#~ msgstr "请输入文字内容"
+
+#~ msgid "screenshot %(imageNumber)s of %(totalImages)s"
+#~ msgstr "屏幕截图 %(imageNumber)s / %(totalImages)s"
+
+#~ msgid "What do you want Firefox to do?"
+#~ msgstr "您想用 Firefox 做什么？"
+
+#~ msgid "Save stuff"
+#~ msgstr "保存内容"
+
+#~ msgid "Share stuff"
+#~ msgstr "分享内容"
+
+#~ msgid "How do you want Firefox to look?"
+#~ msgstr "您喜欢什么风格的 Firefox？"
+
+#~ msgid "Mystical"
+#~ msgstr "神秘"
+
+#~ msgid "Your search for \"%(query)s\" returned %(count)s result."
+#~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
+#~ msgstr[0] "根据您的关键词”%(query)s“搜索到了 %(count)s 条结果。"
+
+#~ msgid "Please supply a valid search"
+#~ msgstr "请提供有效的搜索关键词"
