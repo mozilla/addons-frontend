@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-11-10 14:19+0000\n"
+"PO-Revision-Date: 2017-02-23 11:45+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -46,16 +46,14 @@ msgid "Press to preview"
 msgstr "Schrijf een beoordeling"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s gebruiker"
-msgstr[1] "%(users)s gebruikers"
+msgstr[0] "%(total)s gebruiker"
+msgstr[1] "%(total)s gebruikers"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Gemiddelde waardering: %(rating)s van 5"
+msgstr "%(averageRating)s van 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
@@ -97,7 +95,6 @@ msgid "License"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "Privacybeleid"
 
@@ -135,16 +132,13 @@ msgstr "Beschrijf waarom u deze extensie fantastisch vindt!"
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
-#, fuzzy
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr "Zoeken..."
+msgstr "Laden..."
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Add-ons voor Firefox"
+msgstr "Add-onpictogram"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
@@ -167,13 +161,11 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr ""
 
@@ -413,8 +405,7 @@ msgstr "Aanmelden/Registreren"
 msgid "Log out"
 msgstr "Afmelden"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
@@ -424,9 +415,8 @@ msgid "Install Theme"
 msgstr "%(name)s wordt geïnstalleerd."
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Add-ons voor Firefox"
+msgstr "Toevoegen aan Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -485,9 +475,8 @@ msgid "An unexpected error occurred"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Gemiddelde waardering: %(rating)s van 5"
+msgstr "Waardering: %(rating)s van 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -538,10 +527,8 @@ msgstr ""
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaat opgeleverd."
-#~ msgstr[1] ""
-#~ "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaten opgeleverd."
+#~ msgstr[0] "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaat opgeleverd."
+#~ msgstr[1] "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaten opgeleverd."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Geef een geldige zoekopdracht op"
