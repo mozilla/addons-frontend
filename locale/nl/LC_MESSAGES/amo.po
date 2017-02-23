@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 15:01+0000\n"
+"PO-Revision-Date: 2017-02-23 15:31+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -106,7 +106,7 @@ msgstr "Schrijf een beoordeling"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Tekst beoordelen"
 
 #: src/amo/components/AddonReview.js:124
 msgid "Submit review"
@@ -126,7 +126,7 @@ msgstr "Geef een beschrijving over deze extensie."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "van %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
@@ -138,7 +138,7 @@ msgstr "Add-onpictogram"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Beoordelingen voor %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
 msgid "All written reviews"
@@ -146,23 +146,23 @@ msgstr "Alle geschreven beoordelingen"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Laden van categorieën is mislukt."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Geen categorieën gevonden."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Niet geautoriseerd"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Pagina niet gevonden"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Serverfout"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -170,7 +170,7 @@ msgstr "Meer aanbevolen extensies"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Meer aanbevolen thema’s"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -210,11 +210,11 @@ msgstr "Meer hoog gewaardeerde extensies"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Aanbevolen thema’s"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Meer aanbevolen thema’s"
 
 #: src/amo/components/LandingPage.js:75
 msgid "Most popular themes"
@@ -230,7 +230,7 @@ msgstr "Hoogst gewaardeerde thema’s"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Meer hoog gewaardeerde thema’s"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -250,7 +250,7 @@ msgstr "Zoeken"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Extensies en thema’s zoeken"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
