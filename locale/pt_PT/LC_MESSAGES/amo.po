@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 18:30+0000\n"
+"PO-Revision-Date: 2017-02-23 18:43+0000\n"
 "Last-Translator: Alberto Castro <albertdecastro@tutanota.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -135,47 +135,44 @@ msgid "Loading..."
 msgstr "A pesquisar..."
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Extras para o Firefox"
+msgstr "Ícone do extra"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Revisões para %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
-#, fuzzy
 msgid "All written reviews"
-msgstr "Escreva um comentário"
+msgstr "Todas as revisões escritas"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "O carregamento de categorias falhou."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Não foram encontradas categorias."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Não autorizado"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "A página não foi encontrada"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Erro de servidor"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Navegar todas as extensões"
+msgstr "Mais extensões em destaque"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Mais temas em destaque"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -190,34 +187,28 @@ msgid "View desktop site"
 msgstr "Ver site para computadores"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Navegar todas as extensões"
+msgstr "Extensões em destaque"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Navegar todas as extensões"
+msgstr "Mais extensões em destaque"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Navegar todas as extensões"
+msgstr "Extensões mais populares"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Navegar todas as extensões"
+msgstr "Extensões mais populares"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Navegar todas as extensões"
+msgstr "Extensões com melhor avaliação"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Navegar todas as extensões"
+msgstr "Extensões avaliadas com mais pontuação"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
