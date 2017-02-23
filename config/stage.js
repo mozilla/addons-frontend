@@ -28,4 +28,6 @@ module.exports = {
       ],
     },
   },
+
+  allowErrorSimulation: true,
 };

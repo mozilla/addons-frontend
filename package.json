@@ -102,7 +102,7 @@
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/amo",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
+        "NODE_ENV": "test",
         "NODE_APP_INSTANCE": "amo",
         "TRACKING_ENABLED": "false"
       }
@@ -193,6 +193,7 @@
     "normalize.css": "5.0.0",
     "normalizr": "3.2.2",
     "piping": "0.3.2",
+    "raven": "1.1.2",
     "react": "15.4.2",
     "react-addons-css-transition-group": "15.4.2",
     "react-cookie": "1.0.4",
