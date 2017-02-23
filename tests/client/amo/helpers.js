@@ -1,6 +1,6 @@
 import { signedInApiState as coreSignedInApiState } from '../helpers';
 
-export const fakeAddon = {
+export const fakeAddon = Object.freeze({
   id: 1234,
   guid: '1234@my-addons.firefox',
   name: 'Chill Out',
@@ -27,9 +27,9 @@ export const fakeAddon = {
   has_privacy_policy: true,
   homepage: 'http://hamsterdance.com/',
   type: 'extension',
-};
+});
 
-export const fakeReview = {
+export const fakeReview = Object.freeze({
   id: 8876,
   // The API only provides a minimal add-on representation.
   addon: {
@@ -47,7 +47,7 @@ export const fakeReview = {
   is_latest: false,
   body: 'It is Okay',
   title: 'Review Title',
-};
+});
 
 /*
  * Redux store state for when a user has signed in.
