@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 15:09+0000\n"
+"PO-Revision-Date: 2017-02-23 15:31+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -88,7 +88,7 @@ msgstr "Ultima atualização"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
@@ -218,11 +218,11 @@ msgstr "Navegue por todas as extensões"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Temas em destaque"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Mais temas em destaque"
 
 #: src/amo/components/LandingPage.js:75
 #, fuzzy
@@ -262,7 +262,7 @@ msgstr "Pesquisando..."
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Pesquisar extensões e temas"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
@@ -283,11 +283,11 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Atualizado recentemente"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Relevância"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
@@ -299,11 +299,11 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Ordenar"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Páginas sugeridas"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -339,7 +339,7 @@ msgstr "Temas"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Você pode alterar como o Firefox funciona…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -367,7 +367,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…ou como ele parece"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -457,7 +457,7 @@ msgstr "Página %(currentPage)s de %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Sua extensão está pronta"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
@@ -465,11 +465,11 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Ocorreu um erro inesperado"
 
 #: src/ui/components/Rating/index.js:83
 #, fuzzy
@@ -482,7 +482,7 @@ msgstr "Sem avaliações"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Expandir para</span> ler mais"
 
 #~ msgid "Screenshots"
 #~ msgstr "Capturas de tela"
