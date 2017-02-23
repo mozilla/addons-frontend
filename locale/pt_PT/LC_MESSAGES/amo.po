@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 17:39+0000\n"
+"PO-Revision-Date: 2017-02-23 18:30+0000\n"
 "Last-Translator: Alberto Castro <albertdecastro@tutanota.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -63,7 +63,7 @@ msgstr "Ainda sem avaliação9"
 #, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Sem avaliações"
+msgstr[0] "Avaliações %(total)s"
 msgstr[1] "Sem avaliações"
 
 #: src/amo/components/AddonMeta.js:45
@@ -72,36 +72,35 @@ msgstr "Utilizado por"
 
 #: src/amo/components/AddonMoreInfo.js:25
 msgid "More information"
-msgstr ""
+msgstr "Mais informações"
 
 #: src/amo/components/AddonMoreInfo.js:27
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
-msgstr ""
+msgstr "Versão"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "Last updated"
-msgstr ""
+msgstr "Última atualização"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
-msgstr ""
+msgstr "Licença"
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "Política de privacidade"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Leia a política de privacidade para este Extra"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -109,12 +108,11 @@ msgstr "Escreva um comentário"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Texto de revisão"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Escreva um comentário"
+msgstr "Submeter revisão"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -122,19 +120,17 @@ msgstr "Diga ao mundo porquê que acha que esta extensão é fantástica!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Diga-nos o que gostou mais acerca desta extensão. Seja específico e conciso."
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Diga ao mundo porquê que acha que esta extensão é fantástica!"
+msgstr "Diga ao mundo acerca desta extensão."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "por %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
-#, fuzzy
 msgid "Loading..."
 msgstr "A pesquisar..."
 
