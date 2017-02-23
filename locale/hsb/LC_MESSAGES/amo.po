@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 18:31+0000\n"
+"PO-Revision-Date: 2017-02-23 18:36+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -43,9 +43,8 @@ msgid "About this %(addonType)s"
 msgstr "Wo tutym %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Pisajće pohódnoćenje"
+msgstr "Tłóčće, zo byšće sej přehlad wobhladał"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
 msgid "%(total)s user"
@@ -172,9 +171,8 @@ msgid "Server Error"
 msgstr "Serwerowy zmylk"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Dalše předstajene rozšěrjenja"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
@@ -193,34 +191,28 @@ msgid "View desktop site"
 msgstr "Desktopowe websydło pokazać"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Předstajene rozšěrjenja"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Dalše předstajene rozšěrjenja"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Najbóle woblubowane rozšěrjenja"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Dalše woblubowane rozšěrjenja"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Najwyše pohódnoćene rozšěrjenja"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Dalše wysoko pohódnoćene rozšěrjenja"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -231,19 +223,16 @@ msgid "More featured themes"
 msgstr "Dalše předstajene drasty"
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Wšě drasty přepytować"
+msgstr "Najbóle woblubowane drasty"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Wšě drasty přepytować"
+msgstr "Dalše woblubowane drasty"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Wšě drasty přepytować"
+msgstr "Wysoko pohódnoćene drasty"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
@@ -262,9 +251,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Kak so wam %(addonName)s spodoba?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Pyta so..."
+msgstr "Pytać"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
@@ -279,9 +267,8 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Žane wuslědki za \"%(query)s\" namakane."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Žane wuslědki za \"%(query)s\" namakane."
+msgstr "Žane wusědki namakane."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -320,9 +307,8 @@ msgid "Browse all themes"
 msgstr "Wšě drasty přepytować"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Přidatki za Firefox"
+msgstr "Startowa strona přidatkow"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -335,9 +321,8 @@ msgid ""
 msgstr "Rozšěrjenja su wosebite funkcije, kotrež móžeće Firefox přidać. Drasty wam zmóžnjeja, napohlad wašeho wobhladowaka změnić."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metadaty rozšěrjenja"
+msgstr "Rozšěrjenja"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -412,14 +397,12 @@ msgid "Error code: %(status)s."
 msgstr "Zmylkowy kod: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "%(name)s so instaluje."
+msgstr "Drastu instalować"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Přidatki za Firefox"
+msgstr "Programej Firefox přidać"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -478,9 +461,8 @@ msgid "An unexpected error occurred"
 msgstr "Njewočakowany zmylk je wustupił"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Přerězne pohódnoćenje: %(rating)s z 5"
+msgstr "Z %(rating)s z 5 hwěžkow pohódnoćeny"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
