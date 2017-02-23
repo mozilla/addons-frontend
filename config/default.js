@@ -181,4 +181,6 @@ module.exports = {
   // to test our internal error handler.
   // allowErrorSimulation: false,
   allowErrorSimulation: false,
+
+  sentryDsn: process.env.SENTRY_DSN || null,
 };

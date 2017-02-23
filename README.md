@@ -178,6 +178,26 @@ Example: Building and running a production instance of the admin app:
 NODE_APP_INSTANCE=admin NODE_ENV=production npm run build && npm run start
 ```
 
+## Hooking up Sentry for error reporting
+
+To hook up [Sentry](https://sentry.io/) for reporting application errors, you
+need to add some configuration.
+
+First, define this environment variable before starting the server:
+````
+SENTRY_DSN=https://<key>@sentry.io/<project>
+````
+
+Next, make sure your application config allows you to simulate errors:
+````js
+module.exports = {
+  allowErrorSimulation: true,
+};
+````
+
+This will allow you to make a request to `/simulate-error/`. You should
+see a 500 response and Sentry should have a record of the actual error.
+
 ## Overview and rationale
 
 This project will hold distinct front-ends e.g:
