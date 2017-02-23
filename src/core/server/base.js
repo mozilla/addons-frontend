@@ -121,7 +121,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     Raven.config(sentryDsn).install();
     app.use(Raven.errorHandler());
   } else {
-    log.warn('Sentry reporting is disabled because sentryDsn was falsey');
+    log.warn(
+      'Sentry reporting is disabled; Set config.sentryDsn to enable it.');
   }
 
   app.use(logRequests);
