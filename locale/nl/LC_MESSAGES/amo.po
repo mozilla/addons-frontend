@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 13:31+0000\n"
+"PO-Revision-Date: 2017-02-23 13:34+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -123,7 +123,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
-msgstr "Vertel de wereld over deze extensie."
+msgstr "Geef een beschrijving over deze extensie."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
