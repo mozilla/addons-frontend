@@ -179,7 +179,6 @@ module.exports = {
 
   // If true, enable a route that explicitly triggers a server error
   // to test our internal error handler.
-  // allowErrorSimulation: false,
   allowErrorSimulation: false,
 
   sentryDsn: process.env.SENTRY_DSN || null,
