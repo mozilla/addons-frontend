@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 16:51+0000\n"
+"PO-Revision-Date: 2017-02-23 16:56+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -270,7 +270,7 @@ msgstr "Ange ett sökord för att söka på Firefox tilllägg."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nyligen uppdaterad"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
@@ -278,19 +278,19 @@ msgstr "Relevans"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Flest användare"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Högst rankade"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Sortera"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Föreslagna sidor"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -301,9 +301,8 @@ msgid "Browse all themes"
 msgstr "Bläddra bland alla teman"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Tillägg för Firefox"
+msgstr "Hemsida för tillägg"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -314,11 +313,12 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Tillägg är speciella funktioner som du kan lägga till Firefox.\n"
+"Teman låter dig ändra webbläsarens utseende."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metadata tillägg"
+msgstr "Tillägg"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -326,7 +326,7 @@ msgstr "Teman"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Du kan ändra hur Firefox fungerar…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -354,7 +354,7 @@ msgstr "Spela spel"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…eller hur den ser ut"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -378,7 +378,7 @@ msgstr "Sportig"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Enfärgad"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -393,14 +393,12 @@ msgid "Error code: %(status)s."
 msgstr "Felkod: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Installerar %(name)s."
+msgstr "Installera tema"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Tillägg för Firefox"
+msgstr "Lägg till i Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -444,11 +442,11 @@ msgstr "Sida %(currentPage)s av %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Ditt tillägg är redo"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Du kan nu komma åt %(name)s från verktygsfältet."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
@@ -459,9 +457,8 @@ msgid "An unexpected error occurred"
 msgstr "Ett oväntat fel har uppstått"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Medelbetyg: %(rating)s av 5"
+msgstr "Betygsatt %(rating)s av 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -469,7 +466,7 @@ msgstr "Inga betyg"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Fäll ut för att</span> läsa mer"
 
 #~ msgid "Screenshots"
 #~ msgstr "Skärmbilder"
