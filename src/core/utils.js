@@ -9,10 +9,13 @@ import {
   categoriesFail,
 } from 'core/actions/categories';
 import { categories, fetchAddon } from 'core/api';
+import GenericError from 'core/components/ErrorPage/GenericError';
+import NotFound from 'core/components/ErrorPage/NotFound';
 import {
   API_ADDON_TYPES_MAPPING,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
+import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import purify from 'core/purify';
 
@@ -87,24 +90,31 @@ export function findAddon(state, slug) {
   return state.addons[slug];
 }
 
+export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
+  return fetchAddon({ slug: addonSlug, api: apiState })
+    .then(({ entities }) => dispatch(loadEntities(entities)));
+}
+
 // asyncConnect() helper for loading an add-on by slug.
 //
 // This accepts component properties and returns a promise
-// that resolves when the requested add-on has been dispatched.
-// If the add-on has already been fetched, the add-on value is returned.
+// that resolves when the requested add-on exists in state.
+//
+// If the add-on does not exist in state, it is fetched first.
 //
 export function loadAddonIfNeeded(
-  { store: { dispatch, getState }, params: { slug } }
+  { store: { dispatch, getState }, params: { slug } },
+  { _refreshAddon = refreshAddon } = {},
 ) {
   const state = getState();
   const addon = findAddon(state, slug);
   if (addon) {
-    log.info(`Found addon ${addon.id} in state`);
-    return addon;
+    log.info(`Found add-on ${slug}, ${addon.id} in state`);
+    return Promise.resolve();
   }
-  log.info(`Fetching addon ${slug} from API`);
-  return fetchAddon({ slug, api: state.api })
-    .then(({ entities }) => dispatch(loadEntities(entities)));
+  log.info(`Add-on ${slug} not found in state; fetching from API`);
+  // This loads the add-on into state.
+  return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
 }
 
 // asyncConnect() helper for loading categories for browsing and displaying
@@ -163,7 +173,8 @@ export function apiAddonType(addonType) {
   if (!Object.prototype.hasOwnProperty.call(
     API_ADDON_TYPES_MAPPING, addonType
   )) {
-    throw new Error(`"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
+    throw new AddonTypeNotFound(
+      `"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
   }
   return API_ADDON_TYPES_MAPPING[addonType];
 }
@@ -172,7 +183,21 @@ export function visibleAddonType(addonType) {
   if (!Object.prototype.hasOwnProperty.call(
     VISIBLE_ADDON_TYPES_MAPPING, addonType
   )) {
-    throw new Error(`"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
+    throw new AddonTypeNotFound(
+      `"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
   }
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
+}
+
+export function getErrorComponent(status) {
+  switch (status) {
+    case 404:
+      return NotFound;
+    default:
+      return GenericError;
+  }
+}
+
+export function isValidUrlException(value, { _config = config } = {}) {
+  return _config.get('validUrlExceptions').includes(value);
 }

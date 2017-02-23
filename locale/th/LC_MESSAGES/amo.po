@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2017-01-29 22:16+0000\n"
+"PO-Revision-Date: 2017-02-13 09:32+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:49
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:74
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadata ส่วนขยาย"
 
 #: src/amo/components/AddonDetail.js:81
 msgid "Screenshots"
@@ -40,11 +40,11 @@ msgstr "หมวดหมู่"
 
 #: src/amo/components/AddonMeta.js:24
 msgid "Used by"
-msgstr ""
+msgstr "ใช้โดย"
 
 #: src/amo/components/AddonMeta.js:29
 msgid "Sentiment"
-msgstr ""
+msgstr "ความคิดเห็น"
 
 #: src/amo/components/AddonReview.js:109
 msgid "Back"
@@ -56,7 +56,7 @@ msgstr "ส่ง"
 
 #: src/amo/components/AddonReview.js:41
 msgid "Please enter some text"
-msgstr ""
+msgstr "โปรดป้อนข้อความ"
 
 #: src/amo/components/AddonReview.js:90
 msgid "Write a review"
@@ -64,19 +64,19 @@ msgstr "เขียนบทวิจารณ์"
 
 #: src/amo/components/AddonReview.js:92
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "บอกให้โลกรู้ว่าทำไมคุณจึงคิดว่าส่วนขยายนี้ยอดเยี่ยม!"
 
 #: src/amo/components/Footer.js:27
 msgid "Privacy policy"
-msgstr ""
+msgstr "นโยบายความเป็นส่วนตัว"
 
 #: src/amo/components/Footer.js:33
 msgid "Legal notices"
-msgstr ""
+msgstr "ข้อกฎหมาย"
 
 #: src/amo/components/Footer.js:39
 msgid "View desktop site"
-msgstr ""
+msgstr "ดูไซต์สำหรับเดสก์ท็อป"
 
 #: src/amo/components/LanguagePicker.js:20
 msgid "Browse in your language"
@@ -88,7 +88,7 @@ msgstr "ส่วนเสริม Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "คุณเพลิดเพลินกับประสบการณ์ของคุณกับ %(addonName)s แค่ไหน?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"
@@ -96,7 +96,7 @@ msgstr "ภาพหน้าจอ %(imageNumber)s จาก %(totalImages)s"
 
 #: src/amo/components/SearchResult.js:23
 msgid "Average rating: %(rating)s out of 5"
-msgstr ""
+msgstr "การจัดอันดับเฉลี่ย: %(rating)s จาก 5"
 
 #: src/amo/components/SearchResult.js:29
 msgid "No ratings"
@@ -121,7 +121,7 @@ msgstr "ส่วนเสริมสำหรับ Firefox"
 
 #: src/amo/containers/Home.js:18
 msgid "What do you want Firefox to do?"
-msgstr ""
+msgstr "คุณต้องการให้ Firefox ทำอะไร?"
 
 #: src/amo/containers/Home.js:20
 msgid "Block ads"
@@ -153,31 +153,31 @@ msgstr "เรียกดูส่วนขยายทั้งหมด"
 
 #: src/amo/containers/Home.js:31
 msgid "How do you want Firefox to look?"
-msgstr ""
+msgstr "คุณต้องการให้ Firefox มีลักษณะอย่างไร?"
 
 #: src/amo/containers/Home.js:33
 msgid "Wild"
-msgstr ""
+msgstr "รุนแรง"
 
 #: src/amo/containers/Home.js:34
 msgid "Abstract"
-msgstr ""
+msgstr "นามธรรม"
 
 #: src/amo/containers/Home.js:35
 msgid "Fashionable"
-msgstr ""
+msgstr "นำสมัย"
 
 #: src/amo/containers/Home.js:36
 msgid "Scenic"
-msgstr ""
+msgstr "สวยงาม"
 
 #: src/amo/containers/Home.js:37
 msgid "Sporty"
-msgstr ""
+msgstr "กระฉับกระเฉง"
 
 #: src/amo/containers/Home.js:38
 msgid "Mystical"
-msgstr ""
+msgstr "ลึกลับ"
 
 #: src/amo/containers/Home.js:41
 msgid "Browse all themes"
@@ -209,7 +209,7 @@ msgstr "%(name)s ถูกถอนการติดตั้ง คลิก�
 
 #: src/core/components/InstallButton/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "ไม่ทราบสถานะการติดตั้ง %(name)s"
 
 #: src/core/components/Paginate/index.js:102
 msgid "Previous"
@@ -226,7 +226,7 @@ msgstr "หน้า %(currentPage)s จาก %(totalPages)s"
 #: src/core/components/Search/SearchResults.js:40
 msgid "Your search for \"%(query)s\" returned %(count)s result."
 msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] ""
+msgstr[0] "การค้นหาของคุณสำหรับ \"%(query)s\" ได้ %(count)s ผลลัพธ์"
 
 #: src/core/components/Search/SearchResults.js:56
 msgid "Searching..."
@@ -238,4 +238,4 @@ msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
 
 #: src/core/components/Search/SearchResults.js:61
 msgid "Please supply a valid search"
-msgstr ""
+msgstr "โปรดใส่การค้นหาที่ถูกต้อง"

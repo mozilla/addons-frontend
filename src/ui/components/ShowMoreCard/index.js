@@ -67,7 +67,7 @@ export class ShowMoreCardBase extends React.Component {
     return (
       <Card className={classNames('ShowMoreCard', className, {
         'ShowMoreCard--expanded': expanded,
-      })} header={header} footer={expanded ? null : readMoreLink}>
+      })} header={header} footerLink={expanded ? null : readMoreLink}>
         <div className="ShowMoreCard-contents"
           ref={(ref) => { this.contents = ref; }}>
           {children}

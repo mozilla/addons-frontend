@@ -6,20 +6,23 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import 'core/fonts/fira.scss';
-import 'amo/css/App.scss';
 import SearchForm from 'amo/components/SearchForm';
-import { addChangeListeners } from 'core/addonManager';
-import { INSTALL_STATE } from 'core/constants';
-import InfoDialog from 'core/containers/InfoDialog';
-import { handleResourceErrors } from 'core/resourceErrors/decorator';
-import translate from 'core/i18n/translate';
+import { getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
+import { addChangeListeners } from 'core/addonManager';
+import { INSTALL_STATE } from 'core/constants';
+import DefaultErrorPage from 'core/components/ErrorPage';
+import InfoDialog from 'core/containers/InfoDialog';
+import translate from 'core/i18n/translate';
+
+import 'amo/css/App.scss';
+import 'core/fonts/fira.scss';
 
 
 export class AppBase extends React.Component {
   static propTypes = {
+    ErrorPage: PropTypes.node.isRequired,
     FooterComponent: PropTypes.node.isRequired,
     InfoDialogComponent: PropTypes.node.isRequired,
     MastHeadComponent: PropTypes.node.isRequired,
@@ -34,6 +37,7 @@ export class AppBase extends React.Component {
   }
 
   static defaultProps = {
+    ErrorPage: DefaultErrorPage,
     FooterComponent: Footer,
     InfoDialogComponent: InfoDialog,
     MastHeadComponent: MastHead,
@@ -57,6 +61,7 @@ export class AppBase extends React.Component {
 
   render() {
     const {
+      ErrorPage,
       FooterComponent,
       InfoDialogComponent,
       MastHeadComponent,
@@ -66,6 +71,7 @@ export class AppBase extends React.Component {
       lang,
       location,
     } = this.props;
+
     const isHomePage = Boolean(location.pathname && location.pathname.match(
       new RegExp(`^\\/${lang}\\/${clientApp}\\/?$`)));
     const query = location.query ? location.query.q : null;
@@ -77,7 +83,9 @@ export class AppBase extends React.Component {
           SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
           query={query} ref={(ref) => { this.mastHead = ref; }} />
         <div className="App-content">
-          {children}
+          <ErrorPage getErrorComponent={getErrorComponent}>
+            {children}
+          </ErrorPage>
         </div>
         <FooterComponent handleViewDesktop={this.onViewDesktop}
           location={location} />
@@ -100,7 +108,6 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default compose(
-  handleResourceErrors,
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AppBase);

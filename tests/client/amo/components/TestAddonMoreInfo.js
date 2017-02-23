@@ -36,9 +36,34 @@ describe('<AddonMoreInfo />', () => {
   it('renders the homepage of an add-on', () => {
     const root = render();
 
-    assert.equal(root.homepageLink.textContent, 'http://hamsterdance.com/');
+    assert.equal(root.homepageLink.textContent, 'hamsterdance.com/');
     assert.equal(root.homepageLink.tagName, 'A');
     assert.equal(root.homepageLink.href, 'http://hamsterdance.com/');
+  });
+
+  it('adds a protocol to a homepage URL if missing', () => {
+    const root = render({ addon: { ...fakeAddon, homepage: 'test.com' } });
+
+    assert.equal(root.homepageLink.textContent, 'test.com');
+    assert.equal(root.homepageLink.tagName, 'A');
+    assert.equal(root.homepageLink.href, 'http://test.com/');
+  });
+
+  it('trims leading whitespace on a URL', () => {
+    const root = render({ addon: { ...fakeAddon, homepage: ' test.com ' } });
+
+    assert.equal(root.homepageLink.textContent, 'test.com');
+    assert.equal(root.homepageLink.tagName, 'A');
+    assert.equal(root.homepageLink.href, 'http://test.com/');
+  });
+
+  it('works with HTTPS URLs', () => {
+    const root = render(
+      { addon: { ...fakeAddon, homepage: 'https://test.com' } });
+
+    assert.equal(root.homepageLink.textContent, 'test.com');
+    assert.equal(root.homepageLink.tagName, 'A');
+    assert.equal(root.homepageLink.href, 'https://test.com/');
   });
 
   it('renders the version number of an add-on', () => {
@@ -70,7 +95,9 @@ describe('<AddonMoreInfo />', () => {
 
     assert.equal(findDOMNode(root.privacyPolicyLink).textContent,
       'Read the privacy policy for this add-on');
-    assert.equal(root.privacyPolicyLink.props.to,
-      '/addons/addon/chill-out/privacy-policy/');
+    // TODO: Change this to an internal `<Link>` tag and use `assert.equal`
+    // once https://github.com/mozilla/addons-frontend/issues/1828 is fixed.
+    assert.include(root.privacyPolicyLink.href,
+      '/addon/chill-out/privacy/');
   });
 });

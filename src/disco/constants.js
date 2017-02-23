@@ -11,7 +11,9 @@ export const DISCO_DATA_EXTENSION = 'extension';
 export const DISCO_DATA_UNKNOWN = 'unknown';
 // Built-in extensions and themes to ignore.
 export const DISCO_DATA_GUID_IGNORE_LIST = [
-  '{972ce4c6-7e08-4474-a285-3208198ce6fd}', // Default theme.
+  '{972ce4c6-7e08-4474-a285-3208198ce6fd}', // Default theme
+  'firefox-compact-light@mozilla.org@personas.mozilla.org', // Default Compact Light theme
+  'firefox-compact-dark@mozilla.org@personas.mozilla.org', // Default Compact Dark theme
   'e10srollout@mozilla.org', // e10s
   'firefox@getpocket.com', // Pocket
   'loop@mozilla.org', // Firefox Hello
@@ -21,4 +23,6 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'formautofill@mozilla.org', // Form Autofill
   'presentation@mozilla.org', // Presentation
   'shield-recipe-client@mozilla.org', // Shield Recipe Client
+  'webcompat-reporter@mozilla.org', // WebCompat Reporter
+  'disableSHA1rollout@mozilla.org', // SHA-1 deprecation staged rollout
 ];

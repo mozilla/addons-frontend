@@ -1,16 +1,14 @@
 import { assert } from 'chai';
 import request from 'supertest-as-promised';
 
-import { runServer } from 'core/server/base';
-
-import { checkSRI, parseCSP } from '../helpers';
+import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
 const defaultURL = '/en-US/firefox/';
 
 describe('AMO GET Requests', () => {
   let app;
 
-  before(() => runServer({ listen: false, app: 'amo' })
+  before(() => runTestServer({ app: 'amo' })
     .then((server) => {
       app = server;
     }));
@@ -49,5 +47,19 @@ describe('AMO GET Requests', () => {
     .then((res) => {
       assert.equal(res.header.location,
         '/en-US/firefox/');
+    }));
+
+  it('should NOT redirect a URL without a trailing slash if exception exists',
+  () => request(app)
+    .get('/en-US/about')
+    .expect(404)
+    );
+
+  it('should redirect a URL without a trailing slash', () => request(app)
+    .get('/en-US/firefox/search')
+    .expect(301)
+    .then((res) => {
+      assert.equal(res.header.location,
+        '/en-US/firefox/search/');
     }));
 });

@@ -4,8 +4,32 @@
   padding: $padding-page;
 }
 
+.HomePage-welcome {
+  background: $masthead-color;
+  color: #fff;
+  margin: -10px -10px 0;
+  padding: 20px;
+}
+
+.HomePage-welcome-text {
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.HomePage-welcome-links {
+  display: flex;
+
+  .HomePage-extensions-link:link,
+  .HomePage-themes-link:link {
+    margin: 0 5px;
+    max-width: 50%;
+  }
+}
+
 .HomePage-subheading {
   text-align: center;
+  margin-top: 18px;
+  margin-bottom: -10px;
 }
 
 .HomePage-category-list {

@@ -8,12 +8,26 @@ export default class Card extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    footer: PropTypes.node,
+    footerLink: PropTypes.node,
+    footerText: PropTypes.node,
     header: PropTypes.node,
   }
 
   render() {
-    const { children, className, footer, header } = this.props;
+    const { children, className, footerText, footerLink, header } = this.props;
+
+    let footer;
+    let footerClass;
+    if (footerText && footerLink) {
+      throw new Error(
+        'You cannot specify footerLink and footerText at the same time');
+    } else if (footerText) {
+      footer = footerText;
+      footerClass = 'Card-footer-text';
+    } else if (footerLink) {
+      footer = footerLink;
+      footerClass = 'Card-footer-link';
+    }
 
     return (
       <section className={classNames('Card', className, {
@@ -34,7 +48,7 @@ export default class Card extends React.Component {
         ) : null}
 
         {footer ? (
-          <footer className="Card-footer" ref={(ref) => { this.footer = ref; }}>
+          <footer className={footerClass} ref={(ref) => { this.footer = ref; }}>
             {footer}
           </footer>
         ) : null}

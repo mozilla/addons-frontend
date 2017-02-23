@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2016-11-29 01:30+0000\n"
+"POT-Creation-Date: 2017-02-07 14:11+0000\n"
+"PO-Revision-Date: 2017-01-30 01:27+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -15,13 +15,12 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "설치"
+msgstr "테마 설치"
 
 #: src/core/components/InstallButton/index.js:48
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Firefox에 추가"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -63,45 +62,45 @@ msgstr "이제 도구 모음에서 %(name)s를 접근할 수 있습니다."
 msgid "OK!"
 msgstr "좋습니다!"
 
-#: src/disco/components/Addon.js:107
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr "마우스를 올려서 %(name)s를 미리보거나 클릭해서 설치"
+
+#: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
 msgstr "마우스 올려서 미리보기"
 
-#: src/disco/components/Addon.js:128
+#: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
 msgstr "설치하지 못했습니다. 다시 시도해 주세요."
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
 msgstr "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
 
-#: src/disco/components/Addon.js:132
+#: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
 msgstr "설치 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
 msgstr "설치 제거 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
 msgstr "예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon.js:145
+#: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "이 부가 기능은 Firefox를 재시작한 후에 제거될 것입니다."
 
-#: src/disco/components/Addon.js:147
+#: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
 msgstr "이 부가 기능을 사용하려면 Firefox를 재시작 해주십시오."
 
-#: src/disco/components/Addon.js:67
+#: src/disco/components/Addon.js:68
 msgid "Close"
 msgstr "닫기"
-
-#: src/disco/components/Addon.js:97
-msgid "Hover to preview or click to install %(name)s"
-msgstr "마우스를 올려서 %(name)s를 미리보거나 클릭해서 설치"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"

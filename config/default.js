@@ -131,7 +131,7 @@ module.exports = {
     'af', 'ar', 'ast', 'bg', 'bn-BD', 'ca', 'cs', 'da', 'de', 'dbl', 'dbr', 'dsb', 'el',
     'en-GB', 'en-US', 'es', 'eu', 'fa', 'fi', 'fr', 'fy-NL', 'ga-IE', 'he', 'hsb', 'hu', 'id',
     'it', 'ja', 'kab', 'ko', 'mk', 'mn', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk',
-    'sl', 'sq', 'sv-SE', 'uk', 'vi', 'zh-CN', 'zh-TW',
+    'sl', 'sq', 'sv-SE', 'th', 'uk', 'vi', 'zh-CN', 'zh-TW',
   ],
   // Map of short langs to longer ones.
   langMap: {
@@ -147,6 +147,7 @@ module.exports = {
   po2jsonFuzzyOutput: false,
 
   enablePrefixMiddleware: true,
+  enableTrailingSlashesMiddleware: false,
 
   localeDir: path.resolve(path.join(__dirname, '../locale')),
 
@@ -166,8 +167,12 @@ module.exports = {
     'firefox',
   ],
 
+  validUrlExceptions: [],
+
   // The default app used in the URL.
   defaultClientApp: 'firefox',
 
   fxaConfig: null,
+
+  proxyEnabled: false,
 };

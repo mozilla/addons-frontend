@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
+"POT-Creation-Date: 2017-02-07 14:11+0000\n"
 "PO-Revision-Date: 2017-01-24 15:45+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -32,7 +32,9 @@ msgstr "%(name)s wird installiert."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu deinstallieren."
+msgstr ""
+"%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu "
+"deinstallieren."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -62,45 +64,48 @@ msgstr "Sie können jetzt über die Symbolleiste auf %(name)s zugreifen."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:107
-msgid "Hover over the image to preview"
-msgstr "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
+"Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
-#: src/disco/components/Addon.js:128
+#: src/disco/components/Addon.js:113
+msgid "Hover over the image to preview"
+msgstr ""
+"Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+
+#: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
 msgstr "Installation fehlgeschlagen. Bitte versuchen Sie es erneut."
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
 msgstr "Download fehlgeschlagen. Bitte überprüfen Sie Ihre Verbindung."
 
-#: src/disco/components/Addon.js:132
+#: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
 msgstr "Bei der Installation ist ein unerwarteter Fehler aufgetreten."
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Bei der Deinstallation ist ein unerwarteter Fehler aufgetreten."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
 msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
-#: src/disco/components/Addon.js:145
+#: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
+msgstr ""
+"Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
 
-#: src/disco/components/Addon.js:147
+#: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
 msgstr "Bitte starten Sie Firefox neu, um dieses Add-on zu verwenden."
 
-#: src/disco/components/Addon.js:67
+#: src/disco/components/Addon.js:68
 msgid "Close"
 msgstr "Schließen"
-
-#: src/disco/components/Addon.js:97
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
@@ -129,13 +134,19 @@ msgstr "Passen Sie Ihren Firefox an."
 #: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
-"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von lustigen Themes zu mächtigen Werkzeugen, dank "
-"denen Sie schneller und sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige besonders leistungsfähige und funktionsreiche Add-ons."
+"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen "
+"Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von "
+"lustigen Themes zu mächtigen Werkzeugen, dank denen Sie schneller und "
+"sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige "
+"besonders leistungsfähige und funktionsreiche Add-ons."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Installiert und zur Symbolleiste hinzugefügt."

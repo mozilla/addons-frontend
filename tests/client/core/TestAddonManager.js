@@ -50,6 +50,40 @@ describe('addonManager', () => {
     });
   });
 
+  describe('hasPermissionPromptsEnabled', () => {
+    it('is undefined if mozAddonManager is not available', () => {
+      assert.equal(addonManager.hasPermissionPromptsEnabled(), undefined);
+    });
+
+    it('is undefined if permissionPromptsEnabled is undefined', () => {
+      assert.equal(addonManager.hasPermissionPromptsEnabled({
+        navigator: {
+          mozAddonManager: {},
+        },
+      }), undefined);
+    });
+
+    it('is false if hasPermissionPromptsEnabled is false', () => {
+      assert.equal(addonManager.hasPermissionPromptsEnabled({
+        navigator: {
+          mozAddonManager: {
+            permissionPromptsEnabled: false,
+          },
+        },
+      }), false);
+    });
+
+    it('is true if hasPermissionPromptsEnabled is true', () => {
+      assert.equal(addonManager.hasPermissionPromptsEnabled({
+        navigator: {
+          mozAddonManager: {
+            permissionPromptsEnabled: true,
+          },
+        },
+      }), true);
+    });
+  });
+
   describe('getAddon()', () => {
     it('should call mozAddonManager.getAddonByID() with id', () => {
       fakeMozAddonManager.getAddonByID.returns(Promise.resolve(fakeAddon));
@@ -122,8 +156,7 @@ describe('addonManager', () => {
     it('requires a src', () => (
       addonManager.install(
         fakeInstallUrl, fakeCallback, { _mozAddonManager: fakeMozAddonManager })
-          .then(
-            () => assert.ok(false, 'unexpected success'),
+          .then(unexpectedSuccess,
             (e) => assert.equal(e.message, 'No src for add-on install'))
     ));
   });

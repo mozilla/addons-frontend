@@ -114,9 +114,10 @@ export class AddonDetailBase extends React.Component {
     );
   }
 
-  readReviewsFooter() {
-    const { addon, i18n } = this.props;
+  renderRatingsCard() {
+    const { RatingManager, addon, i18n } = this.props;
     let content;
+    let footerPropName;
 
     if (addon.ratings.count) {
       const count = addon.ratings.count;
@@ -125,6 +126,7 @@ export class AddonDetailBase extends React.Component {
         { count: i18n.formatNumber(count) },
       );
 
+      footerPropName = 'footerLink';
       content = (
         <Link className="AddonDetail-all-reviews-link"
           to={`/addon/${addon.slug}/reviews/`}>
@@ -132,18 +134,37 @@ export class AddonDetailBase extends React.Component {
         </Link>
       );
     } else {
+      footerPropName = 'footerText';
       content = i18n.gettext('No reviews yet');
     }
 
-    return <div className="AddonDetail-read-reviews-footer">{content}</div>;
+    const props = {
+      [footerPropName]: (
+        <div className="AddonDetail-read-reviews-footer">{content}</div>),
+    };
+    return (
+      <Card
+        header={i18n.gettext('Rate your experience')}
+        className="AddonDetail-overall-rating"
+        {...props}>
+        <RatingManager
+          addon={addon}
+          version={addon.current_version}
+        />
+      </Card>
+    );
   }
 
   render() {
-    const { RatingManager, addon, i18n } = this.props;
+    const { addon, i18n } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
-
+    const description = addon.description ? addon.description : addon.summary;
+    const descriptionSanitized = sanitizeHTML(
+      nl2br(description), allowedDescriptionTags);
+    const summarySanitized = sanitizeHTML(
+      addon.summary, ['a']);
     const title = i18n.sprintf(
       // L10n: Example: The Add-On <span>by The Author</span>
       i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
@@ -164,14 +185,14 @@ export class AddonDetailBase extends React.Component {
               className="AddonDetail-title-heading" />
           </div>
           <p className="AddonDetail-summary"
-            dangerouslySetInnerHTML={sanitizeHTML(addon.summary)} />
+            dangerouslySetInnerHTML={summarySanitized} />
         </header>
 
         <section className="AddonDetail-metadata">
           <h2 className="visually-hidden">
             {i18n.gettext('Extension Metadata')}
           </h2>
-          <AddonMeta averageDailyUsers={addon.average_daily_users} />
+          <AddonMeta addon={addon} />
           <InstallButton {...this.props} />
         </section>
 
@@ -187,20 +208,10 @@ export class AddonDetailBase extends React.Component {
         )} className="AddonDescription">
           <div className="AddonDescription-contents"
             ref={(ref) => { this.addonDescription = ref; }}
-            dangerouslySetInnerHTML={
-              sanitizeHTML(nl2br(addon.description), allowedDescriptionTags)
-            } />
+            dangerouslySetInnerHTML={descriptionSanitized} />
         </ShowMoreCard>
 
-        <Card
-          header={i18n.gettext('Rate your experience')}
-          footer={this.readReviewsFooter()}
-          className="AddonDetail-overall-rating">
-          <RatingManager
-            addon={addon}
-            version={addon.current_version}
-          />
-        </Card>
+        {this.renderRatingsCard()}
 
         <AddonMoreInfo addon={addon} />
       </div>

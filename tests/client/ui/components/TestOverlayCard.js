@@ -23,12 +23,20 @@ describe('<OverlayCard />', () => {
       rootNode.querySelector('.Card-header').textContent, 'header');
   });
 
-  it('passes the footer', () => {
-    const root = render({ footer: 'footer' });
+  it('passes a footer link', () => {
+    const root = render({ footerLink: <a href="/somewhere">link</a> });
     const rootNode = findDOMNode(root);
 
     assert.include(
-      rootNode.querySelector('.Card-footer').textContent, 'footer');
+      rootNode.querySelector('.Card-footer-link').textContent, 'link');
+  });
+
+  it('passes footer text', () => {
+    const root = render({ footerText: 'footer text' });
+    const rootNode = findDOMNode(root);
+
+    assert.include(
+      rootNode.querySelector('.Card-footer-text').textContent, 'footer text');
   });
 
   it('passes children', () => {

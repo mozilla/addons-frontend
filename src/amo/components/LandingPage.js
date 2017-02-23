@@ -5,6 +5,7 @@ import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import { loadLandingAddons } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
@@ -12,7 +13,12 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
-import { apiAddonType, visibleAddonType } from 'core/utils';
+import { AddonTypeNotFound } from 'core/errors';
+import log from 'core/logger';
+import {
+  apiAddonType as getApiAddonType,
+  visibleAddonType as getVisibleAddonType,
+} from 'core/utils';
 import translate from 'core/i18n/translate';
 
 import './LandingPage.scss';
@@ -20,21 +26,29 @@ import './LandingPage.scss';
 
 export class LandingPageBase extends React.Component {
   static propTypes = {
-    addonType: PropTypes.string.isRequired,
+    apiAddonType: PropTypes.func.isRequired,
     featuredAddons: PropTypes.array,
     highlyRatedAddons: PropTypes.array,
     popularAddons: PropTypes.array,
     i18n: PropTypes.object.isRequired,
+    params: PropTypes.objectOf({
+      visibleAddonType: PropTypes.string.isRequired,
+    }).isRequired,
   }
 
-  contentForType(addonType) {
-    const { i18n } = this.props;
+  static defaultProps = {
+    apiAddonType: getApiAddonType,
+  }
+
+  contentForType(visibleAddonType) {
+    const { apiAddonType, i18n } = this.props;
+    const addonType = apiAddonType(visibleAddonType);
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
         featuredHeader: i18n.gettext('Featured extensions'),
         featuredFooterLink: {
-          pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
+          pathname: `/${getVisibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
           query: { addonType: ADDON_TYPE_EXTENSION },
         },
         featuredFooterText: i18n.gettext('More featured extensions'),
@@ -54,7 +68,7 @@ export class LandingPageBase extends React.Component {
       [ADDON_TYPE_THEME]: {
         featuredHeader: i18n.gettext('Featured themes'),
         featuredFooterLink: {
-          pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
+          pathname: `/${getVisibleAddonType(ADDON_TYPE_THEME)}/featured/`,
           query: { addonType: ADDON_TYPE_THEME },
         },
         featuredFooterText: i18n.gettext('More featured themes'),
@@ -73,19 +87,26 @@ export class LandingPageBase extends React.Component {
       },
     };
 
-    if (contentForTypes[addonType]) {
-      return contentForTypes[addonType];
-    }
-
-    throw new Error(`No LandingPage content for addonType: ${addonType}`);
+    return { addonType, html: contentForTypes[addonType] };
   }
 
   render() {
-    const {
-      addonType, featuredAddons, highlyRatedAddons, popularAddons,
-    } = this.props;
+    const { featuredAddons, highlyRatedAddons, popularAddons } = this.props;
+    const { visibleAddonType } = this.props.params;
 
-    const html = this.contentForType(addonType);
+    let content;
+    try {
+      content = this.contentForType(visibleAddonType);
+    } catch (err) {
+      if (err instanceof AddonTypeNotFound) {
+        log.info('Rendering <NotFound /> for error:', err);
+        return <NotFound />;
+      }
+
+      throw err;
+    }
+
+    const { addonType, html } = content;
 
     return (
       <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
@@ -108,9 +129,8 @@ export class LandingPageBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state) {
   return {
-    addonType: apiAddonType(ownProps.params.visibleAddonType),
     featuredAddons: state.landing.featured.results,
     highlyRatedAddons: state.landing.highlyRated.results,
     popularAddons: state.landing.popular.results,

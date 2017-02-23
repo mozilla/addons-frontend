@@ -1,6 +1,6 @@
 import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
 
-function denormalizeReview(review) {
+export function denormalizeReview(review) {
   return {
     addonId: review.addon.id,
     addonSlug: review.addon.slug,
@@ -18,17 +18,23 @@ function denormalizeReview(review) {
   };
 }
 
+const setReviewAction = (review) => ({ type: SET_REVIEW, payload: review });
+
 export const setReview = (review, reviewOverrides = {}) => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  return {
-    type: SET_REVIEW,
-    payload: {
-      ...denormalizeReview(review),
-      ...reviewOverrides,
-    },
-  };
+  return setReviewAction({
+    ...denormalizeReview(review),
+    ...reviewOverrides,
+  });
+};
+
+export const setDenormalizedReview = (review) => {
+  if (!review) {
+    throw new Error('review cannot be empty');
+  }
+  return setReviewAction(review);
 };
 
 export const setAddonReviews = ({ addonSlug, reviews }) => {

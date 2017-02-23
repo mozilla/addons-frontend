@@ -2,18 +2,20 @@
 import config from 'config';
 import request from 'supertest-as-promised';
 
-import { runServer } from 'core/server/base';
+import { runTestServer } from '../helpers';
 
 
 const fetchMock = require('fetch-mock');
 
 const defaultURL = '/en-US/firefox/addon/fakeaddon/';
 const detailsAPIURL = `${config.get('apiHost')}/api/v3/addons/addon/fakeaddon/?lang=en-US`;
+// TODO: Use a response object (like `tests/client/core/api/test_api`)
+const headers = { 'Content-Type': 'application/json' };
 
 describe('Details Page', () => {
   let app;
 
-  before(() => runServer({ listen: false, app: 'amo' })
+  before(() => runTestServer({ app: 'amo' })
     .then((server) => {
       app = server;
     }));
@@ -32,6 +34,7 @@ describe('Details Page', () => {
       response: {
         status: 401,
         body: { error: 'not authorized' },
+        headers,
       },
     });
     return request(app)
@@ -45,6 +48,7 @@ describe('Details Page', () => {
       response: {
         status: 404,
         body: { error: 'not found' },
+        headers,
       },
     });
     return request(app)
@@ -52,10 +56,17 @@ describe('Details Page', () => {
       .expect(404);
   });
 
-  it('should surface an unknown error from the API as a 500', () => {
-    fetchMock.get(detailsAPIURL, 503);
+  it('should surface an unknown API error with matching status', () => {
+    fetchMock.get({
+      matcher: detailsAPIURL,
+      response: {
+        headers,
+        body: { error: 'huh' },
+        status: 503,
+      },
+    });
     return request(app)
       .get(defaultURL)
-      .expect(500);
+      .expect(503);
   });
 });
