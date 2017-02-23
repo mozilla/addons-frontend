@@ -21,6 +21,7 @@ import {
   ngettext,
   nl2br,
   refreshAddon,
+  safePromise,
   visibleAddonType,
 } from 'core/utils';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
@@ -535,5 +536,33 @@ describe('visibleAddonType', () => {
     assert.throws(() => {
       visibleAddonType('hasOwnProperty');
     }, '"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING');
+  });
+});
+
+describe('safePromise', () => {
+  it('passes through a promised value', () => {
+    const asPromised = safePromise(() => Promise.resolve('return value'));
+    return asPromised().then((returnedValue) => {
+      assert.equal(returnedValue, 'return value');
+    });
+  });
+
+  it('passes along all arguments', () => {
+    const callback = sinon.spy(() => Promise.resolve());
+    const asPromised = safePromise(callback);
+    return asPromised('one', 'two', 'three').then(() => {
+      assert.ok(callback.called, 'callback was never called');
+      assert.deepEqual(callback.firstCall.args, ['one', 'two', 'three']);
+    });
+  });
+
+  it('catches errors and returns them as rejected promises', () => {
+    const msg = 'well, that was unfortunate';
+    const asPromised = safePromise(() => {
+      throw new Error(msg);
+    });
+    return asPromised().then(unexpectedSuccess, (error) => {
+      assert.equal(error.message, msg);
+    });
   });
 });

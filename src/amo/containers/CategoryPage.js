@@ -6,7 +6,7 @@ import { compose } from 'redux';
 
 import SearchPage from 'amo/components/SearchPage';
 import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
-import { apiAddonType } from 'core/utils';
+import { apiAddonType, safePromise } from 'core/utils';
 
 
 export function CategoryPageBase(props) {
@@ -42,7 +42,7 @@ export function mapStateToProps(state, ownProps) {
 export default compose(
   asyncConnect([{
     deferred: true,
-    promise: loadByCategoryIfNeeded,
+    promise: safePromise(loadByCategoryIfNeeded),
   }]),
   connect(mapStateToProps),
 )(CategoryPageBase);

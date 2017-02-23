@@ -201,3 +201,11 @@ export function getErrorComponent(status) {
 export function isValidUrlException(value, { _config = config } = {}) {
   return _config.get('validUrlExceptions').includes(value);
 }
+
+export const safePromise = (promiseOrNot) => (...args) => {
+  try {
+    return promiseOrNot(...args);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
