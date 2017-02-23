@@ -48,7 +48,7 @@ describe('api', () => {
 
     it('transforms method to upper case', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/resource/?lang=`, {
+        .withArgs(`${apiHost}/api/v3/resource/`, {
           method: 'GET', headers: {},
         })
         .once()
@@ -100,8 +100,7 @@ describe('api', () => {
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource' })
-        .then(unexpectedSuccess)
-        .catch((err) => {
+        .then(unexpectedSuccess, (err) => {
           assert.equal(err.message,
             'pretend this was a response with invalid JSON');
         });
@@ -130,9 +129,7 @@ describe('api', () => {
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource', errorHandler })
-        .then(() => {
-          assert(false, 'unexpected success');
-        }, () => {
+        .then(unexpectedSuccess, () => {
           assert.ok(errorHandler.handle.called);
           const args = errorHandler.handle.firstCall.args;
           assert.equal(args[0].message, 'this could be any error');
@@ -145,13 +142,56 @@ describe('api', () => {
       });
 
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/resource/?lang=`, {
+        .withArgs(`${apiHost}/api/v3/resource/`, {
           method: 'GET', headers: {},
         })
         .once()
         .returns(response);
       return api.callApi({ endpoint: 'resource', method: 'GET' })
         .then(() => mockWindow.verify());
+    });
+  });
+
+  describe('makeQueryString', () => {
+    it('transforms an object to a query string', () => {
+      const query = api.makeQueryString({ user: 123, addon: 321 });
+      assert.include(query, 'user=123');
+      assert.include(query, 'addon=321');
+    });
+
+    it('ignores undefined query string values', () => {
+      const query = api.makeQueryString({ user: undefined, addon: 321 });
+      assert.equal(query, '?addon=321');
+    });
+
+    it('ignores null query string values', () => {
+      const query = api.makeQueryString({ user: null, addon: 321 });
+      assert.equal(query, '?addon=321');
+    });
+
+    it('ignores empty string query string values', () => {
+      const query = api.makeQueryString({ user: '', addon: 321 });
+      assert.equal(query, '?addon=321');
+    });
+
+    it('handles falsey integers', () => {
+      const query = api.makeQueryString({ some_flag: 0 });
+      assert.equal(query, '?some_flag=0');
+    });
+
+    it('handles truthy integers', () => {
+      const query = api.makeQueryString({ some_flag: 1 });
+      assert.equal(query, '?some_flag=1');
+    });
+
+    it('handles false values', () => {
+      const query = api.makeQueryString({ some_flag: false });
+      assert.equal(query, '?some_flag=false');
+    });
+
+    it('handles true values', () => {
+      const query = api.makeQueryString({ some_flag: true });
+      assert.equal(query, '?some_flag=true');
     });
   });
 
@@ -200,7 +240,7 @@ describe('api', () => {
     });
 
     it('surfaces status and apiURL on Error instance', () => {
-      const url = `${apiHost}/api/v3/addons/search/?app=&q=foo&page=3&lang=en-US`;
+      const url = `${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`;
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
@@ -276,7 +316,7 @@ describe('api', () => {
 
     it('sets the app, lang, and type query', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&page=&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.featured({

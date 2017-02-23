@@ -17,6 +17,7 @@ export class AddonReviewBase extends React.Component {
     apiState: PropTypes.object,
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
+    onReviewSubmitted: PropTypes.func.isRequired,
     refreshAddon: PropTypes.func.isRequired,
     review: PropTypes.object.isRequired,
     setDenormalizedReview: PropTypes.func.isRequired,
@@ -25,11 +26,7 @@ export class AddonReviewBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { reviewBody: null };
-    if (props.review) {
-      this.state.reviewBody = props.review.body;
-    }
-    this.overlayCard = null;
+    this.state = { reviewBody: props.review.body };
     this.reviewTextarea = null;
   }
 
@@ -40,43 +37,38 @@ export class AddonReviewBase extends React.Component {
     }
   }
 
-  onSubmit = (event, { overlayCard = this.overlayCard } = {}) => {
+  onSubmit = (event) => {
+    const { apiState, errorHandler, onReviewSubmitted, review } = this.props;
     const { reviewBody } = this.state;
     event.preventDefault();
     event.stopPropagation();
 
-    const addonSlug = this.props.review.addonSlug;
-    const apiState = this.props.apiState;
-
-    const newReviewParams = {
-      body: reviewBody,
-    };
-
-    const updatedReview = {
-      ...this.props.review,
-      ...newReviewParams,
-    };
+    const newReviewParams = { body: reviewBody };
+    const updatedReview = { ...review, ...newReviewParams };
 
     const params = {
-      addonSlug,
+      addonId: review.addonId,
       apiState,
-      errorHandler: this.props.errorHandler,
-      reviewId: this.props.review.id,
+      errorHandler,
+      reviewId: review.id,
       ...newReviewParams,
     };
     // TODO: render a progress indicator in the UI.
     // https://github.com/mozilla/addons-frontend/issues/1156
 
-    // First, dispatch the new review to state so that the
-    // component doesn't re-render with old data while
+    // Dispatch the new review to state so that the
+    // component doesn't re-render with stale data while
     // the API request is in progress.
     this.props.setDenormalizedReview(updatedReview);
 
     // Next, update the review with an actual API request.
     return this.props.updateReviewText(params)
-      .then(() => overlayCard.hide())
-      // Finally, update the review count on the add-on detail page.
-      .then(() => this.props.refreshAddon({ addonSlug, apiState }));
+      // Give the parent a callback saying that the review has been submitted.
+      // Example: this might close the review entry overlay.
+      .then(() => onReviewSubmitted())
+      .then(() => this.props.refreshAddon({
+        addonSlug: review.addonSlug, apiState,
+      }));
   }
 
   onBodyInput = (event) => {
@@ -108,8 +100,7 @@ export class AddonReviewBase extends React.Component {
     }
 
     return (
-      <OverlayCard ref={(ref) => { this.overlayCard = ref; }}
-        visibleOnLoad className="AddonReview">
+      <OverlayCard visibleOnLoad className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
