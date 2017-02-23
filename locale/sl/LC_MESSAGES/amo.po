@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 13:31+0000\n"
+"PO-Revision-Date: 2017-02-23 13:43+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -157,28 +157,27 @@ msgstr "Napaka pri nalaganju kategorij."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Ni najdenih kategorij."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Niste pooblaščeni"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Strani ni mogoče najti"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Napaka strežnika"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Prebrskaj vse razširitve"
+msgstr "Več izbranih razširitev"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Več izbranih tem"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -193,61 +192,52 @@ msgid "View desktop site"
 msgstr "Ogled strani za namizja"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Prebrskaj vse razširitve"
+msgstr "Izbrane razširitve"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Prebrskaj vse razširitve"
+msgstr "Več izbranih razširitev"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Prebrskaj vse razširitve"
+msgstr "Najbolj priljubljene razširitve"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Prebrskaj vse razširitve"
+msgstr "Več priljubljenih razširitev"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Prebrskaj vse razširitve"
+msgstr "Najbolje ocenjene razširitve"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Prebrskaj vse razširitve"
+msgstr "Več visoko ocenjenih razširitev"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Izbrane teme"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Več izbranih tem"
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Prebrskaj vse teme"
+msgstr "Najbolj priljubljene teme"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Prebrskaj vse teme"
+msgstr "Več priljubljenih tem"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Prebrskaj vse teme"
+msgstr "Najbolje ocenjene teme"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Več visoko ocenjenih tem"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -262,13 +252,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Kako vam ugaja %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Iskanje ..."
+msgstr "Išči"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Išči razširitve in teme"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
@@ -279,9 +268,8 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Ni najdenih rezultatov za \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Ni najdenih rezultatov za \"%(query)s\"."
+msgstr "Ni najdenih rezultatov."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
