@@ -202,6 +202,26 @@ export function isValidUrlException(value, { _config = config } = {}) {
   return _config.get('validUrlExceptions').includes(value);
 }
 
+/*
+ * Make sure a callback returns a rejected promise instead of throwing an error.
+ *
+ * This is for use with asyncConnect() so that the promise callback never
+ * throws an error (which will get lost).
+ *
+ * If the callback throws an error, a rejected promise will be returned
+ * instead. If the callback runs without an error, its return value is not
+ * altered. In other words, it may or may not return a promise because
+ * asyncConnect supports either case.
+ *
+ * You would use it like this:
+ *
+ * export default compose(
+ *   asyncConnect([{
+ *     deferred: true,
+ *     promise: safePromise(loadSomeData),
+ *   }])
+ * )(YourComponentBase)
+ */
 export const safePromise = (promiseOrNot) => (...args) => {
   try {
     return promiseOrNot(...args);
