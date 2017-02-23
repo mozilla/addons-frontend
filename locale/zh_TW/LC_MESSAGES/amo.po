@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-11-10 17:10+0000\n"
+"PO-Revision-Date: 2017-02-23 14:10+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -17,11 +17,11 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
+msgstr[0] "閱讀全部 %(count)s 條評論"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
-msgstr ""
+msgstr "還沒有評論"
 
 #: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
@@ -37,33 +37,29 @@ msgstr "擴充套件後設資料"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "關於此%(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "撰寫評論"
+msgstr "點擊預覽"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s 位使用者"
+msgstr[0] "%(total)s 位使用者"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "平均評價: %(rating)s 分，滿分 5 分"
+msgstr "%(averageRating)s 分，滿分 5 分"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "還沒有人評分"
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "無評價"
+msgstr[0] "共 %(total)s 筆評分"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -71,36 +67,35 @@ msgstr "可用於"
 
 #: src/amo/components/AddonMoreInfo.js:25
 msgid "More information"
-msgstr ""
+msgstr "更多資訊"
 
 #: src/amo/components/AddonMoreInfo.js:27
 msgid "Website"
-msgstr ""
+msgstr "網站"
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "Last updated"
-msgstr ""
+msgstr "最近更新"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
-msgstr ""
+msgstr "授權條款"
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "隱私權保護政策"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "閱讀此附加元件的隱私權保護政策"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -108,12 +103,11 @@ msgstr "撰寫評論"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "評論文字"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "撰寫評論"
+msgstr "送出評論"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -121,67 +115,59 @@ msgstr "告訴這世界為什麼您覺得這套擴充套件超棒！"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "告訴我們您喜愛這套擴充套件的那些地方，請保持簡單明瞭。"
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "告訴這世界為什麼您覺得這套擴充套件超棒！"
+msgstr "讓這套擴充套件給其他人知道！"
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "%(timestamp)s，來自 %(authorName)s"
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
-#, fuzzy
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr "搜尋中…"
+msgstr "載入中…"
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Firefox 的附加元件"
+msgstr "附加元件圖示"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s 的評論"
 
 #: src/amo/components/AddonReviewList.js:71
-#, fuzzy
 msgid "All written reviews"
-msgstr "撰寫評論"
+msgstr "所有撰寫過的評論"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "分類載入失敗。"
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "找不到分類。"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "未授權"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "找不到頁面"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "伺服器錯誤"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "瀏覽所有擴充套件"
+msgstr "更多精選擴充套件"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "更多精選佈景主題"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -196,29 +182,24 @@ msgid "View desktop site"
 msgstr "檢視桌面版網站"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "瀏覽所有擴充套件"
+msgstr "精選擴充套件"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "瀏覽所有擴充套件"
+msgstr "更多精選擴充套件"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "瀏覽所有擴充套件"
+msgstr "最熱門的擴充套件"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "瀏覽所有擴充套件"
+msgstr "更多知名擴充套件"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "瀏覽所有擴充套件"
+msgstr "分數最高的擴充套件"
 
 #: src/amo/components/LandingPage.js:66
 #, fuzzy
@@ -227,21 +208,19 @@ msgstr "瀏覽所有擴充套件"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "精選佈景主題"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "更多精選佈景主題"
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "瀏覽所有佈景主題"
+msgstr "最熱門的佈景主題"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "瀏覽所有佈景主題"
+msgstr "更多熱門佈景主題"
 
 #: src/amo/components/LandingPage.js:81
 #, fuzzy
@@ -292,27 +271,27 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "最近更新"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "相關性"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "最多使用者"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "評分最高"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "排序"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "推薦頁面"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -323,9 +302,8 @@ msgid "Browse all themes"
 msgstr "瀏覽所有佈景主題"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Firefox 的附加元件"
+msgstr "附加元件站首頁"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -338,17 +316,16 @@ msgid ""
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "擴充套件後設資料"
+msgstr "擴充套件"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "佈景主題"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "您可以調整 Firefox 的功能…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -372,7 +349,7 @@ msgstr "交朋友"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "玩遊戲"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
@@ -410,20 +387,17 @@ msgstr "登入/註冊"
 msgid "Log out"
 msgstr "登出"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "錯誤代碼: %(status)s。"
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "正在安裝 %(name)s。"
+msgstr "安裝佈景主題"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Firefox 的附加元件"
+msgstr "新增至 Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -467,24 +441,23 @@ msgstr "第 %(currentPage)s 頁，共 %(totalPages)s 頁"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "您的附加元件已經準備就緒"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "現在可以在工具列使用 %(name)s。"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "好喔！"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "發生未預期的錯誤"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "平均評價: %(rating)s 分，滿分 5 分"
+msgstr "評價 %(rating)s 分，滿分 5 分"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -492,7 +465,7 @@ msgstr "無評價"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">展開後</span> 閱讀更多"
 
 #~ msgid "Screenshots"
 #~ msgstr "畫面擷圖"
