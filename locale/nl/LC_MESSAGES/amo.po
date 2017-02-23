@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 15:31+0000\n"
+"PO-Revision-Date: 2017-02-23 15:50+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -56,7 +56,7 @@ msgstr "%(averageRating)s van 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr "Nog niet gewaardeerd"
+msgstr ""
 
 #: src/amo/components/AddonMeta.js:37
 msgid "%(total)s rating"
@@ -202,11 +202,11 @@ msgstr "Meer populaire extensies"
 
 #: src/amo/components/LandingPage.js:61
 msgid "Top rated extensions"
-msgstr "Hoogst gewaardeerde extensies"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:66
 msgid "More highly rated extensions"
-msgstr "Meer hoog gewaardeerde extensies"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -226,11 +226,11 @@ msgstr "Meer populaire thema’s"
 
 #: src/amo/components/LandingPage.js:81
 msgid "Top rated themes"
-msgstr "Hoogst gewaardeerde thema’s"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr "Meer hoog gewaardeerde thema’s"
+msgstr ""
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -270,15 +270,15 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Onlangs bijgewerkt"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Relevantie"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Meeste gebruikers"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
@@ -286,11 +286,11 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Sorteren"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Voorgestelde pagina’s"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -313,6 +313,8 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Extensies zijn speciale functies die u aan Firefox kunt toevoegen.\n"
+"Met thema’s kunt u de vormgeving van uw browser wijzigen."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -320,7 +322,7 @@ msgstr "Extensies"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Thema’s"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -456,7 +458,7 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
-msgstr "Waardering: %(rating)s van 5"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
