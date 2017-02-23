@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 18:43+0000\n"
-"Last-Translator: Alberto Castro <albertdecastro@tutanota.com>\n"
+"PO-Revision-Date: 2017-02-23 23:31+0000\n"
+"Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,12 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Ler %(count)s revisão"
-msgstr[1] "Ler todas as %(count)s revisões"
+msgstr[0] "Ler %(count)s análise"
+msgstr[1] "Ler todas as %(count)s análises"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
-msgstr "Sem revisões"
+msgstr "Ainda sem análises"
 
 #: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
@@ -48,7 +48,7 @@ msgstr "Pressione para pré-visualizar"
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "utilizadores %(total)s"
+msgstr[0] "%(total)s utilizador"
 msgstr[1] "%(users)s utilizadores"
 
 #: src/amo/components/AddonMeta.js:28
@@ -57,14 +57,13 @@ msgstr "%(averageRating)s de 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr "Ainda sem avaliação9"
+msgstr "Ainda sem avaliação"
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Avaliações %(total)s"
-msgstr[1] "Sem avaliações"
+msgstr[0] "%(total)s avaliação"
+msgstr[1] "%(total)s avaliações"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -132,7 +131,7 @@ msgstr "por %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr "A pesquisar..."
+msgstr "A carregar..."
 
 #: src/amo/components/AddonReviewList.js:63
 msgid "Add-on icon"
@@ -140,11 +139,11 @@ msgstr "Ícone do extra"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr "Revisões para %(addonName)s"
+msgstr "Análises para %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
 msgid "All written reviews"
-msgstr "Todas as revisões escritas"
+msgstr "Todas as análises escritas"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
@@ -208,7 +207,7 @@ msgstr "Extensões com melhor avaliação"
 
 #: src/amo/components/LandingPage.js:66
 msgid "More highly rated extensions"
-msgstr "Extensões avaliadas com mais pontuação"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -224,9 +223,8 @@ msgid "Most popular themes"
 msgstr "Navegar todos os temas"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Navegar todos os temas"
+msgstr "Mais temas populares"
 
 #: src/amo/components/LandingPage.js:81
 #, fuzzy
@@ -250,9 +248,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Como está a desfrutar da sua experiência com %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "A pesquisar..."
+msgstr "Pesquisar"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
@@ -267,9 +264,8 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Nenhuns resultados foram encontrados para \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Nenhuns resultados foram encontrados para \"%(query)s\"."
+msgstr "Não foram encontrados resultados."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -308,9 +304,8 @@ msgid "Browse all themes"
 msgstr "Navegar todos os temas"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Extras para o Firefox"
+msgstr "Página inicial dos extras"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -323,9 +318,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metadados da extensão"
+msgstr "Extensões"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -400,14 +394,12 @@ msgid "Error code: %(status)s."
 msgstr ""
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "A instalar %(name)s."
+msgstr "Instalar tema"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Extras para o Firefox"
+msgstr "Adicionar ao Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -466,9 +458,8 @@ msgid "An unexpected error occurred"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Média de avaliações: %(rating)s de 5"
+msgstr "Avaliado %(rating)s de 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
