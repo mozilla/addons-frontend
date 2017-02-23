@@ -3,7 +3,7 @@ import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import Categories from 'amo/components/Categories';
-import { loadCategoriesIfNeeded, apiAddonType } from 'core/utils';
+import { loadCategoriesIfNeeded, apiAddonType, safePromise } from 'core/utils';
 
 
 export function mapStateToProps(state, ownProps) {
@@ -24,7 +24,7 @@ export default compose(
   asyncConnect([{
     deferred: true,
     key: 'CategoriesPage',
-    promise: loadCategoriesIfNeeded,
+    promise: safePromise(loadCategoriesIfNeeded),
   }]),
   connect(mapStateToProps),
 )(Categories);

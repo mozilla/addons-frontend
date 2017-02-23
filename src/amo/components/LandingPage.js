@@ -17,6 +17,7 @@ import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import {
   apiAddonType as getApiAddonType,
+  safePromise,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -139,7 +140,7 @@ export function mapStateToProps(state) {
 
 export default compose(
   asyncConnect([
-    { deferred: true, promise: loadLandingAddons },
+    { deferred: true, promise: safePromise(loadLandingAddons) },
   ]),
   connect(mapStateToProps),
   translate({ withRef: true }),

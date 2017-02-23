@@ -12,6 +12,7 @@ import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
+import { safePromise } from 'core/utils';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
@@ -168,5 +169,5 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
 
 export default asyncConnect([{
   key: 'DiscoPane',
-  promise: loadDataIfNeeded,
+  promise: safePromise(loadDataIfNeeded),
 }])(connect(mapStateToProps, mapDispatchToProps)(translate()(DiscoPaneBase)));

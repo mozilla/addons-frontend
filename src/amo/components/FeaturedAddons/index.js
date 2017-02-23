@@ -7,6 +7,7 @@ import SearchResults from 'amo/components/SearchResults';
 import { loadFeaturedAddons } from 'amo/utils';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { safePromise } from 'core/utils';
 
 import './FeaturedAddons.scss';
 
@@ -62,7 +63,7 @@ export function mapStateToProps(state) {
 
 export default compose(
   asyncConnect([
-    { deferred: true, promise: loadFeaturedAddons },
+    { deferred: true, promise: safePromise(loadFeaturedAddons) },
   ]),
   connect(mapStateToProps),
   translate(),

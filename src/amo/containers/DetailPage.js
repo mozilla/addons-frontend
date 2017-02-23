@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import AddonDetail from 'amo/components/AddonDetail';
 import { UNKNOWN } from 'core/constants';
-import { loadAddonIfNeeded } from 'core/utils';
+import { loadAddonIfNeeded, safePromise } from 'core/utils';
 
 
 export class DetailPageBase extends React.Component {
@@ -33,7 +33,7 @@ export default compose(
   asyncConnect([{
     key: 'DetailPage',
     deferred: true,
-    promise: loadAddonIfNeeded,
+    promise: safePromise(loadAddonIfNeeded),
   }]),
   connect(mapStateToProps),
 )(DetailPageBase);

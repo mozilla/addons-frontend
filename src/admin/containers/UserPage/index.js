@@ -4,6 +4,7 @@ import { asyncConnect } from 'redux-connect';
 
 import { loadEntities, setCurrentUser } from 'core/actions';
 import { fetchProfile } from 'core/api';
+import { safePromise } from 'core/utils';
 
 import './styles.scss';
 
@@ -51,5 +52,5 @@ export function loadProfileIfNeeded({ store: { getState, dispatch } }) {
 export default asyncConnect([{
   key: 'UserPage',
   deferred: true,
-  promise: loadProfileIfNeeded,
+  promise: safePromise(loadProfileIfNeeded),
 }])(connect(mapStateToProps)(UserPageBase));

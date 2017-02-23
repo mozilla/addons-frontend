@@ -7,7 +7,7 @@ import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { getReviews } from 'amo/api';
 import translate from 'core/i18n/translate';
-import { findAddon, loadAddonIfNeeded } from 'core/utils';
+import { findAddon, loadAddonIfNeeded, safePromise } from 'core/utils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
 
@@ -119,7 +119,7 @@ export function mapStateToProps(state, ownProps) {
 export default compose(
   asyncConnect([{
     deferred: true,
-    promise: loadInitialData,
+    promise: safePromise(loadInitialData),
   }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
