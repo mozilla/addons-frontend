@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 14:24+0000\n"
+"PO-Revision-Date: 2017-02-23 14:48+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -17,12 +17,12 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s beoordeling lezen"
+msgstr[1] "Alle %(count)s beoordelingen lezen"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
-msgstr ""
+msgstr "Nog geen beoordelingen"
 
 #: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
@@ -38,7 +38,7 @@ msgstr "Metagegevens van extensie"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "Over deze %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
 msgid "Press to preview"
@@ -56,7 +56,7 @@ msgstr "%(averageRating)s van 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "Nog niet gewaardeerd"
 
 #: src/amo/components/AddonMeta.js:37
 msgid "%(total)s rating"
@@ -70,27 +70,27 @@ msgstr "Gebruikt door"
 
 #: src/amo/components/AddonMoreInfo.js:25
 msgid "More information"
-msgstr ""
+msgstr "Meer informatie"
 
 #: src/amo/components/AddonMoreInfo.js:27
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
-msgstr ""
+msgstr "Versie"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "Last updated"
-msgstr ""
+msgstr "Laatst bijgewerkt"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
-msgstr ""
+msgstr "Licentie"
 
 #: src/amo/components/AddonMoreInfo.js:64
 msgid "Privacy Policy"
@@ -98,7 +98,7 @@ msgstr "Privacybeleid"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Het privacybeleid voor deze add-on lezen"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
