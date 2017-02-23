@@ -6,6 +6,7 @@ import {
 
 import translate from 'core/i18n/translate';
 import { setJwt } from 'core/actions';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import * as amoApi from 'amo/api';
 import createStore from 'amo/store';
@@ -21,9 +22,11 @@ import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 function render(customProps = {}) {
   const props = {
     AddonReview: () => <div />,
+    AuthenticateButton: () => <div />,
     addon: fakeAddon,
     apiState: signedInApiState,
     errorHandler: sinon.stub(),
+    location: { pathname: '/some/location/' },
     version: fakeAddon.current_version,
     userId: 91234,
     submitReview: () => Promise.resolve(),
@@ -68,6 +71,45 @@ describe('RatingManager', () => {
 
     render({ userId, loadSavedReview });
     assert.equal(loadSavedReview.called, false);
+  });
+
+  it('renders an AuthenticateButton when userId is empty', () => {
+    const AuthenticateButton = sinon.spy(() => <div />);
+    const location = { pathname: '/some/path/' };
+    render({ userId: null, AuthenticateButton, location });
+
+    assert.ok(AuthenticateButton.called, 'AuthenticateButton was not rendered');
+    const props = AuthenticateButton.firstCall.args[0];
+    assert.deepEqual(props.location, location);
+  });
+
+  it('renders a login message for the extension when userId is empty', () => {
+    const AuthenticateButton = sinon.spy(() => <div />);
+    render({
+      userId: null,
+      AuthenticateButton,
+      addon: { ...fakeAddon, type: ADDON_TYPE_EXTENSION },
+    });
+    const props = AuthenticateButton.firstCall.args[0];
+    assert.include(props.logInText, 'extension');
+  });
+
+  it('renders a login message for the theme when userId is empty', () => {
+    const AuthenticateButton = sinon.spy(() => <div />);
+    render({
+      userId: null,
+      AuthenticateButton,
+      addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
+    });
+    const props = AuthenticateButton.firstCall.args[0];
+    assert.include(props.logInText, 'theme');
+  });
+
+  it('cannot render a login message for unknown extension types', () => {
+    assert.throws(() => render({
+      userId: null,
+      addon: { ...fakeAddon, type: 'xul' },
+    }), /Unknown extension type: xul/);
   });
 
   it('creates a rating with add-on and version info', () => {

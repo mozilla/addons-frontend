@@ -6,19 +6,25 @@ import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
+import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
+
+import './styles.scss';
 
 
 export class RatingManagerBase extends React.Component {
   static propTypes = {
     AddonReview: PropTypes.node,
+    AuthenticateButton: PropTypes.node,
     addon: PropTypes.object.isRequired,
     errorHandler: PropTypes.func.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired,
     Rating: PropTypes.node,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
@@ -28,6 +34,7 @@ export class RatingManagerBase extends React.Component {
 
   static defaultProps = {
     AddonReview: DefaultAddonReview,
+    AuthenticateButton: DefaultAuthenticateButton,
     Rating: DefaultRating,
   }
 
@@ -74,12 +81,32 @@ export class RatingManagerBase extends React.Component {
       });
   }
 
-  render() {
-    const { AddonReview, Rating, i18n, addon, userReview } = this.props;
-    const { showTextEntry } = this.state;
+  renderLogInToRate() {
+    const { AuthenticateButton, addon, i18n, location } = this.props;
+    let authPrompt;
+    if (addon.type === ADDON_TYPE_EXTENSION) {
+      authPrompt = i18n.gettext('Log in to rate this extension');
+    } else if (addon.type === ADDON_TYPE_THEME) {
+      authPrompt = i18n.gettext('Log in to rate this theme');
+    } else {
+      throw new Error(`Unknown extension type: ${addon.type}`);
+    }
+    return (
+      <div className="RatingManager-log-in-to-rate">
+        <AuthenticateButton
+          noIcon
+          className="RatingManager-log-in-to-rate-button"
+          location={location}
+          logInText={authPrompt}
+        />
+      </div>
+    );
+  }
 
-    // TODO: Disable rating ability when not logged in
-    // (when props.userId is empty)
+  render() {
+    const { AddonReview, Rating, i18n, addon, userId, userReview } = this.props;
+    const { showTextEntry } = this.state;
+    const isLoggedIn = Boolean(userId);
 
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
@@ -102,7 +129,9 @@ export class RatingManagerBase extends React.Component {
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
               {prompt}
             </legend>
+            {!isLoggedIn ? this.renderLogInToRate() : null}
             <Rating
+              readOnly={!isLoggedIn}
               onSelectRating={this.onSelectRating}
               rating={userReview ? userReview.rating : undefined}
             />
