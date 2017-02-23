@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 15:31+0000\n"
+"PO-Revision-Date: 2017-02-23 15:33+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -403,7 +403,7 @@ msgstr "Sair"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Código de erro: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
 #, fuzzy
@@ -461,7 +461,7 @@ msgstr "Sua extensão está pronta"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Agora pode acessar %(name)s pela barra de ferramentas."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
