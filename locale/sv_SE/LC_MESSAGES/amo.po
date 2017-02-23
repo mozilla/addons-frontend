@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 10:54+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
+"PO-Revision-Date: 2017-02-23 16:51+0000\n"
+"Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -17,8 +17,8 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Läst %(count)s recension"
+msgstr[1] "Läst alla %(count)s recensioner"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
@@ -34,39 +34,35 @@ msgstr "%(addonName)s %(startSpan)sav %(authorList)s%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:193
 msgid "Extension Metadata"
-msgstr "Metadata tillägg"
+msgstr "Metadata för tillägg"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
 msgstr "Om denna %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Skriv en recension"
+msgstr "Tryck på förhandsgranska"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s användare"
-msgstr[1] "%(users)s användare"
+msgstr[0] "%(total)s användare"
+msgstr[1] "%(total)s användare"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Medelbetyg: %(rating)s av 5"
+msgstr "%(averageRating)s av 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
 msgstr "Inte betygsatt än"
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Inga betyg"
-msgstr[1] "Inga betyg"
+msgstr[0] "%(total)s betyg"
+msgstr[1] "%(total)s betyg"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -78,7 +74,7 @@ msgstr "Mer information"
 
 #: src/amo/components/AddonMoreInfo.js:27
 msgid "Website"
-msgstr ""
+msgstr "Webbplats"
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
@@ -97,13 +93,12 @@ msgid "License"
 msgstr "Licens"
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "Sekretesspolicy"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Läs sekretesspolicyn för detta tillägg"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -111,12 +106,11 @@ msgstr "Skriv en recension"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Recensionstext"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Skriv en recension"
+msgstr "Skicka in recension"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -124,35 +118,31 @@ msgstr "Berätta för hela världen varför du tycker att det här tillägget ä
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Berätta för oss vad du gillar med detta tillägg. Var specifik och koncis."
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Berätta för hela världen varför du tycker att det här tillägget är fantastiskt!"
+msgstr "Berätta för världen om detta tillägg."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "från %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
-#, fuzzy
 msgid "Loading..."
-msgstr "Söker..."
+msgstr "Laddar..."
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Tillägg för Firefox"
+msgstr "Ikon för tillägg"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
 msgstr "Recensioner för %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
-#, fuzzy
 msgid "All written reviews"
-msgstr "Skriv en recension"
+msgstr "Alla skriva recensioner"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
@@ -164,7 +154,7 @@ msgstr "Inga kategorier hittades."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Behörighet saknas"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -175,13 +165,12 @@ msgid "Server Error"
 msgstr "Serverfel"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Fler utvalda tillägg"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Fler utvalda teman"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -196,61 +185,52 @@ msgid "View desktop site"
 msgstr "Visa datoranpassad sida"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Utvalda tillägg"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Fler utvalda tillägg"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Populäraste tillägg"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Fler populära tillägg"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Högst rankade tillägg"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Fler högt rankade tillägg"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Utvalda teman"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Fler utvalda teman"
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Bläddra bland alla teman"
+msgstr "Populäraste teman"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Bläddra bland alla teman"
+msgstr "Fler populära teman"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Bläddra bland alla teman"
+msgstr "Högst rankade teman"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Fler högt rankade teman"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -265,13 +245,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Vad tycker du om %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Söker..."
+msgstr "Sök"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Sök efter tillägg och teman"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
@@ -282,13 +261,12 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Inga resultat hittades för \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Inga resultat hittades för \"%(query)s\"."
+msgstr "Inga resultat hittades."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Ange ett sökord för att söka på Firefox tilllägg."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
