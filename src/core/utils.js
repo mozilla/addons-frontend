@@ -246,3 +246,11 @@ export function safeAsyncConnect(
   });
   return asyncConnect(safeConfigs);
 }
+
+export function trimAndAddProtocolToUrl(url) {
+  let urlToReturn = url ? url.trim() : null;
+  if (urlToReturn && !urlToReturn.match(/^https?:\/\//)) {
+    urlToReturn = `http://${urlToReturn}`;
+  }
+  return urlToReturn;
+}

@@ -23,3 +23,12 @@
     }
   }
 }
+
+.AddonMoreInfo-contents-links-list {
+  margin: 0;
+  padding: 0 0 0 10px;
+
+  [dir=rtl] & {
+    padding: 0 10px 0 0;
+  }
+}
