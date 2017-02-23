@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 13:43+0000\n"
+"PO-Revision-Date: 2017-02-23 14:21+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -277,27 +277,27 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nedavno posodobljeno"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Ustreznost"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Največ uporabnikov"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Najbolje ocenjeni"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Razvrsti"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Predlagane strani"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -308,9 +308,8 @@ msgid "Browse all themes"
 msgstr "Prebrskaj vse teme"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Dodatki za Firefox"
+msgstr "Domača stran dodatkov"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -321,15 +320,16 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Razširitve so posebne funkcije, ki jih lahko dodate v Firefox.\n"
+"Teme vam omogočajo spremeniti videz vašega brskalnika."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metapodatki o razširitvi"
+msgstr "Razširitve"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Teme"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -400,14 +400,12 @@ msgid "Error code: %(status)s."
 msgstr ""
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Nameščanje %(name)s."
+msgstr "Namesti temo"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Dodatki za Firefox"
+msgstr "Dodaj v Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -451,24 +449,23 @@ msgstr "Stran %(currentPage)s od %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Vaš dodatek je pripravljen"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Sedaj lahko do %(name)s dostopate iz orodne vrstice."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "V redu!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Prišlo je do nepričakovane napake"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Povprečna ocena: %(rating)s od 5"
+msgstr "Ocenjeno z %(rating)s od 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
