@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 13:05+0000\n"
+"PO-Revision-Date: 2017-02-23 13:31+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -60,11 +60,10 @@ msgid "Not yet rated"
 msgstr ""
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Geen waarderingen"
-msgstr[1] "Geen waarderingen"
+msgstr[0] "%(total)s waardering"
+msgstr[1] "%(total)s waarderingen"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -111,9 +110,8 @@ msgid "Review text"
 msgstr ""
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Schrijf een beoordeling"
+msgstr "Beoordeling indienen"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -124,9 +122,8 @@ msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Beschrijf waarom u deze extensie fantastisch vindt!"
+msgstr "Vertel de wereld over deze extensie."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
@@ -169,9 +166,8 @@ msgid "Server Error"
 msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Door alle extensies bladeren"
+msgstr "Meer aanbevolen extensies"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
@@ -190,34 +186,28 @@ msgid "View desktop site"
 msgstr "Desktopwebsite weergeven"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Door alle extensies bladeren"
+msgstr "Aanbevolen extensies"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Door alle extensies bladeren"
+msgstr "Meer aanbevolen extensies"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Door alle extensies bladeren"
+msgstr "Populairste extensies"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Door alle extensies bladeren"
+msgstr "Meer populaire extensies"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Door alle extensies bladeren"
+msgstr "Hoogst gewaardeerde extensies"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Door alle extensies bladeren"
+msgstr "Meer hoog gewaardeerde extensies"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -228,19 +218,16 @@ msgid "More featured themes"
 msgstr ""
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Door alle thema’s bladeren"
+msgstr "Populairste thema’s"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Door alle thema’s bladeren"
+msgstr "Meer populaire thema’s"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Door alle thema’s bladeren"
+msgstr "Hoogst gewaardeerde thema’s"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
@@ -259,9 +246,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hoe beleeft u uw ervaring met %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Zoeken..."
+msgstr "Zoeken"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
@@ -276,9 +262,8 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Geen resultaten voor ‘%(query)s’ gevonden."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Geen resultaten voor ‘%(query)s’ gevonden."
+msgstr "Geen resultaten gevonden."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -317,9 +302,8 @@ msgid "Browse all themes"
 msgstr "Door alle thema’s bladeren"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Add-ons voor Firefox"
+msgstr "Add-ons-startpagina"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -332,9 +316,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metagegevens van extensie"
+msgstr "Extensies"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -409,9 +392,8 @@ msgid "Error code: %(status)s."
 msgstr ""
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "%(name)s wordt geïnstalleerd."
+msgstr "Thema installeren"
 
 #: src/core/components/InstallButton/index.js:48
 msgid "Add to Firefox"
