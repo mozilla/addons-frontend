@@ -3,7 +3,7 @@ import request from 'supertest-as-promised';
 
 import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
-describe('Search App GET requests', () => {
+describe('Admin views', () => {
   let app;
 
   before(() => runTestServer({ app: 'admin' })
@@ -30,4 +30,8 @@ describe('Search App GET requests', () => {
     .get('/search')
     .expect(200)
     .then((res) => checkSRI(res)));
+
+  it('can simulate a thrown error', () => request(app)
+    .get('/simulate-error/')
+    .expect(500));
 });
