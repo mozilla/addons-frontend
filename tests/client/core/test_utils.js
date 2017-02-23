@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import url from 'url';
 
 import config from 'config';
@@ -13,14 +14,16 @@ import {
   findAddon,
   getClientApp,
   getClientConfig,
-  ngettext,
   isAllowedOrigin,
   isValidClientApp,
   loadAddonIfNeeded,
   loadCategoriesIfNeeded,
+  ngettext,
   nl2br,
+  refreshAddon,
   visibleAddonType,
 } from 'core/utils';
+import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
 
@@ -249,8 +252,49 @@ describe('findAddon', () => {
   });
 });
 
+describe('refreshAddon', () => {
+  const addonSlug = fakeAddon.slug;
+  const apiState = signedInApiState;
+  let dispatch;
+  let mockApi;
+
+  beforeEach(() => {
+    dispatch = sinon.spy();
+    mockApi = sinon.mock(api);
+  });
+
+  it('fetches and dispatches an add-on', () => {
+    const entities = { [addonSlug]: fakeAddon };
+    mockApi
+      .expects('fetchAddon')
+      .once()
+      .withArgs({ slug: addonSlug, api: apiState })
+      .returns(Promise.resolve({ entities }));
+
+    return refreshAddon({ addonSlug, apiState, dispatch })
+      .then(() => {
+        assert.ok(dispatch.called);
+        assert.deepEqual(dispatch.firstCall.args[0],
+                         actions.loadEntities(entities));
+        mockApi.verify();
+      });
+  });
+
+  it('handles 404s when loading the add-on', () => {
+    mockApi
+      .expects('fetchAddon')
+      .once()
+      .withArgs({ slug: addonSlug, api: signedInApiState })
+      .returns(Promise.reject(new Error('Error accessing API')));
+    return refreshAddon({ addonSlug, apiState, dispatch })
+      .then(unexpectedSuccess,
+        () => {
+          assert.equal(dispatch.called, false);
+        });
+  });
+});
+
 describe('loadAddonIfNeeded', () => {
-  const apiState = { token: 'my.jwt.token' };
   const loadedSlug = 'my-addon';
   let loadedAddon;
   let dispatch;
@@ -267,7 +311,7 @@ describe('loadAddonIfNeeded', () => {
           addons: {
             [loadedSlug]: loadedAddon,
           },
-          api: apiState,
+          api: signedInApiState,
         }),
         dispatch,
       },
@@ -275,55 +319,30 @@ describe('loadAddonIfNeeded', () => {
     };
   }
 
-  it('returns the add-on if loaded', () => {
-    assert.strictEqual(loadAddonIfNeeded(makeProps(loadedSlug)), loadedAddon);
+  it('does not re-fetch the add-on if already loaded', () => {
+    return loadAddonIfNeeded(makeProps(loadedSlug))
+      .then(() => {
+        assert.equal(dispatch.called, false,
+          'loadAddonIfNeeded() dispatched an add-on unexpectedly');
+      });
   });
 
   it('loads the add-on if it is not loaded', () => {
     const slug = 'other-addon';
-    const props = makeProps(slug, apiState);
-    const addon = sinon.stub();
-    const entities = { [slug]: addon };
-    const mockApi = sinon.mock(api);
-    mockApi
-      .expects('fetchAddon')
+    const props = makeProps(slug);
+    const mockAddonRefresher = sinon.mock()
       .once()
-      .withArgs({ slug, api: apiState })
-      .returns(Promise.resolve({ entities }));
-    const action = sinon.stub();
-    const mockActions = sinon.mock(actions);
-    mockActions
-      .expects('loadEntities')
-      .once()
-      .withArgs(entities)
-      .returns(action);
-    return loadAddonIfNeeded(props).then(() => {
-      assert(dispatch.calledWith(action), 'dispatch not called');
-      mockApi.verify();
-      mockActions.verify();
-    });
-  });
+      .withArgs({
+        addonSlug: slug,
+        apiState: signedInApiState,
+        dispatch,
+      })
+      .returns(Promise.resolve());
 
-  it('handles 404s when loading the add-on', () => {
-    const slug = 'other-addon';
-    const props = makeProps(slug, apiState);
-    const mockApi = sinon.mock(api);
-    mockApi
-      .expects('fetchAddon')
-      .once()
-      .withArgs({ slug, api: apiState })
-      .returns(Promise.reject(new Error('Error accessing API')));
-    const mockActions = sinon.mock(actions);
-    mockActions
-      .expects('loadEntities')
-      .never();
-    return loadAddonIfNeeded(props)
-      .then(unexpectedSuccess,
-        () => {
-          assert(!dispatch.called, 'dispatch called');
-          mockApi.verify();
-          mockActions.verify();
-        });
+    return loadAddonIfNeeded(props, { _refreshAddon: mockAddonRefresher })
+      .then(() => {
+        mockAddonRefresher.verify();
+      });
   });
 });
 

@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -88,7 +88,7 @@ msgstr "Modules Firefox"
 
 #: src/amo/components/OverallRating.js:45
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "Avez-vous apprécié votre usage de %(addonName)s&nbsp;?"
+msgstr "Avez-vous apprécié votre usage de %(addonName)s ?"
 
 #: src/amo/components/ScreenShots.js:28
 msgid "screenshot %(imageNumber)s of %(totalImages)s"

@@ -41,7 +41,7 @@ class SearchResults extends React.Component {
         messageText = i18n.gettext('No results were found.');
       } else {
         messageText = i18n.gettext(
-          'Please enter a search term to search Mozilla Add-ons.');
+          'Please enter a search term to search Firefox Add-ons.');
       }
     }
 

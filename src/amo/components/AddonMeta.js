@@ -16,7 +16,7 @@ export class AddonMetaBase extends React.Component {
     const { addon, i18n } = this.props;
     const averageDailyUsers = addon.average_daily_users;
     const averageRating = addon.ratings.average;
-    const addonReviewCount = addon.ratings.count;
+    const addonRatingCount = addon.ratings.count;
 
     const userCount = i18n.sprintf(
       i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
@@ -31,14 +31,13 @@ export class AddonMetaBase extends React.Component {
     } else {
       starCount = i18n.gettext('Not yet rated');
     }
-    let reviewCount;
-    if (addonReviewCount) {
-      reviewCount = i18n.sprintf(
-        i18n.ngettext('%(total)s review', '%(total)s reviews', addonReviewCount),
-        { total: i18n.formatNumber(addonReviewCount) },
+    let ratingCount;
+    if (addonRatingCount) {
+      ratingCount = i18n.sprintf(
+        i18n.ngettext(
+          '%(total)s rating', '%(total)s ratings', addonRatingCount),
+        { total: i18n.formatNumber(addonRatingCount) },
       );
-    } else {
-      reviewCount = i18n.gettext('Not yet reviewed');
     }
     return (
       <div className="AddonMeta">
@@ -52,9 +51,9 @@ export class AddonMetaBase extends React.Component {
           <p className="AddonMeta-text AddonMeta-star-count">
             {starCount}
           </p>
-          <p className="AddonMeta-text AddonMeta-review-count">
-            {reviewCount}
-          </p>
+          {ratingCount ? (<p className="AddonMeta-text AddonMeta-rating-count">
+            {ratingCount}
+          </p>) : null}
         </div>
       </div>
     );

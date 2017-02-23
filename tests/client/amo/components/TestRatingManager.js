@@ -20,14 +20,14 @@ import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 function render(customProps = {}) {
   const props = {
+    AddonReview: () => <div />,
     addon: fakeAddon,
     apiState: signedInApiState,
     errorHandler: sinon.stub(),
     version: fakeAddon.current_version,
     userId: 91234,
-    submitReview: () => {},
-    loadSavedReview: () => {},
-    router: {},
+    submitReview: () => Promise.resolve(),
+    loadSavedReview: () => Promise.resolve(),
     ...customProps,
   };
   const RatingManager = translate({ withRef: true })(RatingManagerBase);
@@ -71,9 +71,8 @@ describe('RatingManager', () => {
   });
 
   it('creates a rating with add-on and version info', () => {
-    const router = {};
     const errorHandler = sinon.stub();
-    const submitReview = sinon.stub();
+    const submitReview = sinon.spy(() => Promise.resolve());
     const root = render({
       errorHandler,
       submitReview,
@@ -81,24 +80,23 @@ describe('RatingManager', () => {
       version: { id: 321 },
       addon: { ...fakeAddon, id: 12345, slug: 'some-slug' },
       userId: 92345,
-      router,
     });
-    root.onSelectRating(5);
-    assert.equal(submitReview.called, true);
+    return root.onSelectRating(5)
+      .then(() => {
+        assert.equal(submitReview.called, true);
 
-    const call = submitReview.firstCall.args[0];
-    assert.equal(call.versionId, 321);
-    assert.equal(call.apiState.token, 'new-token');
-    assert.equal(call.addonId, 12345);
-    assert.equal(call.addonSlug, 'some-slug');
-    assert.equal(call.errorHandler, errorHandler);
-    assert.equal(call.userId, 92345);
-    assert.equal(call.router, router);
-    assert.strictEqual(call.reviewId, undefined);
+        const call = submitReview.firstCall.args[0];
+        assert.equal(call.versionId, 321);
+        assert.equal(call.apiState.token, 'new-token');
+        assert.equal(call.addonId, 12345);
+        assert.equal(call.errorHandler, errorHandler);
+        assert.equal(call.userId, 92345);
+        assert.strictEqual(call.reviewId, undefined);
+      });
   });
 
   it('updates a rating with the review ID', () => {
-    const submitReview = sinon.stub();
+    const submitReview = sinon.spy(() => Promise.resolve());
     const root = render({
       submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
@@ -106,17 +104,19 @@ describe('RatingManager', () => {
       userId: 92345,
       userReview: setReview(fakeReview).payload,
     });
-    root.onSelectRating(5);
-    assert.ok(submitReview.called);
+    return root.onSelectRating(5)
+      .then(() => {
+        assert.ok(submitReview.called);
 
-    const call = submitReview.firstCall.args[0];
-    assert.ok(call.reviewId);
-    assert.equal(call.reviewId, fakeReview.id);
-    assert.equal(call.versionId, fakeReview.version.id);
+        const call = submitReview.firstCall.args[0];
+        assert.ok(call.reviewId);
+        assert.equal(call.reviewId, fakeReview.id);
+        assert.equal(call.versionId, fakeReview.version.id);
+      });
   });
 
   it('does not update an existing review if its version does not match', () => {
-    const submitReview = sinon.stub();
+    const submitReview = sinon.spy(() => Promise.resolve());
 
     // Set up a situation where the user is viewing a new version
     // but their latest saved review is for an older version.
@@ -138,16 +138,44 @@ describe('RatingManager', () => {
       submitReview,
       addon,
     });
-    root.onSelectRating(newReview.rating);
-    assert.ok(submitReview.called);
+    return root.onSelectRating(newReview.rating)
+      .then(() => {
+        assert.ok(submitReview.called);
 
-    // Make sure the review is submitted in a way where it will be
-    // newly created against the current version.
-    const call = submitReview.firstCall.args[0];
-    assert.equal(call.reviewId, undefined);
-    assert.equal(call.versionId, addon.current_version.id);
-    assert.equal(call.rating, newReview.rating);
-    assert.equal(call.addonId, newReview.addon.id);
+        // Make sure the review is submitted in a way where it will be
+        // newly created against the current version.
+        const call = submitReview.firstCall.args[0];
+        assert.equal(call.reviewId, undefined);
+        assert.equal(call.versionId, addon.current_version.id);
+        assert.equal(call.rating, newReview.rating);
+        assert.equal(call.addonId, newReview.addon.id);
+      });
+  });
+
+  it('renders and configures AddonReview after submitting a rating', () => {
+    const userReview = setReview(fakeReview).payload;
+    const FakeAddonReview = sinon.spy(() => <div />);
+    const root = render({ AddonReview: FakeAddonReview, userReview });
+
+    assert.equal(FakeAddonReview.called, false,
+      'expected AddonReview to initially not be visible');
+
+    return root.onSelectRating(5)
+      .then(() => {
+        assert.ok(FakeAddonReview.called,
+          'expected AddonReview to be visible after submiting a rating');
+
+        const props = FakeAddonReview.firstCall.args[0];
+        assert.deepEqual(props.review, userReview);
+
+        // Now make sure the callback is configured.
+        assert.equal(root.state.showTextEntry, true,
+          'expected state to indicate that AddonReview is visible');
+        // Trigger the callback just like AddonReview would after completion.
+        props.onReviewSubmitted();
+        assert.equal(root.state.showTextEntry, false,
+          'expected state to indicate that AddonReview is hidden');
+      });
   });
 
   it('configures a rating component', () => {
@@ -185,7 +213,6 @@ describe('RatingManager', () => {
 
     describe('submitReview', () => {
       it('posts the reviw and dispatches the created review', () => {
-        const router = { push: sinon.spy(() => {}) };
         const params = {
           rating: fakeReview.rating,
           apiState: { ...signedInApiState, token: 'new-token' },
@@ -198,19 +225,11 @@ describe('RatingManager', () => {
           .withArgs(params)
           .returns(Promise.resolve({ ...fakeReview, ...params }));
 
-        return actions.submitReview({ ...params, router })
+        return actions.submitReview(params)
           .then(() => {
             assert.equal(dispatch.called, true);
             const action = dispatch.firstCall.args[0];
             assert.deepEqual(action, setReview(fakeReview));
-
-            assert.equal(router.push.called, true);
-            const { lang, clientApp } = signedInApiState;
-            const reviewId = fakeReview.id;
-            assert.equal(
-              router.push.firstCall.args[0],
-              `/${lang}/${clientApp}/addon/${params.addonSlug}/review/${reviewId}/`);
-
             mockApi.verify();
           });
       });
@@ -222,7 +241,7 @@ describe('RatingManager', () => {
         const addonId = fakeReview.addon.id;
         mockApi
           .expects('getLatestUserReview')
-          .withArgs({ userId, addonId })
+          .withArgs({ user: userId, addon: addonId })
           .returns(Promise.resolve(fakeReview));
 
         return actions.loadSavedReview({ userId, addonId })

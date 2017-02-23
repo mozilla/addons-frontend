@@ -55,13 +55,15 @@ const enabledExtension = Promise.resolve({
   type: ADDON_TYPE_EXTENSION,
 });
 
-export function getFakeAddonManagerWrapper({ getAddon = enabledExtension } = {}) {
+export function getFakeAddonManagerWrapper({
+  getAddon = enabledExtension, permissionPromptsEnabled = true } = {}) {
   return {
     addChangeListeners: sinon.stub(),
     enable: sinon.stub().returns(Promise.resolve()),
     getAddon: sinon.stub().returns(getAddon),
     install: sinon.stub().returns(Promise.resolve()),
     uninstall: sinon.stub().returns(Promise.resolve()),
+    hasPermissionPromptsEnabled: sinon.stub().returns(permissionPromptsEnabled),
   };
 }
 
@@ -93,3 +95,22 @@ export class MockedSubComponent extends React.Component {
     return <div />;
   }
 }
+
+const formatClassList = (classList) => Array.prototype.join.call(classList, ', ');
+
+export function assertHasClass(el, className) {
+  assert.ok(
+    el.classList.contains(className),
+    `expected ${className} in ${formatClassList(el.classList)}`);
+}
+
+export function assertNotHasClass(el, className) {
+  assert.notOk(
+    el.classList.contains(className),
+    `expected ${className} to not be in in ${formatClassList(el.classList)}`);
+}
+
+export const signedInApiState = Object.freeze({
+  lang: 'en-US',
+  token: 'secret-token',
+});

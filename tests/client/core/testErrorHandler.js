@@ -4,9 +4,11 @@ import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
 import { createStore, combineReducers } from 'redux';
 
+import { createApiError } from 'core/api/index';
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
-import { ErrorHandler, withErrorHandling } from 'core/errorHandler';
+import { ErrorHandler, withErrorHandler, withErrorHandling }
+  from 'core/errorHandler';
 import errors from 'core/reducers/errors';
 import { createFakeApiError } from 'tests/client/core/reducers/test_errors';
 
@@ -15,7 +17,7 @@ class SomeComponentBase extends React.Component {
     errorHandler: PropTypes.object,
   }
   render() {
-    return <div />;
+    return <div className="SomeComponent">Component text</div>;
   }
 }
 
@@ -23,13 +25,17 @@ function createErrorStore() {
   return createStore(combineReducers({ errors }));
 }
 
-function createWrappedComponent({ id, store = createErrorStore() } = {}) {
+function createWrappedComponent({
+  id, store = createErrorStore(), decorator = withErrorHandler,
+  customProps = {}, ...options
+} = {}) {
   const SomeComponent = translate({ withRef: true })(SomeComponentBase);
-  const ComponentWithErrorHandling =
-    withErrorHandling({ id, name: 'SomeComponent' })(SomeComponent);
+  const ComponentWithErrorHandling = decorator({
+    id, name: 'SomeComponent', ...options,
+  })(SomeComponent);
 
   const provider = renderIntoDocument(
-    <ComponentWithErrorHandling store={store} />
+    <ComponentWithErrorHandling store={store} {...customProps} />
   );
   const component = findRenderedComponentWithType(provider, SomeComponent);
 
@@ -37,7 +43,7 @@ function createWrappedComponent({ id, store = createErrorStore() } = {}) {
 }
 
 describe('errorHandler', () => {
-  describe('withErrorHandling', () => {
+  describe('withErrorHandler', () => {
     it('provides a unique errorHandler property', () => {
       const { component } = createWrappedComponent();
       const errorHandler = component.props.errorHandler;
@@ -55,7 +61,7 @@ describe('errorHandler', () => {
     it('creates a unique handler ID per component instance', () => {
       const SomeComponent = translate({ withRef: true })(SomeComponentBase);
       const ComponentWithErrorHandling =
-        withErrorHandling({ name: 'SomeComponent' })(SomeComponent);
+        withErrorHandler({ name: 'SomeComponent' })(SomeComponent);
 
       const getRenderedComponent = () => {
         const provider = renderIntoDocument(
@@ -85,15 +91,57 @@ describe('errorHandler', () => {
                        setError({ id: errorHandler.id, error }));
     });
 
-    it('renders an error', () => {
+    it('passes through wrapped component properties', () => {
+      const { component } = createWrappedComponent({
+        customProps: { color: 'red' },
+      });
+
+      assert.equal(component.props.color, 'red');
+    });
+  });
+
+  describe('withErrorHandling', () => {
+    it('renders an error above component content', () => {
       const id = 'some-handler-id';
 
       const store = createErrorStore();
       store.dispatch(setError({ id, error: new Error() }));
 
-      const { dom } = createWrappedComponent({ store, id });
+      const { dom } = createWrappedComponent({
+        store, id, decorator: withErrorHandling,
+      });
       assert.equal(dom.querySelector('.ErrorHandler-list').textContent,
                    'An unexpected error occurred');
+      // It also renders component content:
+      assert.equal(dom.querySelector('.SomeComponent').textContent,
+                   'Component text');
+    });
+
+    it('renders a nested API response object', () => {
+      const id = 'some-handler-id';
+
+      const nestedMessage = { nested: { message: 'end' } };
+      const store = createErrorStore();
+      const error = createApiError({
+        response: { status: 401 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: nestedMessage },
+      });
+      store.dispatch(setError({ id, error }));
+
+      const { dom } = createWrappedComponent({
+        store, id, decorator: withErrorHandling,
+      });
+      assert.equal(dom.querySelector('.ErrorHandler-list').textContent,
+                   JSON.stringify(nestedMessage));
+    });
+
+    it('renders component content when there is no error', () => {
+      const { dom } = createWrappedComponent({
+        decorator: withErrorHandling,
+      });
+      assert.equal(dom.querySelector('.ErrorHandler-list'), null);
+      assert.equal(dom.textContent, 'Component text');
     });
 
     it('renders multiple error messages', () => {
@@ -105,7 +153,9 @@ describe('errorHandler', () => {
       });
       store.dispatch(setError({ id, error }));
 
-      const { dom } = createWrappedComponent({ store, id });
+      const { dom } = createWrappedComponent({
+        store, id, decorator: withErrorHandling,
+      });
       const items = dom.querySelectorAll('.ErrorHandler-list li');
       assert(items.length, 'error list was not rendered');
       assert.equal(items[0].textContent, 'first error');
@@ -119,7 +169,9 @@ describe('errorHandler', () => {
       store.dispatch(setError({ id, error: new Error() }));
       store.dispatch(clearError(id));
 
-      const { dom } = createWrappedComponent({ store, id });
+      const { dom } = createWrappedComponent({
+        store, id, decorator: withErrorHandling,
+      });
       assert.equal(dom.querySelector('.ErrorHandler-list'), null);
     });
 
@@ -130,9 +182,31 @@ describe('errorHandler', () => {
       }));
 
       const { dom } = createWrappedComponent({
-        store, id: 'this-handler-id',
+        store, id: 'this-handler-id', decorator: withErrorHandling,
       });
       assert.equal(dom.querySelector('.ErrorHandler-list'), null);
+    });
+
+    it('passes through wrapped component properties without an error', () => {
+      const { component } = createWrappedComponent({
+        decorator: withErrorHandling,
+        customProps: { color: 'red' },
+      });
+      assert.equal(component.props.color, 'red');
+    });
+
+    it('passes through wrapped component properties with an error', () => {
+      const id = 'some-id';
+      const store = createErrorStore();
+      store.dispatch(setError({ id, error: new Error() }));
+
+      const { component } = createWrappedComponent({
+        id,
+        store,
+        decorator: withErrorHandling,
+        customProps: { color: 'red' },
+      });
+      assert.equal(component.props.color, 'red');
     });
   });
 
@@ -158,6 +232,16 @@ describe('errorHandler', () => {
       assert.ok(errorHandler.dispatch.called);
       assert.deepEqual(errorHandler.dispatch.firstCall.args[0],
                        clearError(errorHandler.id));
+    });
+
+    it('tells you if it has an error', () => {
+      const handler = new ErrorHandler({ capturedError: new Error() });
+      assert.strictEqual(handler.hasError(), true);
+    });
+
+    it('tells you if it does not have an error', () => {
+      const handler = new ErrorHandler();
+      assert.strictEqual(handler.hasError(), false);
     });
   });
 });

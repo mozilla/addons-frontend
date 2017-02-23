@@ -65,9 +65,9 @@ describe('<AddonMeta>', () => {
         '.AddonMeta-ratings > p.AddonMeta-star-count').textContent;
     }
 
-    function getReviewCount(root) {
+    function getRatingCount(root) {
       return root.querySelector(
-        '.AddonMeta-ratings > p.AddonMeta-review-count').textContent;
+        '.AddonMeta-ratings > p.AddonMeta-rating-count').textContent;
     }
 
     it('renders the average rating', () => {
@@ -81,20 +81,20 @@ describe('<AddonMeta>', () => {
       assert.include(getRating(root), '3,5');
     });
 
-    it('renders a count of multiple reviews', () => {
+    it('renders a count of multiple ratings', () => {
       const root = renderRatings({ count: 5 });
-      assert.equal(getReviewCount(root), '5 reviews');
+      assert.equal(getRatingCount(root), '5 ratings');
     });
 
-    it('renders a count of one review', () => {
+    it('renders a count of one rating', () => {
       const root = renderRatings({ count: 1 });
-      assert.equal(getReviewCount(root), '1 review');
+      assert.equal(getRatingCount(root), '1 rating');
     });
 
     it('localizes review count', () => {
       const i18n = getFakeI18nInst({ lang: 'de' });
       const root = renderRatings({ count: 1000 }, { i18n });
-      assert.include(getReviewCount(root), '1.000');
+      assert.include(getRatingCount(root), '1.000');
     });
 
     it('renders empty ratings', () => {
@@ -104,7 +104,8 @@ describe('<AddonMeta>', () => {
 
     it('renders an empty review count', () => {
       const root = renderRatings({ count: null });
-      assert.equal(getReviewCount(root), 'Not yet reviewed');
+      assert.isNull(
+        root.querySelector('.AddonMeta-ratings > p.AddonMeta-rating-count'));
     });
   });
 });

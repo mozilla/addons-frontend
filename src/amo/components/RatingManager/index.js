@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router';
 
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
+import DefaultAddonReview from 'amo/components/AddonReview';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
@@ -13,13 +13,13 @@ import DefaultRating from 'ui/components/Rating';
 
 export class RatingManagerBase extends React.Component {
   static propTypes = {
+    AddonReview: PropTypes.node,
     addon: PropTypes.object.isRequired,
     errorHandler: PropTypes.func.isRequired,
     apiState: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loadSavedReview: PropTypes.func.isRequired,
-    Rating: PropTypes.object,
-    router: PropTypes.object.isRequired,
+    Rating: PropTypes.node,
     submitReview: PropTypes.func.isRequired,
     userId: PropTypes.number,
     userReview: PropTypes.object,
@@ -27,12 +27,14 @@ export class RatingManagerBase extends React.Component {
   }
 
   static defaultProps = {
+    AddonReview: DefaultAddonReview,
     Rating: DefaultRating,
   }
 
   constructor(props) {
     super(props);
     const { loadSavedReview, userId, addon } = props;
+    this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
       loadSavedReview({ userId, addonId: addon.id });
@@ -40,15 +42,13 @@ export class RatingManagerBase extends React.Component {
   }
 
   onSelectRating = (rating) => {
-    const { userReview, userId, version } = this.props;
+    const { userId, userReview, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
       rating,
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
-      addonSlug: this.props.addon.slug,
-      router: this.props.router,
       versionId: version.id,
       userId,
     };
@@ -68,11 +68,15 @@ export class RatingManagerBase extends React.Component {
     } else {
       log.info(`Submitting a new review for versionId ${params.versionId}`);
     }
-    this.props.submitReview(params);
+    return this.props.submitReview(params)
+      .then(() => {
+        this.setState({ showTextEntry: true });
+      });
   }
 
   render() {
-    const { Rating, i18n, addon, userReview } = this.props;
+    const { AddonReview, Rating, i18n, addon, userReview } = this.props;
+    const { showTextEntry } = this.state;
 
     // TODO: Disable rating ability when not logged in
     // (when props.userId is empty)
@@ -81,8 +85,18 @@ export class RatingManagerBase extends React.Component {
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName: addon.name });
 
+    const onReviewSubmitted = () => {
+      this.setState({ showTextEntry: false });
+    };
+
     return (
       <div className="RatingManager">
+        {showTextEntry ?
+          <AddonReview
+            onReviewSubmitted={onReviewSubmitted}
+            review={userReview}
+          /> : null
+        }
         <form action="">
           <fieldset>
             <legend ref={(ref) => { this.ratingLegend = ref; }}>
@@ -130,7 +144,7 @@ export const mapStateToProps = (state, ownProps) => {
 export const mapDispatchToProps = (dispatch) => ({
 
   loadSavedReview({ userId, addonId }) {
-    return getLatestUserReview({ userId, addonId })
+    return getLatestUserReview({ user: userId, addon: addonId })
       .then((review) => {
         if (review) {
           dispatch(setReview(review));
@@ -141,14 +155,8 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitReview({ router, addonSlug, ...params }) {
-    return submitReview({ addonSlug, ...params })
-      .then((review) => {
-        const { lang, clientApp } = params.apiState;
-        dispatch(setReview(review));
-        router.push(
-          `/${lang}/${clientApp}/addon/${addonSlug}/review/${review.id}/`);
-      });
+  submitReview(params) {
+    return submitReview(params).then((review) => dispatch(setReview(review)));
   },
 });
 
@@ -158,6 +166,5 @@ export const RatingManagerWithI18n = compose(
 
 export default compose(
   withErrorHandling({ name: 'RatingManager' }),
-  withRouter,
   connect(mapStateToProps, mapDispatchToProps),
 )(RatingManagerWithI18n);

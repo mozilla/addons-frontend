@@ -1,24 +1,32 @@
-/* global window */
+/* global Response, window */
 import config from 'config';
 
 import * as api from 'core/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { unexpectedSuccess } from 'tests/client/helpers';
+import { signedInApiState, unexpectedSuccess } from 'tests/client/helpers';
 
+
+export function generateHeaders(
+  headerData = { 'Content-Type': 'application/json' }
+) {
+  const response = new Response();
+  Object.keys(headerData).forEach((key) => (
+    response.headers.append(key, headerData[key])
+  ));
+  return response.headers;
+}
 
 function createApiResponse({
   ok = true, jsonData = {}, ...responseProps
 } = {}) {
   const response = {
     ok,
+    headers: generateHeaders(),
     json: () => Promise.resolve(jsonData),
     ...responseProps,
   };
-  return Promise.resolve({
-    ...response,
-    clone: () => response,
-  });
+  return Promise.resolve(response);
 }
 
 describe('api', () => {
@@ -40,7 +48,7 @@ describe('api', () => {
 
     it('transforms method to upper case', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/resource/?lang=`, {
+        .withArgs(`${apiHost}/api/v3/resource/`, {
           method: 'GET', headers: {},
         })
         .once()
@@ -72,9 +80,7 @@ describe('api', () => {
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource', errorHandler })
-        .then(() => {
-          assert(false, 'unexpected success');
-        }, () => {
+        .then(unexpectedSuccess, () => {
           assert.ok(errorHandler.handle.called);
           const args = errorHandler.handle.firstCall.args;
           assert.deepEqual(args[0].response.data.non_field_errors,
@@ -84,27 +90,108 @@ describe('api', () => {
 
     it('handles error responses with JSON syntax errors', () => {
       mockWindow.expects('fetch').returns(createApiResponse({
-        ok: false,
         json() {
           return Promise.reject(
             new SyntaxError('pretend this was a response with invalid JSON'));
-        },
-        text() {
-          return Promise.resolve('actual error response');
         },
       }));
 
       const errorHandler = newErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
-      return api.callApi({ endpoint: 'resource', errorHandler })
+      return api.callApi({ endpoint: 'resource' })
+        .then(unexpectedSuccess, (err) => {
+          assert.equal(err.message,
+            'pretend this was a response with invalid JSON');
+        });
+    });
+
+    it('handles non-JSON responses', () => {
+      mockWindow.expects('fetch').returns(createApiResponse({
+        headers: generateHeaders({ 'Content-Type': 'text/plain' }),
+        text() {
+          return Promise.resolve('some text response');
+        },
+      }));
+
+      return api.callApi({ endpoint: 'resource' })
         .then(() => {
-          assert(false, 'unexpected success');
-        }, () => {
+          mockWindow.verify();
+        });
+    });
+
+    it('handles any fetch error', () => {
+      mockWindow.expects('fetch').returns(Promise.reject(new Error(
+        'this could be any error'
+      )));
+
+      const errorHandler = newErrorHandler();
+      sinon.stub(errorHandler, 'handle');
+
+      return api.callApi({ endpoint: 'resource', errorHandler })
+        .then(unexpectedSuccess, () => {
           assert.ok(errorHandler.handle.called);
           const args = errorHandler.handle.firstCall.args;
-          assert.equal(args[0].response.data.text, 'actual error response');
+          assert.equal(args[0].message, 'this could be any error');
         });
+    });
+
+    it('handles an oddly-cased Content-Type', () => {
+      const response = createApiResponse({
+        headers: generateHeaders({ 'Content-Type': 'Application/JSON' }),
+      });
+
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/resource/`, {
+          method: 'GET', headers: {},
+        })
+        .once()
+        .returns(response);
+      return api.callApi({ endpoint: 'resource', method: 'GET' })
+        .then(() => mockWindow.verify());
+    });
+  });
+
+  describe('makeQueryString', () => {
+    it('transforms an object to a query string', () => {
+      const query = api.makeQueryString({ user: 123, addon: 321 });
+      assert.include(query, 'user=123');
+      assert.include(query, 'addon=321');
+    });
+
+    it('ignores undefined query string values', () => {
+      const query = api.makeQueryString({ user: undefined, addon: 321 });
+      assert.equal(query, '?addon=321');
+    });
+
+    it('ignores null query string values', () => {
+      const query = api.makeQueryString({ user: null, addon: 321 });
+      assert.equal(query, '?addon=321');
+    });
+
+    it('ignores empty string query string values', () => {
+      const query = api.makeQueryString({ user: '', addon: 321 });
+      assert.equal(query, '?addon=321');
+    });
+
+    it('handles falsey integers', () => {
+      const query = api.makeQueryString({ some_flag: 0 });
+      assert.equal(query, '?some_flag=0');
+    });
+
+    it('handles truthy integers', () => {
+      const query = api.makeQueryString({ some_flag: 1 });
+      assert.equal(query, '?some_flag=1');
+    });
+
+    it('handles false values', () => {
+      const query = api.makeQueryString({ some_flag: false });
+      assert.equal(query, '?some_flag=false');
+    });
+
+    it('handles true values', () => {
+      const query = api.makeQueryString({ some_flag: true });
+      assert.equal(query, '?some_flag=true');
     });
   });
 
@@ -153,7 +240,7 @@ describe('api', () => {
     });
 
     it('surfaces status and apiURL on Error instance', () => {
-      const url = `${apiHost}/api/v3/addons/search/?app=&q=foo&page=3&lang=en-US`;
+      const url = `${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`;
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
@@ -229,7 +316,7 @@ describe('api', () => {
 
     it('sets the app, lang, and type query', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&page=&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.featured({
@@ -417,6 +504,22 @@ describe('api', () => {
       return api.categories({
         api: { clientApp: 'android', lang: 'en-US' },
       })
+        .then(() => mockWindow.verify());
+    });
+  });
+
+  describe('logOutFromServer', () => {
+    it('makes a delete request to the session endpoint', () => {
+      const mockResponse = createApiResponse({ jsonData: { ok: true } });
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/accounts/session/?lang=en-US`, {
+          credentials: 'include',
+          headers: { authorization: 'Bearer secret-token' },
+          method: 'DELETE',
+        })
+        .once()
+        .returns(mockResponse);
+      return api.logOutFromServer({ api: signedInApiState })
         .then(() => mockWindow.verify());
     });
   });

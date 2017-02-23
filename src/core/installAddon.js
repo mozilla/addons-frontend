@@ -150,7 +150,9 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
         const { guid, iconUrl, name } = ownProps;
         return _addonManager.enable(guid)
           .then(() => {
-            _showInfo({ name, iconUrl });
+            if (!_addonManager.hasPermissionPromptsEnabled()) {
+              _showInfo({ name, iconUrl });
+            }
           })
           .catch((err) => {
             if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
@@ -175,7 +177,9 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
               category: INSTALL_CATEGORY,
               label: name,
             });
-            showInfo({ name, iconUrl });
+            if (!_addonManager.hasPermissionPromptsEnabled()) {
+              showInfo({ name, iconUrl });
+            }
           })
           .catch((err) => {
             log.error(err);

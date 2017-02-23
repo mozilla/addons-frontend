@@ -5,6 +5,7 @@ import url from 'url';
 
 import 'isomorphic-fetch';
 import { schema as normalizrSchema, normalize } from 'normalizr';
+import { oneLine } from 'common-tags';
 import config from 'config';
 
 import log from 'core/logger';
@@ -19,7 +20,16 @@ export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 export const user = new Entity('users', {}, { idAttribute: 'username' });
 
 export function makeQueryString(query) {
-  return url.format({ query });
+  const resolvedQuery = { ...query };
+  Object.keys(resolvedQuery).forEach((key) => {
+    const value = resolvedQuery[key];
+    if (value === undefined || value === null || value === '') {
+      // Make sure we don't turn this into ?key= (empty string) because
+      // sending an empty string to the API sometimes triggers bugs.
+      delete resolvedQuery[key];
+    }
+  });
+  return url.format({ query: resolvedQuery });
 }
 
 export function createApiError({ apiURL, response, jsonResponse }) {
@@ -62,32 +72,45 @@ export function callApi({
 
   return fetch(apiURL, options)
     .then((response) => {
-      return response.clone().json()
-        .then(
-          (jsonResponse) => ({ response, jsonResponse }),
-          (error) => {
-            log.warn('Could not parse response as JSON:', error);
-            return response.clone().text().then((textResponse) =>
-              ({ response, jsonResponse: { text: textResponse } })
-            );
-          }
-        );
+      const contentType = response.headers.get('Content-Type').toLowerCase();
+
+      // This is a bit paranoid, but we ensure the API returns a JSON response
+      // (see https://github.com/mozilla/addons-frontend/issues/1701).
+      // If not we'll store the text response in JSON and log an error.
+      // If the JSON parsing fails; we log the error and return an "unknown
+      // error".
+      if (contentType === 'application/json') {
+        return response.json()
+          .then((jsonResponse) => ({ response, jsonResponse }));
+      }
+
+      log.warn(oneLine`Response from API was not JSON (was Content-Type:
+        ${contentType})`, response);
+      return response.text().then((textResponse) => (
+        { jsonResponse: { text: textResponse }, response }
+      ));
     })
     .then(({ response, jsonResponse }) => {
       if (response.ok) {
         return jsonResponse;
       }
 
-      // If response is not ok we'll throw.
+      // If response is not ok we'll throw an error.
       // Note that if callApi is executed by an asyncConnect() handler,
       // then redux-connect will catch this exception and
-      // dispatch a LOAD_FAIL action which puts the error in state.
-
+      // dispatch a LOAD_FAIL action which puts the error in the state.
       const apiError = createApiError({ apiURL, response, jsonResponse });
       if (errorHandler) {
         errorHandler.handle(apiError);
       }
       throw apiError;
+    }, (fetchError) => {
+      // This actually handles the case when the call to fetch() is
+      // rejected, say, for a network connection error, etc.
+      if (errorHandler) {
+        errorHandler.handle(fetchError);
+      }
+      throw fetchError;
     })
     .then((response) => (schema ? normalize(response, schema) : response));
 }
@@ -167,6 +190,16 @@ export function categories({ api }) {
   return callApi({
     endpoint: 'addons/categories',
     schema: { results: [category] },
+    state: api,
+  });
+}
+
+export function logOutFromServer({ api }) {
+  return callApi({
+    auth: true,
+    credentials: true,
+    endpoint: 'accounts/session',
+    method: 'delete',
     state: api,
   });
 }

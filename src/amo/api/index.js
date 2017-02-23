@@ -5,31 +5,33 @@ import log from 'core/logger';
  * POST/PATCH an add-on review using the API.
  */
 export function submitReview({
+  addonId,
   rating,
   apiState,
-  addonSlug,
+  title,
   versionId,
   body,
   reviewId,
   ...apiCallParams
 }) {
-  const data = { rating, version: versionId, body };
-  if (reviewId) {
-    // You cannot update the version of an existing review.
-    data.version = undefined;
-  }
-
   return new Promise(
     (resolve) => {
-      if (!addonSlug) {
-        throw new Error('addonSlug is required to build the endpoint');
-      }
+      const data = { rating, version: versionId, body, title };
       let method = 'POST';
-      let endpoint = `addons/addon/${addonSlug}/reviews`;
+      let endpoint = 'reviews/review';
+
       if (reviewId) {
         endpoint = `${endpoint}/${reviewId}`;
         method = 'PATCH';
+        // You cannot update the version of an existing review.
+        data.version = undefined;
+      } else {
+        if (!addonId) {
+          throw new Error('addonId is required when posting a new review');
+        }
+        data.addon = addonId;
       }
+
       resolve(callApi({
         endpoint,
         body: data,
@@ -41,30 +43,14 @@ export function submitReview({
     });
 }
 
-export function getAddonReviews({ addonSlug } = {}) {
-  if (!addonSlug) {
-    return Promise.reject(new Error('addonSlug cannot be falsey'));
-  }
-  return callApi({
-    endpoint: `addons/addon/${addonSlug}/reviews`,
-    method: 'GET',
-  })
-    .then((response) => {
-      // TODO: implement paging through response.next
-      if (response.next) {
-        log.warn('paging is not yet implemented');
-      }
-      return response.results;
-    });
-}
-
-export function getUserReviews({ userId, addonId } = {}) {
+export function getReviews({ user, addon, ...params } = {}) {
   return new Promise((resolve) => {
-    if (!userId) {
-      throw new Error('userId cannot be falsey');
+    if (!user && !addon) {
+      throw new Error('Either user or addon must be specified');
     }
     resolve(callApi({
-      endpoint: `accounts/account/${userId}/reviews`,
+      endpoint: 'reviews/review',
+      params: { user, addon, ...params },
     }));
   })
     .then((response) => {
@@ -73,23 +59,24 @@ export function getUserReviews({ userId, addonId } = {}) {
         log.warn('paging is not yet implemented');
       }
       return response.results;
-    })
-    .then((reviews) => {
-      if (addonId) {
-        log.info(`Filtering user ${userId} reviews by addonId ${addonId}`);
-        return reviews.filter((review) => review.addon.id === addonId);
-      }
-      return reviews;
     });
 }
 
-export function getLatestUserReview(params) {
-  return getUserReviews(params)
+export function getLatestUserReview({ user, addon } = {}) {
+  return new Promise((resolve) => {
+    if (!user || !addon) {
+      throw new Error('Both user and addon must be specified');
+    }
+    // The API will only return the latest user review for this add-on.
+    resolve(getReviews({ user, addon }));
+  })
     .then((reviews) => {
-      const latest = reviews.filter((review) => review.is_latest);
-      if (latest.length === 0) {
+      if (reviews.length === 1) {
+        return reviews[0];
+      } else if (reviews.length === 0) {
         return null;
       }
-      return latest[0];
+      throw new Error(dedent`Unexpectedly received multiple review objects:
+        ${JSON.stringify(reviews)}`);
     });
 }

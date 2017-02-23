@@ -139,6 +139,23 @@ describe('AddonDetail', () => {
                    'About this extension');
   });
 
+  it('uses the summary as the description if no description exists', () => {
+    const addon = { ...fakeAddon, summary: 'short text' };
+    delete addon.description;
+    const rootNode = renderAsDOMNode({ addon });
+    assert.equal(
+      rootNode.querySelector('.AddonDescription-contents').textContent,
+      addon.summary);
+  });
+
+  it('uses the summary as the description if description is blank', () => {
+    const addon = { ...fakeAddon, description: '', summary: 'short text' };
+    const rootNode = renderAsDOMNode({ addon });
+    assert.equal(
+      rootNode.querySelector('.AddonDescription-contents').textContent,
+      addon.summary);
+  });
+
   it('sanitizes bad description HTML', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
     const rootNode = renderAsDOMNode({
@@ -208,6 +225,20 @@ describe('AddonDetail', () => {
       rootNode.querySelector('.AddonDetail-summary').textContent,
       fakeAddon.summary
     );
+  });
+
+  it('renders a summary with links', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        summary: '<a href="http://foo.com/">my website</a>',
+      },
+    });
+    assert.include(
+      rootNode.querySelector('.AddonDetail-summary').textContent, 'my website');
+    assert.equal(rootNode.querySelectorAll('.AddonDetail-summary a').length, 1);
+    assert.equal(
+      rootNode.querySelector('.AddonDetail-summary a').href, 'http://foo.com/');
   });
 
   it('renders an amo CDN icon image', () => {
@@ -357,6 +388,8 @@ describe('AddonDetail', () => {
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
       assert.equal(footer.textContent, 'No reviews yet');
+      assert.equal(root.querySelector('footer').className,
+                   'Card-footer-text');
     });
 
     it('prompts you to read one review', () => {
@@ -366,6 +399,8 @@ describe('AddonDetail', () => {
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
       assert.equal(footer.textContent, 'Read 1 review');
+      assert.equal(root.querySelector('footer').className,
+                   'Card-footer-link');
     });
 
     it('prompts you to read many reviews', () => {

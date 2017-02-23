@@ -147,6 +147,7 @@ module.exports = {
   po2jsonFuzzyOutput: false,
 
   enablePrefixMiddleware: true,
+  enableTrailingSlashesMiddleware: false,
 
   localeDir: path.resolve(path.join(__dirname, '../locale')),
 
@@ -166,8 +167,12 @@ module.exports = {
     'firefox',
   ],
 
+  validUrlExceptions: [],
+
   // The default app used in the URL.
   defaultClientApp: 'firefox',
 
   fxaConfig: null,
+
+  proxyEnabled: false,
 };
