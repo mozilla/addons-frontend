@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 17:25+0000\n"
+"PO-Revision-Date: 2017-02-23 17:39+0000\n"
 "Last-Translator: Alberto Castro <albertdecastro@tutanota.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ler %(count)s revisão"
-msgstr[1] ""
+msgstr[1] "Ler todas as %(count)s revisões"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
@@ -38,28 +38,26 @@ msgstr "Metadados da extensão"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "Acerca deste %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Escreva um comentário"
+msgstr "Pressione para pré-visualizar"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s utilizador"
+msgstr[0] "utilizadores %(total)s"
 msgstr[1] "%(users)s utilizadores"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Média de avaliações: %(rating)s de 5"
+msgstr "%(averageRating)s de 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "Ainda sem avaliação9"
 
 #: src/amo/components/AddonMeta.js:37
 #, fuzzy
