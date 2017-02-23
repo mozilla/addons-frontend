@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-11-11 08:27+0000\n"
+"PO-Revision-Date: 2017-02-23 10:31+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -17,12 +17,12 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s értékelés elolvasása"
+msgstr[1] "%(count)s értékelés elolvasása"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
-msgstr ""
+msgstr "Még nincsenek értékelések"
 
 #: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
@@ -41,32 +41,28 @@ msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Értékelés írása"
+msgstr "Nyomja meg az előnézethez"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s felhasználó"
-msgstr[1] "%(users)s felhasználó"
+msgstr[0] "%(total)s felhasználó"
+msgstr[1] "%(total)s felhasználó"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Átlagos értékelés: %(rating)s / 5"
+msgstr "%(averageRating)s / 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "Még nincs értékelve"
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Nincsenek értékelések"
-msgstr[1] "Nincsenek értékelések"
+msgstr[0] "%(total)s értékelés"
+msgstr[1] "%(total)s értékelés"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -74,36 +70,35 @@ msgstr "Használja"
 
 #: src/amo/components/AddonMoreInfo.js:25
 msgid "More information"
-msgstr ""
+msgstr "További információk"
 
 #: src/amo/components/AddonMoreInfo.js:27
 msgid "Website"
-msgstr ""
+msgstr "Webhely"
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
-msgstr ""
+msgstr "Verzió"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "Last updated"
-msgstr ""
+msgstr "Legutóbb frissítve"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
-msgstr ""
+msgstr "Licenc"
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "Adatvédelmi irányelvek"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Olvassa el a kiegészítő adatvédelmi irányelveit"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -111,82 +106,71 @@ msgstr "Értékelés írása"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Értékelés szövege"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Értékelés írása"
+msgstr "Értékelés beküldése"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
-"Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus kiegészítő!"
+msgstr "Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus bővítmény!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Mondja el, miért szereti ezt a bővítményt. Legyen konkrét és lényegretörő."
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr ""
-"Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus kiegészítő!"
+msgstr "Mutassa be a világnak ezt a kiterjesztést."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "készítette: %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
-#, fuzzy
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr "Keresés…"
+msgstr "Betöltés…"
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Kiegészítők a Firefoxhoz"
+msgstr "Kiegészítő ikonja"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s értékelései"
 
 #: src/amo/components/AddonReviewList.js:71
-#, fuzzy
 msgid "All written reviews"
-msgstr "Értékelés írása"
+msgstr "Az összes értékelés"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Kategóriák betöltése sikertelen."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Nem találhatóak kategóriák."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Nem engedélyezett"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Az oldal nem található"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Kiszolgálóhiba"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Összes kiterjesztés tallózása"
+msgstr "További kiemelt kiterjesztések"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "További kiemelt témák"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -201,9 +185,8 @@ msgid "View desktop site"
 msgstr "Asztali oldal megtekintése"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Összes kiterjesztés tallózása"
+msgstr "Kiemelt kiterjesztések"
 
 #: src/amo/components/LandingPage.js:54
 #, fuzzy
@@ -415,8 +398,7 @@ msgstr "Bejelentkezés/Regisztráció"
 msgid "Log out"
 msgstr "Kijelentkezés"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
@@ -440,8 +422,7 @@ msgstr "%(name)s telepítése."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
+msgstr "A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
