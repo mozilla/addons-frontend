@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 10:51+0000\n"
+"PO-Revision-Date: 2017-02-23 10:52+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -310,6 +310,8 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"扩展让您可以为 Firefox 增添功能。\n"
+"主题则可以让您更改浏览器的外观。"
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -321,7 +323,7 @@ msgstr "主题"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr "您可以变更 Firefox 的工作方式…"
+msgstr "您可以改变 Firefox 的工作方式…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
