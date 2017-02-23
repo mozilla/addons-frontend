@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-11-11 17:14+0000\n"
-"Last-Translator: Andreas Pettersson <az@kth.se>\n"
+"PO-Revision-Date: 2017-02-23 10:51+0000\n"
+"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -82,19 +82,19 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "Last updated"
-msgstr ""
+msgstr "Senast uppdaterad"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
-msgstr ""
+msgstr "Licens"
 
 #: src/amo/components/AddonMoreInfo.js:64
 #, fuzzy
@@ -120,9 +120,7 @@ msgstr "Skriv en recension"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
-"Berätta för hela världen varför du tycker att det här tillägget är "
-"fantastiskt!"
+msgstr "Berätta för hela världen varför du tycker att det här tillägget är fantastiskt!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -131,16 +129,13 @@ msgstr ""
 #: src/amo/components/AddonReview.js:95
 #, fuzzy
 msgid "Tell the world about this extension."
-msgstr ""
-"Berätta för hela världen varför du tycker att det här tillägget är "
-"fantastiskt!"
+msgstr "Berätta för hela världen varför du tycker att det här tillägget är fantastiskt!"
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "från %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "Söker..."
@@ -152,7 +147,7 @@ msgstr "Tillägg för Firefox"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Recensioner för %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
 #, fuzzy
@@ -171,15 +166,13 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Serverfel"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 #, fuzzy
@@ -417,8 +410,7 @@ msgstr "Logga in/Registrera dig"
 msgid "Log out"
 msgstr "Logga ut"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
