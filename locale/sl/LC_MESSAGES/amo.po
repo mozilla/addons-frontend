@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 14:21+0000\n"
+"PO-Revision-Date: 2017-02-24 19:07+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -43,9 +43,8 @@ msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Napišite oceno"
+msgstr "Pritisnite za predogled"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
 msgid "%(total)s user"
@@ -133,7 +132,7 @@ msgstr "Povejte svetu za to razširitev."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "— %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
@@ -333,7 +332,7 @@ msgstr "Teme"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Spremenite lahko, kako Firefox deluje …"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -345,7 +344,7 @@ msgstr "Ustvarja posnetke zaslona"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Vas zalaga z novicami"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -357,11 +356,11 @@ msgstr "Postane družaben"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Igra igre"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "… ali kako je videti"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -385,7 +384,7 @@ msgstr "Športno"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Enobarvno"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -397,7 +396,7 @@ msgstr "Odjava"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Koda napake: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
