@@ -21,6 +21,7 @@ import {
   ngettext,
   nl2br,
   refreshAddon,
+  safeAsyncConnect,
   safePromise,
   visibleAddonType,
 } from 'core/utils';
@@ -536,6 +537,81 @@ describe('visibleAddonType', () => {
     assert.throws(() => {
       visibleAddonType('hasOwnProperty');
     }, '"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING');
+  });
+});
+
+describe('safeAsyncConnect', () => {
+  it('wraps promise callbacks in safePromise', () => {
+    const asyncConnect = sinon.stub();
+
+    safeAsyncConnect(
+      [{
+        promise: () => {
+          throw new Error('error in callback');
+        },
+      }],
+      { asyncConnect }
+    );
+
+    assert.ok(asyncConnect.called, 'asyncConnect() was not called');
+
+    const config = asyncConnect.firstCall.args[0][0];
+    return config.promise().then(unexpectedSuccess, (error) => {
+      assert.equal(error.message, 'error in callback');
+    });
+  });
+
+  it('requires a promise', () => {
+    assert.throws(() => safeAsyncConnect([{ key: 'thing' }]),
+      /Expected safeAsyncConnect.* config to define a promise/);
+  });
+
+  it('adds a deferred: true property', () => {
+    const asyncConnect = sinon.stub();
+
+    safeAsyncConnect(
+      [{
+        promise: () => {
+          throw new Error('error in callback');
+        },
+      }],
+      { asyncConnect }
+    );
+
+    assert.ok(asyncConnect.called, 'asyncConnect() was not called');
+
+    const config = asyncConnect.firstCall.args[0][0];
+    assert.strictEqual(config.deferred, true);
+  });
+
+  it('passes through other params', () => {
+    const asyncConnect = sinon.stub();
+
+    safeAsyncConnect(
+      [{
+        key: 'SomeKey',
+        promise: () => {},
+      }],
+      { asyncConnect }
+    );
+
+    assert.ok(asyncConnect.called, 'asyncConnect() was not called');
+
+    const config = asyncConnect.firstCall.args[0][0];
+    assert.equal(config.key, 'SomeKey');
+  });
+
+  it('passes through all configs', () => {
+    const asyncConnect = sinon.stub();
+
+    const config1 = { key: 'one', promise: () => {} };
+    const config2 = { key: 'two', promise: () => {} };
+    safeAsyncConnect([config1, config2], { asyncConnect });
+
+    assert.ok(asyncConnect.called, 'asyncConnect() was not called');
+
+    assert.equal(asyncConnect.firstCall.args[0][0].key, 'one');
+    assert.equal(asyncConnect.firstCall.args[0][1].key, 'two');
   });
 });
 
