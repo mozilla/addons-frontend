@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-24 11:45+0000\n"
+"PO-Revision-Date: 2017-02-24 13:31+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -17,13 +17,13 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Читати %(count)s відгук"
+msgstr[1] "Читати всі %(count)s відгуки"
+msgstr[2] "Читати всі %(count)s відгуків"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
-msgstr ""
+msgstr "Ще немає відгуків"
 
 #: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
@@ -39,7 +39,7 @@ msgstr "Метадані розширення"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "Про цей %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
 msgid "Press to preview"
@@ -58,7 +58,7 @@ msgstr "%(averageRating)s з 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "Ще не оцінено"
 
 #: src/amo/components/AddonMeta.js:37
 msgid "%(total)s rating"
@@ -73,27 +73,27 @@ msgstr "Використовується"
 
 #: src/amo/components/AddonMoreInfo.js:25
 msgid "More information"
-msgstr ""
+msgstr "Більше інформації"
 
 #: src/amo/components/AddonMoreInfo.js:27
 msgid "Website"
-msgstr ""
+msgstr "Веб-сайт"
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
-msgstr ""
+msgstr "Версія"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "Last updated"
-msgstr ""
+msgstr "Востаннє оновлено"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
-msgstr ""
+msgstr "Ліцензія"
 
 #: src/amo/components/AddonMoreInfo.js:64
 msgid "Privacy Policy"
@@ -101,7 +101,7 @@ msgstr "Політика приватності"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Ознайомитись з політикою приватності для цього додатку"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -109,7 +109,7 @@ msgstr "Напишіть відгук"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Перегляд тексту"
 
 #: src/amo/components/AddonReview.js:124
 msgid "Submit review"
