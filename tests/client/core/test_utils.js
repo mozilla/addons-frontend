@@ -633,12 +633,12 @@ describe('safePromise', () => {
   });
 
   it('catches errors and returns them as rejected promises', () => {
-    const msg = 'well, that was unfortunate';
+    const message = 'well, that was unfortunate';
     const asPromised = safePromise(() => {
-      throw new Error(msg);
+      throw new Error(message);
     });
     return asPromised().then(unexpectedSuccess, (error) => {
-      assert.equal(error.message, msg);
+      assert.equal(error.message, message);
     });
   });
 });
