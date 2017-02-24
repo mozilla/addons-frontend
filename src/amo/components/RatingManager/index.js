@@ -7,7 +7,14 @@ import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_THEME,
+  validAddonTypes as defaultValidAddonTypes,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
@@ -81,23 +88,39 @@ export class RatingManagerBase extends React.Component {
       });
   }
 
-  renderLogInToRate() {
-    const { AuthenticateButton, addon, i18n, location } = this.props;
-    let authPrompt;
-    if (addon.type === ADDON_TYPE_EXTENSION) {
-      authPrompt = i18n.gettext('Log in to rate this extension');
-    } else if (addon.type === ADDON_TYPE_THEME) {
-      authPrompt = i18n.gettext('Log in to rate this theme');
-    } else {
-      throw new Error(`Unknown extension type: ${addon.type}`);
+  getLogInPrompt(
+    { addonType }, { validAddonTypes = defaultValidAddonTypes } = {}
+  ) {
+    const { i18n } = this.props;
+    switch (addonType) {
+      case ADDON_TYPE_DICT:
+        return i18n.gettext('Log in to rate this dictionary');
+      case ADDON_TYPE_LANG:
+        return i18n.gettext('Log in to rate this language pack');
+      case ADDON_TYPE_SEARCH:
+        return i18n.gettext('Log in to rate this search engine');
+      case ADDON_TYPE_THEME:
+        return i18n.gettext('Log in to rate this theme');
+      case ADDON_TYPE_EXTENSION:
+        return i18n.gettext('Log in to rate this extension');
+      default:
+        if (!validAddonTypes.includes(addonType)) {
+          throw new Error(`Unknown extension type: ${addonType}`);
+        }
+        log.warn(`Using generic prompt for add-on type: ${addonType}`);
+        return i18n.gettext('Log in to rate this add-on');
     }
+  }
+
+  renderLogInToRate() {
+    const { AuthenticateButton, addon, location } = this.props;
     return (
       <div className="RatingManager-log-in-to-rate">
         <AuthenticateButton
           noIcon
           className="RatingManager-log-in-to-rate-button"
           location={location}
-          logInText={authPrompt}
+          logInText={this.getLogInPrompt({ addonType: addon.type })}
         />
       </div>
     );
