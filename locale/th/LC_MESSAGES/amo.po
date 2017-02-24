@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-13 09:32+0000\n"
+"PO-Revision-Date: 2017-02-24 10:37+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -132,8 +132,7 @@ msgstr "บอกให้โลกรู้ว่าทำไมคุณจึ
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "กำลังค้นหา..."
@@ -164,13 +163,11 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr ""
 
@@ -265,13 +262,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "คุณเพลิดเพลินกับประสบการณ์ของคุณกับ %(addonName)s แค่ไหน?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "กำลังค้นหา..."
+msgstr "ค้นหา"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
@@ -282,9 +278,8 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
+msgstr "ไม่พบผลลัพธ์"
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -338,13 +333,12 @@ msgid ""
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metadata ส่วนขยาย"
+msgstr "ส่วนขยาย"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "ชุดตกแต่ง"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -372,7 +366,7 @@ msgstr "เชื่อมต่อทางสังคม"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "เล่นเกม"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
@@ -410,20 +404,17 @@ msgstr "เข้าสู่ระบบ/ลงทะเบียน"
 msgid "Log out"
 msgstr "ออกจากระบบ"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "กำลังติดตั้ง %(name)s"
+msgstr "ติดตั้งชุดตกแต่ง"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "เพิ่มไปยัง Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -467,7 +458,7 @@ msgstr "หน้า %(currentPage)s จาก %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "ส่วนเสริมของคุณพร้อมแล้ว"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
@@ -475,7 +466,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "ตกลง!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
