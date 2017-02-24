@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-24 13:31+0000\n"
+"PO-Revision-Date: 2017-02-24 13:51+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -121,7 +121,7 @@ msgstr "Розкажіть світу, чому ви вважаєте це ро�
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Розкажіть нам, чому ви любите це розширення. Висловлюйтесь конкретно й коротко."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -129,7 +129,7 @@ msgstr "Розкажіть світу про це розширення."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "від %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
@@ -141,7 +141,7 @@ msgstr "Піктограма додатку"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Відгуки для %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
 msgid "All written reviews"
@@ -149,23 +149,23 @@ msgstr "Всі написані відгуки"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Не вдалося завантажити категорії."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Не знайдено категорій."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Не авторизовано"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Сторінку не знайдено"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Помилка сервера"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -173,7 +173,7 @@ msgstr "Більше відібраних розширень"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Більше відібраних тем"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -213,11 +213,11 @@ msgstr "Більше найвище оцінених розширень"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Відібрані теми"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Більше відібраних тем"
 
 #: src/amo/components/LandingPage.js:75
 msgid "Most popular themes"
@@ -233,7 +233,7 @@ msgstr "Найвище оцінені теми"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Більше найвище оцінених тем"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -253,7 +253,7 @@ msgstr "Пошук"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Пошук розширень і тем"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
@@ -269,31 +269,31 @@ msgstr "Результатів не знайдено."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Введіть пошуковий запит, щоб знайти додатки для Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Нещодавно оновлені"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Відповідність"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Найбільше користувачів"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Найвище оцінені"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Впорядкувати"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Пропоновані сторінки"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -316,6 +316,8 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Розширення - це спеціальні функції, які ви можете додати до Firefox.\n"
+"Теми дозволяють вам змінити вигляд вашого браузера."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -323,11 +325,11 @@ msgstr "Розширення"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Теми"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Ви можете змінювати роботу Firefox…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -339,7 +341,7 @@ msgstr "Знімок екрану"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Знаходьте новини"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -351,11 +353,11 @@ msgstr "Спілкуватися"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Грайте в ігри"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…або на що це схоже"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -379,7 +381,7 @@ msgstr "Спортивний"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Суцільні"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -391,7 +393,7 @@ msgstr "Вийти"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Код помилки: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
@@ -443,19 +445,19 @@ msgstr "Сторінка %(currentPage)s із %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Ваш додаток готовий"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Тепер ви можете отримати доступ до %(name)s з панелі інструментів."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "ОК!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Сталася неочікувана помилка"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
