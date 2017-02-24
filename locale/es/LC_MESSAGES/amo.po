@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-24 14:18+0000\n"
+"PO-Revision-Date: 2017-02-24 14:57+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -47,7 +47,7 @@ msgstr "Presiona para ver la vista previa"
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
+msgstr[0] "%(total)s usuario"
 msgstr[1] ""
 
 #: src/amo/components/AddonMeta.js:28
@@ -354,7 +354,7 @@ msgstr "Juegos"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…o lo que parezca"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -393,14 +393,12 @@ msgid "Error code: %(status)s."
 msgstr "Código de error: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Instalando %(name)s."
+msgstr "Instalar tema"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Complementos para Firefox"
+msgstr "Agregar a Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -444,24 +442,23 @@ msgstr "Página %(currentPage)s de %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Tu complemento está listo"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Ahora puedes acceder a %(name)s desde la barra de herramientas."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "¡Vale!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Se ha producido un error inesperado"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Valoración media: %(rating)s de 5"
+msgstr "Valoración %(rating)s de 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -469,7 +466,7 @@ msgstr "Sin valoraciones"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Expandir a </span> Leer más"
 
 #~ msgid "Screenshots"
 #~ msgstr "Capturas de pantalla"
