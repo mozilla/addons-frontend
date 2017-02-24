@@ -102,11 +102,13 @@ export class RatingManagerBase extends React.Component {
       case ADDON_TYPE_THEME:
         return i18n.gettext('Log in to rate this theme');
       case ADDON_TYPE_EXTENSION:
+        return i18n.gettext('Log in to rate this extension');
       default:
         if (!validAddonTypes.includes(addonType)) {
           throw new Error(`Unknown extension type: ${addonType}`);
         }
-        return i18n.gettext('Log in to rate this extension');
+        log.warn(`Using generic prompt for add-on type: ${addonType}`);
+        return i18n.gettext('Log in to rate this add-on');
     }
   }
 

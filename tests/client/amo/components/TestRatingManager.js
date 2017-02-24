@@ -271,8 +271,8 @@ describe('RatingManager', () => {
         { addonType: 'banana' },
         { validAddonTypes: ['banana'] }
       );
-      // The prompt should just call it an extension:
-      assert.include(prompt, 'extension');
+      // The prompt should just call it an add-on:
+      assert.include(prompt, 'add-on');
     });
   });
 
