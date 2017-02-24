@@ -21,6 +21,8 @@ import {
   ngettext,
   nl2br,
   refreshAddon,
+  safeAsyncConnect,
+  safePromise,
   visibleAddonType,
 } from 'core/utils';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
@@ -535,5 +537,108 @@ describe('visibleAddonType', () => {
     assert.throws(() => {
       visibleAddonType('hasOwnProperty');
     }, '"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING');
+  });
+});
+
+describe('safeAsyncConnect', () => {
+  it('wraps promise callbacks in safePromise', () => {
+    const asyncConnect = sinon.stub();
+
+    safeAsyncConnect(
+      [{
+        promise: () => {
+          throw new Error('error in callback');
+        },
+      }],
+      { asyncConnect }
+    );
+
+    assert.ok(asyncConnect.called, 'asyncConnect() was not called');
+
+    const aConfig = asyncConnect.firstCall.args[0][0];
+    return aConfig.promise().then(unexpectedSuccess, (error) => {
+      assert.equal(error.message, 'error in callback');
+    });
+  });
+
+  it('requires a promise', () => {
+    assert.throws(() => safeAsyncConnect([{ key: 'thing' }]),
+      /Expected safeAsyncConnect.* config to define a promise/);
+  });
+
+  it('adds a deferred: true property', () => {
+    const asyncConnect = sinon.stub();
+
+    safeAsyncConnect(
+      [{
+        promise: () => {
+          throw new Error('error in callback');
+        },
+      }],
+      { asyncConnect }
+    );
+
+    assert.ok(asyncConnect.called, 'asyncConnect() was not called');
+
+    const aConfig = asyncConnect.firstCall.args[0][0];
+    assert.strictEqual(aConfig.deferred, true);
+  });
+
+  it('passes through other params', () => {
+    const asyncConnect = sinon.stub();
+
+    safeAsyncConnect(
+      [{
+        key: 'SomeKey',
+        promise: () => {},
+      }],
+      { asyncConnect }
+    );
+
+    assert.ok(asyncConnect.called, 'asyncConnect() was not called');
+
+    const aConfig = asyncConnect.firstCall.args[0][0];
+    assert.equal(aConfig.key, 'SomeKey');
+  });
+
+  it('passes through all configs', () => {
+    const asyncConnect = sinon.stub();
+
+    const config1 = { key: 'one', promise: () => {} };
+    const config2 = { key: 'two', promise: () => {} };
+    safeAsyncConnect([config1, config2], { asyncConnect });
+
+    assert.ok(asyncConnect.called, 'asyncConnect() was not called');
+
+    assert.equal(asyncConnect.firstCall.args[0][0].key, 'one');
+    assert.equal(asyncConnect.firstCall.args[0][1].key, 'two');
+  });
+});
+
+describe('safePromise', () => {
+  it('passes through a promised value', () => {
+    const asPromised = safePromise(() => Promise.resolve('return value'));
+    return asPromised().then((returnedValue) => {
+      assert.equal(returnedValue, 'return value');
+    });
+  });
+
+  it('passes along all arguments', () => {
+    const callback = sinon.spy(() => Promise.resolve());
+    const asPromised = safePromise(callback);
+    return asPromised('one', 'two', 'three').then(() => {
+      assert.ok(callback.called, 'callback was never called');
+      assert.deepEqual(callback.firstCall.args, ['one', 'two', 'three']);
+    });
+  });
+
+  it('catches errors and returns them as rejected promises', () => {
+    const message = 'well, that was unfortunate';
+    const asPromised = safePromise(() => {
+      throw new Error(message);
+    });
+    return asPromised().then(unexpectedSuccess, (error) => {
+      assert.equal(error.message, message);
+    });
   });
 });

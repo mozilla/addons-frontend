@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react';
 import { camelizeKeys as camelCaseKeys } from 'humps';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-connect';
+import { compose } from 'redux';
 import config from 'config';
 
 import { loadEntities } from 'core/actions';
@@ -12,6 +12,7 @@ import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
+import { safeAsyncConnect } from 'core/utils';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
@@ -166,7 +167,11 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
   };
 }
 
-export default asyncConnect([{
-  key: 'DiscoPane',
-  promise: loadDataIfNeeded,
-}])(connect(mapStateToProps, mapDispatchToProps)(translate()(DiscoPaneBase)));
+export default compose(
+  safeAsyncConnect([{
+    key: 'DiscoPane',
+    promise: loadDataIfNeeded,
+  }]),
+  connect(mapStateToProps, mapDispatchToProps),
+  translate(),
+)(DiscoPaneBase);
