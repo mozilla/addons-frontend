@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-24 14:10+0000\n"
+"PO-Revision-Date: 2017-02-24 14:18+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -202,39 +202,35 @@ msgstr "Extensiones más populares"
 
 #: src/amo/components/LandingPage.js:61
 msgid "Top rated extensions"
-msgstr "Extensiones mejor valoradas"
+msgstr "Extensiones más aloradas"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Ver todas las extensiones"
+msgstr "Extensiones mejor valoradas"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Temas promocionados"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Más temas promocionados"
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Ver todos los temas"
+msgstr "Temas más populares"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Ver todos los temas"
+msgstr "Temas más populares"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Ver todos los temas"
+msgstr "Temas más valorados"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Temas mejor valorados"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -249,13 +245,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "¿Cuál es tu experiencia con %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Buscando..."
+msgstr "Buscar"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Buscar extensiones y temas"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
@@ -266,37 +261,36 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "No se encontraron resultados para \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "No se encontraron resultados para \"%(query)s\"."
+msgstr "No se encontró ningún resultado."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Introduce un término de búsqueda para buscar complementos de Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Actualizados recientemente"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Importancia"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Más usuarios"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Mejor valorados"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Clasificar"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Páginas sugeridas"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -307,9 +301,8 @@ msgid "Browse all themes"
 msgstr "Ver todos los temas"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Complementos para Firefox"
+msgstr "Página de inicio de complementos"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -320,19 +313,20 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Las extensiones son funciones especiales que puedes agregar a Firefox.\n"
+"Los temas te permiten cambiar la apariencia de tu navegador."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metadata de la extensión"
+msgstr "Extensiones"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Temas"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Puedes cambiar el funcionamiento de Firefox…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -344,7 +338,7 @@ msgstr "Captura de pantalla"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Buscar noticias"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -356,7 +350,7 @@ msgstr "Ser sociable"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Juegos"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
@@ -384,7 +378,7 @@ msgstr "Deportivo"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Sólido"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -396,7 +390,7 @@ msgstr "Cerrar sesión"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Código de error: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
 #, fuzzy
