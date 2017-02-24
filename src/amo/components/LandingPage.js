@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
@@ -17,7 +16,7 @@ import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import {
   apiAddonType as getApiAddonType,
-  safePromise,
+  safeAsyncConnect,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -139,9 +138,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
-  asyncConnect([
-    { deferred: true, promise: safePromise(loadLandingAddons) },
-  ]),
+  safeAsyncConnect([{ promise: loadLandingAddons }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(LandingPageBase);

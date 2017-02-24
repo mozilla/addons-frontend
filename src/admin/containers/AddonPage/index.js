@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-connect';
+import { compose } from 'redux';
 
-import { gettext as _, loadAddonIfNeeded, safePromise } from 'core/utils';
+import { gettext as _, loadAddonIfNeeded, safeAsyncConnect } from 'core/utils';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import JsonData from 'admin/components/JsonData';
 
@@ -129,10 +129,10 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-const CurrentAddonPage = asyncConnect([{
-  key: 'AddonPage',
-  deferred: true,
-  promise: safePromise(loadAddonIfNeeded),
-}])(connect(mapStateToProps)(AddonPage));
-
-export default CurrentAddonPage;
+export default compose(
+  safeAsyncConnect([{
+    key: 'AddonPage',
+    promise: loadAddonIfNeeded,
+  }]),
+  connect(mapStateToProps),
+)(AddonPage);
