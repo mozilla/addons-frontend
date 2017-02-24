@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-24 19:32+0000\n"
+"PO-Revision-Date: 2017-02-24 19:48+0000\n"
 "Last-Translator: Moḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -41,32 +41,28 @@ msgid "About this %(addonType)s"
 msgstr "Ɣef %(addonType)s-agi"
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Aru acegger"
+msgstr "Senned akken ad sekned"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s aseqdac"
-msgstr[1] "%(users)s iseqdacen"
+msgstr[0] "%(total)s aseqdac"
+msgstr[1] "%(total)s iseqdacen"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Tazmilt talemmast: %(rating)s yugar 5"
+msgstr "%(averageRating)s yugar 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
 msgstr "Ur yettwasezmel ara"
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Ulac tazmilt"
-msgstr[1] "Ulac tazmilt"
+msgstr[0] "%(total)s n tezmilt"
+msgstr[1] "%(total)s n tezmilin"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -97,7 +93,6 @@ msgid "License"
 msgstr "Turagt"
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "Tasertit n tbaḍnit"
 
@@ -114,9 +109,8 @@ msgid "Review text"
 msgstr "Aḍris n ucegger"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Aru acegger"
+msgstr "Azen acegger"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -124,35 +118,31 @@ msgstr "Ini-d i medden ayɣer asiɣzef-agi ifaz!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Mmel-aɣ-d ayen tḥemleḍ deg uzegrir-agi. Ilik d ufri, frez awal-ik."
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Ini-d i medden ayɣer asiɣzef-agi ifaz!"
+msgstr "Meslay i yemdanen ɣef uzegrir-agi."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "si %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
-#, fuzzy
 msgid "Loading..."
-msgstr "Anadi..."
+msgstr "Asali..."
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Izegrar i Firefox"
+msgstr "Tignit n uzegrir"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
 msgstr "Iceggiren i %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
-#, fuzzy
 msgid "All written reviews"
-msgstr "Aru acegger"
+msgstr "Akk iceggiren yettwarun"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
@@ -175,9 +165,8 @@ msgid "Server Error"
 msgstr "Tuccḍa deg usenkez"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Inig akk isiɣzaf"
+msgstr "Isiɣzaf yettwaszemlen aṭas"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
@@ -196,34 +185,28 @@ msgid "View desktop site"
 msgstr "Sken asmel n uselkim"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Inig akk isiɣzaf"
+msgstr "Isiɣzaf yettwaszemlen"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Inig akk isiɣzaf"
+msgstr "Isiɣzaf yettwaszemlen aṭas"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Inig akk isiɣzaf"
+msgstr "Isiɣzaf yettwasnen aṭas"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Inig akk isiɣzaf"
+msgstr "Isiɣzaf yettwasnen aṭas"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Inig akk isiɣzaf"
+msgstr "Isiɣzaf yettwaszemlen aṭas"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Inig akk isiɣzaf"
+msgstr "Isiɣzaf yettwaszemlen ugar"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -234,19 +217,16 @@ msgid "More featured themes"
 msgstr "Isental yettwasnen aṭas"
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Inig ɣer akk isental"
+msgstr "Isental yettwasnen aṭas"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Inig ɣer akk isental"
+msgstr "Isental yettwasnen aṭas"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Inig ɣer akk isental"
+msgstr "Isental yettwaszemlen aṭas"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
@@ -265,9 +245,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Amek tettwaliḍ aseqdec n %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Anadi..."
+msgstr "Nadi"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
@@ -282,29 +261,28 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Ulac tiffin i \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Ulac tiffin i \"%(query)s\"."
+msgstr "Ulac igmad yettwafen."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Ma ulac aɣilif, sekcem awal i unadi n izegrar Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Ttwaleqmen melmi kan"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Amsami"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Yettwaseqdac aṭas"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Yettwasezmel aṭas"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
@@ -312,7 +290,7 @@ msgstr "Smizzwer"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Isebtar yettsimren"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -323,9 +301,8 @@ msgid "Browse all themes"
 msgstr "Inig ɣer akk isental"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Izegrar i Firefox"
+msgstr "Asebter agejdan n uzegrir"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -336,11 +313,12 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ ar Firefox.\n"
+"Isental ad k-eǧǧen ad tesnifleḍ udem n iming."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Asiɣzef aɣefisefka"
+msgstr "Isiɣzaf"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -348,7 +326,7 @@ msgstr "Isental"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Tzemred ad tesnifleḍ amek ara yeddu Firefox…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -372,11 +350,11 @@ msgstr "Mmeslay"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Urar uraren"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…neɣ ayen icuban aya"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -400,7 +378,7 @@ msgstr "Anaddal"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Ukmil"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -415,14 +393,12 @@ msgid "Error code: %(status)s."
 msgstr "Tangalt n tuccḍa: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Asbed n %(name)s."
+msgstr "Asebded n usentel"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Izegrar i Firefox"
+msgstr "Rnu ɣer Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -466,11 +442,11 @@ msgstr "Asebter %(currentPage)s seg %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Azegrir inek ihegga"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Tzemreḍ tura ad tkecmeḍ %(name)s seg ufeggag n ifecka."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
@@ -478,12 +454,11 @@ msgstr "IH!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Teḍra-d tuccḍa tarussint"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Tazmilt talemmast: %(rating)s yugar 5"
+msgstr "Yettwasezmel %(rating)s ugar n 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -491,7 +466,7 @@ msgstr "Ulac tazmilt"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
 
 #~ msgid "Screenshots"
 #~ msgstr "Tuṭṭfiwin n wegdil"
