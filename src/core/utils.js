@@ -204,6 +204,21 @@ export function isValidUrlException(value, { _config = config } = {}) {
 }
 
 /*
+ * Make sure a callback returns a rejected promise instead of throwing an error.
+ *
+ * If the callback throws an error, a rejected promise will be returned
+ * instead. If the callback runs without an error, its return value is not
+ * altered. In other words, it may or may not return a promise and that's ok.
+ */
+export const safePromise = (callback) => (...args) => {
+  try {
+    return callback(...args);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+/*
  * A wrapper around asyncConnect to make it safer to use.
  *
  * You don't need to specify deferred: true because it will be set
@@ -231,18 +246,3 @@ export function safeAsyncConnect(
   });
   return asyncConnect(safeConfigs);
 }
-
-/*
- * Make sure a callback returns a rejected promise instead of throwing an error.
- *
- * If the callback throws an error, a rejected promise will be returned
- * instead. If the callback runs without an error, its return value is not
- * altered. In other words, it may or may not return a promise and that's ok.
- */
-export const safePromise = (callback) => (...args) => {
-  try {
-    return callback(...args);
-  } catch (error) {
-    return Promise.reject(error);
-  }
-};

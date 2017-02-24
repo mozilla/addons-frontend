@@ -555,8 +555,8 @@ describe('safeAsyncConnect', () => {
 
     assert.ok(asyncConnect.called, 'asyncConnect() was not called');
 
-    const config = asyncConnect.firstCall.args[0][0];
-    return config.promise().then(unexpectedSuccess, (error) => {
+    const aConfig = asyncConnect.firstCall.args[0][0];
+    return aConfig.promise().then(unexpectedSuccess, (error) => {
       assert.equal(error.message, 'error in callback');
     });
   });
@@ -580,8 +580,8 @@ describe('safeAsyncConnect', () => {
 
     assert.ok(asyncConnect.called, 'asyncConnect() was not called');
 
-    const config = asyncConnect.firstCall.args[0][0];
-    assert.strictEqual(config.deferred, true);
+    const aConfig = asyncConnect.firstCall.args[0][0];
+    assert.strictEqual(aConfig.deferred, true);
   });
 
   it('passes through other params', () => {
@@ -597,8 +597,8 @@ describe('safeAsyncConnect', () => {
 
     assert.ok(asyncConnect.called, 'asyncConnect() was not called');
 
-    const config = asyncConnect.firstCall.args[0][0];
-    assert.equal(config.key, 'SomeKey');
+    const aConfig = asyncConnect.firstCall.args[0][0];
+    assert.equal(aConfig.key, 'SomeKey');
   });
 
   it('passes through all configs', () => {
