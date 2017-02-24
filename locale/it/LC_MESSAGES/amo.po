@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-11-11 17:30+0000\n"
+"PO-Revision-Date: 2017-02-23 09:51+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -53,7 +53,6 @@ msgstr[0] "%(users)s utente"
 msgstr[1] "%(users)s utenti"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
 msgstr "Media valutazioni: %(rating)s su 5"
 
@@ -135,8 +134,7 @@ msgstr "Spiega agli altri utenti i motivi per cui apprezzi questa estensione."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "Ricerca in corso…"
@@ -167,13 +165,11 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr ""
 
@@ -413,8 +409,7 @@ msgstr "Accedi / Registrati"
 msgid "Log out"
 msgstr "Disconnetti"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
@@ -485,7 +480,6 @@ msgid "An unexpected error occurred"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Media valutazioni: %(rating)s su 5"
 
