@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-11-13 11:32+0000\n"
+"PO-Revision-Date: 2017-02-24 11:45+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonDetail.js:125
@@ -43,34 +42,30 @@ msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Напишіть відгук"
+msgstr "Натисніть для перегляду"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s користувач"
-msgstr[1] "%(users)s користувача"
-msgstr[2] "%(users)s користувачів"
+msgstr[0] "%(total)s користувач"
+msgstr[1] "%(total)s користувача"
+msgstr[2] "%(total)s користувачів"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Середня оцінка: %(rating)s із 5"
+msgstr "%(averageRating)s з 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
 msgstr ""
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Немає оцінок"
-msgstr[1] "Немає оцінок"
-msgstr[2] "Немає оцінок"
+msgstr[0] "%(total)s оцінка"
+msgstr[1] "%(total)s оцінки"
+msgstr[2] "%(total)s оцінок"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -101,7 +96,6 @@ msgid "License"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "Політика приватності"
 
@@ -118,9 +112,8 @@ msgid "Review text"
 msgstr ""
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Напишіть відгук"
+msgstr "Відправити відгук"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -131,33 +124,28 @@ msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Розкажіть світу, чому ви вважаєте це розширення фантастичним!"
+msgstr "Розкажіть світу про це розширення."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
-#, fuzzy
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr "Пошук..."
+msgstr "Завантаження..."
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Додатки для Firefox"
+msgstr "Піктограма додатку"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewList.js:71
-#, fuzzy
 msgid "All written reviews"
-msgstr "Напишіть відгук"
+msgstr "Всі написані відгуки"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
@@ -171,20 +159,17 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Перегляд всіх розширень"
+msgstr "Більше відібраних розширень"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
@@ -203,34 +188,28 @@ msgid "View desktop site"
 msgstr "Повна версія сайту"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Перегляд всіх розширень"
+msgstr "Відібрані розширення"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Перегляд всіх розширень"
+msgstr "Більше відібраних розширень"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Перегляд всіх розширень"
+msgstr "Найпопулярніші розширення"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Перегляд всіх розширень"
+msgstr "Більше популярних розширень"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Перегляд всіх розширень"
+msgstr "Найвище оцінені розширення"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Перегляд всіх розширень"
+msgstr "Більше найвище оцінених розширень"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -241,19 +220,16 @@ msgid "More featured themes"
 msgstr ""
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Перегляд всіх тем"
+msgstr "Найпопулярніші теми"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Перегляд всіх тем"
+msgstr "Більше популярних тем"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Перегляд всіх тем"
+msgstr "Найвище оцінені теми"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
@@ -272,9 +248,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Які ваші враження від роботи з %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Пошук..."
+msgstr "Пошук"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
@@ -289,9 +264,8 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Не знайдено результатів для запиту \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Не знайдено результатів для запиту \"%(query)s\"."
+msgstr "Результатів не знайдено."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -330,9 +304,8 @@ msgid "Browse all themes"
 msgstr "Перегляд всіх тем"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Додатки для Firefox"
+msgstr "Початкова сторінка додатків"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -345,9 +318,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Метадані розширення"
+msgstr "Розширення"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -417,20 +389,17 @@ msgstr "Вхід/Реєстрація"
 msgid "Log out"
 msgstr "Вийти"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Встановлення %(name)s."
+msgstr "Встановити тему"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Додатки для Firefox"
+msgstr "Додати до Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -489,9 +458,8 @@ msgid "An unexpected error occurred"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Середня оцінка: %(rating)s із 5"
+msgstr "Оцінка %(rating)s з 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
