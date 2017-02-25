@@ -23,7 +23,7 @@ export class AddonMoreInfoBase extends React.Component {
         <li><a href={homepage} ref={(ref) => { this.homepageLink = ref; }}>
           {i18n.gettext('Homepage')}
         </a></li>
-      )
+      );
     }
     let supportUrl = trimAndAddProtocolToUrl(addon.support_url);
     if (supportUrl) {
@@ -31,7 +31,7 @@ export class AddonMoreInfoBase extends React.Component {
         <li><a href={supportUrl} ref={(ref) => { this.supportLink = ref; }}>
           {i18n.gettext('Support Site')}
         </a></li>
-      )
+      );
     }
 
     return (
