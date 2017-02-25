@@ -24,6 +24,7 @@ import {
   safeAsyncConnect,
   safePromise,
   visibleAddonType,
+  trimAndAddProtocolToUrl,
 } from 'core/utils';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
 import { unexpectedSuccess } from 'tests/client/helpers';
@@ -640,5 +641,22 @@ describe('safePromise', () => {
     return asPromised().then(unexpectedSuccess, (error) => {
       assert.equal(error.message, message);
     });
+  });
+});
+
+describe('trimAndAddProtocolToUrl', () => {
+  it('adds a protocol to a URL if missing', () => {
+    assert.equal(
+      trimAndAddProtocolToUrl('test.com'), 'http://test.com');
+  });
+
+  it('trims whitespace on a URL', () => {
+    assert.equal(
+      trimAndAddProtocolToUrl(' test.com '), 'http://test.com');
+  });
+
+  it('works with HTTPS URLs', () => {
+    assert.equal(
+      trimAndAddProtocolToUrl('https://test.com'), 'https://test.com');
   });
 });
