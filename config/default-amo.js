@@ -25,9 +25,34 @@ module.exports = {
   },
   enableTrailingSlashesMiddleware: true,
   fxaConfig: 'amo',
+
+  // This needs to be kept in sync with addons-server's SUPPORTED_NONLOCALES
+  // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L274
+  // These are URLs that are ignored by our prefix middleware that will add
+  // a locale (e.g. `en-US`) to any URL that doesn't have a valid locale.
+  // These are all URLs that should not get a locale prepended to the URL,
+  // because they are locale-independant, like `/firefox/downloads/`.
+  validLocaleUrlExceptions: [
+    'contribute.json',
+    'google1f3e37b7351799a5.html',
+    'robots.txt',
+    'services',
+    'downloads',
+    // This isn't in addons-server, but instead will cause a redirect to another
+    // host.
+    'blocklist',
+    'static',
+    'user-media',
+    '__version__',
+  ],
+
   // This needs to be kept in sync with addons-server's SUPPORTED_NONAPPS
   // settings value: https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L262
-  validUrlExceptions: [
+  // These are URLs that are ignored by our prefix middleware that will add
+  // a clientApp (e.g. `android`) to any URL that doesn't have a valid
+  // clientApp. These are all URLs that don't require a clientApp in them
+  // because they are app-independant, like `/en-US/developers/`.
+  validClientAppUrlExceptions: [
     'about',
     'admin',
     'apps',

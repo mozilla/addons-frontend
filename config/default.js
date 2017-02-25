@@ -86,6 +86,8 @@ module.exports = {
     'trackingId',
     'trackingSendInitPageView',
     'validClientApplications',
+    'validLocaleUrlExceptions',
+    'validClientAppUrlExceptions',
   ],
 
   // Content Security Policy.
@@ -216,7 +218,8 @@ module.exports = {
     'firefox',
   ],
 
-  validUrlExceptions: [],
+  validLocaleUrlExceptions: [],
+  validClientAppUrlExceptions: [],
 
   // The default app used in the URL.
   defaultClientApp: 'firefox',

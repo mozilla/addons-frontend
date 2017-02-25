@@ -216,8 +216,12 @@ export function getErrorComponent(status) {
   }
 }
 
-export function isValidUrlException(value, { _config = config } = {}) {
-  return _config.get('validUrlExceptions').includes(value);
+export function isValidLocaleUrlException(value, { _config = config } = {}) {
+  return _config.get('validLocaleUrlExceptions').includes(value);
+}
+
+export function isValidClientAppUrlException(value, { _config = config } = {}) {
+  return _config.get('validClientAppUrlExceptions').includes(value);
 }
 
 /*
