@@ -16,7 +16,9 @@ describe('Prefix Middleware', () => {
     };
     fakeConfig = new Map();
     fakeConfig.set('validClientApplications', ['firefox', 'android']);
-    fakeConfig.set('validUrlExceptions', ['developers', 'validprefix']);
+    fakeConfig.set('validLocaleUrlExceptions', ['downloads']);
+    fakeConfig.set(
+      'validClientAppUrlExceptions', ['developers', 'validprefix']);
   });
 
   it('should call res.redirect if changing the case', () => {
@@ -58,7 +60,7 @@ describe('Prefix Middleware', () => {
     assert.deepEqual(fakeRes.set.firstCall.args, ['vary', []]);
   });
 
-  it('should prepend lang when missing but preserve valid urlException', () => {
+  it('should prepend lang when missing but keep clientAppUrlException', () => {
     const fakeReq = {
       originalUrl: '/validprefix/whatever',
       headers: {},
@@ -68,17 +70,51 @@ describe('Prefix Middleware', () => {
     assert.deepEqual(fakeRes.set.firstCall.args, ['vary', []]);
   });
 
-  it('should render a 404 when a URL exception is found', () => {
+  it('should render 404 when a localeURL exception exists', () => {
+    const fakeReq = {
+      originalUrl: '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
+      headers: {},
+    };
+    const statusSpy = sinon.spy(fakeRes, 'status');
+    prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    assert.deepEqual(statusSpy.firstCall.args, [404]);
+  });
+
+  it('should redirect a locale exception at the root', () => {
+    const fakeReq = {
+      originalUrl: '/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
+      headers: {},
+    };
+    prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+
+    assert.deepEqual(fakeRes.redirect.firstCall.args, [302,
+      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi']);
+    assert.deepEqual(fakeRes.set.firstCall.args, ['vary', ['user-agent']]);
+  });
+
+  it('should redirect a locale exception nested in a valid locale', () => {
+    const fakeReq = {
+      originalUrl: '/en-US/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi',
+      headers: {},
+    };
+    prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+
+    assert.deepEqual(fakeRes.redirect.firstCall.args, [302,
+      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi']);
+    assert.deepEqual(fakeRes.set.firstCall.args, ['vary', ['user-agent']]);
+  });
+
+  it('should render a 404 when a clientApp URL exception is found', () => {
     const fakeReq = {
       originalUrl: '/en-US/developers/theme/submit',
       headers: {},
     };
-    const resSpy = sinon.spy(fakeRes, 'status');
+    const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(resSpy.firstCall.args, [404]);
+    assert.deepEqual(statusSpy.firstCall.args, [404]);
   });
 
-  it('should set lang when invalid but preserve valid urlException', () => {
+  it('should set lang when invalid, preserving clientApp URL exception', () => {
     const fakeReq = {
       originalUrl: '/en-USA/developers/',
       headers: {},
@@ -88,14 +124,14 @@ describe('Prefix Middleware', () => {
     assert.deepEqual(fakeRes.set.firstCall.args, ['vary', []]);
   });
 
-  it('should render a 404 when a URL exception is found at the root', () => {
+  it('should render a 404 when a clientApp URL exception is found', () => {
     const fakeReq = {
       originalUrl: '/en-US/developers/',
       headers: {},
     };
-    const resSpy = sinon.spy(fakeRes, 'status');
+    const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleWare(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(resSpy.firstCall.args, [404]);
+    assert.deepEqual(statusSpy.firstCall.args, [404]);
   });
 
   it('should fallback to and vary on accept-language headers', () => {
