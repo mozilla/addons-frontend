@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-25 17:30+0000\n"
+"PO-Revision-Date: 2017-02-25 17:38+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -89,20 +89,19 @@ msgstr "Последнее обновление"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
-msgstr ""
+msgstr "Лицензия"
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "Политика приватности"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Прочитать политику приватности для этого дополнения"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -110,12 +109,11 @@ msgstr "Написать отзыв"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Текст отзыва"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Написать отзыв"
+msgstr "Отправить отзыв"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -123,64 +121,59 @@ msgstr "Расскажите миру, почему вы думаете, что 
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Расскажите нам о том, что вы любите это расширение. Будьте конкретны и лаконичны."
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Расскажите миру, почему вы думаете, что это расширение является фантастическим!"
+msgstr "Расскажите миру об этом расширении."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "от %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
-#, fuzzy
 msgid "Loading..."
-msgstr "Поиск..."
+msgstr "Загрузка..."
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Дополнения для Firefox"
+msgstr "Значок дополнения"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Отзывы на %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
-#, fuzzy
 msgid "All written reviews"
-msgstr "Написать отзыв"
+msgstr "Все написанные отзывы"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Не удалось загрузить категории."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Категорий не найдено."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Не авторизован"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Страница не найдена"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Ошибка сервера"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Просмотреть все расширения"
+msgstr "Больше избранных расширений"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Больше избранных тем"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -195,61 +188,52 @@ msgid "View desktop site"
 msgstr "Просмотр сайта для компьютеров"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Просмотреть все расширения"
+msgstr "Избранные расширения"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Просмотреть все расширения"
+msgstr "Больше избранных расширений"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Просмотреть все расширения"
+msgstr "Самые популярные расширения"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Просмотреть все расширения"
+msgstr "Больше популярных расширений"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Просмотреть все расширения"
+msgstr "Самые высоко оцененные расширения"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Просмотреть все расширения"
+msgstr "Больше высоко оцененных расширений"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Избранные темы"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Больше избранных тем"
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Просмотреть все темы"
+msgstr "Самые популярные темы"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Просмотреть все темы"
+msgstr "Больше популярных тем"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Просмотреть все темы"
+msgstr "Самые высоко оцененные темы"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Больше высоко оцененных тем"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -264,13 +248,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Как вы оцениваете ваш опыт работы с %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Поиск..."
+msgstr "Поиск"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Поиск расширений и тем"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
@@ -281,37 +264,36 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Результатов для \"%(query)s\" не найдено."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Результатов для \"%(query)s\" не найдено."
+msgstr "Результатов не найдено."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Пожалуйста, введите поисковый термин, чтобы искать среди дополнений для Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Недавно обновлённые"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Релевантность"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Число пользователей"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Лидеры рейтинга"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Сортировать"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Предложенные страницы"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -322,9 +304,8 @@ msgid "Browse all themes"
 msgstr "Просмотреть все темы"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Дополнения для Firefox"
+msgstr "Домашняя страница дополнений"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -335,19 +316,20 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Расширения - специальные функции, которые вы можете добавить в Firefox.\n"
+"Темы позволяют вам изменить внешний вид вашего браузера."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Метаданные расширения"
+msgstr "Расширения"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Темы"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Вы можете изменить работу Firefox…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -359,7 +341,7 @@ msgstr "Скриншоты"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Поиск новостей"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -367,15 +349,15 @@ msgstr "Покупки онлайн"
 
 #: src/amo/containers/Home.js:67
 msgid "Be social"
-msgstr "Будьте в сети"
+msgstr "Социальные сети"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Играйте в игры"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…или его внешний вид"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -399,7 +381,7 @@ msgstr "Спортивные"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Сплошные"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -411,17 +393,15 @@ msgstr "Выйти"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Код ошибки: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Установка %(name)s."
+msgstr "Установить тему"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Дополнения для Firefox"
+msgstr "Добавить в Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -465,24 +445,23 @@ msgstr "Страница %(currentPage)s из %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Ваше дополнение готово"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Теперь вы можете получить доступ к %(name)s с панели инструментов."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "ОК!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Обнаружена непредвиденная ошибка"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Средний рейтинг: %(rating)s из 5"
+msgstr "Оценено на %(rating)s из 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -490,7 +469,7 @@ msgstr "Нет оценок"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Разверните, чтобы</span> прочитать больше"
 
 #~ msgid "Screenshots"
 #~ msgstr "Скриншоты"
