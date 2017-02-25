@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-11-17 12:10+0000\n"
+"PO-Revision-Date: 2017-02-24 14:47+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -17,12 +17,12 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Læs %(count)s anmeldelse"
+msgstr[1] "Læs alle %(count)s anmeldelser"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
-msgstr ""
+msgstr "Ikke anmeldt endnu"
 
 #: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
@@ -38,7 +38,7 @@ msgstr "Metadata for udvidelsen"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "Om denne %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
 #, fuzzy
@@ -46,11 +46,10 @@ msgid "Press to preview"
 msgstr "Skriv en anmeldelse"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s bruger"
-msgstr[1] "%(users)s brugere"
+msgstr[0] "%(total)s bruger"
+msgstr[1] "%(total)s brugere"
 
 #: src/amo/components/AddonMeta.js:28
 #, fuzzy
@@ -135,8 +134,7 @@ msgstr "Fortæl verden, hvorfor du synes denne udvidelse er fantastisk!"
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "Søger..."
@@ -167,13 +165,11 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr ""
 
@@ -413,8 +409,7 @@ msgstr "Log ind/registrer dig"
 msgid "Log out"
 msgstr "Log ud"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
@@ -539,8 +534,7 @@ msgstr ""
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
 #~ msgstr[0] "Din søgning efter \"%(query)s\" returnerede %(count)s resultat."
-#~ msgstr[1] ""
-#~ "Din søgning efter \"%(query)s\" returnerede %(count)s resultater."
+#~ msgstr[1] "Din søgning efter \"%(query)s\" returnerede %(count)s resultater."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Angiv en gyldig søgning"
