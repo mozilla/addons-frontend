@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-25 12:50+0000\n"
-"Last-Translator: Kim Ludvigsen <ludvigs@kimludvigsen.dk>\n"
+"PO-Revision-Date: 2017-02-24 14:45+0000\n"
+"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -394,7 +394,7 @@ msgstr "Log ud"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Fejlkode: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
 #, fuzzy
@@ -448,19 +448,19 @@ msgstr "Side %(currentPage)s af %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Din tilføjelse er klar"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Du kan nu tilgå %(name)s fra værktøjslinjen."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Der opstod en uventet fejl"
 
 #: src/ui/components/Rating/index.js:83
 #, fuzzy
