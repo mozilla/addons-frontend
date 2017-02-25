@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-24 14:45+0000\n"
-"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
+"PO-Revision-Date: 2017-02-25 12:53+0000\n"
+"Last-Translator: Kim Ludvigsen <ludvigs@kimludvigsen.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -41,9 +41,8 @@ msgid "About this %(addonType)s"
 msgstr "Om denne %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Skriv en anmeldelse"
+msgstr "Klik for at få vist eksempel"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
 msgid "%(total)s user"
@@ -119,12 +118,11 @@ msgstr "Fortæl verden, hvorfor du synes denne udvidelse er fantastisk!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Fortæl os, hvad du kan lide ved denne udvidelse. Vær konkret og kortfattet."
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Fortæl verden, hvorfor du synes denne udvidelse er fantastisk!"
+msgstr "Fortæl andre om denne udvidelse."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
@@ -303,9 +301,8 @@ msgid "Browse all themes"
 msgstr "Gennemse alle temaer"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Tilføjelser til Firefox"
+msgstr "Tilføjelsens hjemmeside"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -320,9 +317,8 @@ msgstr ""
 "Temaer lader dig ændre din browsers udseende."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metadata for udvidelsen"
+msgstr "Udvidelser"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -342,7 +338,7 @@ msgstr "Skærmbillede"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Finde nyheder"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -354,7 +350,7 @@ msgstr "Være social"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Spille spil"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
@@ -382,7 +378,7 @@ msgstr "Sporty"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Fast"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -397,14 +393,12 @@ msgid "Error code: %(status)s."
 msgstr "Fejlkode: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Installerer %(name)s."
+msgstr "Installer tema"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Tilføjelser til Firefox"
+msgstr "Føj til Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -463,9 +457,8 @@ msgid "An unexpected error occurred"
 msgstr "Der opstod en uventet fejl"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Gennemsnitlig bedømmelse: %(rating)s ud af 5"
+msgstr "Bedømmelse: %(rating)s ud af 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -473,7 +466,7 @@ msgstr "Ingen bedømmelser"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Udvid</span> for at læse mere"
 
 #~ msgid "Screenshots"
 #~ msgstr "Skærmbilleder"
