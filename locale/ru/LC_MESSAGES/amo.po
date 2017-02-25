@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 11:08+0000\n"
-"Last-Translator: Victor Bychek <a@bychek.ru>\n"
+"PO-Revision-Date: 2017-02-25 17:30+0000\n"
+"Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -17,13 +17,13 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Прочитать %(count)s отзыв"
+msgstr[1] "Прочитать %(count)s отзыва"
+msgstr[2] "Прочитать %(count)s отзывов"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
-msgstr ""
+msgstr "Пока отзывов нет"
 
 #: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
@@ -39,36 +39,33 @@ msgstr "Метаданные расширения"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "Об этом %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Написать отзыв"
+msgstr "Нажмите для предпросмотра"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s пользователь"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "%(total)s пользователя"
+msgstr[2] "%(total)s пользователей"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Средний рейтинг: %(rating)s из 5"
+msgstr "%(averageRating)s из 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "Пока не оценено"
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Нет оценок"
-msgstr[1] "Нет оценок"
-msgstr[2] "Нет оценок"
+msgstr[0] "%(total)s оценка"
+msgstr[1] "%(total)s оценки"
+msgstr[2] "%(total)s оценок"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -76,19 +73,19 @@ msgstr "Используется"
 
 #: src/amo/components/AddonMoreInfo.js:25
 msgid "More information"
-msgstr ""
+msgstr "Больше информации"
 
 #: src/amo/components/AddonMoreInfo.js:27
 msgid "Website"
-msgstr ""
+msgstr "Веб-сайт"
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
-msgstr ""
+msgstr "Версия"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "Last updated"
-msgstr ""
+msgstr "Последнее обновление"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
