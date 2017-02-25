@@ -56,7 +56,7 @@ export function mapStateToProps(state, ownProps) {
   // to be able to search on only clientApp this would need changing or
   // would need to be overridden.
   const hasSearchParams = Object.values(location.query).some((param) => (
-    typeof param !== 'undefined' && param.length
+    param && param.length
   ));
 
   return { ...state.search, filters, hasSearchParams };
