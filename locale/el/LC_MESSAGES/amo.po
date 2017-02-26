@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-26 11:31+0000\n"
+"PO-Revision-Date: 2017-02-26 11:33+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -165,9 +165,8 @@ msgid "Server Error"
 msgstr "Σφάλμα διακομιστή"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Προτεινόμενες επεκτάσεις"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
@@ -186,24 +185,20 @@ msgid "View desktop site"
 msgstr "Προβολή ιστοσελίδας για υπολογιστές"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Προτεινόμενες επεκτάσεις"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Προτεινόμενες επεκτάσεις"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Δημοφιλέστερες επεκτάσεις"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Δημοφιλέστερες επεκτάσεις"
 
 #: src/amo/components/LandingPage.js:61
 #, fuzzy
@@ -224,14 +219,12 @@ msgid "More featured themes"
 msgstr ""
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Περιήγηση σε όλα τα θέματα"
+msgstr "Δημοφιλέστερα θέματα"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Περιήγηση σε όλα τα θέματα"
+msgstr "Δημοφιλέστερα θέματα"
 
 #: src/amo/components/LandingPage.js:81
 #, fuzzy
