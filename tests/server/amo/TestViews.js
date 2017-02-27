@@ -65,12 +65,14 @@ describe('AMO GET Requests', () => {
     }));
 
   describe('error simulation', () => {
-    before(function() {
-      this.clock = sinon.useFakeTimers();
+    let clock;
+    before(() => {
+      // Prevent setTimeout() from really throwing an error.
+      clock = sinon.useFakeTimers();
     });
 
-    after(function() {
-      this.clock.restore();
+    after(() => {
+      clock.restore();
     });
 
     it('can simulate a thrown error', () => request(app)
