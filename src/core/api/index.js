@@ -89,9 +89,7 @@ export function callApi({
       log.warn(oneLine`Response from API was not JSON (was Content-Type:
         ${contentType})`, response);
       return response.text().then((textResponse) => {
-        log.warn(`ACTUAL URL: ${apiURL}`);
-        log.warn(`TEXT ERROR RESPONSE: ${textResponse}`);
-        return { jsonResponse: { text: textResponse }, response }
+        return { jsonResponse: { text: textResponse }, response };
       });
     })
     .then(({ response, jsonResponse }) => {
