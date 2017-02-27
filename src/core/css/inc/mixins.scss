@@ -97,6 +97,10 @@ $default-arrow-margin: 3px;
   @include arrow($margin);
 
   transform: rotate(90deg);
+
+  [dir=rtl] & {
+    transform: rotate(270deg);
+  }
 }
 
 // This alias to arrow (which is the same as arrow-next) makes it easier to
@@ -128,6 +132,23 @@ $default-arrow-margin: 3px;
   @include arrow($margin);
 
   transform: rotate(270deg);
+
+  [dir=rtl] & {
+    transform: rotate(90deg);
+  }
+}
+
+@mixin arrow-link-right-aligned() {
+  background-image: url('~amo/img/icons/arrow-link-color.svg');
+  margin-right: 0;
+  position: absolute;
+  right: 8px;
+  top: 14px;
+
+  [dir=rtl] & {
+    left: 8px;
+    right: auto;
+  }
 }
 
 /* Button */
