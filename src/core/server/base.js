@@ -119,7 +119,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   const sentryDsn = config.get('sentryDsn');
   if (sentryDsn) {
     Raven.config(sentryDsn).install();
-    app.use(Raven.errorHandler());
+    app.use(Raven.requestHandler());
+    // The error handler is defined below.
   } else {
     log.warn(
       'Sentry reporting is disabled; Set config.sentryDsn to enable it.');
@@ -289,6 +290,12 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         });
     });
   });
+
+  // Error handlers:
+
+  if (sentryDsn) {
+    app.use(Raven.errorHandler());
+  }
 
   // eslint-disable-next-line no-unused-vars
   app.use((error, req, res, next) => {

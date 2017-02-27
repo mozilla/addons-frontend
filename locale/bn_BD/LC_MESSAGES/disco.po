@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-07 14:11+0000\n"
-"PO-Revision-Date: 2016-10-23 22:57+0000\n"
-"Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
+"PO-Revision-Date: 2017-02-25 21:28+0000\n"
+"Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
 "MIME-Version: 1.0\n"
@@ -15,17 +15,16 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "ইন্সটল"
+msgstr "থিম ইন্সটল করুন"
 
 #: src/core/components/InstallButton/index.js:48
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Firefox এ যুক্ত করুন"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
-msgstr "%(name)s ডাউনলোডিং"
+msgstr "%(name)s ডাউনলোডিং।"
 
 #: src/core/components/InstallSwitch/index.js:52
 msgid "Installing %(name)s."
@@ -130,16 +129,10 @@ msgstr "আপনার Firefox ব্যক্তিগত করুন"
 #: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"সাড়া বিশ্বের ডেভলপারদের তৈরি বিণামূল্যের হাজারো অ্যাড-অন রয়েছে, যা ইন্সটল করে "
-"আপনি Firefox কে নিজের মত করে সাজিয়ে নিতে পারেন। মজার থিম থেকে শুরু করে "
-"শক্তিশালী টুল রয়েছে যা ব্রাউজিং কে করবে দ্রুত ও নিরাপদ, অ্যাড-অন ব্রাউজারকে করবে "
-"একান্তই আপনার। সহজে আরম্ভ করতে, আমরা কিছু অ্যাড-অন কার্যক্ষমতা ও ফাংশনালিটির উপর "
-"ভিত্তি করে এখানে সুপারিশ করছি।"
+"সাড়া বিশ্বের ডেভলপারদের তৈরি বিণামূল্যের হাজারো অ্যাড-অন রয়েছে, যা ইন্সটল করে আপনি Firefox কে নিজের মত করে সাজিয়ে নিতে পারেন। মজার থিম থেকে শুরু করে শক্তিশালী টুল রয়েছে যা ব্রাউজিং কে করবে দ্রুত ও "
+"নিরাপদ, অ্যাড-অন ব্রাউজারকে করবে একান্তই আপনার। সহজে আরম্ভ করতে, আমরা কিছু অ্যাড-অন কার্যক্ষমতা ও ফাংশনালিটির উপর ভিত্তি করে এখানে সুপারিশ করছি।"
