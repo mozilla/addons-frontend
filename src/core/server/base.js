@@ -119,6 +119,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   const sentryDsn = config.get('sentryDsn');
   if (sentryDsn) {
     Raven.config(sentryDsn).install();
+    app.use(Raven.requestHandler());
     app.use(Raven.errorHandler());
   } else {
     log.warn(
