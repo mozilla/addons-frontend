@@ -30,8 +30,4 @@ describe('Admin views', () => {
     .get('/search')
     .expect(200)
     .then((res) => checkSRI(res)));
-
-  it('can simulate a thrown error', () => request(app)
-    .get('/simulate-error/')
-    .expect(500));
 });

@@ -1,4 +1,5 @@
 import { assert } from 'chai';
+import sinon from 'sinon';
 import request from 'supertest-as-promised';
 
 import { checkSRI, parseCSP, runTestServer } from '../helpers';
@@ -63,7 +64,17 @@ describe('AMO GET Requests', () => {
         '/en-US/firefox/search/');
     }));
 
-  it('can simulate a thrown error', () => request(app)
-    .get('/en-US/firefox/simulate-error/')
-    .expect(500));
+  describe('error simulation', () => {
+    before(function() {
+      this.clock = sinon.useFakeTimers();
+    });
+
+    after(function() {
+      this.clock.restore();
+    });
+
+    it('can simulate a thrown error', () => request(app)
+      .get('/en-US/firefox/simulate-error/')
+      .expect(500));
+  });
 });
