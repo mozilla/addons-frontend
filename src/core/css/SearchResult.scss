@@ -104,10 +104,6 @@
     object-fit: cover;
     object-position: top right;
     width: 100%;
-
-    [dir=rtl] & {
-      object-position: top left;
-    }
   }
 }
 
