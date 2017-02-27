@@ -9,11 +9,16 @@ import { Provider } from 'react-redux';
 import * as landingActions from 'amo/actions/landing';
 import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
 import createStore from 'amo/store';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
+} from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { visibleAddonType } from 'core/utils';
 import { fakeAddon } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, shallowRender } from 'tests/client/helpers';
 
 
 describe('<LandingPage />', () => {
@@ -36,6 +41,46 @@ describe('<LandingPage />', () => {
 
     assert.include(root.textContent, 'Featured extensions');
     assert.include(root.textContent, 'More featured extensions');
+  });
+
+  it('sets the links in each footer for extensions', () => {
+    const root = shallowRender(
+      <LandingPageBase i18n={getFakeI18nInst()} params={{
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      }} />
+    );
+
+    assert.deepEqual(root.props.children[0].props.footerLink, {
+      pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
+    });
+    assert.deepEqual(root.props.children[1].props.footerLink, {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
+    });
+    assert.deepEqual(root.props.children[2].props.footerLink, {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
+    });
+  });
+
+  it('sets the links in each footer for themes', () => {
+    const root = shallowRender(
+      <LandingPageBase i18n={getFakeI18nInst()} params={{
+        visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      }} />
+    );
+
+    assert.deepEqual(root.props.children[0].props.footerLink, {
+      pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
+    });
+    assert.deepEqual(root.props.children[1].props.footerLink, {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
+    });
+    assert.deepEqual(root.props.children[2].props.footerLink, {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
+    });
   });
 
   it('renders a LandingPage with themes HTML', () => {

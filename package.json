@@ -102,7 +102,7 @@
       "command": "mocha --compilers js:babel-register --timeout 10000 tests/server/amo",
       "env": {
         "NODE_PATH": "./:./src",
-        "NODE_ENV": "production",
+        "NODE_ENV": "test",
         "NODE_APP_INSTANCE": "amo",
         "TRACKING_ENABLED": "false"
       }
@@ -191,8 +191,9 @@
     "moment": "2.17.1",
     "mozilla-tabzilla": "0.5.1",
     "normalize.css": "5.0.0",
-    "normalizr": "3.2.1",
+    "normalizr": "3.2.2",
     "piping": "0.3.2",
+    "raven": "1.1.2",
     "react": "15.4.2",
     "react-addons-css-transition-group": "15.4.2",
     "react-cookie": "1.0.4",
@@ -258,13 +259,13 @@
     "mocha": "3.2.0",
     "node-sass": "4.4.0",
     "po2json": "0.4.5",
-    "postcss-loader": "1.3.1",
+    "postcss-loader": "1.3.2",
     "react-addons-test-utils": "15.4.1",
     "react-hot-loader": "1.3.0",
     "react-transform-hmr": "1.0.4",
     "redux-devtools": "3.3.2",
     "require-uncached": "1.0.3",
-    "rimraf": "2.6.0",
+    "rimraf": "2.6.1",
     "sass-loader": "6.0.2",
     "semver": "5.3.0",
     "shelljs": "0.7.5",
@@ -273,13 +274,13 @@
     "style-loader": "0.13.1",
     "stylelint": "7.9.0",
     "stylelint-config-standard": "16.0.0",
-    "supertest": "2.0.1",
+    "supertest": "3.0.0",
     "supertest-as-promised": "4.0.2",
     "svg-url-loader": "2.0.2",
     "tosource": "1.0.0",
     "webpack": "1.14.0",
     "webpack-dev-middleware": "1.10.1",
     "webpack-dev-server": "2.4.1",
-    "webpack-hot-middleware": "2.17.0"
+    "webpack-hot-middleware": "2.17.1"
   }
 }

@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-07 14:11+0000\n"
-"PO-Revision-Date: 2017-01-25 10:47+0000\n"
-"Last-Translator: Marlon Custodio <marloncustodiodasilva@gmail.com>\n"
+"PO-Revision-Date: 2017-02-26 14:16+0000\n"
+"Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr "Estado da instalação de %(name)s é desconhecido."
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr "O seu complemento está pronto"
+msgstr "Sua extensão está pronta"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
@@ -92,7 +92,7 @@ msgstr "Ocorreu um erro inesperado."
 
 #: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Este complemento será desinstalado depois de reiniciar o Firefox."
+msgstr "Esta extensão será desinstalada depois de reiniciar o Firefox."
 
 #: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
@@ -104,7 +104,7 @@ msgstr "Fechar"
 
 #: src/disco/containers/App.js:27
 msgid "Discover Add-ons"
-msgstr "Descobrir complementos"
+msgstr "Descobrir extensões"
 
 #: src/disco/containers/DiscoPane.js:105
 msgid "Click to play"
@@ -112,7 +112,7 @@ msgstr "Clique para reproduzir"
 
 #: src/disco/containers/DiscoPane.js:106
 msgid "to find out more about add-ons"
-msgstr "para saber mais sobre complementos"
+msgstr "para saber mais sobre extensões"
 
 #: src/disco/containers/DiscoPane.js:115
 msgid "Close video"
@@ -120,7 +120,7 @@ msgstr "Fechar vídeo"
 
 #: src/disco/containers/DiscoPane.js:126
 msgid "See more add-ons!"
-msgstr "Ver mais complementos!"
+msgstr "Ver mais extensões!"
 
 #: src/disco/containers/DiscoPane.js:96
 msgid "Personalize Your Firefox"
@@ -129,22 +129,14 @@ msgstr "Personalize seu Firefox"
 #: src/disco/containers/DiscoPane.js:97
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Existem milhares de complementos gratuitos, criados por desenvolvedores de "
-"todo o\n"
-"mundo, que pode instalar para personalizar o seu Firefox. Desde temas "
-"visuais divertidos\n"
-"até poderosas ferramentas que fazem a navegação ser mais rápida e segura, os "
-"extras fazem o seu navegador ser seu. Para o ajudar a começar, aqui estão "
-"alguns que nós recomendamos pelo seu desempenho e funcionalidade se "
-"destacarem."
+"Existem milhares de extensões gratuitas, criadas por desenvolvedores de todo o\n"
+"mundo, que pode instalar para personalizar o seu Firefox. Desde temas visuais divertidos\n"
+"até poderosas ferramentas que fazem a navegação ser mais rápida e segura, as extensões fazem o seu navegador ser seu. Para o ajudar a começar, aqui estão algumas que recomendamos por suas funcionalidade e desempenho."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Instalado e adicionado à barra de ferramentas"

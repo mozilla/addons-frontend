@@ -1,15 +1,12 @@
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-connect';
 import { compose } from 'redux';
 
 import AdminSearchPage from 'admin/components/SearchPage';
 import { loadSearchResultsIfNeeded, mapStateToProps } from 'core/searchUtils';
+import { safeAsyncConnect } from 'core/utils';
 
 
 export default compose(
-  asyncConnect([{
-    deferred: true,
-    promise: loadSearchResultsIfNeeded,
-  }]),
+  safeAsyncConnect([{ promise: loadSearchResultsIfNeeded }]),
   connect(mapStateToProps)
 )(AdminSearchPage);

@@ -34,6 +34,10 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+
+  .SearchResult--theme & {
+    float: left;
+  }
 }
 
 .SearchResult-rating {
@@ -46,6 +50,11 @@
     margin: 0;
     justify-content: flex-start;
   }
+
+  .SearchResult--theme & {
+    float: right;
+    width: auto;
+  }
 }
 
 .SearchResult-author-users {
@@ -55,6 +64,15 @@
   font-weight: normal;
   margin-right: 0.5rem;
   padding: 0;
+
+  .SearchResult--theme & {
+    clear: both;
+  }
+}
+
+.SearchResult-author {
+  display: block;
+  margin-right: 0.5em;
   word-wrap: break-word;
 }
 
@@ -77,5 +95,37 @@
   float: right;
   height: 38px;
   width: 38px;
-  margin-top: 1em;
+
+  .SearchResult--theme & {
+    display: block;
+    float: right;
+    height: 64px;
+    object-fit: cover;
+    object-position: top right;
+    width: 100%;
+
+    [dir=rtl] & {
+      object-position: top left;
+    }
+  }
+}
+
+.SearchResult--theme {
+  .SearchResult-icon-wrapper {
+    margin: -10px -10px 10px;
+    min-height: 64px;
+    overflow: hidden;
+  }
+
+  .SearchResult-icon-wrapper--notheme {
+    align-items: center;
+    background: #ccc;
+    color: #fff;
+    display: flex;
+    font-size: 14px;
+    font-weight: normal;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 0 0 1px #000;
+  }
 }

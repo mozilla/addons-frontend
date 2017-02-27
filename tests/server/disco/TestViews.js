@@ -58,4 +58,8 @@ describe('Discovery Pane GET requests', () => {
     .then((res) => {
       assert.equal(res.header['strict-transport-security'], 'max-age=31536000');
     }));
+
+  it('can simulate a thrown error', () => request(app)
+    .get('/en-US/firefox/simulate-error/')
+    .expect(500));
 });

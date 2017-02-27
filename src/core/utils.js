@@ -1,6 +1,7 @@
 import url from 'url';
 
 import config from 'config';
+import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
 
 import { loadEntities } from 'core/actions';
 import {
@@ -200,4 +201,56 @@ export function getErrorComponent(status) {
 
 export function isValidUrlException(value, { _config = config } = {}) {
   return _config.get('validUrlExceptions').includes(value);
+}
+
+/*
+ * Make sure a callback returns a rejected promise instead of throwing an error.
+ *
+ * If the callback throws an error, a rejected promise will be returned
+ * instead. If the callback runs without an error, its return value is not
+ * altered. In other words, it may or may not return a promise and that's ok.
+ */
+export const safePromise = (callback) => (...args) => {
+  try {
+    return callback(...args);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+/*
+ * A wrapper around asyncConnect to make it safer to use.
+ *
+ * You don't need to specify deferred: true because it will be set
+ * automatically. Example of usage:
+ *
+ * export default compose(
+ *   safeAsyncConnect([{ promise: loadInitialData }]),
+ * )(SomeComponent);
+ */
+export function safeAsyncConnect(
+  configs, { asyncConnect = defaultAsyncConnect } = {}
+) {
+  const safeConfigs = configs.map((conf) => {
+    if (!conf.promise) {
+      // This is the only way we use asyncConnect() for now.
+      throw new Error(
+        dedent`Expected safeAsyncConnect() config to define a promise:
+        ${JSON.stringify(conf)}`);
+    }
+    return {
+      ...conf,
+      deferred: true,
+      promise: safePromise(conf.promise),
+    };
+  });
+  return asyncConnect(safeConfigs);
+}
+
+export function trimAndAddProtocolToUrl(urlToCheck) {
+  let urlToReturn = urlToCheck ? urlToCheck.trim() : null;
+  if (urlToReturn && !urlToReturn.match(/^https?:\/\//)) {
+    urlToReturn = `http://${urlToReturn}`;
+  }
+  return urlToReturn;
 }

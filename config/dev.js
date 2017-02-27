@@ -30,4 +30,6 @@ module.exports = {
       ],
     },
   },
+
+  allowErrorSimulation: true,
 };

@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-connect';
 
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { getReviews } from 'amo/api';
 import translate from 'core/i18n/translate';
-import { findAddon, loadAddonIfNeeded } from 'core/utils';
+import { findAddon, loadAddonIfNeeded, safeAsyncConnect } from 'core/utils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
 
@@ -117,10 +116,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
-  asyncConnect([{
-    deferred: true,
-    promise: loadInitialData,
-  }]),
+  safeAsyncConnect([{ promise: loadInitialData }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(AddonReviewListBase);

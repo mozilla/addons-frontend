@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
@@ -17,6 +16,7 @@ import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import {
   apiAddonType as getApiAddonType,
+  safeAsyncConnect,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -49,19 +49,21 @@ export class LandingPageBase extends React.Component {
         featuredHeader: i18n.gettext('Featured extensions'),
         featuredFooterLink: {
           pathname: `/${getVisibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
-          query: { addonType: ADDON_TYPE_EXTENSION },
         },
         featuredFooterText: i18n.gettext('More featured extensions'),
         popularHeader: i18n.gettext('Most popular extensions'),
         popularFooterLink: {
           pathname: '/search/',
-          query: { sort: SEARCH_SORT_POPULAR, type: ADDON_TYPE_EXTENSION },
+          query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
         },
         popularFooterText: i18n.gettext('More popular extensions'),
         highlyRatedHeader: i18n.gettext('Top rated extensions'),
         highlyRatedFooterLink: {
           pathname: '/search/',
-          query: { sort: SEARCH_SORT_TOP_RATED, type: ADDON_TYPE_EXTENSION },
+          query: {
+            addonType: ADDON_TYPE_EXTENSION,
+            sort: SEARCH_SORT_TOP_RATED,
+          },
         },
         highlyRatedFooterText: i18n.gettext('More highly rated extensions'),
       },
@@ -69,19 +71,18 @@ export class LandingPageBase extends React.Component {
         featuredHeader: i18n.gettext('Featured themes'),
         featuredFooterLink: {
           pathname: `/${getVisibleAddonType(ADDON_TYPE_THEME)}/featured/`,
-          query: { addonType: ADDON_TYPE_THEME },
         },
         featuredFooterText: i18n.gettext('More featured themes'),
         popularHeader: i18n.gettext('Most popular themes'),
         popularFooterLink: {
           pathname: '/search/',
-          query: { sort: SEARCH_SORT_POPULAR, type: ADDON_TYPE_THEME },
+          query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
         },
         popularFooterText: i18n.gettext('More popular themes'),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
-          query: { sort: SEARCH_SORT_TOP_RATED, type: ADDON_TYPE_THEME },
+          query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
         },
         highlyRatedFooterText: i18n.gettext('More highly rated themes'),
       },
@@ -138,9 +139,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
-  asyncConnect([
-    { deferred: true, promise: loadLandingAddons },
-  ]),
+  safeAsyncConnect([{ promise: loadLandingAddons }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(LandingPageBase);

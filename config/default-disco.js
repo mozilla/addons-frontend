@@ -10,6 +10,7 @@ module.exports = {
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
   clientConfigKeys: [
+    'allowErrorSimulation',
     'appName',
     'amoCDN',
     'apiHost',

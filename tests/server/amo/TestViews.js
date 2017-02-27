@@ -62,4 +62,8 @@ describe('AMO GET Requests', () => {
       assert.equal(res.header.location,
         '/en-US/firefox/search/');
     }));
+
+  it('can simulate a thrown error', () => request(app)
+    .get('/en-US/firefox/simulate-error/')
+    .expect(500));
 });

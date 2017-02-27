@@ -7,6 +7,7 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 import Express from 'express';
 import helmet from 'helmet';
+import Raven from 'raven';
 import cookie from 'react-cookie';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -114,6 +115,15 @@ function logRequests(req, res, next) {
 function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   const app = new Express();
   app.disable('x-powered-by');
+
+  const sentryDsn = config.get('sentryDsn');
+  if (sentryDsn) {
+    Raven.config(sentryDsn).install();
+    app.use(Raven.errorHandler());
+  } else {
+    log.warn(
+      'Sentry reporting is disabled; Set config.sentryDsn to enable it.');
+  }
 
   app.use(logRequests);
 

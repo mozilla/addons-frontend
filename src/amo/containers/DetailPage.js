@@ -1,11 +1,10 @@
 import React from 'react';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-connect';
 import { connect } from 'react-redux';
 
 import AddonDetail from 'amo/components/AddonDetail';
 import { UNKNOWN } from 'core/constants';
-import { loadAddonIfNeeded } from 'core/utils';
+import { loadAddonIfNeeded, safeAsyncConnect } from 'core/utils';
 
 
 export class DetailPageBase extends React.Component {
@@ -30,9 +29,8 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
-  asyncConnect([{
+  safeAsyncConnect([{
     key: 'DetailPage',
-    deferred: true,
     promise: loadAddonIfNeeded,
   }]),
   connect(mapStateToProps),

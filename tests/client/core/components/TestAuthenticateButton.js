@@ -1,6 +1,8 @@
 import config from 'config';
 import React from 'react';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
+import {
+  Simulate, findRenderedComponentWithType, renderIntoDocument,
+} from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 import { combineReducers, createStore as _createStore } from 'redux';
 
@@ -13,20 +15,44 @@ import {
 } from 'core/components/AuthenticateButton';
 import apiReducer from 'core/reducers/api';
 import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
+import Icon from 'ui/components/Icon';
 
 function createStore() {
   return _createStore(combineReducers({ api: apiReducer }));
 }
 
 describe('<AuthenticateButton />', () => {
-  function render(props) {
-    return findDOMNode(
-        renderIntoDocument(<AuthenticateButtonBase i18n={getFakeI18nInst()} {...props} />));
-  }
+  const renderTree = (props) => renderIntoDocument(
+    <AuthenticateButtonBase i18n={getFakeI18nInst()} {...props} />);
+
+  const render = (props) => findDOMNode(renderTree(props));
 
   it('passes along a className', () => {
     const root = render({ className: 'MyComponent-auth-button' });
     assert.ok(root.classList.contains('MyComponent-auth-button'));
+  });
+
+  it('renders an Icon by default', () => {
+    const root = renderTree();
+    const icon = findRenderedComponentWithType(root, Icon);
+    assert.ok(icon, 'Icon was not rendered');
+  });
+
+  it('lets you hide the Icon', () => {
+    const root = renderTree({ noIcon: true });
+    assert.throws(
+      () => findRenderedComponentWithType(root, Icon),
+      /Did not find exactly one match/);
+  });
+
+  it('lets you customize the log in text', () => {
+    const root = render({ isAuthenticated: false, logInText: 'Maybe log in?' });
+    assert.equal(root.textContent, 'Maybe log in?');
+  });
+
+  it('lets you customize the log out text', () => {
+    const root = render({ isAuthenticated: true, logOutText: 'Maybe log out?' });
+    assert.equal(root.textContent, 'Maybe log out?');
   });
 
   it('shows a log in button when unauthenticated', () => {

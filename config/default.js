@@ -63,6 +63,7 @@ module.exports = {
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
   clientConfigKeys: [
+    'allowErrorSimulation',
     'amoCDN',
     'apiHost',
     'apiPath',
@@ -128,10 +129,54 @@ module.exports = {
 
   // Supported languages.
   langs: [
-    'af', 'ar', 'ast', 'bg', 'bn-BD', 'ca', 'cs', 'da', 'de', 'dbl', 'dbr', 'dsb', 'el',
-    'en-GB', 'en-US', 'es', 'eu', 'fa', 'fi', 'fr', 'fy-NL', 'ga-IE', 'he', 'hsb', 'hu', 'id',
-    'it', 'ja', 'kab', 'ko', 'mk', 'mn', 'nl', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk',
-    'sl', 'sq', 'sv-SE', 'th', 'uk', 'vi', 'zh-CN', 'zh-TW',
+    'af',
+    'ar',
+    'ast',
+    'bg',
+    'bn-BD',
+    'ca',
+    'cs',
+    'da',
+    'de',
+    'dbl',
+    'dbr',
+    'dsb',
+    'el',
+    'en-GB',
+    'en-US',
+    'es',
+    'eu',
+    'fa',
+    'fi',
+    'fr',
+    'fy-NL',
+    'ga-IE',
+    'he',
+    'hsb',
+    'hu',
+    'id',
+    'it',
+    'ja',
+    'kab',
+    'ko',
+    'mk',
+    'mn',
+    'nl',
+    'pl',
+    'pt-BR',
+    'pt-PT',
+    'ro',
+    'ru',
+    'sk',
+    'sl',
+    'sq',
+    'sv-SE',
+    'th',
+    'tr',
+    'uk',
+    'vi',
+    'zh-CN',
+    'zh-TW',
   ],
   // Map of short langs to longer ones.
   langMap: {
@@ -175,4 +220,10 @@ module.exports = {
   fxaConfig: null,
 
   proxyEnabled: false,
+
+  // If true, enable a route that explicitly triggers a server error
+  // to test our internal error handler.
+  allowErrorSimulation: false,
+
+  sentryDsn: process.env.SENTRY_DSN || null,
 };
