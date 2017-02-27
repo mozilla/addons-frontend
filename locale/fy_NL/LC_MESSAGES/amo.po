@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-27 10:31+0000\n"
+"PO-Revision-Date: 2017-02-27 10:39+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -225,13 +225,12 @@ msgid "More popular themes"
 msgstr "Mear populêre tema's"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Alle tema's besjen"
+msgstr "Heechst wurdearre tema's"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Mear heechst wurdearre tema's"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -246,13 +245,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hoe foldocht jo %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search"
-msgstr "Siket…"
+msgstr "Sykje"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Utwreidingen en tema's sykje"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
@@ -263,37 +261,36 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Gjin resultaten fûn foar ‘%(query)s’."
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "No results were found."
-msgstr "Gjin resultaten fûn foar ‘%(query)s’."
+msgstr "Gjin resultaten fûn."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Fier in sykterm yn om Firefox Add-ons troch te sykjen."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Koartlyn fernijd"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Relevânsje"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Measte brûkers"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Bêst beoardiele"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Sortearje"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Foarstelde siden"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -304,9 +301,8 @@ msgid "Browse all themes"
 msgstr "Alle tema's besjen"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Add-ons foar Firefox"
+msgstr "Add-ons-startside"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -317,19 +313,20 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Utwreidingen binne spesjale funksjes dy't jo oan Firefox tafoegje kinne.\n"
+"Mei tema’s kinne jo de foarmjouwing fan jo browser wizigje."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metadata útwreiding"
+msgstr "Utwreidingen"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Tema's"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Jo kinne wizigje hoe't Firefox wurket…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -341,7 +338,7 @@ msgstr "Skermôfdruk"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Nijs fine"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -353,11 +350,11 @@ msgstr "Sosjaal wêze"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Spultsjes spylje"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…of hoe't it der útsjocht"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -381,7 +378,7 @@ msgstr "Sportyf"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Fêst"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -393,17 +390,15 @@ msgstr "Ofmelde"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Flaterkoade: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "%(name)s wurdt ynstallearre."
+msgstr "Tema ynstallearje"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Add-ons foar Firefox"
+msgstr "Tafoegje oan Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -447,24 +442,23 @@ msgstr "Side %(currentPage)s fan %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Jo add-on is ree"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Jo kinne %(name)s no benaderje fan de arkbalke ôf."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Der is in ûnferwachte flater bard"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Gemiddelde wurdearring: %(rating)s út 5"
+msgstr "Wurdearring %(rating)s fan 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -472,7 +466,7 @@ msgstr "Gjin wurdearringen"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Klap út om</span> mear te lêzen"
 
 #~ msgid "Screenshots"
 #~ msgstr "Skermôfbyldingen"
