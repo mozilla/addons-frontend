@@ -3,6 +3,7 @@
 
 import url from 'url';
 
+import utf8 from 'utf8';
 import 'isomorphic-fetch';
 import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
@@ -68,7 +69,8 @@ export function callApi({
       options.headers.authorization = `Bearer ${state.token}`;
     }
   }
-  const apiURL = `${API_BASE}/${endpoint}/${queryString}`;
+  // Workaround for https://github.com/bitinn/node-fetch/issues/245
+  const apiURL = utf8.encode(`${API_BASE}/${endpoint}/${queryString}`);
 
   return fetch(apiURL, options)
     .then((response) => {
@@ -86,9 +88,9 @@ export function callApi({
 
       log.warn(oneLine`Response from API was not JSON (was Content-Type:
         ${contentType})`, response);
-      return response.text().then((textResponse) => (
-        { jsonResponse: { text: textResponse }, response }
-      ));
+      return response.text().then((textResponse) => {
+        return { jsonResponse: { text: textResponse }, response };
+      });
     })
     .then(({ response, jsonResponse }) => {
       if (response.ok) {

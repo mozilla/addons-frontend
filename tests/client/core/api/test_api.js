@@ -1,5 +1,6 @@
 /* global Response, window */
 import config from 'config';
+import utf8 from 'utf8';
 
 import * as api from 'core/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
@@ -55,6 +56,17 @@ describe('api', () => {
         .returns(createApiResponse());
       return api.callApi({ endpoint: 'resource', method: 'get' })
         .then(() => mockWindow.verify());
+    });
+
+    it('encodes non-ascii URLs in UTF8', () => {
+      const endpoint = 'diccionario-español-venezuela';
+      mockWindow.expects('fetch')
+        .withArgs(utf8.encode(`${apiHost}/api/v3/${endpoint}/`), {
+          method: 'GET', headers: {},
+        })
+        .once()
+        .returns(createApiResponse());
+      return api.callApi({ endpoint }).then(() => mockWindow.verify());
     });
 
     it('clears an error handler before making a request', () => {
