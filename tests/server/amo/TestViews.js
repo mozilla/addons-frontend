@@ -66,6 +66,7 @@ describe('AMO GET Requests', () => {
 
   describe('error simulation', () => {
     let clock;
+
     before(() => {
       // Prevent setTimeout() from really throwing an error.
       clock = sinon.useFakeTimers();

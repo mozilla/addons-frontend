@@ -5,30 +5,24 @@ import SimulateError from 'core/containers/SimulateError';
 
 describe('SimulateError', () => {
   let clock;
-  before(() => {
-    // This is only precautionary in case stubbing out setTimeout fails.
+
+  beforeEach(() => {
     clock = sinon.useFakeTimers();
   });
 
-  after(() => {
+  afterEach(() => {
     clock.restore();
   });
 
-  function render(customProps = {}) {
-    const props = { _setTimeout: sinon.stub(), ...customProps };
-    return renderIntoDocument(<SimulateError {...props} />);
-  }
-
   it('throws a simulated error', () => {
-    assert.throws(() => render(), /simulated error in Component.render/);
+    assert.throws(
+      () => renderIntoDocument(<SimulateError />),
+      /simulated error in Component.render/);
   });
 
   it('throws an async error', () => {
-    const fakeSetTimeout = sinon.stub();
-    assert.throws(() => render({ _setTimeout: fakeSetTimeout }));
-
-    assert.ok(fakeSetTimeout.called, 'setTimeout was not called');
-    const callback = fakeSetTimeout.firstCall.args[0];
-    assert.throws(() => callback(), /simulated error in the event loop/);
+    assert.throws(() => renderIntoDocument(<SimulateError />));
+    // Trigger the setTimeout() callback:
+    assert.throws(() => clock.tick(50), /simulated error in the event loop/);
   });
 });
