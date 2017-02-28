@@ -10,7 +10,7 @@ import Link from 'amo/components/Link';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, ngettext, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -83,7 +83,7 @@ export class AddonDetailBase extends React.Component {
           ref={(el) => { this.wrapper = el; }}
           onClick={this.onClick}
         >
-          {status !== 'ENABLED' ?
+          {status !== ENABLED ?
             <button className="Button AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
               <Icon name="eye" className="AddonDetail-theme-preview-icon" />
               {label}

@@ -71,8 +71,14 @@ export function makeProgressHandler(dispatch, guid) {
   };
 }
 
+export function getGuid(ownProps) {
+  // Returns guid directly on ownProps or if ownProps
+  // has an addons object return the guid from there.
+  return ownProps.guid || (ownProps.addon && ownProps.addon.guid);
+}
+
 export function mapStateToProps(state, ownProps) {
-  const guid = ownProps.guid || (ownProps.addon && ownProps.addon.guid);
+  const guid = getGuid(ownProps);
   const addon = state.installations[guid] || {};
 
   return {
@@ -85,10 +91,10 @@ export function mapStateToProps(state, ownProps) {
       const theme = addon && addon.guid ? addon : null;
       if (theme && theme.status !== ENABLED) {
         if (!theme.isPreviewingTheme) {
-          _log.info('Previewing theme');
+          _log.info(`Previewing theme: ${guid}`);
           this.previewTheme(node, _themeAction);
         } else {
-          _log.info('Resetting theme preview');
+          _log.info(`Resetting theme preview: ${guid}`);
           this.resetThemePreview(node, _themeAction);
         }
       }
@@ -136,7 +142,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
     return {
       WrappedComponent,
       previewTheme(node, _themeAction = themeAction) {
-        const guid = ownProps.guid || (ownProps.addon && ownProps.addon.guid);
+        const guid = getGuid(ownProps);
         _themeAction(node, THEME_PREVIEW);
         dispatch({
           type: THEME_PREVIEW,
@@ -147,7 +153,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
         });
       },
       resetThemePreview(node, _themeAction = themeAction) {
-        const guid = ownProps.guid || (ownProps.addon && ownProps.addon.guid);
+        const guid = getGuid(ownProps);
         _themeAction(node, THEME_RESET_PREVIEW);
         dispatch({
           type: THEME_RESET_PREVIEW,
@@ -158,7 +164,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       },
       setCurrentStatus() {
         const { installURL } = ownProps;
-        const guid = ownProps.guid || (ownProps.addon && ownProps.addon.guid);
+        const guid = getGuid(ownProps);
         const payload = { guid, url: installURL };
         return _addonManager.getAddon(guid)
           .then((addon) => {
