@@ -1,17 +1,18 @@
-import defaultConfig from 'config';
+/* eslint-disable react/require-render-return */
+import { compose } from 'redux';
 import React from 'react';
 
 import log from 'core/logger';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 
-// This HOC can be connected to a route to test internal error handling.
-export default ({ config = defaultConfig } = {}) => {
-  if (!config.get('allowErrorSimulation')) {
-    return <NotFound />;
+import { render404WhenNotAllowed } from './utils';
+
+export class SimulateSyncErrorBase extends React.Component {
+  render() {
+    log.info('Simulating a synchronous error');
+    throw new Error('This is a simulated synchronous error');
   }
-  log.info('Simulating an error');
-  setTimeout(() => {
-    throw new Error('This is a simulated error in the event loop');
-  }, 50);
-  throw new Error('This is a simulated error in Component.render()');
-};
+}
+
+export default compose(
+  render404WhenNotAllowed,
+)(SimulateSyncErrorBase);
