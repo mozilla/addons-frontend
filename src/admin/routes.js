@@ -1,7 +1,8 @@
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
-import SimulateError from 'core/containers/SimulateError';
+import SimulateSyncError from
+  'core/containers/error-simulation/SimulateSyncError';
 import LoginRequired from 'core/containers/LoginRequired';
 import HandleLogin from 'core/containers/HandleLogin';
 
@@ -20,6 +21,6 @@ export default (
       <Route path="user" component={UserPage} />
     </Route>
     <Route path="fxa-authenticate" component={HandleLogin} />
-    <Route path="simulate-error/" component={SimulateError} />
+    <Route path="simulate-sync-error/" component={SimulateSyncError} />
   </Route>
 );

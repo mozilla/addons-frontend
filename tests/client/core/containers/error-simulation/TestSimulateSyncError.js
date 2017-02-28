@@ -8,7 +8,8 @@ import { Provider } from 'react-redux';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import createStore from 'amo/store';
 import I18nProvider from 'core/i18n/Provider';
-import SimulateError from 'core/containers/SimulateError';
+import SimulateSyncError from
+  'core/containers/error-simulation/SimulateSyncError';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 describe('SimulateError', () => {
@@ -26,7 +27,7 @@ describe('SimulateError', () => {
     return renderIntoDocument(
       <Provider store={createStore()}>
         <I18nProvider i18n={getFakeI18nInst()}>
-          <SimulateError {...props} />
+          <SimulateSyncError {...props} />
         </I18nProvider>
       </Provider>
     );
