@@ -140,6 +140,8 @@ export const acceptedInstallTypes = [
   INSTALL_COMPLETE,
   UNINSTALL_COMPLETE,
   INSTALL_ERROR,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
 ];
 
 // Tracking categories.

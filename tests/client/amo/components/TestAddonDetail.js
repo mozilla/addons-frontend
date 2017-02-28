@@ -267,7 +267,7 @@ describe('AddonDetail', () => {
     assert.include(src, 'image/png');
   });
 
-  it('renders a theme preview as an img before mounting', () => {
+  it('renders a theme preview as an img', () => {
     const root = render({
       addon: {
         ...fakeAddon,
@@ -277,42 +277,28 @@ describe('AddonDetail', () => {
       getBrowserThemeData: () => '{}',
     });
     const rootNode = findDOMNode(root);
-    root.setState({ mounted: false });
-
     const image = rootNode.querySelector('.AddonDetail-theme-header-image');
     assert.equal(image.tagName, 'IMG');
     assert.ok(image.classList.contains('AddonDetail-theme-header-image'));
     assert.equal(image.src, 'https://amo/preview.png');
-    assert.equal(image.alt, 'Press to preview');
+    assert.equal(image.alt, 'Tap to preview');
   });
 
-  it('sets mounted in the state in componentDidMount', () => {
+  it('unsets the theme preview on component unmount', () => {
+    const resetThemePreview = sinon.spy();
     const root = render({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
+        isPreviewingTheme: true,
+        themePreviewNode: 'theme-preview-node',
+        resetThemePreview,
       },
       getBrowserThemeData: () => '{}',
     });
-    root.setState({ mounted: false });
-
-    root.componentDidMount();
-
-    assert.equal(root.state.mounted, true);
-  });
-
-  it('renders a theme preview as a background image when mounted', () => {
-    const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        previewURL: 'https://amo/preview.png',
-      },
-      getBrowserThemeData: () => '{}',
-    });
-    const image = rootNode.querySelector('.AddonDetail-theme-header-image');
-    assert.equal(image.style.backgroundImage, 'url("https://amo/preview.png")');
+    root.componentWillUnmount();
+    assert.ok(resetThemePreview.calledWith('theme-preview-node'));
   });
 
   it('sets the browsertheme data on the header', () => {
@@ -328,34 +314,19 @@ describe('AddonDetail', () => {
     assert.equal(header.dataset.browsertheme, '{"the":"themedata"}');
   });
 
-  it('previews a theme on touchstart', () => {
-    const previewTheme = sinon.spy();
+  it('toggles a theme on click', () => {
+    const toggleThemePreview = sinon.spy();
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
       getBrowserThemeData: () => '{}',
-      previewTheme,
+      toggleThemePreview,
     });
     const header = rootNode.querySelector('.AddonDetail-theme-header');
-    Simulate.touchStart(header);
-    assert.ok(previewTheme.calledWith(header));
-  });
-
-  it('resets a theme preview on touchend', () => {
-    const resetPreviewTheme = sinon.spy();
-    const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      },
-      getBrowserThemeData: () => '{}',
-      resetPreviewTheme,
-    });
-    const header = rootNode.querySelector('.AddonDetail-theme-header');
-    Simulate.touchEnd(header);
-    assert.ok(resetPreviewTheme.calledWith(header));
+    Simulate.click(header);
+    assert.ok(toggleThemePreview.calledWith(header));
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {

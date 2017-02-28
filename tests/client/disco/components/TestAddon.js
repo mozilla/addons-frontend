@@ -287,16 +287,16 @@ describe('<Addon />', () => {
     let root;
     let themeImage;
     let previewTheme;
-    let resetPreviewTheme;
+    let resetThemePreview;
 
     beforeEach(() => {
       previewTheme = sinon.spy();
-      resetPreviewTheme = sinon.spy();
+      resetThemePreview = sinon.spy();
       const data = {
         ...result,
         type: ADDON_TYPE_THEME,
         previewTheme,
-        resetPreviewTheme,
+        resetThemePreview,
       };
       root = renderAddon({ addon: data, ...data });
       themeImage = findDOMNode(root).querySelector('.theme-image');
@@ -311,7 +311,7 @@ describe('<Addon />', () => {
     it('resets theme preview onHoverIntentEnd on theme image', () => {
       const hoverIntent = findRenderedComponentWithType(root, HoverIntent);
       hoverIntent.props.onHoverIntentEnd({ currentTarget: themeImage });
-      assert.ok(resetPreviewTheme.calledWith(themeImage));
+      assert.ok(resetThemePreview.calledWith(themeImage));
     });
 
     it('runs theme preview onFocus on theme image', () => {
@@ -321,7 +321,7 @@ describe('<Addon />', () => {
 
     it('resets theme preview onBlur on theme image', () => {
       Simulate.blur(themeImage);
-      assert.ok(resetPreviewTheme.calledWith(themeImage));
+      assert.ok(resetThemePreview.calledWith(themeImage));
     });
 
     it('calls installTheme on click', () => {

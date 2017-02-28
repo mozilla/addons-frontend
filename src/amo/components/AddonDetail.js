@@ -10,7 +10,7 @@ import Link from 'amo/components/Link';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import { isAllowedOrigin, ngettext, nl2br, sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -41,69 +41,53 @@ export class AddonDetailBase extends React.Component {
     addon: PropTypes.object.isRequired,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    isPreviewingTheme: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
-    previewTheme: PropTypes.func.isRequired,
-    resetPreviewTheme: PropTypes.func.isRequired,
+    resetThemePreview: PropTypes.func.isRequired,
+    themePreviewNode: PropTypes.element,
+    status: PropTypes.string.isRequired,
+    toggleThemePreview: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
   }
 
-  constructor(props) {
-    super(props);
-    this.state = { mounted: false };
+  componentWillUnmount() {
+    const { isPreviewingTheme, resetThemePreview, themePreviewNode } = this.props;
+    if (isPreviewingTheme && themePreviewNode) {
+      resetThemePreview(themePreviewNode);
+    }
   }
 
-  componentDidMount() {
-    // Disabling react/no-did-mount-set-state because it is to prevent additional renders, but
-    // that's exactly what we want in this case. We want to render an img tag on the server since
-    // we can't use inline styles there, but use an inline background-image in JS to prevent the
-    // context menu you get from long pressing on an image.
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ mounted: true });
-  }
-
-  onTouchStart = (event) => {
-    this.props.previewTheme(event.currentTarget);
-  }
-
-  onTouchEnd = (event) => {
-    this.props.resetPreviewTheme(event.currentTarget);
+  onClick = (event) => {
+    this.props.toggleThemePreview(event.currentTarget);
   }
 
   headerImage() {
-    const { addon, getBrowserThemeData, i18n } = this.props;
+    const { addon, getBrowserThemeData, i18n, isPreviewingTheme, status } = this.props;
     const { previewURL, type } = addon;
-    const { mounted } = this.state;
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
 
     if (type === ADDON_TYPE_THEME) {
-      const label = i18n.gettext('Press to preview');
+      const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
       const imageClassName = 'AddonDetail-theme-header-image';
-      let headerImage;
-
-      if (mounted) {
-        const style = { backgroundImage: `url(${previewURL})` };
-        headerImage = <div style={style} className={imageClassName} />;
-      } else {
-        headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
-      }
+      const headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
 
       return (
         <div
           className="AddonDetail-theme-header"
           id="AddonDetail-theme-header"
           data-browsertheme={getBrowserThemeData()}
-          onTouchStart={this.onTouchStart}
-          onTouchEnd={this.onTouchEnd}
           ref={(el) => { this.wrapper = el; }}
+          onClick={this.onClick}
         >
-          <label className="AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
-            <Icon name="eye" className="AddonDetail-theme-preview-icon" />
-            {label}
-          </label>
+          {status !== ENABLED ?
+            <button className="Button AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
+              <Icon name="eye" className="AddonDetail-theme-preview-icon" />
+              {label}
+            </button> : null}
           {headerImage}
         </div>
       );

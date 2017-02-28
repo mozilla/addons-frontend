@@ -45,7 +45,7 @@ export class AddonBase extends React.Component {
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
-    resetPreviewTheme: PropTypes.func.isRequired,
+    resetThemePreview: PropTypes.func.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
@@ -90,10 +90,10 @@ export class AddonBase extends React.Component {
       return (
         <HoverIntent
           onHoverIntent={this.previewTheme}
-          onHoverIntentEnd={this.resetPreviewTheme}>
+          onHoverIntentEnd={this.resetThemePreview}>
           <a href="#" className="theme-image"
             data-browsertheme={getBrowserThemeData()}
-            onBlur={this.resetPreviewTheme}
+            onBlur={this.resetThemePreview}
             onClick={this.installTheme}
             onFocus={this.previewTheme}>
             <img src={previewURL}
@@ -175,8 +175,8 @@ export class AddonBase extends React.Component {
     this.props.previewTheme(e.currentTarget);
   }
 
-  resetPreviewTheme = (e) => {
-    this.props.resetPreviewTheme(e.currentTarget);
+  resetThemePreview = (e) => {
+    this.props.resetThemePreview(e.currentTarget);
   }
 
   render() {
