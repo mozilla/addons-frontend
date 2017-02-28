@@ -34,9 +34,7 @@ export default (
     <Route path="404/" component={NotFound} />
     <Route path="500/"
       component={config.get('isDevelopment') ? ServerError : NotFound} />
-    {config.get('allowErrorSimulation') ? (
-      <Route path="simulate-error/" component={SimulateError} />
-    ) : null}
+    <Route path="simulate-error/" component={SimulateError} />
     <Route path=":visibleAddonType/" component={LandingPage} />
     <Route path="*" component={NotFound} />
   </Route>

@@ -21,8 +21,6 @@ export default (
       <Route path="user" component={UserPage} />
     </Route>
     <Route path="fxa-authenticate" component={HandleLogin} />
-    {config.get('allowErrorSimulation') ? (
-      <Route path="simulate-error/" component={SimulateError} />
-    ) : null}
+    <Route path="simulate-error/" component={SimulateError} />
   </Route>
 );

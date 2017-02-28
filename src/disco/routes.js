@@ -19,9 +19,7 @@ export default (
     <Route path="/:lang/firefox/404" component={NotFound} />
     <Route path="/:lang/firefox/500"
       component={config.get('isDevelopment') ? GenericError : NotFound} />
-    {config.get('allowErrorSimulation') ? (
-      <Route path="/:lang/firefox/simulate-error/" component={SimulateError} />
-    ) : null}
+    <Route path="/:lang/firefox/simulate-error/" component={SimulateError} />
     <Route path="*" component={NotFound} />
   </Router>
 );
