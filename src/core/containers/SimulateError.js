@@ -6,7 +6,6 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 
 // This HOC can be connected to a route to test internal error handling.
 export default ({ config = defaultConfig } = {}) => {
-  console.log('config.get', config.get);
   if (!config.get('allowErrorSimulation')) {
     return <NotFound />;
   }
