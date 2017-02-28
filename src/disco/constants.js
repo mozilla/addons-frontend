@@ -25,4 +25,12 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'shield-recipe-client@mozilla.org', // Shield Recipe Client
   'webcompat-reporter@mozilla.org', // WebCompat Reporter
   'disableSHA1rollout@mozilla.org', // SHA-1 deprecation staged rollout
+  'hsts-priming@mozilla.org', // Send HSTS Priming Requests
+  'd3d9fallback@mozilla.org', // D3D9 Acceleration Fallback
+  'asyncrendering@mozilla.org', // Asynchronous Plugin Rendering
+  'brotli@mozilla.org', // Disable Brotli on Firefox 44, 45
+  'diagnostics@mozilla.org', // Diagnose Firefox update problems
+  'malware-remediation@mozilla.org', // Youtube Unblocker Remediation
+  'outofdate-notifications@mozilla.org', // Firefox out of date notifications
+  'websensehelper@mozilla.org', // Websense Helper
 ];
