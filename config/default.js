@@ -162,6 +162,7 @@ module.exports = {
     'mk',
     'mn',
     'nl',
+    'nn-NO',
     'pl',
     'pt-BR',
     'pt-PT',
