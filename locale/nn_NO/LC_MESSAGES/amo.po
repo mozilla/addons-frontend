@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-03-01 13:50+0000\n"
+"PO-Revision-Date: 2017-03-01 14:04+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -154,91 +154,91 @@ msgstr "Fann ingen kategoriar."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Ikkje stadfesta"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Fann ikkje sida"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Serverfeil"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
-msgstr ""
+msgstr "Fleire utvalde utvidingar"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Fleire utvalde tema"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
-msgstr ""
+msgstr "Personvernpraksis"
 
 #: src/amo/components/Footer.js:36
 msgid "Legal notices"
-msgstr ""
+msgstr "Juridisk informasjon"
 
 #: src/amo/components/Footer.js:43
 msgid "View desktop site"
-msgstr ""
+msgstr "Vis desktop-side"
 
 #: src/amo/components/LandingPage.js:49
 msgid "Featured extensions"
-msgstr ""
+msgstr "Utvalde utvidingar"
 
 #: src/amo/components/LandingPage.js:54
 msgid "More featured extensions"
-msgstr ""
+msgstr "Fleire utvalde utvidingar"
 
 #: src/amo/components/LandingPage.js:55
 msgid "Most popular extensions"
-msgstr ""
+msgstr "Mest populære udvidingar"
 
 #: src/amo/components/LandingPage.js:60
 msgid "More popular extensions"
-msgstr ""
+msgstr "Fleire populære utvidingar"
 
 #: src/amo/components/LandingPage.js:61
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Høgst vurderte utvidingar"
 
 #: src/amo/components/LandingPage.js:66
 msgid "More highly rated extensions"
-msgstr ""
+msgstr "Fleire høgt vurderte utvidingar"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Utvalde tema"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Fleire utvalde tema"
 
 #: src/amo/components/LandingPage.js:75
 msgid "Most popular themes"
-msgstr ""
+msgstr "Mest populære tema"
 
 #: src/amo/components/LandingPage.js:80
 msgid "More popular themes"
-msgstr ""
+msgstr "Fleire populære tema"
 
 #: src/amo/components/LandingPage.js:81
 msgid "Top rated themes"
-msgstr ""
+msgstr "Høgst vurderte tema"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Fleire høgt vurderte tema"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
-msgstr ""
+msgstr "Surf på ditt språk"
 
 #: src/amo/components/MastHead.js:30
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox-utvidingar"
 
 #: src/amo/components/RatingManager/index.js:85
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -246,15 +246,15 @@ msgstr ""
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
 msgid "Search"
-msgstr ""
+msgstr "Søk"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Søk etter utvidingar og tema"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
-msgstr ""
+msgstr "Søkjer…"
 
 #: src/amo/components/SearchResults.js:39
 msgid "No results were found for \"%(query)s\"."
@@ -274,19 +274,19 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Relevans"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Flest brukarar"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Høgast vurderte"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Sorter"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
@@ -316,7 +316,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
-msgstr ""
+msgstr "Utvidingar"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -328,43 +328,43 @@ msgstr ""
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
-msgstr ""
+msgstr "Blokker reklame"
 
 #: src/amo/containers/Home.js:58
 msgid "Screenshot"
-msgstr ""
+msgstr "Skjermbilde"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Finn nyheiter"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
-msgstr ""
+msgstr "Handle på nettet"
 
 #: src/amo/containers/Home.js:67
 msgid "Be social"
-msgstr ""
+msgstr "Ver sosial"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Spel spel"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…eller korleis den ser ut"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
-msgstr ""
+msgstr "Vill"
 
 #: src/amo/containers/Home.js:80
 msgid "Abstract"
-msgstr ""
+msgstr "Abstrakt"
 
 #: src/amo/containers/Home.js:81
 msgid "Fashionable"
-msgstr ""
+msgstr "Moderne"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -448,7 +448,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
@@ -460,7 +460,7 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
-msgstr ""
+msgstr "Ingen vurderingar"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
