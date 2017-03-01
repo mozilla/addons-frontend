@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-24 10:37+0000\n"
+"PO-Revision-Date: 2017-03-01 07:54+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -406,7 +406,7 @@ msgstr "ออกจากระบบ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "รหัสข้อผิดพลาด: %(status)s"
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
@@ -470,7 +470,7 @@ msgstr "ตกลง!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
 #: src/ui/components/Rating/index.js:83
 #, fuzzy
@@ -483,7 +483,7 @@ msgstr "ไม่มีการจัดอันดับ"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ่านเพิ่มเติม"
 
 #~ msgid "Screenshots"
 #~ msgstr "ภาพหน้าจอ"
