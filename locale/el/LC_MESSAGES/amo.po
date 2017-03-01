@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-26 11:33+0000\n"
+"PO-Revision-Date: 2017-02-28 17:48+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -146,7 +146,7 @@ msgstr "Όλες οι γραπτές κριτικές"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Αποτυχία φόρτωσης κατηγοριών."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
@@ -201,14 +201,12 @@ msgid "More popular extensions"
 msgstr "Δημοφιλέστερες επεκτάσεις"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -227,9 +225,8 @@ msgid "More popular themes"
 msgstr "Δημοφιλέστερα θέματα"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Περιήγηση σε όλα τα θέματα"
+msgstr "Πιο υψηλά βαθμολογημένα θέματα"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
@@ -281,7 +278,7 @@ msgstr "Σχετικότητα"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Περισσότεροι χρήστες"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
@@ -289,7 +286,7 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Ταξινόμηση"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
@@ -458,9 +455,8 @@ msgid "An unexpected error occurred"
 msgstr "Προέκυψε απροσδόκητο σφάλμα"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Μέση βαθμολογία: %(rating)s από 5"
+msgstr "Βαθμολογία %(rating)s από 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
