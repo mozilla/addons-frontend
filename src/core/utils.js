@@ -257,7 +257,28 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
   return urlToReturn;
 }
 
-export function render404WhenNotAllowed(configKey, { _config = config } = {}) {
+/*
+ * A decorator to render a 404 when a config key is false.
+ *
+ * For example, if you had a config key like this:
+ *
+ * module.exports = {
+ *   allowMyComponent: false,
+ * };
+ *
+ * then you could make your component appear as a 404 like this:
+ *
+ * class MyComponent extends React.Component {
+ *   render() { ... }
+ * }
+ *
+ * export default compose(
+ *   render404IfConfigKeyIsFalse('allowMyComponent'),
+ * )(MyComponent);
+ */
+export function render404IfConfigKeyIsFalse(
+  configKey, { _config = config } = {}
+) {
   if (!configKey) {
     throw new TypeError('configKey cannot be empty');
   }
@@ -268,4 +289,4 @@ export function render404WhenNotAllowed(configKey, { _config = config } = {}) {
     }
     return <Component {...props} />;
   };
-};
+}

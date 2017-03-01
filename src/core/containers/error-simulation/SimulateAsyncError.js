@@ -2,7 +2,7 @@ import { compose } from 'redux';
 import React from 'react';
 
 import log from 'core/logger';
-import { render404WhenNotAllowed } from 'core/utils';
+import { render404IfConfigKeyIsFalse } from 'core/utils';
 
 export class SimulateAsyncErrorBase extends React.Component {
   render() {
@@ -15,5 +15,5 @@ export class SimulateAsyncErrorBase extends React.Component {
 }
 
 export default compose(
-  render404WhenNotAllowed('allowErrorSimulation'),
+  render404IfConfigKeyIsFalse('allowErrorSimulation'),
 )(SimulateAsyncErrorBase);

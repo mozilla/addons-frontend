@@ -27,7 +27,7 @@ import {
   ngettext,
   nl2br,
   refreshAddon,
-  render404WhenNotAllowed,
+  render404IfConfigKeyIsFalse,
   safeAsyncConnect,
   safePromise,
   visibleAddonType,
@@ -670,7 +670,7 @@ describe('trimAndAddProtocolToUrl', () => {
   });
 });
 
-describe('render404WhenNotAllowed', () => {
+describe('render404IfConfigKeyIsFalse', () => {
   function render(
     props = {},
     {
@@ -680,7 +680,7 @@ describe('render404WhenNotAllowed', () => {
     } = {}
   ) {
     const WrappedComponent = compose(
-      render404WhenNotAllowed(configKey, { _config }),
+      render404IfConfigKeyIsFalse(configKey, { _config }),
     )(SomeComponent);
 
     return renderIntoDocument(
@@ -691,7 +691,7 @@ describe('render404WhenNotAllowed', () => {
   }
 
   it('requires a config key', () => {
-    assert.throws(() => render404WhenNotAllowed(), /configKey cannot be empty/);
+    assert.throws(() => render404IfConfigKeyIsFalse(), /configKey cannot be empty/);
   });
 
   it('returns a 404 when disabled by the config', () => {
@@ -707,7 +707,7 @@ describe('render404WhenNotAllowed', () => {
     assert.equal(_config.get.firstCall.args[0], configKey);
   });
 
-  it('passes through component props', () => {
+  it('passes through component and props when enabled', () => {
     const _config = { get: () => true };
     const SomeComponent = sinon.spy(() => <div />);
     render({ color: 'orange', size: 'large' }, { SomeComponent, _config });
