@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-03-01 14:04+0000\n"
+"PO-Revision-Date: 2017-03-01 14:49+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -368,23 +368,23 @@ msgstr "Moderne"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
-msgstr ""
+msgstr "Naturvakker"
 
 #: src/amo/containers/Home.js:83
 msgid "Sporty"
-msgstr ""
+msgstr "Sporty"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Einsfarga"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Logg inn/Registrer deg"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log out"
-msgstr ""
+msgstr "Logg ut"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
