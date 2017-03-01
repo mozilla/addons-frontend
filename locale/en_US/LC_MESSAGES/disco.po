@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-07 14:11+0000\n"
+"POT-Creation-Date: 2017-03-01 18:02+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -11,6 +11,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/core/components/ErrorPage/GenericError/index.js:25
+msgid "Server Error"
+msgstr ""
+
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
+msgid "Error code: %(status)s."
+msgstr ""
+
+#: src/core/components/ErrorPage/NotFound/index.js:25
+msgid "Page not found"
+msgstr ""
 
 #: src/core/components/InstallButton/index.js:42
 #, fuzzy
@@ -101,31 +114,31 @@ msgstr "Please restart Firefox to use this add-on."
 msgid "Close"
 msgstr "Close"
 
-#: src/disco/containers/App.js:27
+#: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
 msgstr "Discover Add-ons"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:106
 msgid "Click to play"
 msgstr "Click to play"
 
-#: src/disco/containers/DiscoPane.js:106
+#: src/disco/containers/DiscoPane.js:107
 msgid "to find out more about add-ons"
 msgstr "to find out more about add-ons"
 
-#: src/disco/containers/DiscoPane.js:115
+#: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
 msgstr "Close video"
 
-#: src/disco/containers/DiscoPane.js:126
+#: src/disco/containers/DiscoPane.js:127
 msgid "See more add-ons!"
 msgstr "See more add-ons!"
 
-#: src/disco/containers/DiscoPane.js:96
+#: src/disco/containers/DiscoPane.js:97
 msgid "Personalize Your Firefox"
 msgstr "Personalize Your Firefox"
 
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:98
 #, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
