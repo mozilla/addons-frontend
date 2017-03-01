@@ -1170,8 +1170,8 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.3.0"
 
 caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000624:
-  version "1.0.30000628"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000628.tgz#3d010e2a8e2537a8d135792e90e4f2ce0eb838cc"
+  version "1.0.30000631"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000631.tgz#8aa6f65cff452c4aba1c2aaa1e724102fbb9114f"
 
 caseless@~0.11.0:
   version "0.11.0"
@@ -5576,12 +5576,6 @@ rimraf@2, rimraf@2.6.1, rimraf@^2.2.8, rimraf@^2.6.0:
   dependencies:
     glob "^7.0.5"
 
-rimraf@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.1.tgz#c2338ec643df7a1b7fe5c54fa86f57428a55f33d"
-  dependencies:
-    glob "^7.0.5"
-
 rimraf@~2.4.0:
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.4.5.tgz#ee710ce5d93a8fdb856fb5ea8ff0e2d75934b2da"
@@ -6404,8 +6398,8 @@ ua-parser-js@^0.7.9:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
 uglify-js@^2.6, uglify-js@^2.7.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.0.tgz#5f3b01aee2dc56cc78aa8d8fb78613a179917917"
+  version "2.8.4"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.4.tgz#5aeb6fd6f1f0a672dea63795016590502c290513"
   dependencies:
     async "~0.2.6"
     source-map "~0.5.1"
