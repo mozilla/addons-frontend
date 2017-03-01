@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-03-01 15:27+0000\n"
+"PO-Revision-Date: 2017-03-01 15:32+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -302,7 +302,7 @@ msgstr "Bla i alle tema"
 
 #: src/amo/components/SuggestedPages/index.js:35
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "Heimeside for utvidingar"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -388,11 +388,11 @@ msgstr "Logg ut"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Feilkode: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
-msgstr ""
+msgstr "Installer tema"
 
 #: src/core/components/InstallButton/index.js:48
 msgid "Add to Firefox"
