@@ -2,8 +2,7 @@ import { compose } from 'redux';
 import React from 'react';
 
 import log from 'core/logger';
-
-import { render404WhenNotAllowed } from './utils';
+import { render404WhenNotAllowed } from 'core/utils';
 
 export class SimulateAsyncErrorBase extends React.Component {
   render() {

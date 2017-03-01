@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import url from 'url';
 
+import React from 'react';
 import config from 'config';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
 
@@ -254,3 +256,12 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
   }
   return urlToReturn;
 }
+
+export const render404WhenNotAllowed = (Component) => ({
+  _config = config, ...props
+}) => {
+  if (!_config.get('allowErrorSimulation')) {
+    return <NotFound />;
+  }
+  return <Component {...props} />;
+};
