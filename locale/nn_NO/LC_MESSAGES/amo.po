@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-03-01 14:49+0000\n"
+"PO-Revision-Date: 2017-03-01 15:27+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -270,7 +270,7 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nyleg oppdatert"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
@@ -290,15 +290,15 @@ msgstr "Sorter"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Føreslåtte sider"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Bla i alle utvidingar"
 
 #: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
 msgid "Browse all themes"
-msgstr ""
+msgstr "Bla i alle tema"
 
 #: src/amo/components/SuggestedPages/index.js:35
 msgid "Add-ons Home Page"
@@ -306,7 +306,7 @@ msgstr ""
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Utvidingar for Firefox"
 
 #: src/amo/containers/Home.js:39
 msgid ""
@@ -320,7 +320,7 @@ msgstr "Utvidingar"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Tema"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -416,31 +416,31 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Avinstallerer %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s er avinstallert. Klikk for å installere."
 
 #: src/core/components/InstallSwitch/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Installeringsstatus for %(name)s er ukjend."
 
 #: src/core/components/Paginate/index.js:107
 msgid "Previous"
-msgstr ""
+msgstr "Føregåande"
 
 #: src/core/components/Paginate/index.js:118
 msgid "Next"
-msgstr ""
+msgstr "Neste"
 
 #: src/core/components/Paginate/index.js:96
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Side %(currentPage)s av %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Utvidinga di er klar"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
