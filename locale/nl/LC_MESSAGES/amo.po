@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 16:06+0000\n"
+"PO-Revision-Date: 2017-02-28 10:55+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -56,7 +56,7 @@ msgstr "%(averageRating)s van 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "Nog niet gewaardeerd"
 
 #: src/amo/components/AddonMeta.js:37
 msgid "%(total)s rating"
@@ -202,11 +202,11 @@ msgstr "Meer populaire extensies"
 
 #: src/amo/components/LandingPage.js:61
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Hoogst gewaardeerde extensies"
 
 #: src/amo/components/LandingPage.js:66
 msgid "More highly rated extensions"
-msgstr ""
+msgstr "Meer hoog gewaardeerde extensies"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -226,11 +226,11 @@ msgstr "Meer populaire thema’s"
 
 #: src/amo/components/LandingPage.js:81
 msgid "Top rated themes"
-msgstr ""
+msgstr "Hoogst gewaardeerde thema’s"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Meer hoog gewaardeerde thema’s"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -282,7 +282,7 @@ msgstr "Meeste gebruikers"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Hoogste gewaardeerd"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
@@ -378,7 +378,7 @@ msgstr "Sportief"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Dekkend"
 
 #: src/core/components/AuthenticateButton/index.js:35
 msgid "Log in/Sign up"
@@ -458,7 +458,7 @@ msgstr "Er is een onverwachte fout opgetreden"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Waardering: %(rating)s van 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
