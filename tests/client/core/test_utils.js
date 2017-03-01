@@ -1,8 +1,14 @@
 /* eslint-disable arrow-body-style */
 import url from 'url';
 
+import React from 'react';
 import config from 'config';
 import { sprintf } from 'jed';
+import {
+  renderIntoDocument,
+  findRenderedComponentWithType,
+} from 'react-addons-test-utils';
+import { compose } from 'redux';
 
 import * as actions from 'core/actions';
 import * as categoriesActions from 'core/actions/categories';
@@ -21,13 +27,16 @@ import {
   ngettext,
   nl2br,
   refreshAddon,
+  render404IfConfigKeyIsFalse,
   safeAsyncConnect,
   safePromise,
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
+import NotFound from 'core/components/ErrorPage/NotFound';
+import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
-import { unexpectedSuccess } from 'tests/client/helpers';
+import { getFakeI18nInst, unexpectedSuccess } from 'tests/client/helpers';
 
 
 describe('apiAddonType', () => {
@@ -658,5 +667,54 @@ describe('trimAndAddProtocolToUrl', () => {
   it('works with HTTPS URLs', () => {
     assert.equal(
       trimAndAddProtocolToUrl('https://test.com'), 'https://test.com');
+  });
+});
+
+describe('render404IfConfigKeyIsFalse', () => {
+  function render(
+    props = {},
+    {
+      configKey = 'someConfigKey',
+      _config = { get: () => true },
+      SomeComponent = () => <div />,
+    } = {}
+  ) {
+    const WrappedComponent = compose(
+      render404IfConfigKeyIsFalse(configKey, { _config }),
+    )(SomeComponent);
+
+    return renderIntoDocument(
+      <I18nProvider i18n={getFakeI18nInst()}>
+        <WrappedComponent {...props} />
+      </I18nProvider>
+    );
+  }
+
+  it('requires a config key', () => {
+    assert.throws(() => render404IfConfigKeyIsFalse(), /configKey cannot be empty/);
+  });
+
+  it('returns a 404 when disabled by the config', () => {
+    const configKey = 'customConfigKey';
+    const _config = {
+      get: sinon.spy(() => false),
+    };
+    const root = render({}, { _config, configKey });
+    const node = findRenderedComponentWithType(root, NotFound);
+
+    assert.ok(node, '<NotFound /> was not rendered');
+    assert.ok(_config.get.called, 'config.get() was not called');
+    assert.equal(_config.get.firstCall.args[0], configKey);
+  });
+
+  it('passes through component and props when enabled', () => {
+    const _config = { get: () => true };
+    const SomeComponent = sinon.spy(() => <div />);
+    render({ color: 'orange', size: 'large' }, { SomeComponent, _config });
+
+    assert.ok(SomeComponent.called, '<SomeComponent /> was not rendered');
+    const props = SomeComponent.firstCall.args[0];
+    assert.equal(props.color, 'orange');
+    assert.equal(props.size, 'large');
   });
 });

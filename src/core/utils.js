@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import url from 'url';
 
+import React from 'react';
 import config from 'config';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
 
@@ -253,4 +255,38 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
     urlToReturn = `http://${urlToReturn}`;
   }
   return urlToReturn;
+}
+
+/*
+ * A decorator to render a 404 when a config key is false.
+ *
+ * For example, if you had a config key like this:
+ *
+ * module.exports = {
+ *   allowMyComponent: false,
+ * };
+ *
+ * then you could make your component appear as a 404 like this:
+ *
+ * class MyComponent extends React.Component {
+ *   render() { ... }
+ * }
+ *
+ * export default compose(
+ *   render404IfConfigKeyIsFalse('allowMyComponent'),
+ * )(MyComponent);
+ */
+export function render404IfConfigKeyIsFalse(
+  configKey, { _config = config } = {}
+) {
+  if (!configKey) {
+    throw new TypeError('configKey cannot be empty');
+  }
+  return (Component) => (props) => {
+    if (!_config.get(configKey)) {
+      log.debug(`config.${configKey} was false; not rendering ${Component}`);
+      return <NotFound />;
+    }
+    return <Component {...props} />;
+  };
 }
