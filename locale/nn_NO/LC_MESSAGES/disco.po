@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-07 14:11+0000\n"
-"PO-Revision-Date: 2017-03-01 15:27+0000\n"
+"PO-Revision-Date: 2017-03-01 16:08+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -32,31 +32,31 @@ msgstr "Installerer %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s er installert og slått på. Klikk for å avinstallere."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s er avslått. Klikk for å slå på."
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Avinstallerer %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s er avinstallert. Klikk for å installere."
 
 #: src/core/components/InstallSwitch/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Installasjonsstatus for %(name)s er ukjend."
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Utvidinga di er klar"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Du kan no få tilgang til %(name)s frå verktøylinja."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
@@ -64,39 +64,39 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Hald musepeikaren over for å førehandsvise eller klikk for å installere %(name)s"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Hald musepeikaren over bildet for å førehandsvise"
 
 #: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installasjonen feila. Prøv igjen."
 
 #: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Mislykka nedlasting. Kontroller tilkoplinga di."
 
 #: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Det oppstod ein uventa feil under installeringa."
 
 #: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Det oppstod ein uventa feil under avinstalleringa."
 
 #: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Det oppstod ein uventa feil."
 
 #: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Denne utvidinga vert avinstallert etter omstart av Firefox."
 
 #: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Start Firefox på nytt for å bruke denne utvidinga."
 
 #: src/disco/components/Addon.js:68
 msgid "Close"

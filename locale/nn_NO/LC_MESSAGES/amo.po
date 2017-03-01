@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-03-01 15:32+0000\n"
+"PO-Revision-Date: 2017-03-01 16:10+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -242,7 +242,7 @@ msgstr "Firefox-utvidingar"
 
 #: src/amo/components/RatingManager/index.js:85
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Kva synest du om %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
 msgid "Search"
@@ -258,15 +258,15 @@ msgstr "Søkjer…"
 
 #: src/amo/components/SearchResults.js:39
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Fann ingen resultat for \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:43
 msgid "No results were found."
-msgstr ""
+msgstr "Fann ingen resultat."
 
 #: src/amo/components/SearchResults.js:46
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Skriv inn eit søkjeord for å søkje in Firefox-utvidingane."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
@@ -313,6 +313,8 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Tillegg er spesielle funksjonar som du kan legge til Firefox.\n"
+"Tema lar deg endre utsjånad på nettlesaren din."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -324,7 +326,7 @@ msgstr "Tema"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Du kan endre korleis Firefox fungerer…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -396,23 +398,23 @@ msgstr "Installer tema"
 
 #: src/core/components/InstallButton/index.js:48
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Legg til i Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Last ned %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Installerer %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s er installert og slått på. Klikk for å avinstallere."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s er slått av. Klikk for å slå på."
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Uninstalling %(name)s."
@@ -444,7 +446,7 @@ msgstr "Utvidinga di er klar"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "No kan du få tilgang til %(name)s frå verktøylinja."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
@@ -452,11 +454,11 @@ msgstr "OK!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Det oppstod ein uventa feil"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Vurdert som %(rating)s av 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -464,4 +466,4 @@ msgstr "Ingen vurderingar"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese meir"
