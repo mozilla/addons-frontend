@@ -257,11 +257,15 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
   return urlToReturn;
 }
 
-export const render404WhenNotAllowed = (Component) => ({
-  _config = config, ...props
-}) => {
-  if (!_config.get('allowErrorSimulation')) {
-    return <NotFound />;
+export function render404WhenNotAllowed(configKey, { _config = config } = {}) {
+  if (!configKey) {
+    throw new TypeError('configKey cannot be empty');
   }
-  return <Component {...props} />;
+  return (Component) => (props) => {
+    if (!_config.get(configKey)) {
+      log.debug(`config.${configKey} was false; not rendering ${Component}`);
+      return <NotFound />;
+    }
+    return <Component {...props} />;
+  };
 };

@@ -15,5 +15,5 @@ export class SimulateAsyncErrorBase extends React.Component {
 }
 
 export default compose(
-  render404WhenNotAllowed,
+  render404WhenNotAllowed('allowErrorSimulation'),
 )(SimulateAsyncErrorBase);

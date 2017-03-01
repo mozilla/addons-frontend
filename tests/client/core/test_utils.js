@@ -671,14 +671,16 @@ describe('trimAndAddProtocolToUrl', () => {
 });
 
 describe('render404WhenNotAllowed', () => {
-  function render(customProps = {}, { SomeComponent = () => <div /> } = {}) {
-    const props = {
-      config: { get: () => true },
-      ...customProps,
-    };
-
+  function render(
+    props = {},
+    {
+      configKey = 'someConfigKey',
+      _config = { get: () => true },
+      SomeComponent = () => <div />,
+    } = {}
+  ) {
     const WrappedComponent = compose(
-      render404WhenNotAllowed,
+      render404WhenNotAllowed(configKey, { _config }),
     )(SomeComponent);
 
     return renderIntoDocument(
@@ -688,21 +690,27 @@ describe('render404WhenNotAllowed', () => {
     );
   }
 
+  it('requires a config key', () => {
+    assert.throws(() => render404WhenNotAllowed(), /configKey cannot be empty/);
+  });
+
   it('returns a 404 when disabled by the config', () => {
+    const configKey = 'customConfigKey';
     const _config = {
       get: sinon.spy(() => false),
     };
-    const root = render({ _config });
+    const root = render({}, { _config, configKey });
     const node = findRenderedComponentWithType(root, NotFound);
 
     assert.ok(node, '<NotFound /> was not rendered');
     assert.ok(_config.get.called, 'config.get() was not called');
-    assert.ok(_config.get.firstCall.args[0], 'allowErrorSimulation');
+    assert.equal(_config.get.firstCall.args[0], configKey);
   });
 
   it('passes through component props', () => {
+    const _config = { get: () => true };
     const SomeComponent = sinon.spy(() => <div />);
-    render({ color: 'orange', size: 'large' }, { SomeComponent });
+    render({ color: 'orange', size: 'large' }, { SomeComponent, _config });
 
     assert.ok(SomeComponent.called, '<SomeComponent /> was not rendered');
     const props = SomeComponent.firstCall.args[0];

@@ -13,5 +13,5 @@ export class SimulateSyncErrorBase extends React.Component {
 }
 
 export default compose(
-  render404WhenNotAllowed,
+  render404WhenNotAllowed('allowErrorSimulation'),
 )(SimulateSyncErrorBase);
