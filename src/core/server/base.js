@@ -89,7 +89,7 @@ function getPageProps({ noScriptStyles = '', store, req, res }) {
   };
 }
 
-function showErrorPage({ createStore, error = {}, req, res, status }) {
+function showErrorPage({ createStore, error = {}, req, res, status = 500 }) {
   const store = createStore();
   const pageProps = getPageProps({ store, req, res });
 
