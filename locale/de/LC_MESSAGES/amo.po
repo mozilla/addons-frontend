@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-23 15:27+0000\n"
+"PO-Revision-Date: 2017-03-02 18:35+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -41,14 +41,12 @@ msgid "About this %(addonType)s"
 msgstr "Über dieses %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Drücken, um Vorschau anzuzeigen"
+msgstr "Vorschau abbrechen"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Drücken, um Vorschau anzuzeigen"
+msgstr "Tippen, um Vorschau anzuzeigen"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -76,20 +74,19 @@ msgstr "Verwendet von"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Homepage"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Hilfe-Website"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Weitere Informationen"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Add-on-Symbol"
+msgstr "Add-on-Links"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -133,9 +130,7 @@ msgstr "Erzählen Sie der Welt, warum Sie diese Erweiterung klasse finden!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Sagen Sie uns, was Ihnen an dieser Erweiterung gefällt. Schreiben Sie kurz "
-"und prägnant."
+msgstr "Sagen Sie uns, was Ihnen an dieser Erweiterung gefällt. Schreiben Sie kurz und prägnant."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -145,8 +140,7 @@ msgstr "Erzählen Sie der Welt von dieser Erweiterung."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "von %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Laden…"
 
@@ -174,13 +168,11 @@ msgstr "Keine Kategorien gefunden."
 msgid "Not Authorized"
 msgstr "Nicht autorisiert"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Seite nicht gefunden"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serverfehler"
 
@@ -262,20 +254,19 @@ msgstr "Add-ons für Firefox"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Melden Sie sich an, um diese Suchmaschine zu bewerten"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Melden Sie sich an, um dieses Theme zu bewerten"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Über diese Erweiterung"
+msgstr "Melden Sie sich an, um diese Erweiterung zu bewerten"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Melden Sie sich an, um dieses Add-on zu bewerten"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -283,11 +274,11 @@ msgstr "Wie gefällt Ihnen %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Melden Sie sich an, um dieses Wörterbuch zu bewerten"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Melden Sie sich an, um dieses Sprachpaket zu bewerten"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -299,10 +290,9 @@ msgstr "Erweiterungen und Themes suchen"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Keine Theme-Vorschau verfügbar"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "Suche läuft…"
 
@@ -316,8 +306,7 @@ msgstr "Es wurden keine Ergebnisse gefunden."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
-"Bitte geben Sie einen Suchbegriff ein, um die Firefox-Add-ons zu durchsuchen."
+msgstr "Bitte geben Sie einen Suchbegriff ein, um die Firefox-Add-ons zu durchsuchen."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
@@ -364,8 +353,7 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
-"Erweiterungen sind besondere Funktionen, die Sie zu Firefox hinzufügen "
-"können.\n"
+"Erweiterungen sind besondere Funktionen, die Sie zu Firefox hinzufügen können.\n"
 "Mit Themes können Sie das Erscheinungsbild Ihres Browsers ändern."
 
 #: src/amo/containers/Home.js:44
@@ -440,8 +428,7 @@ msgstr "Abmelden"
 msgid "Log in/Sign up"
 msgstr "Anmelden / Registrieren"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Fehlercode: %(status)s."
 
@@ -463,9 +450,7 @@ msgstr "%(name)s wird installiert."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu "
-"deinstallieren."
+msgstr "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu deinstallieren."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -512,7 +497,6 @@ msgid "An unexpected error occurred"
 msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
 msgstr "Laden…"
 
