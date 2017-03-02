@@ -6,11 +6,11 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
 
 #: src/amo/components/AddonDetail.js:110
 msgid "Read %(count)s review"
@@ -39,16 +39,15 @@ msgid "About this %(addonType)s"
 msgstr "Ȧƀǿŭŧ ŧħīş %(ȧḓḓǿƞŦẏƥḗ)ş"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Ƥřḗşş ŧǿ ƥřḗṽīḗẇ"
+msgstr "Ƈȧƞƈḗŀ ƥřḗṽīḗẇ"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Ƥřḗşş ŧǿ ƥřḗṽīḗẇ"
+msgstr "Ŧȧƥ ŧǿ ƥřḗṽīḗẇ"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
+#: src/amo/components/AddonMeta.js:22
+#: src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ŭşḗř"
@@ -74,20 +73,19 @@ msgstr "Ŭşḗḓ ƀẏ"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Ħǿḿḗƥȧɠḗ"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Şŭƥƥǿřŧ Şīŧḗ"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Ḿǿřḗ īƞƒǿřḿȧŧīǿƞ"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Ȧḓḓ-ǿƞ īƈǿƞ"
+msgstr "Ȧḓḓ-ǿƞ Ŀīƞķş"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -258,20 +256,19 @@ msgstr "Ƒīřḗƒǿẋ Ȧḓḓ-ǿƞş"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Ŀǿɠ īƞ ŧǿ řȧŧḗ ŧħīş şḗȧřƈħ ḗƞɠīƞḗ"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Ŀǿɠ īƞ ŧǿ řȧŧḗ ŧħīş ŧħḗḿḗ"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Ŧǿƥ řȧŧḗḓ ḗẋŧḗƞşīǿƞş"
+msgstr "Ŀǿɠ īƞ ŧǿ řȧŧḗ ŧħīş ḗẋŧḗƞşīǿƞ"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Ŀǿɠ īƞ ŧǿ řȧŧḗ ŧħīş ȧḓḓ-ǿƞ"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -279,13 +276,14 @@ msgstr "Ħǿẇ ȧřḗ ẏǿŭ ḗƞĵǿẏīƞɠ ẏǿŭř ḗẋƥḗřīḗ�
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Ŀǿɠ īƞ ŧǿ řȧŧḗ ŧħīş ḓīƈŧīǿƞȧřẏ"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Ŀǿɠ īƞ ŧǿ řȧŧḗ ŧħīş ŀȧƞɠŭȧɠḗ ƥȧƈķ"
 
-#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
+#: src/amo/components/SearchForm.js:47
+#: src/amo/components/SearchForm.js:56
 msgid "Search"
 msgstr "Şḗȧřƈħ"
 
@@ -295,12 +293,11 @@ msgstr "Şḗȧřƈħ ḗẋŧḗƞşīǿƞş ȧƞḓ ŧħḗḿḗş"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Ƞǿ ŧħḗḿḗ ƥřḗṽīḗẇ ȧṽȧīŀȧƀŀḗ"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
-msgstr "Şḗȧřƈħīƞɠ..."
+msgstr "Şḗȧřƈħīƞɠ…"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
@@ -338,11 +335,13 @@ msgstr "Şǿřŧ"
 msgid "Suggested Pages"
 msgstr "Şŭɠɠḗşŧḗḓ Ƥȧɠḗş"
 
-#: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
+#: src/amo/components/SuggestedPages/index.js:25
+#: src/amo/containers/Home.js:74
 msgid "Browse all extensions"
 msgstr "Ɓřǿẇşḗ ȧŀŀ ḗẋŧḗƞşīǿƞş"
 
-#: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
+#: src/amo/components/SuggestedPages/index.js:30
+#: src/amo/containers/Home.js:87
 msgid "Browse all themes"
 msgstr "Ɓřǿẇşḗ ȧŀŀ ŧħḗḿḗş"
 
@@ -504,9 +503,8 @@ msgid "An unexpected error occurred"
 msgstr "Ȧƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "Ŀǿȧḓīƞɠ..."
+msgstr "Ŀǿȧḓīƞɠ…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
@@ -519,6 +517,3 @@ msgstr "Ƞǿ řȧŧīƞɠş"
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Ḗẋƥȧƞḓ ŧǿ</span> Řḗȧḓ ḿǿřḗ"
-
-#~ msgid "Website"
-#~ msgstr "Ẇḗƀşīŧḗ"
