@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2016-12-02 12:40+0000\n"
+"PO-Revision-Date: 2017-03-02 21:11+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -17,13 +17,13 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:110
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Přečíst %(count)s recenzi"
+msgstr[1] "Přečíst všechny %(count)s recenze"
+msgstr[2] "Přečtěte si všech %(count)s recenzí"
 
 #: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
-msgstr ""
+msgstr "Zatím žádné recenze"
 
 #: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
@@ -42,39 +42,34 @@ msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Napsat recenzi"
+msgstr "Zrušit náhled"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Napsat recenzi"
+msgstr "Pro náhled klepněte"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s uživatel"
-msgstr[1] "%(users)s uživatelé"
-msgstr[2] "%(users)s uživatelů"
+msgstr[0] "%(total)s uživatel"
+msgstr[1] "%(total)s uživatelé"
+msgstr[2] "%(total)s uživatelů"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Průměrné hodnocení: %(rating)s z 5"
+msgstr "%(averageRating)s z 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "Zatím nehodnoceno"
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Nehodnoceno"
-msgstr[1] "Nehodnoceno"
-msgstr[2] "Nehodnoceno"
+msgstr[0] "%(total)s hodnocení"
+msgstr[1] "%(total)s hodnocení"
+msgstr[2] "%(total)s hodnocení"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -82,15 +77,15 @@ msgstr "Používá"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Domovská stránka"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Stránka podpory"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr ""
+msgstr "Více informací"
 
 #: src/amo/components/AddonMoreInfo.js:42
 #, fuzzy
@@ -99,28 +94,27 @@ msgstr "Doplňky pro Firefox"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
-msgstr ""
+msgstr "Verze"
 
 #: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
-msgstr ""
+msgstr "Poslední aktualizace"
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #: src/amo/components/AddonMoreInfo.js:81
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "Zásady ochrany soukromí"
 
 #: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Přečtěte si zásady ochrany soukromí tohoto doplňku"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -128,12 +122,11 @@ msgstr "Napsat recenzi"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Text recenze"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Napsat recenzi"
+msgstr "Přidat recenzi"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -141,19 +134,17 @@ msgstr "Řekněte celému světu, proč si myslíte, že je tenhle doplněk úž
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Řekněte nám, co se vám na tomto doplňku líbí. Buďte konkrétní a svědomití."
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Řekněte celému světu, proč si myslíte, že je tenhle doplněk úžasný!"
+msgstr "Řekněte světu o tomto rozšíření."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "Vyhledávání…"
@@ -184,13 +175,11 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr ""
 
@@ -460,8 +449,7 @@ msgstr "Odhlásit se"
 msgid "Log in/Sign up"
 msgstr "Přihlásit se / Zaregistrovat se"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
