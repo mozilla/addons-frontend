@@ -89,18 +89,22 @@ function getPageProps({ noScriptStyles = '', store, req, res }) {
   };
 }
 
-function showErrorPage({ createStore, error = {}, req, res, status = 500 }) {
+function showErrorPage({ createStore, error = {}, req, res, status }) {
   const store = createStore();
   const pageProps = getPageProps({ store, req, res });
 
-  const errorResponse = error.response || { status };
-  const apiError = createApiError({ response: errorResponse });
+  const componentDeclaredStatus = NestedStatus.rewind();
+  let adjustedStatus = status || componentDeclaredStatus || 500;
+  if (error.response && error.response.status) {
+    adjustedStatus = error.response.status;
+  }
+
+  const apiError = createApiError({ response: { status: adjustedStatus } });
   store.dispatch(loadFail('ServerBase', { ...apiError, ...error }));
 
   const HTML = ReactDOM.renderToString(
     <ServerHtml {...pageProps} />);
-  const httpStatus = NestedStatus.rewind();
-  return res.status(errorResponse.status || httpStatus)
+  return res.status(adjustedStatus)
     .send(`<!DOCTYPE html>\n${HTML}`)
     .end();
 }
