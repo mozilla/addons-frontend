@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-01 18:02+0000\n"
-"PO-Revision-Date: 2017-02-26 14:16+0000\n"
-"Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
+"PO-Revision-Date: 2017-03-02 15:39+0000\n"
+"Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -16,16 +16,15 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Erro no servidor"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Código de erro: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Página não encontrada"
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
@@ -142,21 +141,14 @@ msgstr "Personalize seu Firefox"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Existem milhares de extensões gratuitas, criadas por desenvolvedores de todo "
-"o\n"
-"mundo, que pode instalar para personalizar o seu Firefox. Desde temas "
-"visuais divertidos\n"
-"até poderosas ferramentas que fazem a navegação ser mais rápida e segura, as "
-"extensões fazem o seu navegador ser seu. Para o ajudar a começar, aqui estão "
-"algumas que recomendamos por suas funcionalidade e desempenho."
+"Existem milhares de extensões gratuitas, criadas por desenvolvedores de todo o\n"
+"mundo, que pode instalar para personalizar o seu Firefox. Desde temas visuais divertidos\n"
+"até poderosas ferramentas que fazem a navegação ser mais rápida e segura, as extensões fazem o seu navegador ser seu. Para o ajudar a começar, aqui estão algumas que recomendamos por suas funcionalidade e desempenho."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Instalado e adicionado à barra de ferramentas"
