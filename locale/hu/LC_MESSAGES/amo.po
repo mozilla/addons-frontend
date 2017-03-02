@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-02 15:50+0000\n"
+"PO-Revision-Date: 2017-03-02 15:53+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -41,12 +41,10 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s névjegye"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Nyomja meg az előnézethez"
+msgstr "Előnézet megszüntetése"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
 msgstr "Nyomja meg az előnézethez"
 
@@ -87,9 +85,8 @@ msgid "More information"
 msgstr "További információk"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Kiegészítő ikonja"
+msgstr "Kiegészítő hivatkozásai"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -264,9 +261,8 @@ msgid "Log in to rate this theme"
 msgstr "Jelentkezzen be a téma értékeléséhez"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "A kiterjesztés névjegye"
+msgstr "Jelentkezzen be a kiterjesztés értékeléséhez"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
@@ -297,7 +293,6 @@ msgid "No theme preview available"
 msgstr "Nincs elérhető téma előnézet"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "Keresés…"
 
@@ -502,7 +497,6 @@ msgid "An unexpected error occurred"
 msgstr "Váratlan hiba történt"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
 msgstr "Betöltés…"
 
