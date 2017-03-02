@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-01 18:02+0000\n"
-"PO-Revision-Date: 2017-01-25 20:11+0000\n"
+"PO-Revision-Date: 2017-03-02 23:28+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -16,16 +16,15 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Erreur serveur"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Code d’erreur : %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Page introuvable"
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
@@ -77,9 +76,7 @@ msgstr "OK"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Survolez l’image pour activer la prévisualisation ou cliquez pour installer "
-"%(name)s"
+msgstr "Survolez l’image pour activer la prévisualisation ou cliquez pour installer %(name)s"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -144,21 +141,14 @@ msgstr "Personnalisez Firefox"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Il existe des milliers de modules gratuits, créés par des développeurs du "
-"monde entier, que vous pouvez installer pour personnaliser Firefox. Des "
-"thèmes amusants jusqu’aux puissants outils qui rendent votre navigation "
-"encore plus rapide et sûre, les modules vous permettent de personnaliser "
-"complètement votre navigation. Pour vous aider à bien démarrer, nous en "
-"avons sélectionné quelques-uns selon leurs performances et leurs "
-"fonctionnalités."
+"Il existe des milliers de modules gratuits, créés par des développeurs du monde entier, que vous pouvez installer pour personnaliser Firefox. Des thèmes amusants jusqu’aux puissants outils qui "
+"rendent votre navigation encore plus rapide et sûre, les modules vous permettent de personnaliser complètement votre navigation. Pour vous aider à bien démarrer, nous en avons sélectionné quelques-"
+"uns selon leurs performances et leurs fonctionnalités."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Installé et ajouté à la barre d’outils"
