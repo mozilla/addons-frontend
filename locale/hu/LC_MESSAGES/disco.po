@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-01 18:02+0000\n"
-"PO-Revision-Date: 2017-01-24 15:28+0000\n"
+"PO-Revision-Date: 2017-03-02 11:57+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -16,16 +16,15 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Kiszolgálóhiba"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Hibakód: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Az oldal nem található"
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
@@ -45,8 +44,7 @@ msgstr "%(name)s telepítése."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
+msgstr "A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -78,9 +76,7 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
-"telepítéséhez"
+msgstr "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s telepítéséhez"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -145,22 +141,15 @@ msgstr "A Firefox testreszabása"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő "
-"fejlesztőktől,\n"
-"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól "
-"kezdve,\n"
-"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá "
-"teszik,\n"
-"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, "
-"itt van néhány,\n"
+"Ingyenes kiegészítők ezrei léteznek, a világ minden táján lévő fejlesztőktől,\n"
+"amelyeket telepítve testre szabhatja a Firefoxát. A mókás vizuális témáktól kezdve,\n"
+"a hatékony eszközökig, amelyek a böngészést gyorsabbá és biztonságosabbá teszik,\n"
+"a kiegészítők teszik a böngészőt az Önévé. Hogy segítsünk az elindulásban, itt van néhány,\n"
 "amelyeket ajánlunk a kiemelkedő teljesítményük és funkcionalitásuk miatt."
 
 #~ msgid "Installed and added to toolbar"
