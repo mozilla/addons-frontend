@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-02 21:11+0000\n"
+"PO-Revision-Date: 2017-03-02 21:21+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -142,55 +142,51 @@ msgstr "Řekněte světu o tomto rozšíření."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "od uživatele %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
-#, fuzzy
 msgid "Loading..."
-msgstr "Vyhledávání…"
+msgstr "Načítání..."
 
 #: src/amo/components/AddonReviewList.js:62
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Doplňky pro Firefox"
+msgstr "Ikona doplňku"
 
 #: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Recenze doplňku %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:70
-#, fuzzy
 msgid "All written reviews"
-msgstr "Napsat recenzi"
+msgstr "Všechny napsané recenze"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Načítání kategorií selhalo."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Žádné kategorie nebyly nalezeny."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Neautorizováno"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Stránka nenalezena"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Chyba serveru"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Procházet všechna rozšíření"
+msgstr "Více doporučených rozšíření"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Více doporučených motivů"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -205,61 +201,52 @@ msgid "View desktop site"
 msgstr "Zobrazit verzi pro desktop"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Procházet všechna rozšíření"
+msgstr "Doporučená rozšíření"
 
 #: src/amo/components/LandingPage.js:53
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Procházet všechna rozšíření"
+msgstr "Více doporučených rozšíření"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Procházet všechna rozšíření"
+msgstr "Nejpopulárnější rozšíření"
 
 #: src/amo/components/LandingPage.js:59
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Procházet všechna rozšíření"
+msgstr "Více populárních rozšíření"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Procházet všechna rozšíření"
+msgstr "Nejlépe hodnocená rozšíření"
 
 #: src/amo/components/LandingPage.js:68
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Procházet všechna rozšíření"
+msgstr "Více kladně hodnocených rozšíření"
 
 #: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
-msgstr ""
+msgstr "Doporučené motivy vzhledu"
 
 #: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
-msgstr ""
+msgstr "Více doporučených motivů"
 
 #: src/amo/components/LandingPage.js:76
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Procházet všechny motivy"
+msgstr "Nejpopulárnější motivy"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "More popular themes"
-msgstr "Procházet všechny motivy"
+msgstr "Více populárních motivů"
 
 #: src/amo/components/LandingPage.js:82
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Procházet všechny motivy"
+msgstr "Nejlépe hodnocené motivy"
 
 #: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Více kladně hodnocených motivů"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -271,20 +258,19 @@ msgstr "Doplňky pro Firefox"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Pro hodnocení tohoto vyhledávače se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Pro hodnocení tohoto motivu se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "O tomto rozšíření"
+msgstr "Pro hodnocení tohoto rozšíření se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Pro hodnocení tohoto doplňku se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -292,27 +278,25 @@ msgstr "Jak si užíváte používání doplňku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Pro hodnocení tohoto slovníku se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Pro hodnocení tohoto jazykového balíčku se přihlaste"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
-#, fuzzy
 msgid "Search"
-msgstr "Vyhledávání…"
+msgstr "Hledat"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Prohledávejte rozšíření a motivy"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Náhled motivu není dostupný"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "Vyhledávání…"
 
@@ -321,37 +305,36 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Na dotaz \"%(query)s\" nebyly nalezeny žádné výsledky."
 
 #: src/amo/components/SearchResults.js:50
-#, fuzzy
 msgid "No results were found."
-msgstr "Na dotaz \"%(query)s\" nebyly nalezeny žádné výsledky."
+msgstr "Nebyly nalezeny žádné výsledky."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Vložte prosím vyhledávací dotaz pro hledání na serveru Doplňky pro Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nedávno aktualizované"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Relevance"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Nejvíce uživatelů"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Nejlépe hodnocené"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Řazení"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Doporučené stránky"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -377,17 +360,16 @@ msgid ""
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Metadata rozšíření"
+msgstr "Rozšíření"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Motivy"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Můžete změnit, jak Firefox funguje…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -399,7 +381,7 @@ msgstr "Snímek obrazovky"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Hledejte zprávy"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -411,11 +393,11 @@ msgstr "Být společenský"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Hrajte hry"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…nebo jak to vypadá"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -439,7 +421,7 @@ msgstr "Sportovně"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Jednoduše"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
@@ -451,17 +433,15 @@ msgstr "Přihlásit se / Zaregistrovat se"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Chybový kód: %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Instalace doplňku %(name)s."
+msgstr "Nainstalovat motiv"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Doplňky pro Firefox"
+msgstr "Přidat do Firefoxu"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -505,29 +485,27 @@ msgstr "Stránka %(currentPage)s z %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Váš doplněk je připraven"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "K doplňku %(name)s nyní můžete přistupovat z panelu nástrojů."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Došlo k neočekávané chybě"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "Vyhledávání…"
+msgstr "Načítání…"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Průměrné hodnocení: %(rating)s z 5"
+msgstr "Ohodnoceno %(rating)s z 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
