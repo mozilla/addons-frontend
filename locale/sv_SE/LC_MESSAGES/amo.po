@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-23 16:56+0000\n"
+"PO-Revision-Date: 2017-03-02 17:58+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -41,14 +41,12 @@ msgid "About this %(addonType)s"
 msgstr "Om denna %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Tryck på förhandsgranska"
+msgstr "Avbryt förhandsgranskning"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Tryck på förhandsgranska"
+msgstr "Tryck för att förhandsgranska"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -76,20 +74,19 @@ msgstr "Används av"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Hemsida"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Supportwebbplats"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Mer information"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Ikon för tillägg"
+msgstr "Länkar för tillägg"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -129,14 +126,11 @@ msgstr "Skicka in recension"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
-"Berätta för hela världen varför du tycker att det här tillägget är "
-"fantastiskt!"
+msgstr "Berätta för hela världen varför du tycker att det här tillägget är fantastiskt!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Berätta för oss vad du gillar med detta tillägg. Var specifik och koncis."
+msgstr "Berätta för oss vad du gillar med detta tillägg. Var specifik och koncis."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -146,8 +140,7 @@ msgstr "Berätta för världen om detta tillägg."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "från %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Laddar..."
 
@@ -175,13 +168,11 @@ msgstr "Inga kategorier hittades."
 msgid "Not Authorized"
 msgstr "Behörighet saknas"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Sidan hittades inte"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serverfel"
 
@@ -263,20 +254,19 @@ msgstr "Firefox tillägg"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Logga in för att betygsätta denna sökmotor"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Logga in för att betygsätta detta tema"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Om detta tillägg"
+msgstr "Logga in för att betygsätta detta tillägg"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Logga in för att betygsätta detta tillägg"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -284,11 +274,11 @@ msgstr "Vad tycker du om %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Logga in för att betygsätta denna ordbok"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Logga in för att betygsätta detta språkpaket"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -300,12 +290,11 @@ msgstr "Sök efter tillägg och teman"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Ingen förhandsgranskning för tema är tillgänglig"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
-msgstr "Söker..."
+msgstr "Söker…"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
@@ -439,8 +428,7 @@ msgstr "Logga ut"
 msgid "Log in/Sign up"
 msgstr "Logga in/Registrera dig"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Felkod: %(status)s."
 
@@ -509,9 +497,8 @@ msgid "An unexpected error occurred"
 msgstr "Ett oväntat fel har uppstått"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "Laddar..."
+msgstr "Laddar…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
