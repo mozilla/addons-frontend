@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-11-11 11:27+0000\n"
+"PO-Revision-Date: 2017-03-01 23:55+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -120,8 +120,7 @@ msgstr "Rédigez un avis"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
-"Expliquez publiquement pourquoi vous trouvez cette extension exceptionnelle."
+msgstr "Expliquez publiquement pourquoi vous trouvez cette extension exceptionnelle."
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -130,15 +129,13 @@ msgstr ""
 #: src/amo/components/AddonReview.js:95
 #, fuzzy
 msgid "Tell the world about this extension."
-msgstr ""
-"Expliquez publiquement pourquoi vous trouvez cette extension exceptionnelle."
+msgstr "Expliquez publiquement pourquoi vous trouvez cette extension exceptionnelle."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "Recherche…"
@@ -169,13 +166,11 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr ""
 
@@ -415,20 +410,17 @@ msgstr "Se connecter/S’inscrire"
 msgid "Log out"
 msgstr "Se déconnecter"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Code d’erreur : %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Installation de %(name)s en cours."
+msgstr "Installer le thème"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Modules pour Firefox"
+msgstr "Ajouter à Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -472,24 +464,23 @@ msgstr "Page %(currentPage)s sur %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Votre module est prêt"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Vous pouvez désormais accéder à %(name)s depuis la barre d’outils."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Une erreur inattendue s’est produite"
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Note moyenne : %(rating)s sur 5"
+msgstr "Noté %(rating)s sur 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -497,7 +488,7 @@ msgstr "Aucune note"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Développer</span> pour afficher plus d’informations"
 
 #~ msgid "Screenshots"
 #~ msgstr "Captures d’écran"
