@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-23 20:52+0100\n"
+"PO-Revision-Date: 2017-03-02 16:35+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -41,14 +41,12 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s: informacje"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Naciśnij, aby wyświetlić podgląd"
+msgstr "Anuluj podgląd"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Naciśnij, aby wyświetlić podgląd"
+msgstr "Stuknij, aby wyświetlić podgląd"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -78,20 +76,19 @@ msgstr "Używane przez"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Strona domowa"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Strona pomocy"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Więcej informacji"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Ikona dodatku"
+msgstr "Strony dodatku"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -264,20 +261,19 @@ msgstr "Dodatki do Firefoksa"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Zaloguj się, aby ocenić tę wyszukiwarkę"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Zaloguj się, aby ocenić ten motyw"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Najwyżej oceniane rozszerzenia"
+msgstr "Zaloguj się, aby ocenić to rozszerzenie"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Zaloguj się, aby ocenić ten dodatek"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -285,11 +281,11 @@ msgstr "Jak oceniasz swoje wrażenia z dodatkiem „%(addonName)s”?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Zaloguj się, aby ocenić ten słownik"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Zaloguj się, aby ocenić ten pakiet językowy"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -301,10 +297,9 @@ msgstr "Wyszukaj rozszerzenia i motywy"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Podgląd motywu jest niedostępny"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "Wyszukiwanie…"
 
@@ -511,7 +506,6 @@ msgid "An unexpected error occurred"
 msgstr "Wystąpił nieoczekiwany błąd"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
 msgstr "Wczytywanie…"
 
@@ -526,6 +520,3 @@ msgstr "Brak ocen"
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Rozwiń</span>, aby przeczytać więcej"
-
-#~ msgid "Website"
-#~ msgstr "Strona"
