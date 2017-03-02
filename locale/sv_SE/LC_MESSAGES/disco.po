@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-01 18:02+0000\n"
-"PO-Revision-Date: 2017-01-24 18:02+0000\n"
-"Last-Translator: Andreas Pettersson <az@kth.se>\n"
+"PO-Revision-Date: 2017-03-02 12:10+0000\n"
+"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -16,16 +16,15 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Serverfel"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Felkod: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Sidan kunde inte hittas"
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
@@ -77,9 +76,7 @@ msgstr "Ok!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Håll muspekaren över för att förhandsgranska eller klicka för att installera "
-"%(name)s"
+msgstr "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -144,22 +141,15 @@ msgstr "Anpassa Firefox"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Det finns tusentals tillägg som är gratis, skapade av utvecklare över hela "
-"världen, \n"
-"som du kan installera för att anpassa Firefox. Från roliga visuella teman "
-"till kraftfulla \n"
-"verktyg som gör surfning snabbare och säkrare, tillägg gör din webbläsare "
-"till din egen.\n"
-"För att hjälpa dig att komma igång, här är några vi rekommenderar för "
-"deras \n"
+"Det finns tusentals tillägg som är gratis, skapade av utvecklare över hela världen, \n"
+"som du kan installera för att anpassa Firefox. Från roliga visuella teman till kraftfulla \n"
+"verktyg som gör surfning snabbare och säkrare, tillägg gör din webbläsare till din egen.\n"
+"För att hjälpa dig att komma igång, här är några vi rekommenderar för deras \n"
 "enastående prestanda och funktionalitet."
 
 #~ msgid "Installed and added to toolbar"
