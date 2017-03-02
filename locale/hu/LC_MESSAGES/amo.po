@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-23 10:45+0000\n"
+"PO-Revision-Date: 2017-03-02 15:50+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -76,11 +76,11 @@ msgstr "Használja"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Kezdőlap"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Támogatói oldal"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
@@ -129,13 +129,11 @@ msgstr "Értékelés beküldése"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
-"Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus kiterjesztés!"
+msgstr "Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus kiterjesztés!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Mondja el, miért szereti ezt a kiterjesztést. Legyen konkrét és lényegretörő."
+msgstr "Mondja el, miért szereti ezt a kiterjesztést. Legyen konkrét és lényegretörő."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -145,8 +143,7 @@ msgstr "Mutassa be a világnak ezt a kiterjesztést."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "készítette: %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Betöltés…"
 
@@ -174,13 +171,11 @@ msgstr "Nem találhatóak kategóriák."
 msgid "Not Authorized"
 msgstr "Nem engedélyezett"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Az oldal nem található"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Kiszolgálóhiba"
 
@@ -262,11 +257,11 @@ msgstr "Firefox kiegészítők"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Jelentkezzen be a keresőmotor értékeléséhez"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Jelentkezzen be a téma értékeléséhez"
 
 #: src/amo/components/RatingManager/index.js:105
 #, fuzzy
@@ -275,7 +270,7 @@ msgstr "A kiterjesztés névjegye"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Jelentkezzen be a kiegészítő értékeléséhez"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -283,11 +278,11 @@ msgstr "Mit tapasztal a(z) %(addonName)s kiegészítővel?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Jelentkezzen be a szótár értékeléséhez"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Jelentkezzen be a nyelvi csomag értékeléséhez"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -299,7 +294,7 @@ msgstr "Keresés a kiterjesztések és témák közt"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Nincs elérhető téma előnézet"
 
 #: src/amo/components/SearchResults.js:40
 #, fuzzy
@@ -438,8 +433,7 @@ msgstr "Kijelentkezés"
 msgid "Log in/Sign up"
 msgstr "Bejelentkezés/Regisztráció"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Hibakód: %(status)s."
 
@@ -461,8 +455,7 @@ msgstr "%(name)s telepítése."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
+msgstr "A(z) %(name) telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -523,8 +516,7 @@ msgstr "Nincsenek értékelések"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
-"<span class=\"visually-hidden\">Bontsa ki</span>, hogy többet tudjon meg"
+msgstr "<span class=\"visually-hidden\">Bontsa ki</span>, hogy többet tudjon meg"
 
 #~ msgid "Website"
 #~ msgstr "Webhely"
