@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-02 23:31+0000\n"
+"PO-Revision-Date: 2017-03-02 23:37+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -157,9 +157,8 @@ msgid "Reviews for %(addonName)s"
 msgstr "Critiques pour %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:70
-#, fuzzy
 msgid "All written reviews"
-msgstr "Rédigez un avis"
+msgstr "Tous les avis rédigés"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
@@ -182,9 +181,8 @@ msgid "Server Error"
 msgstr "Erreur serveur"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Parcourir toutes les extensions"
+msgstr "Plus d’extensions vedettes"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
@@ -203,34 +201,28 @@ msgid "View desktop site"
 msgstr "Afficher la version pour ordinateur"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Parcourir toutes les extensions"
+msgstr "Extensions vedettes"
 
 #: src/amo/components/LandingPage.js:53
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Parcourir toutes les extensions"
+msgstr "Plus d’extensions vedettes"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Parcourir toutes les extensions"
+msgstr "Extensions les plus populaires"
 
 #: src/amo/components/LandingPage.js:59
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Parcourir toutes les extensions"
+msgstr "Plus d’extensions populaires"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Parcourir toutes les extensions"
+msgstr "Extensions les mieux notées"
 
 #: src/amo/components/LandingPage.js:68
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Parcourir toutes les extensions"
+msgstr "Plus d’extensions bien notées"
 
 #: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
@@ -241,19 +233,16 @@ msgid "More featured themes"
 msgstr "Plus de thèmes vedettes"
 
 #: src/amo/components/LandingPage.js:76
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Parcourir tous les thèmes"
+msgstr "Thèmes les plus populaires"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "More popular themes"
-msgstr "Parcourir tous les thèmes"
+msgstr "Plus de thèmes populaires"
 
 #: src/amo/components/LandingPage.js:82
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Parcourir tous les thèmes"
+msgstr "Thèmes les mieux notés"
 
 #: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
@@ -269,20 +258,19 @@ msgstr "Modules Firefox"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Connectez-vous pour noter ce moteur de recherche"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Connectez-vous pour noter ce thème"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Informations sur cette extension"
+msgstr "Connectez-vous pour noter cette extension"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Connectez-vous pour noter ce module complémentaire"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -290,16 +278,15 @@ msgstr "Avez-vous apprécié votre usage de %(addonName)s ?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Connectez-vous pour noter ce dictionnaire"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Connectez-vous pour noter ce paquetage linguistique"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
-#, fuzzy
 msgid "Search"
-msgstr "Recherche…"
+msgstr "Rechercher"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
@@ -307,10 +294,9 @@ msgstr "Rechercher des extensions et des thèmes"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Aperçu du thème non disponible"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "Recherche…"
 
@@ -319,13 +305,12 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "Aucun résultat trouvé pour « %(query)s »."
 
 #: src/amo/components/SearchResults.js:50
-#, fuzzy
 msgid "No results were found."
-msgstr "Aucun résultat trouvé pour « %(query)s »."
+msgstr "Aucun résultat trouvé."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Veuillez saisir un terme de recherche pour rechercher parmi les modules Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
@@ -360,9 +345,8 @@ msgid "Browse all themes"
 msgstr "Parcourir tous les thèmes"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Modules pour Firefox"
+msgstr "Page d’accueil des modules"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -373,11 +357,12 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Les modules sont des fonctionnalités additionnelles pouvant être ajoutées à Firefox.\n"
+"Les thèmes permettent de modifier l’apparence de votre navigateur."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Métadonnées de l’extension"
+msgstr "Extensions"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
