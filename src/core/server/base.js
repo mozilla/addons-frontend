@@ -121,7 +121,7 @@ function hydrateOnClient({ res, props = {}, pageProps }) {
   const HTML =
     ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
   const componentDeclaredStatus = NestedStatus.rewind();
-  res.status(componentDeclaredStatus)
+  return res.status(componentDeclaredStatus)
     .send(`<!DOCTYPE html>\n${HTML}`)
     .end();
 }
