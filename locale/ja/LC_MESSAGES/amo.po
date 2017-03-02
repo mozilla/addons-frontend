@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-23 09:28+0000\n"
+"POT-Creation-Date: 2017-03-02 15:11+0000\n"
 "PO-Revision-Date: 2017-02-23 15:50+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,36 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:125
+#: src/amo/components/AddonDetail.js:110
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] " すべてのレビュー (%(count)s) を読む"
 
-#: src/amo/components/AddonDetail.js:138
+#: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
 msgstr "まだレビューはありません"
 
-#: src/amo/components/AddonDetail.js:147
+#: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
 msgstr "あなたの体験を評価"
 
-#: src/amo/components/AddonDetail.js:170
+#: src/amo/components/AddonDetail.js:156
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s(作者: %(authorList)s)%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:179
 msgid "Extension Metadata"
 msgstr "拡張機能メタデータ"
 
-#: src/amo/components/AddonDetail.js:207
+#: src/amo/components/AddonDetail.js:193
 msgid "About this %(addonType)s"
 msgstr "この %(addonType)s について"
 
-#: src/amo/components/AddonDetail.js:82
-msgid "Press to preview"
+#: src/amo/components/AddonDetail.js:74
+#, fuzzy
+msgid "Cancel preview"
 msgstr "レビューを書くにはクリック"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
+#: src/amo/components/AddonDetail.js:74
+#, fuzzy
+msgid "Tap to preview"
+msgstr "レビューを書くにはクリック"
+
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 人のユーザー"
@@ -65,35 +71,44 @@ msgstr[0] "%(total)s 件の評価"
 msgid "Used by"
 msgstr "使用者:"
 
-#: src/amo/components/AddonMoreInfo.js:25
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "詳しい情報"
 
-#: src/amo/components/AddonMoreInfo.js:27
-msgid "Website"
-msgstr "ウェブサイト"
+#: src/amo/components/AddonMoreInfo.js:42
+#, fuzzy
+msgid "Add-on Links"
+msgstr "アドオンアイコン"
 
-#: src/amo/components/AddonMoreInfo.js:36
+#: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
 msgstr "バージョン"
 
-#: src/amo/components/AddonMoreInfo.js:40
+#: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
 msgstr "最終更新日"
 
-#: src/amo/components/AddonMoreInfo.js:45
+#: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo.js:53
+#: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
 msgstr "ライセンス"
 
-#: src/amo/components/AddonMoreInfo.js:64
+#: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
 msgstr "プライバシーポリシー"
 
-#: src/amo/components/AddonMoreInfo.js:70
+#: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
 msgstr "このアドオンのプライバシーポリシーを読む"
 
@@ -121,23 +136,24 @@ msgstr "この拡張機能のどこが気に入っているか、具体的かつ
 msgid "Tell the world about this extension."
 msgstr "この拡張機能をレビューしてください。"
 
-#: src/amo/components/AddonReviewList.js:39
+#: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s / %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52
+#: src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/amo/components/AddonReviewList.js:63
+#: src/amo/components/AddonReviewList.js:62
 msgid "Add-on icon"
 msgstr "アドオンアイコン"
 
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s のレビュー"
 
-#: src/amo/components/AddonReviewList.js:71
+#: src/amo/components/AddonReviewList.js:70
 msgid "All written reviews"
 msgstr "すべてのレビュー"
 
@@ -153,11 +169,13 @@ msgstr "カテゴリーが見つかりませんでした。"
 msgid "Not Authorized"
 msgstr "権限がありません"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "ページが見つかりませんでした"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "サーバーエラー"
 
@@ -185,47 +203,47 @@ msgstr "デスクトップサイトを見る"
 msgid "Featured extensions"
 msgstr "おすすめ拡張機能"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:53
 msgid "More featured extensions"
 msgstr "すべてのおすすめ拡張機能"
 
-#: src/amo/components/LandingPage.js:55
+#: src/amo/components/LandingPage.js:54
 msgid "Most popular extensions"
 msgstr "最も人気の拡張機能"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:59
 msgid "More popular extensions"
 msgstr "すべての人気拡張機能"
 
-#: src/amo/components/LandingPage.js:61
+#: src/amo/components/LandingPage.js:60
 msgid "Top rated extensions"
 msgstr "最も評価の高い拡張機能"
 
-#: src/amo/components/LandingPage.js:66
+#: src/amo/components/LandingPage.js:68
 msgid "More highly rated extensions"
 msgstr "すべての高評価拡張機能"
 
-#: src/amo/components/LandingPage.js:69
+#: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
 msgstr "おすすめテーマ"
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
 msgstr "すべてのおすすめテーマ"
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:76
 msgid "Most popular themes"
 msgstr "最も人気のテーマ"
 
-#: src/amo/components/LandingPage.js:80
+#: src/amo/components/LandingPage.js:81
 msgid "More popular themes"
 msgstr "すべての人気テーマ"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:82
 msgid "Top rated themes"
 msgstr "最も評価の高いテーマ"
 
-#: src/amo/components/LandingPage.js:86
+#: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
 msgstr "すべての高評価テーマ"
 
@@ -237,31 +255,61 @@ msgstr "あなたの言語で表示"
 msgid "Firefox Add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/RatingManager/index.js:85
+#: src/amo/components/RatingManager/index.js:101
+msgid "Log in to rate this search engine"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:103
+msgid "Log in to rate this theme"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:105
+#, fuzzy
+msgid "Log in to rate this extension"
+msgstr "この拡張機能について"
+
+#: src/amo/components/RatingManager/index.js:111
+msgid "Log in to rate this add-on"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s での体験をどのように楽しんでいますか？"
 
-#: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
+#: src/amo/components/RatingManager/index.js:97
+msgid "Log in to rate this dictionary"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:99
+msgid "Log in to rate this language pack"
+msgstr ""
+
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
 msgstr "検索"
 
-#: src/amo/components/SearchForm.js:49
+#: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
 msgstr "拡張機能とテーマを検索"
 
-#: src/amo/components/SearchResults.js:35
-msgid "Searching..."
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr ""
+
+#: src/amo/components/SearchResults.js:40
+#, fuzzy
+msgid "Searching…"
 msgstr "検索中..."
 
-#: src/amo/components/SearchResults.js:39
+#: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
 msgstr "「%(query)s」の検索結果はありません。"
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:50
 msgid "No results were found."
 msgstr "検索結果はありません。"
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Firefox Add-ons を検索するには検索語を入力してください。"
 
@@ -377,15 +425,16 @@ msgstr "軽快"
 msgid "Solid"
 msgstr "単色"
 
-#: src/core/components/AuthenticateButton/index.js:35
-msgid "Log in/Sign up"
-msgstr "ログイン・登録"
-
-#: src/core/components/AuthenticateButton/index.js:35
+#: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
 msgstr "ログアウト"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/AuthenticateButton/index.js:50
+msgid "Log in/Sign up"
+msgstr "ログイン・登録"
+
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "エラーコード: %(status)s"
 
@@ -407,7 +456,8 @@ msgstr "%(name)s をインストールしています。"
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s はインストールされ有効化されました。削除するにはここをクリック。"
+msgstr ""
+"%(name)s はインストールされ有効化されました。削除するにはここをクリック。"
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -453,6 +503,11 @@ msgstr "OK!"
 msgid "An unexpected error occurred"
 msgstr "予期せぬエラーが発生しました"
 
+#: src/ui/components/LoadingIndicator/index.js:27
+#, fuzzy
+msgid "Loading…"
+msgstr "読み込み中..."
+
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
 msgstr "5 段階中 %(rating)s の評価"
@@ -465,11 +520,11 @@ msgstr "評価がありません"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 
+#~ msgid "Website"
+#~ msgstr "ウェブサイト"
+
 #~ msgid "Screenshots"
 #~ msgstr "スクリーンショット"
-
-#~ msgid "About this extension"
-#~ msgstr "この拡張機能について"
 
 #~ msgid "Category"
 #~ msgstr "カテゴリー"
@@ -506,7 +561,8 @@ msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] "「%(query)s」を検索したところ %(count)s 件の結果が見つかりました。"
+#~ msgstr[0] ""
+#~ "「%(query)s」を検索したところ %(count)s 件の結果が見つかりました。"
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "検索語を正しく入力してください"

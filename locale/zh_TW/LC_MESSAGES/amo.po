@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-23 09:28+0000\n"
+"POT-Creation-Date: 2017-03-02 15:11+0000\n"
 "PO-Revision-Date: 2017-02-23 14:18+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -14,36 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:125
+#: src/amo/components/AddonDetail.js:110
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "閱讀全部 %(count)s 條評論"
 
-#: src/amo/components/AddonDetail.js:138
+#: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
 msgstr "還沒有評論"
 
-#: src/amo/components/AddonDetail.js:147
+#: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
 msgstr "為您的體驗打分數"
 
-#: src/amo/components/AddonDetail.js:170
+#: src/amo/components/AddonDetail.js:156
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr " %(startSpan)s%(authorList)s 開發的%(endSpan)s %(addonName)s"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:179
 msgid "Extension Metadata"
 msgstr "擴充套件後設資料"
 
-#: src/amo/components/AddonDetail.js:207
+#: src/amo/components/AddonDetail.js:193
 msgid "About this %(addonType)s"
 msgstr "關於此%(addonType)s"
 
-#: src/amo/components/AddonDetail.js:82
-msgid "Press to preview"
+#: src/amo/components/AddonDetail.js:74
+#, fuzzy
+msgid "Cancel preview"
 msgstr "點擊預覽"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
+#: src/amo/components/AddonDetail.js:74
+#, fuzzy
+msgid "Tap to preview"
+msgstr "點擊預覽"
+
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 位使用者"
@@ -65,35 +71,44 @@ msgstr[0] "共 %(total)s 筆評分"
 msgid "Used by"
 msgstr "可用於"
 
-#: src/amo/components/AddonMoreInfo.js:25
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "更多資訊"
 
-#: src/amo/components/AddonMoreInfo.js:27
-msgid "Website"
-msgstr "網站"
+#: src/amo/components/AddonMoreInfo.js:42
+#, fuzzy
+msgid "Add-on Links"
+msgstr "附加元件圖示"
 
-#: src/amo/components/AddonMoreInfo.js:36
+#: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo.js:40
+#: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
 msgstr "最近更新"
 
-#: src/amo/components/AddonMoreInfo.js:45
+#: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo.js:53
+#: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
 msgstr "授權條款"
 
-#: src/amo/components/AddonMoreInfo.js:64
+#: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
 msgstr "隱私權保護政策"
 
-#: src/amo/components/AddonMoreInfo.js:70
+#: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
 msgstr "閱讀此附加元件的隱私權保護政策"
 
@@ -121,23 +136,24 @@ msgstr "告訴我們您喜愛這套擴充套件的那些地方，請保持簡單
 msgid "Tell the world about this extension."
 msgstr "讓這套擴充套件給其他人知道！"
 
-#: src/amo/components/AddonReviewList.js:39
+#: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(timestamp)s，來自 %(authorName)s"
 
-#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52
+#: src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "載入中…"
 
-#: src/amo/components/AddonReviewList.js:63
+#: src/amo/components/AddonReviewList.js:62
 msgid "Add-on icon"
 msgstr "附加元件圖示"
 
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s 的評論"
 
-#: src/amo/components/AddonReviewList.js:71
+#: src/amo/components/AddonReviewList.js:70
 msgid "All written reviews"
 msgstr "所有撰寫過的評論"
 
@@ -153,11 +169,13 @@ msgstr "找不到分類。"
 msgid "Not Authorized"
 msgstr "未授權"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "找不到頁面"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "伺服器錯誤"
 
@@ -185,47 +203,47 @@ msgstr "檢視桌面版網站"
 msgid "Featured extensions"
 msgstr "精選擴充套件"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:53
 msgid "More featured extensions"
 msgstr "更多精選擴充套件"
 
-#: src/amo/components/LandingPage.js:55
+#: src/amo/components/LandingPage.js:54
 msgid "Most popular extensions"
 msgstr "最熱門的擴充套件"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:59
 msgid "More popular extensions"
 msgstr "更多知名擴充套件"
 
-#: src/amo/components/LandingPage.js:61
+#: src/amo/components/LandingPage.js:60
 msgid "Top rated extensions"
 msgstr "分數最高的擴充套件"
 
-#: src/amo/components/LandingPage.js:66
+#: src/amo/components/LandingPage.js:68
 msgid "More highly rated extensions"
 msgstr "更多高分的擴充套件"
 
-#: src/amo/components/LandingPage.js:69
+#: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
 msgstr "精選佈景主題"
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
 msgstr "更多精選佈景主題"
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:76
 msgid "Most popular themes"
 msgstr "最熱門的佈景主題"
 
-#: src/amo/components/LandingPage.js:80
+#: src/amo/components/LandingPage.js:81
 msgid "More popular themes"
 msgstr "更多熱門佈景主題"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:82
 msgid "Top rated themes"
 msgstr "分數最高的佈景主題"
 
-#: src/amo/components/LandingPage.js:86
+#: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
 msgstr "更多高分的佈景主題"
 
@@ -237,31 +255,61 @@ msgstr "用您的語言瀏覽"
 msgid "Firefox Add-ons"
 msgstr "Firefox 附加元件"
 
-#: src/amo/components/RatingManager/index.js:85
+#: src/amo/components/RatingManager/index.js:101
+msgid "Log in to rate this search engine"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:103
+msgid "Log in to rate this theme"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:105
+#, fuzzy
+msgid "Log in to rate this extension"
+msgstr "關於此擴充套件"
+
+#: src/amo/components/RatingManager/index.js:111
+msgid "Log in to rate this add-on"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "您有多喜歡 %(addonName)s 的使用體驗？"
 
-#: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
+#: src/amo/components/RatingManager/index.js:97
+msgid "Log in to rate this dictionary"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:99
+msgid "Log in to rate this language pack"
+msgstr ""
+
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
 msgstr "搜尋"
 
-#: src/amo/components/SearchForm.js:49
+#: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
 msgstr "搜尋擴充套件與佈景主題"
 
-#: src/amo/components/SearchResults.js:35
-msgid "Searching..."
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr ""
+
+#: src/amo/components/SearchResults.js:40
+#, fuzzy
+msgid "Searching…"
 msgstr "搜尋中…"
 
-#: src/amo/components/SearchResults.js:39
+#: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
 msgstr "沒有找到「%(query)s」的相關結果。"
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:50
 msgid "No results were found."
 msgstr "沒有找到結果。"
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "請輸入詞彙，搜尋 Firefox 附加元件。"
 
@@ -377,15 +425,16 @@ msgstr "運動風"
 msgid "Solid"
 msgstr "純色"
 
-#: src/core/components/AuthenticateButton/index.js:35
-msgid "Log in/Sign up"
-msgstr "登入/註冊"
-
-#: src/core/components/AuthenticateButton/index.js:35
+#: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
 msgstr "登出"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/AuthenticateButton/index.js:50
+msgid "Log in/Sign up"
+msgstr "登入/註冊"
+
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "錯誤代碼: %(status)s。"
 
@@ -453,6 +502,11 @@ msgstr "好喔！"
 msgid "An unexpected error occurred"
 msgstr "發生未預期的錯誤"
 
+#: src/ui/components/LoadingIndicator/index.js:27
+#, fuzzy
+msgid "Loading…"
+msgstr "載入中…"
+
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
 msgstr "評價 %(rating)s 分，滿分 5 分"
@@ -465,11 +519,11 @@ msgstr "無評價"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">展開後</span> 閱讀更多"
 
+#~ msgid "Website"
+#~ msgstr "網站"
+
 #~ msgid "Screenshots"
 #~ msgstr "畫面擷圖"
-
-#~ msgid "About this extension"
-#~ msgstr "關於此擴充套件"
 
 #~ msgid "Category"
 #~ msgstr "分類"

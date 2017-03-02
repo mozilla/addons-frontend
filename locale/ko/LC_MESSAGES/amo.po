@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-23 09:28+0000\n"
+"POT-Creation-Date: 2017-03-02 15:11+0000\n"
 "PO-Revision-Date: 2016-12-26 01:48+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,37 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:125
+#: src/amo/components/AddonDetail.js:110
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 
-#: src/amo/components/AddonDetail.js:138
+#: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:147
+#: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
 msgstr "경험 평가하기"
 
-#: src/amo/components/AddonDetail.js:170
+#: src/amo/components/AddonDetail.js:156
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(startSpan)s%(authorList)s에 의해 제작된%(endSpan)s %(addonName)s"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:179
 msgid "Extension Metadata"
 msgstr "확장 메타 데이터"
 
-#: src/amo/components/AddonDetail.js:207
+#: src/amo/components/AddonDetail.js:193
 msgid "About this %(addonType)s"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:82
+#: src/amo/components/AddonDetail.js:74
 #, fuzzy
-msgid "Press to preview"
+msgid "Cancel preview"
 msgstr "리뷰 작성"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
+#: src/amo/components/AddonDetail.js:74
+#, fuzzy
+msgid "Tap to preview"
+msgstr "리뷰 작성"
+
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
@@ -69,36 +74,45 @@ msgstr[0] "평가 없음"
 msgid "Used by"
 msgstr "사용됨"
 
-#: src/amo/components/AddonMoreInfo.js:25
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo.js:27
-msgid "Website"
-msgstr ""
+#: src/amo/components/AddonMoreInfo.js:42
+#, fuzzy
+msgid "Add-on Links"
+msgstr "Firefox 부가 기능"
 
-#: src/amo/components/AddonMoreInfo.js:36
+#: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo.js:40
+#: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo.js:45
+#: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo.js:53
+#: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo.js:64
+#: src/amo/components/AddonMoreInfo.js:81
 #, fuzzy
 msgid "Privacy Policy"
 msgstr "개인정보 보호정책"
 
-#: src/amo/components/AddonMoreInfo.js:70
+#: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
 msgstr ""
 
@@ -128,26 +142,26 @@ msgstr ""
 msgid "Tell the world about this extension."
 msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알려주세요!"
 
-#: src/amo/components/AddonReviewList.js:39
+#: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:53
+#: src/amo/components/AddonReviewList.js:52
 #: src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "검색중..."
 
-#: src/amo/components/AddonReviewList.js:63
+#: src/amo/components/AddonReviewList.js:62
 #, fuzzy
 msgid "Add-on icon"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:71
+#: src/amo/components/AddonReviewList.js:70
 #, fuzzy
 msgid "All written reviews"
 msgstr "리뷰 작성"
@@ -200,55 +214,55 @@ msgstr "데스크톱 사이트 보기"
 msgid "Featured extensions"
 msgstr "모든 확장 기능 탐색하기"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:53
 #, fuzzy
 msgid "More featured extensions"
 msgstr "모든 확장 기능 탐색하기"
 
-#: src/amo/components/LandingPage.js:55
+#: src/amo/components/LandingPage.js:54
 #, fuzzy
 msgid "Most popular extensions"
 msgstr "모든 확장 기능 탐색하기"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:59
 #, fuzzy
 msgid "More popular extensions"
 msgstr "모든 확장 기능 탐색하기"
 
-#: src/amo/components/LandingPage.js:61
+#: src/amo/components/LandingPage.js:60
 #, fuzzy
 msgid "Top rated extensions"
 msgstr "모든 확장 기능 탐색하기"
 
-#: src/amo/components/LandingPage.js:66
+#: src/amo/components/LandingPage.js:68
 #, fuzzy
 msgid "More highly rated extensions"
 msgstr "모든 확장 기능 탐색하기"
 
-#: src/amo/components/LandingPage.js:69
+#: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:76
 #, fuzzy
 msgid "Most popular themes"
 msgstr "모든 테마 탐색하기"
 
-#: src/amo/components/LandingPage.js:80
+#: src/amo/components/LandingPage.js:81
 #, fuzzy
 msgid "More popular themes"
 msgstr "모든 테마 탐색하기"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:82
 #, fuzzy
 msgid "Top rated themes"
 msgstr "모든 테마 탐색하기"
 
-#: src/amo/components/LandingPage.js:86
+#: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
 msgstr ""
 
@@ -260,33 +274,63 @@ msgstr "내 언어로 검색"
 msgid "Firefox Add-ons"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/RatingManager/index.js:85
+#: src/amo/components/RatingManager/index.js:101
+msgid "Log in to rate this search engine"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:103
+msgid "Log in to rate this theme"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:105
+#, fuzzy
+msgid "Log in to rate this extension"
+msgstr "이 확장 기능에 대해"
+
+#: src/amo/components/RatingManager/index.js:111
+msgid "Log in to rate this add-on"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s 부가 기능을 어떻게 사용하셨나요?"
 
-#: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
+#: src/amo/components/RatingManager/index.js:97
+msgid "Log in to rate this dictionary"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:99
+msgid "Log in to rate this language pack"
+msgstr ""
+
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 #, fuzzy
 msgid "Search"
 msgstr "검색중..."
 
-#: src/amo/components/SearchForm.js:49
+#: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
 msgstr ""
 
-#: src/amo/components/SearchResults.js:35
-msgid "Searching..."
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr ""
+
+#: src/amo/components/SearchResults.js:40
+#, fuzzy
+msgid "Searching…"
 msgstr "검색중..."
 
-#: src/amo/components/SearchResults.js:39
+#: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:50
 #, fuzzy
 msgid "No results were found."
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 
@@ -402,13 +446,13 @@ msgstr "활발한"
 msgid "Solid"
 msgstr ""
 
-#: src/core/components/AuthenticateButton/index.js:35
-msgid "Log in/Sign up"
-msgstr "로그인/가입하기"
-
-#: src/core/components/AuthenticateButton/index.js:35
+#: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
 msgstr "로그아웃"
+
+#: src/core/components/AuthenticateButton/index.js:50
+msgid "Log in/Sign up"
+msgstr "로그인/가입하기"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34
 #: src/core/components/ErrorPage/NotFound/index.js:32
@@ -481,6 +525,11 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr ""
 
+#: src/ui/components/LoadingIndicator/index.js:27
+#, fuzzy
+msgid "Loading…"
+msgstr "검색중..."
+
 #: src/ui/components/Rating/index.js:83
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
@@ -496,9 +545,6 @@ msgstr ""
 
 #~ msgid "Screenshots"
 #~ msgstr "스크린샷"
-
-#~ msgid "About this extension"
-#~ msgstr "이 확장 기능에 대해"
 
 #~ msgid "Category"
 #~ msgstr "카테고리"

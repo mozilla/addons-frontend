@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-23 09:28+0000\n"
+"POT-Creation-Date: 2017-03-02 15:11+0000\n"
 "PO-Revision-Date: 2017-03-02 06:41+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,37 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:125
+#: src/amo/components/AddonDetail.js:110
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 
-#: src/amo/components/AddonDetail.js:138
+#: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:147
+#: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
 msgstr "ให้คะแนนประสบการณ์ของคุณ"
 
-#: src/amo/components/AddonDetail.js:170
+#: src/amo/components/AddonDetail.js:156
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:179
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/components/AddonDetail.js:207
+#: src/amo/components/AddonDetail.js:193
 msgid "About this %(addonType)s"
 msgstr "เกี่ยวกับ %(addonType)s นี้"
 
-#: src/amo/components/AddonDetail.js:82
+#: src/amo/components/AddonDetail.js:74
 #, fuzzy
-msgid "Press to preview"
+msgid "Cancel preview"
 msgstr "เขียนบทวิจารณ์"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
+#: src/amo/components/AddonDetail.js:74
+#, fuzzy
+msgid "Tap to preview"
+msgstr "เขียนบทวิจารณ์"
+
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ผู้ใช้"
@@ -67,35 +72,44 @@ msgstr[0] "ไม่มีการจัดอันดับ"
 msgid "Used by"
 msgstr "ใช้โดย"
 
-#: src/amo/components/AddonMoreInfo.js:25
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "ข้อมูลเพิ่มเติม"
 
-#: src/amo/components/AddonMoreInfo.js:27
-msgid "Website"
-msgstr "เว็บไซต์"
+#: src/amo/components/AddonMoreInfo.js:42
+#, fuzzy
+msgid "Add-on Links"
+msgstr "ส่วนเสริมสำหรับ Firefox"
 
-#: src/amo/components/AddonMoreInfo.js:36
+#: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
 msgstr "รุ่น"
 
-#: src/amo/components/AddonMoreInfo.js:40
+#: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
 msgstr "อัปเดตล่าสุด"
 
-#: src/amo/components/AddonMoreInfo.js:45
+#: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo.js:53
+#: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo.js:64
+#: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
 msgstr "นโยบายความเป็นส่วนตัว"
 
-#: src/amo/components/AddonMoreInfo.js:70
+#: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
 msgstr ""
 
@@ -125,24 +139,25 @@ msgstr ""
 msgid "Tell the world about this extension."
 msgstr "บอกให้โลกรู้ว่าทำไมคุณจึงคิดว่าส่วนขยายนี้ยอดเยี่ยม!"
 
-#: src/amo/components/AddonReviewList.js:39
+#: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52
+#: src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/amo/components/AddonReviewList.js:63
+#: src/amo/components/AddonReviewList.js:62
 #, fuzzy
 msgid "Add-on icon"
 msgstr "ส่วนเสริมสำหรับ Firefox"
 
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:71
+#: src/amo/components/AddonReviewList.js:70
 #, fuzzy
 msgid "All written reviews"
 msgstr "เขียนบทวิจารณ์"
@@ -159,11 +174,13 @@ msgstr "ไม่พบหมวดหมู่"
 msgid "Not Authorized"
 msgstr "ไม่ได้รับอนุญาต"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "ไม่พบหน้า"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "ข้อผิดพลาดเซิร์ฟเวอร์"
 
@@ -193,55 +210,55 @@ msgstr "ดูไซต์สำหรับเดสก์ท็อป"
 msgid "Featured extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:53
 #, fuzzy
 msgid "More featured extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/LandingPage.js:55
+#: src/amo/components/LandingPage.js:54
 #, fuzzy
 msgid "Most popular extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:59
 #, fuzzy
 msgid "More popular extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/LandingPage.js:61
+#: src/amo/components/LandingPage.js:60
 #, fuzzy
 msgid "Top rated extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/LandingPage.js:66
+#: src/amo/components/LandingPage.js:68
 #, fuzzy
 msgid "More highly rated extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/LandingPage.js:69
+#: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:76
 #, fuzzy
 msgid "Most popular themes"
 msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 
-#: src/amo/components/LandingPage.js:80
+#: src/amo/components/LandingPage.js:81
 #, fuzzy
 msgid "More popular themes"
 msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:82
 #, fuzzy
 msgid "Top rated themes"
 msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 
-#: src/amo/components/LandingPage.js:86
+#: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
 msgstr ""
 
@@ -253,31 +270,61 @@ msgstr "เรียกดูในภาษาของคุณ"
 msgid "Firefox Add-ons"
 msgstr "ส่วนเสริม Firefox"
 
-#: src/amo/components/RatingManager/index.js:85
+#: src/amo/components/RatingManager/index.js:101
+msgid "Log in to rate this search engine"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:103
+msgid "Log in to rate this theme"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:105
+#, fuzzy
+msgid "Log in to rate this extension"
+msgstr "เกี่ยวกับส่วนขยายนี้"
+
+#: src/amo/components/RatingManager/index.js:111
+msgid "Log in to rate this add-on"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "คุณเพลิดเพลินกับประสบการณ์ของคุณกับ %(addonName)s แค่ไหน?"
 
-#: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
+#: src/amo/components/RatingManager/index.js:97
+msgid "Log in to rate this dictionary"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:99
+msgid "Log in to rate this language pack"
+msgstr ""
+
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
 msgstr "ค้นหา"
 
-#: src/amo/components/SearchForm.js:49
+#: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
 msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/SearchResults.js:35
-msgid "Searching..."
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr ""
+
+#: src/amo/components/SearchResults.js:40
+#, fuzzy
+msgid "Searching…"
 msgstr "กำลังค้นหา..."
 
-#: src/amo/components/SearchResults.js:39
+#: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
 msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:50
 msgid "No results were found."
 msgstr "ไม่พบผลลัพธ์"
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 
@@ -392,15 +439,16 @@ msgstr "กระฉับกระเฉง"
 msgid "Solid"
 msgstr ""
 
-#: src/core/components/AuthenticateButton/index.js:35
-msgid "Log in/Sign up"
-msgstr "เข้าสู่ระบบ/ลงทะเบียน"
-
-#: src/core/components/AuthenticateButton/index.js:35
+#: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
 msgstr "ออกจากระบบ"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/AuthenticateButton/index.js:50
+msgid "Log in/Sign up"
+msgstr "เข้าสู่ระบบ/ลงทะเบียน"
+
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "รหัสข้อผิดพลาด: %(status)s"
 
@@ -468,6 +516,11 @@ msgstr "ตกลง!"
 msgid "An unexpected error occurred"
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
+#: src/ui/components/LoadingIndicator/index.js:27
+#, fuzzy
+msgid "Loading…"
+msgstr "กำลังโหลด..."
+
 #: src/ui/components/Rating/index.js:83
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
@@ -481,11 +534,11 @@ msgstr "ไม่มีการจัดอันดับ"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ่านเพิ่มเติม"
 
+#~ msgid "Website"
+#~ msgstr "เว็บไซต์"
+
 #~ msgid "Screenshots"
 #~ msgstr "ภาพหน้าจอ"
-
-#~ msgid "About this extension"
-#~ msgstr "เกี่ยวกับส่วนขยายนี้"
 
 #~ msgid "Category"
 #~ msgstr "หมวดหมู่"

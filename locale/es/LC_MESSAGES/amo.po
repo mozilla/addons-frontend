@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-23 09:28+0000\n"
+"POT-Creation-Date: 2017-03-02 15:11+0000\n"
 "PO-Revision-Date: 2017-03-01 22:24+0000\n"
 "Last-Translator: jlG <jlg.l10n.es@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,37 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:125
+#: src/amo/components/AddonDetail.js:110
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Leer %(count)s revisiones"
 msgstr[1] "Leer las %(count)s revisiones"
 
-#: src/amo/components/AddonDetail.js:138
+#: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
 msgstr "Aún no hay revisiones"
 
-#: src/amo/components/AddonDetail.js:147
+#: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
 msgstr "Califica tu experiencia"
 
-#: src/amo/components/AddonDetail.js:170
+#: src/amo/components/AddonDetail.js:156
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s%(startSpan)s por %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:179
 msgid "Extension Metadata"
 msgstr "Metadata de la extensión"
 
-#: src/amo/components/AddonDetail.js:207
+#: src/amo/components/AddonDetail.js:193
 msgid "About this %(addonType)s"
 msgstr "Sobre este %(addonType)s"
 
-#: src/amo/components/AddonDetail.js:82
-msgid "Press to preview"
+#: src/amo/components/AddonDetail.js:74
+#, fuzzy
+msgid "Cancel preview"
 msgstr "Presiona para ver la vista previa"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
+#: src/amo/components/AddonDetail.js:74
+#, fuzzy
+msgid "Tap to preview"
+msgstr "Presiona para ver la vista previa"
+
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s usuario"
@@ -68,35 +74,44 @@ msgstr[1] "%(total)s valoraciones"
 msgid "Used by"
 msgstr "Utilizado por"
 
-#: src/amo/components/AddonMoreInfo.js:25
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr ""
+
+#: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Más información"
 
-#: src/amo/components/AddonMoreInfo.js:27
-msgid "Website"
-msgstr "Sitio web"
+#: src/amo/components/AddonMoreInfo.js:42
+#, fuzzy
+msgid "Add-on Links"
+msgstr "Icono del complemento"
 
-#: src/amo/components/AddonMoreInfo.js:36
+#: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
 msgstr "Versión"
 
-#: src/amo/components/AddonMoreInfo.js:40
+#: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
 msgstr "Última actualización"
 
-#: src/amo/components/AddonMoreInfo.js:45
+#: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo.js:53
+#: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
 msgstr "Licencia"
 
-#: src/amo/components/AddonMoreInfo.js:64
+#: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
 msgstr "Política de privacidad"
 
-#: src/amo/components/AddonMoreInfo.js:70
+#: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
 msgstr "Leer la política de privacidad de este complemento"
 
@@ -124,23 +139,24 @@ msgstr "Dinos qué te gusta de esta extensión. Sé específico y preciso."
 msgid "Tell the world about this extension."
 msgstr "Háblale a todo el mundo de esta extensión."
 
-#: src/amo/components/AddonReviewList.js:39
+#: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "de %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52
+#: src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Cargando..."
 
-#: src/amo/components/AddonReviewList.js:63
+#: src/amo/components/AddonReviewList.js:62
 msgid "Add-on icon"
 msgstr "Icono del complemento"
 
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
 msgstr "Revisiones de %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:71
+#: src/amo/components/AddonReviewList.js:70
 msgid "All written reviews"
 msgstr "Todos los comentarios enviados"
 
@@ -156,11 +172,13 @@ msgstr "No se encontró ninguna categoría."
 msgid "Not Authorized"
 msgstr "No autorizado"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "No se encontró la página"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Error del servidor"
 
@@ -188,47 +206,47 @@ msgstr "Ver en página de escritorio"
 msgid "Featured extensions"
 msgstr "Extensiones promocionadas"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:53
 msgid "More featured extensions"
 msgstr "Más extensiones promocionadas"
 
-#: src/amo/components/LandingPage.js:55
+#: src/amo/components/LandingPage.js:54
 msgid "Most popular extensions"
 msgstr "Extensiones más populares"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:59
 msgid "More popular extensions"
 msgstr "Extensiones más populares"
 
-#: src/amo/components/LandingPage.js:61
+#: src/amo/components/LandingPage.js:60
 msgid "Top rated extensions"
 msgstr "Extensiones más aloradas"
 
-#: src/amo/components/LandingPage.js:66
+#: src/amo/components/LandingPage.js:68
 msgid "More highly rated extensions"
 msgstr "Extensiones mejor valoradas"
 
-#: src/amo/components/LandingPage.js:69
+#: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
 msgstr "Temas promocionados"
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
 msgstr "Más temas promocionados"
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:76
 msgid "Most popular themes"
 msgstr "Temas más populares"
 
-#: src/amo/components/LandingPage.js:80
+#: src/amo/components/LandingPage.js:81
 msgid "More popular themes"
 msgstr "Temas más populares"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:82
 msgid "Top rated themes"
 msgstr "Temas más valorados"
 
-#: src/amo/components/LandingPage.js:86
+#: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
 msgstr "Temas mejor valorados"
 
@@ -240,31 +258,61 @@ msgstr "Navega en tu idioma"
 msgid "Firefox Add-ons"
 msgstr "Complementos de Firefox"
 
-#: src/amo/components/RatingManager/index.js:85
+#: src/amo/components/RatingManager/index.js:101
+msgid "Log in to rate this search engine"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:103
+msgid "Log in to rate this theme"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:105
+#, fuzzy
+msgid "Log in to rate this extension"
+msgstr "Sobre esta extensión"
+
+#: src/amo/components/RatingManager/index.js:111
+msgid "Log in to rate this add-on"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "¿Cuál es tu experiencia con %(addonName)s?"
 
-#: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
+#: src/amo/components/RatingManager/index.js:97
+msgid "Log in to rate this dictionary"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:99
+msgid "Log in to rate this language pack"
+msgstr ""
+
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
 msgstr "Buscar"
 
-#: src/amo/components/SearchForm.js:49
+#: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
 msgstr "Buscar extensiones y temas"
 
-#: src/amo/components/SearchResults.js:35
-msgid "Searching..."
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr ""
+
+#: src/amo/components/SearchResults.js:40
+#, fuzzy
+msgid "Searching…"
 msgstr "Buscando..."
 
-#: src/amo/components/SearchResults.js:39
+#: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
 msgstr "No se encontraron resultados para \"%(query)s\"."
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:50
 msgid "No results were found."
 msgstr "No se encontró ningún resultado."
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Introduce un término de búsqueda para buscar complementos de Firefox."
 
@@ -380,15 +428,16 @@ msgstr "Deportivo"
 msgid "Solid"
 msgstr "Sólido"
 
-#: src/core/components/AuthenticateButton/index.js:35
-msgid "Log in/Sign up"
-msgstr "Iniciar sesión / Registrarse"
-
-#: src/core/components/AuthenticateButton/index.js:35
+#: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/AuthenticateButton/index.js:50
+msgid "Log in/Sign up"
+msgstr "Iniciar sesión / Registrarse"
+
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Código de error: %(status)s."
 
@@ -456,6 +505,11 @@ msgstr "¡Vale!"
 msgid "An unexpected error occurred"
 msgstr "Se ha producido un error inesperado"
 
+#: src/ui/components/LoadingIndicator/index.js:27
+#, fuzzy
+msgid "Loading…"
+msgstr "Cargando..."
+
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
 msgstr "Valoración %(rating)s de 5"
@@ -468,11 +522,11 @@ msgstr "Sin valoraciones"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Expandir a </span> Leer más"
 
+#~ msgid "Website"
+#~ msgstr "Sitio web"
+
 #~ msgid "Screenshots"
 #~ msgstr "Capturas de pantalla"
-
-#~ msgid "About this extension"
-#~ msgstr "Sobre esta extensión"
 
 #~ msgid "Category"
 #~ msgstr "Categoría"
