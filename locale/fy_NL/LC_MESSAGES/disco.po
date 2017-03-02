@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-01 18:02+0000\n"
-"PO-Revision-Date: 2017-01-25 11:37+0000\n"
+"PO-Revision-Date: 2017-03-02 11:16+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fy_NL\n"
@@ -16,16 +16,15 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Serverflater"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Flaterkoade: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Side net fûn"
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
@@ -45,8 +44,7 @@ msgstr "%(name)s wurdt ynstallearre."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s is ynstallearre en ynskeakele. Klik om de add-on fuort te smiten."
+msgstr "%(name)s is ynstallearre en ynskeakele. Klik om de add-on fuort te smiten."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -78,9 +76,7 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Hâld de mûsoanwizer hjir foar in foarbyld of klik om %(name)s te "
-"ynstallearjen"
+msgstr "Hâld de mûsoanwizer hjir foar in foarbyld of klik om %(name)s te ynstallearjen"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -145,20 +141,13 @@ msgstr "Personalisearje jo Firefox"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Der binne tûzenen fergese add-ons, makke troch ûntwikkelers fan oer de hiele "
-"wrâld,\n"
-"dy jo ynstallearje kinne om jo Firefox te personalisearjen. Fariearjend fan "
-"aardige fisuele tema’s\n"
-"oant krêftige helpmiddelen dy't it browsen flugger en feiliger meitsje, "
-"meitsje add-ons jo browser fan jo.\n"
-"Om jo op gong te helpen, binne hjir in pear add-ons dy't wy "
-"oanrekkomandearre fanwege harren bjusterbaarlike prestaasjes\n"
+"Der binne tûzenen fergese add-ons, makke troch ûntwikkelers fan oer de hiele wrâld,\n"
+"dy jo ynstallearje kinne om jo Firefox te personalisearjen. Fariearjend fan aardige fisuele tema’s\n"
+"oant krêftige helpmiddelen dy't it browsen flugger en feiliger meitsje, meitsje add-ons jo browser fan jo.\n"
+"Om jo op gong te helpen, binne hjir in pear add-ons dy't wy oanrekkomandearre fanwege harren bjusterbaarlike prestaasjes\n"
 "en funksjonaliteit."
