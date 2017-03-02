@@ -118,10 +118,12 @@ function logRequests(req, res, next) {
 }
 
 function hydrateOnClient({ res, props = {}, pageProps }) {
-  const HTML = ReactDOM.renderToString(
-    <ServerHtml {...pageProps} {...props} />);
-  const httpStatus = NestedStatus.rewind();
-  res.status(httpStatus).send(`<!DOCTYPE html>\n${HTML}`);
+  const HTML =
+    ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+  const componentDeclaredStatus = NestedStatus.rewind();
+  res.status(componentDeclaredStatus)
+    .send(`<!DOCTYPE html>\n${HTML}`)
+    .end();
 }
 
 function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
