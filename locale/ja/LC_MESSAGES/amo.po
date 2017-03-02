@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-23 15:50+0000\n"
+"PO-Revision-Date: 2017-03-02 16:36+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -40,14 +40,12 @@ msgid "About this %(addonType)s"
 msgstr "この %(addonType)s について"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "レビューを書くにはクリック"
+msgstr "プレビューをキャンセル"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "レビューを書くにはクリック"
+msgstr "タップしてプレビュー"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -73,20 +71,19 @@ msgstr "使用者:"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "ホームページ"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "サポートサイト"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "詳しい情報"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "アドオンアイコン"
+msgstr "アドオンリンク"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -140,8 +137,7 @@ msgstr "この拡張機能をレビューしてください。"
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s / %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -169,13 +165,11 @@ msgstr "カテゴリーが見つかりませんでした。"
 msgid "Not Authorized"
 msgstr "権限がありません"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "ページが見つかりませんでした"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "サーバーエラー"
 
@@ -257,20 +251,19 @@ msgstr "Firefox Add-ons"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "ログインしてこの検索エンジンを評価"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "ログインしてこのテーマを評価"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "この拡張機能について"
+msgstr "ログインしてこの拡張機能を評価"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "ログインしてこのアドオンを評価"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -278,11 +271,11 @@ msgstr "%(addonName)s での体験をどのように楽しんでいますか？"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "ログインしてこの辞書を評価"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "ログインしてこの言語パックを評価"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -294,10 +287,9 @@ msgstr "拡張機能とテーマを検索"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "テーマのプレビューがありません"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "検索中..."
 
@@ -433,8 +425,7 @@ msgstr "ログアウト"
 msgid "Log in/Sign up"
 msgstr "ログイン・登録"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "エラーコード: %(status)s"
 
@@ -456,8 +447,7 @@ msgstr "%(name)s をインストールしています。"
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s はインストールされ有効化されました。削除するにはここをクリック。"
+msgstr "%(name)s はインストールされ有効化されました。削除するにはここをクリック。"
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -504,7 +494,6 @@ msgid "An unexpected error occurred"
 msgstr "予期せぬエラーが発生しました"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
 msgstr "読み込み中..."
 
@@ -561,8 +550,7 @@ msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "「%(query)s」を検索したところ %(count)s 件の結果が見つかりました。"
+#~ msgstr[0] "「%(query)s」を検索したところ %(count)s 件の結果が見つかりました。"
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "検索語を正しく入力してください"
