@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-25 12:53+0000\n"
-"Last-Translator: Kim Ludvigsen <ludvigs@kimludvigsen.dk>\n"
+"PO-Revision-Date: 2017-03-02 18:10+0000\n"
+"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -41,14 +41,12 @@ msgid "About this %(addonType)s"
 msgstr "Om denne %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Klik for at få vist eksempel"
+msgstr "Annuller forhåndsvisning"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Klik for at få vist eksempel"
+msgstr "Tryk for at få vist eksempel"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -76,20 +74,19 @@ msgstr "Brugt af"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Hjemmeside"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Supportwebsted"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Mere information"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Tilføjelses-ikon"
+msgstr "Tilføjelses-links"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -133,8 +130,7 @@ msgstr "Fortæl verden, hvorfor du synes denne udvidelse er fantastisk!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Fortæl os, hvad du kan lide ved denne udvidelse. Vær konkret og kortfattet."
+msgstr "Fortæl os, hvad du kan lide ved denne udvidelse. Vær konkret og kortfattet."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -144,8 +140,7 @@ msgstr "Fortæl andre om denne udvidelse."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "fra %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Indlæser..."
 
@@ -173,13 +168,11 @@ msgstr "Ingen kategorier fundet."
 msgid "Not Authorized"
 msgstr "Ikke godkendt"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Siden blev ikke fundet"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serverfejl"
 
@@ -261,20 +254,19 @@ msgstr "Tilføjelser til Firefox"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Log ind for at bedømme denne søgetjeneste"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Log ind for at bedømme dette tema"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Om denne udvidelse"
+msgstr "Log ind for at bedømme denne udvidelse"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Log ind for at bedømme denne tilføjelse"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -282,11 +274,11 @@ msgstr "Hvordan er din oplevelse med %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Log ind for at bedømme denne ordbog"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Log ind for at bedømme denne sprogpakke"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -298,12 +290,11 @@ msgstr "Søg efter udvidelser og temaer"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Det er ikke muligt, at forhåndsvise tema"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
-msgstr "Søger..."
+msgstr "Søger…"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
@@ -437,8 +428,7 @@ msgstr "Log ud"
 msgid "Log in/Sign up"
 msgstr "Log ind/registrer dig"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Fejlkode: %(status)s."
 
@@ -507,9 +497,8 @@ msgid "An unexpected error occurred"
 msgstr "Der opstod en uventet fejl"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "Indlæser..."
+msgstr "Indlæser…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
@@ -565,8 +554,7 @@ msgstr "<span class=\"visually-hidden\">Udvid</span> for at læse mere"
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
 #~ msgstr[0] "Din søgning efter \"%(query)s\" returnerede %(count)s resultat."
-#~ msgstr[1] ""
-#~ "Din søgning efter \"%(query)s\" returnerede %(count)s resultater."
+#~ msgstr[1] "Din søgning efter \"%(query)s\" returnerede %(count)s resultater."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Angiv en gyldig søgning"
