@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 21:35+0000\n"
+"PO-Revision-Date: 2017-03-02 10:43+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -41,32 +41,28 @@ msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/AddonDetail.js:82
-#, fuzzy
 msgid "Press to preview"
-msgstr "Писане на отзив"
+msgstr "Натиснете за преглед"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s потребител"
-msgstr[1] "%(users)s потребителя"
+msgstr[0] "%(total)s потребител"
+msgstr[1] "%(total)s потребителя"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "Средна оценка: %(rating)s от 5"
+msgstr "%(averageRating)s от 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
 msgstr ""
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "Без оценка"
-msgstr[1] "Без оценка"
+msgstr[0] "%(total)s оценка"
+msgstr[1] "%(total)s оценки"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
@@ -113,7 +109,6 @@ msgid "Review text"
 msgstr ""
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
 msgstr "Писане на отзив"
 
@@ -126,9 +121,8 @@ msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "Разкажете на света защо смятате, че това разширение е чудесно!"
+msgstr "Разкажете на света за това разширение."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
@@ -139,18 +133,16 @@ msgid "Loading..."
 msgstr "Зареждане…"
 
 #: src/amo/components/AddonReviewList.js:63
-#, fuzzy
 msgid "Add-on icon"
-msgstr "Добавки за Firefox"
+msgstr "Пиктограма на добавката"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewList.js:71
-#, fuzzy
 msgid "All written reviews"
-msgstr "Писане на отзив"
+msgstr "Всички отзиви"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
@@ -173,9 +165,8 @@ msgid "Server Error"
 msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Преглед на всички разширения"
+msgstr "Повече препоръчани добавки"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
@@ -194,34 +185,28 @@ msgid "View desktop site"
 msgstr "Настолна версия"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Преглед на всички разширения"
+msgstr "Препоръчани добавки"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Преглед на всички разширения"
+msgstr "Повече препоръчани разширения"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Преглед на всички разширения"
+msgstr "Най-известни разширения"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Преглед на всички разширения"
+msgstr "Повече от известните разширения"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Преглед на всички разширения"
+msgstr "Най-високо оценени разширения"
 
 #: src/amo/components/LandingPage.js:66
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Преглед на всички разширения"
+msgstr "Повече от високо оценените разширения"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
@@ -232,19 +217,16 @@ msgid "More featured themes"
 msgstr ""
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Преглед на всички теми"
+msgstr "Най-популярни теми"
 
 #: src/amo/components/LandingPage.js:80
-#, fuzzy
 msgid "More popular themes"
-msgstr "Преглед на всички теми"
+msgstr "Повече от популярните теми"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Преглед на всички теми"
+msgstr "Най-високо оценени теми"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
@@ -319,9 +301,8 @@ msgid "Browse all themes"
 msgstr "Преглед на всички теми"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Добавки за Firefox"
+msgstr "Сайт на добавката"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -334,9 +315,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "Метаданни за разширението"
+msgstr "Разширения"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -411,14 +391,12 @@ msgid "Error code: %(status)s."
 msgstr ""
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "Инсталиране на %(name)s."
+msgstr "Инсталиране на темата"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Добавки за Firefox"
+msgstr "Добавяне към Firefox"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -477,9 +455,8 @@ msgid "An unexpected error occurred"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:83
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Средна оценка: %(rating)s от 5"
+msgstr "Оценка %(rating)s от 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
