@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-23 14:18+0000\n"
+"PO-Revision-Date: 2017-03-02 16:48+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -40,12 +40,10 @@ msgid "About this %(addonType)s"
 msgstr "關於此%(addonType)s"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "點擊預覽"
+msgstr "取消預覽"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
 msgstr "點擊預覽"
 
@@ -73,20 +71,19 @@ msgstr "可用於"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "首頁"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "技術支援網站"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "更多資訊"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "附加元件圖示"
+msgstr "附加元件網址"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -140,8 +137,7 @@ msgstr "讓這套擴充套件給其他人知道！"
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(timestamp)s，來自 %(authorName)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "載入中…"
 
@@ -169,13 +165,11 @@ msgstr "找不到分類。"
 msgid "Not Authorized"
 msgstr "未授權"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "找不到頁面"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "伺服器錯誤"
 
@@ -257,20 +251,19 @@ msgstr "Firefox 附加元件"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "登入後即可為此搜尋引擎評分"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "登入後即可為此佈景主題評分"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "關於此擴充套件"
+msgstr "登入後即可幫此擴充套件評分"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "登入後即可為此附加元件評分"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -278,11 +271,11 @@ msgstr "您有多喜歡 %(addonName)s 的使用體驗？"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "登入後即可為此字典評分"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "登入後即可為此語言套件評分"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -294,10 +287,9 @@ msgstr "搜尋擴充套件與佈景主題"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "沒有佈景主題預覽可以使用"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "搜尋中…"
 
@@ -433,8 +425,7 @@ msgstr "登出"
 msgid "Log in/Sign up"
 msgstr "登入/註冊"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "錯誤代碼: %(status)s。"
 
@@ -503,7 +494,6 @@ msgid "An unexpected error occurred"
 msgstr "發生未預期的錯誤"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
 msgstr "載入中…"
 
