@@ -7,14 +7,32 @@ import InstallSwitch from 'core/components/InstallSwitch';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, UNKNOWN } from 'core/constants';
 import * as themePreview from 'core/themePreview';
 import { getFakeI18nInst, shallowRender } from 'tests/client/helpers';
+import { fakeAddon } from 'tests/client/amo/helpers';
 import Button from 'ui/components/Button';
 
 describe('<InstallButton />', () => {
+  const renderProps = (customProps = {}) => ({
+    addon: fakeAddon,
+    clientSupportsAddons: () => true,
+    hasAddonManager: true,
+    i18n: getFakeI18nInst(),
+    ...customProps,
+  });
+
+  const render = (props) =>
+    shallowRender(<InstallButtonBase {...renderProps(props)} />);
+
+  const renderToDom = (props) => findDOMNode(
+    renderIntoDocument(<InstallButtonBase {...renderProps(props)} />));
+
   it('renders InstallSwitch when mozAddonManager is available', () => {
     const i18n = getFakeI18nInst();
-    const addon = { type: ADDON_TYPE_THEME, id: 'foo@personas.mozilla.org' };
-    const root = shallowRender(
-      <InstallButtonBase foo="foo" addon={addon} hasAddonManager i18n={i18n} />);
+    const addon = {
+      ...fakeAddon,
+      type: ADDON_TYPE_THEME,
+      id: 'foo@personas.mozilla.org',
+    };
+    const root = render({ foo: 'foo', hasAddonManager: true, i18n, addon });
     assert.equal(root.type, 'div');
     assert.equal(root.props.className, 'InstallButton InstallButton--use-switch');
     const switchComponent = root.props.children[0];
@@ -29,51 +47,45 @@ describe('<InstallButton />', () => {
   });
 
   it('renders a theme button when mozAddonManager is not available', () => {
-    const i18n = getFakeI18nInst();
-    const addon = { type: ADDON_TYPE_THEME, id: 'foo@personas.mozilla.org' };
-    const root = shallowRender(
-      <InstallButtonBase
-        addon={addon} foo="foo" hasAddonManager={false} i18n={i18n} />);
+    const addon = { ...fakeAddon, type: ADDON_TYPE_THEME };
+    const root = render({ hasAddonManager: false, addon });
     assert.equal(root.type, 'div');
-    assert.equal(root.props.className, 'InstallButton InstallButton--use-button');
+    assert.equal(
+      root.props.className, 'InstallButton InstallButton--use-button');
     const buttonComponent = root.props.children[1];
     assert.equal(buttonComponent.type, Button);
     assert.equal(buttonComponent.props.children, 'Install Theme');
     assert.equal(
-        buttonComponent.props['data-browsertheme'],
-        JSON.stringify(themePreview.getThemeData(addon)));
+      buttonComponent.props['data-browsertheme'],
+      JSON.stringify(themePreview.getThemeData(addon)));
   });
 
-
   it('calls installTheme when clicked', () => {
+    const addon = { ...fakeAddon, type: ADDON_TYPE_THEME };
     const installTheme = sinon.spy();
-    const i18n = getFakeI18nInst();
-    const addon = { type: ADDON_TYPE_THEME, id: 'foo@personas.mozilla.org' };
-    const root = findDOMNode(renderIntoDocument(
-      <InstallButtonBase
-        addon={addon} foo="foo" hasAddonManager={false} i18n={i18n}
-        status={UNKNOWN} installTheme={installTheme} />));
+    const root = renderToDom({ addon, installTheme, status: UNKNOWN });
+
     const preventDefault = sinon.spy();
     const buttonComponent = root.querySelector('.InstallButton-button');
     Simulate.click(buttonComponent, { preventDefault });
+
     assert.ok(preventDefault.called);
     assert.ok(installTheme.called);
-    assert.ok(installTheme.calledWith(buttonComponent, { ...addon, status: UNKNOWN }));
+    assert.deepEqual(installTheme.firstCall.args, [
+      buttonComponent, { ...addon, status: UNKNOWN },
+    ]);
   });
 
   it('renders an add-on button when mozAddonManager is not available', () => {
-    const i18n = getFakeI18nInst();
-    const addon = {
-      type: ADDON_TYPE_EXTENSION,
-      installURL: 'https://addons.mozilla.org/download',
-    };
-    const root = shallowRender(
-      <InstallButtonBase
-        addon={addon}
-        foo="foo"
-        hasAddonManager={false}
-        i18n={i18n}
-      />);
+    const root = render({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_EXTENSION,
+        installURL: 'https://addons.mozilla.org/download',
+      },
+      hasAddonManager: false,
+    });
+
     assert.equal(root.type, 'div');
     assert.equal(root.props.className, 'InstallButton InstallButton--use-button');
     const buttonComponent = root.props.children[1];
