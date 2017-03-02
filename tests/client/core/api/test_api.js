@@ -296,6 +296,34 @@ describe('api', () => {
         .then(() => mockWindow.verify());
     });
 
+    it('changes theme requests for android to firefox results', () => {
+      // FIXME: This shouldn't fail if the args are in a different order.
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&type=persona&page=3&lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.search({
+        api: { clientApp: 'android', lang: 'en-US' },
+        filters: { addonType: ADDON_TYPE_THEME, clientApp: 'android' },
+        page: 3,
+      })
+        .then(() => mockWindow.verify());
+    });
+
+    it('allows overrides to clientApp', () => {
+      // FIXME: This shouldn't fail if the args are in a different order.
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&q=foo&page=3&lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.search({
+        api: { clientApp: 'android', lang: 'en-US' },
+        filters: { clientApp: 'firefox', query: 'foo' },
+        page: 3,
+      })
+        .then(() => mockWindow.verify());
+    });
+
     it('normalizes the response', () => {
       mockWindow.expects('fetch').once().returns(mockResponse());
       return api.search({
