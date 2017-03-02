@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-01 18:02+0000\n"
-"PO-Revision-Date: 2017-01-24 15:55+0000\n"
+"PO-Revision-Date: 2017-03-02 14:05+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -16,16 +16,15 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "サーバーエラー"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "エラーコード: %(status)s"
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "ページが見つかりませんでした"
 
 #: src/core/components/InstallButton/index.js:42
 msgid "Install Theme"
@@ -45,8 +44,7 @@ msgstr "%(name)s をインストールしています。"
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s はインストール、有効化されています。削除するにはここをクリック。"
+msgstr "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -78,8 +76,7 @@ msgstr "了解"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
+msgstr "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -144,19 +141,11 @@ msgstr "Firefox をパーソナライズしよう"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
-msgstr ""
-"インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発"
-"者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジング"
-"をより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いの"
-"ブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れ"
-"ているおすすめのアドオンをいくつか紹介します。"
+msgstr "インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジングをより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いのブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れているおすすめのアドオンをいくつか紹介します。"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "インストールされツールバーへ追加されました"
