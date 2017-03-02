@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-03-02 10:51+0000\n"
+"PO-Revision-Date: 2017-03-02 11:50+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -17,12 +17,12 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:125
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Прочетете %(count)s отзив"
-msgstr[1] "Прочетете всички %(count)s отзива"
+msgstr[0] "Прочетете %(count)s рецензия"
+msgstr[1] "Прочетете всички %(count)s рецензии"
 
 #: src/amo/components/AddonDetail.js:138
 msgid "No reviews yet"
-msgstr ""
+msgstr "Няма рецензии"
 
 #: src/amo/components/AddonDetail.js:147
 msgid "Rate your experience"
@@ -38,7 +38,7 @@ msgstr "Метаданни за разширението"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "Относно тази %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:82
 msgid "Press to preview"
@@ -56,7 +56,7 @@ msgstr "%(averageRating)s от 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "Все още няма оценка"
 
 #: src/amo/components/AddonMeta.js:37
 msgid "%(total)s rating"
@@ -86,7 +86,7 @@ msgstr "Последно обновяване"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
@@ -98,19 +98,19 @@ msgstr "Политика за личните данни"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Прочетете декларацията за поверителност за тази добавка"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
-msgstr "Писане на отзив"
+msgstr "Писане на рецензия"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Текст на рецензията"
 
 #: src/amo/components/AddonReview.js:124
 msgid "Submit review"
-msgstr "Писане на отзив"
+msgstr "Писане на рецензия"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -118,7 +118,7 @@ msgstr "Разкажете на света защо смятате, че тов�
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Разкажете ни защо харесвате това разширение. Бъдете кратки и ясни."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -126,7 +126,7 @@ msgstr "Разкажете на света за това разширение."
 
 #: src/amo/components/AddonReviewList.js:39
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "от %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
 msgid "Loading..."
@@ -138,31 +138,31 @@ msgstr "Пиктограма на добавката"
 
 #: src/amo/components/AddonReviewList.js:68
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Рецензии за %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:71
 msgid "All written reviews"
-msgstr "Всички отзиви"
+msgstr "Всички рецензии"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Грешка при зареждане на категориите."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Не са намерени категории."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Неупълномощен"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Страницата не е намерена"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Грешка на сървъра"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -170,7 +170,7 @@ msgstr "Повече препоръчани добавки"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Повече препоръчани теми"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -210,11 +210,11 @@ msgstr "Повече от високо оценените разширения"
 
 #: src/amo/components/LandingPage.js:69
 msgid "Featured themes"
-msgstr ""
+msgstr "Препоръчани теми"
 
 #: src/amo/components/LandingPage.js:74
 msgid "More featured themes"
-msgstr ""
+msgstr "Повече препоръчани теми"
 
 #: src/amo/components/LandingPage.js:75
 msgid "Most popular themes"
@@ -230,7 +230,7 @@ msgstr "Най-високо оценени теми"
 
 #: src/amo/components/LandingPage.js:86
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Повече от високо оценените теми"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -250,7 +250,7 @@ msgstr "Търсене"
 
 #: src/amo/components/SearchForm.js:49
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Търсене разширения и теми"
 
 #: src/amo/components/SearchResults.js:35
 msgid "Searching..."
