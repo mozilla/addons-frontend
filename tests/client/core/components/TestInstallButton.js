@@ -19,13 +19,13 @@ describe('<InstallButton />', () => {
     assert.equal(root.props.className, 'InstallButton InstallButton--use-switch');
     const switchComponent = root.props.children[0];
     assert.equal(switchComponent.type, InstallSwitch);
-    assert.deepEqual(switchComponent.props, {
-      addon,
-      className: 'InstallButton-switch',
-      foo: 'foo',
-      hasAddonManager: true,
-      i18n,
-    });
+
+    const props = switchComponent.props;
+    assert.deepEqual(props.addon, addon);
+    assert.equal(props.className, 'InstallButton-switch');
+    assert.equal(props.foo, 'foo');
+    assert.strictEqual(props.hasAddonManager, true);
+    assert.deepEqual(props.i18n, i18n);
   });
 
   it('renders a theme button when mozAddonManager is not available', () => {
@@ -63,9 +63,17 @@ describe('<InstallButton />', () => {
 
   it('renders an add-on button when mozAddonManager is not available', () => {
     const i18n = getFakeI18nInst();
-    const addon = { type: ADDON_TYPE_EXTENSION, installURL: 'https://addons.mozilla.org/download' };
+    const addon = {
+      type: ADDON_TYPE_EXTENSION,
+      installURL: 'https://addons.mozilla.org/download',
+    };
     const root = shallowRender(
-      <InstallButtonBase addon={addon} foo="foo" hasAddonManager={false} i18n={i18n} />);
+      <InstallButtonBase
+        addon={addon}
+        foo="foo"
+        hasAddonManager={false}
+        i18n={i18n}
+      />);
     assert.equal(root.type, 'div');
     assert.equal(root.props.className, 'InstallButton InstallButton--use-button');
     const buttonComponent = root.props.children[1];

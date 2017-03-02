@@ -73,6 +73,10 @@ export function getClientApp(userAgentString) {
   return 'firefox';
 }
 
+export function clientSupportsAddons(userAgentString = '') {
+  return true;
+}
+
 export function isValidClientApp(value, { _config = config } = {}) {
   return _config.get('validClientApplications').includes(value);
 }
