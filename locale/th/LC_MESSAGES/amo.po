@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-03-01 07:54+0000\n"
+"PO-Revision-Date: 2017-03-02 06:41+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -37,7 +37,7 @@ msgstr "Metadata ส่วนขยาย"
 
 #: src/amo/components/AddonDetail.js:207
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "เกี่ยวกับ %(addonType)s นี้"
 
 #: src/amo/components/AddonDetail.js:82
 #, fuzzy
@@ -45,15 +45,13 @@ msgid "Press to preview"
 msgstr "เขียนบทวิจารณ์"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s ผู้ใช้"
+msgstr[0] "%(total)s ผู้ใช้"
 
 #: src/amo/components/AddonMeta.js:28
-#, fuzzy
 msgid "%(averageRating)s out of 5"
-msgstr "การจัดอันดับเฉลี่ย: %(rating)s จาก 5"
+msgstr "%(averageRating)s จาก 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
@@ -71,30 +69,29 @@ msgstr "ใช้โดย"
 
 #: src/amo/components/AddonMoreInfo.js:25
 msgid "More information"
-msgstr ""
+msgstr "ข้อมูลเพิ่มเติม"
 
 #: src/amo/components/AddonMoreInfo.js:27
 msgid "Website"
-msgstr ""
+msgstr "เว็บไซต์"
 
 #: src/amo/components/AddonMoreInfo.js:36
 msgid "Version"
-msgstr ""
+msgstr "รุ่น"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "Last updated"
-msgstr ""
+msgstr "อัปเดตล่าสุด"
 
 #: src/amo/components/AddonMoreInfo.js:45
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "License"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "นโยบายความเป็นส่วนตัว"
 
@@ -133,9 +130,8 @@ msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
-#, fuzzy
 msgid "Loading..."
-msgstr "กำลังค้นหา..."
+msgstr "กำลังโหลด..."
 
 #: src/amo/components/AddonReviewList.js:63
 #, fuzzy
@@ -153,23 +149,23 @@ msgstr "เขียนบทวิจารณ์"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "ไม่สามารถโหลดหมวดหมู่"
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "ไม่พบหมวดหมู่"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "ไม่ได้รับอนุญาต"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "ไม่พบหน้า"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "ข้อผิดพลาดเซิร์ฟเวอร์"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 #, fuzzy
