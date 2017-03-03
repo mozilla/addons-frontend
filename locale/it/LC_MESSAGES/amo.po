@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-25 15:07+0000\n"
+"PO-Revision-Date: 2017-03-03 16:17+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -41,14 +41,12 @@ msgid "About this %(addonType)s"
 msgstr "Informazioni per %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Premere per l’anteprima"
+msgstr "Annulla anteprima"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Premere per l’anteprima"
+msgstr "Tocca qui per l’anteprima"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -76,20 +74,19 @@ msgstr "Utilizzato da"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Pagina principale"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Sito di supporto"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Ulteriori informazioni"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Icona componente aggiuntivo"
+msgstr "Link componente aggiuntivo"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -133,9 +130,7 @@ msgstr "Spiega agli altri utenti i motivi per cui apprezzi questa estensione."
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Spiega che cosa apprezzi di questa estensione. Cerca di essere preciso e "
-"allo stesso tempo sintetico."
+msgstr "Spiega che cosa apprezzi di questa estensione. Cerca di essere preciso e allo stesso tempo sintetico."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -145,8 +140,7 @@ msgstr "Fai conoscere a tutti questa estensione."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "di %(authorName)s, il %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Caricamento in corso…"
 
@@ -174,13 +168,11 @@ msgstr "Nessuna categoria trovata."
 msgid "Not Authorized"
 msgstr "Accesso negato"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Pagina non trovata"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Errore del server"
 
@@ -262,20 +254,19 @@ msgstr "Componenti aggiuntivi per Firefox"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Effettua l’accesso per dare un voto a questo plugin di ricerca"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Effettua l’accesso per dare un voto a questo tema"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Informazioni sull’estensione"
+msgstr "Effettua l’accesso per dare un voto a questa estensione"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Effettua l’accesso per dare un voto a questo componente aggiuntivo"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -283,11 +274,11 @@ msgstr "Come valuti la tua esperienza utente con %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Effettua l’accesso per dare un voto a questo dizionario"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Effettua l’accesso per dare un voto a questo language pack"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -299,10 +290,9 @@ msgstr "Ricerca estensioni e temi"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Anteprima del tema non disponibile"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "Ricerca in corso…"
 
@@ -316,9 +306,7 @@ msgstr "Nessun risultato trovato."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
-"Inserisci almeno un termine per iniziare una ricerca tra i componenti "
-"aggiuntivi per Firefox."
+msgstr "Inserisci almeno un termine per iniziare una ricerca tra i componenti aggiuntivi per Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
@@ -364,9 +352,7 @@ msgstr "Componenti aggiuntivi per Firefox"
 msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
-msgstr ""
-"Con le estensioni puoi aggiungere nuove funzioni a Firefox. Grazie ai temi "
-"puoi modificare l’aspetto del browser."
+msgstr "Con le estensioni puoi aggiungere nuove funzioni a Firefox. Grazie ai temi puoi modificare l’aspetto del browser."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -440,8 +426,7 @@ msgstr "Disconnetti"
 msgid "Log in/Sign up"
 msgstr "Accedi / Registrati"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Codice di errore: %(status)s."
 
@@ -510,7 +495,6 @@ msgid "An unexpected error occurred"
 msgstr "Si è verificato un errore imprevisto"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
 msgstr "Caricamento in corso…"
 
