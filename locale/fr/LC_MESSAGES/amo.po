@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-02 23:37+0000\n"
+"PO-Revision-Date: 2017-03-03 00:06+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -41,14 +41,12 @@ msgid "About this %(addonType)s"
 msgstr "À propos de %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Rédigez un avis"
+msgstr "Fermer l’aperçu"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Rédigez un avis"
+msgstr "Appuyer pour afficher l’aperçu"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -87,9 +85,8 @@ msgid "More information"
 msgstr "Plus d’informations"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Modules pour Firefox"
+msgstr "Liens du module"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -121,12 +118,11 @@ msgstr "Rédigez un avis"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Mon avis"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "Rédigez un avis"
+msgstr "Envoyer l’avis"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -422,7 +418,7 @@ msgstr "Sportive"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Solide"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
