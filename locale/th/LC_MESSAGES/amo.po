@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-02 06:41+0000\n"
+"PO-Revision-Date: 2017-03-03 18:30+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -21,7 +21,7 @@ msgstr[0] ""
 
 #: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
-msgstr ""
+msgstr "ยังไม่มีบทวิจารณ์"
 
 #: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
@@ -45,9 +45,8 @@ msgid "Cancel preview"
 msgstr "เขียนบทวิจารณ์"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "เขียนบทวิจารณ์"
+msgstr "แตะเพื่อแสดงตัวอย่าง"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -74,11 +73,11 @@ msgstr "ใช้โดย"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "หน้าแรก"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "ไซต์การสนับสนุน"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
@@ -122,9 +121,8 @@ msgid "Review text"
 msgstr ""
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "เขียนบทวิจารณ์"
+msgstr "ส่งบทวิจารณ์"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -143,15 +141,13 @@ msgstr "บอกให้โลกรู้ว่าทำไมคุณจึ
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
 #: src/amo/components/AddonReviewList.js:62
-#, fuzzy
 msgid "Add-on icon"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "ไอคอนส่วนเสริม"
 
 #: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
@@ -174,13 +170,11 @@ msgstr "ไม่พบหมวดหมู่"
 msgid "Not Authorized"
 msgstr "ไม่ได้รับอนุญาต"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "ไม่พบหน้า"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "ข้อผิดพลาดเซิร์ฟเวอร์"
 
@@ -312,9 +306,8 @@ msgid "No theme preview available"
 msgstr ""
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
-msgstr "กำลังค้นหา..."
+msgstr "กำลังค้นหา…"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
@@ -361,9 +354,8 @@ msgid "Browse all themes"
 msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "หน้าแรกส่วนเสริม"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -447,8 +439,7 @@ msgstr "ออกจากระบบ"
 msgid "Log in/Sign up"
 msgstr "เข้าสู่ระบบ/ลงทะเบียน"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "รหัสข้อผิดพลาด: %(status)s"
 
@@ -506,7 +497,7 @@ msgstr "ส่วนเสริมของคุณพร้อมแล้ว
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "ตอนนี้คุณสามารถเข้าถึง %(name)s ได้จากแถบเครื่องมือ"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
@@ -517,9 +508,8 @@ msgid "An unexpected error occurred"
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "กำลังโหลด..."
+msgstr "กำลังโหลด…"
 
 #: src/ui/components/Rating/index.js:83
 #, fuzzy
