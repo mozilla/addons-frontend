@@ -93,13 +93,18 @@ function showErrorPage({ createStore, error = {}, req, res, status }) {
   const store = createStore();
   const pageProps = getPageProps({ store, req, res });
 
-  const apiError = createApiError({ response: { status } });
+  const componentDeclaredStatus = NestedStatus.rewind();
+  let adjustedStatus = status || componentDeclaredStatus || 500;
+  if (error.response && error.response.status) {
+    adjustedStatus = error.response.status;
+  }
+
+  const apiError = createApiError({ response: { status: adjustedStatus } });
   store.dispatch(loadFail('ServerBase', { ...apiError, ...error }));
 
   const HTML = ReactDOM.renderToString(
     <ServerHtml {...pageProps} />);
-  const httpStatus = NestedStatus.rewind();
-  return res.status(status || httpStatus)
+  return res.status(adjustedStatus)
     .send(`<!DOCTYPE html>\n${HTML}`)
     .end();
 }
@@ -112,6 +117,15 @@ function logRequests(req, res, next) {
   log.info({ req, res, start, finish, elapsed });
 }
 
+function hydrateOnClient({ res, props = {}, pageProps }) {
+  const HTML =
+    ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+  const componentDeclaredStatus = NestedStatus.rewind();
+  return res.status(componentDeclaredStatus)
+    .send(`<!DOCTYPE html>\n${HTML}`)
+    .end();
+}
+
 function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   const app = new Express();
   app.disable('x-powered-by');
@@ -120,6 +134,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   if (sentryDsn) {
     Raven.config(sentryDsn).install();
     app.use(Raven.requestHandler());
+    log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
     // The error handler is defined below.
   } else {
     log.warn(
@@ -199,7 +214,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     app.use(trailingSlashesMiddleware);
   }
 
-  app.use((req, res) => {
+  app.use((req, res, next) => {
     if (isDevelopment) {
       log.info(oneLine`Clearing require cache for webpack isomorphic tools.
         [Development Mode]`);
@@ -209,40 +224,44 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     }
 
     match({ location: req.url, routes }, (
-      err, redirectLocation, renderProps
+      matchError, redirectLocation, renderProps
     ) => {
-      cookie.plugToRequest(req, res);
-
-      const store = createStore();
-      const token = cookie.load(config.get('cookieName'));
-      if (token) {
-        store.dispatch(setJwt(token));
+      if (matchError) {
+        log.info(`match() returned an error for ${req.url}: ${matchError}`);
+        return next(matchError);
       }
-
-      // github.com/mozilla/addons-frontend/pull/1685#discussion_r99705186
-      if (err) {
-        return showErrorPage({ createStore, status: 500, req, res });
-      }
-
       if (!renderProps) {
+        log.info(`match() did not return renderProps for ${req.url}`);
         return showErrorPage({ createStore, status: 404, req, res });
       }
 
-      const pageProps = getPageProps({ noScriptStyles, store, req, res });
-      const { htmlLang } = pageProps;
-      const locale = langToLocale(htmlLang);
+      let htmlLang;
+      let locale;
+      let pageProps;
+      let store;
 
-      function hydrateOnClient(props = {}) {
-        const HTML = ReactDOM.renderToString(
-          <ServerHtml {...pageProps} {...props} />);
-        const httpStatus = NestedStatus.rewind();
-        res.status(httpStatus).send(`<!DOCTYPE html>\n${HTML}`);
-      }
+      try {
+        cookie.plugToRequest(req, res);
 
-      // Set disableSSR to true to debug
-      // client-side-only render.
-      if (config.get('disableSSR') === true) {
-        return Promise.resolve(hydrateOnClient());
+        store = createStore();
+        const token = cookie.load(config.get('cookieName'));
+        if (token) {
+          store.dispatch(setJwt(token));
+        }
+
+        pageProps = getPageProps({ noScriptStyles, store, req, res });
+        if (config.get('disableSSR') === true) {
+          log.warn(
+            'Server side rendering disabled; responding without loading');
+          return hydrateOnClient({ res, pageProps });
+        }
+
+        htmlLang = pageProps.htmlLang;
+        locale = langToLocale(htmlLang);
+      } catch (preLoadError) {
+        log.info(
+          `Caught an error in match() before loadOnServer(): ${preLoadError}`);
+        return next(preLoadError);
       }
 
       return loadOnServer({ ...renderProps, store })
@@ -273,20 +292,19 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
           const errorPage = store.getState().errorPage;
           if (errorPage && errorPage.hasError) {
-            return showErrorPage({
-              createStore,
-              error: errorPage.error,
-              req,
-              res,
-              status: errorPage.statusCode,
-            });
+            log.info(`Error page was dispatched to state: ${errorPage.error}`);
+            throw errorPage.error;
           }
 
-          return hydrateOnClient({ component: InitialComponent });
+          return hydrateOnClient({
+            props: { component: InitialComponent },
+            pageProps,
+            res,
+          });
         })
-        .catch((error) => {
-          log.error({ err: error });
-          return showErrorPage({ createStore, error, status: 500, req, res });
+        .catch((loadError) => {
+          log.error(`Caught error from loadOnServer(): ${loadError}`);
+          next(loadError);
         });
     });
   });
@@ -297,9 +315,14 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     app.use(Raven.errorHandler());
   }
 
-  // eslint-disable-next-line no-unused-vars
   app.use((error, req, res, next) => {
-    log.error({ err: error });
+    if (res.headersSent) {
+      log.warn(dedent`Ignoring error for ${req.url}
+        because a response was already sent; error: ${error}`);
+      return next(error);
+    }
+    log.error(`Showing 500 page for error: ${error}`);
+    log.error({ err: error }); // log the stack trace too.
     return showErrorPage({ createStore, error, status: 500, req, res });
   });
 
