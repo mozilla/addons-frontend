@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-23 11:47+0000\n"
-"Last-Translator: Shaohua Wen <shaohua.wen@gmail.com>\n"
+"PO-Revision-Date: 2017-03-03 04:44+0000\n"
+"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -40,12 +40,10 @@ msgid "About this %(addonType)s"
 msgstr "关于此 %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "点按预览"
+msgstr "取消预览"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
 msgstr "点按预览"
 
@@ -73,20 +71,19 @@ msgstr "用户："
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "主页"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "支持网站"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "更多信息"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "附加组件图标"
+msgstr "附加组件链接"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -140,8 +137,7 @@ msgstr "告诉全世界，此扩展怎么样。"
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "来自 %(authorName)s，%(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "正在加载..."
 
@@ -169,13 +165,11 @@ msgstr "没有找到分类。"
 msgid "Not Authorized"
 msgstr "尚未授权"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "找不到页面"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "服务器错误"
 
@@ -257,20 +251,19 @@ msgstr "Firefox 附加组件"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "登录以评价此搜索引擎"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "登录以评价此主题"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "关于此扩展"
+msgstr "登录以评价此扩展"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "登录以评价此附加组件"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -278,11 +271,11 @@ msgstr "使用 %(addonName)s 的感觉如何？"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "登录以评价此词典"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "登录以评价此语言包"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -294,12 +287,11 @@ msgstr "搜索扩展和主题"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "无主题预览可用"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
-msgstr "正在搜索..."
+msgstr "正在搜索…"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
@@ -433,8 +425,7 @@ msgstr "退出登录"
 msgid "Log in/Sign up"
 msgstr "登录/注册"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "错误代码：%(status)s。"
 
@@ -503,9 +494,8 @@ msgid "An unexpected error occurred"
 msgstr "发生意外错误"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "正在加载..."
+msgstr "正在加载…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
