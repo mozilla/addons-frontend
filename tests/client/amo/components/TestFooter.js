@@ -32,10 +32,11 @@ describe('Footer', () => {
       'Privacy policy');
     assert.equal(root.querySelector('.Footer-privacy').href,
       'https://www.mozilla.org/en-GB/privacy/websites/');
-
     assert.equal(root.querySelector('.Footer-legal').textContent,
       'Legal notices');
     assert.equal(root.querySelector('.Footer-legal').href,
       'https://www.mozilla.org/en-GB/about/legal/');
+    assert.equal(root.querySelector('.Footer-fileissue').href,
+      'https://developer.mozilla.org/en-GB/Add-ons/AMO/Policy/Contact');
   });
 });
