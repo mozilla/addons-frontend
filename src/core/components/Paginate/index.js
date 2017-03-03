@@ -29,7 +29,7 @@ export class PaginateBase extends React.Component {
 
   static defaultProps = {
     LinkComponent: Link,
-    perPage: 20,
+    perPage: 25, // The default number of results per page returned by the API.
     showPages: 0,
   }
 
