@@ -13,14 +13,12 @@ const langs = config.get('langs');
 const basePath = config.get('basePath');
 
 describe('Locale Config', () => {
-  // eslint-disable-next-line no-restricted-syntax
   for (const lang of langs) {
     // eslint-disable no-loop-func
     it(`should have a corresponding ${lang} dir in locale`, () =>
         fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang))));
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const localeDir of glob.sync('locale/*')) {
     const locale = path.basename(localeDir);
     const lang = localeToLang(locale);

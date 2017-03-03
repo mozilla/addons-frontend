@@ -123,49 +123,42 @@ describe('getClientApp', () => {
     assert.equal(getClientApp(1), 'firefox');
   });
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const ua of userAgents.androidWebkit) {
     it(`should return 'android' for a androidWebkit UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'android');
     });
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const ua of userAgents.chromeAndroid) {
     it(`should return 'android' for a chromeAndroid UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'android');
     });
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const ua of userAgents.chrome) {
     it(`should fallback to 'firefox' for a chrome UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'firefox');
     });
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const ua of userAgents.firefox) {
     it(`should return firefox by default for a Firefox UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'firefox');
     });
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const ua of userAgents.firefoxOS) {
     it(`should return firefox by default for a Firefox OS UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'firefox');
     });
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const ua of userAgents.firefoxAndroid) {
     it(`should return android for a Firefox Android UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'android');
     });
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const ua of userAgents.firefoxIOS) {
     it(`should return 'firefox' for a Firefox iOS UA string ${ua}`, () => {
       assert.equal(getClientApp(ua), 'firefox');
@@ -179,6 +172,52 @@ describe('getClientApp', () => {
   });
 });
 
+describe('clientSupportsAddons', () => {
+  it('returns false for Android/webkit', () => {
+    for (const ua of userAgents.androidWebkit) {
+      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+    }
+  });
+
+  it('returns false for Chrome/Android', () => {
+    for (const ua of userAgents.chromeAndroid) {
+      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+    }
+  });
+
+  it('returns false for Chrome desktop', () => {
+    for (const ua of userAgents.chromeAndroid) {
+      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+    }
+  });
+
+  it('returns true for Firefox desktop', () => {
+    for (const ua of userAgents.firefox) {
+      assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+    }
+  });
+
+  it('is case insensitive', () => {
+    const ua = userAgents.firefox[0].toLowerCase();
+    assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+  });
+
+  it('returns true for Firefox OS', () => {
+    for (const ua of userAgents.firefoxOS) {
+      assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+    }
+  });
+
+  it('returns false for Firefox iOS', () => {
+    for (const ua of userAgents.firefoxIOS) {
+      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+    }
+  });
+
+  it('returns false for non-string user agent values', () => {
+    assert.strictEqual(clientSupportsAddons(false), false);
+  });
+});
 
 describe('isValidClientApp', () => {
   const _config = new Map();

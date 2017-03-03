@@ -1,3 +1,4 @@
+/* global navigator */
 /* eslint-disable react/prop-types */
 import url from 'url';
 
@@ -36,7 +37,6 @@ export function ngettext(singular, plural, n) {
 
 export function getClientConfig(_config) {
   const clientConfig = {};
-  // eslint-disable-next-line no-restricted-syntax
   for (const key of _config.get('clientConfigKeys')) {
     clientConfig[key] = _config.get(key);
   }
@@ -74,14 +74,17 @@ export function getClientApp(userAgentString) {
 }
 
 /*
- * Returns true is the user agent theoretically supports installing Firefox
+ * Returns true if the user agent theoretically supports installing Firefox
  * add-ons.
  *
  * This is really only for legacy Firefox versions that don't have a
  * mozAddonsManager.
  */
-export function clientSupportsAddons(userAgentString = '') {
-  return true;
+export function clientSupportsAddons(
+  userAgentString = typeof navigator !== 'undefined' && navigator.userAgent
+) {
+  const ua = userAgentString || '';
+  return ua.toLowerCase().includes('firefox');
 }
 
 export function isValidClientApp(value, { _config = config } = {}) {

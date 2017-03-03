@@ -10,7 +10,6 @@ describe('App Specific Frameguard Config', () => {
     delete process.env.NODE_APP_INSTANCE;
   });
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const appName of appsList) {
     it(`should default frameGuard to "deny" for ${appName} in production`, () => {
       process.env.NODE_APP_INSTANCE = appName;
