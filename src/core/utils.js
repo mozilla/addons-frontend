@@ -73,6 +73,13 @@ export function getClientApp(userAgentString) {
   return 'firefox';
 }
 
+/*
+ * Returns true is the user agent theoretically supports installing Firefox
+ * add-ons.
+ *
+ * This is really only for legacy Firefox versions that don't have a
+ * mozAddonsManager.
+ */
 export function clientSupportsAddons(userAgentString = '') {
   return true;
 }
