@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2016-12-26 01:48+0000\n"
+"PO-Revision-Date: 2017-03-03 06:07+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -17,11 +17,11 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:110
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
+msgstr[0] "%(count)s개의 리뷰 보기"
 
 #: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
-msgstr ""
+msgstr "작성된 리뷰 없음"
 
 #: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
@@ -37,7 +37,7 @@ msgstr "확장 메타 데이터"
 
 #: src/amo/components/AddonDetail.js:193
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "%(addonType)s에 대한 정보"
 
 #: src/amo/components/AddonDetail.js:74
 #, fuzzy
@@ -62,7 +62,7 @@ msgstr "평균 점수: 5 점 중 %(rating)s"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "평가되지 않음"
 
 #: src/amo/components/AddonMeta.js:37
 #, fuzzy
@@ -84,7 +84,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr ""
+msgstr "추가 정보"
 
 #: src/amo/components/AddonMoreInfo.js:42
 #, fuzzy
@@ -93,7 +93,7 @@ msgstr "Firefox 부가 기능"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
-msgstr ""
+msgstr "버전"
 
 #: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
@@ -101,11 +101,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
-msgstr ""
+msgstr "라이센스"
 
 #: src/amo/components/AddonMoreInfo.js:81
 #, fuzzy
@@ -114,7 +114,7 @@ msgstr "개인정보 보호정책"
 
 #: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "이 부가 기능에 대한 개인 정보 보호 정책 읽기"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -135,7 +135,7 @@ msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알�
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
 
 #: src/amo/components/AddonReview.js:95
 #, fuzzy
@@ -146,8 +146,7 @@ msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알�
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "검색중..."
@@ -159,7 +158,7 @@ msgstr "Firefox 부가 기능"
 
 #: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s에 대한 리뷰"
 
 #: src/amo/components/AddonReviewList.js:70
 #, fuzzy
@@ -168,23 +167,21 @@ msgstr "리뷰 작성"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "카테고리를 불러오는데 실패했습니다."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "카테고리가 없습니다."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr ""
 
@@ -454,8 +451,7 @@ msgstr "로그아웃"
 msgid "Log in/Sign up"
 msgstr "로그인/가입하기"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr ""
 
