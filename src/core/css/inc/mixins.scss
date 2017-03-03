@@ -58,6 +58,18 @@
   outline: none;
 }
 
+@mixin disabled($background) {
+  @if lightness($background) > 80 {
+    background: adjust-hue(darken(desaturate($background, 85%), 13%), 6);
+  }
+
+  @else {
+    background: adjust-hue(lighten(desaturate($background, 85%), 13%), 6);
+  }
+
+  cursor: not-allowed;
+}
+
 /* stylelint-disable at-rule-empty-line-before, media-feature-no-missing-punctuation  */
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
@@ -193,13 +205,7 @@ $color: $text-color-message) {
 
   &:disabled,
   &.disabled {
-    @if lightness($background) > 80 {
-      background: adjust-hue(darken(desaturate($background, 85%), 13%), 6);
-    } @else {
-      background: adjust-hue(lighten(desaturate($background, 85%), 13%), 6);
-    }
-
-    cursor: not-allowed;
+    @include disabled($background);
   }
 
   &.warning {
