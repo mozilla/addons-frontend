@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-03 01:30+0000\n"
+"PO-Revision-Date: 2017-03-03 01:32+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -486,7 +486,7 @@ msgstr "Sua extensão está pronta"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr "Agora pode acessar %(name)s pela barra de ferramentas."
+msgstr "Agora você pode acessar %(name)s pela barra de ferramentas."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
