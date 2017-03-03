@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-03 06:07+0000\n"
+"PO-Revision-Date: 2017-03-03 09:48+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -97,7 +97,7 @@ msgstr "버전"
 
 #: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
-msgstr ""
+msgstr "최신 버전"
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
@@ -144,7 +144,7 @@ msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알�
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "%(authorName)s로 부터, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 #, fuzzy
@@ -175,15 +175,15 @@ msgstr "카테고리가 없습니다."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "인증되지 않음"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "페이지 찾을 수 없음"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "서버 에러"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 #, fuzzy
@@ -192,7 +192,7 @@ msgstr "모든 확장 기능 탐색하기"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "추천 테마 더 보기"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -413,7 +413,7 @@ msgstr "소셜 활동"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "게임하기"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
@@ -507,19 +507,19 @@ msgstr "%(totalPages)s 페이지 중 %(currentPage)s 번째 페이지"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "부가 기능이 준비되었습니다"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "이제 툴바에서 %(name)s를 사용할 수 있습니다."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "예기치 못한 오류 발생됨"
 
 #: src/ui/components/LoadingIndicator/index.js:27
 #, fuzzy
@@ -537,7 +537,7 @@ msgstr "평가 없음"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
 
 #~ msgid "Screenshots"
 #~ msgstr "스크린샷"
