@@ -97,4 +97,37 @@ describe('<InstallButton />', () => {
       size: 'normal',
     });
   });
+
+  it('disables add-on install when client does not support addons', () => {
+    const root = render({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_EXTENSION,
+        installURL: 'https://addons.mozilla.org/download',
+      },
+      clientSupportsAddons: () => false,
+    });
+
+    assert.equal(root.type, 'div');
+    const buttonComponent = root.props.children[1];
+    assert.equal(buttonComponent.type, Button);
+    assert.include(
+      buttonComponent.props.className, 'InstallButton-button--disabled');
+    assert.strictEqual(buttonComponent.props.href, null);
+  });
+
+  it('disables theme install when client does not support addons', () => {
+    const root = render({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      clientSupportsAddons: () => false,
+    });
+
+    assert.equal(root.type, 'div');
+    const buttonComponent = root.props.children[1];
+    assert.equal(buttonComponent.type, Button);
+    assert.strictEqual(buttonComponent.props.disabled, true);
+  });
 });

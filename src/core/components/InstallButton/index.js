@@ -45,7 +45,7 @@ export class InstallButtonBase extends React.Component {
     } = this.props;
     const useButton = hasAddonManager !== undefined && !hasAddonManager;
     let button;
-    const buttonIsDisabled = !hasAddonManager && !clientSupportsAddons();
+    const buttonIsDisabled = !clientSupportsAddons();
     const buttonClass = classNames('InstallButton-button', {
       'InstallButton-button--disabled': buttonIsDisabled,
     });

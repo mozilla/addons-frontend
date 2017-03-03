@@ -31,6 +31,8 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
   return {
     addon,
     ...addon,
+    clientSupportsAddons: () => true,
+    getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
     // Configure AddonDetail with a non-redux depdendent RatingManager.
@@ -272,7 +274,6 @@ describe('AddonDetail', () => {
         type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
       },
-      getBrowserThemeData: () => '{}',
     });
     const rootNode = findDOMNode(root);
     const image = rootNode.querySelector('.AddonDetail-theme-header-image');
@@ -280,6 +281,30 @@ describe('AddonDetail', () => {
     assert.ok(image.classList.contains('AddonDetail-theme-header-image'));
     assert.equal(image.src, 'https://amo/preview.png');
     assert.equal(image.alt, 'Tap to preview');
+  });
+
+  it('enables a theme preview for supported clients', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      clientSupportsAddons: () => true,
+    });
+    const button = rootNode.querySelector('.AddonDetail-theme-header-label');
+    assert.equal(button.disabled, false);
+  });
+
+  it('disables a theme preview for unsupported clients', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      clientSupportsAddons: () => false,
+    });
+    const button = rootNode.querySelector('.AddonDetail-theme-header-label');
+    assert.equal(button.disabled, true);
   });
 
   it('unsets the theme preview on component unmount', () => {
@@ -293,7 +318,6 @@ describe('AddonDetail', () => {
         themePreviewNode: 'theme-preview-node',
         resetThemePreview,
       },
-      getBrowserThemeData: () => '{}',
     });
     root.componentWillUnmount();
     assert.ok(resetThemePreview.calledWith('theme-preview-node'));
@@ -319,7 +343,6 @@ describe('AddonDetail', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      getBrowserThemeData: () => '{}',
       toggleThemePreview,
     });
     const header = rootNode.querySelector('.AddonDetail-theme-header');
