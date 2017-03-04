@@ -64,7 +64,7 @@ module.exports = {
   // must not contain sensitive data.
   //
   // NOTE: when you update this, you may also have to update
-  // config/default-discog.js:clientConfigKeys
+  // config/default-disco.js:clientConfigKeys
   //
   clientConfigKeys: [
     'allowErrorSimulation',
