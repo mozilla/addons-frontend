@@ -3569,7 +3569,7 @@ json-stable-stringify@^1.0.0, json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
-json-stringify-safe@5.0.1, json-stringify-safe@~5.0.1:
+json-stringify-safe@5.0.1, json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
@@ -5108,6 +5108,12 @@ randomatic@^1.1.3:
 range-parser@^1.0.3, range-parser@^1.2.0, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
+
+raven-js@3.12.0:
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.12.0.tgz#74bd45c87a1ad34476e77bd8385549d76766f6e7"
+  dependencies:
+    json-stringify-safe "^5.0.1"
 
 raven@1.1.2:
   version "1.1.2"

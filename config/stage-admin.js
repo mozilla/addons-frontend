@@ -18,4 +18,7 @@ module.exports = {
       ],
     },
   },
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-admin-stage/
+  publicSentryDsn: 'https://ab5912bece24474f955a9670b3fea574@sentry.prod.mozaws.net/188',
 };

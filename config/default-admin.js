@@ -21,4 +21,7 @@ module.exports = {
   },
 
   enablePrefixMiddleware: false,
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-admin-prod/
+  publicSentryDsn: 'https://7123032e600047dca7c35566e26776cd@sentry.prod.mozaws.net/189',
 };

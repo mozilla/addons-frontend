@@ -6,6 +6,8 @@ import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import SimulateAsyncError from
   'core/containers/error-simulation/SimulateAsyncError';
+import SimulateClientError from
+  'core/containers/error-simulation/SimulateClientError';
 import SimulateSyncError from
   'core/containers/error-simulation/SimulateSyncError';
 
@@ -25,6 +27,10 @@ export default (
     <Route
       path="/:lang/firefox/simulate-async-error/"
       component={SimulateAsyncError}
+    />
+    <Route
+      path="/:lang/firefox/simulate-client-error/"
+      component={SimulateClientError}
     />
     <Route
       path="/:lang/firefox/simulate-sync-error/"

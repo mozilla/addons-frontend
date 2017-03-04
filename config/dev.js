@@ -32,4 +32,7 @@ module.exports = {
   },
 
   allowErrorSimulation: true,
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-dev/
+  publicSentryDsn: 'https://2c975f188a8b4d728ecbb8179cff9c26@sentry.prod.mozaws.net/181',
 };

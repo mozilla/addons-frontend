@@ -30,4 +30,7 @@ module.exports = {
   },
 
   allowErrorSimulation: true,
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-stage/
+  publicSentryDsn: 'https://8f0a256ee2c345608510155edafb71f7@sentry.prod.mozaws.net/182',
 };

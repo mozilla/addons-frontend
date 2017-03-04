@@ -24,6 +24,7 @@ module.exports = {
     'isDevelopment',
     'langs',
     'langMap',
+    'publicSentryDsn',
     'rtlLangs',
     'trackingEnabled',
     'trackingId',
@@ -59,4 +60,7 @@ module.exports = {
   enablePostCssLoader: false,
 
   po2jsonFuzzyOutput: false,
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-prod/
+  publicSentryDsn: 'https://b9e70d0dca144344a7a5674c29b08355@sentry.prod.mozaws.net/186',
 };
