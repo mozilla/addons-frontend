@@ -62,6 +62,10 @@ module.exports = {
   // The keys listed here will be exposed on the client.
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
+  //
+  // NOTE: when you update this, you may also have to update
+  // config/default-discog.js:clientConfigKeys
+  //
   clientConfigKeys: [
     'allowErrorSimulation',
     'amoCDN',

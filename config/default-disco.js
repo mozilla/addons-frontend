@@ -24,6 +24,7 @@ module.exports = {
     'isDevelopment',
     'langs',
     'langMap',
+    'publicSentryDsn',
     'rtlLangs',
     'trackingEnabled',
     'trackingId',
