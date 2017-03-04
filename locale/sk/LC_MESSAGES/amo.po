@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-04 22:05+0000\n"
+"PO-Revision-Date: 2017-03-04 22:21+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -42,14 +42,12 @@ msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Napísať recenziu"
+msgstr "Zrušiť ukážku"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Napísať recenziu"
+msgstr "Ťuknutím zobrazíte ukážku"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -260,11 +258,11 @@ msgstr "Doplnky pre Firefox"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Ak chcete ohodnotiť tento vyhľadávací modul, musíte sa prihlásiť"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Ak chcete ohodnotiť túto tému vzhľadu, musíte sa prihlásiť"
 
 #: src/amo/components/RatingManager/index.js:105
 msgid "Log in to rate this extension"
@@ -296,7 +294,7 @@ msgstr "Hľadať v rozšíreniach a témach vzhľadu"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr "Žiadny náhľad témy vzhľadu nie je dostupný"
+msgstr "Žiadna ukážka témy vzhľadu nie je dostupná"
 
 #: src/amo/components/SearchResults.js:40
 msgid "Searching…"
@@ -312,23 +310,23 @@ msgstr "Neboli nájdené žiadne výsledky."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Zadajte, prosím, vyhľadávaný výraz."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nedávno aktualizované"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Relevantnosť"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Najviac používateľov"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Najlepšie hodnotenie"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
@@ -347,9 +345,8 @@ msgid "Browse all themes"
 msgstr "Prehliadať všetky témy vzhľadu"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Doplnky pre Firefox"
+msgstr "Domovská stránka Doplnkov pre Firefox"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
