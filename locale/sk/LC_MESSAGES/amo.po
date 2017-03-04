@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-04 21:48+0000\n"
+"PO-Revision-Date: 2017-03-04 22:05+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -172,7 +172,7 @@ msgstr "Neboli nájdené žiadne kategórie."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Žiadna autorizácia"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -207,19 +207,16 @@ msgid "Featured extensions"
 msgstr "Odporúčané rozšírenia"
 
 #: src/amo/components/LandingPage.js:53
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Prehliadať všetky rozšírenia"
+msgstr "Ďalšie odporúčané rozšírenia"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Prehliadať všetky rozšírenia"
+msgstr "Najpopulárnejšie rozšírenia"
 
 #: src/amo/components/LandingPage.js:59
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Prehliadať všetky rozšírenia"
+msgstr "Ďalšie populárne rozšírenia"
 
 #: src/amo/components/LandingPage.js:60
 msgid "Top rated extensions"
@@ -270,13 +267,12 @@ msgid "Log in to rate this theme"
 msgstr ""
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "O tomto rozšírení"
+msgstr "Ak chcete ohodnotiť toto rozšírenie, musíte sa prihlásiť"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Ak chcete ohodnotiť tento doplnok, musíte sa prihlásiť"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -284,11 +280,11 @@ msgstr "Ako si užívate používanie doplnku %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Ak chcete ohodnotiť tento slovník, musíte sa prihlásiť"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Ak chcete ohodnotiť tento jazykový balíček, musíte sa prihlásiť"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -300,7 +296,7 @@ msgstr "Hľadať v rozšíreniach a témach vzhľadu"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Žiadny náhľad témy vzhľadu nie je dostupný"
 
 #: src/amo/components/SearchResults.js:40
 msgid "Searching…"
