@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-28 17:48+0000\n"
+"PO-Revision-Date: 2017-03-04 11:04+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -41,12 +41,10 @@ msgid "About this %(addonType)s"
 msgstr "Σχετικά με αυτό το %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Πατήστε για προεπισκόπηση"
+msgstr "Ακύρωση προεπισκόπησης"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
 msgstr "Πατήστε για προεπισκόπηση"
 
@@ -76,20 +74,19 @@ msgstr "Χρήση από"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Αρχική σελίδα"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Ιστοσελίδα υποστήριξης"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Περισσότερες πληροφορίες"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Εικονίδιο προσθέτου"
+msgstr "Σύνδεσμοι προσθέτου"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -143,8 +140,7 @@ msgstr "Πείτε στον κόσμο για αυτή την επέκταση."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "από %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Φόρτωση..."
 
@@ -172,13 +168,11 @@ msgstr "Δεν βρέθηκαν κατηγορίες."
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Η σελίδα δεν βρέθηκε"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Σφάλμα διακομιστή"
 
@@ -260,20 +254,19 @@ msgstr "Πρόσθετα Firefox"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Συνδεθείτε για βαθμολόγηση αυτής της μήχανης αναζήτησης"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Συνδεθείτε για βαθμολόγηση αυτού του θέματος"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Σχετικά με την επέκταση"
+msgstr "Συνδεθείτε για βαθμολόγηση αυτής της επέκτασης"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Συνδεθείτε για βαθμολόγηση αυτού του προσθέτου"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -281,11 +274,11 @@ msgstr "Απολαμβάνετε την εμπειρία σας με το %(addo
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Συνδεθείτε για βαθμολόγηση αυτού του λεξικού"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Συνδεθείτε για βαθμολόγηση αυτού του πακέτου γλώσσας"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -300,9 +293,8 @@ msgid "No theme preview available"
 msgstr ""
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
-msgstr "Αναζήτηση..."
+msgstr "Αναζήτηση…"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
@@ -434,8 +426,7 @@ msgstr "Αποσύνδεση"
 msgid "Log in/Sign up"
 msgstr "Σύνδεση/Εγγραφή"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Κωδικός σφάλματος: %(status)s."
 
@@ -457,9 +448,7 @@ msgstr "Γίνεται εγκατάσταση του %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για "
-"απεγκατάσταση."
+msgstr "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για απεγκατάσταση."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -506,9 +495,8 @@ msgid "An unexpected error occurred"
 msgstr "Προέκυψε απροσδόκητο σφάλμα"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "Φόρτωση..."
+msgstr "Φόρτωση…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
@@ -564,8 +552,7 @@ msgstr ""
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
 #~ msgstr[0] "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτέλεσμα."
-#~ msgstr[1] ""
-#~ "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτελέσματα."
+#~ msgstr[1] "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτελέσματα."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Παρακαλώ κάντε μια έγκυρη αναζήτηση"
