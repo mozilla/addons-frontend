@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-04 21:29+0000\n"
+"PO-Revision-Date: 2017-03-04 21:48+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -136,7 +136,7 @@ msgstr "Povedzte svetu, prečo si myslíte, že je toto rozšírenie úžasné!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Povedzte nám, čo sa vám na tomto doplnku páči. Buďte, prosím, konkrétni."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -156,12 +156,11 @@ msgstr "Ikona doplnku"
 
 #: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Recenzie doplnku %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:70
-#, fuzzy
 msgid "All written reviews"
-msgstr "Napísať recenziu"
+msgstr "Všetky napísané recenzie"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
@@ -184,13 +183,12 @@ msgid "Server Error"
 msgstr "Chyba servera"
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "Prehliadať všetky rozšírenia"
+msgstr "Ďalšie odporúčané rozšírenia"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Ďalšie odporúčané témy vzhľadu"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -206,7 +204,7 @@ msgstr "Zobraziť verziu stránky pre počítače"
 
 #: src/amo/components/LandingPage.js:49
 msgid "Featured extensions"
-msgstr ""
+msgstr "Odporúčané rozšírenia"
 
 #: src/amo/components/LandingPage.js:53
 #, fuzzy
@@ -224,41 +222,36 @@ msgid "More popular extensions"
 msgstr "Prehliadať všetky rozšírenia"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Prehliadať všetky rozšírenia"
+msgstr "Najlepšie hodnotené rozšírenia"
 
 #: src/amo/components/LandingPage.js:68
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "Prehliadať všetky rozšírenia"
+msgstr "Ďalšie rozšírenia s vysokým hodnotením"
 
 #: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
-msgstr ""
+msgstr "Odporúčané témy vzhľadu"
 
 #: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
-msgstr ""
+msgstr "Ďalšie odporúčané témy vzhľadu"
 
 #: src/amo/components/LandingPage.js:76
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Prehliadať všetky témy vzhľadu"
+msgstr "Najpopulárnejšie témy vzhľadu"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "More popular themes"
-msgstr "Prehliadať všetky témy vzhľadu"
+msgstr "Ďalšie populárne témy vzhľadu"
 
 #: src/amo/components/LandingPage.js:82
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Prehliadať všetky témy vzhľadu"
+msgstr "Najlepšie hodnotené témy vzhľadu"
 
 #: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Ďalšie témy vzhľadu s vysokým hodnotením"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -303,7 +296,7 @@ msgstr "Hľadať"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Hľadať v rozšíreniach a témach vzhľadu"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
@@ -371,6 +364,8 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Rozšírenia predstavujú špeciálne funkcie, ktoré si môžete pridať do Firefoxu.\n"
+"Pomocou tém vzhľadu môžete zmeniť vzhľad vášho prehliadača."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
