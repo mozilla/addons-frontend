@@ -3,6 +3,8 @@ import { IndexRoute, Route } from 'react-router';
 
 import SimulateAsyncError from
   'core/containers/error-simulation/SimulateAsyncError';
+import SimulateClientError from
+  'core/containers/error-simulation/SimulateClientError';
 import SimulateSyncError from
   'core/containers/error-simulation/SimulateSyncError';
 import LoginRequired from 'core/containers/LoginRequired';
@@ -24,6 +26,7 @@ export default (
     </Route>
     <Route path="fxa-authenticate" component={HandleLogin} />
     <Route path="simulate-async-error/" component={SimulateAsyncError} />
+    <Route path="simulate-client-error/" component={SimulateClientError} />
     <Route path="simulate-sync-error/" component={SimulateSyncError} />
   </Route>
 );
