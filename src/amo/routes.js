@@ -4,6 +4,8 @@ import { IndexRoute, Route } from 'react-router';
 
 import SimulateAsyncError from
   'core/containers/error-simulation/SimulateAsyncError';
+import SimulateClientError from
+  'core/containers/error-simulation/SimulateClientError';
 import SimulateSyncError from
   'core/containers/error-simulation/SimulateSyncError';
 import HandleLogin from 'core/containers/HandleLogin';
@@ -39,6 +41,7 @@ export default (
       component={config.get('isDevelopment') ? ServerError : NotFound} />
     <Route path="simulate-async-error/" component={SimulateAsyncError} />
     <Route path="simulate-sync-error/" component={SimulateSyncError} />
+    <Route path="simulate-client-error/" component={SimulateClientError} />
     <Route path=":visibleAddonType/" component={LandingPage} />
     <Route path="*" component={NotFound} />
   </Route>

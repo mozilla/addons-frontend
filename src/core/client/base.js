@@ -2,6 +2,7 @@
 
 import 'babel-polyfill';
 import config from 'config';
+import RavenJs from 'raven-js';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -15,6 +16,14 @@ import log from 'core/logger';
 
 
 export default function makeClient(routes, createStore) {
+  const publicSentryDsn = config.get('publicSentryDsn');
+  if (publicSentryDsn) {
+    log.info(`Configured client-side Sentry with DSN ${publicSentryDsn}`);
+    RavenJs.config(publicSentryDsn).install();
+  } else {
+    log.warn('Client-side Sentry reporting was disabled by the config');
+  }
+
   const initialStateContainer = document.getElementById('redux-store-state');
   let initialState;
 
