@@ -19,8 +19,8 @@ export class SimulateClientErrorBase extends React.Component {
   }
 
   render() {
-    const prompt =
-      this.state.buttonClicked ? 'Nice! Check Sentry' : 'Trigger an error';
+    const prompt = this.state.buttonClicked ?
+      'Nice! Check Sentry' : 'Trigger an error 💣';
     return (
       <div className="SimulateClientError">
         <Button onClick={this.onClick}>{prompt}</Button>
