@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-04 18:27+0000\n"
+"PO-Revision-Date: 2017-03-04 18:49+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -281,26 +281,24 @@ msgid "Log in to rate this language pack"
 msgstr ""
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
-#, fuzzy
 msgid "Search"
-msgstr "অনুসন্ধান করা হচ্ছে..."
+msgstr "অনুসন্ধান"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "থিম এবং এক্সটেনশন অনুসন্ধান করুন"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
 msgstr ""
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "অনুসন্ধান করা হচ্ছে..."
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "\"%(query)s\" এর জন্যে কোন ফলাফল পাওয়া যায়নি।"
 
 #: src/amo/components/SearchResults.js:50
 msgid "No results were found."
@@ -343,9 +341,8 @@ msgid "Browse all themes"
 msgstr "সব থিম ব্রাউজ করুন"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Firefox এর জন্য অ্যাড-অন"
+msgstr "অ্যাড-অন হোমপেজ"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -358,9 +355,8 @@ msgid ""
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "এক্সটেনশন মেটাডাটা"
+msgstr "এক্সটেনশন সমূহ"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
@@ -428,21 +424,19 @@ msgstr "লগ আউট"
 
 #: src/core/components/AuthenticateButton/index.js:50
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "লগ ইন/সাইন আপ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "এরর কোড: %(status)s"
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "সব থিম ব্রাউজ করুন"
+msgstr "থিম ইন্সটল করুন"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Firefox এর জন্য অ্যাড-অন"
+msgstr "Firefox এ যুক্ত করুন"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
@@ -450,27 +444,27 @@ msgstr "%(name)s ডাউনলোডিং।"
 
 #: src/core/components/InstallSwitch/index.js:52
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s ইন্সটলিং।"
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ইন্সটল করা হয়েছে এবং সক্রিয় হয়েছে। অনইন্সটল করতে ক্লিক করুন।"
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s নিষ্ক্রিয় করা হয়েছে। সক্রিয় করতে ক্লিক করুন।"
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s আনইন্সটলিং।"
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s আনইন্সটল করা হয়েছে। ইন্সটল করতে ক্লিক করুন।"
 
 #: src/core/components/InstallSwitch/index.js:68
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "%(name)s এর ইন্সটল অবস্থা অজানা।"
 
 #: src/core/components/Paginate/index.js:107
 msgid "Previous"
@@ -494,16 +488,15 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "ঠিক আছে!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
 msgstr ""
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "অনুসন্ধান করা হচ্ছে..."
+msgstr "লোড করা হচ্ছে…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
