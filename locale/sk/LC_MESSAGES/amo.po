@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-01 20:50+0000\n"
+"PO-Revision-Date: 2017-03-04 21:29+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -23,7 +23,7 @@ msgstr[2] ""
 
 #: src/amo/components/AddonDetail.js:123
 msgid "No reviews yet"
-msgstr ""
+msgstr "Zatiaľ žiadne recenzie"
 
 #: src/amo/components/AddonDetail.js:132
 msgid "Rate your experience"
@@ -79,20 +79,19 @@ msgstr "Používa"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Domovská stránka"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Stránka podpory"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Ďalšie informácie"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Ikona doplnku"
+msgstr "Odkazy doplnku"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -147,8 +146,7 @@ msgstr "Povedzte svetu o tomto rozšírení."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "od %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Načítava sa..."
 
@@ -177,13 +175,11 @@ msgstr "Neboli nájdené žiadne kategórie."
 msgid "Not Authorized"
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Stránka nebola nájdená"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Chyba servera"
 
@@ -314,7 +310,6 @@ msgid "No theme preview available"
 msgstr ""
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "Vyhľadáva sa…"
 
@@ -439,7 +434,7 @@ msgstr "Športovo"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Jednoducho"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
@@ -449,8 +444,7 @@ msgstr "Odhlásiť sa"
 msgid "Log in/Sign up"
 msgstr "Prihlásiť sa/Zaregistrovať sa"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Kód chyby: %(status)s."
 
@@ -472,8 +466,7 @@ msgstr "Inštalovanie doplnku %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -577,12 +570,9 @@ msgstr ""
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" bol nájdený %(count)s výsledok."
-#~ msgstr[1] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky."
-#~ msgstr[2] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" bol nájdených %(count)s výsledkov."
+#~ msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" bol nájdený %(count)s výsledok."
+#~ msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky."
+#~ msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bol nájdených %(count)s výsledkov."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Prosím, zadajte platný výraz vyhľadávania"
