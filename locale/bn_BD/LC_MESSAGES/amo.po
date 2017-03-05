@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-05 14:47+0000\n"
+"PO-Revision-Date: 2017-03-05 15:08+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -158,23 +158,23 @@ msgstr "সকল পর্যালোচনা"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "বিভাগ লোড করতে ব্যর্থ।"
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "কোন বিভাগ পাওয়া যায়নি।"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "অনুমোদিত নয়"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "পাতা পাওয়া যায়নি"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "সার্ভার ত্রুটি"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -182,7 +182,7 @@ msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটে�
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -254,11 +254,11 @@ msgstr "Firefox অ্যাড-অনস"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "সার্চ ইঞ্জিন রেট করতে লগিন করুন"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "থিম রেট করতে লগিন করুন"
 
 #: src/amo/components/RatingManager/index.js:105
 msgid "Log in to rate this extension"
