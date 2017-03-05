@@ -68,6 +68,10 @@
 
   .SearchResult--theme & {
     clear: both;
+
+    [dir=rtl] & {
+      float: left;  
+    }
   }
 }
 
@@ -104,6 +108,10 @@
     object-fit: cover;
     object-position: top right;
     width: 100%;
+  }
+
+  [dir=rtl] & {
+    float: left;
   }
 }
 
