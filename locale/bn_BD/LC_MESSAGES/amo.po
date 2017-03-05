@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-05 16:39+0000\n"
+"PO-Revision-Date: 2017-03-05 17:05+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -310,27 +310,27 @@ msgstr "Firefox অ্যাড-অন খুঁজতে অনুগ্রহ 
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "সম্প্রতি হাল নাগাদ করা হয়েছে"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "প্রসঙ্গিকতা"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "অধিকাংশ ব্যবহারকারী"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "শীর্ষ রেটকৃত"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "সাজানো"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "প্রস্তাবিত পেজ সমূহ"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -360,7 +360,7 @@ msgstr "এক্সটেনশন সমূহ"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "থিম"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -484,7 +484,7 @@ msgstr "আপনার এড-অন এখন প্রস্তুত"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "আপনি এখন টুলবার থেকে %(name)s এ প্রবেশ করতে পারেন।"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
@@ -492,7 +492,7 @@ msgstr "ঠিক আছে!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "একটি অপ্রত্যাশিত ত্রুটি সংঘটিত হয়েছে"
 
 #: src/ui/components/LoadingIndicator/index.js:27
 msgid "Loading…"
@@ -500,7 +500,7 @@ msgstr "লোড করা হচ্ছে…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "5 এর মধ্যে %(rating)s রেটিং দেওয়া হয়েছে"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -508,7 +508,7 @@ msgstr "কোন রেটিং নেই"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "পড়তে হলে <span class=\"visually-hidden\">সম্প্রসারণ করুন</span>"
 
 #~ msgid "Screenshots"
 #~ msgstr "স্ক্রীনশট"
