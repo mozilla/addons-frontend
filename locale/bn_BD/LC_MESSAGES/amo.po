@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-05 15:14+0000\n"
+"PO-Revision-Date: 2017-03-05 15:58+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -278,7 +278,7 @@ msgstr "এই অভিধন রেট করতে লগইন করুন"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "ভাষা প্যাক রেট করতে লগিন করুন"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -290,7 +290,7 @@ msgstr "থিম এবং এক্সটেনশন অনুসন্ধা
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "থিমের কোন প্রাকদর্শন নেই"
 
 #: src/amo/components/SearchResults.js:40
 msgid "Searching…"
@@ -302,7 +302,7 @@ msgstr "\"%(query)s\" এর জন্যে কোন ফলাফল পা
 
 #: src/amo/components/SearchResults.js:50
 msgid "No results were found."
-msgstr ""
+msgstr "কোনো ফলাফল খুঁজে পাওয়া যায়নি।"
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
