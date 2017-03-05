@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-04 18:49+0000\n"
+"PO-Revision-Date: 2017-03-05 14:47+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -56,7 +56,7 @@ msgstr[1] "%(total)s ব্যবহারকারী"
 
 #: src/amo/components/AddonMeta.js:28
 msgid "%(averageRating)s out of 5"
-msgstr ""
+msgstr "5 টির মধ্যে %(averageRating)s"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
@@ -74,15 +74,15 @@ msgstr "এর দ্বারা ব্যবহৃত"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "হোমপেজ"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "সহায়তা সাইট"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr ""
+msgstr "আরও তথ্য"
 
 #: src/amo/components/AddonMoreInfo.js:42
 msgid "Add-on Links"
@@ -98,11 +98,11 @@ msgstr "শেষ আপডেট"
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
-msgstr ""
+msgstr "লাইসেন্স"
 
 #: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
@@ -110,7 +110,7 @@ msgstr "গোপনীয়তা নীতি"
 
 #: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "এই অ্যাড-অনটির জন্যে গোপনীয়তার নীতি পড়ুন"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -118,7 +118,7 @@ msgstr "পর্যালোচনা লিখুন"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "টেক্সট পর্যালোচনা করুন"
 
 #: src/amo/components/AddonReview.js:124
 msgid "Submit review"
@@ -130,7 +130,7 @@ msgstr "পৃথিবীকে বলুন কেন আপনি এক্�
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -150,7 +150,7 @@ msgstr "অ্যাড-অন আইকন"
 
 #: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "পর্যালোচনা %(addonName)s এর জন্যে"
 
 #: src/amo/components/AddonReviewList.js:70
 msgid "All written reviews"
