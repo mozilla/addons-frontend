@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-05 15:08+0000\n"
+"PO-Revision-Date: 2017-03-05 15:14+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -266,7 +266,7 @@ msgstr "এক্সটেনশন রেট করতে লগিন কর�
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "এই অ্যাড-অন রেট দিতে লগইন করুন"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -274,7 +274,7 @@ msgstr "%(addonName)s এর সাথে আপনার অভিজ্ঞত�
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "এই অভিধন রেট করতে লগইন করুন"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
