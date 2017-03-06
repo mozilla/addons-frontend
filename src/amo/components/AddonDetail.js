@@ -12,7 +12,13 @@ import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
 import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
-import { isAllowedOrigin, ngettext, nl2br, sanitizeHTML } from 'core/utils';
+import {
+  clientSupportsAddons as _clientSupportsAddons,
+  isAllowedOrigin,
+  ngettext,
+  nl2br,
+  sanitizeHTML,
+} from 'core/utils';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
@@ -39,6 +45,7 @@ export class AddonDetailBase extends React.Component {
   static propTypes = {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
+    clientSupportsAddons: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isPreviewingTheme: PropTypes.bool.isRequired,
@@ -51,6 +58,7 @@ export class AddonDetailBase extends React.Component {
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
+    clientSupportsAddons: _clientSupportsAddons,
   }
 
   componentWillUnmount() {
@@ -65,7 +73,14 @@ export class AddonDetailBase extends React.Component {
   }
 
   headerImage() {
-    const { addon, getBrowserThemeData, i18n, isPreviewingTheme, status } = this.props;
+    const {
+      addon,
+      clientSupportsAddons,
+      getBrowserThemeData,
+      i18n,
+      isPreviewingTheme,
+      status,
+    } = this.props;
     const { previewURL, type } = addon;
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
@@ -84,7 +99,10 @@ export class AddonDetailBase extends React.Component {
           onClick={this.onClick}
         >
           {status !== ENABLED ?
-            <button className="Button AddonDetail-theme-header-label" htmlFor="AddonDetail-theme-header">
+            <button
+              disabled={!clientSupportsAddons()}
+              className="Button AddonDetail-theme-header-label"
+              htmlFor="AddonDetail-theme-header">
               <Icon name="eye" className="AddonDetail-theme-preview-icon" />
               {label}
             </button> : null}

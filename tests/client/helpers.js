@@ -114,3 +114,59 @@ export const signedInApiState = Object.freeze({
   lang: 'en-US',
   token: 'secret-token',
 });
+
+export const userAgents = {
+  androidWebkit: [
+    dedent`Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K)
+      AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`,
+    dedent`Mozilla/5.0 (Linux; U; Android 2.3.4; fr-fr; HTC Desire Build/GRJ22)
+      AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1`,
+  ],
+  chromeAndroid: [
+    dedent`Mozilla/5.0 (Linux; Android 4.1.1; Galaxy Nexus Build/JRO03C)
+      AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile
+      Safari/535.19`,
+    dedent`Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76K)
+      AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile
+      Safari/535.19`,
+    dedent`Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MMB29P)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile
+      Safari/537.36`,
+  ],
+  chrome: [
+    dedent`Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
+      Chrome/41.0.2228.0 Safari/537.36`,
+    dedent`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36
+      (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36`,
+  ],
+  firefox: [
+    'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0',
+    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1',
+    dedent`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101
+      Firefox/33.0`,
+    'Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0',
+  ],
+  firefoxOS: [
+    'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
+    'Mozilla/5.0 (Tablet; rv:26.0) Gecko/26.0 Firefox/26.0',
+    'Mozilla/5.0 (TV; rv:44.0) Gecko/44.0 Firefox/44.0',
+    'Mozilla/5.0 (Mobile; nnnn; rv:26.0) Gecko/26.0 Firefox/26.0',
+  ],
+  firefoxAndroid: [
+    'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
+    'Mozilla/5.0 (Android; Tablet; rv:40.0) Gecko/40.0 Firefox/40.0',
+    'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0',
+    'Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0',
+  ],
+  firefoxIOS: [
+    dedent`Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X)
+      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
+      Safari/600.1.4`,
+    dedent`Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X)
+      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
+      Safari/600.1.4`,
+    dedent`Mozilla/5.0 (iPad; CPU iPhone OS 8_3 like Mac OS X)
+      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
+      Safari/600.1.4`,
+  ],
+};

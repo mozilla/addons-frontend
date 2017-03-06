@@ -1,3 +1,4 @@
+/* global navigator */
 /* eslint-disable react/prop-types */
 import url from 'url';
 
@@ -71,6 +72,20 @@ export function getClientApp(userAgentString) {
     return 'android';
   }
   return 'firefox';
+}
+
+/*
+ * Returns true if the user agent theoretically supports installing Firefox
+ * add-ons.
+ *
+ * This is really only for legacy Firefox versions that don't have a
+ * mozAddonsManager.
+ */
+export function clientSupportsAddons(
+  userAgentString = typeof navigator !== 'undefined' && navigator.userAgent
+) {
+  const ua = userAgentString || '';
+  return ua.toLowerCase().includes('firefox');
 }
 
 export function isValidClientApp(value, { _config = config } = {}) {

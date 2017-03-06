@@ -6,6 +6,7 @@ import InstallSwitch from 'core/components/InstallSwitch';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getThemeData } from 'core/themePreview';
+import { clientSupportsAddons as _clientSupportsAddons } from 'core/utils';
 import Button from 'ui/components/Button';
 
 import './styles.scss';
@@ -14,12 +15,17 @@ import './styles.scss';
 export class InstallButtonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
+    clientSupportsAddons: PropTypes.func,
     className: PropTypes.string,
     hasAddonManager: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     installTheme: PropTypes.func.isRequired,
     size: PropTypes.string,
     status: PropTypes.string.isRequired,
+  }
+
+  static defaultProps = {
+    clientSupportsAddons: _clientSupportsAddons,
   }
 
   installTheme = (event) => {
@@ -29,22 +35,44 @@ export class InstallButtonBase extends React.Component {
   }
 
   render() {
-    const { addon, className, hasAddonManager, i18n, size } = this.props;
+    const {
+      addon,
+      clientSupportsAddons,
+      className,
+      hasAddonManager,
+      i18n,
+      size,
+    } = this.props;
     const useButton = hasAddonManager !== undefined && !hasAddonManager;
     let button;
+    const buttonIsDisabled = !clientSupportsAddons();
+    const buttonClass = classNames('InstallButton-button', {
+      'InstallButton-button--disabled': buttonIsDisabled,
+    });
+
     if (addon.type === ADDON_TYPE_THEME) {
       button = (
         <Button
+          disabled={buttonIsDisabled}
           data-browsertheme={JSON.stringify(getThemeData(addon))}
           onClick={this.installTheme}
           size={size}
-          className="InstallButton-button">
+          className={buttonClass}>
           {i18n.gettext('Install Theme')}
         </Button>
       );
     } else {
+      const onClick = buttonIsDisabled ? (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+      } : null;
       button = (
-        <Button href={addon.installURL} size={size} className="InstallButton-button">
+        <Button
+          href={addon.installURL}
+          onClick={onClick}
+          size={size}
+          className={buttonClass}>
           {i18n.gettext('Add to Firefox')}
         </Button>
       );
