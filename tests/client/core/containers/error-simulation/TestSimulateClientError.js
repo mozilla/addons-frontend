@@ -34,7 +34,7 @@ describe('SimulateClientError', () => {
   it('toggles the trigger prompt', () => {
     const root = render();
     const button = root.querySelector('button');
-    const triggerPrompt = 'Trigger an error 💣';
+    const triggerPrompt = '💣 Go ahead, trigger an error';
 
     assert.equal(button.textContent, triggerPrompt);
     assert.throws(() => Simulate.click(button));
