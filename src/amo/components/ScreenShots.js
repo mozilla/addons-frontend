@@ -18,7 +18,9 @@ const PHOTO_SWIPE_OPTIONS = {
   counterEl: true,
   arrowEl: true,
   preloaderEl: true,
-  getThumbBoundsFn: function getThumbBoundsFn(index) {
+  // Overload getThumbsBoundsFn as workaround to
+  // https://github.com/minhtranite/react-photoswipe/issues/23
+  getThumbBoundsFn: /* istanbul ignore next */ function getThumbBoundsFn(index) {
     const thumbnail = document.querySelectorAll('.pswp-thumbnails')[index];
     if (thumbnail && thumbnail.getElementsByTagName) {
       const img = thumbnail.getElementsByTagName('img')[0];
