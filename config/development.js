@@ -1,8 +1,6 @@
 // Config specific to local development
 import { amoDevCDN, apiDevHost, sentryHost } from './lib/shared';
 
-import { sentryHost } from './lib/shared';
-
 const webpackServerHost = '127.0.0.1';
 const webpackServerPort = 3001;
 const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
