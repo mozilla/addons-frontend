@@ -72,12 +72,6 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "no-console": "error",
     "no-plusplus": "off",
-    "no-restricted-syntax": [
-      'error',
-      'ForInStatement',
-      'LabeledStatement',
-      'WithStatement',
-    ],
     "no-underscore-dangle": "off",
     "space-before-function-paren": ["error", "never"],
     // The airbnb default of this rule mainly encourages `shape` over `object`
