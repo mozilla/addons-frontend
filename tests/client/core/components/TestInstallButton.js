@@ -77,11 +77,12 @@ describe('<InstallButton />', () => {
   });
 
   it('renders an add-on button when mozAddonManager is not available', () => {
+    const installURL = 'https://addons.mozilla.org/download';
     const root = render({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_EXTENSION,
-        installURL: 'https://addons.mozilla.org/download',
+        installURL,
       },
       hasAddonManager: false,
     });
@@ -90,20 +91,21 @@ describe('<InstallButton />', () => {
     assert.equal(root.props.className, 'InstallButton InstallButton--use-button');
     const buttonComponent = root.props.children[1];
     assert.equal(buttonComponent.type, Button);
-    assert.deepEqual(buttonComponent.props, {
-      children: 'Add to Firefox',
-      className: 'InstallButton-button',
-      href: 'https://addons.mozilla.org/download',
-      size: 'normal',
-    });
+
+    const props = buttonComponent.props;
+    assert.equal(props.children, 'Add to Firefox');
+    assert.equal(props.className, 'InstallButton-button');
+    assert.equal(props.href, installURL);
+    assert.equal(props.size, 'normal');
   });
 
   it('disables add-on install when client does not support addons', () => {
+    const installURL = 'https://addons.mozilla.org/download';
     const root = render({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_EXTENSION,
-        installURL: 'https://addons.mozilla.org/download',
+        installURL,
       },
       clientSupportsAddons: () => false,
     });
@@ -113,7 +115,19 @@ describe('<InstallButton />', () => {
     assert.equal(buttonComponent.type, Button);
     assert.include(
       buttonComponent.props.className, 'InstallButton-button--disabled');
-    assert.strictEqual(buttonComponent.props.href, null);
+    assert.strictEqual(buttonComponent.props.href, installURL);
+
+    assert.isFunction(buttonComponent.props.onClick);
+    const event = {
+      preventDefault: sinon.stub(),
+      stopPropagation: sinon.stub(),
+    };
+    // A return value of false will prevent the anchor tag from firing.
+    assert.strictEqual(buttonComponent.props.onClick(event), false);
+    assert.ok(
+      event.preventDefault.called, 'event.preventDefault() was not called');
+    assert.ok(
+      event.stopPropagation.called, 'event.stopPropagation() was not called');
   });
 
   it('disables theme install when client does not support addons', () => {

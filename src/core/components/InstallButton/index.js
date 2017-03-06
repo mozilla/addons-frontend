@@ -62,9 +62,15 @@ export class InstallButtonBase extends React.Component {
         </Button>
       );
     } else {
+      const onClick = buttonIsDisabled ? (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+      } : null;
       button = (
         <Button
-          href={buttonIsDisabled ? null : addon.installURL}
+          href={addon.installURL}
+          onClick={onClick}
           size={size}
           className={buttonClass}>
           {i18n.gettext('Add to Firefox')}
