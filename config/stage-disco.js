@@ -1,4 +1,5 @@
-const amoCDN = 'https://addons-stage-cdn.allizom.org';
+import { amoStageCDN } from './lib/shared';
+
 const staticHost = 'https://addons-discovery-cdn.allizom.org';
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoCDN,
+        amoStageCDN,
         staticHost,
         'https://www.google-analytics.com',
       ],

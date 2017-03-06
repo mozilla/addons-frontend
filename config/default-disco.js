@@ -1,8 +1,8 @@
 /*
  * This is the default (production) config for the discovery pane app.
  */
+import { amoProdCDN } from './lib/shared';
 
-const amoCDN = 'https://addons.cdn.mozilla.net';
 const staticHost = 'https://addons-discovery.cdn.mozilla.net';
 
 module.exports = {
@@ -44,7 +44,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoCDN,
+        amoProdCDN,
         staticHost,
         'https://www.google-analytics.com',
       ],

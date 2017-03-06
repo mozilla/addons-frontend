@@ -1,10 +1,11 @@
 // CONFIG defaults (aka PRODUCTION)
 // WARNING: No test/stage/dev/development config should
 // live here.
-
 import 'babel-polyfill';
 
-const path = require('path');
+import path from 'path';
+
+import { amoProdCDN, apiProdHost, sentryHost } from './lib/shared';
 
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
@@ -17,9 +18,6 @@ const validAppNames = [
 if (appName && !validAppNames.includes(appName)) {
   throw new Error(`App ${appName} is not enabled`);
 }
-
-const amoCDN = 'https://addons.cdn.mozilla.net';
-const apiHost = 'https://addons.mozilla.org';
 
 
 module.exports = {
@@ -54,9 +52,9 @@ module.exports = {
   serverPort: 4000,
 
   // The CDN host for AMO.
-  amoCDN,
-  staticHost: amoCDN,
-  apiHost,
+  amoCDN: amoProdCDN,
+  staticHost: amoProdCDN,
+  apiHost: apiProdHost,
   apiPath: '/api/v3',
 
   // The keys listed here will be exposed on the client.
@@ -93,27 +91,27 @@ module.exports = {
   // Content Security Policy.
   // NOTE: This config should be overridden on a per app basis
   // if you're not updating the config for all apps.
-  // NOTE: if a config contains a var, it must be set
-  // for all overriding configs.
+  // NOTE: if a config contains a var, consider importing it
+  // from ./lib/shared.js
   CSP: {
     directives: {
       defaultSrc: ["'none'"],
       baseUri: ["'self'"],
       childSrc: ["'none'"],
-      connectSrc: [apiHost],
+      connectSrc: [apiProdHost, sentryHost],
       formAction: ["'none'"],
       frameSrc: ["'none'"],
       imgSrc: [
         // Favicons are normally served
         // from the document host.
         "'self'",
-        amoCDN,
+        amoProdCDN,
         'data:',
       ],
       mediaSrc: ["'none'"],
       objectSrc: ["'none'"],
-      scriptSrc: [amoCDN],
-      styleSrc: [amoCDN],
+      scriptSrc: [amoProdCDN],
+      styleSrc: [amoProdCDN],
       reportUri: '/__cspreport__',
     },
 

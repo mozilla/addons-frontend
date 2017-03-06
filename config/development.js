@@ -1,15 +1,14 @@
 // Config specific to local development
+import { amoDevCDN, apiDevHost, sentryHost } from './lib/shared';
 
 const webpackServerHost = '127.0.0.1';
 const webpackServerPort = 3001;
 const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
-const apiHost = 'https://addons-dev.allizom.org';
-const amoCDN = 'https://addons-dev-cdn.allizom.org';
 
 
 module.exports = {
-  apiHost,
-  amoCDN,
+  apiHost: apiDevHost,
+  amoCDN: amoDevCDN,
 
   // Statics will be served by node.
   staticHost: undefined,
@@ -30,7 +29,8 @@ module.exports = {
     directives: {
       connectSrc: [
         "'self'",
-        amoCDN,
+        amoDevCDN,
+        sentryHost,
         webpackHost,
       ],
       imgSrc: [
@@ -39,7 +39,7 @@ module.exports = {
       ],
       scriptSrc: [
         "'self'",
-        amoCDN,
+        amoDevCDN,
         webpackHost,
       ],
       styleSrc: [

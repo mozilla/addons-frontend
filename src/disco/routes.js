@@ -25,15 +25,15 @@ export default (
     <Route path="/:lang/firefox/500"
       component={config.get('isDevelopment') ? GenericError : NotFound} />
     <Route
-      path="/:lang/firefox/simulate-async-error/"
+      path="/:lang/:app/simulate-async-error/"
       component={SimulateAsyncError}
     />
     <Route
-      path="/:lang/firefox/simulate-client-error/"
+      path="/:lang/:app/simulate-client-error/"
       component={SimulateClientError}
     />
     <Route
-      path="/:lang/firefox/simulate-sync-error/"
+      path="/:lang/:app/simulate-sync-error/"
       component={SimulateSyncError}
     />
     <Route path="*" component={NotFound} />

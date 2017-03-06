@@ -1,4 +1,5 @@
-const amoCDN = 'https://addons-stage-cdn.allizom.org';
+import { amoStageCDN } from './lib/shared';
+
 const staticHost = 'https://addons-admin-cdn.allizom.org';
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
-        amoCDN,
+        amoStageCDN,
         staticHost,
         'data:',
       ],
