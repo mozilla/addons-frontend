@@ -89,7 +89,6 @@ export class AddonDetailBase extends React.Component {
       const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
       const imageClassName = 'AddonDetail-theme-header-image';
       const headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
-      const buttonIsDisabled = !clientSupportsAddons();
 
       return (
         <div
@@ -101,7 +100,7 @@ export class AddonDetailBase extends React.Component {
         >
           {status !== ENABLED ?
             <button
-              disabled={buttonIsDisabled}
+              disabled={!clientSupportsAddons()}
               className="Button AddonDetail-theme-header-label"
               htmlFor="AddonDetail-theme-header">
               <Icon name="eye" className="AddonDetail-theme-preview-icon" />
