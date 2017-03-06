@@ -13,7 +13,7 @@ module.exports = {
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
-        amoCDN: amoDevCDN,
+        amoDevCDN,
         staticHost,
         'data:',
       ],

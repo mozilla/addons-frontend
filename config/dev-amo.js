@@ -18,7 +18,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoCDN: amoDevCDN,
+        amoDevCDN,
         staticHost,
         'https://www.google-analytics.com',
       ],
