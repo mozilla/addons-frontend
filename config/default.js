@@ -54,7 +54,7 @@ module.exports = {
 
   // The CDN host for AMO.
   amoCDN: amoProdCDN,
-  staticHost: amoCDN,
+  staticHost: amoProdCDN,
   apiHost: apiProdHost,
   apiPath: '/api/v3',
 
