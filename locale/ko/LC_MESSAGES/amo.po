@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-03-03 09:48+0000\n"
+"PO-Revision-Date: 2017-03-07 03:10+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -40,14 +40,12 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s에 대한 정보"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "리뷰 작성"
+msgstr "미리보기 취소"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "리뷰 작성"
+msgstr "탭하여 미리보기"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 #, fuzzy
@@ -76,11 +74,11 @@ msgstr "사용됨"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "홈 페이지"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "도움말 사이트"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
@@ -207,61 +205,52 @@ msgid "View desktop site"
 msgstr "데스크톱 사이트 보기"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "모든 확장 기능 탐색하기"
+msgstr "추천 확장 기능"
 
 #: src/amo/components/LandingPage.js:53
-#, fuzzy
 msgid "More featured extensions"
-msgstr "모든 확장 기능 탐색하기"
+msgstr "추천 확장 기능 더보기"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "모든 확장 기능 탐색하기"
+msgstr "가장 인기있는 확장 기능"
 
 #: src/amo/components/LandingPage.js:59
-#, fuzzy
 msgid "More popular extensions"
-msgstr "모든 확장 기능 탐색하기"
+msgstr "인기있는 확장 기능 더보기"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "모든 확장 기능 탐색하기"
+msgstr "가장 평점이 높은 확장 기능"
 
 #: src/amo/components/LandingPage.js:68
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "모든 확장 기능 탐색하기"
+msgstr "평점이 높은 확장 기능 더보기"
 
 #: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
-msgstr ""
+msgstr "추천 테마"
 
 #: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
-msgstr ""
+msgstr "추천 테마 더보기"
 
 #: src/amo/components/LandingPage.js:76
-#, fuzzy
 msgid "Most popular themes"
-msgstr "모든 테마 탐색하기"
+msgstr "가장 인기있는 테마"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
 msgid "More popular themes"
-msgstr "모든 테마 탐색하기"
+msgstr "인기있는 테마 더보기"
 
 #: src/amo/components/LandingPage.js:82
-#, fuzzy
 msgid "Top rated themes"
-msgstr "모든 테마 탐색하기"
+msgstr "가장 평점이 높은 테마"
 
 #: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
-msgstr ""
+msgstr "평점이 높은 테마 더보기"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -273,20 +262,19 @@ msgstr "Firefox 부가 기능"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "로그인하여 이 검색엔진의 평점을 남겨주세요"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "로그인하여 이 테마의 평점을 남겨주세요"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "이 확장 기능에 대해"
+msgstr "로그인하여 이 확장 기능의 평점을 남겨주세요"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -294,66 +282,63 @@ msgstr "%(addonName)s 부가 기능을 어떻게 사용하셨나요?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "로그인하여 이 사전의 평점을 남겨주세요"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
-#, fuzzy
 msgid "Search"
-msgstr "검색중..."
+msgstr "검색"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "확장 기능과 테마 검색"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "테마 미리보기가 없습니다"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
-msgstr "검색중..."
+msgstr "검색중…"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 
 #: src/amo/components/SearchResults.js:50
-#, fuzzy
 msgid "No results were found."
-msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
+msgstr "검색 결과가 없습니다."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Firefox 부가 기능을 검색하려면 검색어를 입력해주세요."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "최근 업데이트됨"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "관련성 높음"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "많이 씀"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "평점 높음"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "정렬"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "추천 페이지"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -364,9 +349,8 @@ msgid "Browse all themes"
 msgstr "모든 테마 탐색하기"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Firefox 부가 기능"
+msgstr "부가 기능 홈 페이지"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -377,15 +361,16 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"확장 기능은 Firefox에 추가해 쓸 수 있는 특별한 기능입니다.\n"
+"테마는 브라우저의 모양을 바꿀 수 있습니다."
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "확장 메타 데이터"
+msgstr "확장 기능"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "테마"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -453,17 +438,15 @@ msgstr "로그인/가입하기"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "오류 코드 : %(status)s."
 
 #: src/core/components/InstallButton/index.js:42
-#, fuzzy
 msgid "Install Theme"
-msgstr "%(name)s를 설치하는 중입니다."
+msgstr "테마 설치하기"
 
 #: src/core/components/InstallButton/index.js:48
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Firefox 부가 기능"
+msgstr "Firefox에 추가"
 
 #: src/core/components/InstallSwitch/index.js:49
 msgid "Downloading %(name)s."
