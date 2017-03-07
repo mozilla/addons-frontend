@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-02 15:11+0000\n"
-"PO-Revision-Date: 2017-02-24 11:50+0000\n"
+"PO-Revision-Date: 2017-03-07 12:17+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -40,14 +40,12 @@ msgid "About this %(addonType)s"
 msgstr "Bu %(addonType)s hakkında"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Ön izleme için tıklayın"
+msgstr "Ön izlemeyi iptal et"
 
 #: src/amo/components/AddonDetail.js:74
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Ön izleme için tıklayın"
+msgstr "Ön izleme için dokunun"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
 msgid "%(total)s user"
@@ -73,20 +71,19 @@ msgstr "Kullanan"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Ana Sayfa"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Destek Sitesi"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Daha fazla bilgi"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Eklenti simgesi"
+msgstr "Eklenti Bağlantıları"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -130,8 +127,7 @@ msgstr "Neden bu uzantının harika olduğunu anlatın!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Bize bu uzantının nesini sevdiğinizi anlatın. Mümkün olduğunca detay verin."
+msgstr "Bize bu uzantının nesini sevdiğinizi anlatın. Mümkün olduğunca detay verin."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -141,8 +137,7 @@ msgstr "Arkadaşlarınıza bu uzantıdan bahsedin."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
@@ -170,13 +165,11 @@ msgstr "Kategori bulunamadı."
 msgid "Not Authorized"
 msgstr "Yetkili değilsiniz"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Sayfa bulunamadı"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Sunucu Hatası"
 
@@ -298,9 +291,8 @@ msgid "No theme preview available"
 msgstr ""
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
-msgstr "Aranıyor..."
+msgstr "Aranıyor…"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
@@ -434,8 +426,7 @@ msgstr "Çıkış"
 msgid "Log in/Sign up"
 msgstr "Giriş/Kayıt"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Hata kodu: %(status)s."
 
@@ -504,9 +495,8 @@ msgid "An unexpected error occurred"
 msgstr "Beklenmeyen bir hata oluştu"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "Yükleniyor..."
+msgstr "Yükleniyor…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
