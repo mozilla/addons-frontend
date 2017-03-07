@@ -1,11 +1,12 @@
 /* global navigator */
 /* eslint-disable react/prop-types */
+import url from 'url';
+
 import config from 'config';
 import mozCompare from 'mozilla-version-comparator';
 import React from 'react';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
 import UAParser from 'ua-parser-js';
-import url from 'url';
 
 import { loadEntities } from 'core/actions';
 import {
