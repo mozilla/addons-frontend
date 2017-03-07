@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-01 18:02+0000\n"
+"POT-Creation-Date: 2017-03-07 14:44+0000\n"
 "PO-Revision-Date: 2017-03-02 10:58+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
@@ -18,7 +18,8 @@ msgstr ""
 msgid "Server Error"
 msgstr "Error del servidor"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Código de error: %(status)s."
 
@@ -26,11 +27,11 @@ msgstr "Código de error: %(status)s."
 msgid "Page not found"
 msgstr "Página no encontrada"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/InstallButton/index.js:61
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:76
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
@@ -141,15 +142,22 @@ msgstr "Personaliza tu Firefox"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
-"Hay miles de complementos gratis, creados por desarrolladores de todo el mundo\n"
-"y que te ayudan a personalizar Firefox. Desde divertidos temas visuales a herramientas \n"
-"y funciones alucinantes para que navegues más rápido y seguro. Los complementos te\n"
-"ayudan a personalizar tu navegador. Para empezar, te recomendamos algunos por su\n"
+"Hay miles de complementos gratis, creados por desarrolladores de todo el "
+"mundo\n"
+"y que te ayudan a personalizar Firefox. Desde divertidos temas visuales a "
+"herramientas \n"
+"y funciones alucinantes para que navegues más rápido y seguro. Los "
+"complementos te\n"
+"ayudan a personalizar tu navegador. Para empezar, te recomendamos algunos "
+"por su\n"
 "rendimiento y funcionalidad."
 
 #~ msgid "Installed and added to toolbar"
