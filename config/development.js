@@ -49,4 +49,8 @@ module.exports = {
     },
     reportOnly: true,
   },
+
+  // By default, client side errors are not reported to Sentry during
+  // development. Override this in a local-*.js config to report errors.
+  publicSentryDsn: null,
 };
