@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-02 16:36+0000\n"
+"PO-Revision-Date: 2017-03-07 16:30+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -137,8 +137,7 @@ msgstr "この拡張機能をレビューしてください。"
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s / %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -166,13 +165,11 @@ msgstr "カテゴリーが見つかりませんでした。"
 msgid "Not Authorized"
 msgstr "権限がありません"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "ページが見つかりませんでした"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "サーバーエラー"
 
@@ -194,7 +191,7 @@ msgstr "法的通知"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "バグを報告"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -432,8 +429,7 @@ msgstr "ログアウト"
 msgid "Log in/Sign up"
 msgstr "ログイン・登録"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "エラーコード: %(status)s"
 
@@ -455,8 +451,7 @@ msgstr "%(name)s をインストールしています。"
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s はインストールされ有効化されました。削除するにはここをクリック。"
+msgstr "%(name)s はインストールされ有効化されました。削除するにはここをクリック。"
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -559,8 +554,7 @@ msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "「%(query)s」を検索したところ %(count)s 件の結果が見つかりました。"
+#~ msgstr[0] "「%(query)s」を検索したところ %(count)s 件の結果が見つかりました。"
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "検索語を正しく入力してください"
