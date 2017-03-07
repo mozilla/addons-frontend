@@ -1,17 +1,18 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-02 16:35+0100\n"
+"PO-Revision-Date: 2017-03-07 15:18+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonDetail.js:128
 msgid "Read %(count)s review"
@@ -132,9 +133,7 @@ msgstr "Powiedz światu, dlaczego to rozszerzenie jest wspaniałe!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Powiedz nam, dlaczego uwielbiasz to rozszerzenie. Prosimy o konkrety "
-"i zwięzłość."
+msgstr "Powiedz nam, dlaczego uwielbiasz to rozszerzenie. Prosimy o konkrety i zwięzłość."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -144,8 +143,7 @@ msgstr "Opowiedz światu o tym rozszerzeniu."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "Autor: %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Wczytywanie…"
 
@@ -173,13 +171,11 @@ msgstr "Nie odnaleziono żadnych kategorii."
 msgid "Not Authorized"
 msgstr "Brak upoważnienia"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Nie odnaleziono strony"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Błąd serwera"
 
@@ -201,7 +197,7 @@ msgstr "Kwestie prawne"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Zgłoś błąd"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -439,8 +435,7 @@ msgstr "Wyloguj"
 msgid "Log in/Sign up"
 msgstr "Zaloguj/zarejestruj"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Kod błędu: %(status)s."
 
@@ -462,8 +457,7 @@ msgstr "Instalowanie dodatku „%(name)s”."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Dodatek „%(name)s” jest zainstalowany i włączony. Kliknij, aby odinstalować."
+msgstr "Dodatek „%(name)s” jest zainstalowany i włączony. Kliknij, aby odinstalować."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
