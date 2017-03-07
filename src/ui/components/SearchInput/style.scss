@@ -42,12 +42,16 @@ $icon-margin-end: 12px;
 .SearchInput-label {
   @include font-regular();
   // Include the start margin on the end so that icon and text is centred together.
-  @include margin-end($icon-margin-start);
+  @include padding-end($icon-margin-start);
 
   display: inline-block;
   height: $input-height;
   line-height: $input-height;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   top: 0;
+  white-space: nowrap;
 
   .SearchInput--text & {
     color: transparent;

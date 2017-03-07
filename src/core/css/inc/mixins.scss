@@ -294,6 +294,16 @@ $color: $text-color-message) {
   }
 }
 
+@mixin padding-end($val) {
+  [dir=ltr] & {
+    padding-right: $val;
+  }
+
+  [dir=rtl] & {
+    padding-left: $val;
+  }
+}
+
 @mixin addonSection() {
   background: $base-color;
   padding: 10px;
