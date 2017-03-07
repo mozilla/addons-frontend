@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-02 15:11+0000\n"
+"POT-Creation-Date: 2017-03-07 14:08+0000\n"
 "PO-Revision-Date: 2017-03-02 21:21+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:110
+#: src/amo/components/AddonDetail.js:128
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Přečíst %(count)s recenzi"
 msgstr[1] "Přečíst všechny %(count)s recenze"
 msgstr[2] "Přečtěte si všech %(count)s recenzí"
 
-#: src/amo/components/AddonDetail.js:123
+#: src/amo/components/AddonDetail.js:141
 msgid "No reviews yet"
 msgstr "Zatím žádné recenze"
 
-#: src/amo/components/AddonDetail.js:132
+#: src/amo/components/AddonDetail.js:150
 msgid "Rate your experience"
 msgstr "Ohodnoťte svou zkušenost"
 
-#: src/amo/components/AddonDetail.js:156
+#: src/amo/components/AddonDetail.js:174
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s od %(authorList)s %(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:179
+#: src/amo/components/AddonDetail.js:197
 msgid "Extension Metadata"
 msgstr "Metadata rozšíření"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:211
 msgid "About this %(addonType)s"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:74
+#: src/amo/components/AddonDetail.js:89
 msgid "Cancel preview"
 msgstr "Zrušit náhled"
 
-#: src/amo/components/AddonDetail.js:74
+#: src/amo/components/AddonDetail.js:89
 msgid "Tap to preview"
 msgstr "Pro náhled klepněte"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s uživatel"
@@ -134,7 +134,8 @@ msgstr "Řekněte celému světu, proč si myslíte, že je tenhle doplněk úž
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Řekněte nám, co se vám na tomto doplňku líbí. Buďte konkrétní a svědomití."
+msgstr ""
+"Řekněte nám, co se vám na tomto doplňku líbí. Buďte konkrétní a svědomití."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -144,7 +145,8 @@ msgstr "Řekněte světu o tomto rozšíření."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "od uživatele %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52
+#: src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Načítání..."
 
@@ -172,11 +174,13 @@ msgstr "Žádné kategorie nebyly nalezeny."
 msgid "Not Authorized"
 msgstr "Neautorizováno"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Stránka nenalezena"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Chyba serveru"
 
@@ -196,7 +200,11 @@ msgstr "Zásady ochrany soukromí"
 msgid "Legal notices"
 msgstr "Právní informace"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer.js:42
+msgid "Report a bug"
+msgstr ""
+
+#: src/amo/components/Footer.js:49
 msgid "View desktop site"
 msgstr "Zobrazit verzi pro desktop"
 
@@ -310,7 +318,8 @@ msgstr "Nebyly nalezeny žádné výsledky."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "Vložte prosím vyhledávací dotaz pro hledání na serveru Doplňky pro Firefox."
+msgstr ""
+"Vložte prosím vyhledávací dotaz pro hledání na serveru Doplňky pro Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
@@ -431,15 +440,16 @@ msgstr "Odhlásit se"
 msgid "Log in/Sign up"
 msgstr "Přihlásit se / Zaregistrovat se"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Chybový kód: %(status)s."
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/InstallButton/index.js:61
 msgid "Install Theme"
 msgstr "Nainstalovat motiv"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:76
 msgid "Add to Firefox"
 msgstr "Přidat do Firefoxu"
 

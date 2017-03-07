@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-02 15:11+0000\n"
+"POT-Creation-Date: 2017-03-07 14:08+0000\n"
 "PO-Revision-Date: 2017-03-02 16:35+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -13,42 +13,42 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/amo/components/AddonDetail.js:110
+#: src/amo/components/AddonDetail.js:128
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Przeczytaj %(count)s recenzję"
 msgstr[1] "Przeczytaj %(count)s recenzje"
 msgstr[2] "Przeczytaj %(count)s recenzji"
 
-#: src/amo/components/AddonDetail.js:123
+#: src/amo/components/AddonDetail.js:141
 msgid "No reviews yet"
 msgstr "Nie ma jeszcze recenzji"
 
-#: src/amo/components/AddonDetail.js:132
+#: src/amo/components/AddonDetail.js:150
 msgid "Rate your experience"
 msgstr "Oceń swoje wrażenia"
 
-#: src/amo/components/AddonDetail.js:156
+#: src/amo/components/AddonDetail.js:174
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sAutor: %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:179
+#: src/amo/components/AddonDetail.js:197
 msgid "Extension Metadata"
 msgstr "Metadane rozszerzenia"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:211
 msgid "About this %(addonType)s"
 msgstr "%(addonType)s: informacje"
 
-#: src/amo/components/AddonDetail.js:74
+#: src/amo/components/AddonDetail.js:89
 msgid "Cancel preview"
 msgstr "Anuluj podgląd"
 
-#: src/amo/components/AddonDetail.js:74
+#: src/amo/components/AddonDetail.js:89
 msgid "Tap to preview"
 msgstr "Stuknij, aby wyświetlić podgląd"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s użytkownik"
@@ -199,7 +199,11 @@ msgstr "Polityka prywatności"
 msgid "Legal notices"
 msgstr "Kwestie prawne"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer.js:42
+msgid "Report a bug"
+msgstr ""
+
+#: src/amo/components/Footer.js:49
 msgid "View desktop site"
 msgstr "Wyświetl stronę na komputery"
 
@@ -440,11 +444,11 @@ msgstr "Zaloguj/zarejestruj"
 msgid "Error code: %(status)s."
 msgstr "Kod błędu: %(status)s."
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/InstallButton/index.js:61
 msgid "Install Theme"
 msgstr "Zainstaluj motyw"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:76
 msgid "Add to Firefox"
 msgstr "Dodaj do Firefoksa"
 
