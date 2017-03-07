@@ -62,4 +62,8 @@ describe('AMO GET Requests', () => {
       assert.equal(res.header.location,
         '/en-US/firefox/search/');
     }));
+
+  it('should respond with a 404 to user pages', () => request(app)
+    .get('/en-US/firefox/user/some-user/')
+    .expect(404));
 });
