@@ -97,6 +97,7 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_JWT = 'SET_JWT';
 export const SET_LANG = 'SET_LANG';
+export const SET_USER_AGENT = 'SET_USER_AGENT';
 
 // InfoDialog action types.
 export const CLOSE_INFO = 'CLOSE_INFO';

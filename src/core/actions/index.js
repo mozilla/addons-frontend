@@ -1,10 +1,11 @@
 import {
-  LOG_OUT_USER,
-  SET_JWT,
-  SET_CLIENT_APP,
-  SET_LANG,
   ENTITIES_LOADED,
+  LOG_OUT_USER,
+  SET_CLIENT_APP,
   SET_CURRENT_USER,
+  SET_JWT,
+  SET_LANG,
+  SET_USER_AGENT,
 } from 'core/constants';
 
 export function setJwt(token) {
@@ -32,6 +33,13 @@ export function setLang(lang) {
   return {
     type: SET_LANG,
     payload: { lang },
+  };
+}
+
+export function setUserAgent(userAgent) {
+  return {
+    type: SET_USER_AGENT,
+    payload: { userAgent },
   };
 }
 

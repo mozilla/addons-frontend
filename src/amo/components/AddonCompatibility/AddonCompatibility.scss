@@ -1,0 +1,14 @@
+@import "~amo/css/inc/vars";
+
+.AddonCompatibility {
+  background: $error-background-color;
+  border-radius: $border-radius-default;
+  color: $error-text-color;
+  padding: 5px;
+  text-align: center;
+
+  a,
+  a:link {
+    color: $error-text-color;
+  }
+}

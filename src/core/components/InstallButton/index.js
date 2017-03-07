@@ -1,12 +1,16 @@
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 
 import InstallSwitch from 'core/components/InstallSwitch';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getThemeData } from 'core/themePreview';
-import { clientSupportsAddons as _clientSupportsAddons } from 'core/utils';
+import {
+  isCompatibleWithUserAgent as _isCompatibleWithUserAgent,
+  getCompabilityVersions,
+} from 'core/utils';
 import Button from 'ui/components/Button';
 
 import './styles.scss';
@@ -15,17 +19,19 @@ import './styles.scss';
 export class InstallButtonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
-    clientSupportsAddons: PropTypes.func,
     className: PropTypes.string,
+    clientApp: PropTypes.string.isRequired,
     hasAddonManager: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     installTheme: PropTypes.func.isRequired,
+    isCompatibleWithUserAgent: PropTypes.func,
     size: PropTypes.string,
     status: PropTypes.string.isRequired,
+    userAgent: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
-    clientSupportsAddons: _clientSupportsAddons,
+    isCompatibleWithUserAgent: _isCompatibleWithUserAgent,
   }
 
   installTheme = (event) => {
@@ -37,15 +43,25 @@ export class InstallButtonBase extends React.Component {
   render() {
     const {
       addon,
-      clientSupportsAddons,
+      clientApp,
       className,
       hasAddonManager,
       i18n,
+      isCompatibleWithUserAgent,
       size,
+      userAgent,
     } = this.props;
     const useButton = hasAddonManager !== undefined && !hasAddonManager;
     let button;
-    const buttonIsDisabled = !clientSupportsAddons();
+
+    // Test add-on capability (is the client Firefox?) and compatibility
+    // (is the client a valid version of Firefox to run this add-on?).
+    const { maxVersion, minVersion } = getCompabilityVersions({
+      addon, clientApp });
+    const isCompatible = isCompatibleWithUserAgent({
+      maxVersion, minVersion, userAgent });
+
+    const buttonIsDisabled = !isCompatible;
     const buttonClass = classNames('InstallButton-button', {
       'InstallButton-button--disabled': buttonIsDisabled,
     });
@@ -89,6 +105,11 @@ export class InstallButtonBase extends React.Component {
   }
 }
 
+export function mapStateToProps(state) {
+  return { clientApp: state.api.clientApp, userAgent: state.api.userAgent };
+}
+
 export default compose(
+  connect(mapStateToProps),
   translate(),
 )(InstallButtonBase);

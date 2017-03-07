@@ -1,5 +1,7 @@
 import * as actions from 'core/actions';
 import api from 'core/reducers/api';
+import { userAgents } from 'tests/client/helpers';
+
 
 describe('api reducer', () => {
   it('maintains the old state', () => {
@@ -32,6 +34,13 @@ describe('api reducer', () => {
     assert.deepEqual(
       api(existingState, actions.setClientApp(clientApp)),
       { ...existingState, clientApp });
+  });
+
+  it('stores the userAgent', () => {
+    const existingState = { bar: 'baz' };
+    assert.deepEqual(
+      api(existingState, actions.setUserAgent(userAgents.firefox[1])),
+      { ...existingState, userAgent: userAgents.firefox[1] });
   });
 
   it('defaults to an empty object', () => {

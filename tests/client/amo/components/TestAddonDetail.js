@@ -12,6 +12,7 @@ import { match } from 'react-router';
 import {
   AddonDetailBase,
   allowedDescriptionTags,
+  mapStateToProps,
 } from 'amo/components/AddonDetail';
 import AddonMeta from 'amo/components/AddonMeta';
 import Link from 'amo/components/Link';
@@ -21,24 +22,23 @@ import createStore from 'amo/store';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
 import I18nProvider from 'core/i18n/Provider';
-import { fakeAddon } from 'tests/client/amo/helpers';
+import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
   const i18n = getFakeI18nInst();
-  const initialState = { api: { clientApp: 'android', lang: 'pt' } };
   return {
     addon,
     ...addon,
-    clientSupportsAddons: () => true,
+    isCompatibleWithUserAgent: () => true,
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
     // Configure AddonDetail with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
-    store: createStore(initialState),
+    store: createStore(signedInApiState),
     ...customProps,
   };
 }
@@ -49,7 +49,7 @@ function render(...args) {
   return findRenderedComponentWithType(renderIntoDocument(
     <Provider store={store}>
       <I18nProvider i18n={i18n}>
-        <AddonDetailBase {...props} />
+        <AddonDetailBase {...props} store={store} />
       </I18nProvider>
     </Provider>
   ), AddonDetailBase);
@@ -303,7 +303,7 @@ describe('AddonDetail', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      clientSupportsAddons: () => false,
+      isCompatibleWithUserAgent: () => false,
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
     assert.equal(button.disabled, true);
@@ -450,5 +450,14 @@ describe('AddonDetail', () => {
         });
       });
     });
+  });
+});
+
+describe('AddonDetals mapStateToProps', () => {
+  it('sets the clientApp and userAgent', () => {
+    const { clientApp, userAgent } = mapStateToProps({ api: signedInApiState });
+
+    assert.equal(clientApp, signedInApiState.clientApp);
+    assert.equal(userAgent, signedInApiState.userAgent);
   });
 });

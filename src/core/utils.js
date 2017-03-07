@@ -1,10 +1,11 @@
 /* global navigator */
 /* eslint-disable react/prop-types */
-import url from 'url';
-
-import React from 'react';
 import config from 'config';
+import mozCompare from 'mozilla-version-comparator';
+import React from 'react';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
+import UAParser from 'ua-parser-js';
+import url from 'url';
 
 import { loadEntities } from 'core/actions';
 import {
@@ -304,4 +305,49 @@ export function render404IfConfigKeyIsFalse(
     }
     return <Component {...props} />;
   };
+}
+
+export function getCompabilityVersions({ addon, clientApp } = {}) {
+  let maxVersion = null;
+  let minVersion = null;
+  if (
+    addon && addon.current_version && addon.current_version.compatibility &&
+    addon.current_version.compatibility[clientApp]
+  ) {
+    maxVersion = addon.current_version.compatibility[clientApp].max;
+    minVersion = addon.current_version.compatibility[clientApp].min;
+  }
+
+  return { maxVersion, minVersion };
+}
+
+export function isCompatibleWithUserAgent({
+  userAgent, maxVersion, minVersion,
+} = {}) {
+  const { browser, os } = UAParser(userAgent);
+
+  // We need a Firefox browser compatible with add-ons (Firefox for iOS does
+  // not currently support add-ons).
+  if (browser.name === 'Firefox' && os.name !== 'iOS') {
+    // Do version checks, if this add-on has minimum or maximum version
+    // requirements.
+    // The mozilla-version-comparator API is quite strange; a result of
+    // `1` means the first argument is higher in version than the second.
+    if (maxVersion && mozCompare(browser.version, maxVersion) === 1) {
+      return false;
+    }
+
+    // A result of `-1` means the second argument is a lower version than the
+    // first.
+    if (minVersion && mozCompare(browser.version, minVersion) === -1) {
+      return false;
+    }
+
+    // If we made it here we're compatible (yay!)
+    return true;
+  }
+
+  // This means the client is Firefox for iOS or not Firefox, so we mark
+  // the user agent as incompatible.
+  return false;
 }

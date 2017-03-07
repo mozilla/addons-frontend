@@ -21,7 +21,9 @@ import {
   findAddon,
   getClientApp,
   getClientConfig,
+  getCompabilityVersions,
   isAllowedOrigin,
+  isCompatibleWithUserAgent,
   isValidClientApp,
   loadAddonIfNeeded,
   loadCategoriesIfNeeded,
@@ -711,5 +713,106 @@ describe('render404IfConfigKeyIsFalse', () => {
     const props = SomeComponent.firstCall.args[0];
     assert.equal(props.color, 'orange');
     assert.equal(props.size, 'large');
+  });
+});
+
+describe('getCompabilityVersions', () => {
+  it('gets the min and max versions', () => {
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        compatibility: {
+          firefox: {
+            max: '20.0.*',
+            min: '11.0.1',
+          },
+        },
+      },
+    };
+    const { maxVersion, minVersion } = getCompabilityVersions({
+      addon, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, '20.0.*');
+    assert.equal(minVersion, '11.0.1');
+  });
+
+  it('gets null if the clientApp does not match', () => {
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        compatibility: {
+          firefox: {
+            max: '20.0.*',
+            min: '11.0.1',
+          },
+        },
+      },
+    };
+    const { maxVersion, minVersion } = getCompabilityVersions({
+      addon, clientApp: 'android' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+  });
+
+  it('returns null if clientApp has no compatibility', () => {
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        compatibility: {},
+      },
+    };
+    const { maxVersion, minVersion } = getCompabilityVersions({
+      addon, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+  });
+
+  it('returns null if current_version does not exist', () => {
+    const addon = {
+      ...fakeAddon,
+      current_version: null,
+    };
+    const { maxVersion, minVersion } = getCompabilityVersions({
+      addon, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+  });
+
+  it('returns null if addon is null', () => {
+    const { maxVersion, minVersion } = getCompabilityVersions({
+      addon: null, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+  });
+});
+
+describe('isCompatibleWithUserAgent', () => {
+  it('should mark non-Firefox UAs as incompatible', () => {
+    isCompatibleWithUserAgent({ userAgent: userAgents.chrome[0] });
+  });
+
+  it('should mark Firefox for iOS as incompatible', () => {
+    isCompatibleWithUserAgent({ userAgent: userAgents.firefoxIOS[0] });
+  });
+
+  it('should mark Firefox 10 as incompatible with a minVersion of 10.1', () => {
+    isCompatibleWithUserAgent({
+      minVersion: '10.1', userAgent: userAgents.firefox[0] });
+  });
+
+  it('should mark Firefox 10 as incompatible with a maxVersion of 8', () => {
+    isCompatibleWithUserAgent({
+      minVersion: '8', userAgent: userAgents.firefox[0] });
+  });
+
+  it('should mark Firefox as compatible', () => {
+    isCompatibleWithUserAgent({ userAgent: userAgents.firefox[1] });
   });
 });

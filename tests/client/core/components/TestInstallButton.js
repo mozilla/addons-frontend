@@ -13,7 +13,7 @@ import Button from 'ui/components/Button';
 describe('<InstallButton />', () => {
   const renderProps = (customProps = {}) => ({
     addon: fakeAddon,
-    clientSupportsAddons: () => true,
+    isCompatibleWithUserAgent: () => true,
     hasAddonManager: true,
     i18n: getFakeI18nInst(),
     ...customProps,
@@ -107,7 +107,7 @@ describe('<InstallButton />', () => {
         type: ADDON_TYPE_EXTENSION,
         installURL,
       },
-      clientSupportsAddons: () => false,
+      isCompatibleWithUserAgent: () => false,
     });
 
     assert.equal(root.type, 'div');
@@ -136,7 +136,7 @@ describe('<InstallButton />', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      clientSupportsAddons: () => false,
+      isCompatibleWithUserAgent: () => false,
     });
 
     assert.equal(root.type, 'div');
