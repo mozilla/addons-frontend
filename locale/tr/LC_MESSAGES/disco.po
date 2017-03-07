@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-01 18:02+0000\n"
+"POT-Creation-Date: 2017-03-07 14:44+0000\n"
 "PO-Revision-Date: 2017-03-07 12:34+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,8 @@ msgstr ""
 msgid "Server Error"
 msgstr "Sunucu hatası"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Hata kodu: %(status)s."
 
@@ -26,11 +27,11 @@ msgstr "Hata kodu: %(status)s."
 msgid "Page not found"
 msgstr "Sayfa bulunamadı"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/InstallButton/index.js:61
 msgid "Install Theme"
 msgstr "Temayı yükle"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:76
 msgid "Add to Firefox"
 msgstr "Firefox'a ekle"
 
@@ -76,7 +77,8 @@ msgstr "Tamam!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr " %(name)s temasını ön izlemek için üzerine gidin veya yüklemek için tıklayın"
+msgstr ""
+" %(name)s temasını ön izlemek için üzerine gidin veya yüklemek için tıklayın"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -141,13 +143,18 @@ msgstr "Firefox'unuzu kişiselleştirin"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
 "Firefox'u kişiselleştirmek için yükleyebileceğiniz, dünyanın her yanındaki \n"
 "geliştiriciler tarafından oluşturulan binlerce ücretsiz eklenti var. \n"
-"İster eğlenceli görsel temalarla, ister web'de gezinmeyi daha hızlı ve güvenli \n"
-"hale getiren güçlü araçlara tarayıcınızı özelleştirebilirsiniz. İlk adımı atmanız için \n"
+"İster eğlenceli görsel temalarla, ister web'de gezinmeyi daha hızlı ve "
+"güvenli \n"
+"hale getiren güçlü araçlara tarayıcınızı özelleştirebilirsiniz. İlk adımı "
+"atmanız için \n"
 "performansları ve işlevleriyle öne çıkan birkaç eklentiyi aşağıda sıraladık."

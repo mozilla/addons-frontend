@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-01 18:02+0000\n"
+"POT-Creation-Date: 2017-03-07 14:44+0000\n"
 "PO-Revision-Date: 2017-03-02 16:30+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -26,11 +26,11 @@ msgstr "Kod błędu: %(status)s."
 msgid "Page not found"
 msgstr "Nie odnaleziono strony"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/InstallButton/index.js:61
 msgid "Install Theme"
 msgstr "Zainstaluj motyw"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:76
 msgid "Add to Firefox"
 msgstr "Dodaj do Firefoksa"
 

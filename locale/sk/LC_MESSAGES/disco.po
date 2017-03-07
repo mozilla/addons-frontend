@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-01 18:02+0000\n"
+"POT-Creation-Date: 2017-03-07 14:44+0000\n"
 "PO-Revision-Date: 2017-03-04 21:23+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -18,7 +18,8 @@ msgstr ""
 msgid "Server Error"
 msgstr "Chyba servera"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Kód chyby: %(status)s."
 
@@ -26,11 +27,11 @@ msgstr "Kód chyby: %(status)s."
 msgid "Page not found"
 msgstr "Stránka nebola nájdená"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/InstallButton/index.js:61
 msgid "Install Theme"
 msgstr "Nainštalovať tému vzhľadu"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:76
 msgid "Add to Firefox"
 msgstr "Pridať do Firefoxu"
 
@@ -44,7 +45,8 @@ msgstr "Inštalovanie doplnku %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+msgstr ""
+"Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -76,7 +78,8 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
+msgstr ""
+"Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -141,14 +144,19 @@ msgstr "Prispôsobte si svoj Firefox"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
 "Existujú tisíce doplnkov, ktoré vytvárajú tisíce vývojárov po celom svete.\n"
-"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od zábavných tém \n"
-"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a bezpečnejšie.\n"
+"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od "
+"zábavných tém \n"
+"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a "
+"bezpečnejšie.\n"
 "Tu je niekoľko velikánov, čo stoja za vyskúšanie."
 
 #~ msgid "Ok"

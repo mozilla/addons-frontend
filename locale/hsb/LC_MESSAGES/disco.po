@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-01 18:02+0000\n"
+"POT-Creation-Date: 2017-03-07 14:44+0000\n"
 "PO-Revision-Date: 2017-03-02 19:10+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,14 +11,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serwerowy zmylk"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Zmylkowy kod: %(status)s."
 
@@ -26,11 +28,11 @@ msgstr "Zmylkowy kod: %(status)s."
 msgid "Page not found"
 msgstr "Strona njeje so namakała"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/InstallButton/index.js:61
 msgid "Install Theme"
 msgstr "Drastu instalować"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:76
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
@@ -44,7 +46,8 @@ msgstr "%(name)s so instaluje."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s je so instalował a zmóžnił. Klikńće, zo byšće jón wotinstalował."
+msgstr ""
+"%(name)s je so instalował a zmóžnił. Klikńće, zo byšće jón wotinstalował."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -76,7 +79,9 @@ msgstr "W porjadku!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s kliknyć"
+msgstr ""
+"Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s "
+"kliknyć"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -141,13 +146,19 @@ msgstr "Přiměrće swój Firefox"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual "
+"themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your "
+"browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out "
+"performance\n"
 "and functionality."
 msgstr ""
-"Su tysacy darmotnych přidatkow, wutworjenych wot wuwiwarjow z cyłeho swěta, kotrež wam zmóžnjeja, Firefox wašim potrěbnosćam přiměrić &ndash; wšitko, wot zabawnych drastow hač do mócnych nastrojow, "
-"kotrež přehladowanje pospěšuja a wěsćiše činja. Přidatki činja waš wobhladowak k wašemu. Za spočatk doporučamy wam někotre wukonliwe přidatki z wjele funkcijemi."
+"Su tysacy darmotnych přidatkow, wutworjenych wot wuwiwarjow z cyłeho swěta, "
+"kotrež wam zmóžnjeja, Firefox wašim potrěbnosćam přiměrić &ndash; wšitko, "
+"wot zabawnych drastow hač do mócnych nastrojow, kotrež přehladowanje "
+"pospěšuja a wěsćiše činja. Přidatki činja waš wobhladowak k wašemu. Za "
+"spočatk doporučamy wam někotre wukonliwe přidatki z wjele funkcijemi."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Instalowany a symbolowej lajsće přidaty"
