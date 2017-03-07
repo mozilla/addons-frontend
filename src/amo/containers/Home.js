@@ -78,7 +78,7 @@ export class HomePageBase extends React.Component {
         <ul className="HomePage-category-list">
           <ThemeLink name="wild" slug="nature">{i18n.gettext('Wild')}</ThemeLink>
           <ThemeLink name="abstract" slug="abstract">{i18n.gettext('Abstract')}</ThemeLink>
-          <ThemeLink name="fashionable" slug="fashion">{i18n.gettext('Fashionable')}</ThemeLink>
+          <ThemeLink name="holiday" slug="holiday">{i18n.gettext('Holiday')}</ThemeLink>
           <ThemeLink name="scenic" slug="scenery">{i18n.gettext('Scenic')}</ThemeLink>
           <ThemeLink name="sporty" slug="sports">{i18n.gettext('Sporty')}</ThemeLink>
           <ThemeLink name="solid" slug="solid">{i18n.gettext('Solid')}</ThemeLink>
