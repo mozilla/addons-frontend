@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-02 19:19+0000\n"
+"PO-Revision-Date: 2017-03-07 17:59+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonDetail.js:128
@@ -133,14 +132,11 @@ msgstr "Pógódnośenje wótpósłaś"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
-"Dajśo swětoju k wěsći, cogoždla maśo toś to rozšyrjenje jo fantastiske!"
+msgstr "Dajśo swětoju k wěsći, cogoždla maśo toś to rozšyrjenje jo fantastiske!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Dajśo nam k wěsći, což spódoba se wam na toś tom rozšyrjenju. Zwurazniśo se "
-"krotko a preciznje."
+msgstr "Dajśo nam k wěsći, což spódoba se wam na toś tom rozšyrjenju. Zwurazniśo se krotko a preciznje."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -150,8 +146,7 @@ msgstr "Wulicujśo swětoju wó toś tom rozšyrjenju."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "wót %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Zacytujo se..."
 
@@ -179,13 +174,11 @@ msgstr "Žedne kategorije namakane."
 msgid "Not Authorized"
 msgstr "Njeawtorizěrowany"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Bok njejo se namakał"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serwerowa zmólka"
 
@@ -207,7 +200,7 @@ msgstr "Pšawniske pokaze"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Programowu zmólku k wěsći daś"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -369,9 +362,7 @@ msgstr "Dodanki za Firefox"
 msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
-msgstr ""
-"Rozšyrjenja su wósebne funkcije, kótarež móžośo Firefox pśidaś. Drastwy wam "
-"zmóžnjaju, naglěd wašogo wobglědowaka změniś."
+msgstr "Rozšyrjenja su wósebne funkcije, kótarež móžośo Firefox pśidaś. Drastwy wam zmóžnjaju, naglěd wašogo wobglědowaka změniś."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -445,8 +436,7 @@ msgstr "Wótzjawiś"
 msgid "Log in/Sign up"
 msgstr "Pśizjawiś/Registrěrowaś"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Zmólkowy kod: %(status)s."
 
@@ -468,8 +458,7 @@ msgstr "%(name)s se instalěrujo."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s jo zainstalěrowany a zmóžnjony. Klikniśo, aby jen wótinstalěrował."
+msgstr "%(name)s jo zainstalěrowany a zmóžnjony. Klikniśo, aby jen wótinstalěrował."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
