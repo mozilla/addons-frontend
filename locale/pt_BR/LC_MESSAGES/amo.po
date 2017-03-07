@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-03 01:32+0000\n"
-"Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
+"PO-Revision-Date: 2017-03-07 21:37+0000\n"
+"Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -130,8 +130,7 @@ msgstr "Diga ao mundo porquê que acha que esta extensão é fantástica!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Diga-nos o que você ama sobre esta extensão. Seja específico e conciso."
+msgstr "Diga-nos o que você ama sobre esta extensão. Seja específico e conciso."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -141,8 +140,7 @@ msgstr "Diga ao mundo sobre esta extensão."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "de %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Carregando..."
 
@@ -170,13 +168,11 @@ msgstr "Nenhuma categoria encontrada."
 msgid "Not Authorized"
 msgstr "Não autorizado"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Página não encontrada"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Erro no servidor"
 
@@ -198,7 +194,7 @@ msgstr "Avisos legais"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Relatar um bug"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -436,8 +432,7 @@ msgstr "Sair"
 msgid "Log in/Sign up"
 msgstr "Entre / Registre-se"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Código de erro: %(status)s."
 
