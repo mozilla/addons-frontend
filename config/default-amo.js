@@ -3,6 +3,8 @@ import { amoProdCDN } from './lib/shared';
 const staticHost = 'https://addons-amo.cdn.mozilla.net';
 
 module.exports = {
+  staticHost,
+
   CSP: {
     directives: {
       formAction: [
