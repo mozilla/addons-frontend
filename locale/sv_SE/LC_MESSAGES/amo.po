@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-02 17:58+0000\n"
-"Last-Translator: Andreas Pettersson <az@kth.se>\n"
+"PO-Revision-Date: 2017-03-07 20:18+0000\n"
+"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -126,14 +126,11 @@ msgstr "Skicka in recension"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
-"Berätta för hela världen varför du tycker att det här tillägget är "
-"fantastiskt!"
+msgstr "Berätta för hela världen varför du tycker att det här tillägget är fantastiskt!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Berätta för oss vad du gillar med detta tillägg. Var specifik och koncis."
+msgstr "Berätta för oss vad du gillar med detta tillägg. Var specifik och koncis."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -143,8 +140,7 @@ msgstr "Berätta för världen om detta tillägg."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "från %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Laddar..."
 
@@ -172,13 +168,11 @@ msgstr "Inga kategorier hittades."
 msgid "Not Authorized"
 msgstr "Behörighet saknas"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Sidan hittades inte"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serverfel"
 
@@ -200,7 +194,7 @@ msgstr "Juridisk information"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Rapportera en bugg"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -438,8 +432,7 @@ msgstr "Logga ut"
 msgid "Log in/Sign up"
 msgstr "Logga in/Registrera dig"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Felkod: %(status)s."
 
