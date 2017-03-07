@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-02 15:11+0000\n"
+"POT-Creation-Date: 2017-03-07 14:08+0000\n"
 "PO-Revision-Date: 2017-03-06 11:46+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -14,41 +14,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:110
+#: src/amo/components/AddonDetail.js:128
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочетете %(count)s рецензия"
 msgstr[1] "Прочетете всички %(count)s рецензии"
 
-#: src/amo/components/AddonDetail.js:123
+#: src/amo/components/AddonDetail.js:141
 msgid "No reviews yet"
 msgstr "Няма рецензии"
 
-#: src/amo/components/AddonDetail.js:132
+#: src/amo/components/AddonDetail.js:150
 msgid "Rate your experience"
 msgstr "Дайте оценка"
 
-#: src/amo/components/AddonDetail.js:156
+#: src/amo/components/AddonDetail.js:174
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sот %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:179
+#: src/amo/components/AddonDetail.js:197
 msgid "Extension Metadata"
 msgstr "Метаданни за разширението"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:211
 msgid "About this %(addonType)s"
 msgstr "Относно тази %(addonType)s"
 
-#: src/amo/components/AddonDetail.js:74
+#: src/amo/components/AddonDetail.js:89
 msgid "Cancel preview"
 msgstr "Отказ"
 
-#: src/amo/components/AddonDetail.js:74
+#: src/amo/components/AddonDetail.js:89
 msgid "Tap to preview"
 msgstr "Докоснете за преглед"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:57
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s потребител"
@@ -140,7 +140,8 @@ msgstr "Разкажете на света за това разширение."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "от %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52
+#: src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Зареждане…"
 
@@ -168,11 +169,13 @@ msgstr "Не са намерени категории."
 msgid "Not Authorized"
 msgstr "Неупълномощен"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Страницата не е намерена"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Грешка на сървъра"
 
@@ -192,7 +195,11 @@ msgstr "Политика на поверителност"
 msgid "Legal notices"
 msgstr "Правни бележки"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer.js:42
+msgid "Report a bug"
+msgstr ""
+
+#: src/amo/components/Footer.js:49
 msgid "View desktop site"
 msgstr "Настолна версия"
 
@@ -428,15 +435,16 @@ msgstr "Изход"
 msgid "Log in/Sign up"
 msgstr "Вход/Регистрация"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Код на грешката: %(status)s."
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/InstallButton/index.js:61
 msgid "Install Theme"
 msgstr "Инсталиране на темата"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:76
 msgid "Add to Firefox"
 msgstr "Добавяне към Firefox"
 
