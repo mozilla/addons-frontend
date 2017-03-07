@@ -6,11 +6,11 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
 
 #: src/amo/components/AddonDetail.js:128
 msgid "Read %(count)s review"
@@ -46,7 +46,8 @@ msgstr "Ƈȧƞƈḗŀ ƥřḗṽīḗẇ"
 msgid "Tap to preview"
 msgstr "Ŧȧƥ ŧǿ ƥřḗṽīḗẇ"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
+#: src/amo/components/AddonMeta.js:22
+#: src/amo/components/SearchResult.js:58
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ŭşḗř"
@@ -195,7 +196,7 @@ msgstr "Ŀḗɠȧŀ ƞǿŧīƈḗş"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Řḗƥǿřŧ ȧ ƀŭɠ"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -285,7 +286,8 @@ msgstr "Ŀǿɠ īƞ ŧǿ řȧŧḗ ŧħīş ḓīƈŧīǿƞȧřẏ"
 msgid "Log in to rate this language pack"
 msgstr "Ŀǿɠ īƞ ŧǿ řȧŧḗ ŧħīş ŀȧƞɠŭȧɠḗ ƥȧƈķ"
 
-#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
+#: src/amo/components/SearchForm.js:47
+#: src/amo/components/SearchForm.js:56
 msgid "Search"
 msgstr "Şḗȧřƈħ"
 
@@ -337,11 +339,13 @@ msgstr "Şǿřŧ"
 msgid "Suggested Pages"
 msgstr "Şŭɠɠḗşŧḗḓ Ƥȧɠḗş"
 
-#: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
+#: src/amo/components/SuggestedPages/index.js:25
+#: src/amo/containers/Home.js:74
 msgid "Browse all extensions"
 msgstr "Ɓřǿẇşḗ ȧŀŀ ḗẋŧḗƞşīǿƞş"
 
-#: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
+#: src/amo/components/SuggestedPages/index.js:30
+#: src/amo/containers/Home.js:87
 msgid "Browse all themes"
 msgstr "Ɓřǿẇşḗ ȧŀŀ ŧħḗḿḗş"
 
