@@ -75,20 +75,6 @@ export function getClientApp(userAgentString) {
   return 'firefox';
 }
 
-/*
- * Returns true if the user agent theoretically supports installing Firefox
- * add-ons.
- *
- * This is really only for legacy Firefox versions that don't have a
- * mozAddonsManager.
- */
-export function clientSupportsAddons(
-  userAgentString = typeof navigator !== 'undefined' && navigator.userAgent
-) {
-  const ua = userAgentString || '';
-  return ua.toLowerCase().includes('firefox');
-}
-
 export function isValidClientApp(value, { _config = config } = {}) {
   return _config.get('validClientApplications').includes(value);
 }
@@ -324,6 +310,11 @@ export function getCompabilityVersions({ addon, clientApp } = {}) {
 export function isCompatibleWithUserAgent({
   userAgent, maxVersion, minVersion,
 } = {}) {
+  // If the userAgent is false-y, we'll assume it isn't valid.
+  if (!userAgent) {
+    return false;
+  }
+
   const { browser, os } = UAParser(userAgent);
 
   // We need a Firefox browser compatible with add-ons (Firefox for iOS does

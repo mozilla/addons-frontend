@@ -16,7 +16,6 @@ import * as api from 'core/api';
 import {
   addQueryParams,
   apiAddonType,
-  clientSupportsAddons,
   convertBoolean,
   findAddon,
   getClientApp,
@@ -174,56 +173,69 @@ describe('getClientApp', () => {
   });
 });
 
-describe('clientSupportsAddons', () => {
+describe('isCompatibleWithUserAgent', () => {
   it('returns false for Android/webkit', () => {
-    userAgents.androidWebkit.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+    userAgents.androidWebkit.forEach((userAgent) => {
+      assert.strictEqual(
+        isCompatibleWithUserAgent({ userAgent }),
+        false, `UA string: ${userAgent}`);
     });
   });
 
   it('returns false for Chrome Android', () => {
-    userAgents.chromeAndroid.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+    userAgents.chromeAndroid.forEach((userAgent) => {
+      assert.strictEqual(
+        isCompatibleWithUserAgent({ userAgent }),
+        false, `UA string: ${userAgent}`);
     });
   });
 
   it('returns false for Chrome desktop', () => {
-    userAgents.chrome.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+    userAgents.chrome.forEach((userAgent) => {
+      assert.strictEqual(
+        isCompatibleWithUserAgent({ userAgent }),
+        false, `UA string: ${userAgent}`);
     });
   });
 
   it('returns true for Firefox desktop', () => {
-    userAgents.firefox.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+    userAgents.firefox.forEach((userAgent) => {
+      assert.strictEqual(
+        isCompatibleWithUserAgent({ userAgent }),
+        true, `UA string: ${userAgent}`);
     });
   });
 
   it('returns true for Firefox Android', () => {
-    userAgents.firefoxAndroid.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+    userAgents.firefoxAndroid.forEach((userAgent) => {
+      assert.strictEqual(
+        isCompatibleWithUserAgent({ userAgent }),
+        true, `UA string: ${userAgent}`);
     });
   });
 
-  it('is case insensitive', () => {
-    const ua = userAgents.firefox[0].toLowerCase();
-    assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
-  });
-
   it('returns true for Firefox OS', () => {
-    userAgents.firefoxOS.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+    userAgents.firefoxOS.forEach((userAgent) => {
+      assert.strictEqual(
+        isCompatibleWithUserAgent({ userAgent }),
+        true, `UA string: ${userAgent}`);
     });
   });
 
   it('returns false for Firefox iOS', () => {
-    userAgents.firefoxIOS.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+    userAgents.firefoxIOS.forEach((userAgent) => {
+      assert.strictEqual(
+        isCompatibleWithUserAgent({ userAgent }),
+        false, `UA string: ${userAgent}`);
     });
   });
 
+  it('returns false for empty user agent values', () => {
+    assert.strictEqual(isCompatibleWithUserAgent({ userAgent: '' }), false);
+  });
+
   it('returns false for non-string user agent values', () => {
-    assert.strictEqual(clientSupportsAddons(false), false);
+    assert.strictEqual(isCompatibleWithUserAgent({ userAgent: false }), false);
   });
 });
 
