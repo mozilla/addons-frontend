@@ -6,6 +6,7 @@ $icon-margin-start: 24px;
 $icon-margin-end: 12px;
 
 .SearchInput {
+  height: 48px;
   position: relative;
   text-align: center;
   width: 100%;
@@ -26,6 +27,8 @@ $icon-margin-end: 12px;
 
   opacity: 0;
   position: absolute;
+  // If changing this delay please update the JS setTimeout
+  // in the SearchInput component.
   transition: transform 250ms;
 
   .SearchInput--text &,
