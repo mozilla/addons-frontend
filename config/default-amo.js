@@ -13,6 +13,7 @@ module.exports = {
         "'self'",
         amoProdCDN,
         'https://www.google-analytics.com/analytics.js',
+        'data:',
       ],
       styleSrc: [amoProdCDN],
       imgSrc: [
