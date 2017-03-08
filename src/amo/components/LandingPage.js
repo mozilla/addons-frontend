@@ -20,6 +20,7 @@ import {
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
+import Icon from 'ui/components/Icon/index';
 
 import './LandingPage.scss';
 
@@ -108,9 +109,29 @@ export class LandingPageBase extends React.Component {
     }
 
     const { addonType, html } = content;
+    const themeText = 'Change your browser’s appearance. Choose from thousands of themes to give Firefox the look you want.';
+    const extensionsText = 'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.';
 
     return (
       <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
+
+        <div className="Addon-Header">
+          <Icon name={classNames(`${addonType}`)} className="Addon-Icon" />
+          <div className="Addon-Header-Text">
+            <span className="Addon-Header-Text-Bold">
+              {addonType === 'persona' ? 'Themes' : 'Extensions' }
+            </span>
+            <p className="Addon-Header-Text-Content">
+              {addonType === 'persona' ? themeText : extensionsText }
+            </p>
+          </div>
+        </div>
+
+        <button className="Browse-Button">
+          <Icon name="browse" />
+          <span className="Browse-by-Category-Text">browse by category</span>
+        </button>
+
         <LandingAddonsCard addons={featuredAddons}
           className="FeaturedAddons" header={html.featuredHeader}
           footerLink={html.featuredFooterLink}
