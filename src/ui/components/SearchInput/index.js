@@ -42,6 +42,10 @@ export default class SearchInput extends React.Component {
       // There is no transitionstart event, but animation will start if there is no value.
       this.setState({ animating: true });
     }
+    // Handle the possibility that onTransitionEnd will never fire if
+    // the CSS animation is a no-op due to the size of text in the label.
+    // CSS Animation time + 25ms.
+    this.onTransitionEndTimeout = window.setTimeout(this.onTransitionEnd, 275);
   }
 
   onInput = (e) => {
@@ -49,6 +53,9 @@ export default class SearchInput extends React.Component {
   }
 
   onTransitionEnd = () => {
+    if (this.onTransitionEndTimeout) {
+      window.clearTimeout(this.onTransitionEndTimeout);
+    }
     this.setState({ animating: false });
   };
 
