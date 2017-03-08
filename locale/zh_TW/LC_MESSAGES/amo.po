@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-02 16:48+0000\n"
+"PO-Revision-Date: 2017-03-08 04:49+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -137,8 +137,7 @@ msgstr "讓這套擴充套件給其他人知道！"
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(timestamp)s，來自 %(authorName)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "載入中…"
 
@@ -166,13 +165,11 @@ msgstr "找不到分類。"
 msgid "Not Authorized"
 msgstr "未授權"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "找不到頁面"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "伺服器錯誤"
 
@@ -194,7 +191,7 @@ msgstr "法律條款"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "回報 Bug"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -432,8 +429,7 @@ msgstr "登出"
 msgid "Log in/Sign up"
 msgstr "登入/註冊"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "錯誤代碼: %(status)s。"
 
