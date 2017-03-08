@@ -1,9 +1,7 @@
 import { amoProdCDN } from './lib/shared';
 
-const staticHost = 'https://addons.cdn.mozilla.net';
-
 module.exports = {
-  staticHost,
+  staticHost: amoProdCDN,
 
   CSP: {
     directives: {
@@ -12,15 +10,15 @@ module.exports = {
       ],
       // Script is limited to the amo specific CDN.
       scriptSrc: [
-        staticHost,
+        "'self'",
+        amoProdCDN,
         'https://www.google-analytics.com/analytics.js',
       ],
-      styleSrc: [staticHost],
+      styleSrc: [amoProdCDN],
       imgSrc: [
         "'self'",
         'data:',
         amoProdCDN,
-        staticHost,
         'https://www.google-analytics.com',
       ],
     },
