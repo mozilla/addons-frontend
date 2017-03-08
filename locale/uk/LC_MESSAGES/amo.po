@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-02 19:45+0000\n"
-"Last-Translator: Tymur Faradzhev <faradzhev.timur@gmail.com>\n"
+"PO-Revision-Date: 2017-03-08 14:42+0000\n"
+"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonDetail.js:128
@@ -134,9 +133,7 @@ msgstr "Розкажіть світу, чому ви вважаєте це ро�
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Розкажіть нам, чому ви любите це розширення. Висловлюйтесь конкретно й "
-"коротко."
+msgstr "Розкажіть нам, чому ви любите це розширення. Висловлюйтесь конкретно й коротко."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -146,8 +143,7 @@ msgstr "Розкажіть світу про це розширення."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "від %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Завантаження..."
 
@@ -175,13 +171,11 @@ msgstr "Не знайдено категорій."
 msgid "Not Authorized"
 msgstr "Не авторизовано"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Сторінку не знайдено"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Помилка сервера"
 
@@ -203,7 +197,7 @@ msgstr "Юридичні відомості"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Повідомити про помилку"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -441,8 +435,7 @@ msgstr "Вийти"
 msgid "Log in/Sign up"
 msgstr "Вхід/Реєстрація"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Код помилки: %(status)s."
 
