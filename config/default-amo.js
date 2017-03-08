@@ -78,4 +78,7 @@ module.exports = {
     'user-media',
     '__version__',
   ],
+
+  trackingEnabled: true,
+  trackingId: 'UA-36116321-7',
 };
