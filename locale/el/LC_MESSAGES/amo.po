@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-04 11:04+0000\n"
+"PO-Revision-Date: 2017-03-08 11:49+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -110,7 +110,7 @@ msgstr "Πολιτική απορρήτου"
 
 #: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Διαβάστε την πολιτική απορρήτου για αυτό το πρόσθετο"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -130,7 +130,7 @@ msgstr "Πείτε στον κόσμο γιατί θεωρείτε ότι αυτ
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Πείτε μας τι σάς αρέσει σε αυτή την επέκταση. Να είστε συγκεκριμένοι και συνοπτικοί."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -140,8 +140,7 @@ msgstr "Πείτε στον κόσμο για αυτή την επέκταση."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "από %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Φόρτωση..."
 
@@ -167,15 +166,13 @@ msgstr "Δεν βρέθηκαν κατηγορίες."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
-msgstr ""
+msgstr "Μη πιστοποιημένο"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Η σελίδα δεν βρέθηκε"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Σφάλμα διακομιστή"
 
@@ -185,7 +182,7 @@ msgstr "Προτεινόμενες επεκτάσεις"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Προτεινόμενα θέματα"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -197,7 +194,7 @@ msgstr "Νομικές σημειώσεις"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Αναφορά σφάλματος"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -233,7 +230,7 @@ msgstr "Προτεινόμενα θέματα"
 
 #: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
-msgstr ""
+msgstr "Προτεινόμενα θέματα"
 
 #: src/amo/components/LandingPage.js:76
 msgid "Most popular themes"
@@ -249,7 +246,7 @@ msgstr "Πιο υψηλά βαθμολογημένα θέματα"
 
 #: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Πιο υψηλά βαθμολογημένα θέματα"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -297,7 +294,7 @@ msgstr "Αναζήτηση επεκτάσεων και θεμάτων"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Καμία διαθέσιμη προεπισκόπηση θέματος"
 
 #: src/amo/components/SearchResults.js:40
 msgid "Searching…"
@@ -313,11 +310,11 @@ msgstr "Δεν βρέθηκαν αποτελέσματα."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Παρακαλώ εισάγετε έναν όρο αναζήτησης για αναζήτηση στα Πρόσθετα Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Πρόσφατες ενημερώσεις"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
@@ -329,7 +326,7 @@ msgstr "Περισσότεροι χρήστες"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Κορυφαίες βαθμολογίες"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
@@ -360,6 +357,8 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Οι επεκτάσεις είναι ειδικές λειτουργίες που μπορείτε να προσθέσετε στο Firefox.\n"
+"Τα θέματα σάς επιτρέπουν να αλλάξετε την εμφάνιση του προγράμματος περιήγησής σας."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -399,7 +398,7 @@ msgstr "Παιχνίδια"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…ή αυτό που φαίνεται"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -423,7 +422,7 @@ msgstr "Αθλητική"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Συμπαγής"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
@@ -433,8 +432,7 @@ msgstr "Αποσύνδεση"
 msgid "Log in/Sign up"
 msgstr "Σύνδεση/Εγγραφή"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Κωδικός σφάλματος: %(status)s."
 
@@ -456,9 +454,7 @@ msgstr "Γίνεται εγκατάσταση του %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για "
-"απεγκατάσταση."
+msgstr "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για απεγκατάσταση."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -518,7 +514,7 @@ msgstr "Καμία κριτική"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Επέκταση για</span> ανάγνωση περισσότερων"
 
 #~ msgid "Website"
 #~ msgstr "Ιστοσελίδα"
@@ -562,8 +558,7 @@ msgstr ""
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
 #~ msgstr[0] "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτέλεσμα."
-#~ msgstr[1] ""
-#~ "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτελέσματα."
+#~ msgstr[1] "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτελέσματα."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Παρακαλώ κάντε μια έγκυρη αναζήτηση"
