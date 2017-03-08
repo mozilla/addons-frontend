@@ -21,6 +21,7 @@ import Switch from 'ui/components/Switch';
 export class InstallSwitchBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
+    disabled: PropTypes.bool,
     downloadProgress: PropTypes.number,
     enable: PropTypes.func,
     guid: PropTypes.string.isRequired,
@@ -37,6 +38,7 @@ export class InstallSwitchBase extends React.Component {
   }
 
   static defaultProps = {
+    disabled: false,
     status: UNKNOWN,
     downloadProgress: 0,
   }
@@ -101,14 +103,14 @@ export class InstallSwitchBase extends React.Component {
 
   render() {
     const browsertheme = JSON.stringify(getThemeData(this.props));
-    const { handleChange, slug, status, ...otherProps } = this.props;
+    const { disabled, handleChange, slug, status, ...otherProps } = this.props;
 
     if (!validStates.includes(status)) {
       throw new Error(`Invalid add-on status ${status}`);
     }
 
     const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(status);
-    const isDisabled = status === UNKNOWN;
+    const isDisabled = disabled || status === UNKNOWN;
     const isSuccess = [ENABLED, INSTALLED].includes(status);
 
     return (

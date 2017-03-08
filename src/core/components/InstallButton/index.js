@@ -9,7 +9,7 @@ import translate from 'core/i18n/translate';
 import { getThemeData } from 'core/themePreview';
 import {
   isCompatibleWithUserAgent as _isCompatibleWithUserAgent,
-  getCompabilityVersions,
+  getCompatibleVersions,
 } from 'core/utils';
 import Button from 'ui/components/Button';
 
@@ -27,7 +27,7 @@ export class InstallButtonBase extends React.Component {
     isCompatibleWithUserAgent: PropTypes.func,
     size: PropTypes.string,
     status: PropTypes.string.isRequired,
-    userAgent: PropTypes.string.isRequired,
+    userAgentInfo: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
@@ -49,17 +49,17 @@ export class InstallButtonBase extends React.Component {
       i18n,
       isCompatibleWithUserAgent,
       size,
-      userAgent,
+      userAgentInfo,
     } = this.props;
     const useButton = hasAddonManager !== undefined && !hasAddonManager;
     let button;
 
     // Test add-on capability (is the client Firefox?) and compatibility
     // (is the client a valid version of Firefox to run this add-on?).
-    const { maxVersion, minVersion } = getCompabilityVersions({
+    const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp });
     const isCompatible = isCompatibleWithUserAgent({
-      maxVersion, minVersion, userAgent });
+      maxVersion, minVersion, userAgentInfo });
 
     const buttonIsDisabled = !isCompatible;
     const buttonClass = classNames('InstallButton-button', {
@@ -98,7 +98,8 @@ export class InstallButtonBase extends React.Component {
         'InstallButton--use-button': useButton,
         'InstallButton--use-switch': !useButton,
       })}>
-        <InstallSwitch {...this.props} className="InstallButton-switch" />
+        <InstallSwitch {...this.props} className="InstallButton-switch"
+          disabled={buttonIsDisabled} />
         {button}
       </div>
     );
@@ -106,7 +107,10 @@ export class InstallButtonBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  return { clientApp: state.api.clientApp, userAgent: state.api.userAgent };
+  return {
+    clientApp: state.api.clientApp,
+    userAgentInfo: state.api.userAgentInfo,
+  };
 }
 
 export default compose(

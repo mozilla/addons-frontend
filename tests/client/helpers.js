@@ -3,6 +3,7 @@ import config from 'config';
 import { sprintf } from 'jed';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
+import UAParser from 'ua-parser-js';
 
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { ngettext } from 'core/utils';
@@ -110,10 +111,13 @@ export function assertNotHasClass(el, className) {
     `expected ${className} to not be in in ${formatClassList(el.classList)}`);
 }
 
+const userAgentForState = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
+const { browser, os } = UAParser(userAgentForState);
 export const signedInApiState = Object.freeze({
   lang: 'en-US',
   token: 'secret-token',
-  userAgent: 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1',
+  userAgent: userAgentForState,
+  userAgentInfo: { browser, os },
 });
 
 export const userAgents = {

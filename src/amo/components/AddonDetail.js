@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import AddonCompatibility from 'amo/components/AddonCompatibility';
+import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import DefaultRatingManager from 'amo/components/RatingManager';
@@ -12,12 +12,12 @@ import Link from 'amo/components/Link';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
-import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
+import { ADDON_TYPE_THEME, ENABLED, UNKNOWN } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
   isAllowedOrigin,
   isCompatibleWithUserAgent as _isCompatibleWithUserAgent,
-  getCompabilityVersions,
+  getCompatibleVersions,
   ngettext,
   nl2br,
   sanitizeHTML,
@@ -79,14 +79,16 @@ export class AddonDetailBase extends React.Component {
 
   isCompatible() {
     const {
-      addon, clientApp, isCompatibleWithUserAgent, userAgent,
+      addon, clientApp, isCompatibleWithUserAgent, userAgentInfo,
     } = this.props;
-    const { maxVersion, minVersion } = getCompabilityVersions({
+    const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp });
+    const { compatible } = isCompatibleWithUserAgent({
+      maxVersion, minVersion, userAgentInfo });
 
     // Test add-on capability (is the client Firefox?) and compatibility
     // (is the client a valid version of Firefox to run this add-on?).
-    return isCompatibleWithUserAgent({ maxVersion, minVersion, userAgent });
+    return compatible;
   }
 
   headerImage() {
@@ -116,7 +118,7 @@ export class AddonDetailBase extends React.Component {
         >
           {status !== ENABLED ?
             <button
-              disabled={!this.isCompatible()}
+              disabled={false}
               className="Button AddonDetail-theme-header-label"
               htmlFor="AddonDetail-theme-header">
               <Icon name="eye" className="AddonDetail-theme-preview-icon" />
@@ -176,7 +178,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   render() {
-    const { addon, clientApp, i18n } = this.props;
+    const { addon, clientApp, i18n, isCompatibleWithUserAgent, status, userAgentInfo } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -194,8 +196,10 @@ export class AddonDetailBase extends React.Component {
         endSpan: '</span>',
       });
 
-    const { maxVersion, minVersion } = getCompabilityVersions({
+    const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp });
+    const { compatible } = isCompatibleWithUserAgent({
+      maxVersion, minVersion, userAgentInfo });
 
     // eslint-disable react/no-danger
     return (
@@ -216,8 +220,11 @@ export class AddonDetailBase extends React.Component {
             {i18n.gettext('Extension Metadata')}
           </h2>
           <AddonMeta addon={addon} />
-          <InstallButton {...this.props} />
-          <AddonCompatibility maxVersion={maxVersion} minVersion={minVersion} />
+          <InstallButton {...this.props} disabled={false} />
+          {!compatible ? (
+            <AddonCompatibilityError maxVersion={maxVersion}
+              minVersion={minVersion} />
+          ) : null}
         </section>
 
         {addon.previews.length > 0
@@ -245,7 +252,10 @@ export class AddonDetailBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  return { clientApp: state.api.clientApp, userAgent: state.api.userAgent };
+  return {
+    clientApp: state.api.clientApp,
+    userAgentInfo: state.api.userAgentInfo,
+  };
 }
 
 export default compose(

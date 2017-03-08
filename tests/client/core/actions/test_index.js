@@ -1,3 +1,5 @@
+import UAParser from 'ua-parser-js';
+
 import * as actions from 'core/actions';
 import { userAgents } from 'tests/client/helpers';
 
@@ -32,15 +34,23 @@ describe('core actions setClientApp', () => {
 
 describe('core actions setUserAgent', () => {
   it('creates the SET_USER_AGENT action', () => {
-    assert.deepEqual(
-      actions.setUserAgent(userAgents.chrome[0]),
-      { type: 'SET_USER_AGENT', payload: { userAgent: userAgents.chrome[0] } });
+    const userAgent = userAgents.chrome[0];
+    const { browser, os } = UAParser(userAgent);
+
+    assert.deepEqual(actions.setUserAgent(userAgent), {
+      type: 'SET_USER_AGENT',
+      payload: { userAgent, userAgentInfo: { browser, os } },
+    });
   });
 
   it('allow an empty userAgent value', () => {
-    assert.deepEqual(
-      actions.setUserAgent(''),
-      { type: 'SET_USER_AGENT', payload: { userAgent: '' } });
+    const userAgent = '';
+    const { browser, os } = UAParser(userAgent);
+
+    assert.deepEqual(actions.setUserAgent(''), {
+      type: 'SET_USER_AGENT',
+      payload: { userAgent, userAgentInfo: { browser, os } },
+    });
   });
 });
 

@@ -19,7 +19,7 @@ import Link from 'amo/components/Link';
 import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, INCOMPATIBLE_NOT_FIREFOX } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
@@ -31,14 +31,14 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
   return {
     addon,
     ...addon,
-    isCompatibleWithUserAgent: () => true,
+    isCompatibleWithUserAgent: () => { compatible: true },
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
     // Configure AddonDetail with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
-    store: createStore(signedInApiState),
+    store: createStore({ api: signedInApiState }),
     ...customProps,
   };
 }
@@ -49,7 +49,7 @@ function render(...args) {
   return findRenderedComponentWithType(renderIntoDocument(
     <Provider store={store}>
       <I18nProvider i18n={i18n}>
-        <AddonDetailBase {...props} store={store} />
+        <AddonDetailBase store={store} {...props} />
       </I18nProvider>
     </Provider>
   ), AddonDetailBase);
@@ -61,6 +61,11 @@ function renderAsDOMNode(...args) {
 }
 
 describe('AddonDetail', () => {
+  const isCompatibleWithUserAgentFalse = () => ({
+    compatible: false,
+    reason: INCOMPATIBLE_NOT_FIREFOX,
+  });
+
   it('renders a name', () => {
     const rootNode = renderAsDOMNode();
     assert.include(rootNode.querySelector('h1').textContent,
@@ -291,10 +296,22 @@ describe('AddonDetail', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      isCompatibleWithUserAgent: () => true,
+      isCompatibleWithUserAgent: () => { compatible: true },
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
     assert.equal(button.disabled, false);
+  });
+
+  it('disables install switch for unsupported clients', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      isCompatibleWithUserAgent: isCompatibleWithUserAgentFalse,
+    });
+    assert.isTrue(
+      rootNode.querySelector('.InstallButton-switch input').disabled);
   });
 
   it('disables a theme preview for unsupported clients', () => {
@@ -303,7 +320,7 @@ describe('AddonDetail', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      isCompatibleWithUserAgent: () => false,
+      isCompatibleWithUserAgent: isCompatibleWithUserAgentFalse,
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
     assert.equal(button.disabled, true);
@@ -455,9 +472,10 @@ describe('AddonDetail', () => {
 
 describe('AddonDetals mapStateToProps', () => {
   it('sets the clientApp and userAgent', () => {
-    const { clientApp, userAgent } = mapStateToProps({ api: signedInApiState });
+    const { clientApp, userAgentInfo } = mapStateToProps({
+      api: signedInApiState });
 
     assert.equal(clientApp, signedInApiState.clientApp);
-    assert.equal(userAgent, signedInApiState.userAgent);
+    assert.equal(userAgentInfo, signedInApiState.userAgentInfo);
   });
 });
