@@ -7,6 +7,7 @@ module.exports = {
 
   CSP: {
     directives: {
+      fontSrc: [staticHost],
       formAction: [
         "'self'",
       ],
