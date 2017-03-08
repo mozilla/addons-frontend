@@ -56,7 +56,7 @@ msgstr[1] "%(total)s utenti"
 
 #: src/amo/components/AddonMeta.js:28
 msgid "%(averageRating)s out of 5"
-msgstr "Media valutazioni: %(rating)s su 5"
+msgstr "Media valutazioni: %(averageRating)s su 5"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
