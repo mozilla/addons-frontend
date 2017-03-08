@@ -1,6 +1,6 @@
 import { amoProdCDN } from './lib/shared';
 
-const staticHost = 'https://addons-amo.cdn.mozilla.net';
+const staticHost = 'https://addons.cdn.mozilla.net';
 
 module.exports = {
   staticHost,
