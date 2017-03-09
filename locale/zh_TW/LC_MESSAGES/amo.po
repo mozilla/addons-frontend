@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-08 04:49+0000\n"
+"PO-Revision-Date: 2017-03-09 07:14+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -29,7 +29,7 @@ msgstr "為您的體驗打分數"
 
 #: src/amo/components/AddonDetail.js:174
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr " %(startSpan)s%(authorList)s 開發的%(endSpan)s %(addonName)s"
+msgstr "%(addonName)s<br>%(startSpan)s由 %(authorList)s 開發%(endSpan)s"
 
 #: src/amo/components/AddonDetail.js:197
 msgid "Extension Metadata"
