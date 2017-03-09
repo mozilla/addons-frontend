@@ -66,4 +66,24 @@ describe('AMO GET Requests', () => {
   it('should respond with a 404 to user pages', () => request(app)
     .get('/en-US/firefox/user/some-user/')
     .expect(404));
+
+  it('should respond with a 404 to the user edit page', () => request(app)
+    .get('/en-US/firefox/users/edit/')
+    .expect(404));
+
+  it('should respond with a 404 to a specific user edit', () => request(app)
+    .get('/en-US/firefox/users/edit/1234/')
+    .expect(404));
+
+  it('should respond with a 404 to user unsubscribe actions', () => request(app)
+    .get('/en-US/firefox/users/unsubscribe/token/signature/permission/')
+    .expect(404));
+
+  it('should respond with a 404 to deleting a user photo', () => request(app)
+    .get('/en-US/firefox/users/delete_photo/1234/')
+    .expect(404));
+
+  it('should respond with a 404 to any user action', () => request(app)
+    .get('/en-US/firefox/users/login/')
+    .expect(404));
 });
