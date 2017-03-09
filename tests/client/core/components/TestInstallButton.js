@@ -24,7 +24,7 @@ describe('<InstallButton />', () => {
 
   const renderProps = (customProps = {}) => ({
     addon: fakeAddon,
-    isCompatibleWithUserAgent: isCompatibleWithUserAgentFalse,
+    isCompatibleWithUserAgent: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: getFakeI18nInst(),
     ...customProps,

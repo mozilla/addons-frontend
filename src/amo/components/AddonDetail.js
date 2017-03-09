@@ -12,7 +12,7 @@ import Link from 'amo/components/Link';
 import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
-import { ADDON_TYPE_THEME, ENABLED, UNKNOWN } from 'core/constants';
+import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
   isAllowedOrigin,
@@ -58,7 +58,7 @@ export class AddonDetailBase extends React.Component {
     themePreviewNode: PropTypes.element,
     status: PropTypes.string.isRequired,
     toggleThemePreview: PropTypes.func.isRequired,
-    userAgent: PropTypes.string.isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -92,13 +92,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   headerImage() {
-    const {
-      addon,
-      getBrowserThemeData,
-      i18n,
-      isPreviewingTheme,
-      status,
-    } = this.props;
+    const { addon, getBrowserThemeData, i18n, isPreviewingTheme } = this.props;
     const { previewURL, type } = addon;
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
@@ -118,7 +112,7 @@ export class AddonDetailBase extends React.Component {
         >
           {status !== ENABLED ?
             <button
-              disabled={false}
+              disabled={!this.isCompatible()}
               className="Button AddonDetail-theme-header-label"
               htmlFor="AddonDetail-theme-header">
               <Icon name="eye" className="AddonDetail-theme-preview-icon" />
@@ -178,7 +172,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   render() {
-    const { addon, clientApp, i18n, isCompatibleWithUserAgent, status, userAgentInfo } = this.props;
+    const { addon, clientApp, i18n, status } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -198,8 +192,6 @@ export class AddonDetailBase extends React.Component {
 
     const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp });
-    const { compatible } = isCompatibleWithUserAgent({
-      maxVersion, minVersion, userAgentInfo });
 
     // eslint-disable react/no-danger
     return (
@@ -220,8 +212,8 @@ export class AddonDetailBase extends React.Component {
             {i18n.gettext('Extension Metadata')}
           </h2>
           <AddonMeta addon={addon} />
-          <InstallButton {...this.props} disabled={false} />
-          {!compatible ? (
+          <InstallButton {...this.props} disabled={!this.isCompatible()} />
+          {!this.isCompatible() ? (
             <AddonCompatibilityError maxVersion={maxVersion}
               minVersion={minVersion} />
           ) : null}

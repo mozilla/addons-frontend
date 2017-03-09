@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import createStore from 'amo/store';
-import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
-import { getFakeI18nInst, userAgents } from 'tests/client/helpers';
+import { signedInApiState } from 'tests/client/amo/helpers';
+import { getFakeI18nInst } from 'tests/client/helpers';
 import I18nProvider from 'core/i18n/Provider';
 
 
@@ -30,7 +30,7 @@ describe('AddonCompatibilityError', () => {
     const fakeLog = { warn: sinon.stub() };
     const userAgentInfo = {
       browser: { name: 'Firefox' },
-      os: { name: 'Plan 9'},
+      os: { name: 'Plan 9' },
     };
     const root = render({ log: fakeLog, userAgentInfo });
     const rootNode = findDOMNode(root);

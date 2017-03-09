@@ -181,6 +181,12 @@ describe('getClientApp', () => {
 });
 
 describe('isCompatibleWithUserAgent', () => {
+  it('should throw if no userAgentInfo supplied', () => {
+    assert.throws(() => {
+      isCompatibleWithUserAgent({ userAgent: null });
+    }, 'userAgentInfo is required');
+  });
+
   it('returns false for Android/webkit', () => {
     userAgents.androidWebkit.forEach((userAgent) => {
       assert.deepEqual(

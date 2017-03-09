@@ -7,7 +7,6 @@ import config from 'config';
 import mozCompare from 'mozilla-version-comparator';
 import React from 'react';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
-import UAParser from 'ua-parser-js';
 
 import { loadEntities } from 'core/actions';
 import {
@@ -314,7 +313,7 @@ export function getCompatibleVersions({ addon, clientApp } = {}) {
 }
 
 export function isCompatibleWithUserAgent({
-  _log = log, maxVersion, minVersion, userAgentInfo
+  _log = log, maxVersion, minVersion, userAgentInfo,
 } = {}) {
   // If the userAgent is false there was likely a programming error.
   if (!userAgentInfo) {

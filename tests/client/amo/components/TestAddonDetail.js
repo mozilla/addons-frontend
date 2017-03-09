@@ -31,7 +31,7 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
   return {
     addon,
     ...addon,
-    isCompatibleWithUserAgent: () => { compatible: true },
+    isCompatibleWithUserAgent: () => ({ compatible: true }),
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
@@ -296,7 +296,7 @@ describe('AddonDetail', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      isCompatibleWithUserAgent: () => { compatible: true },
+      isCompatibleWithUserAgent: () => ({ compatible: true }),
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
     assert.equal(button.disabled, false);

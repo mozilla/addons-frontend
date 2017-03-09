@@ -58,10 +58,10 @@ export class InstallButtonBase extends React.Component {
     // (is the client a valid version of Firefox to run this add-on?).
     const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp });
-    const isCompatible = isCompatibleWithUserAgent({
+    const { compatible } = isCompatibleWithUserAgent({
       maxVersion, minVersion, userAgentInfo });
 
-    const buttonIsDisabled = !isCompatible;
+    const buttonIsDisabled = !compatible;
     const buttonClass = classNames('InstallButton-button', {
       'InstallButton-button--disabled': buttonIsDisabled,
     });

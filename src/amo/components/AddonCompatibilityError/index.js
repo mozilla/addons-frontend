@@ -1,6 +1,5 @@
 /* eslint-disable react/no-danger */
 import { oneLine } from 'common-tags';
-import mozCompare from 'mozilla-version-comparator';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -13,7 +12,10 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import _log from 'core/logger';
-import { isCompatibleWithUserAgent, sanitizeHTML } from 'core/utils';
+import {
+  isCompatibleWithUserAgent as _isCompatibleWithUserAgent,
+  sanitizeHTML,
+} from 'core/utils';
 
 import './style.scss';
 
@@ -21,6 +23,7 @@ import './style.scss';
 export class AddonCompatibilityErrorBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
+    isCompatibleWithUserAgent: PropTypes.func,
     lang: PropTypes.string.isRequired,
     log: PropTypes.object,
     maxVersion: PropTypes.string.isRequired,
@@ -29,12 +32,19 @@ export class AddonCompatibilityErrorBase extends React.Component {
   }
 
   static defaultProps = {
+    isCompatibleWithUserAgent: _isCompatibleWithUserAgent,
     log: _log,
   }
 
   render() {
     const {
-      i18n, lang, log, maxVersion, minVersion, userAgentInfo,
+      i18n,
+      isCompatibleWithUserAgent,
+      lang,
+      log,
+      maxVersion,
+      minVersion,
+      userAgentInfo,
     } = this.props;
     const { reason } = isCompatibleWithUserAgent({
       maxVersion, minVersion, userAgentInfo });
