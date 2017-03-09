@@ -36,7 +36,10 @@ describe('Footer', () => {
       'Legal notices');
     assert.equal(root.querySelector('.Footer-legal').href,
       'https://www.mozilla.org/en-GB/about/legal/');
+    // This link isn't localized because MDN will 404 on some
+    // locales and not others.
+    // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
     assert.equal(root.querySelector('.Footer-fileissue').href,
-      'https://developer.mozilla.org/en-GB/Add-ons/AMO/Policy/Contact');
+      'https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
   });
 });
