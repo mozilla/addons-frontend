@@ -6,6 +6,7 @@ import {
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
+import UAParser from 'ua-parser-js';
 
 import {
   AppBase,
@@ -16,7 +17,7 @@ import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
-import { INSTALL_STATE } from 'core/constants';
+import { INSTALL_STATE, SET_USER_AGENT } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -70,6 +71,7 @@ describe('App', () => {
             MastHeadComponent={FakeMastHeadComponent}
             SearchFormComponent={FakeSearchFormComponent}
             ErrorPage={FakeErrorPageComponent}
+            setUserAgent={sinon.stub()}
             {...props}>
             {children}
           </AppBase>
@@ -139,6 +141,19 @@ describe('App', () => {
     const payload = { guid: '@my-addon', status: 'some-status' };
     handleGlobalEvent(payload);
     assert.ok(dispatch.calledWith({ type: INSTALL_STATE, payload }));
+  });
+
+  it('sets up a callback for setting add-on status', () => {
+    const dispatch = sinon.spy();
+    const { setUserAgent } = mapDispatchToProps(dispatch);
+    const userAgent = 'tofubrowser';
+    const { browser, os } = UAParser(userAgent);
+
+    setUserAgent(userAgent);
+    assert.ok(dispatch.calledWith({
+      type: SET_USER_AGENT,
+      payload: { userAgent, userAgentInfo: { browser, os } },
+    }));
   });
 
   it('sets the clientApp as props', () => {

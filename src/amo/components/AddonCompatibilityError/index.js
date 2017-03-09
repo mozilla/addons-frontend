@@ -58,9 +58,9 @@ export class AddonCompatibilityErrorBase extends React.Component {
     } else if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
       // The browser can be Firefox but the version may be incompatible or the
       // client is running on an unsupported OS (e.g. iOS).
-      message = i18n.sprintf(i18n.gettext(oneLine`This add-on is only compatible
-        with older versions of Firefox (up to version %(maxVersion)s). You are
-        using Firefox %(yourVersion)s.`
+      message = i18n.sprintf(i18n.gettext(oneLine`You are using Firefox
+        %(yourVersion)s, but this add-on only supports Firefox up to version
+        %(maxVersion)s.`
       ), {
         maxVersion,
         yourVersion: userAgentInfo.browser.version,

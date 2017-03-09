@@ -78,10 +78,8 @@ describe('AddonCompatibilityError', () => {
     });
     const rootNode = findDOMNode(root);
 
-    assert.include(rootNode.textContent,
-      'This add-on is only compatible with older versions of Firefox');
-    assert.include(rootNode.textContent, '(up to version 9.4)');
-    assert.include(rootNode.textContent, 'You are using Firefox 11.0.');
+    assert.include(rootNode.textContent, 'up to version 9.4');
+    assert.include(rootNode.textContent, 'You are using Firefox 11.0');
   });
 
   it('renders a notice for iOS users', () => {
