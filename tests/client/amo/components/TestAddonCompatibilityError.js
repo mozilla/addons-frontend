@@ -15,7 +15,11 @@ import I18nProvider from 'core/i18n/Provider';
 
 describe('AddonCompatibilityError', () => {
   function render({ ...props }) {
-    const api = { ...signedInApiState, userAgentInfo: props.userAgentInfo };
+    const api = {
+      ...signedInApiState,
+      lang: props.lang || signedInApiState.lang,
+      userAgentInfo: props.userAgentInfo,
+    };
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore({ api })}>

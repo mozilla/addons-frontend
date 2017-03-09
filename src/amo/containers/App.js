@@ -29,7 +29,6 @@ export class AppBase extends React.Component {
     InfoDialogComponent: PropTypes.node.isRequired,
     MastHeadComponent: PropTypes.node.isRequired,
     _addChangeListeners: PropTypes.func,
-    _navigator: PropTypes.object,
     children: PropTypes.node,
     clientApp: PropTypes.string.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
@@ -38,6 +37,7 @@ export class AppBase extends React.Component {
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
     setUserAgent: PropTypes.func.isRequired,
+    userAgent: PropTypes.string,
   }
 
   static defaultProps = {
@@ -46,14 +46,13 @@ export class AppBase extends React.Component {
     InfoDialogComponent: InfoDialog,
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
-    _navigator: navigator,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    userAgent: null,
   }
 
   componentDidMount() {
     const {
       _addChangeListeners,
-      _navigator,
       handleGlobalEvent,
       mozAddonManager,
       setUserAgent,
@@ -63,6 +62,7 @@ export class AppBase extends React.Component {
     // If userAgent isn't set in state it could be we couldn't get one from
     // the request headers on our first (server) request. If that's the case
     // we try to load them from navigator.
+    const _navigator = navigator || window.navigator;
     if (!userAgent && _navigator && _navigator.userAgent) {
       log.info(
         'userAgent not in state on App load; using navigator.userAgent.');
@@ -129,7 +129,7 @@ export function mapDispatchToProps(dispatch) {
     },
     setUserAgent(userAgent) {
       dispatch(setUserAgentAction(userAgent));
-    }
+    },
   };
 }
 

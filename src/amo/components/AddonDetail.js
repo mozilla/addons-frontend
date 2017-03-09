@@ -92,7 +92,13 @@ export class AddonDetailBase extends React.Component {
   }
 
   headerImage() {
-    const { addon, getBrowserThemeData, i18n, isPreviewingTheme } = this.props;
+    const {
+      addon,
+      getBrowserThemeData,
+      i18n,
+      isPreviewingTheme,
+      status,
+    } = this.props;
     const { previewURL, type } = addon;
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
@@ -172,7 +178,7 @@ export class AddonDetailBase extends React.Component {
   }
 
   render() {
-    const { addon, clientApp, i18n, status } = this.props;
+    const { addon, clientApp, i18n } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
