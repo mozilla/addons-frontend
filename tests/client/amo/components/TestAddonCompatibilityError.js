@@ -43,19 +43,21 @@ describe('AddonCompatibilityError', () => {
 
   it('renders a notice for non-Firefox browsers', () => {
     const root = render({
+      lang: 'es',
       userAgentInfo: { browser: { name: 'Chrome' }, os: {} } });
     const rootNode = findDOMNode(root);
 
     // This is localised to the current locale, which is en-US in our
     // signedInApiState helper.
     assert.equal(rootNode.querySelector('a').href,
-      'https://www.mozilla.org/en-US/firefox/');
+      'https://www.mozilla.org/es/firefox/');
     assert.include(rootNode.textContent,
       'You need to download Firefox to install this add-on.');
   });
 
   it('renders a notice for old versions of Firefox', () => {
     const root = render({
+      lang: 'fr',
       minVersion: '11.0',
       userAgentInfo: { browser: { name: 'Firefox', version: '8.0' }, os: {} },
     });
@@ -64,7 +66,7 @@ describe('AddonCompatibilityError', () => {
     // This is localised to the current locale, which is en-US in our
     // signedInApiState helper.
     assert.equal(rootNode.querySelector('a').href,
-      'https://www.mozilla.org/en-US/firefox/');
+      'https://www.mozilla.org/fr/firefox/');
     assert.include(rootNode.textContent,
       'This add-on requires a newer version of Firefox');
     assert.include(rootNode.textContent, '(at least version 11.0)');
