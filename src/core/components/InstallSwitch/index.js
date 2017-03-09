@@ -88,8 +88,22 @@ export class InstallSwitchBase extends React.Component {
   handleClick = (e) => {
     e.preventDefault();
     const {
-      addon, guid, enable, install, installURL, name, status, installTheme, type, uninstall,
+      addon,
+      disabled,
+      enable,
+      guid,
+      install,
+      installURL,
+      name,
+      status,
+      installTheme,
+      type,
+      uninstall,
     } = this.props;
+    if (disabled) {
+      return;
+    }
+
     if (type === ADDON_TYPE_THEME && [UNINSTALLED, DISABLED].includes(status)) {
       installTheme(this.themeData, { ...addon, status });
     } else if (status === UNINSTALLED) {

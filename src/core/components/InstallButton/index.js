@@ -85,6 +85,7 @@ export class InstallButtonBase extends React.Component {
       } : null;
       button = (
         <Button
+          disabled={buttonIsDisabled}
           href={addon.installURL}
           onClick={onClick}
           size={size}
