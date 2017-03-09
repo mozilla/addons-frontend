@@ -66,4 +66,8 @@ describe('AMO GET Requests', () => {
   it('should respond with a 404 to user pages', () => request(app)
     .get('/en-US/firefox/user/some-user/')
     .expect(404));
+
+  it('should respond with a 404 to the user edit page', () => request(app)
+    .get('/en-US/firefox/users/edit/')
+    .expect(404));
 });

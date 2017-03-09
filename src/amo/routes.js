@@ -29,7 +29,10 @@ export default (
     <IndexRoute component={Home} />
     <Route path="addon/:slug/" component={DetailPage} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
-    {/* Hack to make the proxy serve this URL from addons-server */}
+    {/* These user routes are to make the proxy serve each URL from */}
+    {/* addons-server until we can fix the :visibleAddonType route below. */}
+    {/* https://github.com/mozilla/addons-frontend/issues/2029 */}
+    <Route path="users/edit/" component={NotFound} />
     {/* https://github.com/mozilla/addons-frontend/issues/1975 */}
     <Route path="user/:user/" component={NotFound} />
     <Route path=":visibleAddonType/categories/" component={CategoryList} />
