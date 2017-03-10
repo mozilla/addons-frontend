@@ -44,7 +44,17 @@ describe('api reducer', () => {
     const { browser, os } = UAParser(userAgent);
 
     assert.deepEqual(
-      api(existingState, actions.setUserAgent(userAgents.firefox[1])),
+      api(existingState, actions.setUserAgent(userAgent)),
+      { ...existingState, userAgent, userAgentInfo: { browser, os } });
+  });
+
+  it('allows empty userAgent', () => {
+    const existingState = { bar: 'baz' };
+    const userAgent = '';
+    const { browser, os } = UAParser(userAgent);
+
+    assert.deepEqual(
+      api(existingState, actions.setUserAgent(userAgent)),
       { ...existingState, userAgent, userAgentInfo: { browser, os } });
   });
 

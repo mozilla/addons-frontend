@@ -17,14 +17,14 @@ import Button from 'ui/components/Button';
 
 
 describe('<InstallButton />', () => {
-  const isCompatibleWithUserAgentFalse = () => ({
+  const getClientCompatibilityFalse = () => ({
     compatible: false,
     reason: INCOMPATIBLE_NOT_FIREFOX,
   });
 
   const renderProps = (customProps = {}) => ({
     addon: fakeAddon,
-    isCompatibleWithUserAgent: () => ({ compatible: true }),
+    getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: getFakeI18nInst(),
     ...customProps,
@@ -118,7 +118,7 @@ describe('<InstallButton />', () => {
         type: ADDON_TYPE_EXTENSION,
         installURL,
       },
-      isCompatibleWithUserAgent: isCompatibleWithUserAgentFalse,
+      getClientCompatibility: getClientCompatibilityFalse,
     });
 
     assert.equal(root.type, 'div');
@@ -147,7 +147,7 @@ describe('<InstallButton />', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      isCompatibleWithUserAgent: isCompatibleWithUserAgentFalse,
+      getClientCompatibility: getClientCompatibilityFalse,
     });
 
     assert.equal(root.type, 'div');

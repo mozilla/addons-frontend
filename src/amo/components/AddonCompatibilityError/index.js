@@ -12,10 +12,7 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import _log from 'core/logger';
-import {
-  isCompatibleWithUserAgent as _isCompatibleWithUserAgent,
-  sanitizeHTML,
-} from 'core/utils';
+import { sanitizeHTML } from 'core/utils';
 
 import './style.scss';
 
@@ -23,7 +20,6 @@ import './style.scss';
 export class AddonCompatibilityErrorBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-    isCompatibleWithUserAgent: PropTypes.func,
     lang: PropTypes.string.isRequired,
     log: PropTypes.object,
     maxVersion: PropTypes.string.isRequired,
@@ -32,32 +28,31 @@ export class AddonCompatibilityErrorBase extends React.Component {
   }
 
   static defaultProps = {
-    isCompatibleWithUserAgent: _isCompatibleWithUserAgent,
     log: _log,
   }
 
   render() {
     const {
       i18n,
-      isCompatibleWithUserAgent,
       lang,
       log,
       maxVersion,
       minVersion,
+      reason,
       userAgentInfo,
     } = this.props;
-    const { reason } = isCompatibleWithUserAgent({
-      maxVersion, minVersion, userAgentInfo });
     const downloadUrl = `https://www.mozilla.org/${lang}/firefox/`;
-    let message;
+    let message = i18n.gettext(
+      'This add-on is not compatible with your web browser.');
 
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
       message = i18n.sprintf(i18n.gettext(oneLine`You need to
         <a href="%(downloadUrl)s">download Firefox</a> to install this add-on.`
       ), { downloadUrl });
+    } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
+      message = i18n.gettext(
+        'Firefox for iOS does not currently support add-ons.');
     } else if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
-      // The browser can be Firefox but the version may be incompatible or the
-      // client is running on an unsupported OS (e.g. iOS).
       message = i18n.sprintf(i18n.gettext(oneLine`You are using Firefox
         %(yourVersion)s, but this add-on only supports Firefox up to version
         %(maxVersion)s.`
@@ -74,9 +69,6 @@ export class AddonCompatibilityErrorBase extends React.Component {
         minVersion,
         yourVersion: userAgentInfo.browser.version,
       });
-    } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
-      message = i18n.gettext(
-        'Firefox for iOS does not currently support add-ons.');
     } else {
       log.warn(oneLine`Component AddonCompatibilityError was used but there
         was no reason to mark the add-on as incompatible with this userAgent`,

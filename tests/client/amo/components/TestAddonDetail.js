@@ -31,7 +31,7 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
   return {
     addon,
     ...addon,
-    isCompatibleWithUserAgent: () => ({ compatible: true }),
+    getClientCompatibility: () => ({ compatible: true }),
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
@@ -61,7 +61,7 @@ function renderAsDOMNode(...args) {
 }
 
 describe('AddonDetail', () => {
-  const isCompatibleWithUserAgentFalse = () => ({
+  const getClientCompatibilityFalse = () => ({
     compatible: false,
     reason: INCOMPATIBLE_NOT_FIREFOX,
   });
@@ -296,7 +296,7 @@ describe('AddonDetail', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      isCompatibleWithUserAgent: () => ({ compatible: true }),
+      getCompatibleClient: () => ({ compatible: true }),
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
     assert.equal(button.disabled, false);
@@ -304,11 +304,7 @@ describe('AddonDetail', () => {
 
   it('disables install switch for unsupported clients', () => {
     const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      },
-      isCompatibleWithUserAgent: isCompatibleWithUserAgentFalse,
+      getClientCompatibility: getClientCompatibilityFalse,
     });
     assert.isTrue(
       rootNode.querySelector('.InstallButton-switch input').disabled);
@@ -320,7 +316,7 @@ describe('AddonDetail', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      isCompatibleWithUserAgent: isCompatibleWithUserAgentFalse,
+      getClientCompatibility: getClientCompatibilityFalse,
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
     assert.equal(button.disabled, true);

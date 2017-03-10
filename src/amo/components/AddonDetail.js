@@ -16,8 +16,7 @@ import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
   isAllowedOrigin,
-  isCompatibleWithUserAgent as _isCompatibleWithUserAgent,
-  getCompatibleVersions,
+  getClientCompatibility as _getClientCompatibility,
   ngettext,
   nl2br,
   sanitizeHTML,
@@ -49,9 +48,9 @@ export class AddonDetailBase extends React.Component {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    isCompatibleWithUserAgent: PropTypes.func,
     isPreviewingTheme: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
@@ -63,7 +62,7 @@ export class AddonDetailBase extends React.Component {
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
-    isCompatibleWithUserAgent: _isCompatibleWithUserAgent,
+    getClientCompatibility: _getClientCompatibility,
   }
 
   componentWillUnmount() {
@@ -77,21 +76,7 @@ export class AddonDetailBase extends React.Component {
     this.props.toggleThemePreview(event.currentTarget);
   }
 
-  isCompatible() {
-    const {
-      addon, clientApp, isCompatibleWithUserAgent, userAgentInfo,
-    } = this.props;
-    const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp });
-    const { compatible } = isCompatibleWithUserAgent({
-      maxVersion, minVersion, userAgentInfo });
-
-    // Test add-on capability (is the client Firefox?) and compatibility
-    // (is the client a valid version of Firefox to run this add-on?).
-    return compatible;
-  }
-
-  headerImage() {
+  headerImage({ compatible } = {}) {
     const {
       addon,
       getBrowserThemeData,
@@ -118,7 +103,7 @@ export class AddonDetailBase extends React.Component {
         >
           {status !== ENABLED ?
             <button
-              disabled={!this.isCompatible()}
+              disabled={!compatible}
               className="Button AddonDetail-theme-header-label"
               htmlFor="AddonDetail-theme-header">
               <Icon name="eye" className="AddonDetail-theme-preview-icon" />
@@ -178,7 +163,13 @@ export class AddonDetailBase extends React.Component {
   }
 
   render() {
-    const { addon, clientApp, i18n } = this.props;
+    const {
+      addon,
+      clientApp,
+      getClientCompatibility,
+      i18n,
+      userAgentInfo,
+    } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -196,14 +187,14 @@ export class AddonDetailBase extends React.Component {
         endSpan: '</span>',
       });
 
-    const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp });
+    const { compatible, reason } = getClientCompatibility({
+      addon, clientApp, userAgentInfo })
 
     // eslint-disable react/no-danger
     return (
       <div className="AddonDetail">
         <header className="AddonDetail-header">
-          {this.headerImage()}
+          {this.headerImage({ compatible })}
           <div className="AddonDetail-title">
             <h1
               dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
@@ -218,10 +209,9 @@ export class AddonDetailBase extends React.Component {
             {i18n.gettext('Extension Metadata')}
           </h2>
           <AddonMeta addon={addon} />
-          <InstallButton {...this.props} disabled={!this.isCompatible()} />
-          {!this.isCompatible() ? (
-            <AddonCompatibilityError maxVersion={maxVersion}
-              minVersion={minVersion} />
+          <InstallButton {...this.props} disabled={!compatible} />
+          {!compatible ? (
+            <AddonCompatibilityError reason={reason} />
           ) : null}
         </section>
 

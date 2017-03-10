@@ -187,7 +187,7 @@ describe('isCompatibleWithUserAgent', () => {
     }, 'userAgentInfo is required');
   });
 
-  it('returns false for Android/webkit', () => {
+  it('is incompatible with Android/webkit', () => {
     userAgents.androidWebkit.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
@@ -196,7 +196,7 @@ describe('isCompatibleWithUserAgent', () => {
     });
   });
 
-  it('returns false for Chrome Android', () => {
+  it('is incompatible with Chrome Android', () => {
     userAgents.chromeAndroid.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
@@ -205,7 +205,7 @@ describe('isCompatibleWithUserAgent', () => {
     });
   });
 
-  it('returns false for Chrome desktop', () => {
+  it('is incompatible with Chrome desktop', () => {
     userAgents.chrome.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
@@ -214,7 +214,7 @@ describe('isCompatibleWithUserAgent', () => {
     });
   });
 
-  it('returns true for Firefox desktop', () => {
+  it('is compatible with Firefox desktop', () => {
     userAgents.firefox.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
@@ -223,7 +223,7 @@ describe('isCompatibleWithUserAgent', () => {
     });
   });
 
-  it('returns true for Firefox Android', () => {
+  it('is compatible with Firefox Android', () => {
     userAgents.firefoxAndroid.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
@@ -232,7 +232,7 @@ describe('isCompatibleWithUserAgent', () => {
     });
   });
 
-  it('returns true for Firefox OS', () => {
+  it('is compatible with Firefox OS', () => {
     userAgents.firefoxOS.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
@@ -241,13 +241,32 @@ describe('isCompatibleWithUserAgent', () => {
     });
   });
 
-  it('returns false for Firefox iOS', () => {
+  it('is incompatible with Firefox iOS', () => {
     userAgents.firefoxIOS.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
         { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS },
         `UA string: ${userAgent}`);
     });
+  });
+
+  it('should mark Firefox for iOS as incompatible reason, not version', () => {
+    const userAgentInfo = {
+      browser: { name: 'Firefox', version: '8.0' },
+      os: { name: 'iOS' },
+    };
+    assert.deepEqual(
+      isCompatibleWithUserAgent({ minVersion: '9.0', userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS }
+    );
+  });
+
+  it('is incompatible with garbage user agent', () => {
+    const userAgent = '^^**garbage__';
+    assert.deepEqual(
+      isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+      { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX },
+      `UA string: ${userAgent}`);
   });
 
   it('should mark non-Firefox UAs as incompatible', () => {
@@ -314,13 +333,13 @@ describe('isCompatibleWithUserAgent', () => {
       'minVersion of "*" was passed to isCompatibleWithUserAgent()');
   });
 
-  it('returns false for empty user agent values', () => {
+  it('is incompatible with empty user agent values', () => {
     const userAgentInfo = { browser: { name: '' } };
     assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
       { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
   });
 
-  it('returns false for non-string user agent values', () => {
+  it('is incompatible with non-string user agent values', () => {
     const userAgentInfo = { browser: { name: null }, os: { name: null } };
     assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
       { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });

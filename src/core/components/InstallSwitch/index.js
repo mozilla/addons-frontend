@@ -15,6 +15,7 @@ import {
   validAddonTypes,
   validInstallStates as validStates,
 } from 'core/constants';
+import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import Switch from 'ui/components/Switch';
 
@@ -100,7 +101,10 @@ export class InstallSwitchBase extends React.Component {
       type,
       uninstall,
     } = this.props;
+
     if (disabled) {
+      log.info(
+        'handleClick for InstallSwitch disabled; disabled prop set to true.')
       return;
     }
 

@@ -35,21 +35,19 @@ describe('core actions setClientApp', () => {
 describe('core actions setUserAgent', () => {
   it('creates the SET_USER_AGENT action', () => {
     const userAgent = userAgents.chrome[0];
-    const { browser, os } = UAParser(userAgent);
 
     assert.deepEqual(actions.setUserAgent(userAgent), {
       type: 'SET_USER_AGENT',
-      payload: { userAgent, userAgentInfo: { browser, os } },
+      payload: { userAgent },
     });
   });
 
   it('allow an empty userAgent value', () => {
     const userAgent = '';
-    const { browser, os } = UAParser(userAgent);
 
     assert.deepEqual(actions.setUserAgent(''), {
       type: 'SET_USER_AGENT',
-      payload: { userAgent, userAgentInfo: { browser, os } },
+      payload: { userAgent },
     });
   });
 });

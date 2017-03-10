@@ -14,7 +14,7 @@ import {
   mapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
-import { setClientApp, setLang } from 'core/actions';
+import { setClientApp, setLang, setUserAgent } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE, SET_USER_AGENT } from 'core/constants';
@@ -145,15 +145,13 @@ describe('App', () => {
 
   it('sets up a callback for setting add-on status', () => {
     const dispatch = sinon.spy();
-    const { setUserAgent } = mapDispatchToProps(dispatch);
+    const fakeSetUserAgent = sinon.stub();
+    const { setUserAgent } = mapDispatchToProps(dispatch, fakeSetUserAgent);
     const userAgent = 'tofubrowser';
     const { browser, os } = UAParser(userAgent);
 
     setUserAgent(userAgent);
-    assert.ok(dispatch.calledWith({
-      type: SET_USER_AGENT,
-      payload: { userAgent, userAgentInfo: { browser, os } },
-    }));
+    assert.ok(dispatch.calledWith(fakeSetUserAgent()));
   });
 
   it('sets the clientApp as props', () => {
@@ -168,6 +166,21 @@ describe('App', () => {
     store.dispatch(setLang('de'));
     const { lang } = mapStateToProps(store.getState());
     assert.equal(lang, 'de');
+  });
+
+  it('sets the userAgent as props', () => {
+    const store = createStore();
+    store.dispatch(setUserAgent('tofubrowser'));
+    const { userAgent } = mapStateToProps(store.getState());
+    assert.equal(userAgent, 'tofubrowser');
+  });
+
+  it('uses navigator.userAgent if userAgent prop is empty', () => {
+    const setUserAgent = sinon.stub();
+    const _navigator = { userAgent: 'Firefox 10000000.0' }
+    const root = render({ _navigator, setUserAgent, userAgent: '' });
+
+    assert.equal(setUserAgent.firstCall.args[0], fakeNavigator.userAgent);
   });
 
   it('renders an error component on error', () => {

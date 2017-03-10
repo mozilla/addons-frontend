@@ -8,6 +8,12 @@ import { Provider } from 'react-redux';
 
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import createStore from 'amo/store';
+import {
+  INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OVER_MAX_VERSION,
+  INCOMPATIBLE_UNDER_MIN_VERSION,
+} from 'core/constants';
 import { signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 import I18nProvider from 'core/i18n/Provider';
@@ -48,11 +54,10 @@ describe('AddonCompatibilityError', () => {
   it('renders a notice for non-Firefox browsers', () => {
     const root = render({
       lang: 'es',
+      reason: INCOMPATIBLE_NOT_FIREFOX,
       userAgentInfo: { browser: { name: 'Chrome' }, os: {} } });
     const rootNode = findDOMNode(root);
 
-    // This is localised to the current locale, which is en-US in our
-    // signedInApiState helper.
     assert.equal(rootNode.querySelector('a').href,
       'https://www.mozilla.org/es/firefox/');
     assert.include(rootNode.textContent,
@@ -63,12 +68,11 @@ describe('AddonCompatibilityError', () => {
     const root = render({
       lang: 'fr',
       minVersion: '11.0',
+      reason: INCOMPATIBLE_UNDER_MIN_VERSION,
       userAgentInfo: { browser: { name: 'Firefox', version: '8.0' }, os: {} },
     });
     const rootNode = findDOMNode(root);
 
-    // This is localised to the current locale, which is en-US in our
-    // signedInApiState helper.
     assert.equal(rootNode.querySelector('a').href,
       'https://www.mozilla.org/fr/firefox/');
     assert.include(rootNode.textContent,
@@ -80,6 +84,7 @@ describe('AddonCompatibilityError', () => {
   it('renders a notice for new versions of Firefox', () => {
     const root = render({
       maxVersion: '9.4',
+      reason: INCOMPATIBLE_OVER_MAX_VERSION,
       userAgentInfo: { browser: { name: 'Firefox', version: '11.0' }, os: {} },
     });
     const rootNode = findDOMNode(root);
@@ -90,21 +95,8 @@ describe('AddonCompatibilityError', () => {
 
   it('renders a notice for iOS users', () => {
     const root = render({
+      reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
       userAgentInfo: { browser: { name: 'Firefox' }, os: { name: 'iOS' } },
-    });
-    const rootNode = findDOMNode(root);
-
-    assert.include(rootNode.textContent,
-      'Firefox for iOS does not currently support add-ons.');
-  });
-
-  it('renders a notice for iOS users instead of a version mismatch', () => {
-    const root = render({
-      minVersion: '9.0',
-      userAgentInfo: {
-        browser: { name: 'Firefox', version: '8.0' },
-        os: { name: 'iOS' },
-      },
     });
     const rootNode = findDOMNode(root);
 

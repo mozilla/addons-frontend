@@ -68,7 +68,7 @@ export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
     [API_ADDON_TYPES_MAPPING[key]]: key,
   }), {});
 
-// Incompatibility codes for
+// Incompatibility codes for clients that can't install an add-on.
 export const INCOMPATIBLE_FIREFOX_FOR_IOS = 'INCOMPATIBLE_FIREFOX_FOR_IOS';
 export const INCOMPATIBLE_NOT_FIREFOX = 'INCOMPATIBLE_NOT_FIREFOX';
 export const INCOMPATIBLE_OVER_MAX_VERSION = 'INCOMPATIBLE_OVER_MAX_VERSION';

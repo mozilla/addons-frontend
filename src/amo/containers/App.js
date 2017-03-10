@@ -29,6 +29,7 @@ export class AppBase extends React.Component {
     InfoDialogComponent: PropTypes.node.isRequired,
     MastHeadComponent: PropTypes.node.isRequired,
     _addChangeListeners: PropTypes.func,
+    _navigator: PropTypes.object,
     children: PropTypes.node,
     clientApp: PropTypes.string.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
@@ -46,6 +47,7 @@ export class AppBase extends React.Component {
     InfoDialogComponent: InfoDialog,
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
+    _navigator: navigator || window.navigator,
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     userAgent: null,
   }
@@ -53,16 +55,16 @@ export class AppBase extends React.Component {
   componentDidMount() {
     const {
       _addChangeListeners,
+      _navigator,
       handleGlobalEvent,
       mozAddonManager,
       setUserAgent,
       userAgent,
     } = this.props;
 
-    // If userAgent isn't set in state it could be we couldn't get one from
-    // the request headers on our first (server) request. If that's the case
-    // we try to load them from navigator.
-    const _navigator = navigator || window.navigator;
+    // If userAgent isn't set in state it could be that we couldn't get one
+    // from the request headers on our first (server) request. If that's the
+    // case we try to load them from navigator.
     if (!userAgent && _navigator && _navigator.userAgent) {
       log.info(
         'userAgent not in state on App load; using navigator.userAgent.');
@@ -122,13 +124,15 @@ export const mapStateToProps = (state) => ({
   userAgent: state.api.userAgent,
 });
 
-export function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(
+  dispatch, _setUserAgentAction = setUserAgentAction,
+) {
   return {
     handleGlobalEvent(payload) {
       dispatch({ type: INSTALL_STATE, payload });
     },
     setUserAgent(userAgent) {
-      dispatch(setUserAgentAction(userAgent));
+      dispatch(_setUserAgentAction(userAgent));
     },
   };
 }

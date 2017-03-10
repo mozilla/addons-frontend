@@ -302,11 +302,17 @@ export function getCompatibleVersions({ addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
   if (
-    addon && addon.current_version && addon.current_version.compatibility &&
-    addon.current_version.compatibility[clientApp]
+    addon && addon.current_version && addon.current_version.compatibility
   ) {
-    maxVersion = addon.current_version.compatibility[clientApp].max;
-    minVersion = addon.current_version.compatibility[clientApp].min;
+    if (addon.current_version.compatibility[clientApp]) {
+      maxVersion = addon.current_version.compatibility[clientApp].max;
+      minVersion = addon.current_version.compatibility[clientApp].min;
+    } else {
+      log.error(
+        'addon found with no compatibility info for valid clientApp',
+        { addon, clientApp }
+      );
+    }
   }
 
   return { maxVersion, minVersion };
@@ -342,7 +348,9 @@ export function isCompatibleWithUserAgent({
     if (minVersion && mozCompare(browser.version, minVersion) === -1) {
       if (minVersion === '*') {
         _log.error(oneLine`minVersion of "*" was passed to
-          isCompatibleWithUserAgent(); bad add-on version data`);
+          isCompatibleWithUserAgent(); bad add-on version data`,
+          { browserVersion: browser.version, minVersion }
+        );
       }
 
       return { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION };
@@ -354,4 +362,12 @@ export function isCompatibleWithUserAgent({
 
   // This means the client is not Firefox, so it's incompatible.
   return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
+}
+
+export function getClientCompatibility({
+  addon, clientApp, userAgentInfo,
+} = {}) {
+  const { maxVersion, minVersion } = getCompatibleVersions({
+    addon, clientApp });
+  return isCompatibleWithUserAgent({ maxVersion, minVersion, userAgentInfo });
 }

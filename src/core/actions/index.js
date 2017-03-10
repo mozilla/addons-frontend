@@ -1,5 +1,3 @@
-import UAParser from 'ua-parser-js';
-
 import {
   ENTITIES_LOADED,
   LOG_OUT_USER,
@@ -39,11 +37,9 @@ export function setLang(lang) {
 }
 
 export function setUserAgent(userAgent) {
-  const { browser, os } = UAParser(userAgent);
-
   return {
     type: SET_USER_AGENT,
-    payload: { userAgent, userAgentInfo: { browser, os } },
+    payload: { userAgent },
   };
 }
 
@@ -57,8 +53,6 @@ export function loadEntities(entities) {
 export function setCurrentUser(username) {
   return {
     type: SET_CURRENT_USER,
-    payload: {
-      username,
-    },
+    payload: { username },
   };
 }
