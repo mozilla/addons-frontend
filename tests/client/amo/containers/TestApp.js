@@ -6,7 +6,6 @@ import {
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
-import UAParser from 'ua-parser-js';
 
 import {
   AppBase,
@@ -14,7 +13,11 @@ import {
   mapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
-import { setClientApp, setLang, setUserAgentAction } from 'core/actions';
+import {
+  setClientApp,
+  setLang,
+  setUserAgent as setUserAgentAction,
+} from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE } from 'core/constants';
