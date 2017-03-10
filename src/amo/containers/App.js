@@ -47,7 +47,8 @@ export class AppBase extends React.Component {
     InfoDialogComponent: InfoDialog,
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
-    _navigator: navigator || window.navigator,
+    _navigator: (typeof navigator !== 'undefined' ?
+      navigator || window.navigator : null),
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     userAgent: null,
   }

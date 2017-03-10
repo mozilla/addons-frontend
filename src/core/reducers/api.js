@@ -17,13 +17,16 @@ export default function api(state = {}, action) {
     case SET_CLIENT_APP:
       return { ...state, clientApp: action.payload.clientApp };
     case SET_USER_AGENT:
-      const { browser, os } = UAParser(action.payload.userAgent);
+      // Create a lexical scope for the const.
+      {
+        const { browser, os } = UAParser(action.payload.userAgent);
 
-      return {
-        ...state,
-        userAgent: action.payload.userAgent,
-        userAgentInfo: { browser, os },
-      };
+        return {
+          ...state,
+          userAgent: action.payload.userAgent,
+          userAgentInfo: { browser, os },
+        };
+      }
     case LOG_OUT_USER:
       // Create a lexical scope for the const.
       {

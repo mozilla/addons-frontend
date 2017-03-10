@@ -24,6 +24,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     log: PropTypes.object,
     maxVersion: PropTypes.string.isRequired,
     minVersion: PropTypes.string.isRequired,
+    reason: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
   }
 

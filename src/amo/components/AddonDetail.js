@@ -188,7 +188,7 @@ export class AddonDetailBase extends React.Component {
       });
 
     const { compatible, reason } = getClientCompatibility({
-      addon, clientApp, userAgentInfo })
+      addon, clientApp, userAgentInfo });
 
     // eslint-disable react/no-danger
     return (

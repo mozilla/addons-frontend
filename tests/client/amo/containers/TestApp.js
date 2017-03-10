@@ -14,10 +14,10 @@ import {
   mapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
-import { setClientApp, setLang, setUserAgent } from 'core/actions';
+import { setClientApp, setLang, setUserAgentAction } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
-import { INSTALL_STATE, SET_USER_AGENT } from 'core/constants';
+import { INSTALL_STATE } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -148,7 +148,6 @@ describe('App', () => {
     const fakeSetUserAgent = sinon.stub();
     const { setUserAgent } = mapDispatchToProps(dispatch, fakeSetUserAgent);
     const userAgent = 'tofubrowser';
-    const { browser, os } = UAParser(userAgent);
 
     setUserAgent(userAgent);
     assert.ok(dispatch.calledWith(fakeSetUserAgent()));
@@ -170,15 +169,15 @@ describe('App', () => {
 
   it('sets the userAgent as props', () => {
     const store = createStore();
-    store.dispatch(setUserAgent('tofubrowser'));
+    store.dispatch(setUserAgentAction('tofubrowser'));
     const { userAgent } = mapStateToProps(store.getState());
     assert.equal(userAgent, 'tofubrowser');
   });
 
   it('uses navigator.userAgent if userAgent prop is empty', () => {
     const setUserAgent = sinon.stub();
-    const _navigator = { userAgent: 'Firefox 10000000.0' }
-    const root = render({ _navigator, setUserAgent, userAgent: '' });
+    const _navigator = { userAgent: 'Firefox 10000000.0' };
+    render({ _navigator, setUserAgent, userAgent: '' });
 
     assert.equal(setUserAgent.firstCall.args[0], _navigator.userAgent);
   });

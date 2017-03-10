@@ -9,7 +9,6 @@ import translate from 'core/i18n/translate';
 import { getThemeData } from 'core/themePreview';
 import {
   getClientCompatibility as _getClientCompatibility,
-  getCompatibleVersions,
 } from 'core/utils';
 import Button from 'ui/components/Button';
 

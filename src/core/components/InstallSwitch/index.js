@@ -104,7 +104,7 @@ export class InstallSwitchBase extends React.Component {
 
     if (disabled) {
       log.info(
-        'handleClick for InstallSwitch disabled; disabled prop set to true.')
+        'handleClick for InstallSwitch disabled; disabled prop set to true.');
       return;
     }
 

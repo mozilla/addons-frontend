@@ -1,5 +1,3 @@
-import UAParser from 'ua-parser-js';
-
 import * as actions from 'core/actions';
 import { userAgents } from 'tests/client/helpers';
 
