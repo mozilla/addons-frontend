@@ -156,7 +156,7 @@ describe('<Paginate />', () => {
     });
   });
 
-  describe('makeLink()', () => {
+  describe('links', () => {
     const pathname = '/some-path/';
 
     class PaginateWrapper extends React.Component {
@@ -188,7 +188,8 @@ describe('<Paginate />', () => {
     describe('when the link is to the current page', () => {
       it('does not contain a link', () => {
         renderPaginateRoute().then((root) => {
-          const link = renderIntoDocument(root.makeLink({ currentPage: 3, page: 3, pathname }));
+          const link = renderIntoDocument(
+            root.makeLink({ currentPage: 3, page: 3, pathname }));
           assert.equal(link.childNodes.length, 1);
           assert.equal(link.childNodes[0].nodeType, Node.TEXT_NODE);
           assert.equal(link.textContent, '3');
@@ -209,7 +210,8 @@ describe('<Paginate />', () => {
     describe('when the link is to a different page', () => {
       it('has a link', () => {
         renderPaginateRoute().then((root) => {
-          const link = renderIntoDocument(root.makeLink({ currentPage: 2, page: 3, pathname }));
+          const link = renderIntoDocument(
+            root.makeLink({ currentPage: 2, page: 3, pathname }));
           assert.equal(link.childNodes.length, 1);
           assert.equal(link.childNodes[0].tagName, 'A');
           assert.equal(link.textContent, '3');
@@ -226,33 +228,9 @@ describe('<Paginate />', () => {
         });
       });
     });
-  });
-
-  describe('links', () => {
-    const pathname = '/some-path/';
-
-    // eslint-disable-next-line react/no-multi-comp
-    class PaginateWrapper extends React.Component {
-      render() {
-        return <Paginate count={250} currentPage={5} pathname={pathname} showPages={5} />;
-      }
-    }
-
-    function renderPaginate() {
-      return new Promise((resolve) => {
-        const node = document.createElement('div');
-        render((
-          <Router history={createMemoryHistory('/')}>
-            <Route path="/" component={PaginateWrapper} />
-          </Router>
-        ), node, () => {
-          resolve(node);
-        });
-      });
-    }
 
     it('renders the right links', () => {
-      renderPaginate().then((root) => {
+      renderPaginateRoute().then((root) => {
         const links = Array.from(root.querySelectorAll('a'));
         assert.deepEqual(
           links.map((link) => [link.textContent, link.getAttribute('href')]),
