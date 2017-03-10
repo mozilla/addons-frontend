@@ -39,6 +39,22 @@ describe('<Paginate />', () => {
           () => renderIntoDocument(<Paginate {...props} />),
           /count property cannot be undefined/);
       });
+
+      it('does not allow an undefined currentPage', () => {
+        const props = getRenderProps();
+        delete props.currentPage;
+        assert.throws(
+          () => renderIntoDocument(<Paginate {...props} />),
+          /currentPage property cannot be undefined/);
+      });
+
+      it('does not allow an undefined pathname', () => {
+        const props = getRenderProps();
+        delete props.pathname;
+        assert.throws(
+          () => renderIntoDocument(<Paginate {...props} />),
+          /pathname property cannot be undefined/);
+      });
     });
 
     describe('pageCount()', () => {

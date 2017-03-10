@@ -92,6 +92,12 @@ export class PaginateBase extends React.Component {
     if (count === undefined) {
       throw new Error('The count property cannot be undefined');
     }
+    if (currentPage === undefined) {
+      throw new Error('The currentPage property cannot be undefined');
+    }
+    if (pathname === undefined) {
+      throw new Error('The pathname property cannot be undefined');
+    }
     if (this.pageCount() === 1) {
       return null;
     }
