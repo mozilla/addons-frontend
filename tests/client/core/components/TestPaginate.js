@@ -13,14 +13,33 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 describe('<Paginate />', () => {
+  const getRenderProps = () => ({
+    i18n: getFakeI18nInst(),
+    count: 20,
+    currentPage: 1,
+    pathname: '/some/path',
+  });
+
   describe('methods', () => {
-    function renderPaginate({ count = 20, currentPage = 1, pathname, ...extra }) {
+    function renderPaginate(extra = {}) {
+      const props = {
+        ...getRenderProps(),
+        ...extra,
+      };
       return findRenderedComponentWithType(renderIntoDocument(
-        <Paginate
-          i18n={getFakeI18nInst()} count={count} currentPage={currentPage} pathname={pathname}
-          {...extra} />
+        <Paginate {...props} />
       ), Paginate).getWrappedInstance();
     }
+
+    describe('validation', () => {
+      it('does not allow an undefined count', () => {
+        const props = getRenderProps();
+        delete props.count;
+        assert.throws(
+          () => renderIntoDocument(<Paginate {...props} />),
+          /count property cannot be undefined/);
+      });
+    });
 
     describe('pageCount()', () => {
       it('is count / perPage', () => {
@@ -31,6 +50,23 @@ describe('<Paginate />', () => {
       it('uses the ceiling of the result', () => {
         const root = renderPaginate({ count: 101, perPage: 5 });
         assert.equal(root.pageCount(), 21);
+      });
+
+      it('can handle a count of zero', () => {
+        const root = renderPaginate({ count: 0 });
+        assert.equal(root.pageCount(), 0);
+      });
+
+      it('does not allow a per page value of zero', () => {
+        assert.throws(
+          () => renderPaginate({ count: 5, perPage: 0 }),
+          /0 is not allowed/);
+      });
+
+      it('does not allow a negative per page value', () => {
+        assert.throws(
+          () => renderPaginate({ count: 5, perPage: -1 }),
+          /-1 is not allowed/);
       });
     });
 
@@ -125,14 +161,18 @@ describe('<Paginate />', () => {
 
     class PaginateWrapper extends React.Component {
       render() {
-        return (
-          <Paginate count={50} currentPage={5} pathname={pathname}
-            showPages={5} />
-        );
+        const props = {
+          ...getRenderProps(),
+          count: 50,
+          currentPage: 5,
+          showPages: 5,
+          pathname,
+        };
+        return <Paginate {...props} />;
       }
     }
 
-    function renderPaginate() {
+    function renderPaginateRoute() {
       return new Promise((resolve) => {
         const node = document.createElement('div');
         render((
@@ -147,7 +187,7 @@ describe('<Paginate />', () => {
 
     describe('when the link is to the current page', () => {
       it('does not contain a link', () => {
-        renderPaginate().then((root) => {
+        renderPaginateRoute().then((root) => {
           const link = renderIntoDocument(root.makeLink({ currentPage: 3, page: 3, pathname }));
           assert.equal(link.childNodes.length, 1);
           assert.equal(link.childNodes[0].nodeType, Node.TEXT_NODE);
@@ -156,7 +196,7 @@ describe('<Paginate />', () => {
       });
 
       it('uses the provided text', () => {
-        renderPaginate().then((root) => {
+        renderPaginateRoute().then((root) => {
           const link = renderIntoDocument(
             root.makeLink({ currentPage: 3, page: 3, pathname, text: 'hi' }));
           assert.equal(link.childNodes.length, 1);
@@ -168,7 +208,7 @@ describe('<Paginate />', () => {
 
     describe('when the link is to a different page', () => {
       it('has a link', () => {
-        renderPaginate().then((root) => {
+        renderPaginateRoute().then((root) => {
           const link = renderIntoDocument(root.makeLink({ currentPage: 2, page: 3, pathname }));
           assert.equal(link.childNodes.length, 1);
           assert.equal(link.childNodes[0].tagName, 'A');
@@ -177,7 +217,7 @@ describe('<Paginate />', () => {
       });
 
       it('uses the provided text', () => {
-        renderPaginate().then((root) => {
+        renderPaginateRoute().then((root) => {
           const link = renderIntoDocument(
             root.makeLink({ currentPage: 4, page: 3, pathname, text: 'hi' }));
           assert.equal(link.childNodes.length, 1);

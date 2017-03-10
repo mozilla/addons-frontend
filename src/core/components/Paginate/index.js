@@ -17,7 +17,7 @@ function makePageNumbers({ start, end }) {
 
 export class PaginateBase extends React.Component {
   static propTypes = {
-    LinkComponent: PropTypes.object.isRequired,
+    LinkComponent: PropTypes.object,
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -34,7 +34,11 @@ export class PaginateBase extends React.Component {
   }
 
   pageCount() {
-    return Math.ceil(this.props.count / this.props.perPage);
+    const { count, perPage } = this.props;
+    if (perPage <= 0) {
+      throw new TypeError(`A perPage value of ${perPage} is not allowed`);
+    }
+    return Math.ceil(count / perPage);
   }
 
   visiblePages() {
@@ -83,11 +87,14 @@ export class PaginateBase extends React.Component {
   }
 
   render() {
+    const { count, currentPage, i18n, pathname, queryParams } = this.props;
+
+    if (count === undefined) {
+      throw new Error('The count property cannot be undefined');
+    }
     if (this.pageCount() === 1) {
       return null;
     }
-
-    const { currentPage, i18n, pathname, queryParams } = this.props;
 
     return (
       <div className="Paginator">
