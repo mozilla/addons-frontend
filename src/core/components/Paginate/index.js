@@ -15,6 +15,37 @@ function makePageNumbers({ start, end }) {
   return pages;
 }
 
+export class PaginatorLink extends React.Component {
+  render() {
+    const {
+      LinkComponent = Link,
+      className,
+      currentPage,
+      page,
+      pageCount,
+      pathname,
+      queryParams,
+      text
+    } = this.props;
+
+    if (currentPage === page || page < 1 || page > pageCount) {
+      return (
+        <span key={page}
+          className={classNames('Paginator-item', 'disabled', className)}>
+          {text || page}
+        </span>
+      );
+    }
+
+    return (
+      <LinkComponent to={{ pathname, query: { ...queryParams, page } }}
+        className={classNames('Paginator-item', className)}>
+        {text || page}
+      </LinkComponent>
+    );
+  }
+}
+
 export class PaginateBase extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.object,
