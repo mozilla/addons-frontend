@@ -180,7 +180,7 @@ describe('App', () => {
     const _navigator = { userAgent: 'Firefox 10000000.0' }
     const root = render({ _navigator, setUserAgent, userAgent: '' });
 
-    assert.equal(setUserAgent.firstCall.args[0], fakeNavigator.userAgent);
+    assert.equal(setUserAgent.firstCall.args[0], _navigator.userAgent);
   });
 
   it('renders an error component on error', () => {
