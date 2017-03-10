@@ -1,71 +1,44 @@
 @import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
 
 .LandingPage {
   padding: $padding-page;
 }
 
-.Addon-Header {
+.LandingPage-Header {
   margin: 10px;
   max-width: 100%;
   text-align: center;
 }
 
-.Icon-persona {
-  background: url('~amo/img/icons/themes.svg') 50% 50% no-repeat;
-  background-size: cover;
+.LandingPage-Header-Text {
   display: inline-block;
-  height: 50px;
-  margin-bottom: 15px;
-  width: 41.5px;
-}
-
-.Icon-extension {
-  background: url('~amo/img/icons/extensions.svg') 50% 50% no-repeat;
-  background-size: cover;
-  display: inline-block;
-  height: 47.8px;
-  margin-bottom: 15px;
-  width: 49px;
-}
-
-.Addon-Header-Text {
-  display: inline-block;
-  margin-left: 20px;
-  text-align: left;
+  @include margin-start(20px);
+  @include text-align-start();
   width: 250px;
 }
 
-.Addon-Header-Text-Bold {
+.LandingPage-Heading {
   font-size: 20px;
-  font-weight: bold;
-  padding: 0;
 }
 
-.Addon-Header-Text-Content {
+.LandingPage-Heading-Content {
   margin-top: 5px;
 }
 
+Link--light {
+  @include button(#fff, $link-color);
+}
+
 .Browse-Button {
-  background-color: white;
-  border-radius: 9px;
-  color: blue;
   height: 55px;
-  font-size: 12px;
   margin-left: calc(50% - 150px);
   margin-bottom: 2em;
   text-transform: uppercase;
-  width: 300px;
+  text-decoration: none;
 }
 
-.Icon-browse {
-  background: url('~amo/img/icons/bullet-list.svg') 50% 50% no-repeat;
-  background-size: cover;
-  height: 30px;
-  margin-right: 1em;
-  width: 30px;
-}
-
-.Browse-by-Category-Text {
+.Browse-Button-Text {
   bottom: 10px;
   position: relative;
 }
