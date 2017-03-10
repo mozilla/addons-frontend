@@ -21,6 +21,7 @@ import {
 } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon/index';
+import Link from './Link';
 
 import './LandingPage.scss';
 
@@ -95,6 +96,7 @@ export class LandingPageBase extends React.Component {
   render() {
     const { featuredAddons, highlyRatedAddons, popularAddons } = this.props;
     const { visibleAddonType } = this.props.params;
+    const { i18n } = this.props;
 
     let content;
     try {
@@ -109,28 +111,31 @@ export class LandingPageBase extends React.Component {
     }
 
     const { addonType, html } = content;
-    const themeText = 'Change your browser’s appearance. Choose from thousands of themes to give Firefox the look you want.';
-    const extensionsText = 'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.';
+    const themeText = i18n.gettext('Change your browser’s appearance. Choose from thousands of themes to give Firefox the look you want.');
+    const extensionsText = i18n.gettext('Install powerful tools that make browsing faster and safer, add-ons make your browser yours.');
 
     return (
       <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
 
-        <div className="Addon-Header">
-          <Icon name={classNames(`${addonType}`)} className="Addon-Icon" />
-          <div className="Addon-Header-Text">
-            <span className="Addon-Header-Text-Bold">
-              {addonType === 'persona' ? 'Themes' : 'Extensions' }
-            </span>
-            <p className="Addon-Header-Text-Content">
-              {addonType === 'persona' ? themeText : extensionsText }
+        <div className="LandingPage-Header">
+          <Icon name={classNames(`${addonType}`)} />
+          <div className="LandingPage-Header-Text">
+            <h1 className="LandingPage-Heading">
+              {addonType === 'persona' ? i18n.gettext('Themes') : i18n.gettext('Extensions')}
+            </h1>
+            <p className="LandingPage-Heading-Content">
+              {addonType === 'persona' ? i18n.gettext(themeText) : i18n.gettext(extensionsText)}
             </p>
           </div>
         </div>
 
-        <button className="Browse-Button">
+        <Link className="Browse-Button" appearance="light"
+          to="">
           <Icon name="browse" />
-          <span className="Browse-by-Category-Text">browse by category</span>
-        </button>
+          <span className="Browse-Button-Text">
+            {i18n.gettext('Browse by category')}
+          </span>
+        </Link>
 
         <LandingAddonsCard addons={featuredAddons}
           className="FeaturedAddons" header={html.featuredHeader}
