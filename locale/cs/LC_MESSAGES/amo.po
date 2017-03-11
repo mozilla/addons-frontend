@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-02 21:21+0000\n"
-"Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
+"PO-Revision-Date: 2017-03-11 16:49+0000\n"
+"Last-Translator: Michal Vašíček <michalvasicek@icloud.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "Metadata rozšíření"
 
 #: src/amo/components/AddonDetail.js:211
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "O tomto %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:89
 msgid "Cancel preview"
@@ -88,9 +88,8 @@ msgid "More information"
 msgstr "Více informací"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Doplňky pro Firefox"
+msgstr "Odkazy pro doplněk"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -134,8 +133,7 @@ msgstr "Řekněte celému světu, proč si myslíte, že je tenhle doplněk úž
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Řekněte nám, co se vám na tomto doplňku líbí. Buďte konkrétní a svědomití."
+msgstr "Řekněte nám, co se vám na tomto doplňku líbí. Buďte konkrétní a svědomití."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -145,8 +143,7 @@ msgstr "Řekněte světu o tomto rozšíření."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "od uživatele %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Načítání..."
 
@@ -174,13 +171,11 @@ msgstr "Žádné kategorie nebyly nalezeny."
 msgid "Not Authorized"
 msgstr "Neautorizováno"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Stránka nenalezena"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Chyba serveru"
 
@@ -202,7 +197,7 @@ msgstr "Právní informace"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Nahlásit chybu"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -318,8 +313,7 @@ msgstr "Nebyly nalezeny žádné výsledky."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
-"Vložte prosím vyhledávací dotaz pro hledání na serveru Doplňky pro Firefox."
+msgstr "Vložte prosím vyhledávací dotaz pro hledání na serveru Doplňky pro Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
@@ -354,9 +348,8 @@ msgid "Browse all themes"
 msgstr "Procházet všechny motivy"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Doplňky pro Firefox"
+msgstr "Domovská stránka"
 
 #: src/amo/containers/App.js:80
 msgid "Add-ons for Firefox"
@@ -367,6 +360,8 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
+"Rozšíření jsou speciální funkce, které můžete přidat do Firefoxu.\n"
+"Motivy vám dovolí změnit vzhled vašeho prohlížeče."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -440,8 +435,7 @@ msgstr "Odhlásit se"
 msgid "Log in/Sign up"
 msgstr "Přihlásit se / Zaregistrovat se"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Chybový kód: %(status)s."
 
