@@ -8,6 +8,12 @@ Links
 
 ============
 
+Mar 10, 2017
+- Updated extension detail page
+- Updated theme detail page
+- Added a new Contribute block design to the extension detail page
+- Revised the written review block
+
 Mar 7, 2017
 - Changed header and footer colours to match the photon colour palette
 - Changed the placing of # of users on the extension and theme blocks
