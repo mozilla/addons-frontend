@@ -47,8 +47,7 @@ export class AppBase extends React.Component {
     InfoDialogComponent: InfoDialog,
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
-    _navigator: (typeof navigator !== 'undefined' ?
-      navigator || window.navigator : null),
+    _navigator: (typeof navigator !== 'undefined' ? navigator : null),
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     userAgent: null,
   }
@@ -125,15 +124,13 @@ export const mapStateToProps = (state) => ({
   userAgent: state.api.userAgent,
 });
 
-export function mapDispatchToProps(
-  dispatch, _setUserAgentAction = setUserAgentAction,
-) {
+export function mapDispatchToProps(dispatch) {
   return {
     handleGlobalEvent(payload) {
       dispatch({ type: INSTALL_STATE, payload });
     },
     setUserAgent(userAgent) {
-      dispatch(_setUserAgentAction(userAgent));
+      dispatch(setUserAgentAction(userAgent));
     },
   };
 }

@@ -146,14 +146,13 @@ describe('App', () => {
     assert.ok(dispatch.calledWith({ type: INSTALL_STATE, payload }));
   });
 
-  it('sets up a callback for setting add-on status', () => {
+  it('sets up a callback for setting the userAgentInfo', () => {
     const dispatch = sinon.spy();
-    const fakeSetUserAgent = sinon.stub();
-    const { setUserAgent } = mapDispatchToProps(dispatch, fakeSetUserAgent);
+    const { setUserAgent } = mapDispatchToProps(dispatch);
     const userAgent = 'tofubrowser';
 
     setUserAgent(userAgent);
-    assert.ok(dispatch.calledWith(fakeSetUserAgent()));
+    assert.ok(dispatch.calledWith(setUserAgentAction(userAgent)));
   });
 
   it('sets the clientApp as props', () => {

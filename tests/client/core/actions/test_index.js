@@ -43,7 +43,16 @@ describe('core actions setUserAgent', () => {
   it('allow an empty userAgent value', () => {
     const userAgent = '';
 
-    assert.deepEqual(actions.setUserAgent(''), {
+    assert.deepEqual(actions.setUserAgent(userAgent), {
+      type: 'SET_USER_AGENT',
+      payload: { userAgent },
+    });
+  });
+
+  it('allow an undefined userAgent value', () => {
+    const userAgent = undefined;
+
+    assert.deepEqual(actions.setUserAgent(userAgent), {
       type: 'SET_USER_AGENT',
       payload: { userAgent },
     });

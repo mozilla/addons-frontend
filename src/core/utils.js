@@ -369,5 +369,8 @@ export function getClientCompatibility({
 } = {}) {
   const { maxVersion, minVersion } = getCompatibleVersions({
     addon, clientApp });
-  return isCompatibleWithUserAgent({ maxVersion, minVersion, userAgentInfo });
+  const { compatible, reason } = isCompatibleWithUserAgent({
+    maxVersion, minVersion, userAgentInfo });
+
+  return { compatible, maxVersion, minVersion, reason };
 }

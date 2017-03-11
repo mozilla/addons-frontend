@@ -30,6 +30,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
 
   static defaultProps = {
     log: _log,
+    userAgentInfo: {},
   }
 
   render() {
@@ -43,8 +44,14 @@ export class AddonCompatibilityErrorBase extends React.Component {
       userAgentInfo,
     } = this.props;
     const downloadUrl = `https://www.mozilla.org/${lang}/firefox/`;
-    let message = i18n.gettext(
-      'This add-on is not compatible with your web browser.');
+    let message;
+
+    if (typeof maxVersion === 'undefined') {
+      throw new Error('maxVersion is required; it cannot be undefined');
+    }
+    if (typeof minVersion === 'undefined') {
+      throw new Error('minVersion is required; it cannot be undefined');
+    }
 
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
       message = i18n.sprintf(i18n.gettext(oneLine`You need to
@@ -71,9 +78,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
         yourVersion: userAgentInfo.browser.version,
       });
     } else {
-      log.warn(oneLine`Component AddonCompatibilityError was used but there
-        was no reason to mark the add-on as incompatible with this userAgent`,
-        userAgentInfo);
+      throw new Error('AddonCompatibilityError requires a "reason" prop');
     }
 
     return (

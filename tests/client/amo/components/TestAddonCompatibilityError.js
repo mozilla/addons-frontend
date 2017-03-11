@@ -20,36 +20,27 @@ import I18nProvider from 'core/i18n/Provider';
 
 
 describe('AddonCompatibilityError', () => {
+  const defaultUserAgentInfo = {
+    browser: { name: 'Firefox' },
+    os: { name: 'Plan 9' },
+  };
+
   function render({ ...props }) {
     const api = {
       ...signedInApiState,
-      lang: props.lang || signedInApiState.lang,
+      lang: props.lang,
       userAgentInfo: props.userAgentInfo,
     };
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore({ api })}>
         <I18nProvider i18n={getFakeI18nInst()}>
-          <AddonCompatibilityError {...props} />
+          <AddonCompatibilityError maxVersion={null} minVersion={null}
+            {...props} />
         </I18nProvider>
       </Provider>
     ), AddonCompatibilityError);
   }
-
-  it('logs a warning and renders nothing if compatible', () => {
-    const fakeLog = { warn: sinon.stub() };
-    const userAgentInfo = {
-      browser: { name: 'Firefox' },
-      os: { name: 'Plan 9' },
-    };
-    const root = render({ log: fakeLog, userAgentInfo });
-    const rootNode = findDOMNode(root);
-
-    assert.include(rootNode.textContent, '');
-    assert.include(fakeLog.warn.firstCall.args[0],
-      'no reason to mark the add-on as incompatible');
-    assert.deepEqual(fakeLog.warn.firstCall.args[1], userAgentInfo);
-  });
 
   it('renders a notice for non-Firefox browsers', () => {
     const root = render({
@@ -102,5 +93,23 @@ describe('AddonCompatibilityError', () => {
 
     assert.include(rootNode.textContent,
       'Firefox for iOS does not currently support add-ons.');
+  });
+
+  it('throws an error if no reason is supplied', () => {
+    assert.throws(() => {
+      render({ userAgentInfo: defaultUserAgentInfo });
+    }, 'AddonCompatibilityError requires a "reason" prop');
+  });
+
+  it('throws an error if maxVersion is missing', () => {
+    assert.throws(() => {
+      render({ maxVersion: undefined, userAgentInfo: defaultUserAgentInfo });
+    }, 'maxVersion is required; it cannot be undefined');
+  });
+
+  it('throws an error if minVersion is missing', () => {
+    assert.throws(() => {
+      render({ minVersion: undefined, userAgentInfo: defaultUserAgentInfo });
+    }, 'minVersion is required; it cannot be undefined');
   });
 });

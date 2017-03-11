@@ -187,8 +187,9 @@ export class AddonDetailBase extends React.Component {
         endSpan: '</span>',
       });
 
-    const { compatible, reason } = getClientCompatibility({
-      addon, clientApp, userAgentInfo });
+    const {
+      compatible, maxVersion, minVersion, reason,
+    } = getClientCompatibility({ addon, clientApp, userAgentInfo });
 
     // eslint-disable react/no-danger
     return (
@@ -211,7 +212,8 @@ export class AddonDetailBase extends React.Component {
           <AddonMeta addon={addon} />
           <InstallButton {...this.props} disabled={!compatible} />
           {!compatible ? (
-            <AddonCompatibilityError reason={reason} />
+            <AddonCompatibilityError maxVersion={maxVersion}
+              minVersion={minVersion} reason={reason} />
           ) : null}
         </section>
 

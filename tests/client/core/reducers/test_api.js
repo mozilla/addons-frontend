@@ -48,9 +48,29 @@ describe('api reducer', () => {
       { ...existingState, userAgent, userAgentInfo: { browser, os } });
   });
 
+  it('allows garbage userAgent', () => {
+    const existingState = { bar: 'baz' };
+    const userAgent = '&***$myName Is Garbage b0wser!___**2é';
+    const { browser, os } = UAParser(userAgent);
+
+    assert.deepEqual(
+      api(existingState, actions.setUserAgent(userAgent)),
+      { ...existingState, userAgent, userAgentInfo: { browser, os } });
+  });
+
   it('allows empty userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = '';
+    const { browser, os } = UAParser(userAgent);
+
+    assert.deepEqual(
+      api(existingState, actions.setUserAgent(userAgent)),
+      { ...existingState, userAgent, userAgentInfo: { browser, os } });
+  });
+
+  it('allows undefined userAgent', () => {
+    const existingState = { bar: 'baz' };
+    const userAgent = undefined;
     const { browser, os } = UAParser(userAgent);
 
     assert.deepEqual(

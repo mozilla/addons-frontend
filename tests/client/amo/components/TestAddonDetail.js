@@ -63,6 +63,8 @@ function renderAsDOMNode(...args) {
 describe('AddonDetail', () => {
   const getClientCompatibilityFalse = () => ({
     compatible: false,
+    maxVersion: null,
+    minVersion: null,
     reason: INCOMPATIBLE_NOT_FIREFOX,
   });
 
