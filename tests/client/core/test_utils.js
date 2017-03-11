@@ -26,6 +26,7 @@ import {
   convertBoolean,
   findAddon,
   getClientApp,
+  getClientCompatibility,
   getClientConfig,
   getCompatibleVersions,
   isAllowedOrigin,
@@ -909,5 +910,97 @@ describe('getCompatibleVersions', () => {
 
     assert.equal(maxVersion, null);
     assert.equal(minVersion, null);
+  });
+});
+
+describe('getClientCompatibility', () => {
+  it('returns true for Firefox (reason undefined when compatibile)', () => {
+    const { browser, os } = UAParser(userAgents.firefox[0]);
+    const userAgentInfo = { browser, os };
+
+    assert.deepEqual(
+      getClientCompatibility({
+        addon: fakeAddon,
+        clientApp: 'firefox',
+        userAgentInfo,
+      }),
+      {
+        compatible: true,
+        maxVersion: null,
+        minVersion: null,
+        reason: undefined,
+      }
+    );
+  });
+
+  it('returns maxVersion when set', () => {
+    const { browser, os } = UAParser(userAgents.firefox[0]);
+    const userAgentInfo = { browser, os };
+
+    assert.deepEqual(
+      getClientCompatibility({
+        addon: {
+          ...fakeAddon,
+          current_version: {
+            compatibility: {
+              firefox: { max: '200.0', min: null },
+            },
+          },
+        },
+        clientApp: 'firefox',
+        userAgentInfo,
+      }),
+      {
+        compatible: true,
+        maxVersion: '200.0',
+        minVersion: null,
+        reason: undefined,
+      }
+    );
+  });
+
+  it('returns minVersion when set', () => {
+    const { browser, os } = UAParser(userAgents.firefox[0]);
+    const userAgentInfo = { browser, os };
+
+    assert.deepEqual(
+      getClientCompatibility({
+        addon: {
+          ...fakeAddon,
+          current_version: {
+            compatibility: {
+              firefox: { max: null, min: '2.0' },
+            },
+          },
+        },
+        clientApp: 'firefox',
+        userAgentInfo,
+      }),
+      {
+        compatible: true,
+        maxVersion: null,
+        minVersion: '2.0',
+        reason: undefined,
+      }
+    );
+  });
+
+  it('returns incompatible for non-Firefox UA', () => {
+    const { browser, os } = UAParser(userAgents.firefox[0]);
+    const userAgentInfo = { browser, os };
+
+    assert.deepEqual(
+      getClientCompatibility({
+        addon: fakeAddon,
+        clientApp: 'firefox',
+        userAgentInfo,
+      }),
+      {
+        compatible: true,
+        maxVersion: null,
+        minVersion: null,
+        reason: undefined,
+      }
+    );
   });
 });

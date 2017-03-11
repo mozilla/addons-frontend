@@ -11,7 +11,6 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
-import _log from 'core/logger';
 import { sanitizeHTML } from 'core/utils';
 
 import './style.scss';
@@ -21,7 +20,6 @@ export class AddonCompatibilityErrorBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
-    log: PropTypes.object,
     maxVersion: PropTypes.string.isRequired,
     minVersion: PropTypes.string.isRequired,
     reason: PropTypes.string.isRequired,
@@ -29,7 +27,6 @@ export class AddonCompatibilityErrorBase extends React.Component {
   }
 
   static defaultProps = {
-    log: _log,
     userAgentInfo: {},
   }
 
@@ -37,7 +34,6 @@ export class AddonCompatibilityErrorBase extends React.Component {
     const {
       i18n,
       lang,
-      log,
       maxVersion,
       minVersion,
       reason,
