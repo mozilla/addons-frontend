@@ -312,6 +312,18 @@ describe('AddonDetail', () => {
       rootNode.querySelector('.InstallButton-switch input').disabled);
   });
 
+  it('throws an error if compatibility props are missing', () => {
+    assert.throws(() => {
+      renderAsDOMNode({
+        getClientCompatibility: () => ({
+          compatibility: false,
+          maxVersion: '*',
+          reason: 'Some code',
+        }),
+      });
+    }, /minVersion is required/);
+  });
+
   it('disables a theme preview for unsupported clients', () => {
     const rootNode = renderAsDOMNode({
       addon: {
