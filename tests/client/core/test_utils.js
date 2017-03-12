@@ -262,14 +262,6 @@ describe('isCompatibleWithUserAgent', () => {
     );
   });
 
-  it('is incompatible with garbage user agent', () => {
-    const userAgent = '^^**garbage__';
-    assert.deepEqual(
-      isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
-      { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX },
-      `UA string: ${userAgent}`);
-  });
-
   it('should mark non-Firefox UAs as incompatible', () => {
     const userAgentInfo = { browser: { name: 'Chrome' } };
     assert.deepEqual(

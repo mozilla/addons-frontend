@@ -95,6 +95,20 @@ describe('AddonCompatibilityError', () => {
       'Firefox for iOS does not currently support add-ons.');
   });
 
+  it('renders a notice and logs a warning when reason code not known', () => {
+    const fakeLog = { warn: sinon.stub() };
+    const root = render({
+      log: fakeLog,
+      reason: 'fake reason',
+      userAgentInfo: defaultUserAgentInfo,
+    });
+    const rootNode = findDOMNode(root);
+
+    assert.isTrue(fakeLog.warn.called);
+    assert.include(rootNode.textContent,
+      'Your browser does not support add-ons.');
+  });
+
   it('throws an error if no reason is supplied', () => {
     assert.throws(() => {
       render({ userAgentInfo: defaultUserAgentInfo });
@@ -103,13 +117,21 @@ describe('AddonCompatibilityError', () => {
 
   it('throws an error if maxVersion is missing', () => {
     assert.throws(() => {
-      render({ maxVersion: undefined, userAgentInfo: defaultUserAgentInfo });
+      render({
+        maxVersion: undefined,
+        reason: INCOMPATIBLE_NOT_FIREFOX,
+        userAgentInfo: defaultUserAgentInfo,
+      });
     }, 'maxVersion is required; it cannot be undefined');
   });
 
   it('throws an error if minVersion is missing', () => {
     assert.throws(() => {
-      render({ minVersion: undefined, userAgentInfo: defaultUserAgentInfo });
+      render({
+        minVersion: undefined,
+        reason: INCOMPATIBLE_NOT_FIREFOX,
+        userAgentInfo: defaultUserAgentInfo,
+      });
     }, 'minVersion is required; it cannot be undefined');
   });
 });

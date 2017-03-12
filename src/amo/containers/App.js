@@ -62,6 +62,9 @@ export class AppBase extends React.Component {
       userAgent,
     } = this.props;
 
+    // Use addonManager.addChangeListener to setup and filter events.
+    _addChangeListeners(handleGlobalEvent, mozAddonManager);
+
     // If userAgent isn't set in state it could be that we couldn't get one
     // from the request headers on our first (server) request. If that's the
     // case we try to load them from navigator.
@@ -70,9 +73,6 @@ export class AppBase extends React.Component {
         'userAgent not in state on App load; using navigator.userAgent.');
       setUserAgent(_navigator.userAgent);
     }
-
-    // Use addonManager.addChangeListener to setup and filter events.
-    _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
 
   onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {

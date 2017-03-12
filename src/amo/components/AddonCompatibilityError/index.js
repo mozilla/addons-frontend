@@ -10,6 +10,7 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
+import _log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 
@@ -20,6 +21,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
+    log: PropTypes.object,
     maxVersion: PropTypes.string.isRequired,
     minVersion: PropTypes.string.isRequired,
     reason: PropTypes.string.isRequired,
@@ -27,6 +29,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
   }
 
   static defaultProps = {
+    log: _log,
     userAgentInfo: {},
   }
 
@@ -34,6 +37,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     const {
       i18n,
       lang,
+      log,
       maxVersion,
       minVersion,
       reason,
@@ -42,6 +46,9 @@ export class AddonCompatibilityErrorBase extends React.Component {
     const downloadUrl = `https://www.mozilla.org/${lang}/firefox/`;
     let message;
 
+    if (typeof reason === 'undefined') {
+      throw new Error('AddonCompatibilityError requires a "reason" prop');
+    }
     if (typeof maxVersion === 'undefined') {
       throw new Error('maxVersion is required; it cannot be undefined');
     }
@@ -74,7 +81,15 @@ export class AddonCompatibilityErrorBase extends React.Component {
         yourVersion: userAgentInfo.browser.version,
       });
     } else {
-      throw new Error('AddonCompatibilityError requires a "reason" prop');
+      // This is an unknown reason code and a custom error message should
+      // be added.
+      log.warn(
+        'Unknown reason code supplied to AddonCompatibilityError', reason);
+
+      message = i18n.sprintf(i18n.gettext(oneLine`Your browser does not
+        support add-ons. You can <a href="%(downloadUrl)s">download Firefox</a>
+        to install this add-on.`
+      ), { downloadUrl });
     }
 
     return (
