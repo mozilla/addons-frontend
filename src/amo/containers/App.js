@@ -11,10 +11,12 @@ import { getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
 import { addChangeListeners } from 'core/addonManager';
+import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { INSTALL_STATE } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 
 import 'amo/css/App.scss';
 import 'core/fonts/fira.scss';
@@ -27,6 +29,7 @@ export class AppBase extends React.Component {
     InfoDialogComponent: PropTypes.node.isRequired,
     MastHeadComponent: PropTypes.node.isRequired,
     _addChangeListeners: PropTypes.func,
+    _navigator: PropTypes.object,
     children: PropTypes.node,
     clientApp: PropTypes.string.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
@@ -34,6 +37,8 @@ export class AppBase extends React.Component {
     lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
+    setUserAgent: PropTypes.func.isRequired,
+    userAgent: PropTypes.string,
   }
 
   static defaultProps = {
@@ -42,13 +47,32 @@ export class AppBase extends React.Component {
     InfoDialogComponent: InfoDialog,
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
+    _navigator: (typeof navigator !== 'undefined' ? navigator : null),
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    userAgent: null,
   }
 
   componentDidMount() {
-    const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
+    const {
+      _addChangeListeners,
+      _navigator,
+      handleGlobalEvent,
+      mozAddonManager,
+      setUserAgent,
+      userAgent,
+    } = this.props;
+
     // Use addonManager.addChangeListener to setup and filter events.
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
+
+    // If userAgent isn't set in state it could be that we couldn't get one
+    // from the request headers on our first (server) request. If that's the
+    // case we try to load them from navigator.
+    if (!userAgent && _navigator && _navigator.userAgent) {
+      log.info(
+        'userAgent not in state on App load; using navigator.userAgent.');
+      setUserAgent(_navigator.userAgent);
+    }
   }
 
   onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {
@@ -97,12 +121,16 @@ export class AppBase extends React.Component {
 export const mapStateToProps = (state) => ({
   clientApp: state.api.clientApp,
   lang: state.api.lang,
+  userAgent: state.api.userAgent,
 });
 
 export function mapDispatchToProps(dispatch) {
   return {
     handleGlobalEvent(payload) {
       dispatch({ type: INSTALL_STATE, payload });
+    },
+    setUserAgent(userAgent) {
+      dispatch(setUserAgentAction(userAgent));
     },
   };
 }
