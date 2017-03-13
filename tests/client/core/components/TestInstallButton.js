@@ -4,16 +4,27 @@ import { findDOMNode } from 'react-dom';
 
 import { InstallButtonBase } from 'core/components/InstallButton';
 import InstallSwitch from 'core/components/InstallSwitch';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, UNKNOWN } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  INCOMPATIBLE_NOT_FIREFOX,
+  UNKNOWN,
+} from 'core/constants';
 import * as themePreview from 'core/themePreview';
 import { getFakeI18nInst, shallowRender } from 'tests/client/helpers';
 import { fakeAddon } from 'tests/client/amo/helpers';
 import Button from 'ui/components/Button';
 
+
 describe('<InstallButton />', () => {
+  const getClientCompatibilityFalse = () => ({
+    compatible: false,
+    reason: INCOMPATIBLE_NOT_FIREFOX,
+  });
+
   const renderProps = (customProps = {}) => ({
     addon: fakeAddon,
-    clientSupportsAddons: () => true,
+    getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: getFakeI18nInst(),
     ...customProps,
@@ -107,7 +118,7 @@ describe('<InstallButton />', () => {
         type: ADDON_TYPE_EXTENSION,
         installURL,
       },
-      clientSupportsAddons: () => false,
+      getClientCompatibility: getClientCompatibilityFalse,
     });
 
     assert.equal(root.type, 'div');
@@ -136,7 +147,7 @@ describe('<InstallButton />', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      clientSupportsAddons: () => false,
+      getClientCompatibility: getClientCompatibilityFalse,
     });
 
     assert.equal(root.type, 'div');

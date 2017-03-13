@@ -58,9 +58,15 @@ $page-margin: 20px 10px;
   background-color: $masthead-light-color;
   color: #fff;
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   margin: 0;
   padding: 10px;
+
+  .AddonCompatibility {
+    margin-top: 10px;
+    width: 100%;
+  }
 }
 
 .AddonDetail-theme-header {
