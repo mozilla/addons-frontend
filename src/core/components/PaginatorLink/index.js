@@ -41,7 +41,7 @@ export default class PaginatorLink extends React.Component {
     if (currentPage === page || page < 1 || page > pageCount) {
       return (
         <span key={page}
-          className={classNames('Paginator-item', 'disabled', className)}>
+          className={classNames('Paginate-item', 'disabled', className)}>
           {text || page}
         </span>
       );
@@ -49,7 +49,7 @@ export default class PaginatorLink extends React.Component {
 
     return (
       <LinkComponent to={{ pathname, query: { ...queryParams, page } }}
-        className={classNames('Paginator-item', className)}>
+        className={classNames('Paginate-item', className)}>
         {text || page}
       </LinkComponent>
     );
