@@ -39,7 +39,6 @@ export default class PaginatorLink extends React.Component {
     }
 
     if (currentPage === page || page < 1 || page > pageCount) {
-      // TODO: move styles into this component too
       return (
         <span key={page}
           className={classNames('Paginator-item', 'disabled', className)}>

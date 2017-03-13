@@ -169,7 +169,7 @@ describe('<Paginate />', () => {
 
       it('will render with more than one page', () => {
         const root = findDOMNode(renderPaginate({ ...commonParams, count: 30 }));
-        assert.ok(root.classList.contains('Paginator'));
+        assert.ok(root.classList.contains('Paginate'));
       });
     });
   });

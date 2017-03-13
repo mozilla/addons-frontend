@@ -90,17 +90,17 @@ export class PaginateBase extends React.Component {
     };
 
     return (
-      <div className="Paginator">
-        <div className="Paginator-page-number">
+      <div className="Paginate">
+        <div className="Paginate-page-number">
           {i18n.sprintf(
             i18n.gettext('Page %(currentPage)s of %(totalPages)s'),
             { currentPage, totalPages: this.pageCount() }
           )}
         </div>
-        <div className="Paginator-links">
+        <div className="Paginate-links">
           <PaginatorLink
             {...linkParams}
-            className="Paginator-previous"
+            className="Paginate-previous"
             page={currentPage - 1}
             text={i18n.gettext('Previous')}
           />
@@ -112,7 +112,7 @@ export class PaginateBase extends React.Component {
           )}
           <PaginatorLink
             {...linkParams}
-            className="Paginator-next"
+            className="Paginate-next"
             page={currentPage + 1}
             text={i18n.gettext('Next')}
           />
