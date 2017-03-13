@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 
 import PaginatorLink from 'core/components/PaginatorLink';
 import translate from 'core/i18n/translate';
@@ -18,7 +17,6 @@ function makePageNumbers({ start, end }) {
 
 export class PaginateBase extends React.Component {
   static propTypes = {
-    LinkComponent: PropTypes.object,
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -29,7 +27,6 @@ export class PaginateBase extends React.Component {
   }
 
   static defaultProps = {
-    LinkComponent: Link,
     perPage: 25, // The default number of results per page returned by the API.
     showPages: 0,
   }
@@ -67,26 +64,6 @@ export class PaginateBase extends React.Component {
     return makePageNumbers({ start, end });
   }
 
-  makeLink({ className, currentPage, page, pathname, queryParams, text }) {
-    const { LinkComponent } = this.props;
-
-    if (currentPage === page || page < 1 || page > this.pageCount()) {
-      return (
-        <span key={page}
-          className={classNames('Paginator-item', 'disabled', className)}>
-          {text || page}
-        </span>
-      );
-    }
-
-    return (
-      <LinkComponent to={{ pathname, query: { ...queryParams, page } }}
-        className={classNames('Paginator-item', className)}>
-        {text || page}
-      </LinkComponent>
-    );
-  }
-
   render() {
     const { count, currentPage, i18n, pathname, queryParams } = this.props;
 
@@ -103,6 +80,12 @@ export class PaginateBase extends React.Component {
       return null;
     }
 
+    const linkParams = {
+      currentPage,
+      pathname,
+      queryParams,
+    };
+
     return (
       <div className="Paginator">
         <div className="Paginator-page-number">
@@ -112,25 +95,24 @@ export class PaginateBase extends React.Component {
           )}
         </div>
         <div className="Paginator-links">
-          {this.makeLink({
-            className: 'Paginator-previous',
-            currentPage,
-            page: currentPage - 1,
-            pathname,
-            queryParams,
-            text: i18n.gettext('Previous'),
-          })}
-          {this.visiblePages().map((page) => (
-            this.makeLink({ currentPage, page, pathname, queryParams }
-          )))}
-          {this.makeLink({
-            className: 'Paginator-next',
-            currentPage,
-            page: currentPage + 1,
-            pathname,
-            queryParams,
-            text: i18n.gettext('Next'),
-          })}
+          <PaginatorLink
+            className="Paginator-previous"
+            page={currentPage - 1}
+            text={i18n.gettext('Previous')}
+            {...linkParams}
+          />
+          {this.visiblePages().map((page) =>
+            <PaginatorLink
+              page={page}
+              {...linkParams}
+            />
+          )}
+          <PaginatorLink
+            className="Paginator-next"
+            page={currentPage + 1}
+            text={i18n.gettext('Next')}
+            {...linkParams}
+          />
         </div>
       </div>
     );
