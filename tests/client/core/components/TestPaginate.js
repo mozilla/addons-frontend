@@ -5,10 +5,12 @@ import { render, findDOMNode } from 'react-dom';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
+  scryRenderedComponentsWithType,
 } from 'react-addons-test-utils';
 import { Route, Router, createMemoryHistory } from 'react-router';
 
 import Paginate from 'core/components/Paginate';
+import PaginatorLink from 'core/components/PaginatorLink';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
@@ -20,17 +22,17 @@ describe('<Paginate />', () => {
     pathname: '/some/path',
   });
 
-  describe('methods', () => {
-    function renderPaginate(extra = {}) {
-      const props = {
-        ...getRenderProps(),
-        ...extra,
-      };
-      return findRenderedComponentWithType(renderIntoDocument(
-        <Paginate {...props} />
-      ), Paginate).getWrappedInstance();
-    }
+  function renderPaginate(extra = {}) {
+    const props = {
+      ...getRenderProps(),
+      ...extra,
+    };
+    return findRenderedComponentWithType(renderIntoDocument(
+      <Paginate {...props} />
+    ), Paginate).getWrappedInstance();
+  }
 
+  describe('methods', () => {
     describe('validation', () => {
       it('does not allow an undefined count', () => {
         const props = getRenderProps();
@@ -170,6 +172,29 @@ describe('<Paginate />', () => {
         assert.ok(root.classList.contains('Paginator'));
       });
     });
+  });
+
+  it('passes props to paginator links', () => {
+    const currentPage = 1;
+    const queryParams = { color: 'red' };
+    const LinkComponent = () => <div />;
+    const pathname = '/some/path';
+
+    const root = renderPaginate({
+      LinkComponent,
+      count: 3,
+      currentPage,
+      pathname,
+      perPage: 1,
+      queryParams,
+    });
+
+    const links = scryRenderedComponentsWithType(root, PaginatorLink);
+    // Just do a quick sanity check on the first link.
+    assert.equal(links[0].props.LinkComponent, LinkComponent);
+    assert.deepEqual(links[0].props.queryParams, queryParams);
+    assert.equal(links[0].props.currentPage, currentPage);
+    assert.equal(links[0].props.pathname, pathname);
   });
 
   it('renders the right links', () => {

@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 
 import PaginatorLink from 'core/components/PaginatorLink';
@@ -17,6 +16,7 @@ function makePageNumbers({ start, end }) {
 
 export class PaginateBase extends React.Component {
   static propTypes = {
+    LinkComponent: PropTypes.object,
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -65,7 +65,9 @@ export class PaginateBase extends React.Component {
   }
 
   render() {
-    const { count, currentPage, i18n, pathname, queryParams } = this.props;
+    const {
+      LinkComponent, count, currentPage, i18n, pathname, queryParams,
+    } = this.props;
 
     if (count === undefined) {
       throw new Error('The count property cannot be undefined');
@@ -81,6 +83,7 @@ export class PaginateBase extends React.Component {
     }
 
     const linkParams = {
+      LinkComponent,
       currentPage,
       pathname,
       queryParams,
@@ -96,22 +99,22 @@ export class PaginateBase extends React.Component {
         </div>
         <div className="Paginator-links">
           <PaginatorLink
+            {...linkParams}
             className="Paginator-previous"
             page={currentPage - 1}
             text={i18n.gettext('Previous')}
-            {...linkParams}
           />
           {this.visiblePages().map((page) =>
             <PaginatorLink
-              page={page}
               {...linkParams}
+              page={page}
             />
           )}
           <PaginatorLink
+            {...linkParams}
             className="Paginator-next"
             page={currentPage + 1}
             text={i18n.gettext('Next')}
-            {...linkParams}
           />
         </div>
       </div>

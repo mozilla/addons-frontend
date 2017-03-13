@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 
 export default class PaginatorLink extends React.Component {
   static propTypes = {
+    LinkComponent: PropTypes.object,
     className: PropTypes.string,
     currentPage: PropTypes.number.isRequired,
     pathname: PropTypes.string.isRequired,
@@ -14,16 +15,28 @@ export default class PaginatorLink extends React.Component {
     text: PropTypes.string,
   }
 
+  static defaultProps = {
+    LinkComponent: Link,
+  }
+
   render() {
     const {
       className,
       currentPage,
+      LinkComponent,
       page,
       pageCount,
       pathname,
       queryParams,
       text,
     } = this.props;
+
+    if (currentPage === undefined) {
+      throw new Error('The currentPage property cannot be undefined');
+    }
+    if (pathname === undefined) {
+      throw new Error('The pathname property cannot be undefined');
+    }
 
     if (currentPage === page || page < 1 || page > pageCount) {
       // TODO: move styles into this component too
@@ -36,10 +49,10 @@ export default class PaginatorLink extends React.Component {
     }
 
     return (
-      <Link to={{ pathname, query: { ...queryParams, page } }}
+      <LinkComponent to={{ pathname, query: { ...queryParams, page } }}
         className={classNames('Paginator-item', className)}>
         {text || page}
-      </Link>
+      </LinkComponent>
     );
   }
 }
