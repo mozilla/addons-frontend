@@ -357,7 +357,7 @@ export function isCompatibleWithUserAgent({
     }
 
     // If we made it here we're compatible (yay!)
-    return { compatible: true };
+    return { compatible: true, reason: null };
   }
 
   // This means the client is not Firefox, so it's incompatible.

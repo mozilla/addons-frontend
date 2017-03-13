@@ -61,12 +61,13 @@ function renderAsDOMNode(...args) {
 }
 
 describe('AddonDetail', () => {
-  const getClientCompatibilityFalse = () => ({
+  const incompatibleClientResult = {
     compatible: false,
     maxVersion: null,
     minVersion: null,
     reason: INCOMPATIBLE_NOT_FIREFOX,
-  });
+  };
+  const getClientCompatibilityFalse = () => incompatibleClientResult;
 
   it('renders a name', () => {
     const rootNode = renderAsDOMNode();
@@ -313,14 +314,10 @@ describe('AddonDetail', () => {
   });
 
   it('throws an error if compatibility props are missing', () => {
+    const compatibilityResult = { ...incompatibleClientResult };
+    delete compatibilityResult.minVersion;
     assert.throws(() => {
-      renderAsDOMNode({
-        getClientCompatibility: () => ({
-          compatibility: false,
-          maxVersion: '*',
-          reason: 'Some code',
-        }),
-      });
+      renderAsDOMNode({ getClientCompatibility: () => compatibilityResult });
     }, /minVersion is required/);
   });
 

@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
 import url from 'url';
 
+import { oneLine } from 'common-tags';
 import React from 'react';
 import config from 'config';
 import { sprintf } from 'jed';
@@ -184,7 +185,7 @@ describe('getClientApp', () => {
 describe('isCompatibleWithUserAgent', () => {
   it('should throw if no userAgentInfo supplied', () => {
     assert.throws(() => {
-      isCompatibleWithUserAgent({ userAgent: null });
+      isCompatibleWithUserAgent({ userAgent: null, reason: null });
     }, 'userAgentInfo is required');
   });
 
@@ -219,7 +220,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefox.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
-        { compatible: true },
+        { compatible: true, reason: null },
         `UA string: ${userAgent}`);
     });
   });
@@ -228,7 +229,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefoxAndroid.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
-        { compatible: true },
+        { compatible: true, reason: null },
         `UA string: ${userAgent}`);
     });
   });
@@ -237,7 +238,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefoxOS.forEach((userAgent) => {
       assert.deepEqual(
         isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
-        { compatible: true },
+        { compatible: true, reason: null },
         `UA string: ${userAgent}`);
     });
   });
@@ -251,7 +252,8 @@ describe('isCompatibleWithUserAgent', () => {
     });
   });
 
-  it('should mark Firefox for iOS as incompatible reason, not version', () => {
+  it(oneLine`should use a Firefox for iOS reason code even if minVersion is
+    also not met`, () => {
     const userAgentInfo = {
       browser: { name: 'Firefox', version: '8.0' },
       os: { name: 'iOS' },
@@ -295,7 +297,7 @@ describe('isCompatibleWithUserAgent', () => {
       os: { name: 'Windows' },
     };
     assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
-      { compatible: true });
+      { compatible: true, reason: null });
   });
 
   it('should mark Firefox as compatible with maxVersion of "*"', () => {
@@ -307,7 +309,7 @@ describe('isCompatibleWithUserAgent', () => {
     };
     assert.deepEqual(isCompatibleWithUserAgent({
       maxVersion: '*', userAgentInfo }),
-      { compatible: true });
+      { compatible: true, reason: null });
   });
 
   it('should log warning when minVersion is "*"', () => {
@@ -920,7 +922,7 @@ describe('getClientCompatibility', () => {
         compatible: true,
         maxVersion: null,
         minVersion: null,
-        reason: undefined,
+        reason: null,
       }
     );
   });
@@ -946,7 +948,7 @@ describe('getClientCompatibility', () => {
         compatible: true,
         maxVersion: '200.0',
         minVersion: null,
-        reason: undefined,
+        reason: null,
       }
     );
   });
@@ -972,7 +974,7 @@ describe('getClientCompatibility', () => {
         compatible: true,
         maxVersion: null,
         minVersion: '2.0',
-        reason: undefined,
+        reason: null,
       }
     );
   });
@@ -991,7 +993,7 @@ describe('getClientCompatibility', () => {
         compatible: true,
         maxVersion: null,
         minVersion: null,
-        reason: undefined,
+        reason: null,
       }
     );
   });
