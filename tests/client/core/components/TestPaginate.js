@@ -8,7 +8,7 @@ import {
 } from 'react-addons-test-utils';
 import { Route, Router, createMemoryHistory } from 'react-router';
 
-import Paginate, { PaginatorLink } from 'core/components/Paginate';
+import Paginate from 'core/components/Paginate';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
@@ -172,96 +172,48 @@ describe('<Paginate />', () => {
     });
   });
 
-  describe('links', () => {
+  it('renders the right links', () => {
     const pathname = '/some-path/';
 
-    function renderLink(customProps = {}) {
-      const props = {
-        currentPage: 2,
-        page: 3,
-        pageCount: 4,
-        pathname: '/some/link',
-        ...customProps
-      };
-      return findDOMNode(
-        renderIntoDocument(<PaginatorLink {...props} />));
+    class PaginateWrapper extends React.Component {
+      render() {
+        const props = {
+          ...getRenderProps(),
+          count: 250,
+          currentPage: 5,
+          showPages: 5,
+          pathname,
+        };
+        return <Paginate {...props} />;
+      }
     }
 
-    describe('when the link is to the current page', () => {
-      it('does not contain a link', () => {
-        const link = renderLink({ currentPage: 3, page: 3 });
-        assert.equal(link.nodeType, Node.TEXT_NODE);
-        assert.equal(link.textContent, '3');
-      });
-
-      it('uses the provided text', () => {
-        const link = renderLink({
-          currentPage: 3, page: 3, text: 'go to page',
+    function renderPaginateRoute() {
+      return new Promise((resolve) => {
+        const node = document.createElement('div');
+        render((
+          <Router history={createMemoryHistory('/')}>
+            <Route path="/" component={PaginateWrapper} />
+          </Router>
+        ), node, () => {
+          resolve(node);
         });
-        assert.equal(link.nodeType, Node.TEXT_NODE);
-        assert.equal(link.textContent, 'go to page');
       });
-    });
+    }
 
-    describe('when the link is to a different page', () => {
-      it('has a link', () => {
-        const link = renderLink({ page: 3 });
-        assert.equal(link.tagName, 'A');
-        assert.equal(link.textContent, '3');
-      });
-
-      it('uses the provided text', () => {
-        const link = findDOMNode(
-          renderIntoDocument(<PaginatorLink {...props} />));
-        const link = renderLink({ text: 'go to next page' });
-        assert.equal(link.tagName, 'A');
-        assert.equal(link.textContent, 'go to next page');
-      });
-    });
-
-    it('renders the right links', () => {
-      const pathname = '/some-path/';
-
-      class PaginateWrapper extends React.Component {
-        render() {
-          const props = {
-            ...getRenderProps(),
-            count: 250,
-            currentPage: 5,
-            showPages: 5,
-            pathname,
-          };
-          return <Paginate {...props} />;
-        }
-      }
-
-      function renderPaginateRoute() {
-        return new Promise((resolve) => {
-          const node = document.createElement('div');
-          render((
-            <Router history={createMemoryHistory('/')}>
-              <Route path="/" component={PaginateWrapper} />
-            </Router>
-          ), node, () => {
-            resolve(node);
-          });
-        });
-      }
-
-      return renderPaginateRoute().then((root) => {
-        const links = Array.from(root.querySelectorAll('a'));
-        assert.deepEqual(
-          links.map((link) => [link.textContent, link.getAttribute('href')]),
-          [
-            ['Previous', '/some-path/?page=4'],
-            ['3', '/some-path/?page=3'],
-            ['4', '/some-path/?page=4'],
-            ['6', '/some-path/?page=6'],
-            ['7', '/some-path/?page=7'],
-            ['Next', '/some-path/?page=6'],
-          ],
-        );
-      });
+    return renderPaginateRoute().then((root) => {
+      const links = Array.from(root.querySelectorAll('a'));
+      assert.deepEqual(
+        links.map((link) => [link.textContent, link.getAttribute('href')]),
+        [
+          ['Previous', '/some-path/?page=4'],
+          ['3', '/some-path/?page=3'],
+          ['4', '/some-path/?page=4'],
+          ['6', '/some-path/?page=6'],
+          ['7', '/some-path/?page=7'],
+          ['Next', '/some-path/?page=6'],
+        ],
+      );
     });
   });
 });
