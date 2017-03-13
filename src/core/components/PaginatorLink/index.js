@@ -10,7 +10,7 @@ export default class PaginatorLink extends React.Component {
     currentPage: PropTypes.number.isRequired,
     pathname: PropTypes.string.isRequired,
     page: PropTypes.number.isRequired,
-    pageCount: PropTypes.number,
+    pageCount: PropTypes.number.isRequired,
     queryParams: PropTypes.object,
     text: PropTypes.string,
   }
@@ -36,6 +36,12 @@ export default class PaginatorLink extends React.Component {
     }
     if (pathname === undefined) {
       throw new Error('The pathname property cannot be undefined');
+    }
+    if (page === undefined) {
+      throw new Error('The page property cannot be undefined');
+    }
+    if (pageCount === undefined) {
+      throw new Error('The pageCount property cannot be undefined');
     }
 
     if (currentPage === page || page < 1 || page > pageCount) {

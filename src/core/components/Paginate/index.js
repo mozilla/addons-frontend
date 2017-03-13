@@ -39,13 +39,12 @@ export class PaginateBase extends React.Component {
     return Math.ceil(count / perPage);
   }
 
-  visiblePages() {
+  visiblePages({ pageCount }) {
     const { currentPage, showPages } = this.props;
     if (!showPages) {
       return [];
     }
 
-    const pageCount = this.pageCount();
     const showExtra = Math.floor(showPages / 2);
     const start = Math.max(1, currentPage - showExtra);
     const end = Math.min(pageCount, currentPage + showExtra);
@@ -68,6 +67,7 @@ export class PaginateBase extends React.Component {
     const {
       LinkComponent, count, currentPage, i18n, pathname, queryParams,
     } = this.props;
+    const pageCount = this.pageCount();
 
     if (count === undefined) {
       throw new Error('The count property cannot be undefined');
@@ -86,6 +86,7 @@ export class PaginateBase extends React.Component {
       LinkComponent,
       currentPage,
       pathname,
+      pageCount,
       queryParams,
     };
 
@@ -104,7 +105,7 @@ export class PaginateBase extends React.Component {
             page={currentPage - 1}
             text={i18n.gettext('Previous')}
           />
-          {this.visiblePages().map((page) =>
+          {this.visiblePages({ pageCount }).map((page) =>
             <PaginatorLink
               {...linkParams}
               page={page}

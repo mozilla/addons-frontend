@@ -34,6 +34,22 @@ describe('<PaginatorLink />', () => {
       /pathname .* cannot be undefined/);
   });
 
+  it('requires a page', () => {
+    const props = { ...renderProps };
+    delete props.page;
+    assert.throws(
+      () => renderIntoDocument(<PaginatorLink {...props} />),
+      /page .* cannot be undefined/);
+  });
+
+  it('requires pageCount', () => {
+    const props = { ...renderProps };
+    delete props.pageCount;
+    assert.throws(
+      () => renderIntoDocument(<PaginatorLink {...props} />),
+      /pageCount .* cannot be undefined/);
+  });
+
   describe('when the link is to the current page', () => {
     it('does not contain a link', () => {
       const item = renderLink({ currentPage: 3, page: 3 });

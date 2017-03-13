@@ -89,38 +89,43 @@ describe('<Paginate />', () => {
     });
 
     describe('visiblePages()', () => {
+      function getVisiblePages(customProps = {}) {
+        const root = renderPaginate(customProps);
+        return root.visiblePages({ pageCount: root.pageCount() });
+      }
+
       describe('with lots of pages', () => {
         const commonParams = { count: 30, perPage: 3, showPages: 5 };
 
         it('will be 0 by default', () => {
-          const root = renderPaginate({
-            count: 30, perPage: 3, currentPage: 1 });
-          assert.deepEqual(root.visiblePages(), []);
+          assert.deepEqual(
+            getVisiblePages({ count: 30, perPage: 3, currentPage: 1 }),
+            []);
         });
 
         it('will not be less than 0', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 1 });
-          assert.deepEqual(root.visiblePages(), [1, 2, 3, 4, 5]);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 1 });
+          assert.deepEqual(pages, [1, 2, 3, 4, 5]);
         });
 
         it('will not offset near the start', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 2 });
-          assert.deepEqual(root.visiblePages(), [1, 2, 3, 4, 5]);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 2 });
+          assert.deepEqual(pages, [1, 2, 3, 4, 5]);
         });
 
         it('will offset near the middle', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 5 });
-          assert.deepEqual(root.visiblePages(), [3, 4, 5, 6, 7]);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 5 });
+          assert.deepEqual(pages, [3, 4, 5, 6, 7]);
         });
 
         it('will offset more near the end', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 9 });
-          assert.deepEqual(root.visiblePages(), [6, 7, 8, 9, 10]);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 9 });
+          assert.deepEqual(pages, [6, 7, 8, 9, 10]);
         });
 
         it('will not offset more than showPages', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 10 });
-          assert.deepEqual(root.visiblePages(), [6, 7, 8, 9, 10]);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 10 });
+          assert.deepEqual(pages, [6, 7, 8, 9, 10]);
         });
       });
 
@@ -128,33 +133,35 @@ describe('<Paginate />', () => {
         const commonParams = { count: 30, perPage: 10, showPages: 5 };
 
         it('will not be less than 0', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 1 });
-          assert.deepEqual(root.visiblePages(), [1, 2, 3]);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 1 });
+          assert.deepEqual(pages, [1, 2, 3]);
         });
 
         it('will not offset near the middle', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 2 });
-          assert.deepEqual(root.visiblePages(), [1, 2, 3]);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 2 });
+          assert.deepEqual(pages, [1, 2, 3]);
         });
 
         it('will not offset near the end', () => {
-          const root = renderPaginate({ count: 128, perPage: 25, showPages: 9, currentPage: 6 });
-          assert.deepEqual(root.visiblePages(), [1, 2, 3, 4, 5, 6]);
+          const pages = getVisiblePages({
+            count: 128, perPage: 25, showPages: 9, currentPage: 6,
+          });
+          assert.deepEqual(pages, [1, 2, 3, 4, 5, 6]);
         });
 
         it('will not offset more than showPages', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 3 });
-          assert.deepEqual(root.visiblePages(), [1, 2, 3]);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 3 });
+          assert.deepEqual(pages, [1, 2, 3]);
         });
 
         it('will not render when showPages is false-y', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 3, showPages: 0 });
-          assert.deepEqual(root.visiblePages(), []);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 3, showPages: 0 });
+          assert.deepEqual(pages, []);
         });
 
         it('will not render when showPages is false', () => {
-          const root = renderPaginate({ ...commonParams, currentPage: 3, showPages: false });
-          assert.deepEqual(root.visiblePages(), []);
+          const pages = getVisiblePages({ ...commonParams, currentPage: 3, showPages: false });
+          assert.deepEqual(pages, []);
         });
       });
     });
@@ -176,6 +183,7 @@ describe('<Paginate />', () => {
 
   it('passes props to paginator links', () => {
     const currentPage = 1;
+    const pageCount = 3;
     const queryParams = { color: 'red' };
     const LinkComponent = () => <div />;
     const pathname = '/some/path';
@@ -185,6 +193,7 @@ describe('<Paginate />', () => {
       count: 3,
       currentPage,
       pathname,
+      pageCount,
       perPage: 1,
       queryParams,
     });
@@ -195,6 +204,7 @@ describe('<Paginate />', () => {
     assert.deepEqual(links[0].props.queryParams, queryParams);
     assert.equal(links[0].props.currentPage, currentPage);
     assert.equal(links[0].props.pathname, pathname);
+    assert.equal(links[0].props.pageCount, pageCount);
   });
 
   it('renders the right links', () => {
