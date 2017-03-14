@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-02 15:33+0000\n"
+"PO-Revision-Date: 2017-03-14 17:36+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -39,7 +39,7 @@ msgstr "Metadáta rozšírenia"
 
 #: src/amo/components/AddonDetail.js:211
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "O tomto %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:89
 msgid "Cancel preview"
@@ -134,8 +134,7 @@ msgstr "Povedzte svetu, prečo si myslíte, že je toto rozšírenie úžasné!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Povedzte nám, čo sa vám na tomto doplnku páči. Buďte, prosím, konkrétni."
+msgstr "Povedzte nám, čo sa vám na tomto doplnku páči. Buďte, prosím, konkrétni."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
@@ -145,8 +144,7 @@ msgstr "Povedzte svetu o tomto rozšírení."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "od %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Načítava sa..."
 
@@ -174,13 +172,11 @@ msgstr "Neboli nájdené žiadne kategórie."
 msgid "Not Authorized"
 msgstr "Žiadna autorizácia"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Stránka nebola nájdená"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Chyba servera"
 
@@ -202,7 +198,7 @@ msgstr "Právne informácie"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Nahlásiť chybu"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -365,8 +361,7 @@ msgid ""
 "Extensions are special features you can add to Firefox.\n"
 "Themes let you change your browser's appearance."
 msgstr ""
-"Rozšírenia predstavujú špeciálne funkcie, ktoré si môžete pridať do "
-"Firefoxu.\n"
+"Rozšírenia predstavujú špeciálne funkcie, ktoré si môžete pridať do Firefoxu.\n"
 "Pomocou tém vzhľadu môžete zmeniť vzhľad vášho prehliadača."
 
 #: src/amo/containers/Home.js:44
@@ -441,8 +436,7 @@ msgstr "Odhlásiť sa"
 msgid "Log in/Sign up"
 msgstr "Prihlásiť sa/Zaregistrovať sa"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Kód chyby: %(status)s."
 
@@ -464,8 +458,7 @@ msgstr "Inštalovanie doplnku %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -569,12 +562,9 @@ msgstr ""
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" bol nájdený %(count)s výsledok."
-#~ msgstr[1] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky."
-#~ msgstr[2] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" bol nájdených %(count)s výsledkov."
+#~ msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" bol nájdený %(count)s výsledok."
+#~ msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky."
+#~ msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bol nájdených %(count)s výsledkov."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Prosím, zadajte platný výraz vyhľadávania"
