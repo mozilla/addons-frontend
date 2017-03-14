@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { oneLine } from 'common-tags';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
@@ -19,7 +18,7 @@ export class NotAuthorizedBase extends React.Component {
   render() {
     const { i18n } = this.props;
 
-    const fileAnIssueText = i18n.sprintf(i18n.gettext(oneLine`
+    const fileAnIssueText = i18n.sprintf(i18n.gettext(`
       If you are signed in and think this message is an error, please
       <a href="%(url)s">file an issue</a>. Tell us where you came from
       and what you were trying to access, and we'll fix the issue.`),
@@ -33,7 +32,7 @@ export class NotAuthorizedBase extends React.Component {
         <Card className="ErrorPage NotAuthorized"
           header={i18n.gettext('Not Authorized')}>
           <p>
-            {i18n.gettext(oneLine`
+            {i18n.gettext(`
               Sorry, but you aren't authorized to access this page. If you
               aren't signed in, try signing in using the link at the top
               of the page.`)}
