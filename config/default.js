@@ -88,6 +88,7 @@ module.exports = {
     'validClientApplications',
     'validLocaleUrlExceptions',
     'validClientAppUrlExceptions',
+    'validTrailingSlashUrlExceptions',
   ],
 
   // Content Security Policy.
@@ -220,6 +221,7 @@ module.exports = {
 
   validLocaleUrlExceptions: [],
   validClientAppUrlExceptions: [],
+  validTrailingSlashUrlExceptions: [],
 
   // The default app used in the URL.
   defaultClientApp: 'firefox',
