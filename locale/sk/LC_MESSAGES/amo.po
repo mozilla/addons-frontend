@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-14 17:36+0000\n"
+"PO-Revision-Date: 2017-03-14 17:55+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -17,9 +17,9 @@ msgstr ""
 #: src/amo/components/AddonDetail.js:128
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Prečítajte si %(count)s recenziu"
+msgstr[1] "Prečítajte si %(count)s recenzie"
+msgstr[2] "Prečítajte si %(count)s recenzií"
 
 #: src/amo/components/AddonDetail.js:141
 msgid "No reviews yet"
@@ -519,7 +519,7 @@ msgstr "Žiadne hodnotenie"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "Viac si môžete prečítať po <span class=\"visually-hidden\">rozbalení</span>"
 
 #~ msgid "Website"
 #~ msgstr "Webová stránka"
