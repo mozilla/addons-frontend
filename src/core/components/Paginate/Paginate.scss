@@ -1,17 +1,17 @@
 @import '~core/css/inc/mixins';
 
-.Paginator-page-number {
+.Paginate-page-number {
   font-weight: bold;
   margin: 0 0 5px;
   text-align: center;
 }
 
-.Paginator-links {
+.Paginate-links {
   display: flex;
   justify-content: space-between;
 }
 
-.Paginator .Paginator-item {
+.Paginate .Paginate-item {
   @include button($background: #fff, $color: #000);
 
   display: inline-block;
@@ -24,13 +24,13 @@
   text-align: center;
 }
 
-.Paginator-previous {
+.Paginate-previous {
   &::before {
     @include arrow-previous();
   }
 }
 
-.Paginator-next {
+.Paginate-next {
   &::after {
     @include arrow-next();
   }
