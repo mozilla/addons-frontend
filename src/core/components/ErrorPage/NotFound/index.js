@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { oneLine } from 'common-tags';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
@@ -24,7 +23,7 @@ export class NotFoundBase extends React.Component {
         <div className="ErrorPage NotFound">
           <h1>{i18n.gettext('Page not found')}</h1>
           <p>
-            {i18n.gettext(oneLine`
+            {i18n.gettext(`
               Sorry, but we can't find anything at the URL you entered.`)}
           </p>
 

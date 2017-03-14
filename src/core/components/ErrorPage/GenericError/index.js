@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { oneLine } from 'common-tags';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
@@ -25,7 +24,7 @@ export class GenericErrorBase extends React.Component {
           <h1>{i18n.gettext('Server Error')}</h1>
 
           <p>
-            {i18n.gettext(oneLine`
+            {i18n.gettext(`
               Sorry, but there was an error and we couldn't complete your
               request. We have logged this error and will investigate it.`)}
           </p>
