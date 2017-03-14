@@ -1,5 +1,4 @@
 /* eslint-disable react/no-danger */
-import { oneLine } from 'common-tags';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -57,14 +56,14 @@ export class AddonCompatibilityErrorBase extends React.Component {
     }
 
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
-      message = i18n.sprintf(i18n.gettext(oneLine`You need to
+      message = i18n.sprintf(i18n.gettext(`You need to
         <a href="%(downloadUrl)s">download Firefox</a> to install this add-on.`
       ), { downloadUrl });
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
         'Firefox for iOS does not currently support add-ons.');
     } else if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
-      message = i18n.sprintf(i18n.gettext(oneLine`You are using Firefox
+      message = i18n.sprintf(i18n.gettext(`You are using Firefox
         %(yourVersion)s, but this add-on only supports Firefox up to version
         %(maxVersion)s.`
       ), {
@@ -72,7 +71,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
         yourVersion: userAgentInfo.browser.version,
       });
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
-      message = i18n.sprintf(i18n.gettext(oneLine`This add-on requires a
+      message = i18n.sprintf(i18n.gettext(`This add-on requires a
         <a href="%(downloadUrl)s">newer version of Firefox</a> (at least
         version %(minVersion)s). You are using Firefox %(yourVersion)s.`
       ), {
@@ -86,7 +85,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
       log.warn(
         'Unknown reason code supplied to AddonCompatibilityError', reason);
 
-      message = i18n.sprintf(i18n.gettext(oneLine`Your browser does not
+      message = i18n.sprintf(i18n.gettext(`Your browser does not
         support add-ons. You can <a href="%(downloadUrl)s">download Firefox</a>
         to install this add-on.`
       ), { downloadUrl });
