@@ -5,40 +5,65 @@
   padding: $padding-page;
 }
 
-.LandingPage-Header {
+.LandingPage-header {
   margin: 10px;
   max-width: 100%;
   text-align: center;
 }
 
-.LandingPage-Header-Text {
+.LandingPage-header-text {
   display: inline-block;
   @include margin-start(20px);
   @include text-align-start();
   width: 250px;
 }
 
-.LandingPage-Heading {
+.LandingPage-heading {
   font-size: 20px;
 }
 
-.LandingPage-Heading-Content {
+.LandingPage-heading-content {
   margin-top: 5px;
 }
 
-Link--light {
-  @include button(#fff, $link-color);
-}
-
-.Browse-Button {
+.Browse-button, .Browse-button:hover {
+  background-color: white;
+  color: $link-color;
   height: 55px;
-  margin-left: calc(50% - 150px);
-  margin-bottom: 2em;
   text-transform: uppercase;
   text-decoration: none;
+  margin: 0 5%;
+  margin-bottom: 1em;
+  width: 90%;
 }
 
-.Browse-Button-Text {
-  bottom: 10px;
+.Browse-button-text {
+  bottom: 8px;
   position: relative;
+}
+
+.LandingPage-browse-icon {
+  background: url('~ui/components/Icon/bullet-list.svg') 50% 50% no-repeat;
+  background-size: cover;
+  height: 30px;
+  @include margin-end(1em);
+  width: 30px;
+}
+
+.LandingPage-persona-icon {
+  background: url('~ui/components/Icon/themes.svg') 50% 50% no-repeat;
+  background-size: cover;
+  display: inline-block;
+  height: 50px;
+  margin-bottom: 15px;
+  width: 41.5px;
+}
+
+.LandingPage-extension-icon {
+  background: url('~ui/components/Icon/extensions.svg') 50% 50% no-repeat;
+  background-size: cover;
+  display: inline-block;
+  height: 47.8px;
+  margin-bottom: 15px;
+  width: 49.2px;
 }
