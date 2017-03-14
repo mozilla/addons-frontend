@@ -19,15 +19,18 @@ export function prefixMiddleWare(req, res, next, { _config = config } = {}) {
   // or missing.
   const [langFromURL, appFromURL] = URLParts;
 
-  // Get language from URL or fall-back to detecting it from accept-language header.
+  // Get language from URL or fall-back to detecting it from accept-language
+  // header.
   const acceptLanguage = req.headers['accept-language'];
-  const { lang, isLangFromHeader } = getLanguage({ lang: langFromURL, acceptLanguage });
+  const { lang, isLangFromHeader } = getLanguage({
+    lang: langFromURL, acceptLanguage });
   // Get the application from the UA if one wasn't specified in the URL (or
   // if it turns out to be invalid).
   const application = getClientApp(req.headers['user-agent']);
 
   const hasValidLang = isValidLang(langFromURL);
-  const hasValidLocaleException = isValidLocaleUrlException(appFromURL, { _config });
+  const hasValidLocaleException = isValidLocaleUrlException(
+    appFromURL, { _config });
   const hasValidClientApp = isValidClientApp(appFromURL, { _config });
   let hasValidClientAppUrlException = isValidClientAppUrlException(
     appFromURL, { _config });
