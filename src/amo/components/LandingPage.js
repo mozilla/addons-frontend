@@ -21,7 +21,7 @@ import {
 } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon/index';
-import Link from './Link';
+import Button from 'ui/components/Button/index';
 
 import './LandingPage.scss';
 
@@ -117,25 +117,24 @@ export class LandingPageBase extends React.Component {
     return (
       <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
 
-        <div className="LandingPage-Header">
-          <Icon name={classNames(`${addonType}`)} />
-          <div className="LandingPage-Header-Text">
-            <h1 className="LandingPage-Heading">
+        <div className="LandingPage-header">
+          <Icon name={addonType} className={classNames(`LandingPage-${addonType}-icon`)}/>
+          <div className="LandingPage-header-text">
+            <h1 className="LandingPage-heading">
               {addonType === 'persona' ? i18n.gettext('Themes') : i18n.gettext('Extensions')}
             </h1>
-            <p className="LandingPage-Heading-Content">
-              {addonType === 'persona' ? i18n.gettext(themeText) : i18n.gettext(extensionsText)}
+            <p className="LandingPage-heading-content">
+              {addonType === 'persona' ? themeText : extensionsText}
             </p>
           </div>
         </div>
 
-        <Link className="Browse-Button" appearance="light"
-          to="">
-          <Icon name="browse" />
-          <span className="Browse-Button-Text">
+        <Button appearance="light" className="Browse-button">
+          <Icon name="browse" className="LandingPage-browse-icon" />
+          <span className="Browse-button-text">
             {i18n.gettext('Browse by category')}
           </span>
-        </Link>
+        </Button>
 
         <LandingAddonsCard addons={featuredAddons}
           className="FeaturedAddons" header={html.featuredHeader}
