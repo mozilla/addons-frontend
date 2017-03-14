@@ -6,6 +6,7 @@ import './Button.scss';
 
 export default class Button extends React.Component {
   static propTypes = {
+    appearance: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
     href: PropTypes.string,
@@ -13,14 +14,16 @@ export default class Button extends React.Component {
   }
 
   static defaultProps = {
+    appearance: 'undefined',
     size: 'normal',
   };
 
   render() {
-    const { children, className, href, size, ...rest } = this.props;
+    const { appearance, children, className, href, size, ...rest } = this.props;
     const props = {
       className: classNames('Button', className, {
         'Button--small': size === 'small',
+        'Button--light' : appearance === 'appearance',
       }),
       ...rest,
     };
