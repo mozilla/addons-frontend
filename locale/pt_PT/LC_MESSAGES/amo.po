@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-07 16:36+0000\n"
-"Last-Translator: Alberto Castro <albertdecastro@tutanota.com>\n"
+"PO-Revision-Date: 2017-03-15 02:25+0000\n"
+"Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -290,7 +290,7 @@ msgstr "Pesquisar"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr "Pesquisar extensões e temas"
+msgstr "Pesquise extensões e temas"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
@@ -358,7 +358,7 @@ msgid ""
 "Themes let you change your browser's appearance."
 msgstr ""
 "As extensões são funcionalidades especiais que pode adicionar ao Firefox.\n"
-"Os temas deixam-no alterar a aparência do seu navegador."
+"Os temas deixam-lhe alterar a aparência do seu navegador."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -394,7 +394,7 @@ msgstr "Seja social"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr "Jogar jogos"
+msgstr "Jogue jogos"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
