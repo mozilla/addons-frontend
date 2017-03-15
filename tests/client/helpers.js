@@ -1,12 +1,11 @@
 import base64url from 'base64url';
 import config from 'config';
-import { sprintf } from 'jed';
+import Jed from 'jed';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 import UAParser from 'ua-parser-js';
 
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
-import { ngettext } from 'core/utils';
 import { makeI18n } from 'core/i18n/utils';
 
 /*
@@ -72,23 +71,24 @@ export function unexpectedSuccess() {
   return assert.fail(null, null, 'Unexpected success');
 }
 
-class FakeJed {
-  gettext = sinon.spy((str) => str)
-  dgettext = sinon.stub()
-  ngettext = sinon.spy(ngettext)
-  dngettext = sinon.stub()
-  pgettext = sinon.stub()
-  dpgettext = sinon.stub()
-  npgettext = sinon.stub()
-  dnpgettext = sinon.stub()
-  sprintf = sinon.spy(sprintf)
+export function JedSpy(data = {}) {
+  const _Jed = new Jed(data);
+  _Jed.gettext = sinon.spy(_Jed.gettext);
+  _Jed.dgettext = sinon.spy(_Jed.gettext);
+  _Jed.ngettext = sinon.spy(_Jed.ngettext);
+  _Jed.dngettext = sinon.spy(_Jed.dngettext);
+  _Jed.dpgettext = sinon.spy(_Jed.dpgettext);
+  _Jed.npgettext = sinon.spy(_Jed.npgettext);
+  _Jed.dnpgettext = sinon.spy(_Jed.dnpgettext);
+  _Jed.sprintf = sinon.spy(_Jed.sprintf);
+  return _Jed;
 }
 
 /*
  * Creates a stand-in for a jed instance,
  */
 export function getFakeI18nInst({ lang = config.get('defaultLang') } = {}) {
-  return makeI18n({}, lang, FakeJed);
+  return makeI18n({}, lang, JedSpy);
 }
 
 export class MockedSubComponent extends React.Component {

@@ -181,6 +181,17 @@ export function makeMomentLocale(locale) {
   return locale.replace('_', '-').toLowerCase();
 }
 
+// TODO Have this replacement made available for import from babel-gettext-extractor.
+// this will ensure that the function used is in-sync for both extraction
+// and retrieval of translations.
+// Functionality based on oneLine form declandewet/common-tags https://goo.gl/4PzaJI
+function oneLineTranslationString(str) {
+  if (str && str.replace && str.trim) {
+    return str.replace(/(?:\n(?:\s*))+/g, ' ').trim();
+  }
+  return str;
+}
+
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.
 export function makeI18n(i18nData, lang, _Jed = Jed) {
@@ -195,6 +206,14 @@ export function makeI18n(i18nData, lang, _Jed = Jed) {
     i18n.options._momentDefineLocale();
     moment.locale(makeMomentLocale(i18n.lang));
   }
+
+  // Wrap the core Jed functionality so that we can always strip leading whitespace
+  // from translation keys to match the same process used in extraction.
+  i18n._dcnpgettext = i18n.dcnpgettext;
+  i18n.dcnpgettext = function dcnpgettext(domain, context, singularKey, pluralKey, val) {
+    return i18n._dcnpgettext(domain, context, oneLineTranslationString(singularKey),
+                             oneLineTranslationString(pluralKey), val);
+  };
 
   // We add a translated "moment" property to our `i18n` object
   // to make translated date/time/etc. easy.
