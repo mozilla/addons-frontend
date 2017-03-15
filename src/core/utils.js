@@ -216,6 +216,12 @@ export function isValidClientAppUrlException(value, { _config = config } = {}) {
   return _config.get('validClientAppUrlExceptions').includes(value);
 }
 
+export function isValidTrailingSlashUrlException(
+  value, { _config = config } = {}
+) {
+  return _config.get('validTrailingSlashUrlExceptions').includes(value);
+}
+
 /*
  * Make sure a callback returns a rejected promise instead of throwing an error.
  *
