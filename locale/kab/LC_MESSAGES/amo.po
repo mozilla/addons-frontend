@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-02-24 19:48+0000\n"
+"PO-Revision-Date: 2017-03-16 13:56+0000\n"
 "Last-Translator: Moḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -41,14 +41,12 @@ msgid "About this %(addonType)s"
 msgstr "Ɣef %(addonType)s-agi"
 
 #: src/amo/components/AddonDetail.js:89
-#, fuzzy
 msgid "Cancel preview"
-msgstr "Senned akken ad sekned"
+msgstr "Sefsex taskant"
 
 #: src/amo/components/AddonDetail.js:89
-#, fuzzy
 msgid "Tap to preview"
-msgstr "Senned akken ad sekned"
+msgstr "Senned akken ad tsekned"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
 msgid "%(total)s user"
@@ -76,20 +74,19 @@ msgstr "Ittwaqdec sɣur"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "Asebter agejdan"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "Asmel n tallelt"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Ugar n telɣut"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Tignit n uzegrir"
+msgstr "TigIseɣwan n uzegrir"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -143,8 +140,7 @@ msgstr "Meslay i yemdanen ɣef uzegrir-agi."
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "si %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Asali..."
 
@@ -172,13 +168,11 @@ msgstr "Ulac taggayin yettwafen."
 msgid "Not Authorized"
 msgstr "Ur ittwasireg ara"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Ulac asebter"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Tuccḍa deg usenkez"
 
@@ -200,7 +194,7 @@ msgstr "Tizmilin tusḍifin"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Azen-d abug"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -264,20 +258,19 @@ msgstr "Izegrar Firefox"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Qqen akken ad ternud tazmilt i umsedday-agi n unadi"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Qqen akken ad ternud tazmilt i usentel-agi"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Ɣef usiɣzef agi"
+msgstr "Qqen akken ad ternud tazmilt i usiɣzef-agi"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Qqen akken ad ternud tazmilt i uzegrir-agi"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -285,11 +278,11 @@ msgstr "Amek tettwaliḍ aseqdec n %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Qqen akken ad ternud tazmilt i umawal-agi"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Qqen akken ad ternud tazmilt i ukemmus-agi utlayan"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -301,10 +294,9 @@ msgstr "Nadi isiɣzaf akked isental"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Ulac taskant n usentel"
 
 #: src/amo/components/SearchResults.js:40
-#, fuzzy
 msgid "Searching…"
 msgstr "Anadi..."
 
@@ -440,8 +432,7 @@ msgstr "Tufɣa"
 msgid "Log in/Sign up"
 msgstr "Kcem//Sign"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Tangalt n tuccḍa: %(status)s."
 
@@ -510,7 +501,6 @@ msgid "An unexpected error occurred"
 msgstr "Teḍra-d tuccḍa tarussint"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
 msgstr "Asali..."
 
