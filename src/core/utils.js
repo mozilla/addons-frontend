@@ -22,7 +22,6 @@ import {
   VISIBLE_ADDON_TYPES_MAPPING,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import { AddonTypeNotFound } from 'core/errors';
@@ -349,8 +348,18 @@ export function isCompatibleWithUserAgent({
     // requirements.
     // The mozilla-version-comparator API is quite strange; a result of
     // `1` means the first argument is higher in version than the second.
+    //
+    // Being over the maxVersion, oddly, is not actually a reason to
+    // disable the install button or mark the add-on as incompatible
+    // with this version of Firefox. But we log the version mismatch
+    // here so it's not totally silent and a future developer isn't as
+    // confused by this as tofumatt was.
+    // See: https://github.com/mozilla/addons-frontend/issues/2074#issuecomment-286983423
     if (maxVersion && mozCompare(browser.version, maxVersion) === 1) {
-      return { compatible: false, reason: INCOMPATIBLE_OVER_MAX_VERSION };
+      _log.info(oneLine`maxVersion ${maxVersion} for add-on lower than browser
+        version ${browser.version}, but add-on still marked as compatible
+        because we largely ignore maxVersion. See:
+        https://github.com/mozilla/addons-frontend/issues/2074`);
     }
 
     // A result of `-1` means the second argument is a lower version than the
