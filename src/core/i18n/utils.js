@@ -181,10 +181,9 @@ export function makeMomentLocale(locale) {
   return locale.replace('_', '-').toLowerCase();
 }
 
-// TODO Have this replacement made available for import from babel-gettext-extractor.
-// this will ensure that the function used is in-sync for both extraction
-// and retrieval of translations.
 // Functionality based on oneLine form declandewet/common-tags https://goo.gl/4PzaJI
+// If this function is altered muffinresearch/babel-gettext-extractor also needs
+// to be updated.
 function oneLineTranslationString(str) {
   if (str && str.replace && str.trim) {
     return str.replace(/(?:\n(?:\s*))+/g, ' ').trim();
