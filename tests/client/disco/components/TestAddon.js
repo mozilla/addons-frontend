@@ -28,8 +28,8 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import createStore from 'disco/store';
-import { getFakeI18nInst, signedInApiState } from 'tests/client/helpers';
+import { getFakeI18nInst }
+  from 'tests/client/helpers';
 
 const result = {
   id: 'test-id',
@@ -44,9 +44,9 @@ function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
   const getBrowserThemeData = () => '{"theme":"data"}';
 
   return findRenderedComponentWithType(renderIntoDocument(
-    <MyAddon getBrowserThemeData={getBrowserThemeData} i18n={getFakeI18nInst()}
-      setCurrentStatus={setCurrentStatus} hasAddonManager
-      store={createStore({ api: signedInApiState })} {...props} />
+    <MyAddon
+      getBrowserThemeData={getBrowserThemeData} i18n={getFakeI18nInst()} {...props}
+      setCurrentStatus={setCurrentStatus} hasAddonManager />
   ), MyAddon).getWrappedInstance();
 }
 

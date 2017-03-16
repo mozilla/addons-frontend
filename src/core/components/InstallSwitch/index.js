@@ -15,14 +15,12 @@ import {
   validAddonTypes,
   validInstallStates as validStates,
 } from 'core/constants';
-import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import Switch from 'ui/components/Switch';
 
 export class InstallSwitchBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
-    disabled: PropTypes.bool,
     downloadProgress: PropTypes.number,
     enable: PropTypes.func,
     guid: PropTypes.string.isRequired,
@@ -39,7 +37,6 @@ export class InstallSwitchBase extends React.Component {
   }
 
   static defaultProps = {
-    disabled: false,
     status: UNKNOWN,
     downloadProgress: 0,
   }
@@ -89,25 +86,8 @@ export class InstallSwitchBase extends React.Component {
   handleClick = (e) => {
     e.preventDefault();
     const {
-      addon,
-      disabled,
-      enable,
-      guid,
-      install,
-      installURL,
-      name,
-      status,
-      installTheme,
-      type,
-      uninstall,
+      addon, guid, enable, install, installURL, name, status, installTheme, type, uninstall,
     } = this.props;
-
-    if (disabled) {
-      log.info(
-        'handleClick for InstallSwitch disabled; disabled prop set to true.');
-      return;
-    }
-
     if (type === ADDON_TYPE_THEME && [UNINSTALLED, DISABLED].includes(status)) {
       installTheme(this.themeData, { ...addon, status });
     } else if (status === UNINSTALLED) {
@@ -121,14 +101,14 @@ export class InstallSwitchBase extends React.Component {
 
   render() {
     const browsertheme = JSON.stringify(getThemeData(this.props));
-    const { disabled, handleChange, slug, status, ...otherProps } = this.props;
+    const { handleChange, slug, status, ...otherProps } = this.props;
 
     if (!validStates.includes(status)) {
       throw new Error(`Invalid add-on status ${status}`);
     }
 
     const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(status);
-    const isDisabled = disabled || status === UNKNOWN;
+    const isDisabled = status === UNKNOWN;
     const isSuccess = [ENABLED, INSTALLED].includes(status);
 
     return (

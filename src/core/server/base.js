@@ -22,7 +22,7 @@ import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
 import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
-import { setClientApp, setLang, setJwt, setUserAgent } from 'core/actions';
+import { setClientApp, setLang, setJwt } from 'core/actions';
 import log from 'core/logger';
 import {
   getDirection,
@@ -74,11 +74,6 @@ function getPageProps({ noScriptStyles = '', store, req, res }) {
     log.warn(`No clientApp for this URL: ${req.url}`);
   } else {
     log.warn('No clientApp (error)');
-  }
-  if (res.locals.userAgent) {
-    store.dispatch(setUserAgent(res.locals.userAgent));
-  } else {
-    log.info('No userAgent found in request headers.');
   }
 
   return {

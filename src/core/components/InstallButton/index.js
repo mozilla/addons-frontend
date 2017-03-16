@@ -1,15 +1,12 @@
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
-import { connect } from 'react-redux';
 
 import InstallSwitch from 'core/components/InstallSwitch';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getThemeData } from 'core/themePreview';
-import {
-  getClientCompatibility as _getClientCompatibility,
-} from 'core/utils';
+import { clientSupportsAddons as _clientSupportsAddons } from 'core/utils';
 import Button from 'ui/components/Button';
 
 import './styles.scss';
@@ -18,19 +15,17 @@ import './styles.scss';
 export class InstallButtonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
+    clientSupportsAddons: PropTypes.func,
     className: PropTypes.string,
-    clientApp: PropTypes.string.isRequired,
-    getClientCompatibility: PropTypes.func,
     hasAddonManager: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     installTheme: PropTypes.func.isRequired,
     size: PropTypes.string,
     status: PropTypes.string.isRequired,
-    userAgentInfo: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
-    getClientCompatibility: _getClientCompatibility,
+    clientSupportsAddons: _clientSupportsAddons,
   }
 
   installTheme = (event) => {
@@ -42,21 +37,15 @@ export class InstallButtonBase extends React.Component {
   render() {
     const {
       addon,
-      clientApp,
+      clientSupportsAddons,
       className,
-      getClientCompatibility,
       hasAddonManager,
       i18n,
       size,
-      userAgentInfo,
     } = this.props;
     const useButton = hasAddonManager !== undefined && !hasAddonManager;
     let button;
-
-    const { compatible } = getClientCompatibility({
-      addon, clientApp, userAgentInfo });
-
-    const buttonIsDisabled = !compatible;
+    const buttonIsDisabled = !clientSupportsAddons();
     const buttonClass = classNames('InstallButton-button', {
       'InstallButton-button--disabled': buttonIsDisabled,
     });
@@ -80,7 +69,6 @@ export class InstallButtonBase extends React.Component {
       } : null;
       button = (
         <Button
-          disabled={buttonIsDisabled}
           href={addon.installURL}
           onClick={onClick}
           size={size}
@@ -94,22 +82,13 @@ export class InstallButtonBase extends React.Component {
         'InstallButton--use-button': useButton,
         'InstallButton--use-switch': !useButton,
       })}>
-        <InstallSwitch {...this.props} className="InstallButton-switch"
-          disabled={buttonIsDisabled} />
+        <InstallSwitch {...this.props} className="InstallButton-switch" />
         {button}
       </div>
     );
   }
 }
 
-export function mapStateToProps(state) {
-  return {
-    clientApp: state.api.clientApp,
-    userAgentInfo: state.api.userAgentInfo,
-  };
-}
-
 export default compose(
-  connect(mapStateToProps),
   translate(),
 )(InstallButtonBase);

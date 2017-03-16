@@ -1,6 +1,4 @@
 import * as actions from 'core/actions';
-import { userAgents } from 'tests/client/helpers';
-
 
 describe('core actions setJwt', () => {
   it('creates a SET_JWT action', () => {
@@ -27,17 +25,6 @@ describe('core actions setClientApp', () => {
 
   it('requires a clientApp value', () => {
     assert.throws(() => actions.setClientApp(''), /cannot be falsey/);
-  });
-});
-
-describe('core actions setUserAgent', () => {
-  it('creates the SET_USER_AGENT action', () => {
-    const userAgent = userAgents.chrome[0];
-
-    assert.deepEqual(actions.setUserAgent(userAgent), {
-      type: 'SET_USER_AGENT',
-      payload: { userAgent },
-    });
   });
 });
 
