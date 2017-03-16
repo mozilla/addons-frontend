@@ -11,7 +11,6 @@ import createStore from 'amo/store';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import { signedInApiState } from 'tests/client/amo/helpers';
@@ -35,8 +34,7 @@ describe('AddonCompatibilityError', () => {
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={createStore({ api })}>
         <I18nProvider i18n={getFakeI18nInst()}>
-          <AddonCompatibilityError maxVersion={null} minVersion={null}
-            {...props} />
+          <AddonCompatibilityError minVersion={null} {...props} />
         </I18nProvider>
       </Provider>
     ), AddonCompatibilityError);
@@ -72,18 +70,6 @@ describe('AddonCompatibilityError', () => {
     assert.include(rootNode.textContent, 'You are using Firefox 8.0.');
   });
 
-  it('renders a notice for new versions of Firefox', () => {
-    const root = render({
-      maxVersion: '9.4',
-      reason: INCOMPATIBLE_OVER_MAX_VERSION,
-      userAgentInfo: { browser: { name: 'Firefox', version: '11.0' }, os: {} },
-    });
-    const rootNode = findDOMNode(root);
-
-    assert.include(rootNode.textContent, 'up to version 9.4');
-    assert.include(rootNode.textContent, 'You are using Firefox 11.0');
-  });
-
   it('renders a notice for iOS users', () => {
     const root = render({
       reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
@@ -113,16 +99,6 @@ describe('AddonCompatibilityError', () => {
     assert.throws(() => {
       render({ userAgentInfo: defaultUserAgentInfo });
     }, 'AddonCompatibilityError requires a "reason" prop');
-  });
-
-  it('throws an error if maxVersion is missing', () => {
-    assert.throws(() => {
-      render({
-        maxVersion: undefined,
-        reason: INCOMPATIBLE_NOT_FIREFOX,
-        userAgentInfo: defaultUserAgentInfo,
-      });
-    }, 'maxVersion is required; it cannot be undefined');
   });
 
   it('throws an error if minVersion is missing', () => {
