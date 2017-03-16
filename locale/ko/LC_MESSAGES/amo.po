@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-07 03:10+0000\n"
+"PO-Revision-Date: 2017-03-16 02:02+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -85,9 +85,8 @@ msgid "More information"
 msgstr "추가 정보"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "Firefox 부가 기능"
+msgstr "부가 기능 링크"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
@@ -133,8 +132,7 @@ msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알�
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
+msgstr "이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
 
 #: src/amo/components/AddonReview.js:95
 #, fuzzy
@@ -145,8 +143,7 @@ msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알�
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s로 부터, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "검색중..."
@@ -177,13 +174,11 @@ msgstr "카테고리가 없습니다."
 msgid "Not Authorized"
 msgstr "인증되지 않음"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "페이지 찾을 수 없음"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "서버 에러"
 
@@ -206,7 +201,7 @@ msgstr "법적 고지 사항"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "오류 보고"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -444,8 +439,7 @@ msgstr "로그아웃"
 msgid "Log in/Sign up"
 msgstr "로그인/가입하기"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "오류 코드 : %(status)s."
 
@@ -514,9 +508,8 @@ msgid "An unexpected error occurred"
 msgstr "예기치 못한 오류 발생됨"
 
 #: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
 msgid "Loading…"
-msgstr "검색중..."
+msgstr "읽는 중…"
 
 #: src/ui/components/Rating/index.js:83
 #, fuzzy
