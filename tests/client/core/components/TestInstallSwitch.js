@@ -192,34 +192,4 @@ describe('<InstallSwitch />', () => {
     Simulate.click(root);
     assert(uninstall.calledWith({ guid, installURL, name, type }));
   });
-
-  it('returns early when button is clicked on disabled switch', () => {
-    const guid = '@foo';
-    const installURL = 'https://my.url/download';
-    const name = 'hai';
-    const type = 'whatevs';
-    const enable = sinon.stub();
-    const install = sinon.stub();
-    const installTheme = sinon.stub();
-    const uninstall = sinon.spy();
-
-    const button = renderButton({
-      disabled: true,
-      enable,
-      guid,
-      installTheme,
-      installURL,
-      name,
-      status: INSTALLED,
-      type,
-      uninstall,
-    });
-    const root = findDOMNode(button.switchEl);
-    Simulate.click(root);
-
-    assert(enable.notCalled);
-    assert(install.notCalled);
-    assert(installTheme.notCalled);
-    assert(uninstall.notCalled);
-  });
 });

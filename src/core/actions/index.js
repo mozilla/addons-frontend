@@ -1,11 +1,10 @@
 import {
-  ENTITIES_LOADED,
   LOG_OUT_USER,
-  SET_CLIENT_APP,
-  SET_CURRENT_USER,
   SET_JWT,
+  SET_CLIENT_APP,
   SET_LANG,
-  SET_USER_AGENT,
+  ENTITIES_LOADED,
+  SET_CURRENT_USER,
 } from 'core/constants';
 
 export function setJwt(token) {
@@ -36,13 +35,6 @@ export function setLang(lang) {
   };
 }
 
-export function setUserAgent(userAgent) {
-  return {
-    type: SET_USER_AGENT,
-    payload: { userAgent },
-  };
-}
-
 export function loadEntities(entities) {
   return {
     type: ENTITIES_LOADED,
@@ -53,6 +45,8 @@ export function loadEntities(entities) {
 export function setCurrentUser(username) {
   return {
     type: SET_CURRENT_USER,
-    payload: { username },
+    payload: {
+      username,
+    },
   };
 }

@@ -125,9 +125,6 @@ export function prefixMiddleWare(req, res, next, { _config = config } = {}) {
   const [newLang, newApp] = URLParts;
   res.locals.lang = newLang;
   res.locals.clientApp = newApp;
-  // Get detailed info on the current user agent so we can make sure add-ons
-  // are compatible with the current clientApp/version combo.
-  res.locals.userAgent = req.headers['user-agent'];
   /* eslint-enable no-param-reassign */
 
   return next();
