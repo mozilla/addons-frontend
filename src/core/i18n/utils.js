@@ -182,13 +182,13 @@ export function makeMomentLocale(locale) {
 }
 
 // Functionality based on oneLine form declandewet/common-tags https://goo.gl/4PzaJI
-// If this function is altered muffinresearch/babel-gettext-extractor also needs
-// to be updated.
-function oneLineTranslationString(str) {
-  if (str && str.replace && str.trim) {
-    return str.replace(/(?:\n(?:\s*))+/g, ' ').trim();
+// If this function is changed https://github.com/muffinresearch/babel-gettext-extractor/
+// also needs to be updated.
+function oneLineTranslationString(translationKey) {
+  if (translationKey && translationKey.replace && translationKey.trim) {
+    return translationKey.replace(/(?:\n(?:\s*))+/g, ' ').trim();
   }
-  return str;
+  return translationKey;
 }
 
 // Create an i18n object with a translated moment object available we can

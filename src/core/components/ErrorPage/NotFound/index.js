@@ -23,8 +23,7 @@ export class NotFoundBase extends React.Component {
         <div className="ErrorPage NotFound">
           <h1>{i18n.gettext('Page not found')}</h1>
           <p>
-            {i18n.gettext(`
-              Sorry, but we can't find anything at the URL you entered.`)}
+            {i18n.gettext("Sorry, but we can't find anything at the URL you entered.")}
           </p>
 
           <p>
