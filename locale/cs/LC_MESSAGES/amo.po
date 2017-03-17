@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 13:50+0000\n"
+"PO-Revision-Date: 2017-03-17 13:59+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -203,6 +203,7 @@ msgstr "Omlouváme se, ale k této stránce nemáte přístup. Pokud nejste při
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
+"Pokud jste se sem dostali pomocí některého z odkazů, <a href=\"%(url)s\">nahlaste nám prosím chybu</a>. Sdělte nám, odkud jste přišli a co jste hledali, a my uděláme vše proto, abychom to napravili."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
@@ -217,6 +218,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Pokud máte další informace, které by nám mohly pomoci, můžete <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">nahlásit problém</a>. Sdělte nám, jaké kroky vás vedly k této chybě, "
+"a my uděláme vše pro to, abychom ji opravili."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -224,7 +227,7 @@ msgstr "Chyba serveru"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Omlouváme se, ale na našem serveru došlo k chybě, kvůli které jsme nemohli dokončit váš požadavek. Chyba byla zaznamenána a budeme se jí co nejdříve věnovat."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -403,11 +406,8 @@ msgid "Add-ons for Firefox"
 msgstr "Doplňky pro Firefox"
 
 #: src/amo/containers/Home.js:39
-#, fuzzy
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
-"Rozšíření jsou speciální funkce, které můžete přidat do Firefoxu.\n"
-"Motivy vám dovolí změnit vzhled vašeho prohlížeče."
+msgstr "Rozšíření jsou speciální funkce, které můžete přidat do Firefoxu. Motivy vám dovolí změnit vzhled vašeho prohlížeče."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -458,9 +458,8 @@ msgid "Abstract"
 msgstr "Abstraktně"
 
 #: src/amo/containers/Home.js:81
-#, fuzzy
 msgid "Holiday"
-msgstr "Jednoduše"
+msgstr "Svátečně"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -484,7 +483,7 @@ msgstr "Přihlásit se / Zaregistrovat se"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Omlouváme se, ale došlo k chybě, kvůli které jsme nemohli dokončit váš požadavek. Chyba byla zaznamenána a budeme se jí co nejdříve věnovat."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
@@ -492,7 +491,7 @@ msgstr "Chybový kód: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Omlouváme se, ale na zadané adrese nemůžeme nic najít."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
