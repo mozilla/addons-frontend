@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 17:17+0000\n"
+"PO-Revision-Date: 2017-03-17 17:42+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -193,7 +193,7 @@ msgstr "Žane kategorije namakane."
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Jeli sće so přizjewił a sej mysliće, zo tuta powěsć je zmylk, <a href=\"%(url)s\">pisajće prošu zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće přišoł a na což sće chcył přistup měć, a my rozrisamy"
+"Jeli sće so přizjewił a sej mysliće, zo tuta powěsć je zmylk, <a href=\"%(url)s\">pisajće prošu zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće přišoł a na čož sće chcył přistup měć, a my rozrisamy"
 " tón problem."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
@@ -488,7 +488,7 @@ msgstr "Přizjewić/Registrować"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Bphužel je zmylk wustupił a njemóžachmy waše naprašowanje dokónčić. Smy tutón zmylk protokolowali a budźemy jón přeslědźeć."
+msgstr "Bohužel je zmylk wustupił a njemóžachmy waše naprašowanje dokónčić. Smy tutón zmylk protokolowali a budźemy jón přeslědźeć."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
