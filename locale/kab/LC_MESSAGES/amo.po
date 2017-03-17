@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 19:26+0000\n"
+"PO-Revision-Date: 2017-03-17 20:01+0000\n"
 "Last-Translator: Moḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -186,7 +186,7 @@ msgstr "Ulac taggayin yettwafen."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr ""
+msgstr "Ma tkecmeḍ udiɣ tɣileḍ d akken izen-agi d tuccḍa, ma ulac aɣilif, <a href=\"%(url)s\">azen-d ugur</a>. Ini-yaɣ-d ansa i d-kkiḍ udiɣ ayen tettaɛraḍeḍ ad twaliḍ, sakin ad nefru ugur."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
@@ -194,7 +194,7 @@ msgstr "Ur ittwasireg ara"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Suref-aɣ, acku ur ɣur-k ara tasiregt akken ad tkecmeḍ ar usebter-agi. Ma yella ur teqqineḍ ara, ɛreḍ ad tesqedceḍ aseɣwen n tagara n usebter."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
@@ -399,11 +399,8 @@ msgid "Add-ons for Firefox"
 msgstr "Izegrar i Firefox"
 
 #: src/amo/containers/Home.js:39
-#, fuzzy
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
-"Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ ar Firefox.\n"
-"Isental ad k-eǧǧen ad tesnifleḍ udem n iming."
+msgstr "Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ i Firefox. Isental ad k-eǧǧen ad tesnifleḍ udem n iming-ik."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
