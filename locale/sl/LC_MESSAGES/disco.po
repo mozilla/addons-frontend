@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:21+0000\n"
-"PO-Revision-Date: 2017-03-02 13:14+0000\n"
-"Last-Translator: Matjaž Horvat <matjaz.horvat@gmail.com>\n"
+"PO-Revision-Date: 2017-03-17 18:46+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
@@ -20,13 +19,10 @@ msgid "Server Error"
 msgstr "Napaka strežnika"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "Koda napake: %(status)s."
 
@@ -36,7 +32,7 @@ msgstr "Strani ni mogoče najti"
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Žal na spletnem naslovu, ki ste ga vnesli, ne najdemo ničesar."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
@@ -88,8 +84,7 @@ msgstr "V redu!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
+msgstr "Pridržite miškin kazalec za predogled ali kliknite, da namestite %(name)s"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
@@ -153,17 +148,11 @@ msgstr "Prikrojite Firefox po svoji meri"
 
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Razvijalci širom sveta so ustvarili na tisoče dodatkov, s katerimi si lahko "
-"prilagodite Firefox. Od zabavnih grafičnih tem do zmogljivih orodij, ki "
-"napravijo vaše brskanje hitrejše in varnejše — dodatki naredijo vaš Firefox "
-"čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi "
-"izredne zmogljivosti in uporabnosti."
+"Razvijalci širom sveta so ustvarili na tisoče dodatkov, s katerimi si lahko prilagodite Firefox. Od zabavnih grafičnih tem do zmogljivih orodij, ki napravijo vaše brskanje hitrejše in varnejše — "
+"dodatki naredijo vaš Firefox čisto vaš. Za začetek lahko preskusite naslednje, ki jih priporočamo zaradi izredne zmogljivosti in uporabnosti."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Nameščen in dodan v orodno vrstico"
