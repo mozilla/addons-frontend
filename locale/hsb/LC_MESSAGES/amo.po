@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 16:48+0000\n"
+"PO-Revision-Date: 2017-03-17 17:10+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -193,6 +193,8 @@ msgstr "Žane kategorije namakane."
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Jeli sće so přizjewił a sej mysliće, zo tuta powěsć je zmylk, <a href=\"%(url)s\">pisajće prošu zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće přišoł a na což sće chcył přistup měć, a my rozrisamy"
+" tón problem."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
@@ -200,11 +202,13 @@ msgstr "Njeawtorizowany"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Bohužel njejsće za přistup na tutu stronu awtorizowany. Jeli njejsće přizjewjeny, přizjewće so z pomocu wotkaza horjeka na stronje."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
+"Jeli sće so z pomocu wotkaza sem dóstał, <a href=\"%(url)s\">pisajće prošu zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće přišoł a za čimž pytaće a my budźemy naše najlěpše činić, zo bychmy "
+"problem rozrisali."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
@@ -212,13 +216,15 @@ msgstr "Strona njeje so namakała"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr ""
+msgstr "Bohužel njemóžemy ničo na adresy namakać, kotruž sće podał. Jeli sće wotkazej k přidatkej slědował, je móžno, zo přidatk je so wot swojeho awtora wotstronił."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Jeli maće přidatne informacije, kotrež bychu nam pomhali, móžeće <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">zmylkowu rozprawu pisać</a>. Zdźělće nam, kotre kroki su k zmylkej"
+" wjedli, a my budźemy naše najlěpše činić, zo bychmy jón rozrisali."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
