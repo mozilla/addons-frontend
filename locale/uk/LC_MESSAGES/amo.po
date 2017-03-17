@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 16:10+0000\n"
+"PO-Revision-Date: 2017-03-17 16:20+0000\n"
 "Last-Translator: Tymur Faradzhev <faradzhev.timur@gmail.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -16,19 +16,19 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:53
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Ви маєте <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити цей додаток."
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox для iOS поки що не підтримує додатки."
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Цей додаток вимагає <a href=\"%(downloadUrl)s\">новішої версії Firefox</a> (щонайменше, версію %(minVersion)s). Ви використовуєте Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Ваш браузер не підтримує додатки. Ви можете <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити цей додаток."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
