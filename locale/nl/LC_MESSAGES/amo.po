@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-07 16:46+0000\n"
+"PO-Revision-Date: 2017-03-02 15:56+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -26,7 +26,7 @@ msgstr "Nog geen beoordelingen"
 
 #: src/amo/components/AddonDetail.js:150
 msgid "Rate your experience"
-msgstr "Uw ervaring beoordelen"
+msgstr "Uw ervaring waarderen"
 
 #: src/amo/components/AddonDetail.js:174
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"

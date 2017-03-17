@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-07 14:44+0000\n"
-"PO-Revision-Date: 2017-03-02 13:08+0000\n"
-"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
+"PO-Revision-Date: 2017-03-17 10:02+0000\n"
+"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,7 @@ msgstr ""
 msgid "Server Error"
 msgstr "Serverfout"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
 msgid "Error code: %(status)s."
 msgstr "Foutcode: %(status)s."
 
@@ -45,8 +44,7 @@ msgstr "%(name)s wordt geïnstalleerd."
 
 #: src/core/components/InstallSwitch/index.js:56
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
+msgstr "%(name)s is geïnstalleerd en ingeschakeld. Klik om de add-on te verwijderen."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is disabled. Click to enable."
@@ -78,13 +76,11 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te "
-"installeren"
+msgstr "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te installeren"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
-msgstr "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
+msgstr "Wijs de afbeelding aan voor een voorbeeld"
 
 #: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
@@ -145,23 +141,15 @@ msgstr "Personaliseer uw Firefox"
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
 "There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual "
-"themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your "
-"browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out "
-"performance\n"
+"the world, that you can install to personalize your Firefox. From fun visual themes\n"
+"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
+"To help you get started, here are some we recommend for their stand-out performance\n"
 "and functionality."
 msgstr ""
-"Er zijn duizenden gratis add-ons, gemaakt door ontwikkelaars van over de "
-"hele wereld,\n"
-"die u kunt installeren om uw Firefox te personaliseren. Variërend van leuke "
-"visuele thema’s\n"
-"tot krachtige hulpmiddelen die het browsen sneller en veiliger maken, maken "
-"add-ons uw browser van u.\n"
-"Om u op gang te helpen, zijn hier een paar add-ons die we aanbevelen vanwege "
-"hun uitstekende prestaties\n"
-"en functionaliteit."
+"Er zijn duizenden gratis add-ons, gemaakt door ontwikkelaars van over de hele wereld,\n"
+"die u kunt installeren om uw Firefox te personaliseren. Variërend van leuke visuele thema’s\n"
+"tot krachtige hulpmiddelen die het browsen sneller en veiliger maken, maken add-ons uw browser van u.\n"
+"Om u op gang te helpen, zijn hier een paar add-ons die we aanbevelen vanwege hun uitstekende prestaties en functionaliteit."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Geïnstalleerd en aan werkbalk toegevoegd"
