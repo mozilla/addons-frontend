@@ -118,23 +118,22 @@ export class LandingPageBase extends React.Component {
       <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
 
         <div className="LandingPage-header">
-          <Icon name={addonType} className={classNames(`LandingPage-${addonType}-icon`)}/>
-          <div className="LandingPage-header-text">
-            <h1 className="LandingPage-heading">
-              {addonType === 'persona' ? i18n.gettext('Themes') : i18n.gettext('Extensions')}
-            </h1>
-            <p className="LandingPage-heading-content">
-              {addonType === 'persona' ? themeText : extensionsText}
-            </p>
+          <div className="LandingPage-header-top">
+            <Icon name={visibleAddonType} />
+            <div className="LandingPage-header-text">
+              <h1 className="LandingPage-heading">
+                {addonType === ADDON_TYPE_THEME ? i18n.gettext('Themes') : i18n.gettext('Extensions')}
+              </h1>
+              <p className="LandingPage-heading-content">
+                {addonType === ADDON_TYPE_THEME ? themeText : extensionsText}
+              </p>
+            </div>
           </div>
-        </div>
-
-        <Button appearance="light" className="Browse-button">
-          <Icon name="browse" className="LandingPage-browse-icon" />
-          <span className="Browse-button-text">
+          <Button appearance="light" className="LandingPage-browse-button">
+            <Icon name="browse" className="LandingPage-browse-icon" />
             {i18n.gettext('Browse by category')}
-          </span>
-        </Button>
+          </Button>
+        </div>
 
         <LandingAddonsCard addons={featuredAddons}
           className="FeaturedAddons" header={html.featuredHeader}
