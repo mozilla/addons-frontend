@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-18 12:47+0000\n"
+"PO-Revision-Date: 2017-03-18 12:59+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -402,11 +402,8 @@ msgid "Add-ons for Firefox"
 msgstr "Tilføjelser til Firefox"
 
 #: src/amo/containers/Home.js:39
-#, fuzzy
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
-"Udvidelser er specielle funktioner, du kan føje til Firefox.\n"
-"Temaer lader dig ændre din browsers udseende."
+msgstr "Udvidelser er specielle funktioner, du kan føje til Firefox. Temaer lader dig ændre din browsers udseende."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -457,9 +454,8 @@ msgid "Abstract"
 msgstr "Abstrakt"
 
 #: src/amo/containers/Home.js:81
-#, fuzzy
 msgid "Holiday"
-msgstr "Fast"
+msgstr "Ferie"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
