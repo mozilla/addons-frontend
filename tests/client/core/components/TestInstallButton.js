@@ -104,7 +104,7 @@ describe('<InstallButton />', () => {
     assert.equal(buttonComponent.type, Button);
 
     const props = buttonComponent.props;
-    assert.equal(props.appearance, undefined);      
+    assert.equal(props.appearance, undefined);
     assert.equal(props.children, 'Add to Firefox');
     assert.equal(props.className, 'InstallButton-button');
     assert.equal(props.to, installURL);
