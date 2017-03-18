@@ -44,7 +44,7 @@ export class InstallButtonBase extends React.Component {
       );
     } else {
       button = (
-        <Button href={addon.installURL} size={size} className="InstallButton-button">
+        <Button to={addon.installURL} size={size} className="InstallButton-button">
           {i18n.gettext('Add to Firefox')}
         </Button>
       );
