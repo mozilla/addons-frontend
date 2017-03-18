@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 19:19+0000\n"
+"PO-Revision-Date: 2017-03-18 21:29+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -186,8 +186,7 @@ msgstr "Não foram encontradas categorias."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr ""
-"Se tem sessão iniciada e pensa que esta mensagem é um erro, por favor <a href=\"%(url)s\">submeta um issue</a>. Diga-nos de onde veio como e o que estava a tentar aceder, e reparemos este problema."
+msgstr "Se tem sessão iniciada e pensa que esta mensagem é um erro, por favor <a href=\"%(url)s\">submeta um issue</a>. Diga-nos de onde veio e o que estava a tentar aceder, e corrigiremos o problema."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
@@ -199,7 +198,7 @@ msgstr "Desculpe, mas não está autorizado a aceder esta página. Se não tem s
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "Se seguiu uma ligação de algures, por favor <a href=\"%(url)s\">submeta um issue</a>. Diga-nos de onde veio e o que estava à procura, e faremos o melhor para repará-lo."
+msgstr "Se seguiu uma ligação de algum lado, por favor <a href=\"%(url)s\">submeta um issue</a>. Diga-nos de onde veio e o que estava à procura, e faremos o melhor para corrigir."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
@@ -214,8 +213,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
-"Se tem informação adicionar que pode ajudar-nos, pode <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">submeter um issue</a>. Diga-nos que passos deu que levaram ao erro e faremos "
-"o melhor para repará-lo."
+"Se tem informação adicional que nos pode ajudar, pode <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">submeter um issue</a>. Diga-nos que passos deu que levaram ao erro e faremos "
+"o nosso melhor para corrigir."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
