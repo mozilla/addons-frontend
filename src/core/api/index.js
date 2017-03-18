@@ -3,11 +3,13 @@
 
 import url from 'url';
 
+import utf8 from 'utf8';
 import 'isomorphic-fetch';
 import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
+import { ADDON_TYPE_THEME } from 'core/constants';
 import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
@@ -68,7 +70,8 @@ export function callApi({
       options.headers.authorization = `Bearer ${state.token}`;
     }
   }
-  const apiURL = `${API_BASE}/${endpoint}/${queryString}`;
+  // Workaround for https://github.com/bitinn/node-fetch/issues/245
+  const apiURL = utf8.encode(`${API_BASE}/${endpoint}/${queryString}`);
 
   return fetch(apiURL, options)
     .then((response) => {
@@ -86,9 +89,9 @@ export function callApi({
 
       log.warn(oneLine`Response from API was not JSON (was Content-Type:
         ${contentType})`, response);
-      return response.text().then((textResponse) => (
-        { jsonResponse: { text: textResponse }, response }
-      ));
+      return response.text().then((textResponse) => {
+        return { jsonResponse: { text: textResponse }, response };
+      });
     })
     .then(({ response, jsonResponse }) => {
       if (response.ok) {
@@ -116,12 +119,32 @@ export function callApi({
 }
 
 export function search({ api, page, auth = false, filters = {} }) {
+  const _filters = { ...filters };
+  if (!_filters.clientApp && api.clientApp) {
+    log.debug(
+      `No clientApp found in filters; using api.clientApp (${api.clientApp})`);
+    _filters.clientApp = api.clientApp;
+  }
+  // TODO: This loads Firefox personas (lightweight themes) for Android
+  // until github.com/mozilla/addons-frontend/issues/1723#issuecomment-278793546
+  // and https://github.com/mozilla/addons-server/issues/4766 are addressed.
+  // Essentially: right now there are no categories for the combo
+  // of "Android" + "Themes" but Firefox lightweight themes will work fine
+  // on mobile so we request "Firefox" + "Themes" for Android instead.
+  // Obviously we need to fix this on the API end so our requests aren't
+  // overridden, but for now this will work.
+  if (
+    _filters.clientApp === 'android' && _filters.addonType === ADDON_TYPE_THEME
+  ) {
+    log.info(dedent`addonType: ${_filters.addonType}/clientApp:
+      ${_filters.clientApp} is not supported. Changing clientApp to "firefox"`);
+    _filters.clientApp = 'firefox';
+  }
   return callApi({
     endpoint: 'addons/search',
     schema: { results: [addon] },
     params: {
-      app: api.clientApp,
-      ...convertFiltersToQueryParams(filters),
+      ...convertFiltersToQueryParams(_filters),
       page,
     },
     state: api,

@@ -68,6 +68,11 @@ export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
     [API_ADDON_TYPES_MAPPING[key]]: key,
   }), {});
 
+// Incompatibility codes for clients that can't install an add-on.
+export const INCOMPATIBLE_FIREFOX_FOR_IOS = 'INCOMPATIBLE_FIREFOX_FOR_IOS';
+export const INCOMPATIBLE_NOT_FIREFOX = 'INCOMPATIBLE_NOT_FIREFOX';
+export const INCOMPATIBLE_UNDER_MIN_VERSION = 'INCOMPATIBLE_UNDER_MIN_VERSION';
+
 // Tracking add-on types
 export const TRACKING_TYPE_EXTENSION = 'addon';
 export const TRACKING_TYPE_THEME = 'theme';
@@ -97,6 +102,7 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_JWT = 'SET_JWT';
 export const SET_LANG = 'SET_LANG';
+export const SET_USER_AGENT = 'SET_USER_AGENT';
 
 // InfoDialog action types.
 export const CLOSE_INFO = 'CLOSE_INFO';
@@ -140,6 +146,8 @@ export const acceptedInstallTypes = [
   INSTALL_COMPLETE,
   UNINSTALL_COMPLETE,
   INSTALL_ERROR,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
 ];
 
 // Tracking categories.

@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2016-12-14 18:36+0000\n"
-"Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
+"POT-Creation-Date: 2017-03-17 12:14+0000\n"
+"PO-Revision-Date: 2017-03-18 17:40+0000\n"
+"Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
 "MIME-Version: 1.0\n"
@@ -14,94 +14,119 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:125
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+#: src/amo/components/AddonCompatibilityError/index.js:53
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "অ্যাড-অনটি ইন্সটল করতে হলে আপনাকে <a href=\"%(downloadUrl)s\">Firefox ডাউনলোড</a> করতে হবে।"
 
-#: src/amo/components/AddonDetail.js:138
-msgid "No reviews yet"
+#: src/amo/components/AddonCompatibilityError/index.js:57
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "iOS এর জন্যৈ Firefox বর্তমানে অ্যাড-অন সমর্থন করে না।"
+
+#: src/amo/components/AddonCompatibilityError/index.js:60
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:147
+#: src/amo/components/AddonCompatibilityError/index.js:74
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr ""
+
+#: src/amo/components/AddonDetail.js:131
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "%(count)s রিভিউ সমূহ পড়ুন"
+msgstr[1] "সকল %(count)s রিভিউ সমূহ পড়ুন"
+
+#: src/amo/components/AddonDetail.js:144
+msgid "No reviews yet"
+msgstr "এখনও কোন পর্যালোচনা করা হয়নি"
+
+#: src/amo/components/AddonDetail.js:153
 msgid "Rate your experience"
 msgstr "আমাদের অভিজ্ঞতার মূল্যায়ন দিন"
 
-#: src/amo/components/AddonDetail.js:170
+#: src/amo/components/AddonDetail.js:183
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)s দ্বারা %(authorList)s %(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:210
 msgid "Extension Metadata"
 msgstr "এক্সটেনশন মেটাডাটা"
 
-#: src/amo/components/AddonDetail.js:207
+#: src/amo/components/AddonDetail.js:228
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "%(addonType)s সম্বন্ধে"
 
-#: src/amo/components/AddonDetail.js:82
-#, fuzzy
-msgid "Press to preview"
-msgstr "পর্যালোচনা লিখুন"
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "পর্যালোচনা বাতিল করুন"
+
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s ব্যবহারকারী"
+msgstr[1] "%(total)s ব্যবহারকারী"
 
 #: src/amo/components/AddonMeta.js:28
 msgid "%(averageRating)s out of 5"
-msgstr ""
+msgstr "5 টির মধ্যে %(averageRating)s"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
-msgstr ""
+msgstr "এখনও মূল্যায়ন করা হয়নি"
 
 #: src/amo/components/AddonMeta.js:37
-#, fuzzy
 msgid "%(total)s rating"
 msgid_plural "%(total)s ratings"
-msgstr[0] "কোন রেটিং নেই"
-msgstr[1] "কোন রেটিং নেই"
+msgstr[0] "%(total)s রেটিং"
+msgstr[1] "%(total)s রেটিং"
 
 #: src/amo/components/AddonMeta.js:45
 msgid "Used by"
 msgstr "এর দ্বারা ব্যবহৃত"
 
-#: src/amo/components/AddonMoreInfo.js:25
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr "হোমপেজ"
+
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr "সহায়তা সাইট"
+
+#: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr ""
+msgstr "আরও তথ্য"
 
-#: src/amo/components/AddonMoreInfo.js:27
-msgid "Website"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo.js:36
-msgid "Version"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo.js:40
-msgid "Last updated"
-msgstr ""
-
-#: src/amo/components/AddonMoreInfo.js:45
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+#: src/amo/components/AddonMoreInfo.js:42
+msgid "Add-on Links"
+msgstr "অ্যাড-অন লিংক"
 
 #: src/amo/components/AddonMoreInfo.js:53
-msgid "License"
-msgstr ""
+msgid "Version"
+msgstr "সংস্করণ"
 
-#: src/amo/components/AddonMoreInfo.js:64
-#, fuzzy
+#: src/amo/components/AddonMoreInfo.js:57
+msgid "Last updated"
+msgstr "শেষ আপডেট"
+
+#: src/amo/components/AddonMoreInfo.js:62
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo.js:70
+msgid "License"
+msgstr "লাইসেন্স"
+
+#: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
 msgstr "গোপনীয়তা নীতি"
 
-#: src/amo/components/AddonMoreInfo.js:70
+#: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "এই অ্যাড-অনটির জন্যে গোপনীয়তার নীতি পড়ুন"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -109,10 +134,9 @@ msgstr "পর্যালোচনা লিখুন"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "টেক্সট পর্যালোচনা করুন"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
 msgstr "পর্যালোচনা লিখুন"
 
@@ -122,67 +146,90 @@ msgstr "পৃথিবীকে বলুন কেন আপনি এক্�
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "পৃথিবীকে বলুন কেন আপনি এক্সটেনশনটিকে অসাধারণ মনে করেন!"
+msgstr "এই এক্সটেনশনটি সম্পর্কে পৃথিবীকে বলুন।"
 
-#: src/amo/components/AddonReviewList.js:39
+#: src/amo/components/AddonReview.js:96
+#, fuzzy
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
+
+#: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "%(timestamp)s সময় %(authorName)s হইতে"
 
-#: src/amo/components/AddonReviewList.js:53
-#: src/amo/components/Categories.js:26
-#, fuzzy
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr "অনুসন্ধান করা হচ্ছে..."
+msgstr "লোড করা হচ্ছে..."
 
-#: src/amo/components/AddonReviewList.js:63
-#, fuzzy
+#: src/amo/components/AddonReviewList.js:62
 msgid "Add-on icon"
-msgstr "Firefox এর জন্য অ্যাড-অন"
+msgstr "অ্যাড-অন আইকন"
 
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "পর্যালোচনা %(addonName)s এর জন্যে"
 
-#: src/amo/components/AddonReviewList.js:71
-#, fuzzy
+#: src/amo/components/AddonReviewList.js:70
 msgid "All written reviews"
-msgstr "পর্যালোচনা লিখুন"
+msgstr "সকল পর্যালোচনা"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "বিভাগ লোড করতে ব্যর্থ।"
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
+msgstr "কোন বিভাগ পাওয়া যায়নি।"
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:21
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
+msgstr "অনুমোদিত নয়"
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:21
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
+msgstr "পাতা পাওয়া যায়নি"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:34
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:21
+msgid ""
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
+msgstr "সার্ভার ত্রুটি"
+
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
+msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -192,66 +239,61 @@ msgstr "গোপনীয়তা নীতি"
 msgid "Legal notices"
 msgstr "আইনি বিজ্ঞপ্তি"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer.js:42
+msgid "Report a bug"
+msgstr ""
+
+#: src/amo/components/Footer.js:49
 msgid "View desktop site"
 msgstr "ডেক্সটপ সাইট দেখুন"
 
 #: src/amo/components/LandingPage.js:49
-#, fuzzy
 msgid "Featured extensions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
+msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
+
+#: src/amo/components/LandingPage.js:53
+msgid "More featured extensions"
+msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন সমূহ"
 
 #: src/amo/components/LandingPage.js:54
-#, fuzzy
-msgid "More featured extensions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
-
-#: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
+msgstr "সবচে বেশী জনপ্রিয় এক্সটেনশন"
+
+#: src/amo/components/LandingPage.js:59
+msgid "More popular extensions"
+msgstr "জনপ্রিয় এক্সটেনসমূহ"
 
 #: src/amo/components/LandingPage.js:60
-#, fuzzy
-msgid "More popular extensions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
-
-#: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
+msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন"
 
-#: src/amo/components/LandingPage.js:66
-#, fuzzy
+#: src/amo/components/LandingPage.js:68
 msgid "More highly rated extensions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
+msgstr "আরো বেশী রেট পাওয়া এক্সটেনশন"
 
-#: src/amo/components/LandingPage.js:69
+#: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
-msgstr ""
-
-#: src/amo/components/LandingPage.js:74
-msgid "More featured themes"
-msgstr ""
+msgstr "বৈশিষ্ট্যপূর্ণ থিম"
 
 #: src/amo/components/LandingPage.js:75
-#, fuzzy
-msgid "Most popular themes"
-msgstr "সব থিম ব্রাউজ করুন"
+msgid "More featured themes"
+msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম"
 
-#: src/amo/components/LandingPage.js:80
-#, fuzzy
-msgid "More popular themes"
-msgstr "সব থিম ব্রাউজ করুন"
+#: src/amo/components/LandingPage.js:76
+msgid "Most popular themes"
+msgstr "সবচে বেশি জনপ্রিয় থিমসমূহ"
 
 #: src/amo/components/LandingPage.js:81
-#, fuzzy
-msgid "Top rated themes"
-msgstr "সব থিম ব্রাউজ করুন"
+msgid "More popular themes"
+msgstr "আরও জনপ্রিয় থিমসমূহ"
 
-#: src/amo/components/LandingPage.js:86
+#: src/amo/components/LandingPage.js:82
+msgid "Top rated themes"
+msgstr "সর্বোচ্চ রেট পাওয়া থিম"
+
+#: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
-msgstr ""
+msgstr "আরো বেশি রেট পাওয়া থিম"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -261,58 +303,85 @@ msgstr "আপনার ভাষায় ব্রাউজ করুন"
 msgid "Firefox Add-ons"
 msgstr "Firefox অ্যাড-অনস"
 
-#: src/amo/components/RatingManager/index.js:85
+#: src/amo/components/RatingManager/index.js:101
+msgid "Log in to rate this search engine"
+msgstr "সার্চ ইঞ্জিন রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:103
+msgid "Log in to rate this theme"
+msgstr "থিম রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:105
+msgid "Log in to rate this extension"
+msgstr "এক্সটেনশন রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:111
+msgid "Log in to rate this add-on"
+msgstr "এই অ্যাড-অন রেট দিতে লগইন করুন"
+
+#: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "%(addonName)s এর সাথে আপনার অভিজ্ঞতা কেমন?"
 
-#: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
-#, fuzzy
+#: src/amo/components/RatingManager/index.js:97
+msgid "Log in to rate this dictionary"
+msgstr "এই অভিধন রেট করতে লগইন করুন"
+
+#: src/amo/components/RatingManager/index.js:99
+msgid "Log in to rate this language pack"
+msgstr "ভাষা প্যাক রেট করতে লগিন করুন"
+
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
-msgstr "অনুসন্ধান করা হচ্ছে..."
+msgstr "অনুসন্ধান"
 
-#: src/amo/components/SearchForm.js:49
+#: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "থিম এবং এক্সটেনশন অনুসন্ধান করুন"
 
-#: src/amo/components/SearchResults.js:35
-msgid "Searching..."
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr "থিমের কোন প্রাকদর্শন নেই"
+
+#: src/amo/components/SearchResults.js:40
+msgid "Searching…"
 msgstr "অনুসন্ধান করা হচ্ছে..."
-
-#: src/amo/components/SearchResults.js:39
-msgid "No results were found for \"%(query)s\"."
-msgstr ""
-
-#: src/amo/components/SearchResults.js:43
-msgid "No results were found."
-msgstr ""
 
 #: src/amo/components/SearchResults.js:46
+msgid "No results were found for \"%(query)s\"."
+msgstr "\"%(query)s\" এর জন্যে কোন ফলাফল পাওয়া যায়নি।"
+
+#: src/amo/components/SearchResults.js:50
+msgid "No results were found."
+msgstr "কোনো ফলাফল খুঁজে পাওয়া যায়নি।"
+
+#: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Firefox অ্যাড-অন খুঁজতে অনুগ্রহ করে একটি শব্দ লিখুন।"
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "সম্প্রতি হাল নাগাদ করা হয়েছে"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "প্রসঙ্গিকতা"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "অধিকাংশ ব্যবহারকারী"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "শীর্ষ রেটকৃত"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "সাজানো"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "প্রস্তাবিত পেজ সমূহ"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -323,28 +392,24 @@ msgid "Browse all themes"
 msgstr "সব থিম ব্রাউজ করুন"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Firefox এর জন্য অ্যাড-অন"
+msgstr "অ্যাড-অন হোমপেজ"
 
-#: src/amo/containers/App.js:80
+#: src/amo/containers/App.js:104
 msgid "Add-ons for Firefox"
 msgstr "Firefox এর জন্য অ্যাড-অন"
 
 #: src/amo/containers/Home.js:39
-msgid ""
-"Extensions are special features you can add to Firefox.\n"
-"Themes let you change your browser's appearance."
+msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr ""
 
 #: src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "এক্সটেনশন মেটাডাটা"
+msgstr "এক্সটেনশন সমূহ"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "থিম"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -387,8 +452,8 @@ msgid "Abstract"
 msgstr "নির্বস্তুক"
 
 #: src/amo/containers/Home.js:81
-msgid "Fashionable"
-msgstr "ফ্যাশনসমৃদ্ধ"
+msgid "Holiday"
+msgstr ""
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -402,58 +467,63 @@ msgstr "খেলাধুলা সংক্রান্ত"
 msgid "Solid"
 msgstr ""
 
-#: src/core/components/AuthenticateButton/index.js:35
-msgid "Log in/Sign up"
-msgstr ""
-
-#: src/core/components/AuthenticateButton/index.js:35
+#: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
 msgstr "লগ আউট"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:32
-msgid "Error code: %(status)s."
+#: src/core/components/AuthenticateButton/index.js:50
+msgid "Log in/Sign up"
+msgstr "লগ ইন/সাইন আপ"
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:42
-#, fuzzy
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+msgid "Error code: %(status)s."
+msgstr "এরর কোড: %(status)s"
+
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
-msgstr "সব থিম ব্রাউজ করুন"
+msgstr "থিম ইন্সটল করুন"
 
-#: src/core/components/InstallButton/index.js:48
-#, fuzzy
+#: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
-msgstr "Firefox এর জন্য অ্যাড-অন"
+msgstr "Firefox এ যুক্ত করুন"
 
-#: src/core/components/InstallSwitch/index.js:49
+#: src/core/components/InstallSwitch/index.js:52
 msgid "Downloading %(name)s."
 msgstr "%(name)s ডাউনলোডিং।"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:55
 msgid "Installing %(name)s."
-msgstr ""
-
-#: src/core/components/InstallSwitch/index.js:56
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ইন্সটলিং।"
 
 #: src/core/components/InstallSwitch/index.js:59
-msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr "%(name)s ইন্সটল করা হয়েছে এবং সক্রিয় হয়েছে। অনইন্সটল করতে ক্লিক করুন।"
 
 #: src/core/components/InstallSwitch/index.js:62
-msgid "Uninstalling %(name)s."
-msgstr ""
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s নিষ্ক্রিয় করা হয়েছে। সক্রিয় করতে ক্লিক করুন।"
 
 #: src/core/components/InstallSwitch/index.js:65
-msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgid "Uninstalling %(name)s."
+msgstr "%(name)s আনইন্সটলিং।"
 
 #: src/core/components/InstallSwitch/index.js:68
-msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s আনইন্সটল করা হয়েছে। ইন্সটল করতে ক্লিক করুন।"
 
-#: src/core/components/Paginate/index.js:107
+#: src/core/components/InstallSwitch/index.js:71
+msgid "Install state for %(name)s is unknown."
+msgstr "%(name)s এর ইন্সটল অবস্থা অজানা।"
+
+#: src/core/components/Paginate/index.js:106
 msgid "Previous"
 msgstr "পূর্ববর্তী"
 
@@ -461,29 +531,33 @@ msgstr "পূর্ববর্তী"
 msgid "Next"
 msgstr "পরবর্তী"
 
-#: src/core/components/Paginate/index.js:96
+#: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "%(totalPages)s এর %(currentPage)s পাতা"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "আপনার এড-অন এখন প্রস্তুত"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "আপনি এখন টুলবার থেকে %(name)s এ প্রবেশ করতে পারেন।"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "ঠিক আছে!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "একটি অপ্রত্যাশিত ত্রুটি সংঘটিত হয়েছে"
+
+#: src/ui/components/LoadingIndicator/index.js:27
+msgid "Loading…"
+msgstr "লোড করা হচ্ছে…"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "5 এর মধ্যে %(rating)s রেটিং দেওয়া হয়েছে"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
@@ -491,13 +565,13 @@ msgstr "কোন রেটিং নেই"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "পড়তে হলে <span class=\"visually-hidden\">সম্প্রসারণ করুন</span>"
+
+#~ msgid "Fashionable"
+#~ msgstr "ফ্যাশনসমৃদ্ধ"
 
 #~ msgid "Screenshots"
 #~ msgstr "স্ক্রীনশট"
-
-#~ msgid "About this extension"
-#~ msgstr "এক্সটেনশন সম্বন্ধে"
 
 #~ msgid "Category"
 #~ msgstr "তালিকা"

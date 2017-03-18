@@ -2,6 +2,7 @@ import React from 'react';
 import {
   findRenderedComponentWithType,
   findRenderedDOMComponentWithClass,
+  scryRenderedDOMComponentsWithClass,
   renderIntoDocument,
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
@@ -51,9 +52,14 @@ describe('<SearchResult />', () => {
     assert.ok(node);
   });
 
+  it('ignores an empty author list', () => {
+    const myRoot = renderResult({ ...result, authors: undefined });
+    const nodes = scryRenderedDOMComponentsWithClass(myRoot, 'SearchResult-author');
+    assert.equal(nodes.length, 0);
+  });
+
   it("renders only the first author's name when there are multiple", () => {
-    const authors = findRenderedDOMComponentWithClass(root,
-                                                      'SearchResult-author');
+    const authors = findRenderedDOMComponentWithClass(root, 'SearchResult-author');
     assert.equal(authors.textContent, 'A funky déveloper');
   });
 

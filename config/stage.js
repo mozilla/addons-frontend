@@ -1,33 +1,35 @@
 // Config for the stage server.
-
-const amoCDN = 'https://addons-stage-cdn.allizom.org';
-const apiHost = 'https://addons.allizom.org';
+import { amoStageCDN, apiStageHost, sentryHost } from './lib/shared';
 
 
 module.exports = {
-  apiHost,
-  amoCDN,
-  staticHost: amoCDN,
+  apiHost: apiStageHost,
+  amoCDN: amoStageCDN,
+  staticHost: amoStageCDN,
 
   // Content security policy.
   CSP: {
     directives: {
       connectSrc: [
-        apiHost,
+        apiStageHost,
+        sentryHost,
       ],
       imgSrc: [
         "'self'",
-        amoCDN,
+        amoStageCDN,
         'data:',
       ],
       scriptSrc: [
-        amoCDN,
+        amoStageCDN,
       ],
       styleSrc: [
-        amoCDN,
+        amoStageCDN,
       ],
     },
   },
 
   allowErrorSimulation: true,
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-stage/
+  publicSentryDsn: 'https://8f0a256ee2c345608510155edafb71f7@sentry.prod.mozaws.net/182',
 };

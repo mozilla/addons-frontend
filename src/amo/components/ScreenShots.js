@@ -18,6 +18,18 @@ const PHOTO_SWIPE_OPTIONS = {
   counterEl: true,
   arrowEl: true,
   preloaderEl: true,
+  // Overload getThumbsBoundsFn as workaround to
+  // https://github.com/minhtranite/react-photoswipe/issues/23
+  getThumbBoundsFn: /* istanbul ignore next */ function getThumbBoundsFn(index) {
+    const thumbnail = document.querySelectorAll('.pswp-thumbnails')[index];
+    if (thumbnail && thumbnail.getElementsByTagName) {
+      const img = thumbnail.getElementsByTagName('img')[0];
+      const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+      const rect = img.getBoundingClientRect();
+      return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
+    }
+    return false;
+  },
 };
 
 const formatPreviews = (previews) => (

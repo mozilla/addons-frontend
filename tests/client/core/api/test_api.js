@@ -1,5 +1,6 @@
 /* global Response, window */
 import config from 'config';
+import utf8 from 'utf8';
 
 import * as api from 'core/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
@@ -55,6 +56,17 @@ describe('api', () => {
         .returns(createApiResponse());
       return api.callApi({ endpoint: 'resource', method: 'get' })
         .then(() => mockWindow.verify());
+    });
+
+    it('encodes non-ascii URLs in UTF8', () => {
+      const endpoint = 'diccionario-español-venezuela';
+      mockWindow.expects('fetch')
+        .withArgs(utf8.encode(`${apiHost}/api/v3/${endpoint}/`), {
+          method: 'GET', headers: {},
+        })
+        .once()
+        .returns(createApiResponse());
+      return api.callApi({ endpoint }).then(() => mockWindow.verify());
     });
 
     it('clears an error handler before making a request', () => {
@@ -279,6 +291,34 @@ describe('api', () => {
       return api.search({
         api: { clientApp: 'firefox', lang: 'en-US' },
         filters: { query: 'foo' },
+        page: 3,
+      })
+        .then(() => mockWindow.verify());
+    });
+
+    it('changes theme requests for android to firefox results', () => {
+      // FIXME: This shouldn't fail if the args are in a different order.
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&type=persona&page=3&lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.search({
+        api: { clientApp: 'android', lang: 'en-US' },
+        filters: { addonType: ADDON_TYPE_THEME, clientApp: 'android' },
+        page: 3,
+      })
+        .then(() => mockWindow.verify());
+    });
+
+    it('allows overrides to clientApp', () => {
+      // FIXME: This shouldn't fail if the args are in a different order.
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&q=foo&page=3&lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.search({
+        api: { clientApp: 'android', lang: 'en-US' },
+        filters: { clientApp: 'firefox', query: 'foo' },
         page: 3,
       })
         .then(() => mockWindow.verify());

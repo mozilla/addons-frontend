@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
+import LoadingIndicator from 'ui/components/LoadingIndicator';
 
 import './SearchResults.scss';
 
@@ -29,10 +30,16 @@ class SearchResults extends React.Component {
     } = this.props;
     const { query } = filters;
 
+    let loadingMessage;
     let messageText;
 
     if (loading) {
-      messageText = i18n.gettext('Searching...');
+      loadingMessage = (
+        <div className="LoadingIndicator-container"
+          ref={(ref) => { this.LoadingIndicatorContainer = ref; }}>
+          <LoadingIndicator altText={i18n.gettext('Searching…')} />
+        </div>
+      );
     } else if (count === 0 && hasSearchParams) {
       if (query) {
         messageText = i18n.sprintf(
@@ -49,6 +56,7 @@ class SearchResults extends React.Component {
 
     return (
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
+        {loadingMessage}
         <AddonsCard addons={hasSearchParams ? results : null}>
           {messageText ? (
             <p ref={(ref) => { this.message = ref; }}

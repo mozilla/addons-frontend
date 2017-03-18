@@ -1,4 +1,5 @@
-const amoCDN = 'https://addons-stage-cdn.allizom.org';
+import { amoStageCDN } from './lib/shared';
+
 const staticHost = 'https://addons-discovery-cdn.allizom.org';
 
 module.exports = {
@@ -14,11 +15,14 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoCDN,
+        amoStageCDN,
         staticHost,
         'https://www.google-analytics.com',
       ],
       mediaSrc: [staticHost],
     },
   },
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-stage/
+  publicSentryDsn: 'https://45ef7d925267490fa65100a62fef3179@sentry.prod.mozaws.net/185',
 };

@@ -7,6 +7,8 @@ import {
   INSTALL_ERROR,
   INSTALL_STATE,
   START_DOWNLOAD,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
   UNINSTALLED,
   UNINSTALL_COMPLETE,
   acceptedInstallTypes,
@@ -21,6 +23,7 @@ export default function installations(state = {}, { type, payload }) {
   if (state[payload.guid]) {
     addon = { ...state[payload.guid] };
   }
+
   if (type === INSTALL_STATE) {
     addon = {
       guid: payload.guid,
@@ -43,7 +46,13 @@ export default function installations(state = {}, { type, payload }) {
     addon.downloadProgress = 0;
     addon.status = ERROR;
     addon.error = payload.error;
+  } else if (type === THEME_PREVIEW) {
+    addon.isPreviewingTheme = true;
+    addon.themePreviewNode = payload.themePreviewNode;
+  } else if (type === THEME_RESET_PREVIEW) {
+    addon.isPreviewingTheme = false;
   }
+
   return {
     ...state,
     [payload.guid]: addon,

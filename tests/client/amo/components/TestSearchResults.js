@@ -64,12 +64,12 @@ describe('<SearchResults />', () => {
       'No results were found');
   });
 
-  it('renders a loading message when loading', () => {
+  it('renders a loading indicator when loading', () => {
     const root = renderResults({
       filters: { query: 'test' },
       hasSearchParams: true,
       loading: true,
     });
-    assert.equal(root.message.textContent, 'Searching...');
+    assert.equal(root.LoadingIndicatorContainer.textContent, 'Searching…');
   });
 });

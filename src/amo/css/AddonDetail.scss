@@ -58,9 +58,15 @@ $page-margin: 20px 10px;
   background-color: $masthead-light-color;
   color: #fff;
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   margin: 0;
   padding: 10px;
+
+  .AddonCompatibilityError {
+    margin-top: 10px;
+    width: 100%;
+  }
 }
 
 .AddonDetail-theme-header {
@@ -69,21 +75,12 @@ $page-margin: 20px 10px;
 }
 
 .AddonDetail-theme-header-image {
-  background-position: top right;
-  background-clip: content-box;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 12px;
-  height: 100px;
   object-fit: cover;
   object-position: top right;
-  user-select: none;
+  height: 100px;
+  display: block;
   width: 100%;
-
-  [dir=rtl] & {
-    background-position: top left;
-    object-position: top left;
-  }
 }
 
 .AddonDetail-theme-header-label {
@@ -91,7 +88,6 @@ $page-margin: 20px 10px;
 
   @include start($label-margin);
 
-  background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   bottom: $label-margin;
   color: #fff;
@@ -115,8 +111,6 @@ $page-margin: 20px 10px;
   flex-direction: row;
 
   img {
-    background: #fff;
-    border-radius: 5px;
     display: inline-block;
     height: 64px;
     width: 64px;

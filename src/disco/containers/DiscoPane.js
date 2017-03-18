@@ -95,7 +95,7 @@ export class DiscoPaneBase extends React.Component {
           <div className="disco-header">
             <div className="disco-content">
               <h1>{i18n.gettext('Personalize Your Firefox')}</h1>
-              <p>{i18n.gettext(dedent`There are thousands of free add-ons, created by developers all over
+              <p>{i18n.gettext(`There are thousands of free add-ons, created by developers all over
                     the world, that you can install to personalize your Firefox. From fun visual themes
                     to powerful tools that make browsing faster and safer, add-ons make your browser yours.
                     To help you get started, here are some we recommend for their stand-out performance
