@@ -71,9 +71,10 @@ describe('<InstallButton />', () => {
     const buttonComponent = root.props.children[1];
     assert.equal(buttonComponent.type, Button);
     assert.deepEqual(buttonComponent.props, {
+      appearance: undefined,
       children: 'Add to Firefox',
       className: 'InstallButton-button',
-      href: 'https://addons.mozilla.org/download',
+      to: 'https://addons.mozilla.org/download',
       size: 'normal',
     });
   });
