@@ -65,7 +65,7 @@ describe('<SearchResult />', () => {
 
   it('renders the user count', () => {
     const users = findRenderedDOMComponentWithClass(root, 'SearchResult-users');
-    assert.equal(users.textContent, ' — 5,253 users');
+    assert.equal(users.textContent, '5,253 users');
   });
 
   it('localises the user count', () => {
@@ -79,7 +79,7 @@ describe('<SearchResult />', () => {
     const renderedResult = renderResult({ ...result, average_daily_users: 1 });
     const users = findRenderedDOMComponentWithClass(renderedResult,
                                                     'SearchResult-users');
-    assert.equal(users.textContent, ' — 1 user');
+    assert.equal(users.textContent, '1 user');
   });
 
   it('links to the detail page', () => {
