@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 18:17+0000\n"
+"PO-Revision-Date: 2017-03-18 00:40+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -187,6 +187,8 @@ msgstr "Inga kategorier hittades."
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Om du är inloggad och tror att detta meddelande är ett fel, vänligen <a href=\"%(url)s\">skicka in en felrapport</a>. Berätta var du kom ifrån och vad du försökte komma åt, och vi ska försöka fixa "
+"problemet."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
@@ -194,11 +196,13 @@ msgstr "Behörighet saknas"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Tyvärr, men du har inte behörighet att komma åt sidan. Om du inte är inloggad kan du prova att logga in via länken överst på sidan."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
+"Om du följde en länk från någonstans, vänligen <a href=\"%(url)s\">skicka in en felrapport</a>. Berätta vart du kom ifrån och vad du letade efter, och vi kommer att göra vårt bästa för att åtgärda "
+"det."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
@@ -206,13 +210,15 @@ msgstr "Sidan hittades inte"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr ""
+msgstr "Tyvärr, men vi kan inte hitta något på den adress du angivit. Om du följt en länk till ett tillägg, är det möjligt att tillägget har tagits bort av dess författare."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Om du har ytterligare information som skulle hjälpa oss kan du <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">skicka in en felrapport</a>. Berätta om vilka steg du tog som ledde "
+"till felet och vi ska göra vårt bästa för att fixa det."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -220,7 +226,7 @@ msgstr "Serverfel"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Tyvärr, men ett fel uppstod och vi kunde inte slutföra din begäran. Vi har loggat detta fel och kommer att undersöka det."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -399,11 +405,8 @@ msgid "Add-ons for Firefox"
 msgstr "Tillägg för Firefox"
 
 #: src/amo/containers/Home.js:39
-#, fuzzy
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
-"Tillägg är speciella funktioner som du kan lägga till Firefox.\n"
-"Teman låter dig ändra webbläsarens utseende."
+msgstr "Tillägg är speciella funktioner som du kan lägga till Firefox. Teman låter dig ändra webbläsarens utseende."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -454,9 +457,8 @@ msgid "Abstract"
 msgstr "Abstrakt"
 
 #: src/amo/containers/Home.js:81
-#, fuzzy
 msgid "Holiday"
-msgstr "Enfärgad"
+msgstr "Semester"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -480,7 +482,7 @@ msgstr "Logga in/Registrera dig"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Tyvärr, men ett fel uppstod och vi kunde inte slutföra din begäran. Vi har loggat detta fel och kommer att undersöka det."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
@@ -488,7 +490,7 @@ msgstr "Felkod: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Tyvärr, men vi kan inte hitta något på den URL som du angav."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
