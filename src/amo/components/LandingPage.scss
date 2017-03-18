@@ -6,64 +6,34 @@
 }
 
 .LandingPage-header {
-  margin: 10px;
-  max-width: 100%;
-  text-align: center;
+  margin: $padding-page $padding-page ($padding-page * 2);
+}
+
+.LandingPage-header-top {
+  justify-content: center;
+  display: flex;
 }
 
 .LandingPage-header-text {
   display: inline-block;
+
   @include margin-start(20px);
   @include text-align-start();
+
   width: 250px;
 }
 
 .LandingPage-heading {
-  font-size: 20px;
+  font-size: 14px;
+  margin: 0;
 }
 
 .LandingPage-heading-content {
   margin-top: 5px;
+  font-size: 12px;
 }
 
-.Browse-button, .Browse-button:hover {
-  background-color: white;
-  color: $link-color;
-  height: 55px;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin: 0 5%;
-  margin-bottom: 1em;
-  width: 90%;
-}
-
-.Browse-button-text {
-  bottom: 8px;
-  position: relative;
-}
-
-.LandingPage-browse-icon {
-  background: url('~ui/components/Icon/bullet-list.svg') 50% 50% no-repeat;
-  background-size: cover;
-  height: 30px;
-  @include margin-end(1em);
-  width: 30px;
-}
-
-.LandingPage-persona-icon {
-  background: url('~ui/components/Icon/themes.svg') 50% 50% no-repeat;
-  background-size: cover;
-  display: inline-block;
-  height: 50px;
-  margin-bottom: 15px;
-  width: 41.5px;
-}
-
-.LandingPage-extension-icon {
-  background: url('~ui/components/Icon/extensions.svg') 50% 50% no-repeat;
-  background-size: cover;
-  display: inline-block;
-  height: 47.8px;
-  margin-bottom: 15px;
-  width: 49.2px;
+.LandingPage-browse-button {
+  font-variant: all-small-caps;
+  width: 100%;
 }
