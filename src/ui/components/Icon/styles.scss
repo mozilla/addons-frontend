@@ -39,30 +39,25 @@
   background-size: contain;
 }
 
-.LandingPage-browse-icon {
-  background: url('bullet-list.svg') 50% 50% no-repeat;
+.Icon-browse {
+  background: url('./bullet-list.svg') center no-repeat;
   background-size: cover;
-  height: 30px;
-
-  @include margin-end(1em);
-
-  vertical-align: middle;
-  width: 30px;
+  height: 20px;
+  width: 20px;
 }
 
 .Icon-themes {
-  background: url('themes.svg') 50% 50% no-repeat;
+  background: url('./themes.svg') center no-repeat;
   background-size: cover;
   height: 50px;
-  margin-bottom: 15px;
+  min-width: 41.5px;
   width: 41.5px;
 }
 
 .Icon-extensions {
-  background: url('extensions.svg') 50% 50% no-repeat;
+  background: url('./extensions.svg') center no-repeat;
   background-size: cover;
-  display: inline-block;
   height: 47.8px;
-  margin-bottom: 15px;
+  min-width: 49.2px;
   width: 49.2px;
 }

@@ -4,13 +4,17 @@
 .Button,
 .Button:link {
   @include button();
+}
 
+.Button--light,
+.Button--light:link {
+  @include button(#fff, $link-color);
+}
+
+.Button,
+.Button:link {
   &.Button--small {
     border-radius: $border-radius-s;
     font-size: 13px;
-  }
-
-  &.Button--light {
-    @include button(#fff, $link-color);
   }
 }

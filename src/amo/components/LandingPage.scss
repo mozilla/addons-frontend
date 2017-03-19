@@ -6,21 +6,24 @@
 }
 
 .LandingPage-header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin: $padding-page $padding-page ($padding-page * 2);
 }
 
 .LandingPage-header-top {
-  justify-content: center;
+  align-items: center;
   display: flex;
+  justify-content: center;
+  margin-bottom: $padding-page * 2;
 }
 
 .LandingPage-header-text {
-  display: inline-block;
-
   @include margin-start(20px);
-  @include text-align-start();
 
-  width: 250px;
+  display: inline-block;
+  max-width: 350px;
 }
 
 .LandingPage-heading {
@@ -29,11 +32,27 @@
 }
 
 .LandingPage-heading-content {
-  margin-top: 5px;
+  margin: 5px 0 0;
   font-size: 12px;
 }
 
-.LandingPage-browse-button {
-  font-variant: all-small-caps;
+.LandingPage-header-bottom {
+  display: flex;
   width: 100%;
+}
+
+.LandingPage-browse-button,
+.LandingPage-browse-button:link {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  font-variant: all-small-caps;
+  justify-content: center;
+  margin: 0 $padding-page;
+  padding: 1em;
+  width: 100%;
+}
+
+.LandingPage-browse-icon {
+  @include margin-end(10px);
 }

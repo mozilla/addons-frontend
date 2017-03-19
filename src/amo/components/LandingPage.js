@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { oneLine } from 'common-tags';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -111,8 +112,12 @@ export class LandingPageBase extends React.Component {
     }
 
     const { addonType, html } = content;
-    const themeText = i18n.gettext('Change your browser’s appearance. Choose from thousands of themes to give Firefox the look you want.');
-    const extensionsText = i18n.gettext('Install powerful tools that make browsing faster and safer, add-ons make your browser yours.');
+    const themeText = i18n.gettext(
+      oneLine`Change your browser's appearance. Choose from thousands of themes to give Firefox the
+      look you want.`);
+    const extensionsText = i18n.gettext(
+      oneLine`Install powerful tools that make browsing faster and safer, add-ons make your browser
+      yours.`);
 
     return (
       <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
@@ -122,17 +127,26 @@ export class LandingPageBase extends React.Component {
             <Icon name={visibleAddonType} />
             <div className="LandingPage-header-text">
               <h1 className="LandingPage-heading">
-                {addonType === ADDON_TYPE_THEME ? i18n.gettext('Themes') : i18n.gettext('Extensions')}
+                {addonType === ADDON_TYPE_THEME
+                  ? i18n.gettext('Themes')
+                  : i18n.gettext('Extensions')}
               </h1>
               <p className="LandingPage-heading-content">
                 {addonType === ADDON_TYPE_THEME ? themeText : extensionsText}
               </p>
             </div>
           </div>
-          <Button appearance="light" className="LandingPage-browse-button">
-            <Icon name="browse" className="LandingPage-browse-icon" />
-            {i18n.gettext('Browse by category')}
-          </Button>
+
+          <div className="LandingPage-header-bottom">
+            <Button
+              appearance="light"
+              className="LandingPage-browse-button"
+              to={`/${visibleAddonType}/categories/`}
+            >
+              <Icon name="browse" className="LandingPage-browse-icon" />
+              {i18n.gettext('Browse by category')}
+            </Button>
+          </div>
         </div>
 
         <LandingAddonsCard addons={featuredAddons}
