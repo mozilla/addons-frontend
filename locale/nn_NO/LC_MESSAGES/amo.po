@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-19 14:50+0000\n"
+"PO-Revision-Date: 2017-03-19 15:01+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -208,13 +208,15 @@ msgstr "Fann ikkje sida"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr ""
+msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn. Dersom du følgde ei lenke til ei utviding, kan det vere at utvidinga er fjerna av utviklaren."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Om du har ytterlegare informasjon som skulle hjelpe oss, kan du <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">sende inn ein feilrapport</a>. Fortel om kva for steg du tok som "
+"leidde til feilen, og vi skal gjere vårt beste for å fikse det."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -222,7 +224,7 @@ msgstr "Serverfeil"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Beklagar, men det oppstod ein feil med tenaren vår, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -478,7 +480,7 @@ msgstr "Logg inn/Registrer deg"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
