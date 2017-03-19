@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: disco\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
+
+#: src/core/components/ErrorPage/GenericError/index.js:24
+msgid "Server Error"
+msgstr ""
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We "
+"have logged this error and will investigate it."
+msgstr ""
+
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
+msgid "Error code: %(status)s."
+msgstr ""
+
+#: src/core/components/ErrorPage/NotFound/index.js:24
+msgid "Page not found"
+msgstr ""
+
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:72
+msgid "Install Theme"
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:88
+msgid "Add to Firefox"
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:52
+msgid "Downloading %(name)s."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:55
+msgid "Installing %(name)s."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:59
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:62
+msgid "%(name)s is disabled. Click to enable."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:65
+msgid "Uninstalling %(name)s."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:68
+msgid "%(name)s is uninstalled. Click to install."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:71
+msgid "Install state for %(name)s is unknown."
+msgstr ""
+
+#: src/core/containers/InfoDialog/index.js:31
+msgid "Your add-on is ready"
+msgstr ""
+
+#: src/core/containers/InfoDialog/index.js:33
+msgid "Now you can access %(name)s from the toolbar."
+msgstr ""
+
+#: src/core/containers/InfoDialog/index.js:38
+msgid "OK!"
+msgstr ""
+
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
+
+#: src/disco/components/Addon.js:113
+msgid "Hover over the image to preview"
+msgstr ""
+
+#: src/disco/components/Addon.js:134
+msgid "Installation failed. Please try again."
+msgstr ""
+
+#: src/disco/components/Addon.js:136
+msgid "Download failed. Please check your connection."
+msgstr ""
+
+#: src/disco/components/Addon.js:138
+msgid "An unexpected error occurred during installation."
+msgstr ""
+
+#: src/disco/components/Addon.js:140
+msgid "An unexpected error occurred during uninstallation."
+msgstr ""
+
+#: src/disco/components/Addon.js:143
+msgid "An unexpected error occurred."
+msgstr ""
+
+#: src/disco/components/Addon.js:151
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr ""
+
+#: src/disco/components/Addon.js:153
+msgid "Please restart Firefox to use this add-on."
+msgstr ""
+
+#: src/disco/components/Addon.js:68
+msgid "Close"
+msgstr ""
+
+#: src/disco/containers/App.js:33
+msgid "Discover Add-ons"
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:106
+msgid "Click to play"
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:107
+msgid "to find out more about add-ons"
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:116
+msgid "Close video"
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:127
+msgid "See more add-ons!"
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:97
+msgid "Personalize Your Firefox"
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:98
+msgid ""
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
