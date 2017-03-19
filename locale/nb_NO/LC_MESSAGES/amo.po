@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-19 00:32+0000\n"
+"PO-Revision-Date: 2017-03-19 00:50+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -134,23 +134,23 @@ msgstr "Skriv en omtale"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "Vurderingstekst"
 
 #: src/amo/components/AddonReview.js:124
 msgid "Submit review"
-msgstr ""
+msgstr "Send inn vurdering"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Fortell oss hva du elsker med denne utvidelsen. Vær spesifikk og kortfattet."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
-msgstr ""
+msgstr "Fortell verden om denne utvidelsen."
 
 #: src/amo/components/AddonReview.js:96
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -158,31 +158,31 @@ msgstr ""
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "fra %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr ""
+msgstr "Laster …"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "Add-on icon"
-msgstr ""
+msgstr "Utvidelses-ikon"
 
 #: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Vurderinger for %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:70
 msgid "All written reviews"
-msgstr ""
+msgstr "Alle skrevne vurderinger"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Klarte ikke å laste kategorier."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "Fant ingen kategorier."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -190,7 +190,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
-msgstr ""
+msgstr "Ikke autorisert"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
@@ -202,7 +202,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
-msgstr ""
+msgstr "Fant ikke siden"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
@@ -216,7 +216,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Serverfeil"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -224,179 +224,179 @@ msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
-msgstr ""
+msgstr "Flere utvalgte utvidelser"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Flere utvalgte tema"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
-msgstr ""
+msgstr "Personvernbestemmelser"
 
 #: src/amo/components/Footer.js:36
 msgid "Legal notices"
-msgstr ""
+msgstr "Juridiske merknader"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "Rapporter en feil"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
-msgstr ""
+msgstr "Vis desktop-siden"
 
 #: src/amo/components/LandingPage.js:49
 msgid "Featured extensions"
-msgstr ""
+msgstr "Utvalgte utvidelser"
 
 #: src/amo/components/LandingPage.js:53
 msgid "More featured extensions"
-msgstr ""
+msgstr "Flere utvalgte utvidelser"
 
 #: src/amo/components/LandingPage.js:54
 msgid "Most popular extensions"
-msgstr ""
+msgstr "Mest populære utvidelser"
 
 #: src/amo/components/LandingPage.js:59
 msgid "More popular extensions"
-msgstr ""
+msgstr "Flere populære utvidelser"
 
 #: src/amo/components/LandingPage.js:60
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Høyest vurderte utvidelser"
 
 #: src/amo/components/LandingPage.js:68
 msgid "More highly rated extensions"
-msgstr ""
+msgstr "Flere høyt vurderte utvidelser"
 
 #: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
-msgstr ""
+msgstr "Utvalgte tema"
 
 #: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
-msgstr ""
+msgstr "Flere utvalgte tema"
 
 #: src/amo/components/LandingPage.js:76
 msgid "Most popular themes"
-msgstr ""
+msgstr "Mest populære tema"
 
 #: src/amo/components/LandingPage.js:81
 msgid "More popular themes"
-msgstr ""
+msgstr "Flere populære tema"
 
 #: src/amo/components/LandingPage.js:82
 msgid "Top rated themes"
-msgstr ""
+msgstr "Høyest vurderte tema"
 
 #: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Flere høyt vurderte tema"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
-msgstr ""
+msgstr "Surf på ditt språk"
 
 #: src/amo/components/MastHead.js:30
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox-utvidelser"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "Logg inn for å vurdere denne søkemotoren"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Logg inn for å vurdere dette temaet"
 
 #: src/amo/components/RatingManager/index.js:105
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "Logg inn for å vurdere denne utvidelsen"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Logg inn for å vurdere denne utvidelsen"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Hva synes du om %(addonName)s?"
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Logg inn for å vurdere denne ordboken"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Logg inn for å vurdere denne språkpakken"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
-msgstr ""
+msgstr "Søk"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Søk etter utvidelser og tema"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "Ingen temaforhåndsvisning tilgjengelig"
 
 #: src/amo/components/SearchResults.js:40
 msgid "Searching…"
-msgstr ""
+msgstr "Søker …"
 
 #: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Fant ingen resultat for «%(query)s»."
 
 #: src/amo/components/SearchResults.js:50
 msgid "No results were found."
-msgstr ""
+msgstr "Fant ingen resultat."
 
 #: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Skriv inn et søkeord for å søke i Firefox-utvidelsene."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nylig oppdatert"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "Relevanse"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "Flest brukere"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "Høyest vurdert"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "Sorter"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Foreslåtte sider"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
 msgid "Browse all themes"
-msgstr ""
+msgstr "Bla gjennom alle tema"
 
 #: src/amo/components/SuggestedPages/index.js:35
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "Hjemmeside for utvidelser"
 
 #: src/amo/containers/App.js:104
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Utvidelser for Firefox"
 
 #: src/amo/containers/Home.js:39
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
@@ -404,75 +404,75 @@ msgstr ""
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
-msgstr ""
+msgstr "Utvidelser"
 
 #: src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "Tema"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Du kan endre hvordan Firefox fungerer …"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
-msgstr ""
+msgstr "Blokker reklame"
 
 #: src/amo/containers/Home.js:58
 msgid "Screenshot"
-msgstr ""
+msgstr "Skjermbilde"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "Finn nyheter"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
-msgstr ""
+msgstr "Handle på nettet"
 
 #: src/amo/containers/Home.js:67
 msgid "Be social"
-msgstr ""
+msgstr "Vær sosial"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "Spill spill"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "… eller hvordan den ser ut"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
-msgstr ""
+msgstr "Vill"
 
 #: src/amo/containers/Home.js:80
 msgid "Abstract"
-msgstr ""
+msgstr "Abstrakt"
 
 #: src/amo/containers/Home.js:81
 msgid "Holiday"
-msgstr ""
+msgstr "Ferie"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
-msgstr ""
+msgstr "Naturskjønn"
 
 #: src/amo/containers/Home.js:83
 msgid "Sporty"
-msgstr ""
+msgstr "Sporty"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "Ensfarget"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
-msgstr ""
+msgstr "Logg ut"
 
 #: src/core/components/AuthenticateButton/index.js:50
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Logg inn/Registrer deg"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -480,7 +480,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Feilkode: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -488,71 +488,71 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
-msgstr ""
+msgstr "Installer tema"
 
 #: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Legg til i Firefox"
 
 #: src/core/components/InstallSwitch/index.js:52
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Laster ned %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Installerer %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s er installert og slått på. Klikk for å avinstallere."
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s er avslått. Klikk for å slå på."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Avinstallerer %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:68
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s er avinstallert. Klikk for å installere."
 
 #: src/core/components/InstallSwitch/index.js:71
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Installeringsstatus for %(name)s er ukjent."
 
 #: src/core/components/Paginate/index.js:106
 msgid "Previous"
-msgstr ""
+msgstr "Forrige"
 
 #: src/core/components/Paginate/index.js:118
 msgid "Next"
-msgstr ""
+msgstr "Neste"
 
 #: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Side %(currentPage)s av %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Utvidelsen din er klar"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Nå kan du få tilgang til %(name)s fra verktøylinja."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "En uventet feil oppstod"
 
 #: src/ui/components/LoadingIndicator/index.js:27
 msgid "Loading…"
-msgstr ""
+msgstr "Laster …"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
