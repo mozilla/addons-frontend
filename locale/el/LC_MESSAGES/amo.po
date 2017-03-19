@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-08 11:49+0000\n"
+"PO-Revision-Date: 2017-03-19 17:10+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -451,9 +451,8 @@ msgid "Abstract"
 msgstr "Αφηρημένη"
 
 #: src/amo/containers/Home.js:81
-#, fuzzy
 msgid "Holiday"
-msgstr "Συμπαγής"
+msgstr "Διακοπές"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
