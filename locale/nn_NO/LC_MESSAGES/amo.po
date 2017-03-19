@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-19 13:04+0000\n"
+"PO-Revision-Date: 2017-03-19 14:23+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -28,7 +28,7 @@ msgstr "Denne utvidinga krev ein <a href=\"%(downloadUrl)s\">nyare versjon av Fi
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Nettlesaren din støttar ikkje utvidingar. Du kan <a href=\"%(downloadUrl)s\">last ned Firefox</a> for å installere denne utvidinga."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
