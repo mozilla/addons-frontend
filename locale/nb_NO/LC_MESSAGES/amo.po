@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-19 00:50+0000\n"
+"PO-Revision-Date: 2017-03-19 01:02+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -20,7 +20,7 @@ msgstr "Du må <a href=\"%(downloadUrl)s\">laste ned Firefox</a> for å installe
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox for iOS støtter ikke utvidelser for øyeblikket."
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -540,7 +540,7 @@ msgstr "Utvidelsen din er klar"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr "Nå kan du få tilgang til %(name)s fra verktøylinja."
+msgstr "Du kan nå få tilgang til %(name)s fra verktøylinjen."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
@@ -556,12 +556,12 @@ msgstr "Laster …"
 
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Vurdert %(rating)s ut av 5"
 
 #: src/ui/components/Rating/index.js:86
 msgid "No ratings"
-msgstr ""
+msgstr "Ingen vurderinger"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese mer"

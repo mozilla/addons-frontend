@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:21+0000\n"
-"PO-Revision-Date: 2017-03-19 00:36+0000\n"
+"PO-Revision-Date: 2017-03-19 01:02+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "Serverfeil"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -24,11 +24,11 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Feilkode: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
-msgstr ""
+msgstr "Fant ikke siden"
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -36,39 +36,39 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
-msgstr ""
+msgstr "Installer tema"
 
 #: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Legg til i Firefox"
 
 #: src/core/components/InstallSwitch/index.js:52
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Laster ned %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Installerer %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s er installert og påslått. Klikk for å avinstallere."
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s er avslått. Klikk for å skru på."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Avinstallerer %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:68
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s er avinstallert. Klikk for å installere."
 
 #: src/core/components/InstallSwitch/index.js:71
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Installeringsstatus for %(name)s er ukjent."
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
@@ -76,39 +76,39 @@ msgstr "Utvidelsen din er klar"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Du kan nå få tilgang til %(name)s fra verktøylinjen."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Hold musepekeren over for å forhåndsvise eller klikk for å installere %(name)s"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Hold musepekeren over bildet for en forhåndsvisning"
 
 #: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "Installasjon mislyktes. Prøv igjen."
 
 #: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Nedlastning mislyktes. Kontroller tilkoblingen din."
 
 #: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Det oppstod en uventet feil under installasjonen."
 
 #: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Det oppstod en uventet feil under avinstalleringen."
 
 #: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Det oppstod en uventet feil."
 
 #: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
@@ -120,7 +120,7 @@ msgstr "Start Firefox på nytt for å bruke denne utvidelsen."
 
 #: src/disco/components/Addon.js:68
 msgid "Close"
-msgstr ""
+msgstr "Lukk"
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
@@ -128,7 +128,7 @@ msgstr "Oppdag utvidelser"
 
 #: src/disco/containers/DiscoPane.js:106
 msgid "Click to play"
-msgstr ""
+msgstr "Klikk for å spille av"
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "to find out more about add-ons"
@@ -136,7 +136,7 @@ msgstr "for å finne ut mer om utvidelser"
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Close video"
-msgstr ""
+msgstr "Lukk video"
 
 #: src/disco/containers/DiscoPane.js:127
 msgid "See more add-ons!"
@@ -144,7 +144,7 @@ msgstr "Se flere utvidelser!"
 
 #: src/disco/containers/DiscoPane.js:97
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Tilpass Firefox"
 
 #: src/disco/containers/DiscoPane.js:98
 msgid ""
