@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 20:01+0000\n"
+"PO-Revision-Date: 2017-03-20 20:31+0000\n"
 "Last-Translator: Moḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -198,7 +198,7 @@ msgstr "Suref-aɣ, acku ur ɣur-k ara tasiregt akken ad tkecmeḍ ar usebter-agi
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "Ma tḍefreḍ-d aseɣwen-agi seg allaɛḍ n imeḍqan, <a href=\"%(url)s\">azen-d ugur</a>. Iniyaɣ-d ansa i d-yekka akked wayen tettnadiḍ, sakin ad nwali ayen nezmer akken ad t-nseɣti."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
