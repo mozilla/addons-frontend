@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-20 01:30+0000\n"
+"PO-Revision-Date: 2017-03-20 01:42+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -200,7 +200,7 @@ msgstr "দুঃখিত, কিন্তু আপনি এই পৃষ্�
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "আপনি কোথাও থেকে একটি লিঙ্ক অনুসরণ করে আসলে, অনুগ্রহ করে <a href=\"%(url)s\">একটি ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছিলেন আর কি খুঁজছিলেন, আমরা এটা ঠিক করতে যথাসাধ্য চেষ্টা করব।"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
@@ -208,13 +208,15 @@ msgstr "পাতা পাওয়া যায়নি"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr ""
+msgstr "দুঃখিত, কিন্তু আমরা আপনার লেখা ঠিকানাটিতে কিছু খুঁজে পাচ্ছি না। আপনি একটি অ্যাড-অন লিঙ্ক অনুসরণ করে থাকলে, সম্ভবত অ্যাড-অনটি তার ডেভেলপার কর্তৃক অপসারণ করা হয়েছে।"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"আপনার নিকট অতিরিক্ত তথ্য থাকলে সেটি দিয়ে আমাদের সাহায্য করতে চাইলে <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\"> একটি ইস্যু সাবমিট</a> করতে পারেন। আমাদের বলুন আপনার কোন "
+"পদক্ষেপে এই ত্রুটির সম্মুখীন হয়েছেন, আমরা এটা ঠিক করতে আমাদের যথাসাধ্য চেষ্টা করব।"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -222,7 +224,7 @@ msgstr "সার্ভার ত্রুটি"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "দুঃখিত, কিন্তু আমাদের সার্ভারের একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারেনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা তদন্ত করা হবে।"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -242,7 +244,7 @@ msgstr "আইনি বিজ্ঞপ্তি"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "একটি বাগ রিপোর্ট করুন"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -402,7 +404,7 @@ msgstr "Firefox এর জন্য অ্যাড-অন"
 
 #: src/amo/containers/Home.js:39
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
+msgstr "এক্সটেনশনগুলো বিশেষ বৈশিষ্ট্য যা আপনি Firefox y যোগ করতে পারেন। থিম আপনার ব্রাউজারের চেহারা পরিবর্তন করতে সাহায্য করবে।"
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -414,7 +416,7 @@ msgstr "থিম"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Firefox কিভাবে কাজ করবে তা আপনি পরিবর্তন করতে পারেন ..."
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -426,7 +428,7 @@ msgstr "স্ক্রিনসট"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "সংবাদ অনুসন্ধান করুন"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -438,11 +440,11 @@ msgstr "সামাজিক হন"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "গেমস খেলুন"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "... অথবা কি এটা দেখে কি মনে হচ্ছে"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -454,7 +456,7 @@ msgstr "নির্বস্তুক"
 
 #: src/amo/containers/Home.js:81
 msgid "Holiday"
-msgstr ""
+msgstr "ছুটির দিন"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -466,7 +468,7 @@ msgstr "খেলাধুলা সংক্রান্ত"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "কঠিন"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
@@ -478,7 +480,7 @@ msgstr "লগ ইন/সাইন আপ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
@@ -486,7 +488,7 @@ msgstr "এরর কোড: %(status)s"
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "দুঃখিত, কিন্তু আমরা আপনার লেখা URL এ কিছু খুঁজে পাচ্ছি না।"
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
