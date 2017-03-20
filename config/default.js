@@ -236,6 +236,5 @@ module.exports = {
   allowErrorSimulation: false,
 
   sentryDsn: process.env.SENTRY_DSN || null,
-  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-prod/
-  publicSentryDsn: 'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
+  publicSentryDsn: null,
 };
