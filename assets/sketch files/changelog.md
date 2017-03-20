@@ -9,6 +9,7 @@ Links
 
 ============
 
+<<<<<<< HEAD
 Mar 19, 2017
 - Completed button styles
 - Completed icon library
@@ -27,6 +28,8 @@ Mar 10, 2017
 - Added a new Contribute block design to the extension detail page
 - Revised the written review block
 
+=======
+>>>>>>> parent of 6fa0ff4... Updates
 Mar 7, 2017
 - Changed header and footer colours to match the photon colour palette
 - Changed the placing of # of users on the extension and theme blocks
