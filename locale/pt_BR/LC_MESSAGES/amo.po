@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-20 11:30+0000\n"
+"PO-Revision-Date: 2017-03-20 11:31+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -399,11 +399,8 @@ msgid "Add-ons for Firefox"
 msgstr "Extensões para o Firefox"
 
 #: src/amo/containers/Home.js:39
-#, fuzzy
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
-"As extensões são recursos especiais que você pode adicionar ao Firefox.\n"
-"Os temas permitem alterar a aparência do navegador."
+msgstr "As extensões são funcionalidades especiais que você pode adicionar ao Firefox. Os temas permitem alterar a aparência do navegador."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
