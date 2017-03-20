@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-18 17:40+0000\n"
+"PO-Revision-Date: 2017-03-20 01:30+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -24,11 +24,11 @@ msgstr "iOS এর জন্যৈ Firefox বর্তমানে অ্যা
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "এই অ্যাড-অনটির জন্যে <a href=\"%(downloadUrl)s\"> Firefox এর নতুন সংষ্করণ</a> (অন্তত %(minVersion)s সংস্করণ প্রয়োজন)। আপনি ব্যবহার করছেন Firefox %(yourVersion)s।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "আপনার ব্রাউজার অ্যাড-অন সমর্থন করে না। আপনি <a href=\"%(downloadUrl)s\">Firefox ডাউনলোড</a> করে এই অ্যাড-অন ইনস্টল করতে পারেন।"
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -153,7 +153,6 @@ msgid "Tell the world about this extension."
 msgstr "এই এক্সটেনশনটি সম্পর্কে পৃথিবীকে বলুন।"
 
 #: src/amo/components/AddonReview.js:96
-#, fuzzy
 msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
 
@@ -188,6 +187,8 @@ msgstr "কোন বিভাগ পাওয়া যায়নি।"
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"আপনি যদি সাইন ইন থাকেন এবং মনে করেন এই বার্তাটি একটি ত্রুটি, অনুগ্রহ করে <a href=\"%(url)s\">একটি ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছেন, আপনি কি অ্যাক্সেস করার চেষ্টা করছিলেন, "
+"আমরা সমস্যাটি সমাধান করব।"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
@@ -195,7 +196,7 @@ msgstr "অনুমোদিত নয়"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "দুঃখিত, কিন্তু আপনি এই পৃষ্ঠায় যাওয়ার জন্য অনুমোদিত নন। আপনি সাইন ইন অবস্থায় না থাকলে, পৃষ্ঠার উপরের লিঙ্কটি ব্যবহার করে সাইন ইন করার চেষ্টা করুন।"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
