@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:21+0000\n"
-"PO-Revision-Date: 2017-03-17 15:44+0000\n"
+"PO-Revision-Date: 2017-03-20 12:33+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -32,7 +32,7 @@ msgstr "Pagina niet gevonden"
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Sorry, maar we kunnen geen pagina op de ingevoerde URL vinden."
+msgstr "Sorry, maar we kunnen niets op de ingevoerde URL vinden."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
