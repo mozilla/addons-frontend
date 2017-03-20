@@ -8,11 +8,17 @@ Links
 
 ============
 
+Mar 19, 2017
+- Completed button styles
+- Completed icon library
+- Completed type styles
+- Completed type field styles (still need to be made into symbols)
+
 Mar 15, 2017
 - Renamed colour styles
 - Added category colour palette
 - Changed "colour" to "color" in the file, but am willing to change it back since most of us are Canadian/European? :D
-- Added two example detail pages with real content 
+- Added two example detail pages with real content
 
 Mar 10, 2017
 - Updated extension detail page
