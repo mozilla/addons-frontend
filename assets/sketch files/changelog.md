@@ -4,6 +4,7 @@ About
 Pages: Screens (page mock-ups), Specs (element/site specifications), Symbols (site-wide element repo)
 
 Links
+<<<<<<< HEAD
 - [InVision Page](https://mozilla.invisionapp.com/share/T59YLZYSM)
 
 ============
@@ -38,6 +39,9 @@ Mar 7, 2017
 - Added metadata info to collection Pages
 - Refined filter results block on search pages
 - Defined colour and typography styles (viewable in Sketch file, soon to be made into style guide)
+=======
+[InVision Page](https://mozilla.invisionapp.com/share/T59YLZYSM) 
+>>>>>>> parent of dee8acf... Updated files
 
 Feb 28, 2017
 - Created file! Woo!
