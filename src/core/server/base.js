@@ -137,7 +137,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   const sentryDsn = config.get('sentryDsn');
   if (sentryDsn) {
-    Raven.config(sentryDsn).install();
+    Raven.config(sentryDsn, { logger: 'server-js' }).install();
     app.use(Raven.requestHandler());
     log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
     // The error handler is defined below.

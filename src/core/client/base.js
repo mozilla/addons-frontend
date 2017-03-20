@@ -19,7 +19,7 @@ export default function makeClient(routes, createStore) {
   const publicSentryDsn = config.get('publicSentryDsn');
   if (publicSentryDsn) {
     log.info(`Configured client-side Sentry with DSN ${publicSentryDsn}`);
-    RavenJs.config(publicSentryDsn).install();
+    RavenJs.config(publicSentryDsn, { logger: 'client-js' }).install();
   } else {
     log.warn('Client-side Sentry reporting was disabled by the config');
   }
