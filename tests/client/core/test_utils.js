@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import url from 'url';
 
 import { oneLine } from 'common-tags';
