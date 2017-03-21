@@ -1,5 +1,4 @@
 /* global fetch */
-/* eslint-disable arrow-body-style */
 
 import url from 'url';
 
