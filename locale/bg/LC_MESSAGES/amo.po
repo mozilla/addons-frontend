@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 14:17+0000\n"
+"PO-Revision-Date: 2017-03-21 08:46+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -400,7 +400,7 @@ msgstr "Добавки за Firefox"
 
 #: src/amo/containers/Home.js:39
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr "Разширенията са специални функции, които може да добавяте към Firefox. С помощта на темите променяте външния вид на браузъра си."
+msgstr "Разширенията са специални функции, които може да добавяте към Firefox. С помощта на темите пък променяте облика на браузъра си."
 
 #: src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -412,7 +412,7 @@ msgstr "Теми"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr "Можете да промените как работи Firefox…"
+msgstr "Можете да промените как Firefox работи…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -432,7 +432,7 @@ msgstr "Пазаруване он-лайн"
 
 #: src/amo/containers/Home.js:67
 msgid "Be social"
-msgstr "Бъде социален"
+msgstr "Социални"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
@@ -440,7 +440,7 @@ msgstr "Играе игри"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr "…или как изгледжа"
+msgstr "…или как изглежда"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
