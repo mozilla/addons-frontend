@@ -51,44 +51,22 @@ export class RatingBase extends React.Component {
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
-    // We render read-only star ratings with half-stars, to give users a
-    // better representation of the average rating.
-    if (readOnly) {
-      // Round the average to the nearest .5 place, because that's how we
-      // display stars visually and that's enough precision for a review rating
-      // average anyway.
-      const ratingOutOfTen = round(rating, 0.5) * 2;
-
-      // We want the number next to each star in the CSS to be in order, so
-      // we keep track of the index separately.
-      return [2, 4, 6, 8, 10].map((thisRating) => {
-        const index = thisRating / 2;
-
-        const props = {
-          className: classNames('Rating-choice', {
-            'Rating-selected-star': rating && thisRating <= ratingOutOfTen,
-            'Rating-half-star': rating && thisRating - 1 === ratingOutOfTen,
-          }),
-          id: `Rating-rating-${index}`,
-          ref: (ref) => {
-            this.ratingElements[index] = ref;
-          },
-        };
-
-        return <div {...props} />;
-      });
-    }
-
     return [1, 2, 3, 4, 5].map((thisRating) => {
       const props = {
         className: classNames('Rating-choice', {
           'Rating-selected-star': rating && thisRating <= rating,
+          // Half stars are the result of averages rounded to the nearest
+          // 0.5 place; only show them when readOnly is true.
+          'Rating-half-star': (readOnly && rating && thisRating > rating &&
+            thisRating - 0.5 <= rating),
         }),
         id: `Rating-rating-${thisRating}`,
-        ref: (ref) => {
-          this.ratingElements[thisRating] = ref;
-        },
+        ref: (ref) => { this.ratingElements[thisRating] = ref; },
       };
+
+      if (readOnly) {
+        return <div {...props} />;
+      }
 
       return (
         <button
@@ -110,7 +88,7 @@ export class RatingBase extends React.Component {
     let description;
     if (rating) {
       description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
-                                 { rating: i18n.formatNumber(rating) });
+        { rating: i18n.formatNumber(round(rating, 0.5)) });
     } else {
       description = i18n.gettext('No ratings');
     }
@@ -119,7 +97,8 @@ export class RatingBase extends React.Component {
       className, { 'Rating--editable': !readOnly });
 
     return (
-      <div className={allClassNames} ref={(ref) => { this.element = ref; }}>
+      <div className={allClassNames} ref={(ref) => { this.element = ref; }}
+        title={description}>
         <span className="Rating-star-group">
           {this.renderRatings()}
           <span className="visually-hidden">{description}</span>
