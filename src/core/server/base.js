@@ -22,7 +22,7 @@ import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
 import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
-import { setClientApp, setLang, setJwt, setUserAgent } from 'core/actions';
+import { setClientApp, setLang, setAuthToken, setUserAgent } from 'core/actions';
 import log from 'core/logger';
 import {
   getDirection,
@@ -251,7 +251,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         store = createStore();
         const token = cookie.load(config.get('cookieName'));
         if (token) {
-          store.dispatch(setJwt(token));
+          store.dispatch(setAuthToken(token));
         }
 
         pageProps = getPageProps({ noScriptStyles, store, req, res });

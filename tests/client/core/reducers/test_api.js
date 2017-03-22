@@ -14,7 +14,7 @@ describe('api reducer', () => {
   it('stores the auth token', () => {
     const token = userAuthToken();
     assert.deepEqual(
-      api({ foo: 'bar' }, actions.setJwt(token)),
+      api({ foo: 'bar' }, actions.setAuthToken(token)),
       { foo: 'bar', token });
   });
 

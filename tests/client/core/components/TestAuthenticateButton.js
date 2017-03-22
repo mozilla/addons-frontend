@@ -6,7 +6,7 @@ import {
 import { findDOMNode } from 'react-dom';
 import { combineReducers, createStore as _createStore } from 'redux';
 
-import { setJwt } from 'core/actions';
+import { setAuthToken } from 'core/actions';
 import * as api from 'core/api';
 import {
   AuthenticateButtonBase,
@@ -91,7 +91,7 @@ describe('<AuthenticateButton />', () => {
     sinon.stub(config, 'get', (key) => _config[key]);
     const apiConfig = { token: 'some.jwt.string' };
     const store = createStore();
-    store.dispatch(setJwt(userAuthToken({ user_id: 99 })));
+    store.dispatch(setAuthToken(userAuthToken({ user_id: 99 })));
     const { handleLogOut } = mapDispatchToProps(store.dispatch);
     assert.ok(store.getState().api.token);
     return handleLogOut({ api: apiConfig })
@@ -104,7 +104,7 @@ describe('<AuthenticateButton />', () => {
   it('pulls isAuthenticated from state', () => {
     const store = createStore(combineReducers({ api }));
     assert.equal(mapStateToProps(store.getState()).isAuthenticated, false);
-    store.dispatch(setJwt(userAuthToken({ user_id: 123 })));
+    store.dispatch(setAuthToken(userAuthToken({ user_id: 123 })));
     assert.equal(mapStateToProps(store.getState()).isAuthenticated, true);
   });
 });

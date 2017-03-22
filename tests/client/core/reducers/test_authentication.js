@@ -1,6 +1,6 @@
 import base64url from 'base64url';
 
-import { setJwt } from 'core/actions';
+import { setAuthToken } from 'core/actions';
 import auth from 'core/reducers/authentication';
 import { userAuthToken } from 'tests/client/helpers';
 
@@ -30,7 +30,7 @@ describe('authentication reducer', () => {
   });
 
   describe('set and reduce auth token', () => {
-    const setAndReduceToken = (token) => auth(undefined, setJwt(token));
+    const setAndReduceToken = (token) => auth(undefined, setAuthToken(token));
 
     it('sets auth state based on the token', () => {
       const token = userAuthToken({ user_id: 91234 });

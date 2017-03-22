@@ -8,7 +8,7 @@ import {
   SET_USER_AGENT,
 } from 'core/constants';
 
-export function setJwt(token) {
+export function setAuthToken(token) {
   return {
     type: SET_AUTH_TOKEN,
     payload: { token },

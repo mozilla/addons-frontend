@@ -10,7 +10,7 @@ import { createStore } from 'redux';
 import HandleLogin, {
   HandleLoginBase, mapDispatchToProps,
 } from 'core/containers/HandleLogin';
-import { setJwt } from 'core/actions';
+import { setAuthToken } from 'core/actions';
 import * as api from 'core/api';
 import { userAuthToken } from 'tests/client/helpers';
 
@@ -121,7 +121,7 @@ describe('<HandleLogin />', () => {
       const { loadData } = mapDispatchToProps(dispatch);
       return loadData({ api: apiConfig, location, router }).then(() => {
         assert(dispatch.calledOnce, 'dispatch not called');
-        assert.deepEqual(dispatch.firstCall.args[0], setJwt(payload.token));
+        assert.deepEqual(dispatch.firstCall.args[0], setAuthToken(payload.token));
       });
     });
 
