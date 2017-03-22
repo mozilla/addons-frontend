@@ -4,4 +4,5 @@ module.exports = {
   proxyPort: 3000,
   proxyEnabled: true,
   fxaConfig: 'local',
+  trackingEnabled: false,
 };

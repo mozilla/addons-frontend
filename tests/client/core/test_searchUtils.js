@@ -30,12 +30,12 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
     filters = {
       addonType: ADDON_TYPE_THEME,
       category: 'anime',
-      clientApp: 'android',
+      clientApp: 'firefox',
     };
     ownProps = {
       location: { query: {} },
       params: {
-        application: 'android',
+        application: 'firefox',
         visibleAddonType: 'themes',
         slug: 'anime',
       },

@@ -6,7 +6,13 @@ import {
 
 import translate from 'core/i18n/translate';
 import { setJwt } from 'core/actions';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import * as amoApi from 'amo/api';
 import createStore from 'amo/store';
@@ -63,53 +69,6 @@ describe('RatingManager', () => {
     assert.equal(loadSavedReview.called, true);
     const args = loadSavedReview.firstCall.args[0];
     assert.deepEqual(args, { userId, addonId: addon.id });
-  });
-
-  it('does not load saved ratings when userId is empty', () => {
-    const userId = null;
-    const loadSavedReview = sinon.spy();
-
-    render({ userId, loadSavedReview });
-    assert.equal(loadSavedReview.called, false);
-  });
-
-  it('renders an AuthenticateButton when userId is empty', () => {
-    const AuthenticateButton = sinon.spy(() => <div />);
-    const location = { pathname: '/some/path/' };
-    render({ userId: null, AuthenticateButton, location });
-
-    assert.ok(AuthenticateButton.called, 'AuthenticateButton was not rendered');
-    const props = AuthenticateButton.firstCall.args[0];
-    assert.deepEqual(props.location, location);
-  });
-
-  it('renders a login message for the extension when userId is empty', () => {
-    const AuthenticateButton = sinon.spy(() => <div />);
-    render({
-      userId: null,
-      AuthenticateButton,
-      addon: { ...fakeAddon, type: ADDON_TYPE_EXTENSION },
-    });
-    const props = AuthenticateButton.firstCall.args[0];
-    assert.include(props.logInText, 'extension');
-  });
-
-  it('renders a login message for the theme when userId is empty', () => {
-    const AuthenticateButton = sinon.spy(() => <div />);
-    render({
-      userId: null,
-      AuthenticateButton,
-      addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
-    });
-    const props = AuthenticateButton.firstCall.args[0];
-    assert.include(props.logInText, 'theme');
-  });
-
-  it('cannot render a login message for unknown extension types', () => {
-    assert.throws(() => render({
-      userId: null,
-      addon: { ...fakeAddon, type: 'xul' },
-    }), /Unknown extension type: xul/);
   });
 
   it('creates a rating with add-on and version info', () => {
@@ -240,6 +199,81 @@ describe('RatingManager', () => {
     assert.equal(RatingStub.called, true);
     const props = RatingStub.firstCall.args[0];
     assert.strictEqual(props.rating, undefined);
+  });
+
+  describe('when user is signed out', () => {
+    function renderWithoutUser(customProps = {}) {
+      return render({ userId: null, ...customProps });
+    }
+
+    function getAuthPromptForType(addonType) {
+      const AuthenticateButton = sinon.spy(() => <div />);
+      renderWithoutUser({
+        AuthenticateButton,
+        addon: { ...fakeAddon, type: addonType },
+      });
+      assert.ok(AuthenticateButton.called, 'AuthenticateButton was not rendered');
+      const props = AuthenticateButton.firstCall.args[0];
+      return props.logInText;
+    }
+
+    it('does not load saved ratings', () => {
+      const loadSavedReview = sinon.spy();
+      renderWithoutUser({ loadSavedReview });
+      assert.equal(loadSavedReview.called, false);
+    });
+
+    it('renders an AuthenticateButton', () => {
+      const AuthenticateButton = sinon.spy(() => <div />);
+      const location = { pathname: '/some/path/' };
+      renderWithoutUser({ AuthenticateButton, location });
+
+      assert.ok(AuthenticateButton.called, 'AuthenticateButton was not rendered');
+      const props = AuthenticateButton.firstCall.args[0];
+      assert.deepEqual(props.location, location);
+    });
+
+    it('renders a login prompt for the dictionary', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_DICT);
+      assert.include(prompt, 'dictionary');
+    });
+
+    it('renders a login prompt for the extension', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_EXTENSION);
+      assert.include(prompt, 'extension');
+    });
+
+    it('renders a login prompt for the language pack', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_LANG);
+      assert.include(prompt, 'language pack');
+    });
+
+    it('renders a login prompt for the search engine', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_SEARCH);
+      assert.include(prompt, 'search engine');
+    });
+
+    it('renders a login prompt for themes', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_THEME);
+      assert.include(prompt, 'theme');
+    });
+
+    it('cannot render a login prompt for unknown extension types', () => {
+      assert.throws(
+        () => getAuthPromptForType('xul'), /Unknown extension type: xul/);
+    });
+
+    it('renders a random valid extension type', () => {
+      const root = renderWithoutUser();
+      // This simulates a future code change where a valid type is added
+      // but we haven't given it a custom prompt yet.
+      const prompt = root.getLogInPrompt(
+        { addonType: 'banana' },
+        { validAddonTypes: ['banana'] }
+      );
+      // The prompt should just call it an add-on:
+      assert.include(prompt, 'add-on');
+    });
   });
 
   describe('mapDispatchToProps', () => {

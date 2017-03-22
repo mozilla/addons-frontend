@@ -18,23 +18,24 @@ GitHub also has great instructions for [forking a repository][git-fork].
 The tests must be run in Firefox 48 or later.
 
 1. Install [Tox]
-1. Download geckodriver [v0.10.0][geckodriver] and ensure it's executable and
+1. Download geckodriver [v0.14.0][geckodriver] and ensure it's executable and
    in your path
 1. Run `tox`
 
-To run against a different environment, pass in a value for `--base-url`, like so:
+To run against a different environment, set the `PYTEST_BASE_URL` environment
+variable, like so:
 
 ```bash
-tox -e discopane-ui-tests -- --base-url=https://discovery.addons.mozilla.org
+PYTEST_BASE_URL=https://discovery.addons.mozilla.org tox
 ```
 
 The pytest plugin that we use for running tests has a number of advanced
 command line options available. To see the options available, run
-`py.test --help`. The full documentation for the plugin can be found
+`pytest --help`. The full documentation for the plugin can be found
 [here][pytest-selenium].
 
 [git-clone]: https://help.github.com/articles/cloning-a-repository/
 [git-fork]: https://help.github.com/articles/fork-a-repo/
-[geckodriver]: https://github.com/mozilla/geckodriver/releases/tag/v0.10.0
+[geckodriver]: https://github.com/mozilla/geckodriver/releases/tag/v0.14.0
 [pytest-selenium]: http://pytest-selenium.readthedocs.org/
 [Tox]: http://tox.readthedocs.io/

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { oneLine } from 'common-tags';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
@@ -19,7 +18,7 @@ export class ServerErrorBase extends React.Component {
   render() {
     const { i18n } = this.props;
 
-    const fileAnIssueText = i18n.gettext(oneLine`
+    const fileAnIssueText = i18n.gettext(`
       If you have additional information that would help us you can
       <a href="https://github.com/mozilla/addons-frontend/issues/new/">file an
       issue</a>. Tell us what steps you took that lead to the error and we'll
@@ -31,7 +30,7 @@ export class ServerErrorBase extends React.Component {
         <Card className="ErrorPage ServerError"
           header={i18n.gettext('Server Error')}>
           <p>
-            {i18n.gettext(oneLine`
+            {i18n.gettext(`
               Sorry, but there was an error with our server and we couldn't
               complete your request. We have logged this error and will
               investigate it.`)}

@@ -6,6 +6,16 @@ import { assertHasClass, assertNotHasClass } from 'tests/client/helpers';
 import SearchInput from 'ui/components/SearchInput';
 
 describe('<SearchInput />', () => {
+  let clock;
+
+  beforeEach(() => {
+    clock = sinon.useFakeTimers();
+  });
+
+  afterEach(() => {
+    clock.restore();
+  });
+
   it('uses the initial value for the left offset', () => {
     // Test elements don't actually get rendered so all of the offsets are 0.
     const root = renderIntoDocument(<SearchInput name="foo" />);
@@ -89,6 +99,15 @@ describe('<SearchInput />', () => {
     root.setState({ animating: true });
     assertHasClass(root.root, 'SearchInput--animating');
     Simulate.transitionEnd(root.animateIcon);
+    assertNotHasClass(root.root, 'SearchInput--animating');
+  });
+
+  it('clears the --animating class when timeout fires', () => {
+    const root = renderIntoDocument(<SearchInput name="foo" />);
+    root.setState({ animating: true });
+    assertHasClass(root.root, 'SearchInput--animating');
+    Simulate.focus(root.input);
+    clock.tick(300);
     assertNotHasClass(root.root, 'SearchInput--animating');
   });
 

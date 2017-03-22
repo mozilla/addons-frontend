@@ -28,8 +28,8 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import { getFakeI18nInst }
-  from 'tests/client/helpers';
+import createStore from 'disco/store';
+import { getFakeI18nInst, signedInApiState } from 'tests/client/helpers';
 
 const result = {
   id: 'test-id',
@@ -44,9 +44,9 @@ function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
   const getBrowserThemeData = () => '{"theme":"data"}';
 
   return findRenderedComponentWithType(renderIntoDocument(
-    <MyAddon
-      getBrowserThemeData={getBrowserThemeData} i18n={getFakeI18nInst()} {...props}
-      setCurrentStatus={setCurrentStatus} hasAddonManager />
+    <MyAddon getBrowserThemeData={getBrowserThemeData} i18n={getFakeI18nInst()}
+      setCurrentStatus={setCurrentStatus} hasAddonManager
+      store={createStore({ api: signedInApiState })} {...props} />
   ), MyAddon).getWrappedInstance();
 }
 
@@ -287,16 +287,16 @@ describe('<Addon />', () => {
     let root;
     let themeImage;
     let previewTheme;
-    let resetPreviewTheme;
+    let resetThemePreview;
 
     beforeEach(() => {
       previewTheme = sinon.spy();
-      resetPreviewTheme = sinon.spy();
+      resetThemePreview = sinon.spy();
       const data = {
         ...result,
         type: ADDON_TYPE_THEME,
         previewTheme,
-        resetPreviewTheme,
+        resetThemePreview,
       };
       root = renderAddon({ addon: data, ...data });
       themeImage = findDOMNode(root).querySelector('.theme-image');
@@ -311,7 +311,7 @@ describe('<Addon />', () => {
     it('resets theme preview onHoverIntentEnd on theme image', () => {
       const hoverIntent = findRenderedComponentWithType(root, HoverIntent);
       hoverIntent.props.onHoverIntentEnd({ currentTarget: themeImage });
-      assert.ok(resetPreviewTheme.calledWith(themeImage));
+      assert.ok(resetThemePreview.calledWith(themeImage));
     });
 
     it('runs theme preview onFocus on theme image', () => {
@@ -321,7 +321,7 @@ describe('<Addon />', () => {
 
     it('resets theme preview onBlur on theme image', () => {
       Simulate.blur(themeImage);
-      assert.ok(resetPreviewTheme.calledWith(themeImage));
+      assert.ok(resetThemePreview.calledWith(themeImage));
     });
 
     it('calls installTheme on click', () => {

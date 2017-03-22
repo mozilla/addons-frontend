@@ -36,7 +36,7 @@ export class HomePageBase extends React.Component {
       <div className="HomePage">
         <div className="HomePage-welcome">
           <p className="HomePage-welcome-text">
-            {i18n.gettext(dedent`Extensions are special features you can add to Firefox.
+            {i18n.gettext(`Extensions are special features you can add to Firefox.
             Themes let you change your browser's appearance.`)}
           </p>
           <div className="HomePage-welcome-links">
@@ -78,7 +78,7 @@ export class HomePageBase extends React.Component {
         <ul className="HomePage-category-list">
           <ThemeLink name="wild" slug="nature">{i18n.gettext('Wild')}</ThemeLink>
           <ThemeLink name="abstract" slug="abstract">{i18n.gettext('Abstract')}</ThemeLink>
-          <ThemeLink name="fashionable" slug="fashion">{i18n.gettext('Fashionable')}</ThemeLink>
+          <ThemeLink name="holiday" slug="holiday">{i18n.gettext('Holiday')}</ThemeLink>
           <ThemeLink name="scenic" slug="scenery">{i18n.gettext('Scenic')}</ThemeLink>
           <ThemeLink name="sporty" slug="sports">{i18n.gettext('Sporty')}</ThemeLink>
           <ThemeLink name="solid" slug="solid">{i18n.gettext('Solid')}</ThemeLink>

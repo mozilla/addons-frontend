@@ -1,10 +1,10 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-23 09:28+0000\n"
-"PO-Revision-Date: 2017-02-23 10:46+0000\n"
+"POT-Creation-Date: 2017-03-17 12:14+0000\n"
+"PO-Revision-Date: 2017-03-08 16:38+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -14,37 +14,63 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:125
+#: src/amo/components/AddonCompatibilityError/index.js:53
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:57
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:60
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:74
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+
+#: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lexoni %(count)s shqyrtim"
 msgstr[1] "Lexoni krejt %(count)s shqyrtimet"
 
-#: src/amo/components/AddonDetail.js:138
+#: src/amo/components/AddonDetail.js:144
 msgid "No reviews yet"
 msgstr "Ende pa shqyrtime"
 
-#: src/amo/components/AddonDetail.js:147
+#: src/amo/components/AddonDetail.js:153
 msgid "Rate your experience"
 msgstr "Vlerësoni rastin tuaj"
 
-#: src/amo/components/AddonDetail.js:170
+#: src/amo/components/AddonDetail.js:183
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)snga %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:193
+#: src/amo/components/AddonDetail.js:210
 msgid "Extension Metadata"
 msgstr "Tejtëdhëna Zgjerimi"
 
-#: src/amo/components/AddonDetail.js:207
+#: src/amo/components/AddonDetail.js:228
 msgid "About this %(addonType)s"
 msgstr "Mbi këtë %(addonType)s"
 
-#: src/amo/components/AddonDetail.js:82
-msgid "Press to preview"
-msgstr "Shtypeni që të bëni paraparje"
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "Prekeni për paraparje"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:33
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Anulojeni paraparjen"
+
+#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s përdorues"
@@ -52,7 +78,7 @@ msgstr[1] "%(total)s përdorues"
 
 #: src/amo/components/AddonMeta.js:28
 msgid "%(averageRating)s out of 5"
-msgstr "Vlerësuar me %(rating)s yje nga 5 të mundshëm"
+msgstr "Vlerësuar me %(averageRating)s yje nga 5 të mundshëm"
 
 #: src/amo/components/AddonMeta.js:32
 msgid "Not yet rated"
@@ -68,35 +94,43 @@ msgstr[1] "%(total)s vlerësime"
 msgid "Used by"
 msgstr "Përdorur nga"
 
-#: src/amo/components/AddonMoreInfo.js:25
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr "Faqe hyrëse"
+
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr "Sajt Asistence"
+
+#: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
 msgstr "Më tepër të dhëna"
 
-#: src/amo/components/AddonMoreInfo.js:27
-msgid "Website"
-msgstr "Sajt"
+#: src/amo/components/AddonMoreInfo.js:42
+msgid "Add-on Links"
+msgstr "Lidhje shtese"
 
-#: src/amo/components/AddonMoreInfo.js:36
+#: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo.js:40
+#: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
 msgstr "Përditësuar së fundi më"
 
-#: src/amo/components/AddonMoreInfo.js:45
+#: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo.js:53
+#: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
 msgstr "Licencë"
 
-#: src/amo/components/AddonMoreInfo.js:64
+#: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
 msgstr "Rregulla Privatësie"
 
-#: src/amo/components/AddonMoreInfo.js:70
+#: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
 msgstr "Lexoni rregullat e privatësisë për këtë shtesë"
 
@@ -124,23 +158,30 @@ msgstr "Na tregoni ç’ju pëlqen te ky zgjerim. Jini specifik dhe fjalëprerë
 msgid "Tell the world about this extension."
 msgstr "Tregojini botës mbi këtë zgjerim."
 
-#: src/amo/components/AddonReviewList.js:39
+#: src/amo/components/AddonReview.js:96
+#, fuzzy
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr "Na tregoni ç’ju pëlqen te ky zgjerim. Jini specifik dhe fjalëprerë."
+
+#: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "nga %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:53 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52
+#: src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Po ngarkohet…"
 
-#: src/amo/components/AddonReviewList.js:63
+#: src/amo/components/AddonReviewList.js:62
 msgid "Add-on icon"
 msgstr "Ikonë shtese"
 
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
 msgstr "Shqyrtime për %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:71
+#: src/amo/components/AddonReviewList.js:70
 msgid "All written reviews"
 msgstr "Krejt shqyrtimet e shkruara"
 
@@ -152,17 +193,60 @@ msgstr "S’u arrit të ngarkohen kategoritë."
 msgid "No categories found."
 msgstr "S’gjetën kategori."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:21
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "Jo i Autorizuar"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:21
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "S’u gjet faqe"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+
+#: src/amo/components/ErrorPage/ServerError/index.js:21
+msgid ""
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/ServerError/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Gabim Shërbyesi"
+
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -180,7 +264,11 @@ msgstr "Rregulla privatësie"
 msgid "Legal notices"
 msgstr "Shënime ligjore"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer.js:42
+msgid "Report a bug"
+msgstr "Njoftoni një të metë"
+
+#: src/amo/components/Footer.js:49
 msgid "View desktop site"
 msgstr "Shihni sajtin për desktop"
 
@@ -188,49 +276,49 @@ msgstr "Shihni sajtin për desktop"
 msgid "Featured extensions"
 msgstr "Zgjerime të zgjedhura"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:53
 msgid "More featured extensions"
 msgstr "Më tepër zgjerime të zgjedhura"
 
-#: src/amo/components/LandingPage.js:55
+#: src/amo/components/LandingPage.js:54
 msgid "Most popular extensions"
 msgstr "Zgjerimet më popullore"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:59
 msgid "More popular extensions"
 msgstr "Më tepër zgjerime popullore"
 
-#: src/amo/components/LandingPage.js:61
+#: src/amo/components/LandingPage.js:60
 msgid "Top rated extensions"
 msgstr "Zgjerimet më të vlerësuara"
 
-#: src/amo/components/LandingPage.js:66
+#: src/amo/components/LandingPage.js:68
 msgid "More highly rated extensions"
 msgstr "Më tepër zgjerime me vlerësime të larta"
 
-#: src/amo/components/LandingPage.js:69
+#: src/amo/components/LandingPage.js:71
 msgid "Featured themes"
 msgstr "Tema të zgjedhura"
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:75
 msgid "More featured themes"
 msgstr "Më tepër tema të zgjedhura"
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:76
 msgid "Most popular themes"
 msgstr "Temat më popullore"
 
-#: src/amo/components/LandingPage.js:80
+#: src/amo/components/LandingPage.js:81
 msgid "More popular themes"
 msgstr "Më tepër tema popullore"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:82
 msgid "Top rated themes"
 msgstr "Temat më të vlerësuara"
 
-#: src/amo/components/LandingPage.js:86
+#: src/amo/components/LandingPage.js:87
 msgid "More highly rated themes"
-msgstr "Më tepër tema me vlerësim të lartë"
+msgstr "Më tepër tema me vlerësime të larta"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -240,31 +328,59 @@ msgstr "Shfletoni në gjuhën tuaj"
 msgid "Firefox Add-ons"
 msgstr "Shtesa Firefox-i"
 
-#: src/amo/components/RatingManager/index.js:85
+#: src/amo/components/RatingManager/index.js:101
+msgid "Log in to rate this search engine"
+msgstr "Që të vlerësoni këtë motor kërkimesh, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:103
+msgid "Log in to rate this theme"
+msgstr "Që të vlerësoni këtë temë, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:105
+msgid "Log in to rate this extension"
+msgstr "Që të vlerësoni këtë zgjerim, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:111
+msgid "Log in to rate this add-on"
+msgstr "Që të vlerësoni këtë shtesë, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "A po ju pëlqen %(addonName)s?"
 
-#: src/amo/components/SearchForm.js:45 src/amo/components/SearchForm.js:54
+#: src/amo/components/RatingManager/index.js:97
+msgid "Log in to rate this dictionary"
+msgstr "Që të vlerësoni këtë fjalor, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:99
+msgid "Log in to rate this language pack"
+msgstr "Që të vlerësoni këtë paketë gjuhe, bëni hyrjen"
+
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
 msgstr "Kërko"
 
-#: src/amo/components/SearchForm.js:49
+#: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
 msgstr "Kërkoni për zgjerime dhe tema"
 
-#: src/amo/components/SearchResults.js:35
-msgid "Searching..."
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr "S’ka paraparje teme"
+
+#: src/amo/components/SearchResults.js:40
+msgid "Searching…"
 msgstr "Po kërkohet…"
 
-#: src/amo/components/SearchResults.js:39
+#: src/amo/components/SearchResults.js:46
 msgid "No results were found for \"%(query)s\"."
 msgstr "S’u gjetën përfundime për \"%(query)s\"."
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:50
 msgid "No results were found."
 msgstr "S’u gjetën përfundime."
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:53
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Ju lutemi, jepni një term kërkimi që të kërkohet për Shtesa Firefox."
 
@@ -304,14 +420,15 @@ msgstr "Shfletoni krejt temat"
 msgid "Add-ons Home Page"
 msgstr "Faqe Hyrëse e Shtesës"
 
-#: src/amo/containers/App.js:80
+#: src/amo/containers/App.js:104
 msgid "Add-ons for Firefox"
 msgstr "Shtesa për Firefox-in"
 
 #: src/amo/containers/Home.js:39
+#, fuzzy
 msgid ""
-"Extensions are special features you can add to Firefox.\n"
-"Themes let you change your browser's appearance."
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
 msgstr ""
 "Zgjerimet janë veçori speciale që mund t’ia shtoni Firefox-it.\n"
 "Temat ju lejojnë të ndryshoni pamjen e shfletuesit."
@@ -365,8 +482,9 @@ msgid "Abstract"
 msgstr "Abstrakte"
 
 #: src/amo/containers/Home.js:81
-msgid "Fashionable"
-msgstr "E modës"
+#, fuzzy
+msgid "Holiday"
+msgstr "Solide"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -380,55 +498,67 @@ msgstr "Sportive"
 msgid "Solid"
 msgstr "Solide"
 
-#: src/core/components/AuthenticateButton/index.js:35
-msgid "Log in/Sign up"
-msgstr "Hyni/Regjistrohuni"
-
-#: src/core/components/AuthenticateButton/index.js:35
+#: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
 msgstr "Dilni"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/AuthenticateButton/index.js:50
+msgid "Log in/Sign up"
+msgstr "Hyni/Regjistrohuni"
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "Kod gabimi: %(status)s."
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
 msgstr "Instaloni Temë"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
 msgstr "Shtoje te Firefox-i"
 
-#: src/core/components/InstallSwitch/index.js:49
+#: src/core/components/InstallSwitch/index.js:52
 msgid "Downloading %(name)s."
 msgstr "Shkarkim i %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:55
 msgid "Installing %(name)s."
 msgstr "Instalim i %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:56
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s është e instaluar dhe e aktivizuar. Klikoni që të çinstalohet."
-
 #: src/core/components/InstallSwitch/index.js:59
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+"%(name)s është e instaluar dhe e aktivizuar. Klikoni që të çinstalohet."
+
+#: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s është çaktivizuar. Klikoni që të aktivizohet."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:65
 msgid "Uninstalling %(name)s."
 msgstr "Çinstalim i %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:68
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s është e çinstaluar. Klikoni që të instalohet."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:71
 msgid "Install state for %(name)s is unknown."
 msgstr "Gjendja e instalimit për %(name)s është e panjohur."
 
-#: src/core/components/Paginate/index.js:107
+#: src/core/components/Paginate/index.js:106
 msgid "Previous"
 msgstr "I mëparshmi"
 
@@ -436,7 +566,7 @@ msgstr "I mëparshmi"
 msgid "Next"
 msgstr "Pasuesi"
 
-#: src/core/components/Paginate/index.js:96
+#: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Faqja %(currentPage)s nga %(totalPages)s"
 
@@ -456,6 +586,10 @@ msgstr "OK!"
 msgid "An unexpected error occurred"
 msgstr "Ndodhi një gabim të panjohur"
 
+#: src/ui/components/LoadingIndicator/index.js:27
+msgid "Loading…"
+msgstr "Po ngarkohet…"
+
 #: src/ui/components/Rating/index.js:83
 msgid "Rated %(rating)s out of 5"
 msgstr "Vlerësuar me %(rating)s yje nga 5 të mundshëm"
@@ -468,11 +602,14 @@ msgstr "Pa vlerësime"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Zgjeroje te</span> Lexoni më tepër"
 
+#~ msgid "Fashionable"
+#~ msgstr "E modës"
+
+#~ msgid "Website"
+#~ msgstr "Sajt"
+
 #~ msgid "Screenshots"
 #~ msgstr "Foto ekrani"
-
-#~ msgid "About this extension"
-#~ msgstr "Rreth këtij zgjerimi:"
 
 #~ msgid "Category"
 #~ msgstr "Kategori"

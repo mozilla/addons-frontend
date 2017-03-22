@@ -1,4 +1,5 @@
-const amoCDN = 'https://addons-stage-cdn.allizom.org';
+import { amoStageCDN } from './lib/shared';
+
 const staticHost = 'https://addons-admin-cdn.allizom.org';
 
 module.exports = {
@@ -12,10 +13,13 @@ module.exports = {
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
-        amoCDN,
+        amoStageCDN,
         staticHost,
         'data:',
       ],
     },
   },
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-admin-stage/
+  publicSentryDsn: 'https://ab5912bece24474f955a9670b3fea574@sentry.prod.mozaws.net/188',
 };

@@ -2,7 +2,12 @@ import config from 'config';
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
-import SimulateError from 'core/containers/SimulateError';
+import SimulateAsyncError from
+  'core/containers/error-simulation/SimulateAsyncError';
+import SimulateClientError from
+  'core/containers/error-simulation/SimulateClientError';
+import SimulateSyncError from
+  'core/containers/error-simulation/SimulateSyncError';
 import HandleLogin from 'core/containers/HandleLogin';
 
 import AddonReviewList from './components/AddonReviewList';
@@ -24,6 +29,14 @@ export default (
     <IndexRoute component={Home} />
     <Route path="addon/:slug/" component={DetailPage} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
+    {/* These user routes are to make the proxy serve each URL from */}
+    {/* addons-server until we can fix the :visibleAddonType route below. */}
+    {/* https://github.com/mozilla/addons-frontend/issues/2029 */}
+    {/* We are mimicing these URLs: https://github.com/mozilla/addons-server/blob/master/src/olympia/users/urls.py#L20 */}
+    <Route path="users/:userAction" component={NotFound} />
+    <Route path="users/:userAction/" component={NotFound} />
+    {/* https://github.com/mozilla/addons-frontend/issues/1975 */}
+    <Route path="user/:user/" component={NotFound} />
     <Route path=":visibleAddonType/categories/" component={CategoryList} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={CategoryPage} />
@@ -34,9 +47,9 @@ export default (
     <Route path="404/" component={NotFound} />
     <Route path="500/"
       component={config.get('isDevelopment') ? ServerError : NotFound} />
-    {config.get('allowErrorSimulation') ? (
-      <Route path="simulate-error/" component={SimulateError} />
-    ) : null}
+    <Route path="simulate-async-error/" component={SimulateAsyncError} />
+    <Route path="simulate-sync-error/" component={SimulateSyncError} />
+    <Route path="simulate-client-error/" component={SimulateClientError} />
     <Route path=":visibleAddonType/" component={LandingPage} />
     <Route path="*" component={NotFound} />
   </Route>

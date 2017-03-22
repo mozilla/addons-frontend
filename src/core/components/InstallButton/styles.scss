@@ -1,6 +1,13 @@
+@import '~core/css/inc/vars';
+@import '~core/css/inc/mixins';
+
 .InstallButton {
   .InstallButton-button {
     white-space: nowrap;
+
+    &.InstallButton-button--disabled {
+      @include disabled($button-background-color);
+    }
   }
 
   &.InstallButton--use-button {

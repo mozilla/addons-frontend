@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-connect';
+import { compose } from 'redux';
 
 import { loadEntities, setCurrentUser } from 'core/actions';
 import { fetchProfile } from 'core/api';
+import { safeAsyncConnect } from 'core/utils';
 
 import './styles.scss';
 
@@ -48,8 +49,10 @@ export function loadProfileIfNeeded({ store: { getState, dispatch } }) {
   return Promise.resolve();
 }
 
-export default asyncConnect([{
-  key: 'UserPage',
-  deferred: true,
-  promise: loadProfileIfNeeded,
-}])(connect(mapStateToProps)(UserPageBase));
+export default compose(
+  safeAsyncConnect([{
+    key: 'UserPage',
+    promise: loadProfileIfNeeded,
+  }]),
+  connect(mapStateToProps),
+)(UserPageBase);

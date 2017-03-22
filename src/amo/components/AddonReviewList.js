@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-connect';
 
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { getReviews } from 'amo/api';
 import translate from 'core/i18n/translate';
-import { findAddon, loadAddonIfNeeded } from 'core/utils';
+import { findAddon, loadAddonIfNeeded, safeAsyncConnect } from 'core/utils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
 
@@ -34,7 +33,7 @@ export class AddonReviewListBase extends React.Component {
         <h3>{review.title}</h3>
         <p>{review.body}</p>
         <div className="AddonReviewList-by-line">
-          <Rating size="small" rating={review.rating} readOnly />
+          <Rating styleName="small" rating={review.rating} readOnly />
           {/* L10n: Example: "from Jose, last week" */}
           {i18n.sprintf(i18n.gettext('from %(authorName)s, %(timestamp)s'),
                         { authorName: review.userName, timestamp })}
@@ -117,10 +116,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
-  asyncConnect([{
-    deferred: true,
-    promise: loadInitialData,
-  }]),
+  safeAsyncConnect([{ promise: loadInitialData }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(AddonReviewListBase);

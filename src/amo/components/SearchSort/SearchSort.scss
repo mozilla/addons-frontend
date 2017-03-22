@@ -1,14 +1,6 @@
 @import '~core/css/inc/mixins';
 @import '~core/css/inc/vars';
 
-@mixin arrow-link-right-aligned() {
-  background-image: url('~amo/img/icons/arrow-link-color.svg');
-  margin-right: 0;
-  position: absolute;
-  right: 8px;
-  top: 14px;
-}
-
 .SearchSort {
   background: $base-color;
   border-radius: $border-radius-default;
@@ -45,6 +37,11 @@
     position: relative;
     top: 4px;
     width: 16px;
+
+    [dir=rtl] & {
+      left: auto;
+      right: -8px;
+    }
   }
 
   &::after {

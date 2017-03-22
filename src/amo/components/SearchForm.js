@@ -25,8 +25,10 @@ export class SearchFormBase extends React.Component {
 
   goToSearch(query) {
     const { api, pathname } = this.props;
-    this.context.router.push(
-      `/${api.lang}/${api.clientApp}${pathname}?q=${query}`);
+    this.context.router.push({
+      pathname: `/${api.lang}/${api.clientApp}${pathname}`,
+      query: { q: query },
+    });
   }
 
   handleSearch = (e) => {

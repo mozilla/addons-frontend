@@ -10,6 +10,8 @@ import {
   INSTALLED,
   INSTALLING,
   START_DOWNLOAD,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
   UNINSTALL_COMPLETE,
   UNINSTALLED,
   UNINSTALLING,
@@ -264,6 +266,54 @@ describe('installations reducer', () => {
           downloadProgress: 0,
           status: ERROR,
           error: 'an-error',
+        },
+      });
+  });
+
+  it('sets isPreviewingTheme and themePreviewNode', () => {
+    const state = {
+      'my-addon@me.com': {
+        guid: 'my-addon@me.com',
+        url: 'https://cdn.amo/download/my-addon.xpi',
+      },
+    };
+    assert.deepEqual(
+      installations(state, {
+        type: THEME_PREVIEW,
+        payload: {
+          guid: 'my-addon@me.com',
+          themePreviewNode: 'preview-theme-node',
+        },
+      }),
+      {
+        'my-addon@me.com': {
+          guid: 'my-addon@me.com',
+          url: 'https://cdn.amo/download/my-addon.xpi',
+          themePreviewNode: 'preview-theme-node',
+          isPreviewingTheme: true,
+        },
+      });
+  });
+
+  it('unsets isPreviewingTheme', () => {
+    const state = {
+      'my-addon@me.com': {
+        guid: 'my-addon@me.com',
+        url: 'https://cdn.amo/download/my-addon.xpi',
+      },
+    };
+    assert.deepEqual(
+      installations(state, {
+        type: THEME_RESET_PREVIEW,
+        payload: {
+          guid: 'my-addon@me.com',
+        },
+      }),
+      {
+        'my-addon@me.com': {
+          guid: 'my-addon@me.com',
+          url: 'https://cdn.amo/download/my-addon.xpi',
+          isPreviewingTheme: false,
         },
       });
   });

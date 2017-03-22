@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { oneLine } from 'common-tags';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
@@ -19,7 +18,7 @@ export class NotFoundBase extends React.Component {
   render() {
     const { i18n } = this.props;
 
-    const fileAnIssueText = i18n.sprintf(i18n.gettext(oneLine`
+    const fileAnIssueText = i18n.sprintf(i18n.gettext(`
       If you followed a link from somewhere, please
       <a href="%(url)s">file an issue</a>. Tell us where you came from and
       what you were looking for, and we'll do our best to fix it.`),
@@ -32,7 +31,7 @@ export class NotFoundBase extends React.Component {
         <Card className="ErrorPage NotFound"
           header={i18n.gettext('Page not found')}>
           <p>
-            {i18n.gettext(oneLine`
+            {i18n.gettext(`
               Sorry, but we can't find anything at the address you entered.
               If you followed a link to an add-on, it's possible that add-on
               has been removed by its author.`)}

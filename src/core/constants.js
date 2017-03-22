@@ -40,10 +40,16 @@ export const FATAL_UNINSTALL_ERROR = 'FATAL_UNINSTALL_ERROR';
 export const FATAL_ERROR = 'FATAL_ERROR';
 
 // Add-on types.
+export const ADDON_TYPE_DICT = 'dictionary';
 export const ADDON_TYPE_EXTENSION = 'extension';
+export const ADDON_TYPE_LANG = 'language';
+export const ADDON_TYPE_SEARCH = 'search';
 export const ADDON_TYPE_THEME = 'persona';
 export const validAddonTypes = [
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_SEARCH,
   ADDON_TYPE_THEME,
 ];
 // Mapping of the add-on types we show in URLs, etc. and what they map
@@ -61,6 +67,11 @@ export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
     ...object,
     [API_ADDON_TYPES_MAPPING[key]]: key,
   }), {});
+
+// Incompatibility codes for clients that can't install an add-on.
+export const INCOMPATIBLE_FIREFOX_FOR_IOS = 'INCOMPATIBLE_FIREFOX_FOR_IOS';
+export const INCOMPATIBLE_NOT_FIREFOX = 'INCOMPATIBLE_NOT_FIREFOX';
+export const INCOMPATIBLE_UNDER_MIN_VERSION = 'INCOMPATIBLE_UNDER_MIN_VERSION';
 
 // Tracking add-on types
 export const TRACKING_TYPE_EXTENSION = 'addon';
@@ -91,6 +102,7 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_JWT = 'SET_JWT';
 export const SET_LANG = 'SET_LANG';
+export const SET_USER_AGENT = 'SET_USER_AGENT';
 
 // InfoDialog action types.
 export const CLOSE_INFO = 'CLOSE_INFO';
@@ -134,6 +146,8 @@ export const acceptedInstallTypes = [
   INSTALL_COMPLETE,
   UNINSTALL_COMPLETE,
   INSTALL_ERROR,
+  THEME_PREVIEW,
+  THEME_RESET_PREVIEW,
 ];
 
 // Tracking categories.
