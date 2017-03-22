@@ -103,9 +103,9 @@ describe('ui/components/Rating', () => {
     });
   });
 
-  it('renders half stars in readOnly ratings', () => {
+  it('renders half stars in ratings', () => {
     // This should be treated like a rating of 3.5 (three and a half stars).
-    const root = render({ rating: 3.60001, readOnly: true });
+    const root = render({ rating: 3.60001 });
 
     // The first three stars are fully highlighted
     [1, 2, 3].forEach((rating) => {
@@ -129,16 +129,20 @@ describe('ui/components/Rating', () => {
     assert.include(findDOMNode(root).title, '3.5 out of 5');
   });
 
-  it('rounds non-readOnly average ratings to nearest integer', () => {
-    // This should be treated like a rating of 3.
-    const root = render({ rating: 3.6 });
+  it('rounds readOnly average ratings to nearest 0.5 multiple', () => {
+    // This should be treated like a rating of 3.5.
+    const root = render({ rating: 3.6, readOnly: true });
 
     // The first three stars are fully highlighted
     [1, 2, 3].forEach((rating) => {
       assert.equal(root.ratingElements[rating].className,
                    'Rating-choice Rating-selected-star');
     });
-    [4, 5].forEach((rating) => {
+    [4].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice Rating-half-star');
+    });
+    [5].forEach((rating) => {
       assert.equal(root.ratingElements[rating].className,
                    'Rating-choice');
     });
