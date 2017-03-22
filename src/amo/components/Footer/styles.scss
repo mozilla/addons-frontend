@@ -1,0 +1,32 @@
+@import "~amo/css/inc/vars";
+
+.Footer {
+  background: $footer-color;
+  color: $text-color-message;
+  display: block;
+  justify-content: flex-end;
+  padding: 10px 10px 20px;
+
+  &::after {
+    background: url('~amo/img/icons/fox-puzzle-footer.svg') no-repeat 50% 50%;
+    background-size: 25px 25px;
+    content: '';
+    display: block;
+    height: 25px;
+    margin: 5px 0 0;
+    width: 25px;
+  }
+}
+
+.Footer-links {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.Footer-link,
+.Footer-link:link {
+  color: #fff;
+  display: inline-block;
+  margin: 0 0 1em;
+}

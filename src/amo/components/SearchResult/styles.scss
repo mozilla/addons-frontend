@@ -1,0 +1,136 @@
+@import "~core/css/inc/vars";
+
+.SearchResult {
+  background: $base-color;
+  list-style-type: none;
+  margin: 0 0 1px;
+}
+
+.SearchResult-link {
+  color: $text-color-default;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  width: 100%;
+
+  &:focus,
+  &:hover {
+    .SearchResult-heading {
+      text-decoration: underline;
+    }
+  }
+}
+
+.SearchResult-main {
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.SearchResult-heading {
+  color: $primary-font-color;
+  font-size: $font-size-default;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+
+  .SearchResult--theme & {
+    float: left;
+  }
+}
+
+.SearchResult-rating {
+  display: block;
+  height: 18px;
+  margin: 0;
+  width: 150px;
+
+  .Rating {
+    margin: 0;
+    justify-content: flex-start;
+  }
+
+  .SearchResult--theme & {
+    float: right;
+    width: auto;
+  }
+}
+
+.SearchResult-author,
+.SearchResult-users {
+  color: $sub-text-color;
+  display: inline-block;
+  font-size: $font-size-s;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+
+  .SearchResult--theme & {
+    clear: both;
+
+    [dir=rtl] & {
+      float: left;
+    }
+  }
+}
+
+.SearchResult-author {
+  display: block;
+  margin-right: 0.5em;
+  word-wrap: break-word;
+}
+
+.SearchResult-info {
+  font-size: 0.8em;
+  margin-right: 1em;
+}
+
+.SearchResult-link.button {
+  font-size: 0.75em;
+}
+
+.SearchResult-actions {
+  align-items: center;
+  display: flex;
+}
+
+.SearchResult-icon {
+  display: inline-block;
+  float: right;
+  height: 38px;
+  width: 38px;
+
+  .SearchResult--theme & {
+    display: block;
+    float: right;
+    height: 64px;
+    object-fit: cover;
+    object-position: top right;
+    width: 100%;
+  }
+
+  [dir=rtl] & {
+    float: left;
+  }
+}
+
+.SearchResult--theme {
+  .SearchResult-icon-wrapper {
+    margin: -10px -10px 10px;
+    min-height: 64px;
+    overflow: hidden;
+  }
+
+  .SearchResult-icon-wrapper--notheme {
+    align-items: center;
+    background: #ccc;
+    color: #fff;
+    display: flex;
+    font-size: 14px;
+    font-weight: normal;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 0 0 1px #000;
+  }
+}

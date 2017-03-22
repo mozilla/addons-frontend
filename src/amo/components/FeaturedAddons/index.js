@@ -8,7 +8,7 @@ import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { safeAsyncConnect } from 'core/utils';
 
-import './FeaturedAddons.scss';
+import './styles.scss';
 
 
 export class FeaturedAddonsBase extends React.Component {

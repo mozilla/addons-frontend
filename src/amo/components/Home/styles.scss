@@ -1,0 +1,174 @@
+@import "~amo/css/inc/vars";
+
+.HomePage {
+  padding: $padding-page;
+}
+
+.HomePage-welcome {
+  background: $masthead-color;
+  color: #fff;
+  margin: -10px -10px 0;
+  padding: 20px;
+}
+
+.HomePage-welcome-text {
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.HomePage-welcome-links {
+  display: flex;
+
+  .HomePage-extensions-link:link,
+  .HomePage-themes-link:link {
+    margin: 0 5px;
+    max-width: 50%;
+  }
+}
+
+.HomePage-subheading {
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: -10px;
+}
+
+.HomePage-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.HomePage-category-li {
+  background-color: $base-color;
+  background-size: 50% auto;
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  border-radius: 6px;
+  display: block;
+  flex-grow: 1;
+  list-style-type: none;
+  margin: 5px;
+  overflow: auto;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  width: 30%;
+
+  a:link {
+    font-size: 10px;
+    text-decoration: none;
+    padding-top: 70%;
+    display: block;
+  }
+
+  span {
+    display: block;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: inherit;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+}
+
+.HomePage-category-link,
+.HomePage-extensions-link,
+.HomePage-themes-link {
+  &,
+  &:visited {
+    color: $link-color;
+  }
+}
+
+.HomePage-extensions-link:link,
+.HomePage-themes-link:link {
+  align-items: center;
+  background: $base-color;
+  border-radius: 6px;
+  display: flex;
+  font-size: 10px;
+  justify-content: center;
+  margin: 0 auto 20px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: calc(100% - 40px);
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+  }
+}
+
+.HomePage-extensions-link:link::before {
+  background: url('~amo/img/icons/addon-outline.svg') no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.HomePage-themes-link:link::before {
+  background: url('~amo/img/icons/theme-outline.svg') no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.HomePage-block-ads {
+  background-image: url('~amo/img/home/block-ads.svg');
+}
+
+.HomePage-screenshot {
+  background-image: url('~amo/img/home/screenshot.svg');
+}
+
+.HomePage-find-news {
+  background-image: url('~amo/img/home/find-news.svg');
+  background-size: 40% auto;
+}
+
+.HomePage-shop-online {
+  background-image: url('~amo/img/home/shop-online.svg');
+}
+
+.HomePage-be-social {
+  background-image: url('~amo/img/home/be-social.svg');
+}
+
+.HomePage-play-games {
+  background-image: url('~amo/img/home/play-games.svg');
+}
+
+.HomePage-wild {
+  background-image: url('~amo/img/home/wild.svg');
+}
+
+.HomePage-abstract {
+  background-image: url('~amo/img/home/abstract.svg');
+}
+
+.HomePage-holiday {
+  background-image: url('~amo/img/home/holiday.svg');
+}
+
+.HomePage-scenic {
+  background-image: url('~amo/img/home/scenic.svg');
+}
+
+.HomePage-sporty {
+  background-image: url('~amo/img/home/sporty.svg');
+}
+
+.HomePage-solid {
+  background-image: url('~amo/img/home/solid.svg');
+}

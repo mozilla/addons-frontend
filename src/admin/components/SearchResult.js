@@ -5,7 +5,7 @@ import { sprintf } from 'jed';
 
 import { ngettext } from 'core/utils';
 
-import 'core/css/SearchResult.scss';
+import './SearchResult.scss';
 
 
 function fileCount(version) {
