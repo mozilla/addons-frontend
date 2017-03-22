@@ -7,7 +7,7 @@ import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 
-import 'amo/components/ErrorPage/ErrorPage.scss';
+import '../styles.scss';
 
 
 export class ServerErrorBase extends React.Component {

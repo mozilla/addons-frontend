@@ -11,16 +11,16 @@ import SimulateSyncError from
 import HandleLogin from 'core/containers/HandleLogin';
 
 import AddonReviewList from './components/AddonReviewList';
-import App from './containers/App';
-import CategoryList from './containers/CategoryList';
-import CategoryPage from './containers/CategoryPage';
+import App from './components/App';
+import CategoryList from './components/CategoryList';
+import CategoryPage from './components/CategoryPage';
 import FeaturedAddons from './components/FeaturedAddons';
 import LandingPage from './components/LandingPage';
-import Home from './containers/Home';
-import DetailPage from './containers/DetailPage';
+import Home from './components/Home';
+import DetailPage from './components/DetailPage';
 import NotAuthorized from './components/ErrorPage/NotAuthorized';
 import NotFound from './components/ErrorPage/NotFound';
-import SearchPage from './containers/SearchPage';
+import SearchPage from './components/SearchPage';
 import ServerError from './components/ErrorPage/ServerError';
 
 

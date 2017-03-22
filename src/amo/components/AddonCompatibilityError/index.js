@@ -12,7 +12,7 @@ import _log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 
-import './style.scss';
+import './styles.scss';
 
 
 export class AddonCompatibilityErrorBase extends React.Component {

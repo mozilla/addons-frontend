@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import SearchSortLink from 'amo/components/SearchSort/SearchSortLink';
 import translate from 'core/i18n/translate';
 
-import './SearchSort.scss';
+import './styles.scss';
 
 
 const DEFAULT_SORT = 'relevance';

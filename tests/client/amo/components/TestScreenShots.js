@@ -2,10 +2,11 @@ import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
-import ScreenShots, { thumbnailContent } from 'amo/components/ScreenShots';
+import Screenshots, { thumbnailContent } from 'amo/components/Screenshots';
 import { shallowRender } from 'tests/client/helpers';
 
-describe('<ScreenShots />', () => {
+
+describe('<Screenshots />', () => {
   const previews = [
     {
       caption: 'A screenshot',
@@ -36,7 +37,7 @@ describe('<ScreenShots />', () => {
         w: 320,
       },
     ];
-    const root = shallowRender(<ScreenShots previews={previews} />);
+    const root = shallowRender(<Screenshots previews={previews} />);
     const gallery = root.props.children.props.children;
     assert.equal(gallery.type, PhotoSwipeGallery);
     assert.deepEqual(gallery.props.items, items);
@@ -56,7 +57,7 @@ describe('<ScreenShots />', () => {
   it('scrolls to the active item on close', () => {
     const onePixelImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
     const newPreviews = previews.map((preview) => ({ ...preview, image_url: onePixelImage }));
-    const root = renderIntoDocument(<ScreenShots previews={newPreviews} />);
+    const root = renderIntoDocument(<Screenshots previews={newPreviews} />);
     const item = { getBoundingClientRect: () => ({ x: 500 }) };
     const list = {
       children: [null, item],
