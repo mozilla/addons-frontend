@@ -50,7 +50,8 @@ export class SearchResultBase extends React.Component {
             </div>
             <h2 className="SearchResult-heading">{addon.name}</h2>
             <div className="SearchResult-rating">
-              <Rating rating={addon.ratings.average} readOnly size="small" />
+              <Rating rating={addon.ratings.average} readOnly
+                styleName="small" />
             </div>
             { addon.authors && addon.authors.length ?
               <h3 className="SearchResult-author">{addon.authors[0].name}</h3> : null }
