@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -115,7 +115,7 @@ msgstr "Ultimo aggiornamento"
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr "(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
