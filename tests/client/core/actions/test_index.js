@@ -2,6 +2,13 @@ import * as actions from 'core/actions';
 import { userAgents } from 'tests/client/helpers';
 
 
+describe('core actions setAuthToken', () => {
+  it('requires a token', () => {
+    assert.throws(
+      () => actions.setAuthToken(), /token cannot be falsey/);
+  });
+});
+
 describe('core actions setLang', () => {
   it('creates the SET_LANG action', () => {
     assert.deepEqual(

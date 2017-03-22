@@ -9,6 +9,9 @@ import {
 } from 'core/constants';
 
 export function setAuthToken(token) {
+  if (!token) {
+    throw new Error('token cannot be falsey');
+  }
   return {
     type: SET_AUTH_TOKEN,
     payload: { token },
