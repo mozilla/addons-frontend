@@ -22,7 +22,8 @@ import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
 import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
-import { setClientApp, setLang, setAuthToken, setUserAgent } from 'core/actions';
+import { setAuthToken, setClientApp, setLang, setUserAgent }
+  from 'core/actions';
 import log from 'core/logger';
 import {
   getDirection,
