@@ -27,13 +27,13 @@
 }
 
 .LandingPage-heading {
-  font-size: 14px;
+  font-size: $font-size-default;
   margin: 0;
 }
 
 .LandingPage-heading-content {
   margin: 5px 0 0;
-  font-size: 12px;
+  font-size: $font-size-s;
 }
 
 .LandingPage-header-bottom {
@@ -45,11 +45,11 @@
 .LandingPage-browse-button:link {
   align-items: center;
   display: flex;
-  font-size: 14px;
+  font-size: $font-size-default;
   font-variant: all-small-caps;
   justify-content: center;
   margin: 0 $padding-page;
-  padding: 1em;
+  padding: 10px;
   width: 100%;
 }
 

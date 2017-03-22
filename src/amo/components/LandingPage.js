@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { oneLine } from 'common-tags';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -21,8 +20,8 @@ import {
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
-import Icon from 'ui/components/Icon/index';
 import Button from 'ui/components/Button/index';
+import Icon from 'ui/components/Icon/index';
 
 import './LandingPage.scss';
 
@@ -112,27 +111,28 @@ export class LandingPageBase extends React.Component {
     }
 
     const { addonType, html } = content;
-    const themeText = i18n.gettext(
-      oneLine`Change your browser's appearance. Choose from thousands of themes to give Firefox the
-      look you want.`);
-    const extensionsText = i18n.gettext(
-      oneLine`Install powerful tools that make browsing faster and safer, add-ons make your browser
-      yours.`);
+    const headingText = {
+      [ADDON_TYPE_THEME]: i18n.gettext('Themes'),
+      [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
+    };
+    const contentText = {
+      [ADDON_TYPE_THEME]: i18n.gettext(
+          "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."),
+      [ADDON_TYPE_EXTENSION]: i18n.gettext(
+          'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.'),
+    };
 
     return (
       <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
-
         <div className="LandingPage-header">
           <div className="LandingPage-header-top">
             <Icon name={visibleAddonType} />
             <div className="LandingPage-header-text">
               <h1 className="LandingPage-heading">
-                {addonType === ADDON_TYPE_THEME
-                  ? i18n.gettext('Themes')
-                  : i18n.gettext('Extensions')}
+                {headingText[addonType]}
               </h1>
               <p className="LandingPage-heading-content">
-                {addonType === ADDON_TYPE_THEME ? themeText : extensionsText}
+                {contentText[addonType]}
               </p>
             </div>
           </div>
