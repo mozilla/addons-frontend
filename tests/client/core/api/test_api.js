@@ -427,7 +427,7 @@ describe('api', () => {
     });
 
     it('includes the authorization token if available', () => {
-      const token = 'bAse64.enCodeD.JWT';
+      const token = 'user:auth:token';
       mockWindow
         .expects('fetch')
         .withArgs(

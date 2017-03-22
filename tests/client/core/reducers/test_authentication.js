@@ -1,5 +1,6 @@
 import base64url from 'base64url';
 
+import { setJwt } from 'core/actions';
 import auth from 'core/reducers/authentication';
 import { userAuthToken } from 'tests/client/helpers';
 
@@ -28,14 +29,12 @@ describe('authentication reducer', () => {
       { token, username });
   });
 
-  describe('SET_JWT', () => {
-    const setJwt = (token) => auth(undefined, {
-      type: 'SET_JWT', payload: { token },
-    });
+  describe('set and reduce auth token', () => {
+    const setAndReduceToken = (token) => auth(undefined, setJwt(token));
 
     it('sets auth state based on the token', () => {
       const token = userAuthToken({ user_id: 91234 });
-      assert.deepEqual(setJwt(token), { token, userId: 91234 });
+      assert.deepEqual(setAndReduceToken(token), { token, userId: 91234 });
     });
 
     it('throws a parse error for malformed token data', () => {
@@ -43,30 +42,30 @@ describe('authentication reducer', () => {
         tokenData: '{"malformed JSON"}',
       });
       assert.throws(
-        () => setJwt(token),
-        Error, /Error parsing token .* JSON\.parse: unexpected character/);
+        () => setAndReduceToken(token),
+        Error, /Error parsing auth token .* JSON\.parse: unexpected character/);
     });
 
     it('throws an error for a token without a data segment', () => {
       assert.throws(
-        () => setJwt('fake-token-without-enough-segments'),
-        Error, /Error parsing token .* not enough token segments/);
+        () => setAndReduceToken('fake-token-without-enough-segments'),
+        Error, /Error parsing auth token .* not enough auth token segments/);
     });
 
     it('throws an error for an incorrectly encoded data segment', () => {
       assert.throws(
-        () => setJwt('incorrectly-encoded-data-segment:authId:sig'),
-        Error, /Error parsing token .* unexpected character at line 1/);
+        () => setAndReduceToken('incorrectly-encoded-data-segment:authId:sig'),
+        Error, /Error parsing auth token .* unexpected character at line 1/);
     });
 
     it('throws an error for a missing user_id', () => {
-      const token = userAuthToken({}, {
-        // Simulate a token without any user_id data.
-        tokenData: base64url.encode('{}'),
-      });
+      // Simulate a token without any user_id data.
+      const encodedData = base64url.encode('{}');
+      const tokenData = `${encodedData}:authId:signature`;
+      const token = userAuthToken({}, { tokenData });
       assert.throws(
-        () => setJwt(token),
-        Error, /Error parsing token .* user_id is missing/);
+        () => setAndReduceToken(token),
+        Error, /Error parsing auth token .* user_id is missing/);
     });
   });
 

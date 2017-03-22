@@ -10,6 +10,7 @@ import { createStore } from 'redux';
 import HandleLogin, {
   HandleLoginBase, mapDispatchToProps,
 } from 'core/containers/HandleLogin';
+import { setJwt } from 'core/actions';
 import * as api from 'core/api';
 import { userAuthToken } from 'tests/client/helpers';
 
@@ -115,12 +116,12 @@ describe('<HandleLogin />', () => {
       return data;
     }
 
-    it('dispatches a SET_JWT event', () => {
+    it('dispatches an auth token', () => {
       const { apiConfig, dispatch, location, payload, router } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
       return loadData({ api: apiConfig, location, router }).then(() => {
         assert(dispatch.calledOnce, 'dispatch not called');
-        assert(dispatch.calledWith({ type: 'SET_JWT', payload }));
+        assert.deepEqual(dispatch.firstCall.args[0], setJwt(payload.token));
       });
     });
 
@@ -129,7 +130,7 @@ describe('<HandleLogin />', () => {
       const { loadData } = mapDispatchToProps(dispatch);
       const mockCookie = sinon.mock(cookie);
       mockCookie.expects('save').once().withArgs(
-        'jwt_api_auth_token', token, { path: '/', secure: true, maxAge: 2592000 });
+        'api_auth_token', token, { path: '/', secure: true, maxAge: 2592000 });
       return loadData({ api: apiConfig, location, router }).then(() => {
         mockCookie.verify();
       });
