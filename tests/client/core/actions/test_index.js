@@ -2,11 +2,10 @@ import * as actions from 'core/actions';
 import { userAgents } from 'tests/client/helpers';
 
 
-describe('core actions setJwt', () => {
-  it('creates a SET_JWT action', () => {
-    assert.deepEqual(
-      actions.setJwt('my.amo.token'),
-      { type: 'SET_JWT', payload: { token: 'my.amo.token' } });
+describe('core actions setAuthToken', () => {
+  it('requires a token', () => {
+    assert.throws(
+      () => actions.setAuthToken(), /token cannot be falsey/);
   });
 });
 

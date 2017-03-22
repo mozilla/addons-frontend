@@ -5,7 +5,7 @@ import {
 } from 'react-addons-test-utils';
 
 import translate from 'core/i18n/translate';
-import { setJwt } from 'core/actions';
+import { setAuthToken } from 'core/actions';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -358,7 +358,7 @@ describe('RatingManager', () => {
     }
 
     function signIn({ userId = 98765 } = {}) {
-      store.dispatch(setJwt(userAuthToken({
+      store.dispatch(setAuthToken(userAuthToken({
         user_id: userId,
       })));
     }
