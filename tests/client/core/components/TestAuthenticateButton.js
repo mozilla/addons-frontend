@@ -75,7 +75,8 @@ describe('<AuthenticateButton />', () => {
   it('updates the location on handleLogIn', () => {
     const _window = { location: '/foo' };
     const location = { pathname: '/bar', query: { q: 'wat' } };
-    const startLoginUrlStub = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
+    const startLoginUrlStub =
+      sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
     const { handleLogIn } = mapStateToProps({
       auth: {},
       api: { lang: 'en-GB' },
@@ -85,9 +86,12 @@ describe('<AuthenticateButton />', () => {
     assert.ok(startLoginUrlStub.calledWith({ location }));
   });
 
-  it('gets the server to clear the cookie and JWT in handleLogOut', () => {
+  it('gets the server to clear cookie and auth token in handleLogOut', () => {
     sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
-    const _config = { cookieName: 'authcookie', apiHost: 'http://localhost:9876' };
+    const _config = {
+      cookieName: 'authcookie',
+      apiHost: 'http://localhost:9876',
+    };
     sinon.stub(config, 'get', (key) => _config[key]);
 
     const store = createStore();
