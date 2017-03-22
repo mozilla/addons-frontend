@@ -6,6 +6,7 @@ import {
   parsePage,
 } from 'core/searchUtils';
 import * as api from 'core/api';
+import { signedInApiState } from 'tests/client/amo/helpers';
 
 describe('Search.mapStateToProps()', () => {
   const state = {
@@ -153,7 +154,7 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const page = 10;
     const filters = { query: 'no ads' };
     const state = {
-      api: { token: 'a.jwt.token' },
+      api: signedInApiState,
       search: { loading: false, page, filters: { query: 'old query' } },
     };
     const dispatch = sinon.spy();

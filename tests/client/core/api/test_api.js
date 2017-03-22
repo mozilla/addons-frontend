@@ -446,7 +446,7 @@ describe('api', () => {
   });
 
   describe('login', () => {
-    const response = { token: 'use.this.jwt' };
+    const response = { token: 'use:this:auth-token' };
     const mockResponse = () => createApiResponse({
       jsonData: response,
     });
@@ -483,7 +483,7 @@ describe('api', () => {
 
   describe('fetchProfile', () => {
     it("requests the user's profile", () => {
-      const token = 'the.jwt.string';
+      const token = 'user:auth:token';
       const user = { username: 'foo', email: 'foo@example.com' };
       mockWindow
         .expects('fetch')

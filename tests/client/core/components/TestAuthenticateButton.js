@@ -89,15 +89,18 @@ describe('<AuthenticateButton />', () => {
     sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
     const _config = { cookieName: 'authcookie', apiHost: 'http://localhost:9876' };
     sinon.stub(config, 'get', (key) => _config[key]);
-    const apiConfig = { token: 'some.jwt.string' };
+
     const store = createStore();
     store.dispatch(setAuthToken(userAuthToken({ user_id: 99 })));
+    const apiConfig = { token: store.getState().api.token };
+    assert.ok(apiConfig.token, 'token was falsey');
+
     const { handleLogOut } = mapDispatchToProps(store.dispatch);
-    assert.ok(store.getState().api.token);
     return handleLogOut({ api: apiConfig })
       .then(() => {
         assert.notOk(store.getState().api.token);
-        assert.ok(api.logOutFromServer.calledWith({ api: apiConfig }));
+        assert.deepEqual(
+          api.logOutFromServer.firstCall.args[0], { api: apiConfig });
       });
   });
 
