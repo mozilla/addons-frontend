@@ -56,8 +56,10 @@ export class RatingBase extends React.Component {
         className: classNames('Rating-choice', {
           'Rating-selected-star': rating && thisRating <= rating,
           // Half stars are the result of averages rounded to the nearest
-          // 0.5 place; only show them when readOnly is true.
-          'Rating-half-star': (readOnly && rating && thisRating > rating &&
+          // 0.5 place. The API should not return floats for your own review
+          // so effectively this only appears in readOnly for now, but there's
+          // nothing stopping the API from supporting half-stars later.
+          'Rating-half-star': (rating && thisRating > rating &&
             thisRating - 0.5 <= rating),
         }),
         id: `Rating-rating-${thisRating}`,
