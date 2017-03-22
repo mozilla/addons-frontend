@@ -52,7 +52,7 @@ for (const appName of appsBuildList) {
     // we're building for AMO (which is the only app that uses moment right
     // now).
     if (appName === 'amo') {
-      let defineLocale = null;
+      var defineLocale = null;
       try {
         const momentLocale = locale.replace('_', '-').toLowerCase();
         const localeModulePath = `moment/locale/${momentLocale}`;
