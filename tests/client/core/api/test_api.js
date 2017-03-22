@@ -5,7 +5,8 @@ import utf8 from 'utf8';
 import * as api from 'core/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { signedInApiState, unexpectedSuccess } from 'tests/client/helpers';
+import { signedInApiState, unexpectedSuccess, userAuthToken }
+  from 'tests/client/helpers';
 
 
 export function generateHeaders(
@@ -427,7 +428,7 @@ describe('api', () => {
     });
 
     it('includes the authorization token if available', () => {
-      const token = 'user:auth:token';
+      const token = userAuthToken();
       mockWindow
         .expects('fetch')
         .withArgs(
@@ -446,7 +447,7 @@ describe('api', () => {
   });
 
   describe('login', () => {
-    const response = { token: 'use:this:auth-token' };
+    const response = { token: userAuthToken() };
     const mockResponse = () => createApiResponse({
       jsonData: response,
     });
@@ -483,7 +484,7 @@ describe('api', () => {
 
   describe('fetchProfile', () => {
     it("requests the user's profile", () => {
-      const token = 'user:auth:token';
+      const token = userAuthToken();
       const user = { username: 'foo', email: 'foo@example.com' };
       mockWindow
         .expects('fetch')

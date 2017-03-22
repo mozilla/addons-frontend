@@ -2,7 +2,8 @@ import UAParser from 'ua-parser-js';
 
 import * as actions from 'core/actions';
 import api from 'core/reducers/api';
-import { userAgents, userAuthToken } from 'tests/client/helpers';
+import { signedInApiState, userAgents, userAuthToken }
+  from 'tests/client/helpers';
 
 
 describe('api reducer', () => {
@@ -19,10 +20,11 @@ describe('api reducer', () => {
   });
 
   it('clears the auth token on log out', () => {
+    const expectedState = { ...signedInApiState };
+    assert.ok(expectedState.token, 'signed in state did not have a token');
+    delete expectedState.token;
     assert.deepEqual(
-      api({ lang: 'fr', clientApp: 'firefox', token: 'user:auth:token' },
-          actions.logOutUser()),
-      { lang: 'fr', clientApp: 'firefox' });
+      api(signedInApiState, actions.logOutUser()), expectedState);
   });
 
   it('stores the lang', () => {
