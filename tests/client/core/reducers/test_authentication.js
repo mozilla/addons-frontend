@@ -47,22 +47,22 @@ describe('authentication reducer', () => {
         Error, /Error parsing token .* JSON\.parse: unexpected character/);
     });
 
-    it('throws an error for a JWT without a data segment', () => {
+    it('throws an error for a token without a data segment', () => {
       assert.throws(
-        () => setJwt('fake-JWT-without-enough-segments'),
-        Error, /Error parsing token .* not enough JWT segments/);
+        () => setJwt('fake-token-without-enough-segments'),
+        Error, /Error parsing token .* not enough token segments/);
     });
 
     it('throws an error for an incorrectly encoded data segment', () => {
       assert.throws(
-        () => setJwt('algo.incorrectly-encoded-data-segment.sig'),
+        () => setJwt('incorrectly-encoded-data-segment:authId:sig'),
         Error, /Error parsing token .* unexpected character at line 1/);
     });
 
     it('throws an error for a missing user_id', () => {
       const token = userAuthToken({}, {
-        // Simulate a JWT without any user_id data.
-        tokenData: base64url.encode('{"iss": "some-issuer"}'),
+        // Simulate a token without any user_id data.
+        tokenData: base64url.encode('{}'),
       });
       assert.throws(
         () => setJwt(token),
