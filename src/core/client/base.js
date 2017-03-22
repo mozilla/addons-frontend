@@ -17,8 +17,8 @@ import log from 'core/logger';
 
 
 export default function makeClient(routes, createStore) {
-  FastClick.attach(document.body);
-
+  // This code needs to come before anything else so we get logs/errors
+  // if anything else in this function goes wrong.
   const publicSentryDsn = config.get('publicSentryDsn');
   if (publicSentryDsn) {
     log.info(`Configured client-side Sentry with DSN ${publicSentryDsn}`);
@@ -26,6 +26,8 @@ export default function makeClient(routes, createStore) {
   } else {
     log.warn('Client-side Sentry reporting was disabled by the config');
   }
+
+  FastClick.attach(document.body);
 
   const initialStateContainer = document.getElementById('redux-store-state');
   let initialState;
