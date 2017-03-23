@@ -12,6 +12,7 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "arrow-body-style": "off",
     "arrow-parens": ["error", "always"],
     // Beware about turning this rule back on. The rule encourages you to create
     // static class methods on React components when they don't use `this`.

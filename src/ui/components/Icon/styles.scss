@@ -33,6 +33,21 @@
   background-size: contain;
 }
 
+.Icon-star-empty {
+  background: url('./star-empty.svg') center no-repeat;
+  background-size: contain;
+}
+
+.Icon-star-full {
+  background: url('./star-full.svg') center no-repeat;
+  background-size: contain;
+}
+
+.Icon-star-half {
+  background: url('./star-half.svg') center no-repeat;
+  background-size: contain;
+}
+
 .Icon-user-dark {
   background: url('./user-dark.svg') center no-repeat;
   background-size: contain;

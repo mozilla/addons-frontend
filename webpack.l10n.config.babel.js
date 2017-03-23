@@ -57,6 +57,7 @@ const babelL10nPlugins = [
     },
     fileName: `locale/templates/LC_MESSAGES/${appName}.pot`,
     baseDirectory: process.cwd(),
+    stripTemplateLiteralIndent: true,
   }],
 ];
 

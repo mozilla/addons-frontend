@@ -67,8 +67,38 @@ describe('AMO GET Requests', () => {
     .get('/en-US/firefox/user/some-user/')
     .expect(404));
 
+  it('should respond with a 404 to the user ajax page', () => request(app)
+    .get('/en-US/firefox/users/ajax')
+    .expect(404));
+
+  it('should respond with a 404 to the user delete page', () => request(app)
+    .get('/en-US/firefox/users/delete')
+    .expect(404));
+
   it('should respond with a 404 to the user edit page', () => request(app)
+    .get('/en-US/firefox/users/edit')
+    .expect(404));
+
+  it('should respond with a 404 to the user login page', () => request(app)
+    .get('/en-US/firefox/users/login')
+    .expect(404));
+
+  it('should respond with a 404 to the user logout page', () => request(app)
+    .get('/en-US/firefox/users/logout')
+    .expect(404));
+
+  it('should respond with a 404 to the user register page', () => request(app)
+    .get('/en-US/firefox/users/register')
+    .expect(404));
+
+  // These will cause addons-server to redirect back to the URL without a
+  // trailing slash, but that will work as we 404 on that too.
+  it('should 404 the user edit page with slashes', () => request(app)
     .get('/en-US/firefox/users/edit/')
+    .expect(404));
+
+  it('should 404 the user login page with slashes', () => request(app)
+    .get('/en-US/firefox/users/login/')
     .expect(404));
 
   it('should respond with a 404 to a specific user edit', () => request(app)

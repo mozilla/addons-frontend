@@ -5,7 +5,6 @@ addons:
   firefox: latest
 language: node_js
 node_js:
-- '4'
 - '6'
 env:
   matrix:

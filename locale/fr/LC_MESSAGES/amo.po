@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-07 14:08+0000\n"
-"PO-Revision-Date: 2017-03-07 17:40+0000\n"
+"POT-Creation-Date: 2017-03-17 12:14+0000\n"
+"PO-Revision-Date: 2017-03-21 21:21+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -14,39 +14,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:128
+#: src/amo/components/AddonCompatibilityError/index.js:53
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Vous devez <a href=\"%(downloadUrl)s\">télécharger Firefox</a> pour installer ce module."
+
+#: src/amo/components/AddonCompatibilityError/index.js:57
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "Firefox pour iOS ne prend pas en charge les modules pour le moment."
+
+#: src/amo/components/AddonCompatibilityError/index.js:60
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Ce module nécessite une <a href=\"%(downloadUrl)s\">version plus récente de Firefox</a> (version %(minVersion)s minimum). Vous utilisez Firefox %(yourVersion)s."
+
+#: src/amo/components/AddonCompatibilityError/index.js:74
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Votre navigateur ne prend pas en charge les modules. Vous pouvez <a href=\"%(downloadUrl)s\">télécharger Firefox</a> pour installer ce module."
+
+#: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lire %(count)s critique"
 msgstr[1] "Lire les %(count)s critiques"
 
-#: src/amo/components/AddonDetail.js:141
+#: src/amo/components/AddonDetail.js:144
 msgid "No reviews yet"
 msgstr "Aucune critique pour l’instant"
 
-#: src/amo/components/AddonDetail.js:150
+#: src/amo/components/AddonDetail.js:153
 msgid "Rate your experience"
 msgstr "Évaluez votre expérience"
 
-#: src/amo/components/AddonDetail.js:174
+#: src/amo/components/AddonDetail.js:183
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)spar %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:197
+#: src/amo/components/AddonDetail.js:210
 msgid "Extension Metadata"
 msgstr "Métadonnées de l’extension"
 
-#: src/amo/components/AddonDetail.js:211
+#: src/amo/components/AddonDetail.js:228
 msgid "About this %(addonType)s"
 msgstr "À propos de %(addonType)s"
 
-#: src/amo/components/AddonDetail.js:89
-msgid "Cancel preview"
-msgstr "Fermer l’aperçu"
-
-#: src/amo/components/AddonDetail.js:89
+#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "Appuyer pour afficher l’aperçu"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Fermer l’aperçu"
 
 #: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
 msgid "%(total)s user"
@@ -136,6 +152,11 @@ msgstr "Dites-nous pourquoi vous appréciez cette extension. Soyez précis et co
 msgid "Tell the world about this extension."
 msgstr "Faites connaître cette extension."
 
+#: src/amo/components/AddonReview.js:96
+#, fuzzy
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Dites-nous pourquoi vous appréciez cette extension. Soyez précis et concis."
+
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "par %(authorName)s, %(timestamp)s"
@@ -164,17 +185,43 @@ msgstr "Échec du chargement des catégories."
 msgid "No categories found."
 msgstr "Aucune catégorie trouvée."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:21
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "Accès interdit"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:21
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "Page introuvable"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr ""
+
+#: src/amo/components/ErrorPage/ServerError/index.js:21
+msgid ""
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Erreur serveur"
+
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -348,14 +395,12 @@ msgstr "Parcourir tous les thèmes"
 msgid "Add-ons Home Page"
 msgstr "Page d’accueil des modules"
 
-#: src/amo/containers/App.js:80
+#: src/amo/containers/App.js:104
 msgid "Add-ons for Firefox"
 msgstr "Modules pour Firefox"
 
 #: src/amo/containers/Home.js:39
-msgid ""
-"Extensions are special features you can add to Firefox.\n"
-"Themes let you change your browser's appearance."
+msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr ""
 "Les modules sont des fonctionnalités additionnelles pouvant être ajoutées à Firefox.\n"
 "Les thèmes permettent de modifier l’apparence de votre navigateur."
@@ -409,8 +454,8 @@ msgid "Abstract"
 msgstr "Abstraite"
 
 #: src/amo/containers/Home.js:81
-msgid "Fashionable"
-msgstr "Chic"
+msgid "Holiday"
+msgstr "Vacances et jours fériés"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -422,7 +467,7 @@ msgstr "Sportive"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr "Solide"
+msgstr "Motifs"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
@@ -432,47 +477,55 @@ msgstr "Se déconnecter"
 msgid "Log in/Sign up"
 msgstr "Se connecter/S’inscrire"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr ""
+
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "Code d’erreur : %(status)s."
 
-#: src/core/components/InstallButton/index.js:61
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr ""
+
+#: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
 msgstr "Installer le thème"
 
-#: src/core/components/InstallButton/index.js:76
+#: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
 msgstr "Ajouter à Firefox"
 
-#: src/core/components/InstallSwitch/index.js:49
+#: src/core/components/InstallSwitch/index.js:52
 msgid "Downloading %(name)s."
 msgstr "Téléchargement de %(name)s en cours."
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:55
 msgid "Installing %(name)s."
 msgstr "Installation de %(name)s en cours."
 
-#: src/core/components/InstallSwitch/index.js:56
+#: src/core/components/InstallSwitch/index.js:59
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s est installé et activé. Cliquez pour le désinstaller."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s est désactivé. Cliquez pour l’activer."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:65
 msgid "Uninstalling %(name)s."
 msgstr "Désinstallation de %(name)s en cours."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:68
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s est désinstallé. Cliquez pour l’installer."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:71
 msgid "Install state for %(name)s is unknown."
 msgstr "L’état d’installation de %(name)s est inconnu."
 
-#: src/core/components/Paginate/index.js:107
+#: src/core/components/Paginate/index.js:106
 msgid "Previous"
 msgstr "Précédent"
 
@@ -480,7 +533,7 @@ msgstr "Précédent"
 msgid "Next"
 msgstr "Suivant"
 
-#: src/core/components/Paginate/index.js:96
+#: src/core/components/Paginate/index.js:97
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Page %(currentPage)s sur %(totalPages)s"
 
@@ -515,6 +568,9 @@ msgstr "Aucune note"
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Développer</span> pour afficher plus d’informations"
+
+#~ msgid "Fashionable"
+#~ msgstr "Chic"
 
 #~ msgid "Website"
 #~ msgstr "Site web"

@@ -44,9 +44,28 @@
   background-image: url('./img/yellow-star.svg');
 }
 
-.Rating--small .Rating-choice {
+.Rating-half-star {
+  background-image: url('./img/yellow-star-half.svg');
+}
+
+.Rating--small .Rating-choice,
+.Rating--small-monochrome .Rating-choice {
   margin: 0;
   background-size: $rating-s-star-size;
   height: $rating-s-star-size + $rating-s-star-gutter;
   width: $rating-s-star-size + $rating-s-star-gutter;
+}
+
+.Rating--small-monochrome {
+  .Rating-choice {
+    background-image: url('~ui/components/Icon/star-empty.svg');
+  }
+
+  .Rating-selected-star {
+    background-image: url('~ui/components/Icon/star-full.svg');
+  }
+
+  .Rating-half-star {
+    background-image: url('~ui/components/Icon/star-half.svg');
+  }
 }

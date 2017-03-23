@@ -1,15 +1,19 @@
 import {
-  LOG_OUT_USER,
-  SET_JWT,
-  SET_CLIENT_APP,
-  SET_LANG,
   ENTITIES_LOADED,
+  LOG_OUT_USER,
+  SET_AUTH_TOKEN,
+  SET_CLIENT_APP,
   SET_CURRENT_USER,
+  SET_LANG,
+  SET_USER_AGENT,
 } from 'core/constants';
 
-export function setJwt(token) {
+export function setAuthToken(token) {
+  if (!token) {
+    throw new Error('token cannot be falsey');
+  }
   return {
-    type: SET_JWT,
+    type: SET_AUTH_TOKEN,
     payload: { token },
   };
 }
@@ -35,6 +39,13 @@ export function setLang(lang) {
   };
 }
 
+export function setUserAgent(userAgent) {
+  return {
+    type: SET_USER_AGENT,
+    payload: { userAgent },
+  };
+}
+
 export function loadEntities(entities) {
   return {
     type: ENTITIES_LOADED,
@@ -45,8 +56,6 @@ export function loadEntities(entities) {
 export function setCurrentUser(username) {
   return {
     type: SET_CURRENT_USER,
-    payload: {
-      username,
-    },
+    payload: { username },
   };
 }

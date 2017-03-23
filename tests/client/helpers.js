@@ -1,36 +1,31 @@
 import base64url from 'base64url';
 import config from 'config';
-import { sprintf } from 'jed';
+import Jed from 'jed';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
+import UAParser from 'ua-parser-js';
 
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
-import { ngettext } from 'core/utils';
 import { makeI18n } from 'core/i18n/utils';
 
 /*
- * Return a fake authentication token (a JWT) that can be
- * at least decoded like a real JWT.
+ * Return a fake authentication token that can be
+ * at least decoded in a realistic way.
  */
 export function userAuthToken(dataOverrides = {}, { tokenData } = {}) {
   const data = {
-    iss: 'some issuer',
-    exp: 12345,
-    iat: 12345,
-    username: 'some-username',
     user_id: 102345,
-    email: 'some-username@somewhere.org',
     ...dataOverrides,
   };
 
-  const algo = base64url.encode('{"example": "of JWT algorithms"}');
   let encodedToken = tokenData;
   if (!encodedToken) {
     encodedToken = base64url.encode(JSON.stringify(data));
   }
-  const sig = base64url.encode('pretend this is a signature of the content');
+  const authId = base64url.encode('pretend this is an auth ID');
+  const sig = base64url.encode('pretend this is a signature');
 
-  return `${algo}.${encodedToken}.${sig}`;
+  return `${encodedToken}:${authId}:${sig}`;
 }
 
 export function shallowRender(stuff) {
@@ -71,23 +66,24 @@ export function unexpectedSuccess() {
   return assert.fail(null, null, 'Unexpected success');
 }
 
-class FakeJed {
-  gettext = sinon.spy((str) => str)
-  dgettext = sinon.stub()
-  ngettext = sinon.spy(ngettext)
-  dngettext = sinon.stub()
-  pgettext = sinon.stub()
-  dpgettext = sinon.stub()
-  npgettext = sinon.stub()
-  dnpgettext = sinon.stub()
-  sprintf = sinon.spy(sprintf)
+export function JedSpy(data = {}) {
+  const _Jed = new Jed(data);
+  _Jed.gettext = sinon.spy(_Jed.gettext);
+  _Jed.dgettext = sinon.spy(_Jed.gettext);
+  _Jed.ngettext = sinon.spy(_Jed.ngettext);
+  _Jed.dngettext = sinon.spy(_Jed.dngettext);
+  _Jed.dpgettext = sinon.spy(_Jed.dpgettext);
+  _Jed.npgettext = sinon.spy(_Jed.npgettext);
+  _Jed.dnpgettext = sinon.spy(_Jed.dnpgettext);
+  _Jed.sprintf = sinon.spy(_Jed.sprintf);
+  return _Jed;
 }
 
 /*
  * Creates a stand-in for a jed instance,
  */
 export function getFakeI18nInst({ lang = config.get('defaultLang') } = {}) {
-  return makeI18n({}, lang, FakeJed);
+  return makeI18n({}, lang, JedSpy);
 }
 
 export class MockedSubComponent extends React.Component {
@@ -110,9 +106,13 @@ export function assertNotHasClass(el, className) {
     `expected ${className} to not be in in ${formatClassList(el.classList)}`);
 }
 
+const userAgentForState = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
+const { browser, os } = UAParser(userAgentForState);
 export const signedInApiState = Object.freeze({
   lang: 'en-US',
   token: 'secret-token',
+  userAgent: userAgentForState,
+  userAgentInfo: { browser, os },
 });
 
 export const userAgents = {
