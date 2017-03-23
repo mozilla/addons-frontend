@@ -22,7 +22,8 @@ import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
 import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
-import { setClientApp, setLang, setJwt } from 'core/actions';
+import { setAuthToken, setClientApp, setLang, setUserAgent }
+  from 'core/actions';
 import log from 'core/logger';
 import {
   getDirection,
@@ -74,6 +75,11 @@ function getPageProps({ noScriptStyles = '', store, req, res }) {
     log.warn(`No clientApp for this URL: ${req.url}`);
   } else {
     log.warn('No clientApp (error)');
+  }
+  if (res.locals.userAgent) {
+    store.dispatch(setUserAgent(res.locals.userAgent));
+  } else {
+    log.info('No userAgent found in request headers.');
   }
 
   return {
@@ -132,7 +138,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   const sentryDsn = config.get('sentryDsn');
   if (sentryDsn) {
-    Raven.config(sentryDsn).install();
+    Raven.config(sentryDsn, { logger: 'server-js' }).install();
     app.use(Raven.requestHandler());
     log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
     // The error handler is defined below.
@@ -246,7 +252,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         store = createStore();
         const token = cookie.load(config.get('cookieName'));
         if (token) {
-          store.dispatch(setJwt(token));
+          store.dispatch(setAuthToken(token));
         }
 
         pageProps = getPageProps({ noScriptStyles, store, req, res });

@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import {
   getLatestUserReview,
   getReviews,

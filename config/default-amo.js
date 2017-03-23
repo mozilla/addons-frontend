@@ -78,7 +78,30 @@ module.exports = {
     'user-media',
     '__version__',
   ],
+  // These URLs are exceptions to our trailing slash URL redirects; if we
+  // find a URL that matches this pattern we won't redirect to the same url
+  // with an appended `/`. This is usually because if we redirect, it will
+  // cause a redirect loop with addons-server; see:
+  // https://github.com/mozilla/addons-frontend/issues/2037
+  //
+  // We use $lang and $clientApp as placeholders so we can have URLs in this
+  // list that don't include those URL pieces, if needed.
+  validTrailingSlashUrlExceptions: [
+    // User URLs, found in:
+    // https://github.com/mozilla/addons-server/blob/master/src/olympia/users/urls.py#L20
+    '/$lang/$clientApp/user/abuse',
+    '/$lang/$clientApp/user/rmlocale',
+    '/$lang/$clientApp/users/ajax',
+    '/$lang/$clientApp/users/delete',
+    '/$lang/$clientApp/users/edit',
+    '/$lang/$clientApp/users/login',
+    '/$lang/$clientApp/users/logout',
+    '/$lang/$clientApp/users/register',
+  ],
 
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-prod/
+  publicSentryDsn: 'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
 };

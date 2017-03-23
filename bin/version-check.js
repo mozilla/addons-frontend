@@ -17,7 +17,7 @@ var exec = require('shelljs').exec;
 var chalk = require('chalk');
 var semver = require('semver');
 
-var MIN_NODE_VERSION = 4;
+var MIN_NODE_VERSION = 6;
 var MIN_NPM_VERSION = 3;
 
 var NODE_VERSION = process.versions.node;

@@ -36,7 +36,7 @@ export class HomePageBase extends React.Component {
       <div className="HomePage">
         <div className="HomePage-welcome">
           <p className="HomePage-welcome-text">
-            {i18n.gettext(dedent`Extensions are special features you can add to Firefox.
+            {i18n.gettext(`Extensions are special features you can add to Firefox.
             Themes let you change your browser's appearance.`)}
           </p>
           <div className="HomePage-welcome-links">

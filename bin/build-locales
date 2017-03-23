@@ -7,6 +7,7 @@ require('babel-register');
 
 const fs = require('fs');
 const path = require('path');
+
 const config = require('config');
 const po2json = require('po2json');
 const glob = require('glob');
@@ -15,65 +16,70 @@ const chalk = require('chalk');
 const toSource = require('tosource');
 const oneLine = require('common-tags').oneLine;
 
-const appName = config.get('appName');
+const app = config.get('appName');
+const buildAll = process.env.ADDONS_FRONTEND_BUILD_ALL === '1';
 
-if (!appName) {
+if (!app && !buildAll) {
   console.log(
     chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
   process.exit(1);
 }
 
-const localeDir = path.join(__dirname, '../locale');
-const poFiles = glob.sync(`${localeDir}/**/${appName}.po`);
-const dest = path.join(__dirname, '../src/locale/');
+const appsBuildList = buildAll ? config.get('validAppNames') : [app];
+// eslint-disable-next-line no-restricted-syntax
+for (const appName of appsBuildList) {
+  const localeDir = path.join(__dirname, '../locale');
+  const poFiles = glob.sync(`${localeDir}/**/${appName}.po`);
+  const dest = path.join(__dirname, '../src/locale/');
 
-poFiles.forEach((pofile) => {
-  const dir = path.dirname(pofile);
-  const subdir = path.dirname(dir);
-  const locale = path.basename(subdir);
-  const stem = path.basename(pofile, '.po');
-  const localeOutputFilePath = path.join(dest, locale, `${stem}.js`);
-  shelljs.mkdir('-p', path.join(dest, locale));
+  poFiles.forEach((pofile) => {
+    const dir = path.dirname(pofile);
+    const subdir = path.dirname(dir);
+    const locale = path.basename(subdir);
+    const stem = path.basename(pofile, '.po');
+    const localeOutputFilePath = path.join(dest, locale, `${stem}.js`);
+    shelljs.mkdir('-p', path.join(dest, locale));
 
-  const json = po2json.parseFileSync(pofile, {
-    stringify: true,
-    pretty: true,
-    format: 'jed1.x',
-    fuzzy: config.get('po2jsonFuzzyOutput'),
-  });
-  const localeObject = JSON.parse(json);
+    const json = po2json.parseFileSync(pofile, {
+      stringify: true,
+      pretty: true,
+      format: 'jed1.x',
+      fuzzy: config.get('po2jsonFuzzyOutput'),
+    });
+    const localeObject = JSON.parse(json);
 
-  // Add the moment locale JS into our locale file, if one is available and
-  // we're building for AMO (which is the only app that uses moment right
-  // now).
-  if (appName === 'amo') {
-    var defineLocale = null;
-    try {
-      const momentLocale = locale.replace('_', '-').toLowerCase();
-      const localeModulePath = `moment/locale/${momentLocale}`;
-      // Check for the locale first; if it doesn't exist we don't have
-      // a moment locale that matches.
-      fs.accessSync(`./node_modules/${localeModulePath}.js`);
+    // Add the moment locale JS into our locale file, if one is available and
+    // we're building for AMO (which is the only app that uses moment right
+    // now).
+    if (appName === 'amo') {
+      var defineLocale = null;
+      try {
+        const momentLocale = locale.replace('_', '-').toLowerCase();
+        const localeModulePath = `moment/locale/${momentLocale}`;
+        // Check for the locale first; if it doesn't exist we don't have
+        // a moment locale that matches.
+        fs.accessSync(`./node_modules/${localeModulePath}.js`);
 
-      // We're using `new Function()` here to create a function out of the
-      // raw code; this function won't be executed but will be written out by
-      // `toSource()` so that it can be used later (at runtime, by moment).
-      defineLocale = new Function(`
-        // By requiring this module, the new locale is defined and
-        // registered internally for moment.js
-        require('${localeModulePath}');`);
-    } catch (e) {
-      // We ignore missing locale errors for en_US as its moment's default
-      // locale so we don't need to provide a translation.
-      if (locale !== 'en_US') {
-        console.info(oneLine`No moment i18n available for ${locale};
-          consider adding one or creating a mapping.`);
+        // We're using `new Function()` here to create a function out of the
+        // raw code; this function won't be executed but will be written out by
+        // `toSource()` so that it can be used later (at runtime, by moment).
+        defineLocale = new Function(`
+          // By requiring this module, the new locale is defined and
+          // registered internally for moment.js
+          require('${localeModulePath}');`);
+      } catch (e) {
+        // We ignore missing locale errors for en_US as its moment's default
+        // locale so we don't need to provide a translation.
+        if (locale !== 'en_US') {
+          console.info(oneLine`No moment i18n available for ${locale};
+            consider adding one or creating a mapping.`);
+        }
       }
+
+      localeObject._momentDefineLocale = defineLocale;
     }
 
-    localeObject._momentDefineLocale = defineLocale;
-  }
-
-  fs.writeFileSync(
-    localeOutputFilePath, `module.exports = ${toSource(localeObject)}`);
-});
+    fs.writeFileSync(
+      localeOutputFilePath, `module.exports = ${toSource(localeObject)}`);
+  });
+}

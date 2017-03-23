@@ -13,7 +13,11 @@ import {
   mapStateToProps,
 } from 'amo/containers/App';
 import createStore from 'amo/store';
-import { setClientApp, setLang } from 'core/actions';
+import {
+  setClientApp,
+  setLang,
+  setUserAgent as setUserAgentAction,
+} from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE } from 'core/constants';
@@ -70,6 +74,7 @@ describe('App', () => {
             MastHeadComponent={FakeMastHeadComponent}
             SearchFormComponent={FakeSearchFormComponent}
             ErrorPage={FakeErrorPageComponent}
+            setUserAgent={sinon.stub()}
             {...props}>
             {children}
           </AppBase>
@@ -141,6 +146,15 @@ describe('App', () => {
     assert.ok(dispatch.calledWith({ type: INSTALL_STATE, payload }));
   });
 
+  it('sets up a callback for setting the userAgentInfo', () => {
+    const dispatch = sinon.spy();
+    const { setUserAgent } = mapDispatchToProps(dispatch);
+    const userAgent = 'tofubrowser';
+
+    setUserAgent(userAgent);
+    assert.ok(dispatch.calledWith(setUserAgentAction(userAgent)));
+  });
+
   it('sets the clientApp as props', () => {
     const store = createStore();
     store.dispatch(setClientApp('android'));
@@ -153,6 +167,21 @@ describe('App', () => {
     store.dispatch(setLang('de'));
     const { lang } = mapStateToProps(store.getState());
     assert.equal(lang, 'de');
+  });
+
+  it('sets the userAgent as props', () => {
+    const store = createStore();
+    store.dispatch(setUserAgentAction('tofubrowser'));
+    const { userAgent } = mapStateToProps(store.getState());
+    assert.equal(userAgent, 'tofubrowser');
+  });
+
+  it('uses navigator.userAgent if userAgent prop is empty', () => {
+    const setUserAgent = sinon.stub();
+    const _navigator = { userAgent: 'Firefox 10000000.0' };
+    render({ _navigator, setUserAgent, userAgent: '' });
+
+    assert.equal(setUserAgent.firstCall.args[0], _navigator.userAgent);
   });
 
   it('renders an error component on error', () => {

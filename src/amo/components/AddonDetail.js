@@ -1,7 +1,9 @@
 /* eslint-disable react/no-danger */
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 
+import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import DefaultRatingManager from 'amo/components/RatingManager';
@@ -13,8 +15,8 @@ import InstallButton from 'core/components/InstallButton';
 import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
-  clientSupportsAddons as _clientSupportsAddons,
   isAllowedOrigin,
+  getClientCompatibility as _getClientCompatibility,
   ngettext,
   nl2br,
   sanitizeHTML,
@@ -45,7 +47,8 @@ export class AddonDetailBase extends React.Component {
   static propTypes = {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
-    clientSupportsAddons: PropTypes.func,
+    clientApp: PropTypes.string.isRequired,
+    getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isPreviewingTheme: PropTypes.bool.isRequired,
@@ -54,11 +57,12 @@ export class AddonDetailBase extends React.Component {
     themePreviewNode: PropTypes.element,
     status: PropTypes.string.isRequired,
     toggleThemePreview: PropTypes.func.isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
-    clientSupportsAddons: _clientSupportsAddons,
+    getClientCompatibility: _getClientCompatibility,
   }
 
   componentWillUnmount() {
@@ -72,10 +76,9 @@ export class AddonDetailBase extends React.Component {
     this.props.toggleThemePreview(event.currentTarget);
   }
 
-  headerImage() {
+  headerImage({ compatible } = {}) {
     const {
       addon,
-      clientSupportsAddons,
       getBrowserThemeData,
       i18n,
       isPreviewingTheme,
@@ -100,7 +103,7 @@ export class AddonDetailBase extends React.Component {
         >
           {status !== ENABLED ?
             <button
-              disabled={!clientSupportsAddons()}
+              disabled={!compatible}
               className="Button AddonDetail-theme-header-label"
               htmlFor="AddonDetail-theme-header">
               <Icon name="eye" className="AddonDetail-theme-preview-icon" />
@@ -160,7 +163,13 @@ export class AddonDetailBase extends React.Component {
   }
 
   render() {
-    const { addon, i18n } = this.props;
+    const {
+      addon,
+      clientApp,
+      getClientCompatibility,
+      i18n,
+      userAgentInfo,
+    } = this.props;
 
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
@@ -178,11 +187,15 @@ export class AddonDetailBase extends React.Component {
         endSpan: '</span>',
       });
 
+    const {
+      compatible, maxVersion, minVersion, reason,
+    } = getClientCompatibility({ addon, clientApp, userAgentInfo });
+
     // eslint-disable react/no-danger
     return (
       <div className="AddonDetail">
         <header className="AddonDetail-header">
-          {this.headerImage()}
+          {this.headerImage({ compatible })}
           <div className="AddonDetail-title">
             <h1
               dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
@@ -197,7 +210,11 @@ export class AddonDetailBase extends React.Component {
             {i18n.gettext('Extension Metadata')}
           </h2>
           <AddonMeta addon={addon} />
-          <InstallButton {...this.props} />
+          <InstallButton {...this.props} disabled={!compatible} />
+          {!compatible ? (
+            <AddonCompatibilityError maxVersion={maxVersion}
+              minVersion={minVersion} reason={reason} />
+          ) : null}
         </section>
 
         {addon.previews.length > 0
@@ -224,7 +241,15 @@ export class AddonDetailBase extends React.Component {
   }
 }
 
+export function mapStateToProps(state) {
+  return {
+    clientApp: state.api.clientApp,
+    userAgentInfo: state.api.userAgentInfo,
+  };
+}
+
 export default compose(
   translate({ withRef: true }),
   withInstallHelpers({ src: 'dp-btn-primary' }),
+  connect(mapStateToProps),
 )(AddonDetailBase);
