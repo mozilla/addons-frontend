@@ -6,8 +6,9 @@
   "private": true,
   "scripts": {
     "build": "bin/build-checks.js && better-npm-run build",
+    "build-locales": "bin/build-locales",
     "extract-locales": "better-npm-run extract-locales",
-    "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json'",
+    "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
     "dev:admin": "better-npm-run dev:admin",
     "dev:amo": "better-npm-run dev:amo",
     "dev:amo:no-proxy": "better-npm-run dev:amo:no-proxy",
@@ -23,11 +24,11 @@
     "unittest:server": "bin/config-check.js && better-npm-run unittest:server",
     "unittest:run": "bin/config-check.js && better-npm-run unittest:run",
     "version-check": "node bin/version-check.js",
-    "webpack-dev-server": "better-npm-run webpack-dev-server"
+    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
   },
   "betterScripts": {
     "build": {
-      "command": "npm run clean && npm run version-check && webpack --bail --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
+      "command": "npm run clean && npm run version-check && npm run build-locales && webpack --bail --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src"
       }
@@ -181,8 +182,9 @@
     "deep-eql": "2.0.1",
     "dompurify": "0.8.5",
     "es6-error": "4.0.2",
-    "express": "4.14.1",
+    "express": "4.15.2",
     "extract-text-webpack-plugin": "1.0.1",
+    "fastclick": "1.0.6",
     "helmet": "3.5.0",
     "humps": "2.0.0",
     "isomorphic-fetch": "2.2.1",
@@ -190,6 +192,7 @@
     "jsdom": "9.11.0",
     "moment": "2.17.1",
     "mozilla-tabzilla": "0.5.1",
+    "mozilla-version-comparator": "1.0.2",
     "normalize.css": "5.0.0",
     "normalizr": "3.2.2",
     "piping": "0.3.2",
@@ -209,9 +212,11 @@
     "redux": "3.6.0",
     "redux-connect": "4.0.2",
     "redux-logger": "2.8.1",
+    "round": "2.0.1",
     "serialize-javascript": "1.3.0",
+    "ua-parser-js": "0.7.12",
     "url": "0.11.0",
-    "url-loader": "0.5.7",
+    "url-loader": "0.5.8",
     "utf8": "2.1.2",
     "webpack-isomorphic-tools": "2.6.6"
   },
@@ -219,7 +224,7 @@
     "autoprefixer": "6.7.5",
     "babel-core": "6.23.1",
     "babel-eslint": "7.1.0",
-    "babel-gettext-extractor": "git+https://github.com/muffinresearch/babel-gettext-extractor.git#ecd85dea4553247a3cb579da817df29f381df5b9",
+    "babel-gettext-extractor": "git+https://github.com/muffinresearch/babel-gettext-extractor.git#0d39d3882bc846e7dcb6c9ff6463896c96920ce6",
     "babel-loader": "6.3.2",
     "babel-plugin-istanbul": "4.0.0",
     "babel-plugin-react-transform": "2.0.2",
@@ -230,7 +235,7 @@
     "babel-preset-react": "6.16.0",
     "babel-preset-stage-2": "6.18.0",
     "babel-register": "6.23.0",
-    "bundle-loader": "0.5.4",
+    "bundle-loader": "0.5.5",
     "chai": "3.5.0",
     "chalk": "1.1.3",
     "cheerio": "0.22.0",
@@ -244,7 +249,7 @@
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.10.0",
     "fetch-mock": "5.9.4",
-    "file-loader": "0.10.0",
+    "file-loader": "0.10.1",
     "glob": "7.1.1",
     "http-proxy": "1.16.2",
     "json-loader": "0.5.4",

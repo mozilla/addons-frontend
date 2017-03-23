@@ -273,7 +273,7 @@ babel-code-frame@^6.11.0, babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-babel-core@6.23.1, babel-core@^6.23.0:
+babel-core@6.23.1, babel-core@^6.0.0, babel-core@^6.23.0:
   version "6.23.1"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.23.1.tgz#c143cb621bb2f621710c220c5d579d15b8a442df"
   dependencies:
@@ -319,11 +319,11 @@ babel-generator@^6.18.0, babel-generator@^6.23.0:
     source-map "^0.5.0"
     trim-right "^1.0.1"
 
-"babel-gettext-extractor@git+https://github.com/muffinresearch/babel-gettext-extractor.git#ecd85dea4553247a3cb579da817df29f381df5b9":
+"babel-gettext-extractor@git+https://github.com/muffinresearch/babel-gettext-extractor.git#0d39d3882bc846e7dcb6c9ff6463896c96920ce6":
   version "1.0.2"
-  resolved "git+https://github.com/muffinresearch/babel-gettext-extractor.git#ecd85dea4553247a3cb579da817df29f381df5b9"
+  resolved "git+https://github.com/muffinresearch/babel-gettext-extractor.git#0d39d3882bc846e7dcb6c9ff6463896c96920ce6"
   dependencies:
-    babel-runtime "^5.0.0"
+    babel-core "^6.0.0"
     gettext-parser "^1.1.2"
 
 babel-helper-bindify-decorators@^6.22.0:
@@ -891,12 +891,6 @@ babel-register@6.23.0, babel-register@^6.23.0:
     lodash "^4.2.0"
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
-
-babel-runtime@^5.0.0:
-  version "5.8.38"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-5.8.38.tgz#1c0b02eb63312f5f087ff20450827b425c9d4c19"
-  dependencies:
-    core-js "^1.0.0"
 
 babel-runtime@^6.18.0, babel-runtime@^6.2.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0, babel-runtime@^6.6.1, babel-runtime@^6.9.1:
   version "6.23.0"
@@ -4166,6 +4160,10 @@ mozilla-tabzilla@0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/mozilla-tabzilla/-/mozilla-tabzilla-0.5.1.tgz#60606c7a8fff542c22fc365fbd9761f8dc603204"
 
+mozilla-version-comparator@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/mozilla-version-comparator/-/mozilla-version-comparator-1.0.2.tgz#f86731e70c15d1ff5eb288d13b4db8d1e605f7fc"
+
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -6408,7 +6406,7 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-ua-parser-js@^0.7.9:
+ua-parser-js@0.7.12, ua-parser-js@^0.7.9:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 

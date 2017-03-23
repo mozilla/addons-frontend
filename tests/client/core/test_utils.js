@@ -1,6 +1,6 @@
-/* eslint-disable arrow-body-style */
 import url from 'url';
 
+import { oneLine } from 'common-tags';
 import React from 'react';
 import config from 'config';
 import { sprintf } from 'jed';
@@ -9,19 +9,27 @@ import {
   findRenderedComponentWithType,
 } from 'react-addons-test-utils';
 import { compose } from 'redux';
+import UAParser from 'ua-parser-js';
 
 import * as actions from 'core/actions';
 import * as categoriesActions from 'core/actions/categories';
 import * as api from 'core/api';
 import {
+  INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_UNDER_MIN_VERSION,
+} from 'core/constants';
+import {
   addQueryParams,
   apiAddonType,
-  clientSupportsAddons,
   convertBoolean,
   findAddon,
   getClientApp,
+  getClientCompatibility,
   getClientConfig,
+  getCompatibleVersions,
   isAllowedOrigin,
+  isCompatibleWithUserAgent,
   isValidClientApp,
   loadAddonIfNeeded,
   loadCategoriesIfNeeded,
@@ -172,56 +180,163 @@ describe('getClientApp', () => {
   });
 });
 
-describe('clientSupportsAddons', () => {
-  it('returns false for Android/webkit', () => {
-    userAgents.androidWebkit.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+describe('isCompatibleWithUserAgent', () => {
+  it('should throw if no userAgentInfo supplied', () => {
+    assert.throws(() => {
+      isCompatibleWithUserAgent({ userAgent: null, reason: null });
+    }, 'userAgentInfo is required');
+  });
+
+  it('is incompatible with Android/webkit', () => {
+    userAgents.androidWebkit.forEach((userAgent) => {
+      assert.deepEqual(
+        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX },
+        `UA string: ${userAgent}`);
     });
   });
 
-  it('returns false for Chrome Android', () => {
-    userAgents.chromeAndroid.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+  it('is incompatible with Chrome Android', () => {
+    userAgents.chromeAndroid.forEach((userAgent) => {
+      assert.deepEqual(
+        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX },
+        `UA string: ${userAgent}`);
     });
   });
 
-  it('returns false for Chrome desktop', () => {
-    userAgents.chrome.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+  it('is incompatible with Chrome desktop', () => {
+    userAgents.chrome.forEach((userAgent) => {
+      assert.deepEqual(
+        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX },
+        `UA string: ${userAgent}`);
     });
   });
 
-  it('returns true for Firefox desktop', () => {
-    userAgents.firefox.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+  it('is compatible with Firefox desktop', () => {
+    userAgents.firefox.forEach((userAgent) => {
+      assert.deepEqual(
+        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        { compatible: true, reason: null },
+        `UA string: ${userAgent}`);
     });
   });
 
-  it('returns true for Firefox Android', () => {
-    userAgents.firefoxAndroid.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+  it('is compatible with Firefox Android', () => {
+    userAgents.firefoxAndroid.forEach((userAgent) => {
+      assert.deepEqual(
+        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        { compatible: true, reason: null },
+        `UA string: ${userAgent}`);
     });
   });
 
-  it('is case insensitive', () => {
-    const ua = userAgents.firefox[0].toLowerCase();
-    assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
-  });
-
-  it('returns true for Firefox OS', () => {
-    userAgents.firefoxOS.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), true, `UA string: ${ua}`);
+  it('is compatible with Firefox OS', () => {
+    userAgents.firefoxOS.forEach((userAgent) => {
+      assert.deepEqual(
+        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        { compatible: true, reason: null },
+        `UA string: ${userAgent}`);
     });
   });
 
-  it('returns false for Firefox iOS', () => {
-    userAgents.firefoxIOS.forEach((ua) => {
-      assert.strictEqual(clientSupportsAddons(ua), false, `UA string: ${ua}`);
+  it('is incompatible with Firefox iOS', () => {
+    userAgents.firefoxIOS.forEach((userAgent) => {
+      assert.deepEqual(
+        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS },
+        `UA string: ${userAgent}`);
     });
   });
 
-  it('returns false for non-string user agent values', () => {
-    assert.strictEqual(clientSupportsAddons(false), false);
+  it(oneLine`should use a Firefox for iOS reason code even if minVersion is
+    also not met`, () => {
+    const userAgentInfo = {
+      browser: { name: 'Firefox', version: '8.0' },
+      os: { name: 'iOS' },
+    };
+    assert.deepEqual(
+      isCompatibleWithUserAgent({ minVersion: '9.0', userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS }
+    );
+  });
+
+  it('should mark non-Firefox UAs as incompatible', () => {
+    const userAgentInfo = { browser: { name: 'Chrome' } };
+    assert.deepEqual(
+      isCompatibleWithUserAgent({ userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
+  });
+
+  it('should mark Firefox 10 as incompatible with a minVersion of 10.1', () => {
+    const userAgentInfo = {
+      browser: { name: 'Firefox', version: '10.0' },
+      os: { name: 'Windows' },
+    };
+    assert.deepEqual(isCompatibleWithUserAgent({
+      minVersion: '10.1', userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
+  });
+
+  it('should mark Firefox 24 as compatible with a maxVersion of 8', () => {
+    // https://github.com/mozilla/addons-frontend/issues/2074
+    const userAgentInfo = {
+      browser: { name: 'Firefox', version: '24.0' },
+      os: { name: 'Windows' },
+    };
+    assert.deepEqual(isCompatibleWithUserAgent({
+      maxVersion: '8', userAgentInfo }),
+      { compatible: true, reason: null });
+  });
+
+  it('should mark Firefox as compatible when no min or max version', () => {
+    const userAgentInfo = {
+      browser: { name: 'Firefox', version: '10.0' },
+      os: { name: 'Windows' },
+    };
+    assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
+      { compatible: true, reason: null });
+  });
+
+  it('should mark Firefox as compatible with maxVersion of "*"', () => {
+    // WebExtensions are marked as having a maxVersion of "*" by addons-server
+    // if their manifests don't contain explicit version information.
+    const userAgentInfo = {
+      browser: { name: 'Firefox', version: '54.0' },
+      os: { name: 'Windows' },
+    };
+    assert.deepEqual(isCompatibleWithUserAgent({
+      maxVersion: '*', userAgentInfo }),
+      { compatible: true, reason: null });
+  });
+
+  it('should log warning when minVersion is "*"', () => {
+    // Note that this should never happen as addons-server will mark a
+    // WebExtension with no minVersion as having a minVersion of "48".
+    // Still, we accept it (but it will log a warning).
+    const fakeLog = { error: sinon.stub() };
+    const userAgentInfo = {
+      browser: { name: 'Firefox', version: '54.0' },
+      os: { name: 'Windows' },
+    };
+    assert.deepEqual(isCompatibleWithUserAgent({
+      _log: fakeLog, minVersion: '*', userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
+    assert.include(fakeLog.error.firstCall.args[0],
+      'minVersion of "*" was passed to isCompatibleWithUserAgent()');
+  });
+
+  it('is incompatible with empty user agent values', () => {
+    const userAgentInfo = { browser: { name: '' } };
+    assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
+  });
+
+  it('is incompatible with non-string user agent values', () => {
+    const userAgentInfo = { browser: { name: null }, os: { name: null } };
+    assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
   });
 });
 
@@ -711,5 +826,174 @@ describe('render404IfConfigKeyIsFalse', () => {
     const props = SomeComponent.firstCall.args[0];
     assert.equal(props.color, 'orange');
     assert.equal(props.size, 'large');
+  });
+});
+
+describe('getCompatibleVersions', () => {
+  it('gets the min and max versions', () => {
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        compatibility: {
+          firefox: {
+            max: '20.0.*',
+            min: '11.0.1',
+          },
+        },
+      },
+    };
+    const { maxVersion, minVersion } = getCompatibleVersions({
+      addon, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, '20.0.*');
+    assert.equal(minVersion, '11.0.1');
+  });
+
+  it('gets null if the clientApp does not match', () => {
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        compatibility: {
+          firefox: {
+            max: '20.0.*',
+            min: '11.0.1',
+          },
+        },
+      },
+    };
+    const { maxVersion, minVersion } = getCompatibleVersions({
+      addon, clientApp: 'android' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+  });
+
+  it('returns null if clientApp has no compatibility', () => {
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        compatibility: {},
+      },
+    };
+    const { maxVersion, minVersion } = getCompatibleVersions({
+      addon, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+  });
+
+  it('returns null if current_version does not exist', () => {
+    const addon = {
+      ...fakeAddon,
+      current_version: null,
+    };
+    const { maxVersion, minVersion } = getCompatibleVersions({
+      addon, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+  });
+
+  it('returns null if addon is null', () => {
+    const { maxVersion, minVersion } = getCompatibleVersions({
+      addon: null, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+  });
+});
+
+describe('getClientCompatibility', () => {
+  it('returns true for Firefox (reason undefined when compatibile)', () => {
+    const { browser, os } = UAParser(userAgents.firefox[0]);
+    const userAgentInfo = { browser, os };
+
+    assert.deepEqual(
+      getClientCompatibility({
+        addon: fakeAddon,
+        clientApp: 'firefox',
+        userAgentInfo,
+      }),
+      {
+        compatible: true,
+        maxVersion: null,
+        minVersion: null,
+        reason: null,
+      }
+    );
+  });
+
+  it('returns maxVersion when set', () => {
+    const { browser, os } = UAParser(userAgents.firefox[0]);
+    const userAgentInfo = { browser, os };
+
+    assert.deepEqual(
+      getClientCompatibility({
+        addon: {
+          ...fakeAddon,
+          current_version: {
+            compatibility: {
+              firefox: { max: '200.0', min: null },
+            },
+          },
+        },
+        clientApp: 'firefox',
+        userAgentInfo,
+      }),
+      {
+        compatible: true,
+        maxVersion: '200.0',
+        minVersion: null,
+        reason: null,
+      }
+    );
+  });
+
+  it('returns minVersion when set', () => {
+    const { browser, os } = UAParser(userAgents.firefox[0]);
+    const userAgentInfo = { browser, os };
+
+    assert.deepEqual(
+      getClientCompatibility({
+        addon: {
+          ...fakeAddon,
+          current_version: {
+            compatibility: {
+              firefox: { max: null, min: '2.0' },
+            },
+          },
+        },
+        clientApp: 'firefox',
+        userAgentInfo,
+      }),
+      {
+        compatible: true,
+        maxVersion: null,
+        minVersion: '2.0',
+        reason: null,
+      }
+    );
+  });
+
+  it('returns incompatible for non-Firefox UA', () => {
+    const { browser, os } = UAParser(userAgents.firefox[0]);
+    const userAgentInfo = { browser, os };
+
+    assert.deepEqual(
+      getClientCompatibility({
+        addon: fakeAddon,
+        clientApp: 'firefox',
+        userAgentInfo,
+      }),
+      {
+        compatible: true,
+        maxVersion: null,
+        minVersion: null,
+        reason: null,
+      }
+    );
   });
 });
