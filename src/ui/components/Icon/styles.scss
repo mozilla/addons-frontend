@@ -1,4 +1,5 @@
 @import "./vars";
+@import '~core/css/inc/mixins';
 
 .Icon {
   content: '';
@@ -51,4 +52,32 @@
 .Icon-user-dark {
   background: url('./user-dark.svg') center no-repeat;
   background-size: contain;
+}
+
+.LandingPage-browse-icon {
+  background: url('bullet-list.svg') 50% 50% no-repeat;
+  background-size: cover;
+  height: 30px;
+
+  @include margin-end(1em);
+
+  vertical-align: middle;
+  width: 30px;
+}
+
+.Icon-themes {
+  background: url('themes.svg') 50% 50% no-repeat;
+  background-size: cover;
+  height: 50px;
+  margin-bottom: 15px;
+  width: 41.5px;
+}
+
+.Icon-extensions {
+  background: url('extensions.svg') 50% 50% no-repeat;
+  background-size: cover;
+  display: inline-block;
+  height: 47.8px;
+  margin-bottom: 15px;
+  width: 49.2px;
 }

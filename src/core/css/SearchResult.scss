@@ -42,7 +42,7 @@
 
 .SearchResult-rating {
   display: block;
-  height: 18px;
+  height: 10px;
   margin: 0;
   width: 150px;
 
@@ -57,13 +57,12 @@
   }
 }
 
-.SearchResult-author,
-.SearchResult-users {
+.SearchResult-author-users {
   color: $sub-text-color;
-  display: inline-block;
+  display: block;
   font-size: $font-size-s;
   font-weight: normal;
-  margin: 0;
+  margin-right: 0.5rem;
   padding: 0;
 
   .SearchResult--theme & {

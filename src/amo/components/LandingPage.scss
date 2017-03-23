@@ -1,5 +1,39 @@
 @import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
 
 .LandingPage {
   padding: $padding-page;
+}
+
+.LandingPage-header {
+  margin: $padding-page $padding-page ($padding-page * 2);
+}
+
+.LandingPage-header-top {
+  justify-content: center;
+  display: flex;
+}
+
+.LandingPage-header-text {
+  display: inline-block;
+
+  @include margin-start(20px);
+  @include text-align-start();
+
+  width: 250px;
+}
+
+.LandingPage-heading {
+  font-size: 14px;
+  margin: 0;
+}
+
+.LandingPage-heading-content {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.LandingPage-browse-button {
+  font-variant: all-small-caps;
+  width: 100%;
 }

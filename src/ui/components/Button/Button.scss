@@ -1,4 +1,5 @@
 @import '~core/css/inc/mixins';
+@import '~core/css/inc/vars';
 
 .Button,
 .Button:link {
@@ -7,5 +8,9 @@
   &.Button--small {
     border-radius: $border-radius-s;
     font-size: 13px;
+  }
+
+  &.Button--light {
+    @include button(#fff, $link-color);
   }
 }
