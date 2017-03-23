@@ -29,12 +29,14 @@ describe('App', () => {
 
     beforeEach(() => {
       remove = sinon.stub(cookie, 'remove');
-      sinon.stub(config, 'get').withArgs('cookieName').returns('JWT_COOKIE_NAME');
+      sinon.stub(config, 'get')
+        .withArgs('cookieName').returns('pretend-cookie-name');
     });
 
     it('clears the cookie', () => {
       mapDispatchToProps.handleLogOut();
-      assert.ok(remove.calledWith('JWT_COOKIE_NAME'));
+      assert.ok(remove.called, 'handleLogOut() did not remove the cookie');
+      assert.equal(remove.firstCall.args[0], 'pretend-cookie-name');
     });
 
     it('logs out the user', () => {

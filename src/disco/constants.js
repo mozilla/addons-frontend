@@ -33,4 +33,5 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'malware-remediation@mozilla.org', // Youtube Unblocker Remediation
   'outofdate-notifications@mozilla.org', // Firefox out of date notifications
   'websensehelper@mozilla.org', // Websense Helper
+  'tls13-compat-ff51@mozilla.org', // TLS 1.3 Compatibility Testing
 ];

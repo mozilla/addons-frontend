@@ -23,7 +23,7 @@ Never submit security-related bugs through a Github Issue or by email.
 
 ## Requirements
 
-* Node 4.x LTS
+* Node 6.x LTS
 * npm 3.x
 
 The easiest way to manage multiple node versions in development is to use

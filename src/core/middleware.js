@@ -3,8 +3,9 @@ import config from 'config';
 import {
   getClientApp,
   isValidClientApp,
-  isValidLocaleUrlException,
   isValidClientAppUrlException,
+  isValidLocaleUrlException,
+  isValidTrailingSlashUrlException,
 } from 'core/utils';
 import { getLanguage, isValidLang } from 'core/i18n/utils';
 import log from 'core/logger';
@@ -19,15 +20,18 @@ export function prefixMiddleWare(req, res, next, { _config = config } = {}) {
   // or missing.
   const [langFromURL, appFromURL] = URLParts;
 
-  // Get language from URL or fall-back to detecting it from accept-language header.
+  // Get language from URL or fall-back to detecting it from accept-language
+  // header.
   const acceptLanguage = req.headers['accept-language'];
-  const { lang, isLangFromHeader } = getLanguage({ lang: langFromURL, acceptLanguage });
+  const { lang, isLangFromHeader } = getLanguage({
+    lang: langFromURL, acceptLanguage });
   // Get the application from the UA if one wasn't specified in the URL (or
   // if it turns out to be invalid).
   const application = getClientApp(req.headers['user-agent']);
 
   const hasValidLang = isValidLang(langFromURL);
-  const hasValidLocaleException = isValidLocaleUrlException(appFromURL, { _config });
+  const hasValidLocaleException = isValidLocaleUrlException(
+    appFromURL, { _config });
   const hasValidClientApp = isValidClientApp(appFromURL, { _config });
   let hasValidClientAppUrlException = isValidClientAppUrlException(
     appFromURL, { _config });
@@ -121,18 +125,47 @@ export function prefixMiddleWare(req, res, next, { _config = config } = {}) {
   const [newLang, newApp] = URLParts;
   res.locals.lang = newLang;
   res.locals.clientApp = newApp;
+  // Get detailed info on the current user agent so we can make sure add-ons
+  // are compatible with the current clientApp/version combo.
+  res.locals.userAgent = req.headers['user-agent'];
   /* eslint-enable no-param-reassign */
 
   return next();
 }
 
-export function trailingSlashesMiddleware(req, res, next) {
-  const URLParts = req.originalUrl.split('?');
+export function trailingSlashesMiddleware(
+  req, res, next, { _config = config } = {}
+) {
+  const UrlParts = req.originalUrl.split('?');
+  const UrlSlashSeparated = UrlParts[0].replace(/^\//, '').split('/');
 
-  // If the URL doesn't end with a trailing slash, we'll add one.
-  if (URLParts[0].substr(-1) !== '/') {
-    URLParts[0] = `${URLParts[0]}/`;
-    return res.redirect(301, URLParts.join('?'));
+  // If part of this URL should include a lang or clientApp, check for one
+  // and make sure they're valid.
+  if (isValidLang(UrlSlashSeparated[0], { _config })) {
+    UrlSlashSeparated[0] = '$lang';
+  }
+  if (isValidClientApp(UrlSlashSeparated[1], { _config })) {
+    UrlSlashSeparated[1] = '$clientApp';
+  } else if (isValidClientApp(UrlSlashSeparated[0], { _config })) {
+    // It's possible there is a clientApp in the first part of the URL if this
+    // URL is in validLocaleUrlExceptions.
+    UrlSlashSeparated[0] = '$clientApp';
+  }
+
+  const urlToCheck = `/${UrlSlashSeparated.join('/')}`;
+
+  // If the URL doesn't end with a trailing slash, and it isn't an exception,
+  // we'll add a trailing slash.
+  if (
+    !isValidTrailingSlashUrlException(urlToCheck, { _config }) &&
+    UrlParts[0].substr(-1) !== '/'
+  ) {
+    UrlParts[0] = `${UrlParts[0]}/`;
+    return res.redirect(301, UrlParts.join('?'));
+  } else if (isValidTrailingSlashUrlException(urlToCheck, { _config })) {
+    log.info(
+      'Not adding a trailing slash; validTrailingSlashUrlException found',
+      urlToCheck);
   }
 
   return next();

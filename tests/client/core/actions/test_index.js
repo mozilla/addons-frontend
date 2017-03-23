@@ -1,10 +1,11 @@
 import * as actions from 'core/actions';
+import { userAgents } from 'tests/client/helpers';
 
-describe('core actions setJwt', () => {
-  it('creates a SET_JWT action', () => {
-    assert.deepEqual(
-      actions.setJwt('my.amo.token'),
-      { type: 'SET_JWT', payload: { token: 'my.amo.token' } });
+
+describe('core actions setAuthToken', () => {
+  it('requires a token', () => {
+    assert.throws(
+      () => actions.setAuthToken(), /token cannot be falsey/);
   });
 });
 
@@ -25,6 +26,17 @@ describe('core actions setClientApp', () => {
 
   it('requires a clientApp value', () => {
     assert.throws(() => actions.setClientApp(''), /cannot be falsey/);
+  });
+});
+
+describe('core actions setUserAgent', () => {
+  it('creates the SET_USER_AGENT action', () => {
+    const userAgent = userAgents.chrome[0];
+
+    assert.deepEqual(actions.setUserAgent(userAgent), {
+      type: 'SET_USER_AGENT',
+      payload: { userAgent },
+    });
   });
 });
 
