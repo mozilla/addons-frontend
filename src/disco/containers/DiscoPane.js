@@ -34,6 +34,9 @@ export class DiscoPaneBase extends React.Component {
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
+    // We allow the video to be overloaded for testing, see:
+    // https://github.com/mozilla/addons-frontend/issues/765
+    _video: PropTypes.object,
   }
 
   static defaultProps = {
@@ -41,6 +44,7 @@ export class DiscoPaneBase extends React.Component {
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     _addChangeListeners: addChangeListeners,
     _tracking: tracking,
+    _video: null,
   }
 
   constructor() {
@@ -55,7 +59,11 @@ export class DiscoPaneBase extends React.Component {
   }
 
   showVideo = (e) => {
-    const { _tracking } = this.props;
+    const { _tracking, _video } = this.props;
+    if (_video) {
+      this.video = _video;
+    }
+
     e.preventDefault();
     this.setState({ showVideo: true });
     this.video.play();
@@ -66,7 +74,11 @@ export class DiscoPaneBase extends React.Component {
   }
 
   closeVideo = (e) => {
-    const { _tracking } = this.props;
+    const { _tracking, _video } = this.props;
+    if (_video) {
+      this.video = _video;
+    }
+
     e.preventDefault();
     this.setState({ showVideo: false });
     this.video.pause();
