@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
@@ -70,4 +71,6 @@ class SearchResults extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(SearchResults);
+export default compose(
+  translate({ withRef: true }),
+)(SearchResults);
