@@ -1,9 +1,21 @@
 /* global window */
 
 import { applyMiddleware, compose } from 'redux';
+import { loadingBarMiddleware } from 'react-redux-loading-bar';
 import createLogger from 'redux-logger';
 import config from 'config';
 
+
+// These are the actions the loading indicator will response to for showing
+// or hiding the loading bar.
+// This can probably go away when we move to something like redux-saga.
+const PROMISE_PREFIXES = {
+  promiseTypeSuffixes: [
+    'BEGIN_GLOBAL_LOAD',
+    'END_GLOBAL_LOAD',
+    'LOAD_FAIL',
+  ],
+};
 
 /*
  * Enhance a redux store with common middleware.
@@ -17,10 +29,19 @@ export function middleware({
 } = {}) {
   if (_config.get('isDevelopment')) {
     return compose(
-      applyMiddleware(_createLogger()),
+      applyMiddleware(
+        _createLogger(),
+        loadingBarMiddleware(PROMISE_PREFIXES),
+      ),
       _window && _window.devToolsExtension ?
         _window.devToolsExtension() : (createStore) => createStore
     );
   }
-  return (createStore) => createStore;
+
+  return compose(
+    applyMiddleware(
+      loadingBarMiddleware(PROMISE_PREFIXES),
+    ),
+    (createStore) => createStore,
+  );
 }
