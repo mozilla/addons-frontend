@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import url from 'url';
 
 import { oneLine } from 'common-tags';
@@ -18,7 +17,6 @@ import * as api from 'core/api';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import {
@@ -281,14 +279,15 @@ describe('isCompatibleWithUserAgent', () => {
       { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
   });
 
-  it('should mark Firefox 24 as incompatible with a maxVersion of 8', () => {
+  it('should mark Firefox 24 as compatible with a maxVersion of 8', () => {
+    // https://github.com/mozilla/addons-frontend/issues/2074
     const userAgentInfo = {
       browser: { name: 'Firefox', version: '24.0' },
       os: { name: 'Windows' },
     };
     assert.deepEqual(isCompatibleWithUserAgent({
       maxVersion: '8', userAgentInfo }),
-      { compatible: false, reason: INCOMPATIBLE_OVER_MAX_VERSION });
+      { compatible: true, reason: null });
   });
 
   it('should mark Firefox as compatible when no min or max version', () => {

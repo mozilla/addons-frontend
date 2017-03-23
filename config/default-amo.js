@@ -101,4 +101,7 @@ module.exports = {
 
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-prod/
+  publicSentryDsn: 'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
 };

@@ -33,7 +33,7 @@ module.exports = {
 
   // 2592000 is 30 days in seconds.
   cookieMaxAge: 2592000,
-  cookieName: 'jwt_api_auth_token',
+  cookieName: 'api_auth_token',
   cookieSecure: true,
 
   enableClientConsole: false,
@@ -168,6 +168,7 @@ module.exports = {
     'mk',
     'mn',
     'nl',
+    'nb-NO',
     'nn-NO',
     'pl',
     'pt-BR',
@@ -235,6 +236,5 @@ module.exports = {
   allowErrorSimulation: false,
 
   sentryDsn: process.env.SENTRY_DSN || null,
-  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-prod/
-  publicSentryDsn: 'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
+  publicSentryDsn: null,
 };

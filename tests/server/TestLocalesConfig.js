@@ -32,3 +32,19 @@ describe('Locale Config', () => {
       assert.include(langs, lang, `Should be a "${lang}" entry in config.langs`));
   }
 });
+
+describe('Check Locale JS for entities', () => {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const localeJSFile of glob.sync('src/locale/*/*.js')) {
+    it(`${localeJSFile} should not have html entities`, (done) => {
+      fs.readFile(localeJSFile, 'utf8', (err, data) => {
+        if (!err) {
+          assert.notOk(/&[^\s]+;/.test(data));
+        } else {
+          throw new Error(err);
+        }
+        done();
+      });
+    });
+  }
+});

@@ -1,16 +1,19 @@
 import {
   ENTITIES_LOADED,
   LOG_OUT_USER,
+  SET_AUTH_TOKEN,
   SET_CLIENT_APP,
   SET_CURRENT_USER,
-  SET_JWT,
   SET_LANG,
   SET_USER_AGENT,
 } from 'core/constants';
 
-export function setJwt(token) {
+export function setAuthToken(token) {
+  if (!token) {
+    throw new Error('token cannot be falsey');
+  }
   return {
-    type: SET_JWT,
+    type: SET_AUTH_TOKEN,
     payload: { token },
   };
 }

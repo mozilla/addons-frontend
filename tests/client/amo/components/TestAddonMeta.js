@@ -1,8 +1,12 @@
 import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import {
+  findRenderedComponentWithType,
+  renderIntoDocument,
+} from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
 import AddonMeta from 'amo/components/AddonMeta';
+import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
@@ -12,7 +16,11 @@ function render({ ...customProps } = {}) {
     i18n: getFakeI18nInst(),
     ...customProps,
   };
-  const root = renderIntoDocument(<AddonMeta {...props} />);
+  const root = findRenderedComponentWithType(renderIntoDocument(
+    <I18nProvider i18n={props.i18n}>
+      <AddonMeta {...props} />
+    </I18nProvider>
+  ), AddonMeta);
   return findDOMNode(root);
 }
 
@@ -61,18 +69,16 @@ describe('<AddonMeta>', () => {
     }
 
     function getRating(root) {
-      return root.querySelector(
-        '.AddonMeta-ratings > p.AddonMeta-star-count').textContent;
+      return root.querySelector('.AddonMeta-Rating').textContent;
     }
 
-    function getRatingCount(root) {
-      return root.querySelector(
-        '.AddonMeta-ratings > p.AddonMeta-rating-count').textContent;
+    function getReviewCount(root) {
+      return root.querySelector('.AddonMeta-review-count').textContent;
     }
 
     it('renders the average rating', () => {
       const root = renderRatings({ average: 3.5 });
-      assert.equal(getRating(root), '3.5 out of 5');
+      assert.equal(getRating(root), 'Rated 3.5 out of 5');
     });
 
     it('localizes average rating', () => {
@@ -83,29 +89,23 @@ describe('<AddonMeta>', () => {
 
     it('renders a count of multiple ratings', () => {
       const root = renderRatings({ count: 5 });
-      assert.equal(getRatingCount(root), '5 ratings');
+      assert.equal(getReviewCount(root), '5 reviews');
     });
 
     it('renders a count of one rating', () => {
       const root = renderRatings({ count: 1 });
-      assert.equal(getRatingCount(root), '1 rating');
+      assert.equal(getReviewCount(root), '1 review');
     });
 
     it('localizes review count', () => {
       const i18n = getFakeI18nInst({ lang: 'de' });
       const root = renderRatings({ count: 1000 }, { i18n });
-      assert.include(getRatingCount(root), '1.000');
+      assert.include(getReviewCount(root), '1.000');
     });
 
     it('renders empty ratings', () => {
       const root = renderRatings({ average: null });
-      assert.equal(getRating(root), 'Not yet rated');
-    });
-
-    it('renders an empty review count', () => {
-      const root = renderRatings({ count: null });
-      assert.isNull(
-        root.querySelector('.AddonMeta-ratings > p.AddonMeta-rating-count'));
+      assert.equal(getRating(root), 'No ratings');
     });
   });
 });

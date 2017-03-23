@@ -1,5 +1,4 @@
 /* eslint-disable react/no-danger */
-import { oneLine } from 'common-tags';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -7,7 +6,6 @@ import { connect } from 'react-redux';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
-  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import _log from 'core/logger';
@@ -22,7 +20,6 @@ export class AddonCompatibilityErrorBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     lang: PropTypes.string.isRequired,
     log: PropTypes.object,
-    maxVersion: PropTypes.string.isRequired,
     minVersion: PropTypes.string.isRequired,
     reason: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
@@ -38,7 +35,6 @@ export class AddonCompatibilityErrorBase extends React.Component {
       i18n,
       lang,
       log,
-      maxVersion,
       minVersion,
       reason,
       userAgentInfo,
@@ -49,30 +45,19 @@ export class AddonCompatibilityErrorBase extends React.Component {
     if (typeof reason === 'undefined') {
       throw new Error('AddonCompatibilityError requires a "reason" prop');
     }
-    if (typeof maxVersion === 'undefined') {
-      throw new Error('maxVersion is required; it cannot be undefined');
-    }
     if (typeof minVersion === 'undefined') {
       throw new Error('minVersion is required; it cannot be undefined');
     }
 
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
-      message = i18n.sprintf(i18n.gettext(oneLine`You need to
+      message = i18n.sprintf(i18n.gettext(`You need to
         <a href="%(downloadUrl)s">download Firefox</a> to install this add-on.`
       ), { downloadUrl });
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
         'Firefox for iOS does not currently support add-ons.');
-    } else if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
-      message = i18n.sprintf(i18n.gettext(oneLine`You are using Firefox
-        %(yourVersion)s, but this add-on only supports Firefox up to version
-        %(maxVersion)s.`
-      ), {
-        maxVersion,
-        yourVersion: userAgentInfo.browser.version,
-      });
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
-      message = i18n.sprintf(i18n.gettext(oneLine`This add-on requires a
+      message = i18n.sprintf(i18n.gettext(`This add-on requires a
         <a href="%(downloadUrl)s">newer version of Firefox</a> (at least
         version %(minVersion)s). You are using Firefox %(yourVersion)s.`
       ), {
@@ -86,7 +71,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
       log.warn(
         'Unknown reason code supplied to AddonCompatibilityError', reason);
 
-      message = i18n.sprintf(i18n.gettext(oneLine`Your browser does not
+      message = i18n.sprintf(i18n.gettext(`Your browser does not
         support add-ons. You can <a href="%(downloadUrl)s">download Firefox</a>
         to install this add-on.`
       ), { downloadUrl });
