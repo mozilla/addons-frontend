@@ -3,7 +3,10 @@ import { Link } from 'react-router';
 
 import 'core/components/NavBar/styles.scss';
 
-export const NavBarItem = ({ children }) => <span className="NavBarItem">{children}</span>;
+
+export const NavBarItem = ({ children }) => (
+  <span className="NavBarItem">{children}</span>
+);
 NavBarItem.propTypes = {
   children: PropTypes.node,
 };
@@ -26,7 +29,9 @@ NavBarLink.propTypes = {
   children: PropTypes.node,
 };
 
-export const NavBar = ({ children }) => <div className="NavBar">{children}</div>;
+export const NavBar = ({ children }) => (
+  <div className="NavBar">{children}</div>
+);
 NavBar.propTypes = {
   children: PropTypes.node,
 };

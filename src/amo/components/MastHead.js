@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
@@ -50,4 +51,6 @@ export class MastHeadBase extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(MastHeadBase);
+export default compose(
+  translate({ withRef: true }),
+)(MastHeadBase);

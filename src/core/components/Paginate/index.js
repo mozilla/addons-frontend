@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 
 import PaginatorLink from 'core/components/PaginatorLink';
 import translate from 'core/i18n/translate';
@@ -123,4 +124,6 @@ export class PaginateBase extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(PaginateBase);
+export default compose(
+  translate({ withRef: true }),
+)(PaginateBase);
