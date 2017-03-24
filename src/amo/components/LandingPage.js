@@ -20,6 +20,8 @@ import {
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
+import Button from 'ui/components/Button/index';
+import Icon from 'ui/components/Icon/index';
 
 import './LandingPage.scss';
 
@@ -94,6 +96,7 @@ export class LandingPageBase extends React.Component {
   render() {
     const { featuredAddons, highlyRatedAddons, popularAddons } = this.props;
     const { visibleAddonType } = this.props.params;
+    const { i18n } = this.props;
 
     let content;
     try {
@@ -108,9 +111,44 @@ export class LandingPageBase extends React.Component {
     }
 
     const { addonType, html } = content;
+    const headingText = {
+      [ADDON_TYPE_THEME]: i18n.gettext('Themes'),
+      [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
+    };
+    const contentText = {
+      [ADDON_TYPE_THEME]: i18n.gettext(
+          "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."),
+      [ADDON_TYPE_EXTENSION]: i18n.gettext(
+          'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.'),
+    };
 
     return (
       <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
+        <div className="LandingPage-header">
+          <div className="LandingPage-header-top">
+            <Icon name={visibleAddonType} />
+            <div className="LandingPage-header-text">
+              <h1 className="LandingPage-heading">
+                {headingText[addonType]}
+              </h1>
+              <p className="LandingPage-heading-content">
+                {contentText[addonType]}
+              </p>
+            </div>
+          </div>
+
+          <div className="LandingPage-header-bottom">
+            <Button
+              appearance="light"
+              className="LandingPage-browse-button"
+              to={`/${visibleAddonType}/categories/`}
+            >
+              <Icon name="browse" className="LandingPage-browse-icon" />
+              {i18n.gettext('Browse by category')}
+            </Button>
+          </div>
+        </div>
+
         <LandingAddonsCard addons={featuredAddons}
           className="FeaturedAddons" header={html.featuredHeader}
           footerLink={html.featuredFooterLink}

@@ -106,7 +106,7 @@ describe('<InstallButton />', () => {
     const props = buttonComponent.props;
     assert.equal(props.children, 'Add to Firefox');
     assert.equal(props.className, 'InstallButton-button');
-    assert.equal(props.href, installURL);
+    assert.equal(props.to, installURL);
     assert.equal(props.size, 'normal');
   });
 
@@ -126,7 +126,7 @@ describe('<InstallButton />', () => {
     assert.equal(buttonComponent.type, Button);
     assert.include(
       buttonComponent.props.className, 'InstallButton-button--disabled');
-    assert.strictEqual(buttonComponent.props.href, installURL);
+    assert.strictEqual(buttonComponent.props.to, installURL);
 
     assert.isFunction(buttonComponent.props.onClick);
     const event = {
