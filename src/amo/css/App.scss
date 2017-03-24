@@ -105,7 +105,7 @@ fieldset {
 }
 
 .App-loading-bar {
-  background: #329af0;
+  background: $loading-bar-color;
   height: 2px;
   position: fixed;
   top: 0;
