@@ -88,9 +88,8 @@ export class RatingBase extends React.Component {
     }
     let description;
     if (rating) {
-      const roundedRating = Math.round(rating * 2) / 2;
       description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
-        { rating: i18n.formatNumber(roundedRating) });
+        { rating: i18n.formatNumber(parseFloat(rating.toFixed(1))) });
     } else {
       description = i18n.gettext('No ratings');
     }

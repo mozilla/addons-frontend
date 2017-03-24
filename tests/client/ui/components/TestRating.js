@@ -126,7 +126,7 @@ describe('ui/components/Rating', () => {
     // This should be treated like a rating of 3.5 in text.
     const root = render({ rating: 3.60001 });
 
-    assert.include(findDOMNode(root).title, '3.5 out of 5');
+    assert.include(findDOMNode(root).title, '3.6 out of 5');
   });
 
   it('rounds readOnly average ratings to nearest 0.5 multiple', () => {
