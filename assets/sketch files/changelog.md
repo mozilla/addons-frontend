@@ -1,33 +1,30 @@
-AMO Desktop (and soon to be mobile, too) Sketch File Changelog
+# AMO Desktop (and soon to be mobile, too) Sketch File Changelog
 
-About
+## About
 Pages: Screens (page mock-ups), Specs (element/site specifications), Symbols (site-wide element repo)
 
-Links
-<<<<<<< HEAD
+### Links
 - [InVision Page](https://mozilla.invisionapp.com/share/T59YLZYSM)
 
-============
-
-Mar 19, 2017
+### Mar 19, 2017
 - Completed button styles
 - Completed icon library
 - Completed type styles
 - Completed type field styles (still need to be made into symbols)
 
-Mar 15, 2017
+### Mar 15, 2017
 - Renamed colour styles
 - Added category colour palette
 - Changed "colour" to "color" in the file, but am willing to change it back since most of us are Canadian/European? :D
 - Added two example detail pages with real content
 
-Mar 10, 2017
+### Mar 10, 2017
 - Updated extension detail page
 - Updated theme detail page
 - Added a new Contribute block design to the extension detail page
 - Revised the written review block
 
-Mar 7, 2017
+### Mar 7, 2017
 - Changed header and footer colours to match the photon colour palette
 - Changed the placing of # of users on the extension and theme blocks
 - Changed the layout/functionality of the pagination control
@@ -39,9 +36,6 @@ Mar 7, 2017
 - Added metadata info to collection Pages
 - Refined filter results block on search pages
 - Defined colour and typography styles (viewable in Sketch file, soon to be made into style guide)
-=======
-[InVision Page](https://mozilla.invisionapp.com/share/T59YLZYSM)
->>>>>>> parent of dee8acf... Updated files
 
-Feb 28, 2017
+### Feb 28, 2017
 - Created file! Woo!
