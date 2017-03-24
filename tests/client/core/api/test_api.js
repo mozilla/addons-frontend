@@ -424,7 +424,10 @@ describe('api', () => {
         .returns(mockResponse({ ok: false }));
       return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
         .then(unexpectedSuccess,
-          (error) => assert.equal(error.message, 'Error calling API'));
+          (error) => {
+            assert.equal(error.message,
+              'Error calling: /api/v3/addons/addon/foo/');
+          });
     });
 
     it('includes the authorization token if available', () => {
@@ -443,6 +446,36 @@ describe('api', () => {
           assert.deepEqual(results.entities, { addons: { foo } });
           mockWindow.verify();
         });
+    });
+  });
+
+  describe('createApiError', () => {
+    function _createApiError({
+      response = { status: 500 }, ...params } = {}
+    ) {
+      return api.createApiError({ response, ...params });
+    }
+
+    it('includes an abbreviated URL', () => {
+      const error = _createApiError({
+        apiURL: `${config.get('apiHost')}/api/v3/addons/addon/123/`,
+      });
+      assert.equal(error.message,
+        'Error calling: /api/v3/addons/addon/123/');
+    });
+
+    it('strips query params from the abbreviated URL', () => {
+      const error = _createApiError({
+        apiURL: `${config.get('apiHost')}/api/resource/?lang=en-US`,
+      });
+      assert.equal(error.message,
+        'Error calling: /api/resource/');
+    });
+
+    it('copes with a missing API URL', () => {
+      const error = _createApiError();
+      assert.equal(error.message,
+        'Error calling: [unknown URL]');
     });
   });
 

@@ -34,7 +34,14 @@ export function makeQueryString(query) {
 }
 
 export function createApiError({ apiURL, response, jsonResponse }) {
-  const apiError = new Error('Error calling API');
+  let urlId = '[unknown URL]';
+  if (apiURL) {
+    // Strip the host since we already know that.
+    urlId = apiURL.replace(config.get('apiHost'), '');
+    // Strip query string params since lang will vary quite a lot.
+    urlId = urlId.split('?')[0];
+  }
+  const apiError = new Error(`Error calling: ${urlId}`);
   apiError.response = {
     apiURL,
     status: response.status,
