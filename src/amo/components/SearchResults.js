@@ -3,7 +3,6 @@ import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
-import LoadingIndicator from 'ui/components/LoadingIndicator';
 
 import './SearchResults.scss';
 
@@ -36,9 +35,11 @@ class SearchResults extends React.Component {
 
     if (loading) {
       loadingMessage = (
-        <div className="LoadingIndicator-container"
-          ref={(ref) => { this.LoadingIndicatorContainer = ref; }}>
-          <LoadingIndicator altText={i18n.gettext('Searching…')} />
+        <div
+          className="visually-hidden"
+          ref={(ref) => { this.loadingText = ref; }}
+        >
+          {i18n.gettext('Searching…')}
         </div>
       );
     } else if (count === 0 && hasSearchParams) {

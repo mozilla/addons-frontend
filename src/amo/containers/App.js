@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import LoadingBar from 'react-redux-loading-bar';
 import { compose } from 'redux';
 
 import SearchForm from 'amo/components/SearchForm';
@@ -101,6 +102,7 @@ export class AppBase extends React.Component {
     const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
+        <LoadingBar className="App-loading-bar" />
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         <InfoDialogComponent />
         <MastHeadComponent
