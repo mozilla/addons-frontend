@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
-import round from 'round';
 
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
@@ -90,7 +89,7 @@ export class RatingBase extends React.Component {
     let description;
     if (rating) {
       description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
-        { rating: i18n.formatNumber(round(rating, 0.5)) });
+        { rating: i18n.formatNumber(parseFloat(rating.toFixed(1))) });
     } else {
       description = i18n.gettext('No ratings');
     }
