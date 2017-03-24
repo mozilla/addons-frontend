@@ -34,8 +34,6 @@ export class DiscoPaneBase extends React.Component {
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
-    // We allow the video to be overloaded for testing, see:
-    // https://github.com/mozilla/addons-frontend/issues/765
     _video: PropTypes.object,
   }
 
