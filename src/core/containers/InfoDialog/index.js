@@ -46,7 +46,9 @@ export const InfoDialogBase = compose(
   onClickOutside,
 )(InfoDialogRaw);
 
-export const ShowInfoDialog = ({ data, show }) => (show ? <InfoDialogBase {...data} /> : null);
+export const ShowInfoDialog = ({ data, show }) => (
+  show ? <InfoDialogBase {...data} /> : null
+);
 ShowInfoDialog.propTypes = {
   data: PropTypes.object.isRequired,
   show: PropTypes.bool.isRequired,

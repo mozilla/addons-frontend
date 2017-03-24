@@ -112,6 +112,7 @@ react-redux's `connect()` to set the props for us as if it were pulling the data
 // src/search/containers/UserPage/index.js
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 class UserPage extends React.Component {
   static propTypes = {
@@ -140,7 +141,9 @@ function mapStateToProps() {
   };
 }
 
-export default connect(mapStateToProps)(UserPage);
+export default compose(
+  connect(mapStateToProps),
+)(UserPage);
 ```
 
 Changing the values in `mapStateToProps` will now update the values shown on the page.
@@ -249,6 +252,7 @@ use [redux-connect](https://github.com/makeomatic/redux-connect)'s `asyncConnect
 // src/search/containers/AddonPage/index.js
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
 
 import { loadEntities, setCurrentUser } from 'core/actions';
@@ -295,10 +299,13 @@ function loadProfileIfNeeded({ store: { getState, dispatch } }) {
   return Promise.resolve();
 }
 
-export default asyncConnect([{
-  deferred: true,
-  promise: loadProfileIfNeeded,
-}])(connect(mapStateToProps)(UserPage));
+export default compose(
+  asyncConnect([{
+    deferred: true,
+    promise: loadProfileIfNeeded,
+  }]),
+  connect(mapStateToProps),
+)(UserPage);
 ```
 
 ### Styling the page

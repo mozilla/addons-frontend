@@ -34,6 +34,7 @@ export class DiscoPaneBase extends React.Component {
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
+    _video: PropTypes.object,
   }
 
   static defaultProps = {
@@ -41,6 +42,7 @@ export class DiscoPaneBase extends React.Component {
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
     _addChangeListeners: addChangeListeners,
     _tracking: tracking,
+    _video: null,
   }
 
   constructor() {
@@ -56,9 +58,11 @@ export class DiscoPaneBase extends React.Component {
 
   showVideo = (e) => {
     const { _tracking } = this.props;
+    const _video = this.props._video || this.video;
+
     e.preventDefault();
     this.setState({ showVideo: true });
-    this.video.play();
+    _video.play();
     _tracking.sendEvent({
       action: 'play',
       category: VIDEO_CATEGORY,
@@ -67,9 +71,11 @@ export class DiscoPaneBase extends React.Component {
 
   closeVideo = (e) => {
     const { _tracking } = this.props;
+    const _video = this.props._video || this.video;
+
     e.preventDefault();
     this.setState({ showVideo: false });
-    this.video.pause();
+    _video.pause();
     _tracking.sendEvent({
       action: 'close',
       category: VIDEO_CATEGORY,

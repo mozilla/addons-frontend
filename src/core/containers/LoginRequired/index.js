@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 import LoginPage from 'core/components/LoginPage';
 
@@ -26,4 +27,6 @@ export class LoginRequiredBase extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(LoginRequiredBase);
+export default compose(
+  connect(mapStateToProps),
+)(LoginRequiredBase);

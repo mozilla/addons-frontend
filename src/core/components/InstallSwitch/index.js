@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import {
@@ -18,6 +19,7 @@ import {
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import Switch from 'ui/components/Switch';
+
 
 export class InstallSwitchBase extends React.Component {
   static propTypes = {
@@ -145,4 +147,6 @@ export class InstallSwitchBase extends React.Component {
   }
 }
 
-export default translate()(InstallSwitchBase);
+export default compose(
+  translate(),
+)(InstallSwitchBase);

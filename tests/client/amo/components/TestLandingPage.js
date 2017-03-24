@@ -50,14 +50,14 @@ describe('<LandingPage />', () => {
       }} />
     );
 
-    assert.deepEqual(root.props.children[0].props.footerLink, {
+    assert.deepEqual(root.props.children[1].props.footerLink, {
       pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
     });
-    assert.deepEqual(root.props.children[1].props.footerLink, {
+    assert.deepEqual(root.props.children[2].props.footerLink, {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
     });
-    assert.deepEqual(root.props.children[2].props.footerLink, {
+    assert.deepEqual(root.props.children[3].props.footerLink, {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
     });
@@ -70,14 +70,14 @@ describe('<LandingPage />', () => {
       }} />
     );
 
-    assert.deepEqual(root.props.children[0].props.footerLink, {
+    assert.deepEqual(root.props.children[1].props.footerLink, {
       pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
     });
-    assert.deepEqual(root.props.children[1].props.footerLink, {
+    assert.deepEqual(root.props.children[2].props.footerLink, {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
     });
-    assert.deepEqual(root.props.children[2].props.footerLink, {
+    assert.deepEqual(root.props.children[3].props.footerLink, {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
     });
