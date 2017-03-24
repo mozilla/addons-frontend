@@ -18,7 +18,7 @@ cache:
   directories:
   - node_modules
 before_install:
-- npm install -g npm@3
+- npm install -g yarn
 - if [ $TOXENV ]; then sudo pip install tox; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.14.0/geckodriver-v0.14.0-linux64.tar.gz; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then gunzip -c geckodriver.tar.gz | tar xopf -; fi

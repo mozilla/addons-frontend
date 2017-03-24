@@ -24,7 +24,6 @@ Never submit security-related bugs through a Github Issue or by email.
 ## Requirements
 
 * Node 6.x LTS
-* npm 3.x
 
 The easiest way to manage multiple node versions in development is to use
 [nvm](https://github.com/creationix/nvm).
@@ -33,7 +32,6 @@ The easiest way to manage multiple node versions in development is to use
 
 * npm install
 * npm run dev
-
 
 ## NPM scripts for development
 
