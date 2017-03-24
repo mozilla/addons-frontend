@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-19 01:02+0000\n"
+"PO-Revision-Date: 2017-03-24 16:02+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -24,11 +24,11 @@ msgstr "Firefox for iOS støtter ikke utvidelser for øyeblikket."
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Denne utvidelsen krever en <a href=\"%(downloadUrl)s\">nyere versjon av Firefox</a> (minst versjon %(minVersion)s). Du bruker Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Nettleseren din støtter ikke utvidelser. Du kan <a href=\"%(downloadUrl)s\">laste ned firefox</a> for å installere denne utvidelsen."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -154,7 +154,7 @@ msgstr "Fortell verden om denne utvidelsen."
 
 #: src/amo/components/AddonReview.js:96
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "Fortell oss om din erfaring med denne utvidelsen. Vær spesifikk og kortfattet."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
@@ -187,6 +187,7 @@ msgstr "Fant ingen kategorier."
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Hvis du er logget inn og tror dette er en feilmelding, vennligst <a href=\"%(url)s\">send inn en feilrapport</a>. Fortell oss hvor du kom fra og hva du prøvde å komme inn på, så fikser vi problemet."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
