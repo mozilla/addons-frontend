@@ -1,1 +1,1 @@
-declare function dedent(templateString: Array): string;
+declare function dedent(params: Array<*>): string;

@@ -27,7 +27,13 @@ export function submitReview({
 }: SubmitReviewParams) {
   return new Promise(
     (resolve) => {
-      const data = { rating, version: versionId, body, title };
+      const data = {
+        addon: undefined,
+        rating,
+        version: versionId,
+        body,
+        title
+      };
       let method = 'POST';
       let endpoint = 'reviews/review';
 
@@ -54,7 +60,14 @@ export function submitReview({
     });
 }
 
-export function getReviews({ user, addon, ...params } = {}) {
+type GetReviewsParams = {|
+  addon: number,
+  user: number,
+|};
+
+export function getReviews(
+  { user, addon, ...params }: GetReviewsParams = {}
+) {
   return new Promise((resolve) => {
     if (!user && !addon) {
       throw new Error('Either user or addon must be specified');
@@ -73,7 +86,14 @@ export function getReviews({ user, addon, ...params } = {}) {
     });
 }
 
-export function getLatestUserReview({ user, addon } = {}) {
+type GetLatestReviewParams = {|
+  user: number,
+  addon: number,
+|};
+
+export function getLatestUserReview(
+  { user, addon }: GetLatestReviewParams = {}
+) {
   return new Promise((resolve) => {
     if (!user || !addon) {
       throw new Error('Both user and addon must be specified');
