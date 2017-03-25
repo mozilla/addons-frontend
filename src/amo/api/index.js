@@ -3,6 +3,27 @@ import { callApi } from 'core/api';
 import { ErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 
+export type ApiReviewType = {|
+  addon: {|
+    id: number,
+    slug: string,
+  |},
+  body: string,
+  created: Date,
+  title: string,
+  id: number,
+  is_latest: boolean,
+  rating: number,
+  user: {|
+    id: number,
+    name: string,
+    url: string,
+  |},
+  version?: {|
+    id: number,
+  |},
+|};
+
 // TODO: make a separate function for posting/patching so that we
 // can type check each one independently.
 export type SubmitReviewParams = {|
@@ -28,7 +49,7 @@ export function submitReview({
   body,
   reviewId,
   ...apiCallParams
-}: SubmitReviewParams): Promise<void> {
+}: SubmitReviewParams): Promise<ApiReviewType> {
   return new Promise(
     (resolve) => {
       const data = {

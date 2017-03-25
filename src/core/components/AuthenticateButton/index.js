@@ -1,3 +1,4 @@
+/* @flow */
 /* global window */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
@@ -5,30 +6,33 @@ import { compose } from 'redux';
 
 import { logOutUser } from 'core/actions';
 import { logOutFromServer, startLoginUrl } from 'core/api';
+import type { UrlFormatParams } from 'core/api';
 import translate from 'core/i18n/translate';
+import type { DispatchFn } from 'core/types/reduxTypes';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 
+type AuthenticateButtonProps = {|
+  api: Object,
+  className?: string,
+  handleLogIn: HandleLogInFn,
+  handleLogOut: HandleLogOutFn,
+  i18n: Object,
+  isAuthenticated: boolean,
+  location: UrlFormatParams,
+  logInText?: string,
+  logOutText?: string,
+  noIcon: boolean,
+|};
 
 export class AuthenticateButtonBase extends React.Component {
-  static propTypes = {
-    api: PropTypes.object.isRequired,
-    className: PropTypes.string,
-    handleLogIn: PropTypes.func.isRequired,
-    handleLogOut: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired,
-    isAuthenticated: PropTypes.bool.isRequired,
-    location: PropTypes.object.isRequired,
-    logInText: PropTypes.string,
-    logOutText: PropTypes.string,
-    noIcon: PropTypes.boolean,
-  }
+  props: AuthenticateButtonProps;
 
   static defaultProps = {
     noIcon: false,
   }
 
-  onClick = (event) => {
+  onClick = (event: Event) => {
     event.preventDefault();
     event.stopPropagation();
     const {
@@ -57,7 +61,17 @@ export class AuthenticateButtonBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
+type HandleLogInFn = (
+  location: UrlFormatParams, options?: {| _window: Object |}
+) => void;
+
+type StateMappedProps = {|
+  api: Object, // TODO apiState from reducer
+  isAuthenticated: boolean,
+  handleLogIn: HandleLogInFn,
+|};
+
+export const mapStateToProps = (state: Object): StateMappedProps => ({
   api: state.api,
   isAuthenticated: !!state.api.token,
   handleLogIn(location, { _window = window } = {}) {
@@ -66,7 +80,17 @@ export const mapStateToProps = (state) => ({
   },
 });
 
-export const mapDispatchToProps = (dispatch) => ({
+type HandleLogOutFn = ({|
+  api: Object, // TODO: apiState from reducer
+|}) => Promise<void>;
+
+type DispatchMappedProps = {|
+  handleLogOut: HandleLogOutFn,
+|};
+
+export const mapDispatchToProps = (
+  dispatch: DispatchFn
+): DispatchMappedProps => ({
   handleLogOut({ api }) {
     return logOutFromServer({ api })
       .then(() => dispatch(logOutUser()));

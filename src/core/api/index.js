@@ -1,3 +1,4 @@
+/* @flow */
 /* global fetch */
 
 import url from 'url';
@@ -8,6 +9,9 @@ import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
+import { ErrorHandler } from 'core/errorHandler';
+import { initialApiState } from 'core/reducers/api';
+import type { ApiStateType } from 'core/reducers/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -20,7 +24,7 @@ export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
 export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 export const user = new Entity('users', {}, { idAttribute: 'username' });
 
-export function makeQueryString(query) {
+export function makeQueryString(query: { [key: string]: * }) {
   const resolvedQuery = { ...query };
   Object.keys(resolvedQuery).forEach((key) => {
     const value = resolvedQuery[key];
@@ -33,7 +37,15 @@ export function makeQueryString(query) {
   return url.format({ query: resolvedQuery });
 }
 
-export function createApiError({ apiURL, response, jsonResponse }) {
+type CreateApiErrorParams = {|
+  apiURL?: string,
+  response: { status: number },
+  jsonResponse?: Object,
+|};
+
+export function createApiError(
+  { apiURL, response, jsonResponse }: CreateApiErrorParams
+) {
   let urlId = '[unknown URL]';
   if (apiURL) {
     // Strip the host since we already know that.
@@ -42,6 +54,7 @@ export function createApiError({ apiURL, response, jsonResponse }) {
     urlId = urlId.split('?')[0];
   }
   const apiError = new Error(`Error calling: ${urlId}`);
+  // $FLOW_FIXME: turn Error into a custom ApiError class.
   apiError.response = {
     apiURL,
     status: response.status,
@@ -50,10 +63,29 @@ export function createApiError({ apiURL, response, jsonResponse }) {
   return apiError;
 }
 
+type CallApiParams = {|
+  endpoint: string,
+  schema?: Object,
+  params?: Object,
+  auth?: boolean,
+  state?: ApiStateType,
+  method?: 'GET' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'PUT' | 'PATCH',
+  body?: Object,
+  credentials?: boolean,
+  errorHandler?: typeof ErrorHandler,
+|};
+
 export function callApi({
-  endpoint, schema, params = {}, auth = false, state = {}, method = 'get',
-  body, credentials, errorHandler,
-}) {
+  endpoint,
+  schema,
+  params = {},
+  auth = false,
+  state = initialApiState,
+  method = 'GET',
+  body,
+  credentials,
+  errorHandler,
+}: CallApiParams): Promise<any> {
   if (errorHandler) {
     errorHandler.clear();
   }
@@ -63,6 +95,8 @@ export function callApi({
     // Always make sure the method is upper case so that the browser won't
     // complain about CORS problems.
     method: method.toUpperCase(),
+    credentials: undefined,
+    body: undefined,
   };
   if (credentials) {
     options.credentials = 'include';
@@ -79,6 +113,7 @@ export function callApi({
   // Workaround for https://github.com/bitinn/node-fetch/issues/245
   const apiURL = utf8.encode(`${API_BASE}/${endpoint}/${queryString}`);
 
+  // $FLOW_FIXME: once everything uses Flow we won't have to use toUpperCase
   return fetch(apiURL, options)
     .then((response) => {
       const contentType = response.headers.get('Content-Type').toLowerCase();
@@ -124,7 +159,16 @@ export function callApi({
     .then((response) => (schema ? normalize(response, schema) : response));
 }
 
-export function search({ api, page, auth = false, filters = {} }) {
+type SearchParams = {|
+  api: ApiStateType,
+  page: number,
+  auth: boolean,
+  filters: Object,
+|};
+
+export function search(
+  { api, page, auth = false, filters = {} }: SearchParams
+) {
   const _filters = { ...filters };
   if (!_filters.clientApp && api.clientApp) {
     log.debug(
@@ -158,7 +202,12 @@ export function search({ api, page, auth = false, filters = {} }) {
   });
 }
 
-export function fetchAddon({ api, slug }) {
+type FetchAddonParams = {|
+  api: ApiStateType,
+  slug: string,
+|};
+
+export function fetchAddon({ api, slug }: FetchAddonParams) {
   return callApi({
     endpoint: `addons/addon/${slug}`,
     schema: addon,
@@ -167,15 +216,21 @@ export function fetchAddon({ api, slug }) {
   });
 }
 
-export function login({ api, code, state }) {
-  const params = {};
+type LoginParams = {|
+  api: ApiStateType,
+  code: string,
+  state: string,
+|};
+
+export function login({ api, code, state }: LoginParams) {
+  const params = { config: undefined };
   const configName = config.get('fxaConfig');
   if (configName) {
     params.config = configName;
   }
   return callApi({
     endpoint: 'accounts/login',
-    method: 'post',
+    method: 'POST',
     body: { code, state },
     params,
     state: api,
@@ -183,9 +238,27 @@ export function login({ api, code, state }) {
   });
 }
 
-export function startLoginUrl({ location }) {
+// These are all possible parameters to url.format()
+export type UrlFormatParams = {|
+  +href?: string;
+  +protocol?: string;
+  +slashes?: boolean;
+  +auth?: string;
+  +hostname?: string;
+  +port?: string | number;
+  +host?: string;
+  +pathname?: string;
+  +search?: string;
+  +query?: Object;
+  +hash?: string;
+|};
+
+export function startLoginUrl({ location }: { location: UrlFormatParams }) {
   const configName = config.get('fxaConfig');
-  const params = { to: url.format({ ...location }) };
+  const params = {
+    config: undefined,
+    to: url.format({ ...location }),
+  };
   if (configName) {
     params.config = configName;
   }
@@ -193,7 +266,7 @@ export function startLoginUrl({ location }) {
   return `${API_BASE}/accounts/login/start/${query}`;
 }
 
-export function fetchProfile({ api }) {
+export function fetchProfile({ api }: {| api: ApiStateType |}) {
   return callApi({
     endpoint: 'accounts/profile',
     schema: user,
@@ -202,7 +275,13 @@ export function fetchProfile({ api }) {
   });
 }
 
-export function featured({ api, filters, page }) {
+type FeaturedParams = {|
+  api: ApiStateType,
+  filters: Object,
+  page: number,
+|};
+
+export function featured({ api, filters, page }: FeaturedParams) {
   return callApi({
     endpoint: 'addons/featured',
     params: {
@@ -215,7 +294,7 @@ export function featured({ api, filters, page }) {
   });
 }
 
-export function categories({ api }) {
+export function categories({ api }: {| api: ApiStateType |}) {
   return callApi({
     endpoint: 'addons/categories',
     schema: { results: [category] },
@@ -223,12 +302,12 @@ export function categories({ api }) {
   });
 }
 
-export function logOutFromServer({ api }) {
+export function logOutFromServer({ api }: {| api: ApiStateType |}) {
   return callApi({
     auth: true,
     credentials: true,
     endpoint: 'accounts/session',
-    method: 'delete',
+    method: 'DELETE',
     state: api,
   });
 }

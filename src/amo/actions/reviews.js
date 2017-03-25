@@ -1,4 +1,6 @@
+/* @flow */
 import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
+import type { ApiReviewType } from 'amo/api';
 
 export type UserReviewType = {|
   addonId: number,
@@ -33,26 +35,51 @@ export function denormalizeReview(review: Object): UserReviewType {
   };
 }
 
-const setReviewAction = (review) => ({ type: SET_REVIEW, payload: review });
+export type SetReviewActionType = {|
+  type: typeof SET_REVIEW,
+  payload: UserReviewType,
+|};
 
-export const setReview = (review, reviewOverrides = {}) => {
+const setReviewAction = (
+  review: UserReviewType
+): SetReviewActionType => ({ type: SET_REVIEW, payload: review });
+
+export const setReview = (
+  review: ApiReviewType, reviewOverrides: Object = {}
+): SetReviewActionType => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
+  // $FLOW_FIXME: I think we can remove this by adjusting the tests
   return setReviewAction({
     ...denormalizeReview(review),
     ...reviewOverrides,
   });
 };
 
-export const setDenormalizedReview = (review) => {
+export const setDenormalizedReview = (review: UserReviewType) => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
   return setReviewAction(review);
 };
 
-export const setAddonReviews = ({ addonSlug, reviews }) => {
+export type SetAddonReviewsAction = {|
+  type: typeof SET_ADDON_REVIEWS,
+  payload: {|
+    addonSlug: string,
+    reviews: Array<UserReviewType>,
+  |},
+|};
+
+type SetAddonReviewsParams = {|
+  addonSlug: string,
+  reviews: Array<ApiReviewType>,
+|};
+
+export const setAddonReviews = (
+  { addonSlug, reviews }: SetAddonReviewsParams
+): SetAddonReviewsAction => {
   if (!addonSlug) {
     throw new Error('addonSlug cannot be empty');
   }
