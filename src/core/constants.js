@@ -43,13 +43,13 @@ export const FATAL_ERROR = 'FATAL_ERROR';
 export const ADDON_TYPE_DICT = 'dictionary';
 export const ADDON_TYPE_EXTENSION = 'extension';
 export const ADDON_TYPE_LANG = 'language';
-export const ADDON_TYPE_SEARCH = 'search';
+export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_THEME = 'persona';
 export const validAddonTypes = [
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
 ];
 // Mapping of the add-on types we show in URLs, etc. and what they map

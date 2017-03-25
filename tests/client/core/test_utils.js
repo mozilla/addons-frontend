@@ -15,6 +15,7 @@ import * as actions from 'core/actions';
 import * as categoriesActions from 'core/actions/categories';
 import * as api from 'core/api';
 import {
+  ADDON_TYPE_OPENSEARCH,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
@@ -915,6 +916,21 @@ describe('getCompatibleVersions', () => {
 
     assert.equal(maxVersion, null);
     assert.equal(minVersion, null);
+  });
+
+  it('should log info when OpenSearch type is found', () => {
+    const fakeLog = { info: sinon.stub() };
+    const openSearchAddon = {
+      ...fakeAddon,
+      current_version: {
+        compatibility: {},
+      },
+      type: ADDON_TYPE_OPENSEARCH,
+    };
+    getCompatibleVersions({
+      _log: fakeLog, addon: openSearchAddon, clientApp: 'firefox' });
+    assert.include(fakeLog.info.firstCall.args[0],
+      `addon is type ${ADDON_TYPE_OPENSEARCH}`);
   });
 });
 

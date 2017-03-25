@@ -18,6 +18,7 @@ import { categories, fetchAddon } from 'core/api';
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import {
+  ADDON_TYPE_OPENSEARCH,
   API_ADDON_TYPES_MAPPING,
   VISIBLE_ADDON_TYPES_MAPPING,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
@@ -317,7 +318,7 @@ export function render404IfConfigKeyIsFalse(
   };
 }
 
-export function getCompatibleVersions({ addon, clientApp } = {}) {
+export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
   if (
@@ -326,8 +327,11 @@ export function getCompatibleVersions({ addon, clientApp } = {}) {
     if (addon.current_version.compatibility[clientApp]) {
       maxVersion = addon.current_version.compatibility[clientApp].max;
       minVersion = addon.current_version.compatibility[clientApp].min;
+    } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
+      _log.info(oneLine`addon is type ${ADDON_TYPE_OPENSEARCH}; no
+        compatibility info found but this is expected.`, { addon, clientApp });
     } else {
-      log.error(
+      _log.error(
         'addon found with no compatibility info for valid clientApp',
         { addon, clientApp }
       );

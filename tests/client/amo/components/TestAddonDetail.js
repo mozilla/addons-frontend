@@ -1,3 +1,4 @@
+/* global window */
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
@@ -19,7 +20,11 @@ import Link from 'amo/components/Link';
 import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
-import { ADDON_TYPE_THEME, INCOMPATIBLE_NOT_FIREFOX } from 'core/constants';
+import {
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
+  INCOMPATIBLE_NOT_FIREFOX,
+} from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
@@ -31,7 +36,7 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
   return {
     addon,
     ...addon,
-    getClientCompatibility: () => ({ compatible: true }),
+    getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
@@ -299,7 +304,6 @@ describe('AddonDetail', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      getCompatibleClient: () => ({ compatible: true }),
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
     assert.equal(button.disabled, false);
