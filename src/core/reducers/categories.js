@@ -1,6 +1,7 @@
 import config from 'config';
 
 import {
+  ADDON_TYPE_THEME,
   CATEGORIES_GET,
   CATEGORIES_LOAD,
   CATEGORIES_FAILED,
@@ -50,6 +51,16 @@ export default function categories(state = initialState, action) {
             ), {});
         });
       });
+
+      // Android doesn't have any theme categories but because all lightweight
+      // themes (personas) are installable on Firefox Desktop and Android
+      // we share categories and themes across clientApps.
+      // See: https://github.com/mozilla/addons-frontend/issues/2170
+      //
+      // This can be removed once
+      // https://github.com/mozilla/addons-server/issues/4766 is fixed.
+      categoryList.android[ADDON_TYPE_THEME] = categoryList
+        .firefox[ADDON_TYPE_THEME];
 
       return {
         ...state,
