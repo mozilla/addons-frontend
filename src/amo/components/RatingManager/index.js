@@ -41,9 +41,9 @@ type RatingManagerProps = {|
   errorHandler: typeof ErrorHandler,
   apiState: Object,
   i18n: Object,
-  loadSavedReview: (LoadSavedReviewParams) => void,
+  loadSavedReview: LoadSavedReviewFn,
   location: Object, // might be builtin
-  submitReview: (SubmitReviewParams) => Promise<void>,
+  submitReview: SubmitReviewFn,
   userId: number,
   userReview: UserReviewType,
   version: AddonVersionType,
@@ -213,14 +213,23 @@ export const mapStateToProps = (
   };
 };
 
-type LoadSavedReviewParams = {|
+type LoadSavedReviewFn = ({|
   userId: number,
   addonId: number,
-|};
+|}) => Promise<*>;
 
-export const mapDispatchToProps = (dispatch: DispatchFn) => ({
+type SubmitReviewFn = (SubmitReviewParams) => Promise<void>;
 
-  loadSavedReview({ userId, addonId }: LoadSavedReviewParams) {
+type DispatchMappedProps = {|
+  loadSavedReview: LoadSavedReviewFn,
+  submitReview: SubmitReviewFn,
+|}
+
+export const mapDispatchToProps = (
+  dispatch: DispatchFn
+): DispatchMappedProps => ({
+
+  loadSavedReview({ userId, addonId }) {
     return getLatestUserReview({ user: userId, addon: addonId })
       .then((review) => {
         if (review) {
@@ -232,7 +241,7 @@ export const mapDispatchToProps = (dispatch: DispatchFn) => ({
       });
   },
 
-  submitReview(params: SubmitReviewParams) {
+  submitReview(params) {
     return submitReview(params).then((review) => dispatch(setReview(review)));
   },
 });
