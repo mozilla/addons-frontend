@@ -1,0 +1,18 @@
+[ignore]
+<PROJECT_ROOT>/dist/.*
+
+# These modules opt into Flow but we don't need to check them.
+.*/node_modules/babel.*
+.*/node_modules/react-nested-status
+.*/node_modules/stylelint
+
+[include]
+
+[libs]
+
+[options]
+module.system=node
+module.system.node.resolve_dirname=./src
+log.file=./artifacts/flow.log
+suppress_comment= \\(.\\|\n\\)*\\$FLOW_FIXME
+suppress_comment= \\(.\\|\n\\)*\\$FLOW_IGNORE
