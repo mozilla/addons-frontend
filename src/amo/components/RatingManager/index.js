@@ -41,9 +41,9 @@ type RatingManagerProps = {|
   errorHandler: typeof ErrorHandler,
   apiState: Object,
   i18n: Object,
-  loadSavedReview: Function,
+  loadSavedReview: (LoadSavedReviewParams) => void,
   location: Object, // might be builtin
-  submitReview: Function,
+  submitReview: (SubmitReviewParams) => Promise<void>,
   userId: number,
   userReview: UserReviewType,
   version: AddonVersionType,
@@ -73,7 +73,7 @@ export class RatingManagerBase extends React.Component {
   }
 
   onSelectRating = (rating: number) => {
-    const { userId, userReview, version } = this.props;
+    const { userReview, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
@@ -82,7 +82,6 @@ export class RatingManagerBase extends React.Component {
       addonId: this.props.addon.id,
       reviewId: undefined,
       versionId: version.id,
-      userId,
     };
 
     if (userReview) {

@@ -1,11 +1,15 @@
 /* @flow */
 import { callApi } from 'core/api';
+import { ErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 
+// TODO: make a separate function for posting/patching so that we
+// can type check each one independently.
 export type SubmitReviewParams = {|
   addonId?: number,
   rating?: number,
   apiState?: Object,
+  errorHandler?: typeof ErrorHandler,
   title?: string,
   versionId?: number,
   body?: string,
@@ -24,7 +28,7 @@ export function submitReview({
   body,
   reviewId,
   ...apiCallParams
-}: SubmitReviewParams) {
+}: SubmitReviewParams): Promise<void> {
   return new Promise(
     (resolve) => {
       const data = {
