@@ -21,9 +21,7 @@ export class AppBase extends React.Component {
     const { isAuthenticated, children, handleLogOut } = this.props;
     return (
       <div className="search-page">
-        <Helmet
-          defaultTitle={_('Add-ons Search')}
-        />
+        <Helmet defaultTitle={_('Add-ons Search')} />
         <NavBar isAuthenticated={isAuthenticated} handleLogOut={handleLogOut} />
         <div className="App">
           {children}

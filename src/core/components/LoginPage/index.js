@@ -15,7 +15,9 @@ export default class LoginPage extends React.Component {
     const { location, message } = this.props;
     return (
       <div>
-        <Helmet title={title} />
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
         <h1>{title}</h1>
         <p className="login-message">
           {message || _('You must be logged in to access this page.')}

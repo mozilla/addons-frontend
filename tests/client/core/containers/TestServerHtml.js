@@ -40,10 +40,9 @@ describe('<ServerHtml />', () => {
       const { children } = this.props;
       return (
         <div>
-          <Helmet
-            defaultTitle="test title"
-            meta={[{ name: 'description', content: 'test meta' }]}
-          />
+          <Helmet defaultTitle="test title">
+            <meta name="description" content="test meta" />
+          </Helmet>
           {children}
         </div>
       );

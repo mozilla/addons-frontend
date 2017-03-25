@@ -29,12 +29,9 @@ export class AppBase extends React.Component {
 
     return (
       <div className={classes}>
-        <Helmet
-          defaultTitle={i18n.gettext('Discover Add-ons')}
-          meta={[
-            { name: 'robots', content: 'noindex' },
-          ]}
-        />
+        <Helmet defaultTitle={i18n.gettext('Discover Add-ons')}>
+          <meta name="robots" content="noindex" />
+        </Helmet>
         <ErrorPage>
           {children}
         </ErrorPage>
