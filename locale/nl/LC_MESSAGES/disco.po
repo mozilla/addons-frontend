@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-17 12:21+0000\n"
-"PO-Revision-Date: 2017-03-20 12:34+0000\n"
+"PO-Revision-Date: 2017-03-20 13:12+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -88,7 +88,7 @@ msgstr "Houd de muisaanwijzer hier voor een voorbeeld of klik om %(name)s te ins
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
-msgstr "Wijs de afbeelding aan voor een voorbeeld"
+msgstr "Houd de muisaanwijzer boven de afbeelding voor een voorbeeld"
 
 #: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
