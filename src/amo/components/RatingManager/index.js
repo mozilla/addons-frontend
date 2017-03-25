@@ -192,7 +192,6 @@ export const mapStateToProps = (
 
   // Look for the latest saved review by this user for this add-on.
   if (userId && state.reviews && ownProps.addon) {
-    // $FLOW_FIXME: support babel magic dedent
     log.info(dedent`Checking state for review by user ${userId},
       addonId ${ownProps.addon.id}, versionId ${ownProps.version.id}`);
 

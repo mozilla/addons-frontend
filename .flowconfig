@@ -10,11 +10,13 @@
 [include]
 
 [libs]
+./flow/libs/dedent.js.flow
 
 [options]
 # This maps all sass imports to a dummy flow file to suppress import errors.
 module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/flowStub.js.flow'
 module.system=node
+module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=./src
 log.file=./flow/logs/flow.log
 suppress_comment= \\(.\\|\n\\)*\\$FLOW_FIXME
