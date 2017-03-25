@@ -3,10 +3,15 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { withErrorHandling } from 'core/errorHandler';
+import { ErrorHandler, withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
+import type { UserReviewType } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
+import type { SubmitReviewParams } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
+import type { DispatchFn } from 'core/types/reduxTypes';
+import type { AddonType, AddonTypeProp, AddonVersionType }
+  from 'core/types/addonTypes';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
 import {
   ADDON_TYPE_DICT,
@@ -22,23 +27,34 @@ import DefaultRating from 'ui/components/Rating';
 
 import './styles.scss';
 
+type GetLogInPromptParams = {| addonType: AddonTypeProp |};
+
+type GetLogInPromptOptions = {|
+  validAddonTypes: typeof defaultValidAddonTypes,
+|};
+
+type RatingManagerProps = {|
+  AddonReview: typeof DefaultAddonReview,
+  AuthenticateButton: typeof DefaultAuthenticateButton,
+  Rating: typeof DefaultRating,
+  addon: AddonType,
+  errorHandler: typeof ErrorHandler,
+  apiState: Object,
+  i18n: Object,
+  loadSavedReview: Function,
+  location: Object, // might be builtin
+  submitReview: Function,
+  userId: number,
+  userReview: UserReviewType,
+  version: AddonVersionType,
+|};
 
 export class RatingManagerBase extends React.Component {
-  static propTypes = {
-    AddonReview: PropTypes.node,
-    AuthenticateButton: PropTypes.node,
-    addon: PropTypes.object.isRequired,
-    errorHandler: PropTypes.func.isRequired,
-    apiState: PropTypes.object,
-    i18n: PropTypes.object.isRequired,
-    loadSavedReview: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
-    Rating: PropTypes.node,
-    submitReview: PropTypes.func.isRequired,
-    userId: PropTypes.number,
-    userReview: PropTypes.object,
-    version: PropTypes.object.isRequired,
-  }
+  props: RatingManagerProps;
+  ratingLegend: Node;
+  state: {|
+    showTextEntry: boolean,
+  |};
 
   static defaultProps = {
     AddonReview: DefaultAddonReview,
@@ -46,7 +62,7 @@ export class RatingManagerBase extends React.Component {
     Rating: DefaultRating,
   }
 
-  constructor(props) {
+  constructor(props: RatingManagerProps) {
     super(props);
     const { loadSavedReview, userId, addon } = props;
     this.state = { showTextEntry: false };
@@ -56,7 +72,7 @@ export class RatingManagerBase extends React.Component {
     }
   }
 
-  onSelectRating = (rating) => {
+  onSelectRating = (rating: number) => {
     const { userId, userReview, version } = this.props;
 
     const params = {
@@ -64,6 +80,7 @@ export class RatingManagerBase extends React.Component {
       rating,
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
+      reviewId: undefined,
       versionId: version.id,
       userId,
     };
@@ -90,7 +107,8 @@ export class RatingManagerBase extends React.Component {
   }
 
   getLogInPrompt(
-    { addonType }, { validAddonTypes = defaultValidAddonTypes } = {}
+    { addonType }: GetLogInPromptParams,
+    { validAddonTypes = defaultValidAddonTypes }: GetLogInPromptOptions = {}
   ) {
     const { i18n } = this.props;
     switch (addonType) {
@@ -166,12 +184,15 @@ export class RatingManagerBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state, ownProps) => {
+export const mapStateToProps = (
+  state: Object, ownProps: RatingManagerProps
+) => {
   const userId = state.auth && state.auth.userId;
   let userReview;
 
   // Look for the latest saved review by this user for this add-on.
   if (userId && state.reviews && ownProps.addon) {
+    // $FLOW_FIXME: support babel magic dedent
     log.info(dedent`Checking state for review by user ${userId},
       addonId ${ownProps.addon.id}, versionId ${ownProps.version.id}`);
 
@@ -194,9 +215,14 @@ export const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export const mapDispatchToProps = (dispatch) => ({
+type LoadSavedReviewParams = {|
+  userId: number,
+  addonId: number,
+|};
 
-  loadSavedReview({ userId, addonId }) {
+export const mapDispatchToProps = (dispatch: DispatchFn) => ({
+
+  loadSavedReview({ userId, addonId }: LoadSavedReviewParams) {
     return getLatestUserReview({ user: userId, addon: addonId })
       .then((review) => {
         if (review) {
@@ -208,7 +234,7 @@ export const mapDispatchToProps = (dispatch) => ({
       });
   },
 
-  submitReview(params) {
+  submitReview(params: SubmitReviewParams) {
     return submitReview(params).then((review) => dispatch(setReview(review)));
   },
 });

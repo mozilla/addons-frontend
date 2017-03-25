@@ -1,4 +1,5 @@
 [ignore]
+# Ignore minified addons-frontend code.
 <PROJECT_ROOT>/dist/.*
 
 # These modules opt into Flow but we don't need to check them.
@@ -11,6 +12,8 @@
 [libs]
 
 [options]
+# This maps all sass imports to a dummy flow file to suppress import errors.
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/flowStub.js.flow'
 module.system=node
 module.system.node.resolve_dirname=./src
 log.file=./artifacts/flow.log

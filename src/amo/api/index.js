@@ -1,5 +1,16 @@
+/* @flow */
 import { callApi } from 'core/api';
 import log from 'core/logger';
+
+export type SubmitReviewParams = {|
+  addonId?: number,
+  rating?: number,
+  apiState?: Object,
+  title?: string,
+  versionId?: number,
+  body?: string,
+  reviewId?: number,
+|};
 
 /*
  * POST/PATCH an add-on review using the API.
@@ -13,7 +24,7 @@ export function submitReview({
   body,
   reviewId,
   ...apiCallParams
-}) {
+}: SubmitReviewParams) {
   return new Promise(
     (resolve) => {
       const data = { rating, version: versionId, body, title };

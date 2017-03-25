@@ -1,6 +1,21 @@
 import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
 
-export function denormalizeReview(review) {
+export type UserReviewType = {|
+  addonId: number,
+  addonSlug: string,
+  body: string,
+  created: Date,
+  title: string,
+  id: number,
+  isLatest: boolean,
+  rating: number,
+  userId: number,
+  userName: string,
+  userUrl: string,
+  versionId: number,
+|};
+
+export function denormalizeReview(review: Object): UserReviewType {
   return {
     addonId: review.addon.id,
     addonSlug: review.addon.slug,
