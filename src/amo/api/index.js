@@ -1,6 +1,6 @@
 /* @flow */
 import { callApi } from 'core/api';
-import { ErrorHandler } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
 
 export type ApiReviewType = {|
@@ -30,7 +30,7 @@ export type SubmitReviewParams = {|
   addonId?: number,
   rating?: number,
   apiState?: Object,
-  errorHandler?: typeof ErrorHandler,
+  errorHandler?: ErrorHandlerType,
   title?: string,
   versionId?: number,
   body?: string,

@@ -9,7 +9,7 @@ import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
-import { ErrorHandler } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import { initialApiState } from 'core/reducers/api';
 import type { ApiStateType } from 'core/reducers/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
@@ -72,7 +72,7 @@ type CallApiParams = {|
   method?: 'GET' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'PUT' | 'PATCH',
   body?: Object,
   credentials?: boolean,
-  errorHandler?: typeof ErrorHandler,
+  errorHandler?: ErrorHandlerType,
 |};
 
 export function callApi({

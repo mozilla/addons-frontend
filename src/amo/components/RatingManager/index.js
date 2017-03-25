@@ -3,7 +3,8 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { ErrorHandler, withErrorHandling } from 'core/errorHandler';
+import { withErrorHandling } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import type { UserReviewType } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
@@ -39,7 +40,7 @@ type RatingManagerProps = {|
   AuthenticateButton: typeof DefaultAuthenticateButton,
   Rating: typeof DefaultRating,
   addon: AddonType,
-  errorHandler: typeof ErrorHandler,
+  errorHandler: ErrorHandlerType,
   apiState: Object, // TODO: apiState type from reducer
   i18n: Object,
   loadSavedReview: LoadSavedReviewFn,
