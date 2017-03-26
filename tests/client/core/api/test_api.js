@@ -1,5 +1,6 @@
 /* global Response, window */
 import config from 'config';
+import querystring from 'querystring';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
@@ -539,19 +540,19 @@ describe('api', () => {
   });
 
   describe('startLoginUrl', () => {
+    const getStartLoginQs = (location) =>
+      querystring.parse(api.startLoginUrl({ location }).split('?')[1]);
+
     it('includes the next path', () => {
       const location = { pathname: '/foo', query: { bar: 'BAR' } };
-      assert.equal(
-        api.startLoginUrl({ location }),
-        `${apiHost}/api/v3/accounts/login/start/?to=%2Ffoo%3Fbar%3DBAR`);
+      assert.deepEqual(getStartLoginQs(location), { to: '/foo?bar=BAR' });
     });
 
     it('includes the next path the config if set', () => {
       sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
       const location = { pathname: '/foo' };
-      assert.equal(
-        api.startLoginUrl({ location }),
-        `${apiHost}/api/v3/accounts/login/start/?to=%2Ffoo&config=my-config`);
+      assert.deepEqual(
+        getStartLoginQs(location), { to: '/foo', config: 'my-config' });
     });
   });
 
