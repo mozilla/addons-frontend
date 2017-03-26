@@ -35,33 +35,25 @@ export function denormalizeReview(review: Object): UserReviewType {
   };
 }
 
-export type SetReviewActionType = {|
+export type SetReviewAction = {|
   type: typeof SET_REVIEW,
   payload: UserReviewType,
 |};
 
-const setReviewAction = (
-  review: UserReviewType
-): SetReviewActionType => ({ type: SET_REVIEW, payload: review });
-
-export const setReview = (
-  review: ApiReviewType, reviewOverrides: Object = {}
-): SetReviewActionType => {
+export const setReview = (review: ApiReviewType): SetReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  // $FLOW_FIXME: I think we can remove this by adjusting the tests
-  return setReviewAction({
-    ...denormalizeReview(review),
-    ...reviewOverrides,
-  });
+  return { type: SET_REVIEW, payload: denormalizeReview(review) };
 };
 
-export const setDenormalizedReview = (review: UserReviewType) => {
+export const setDenormalizedReview = (
+  review: UserReviewType
+): SetReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  return setReviewAction(review);
+  return { type: SET_REVIEW, payload: review };
 };
 
 export type SetAddonReviewsAction = {|

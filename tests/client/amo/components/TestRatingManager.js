@@ -394,7 +394,7 @@ describe('RatingManager', () => {
     it('sets a user review to the latest matching one in state', () => {
       signIn({ userId: fakeReview.user.id });
 
-      const action = setReview(fakeReview, { isLatest: true });
+      const action = setReview({ ...fakeReview, is_latest: true });
       store.dispatch(action);
       const dispatchedReview = action.payload;
 
@@ -410,9 +410,13 @@ describe('RatingManager', () => {
       signIn({ userId: userIdOne });
 
       // Save a review for user two.
-      store.dispatch(setReview(fakeReview, {
-        isLatest: true,
-        userId: userIdTwo,
+      store.dispatch(setReview({
+        ...fakeReview,
+        is_latest: true,
+        user: {
+          ...fakeReview.user,
+          id: userIdTwo,
+        },
         rating: savedRating,
       }));
 
@@ -434,18 +438,18 @@ describe('RatingManager', () => {
       signIn({ userId: fakeReview.user.id });
 
       function createReview(overrides) {
-        const action = setReview(fakeReview, overrides);
+        const action = setReview({ ...fakeReview, ...overrides });
         store.dispatch(action);
         return action.payload;
       }
 
       createReview({
         id: 1,
-        isLatest: false,
+        is_latest: false,
       });
       const latestReview = createReview({
         id: 2,
-        isLatest: true,
+        is_latest: true,
       });
 
       assert.deepEqual(getMappedProps().userReview, latestReview);
