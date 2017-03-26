@@ -587,6 +587,7 @@ describe('api', () => {
       const mockResponse = createApiResponse({ jsonData: { ok: true } });
       mockWindow.expects('fetch')
         .withArgs(`${apiHost}/api/v3/accounts/session/?lang=en-US`, {
+          body: undefined,
           credentials: 'include',
           headers: { authorization: 'Bearer secret-token' },
           method: 'DELETE',
