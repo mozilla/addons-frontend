@@ -4,6 +4,7 @@ import {
   submitReview,
 } from 'amo/api';
 import * as api from 'core/api';
+import { initialApiState } from 'core/reducers/api';
 import { unexpectedSuccess } from 'tests/client/helpers';
 import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 
@@ -18,10 +19,11 @@ describe('amo.api', () => {
     // These are all the default values for fields that can be posted to the
     // endpoint.
     const defaultParams = {
-      rating: undefined,
-      version: undefined,
+      addon: undefined,
       body: undefined,
+      rating: undefined,
       title: undefined,
+      version: undefined,
     };
     const baseParams = {
       apiState: { ...signedInApiState, token: 'new-token' },

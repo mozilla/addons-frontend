@@ -14,6 +14,7 @@ import {
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
+import { initialApiState } from 'core/reducers/api';
 import * as amoApi from 'amo/api';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
@@ -80,7 +81,6 @@ describe('RatingManager', () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addon: { ...fakeAddon, id: 12345, slug: 'some-slug' },
-      userId: 92345,
     });
     return root.onSelectRating(5)
       .then(() => {
@@ -91,7 +91,6 @@ describe('RatingManager', () => {
         assert.equal(call.apiState.token, 'new-token');
         assert.equal(call.addonId, 12345);
         assert.equal(call.errorHandler, errorHandler);
-        assert.equal(call.userId, 92345);
         assert.strictEqual(call.reviewId, undefined);
       });
   });
@@ -374,7 +373,7 @@ describe('RatingManager', () => {
     });
 
     it('sets an empty apiState when not signed in', () => {
-      assert.deepEqual(getMappedProps().apiState, {});
+      assert.deepEqual(getMappedProps().apiState, { ...initialApiState });
     });
 
     it('sets an empty userId when not signed in', () => {

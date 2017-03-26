@@ -52,7 +52,7 @@ describe('api', () => {
     it('transforms method to upper case', () => {
       mockWindow.expects('fetch')
         .withArgs(`${apiHost}/api/v3/resource/`, {
-          method: 'GET', headers: {},
+          body: undefined, credentials: undefined, method: 'GET', headers: {},
         })
         .once()
         .returns(createApiResponse());
@@ -64,7 +64,7 @@ describe('api', () => {
       const endpoint = 'diccionario-español-venezuela';
       mockWindow.expects('fetch')
         .withArgs(utf8.encode(`${apiHost}/api/v3/${endpoint}/`), {
-          method: 'GET', headers: {},
+          body: undefined, credentials: undefined, method: 'GET', headers: {},
         })
         .once()
         .returns(createApiResponse());
@@ -157,7 +157,7 @@ describe('api', () => {
 
       mockWindow.expects('fetch')
         .withArgs(`${apiHost}/api/v3/resource/`, {
-          method: 'GET', headers: {},
+          body: undefined, credentials: undefined, method: 'GET', headers: {},
         })
         .once()
         .returns(response);
@@ -396,9 +396,12 @@ describe('api', () => {
 
     it('sets the lang and slug', () => {
       mockWindow.expects('fetch')
-        .withArgs(
-          `${apiHost}/api/v3/addons/addon/foo/?lang=en-US`,
-          { headers: {}, method: 'GET' })
+        .withArgs(`${apiHost}/api/v3/addons/addon/foo/?lang=en-US`, {
+          body: undefined,
+          credentials: undefined,
+          headers: {},
+          method: 'GET',
+        })
         .once()
         .returns(mockResponse());
       return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
@@ -418,9 +421,12 @@ describe('api', () => {
     it('fails when the add-on is not found', () => {
       mockWindow
         .expects('fetch')
-        .withArgs(
-          `${apiHost}/api/v3/addons/addon/foo/?lang=en-US`,
-          { headers: {}, method: 'GET' })
+        .withArgs(`${apiHost}/api/v3/addons/addon/foo/?lang=en-US`, {
+          body: undefined,
+          credentials: undefined,
+          headers: {},
+          method: 'GET',
+        })
         .once()
         .returns(mockResponse({ ok: false }));
       return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
@@ -435,9 +441,12 @@ describe('api', () => {
       const token = userAuthToken();
       mockWindow
         .expects('fetch')
-        .withArgs(
-          `${apiHost}/api/v3/addons/addon/bar/?lang=en-US`,
-          { headers: { authorization: `Bearer ${token}` }, method: 'GET' })
+        .withArgs(`${apiHost}/api/v3/addons/addon/bar/?lang=en-US`, {
+          body: undefined,
+          credentials: undefined,
+          headers: { authorization: `Bearer ${token}` },
+          method: 'GET',
+        })
         .once()
         .returns(mockResponse());
       return api.fetchAddon({ api: { lang: 'en-US', token }, slug: 'bar' })
@@ -523,6 +532,8 @@ describe('api', () => {
       mockWindow
         .expects('fetch')
         .withArgs(`${apiHost}/api/v3/accounts/profile/?lang=en-US`, {
+          body: undefined,
+          credentials: undefined,
           headers: { authorization: `Bearer ${token}` },
           method: 'GET',
         })
