@@ -1,1 +1,3 @@
+// I'm not sure exactly what this should be. I was using this issue as a guide.
+// https://github.com/facebook/flow/issues/2616#issuecomment-289257544
 declare function dedent(params: Array<*>): string;
