@@ -12,6 +12,7 @@ import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 /* eslint-disable no-duplicate-imports */
 import type { UrlFormatParams } from 'core/api';
+import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFn } from 'core/types/reduxTypes';
 /* eslint-enable no-duplicate-imports */
 
@@ -19,9 +20,7 @@ type HandleLogInFn = (
   location: UrlFormatParams, options?: {| _window: typeof window |}
 ) => void;
 
-type HandleLogOutFn = ({|
-  api: Object, // TODO: apiState from reducer
-|}) => Promise<void>;
+type HandleLogOutFn = ({| api: ApiStateType |}) => Promise<void>;
 
 type AuthenticateButtonProps = {|
   api: Object,
