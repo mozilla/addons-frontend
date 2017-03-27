@@ -1,16 +1,6 @@
 /* @flow */
 import UAParser from 'ua-parser-js';
 
-import type { Exact } from 'core/types/coreTypes';
-
-import type {
-  SetAuthTokenAction,
-  LogOutUserAction,
-  SetClientAppAction,
-  SetLangAction,
-  SetUserAgentAction,
-} from 'core/actions/index';
-
 import {
   LOG_OUT_USER,
   SET_AUTH_TOKEN,
@@ -18,6 +8,14 @@ import {
   SET_CLIENT_APP,
   SET_USER_AGENT,
 } from 'core/constants';
+import type {
+  SetAuthTokenAction,
+  LogOutUserAction,
+  SetClientAppAction,
+  SetLangAction,
+  SetUserAgentAction,
+} from 'core/actions/index';
+import type { Exact } from 'core/types/coreTypes';
 
 type UserAgentInfoType = {|
   browser: string,

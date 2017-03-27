@@ -58,7 +58,7 @@ export function submitReview({
         rating,
         version: versionId,
         body,
-        title
+        title,
       };
       let method = 'POST';
       let endpoint = 'reviews/review';

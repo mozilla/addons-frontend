@@ -1,16 +1,27 @@
 /* @flow */
-/* global window */
-import React, { PropTypes } from 'react';
+/* global Event, window */
+/* eslint-disable react/sort-comp */
+import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { logOutUser } from 'core/actions';
 import { logOutFromServer, startLoginUrl } from 'core/api';
-import type { UrlFormatParams } from 'core/api';
 import translate from 'core/i18n/translate';
-import type { DispatchFn } from 'core/types/reduxTypes';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
+/* eslint-disable no-duplicate-imports */
+import type { UrlFormatParams } from 'core/api';
+import type { DispatchFn } from 'core/types/reduxTypes';
+/* eslint-enable no-duplicate-imports */
+
+type HandleLogInFn = (
+  location: UrlFormatParams, options?: {| _window: typeof window |}
+) => void;
+
+type HandleLogOutFn = ({|
+  api: Object, // TODO: apiState from reducer
+|}) => Promise<void>;
 
 type AuthenticateButtonProps = {|
   api: Object,
@@ -61,10 +72,6 @@ export class AuthenticateButtonBase extends React.Component {
   }
 }
 
-type HandleLogInFn = (
-  location: UrlFormatParams, options?: {| _window: Object |}
-) => void;
-
 type StateMappedProps = {|
   api: Object, // TODO apiState from reducer
   isAuthenticated: boolean,
@@ -79,10 +86,6 @@ export const mapStateToProps = (state: Object): StateMappedProps => ({
     _window.location = startLoginUrl({ location });
   },
 });
-
-type HandleLogOutFn = ({|
-  api: Object, // TODO: apiState from reducer
-|}) => Promise<void>;
 
 type DispatchMappedProps = {|
   handleLogOut: HandleLogOutFn,

@@ -4,7 +4,6 @@ import {
   submitReview,
 } from 'amo/api';
 import * as api from 'core/api';
-import { initialApiState } from 'core/reducers/api';
 import { unexpectedSuccess } from 'tests/client/helpers';
 import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 

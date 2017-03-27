@@ -5,7 +5,6 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_SEARCH,
   ADDON_TYPE_THEME,
-  validAddonTypes as defaultValidAddonTypes,
 } from 'core/constants';
 
 // TODO: Are all these fields actually in addon.current_version

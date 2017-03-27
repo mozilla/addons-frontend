@@ -1,6 +1,7 @@
 /* global Response, window */
-import config from 'config';
 import querystring from 'querystring';
+
+import config from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';

@@ -1,20 +1,14 @@
 /* @flow */
-import React, { PropTypes } from 'react';
+/* global Node */
+/* eslint-disable react/sort-comp, react/no-unused-prop-types */
+import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { withErrorHandling } from 'core/errorHandler';
-import type { ErrorHandlerType } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
-import type { UserReviewType } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
-import type { SubmitReviewParams } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
-import type { UrlFormatParams } from 'core/api';
-import type { ApiStateType } from 'core/reducers/api';
-import type { DispatchFn } from 'core/types/reduxTypes';
-import type { AddonType, AddonTypeProp, AddonVersionType }
-  from 'core/types/addonTypes';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
 import {
   ADDON_TYPE_DICT,
@@ -27,14 +21,25 @@ import {
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
+/* eslint-disable no-duplicate-imports */
+import type { ErrorHandlerType } from 'core/errorHandler';
+import type { UserReviewType } from 'amo/actions/reviews';
+import type { SubmitReviewParams } from 'amo/api';
+import type { UrlFormatParams } from 'core/api';
+import type { ApiStateType } from 'core/reducers/api';
+import type { DispatchFn } from 'core/types/reduxTypes';
+import type { AddonType, AddonTypeProp, AddonVersionType }
+  from 'core/types/addonTypes';
+/* eslint-enable no-duplicate-imports */
 
 import './styles.scss';
 
-type GetLogInPromptParams = {| addonType: AddonTypeProp |};
+type LoadSavedReviewFn = ({|
+  userId: number,
+  addonId: number,
+|}) => Promise<*>;
 
-type GetLogInPromptOptions = {|
-  validAddonTypes: typeof defaultValidAddonTypes,
-|};
+type SubmitReviewFn = (SubmitReviewParams) => Promise<void>;
 
 type RatingManagerProps = {|
   AddonReview: typeof DefaultAddonReview,
@@ -55,9 +60,7 @@ type RatingManagerProps = {|
 export class RatingManagerBase extends React.Component {
   props: RatingManagerProps;
   ratingLegend: Node;
-  state: {|
-    showTextEntry: boolean,
-  |};
+  state: {| showTextEntry: boolean |};
 
   static defaultProps = {
     AddonReview: DefaultAddonReview,
@@ -109,8 +112,12 @@ export class RatingManagerBase extends React.Component {
   }
 
   getLogInPrompt(
-    { addonType }: GetLogInPromptParams,
-    { validAddonTypes = defaultValidAddonTypes }: GetLogInPromptOptions = {}
+    { addonType }: {| addonType: AddonTypeProp |},
+    {
+      validAddonTypes = defaultValidAddonTypes,
+    }: {|
+      validAddonTypes: typeof defaultValidAddonTypes,
+    |} = {}
   ) {
     const { i18n } = this.props;
     switch (addonType) {
@@ -215,13 +222,6 @@ export const mapStateToProps = (
     userId,
   };
 };
-
-type LoadSavedReviewFn = ({|
-  userId: number,
-  addonId: number,
-|}) => Promise<*>;
-
-type SubmitReviewFn = (SubmitReviewParams) => Promise<void>;
 
 type DispatchMappedProps = {|
   loadSavedReview: LoadSavedReviewFn,
