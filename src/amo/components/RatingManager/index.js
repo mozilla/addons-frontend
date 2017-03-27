@@ -193,6 +193,7 @@ export class RatingManagerBase extends React.Component {
   }
 }
 
+// TODO: when all state types are exported, define `state`.
 export const mapStateToProps = (
   state: Object, ownProps: RatingManagerProps
 ) => {
