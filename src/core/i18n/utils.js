@@ -216,12 +216,32 @@ function oneLineTranslationString(translationKey) {
   return translationKey;
 }
 
+type I18nConfig = {|
+  // The following keys configure Jed.
+  // See http://messageformat.github.io/Jed/
+  domain: string,
+  locale_data: {
+    [domain: string]: {
+      '': { // an empty string configures the domain.
+        domain: string,
+        lang: string,
+        plural_forms: string,
+      },
+      [message: string]: Array<string>,
+    },
+  },
+  // This is our custom configuration for moment.
+  _momentDefineLocale?: Function,
+|};
+
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.
-export function makeI18n(i18nData: Object, lang: string, _Jed: Jed = Jed) {
+export function makeI18n(i18nData: I18nConfig, lang: string, _Jed: Jed = Jed) {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
 
+  // TODO: move all of this to an I18n class that extends Jed so that we
+  // can type-check all the components that rely on the i18n object.
   i18n.formatNumber = (number) => number.toLocaleString(lang);
 
   // This adds the correct moment locale for the active locale so we can get
