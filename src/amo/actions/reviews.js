@@ -14,10 +14,10 @@ export type UserReviewType = {|
   userId: number,
   userName: string,
   userUrl: string,
-  versionId: number,
+  versionId: ?number,
 |};
 
-export function denormalizeReview(review: Object): UserReviewType {
+export function denormalizeReview(review: ApiReviewType): UserReviewType {
   return {
     addonId: review.addon.id,
     addonSlug: review.addon.slug,

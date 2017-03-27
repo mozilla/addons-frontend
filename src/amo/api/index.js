@@ -20,7 +20,7 @@ export type ApiReviewType = {|
     name: string,
     url: string,
   |},
-  version?: {|
+  version: ?{|
     id: number,
   |},
 |};
