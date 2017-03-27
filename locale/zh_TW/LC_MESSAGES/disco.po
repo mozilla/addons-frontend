@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"POT-Creation-Date: 2017-03-27 17:08+0000\n"
 "PO-Revision-Date: 2017-03-18 06:24+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -19,10 +19,13 @@ msgid "Server Error"
 msgstr "伺服器發生錯誤"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
 msgstr "抱歉，有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修復。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "錯誤代碼: %(status)s。"
 
@@ -42,31 +45,31 @@ msgstr "安裝佈景主題"
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "正在下載 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "正在安裝 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "已安裝啟用 %(name)s，點擊移除。"
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s 已停用，點擊啟用。"
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "正在移除 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "已移除 %(name)s，點擊安裝。"
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s 的安裝狀態未知。"
 
@@ -126,31 +129,37 @@ msgstr "關閉"
 msgid "Discover Add-ons"
 msgstr "探索附加元件"
 
-#: src/disco/containers/DiscoPane.js:106
-msgid "Click to play"
-msgstr "點擊播放"
-
-#: src/disco/containers/DiscoPane.js:107
-msgid "to find out more about add-ons"
-msgstr "以了解附加元件的更多資訊"
-
-#: src/disco/containers/DiscoPane.js:116
-msgid "Close video"
-msgstr "關閉影片"
-
-#: src/disco/containers/DiscoPane.js:127
-msgid "See more add-ons!"
-msgstr "看看更多附加元件！"
-
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "個人化您的 Firefox"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr "全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快、更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦效能與功能都很傑出的附加元件。"
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有"
+"您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快、更安全的工具與功能。為了幫助"
+"您開始使用，以下是一些我們推薦效能與功能都很傑出的附加元件。"
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "點擊播放"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "以了解附加元件的更多資訊"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "關閉影片"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "看看更多附加元件！"
 
 #~ msgid "Preview %(name)s"
 #~ msgstr "預覽 %(name)s"

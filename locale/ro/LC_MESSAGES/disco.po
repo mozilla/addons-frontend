@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"POT-Creation-Date: 2017-03-27 17:08+0000\n"
 "PO-Revision-Date: 2016-07-21 23:36+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -47,31 +47,31 @@ msgstr "Se instalează %(name)s."
 msgid "Add to Firefox"
 msgstr ""
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "Se descarcă %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "Se instalează %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s este instalat și activat. Clic pentru dezinstalare."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s este dezactivat. Clic pentru activare."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "Se dezinstalează %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s este dezinstalat. Clic pentru instalare."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
@@ -131,27 +131,11 @@ msgstr "Închide"
 msgid "Discover Add-ons"
 msgstr "Descoperă suplimente"
 
-#: src/disco/containers/DiscoPane.js:106
-msgid "Click to play"
-msgstr "Clic pentru redare"
-
-#: src/disco/containers/DiscoPane.js:107
-msgid "to find out more about add-ons"
-msgstr "pentru a afla mai multe despre suplimente"
-
-#: src/disco/containers/DiscoPane.js:116
-msgid "Close video"
-msgstr "Închide videoclipul"
-
-#: src/disco/containers/DiscoPane.js:127
-msgid "See more add-ons!"
-msgstr "Vezi mai multe suplimente!"
-
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "Personalizează Firefox"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -159,3 +143,19 @@ msgid ""
 "your browser yours. To help you get started, here are some we recommend for "
 "their stand-out performance and functionality."
 msgstr ""
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "Clic pentru redare"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "pentru a afla mai multe despre suplimente"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "Închide videoclipul"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "Vezi mai multe suplimente!"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"POT-Creation-Date: 2017-03-27 17:08+0000\n"
 "PO-Revision-Date: 2017-03-07 03:09+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -45,31 +45,31 @@ msgstr "테마 설치"
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "%(name)s를 다운로드 중입니다."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "%(name)s를 설치 중입니다."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s가 설치되었고 활성화되었습니다. 제거하려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s가 비활성화되었습니다. 활성화 하려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s를 제거하는 중입니다."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s가 제거되었습니다. 설치하려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s의 설치 상태를 알 수 없습니다."
 
@@ -129,27 +129,11 @@ msgstr "닫기"
 msgid "Discover Add-ons"
 msgstr "부가기능 찾기"
 
-#: src/disco/containers/DiscoPane.js:106
-msgid "Click to play"
-msgstr "클릭해서 재생"
-
-#: src/disco/containers/DiscoPane.js:107
-msgid "to find out more about add-ons"
-msgstr "부가기능 더 알아보기"
-
-#: src/disco/containers/DiscoPane.js:116
-msgid "Close video"
-msgstr "동영상 닫기"
-
-#: src/disco/containers/DiscoPane.js:127
-msgid "See more add-ons!"
-msgstr "다른 부가기능 보기!"
-
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "Firefox 개인화하기"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -161,6 +145,22 @@ msgstr ""
 "능이 있습니다. 재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 브라우"
 "징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지"
 "고 있는 저희가 추천드리는 몇가지 부가기능이 있습니다."
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "클릭해서 재생"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "부가기능 더 알아보기"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "동영상 닫기"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "다른 부가기능 보기!"
 
 #~ msgid "Preview %(name)s"
 #~ msgstr "%(name)s 미리보기"
