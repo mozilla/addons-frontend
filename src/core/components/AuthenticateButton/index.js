@@ -72,12 +72,14 @@ export class AuthenticateButtonBase extends React.Component {
 }
 
 type StateMappedProps = {|
-  api: Object, // TODO apiState from reducer
+  api: ApiStateType,
   isAuthenticated: boolean,
   handleLogIn: HandleLogInFn,
 |};
 
-export const mapStateToProps = (state: Object): StateMappedProps => ({
+export const mapStateToProps = (
+  state: {| api: ApiStateType |}
+): StateMappedProps => ({
   api: state.api,
   isAuthenticated: !!state.api.token,
   handleLogIn(location, { _window = window } = {}) {
