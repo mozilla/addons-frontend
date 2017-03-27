@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"POT-Creation-Date: 2017-03-27 17:08+0000\n"
 "PO-Revision-Date: 2017-02-03 22:13+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -46,31 +46,31 @@ msgstr "Suiteáil Téama"
 msgid "Add to Firefox"
 msgstr "Cuir le Firefox"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "%(name)s á íoslódáil."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "%(name)s á shuiteáil."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "Suiteáladh agus cumasaíodh %(name)s. Cliceáil chun é a dhíshuiteáil."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "Díchumasaíodh %(name)s. Cliceáil chun é a chumasú arís."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s á dhíshuiteáil."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "Díshuiteáladh %(name)s. Cliceáil chun é a shuiteáil arís."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "Níl a fhios againn an bhfuil %(name)s suiteáilte nó nach bhfuil."
 
@@ -133,27 +133,11 @@ msgstr "Dún"
 msgid "Discover Add-ons"
 msgstr "Aimsigh Breiseáin"
 
-#: src/disco/containers/DiscoPane.js:106
-msgid "Click to play"
-msgstr "Cliceáil le seinm"
-
-#: src/disco/containers/DiscoPane.js:107
-msgid "to find out more about add-ons"
-msgstr "chun tuilleadh eolais faoi bhreiseáin a fháil"
-
-#: src/disco/containers/DiscoPane.js:116
-msgid "Close video"
-msgstr "Dún an físeán"
-
-#: src/disco/containers/DiscoPane.js:127
-msgid "See more add-ons!"
-msgstr "Tuilleadh breiseán!"
-
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "Cuir Firefox in oiriúint duitse féin"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -167,3 +151,19 @@ msgstr ""
 "féidir breiseáin a úsáid chun do bhrabhsálaí a chur in oiriúint duitse féin. "
 "I dtús báire, seo duit roinnt breiseán a mholaimid mar gheall ar "
 "fheidhmíocht agus gníomhaíocht thar barr."
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "Cliceáil le seinm"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "chun tuilleadh eolais faoi bhreiseáin a fháil"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "Dún an físeán"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "Tuilleadh breiseán!"
