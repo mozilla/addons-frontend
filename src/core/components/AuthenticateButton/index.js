@@ -23,7 +23,7 @@ type HandleLogInFn = (
 type HandleLogOutFn = ({| api: ApiStateType |}) => Promise<void>;
 
 type AuthenticateButtonProps = {|
-  api: Object,
+  api: ApiStateType,
   className?: string,
   handleLogIn: HandleLogInFn,
   handleLogOut: HandleLogOutFn,
