@@ -43,6 +43,8 @@ Generic scripts that don't need env vars. Use these for development:
 | npm run dev:amo         |  Starts the dev server and proxy (amo)                |
 | npm run dev:amo:no-proxy|  Starts the dev server without proxy (amo)            |
 | npm run dev:disco       |  Starts the dev server (discovery pane)               |
+| npm run flow:check      |  Check for Flow errors and exit                       |
+| npm run flow:dev        |  Continuously check for Flow errors                   |
 | npm run eslint          |  Lints the JS                                         |
 | npm run stylelint       |  Lints the SCSS                                       |
 | npm run lint            |  Runs all the JS + SCSS linters                       |
@@ -83,6 +85,56 @@ or have `InfoDialog` in their behavior text.
 
 Any option after the double dash (`--`) gets sent to `mocha`. Check out
 [mocha's usage](https://mochajs.org/#usage) for ideas.
+
+### Flow
+
+There is limited support for using [Flow](https://flowtype.org/)
+to check for problems in the source code.
+
+Here is how to develop with constant feedback about Flow issues:
+
+    npm run flow:dev
+
+Check out the [web-ext guide](https://github.com/mozilla/web-ext/blob/master/CONTRIBUTING.md#check-for-flow-errors)
+for hints on how to solve common Flow errors.
+
+To add flow coverage to a source file, put a `/* @flow */` comment at the top.
+The more source files you can opt into to Flow, the better.
+
+Here are some conventions we follow:
+
+* When a function like `getAllAddons` takes object arguments, call their
+  type object `GetAllAddonsParams`. For optional object arguments, call
+  their type object `GetAllAddonsOptions`. Example:
+
+````js
+type GetAllAddonsParams = {|
+  author: string,
+|};
+
+type GetAllAddonsOptions = {|
+  version: string,
+|};
+
+function getAllAddons(
+  { author }: GetAllAddonsParams,
+  { version }: GetAllAddonsOptions = {}
+) {
+  ...
+}
+````
+
+* Always use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types)
+  using the pipe syntax (`{| key: ... |}`) when possible. Sometimes the
+  spread operator makes this difficult but you can use the
+  `Exact<GetAllAddonsOptions>` workaround from `src/core/types/coreTypes`
+  if you have to.
+* Try to avoid loose types like `Object` or `any` but feel free to use
+  them if you are falling down a rabbit hole.
+* You can add a `$FLOW_FIXME` comment to skip a Flow check if you run
+  into a bug or if you hit something that's making you bang your head on
+  the keyboard. If it's something you think is unfixable then use
+  `$FLOW_IGNORE` instead.
 
 ### Code coverage
 
