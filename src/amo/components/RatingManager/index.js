@@ -11,6 +11,7 @@ import { getLatestUserReview, submitReview } from 'amo/api';
 import type { SubmitReviewParams } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import type { UrlFormatParams } from 'core/api';
+import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFn } from 'core/types/reduxTypes';
 import type { AddonType, AddonTypeProp, AddonVersionType }
   from 'core/types/addonTypes';
@@ -41,7 +42,7 @@ type RatingManagerProps = {|
   Rating: typeof DefaultRating,
   addon: AddonType,
   errorHandler: ErrorHandlerType,
-  apiState: Object, // TODO: apiState type from reducer
+  apiState: ApiStateType,
   i18n: Object,
   loadSavedReview: LoadSavedReviewFn,
   location: UrlFormatParams,

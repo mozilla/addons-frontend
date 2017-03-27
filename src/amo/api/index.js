@@ -1,5 +1,6 @@
 /* @flow */
 import { callApi } from 'core/api';
+import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
 
@@ -29,7 +30,7 @@ export type ApiReviewType = {|
 export type SubmitReviewParams = {|
   addonId?: number,
   rating?: number,
-  apiState?: Object,
+  apiState?: ApiStateType,
   errorHandler?: ErrorHandlerType,
   title?: string,
   versionId?: number,
