@@ -15,6 +15,7 @@
     "dev:disco": "better-npm-run dev:disco",
     "eslint": "eslint .",
     "flow:check": "flow check",
+    "flow:dev": "watch flow src/ tests/",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
     "servertest": "bin/config-check.js && ADDONS_FRONTEND_BUILD_ALL=1 npm run build && better-npm-run servertest && better-npm-run servertest:amo && better-npm-run servertest:disco && better-npm-run servertest:admin",
@@ -119,7 +120,7 @@
       }
     },
     "test": {
-      "command": "npm run version-check && npm run unittest && npm run servertest && npm run eslint && npm run stylelint",
+      "command": "npm run version-check && npm run unittest && npm run servertest && npm run flow:check && npm run eslint && npm run stylelint",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
@@ -288,6 +289,7 @@
     "supertest-as-promised": "4.0.2",
     "svg-url-loader": "2.0.2",
     "tosource": "1.0.0",
+    "watch": "1.0.2",
     "webpack": "1.14.0",
     "webpack-dev-middleware": "1.10.1",
     "webpack-dev-server": "2.4.1",
