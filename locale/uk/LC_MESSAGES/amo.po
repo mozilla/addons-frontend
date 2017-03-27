@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-27 18:10+0000\n"
+"PO-Revision-Date: 2017-03-27 18:11+0000\n"
 "Last-Translator: Tymur Faradzhev <faradzhev.timur@gmail.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -73,17 +73,15 @@ msgstr[1] "%(total)s користувача"
 msgstr[2] "%(total)s користувачів"
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s оцінка"
-msgstr[1] "%(total)s оцінки"
-msgstr[2] "%(total)s оцінок"
+msgstr[0] "%(total)s відгук"
+msgstr[1] "%(total)s відгуки"
+msgstr[2] "%(total)s відгуків"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
-msgstr "Ще немає відгуків"
+msgstr "Немає відгуків"
 
 #: src/amo/components/AddonMeta.js:41
 msgid "Used by"
