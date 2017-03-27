@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 17:42+0000\n"
+"POT-Creation-Date: 2017-03-27 17:03+0000\n"
+"PO-Revision-Date: 2017-03-27 18:48+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -59,14 +59,14 @@ msgid "About this %(addonType)s"
 msgstr "Wo tutym %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "Podótkńće so, zo byšće sej přehlad wobhladał"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Cancel preview"
 msgstr "Přehlad přetorhnyć"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "Podótkńće so, zo byšće sej přehlad wobhladał"
+
+#: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s wužiwar"
@@ -74,23 +74,19 @@ msgstr[1] "%(total)s wužiwarjej"
 msgstr[2] "%(total)s wužiwarjo"
 msgstr[3] "%(total)s wužiwarjow"
 
-#: src/amo/components/AddonMeta.js:28
-msgid "%(averageRating)s out of 5"
-msgstr "Přerězne pohódnoćenje: %(averageRating)s z 5"
-
-#: src/amo/components/AddonMeta.js:32
-msgid "Not yet rated"
-msgstr "Hišće njepohódnoćeny"
-
-#: src/amo/components/AddonMeta.js:37
-msgid "%(total)s rating"
-msgid_plural "%(total)s ratings"
+#: src/amo/components/AddonMeta.js:30
+msgid "%(total)s review"
+msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s pohódnoćenje"
 msgstr[1] "%(total)s pohódnoćeni"
 msgstr[2] "%(total)s pohódnoćenja"
-msgstr[3] "%(total)s pohódnoćenja"
+msgstr[3] "%(total)s pohódnoćenjow"
 
-#: src/amo/components/AddonMeta.js:45
+#: src/amo/components/AddonMeta.js:35
+msgid "No reviews"
+msgstr "Žane pohódnoćenja"
+
+#: src/amo/components/AddonMeta.js:41
 msgid "Used by"
 msgstr "Wužity wot"
 
@@ -258,51 +254,71 @@ msgstr "Programowy zmylk zdźělić"
 msgid "View desktop site"
 msgstr "Desktopowe websydło pokazać"
 
-#: src/amo/components/LandingPage.js:49
+#: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
+msgid "Themes"
+msgstr "Drasty"
+
+#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
+msgid "Extensions"
+msgstr "Rozšěrjenja"
+
+#: src/amo/components/LandingPage.js:119
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Změńće napohlad swojeho wobhladowaka. Wubjerće z tysacow drastow, zo byšće Firefox napohlad dał, kotryž chceće."
+
+#: src/amo/components/LandingPage.js:121
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Instalujće mócne nastroje, kotrež přehladowanje spěšniše a wěsćiše činja, přidatki činja waš wobhladowak k wašemu."
+
+#: src/amo/components/LandingPage.js:147
+msgid "Browse by category"
+msgstr "Po kategoriji přepytać"
+
+#: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
 msgstr "Předstajene rozšěrjenja"
 
-#: src/amo/components/LandingPage.js:53
+#: src/amo/components/LandingPage.js:55
 msgid "More featured extensions"
 msgstr "Dalše předstajene rozšěrjenja"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:56
 msgid "Most popular extensions"
 msgstr "Najbóle woblubowane rozšěrjenja"
 
-#: src/amo/components/LandingPage.js:59
+#: src/amo/components/LandingPage.js:61
 msgid "More popular extensions"
 msgstr "Dalše woblubowane rozšěrjenja"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:62
 msgid "Top rated extensions"
 msgstr "Najwyše pohódnoćene rozšěrjenja"
 
-#: src/amo/components/LandingPage.js:68
+#: src/amo/components/LandingPage.js:70
 msgid "More highly rated extensions"
 msgstr "Dalše wysoko pohódnoćene rozšěrjenja"
 
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:73
 msgid "Featured themes"
 msgstr "Předstajene drasty"
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:77
 msgid "More featured themes"
 msgstr "Dalše předstajene drasty"
 
-#: src/amo/components/LandingPage.js:76
+#: src/amo/components/LandingPage.js:78
 msgid "Most popular themes"
 msgstr "Najbóle woblubowane drasty"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:83
 msgid "More popular themes"
 msgstr "Dalše woblubowane drasty"
 
-#: src/amo/components/LandingPage.js:82
+#: src/amo/components/LandingPage.js:84
 msgid "Top rated themes"
 msgstr "Wysoko pohódnoćene drasty"
 
-#: src/amo/components/LandingPage.js:87
+#: src/amo/components/LandingPage.js:89
 msgid "More highly rated themes"
 msgstr "Dalše wysoko pohódnoćene drasty"
 
@@ -310,7 +326,7 @@ msgstr "Dalše wysoko pohódnoćene drasty"
 msgid "Browse in your language"
 msgstr "We wašej rěči wobhladać"
 
-#: src/amo/components/MastHead.js:30
+#: src/amo/components/MastHead.js:31
 msgid "Firefox Add-ons"
 msgstr "Přidatki za Firefox"
 
@@ -354,19 +370,19 @@ msgstr "Rozšěrjenja a drasty pytać"
 msgid "No theme preview available"
 msgstr "Přehlad drasty k dispoziciji njeje"
 
-#: src/amo/components/SearchResults.js:40
+#: src/amo/components/SearchResults.js:42
 msgid "Searching…"
 msgstr "Pyta so…"
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "Žane wuslědki za \"%(query)s\" namakane."
 
-#: src/amo/components/SearchResults.js:50
+#: src/amo/components/SearchResults.js:52
 msgid "No results were found."
 msgstr "Žane wusědki namakane."
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Prošu zapodajće pytanski wuraz, zo byšće přidatki Firefox pytał."
 
@@ -406,21 +422,13 @@ msgstr "Wšě drasty přepytować"
 msgid "Add-ons Home Page"
 msgstr "Startowa strona přidatkow"
 
-#: src/amo/containers/App.js:104
+#: src/amo/containers/App.js:106
 msgid "Add-ons for Firefox"
 msgstr "Přidatki za Firefox"
 
 #: src/amo/containers/Home.js:39
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr "Rozšěrjenja su wosebite funkcije, kotrež móžeće Firefox přidać. Drasty wam zmóžnjeja, napohlad wašeho wobhladowaka změnić."
-
-#: src/amo/containers/Home.js:44
-msgid "Extensions"
-msgstr "Rozšěrjenja"
-
-#: src/amo/containers/Home.js:47
-msgid "Themes"
-msgstr "Drasty"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -506,43 +514,43 @@ msgstr "Drastu instalować"
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "%(name)s so sćahuje."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "%(name)s so instaluje."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s je instalowany a zmóžnjeny. Klikńće, zo byšće jón wotinstalował."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s je znjemóžnjeny. Klikńće, zo byšće jón zmóžnił."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s so wotinstaluje."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s je wotinstalowany. Klikńće, zo byšće jón instalował."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "Instalaciski status za %(name)s je njeznaty."
 
-#: src/core/components/Paginate/index.js:106
+#: src/core/components/Paginate/index.js:107
 msgid "Previous"
 msgstr "Předchadne"
 
-#: src/core/components/Paginate/index.js:118
+#: src/core/components/Paginate/index.js:119
 msgid "Next"
 msgstr "Přichodne"
 
-#: src/core/components/Paginate/index.js:97
+#: src/core/components/Paginate/index.js:98
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Strona %(currentPage)s z %(totalPages)s"
 
@@ -562,21 +570,26 @@ msgstr "W porjadku!"
 msgid "An unexpected error occurred"
 msgstr "Njewočakowany zmylk je wustupił"
 
-#: src/ui/components/LoadingIndicator/index.js:27
-msgid "Loading…"
-msgstr "Začituje so…"
-
-#: src/ui/components/Rating/index.js:83
+#: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
 msgstr "Z %(rating)s z 5 hwěžkow pohódnoćeny"
 
-#: src/ui/components/Rating/index.js:86
+#: src/ui/components/Rating/index.js:94
 msgid "No ratings"
 msgstr "Žane pohódnoćenja"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Pokazać</span>, zo byšće wjace čitał"
+
+#~ msgid "%(averageRating)s out of 5"
+#~ msgstr "Přerězne pohódnoćenje: %(averageRating)s z 5"
+
+#~ msgid "Not yet rated"
+#~ msgstr "Hišće njepohódnoćeny"
+
+#~ msgid "Loading…"
+#~ msgstr "Začituje so…"
 
 #~ msgid "Fashionable"
 #~ msgstr "Modisce"

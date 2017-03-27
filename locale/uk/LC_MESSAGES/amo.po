@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:14+0000\n"
-"PO-Revision-Date: 2017-03-17 17:12+0000\n"
+"POT-Creation-Date: 2017-03-27 17:03+0000\n"
+"PO-Revision-Date: 2017-03-27 18:11+0000\n"
 "Last-Translator: Tymur Faradzhev <faradzhev.timur@gmail.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -58,36 +58,32 @@ msgid "About this %(addonType)s"
 msgstr "Про цей %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "Торкніться для перегляду"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Cancel preview"
 msgstr "Скасувати перегляд"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "Торкніться для перегляду"
+
+#: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s користувач"
 msgstr[1] "%(total)s користувача"
 msgstr[2] "%(total)s користувачів"
 
-#: src/amo/components/AddonMeta.js:28
-msgid "%(averageRating)s out of 5"
-msgstr "%(averageRating)s з 5"
+#: src/amo/components/AddonMeta.js:30
+msgid "%(total)s review"
+msgid_plural "%(total)s reviews"
+msgstr[0] "%(total)s відгук"
+msgstr[1] "%(total)s відгуки"
+msgstr[2] "%(total)s відгуків"
 
-#: src/amo/components/AddonMeta.js:32
-msgid "Not yet rated"
-msgstr "Ще не оцінено"
+#: src/amo/components/AddonMeta.js:35
+msgid "No reviews"
+msgstr "Немає відгуків"
 
-#: src/amo/components/AddonMeta.js:37
-msgid "%(total)s rating"
-msgid_plural "%(total)s ratings"
-msgstr[0] "%(total)s оцінка"
-msgstr[1] "%(total)s оцінки"
-msgstr[2] "%(total)s оцінок"
-
-#: src/amo/components/AddonMeta.js:45
+#: src/amo/components/AddonMeta.js:41
 msgid "Used by"
 msgstr "Використовується"
 
@@ -253,51 +249,71 @@ msgstr "Повідомити про помилку"
 msgid "View desktop site"
 msgstr "Повна версія сайту"
 
-#: src/amo/components/LandingPage.js:49
+#: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
+msgid "Themes"
+msgstr "Теми"
+
+#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
+msgid "Extensions"
+msgstr "Розширення"
+
+#: src/amo/components/LandingPage.js:119
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Налаштуйте вигляд вашого браузера. Обирайте з тисяч тем, щоб Firefox виглядав так, як ви хочете."
+
+#: src/amo/components/LandingPage.js:121
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Встановіть потужні інструменти, що пришвидшують і убезпечують перегляд, додатки роблять ваш браузер вашим."
+
+#: src/amo/components/LandingPage.js:147
+msgid "Browse by category"
+msgstr "За категоріями"
+
+#: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
 msgstr "Відібрані розширення"
 
-#: src/amo/components/LandingPage.js:53
+#: src/amo/components/LandingPage.js:55
 msgid "More featured extensions"
 msgstr "Більше відібраних розширень"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:56
 msgid "Most popular extensions"
 msgstr "Найпопулярніші розширення"
 
-#: src/amo/components/LandingPage.js:59
+#: src/amo/components/LandingPage.js:61
 msgid "More popular extensions"
 msgstr "Більше популярних розширень"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:62
 msgid "Top rated extensions"
 msgstr "Найвище оцінені розширення"
 
-#: src/amo/components/LandingPage.js:68
+#: src/amo/components/LandingPage.js:70
 msgid "More highly rated extensions"
 msgstr "Більше найвище оцінених розширень"
 
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:73
 msgid "Featured themes"
 msgstr "Відібрані теми"
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:77
 msgid "More featured themes"
 msgstr "Більше відібраних тем"
 
-#: src/amo/components/LandingPage.js:76
+#: src/amo/components/LandingPage.js:78
 msgid "Most popular themes"
 msgstr "Найпопулярніші теми"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:83
 msgid "More popular themes"
 msgstr "Більше популярних тем"
 
-#: src/amo/components/LandingPage.js:82
+#: src/amo/components/LandingPage.js:84
 msgid "Top rated themes"
 msgstr "Найвище оцінені теми"
 
-#: src/amo/components/LandingPage.js:87
+#: src/amo/components/LandingPage.js:89
 msgid "More highly rated themes"
 msgstr "Більше найвище оцінених тем"
 
@@ -305,7 +321,7 @@ msgstr "Більше найвище оцінених тем"
 msgid "Browse in your language"
 msgstr "Перегляд вашою мовою"
 
-#: src/amo/components/MastHead.js:30
+#: src/amo/components/MastHead.js:31
 msgid "Firefox Add-ons"
 msgstr "Додатки Firefox"
 
@@ -349,19 +365,19 @@ msgstr "Пошук розширень і тем"
 msgid "No theme preview available"
 msgstr "Попередній перегляд теми недоступний"
 
-#: src/amo/components/SearchResults.js:40
+#: src/amo/components/SearchResults.js:42
 msgid "Searching…"
 msgstr "Пошук…"
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "Не знайдено результатів для запиту \"%(query)s\"."
 
-#: src/amo/components/SearchResults.js:50
+#: src/amo/components/SearchResults.js:52
 msgid "No results were found."
 msgstr "Результатів не знайдено."
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Введіть пошуковий запит, щоб знайти додатки для Firefox."
 
@@ -401,21 +417,13 @@ msgstr "Перегляд всіх тем"
 msgid "Add-ons Home Page"
 msgstr "Початкова сторінка додатків"
 
-#: src/amo/containers/App.js:104
+#: src/amo/containers/App.js:106
 msgid "Add-ons for Firefox"
 msgstr "Додатки для Firefox"
 
 #: src/amo/containers/Home.js:39
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr "Розширення - це спеціальні функції, які ви можете додати до Firefox. Теми дозволяють вам змінити вигляд вашого браузера."
-
-#: src/amo/containers/Home.js:44
-msgid "Extensions"
-msgstr "Розширення"
-
-#: src/amo/containers/Home.js:47
-msgid "Themes"
-msgstr "Теми"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -501,43 +509,43 @@ msgstr "Встановити тему"
 msgid "Add to Firefox"
 msgstr "Додати до Firefox"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "Завантаження %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "Встановлення %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s встановлено й активовано. Натисніть для видалення."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s вимкнено. Натисніть для увімкнення."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "Видалення %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s видалено. Натисніть для встановлення."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "Стан встановлення для %(name)s невідомий."
 
-#: src/core/components/Paginate/index.js:106
+#: src/core/components/Paginate/index.js:107
 msgid "Previous"
 msgstr "Назад"
 
-#: src/core/components/Paginate/index.js:118
+#: src/core/components/Paginate/index.js:119
 msgid "Next"
 msgstr "Далі"
 
-#: src/core/components/Paginate/index.js:97
+#: src/core/components/Paginate/index.js:98
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Сторінка %(currentPage)s із %(totalPages)s"
 
@@ -557,21 +565,26 @@ msgstr "ОК!"
 msgid "An unexpected error occurred"
 msgstr "Сталася неочікувана помилка"
 
-#: src/ui/components/LoadingIndicator/index.js:27
-msgid "Loading…"
-msgstr "Завантаження…"
-
-#: src/ui/components/Rating/index.js:83
+#: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
 msgstr "Оцінка %(rating)s з 5"
 
-#: src/ui/components/Rating/index.js:86
+#: src/ui/components/Rating/index.js:94
 msgid "No ratings"
 msgstr "Немає оцінок"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Розгорнути до</span> Читати більше"
+
+#~ msgid "%(averageRating)s out of 5"
+#~ msgstr "%(averageRating)s з 5"
+
+#~ msgid "Not yet rated"
+#~ msgstr "Ще не оцінено"
+
+#~ msgid "Loading…"
+#~ msgstr "Завантаження…"
 
 #~ msgid "Fashionable"
 #~ msgstr "Модний"

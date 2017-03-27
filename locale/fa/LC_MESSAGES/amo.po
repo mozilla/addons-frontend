@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:14+0000\n"
+"POT-Creation-Date: 2017-03-27 17:03+0000\n"
 "PO-Revision-Date: 2016-11-18 14:33+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -63,36 +63,32 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:92
 #, fuzzy
-msgid "Tap to preview"
+msgid "Cancel preview"
 msgstr "یک بررسی بنویسید"
 
 #: src/amo/components/AddonDetail.js:92
 #, fuzzy
-msgid "Cancel preview"
+msgid "Tap to preview"
 msgstr "یک بررسی بنویسید"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
+#: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(users)s کاربر"
 
-#: src/amo/components/AddonMeta.js:28
+#: src/amo/components/AddonMeta.js:30
 #, fuzzy
-msgid "%(averageRating)s out of 5"
-msgstr "میانگین امتیازها: %(rating)s از ۵"
-
-#: src/amo/components/AddonMeta.js:32
-msgid "Not yet rated"
-msgstr ""
-
-#: src/amo/components/AddonMeta.js:37
-#, fuzzy
-msgid "%(total)s rating"
-msgid_plural "%(total)s ratings"
+msgid "%(total)s review"
+msgid_plural "%(total)s reviews"
 msgstr[0] "بدون امتیاز"
 
-#: src/amo/components/AddonMeta.js:45
+#: src/amo/components/AddonMeta.js:35
+#, fuzzy
+msgid "No reviews"
+msgstr "یک بررسی بنویسید"
+
+#: src/amo/components/AddonMeta.js:41
 msgid "Used by"
 msgstr "استفاده شده توسط"
 
@@ -281,60 +277,85 @@ msgstr ""
 msgid "View desktop site"
 msgstr "نمایش میزکار وب‌سایت"
 
-#: src/amo/components/LandingPage.js:49
+#: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
+msgid "Themes"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
+#, fuzzy
+msgid "Extensions"
+msgstr "فرادادهٔ ضمیمه"
+
+#: src/amo/components/LandingPage.js:119
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:121
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:147
+msgid "Browse by category"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:51
 #, fuzzy
 msgid "Featured extensions"
 msgstr "مرور تمام ضمیمه‌ها"
 
-#: src/amo/components/LandingPage.js:53
+#: src/amo/components/LandingPage.js:55
 #, fuzzy
 msgid "More featured extensions"
 msgstr "مرور تمام ضمیمه‌ها"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:56
 #, fuzzy
 msgid "Most popular extensions"
 msgstr "مرور تمام ضمیمه‌ها"
 
-#: src/amo/components/LandingPage.js:59
+#: src/amo/components/LandingPage.js:61
 #, fuzzy
 msgid "More popular extensions"
 msgstr "مرور تمام ضمیمه‌ها"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:62
 #, fuzzy
 msgid "Top rated extensions"
 msgstr "مرور تمام ضمیمه‌ها"
 
-#: src/amo/components/LandingPage.js:68
+#: src/amo/components/LandingPage.js:70
 #, fuzzy
 msgid "More highly rated extensions"
 msgstr "مرور تمام ضمیمه‌ها"
 
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:73
 msgid "Featured themes"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:77
 msgid "More featured themes"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:76
+#: src/amo/components/LandingPage.js:78
 #, fuzzy
 msgid "Most popular themes"
 msgstr "مرور تمام تم‌ها"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:83
 #, fuzzy
 msgid "More popular themes"
 msgstr "مرور تمام تم‌ها"
 
-#: src/amo/components/LandingPage.js:82
+#: src/amo/components/LandingPage.js:84
 #, fuzzy
 msgid "Top rated themes"
 msgstr "مرور تمام تم‌ها"
 
-#: src/amo/components/LandingPage.js:87
+#: src/amo/components/LandingPage.js:89
 msgid "More highly rated themes"
 msgstr ""
 
@@ -342,7 +363,7 @@ msgstr ""
 msgid "Browse in your language"
 msgstr "مرور به زبان شما"
 
-#: src/amo/components/MastHead.js:30
+#: src/amo/components/MastHead.js:31
 msgid "Firefox Add-ons"
 msgstr "افزونه‌های فایرفاکس"
 
@@ -388,21 +409,21 @@ msgstr ""
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResults.js:40
+#: src/amo/components/SearchResults.js:42
 #, fuzzy
 msgid "Searching…"
 msgstr "در حال جستجو…"
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "هیچ نتیجه‌ای برای «%(query)s» پیدا نشد."
 
-#: src/amo/components/SearchResults.js:50
+#: src/amo/components/SearchResults.js:52
 #, fuzzy
 msgid "No results were found."
 msgstr "هیچ نتیجه‌ای برای «%(query)s» پیدا نشد."
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 
@@ -443,7 +464,7 @@ msgstr "مرور تمام تم‌ها"
 msgid "Add-ons Home Page"
 msgstr "افزونه‌های فایرفاکس"
 
-#: src/amo/containers/App.js:104
+#: src/amo/containers/App.js:106
 msgid "Add-ons for Firefox"
 msgstr "افزونه‌های فایرفاکس"
 
@@ -451,15 +472,6 @@ msgstr "افزونه‌های فایرفاکس"
 msgid ""
 "Extensions are special features you can add to Firefox. Themes let you "
 "change your browser's appearance."
-msgstr ""
-
-#: src/amo/containers/Home.js:44
-#, fuzzy
-msgid "Extensions"
-msgstr "فرادادهٔ ضمیمه"
-
-#: src/amo/containers/Home.js:47
-msgid "Themes"
 msgstr ""
 
 #: src/amo/containers/Home.js:52
@@ -551,43 +563,43 @@ msgstr "در حال نصب %(name)s."
 msgid "Add to Firefox"
 msgstr "افزونه‌های فایرفاکس"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "در حال دریافت %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "در حال نصب %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s نصب و فعال شده است. برای حذف کلیک کنید."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s غیر فعال است. برای فعال‌سازی کلیک کنید."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "در حال حذف %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s حذف شد. برای نصب کلیک کنید."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "وضعیت نصب %(name)s نامشخص است."
 
-#: src/core/components/Paginate/index.js:106
+#: src/core/components/Paginate/index.js:107
 msgid "Previous"
 msgstr "قبلی"
 
-#: src/core/components/Paginate/index.js:118
+#: src/core/components/Paginate/index.js:119
 msgid "Next"
 msgstr "بعدی"
 
-#: src/core/components/Paginate/index.js:97
+#: src/core/components/Paginate/index.js:98
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "صفحه %(currentPage)s از %(totalPages)s"
 
@@ -607,23 +619,26 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr ""
 
-#: src/ui/components/LoadingIndicator/index.js:27
-#, fuzzy
-msgid "Loading…"
-msgstr "در حال جستجو…"
-
-#: src/ui/components/Rating/index.js:83
+#: src/ui/components/Rating/index.js:91
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "میانگین امتیازها: %(rating)s از ۵"
 
-#: src/ui/components/Rating/index.js:86
+#: src/ui/components/Rating/index.js:94
 msgid "No ratings"
 msgstr "بدون امتیاز"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
+
+#, fuzzy
+#~ msgid "%(averageRating)s out of 5"
+#~ msgstr "میانگین امتیازها: %(rating)s از ۵"
+
+#, fuzzy
+#~ msgid "Loading…"
+#~ msgstr "در حال جستجو…"
 
 #~ msgid "Fashionable"
 #~ msgstr "مُدِ روز"

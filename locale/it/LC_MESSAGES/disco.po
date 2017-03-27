@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"POT-Creation-Date: 2017-03-27 17:08+0000\n"
 "PO-Revision-Date: 2017-03-17 17:08+0000\n"
 "Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "Errore del server"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Attenzione: la richiesta non è stata elaborata a causa di un errore. L’errore è stato registrato per essere analizzato."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Attenzione: la richiesta non è stata elaborata a causa di un errore. "
+"L’errore è stato registrato per essere analizzato."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "Codice di errore: %(status)s."
 
@@ -42,31 +47,32 @@ msgstr "Installa tema"
 msgid "Add to Firefox"
 msgstr "Aggiungi a Firefox"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "Download di %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "Installazione di %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s è installato e attivato. Fare clic per disinstallarlo."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s è disattivato. Fare clic per attivarlo."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "Disinstallazione di %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s è stato disinstallato. Fare clic per reinstallarlo nuovamente."
+msgstr ""
+"%(name)s è stato disinstallato. Fare clic per reinstallarlo nuovamente."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "Impossibile determinare lo stato di installazione di %(name)s."
 
@@ -84,11 +90,14 @@ msgstr "OK."
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Passa sopra col puntatore del mouse per visualizzare un’anteprima di %(name)s o fai clic per installarlo"
+msgstr ""
+"Passa sopra col puntatore del mouse per visualizzare un’anteprima di "
+"%(name)s o fai clic per installarlo"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
-msgstr "Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
+msgstr ""
+"Passa sopra l’immagine col puntatore del mouse per visualizzare l’anteprima"
 
 #: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
@@ -96,7 +105,9 @@ msgstr "Installazione del componente aggiuntivo non riuscita. Riprova."
 
 #: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
-msgstr "Non è riuscito il download del componente aggiuntivo. Controlla la connessione alla rete."
+msgstr ""
+"Non è riuscito il download del componente aggiuntivo. Controlla la "
+"connessione alla rete."
 
 #: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
@@ -112,7 +123,9 @@ msgstr "Si è verificato un errore inatteso."
 
 #: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di Firefox."
+msgstr ""
+"Questo componente aggiuntivo verrà disinstallato al prossimo riavvio di "
+"Firefox."
 
 #: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
@@ -126,34 +139,42 @@ msgstr "Chiudi"
 msgid "Discover Add-ons"
 msgstr "Alla scoperta dei componenti aggiuntivi"
 
-#: src/disco/containers/DiscoPane.js:106
-msgid "Click to play"
-msgstr "Fai clic per riprodurre"
-
-#: src/disco/containers/DiscoPane.js:107
-msgid "to find out more about add-ons"
-msgstr "Per conoscere ancora meglio i componenti aggiuntivi"
-
-#: src/disco/containers/DiscoPane.js:116
-msgid "Close video"
-msgstr "Chiudi il video"
-
-#: src/disco/containers/DiscoPane.js:127
-msgid "See more add-ons!"
-msgstr "Scopri altri componenti aggiuntivi."
-
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "Personalizza Firefox"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Hai la possibilità di personalizzare Firefox secondo le tue esigenze scegliendo tra migliaia di componenti aggiuntivi gratuiti, creati da sviluppatori provenienti da ogni parte del mondo. Dagli "
-"sgargianti temi per dare un tocco di originalità all'interfaccia utente fino a strumenti e caratteristiche avanzate che rendono la navigazione più veloce e sicura, i componenti aggiuntivi rendono il"
-" tuo browser più \"tuo\". Se non sai da dove iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
+"Hai la possibilità di personalizzare Firefox secondo le tue esigenze "
+"scegliendo tra migliaia di componenti aggiuntivi gratuiti, creati da "
+"sviluppatori provenienti da ogni parte del mondo. Dagli sgargianti temi per "
+"dare un tocco di originalità all'interfaccia utente fino a strumenti e "
+"caratteristiche avanzate che rendono la navigazione più veloce e sicura, i "
+"componenti aggiuntivi rendono il tuo browser più \"tuo\". Se non sai da dove "
+"iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di "
+"consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "Fai clic per riprodurre"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "Per conoscere ancora meglio i componenti aggiuntivi"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "Chiudi il video"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "Scopri altri componenti aggiuntivi."
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Installato e aggiunto alla barra degli strumenti"

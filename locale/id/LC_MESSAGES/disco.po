@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"POT-Creation-Date: 2017-03-27 17:08+0000\n"
 "PO-Revision-Date: 2016-09-10 10:47+0000\n"
 "Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
@@ -46,31 +46,31 @@ msgstr "Pasang"
 msgid "Add to Firefox"
 msgstr ""
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "Mengunduh %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "Memasang %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s telah terpasang dan dihidupkan. Klik untuk mencopotnya."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s dinonaktifkan. Klik untuk mengaktifkan."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "Mencopot %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s telah dicopot. Klik untuk memasang."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "Status pemasangan untuk %(name)s tidak dapat dikenali."
 
@@ -130,27 +130,11 @@ msgstr "Tutup"
 msgid "Discover Add-ons"
 msgstr "Temukan Pengaya"
 
-#: src/disco/containers/DiscoPane.js:106
-msgid "Click to play"
-msgstr "Klik untuk memainkan"
-
-#: src/disco/containers/DiscoPane.js:107
-msgid "to find out more about add-ons"
-msgstr "untuk mengetahui lebih lanjut tentang pengaya"
-
-#: src/disco/containers/DiscoPane.js:116
-msgid "Close video"
-msgstr "Tutup video"
-
-#: src/disco/containers/DiscoPane.js:127
-msgid "See more add-ons!"
-msgstr "Lihat lebih banyak pengaya!"
-
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "Personalisasi Firefox Anda"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -166,6 +150,22 @@ msgstr ""
 "Untuk membantu Anda mulai, berikut adalah beberapa pengaya yang kami "
 "rekomendasikan\n"
 "atas performa dan kegunaannya yang luar biasa."
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "Klik untuk memainkan"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "untuk mengetahui lebih lanjut tentang pengaya"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "Tutup video"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "Lihat lebih banyak pengaya!"
 
 #~ msgid "Preview %(name)s"
 #~ msgstr "Tinjauan %(name)s"

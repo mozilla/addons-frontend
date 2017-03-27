@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:14+0000\n"
+"POT-Creation-Date: 2017-03-27 17:03+0000\n"
 "PO-Revision-Date: 2017-03-16 02:02+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -62,35 +62,31 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s에 대한 정보"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "탭하여 미리보기"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Cancel preview"
 msgstr "미리보기 취소"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "탭하여 미리보기"
+
+#: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(users)s명의 사용자"
 
-#: src/amo/components/AddonMeta.js:28
+#: src/amo/components/AddonMeta.js:30
 #, fuzzy
-msgid "%(averageRating)s out of 5"
-msgstr "평균 점수: 5 점 중 %(rating)s"
-
-#: src/amo/components/AddonMeta.js:32
-msgid "Not yet rated"
-msgstr "평가되지 않음"
-
-#: src/amo/components/AddonMeta.js:37
-#, fuzzy
-msgid "%(total)s rating"
-msgid_plural "%(total)s ratings"
+msgid "%(total)s review"
+msgid_plural "%(total)s reviews"
 msgstr[0] "평가 없음"
 
-#: src/amo/components/AddonMeta.js:45
+#: src/amo/components/AddonMeta.js:35
+#, fuzzy
+msgid "No reviews"
+msgstr "작성된 리뷰 없음"
+
+#: src/amo/components/AddonMeta.js:41
 msgid "Used by"
 msgstr "사용됨"
 
@@ -281,51 +277,75 @@ msgstr "오류 보고"
 msgid "View desktop site"
 msgstr "데스크톱 사이트 보기"
 
-#: src/amo/components/LandingPage.js:49
+#: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
+msgid "Themes"
+msgstr "테마"
+
+#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
+msgid "Extensions"
+msgstr "확장 기능"
+
+#: src/amo/components/LandingPage.js:119
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:121
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:147
+msgid "Browse by category"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
 msgstr "추천 확장 기능"
 
-#: src/amo/components/LandingPage.js:53
+#: src/amo/components/LandingPage.js:55
 msgid "More featured extensions"
 msgstr "추천 확장 기능 더보기"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:56
 msgid "Most popular extensions"
 msgstr "가장 인기있는 확장 기능"
 
-#: src/amo/components/LandingPage.js:59
+#: src/amo/components/LandingPage.js:61
 msgid "More popular extensions"
 msgstr "인기있는 확장 기능 더보기"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:62
 msgid "Top rated extensions"
 msgstr "가장 평점이 높은 확장 기능"
 
-#: src/amo/components/LandingPage.js:68
+#: src/amo/components/LandingPage.js:70
 msgid "More highly rated extensions"
 msgstr "평점이 높은 확장 기능 더보기"
 
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:73
 msgid "Featured themes"
 msgstr "추천 테마"
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:77
 msgid "More featured themes"
 msgstr "추천 테마 더보기"
 
-#: src/amo/components/LandingPage.js:76
+#: src/amo/components/LandingPage.js:78
 msgid "Most popular themes"
 msgstr "가장 인기있는 테마"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:83
 msgid "More popular themes"
 msgstr "인기있는 테마 더보기"
 
-#: src/amo/components/LandingPage.js:82
+#: src/amo/components/LandingPage.js:84
 msgid "Top rated themes"
 msgstr "가장 평점이 높은 테마"
 
-#: src/amo/components/LandingPage.js:87
+#: src/amo/components/LandingPage.js:89
 msgid "More highly rated themes"
 msgstr "평점이 높은 테마 더보기"
 
@@ -333,7 +353,7 @@ msgstr "평점이 높은 테마 더보기"
 msgid "Browse in your language"
 msgstr "내 언어로 검색"
 
-#: src/amo/components/MastHead.js:30
+#: src/amo/components/MastHead.js:31
 msgid "Firefox Add-ons"
 msgstr "Firefox 부가 기능"
 
@@ -377,19 +397,19 @@ msgstr "확장 기능과 테마 검색"
 msgid "No theme preview available"
 msgstr "테마 미리보기가 없습니다"
 
-#: src/amo/components/SearchResults.js:40
+#: src/amo/components/SearchResults.js:42
 msgid "Searching…"
 msgstr "검색중…"
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\"에 대한 검색 결과가 없습니다."
 
-#: src/amo/components/SearchResults.js:50
+#: src/amo/components/SearchResults.js:52
 msgid "No results were found."
 msgstr "검색 결과가 없습니다."
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Firefox 부가 기능을 검색하려면 검색어를 입력해주세요."
 
@@ -429,7 +449,7 @@ msgstr "모든 테마 탐색하기"
 msgid "Add-ons Home Page"
 msgstr "부가 기능 홈 페이지"
 
-#: src/amo/containers/App.js:104
+#: src/amo/containers/App.js:106
 msgid "Add-ons for Firefox"
 msgstr "Firefox 부가 기능"
 
@@ -441,14 +461,6 @@ msgid ""
 msgstr ""
 "확장 기능은 Firefox에 추가해 쓸 수 있는 특별한 기능입니다.\n"
 "테마는 브라우저의 모양을 바꿀 수 있습니다."
-
-#: src/amo/containers/Home.js:44
-msgid "Extensions"
-msgstr "확장 기능"
-
-#: src/amo/containers/Home.js:47
-msgid "Themes"
-msgstr "테마"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -537,43 +549,43 @@ msgstr "테마 설치하기"
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "%(name)s를 다운로드하는 중입니다."
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "%(name)s를 설치하는 중입니다."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s가 설치되었고 활성화되었습니다. 제거하려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s가 비활성되었습니다. 활성화하려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s를 제거하는중입니다."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s가 제거되었습니다. 설치하시려면 클릭하세요."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s의 설치 상태를 알 수 없습니다."
 
-#: src/core/components/Paginate/index.js:106
+#: src/core/components/Paginate/index.js:107
 msgid "Previous"
 msgstr "이전"
 
-#: src/core/components/Paginate/index.js:118
+#: src/core/components/Paginate/index.js:119
 msgid "Next"
 msgstr "다음"
 
-#: src/core/components/Paginate/index.js:97
+#: src/core/components/Paginate/index.js:98
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "%(totalPages)s 페이지 중 %(currentPage)s 번째 페이지"
 
@@ -593,22 +605,28 @@ msgstr "OK!"
 msgid "An unexpected error occurred"
 msgstr "예기치 못한 오류 발생됨"
 
-#: src/ui/components/LoadingIndicator/index.js:27
-msgid "Loading…"
-msgstr "읽는 중…"
-
-#: src/ui/components/Rating/index.js:83
+#: src/ui/components/Rating/index.js:91
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "평균 점수: 5 점 중 %(rating)s"
 
-#: src/ui/components/Rating/index.js:86
+#: src/ui/components/Rating/index.js:94
 msgid "No ratings"
 msgstr "평가 없음"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
+
+#, fuzzy
+#~ msgid "%(averageRating)s out of 5"
+#~ msgstr "평균 점수: 5 점 중 %(rating)s"
+
+#~ msgid "Not yet rated"
+#~ msgstr "평가되지 않음"
+
+#~ msgid "Loading…"
+#~ msgstr "읽는 중…"
 
 #~ msgid "Fashionable"
 #~ msgstr "멋있는"

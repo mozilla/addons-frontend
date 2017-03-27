@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"POT-Creation-Date: 2017-03-27 17:08+0000\n"
 "PO-Revision-Date: 2017-03-03 18:21+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,31 +45,31 @@ msgstr "ติดตั้งชุดตกแต่ง"
 msgid "Add to Firefox"
 msgstr "เพิ่มไปยัง Firefox"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "กำลังดาวน์โหลด %(name)s"
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "กำลังติดตั้ง %(name)s"
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s ถูกติดตั้งและถูกเปิดใช้งาน คลิกเพื่อถอนการติดตั้ง"
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s ถูกปิดใช้งาน คลิกเพื่อเปิดใช้งาน"
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "กำลังถอนการติดตั้ง %(name)s"
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s ถูกถอนการติดตั้ง คลิกเพื่อติดตั้ง"
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "ไม่ทราบสถานะการติดตั้ง %(name)s"
 
@@ -129,27 +129,11 @@ msgstr "ปิด"
 msgid "Discover Add-ons"
 msgstr "ค้นพบส่วนเสริม"
 
-#: src/disco/containers/DiscoPane.js:106
-msgid "Click to play"
-msgstr "คลิกเพื่อเล่น"
-
-#: src/disco/containers/DiscoPane.js:107
-msgid "to find out more about add-ons"
-msgstr "เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับส่วนเสริม"
-
-#: src/disco/containers/DiscoPane.js:116
-msgid "Close video"
-msgstr "ปิดวิดีโอ"
-
-#: src/disco/containers/DiscoPane.js:127
-msgid "See more add-ons!"
-msgstr "ดูส่วนเสริมเพิ่มเติม!"
-
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "ปรับแต่ง Firefox ของคุณ"
 
-#: src/disco/containers/DiscoPane.js:98
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -161,3 +145,19 @@ msgstr ""
 "ตั้งแต่ชุดตกแต่งอันสนุกสนานไปจนถึงเครื่องมือทรงประสิทธิภาพที่ทำให้การท่องเว็บเร็วขึ้นและปลอดภัยขึ้น "
 "ส่วนเสริมทำให้เบราว์เซอร์ของคุณเป็นของคุณ เพื่อช่วยคุณเริ่มต้น "
 "นี่คือบางส่วนที่เราแนะนำสำหรับประสิทธิภาพและการทำงานที่โดดเด่น"
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "คลิกเพื่อเล่น"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับส่วนเสริม"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "ปิดวิดีโอ"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "ดูส่วนเสริมเพิ่มเติม!"
