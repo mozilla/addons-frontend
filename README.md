@@ -99,7 +99,7 @@ Check out the [web-ext guide](https://github.com/mozilla/web-ext/blob/master/CON
 for hints on how to solve common Flow errors.
 
 To add flow coverage to a source file, put a `/* @flow */` comment at the top.
-The more source files you can opt into to Flow, the better.
+The more source files you can opt into Flow, the better.
 
 Here are some conventions we follow:
 
@@ -109,23 +109,23 @@ Here are some conventions we follow:
 
 ````js
 type GetAllAddonsParams = {|
-  author: string,
+  categoryId: number,
 |};
 
 type GetAllAddonsOptions = {|
-  version: string,
+  hideDeleted: boolean,
 |};
 
 function getAllAddons(
-  { author }: GetAllAddonsParams,
-  { version }: GetAllAddonsOptions = {}
+  { categoryId }: GetAllAddonsParams,
+  { hideDeleted = true }: GetAllAddonsOptions = {}
 ) {
   ...
 }
 ````
 
 * Always use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types)
-  using the pipe syntax (`{| key: ... |}`) when possible. Sometimes the
+  via the pipe syntax (`{| key: ... |}`) when possible. Sometimes the
   spread operator makes this difficult but you can use the
   `Exact<GetAllAddonsOptions>` workaround from `src/core/types/coreTypes`
   if you have to.
@@ -135,6 +135,10 @@ function getAllAddons(
   into a bug or if you hit something that's making you bang your head on
   the keyboard. If it's something you think is unfixable then use
   `$FLOW_IGNORE` instead.
+* The point of Flow is to help you *declare* the intention of your code and
+  help your team *understand* the implications of changes to interfaces and data
+  structures. If you feel like it is not doing this for you then ask someone
+  for guidance.
 
 ### Code coverage
 
