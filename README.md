@@ -107,6 +107,12 @@ Here is our Flow manifesto:
   help your team understand the implications of changes to interfaces and data
   structures. It adds some verbosity and overhead but JavaScript hates you so
   it is worth it.
+* Try to avoid magic [Flow declarations](https://flowtype.org/en/docs/config/libs/)
+  for any *internal* code. Just declare a
+  [type alias](https://flowtype.org/en/docs/types/aliases/) next to the code
+  where it's used and export / import it like any other object.
+* Never import a real JS object just to reference its type. Make a type alias
+  and import that instead.
 * When a function like `getAllAddons` takes object arguments, call their
   type object `GetAllAddonsParams`. For optional object arguments, call
   their type object `GetAllAddonsOptions`. Example:
