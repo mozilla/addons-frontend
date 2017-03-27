@@ -64,7 +64,7 @@ describe('App', () => {
       logOutUser: sinon.stub(),
       location: sinon.stub(),
       isAuthenticated: true,
-      store: createStore(),
+      store: createStore().store,
       ...customProps,
     };
     return findRenderedComponentWithType(renderIntoDocument(
@@ -158,21 +158,21 @@ describe('App', () => {
   });
 
   it('sets the clientApp as props', () => {
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(setClientApp('android'));
     const { clientApp } = mapStateToProps(store.getState());
     assert.equal(clientApp, 'android');
   });
 
   it('sets the lang as props', () => {
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(setLang('de'));
     const { lang } = mapStateToProps(store.getState());
     assert.equal(lang, 'de');
   });
 
   it('sets the userAgent as props', () => {
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(setUserAgentAction('tofubrowser'));
     const { userAgent } = mapStateToProps(store.getState());
     assert.equal(userAgent, 'tofubrowser');
@@ -187,7 +187,7 @@ describe('App', () => {
   });
 
   it('renders an error component on error', () => {
-    const store = createStore();
+    const { store } = createStore();
     const apiError = createApiError({
       apiURL: 'https://some-url',
       response: { status: 404 },

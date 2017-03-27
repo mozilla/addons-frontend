@@ -14,9 +14,10 @@ import Home from 'amo/containers/Home';
 describe('Home', () => {
   it('renders a heading', () => {
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
+    const { store } = createStore(initialState);
 
     const root = findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <Home i18n={getFakeI18nInst()} />
       </Provider>
     ), Home).getWrappedInstance();

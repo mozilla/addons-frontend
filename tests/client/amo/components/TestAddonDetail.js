@@ -42,7 +42,7 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
     // Configure AddonDetail with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
-    store: createStore({ api: signedInApiState }),
+    store: createStore({ api: signedInApiState }).store,
     ...customProps,
   };
 }

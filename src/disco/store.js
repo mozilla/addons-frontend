@@ -11,7 +11,7 @@ import discoResults from 'disco/reducers/discoResults';
 
 
 export default function createStore(initialState = {}) {
-  return _createStore(
+  const store = _createStore(
     combineReducers({
       addons,
       api,
@@ -24,4 +24,6 @@ export default function createStore(initialState = {}) {
     initialState,
     middleware(),
   );
+
+  return { store };
 }

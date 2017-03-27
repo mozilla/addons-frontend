@@ -23,9 +23,10 @@ describe('MastHead', () => {
   function renderMastHead({ ...props }) {
     const MyMastHead = translate({ withRef: true })(MastHeadBase);
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
+    const { store } = createStore(initialState);
 
     return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <MyMastHead {...props} />
         </I18nProvider>

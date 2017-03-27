@@ -14,8 +14,9 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 describe('<SuggestedPages />', () => {
   function render({ ...props }) {
+    const { store } = createStore();
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore()}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <SuggestedPages {...props} />
         </I18nProvider>

@@ -36,7 +36,7 @@ describe('AddonPage', () => {
   function render(props) {
     // Stub InfoDialog since it uses the store and is irrelevant.
     sinon.stub(InfoDialog, 'default', () => <p>InfoDialog</p>);
-    const store = createStore({
+    const { store } = createStore({
       addons: { foo: { type: ADDON_TYPE_EXTENSION } },
       discoResults: [{ addon: 'foo' }],
     });

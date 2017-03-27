@@ -40,6 +40,10 @@ export const FATAL_INSTALL_ERROR = 'FATAL_INSTALL_ERROR';
 export const FATAL_UNINSTALL_ERROR = 'FATAL_UNINSTALL_ERROR';
 export const FATAL_ERROR = 'FATAL_ERROR';
 
+// Client App types
+export const CLIENT_APP_ANDROID = 'android';
+export const CLIENT_APP_FIREFOX = 'firefox';
+
 // Add-on types.
 export const ADDON_TYPE_DICT = 'dictionary';
 export const ADDON_TYPE_EXTENSION = 'extension';
@@ -85,9 +89,9 @@ export const SEARCH_SORT_POPULAR = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
 
 // Action types.
-export const CATEGORIES_GET = 'CATEGORIES_GET';
+export const CATEGORIES_FETCH = 'CATEGORIES_FETCH';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
-export const CATEGORIES_FAILED = 'CATEGORIES_FAILED';
+export const CATEGORIES_FAIL = 'CATEGORIES_FAIL';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const ENTITIES_LOADED = 'ENTITIES_LOADED';
 export const FEATURED_GET = 'FEATURED_GET';

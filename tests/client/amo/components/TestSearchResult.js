@@ -18,9 +18,10 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 describe('<SearchResult />', () => {
   function renderResult(result, { lang = 'en-GB' } = {}) {
     const initialState = { api: { clientApp: 'android', lang } };
+    const { store } = createStore(initialState);
 
     return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst({ lang })}>
           <SearchResult addon={result} />
         </I18nProvider>

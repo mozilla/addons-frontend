@@ -20,7 +20,7 @@ class MyComponent extends React.Component {
   }
 }
 
-function renderApp(extraProps = {}, store = createStore()) {
+function renderApp(extraProps = {}, store = createStore().store) {
   const props = {
     browserVersion: '50',
     i18n: getFakeI18nInst(),
@@ -73,7 +73,7 @@ describe('App', () => {
 
 describe('App errors', () => {
   it('renders a 404', () => {
-    const store = createStore();
+    const { store } = createStore();
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },
@@ -86,7 +86,7 @@ describe('App errors', () => {
   });
 
   it('renders a generic error', () => {
-    const store = createStore();
+    const { store } = createStore();
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 500 },

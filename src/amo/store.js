@@ -1,6 +1,7 @@
 import { loadingBarReducer } from 'react-redux-loading-bar';
 import { createStore as _createStore, combineReducers } from 'redux';
 import { reducer as reduxAsyncConnect } from 'redux-connect';
+import createSagaMiddleware from 'redux-saga';
 
 import featured from 'amo/reducers/featured';
 import landing from 'amo/reducers/landing';
@@ -18,7 +19,9 @@ import { middleware } from 'core/store';
 
 
 export default function createStore(initialState = {}) {
-  return _createStore(
+  const sagaMiddleware = createSagaMiddleware();
+
+  const store = _createStore(
     combineReducers({
       addons,
       api,
@@ -36,6 +39,8 @@ export default function createStore(initialState = {}) {
       search,
     }),
     initialState,
-    middleware(),
+    middleware({ sagaMiddleware }),
   );
+
+  return { sagaMiddleware, store };
 }

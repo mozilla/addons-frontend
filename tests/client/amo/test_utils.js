@@ -31,7 +31,7 @@ describe('amo/utils', () => {
   describe('loadFeaturedAddons()', () => {
     it('requests a large page of featured add-ons', () => {
       const addonType = ADDON_TYPE_EXTENSION;
-      const store = createStore({ application: 'android' });
+      const { store } = createStore({ application: 'android' });
       store.dispatch(featuredActions.getFeatured({ addonType }));
       const mockApi = sinon.mock(api);
       const entities = sinon.stub();
@@ -55,7 +55,7 @@ describe('amo/utils', () => {
   describe('loadLandingAddons()', () => {
     it('calls featured and search APIs to collect results', () => {
       const addonType = ADDON_TYPE_THEME;
-      const store = createStore({ application: 'android' });
+      const { store } = createStore({ application: 'android' });
       store.dispatch(landingActions.getLanding({ addonType }));
       const mockApi = sinon.mock(api);
       const entities = sinon.stub();
@@ -97,7 +97,7 @@ describe('amo/utils', () => {
     });
 
     it('returns a rejected Promise if the addonsType is wrong', () => {
-      const store = createStore({ application: 'android' });
+      const { store } = createStore({ application: 'android' });
 
       return loadLandingAddons({
         store,

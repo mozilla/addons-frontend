@@ -18,7 +18,7 @@ import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 import Icon from 'ui/components/Icon';
 
 function createStore() {
-  return _createStore(combineReducers({ api: apiReducer }));
+  return { store: _createStore(combineReducers({ api: apiReducer })) };
 }
 
 describe('<AuthenticateButton />', () => {
@@ -94,7 +94,7 @@ describe('<AuthenticateButton />', () => {
     };
     sinon.stub(config, 'get', (key) => _config[key]);
 
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(setAuthToken(userAuthToken({ user_id: 99 })));
     const apiConfig = { token: store.getState().api.token };
     assert.ok(apiConfig.token, 'token was falsey');
@@ -109,7 +109,7 @@ describe('<AuthenticateButton />', () => {
   });
 
   it('pulls isAuthenticated from state', () => {
-    const store = createStore(combineReducers({ api }));
+    const { store } = createStore(combineReducers({ api }));
     assert.equal(mapStateToProps(store.getState()).isAuthenticated, false);
     store.dispatch(setAuthToken(userAuthToken({ user_id: 123 })));
     assert.equal(mapStateToProps(store.getState()).isAuthenticated, true);

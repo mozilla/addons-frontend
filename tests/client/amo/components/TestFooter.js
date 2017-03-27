@@ -15,9 +15,10 @@ import I18nProvider from 'core/i18n/Provider';
 describe('Footer', () => {
   function renderFooter({ ...props }) {
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
+    const { store } = createStore(initialState);
 
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <Footer {...props} />
         </I18nProvider>
