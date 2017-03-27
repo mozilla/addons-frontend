@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 12:14+0000\n"
+"POT-Creation-Date: 2017-03-27 17:03+0000\n"
 "PO-Revision-Date: 2017-03-20 01:42+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,20 +15,33 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonCompatibilityError/index.js:53
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "অ্যাড-অনটি ইন্সটল করতে হলে আপনাকে <a href=\"%(downloadUrl)s\">Firefox ডাউনলোড</a> করতে হবে।"
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"অ্যাড-অনটি ইন্সটল করতে হলে আপনাকে <a href=\"%(downloadUrl)s\">Firefox ডাউনলোড</"
+"a> করতে হবে।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS এর জন্যৈ Firefox বর্তমানে অ্যাড-অন সমর্থন করে না।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "এই অ্যাড-অনটির জন্যে <a href=\"%(downloadUrl)s\"> Firefox এর নতুন সংষ্করণ</a> (অন্তত %(minVersion)s সংস্করণ প্রয়োজন)। আপনি ব্যবহার করছেন Firefox %(yourVersion)s।"
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"এই অ্যাড-অনটির জন্যে <a href=\"%(downloadUrl)s\"> Firefox এর নতুন সংষ্করণ</a> "
+"(অন্তত %(minVersion)s সংস্করণ প্রয়োজন)। আপনি ব্যবহার করছেন Firefox "
+"%(yourVersion)s।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "আপনার ব্রাউজার অ্যাড-অন সমর্থন করে না। আপনি <a href=\"%(downloadUrl)s\">Firefox ডাউনলোড</a> করে এই অ্যাড-অন ইনস্টল করতে পারেন।"
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"আপনার ব্রাউজার অ্যাড-অন সমর্থন করে না। আপনি <a href=\"%(downloadUrl)s\">Firefox "
+"ডাউনলোড</a> করে এই অ্যাড-অন ইনস্টল করতে পারেন।"
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -57,34 +70,32 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s সম্বন্ধে"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Cancel preview"
 msgstr "পর্যালোচনা বাতিল করুন"
 
-#: src/amo/components/AddonMeta.js:22 src/amo/components/SearchResult.js:58
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
+
+#: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ব্যবহারকারী"
 msgstr[1] "%(total)s ব্যবহারকারী"
 
-#: src/amo/components/AddonMeta.js:28
-msgid "%(averageRating)s out of 5"
-msgstr "5 টির মধ্যে %(averageRating)s"
-
-#: src/amo/components/AddonMeta.js:32
-msgid "Not yet rated"
-msgstr "এখনও মূল্যায়ন করা হয়নি"
-
-#: src/amo/components/AddonMeta.js:37
-msgid "%(total)s rating"
-msgid_plural "%(total)s ratings"
+#: src/amo/components/AddonMeta.js:30
+#, fuzzy
+msgid "%(total)s review"
+msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s রেটিং"
 msgstr[1] "%(total)s রেটিং"
 
-#: src/amo/components/AddonMeta.js:45
+#: src/amo/components/AddonMeta.js:35
+#, fuzzy
+msgid "No reviews"
+msgstr "এখনও কোন পর্যালোচনা করা হয়নি"
+
+#: src/amo/components/AddonMeta.js:41
 msgid "Used by"
 msgstr "এর দ্বারা ব্যবহৃত"
 
@@ -153,14 +164,16 @@ msgid "Tell the world about this extension."
 msgstr "এই এক্সটেনশনটি সম্পর্কে পৃথিবীকে বলুন।"
 
 #: src/amo/components/AddonReview.js:96
-msgid "Tell us about your experience with this extension. Be specific and concise."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
 msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(timestamp)s সময় %(authorName)s হইতে"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52
+#: src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "লোড করা হচ্ছে..."
 
@@ -185,46 +198,75 @@ msgid "No categories found."
 msgstr "কোন বিভাগ পাওয়া যায়নি।"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
-"আপনি যদি সাইন ইন থাকেন এবং মনে করেন এই বার্তাটি একটি ত্রুটি, অনুগ্রহ করে <a href=\"%(url)s\">একটি ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছেন, আপনি কি অ্যাক্সেস করার চেষ্টা করছিলেন, "
-"আমরা সমস্যাটি সমাধান করব।"
+"আপনি যদি সাইন ইন থাকেন এবং মনে করেন এই বার্তাটি একটি ত্রুটি, অনুগ্রহ করে <a href="
+"\"%(url)s\">একটি ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছেন, আপনি "
+"কি অ্যাক্সেস করার চেষ্টা করছিলেন, আমরা সমস্যাটি সমাধান করব।"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "অনুমোদিত নয়"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "দুঃখিত, কিন্তু আপনি এই পৃষ্ঠায় যাওয়ার জন্য অনুমোদিত নন। আপনি সাইন ইন অবস্থায় না থাকলে, পৃষ্ঠার উপরের লিঙ্কটি ব্যবহার করে সাইন ইন করার চেষ্টা করুন।"
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"দুঃখিত, কিন্তু আপনি এই পৃষ্ঠায় যাওয়ার জন্য অনুমোদিত নন। আপনি সাইন ইন অবস্থায় না "
+"থাকলে, পৃষ্ঠার উপরের লিঙ্কটি ব্যবহার করে সাইন ইন করার চেষ্টা করুন।"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "আপনি কোথাও থেকে একটি লিঙ্ক অনুসরণ করে আসলে, অনুগ্রহ করে <a href=\"%(url)s\">একটি ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছিলেন আর কি খুঁজছিলেন, আমরা এটা ঠিক করতে যথাসাধ্য চেষ্টা করব।"
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
+msgstr ""
+"আপনি কোথাও থেকে একটি লিঙ্ক অনুসরণ করে আসলে, অনুগ্রহ করে <a href=\"%(url)s\">একটি "
+"ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছিলেন আর কি খুঁজছিলেন, আমরা "
+"এটা ঠিক করতে যথাসাধ্য চেষ্টা করব।"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
+#: src/amo/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "পাতা পাওয়া যায়নি"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "দুঃখিত, কিন্তু আমরা আপনার লেখা ঠিকানাটিতে কিছু খুঁজে পাচ্ছি না। আপনি একটি অ্যাড-অন লিঙ্ক অনুসরণ করে থাকলে, সম্ভবত অ্যাড-অনটি তার ডেভেলপার কর্তৃক অপসারণ করা হয়েছে।"
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"দুঃখিত, কিন্তু আমরা আপনার লেখা ঠিকানাটিতে কিছু খুঁজে পাচ্ছি না। আপনি একটি অ্যাড-অন "
+"লিঙ্ক অনুসরণ করে থাকলে, সম্ভবত অ্যাড-অনটি তার ডেভেলপার কর্তৃক অপসারণ করা হয়েছে।"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
-"আপনার নিকট অতিরিক্ত তথ্য থাকলে সেটি দিয়ে আমাদের সাহায্য করতে চাইলে <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\"> একটি ইস্যু সাবমিট</a> করতে পারেন। আমাদের বলুন আপনার কোন "
-"পদক্ষেপে এই ত্রুটির সম্মুখীন হয়েছেন, আমরা এটা ঠিক করতে আমাদের যথাসাধ্য চেষ্টা করব।"
+"আপনার নিকট অতিরিক্ত তথ্য থাকলে সেটি দিয়ে আমাদের সাহায্য করতে চাইলে <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\"> একটি ইস্যু সাবমিট</"
+"a> করতে পারেন। আমাদের বলুন আপনার কোন পদক্ষেপে এই ত্রুটির সম্মুখীন হয়েছেন, আমরা এটা "
+"ঠিক করতে আমাদের যথাসাধ্য চেষ্টা করব।"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "সার্ভার ত্রুটি"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "দুঃখিত, কিন্তু আমাদের সার্ভারের একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারেনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা তদন্ত করা হবে।"
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"দুঃখিত, কিন্তু আমাদের সার্ভারের একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে "
+"পারেনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা তদন্ত করা হবে।"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -250,51 +292,75 @@ msgstr "একটি বাগ রিপোর্ট করুন"
 msgid "View desktop site"
 msgstr "ডেক্সটপ সাইট দেখুন"
 
-#: src/amo/components/LandingPage.js:49
+#: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
+msgid "Themes"
+msgstr "থিম"
+
+#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
+msgid "Extensions"
+msgstr "এক্সটেনশন সমূহ"
+
+#: src/amo/components/LandingPage.js:119
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:121
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:147
+msgid "Browse by category"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
 msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
 
-#: src/amo/components/LandingPage.js:53
+#: src/amo/components/LandingPage.js:55
 msgid "More featured extensions"
 msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন সমূহ"
 
-#: src/amo/components/LandingPage.js:54
+#: src/amo/components/LandingPage.js:56
 msgid "Most popular extensions"
 msgstr "সবচে বেশী জনপ্রিয় এক্সটেনশন"
 
-#: src/amo/components/LandingPage.js:59
+#: src/amo/components/LandingPage.js:61
 msgid "More popular extensions"
 msgstr "জনপ্রিয় এক্সটেনসমূহ"
 
-#: src/amo/components/LandingPage.js:60
+#: src/amo/components/LandingPage.js:62
 msgid "Top rated extensions"
 msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন"
 
-#: src/amo/components/LandingPage.js:68
+#: src/amo/components/LandingPage.js:70
 msgid "More highly rated extensions"
 msgstr "আরো বেশী রেট পাওয়া এক্সটেনশন"
 
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:73
 msgid "Featured themes"
 msgstr "বৈশিষ্ট্যপূর্ণ থিম"
 
-#: src/amo/components/LandingPage.js:75
+#: src/amo/components/LandingPage.js:77
 msgid "More featured themes"
 msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম"
 
-#: src/amo/components/LandingPage.js:76
+#: src/amo/components/LandingPage.js:78
 msgid "Most popular themes"
 msgstr "সবচে বেশি জনপ্রিয় থিমসমূহ"
 
-#: src/amo/components/LandingPage.js:81
+#: src/amo/components/LandingPage.js:83
 msgid "More popular themes"
 msgstr "আরও জনপ্রিয় থিমসমূহ"
 
-#: src/amo/components/LandingPage.js:82
+#: src/amo/components/LandingPage.js:84
 msgid "Top rated themes"
 msgstr "সর্বোচ্চ রেট পাওয়া থিম"
 
-#: src/amo/components/LandingPage.js:87
+#: src/amo/components/LandingPage.js:89
 msgid "More highly rated themes"
 msgstr "আরো বেশি রেট পাওয়া থিম"
 
@@ -302,7 +368,7 @@ msgstr "আরো বেশি রেট পাওয়া থিম"
 msgid "Browse in your language"
 msgstr "আপনার ভাষায় ব্রাউজ করুন"
 
-#: src/amo/components/MastHead.js:30
+#: src/amo/components/MastHead.js:31
 msgid "Firefox Add-ons"
 msgstr "Firefox অ্যাড-অনস"
 
@@ -346,19 +412,19 @@ msgstr "থিম এবং এক্সটেনশন অনুসন্ধা
 msgid "No theme preview available"
 msgstr "থিমের কোন প্রাকদর্শন নেই"
 
-#: src/amo/components/SearchResults.js:40
+#: src/amo/components/SearchResults.js:42
 msgid "Searching…"
 msgstr "অনুসন্ধান করা হচ্ছে..."
 
-#: src/amo/components/SearchResults.js:46
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\" এর জন্যে কোন ফলাফল পাওয়া যায়নি।"
 
-#: src/amo/components/SearchResults.js:50
+#: src/amo/components/SearchResults.js:52
 msgid "No results were found."
 msgstr "কোনো ফলাফল খুঁজে পাওয়া যায়নি।"
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Firefox অ্যাড-অন খুঁজতে অনুগ্রহ করে একটি শব্দ লিখুন।"
 
@@ -398,21 +464,17 @@ msgstr "সব থিম ব্রাউজ করুন"
 msgid "Add-ons Home Page"
 msgstr "অ্যাড-অন হোমপেজ"
 
-#: src/amo/containers/App.js:104
+#: src/amo/containers/App.js:106
 msgid "Add-ons for Firefox"
 msgstr "Firefox এর জন্য অ্যাড-অন"
 
 #: src/amo/containers/Home.js:39
-msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr "এক্সটেনশনগুলো বিশেষ বৈশিষ্ট্য যা আপনি Firefox y যোগ করতে পারেন। থিম আপনার ব্রাউজারের চেহারা পরিবর্তন করতে সাহায্য করবে।"
-
-#: src/amo/containers/Home.js:44
-msgid "Extensions"
-msgstr "এক্সটেনশন সমূহ"
-
-#: src/amo/containers/Home.js:47
-msgid "Themes"
-msgstr "থিম"
+msgid ""
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
+msgstr ""
+"এক্সটেনশনগুলো বিশেষ বৈশিষ্ট্য যা আপনি Firefox y যোগ করতে পারেন। থিম আপনার "
+"ব্রাউজারের চেহারা পরিবর্তন করতে সাহায্য করবে।"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -479,10 +541,15 @@ msgid "Log in/Sign up"
 msgstr "লগ ইন/সাইন আপ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই "
+"ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "এরর কোড: %(status)s"
 
@@ -498,43 +565,43 @@ msgstr "থিম ইন্সটল করুন"
 msgid "Add to Firefox"
 msgstr "Firefox এ যুক্ত করুন"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "%(name)s ডাউনলোডিং।"
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "%(name)s ইন্সটলিং।"
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s ইন্সটল করা হয়েছে এবং সক্রিয় হয়েছে। অনইন্সটল করতে ক্লিক করুন।"
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s নিষ্ক্রিয় করা হয়েছে। সক্রিয় করতে ক্লিক করুন।"
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s আনইন্সটলিং।"
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s আনইন্সটল করা হয়েছে। ইন্সটল করতে ক্লিক করুন।"
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s এর ইন্সটল অবস্থা অজানা।"
 
-#: src/core/components/Paginate/index.js:106
+#: src/core/components/Paginate/index.js:107
 msgid "Previous"
 msgstr "পূর্ববর্তী"
 
-#: src/core/components/Paginate/index.js:118
+#: src/core/components/Paginate/index.js:119
 msgid "Next"
 msgstr "পরবর্তী"
 
-#: src/core/components/Paginate/index.js:97
+#: src/core/components/Paginate/index.js:98
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "%(totalPages)s এর %(currentPage)s পাতা"
 
@@ -554,21 +621,26 @@ msgstr "ঠিক আছে!"
 msgid "An unexpected error occurred"
 msgstr "একটি অপ্রত্যাশিত ত্রুটি সংঘটিত হয়েছে"
 
-#: src/ui/components/LoadingIndicator/index.js:27
-msgid "Loading…"
-msgstr "লোড করা হচ্ছে…"
-
-#: src/ui/components/Rating/index.js:83
+#: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
 msgstr "5 এর মধ্যে %(rating)s রেটিং দেওয়া হয়েছে"
 
-#: src/ui/components/Rating/index.js:86
+#: src/ui/components/Rating/index.js:94
 msgid "No ratings"
 msgstr "কোন রেটিং নেই"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "পড়তে হলে <span class=\"visually-hidden\">সম্প্রসারণ করুন</span>"
+
+#~ msgid "%(averageRating)s out of 5"
+#~ msgstr "5 টির মধ্যে %(averageRating)s"
+
+#~ msgid "Not yet rated"
+#~ msgstr "এখনও মূল্যায়ন করা হয়নি"
+
+#~ msgid "Loading…"
+#~ msgstr "লোড করা হচ্ছে…"
 
 #~ msgid "Fashionable"
 #~ msgstr "ফ্যাশনসমৃদ্ধ"
