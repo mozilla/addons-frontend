@@ -1,6 +1,10 @@
 import Helmet from 'react-helmet';
 import React, { PropTypes } from 'react';
-import { findRenderedDOMComponentWithTag, renderIntoDocument } from 'react-addons-test-utils';
+import { findDOMNode } from 'react-dom';
+import {
+  findRenderedDOMComponentWithTag,
+  renderIntoDocument,
+} from 'react-addons-test-utils';
 
 import ServerHtml from 'core/containers/ServerHtml';
 
@@ -68,6 +72,12 @@ describe('<ServerHtml />', () => {
       render({ htmlLang: 'ar', htmlDir: 'rtl' }), 'html');
     assert.equal(html.getAttribute('lang'), 'ar');
     assert.equal(html.getAttribute('dir'), 'rtl');
+  });
+
+  it('renders meta attrs inside helmet', () => {
+    const meta = findDOMNode(render()).querySelector('meta[name=description]');
+    assert.equal(meta.content, 'test meta');
+    assert.equal(meta.name, 'description');
   });
 
   it('renders GA script when trackingEnabled is true', () => {
