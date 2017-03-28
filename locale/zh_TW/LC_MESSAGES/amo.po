@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-28 14:09+0000\n"
+"PO-Revision-Date: 2017-03-28 14:15+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -69,15 +69,13 @@ msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 位使用者"
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "共 %(total)s 筆評分"
+msgstr[0] "%(total)s 筆評論"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
-msgstr "還沒有評論"
+msgstr "沒有評論"
 
 #: src/amo/components/AddonMeta.js:41
 msgid "Used by"
