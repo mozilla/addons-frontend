@@ -12,14 +12,13 @@
 }
 
 .Paginate {
-  padding: 0 10%;
-  margin-bottom: 5%;
+  padding: 0 30px;
+  margin-bottom: 30px;
 }
 
 .Paginate .Paginate-item {
-  @include button($background: #fff, $color: #000);
+  @include button($background: $base-color, $color: $link-color);
 
-  color: $link-color;
   display: inline-block;
   font-size: $font-size-s;
   font-variant: small-caps;
