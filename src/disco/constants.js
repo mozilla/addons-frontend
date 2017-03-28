@@ -34,4 +34,6 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'outofdate-notifications@mozilla.org', // Firefox out of date notifications
   'websensehelper@mozilla.org', // Websense Helper
   'tls13-compat-ff51@mozilla.org', // TLS 1.3 Compatibility Testing
+  'tls13-comparison-all-v1@mozilla.org', // TLS 1.3 A/B Test Experiment
+  'deployment-checker@mozilla.org', // Site Deployment Checker
 ];
