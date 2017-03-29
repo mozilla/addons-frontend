@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-29 01:31+0000\n"
+"PO-Revision-Date: 2017-03-29 01:49+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -158,7 +158,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr ""
+msgstr "لوڈ کر رہا ہے.."
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "Add-on icon"
@@ -228,11 +228,11 @@ msgstr ""
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
-msgstr ""
+msgstr "راز داری پالیسی"
 
 #: src/amo/components/Footer.js:36
 msgid "Legal notices"
-msgstr ""
+msgstr "قانونی نوٹس"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
@@ -312,7 +312,7 @@ msgstr ""
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
-msgstr ""
+msgstr "آااپنی زبان میں براؤز کریں"
 
 #: src/amo/components/MastHead.js:31
 msgid "Firefox Add-ons"
@@ -348,7 +348,7 @@ msgstr ""
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
-msgstr ""
+msgstr "تلاش"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
@@ -396,7 +396,7 @@ msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "تجویز کردہ صفحات"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -532,11 +532,11 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:107
 msgid "Previous"
-msgstr ""
+msgstr "پچھلا"
 
 #: src/core/components/Paginate/index.js:119
 msgid "Next"
-msgstr ""
+msgstr "اگلا"
 
 #: src/core/components/Paginate/index.js:98
 msgid "Page %(currentPage)s of %(totalPages)s"
