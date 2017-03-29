@@ -95,8 +95,10 @@ To check for Flow issues during development while you edit files, run:
 
     npm run flow:dev
 
-Check out the [web-ext guide](https://github.com/mozilla/web-ext/blob/master/CONTRIBUTING.md#check-for-flow-errors)
-for hints on how to solve common Flow errors.
+If you are new to working with Flow, here are some tips:
+* Check out the [getting started](https://flow.org/en/docs/getting-started/) guide.
+* Read through the [web-ext guide](https://github.com/mozilla/web-ext/blob/master/CONTRIBUTING.md#check-for-flow-errors)
+  for hints on how to solve common Flow errors.
 
 To add flow coverage to a source file, put a `/* @flow */` comment at the top.
 The more source files you can opt into Flow, the better.
@@ -113,6 +115,9 @@ Here is our Flow manifesto:
   where it's used and export / import it like any other object.
 * Never import a real JS object just to reference its type. Make a type alias
   and import that instead.
+* Never add more type annotations then you need to. Flow is really good at
+  inferring type information from standard JavaScript code. It will tell you
+  if you need to add an explicit annotation for something.
 * When a function like `getAllAddons` takes object arguments, call their
   type object `GetAllAddonsParams`. For optional object arguments, call
   their type object `GetAllAddonsOptions`. Example:
