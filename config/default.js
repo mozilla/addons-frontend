@@ -182,6 +182,7 @@ module.exports = {
     'th',
     'tr',
     'uk',
+    'ur',
     'vi',
     'zh-CN',
     'zh-TW',
