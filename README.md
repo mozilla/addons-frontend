@@ -105,10 +105,11 @@ The more source files you can opt into Flow, the better.
 
 Here is our Flow manifesto:
 
-* The point of Flow is to help you declare the intention of your code and
-  help your team understand the implications of changes to interfaces and data
+* The point of Flow is to help us declare the intention of our code and
+  help everyone understand the implications of changes to interfaces and data
   structures. It adds some verbosity and overhead but JavaScript hates you so
-  it is worth it.
+  it is worth it. Have you ever lost hair trying to track down why a variable
+  is undefined? *Of course you have*.
 * Try to avoid magic [Flow declarations](https://flowtype.org/en/docs/config/libs/)
   for any *internal* code. Just declare a
   [type alias](https://flowtype.org/en/docs/types/aliases/) next to the code
