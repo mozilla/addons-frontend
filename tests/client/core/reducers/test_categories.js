@@ -103,7 +103,27 @@ describe('categories reducer', () => {
     });
 
     it('sets the categories', () => {
-      // Notice all Firefox theme cateories are also set as Android theme
+      const themes = {
+        anime: {
+          application: 'firefox',
+          name: 'Anime',
+          slug: 'anime',
+          type: ADDON_TYPE_THEME,
+        },
+        naturé: {
+          application: 'firefox',
+          name: 'Naturé',
+          slug: 'naturé',
+          type: ADDON_TYPE_THEME,
+        },
+        painting: {
+          application: 'firefox',
+          name: 'Painting',
+          slug: 'painting',
+          type: ADDON_TYPE_THEME,
+        },
+      };
+      // Notice all Firefox theme categories are also set as Android theme
       // categories and no Android categories are returned. This reflects the
       // current state of AMO.
       // See: https://github.com/mozilla/addons-frontend/issues/2170
@@ -126,26 +146,7 @@ describe('categories reducer', () => {
               type: ADDON_TYPE_EXTENSION,
             },
           },
-          [ADDON_TYPE_THEME]: {
-            anime: {
-              application: 'firefox',
-              name: 'Anime',
-              slug: 'anime',
-              type: ADDON_TYPE_THEME,
-            },
-            naturé: {
-              application: 'firefox',
-              name: 'Naturé',
-              slug: 'naturé',
-              type: ADDON_TYPE_THEME,
-            },
-            painting: {
-              application: 'firefox',
-              name: 'Painting',
-              slug: 'painting',
-              type: ADDON_TYPE_THEME,
-            },
-          },
+          [ADDON_TYPE_THEME]: themes,
         },
         android: {
           [ADDON_TYPE_EXTENSION]: {
@@ -168,26 +169,7 @@ describe('categories reducer', () => {
               type: ADDON_TYPE_EXTENSION,
             },
           },
-          [ADDON_TYPE_THEME]: {
-            anime: {
-              application: 'firefox',
-              name: 'Anime',
-              slug: 'anime',
-              type: ADDON_TYPE_THEME,
-            },
-            naturé: {
-              application: 'firefox',
-              name: 'Naturé',
-              slug: 'naturé',
-              type: ADDON_TYPE_THEME,
-            },
-            painting: {
-              application: 'firefox',
-              name: 'Painting',
-              slug: 'painting',
-              type: ADDON_TYPE_THEME,
-            },
-          },
+          [ADDON_TYPE_THEME]: themes,
         },
       });
     });
