@@ -120,7 +120,7 @@
       }
     },
     "test": {
-      "command": "npm run version-check && npm run unittest && npm run servertest && npm run flow:check && npm run eslint && npm run stylelint",
+      "command": "npm run version-check && npm run flow:check && npm run unittest && npm run servertest && npm run eslint && npm run stylelint",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
