@@ -45,28 +45,28 @@ describe('categories reducer', () => {
           application: 'android',
           name: 'Alerts & Update',
           slug: 'alert-update',
-          type: 'extension',
+          type: ADDON_TYPE_EXTENSION,
         },
         {
           application: 'android',
           name: 'Games',
           slug: 'Games',
-          type: 'extension',
+          type: ADDON_TYPE_EXTENSION,
         },
         {
           application: 'android',
           name: 'Blogging',
           slug: 'blogging',
-          type: 'extension',
+          type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          application: 'firefox',
           name: 'Naturé',
           slug: 'naturé',
           type: ADDON_TYPE_THEME,
         },
         {
-          application: 'android',
+          application: 'firefox',
           name: 'Painting',
           slug: 'painting',
           type: ADDON_TYPE_THEME,
@@ -81,19 +81,19 @@ describe('categories reducer', () => {
           application: 'firefox',
           name: 'Alerts & Update',
           slug: 'alert-update',
-          type: 'extension',
+          type: ADDON_TYPE_EXTENSION,
         },
         {
           application: 'firefox',
           name: 'Security',
           slug: 'security',
-          type: 'extension',
+          type: ADDON_TYPE_EXTENSION,
         },
         {
           application: 'netscape',
           name: 'I should not appear',
           slug: 'i-should-not-appear',
-          type: 'extension',
+          type: ADDON_TYPE_EXTENSION,
         },
       ];
       state = categories(initialState, {
@@ -103,6 +103,33 @@ describe('categories reducer', () => {
     });
 
     it('sets the categories', () => {
+      const themes = {
+        anime: {
+          application: 'firefox',
+          name: 'Anime',
+          slug: 'anime',
+          type: ADDON_TYPE_THEME,
+        },
+        naturé: {
+          application: 'firefox',
+          name: 'Naturé',
+          slug: 'naturé',
+          type: ADDON_TYPE_THEME,
+        },
+        painting: {
+          application: 'firefox',
+          name: 'Painting',
+          slug: 'painting',
+          type: ADDON_TYPE_THEME,
+        },
+      };
+      // Notice all Firefox theme categories are also set as Android theme
+      // categories and no Android categories are returned. This reflects the
+      // current state of AMO.
+      // See: https://github.com/mozilla/addons-frontend/issues/2170
+      //
+      // This can be changed once
+      // https://github.com/mozilla/addons-server/issues/4766 is fixed.
       assert.deepEqual(state.categories, {
         firefox: {
           [ADDON_TYPE_EXTENSION]: {
@@ -110,23 +137,16 @@ describe('categories reducer', () => {
               application: 'firefox',
               name: 'Alerts & Update',
               slug: 'alert-update',
-              type: 'extension',
+              type: ADDON_TYPE_EXTENSION,
             },
             security: {
               application: 'firefox',
               name: 'Security',
               slug: 'security',
-              type: 'extension',
+              type: ADDON_TYPE_EXTENSION,
             },
           },
-          [ADDON_TYPE_THEME]: {
-            anime: {
-              application: 'firefox',
-              name: 'Anime',
-              slug: 'anime',
-              type: ADDON_TYPE_THEME,
-            },
-          },
+          [ADDON_TYPE_THEME]: themes,
         },
         android: {
           [ADDON_TYPE_EXTENSION]: {
@@ -134,35 +154,22 @@ describe('categories reducer', () => {
               application: 'android',
               name: 'Alerts & Update',
               slug: 'alert-update',
-              type: 'extension',
+              type: ADDON_TYPE_EXTENSION,
             },
             blogging: {
               application: 'android',
               name: 'Blogging',
               slug: 'blogging',
-              type: 'extension',
+              type: ADDON_TYPE_EXTENSION,
             },
             Games: {
               application: 'android',
               name: 'Games',
               slug: 'Games',
-              type: 'extension',
+              type: ADDON_TYPE_EXTENSION,
             },
           },
-          [ADDON_TYPE_THEME]: {
-            naturé: {
-              application: 'android',
-              name: 'Naturé',
-              slug: 'naturé',
-              type: ADDON_TYPE_THEME,
-            },
-            painting: {
-              application: 'android',
-              name: 'Painting',
-              slug: 'painting',
-              type: ADDON_TYPE_THEME,
-            },
-          },
+          [ADDON_TYPE_THEME]: themes,
         },
       });
     });
