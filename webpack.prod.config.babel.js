@@ -103,9 +103,10 @@ const settings = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
+      comments: false,
       compress: {
-        warnings: false,
         drop_console: true,
+        warnings: false,
       },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),

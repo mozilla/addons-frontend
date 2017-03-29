@@ -4,115 +4,109 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-29 10:26+0000\n"
-"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
-"Language-Team: none\n"
-"Language: sl\n"
+"PO-Revision-Date: 2017-03-29 17:11+0000\n"
+"Last-Translator: um.qshi <um.qshi@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonCompatibilityError/index.js:53
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Za namestitev tega dodatka potrebujete <a href=\"%(downloadUrl)s\">Firefox</a>."
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr "Firefox za iOS trenutno še ne podpira dodatkov."
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Ta dodatek zahteva <a href=\"%(downloadUrl)s\">novejšo različico Firefoxa</a> (vsaj različico %(minVersion)s). Uporabljate Firefox %(yourVersion)s."
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Vaš brskalnik ne podpira dodatkov. Za namestitev tega dodatka lahko <a href=\"%(downloadUrl)s\">prenesete Firefox</a>."
+msgstr ""
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Preberi %(count)s oceno"
-msgstr[1] "Preberi %(count)s oceni"
-msgstr[2] "Preberi vse %(count)s ocene"
-msgstr[3] "Preberi vseh %(count)s ocen"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/AddonDetail.js:144
 msgid "No reviews yet"
-msgstr "Še ni ocenjeno"
+msgstr ""
 
 #: src/amo/components/AddonDetail.js:153
 msgid "Rate your experience"
-msgstr "Ocenite svojo izkušnjo"
+msgstr ""
 
 #: src/amo/components/AddonDetail.js:183
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)s– %(authorList)s%(endSpan)s"
+msgstr ""
 
 #: src/amo/components/AddonDetail.js:210
 msgid "Extension Metadata"
-msgstr "Metapodatki o razširitvi"
+msgstr ""
 
 #: src/amo/components/AddonDetail.js:228
 msgid "About this %(addonType)s"
-msgstr "O tem %(addonType)s"
+msgstr ""
 
 #: src/amo/components/AddonDetail.js:92
 msgid "Cancel preview"
-msgstr "Prekliči predogled"
+msgstr "پیش منظر کو منسوخ کریں"
 
 #: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
-msgstr "Tapnite za predogled"
+msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(total)s uporabnik"
-msgstr[1] "%(total)s uporabnika"
-msgstr[2] "%(total)s uporabniki"
-msgstr[3] "%(total)s uporabnikov"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/AddonMeta.js:30
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s ocena"
-msgstr[1] "%(total)s oceni"
-msgstr[2] "%(total)s ocene"
-msgstr[3] "%(total)s ocen"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/AddonMeta.js:35
 msgid "No reviews"
-msgstr "Ni ocen"
+msgstr ""
 
 #: src/amo/components/AddonMeta.js:41
 msgid "Used by"
-msgstr "Uporablja"
+msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr "Domača stran"
+msgstr "ابتدائی صفحہ"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr "Stran s podporo"
+msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr "Več informacij"
+msgstr "مزید معلومات"
 
 #: src/amo/components/AddonMoreInfo.js:42
 msgid "Add-on Links"
-msgstr "Povezave dodatka"
+msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
-msgstr "Različica"
+msgstr "ورژن"
 
 #: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
-msgstr "Zadnja posodobitev"
+msgstr "آخری تازہ کاری"
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
@@ -120,523 +114,458 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
-msgstr "Licenca"
+msgstr "لائسنس"
 
 #: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
-msgstr "Pravilnik o zasebnosti"
+msgstr "رازداری پالیسی"
 
 #: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
-msgstr "Preberite pravilnik o zasebnosti za ta dodatek"
+msgstr ""
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
-msgstr "Napišite oceno"
+msgstr ""
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr "Besedilo ocene"
+msgstr ""
 
 #: src/amo/components/AddonReview.js:124
 msgid "Submit review"
-msgstr "Objavi oceno"
+msgstr ""
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr "Pojasnite svetu, zakaj se vam ta razširitev zdi odlična!"
+msgstr "دنیا کو بتائیں آُپ کیوں سوچتے ہیں کہ یہ توسیع بہترین! ہے۔"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Povejte, zakaj vam je ta razširitev všeč. Bodite določni in jedrnati."
+msgstr ""
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
-msgstr "Povejte svetu za to razširitev."
+msgstr "دنیا کو اس توسیع کے متعلق بتائیں۔"
 
 #: src/amo/components/AddonReview.js:96
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "Opišite nam svojo izkušnjo z dodatkom. Bodite določni in jedrnati."
+msgstr ""
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr "— %(authorName)s, %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr "Nalaganje …"
+msgstr "لوڈ کر رہا ہے.."
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "Add-on icon"
-msgstr "Ikona dodatka"
+msgstr ""
 
 #: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
-msgstr "Ocene za %(addonName)s"
+msgstr ""
 
 #: src/amo/components/AddonReviewList.js:70
 msgid "All written reviews"
-msgstr "Vse napisane ocene"
+msgstr ""
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr "Napaka pri nalaganju kategorij."
+msgstr "زمرہ جات لوڈ نہیں کر سکا۔"
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr "Ni najdenih kategorij."
+msgstr "کوئی زمرہ جات نہیں ملے۔"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Če ste prijavljeni in se vam zdi to sporočilo napaka, <a href=\"%(url)s\">izpolnite poročilo o težavi</a>. Povejte nam, od kod ste prišli in do česa ste poskušali dostopati, mi pa bomo težavo "
-"odpravili."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
-msgstr "Niste pooblaščeni"
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Niste pooblaščeni za dostop do te strani. Če niste prijavljeni, se poskusite prijaviti prek povezave na vrhu strani."
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "Če ste sledili povezavi na tem spletnem mestu, <a href=\"%(url)s\">izpolnite poročilo o težavi</a>. Povejte nam, od kod ste prišli in kaj ste iskali, mi pa se bomo potrudili, da težavo odpravimo."
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
-msgstr "Strani ni mogoče najti"
+msgstr "صفہہ نہیں ملا"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "Žal na naslovu, ki ste ga vnesli, ne najdemo ničesar. Če ste sledili povezavi do dodatka, je mogoče, da je avtor odstranil dodatek."
+msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
-"Če imate dodatne informacije, ki bi nam lahko pomagale, lahko <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">prijavite težavo</a>. Povejte nam, s kakšnimi koraki ste prišli do "
-"napake, mi pa se bomo potrudili, da jo odpravimo."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr "Napaka strežnika"
+msgstr "پیش کار کا نقص"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Žal je prišlo do napake na našem strežniku in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
+msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
-msgstr "Več izbranih razširitev"
+msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr "Več izbranih tem"
+msgstr ""
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
-msgstr "Pravilnik o zasebnosti"
+msgstr "راز داری پالیسی"
 
 #: src/amo/components/Footer.js:36
 msgid "Legal notices"
-msgstr "Pravna obvestila"
+msgstr "قانونی نوٹس"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr "Prijavi hrošča"
+msgstr "ایک گڑبڑ رپورٹ کریں"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
-msgstr "Ogled strani za namizja"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr "Teme"
+msgstr "خیالیے"
 
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
 msgid "Extensions"
-msgstr "Razširitve"
+msgstr "توسیعات"
 
 #: src/amo/components/LandingPage.js:119
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Spremenite videz svojega brskalnika. Izbirajte med tisoči tem in Firefoxu vdahnite svojo osebnost."
+msgstr ""
 
 #: src/amo/components/LandingPage.js:121
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "Namestite zmogljiva orodja, ki brskanje naredijo hitrejše in varnejše, brskalnik pa samo vaš."
+msgstr ""
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr "Brskaj po kategorijah"
+msgstr "زمرہ کے لحاظ سے براؤز کریں"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
-msgstr "Izbrane razširitve"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:55
 msgid "More featured extensions"
-msgstr "Več izbranih razširitev"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:56
 msgid "Most popular extensions"
-msgstr "Najbolj priljubljene razširitve"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:61
 msgid "More popular extensions"
-msgstr "Več priljubljenih razširitev"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:62
 msgid "Top rated extensions"
-msgstr "Najbolje ocenjene razširitve"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:70
 msgid "More highly rated extensions"
-msgstr "Več visoko ocenjenih razširitev"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:73
 msgid "Featured themes"
-msgstr "Izbrane teme"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:77
 msgid "More featured themes"
-msgstr "Več izbranih tem"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:78
 msgid "Most popular themes"
-msgstr "Najbolj priljubljene teme"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:83
 msgid "More popular themes"
-msgstr "Več priljubljenih tem"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:84
 msgid "Top rated themes"
-msgstr "Najbolje ocenjene teme"
+msgstr ""
 
 #: src/amo/components/LandingPage.js:89
 msgid "More highly rated themes"
-msgstr "Več visoko ocenjenih tem"
+msgstr ""
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
-msgstr "Brskajte v svojem jeziku"
+msgstr "آااپنی زبان میں براؤز کریں"
 
 #: src/amo/components/MastHead.js:31
 msgid "Firefox Add-ons"
-msgstr "Dodatki za Firefox"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr "Prijavite se, da ocenite ta iskalnik"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr "Prijavite se, da ocenite to temo"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:105
 msgid "Log in to rate this extension"
-msgstr "Prijavite se, da ocenite to razširitev"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr "Prijavite se, da ocenite ta dodatek"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "Kako vam ugaja %(addonName)s?"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr "Prijavite se, da ocenite ta slovar"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr "Prijavite se, da ocenite ta jezikovni paket"
+msgstr ""
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
-msgstr "Išči"
+msgstr "تلاش"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr "Išči razširitve in teme"
+msgstr ""
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr "Predogled teme ni na voljo"
+msgstr ""
 
 #: src/amo/components/SearchResults.js:42
 msgid "Searching…"
-msgstr "Iskanje ..."
+msgstr "تلاش کر رہا ہے ..."
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
-msgstr "Ni najdenih rezultatov za \"%(query)s\"."
+msgstr ""
 
 #: src/amo/components/SearchResults.js:52
 msgid "No results were found."
-msgstr "Ni najdenih rezultatov."
+msgstr "کوئى نتائج نہيں ملے تھے۔"
 
 #: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "Vnesite iskalno poizvedbo za iskanje po Dodatkih za Firefox."
+msgstr ""
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr "Nedavno posodobljeno"
+msgstr ""
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr "Ustreznost"
+msgstr ""
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr "Največ uporabnikov"
+msgstr ""
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr "Najbolje ocenjeni"
+msgstr ""
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr "Razvrsti"
+msgstr "چھانٹیں"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr "Predlagane strani"
+msgstr "تجویز کردہ صفحات"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
-msgstr "Prebrskaj vse razširitve"
+msgstr "تمام توسیعات براؤز کریں"
 
 #: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
 msgid "Browse all themes"
-msgstr "Prebrskaj vse teme"
+msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:35
 msgid "Add-ons Home Page"
-msgstr "Domača stran dodatkov"
+msgstr ""
 
 #: src/amo/containers/App.js:106
 msgid "Add-ons for Firefox"
-msgstr "Dodatki za Firefox"
+msgstr ""
 
 #: src/amo/containers/Home.js:39
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr "Razširitve so posebne funkcije, ki jih lahko dodate v Firefox. Teme vam omogočajo spremeniti videz vašega brskalnika."
+msgstr ""
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr "Spremenite lahko, kako Firefox deluje …"
+msgstr ""
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
-msgstr "Zavrača oglase"
+msgstr "اشتہارات بلاک کریں"
 
 #: src/amo/containers/Home.js:58
 msgid "Screenshot"
-msgstr "Ustvarja posnetke zaslona"
+msgstr "اسکرین شاٹ"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr "Vas zalaga z novicami"
+msgstr "خبریں تلاش کریں"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
-msgstr "Nakupuje na spletu"
+msgstr "آن لائن خریداری کریں"
 
 #: src/amo/containers/Home.js:67
 msgid "Be social"
-msgstr "Postane družaben"
+msgstr "سماجی بنیں"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr "Igra igre"
+msgstr ""
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr "… ali kako je videti"
+msgstr ""
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
-msgstr "Divje"
+msgstr "جنگلی"
 
 #: src/amo/containers/Home.js:80
 msgid "Abstract"
-msgstr "Abstraktno"
+msgstr "تلخیص"
 
 #: src/amo/containers/Home.js:81
 msgid "Holiday"
-msgstr "Počitnice"
+msgstr ""
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
-msgstr "Slikovito"
+msgstr ""
 
 #: src/amo/containers/Home.js:83
 msgid "Sporty"
-msgstr "Športno"
+msgstr ""
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr "Enobarvno"
+msgstr "سالڈ"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
-msgstr "Odjava"
+msgstr "لاگ آؤٹ"
 
 #: src/core/components/AuthenticateButton/index.js:50
 msgid "Log in/Sign up"
-msgstr "Prijava/Registracija"
+msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
+msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
-msgstr "Koda napake: %(status)s."
+msgstr ""
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Žal na spletnem naslovu, ki ste ga vnesli, ne najdemo ničesar."
+msgstr ""
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
-msgstr "Namesti temo"
+msgstr "خیالیہ کی تنصیب کریں"
 
 #: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
-msgstr "Dodaj v Firefox"
+msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
-msgstr "Prenašanje %(name)s."
+msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
-msgstr "Nameščanje %(name)s."
+msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s je nameščen in omogočen. Kliknite za odstranitev."
+msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s je onemogočen. Kliknite, da ga omogočite."
+msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
-msgstr "Odstranjevanje %(name)s."
+msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s je bil odstranjen. Kliknite za namestitev."
+msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
-msgstr "Ni znano, ali je %(name)s nameščen ali ne."
+msgstr ""
 
 #: src/core/components/Paginate/index.js:107
 msgid "Previous"
-msgstr "Prejšnja"
+msgstr "پچھلا"
 
 #: src/core/components/Paginate/index.js:119
 msgid "Next"
-msgstr "Naslednja"
+msgstr "اگلا"
 
 #: src/core/components/Paginate/index.js:98
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Stran %(currentPage)s od %(totalPages)s"
+msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr "Vaš dodatek je pripravljen"
+msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr "Sedaj lahko do %(name)s dostopate iz orodne vrstice."
+msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr "V redu!"
+msgstr "ٹھیک ہے!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr "Prišlo je do nepričakovane napake"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
-msgstr "Ocenjeno z %(rating)s od 5"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:94
 msgid "No ratings"
-msgstr "Ni ocen"
+msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Razširite</span> za več informacij"
-
-#~ msgid "%(averageRating)s out of 5"
-#~ msgstr "%(averageRating)s od 5"
-
-#~ msgid "Not yet rated"
-#~ msgstr "Še ni ocenjeno"
-
-#~ msgid "Loading…"
-#~ msgstr "Nalaganje …"
-
-#~ msgid "Fashionable"
-#~ msgstr "Modno"
-
-#~ msgid "Website"
-#~ msgstr "Spletno mesto"
-
-#~ msgid "Screenshots"
-#~ msgstr "Posnetki zaslona"
-
-#~ msgid "Category"
-#~ msgstr "Kategorija"
-
-#~ msgid "Sentiment"
-#~ msgstr "Občutek"
-
-#~ msgid "Back"
-#~ msgstr "Nazaj"
-
-#~ msgid "Submit"
-#~ msgstr "Predloži"
-
-#~ msgid "Please enter some text"
-#~ msgstr "Vnesite nekaj besedila"
-
-#~ msgid "screenshot %(imageNumber)s of %(totalImages)s"
-#~ msgstr "posnetek zaslona %(imageNumber)s od %(totalImages)s"
-
-#~ msgid "What do you want Firefox to do?"
-#~ msgstr "Kaj naj Firefox počne?"
-
-#~ msgid "Save stuff"
-#~ msgstr "Shranjuje vsebino"
-
-#~ msgid "Share stuff"
-#~ msgstr "Deli vsebino"
-
-#~ msgid "How do you want Firefox to look?"
-#~ msgstr "Kako naj bo Firefox videti?"
-
-#~ msgid "Mystical"
-#~ msgstr "Mistično"
-
-#~ msgid "Your search for \"%(query)s\" returned %(count)s result."
-#~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] "Najden je %(count)s rezultat za \"%(query)s\"."
-#~ msgstr[1] "Najdena sta %(count)s rezultata za \"%(query)s\"."
-#~ msgstr[2] "Najdeni so %(count)s rezultati za \"%(query)s\"."
-#~ msgstr[3] "Najdenih je %(count)s rezultatov za \"%(query)s\"."
-
-#~ msgid "Please supply a valid search"
-#~ msgstr "Vnesite veljavno iskalno poizvedbo"
+msgstr ""
