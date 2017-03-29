@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-29 03:02+0000\n"
+"PO-Revision-Date: 2017-03-29 17:10+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -86,7 +86,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "ابتدائی صفحہ"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
@@ -106,7 +106,7 @@ msgstr "ورژن"
 
 #: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
-msgstr ""
+msgstr "آخری تازہ کاری"
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
@@ -114,7 +114,7 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
-msgstr ""
+msgstr "لائسنس"
 
 #: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
@@ -138,7 +138,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "دنیا کو بتائیں آُپ کیوں سوچتے ہیں کہ یہ توسیع بہترین! ہے۔"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -146,7 +146,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
-msgstr ""
+msgstr "دنیا کو اس توسیع کے متعلق بتائیں۔"
 
 #: src/amo/components/AddonReview.js:96
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -174,11 +174,11 @@ msgstr ""
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "زمرہ جات لوڈ نہیں کر سکا۔"
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "کوئی زمرہ جات نہیں ملے۔"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -236,7 +236,7 @@ msgstr "قانونی نوٹس"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "ایک گڑبڑ رپورٹ کریں"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -244,7 +244,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "خیالیے"
 
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
 msgid "Extensions"
@@ -260,7 +260,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "زمرہ کے لحاظ سے براؤز کریں"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
