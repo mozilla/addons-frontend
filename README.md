@@ -91,7 +91,7 @@ Any option after the double dash (`--`) gets sent to `mocha`. Check out
 There is limited support for using [Flow](https://flowtype.org/)
 to check for problems in the source code.
 
-Here is how to develop with constant feedback about Flow issues:
+To check for Flow issues during development while you edit files, run:
 
     npm run flow:dev
 
