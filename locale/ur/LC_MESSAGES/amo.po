@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-29 01:49+0000\n"
+"PO-Revision-Date: 2017-03-29 02:10+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:92
 msgid "Cancel preview"
-msgstr ""
+msgstr "پیش منظر کو منسوخ کریں"
 
 #: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
@@ -94,7 +94,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr ""
+msgstr "مزید معلومات"
 
 #: src/amo/components/AddonMoreInfo.js:42
 msgid "Add-on Links"
@@ -118,7 +118,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:81
 msgid "Privacy Policy"
-msgstr ""
+msgstr "رازداری پالیسی"
 
 #: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
@@ -198,7 +198,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
-msgstr ""
+msgstr "صفہہ نہیں ملا"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
@@ -212,7 +212,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "پیش کار کا نقص"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -360,7 +360,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:42
 msgid "Searching…"
-msgstr ""
+msgstr "تلاش کر رہا ہے ..."
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
@@ -368,7 +368,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:52
 msgid "No results were found."
-msgstr ""
+msgstr "کوئى نتائج نہيں ملے تھے۔"
 
 #: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -392,7 +392,7 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "چھانٹیں"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
@@ -400,7 +400,7 @@ msgstr "تجویز کردہ صفحات"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
-msgstr ""
+msgstr "تمام توسیعات براؤز کریں"
 
 #: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
 msgid "Browse all themes"
@@ -552,7 +552,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "ٹھیک ہے!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
