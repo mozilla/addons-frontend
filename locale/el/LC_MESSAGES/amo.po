@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-28 21:17+0000\n"
+"PO-Revision-Date: 2017-03-29 18:48+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -150,7 +150,7 @@ msgstr "Πείτε στον κόσμο για αυτή την επέκταση."
 
 #: src/amo/components/AddonReview.js:96
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "Πείτε μας σχετικά με την εμπειρία σας με αυτή την επέκταση. Να είστε σαφής και περιεκτικός."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
@@ -492,7 +492,7 @@ msgstr "Κωδικός σφάλματος: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Συγγνώμη, αλλά δεν μπορούμε να βρούμε τίποτα στο URL που εισήγατε."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
