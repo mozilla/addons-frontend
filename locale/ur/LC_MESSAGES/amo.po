@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-29 02:10+0000\n"
+"PO-Revision-Date: 2017-03-29 02:15+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -248,7 +248,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
 msgid "Extensions"
-msgstr ""
+msgstr "توسیعات"
 
 #: src/amo/components/LandingPage.js:119
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -428,19 +428,19 @@ msgstr ""
 
 #: src/amo/containers/Home.js:58
 msgid "Screenshot"
-msgstr ""
+msgstr "اسکرین شاٹ"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "خبریں تلاش کریں"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
-msgstr ""
+msgstr "آن لائن خریداری کریں"
 
 #: src/amo/containers/Home.js:67
 msgid "Be social"
-msgstr ""
+msgstr "سماجی بنیں"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
@@ -476,7 +476,7 @@ msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
-msgstr ""
+msgstr "لاگ آؤٹ"
 
 #: src/core/components/AuthenticateButton/index.js:50
 msgid "Log in/Sign up"
