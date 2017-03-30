@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-29 17:11+0000\n"
+"PO-Revision-Date: 2017-03-30 01:59+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -122,11 +122,11 @@ msgstr "رازداری پالیسی"
 
 #: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "ایڈ -اون کے لیئے رازداری پالیسی پڑھیں"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
-msgstr ""
+msgstr "ایک جائزہ لکھیں"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
@@ -404,7 +404,7 @@ msgstr "تمام توسیعات براؤز کریں"
 
 #: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
 msgid "Browse all themes"
-msgstr ""
+msgstr "تمام خیالیے براؤز کریں"
 
 #: src/amo/components/SuggestedPages/index.js:35
 msgid "Add-ons Home Page"
@@ -504,11 +504,11 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "۔%(name)s ڈائونلوڈ کر رہا ہے۔"
 
 #: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "۔%(name)s تنصِب کر رہا ہے۔"
 
 #: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
@@ -544,7 +544,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "آپ کا ایڈ-ان تیار ہے"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
@@ -556,7 +556,7 @@ msgstr "ٹھیک ہے!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "ایک غیرمتوقع نقص پیش آگیا"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
