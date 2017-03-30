@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:08+0000\n"
-"PO-Revision-Date: 2017-03-29 17:15+0000\n"
+"PO-Revision-Date: 2017-03-30 02:04+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -72,7 +72,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "آپ کا ایڈ-ان تیار ہے"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
@@ -100,7 +100,7 @@ msgstr "ڈائونلوڈ ناکام ہو گئی، براہ مہربانی اپن
 
 #: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "تنصیب کے دوران ایک غیر متوقع نقص پہش آیا ہے۔"
 
 #: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
@@ -116,11 +116,11 @@ msgstr ""
 
 #: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "براہ مہربانی اس ایڈ-اون کو استعمال کرنے کے لیئے Firefox کو دوبارہ شروع کریں۔"
 
 #: src/disco/components/Addon.js:68
 msgid "Close"
-msgstr ""
+msgstr "بند کریں"
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
@@ -142,11 +142,11 @@ msgstr ""
 
 #: src/disco/containers/DiscoPane.js:113
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "ایڈ-اون کے متعلق مزید جاننے کے لیئے"
 
 #: src/disco/containers/DiscoPane.js:122
 msgid "Close video"
-msgstr ""
+msgstr "وڈیو بند کریں"
 
 #: src/disco/containers/DiscoPane.js:133
 msgid "See more add-ons!"
