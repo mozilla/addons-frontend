@@ -1,6 +1,4 @@
-// The default conf should cover this.
+// The following configuration values will be applied to production only.
+// However, the default config is typically used to configure production.
 module.exports = {
-  // Temporarily enable error simulation to test production.
-  // https://github.com/mozilla/addons-frontend/issues/2016
-  allowErrorSimulation: true,
 };
