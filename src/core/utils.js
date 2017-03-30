@@ -250,13 +250,14 @@ export function safeAsyncConnect(
   configs, { asyncConnect = defaultAsyncConnect } = {}
 ) {
   const safeConfigs = configs.map((conf) => {
-    if (!conf.key) {
+    let key = conf.key;
+    if (!key) {
       // If asyncConnect does not get a key in its config, it
       // will not dispatch LOAD_FAIL for thrown errors!
       // Other than that, the key is used to set a magic component
       // property (which we never rely on) so it's really not so
       // important.
-      conf.key = '__safeAsyncConnect_key__';
+      key = '__safeAsyncConnect_key__';
     }
     if (!conf.promise) {
       // This is the only way we use asyncConnect() for now.
@@ -266,6 +267,7 @@ export function safeAsyncConnect(
     }
     return {
       ...conf,
+      key,
       deferred: true,
       promise: safePromise(conf.promise),
     };
