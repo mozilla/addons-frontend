@@ -46,6 +46,10 @@
 
 .Rating-half-star {
   background-image: url('./img/yellow-star-half.svg');
+
+  [dir=rtl] & {
+    transform: scaleX(-1);
+  }
 }
 
 .Rating--small .Rating-choice,
