@@ -10,11 +10,9 @@ import { logOutFromServer, startLoginUrl } from 'core/api';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
-/* eslint-disable no-duplicate-imports */
 import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFn } from 'core/types/reduxTypes';
-/* eslint-enable no-duplicate-imports */
 
 type HandleLogInFn = (
   location: UrlFormatParams, options?: {| _window: typeof window |}

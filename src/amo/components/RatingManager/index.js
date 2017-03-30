@@ -21,7 +21,6 @@ import {
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
-/* eslint-disable no-duplicate-imports */
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api';
@@ -30,7 +29,6 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFn } from 'core/types/reduxTypes';
 import type { AddonType, AddonTypeProp, AddonVersionType }
   from 'core/types/addonTypes';
-/* eslint-enable no-duplicate-imports */
 
 import './styles.scss';
 

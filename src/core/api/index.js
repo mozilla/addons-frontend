@@ -13,10 +13,8 @@ import { initialApiState } from 'core/reducers/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
-/* eslint-disable no-duplicate-imports */
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
-/* eslint-enable no-duplicate-imports */
 
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
