@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-28 08:57+0000\n"
-"Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
+"PO-Revision-Date: 2017-03-28 07:19+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -78,9 +78,8 @@ msgstr[0] "%(total)s recensione"
 msgstr[1] "%(total)s recensioni"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
-msgstr "Ancora nessuna recensione"
+msgstr "Nessuna recensione"
 
 #: src/amo/components/AddonMeta.js:41
 msgid "Used by"
