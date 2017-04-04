@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-28 07:19+0000\n"
+"PO-Revision-Date: 2017-04-04 15:07+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -575,7 +575,7 @@ msgstr "Nessuna valutazione disponibile"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Leggi tutto</span>"
+msgstr "<span class=\"visually-hidden\">Espandi per visualizzare</span> Ulteriori informazioni"
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "Media valutazioni: %(averageRating)s su 5"
