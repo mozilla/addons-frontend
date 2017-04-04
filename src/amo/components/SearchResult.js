@@ -53,12 +53,16 @@ export class SearchResultBase extends React.Component {
               <Rating rating={addon.ratings.average} readOnly
                 styleName="small" />
             </div>
-            { addon.authors && addon.authors.length ?
-              <h3 className="SearchResult-author">{addon.authors[0].name}</h3> : null }
-            <h3 className="SearchResult-users">{i18n.sprintf(
-              i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
-              { total: i18n.formatNumber(averageDailyUsers) },
-            )}
+            <h3 className="SearchResult-author-users">
+              {i18n.sprintf(i18n.ngettext(
+	  '%(addonAuthor)s %(separator)s %(addonUsers)s user', 
+	  '%(addonAuthor)s %(separator)s %(addonUsers)s users', 
+	  averageDailyUsers,
+	), {
+	  addonAuthor: addon.authors.length ? addon.authors[0].name : null,
+	  separator: addon.authors.length ? i18n.gettext('—') : null,
+	  addonUsers: i18n.formatNumber(averageDailyUsers),
+	})}
             </h3>
           </section>
         </Link>

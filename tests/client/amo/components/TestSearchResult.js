@@ -46,31 +46,26 @@ describe('<SearchResult />', () => {
     assert.equal(heading.textContent, 'A search result');
   });
 
-  it('renders the author', () => {
+  it('renders the author and users', () => {
     const node = findRenderedDOMComponentWithClass(root,
-                                                   'SearchResult-author');
+                                                   'SearchResult-author-users');
     assert.ok(node);
   });
 
   it('ignores an empty author list', () => {
     const myRoot = renderResult({ ...result, authors: undefined });
-    const nodes = scryRenderedDOMComponentsWithClass(myRoot, 'SearchResult-author');
-    assert.equal(nodes.length, 0);
+    const nodes = scryRenderedDOMComponentsWithClass(myRoot, 'SearchResult-author-users');
+    assert.equal(nodes.textContent, '5,253 users');
   });
 
   it("renders only the first author's name when there are multiple", () => {
-    const authors = findRenderedDOMComponentWithClass(root, 'SearchResult-author');
-    assert.equal(authors.textContent, 'A funky déveloper');
-  });
-
-  it('renders the user count', () => {
-    const users = findRenderedDOMComponentWithClass(root, 'SearchResult-users');
-    assert.equal(users.textContent, '5,253 users');
+    const authors = findRenderedDOMComponentWithClass(root, 'SearchResult-author-users');
+    assert.equal(authors.textContent, 'A funky déveloper — 5,253 users');
   });
 
   it('localises the user count', () => {
     const localisedRoot = renderResult(result, { lang: 'fr' });
-    const users = findRenderedDOMComponentWithClass(localisedRoot, 'SearchResult-users');
+    const users = findRenderedDOMComponentWithClass(localisedRoot, 'SearchResult-author-users');
     // \xa0 is a non-breaking space.
     assert.match(users.textContent, /5\xa0253/);
   });
@@ -78,8 +73,8 @@ describe('<SearchResult />', () => {
   it('renders the user count as singular', () => {
     const renderedResult = renderResult({ ...result, average_daily_users: 1 });
     const users = findRenderedDOMComponentWithClass(renderedResult,
-                                                    'SearchResult-users');
-    assert.equal(users.textContent, '1 user');
+                                                    'SearchResult-author-users');
+    assert.equal(users.textContent, 'A funky déveloper — 1 user');
   });
 
   it('links to the detail page', () => {
