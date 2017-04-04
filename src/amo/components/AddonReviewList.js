@@ -5,8 +5,10 @@ import { compose } from 'redux';
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { getReviews } from 'amo/api';
+import Paginate from 'core/components/Paginate';
 import translate from 'core/i18n/translate';
 import { findAddon, loadAddonIfNeeded, safeAsyncConnect } from 'core/utils';
+import { parsePage } from 'core/searchUtils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
 
@@ -23,6 +25,10 @@ export class AddonReviewListBase extends React.Component {
 
   addonURL() {
     return `/addon/${this.props.addon.slug}/`;
+  }
+
+  selfURL() {
+    return `${this.addonURL()}/reviews/`;
   }
 
   renderReview(review) {
@@ -48,7 +54,6 @@ export class AddonReviewListBase extends React.Component {
       throw new Error('params.addonSlug cannot be falsey');
     }
     if (!reviews) {
-      // TODO: add a spinner
       return <div>{i18n.gettext('Loading...')}</div>;
     }
 
@@ -76,6 +81,12 @@ export class AddonReviewListBase extends React.Component {
             {allReviews.map((review) => this.renderReview(review))}
           </ul>
         </CardList>
+        <Paginate
+          LinkComponent={Link}
+          count={100}
+          currentPage={1}
+          pathname={this.selfURL()}
+        />
       </div>
     );
   }
@@ -92,12 +103,19 @@ export function loadAddonReviews({ addonId, addonSlug, dispatch }) {
     });
 }
 
-export function loadInitialData({ store, params }) {
+export function loadInitialData({ store, params, location }) {
   const { addonSlug } = params;
   if (!addonSlug) {
     return Promise.reject(new Error('missing URL param addonSlug'));
   }
-  return loadAddonIfNeeded({ store, params: { slug: addonSlug } })
+  return new Promise((resolve) => {
+    // TODO: move page data to state or something.
+    const page = parsePage(location.query.page);
+    console.log(`AddonReviewList on page: ${page}`);
+    // TODO: send page to loadAddonReviews()
+    return resolve();
+  })
+    .then(() => loadAddonIfNeeded({ store, params: { slug: addonSlug } }))
     .then(() => findAddon(store.getState(), addonSlug))
     .then((addon) => loadAddonReviews({
       addonId: addon.id, addonSlug, dispatch: store.dispatch,
@@ -116,7 +134,10 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
-  safeAsyncConnect([{ promise: loadInitialData }]),
+  safeAsyncConnect([{
+    key: 'AddonReviewList',
+    promise: loadInitialData,
+  }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(AddonReviewListBase);
