@@ -733,6 +733,18 @@ describe('safeAsyncConnect', () => {
     assert.equal(asyncConnect.firstCall.args[0][0].key, 'one');
     assert.equal(asyncConnect.firstCall.args[0][1].key, 'two');
   });
+
+  it('fills in an empty key to configs', () => {
+    const asyncConnect = sinon.stub();
+
+    safeAsyncConnect([{
+      promise: () => Promise.resolve(),
+    }], { asyncConnect });
+
+    assert.equal(
+      asyncConnect.firstCall.args[0][0].key,
+      '__safeAsyncConnect_key__');
+  });
 });
 
 describe('safePromise', () => {
