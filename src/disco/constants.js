@@ -37,4 +37,5 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'tls13-comparison-all-v1@mozilla.org', // TLS 1.3 A/B Test Experiment
   'deployment-checker@mozilla.org', // Site Deployment Checker
   'screenshots@mozilla.org', // Firefox Screenshots
+  'disable-prefetch@mozilla.org', // Disable Prefetch
 ];
