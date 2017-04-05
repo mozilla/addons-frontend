@@ -119,23 +119,15 @@ Here is our Flow manifesto:
 * Never add more type annotations then you need to. Flow is really good at
   inferring type information from standard JavaScript code. It will tell you
   if you need to add an explicit annotation for something.
-* When a function like `getAllAddons` takes object arguments, call their
-  type object `GetAllAddonsParams`. For optional object arguments, call
-  their type object `GetAllAddonsOptions`. Example:
+* When a function like `getAllAddons` takes object arguments, call its
+  type object `GetAllAddonsParams`. Example:
 
 ````js
 type GetAllAddonsParams = {|
   categoryId: number,
 |};
 
-type GetAllAddonsOptions = {|
-  hideDeleted: boolean,
-|};
-
-function getAllAddons(
-  { categoryId }: GetAllAddonsParams,
-  { hideDeleted = true }: GetAllAddonsOptions = {}
-) {
+function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   ...
 }
 ````
