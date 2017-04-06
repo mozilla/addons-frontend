@@ -1,4 +1,5 @@
 /* global navigator, window */
+import base62 from 'base62';
 import config from 'config';
 import React, { PropTypes } from 'react';
 import cookie from 'react-cookie';
@@ -12,7 +13,8 @@ import { getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
 import { addChangeListeners } from 'core/addonManager';
-import { setUserAgent as setUserAgentAction } from 'core/actions';
+import { logOutUser, setUserAgent as setUserAgentAction }
+  from 'core/actions';
 import { INSTALL_STATE } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
@@ -31,6 +33,7 @@ export class AppBase extends React.Component {
     MastHeadComponent: PropTypes.node.isRequired,
     _addChangeListeners: PropTypes.func,
     _navigator: PropTypes.object,
+    authToken: PropTypes.string,
     children: PropTypes.node,
     clientApp: PropTypes.string.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
@@ -57,6 +60,7 @@ export class AppBase extends React.Component {
     const {
       _addChangeListeners,
       _navigator,
+      authToken,
       handleGlobalEvent,
       mozAddonManager,
       setUserAgent,
@@ -74,6 +78,19 @@ export class AppBase extends React.Component {
         'userAgent not in state on App load; using navigator.userAgent.');
       setUserAgent(_navigator.userAgent);
     }
+
+    if (authToken) {
+      log.info('Setting a logout timer when the token expires');
+      this.setLogOutTimer(authToken);
+    }
+  }
+
+  setLogOutTimer(authToken) {
+    const parts = authToken.split(':');
+    console.log('authToken: ', authToken);
+    const createdAt = base62.decode(parts[1]);
+    console.log('token created at timestamp:', createdAt);
+    console.log('token created at:', new Date(createdAt * 1000));
   }
 
   onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {
@@ -121,6 +138,7 @@ export class AppBase extends React.Component {
 }
 
 export const mapStateToProps = (state) => ({
+  authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
   lang: state.api.lang,
   userAgent: state.api.userAgent,
@@ -128,6 +146,9 @@ export const mapStateToProps = (state) => ({
 
 export function mapDispatchToProps(dispatch) {
   return {
+    logOutUser() {
+      dispatch(logOutUser());
+    },
     handleGlobalEvent(payload) {
       dispatch({ type: INSTALL_STATE, payload });
     },
