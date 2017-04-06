@@ -88,7 +88,9 @@ export class AppBase extends React.Component {
   setLogOutTimer(authToken) {
     const parts = authToken.split(':');
     console.log('authToken: ', authToken);
+    base62.setCharacterSet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
     const createdAt = base62.decode(parts[1]);
+    // GMT Unix timestamp:
     console.log('token created at timestamp:', createdAt);
     console.log('token created at:', new Date(createdAt * 1000));
   }
