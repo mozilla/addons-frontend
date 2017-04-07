@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-04-06 23:23+0000\n"
+"PO-Revision-Date: 2017-04-07 06:44+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -210,6 +210,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Hvis du har mer informasjon som kan hjelpe oss kan du <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">sende en feilrapport</a>. Fortell oss hva du gjorde før feilen skjedde, så "
+"skal vi gjøre vårt beste for å fikse det."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -217,7 +219,7 @@ msgstr "Serverfeil"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Beklager, men det oppstod en feil med serveren vår og vi kunne ikke fullføre forespørselen din. Vi har logget denne feilen og kommer til å undersøke den."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
