@@ -1,6 +1,6 @@
 @import "~core/css/inc/vars";
 
-.ErrorHandler-list {
+.ErrorList {
   text-align: center;
   border-radius: $border-radius-default;
   background-color: $error-background-color;
@@ -10,6 +10,6 @@
   margin-bottom: 10px;
 }
 
-.ErrorHandler-list-item {
+.ErrorList-item {
   list-style: none;
 }
