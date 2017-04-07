@@ -29,6 +29,7 @@ describe('errors reducer', () => {
     const state = errors(undefined, action);
     assert.deepEqual(state[action.payload.id], {
       messages: ['An unexpected error occurred'],
+      needsPageRefresh: false,
     });
   });
 
@@ -41,7 +42,10 @@ describe('errors reducer', () => {
     });
     const action = setError({ id: 'some-id', error });
     const state = errors(undefined, action);
-    assert.deepEqual(state[action.payload.id], { messages: [message] });
+    assert.deepEqual(state[action.payload.id], {
+      messages: [message],
+      needsPageRefresh: false,
+    });
   });
 
   it('preserves existing errors', () => {
@@ -129,6 +133,19 @@ describe('errors reducer', () => {
     const state = errors(undefined, action);
     assert.deepEqual(state[action.payload.id], {
       messages: ['An unexpected error occurred'],
+      needsPageRefresh: false,
     });
+  });
+
+  it('adds a needs-refresh flag for expired signature errors', () => {
+    const message = 'Signature has expired.';
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { detail: message },
+    });
+    const action = setError({ id: 'some-id', error });
+    const state = errors(undefined, action);
+    assert.strictEqual(state[action.payload.id].needsPageRefresh, true);
   });
 });
