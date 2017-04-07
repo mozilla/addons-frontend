@@ -4,12 +4,14 @@ import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
 import { createStore, combineReducers } from 'redux';
 
+import I18nProvider from 'core/i18n/Provider';
 import { createApiError } from 'core/api/index';
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
 import { ErrorHandler, withErrorHandler, withErrorHandling }
   from 'core/errorHandler';
 import errors from 'core/reducers/errors';
+import { getFakeI18nInst } from 'tests/client/helpers';
 import { createFakeApiError } from 'tests/client/core/reducers/test_errors';
 
 class SomeComponentBase extends React.Component {
@@ -35,7 +37,9 @@ function createWrappedComponent({
   })(SomeComponent);
 
   const provider = renderIntoDocument(
-    <ComponentWithErrorHandling store={store} {...customProps} />
+    <I18nProvider i18n={getFakeI18nInst()}>
+      <ComponentWithErrorHandling store={store} {...customProps} />
+    </I18nProvider>
   );
   const component = findRenderedComponentWithType(provider, SomeComponent);
 

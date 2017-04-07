@@ -3,10 +3,16 @@ import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
 
+import I18nProvider from 'core/i18n/Provider';
+import { getFakeI18nInst } from 'tests/client/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 function render(props = {}) {
-  return findDOMNode(renderIntoDocument(<ErrorList {...props} />));
+  return findDOMNode(renderIntoDocument(
+    <I18nProvider i18n={getFakeI18nInst()}>
+      <ErrorList {...props} />
+    </I18nProvider>
+  ));
 }
 
 describe('ui/components/ErrorList', () => {

@@ -1,14 +1,17 @@
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 
+import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 
 import './styles.scss';
 
 
-export default class ErrorList extends React.Component {
+class ErrorList extends React.Component {
   static propTypes = {
     className: PropTypes.string,
+    i18n: PropTypes.object.isRequired,
     messages: PropTypes.array.isRequired,
     needsPageRefresh: PropTypes.boolean,
   }
@@ -18,7 +21,7 @@ export default class ErrorList extends React.Component {
   };
 
   render() {
-    const { messages, needsPageRefresh } = this.props;
+    const { i18n, messages, needsPageRefresh } = this.props;
     const items = [];
 
     messages.forEach((msg) => {
@@ -34,8 +37,9 @@ export default class ErrorList extends React.Component {
     });
 
     if (needsPageRefresh) {
-      // TODO: L10n
-      items.push(<Button>{'Reload To Continue'}</Button>);
+      items.push(
+        <Button>{i18n.gettext('Reload To Continue')}</Button>
+      );
     }
 
     return (
@@ -45,3 +49,7 @@ export default class ErrorList extends React.Component {
     );
   }
 }
+
+export default compose(
+  translate({ withRef: true }),
+)(ErrorList);
