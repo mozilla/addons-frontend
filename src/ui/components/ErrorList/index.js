@@ -8,31 +8,29 @@ import './styles.scss';
 
 export default class ErrorList extends React.Component {
   static propTypes = {
-    errors: PropTypes.array.isRequired,
     className: PropTypes.string,
+    messages: PropTypes.array.isRequired,
+    needsPageRefresh: PropTypes.boolean,
   }
 
+  static defaultProps = {
+    needsPageRefresh: false,
+  };
+
   render() {
-    const { errors } = this.props;
-    let needsPageRefresh = false;
+    const { messages, needsPageRefresh } = this.props;
     const items = [];
 
-    errors.forEach((error) => {
-      error.messages.forEach((msg) => {
-        let msgString = msg;
-        if (typeof msgString === 'object') {
-          // This is an unlikely scenario where an API response
-          // contains nested objects within objects. If this
-          // happens in real life let's make it prettier.
-          // Until then, let's just prevent a stack trace.
-          msgString = JSON.stringify(msgString);
-        }
-        items.push(msgString);
-      });
-
-      if (error.needsPageRefresh) {
-        needsPageRefresh = true;
+    messages.forEach((msg) => {
+      let msgString = msg;
+      if (typeof msgString === 'object') {
+        // This handles an unlikely scenario where an API error response
+        // contains nested objects within objects. If this happens in real
+        // life let's fix it or make the display prettier.
+        // Until then, let's just prevent it from triggering an exception.
+        msgString = JSON.stringify(msgString);
       }
+      items.push(msgString);
     });
 
     if (needsPageRefresh) {

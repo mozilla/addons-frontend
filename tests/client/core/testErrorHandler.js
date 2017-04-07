@@ -110,7 +110,7 @@ describe('errorHandler', () => {
       const { dom } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorHandler-list').textContent,
+      assert.equal(dom.querySelector('.ErrorList').textContent,
                    'An unexpected error occurred');
       // It also renders component content:
       assert.equal(dom.querySelector('.SomeComponent').textContent,
@@ -132,7 +132,7 @@ describe('errorHandler', () => {
       const { dom } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorHandler-list').textContent,
+      assert.equal(dom.querySelector('.ErrorList').textContent,
                    JSON.stringify(nestedMessage));
     });
 
@@ -140,7 +140,7 @@ describe('errorHandler', () => {
       const { dom } = createWrappedComponent({
         decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorHandler-list'), null);
+      assert.equal(dom.querySelector('.ErrorList'), null);
       assert.equal(dom.textContent, 'Component text');
     });
 
@@ -156,7 +156,7 @@ describe('errorHandler', () => {
       const { dom } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      const items = dom.querySelectorAll('.ErrorHandler-list li');
+      const items = dom.querySelectorAll('.ErrorList-item');
       assert(items.length, 'error list was not rendered');
       assert.equal(items[0].textContent, 'first error');
       assert.equal(items[1].textContent, 'second error');
@@ -172,7 +172,7 @@ describe('errorHandler', () => {
       const { dom } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorHandler-list'), null);
+      assert.equal(dom.querySelector('.ErrorList'), null);
     });
 
     it('ignores errors sent by other error handlers', () => {
@@ -184,7 +184,7 @@ describe('errorHandler', () => {
       const { dom } = createWrappedComponent({
         store, id: 'this-handler-id', decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorHandler-list'), null);
+      assert.equal(dom.querySelector('.ErrorList'), null);
     });
 
     it('passes through wrapped component properties without an error', () => {
