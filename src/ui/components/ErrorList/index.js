@@ -1,3 +1,4 @@
+/* global window */
 import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
@@ -10,6 +11,7 @@ import './styles.scss';
 
 class ErrorList extends React.Component {
   static propTypes = {
+    _window: PropTypes.object,
     className: PropTypes.string,
     i18n: PropTypes.object.isRequired,
     messages: PropTypes.array.isRequired,
@@ -17,11 +19,12 @@ class ErrorList extends React.Component {
   }
 
   static defaultProps = {
+    _window: typeof window !== 'undefined' ? window : {},
     needsPageRefresh: false,
   };
 
   render() {
-    const { i18n, messages, needsPageRefresh } = this.props;
+    const { _window, className, i18n, messages, needsPageRefresh } = this.props;
     const items = [];
 
     messages.forEach((msg) => {
@@ -38,12 +41,14 @@ class ErrorList extends React.Component {
 
     if (needsPageRefresh) {
       items.push(
-        <Button>{i18n.gettext('Reload To Continue')}</Button>
+        <Button onClick={() => _window.location.reload()}>
+          {i18n.gettext('Reload To Continue')}
+        </Button>
       );
     }
 
     return (
-      <ul className="ErrorList">
+      <ul className={classNames('ErrorList', className)}>
         {items.map((item) => <li className="ErrorList-item">{item}</li>)}
       </ul>
     );
