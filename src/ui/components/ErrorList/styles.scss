@@ -12,4 +12,16 @@
 
 .ErrorList-item {
   list-style: none;
+  margin-bottom: 8px;
+
+  .Button {
+    color: $error-button-text-color;
+    background-color: $error-button-background-color;
+    border-radius: $border-radius-s;
+    font-size: $font-size-s;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
