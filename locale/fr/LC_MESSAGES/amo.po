@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-04-08 12:19+0000\n"
-"Last-Translator: alizee.aubertin <alizee.aubertin@gmail.com>\n"
+"PO-Revision-Date: 2017-03-27 17:31+0000\n"
+"Last-Translator: robby.roudon <robby.roudon@laposte.net>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -71,14 +71,12 @@ msgstr[0] "%(total)s utilisateur"
 msgstr[1] "%(total)s utilisateurs"
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s note"
+msgstr[0] ""
 msgstr[1] "%(total)s notes"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
 msgstr "Aucune critique pour l’instant"
 
