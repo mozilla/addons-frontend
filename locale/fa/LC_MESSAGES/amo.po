@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-04-03 17:04+0000\n"
+"PO-Revision-Date: 2017-04-09 20:31+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -28,16 +28,16 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "مرورگر شما از افزونه‌ها پشتیبانی نمی‌کند. شما می‌توانید <a href=\"%(downloadUrl)s\"> را دریافت کرده </a> تا بتوانید این افزونه را نصب کنید."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
+msgstr[0] "همه‌ی %(count)s بازخورد‌ها را بخوانید"
 
 #: src/amo/components/AddonDetail.js:144
 msgid "No reviews yet"
-msgstr ""
+msgstr "تاکنون بدون بازخوردی ندارد"
 
 #: src/amo/components/AddonDetail.js:153
 msgid "Rate your experience"
@@ -53,7 +53,7 @@ msgstr "فرادادهٔ ضمیمه"
 
 #: src/amo/components/AddonDetail.js:228
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "درباره این %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
 #, fuzzy
@@ -88,15 +88,15 @@ msgstr "استفاده شده توسط"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "صفحه نخست"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "سایت پشتیبانی"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr ""
+msgstr "اطلاعات بیشتر"
 
 #: src/amo/components/AddonMoreInfo.js:42
 #, fuzzy
