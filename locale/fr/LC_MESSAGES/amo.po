@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-27 17:31+0000\n"
-"Last-Translator: robby.roudon <robby.roudon@laposte.net>\n"
+"PO-Revision-Date: 2017-04-09 11:22+0000\n"
+"Last-Translator: Benoit Leseul <benoit.leseul@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -192,11 +192,13 @@ msgstr "Accès interdit"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Vous n’avez pas l’autorisation d’accéder à cette page. Si vous n’êtes pas connecté(e), essayez de vous connecter en utilisant le lien en haut de la page."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
+"Si vous avez suivi un lien depuis un autre endroit, merci de <a href=\"%(url)s\">nous signaler le problème</a>. Dites-nous d’où vous veniez, ce que vous cherchiez et nous ferons de notre mieux pour "
+"le corriger."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
@@ -204,13 +206,15 @@ msgstr "Page introuvable"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr ""
+msgstr "Nous n'avons malheureusement rien trouvé à l'adresse indiquée. Si vous avez suivi un lien vers un module, il est possible que celui-ci ait été supprimé par son auteur."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Si vous avez des informations supplémentaires qui pourraient nous aider, vous pouvez <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">signaler le problème</a>. Dites-nous quelles "
+"étapes vous avez effectuées avant d’arriver à l’erreur et nous ferons de notre mieux pour la résoudre."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -218,7 +222,7 @@ msgstr "Erreur serveur"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Une erreur s’est malheureusement produite sur notre serveur et nous n’avons pu répondre à votre demande. Nous avons enregistré cette erreur et allons l’analyser."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -262,7 +266,7 @@ msgstr "Installez des outils puissants qui rendent votre navigation plus sûre e
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "Parcourir par catégorie"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
@@ -488,7 +492,7 @@ msgstr "Se connecter/S’inscrire"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Navré, mais une erreur est survenue et nous n’avons pu répondre à votre demande. Nous avons enregistré cette erreur et allons l’analyser."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
@@ -496,7 +500,7 @@ msgstr "Code d’erreur : %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Navré, mais nous ne trouvons rien de correspondant à l’URL demandée."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
