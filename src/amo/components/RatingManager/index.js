@@ -26,7 +26,7 @@ import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api';
 import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
-import type { DispatchFn } from 'core/types/reduxTypes';
+import type { DispatchFunc } from 'core/types/reduxTypes';
 import type {
   AddonType,
   AddonTypeProp,
@@ -40,19 +40,19 @@ type LoadSavedReviewFunc = ({|
   addonId: number,
 |}) => Promise<any>;
 
-type SubmitReviewFn = (SubmitReviewParams) => Promise<void>;
+type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 
 type RatingManagerProps = {|
   AddonReview: typeof DefaultAddonReview,
   AuthenticateButton: typeof DefaultAuthenticateButton,
   Rating: typeof DefaultRating,
   addon: AddonType,
-  errorHandler: ErrorHandlerType,
   apiState: ApiStateType,
+  errorHandler: ErrorHandlerType,
   i18n: Object,
   loadSavedReview: LoadSavedReviewFunc,
   location: UrlFormatParams,
-  submitReview: SubmitReviewFn,
+  submitReview: SubmitReviewFunc,
   userId: number,
   userReview: UserReviewType,
   version: AddonVersionType,
@@ -227,11 +227,11 @@ export const mapStateToProps = (
 
 type DispatchMappedProps = {|
   loadSavedReview: LoadSavedReviewFunc,
-  submitReview: SubmitReviewFn,
+  submitReview: SubmitReviewFunc,
 |}
 
 export const mapDispatchToProps = (
-  dispatch: DispatchFn
+  dispatch: DispatchFunc
 ): DispatchMappedProps => ({
 
   loadSavedReview({ userId, addonId }) {

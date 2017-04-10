@@ -12,19 +12,19 @@ import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
-import type { DispatchFn } from 'core/types/reduxTypes';
+import type { DispatchFunc } from 'core/types/reduxTypes';
 
-type HandleLogInFn = (
+type HandleLogInFunc = (
   location: UrlFormatParams, options?: {| _window: typeof window |}
 ) => void;
 
-type HandleLogOutFn = ({| api: ApiStateType |}) => Promise<void>;
+type HandleLogOutFunc = ({| api: ApiStateType |}) => Promise<void>;
 
 type AuthenticateButtonProps = {|
   api: ApiStateType,
   className?: string,
-  handleLogIn: HandleLogInFn,
-  handleLogOut: HandleLogOutFn,
+  handleLogIn: HandleLogInFunc,
+  handleLogOut: HandleLogOutFunc,
   i18n: Object,
   isAuthenticated: boolean,
   location: UrlFormatParams,
@@ -72,7 +72,7 @@ export class AuthenticateButtonBase extends React.Component {
 type StateMappedProps = {|
   api: ApiStateType,
   isAuthenticated: boolean,
-  handleLogIn: HandleLogInFn,
+  handleLogIn: HandleLogInFunc,
 |};
 
 export const mapStateToProps = (
@@ -87,11 +87,11 @@ export const mapStateToProps = (
 });
 
 type DispatchMappedProps = {|
-  handleLogOut: HandleLogOutFn,
+  handleLogOut: HandleLogOutFunc,
 |};
 
 export const mapDispatchToProps = (
-  dispatch: DispatchFn
+  dispatch: DispatchFunc
 ): DispatchMappedProps => ({
   handleLogOut({ api }) {
     return logOutFromServer({ api })
