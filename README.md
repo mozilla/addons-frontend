@@ -132,9 +132,9 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
 }
 ````
 
-* Always use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types)
+* Use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types)
   via the pipe syntax (`{| key: ... |}`) when possible. Sometimes the
-  spread operator makes this difficult but you can use the
+  spread operator makes this difficult so you can use the
   `Exact<GetAllAddonsOptions>` workaround from `src/core/types/coreTypes`
   if you have to.
 * Try to avoid loose types like `Object` or `any` but feel free to use
