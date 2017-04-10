@@ -35,7 +35,7 @@ import type {
 
 import './styles.scss';
 
-type LoadSavedReviewFn = ({|
+type LoadSavedReviewFunc = ({|
   userId: number,
   addonId: number,
 |}) => Promise<*>;
@@ -50,7 +50,7 @@ type RatingManagerProps = {|
   errorHandler: ErrorHandlerType,
   apiState: ApiStateType,
   i18n: Object,
-  loadSavedReview: LoadSavedReviewFn,
+  loadSavedReview: LoadSavedReviewFunc,
   location: UrlFormatParams,
   submitReview: SubmitReviewFn,
   userId: number,
@@ -226,7 +226,7 @@ export const mapStateToProps = (
 };
 
 type DispatchMappedProps = {|
-  loadSavedReview: LoadSavedReviewFn,
+  loadSavedReview: LoadSavedReviewFunc,
   submitReview: SubmitReviewFn,
 |}
 
