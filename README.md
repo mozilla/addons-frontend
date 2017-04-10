@@ -134,10 +134,13 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
 
 * Use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types)
   via the pipe syntax (`{| key: ... |}`) when possible. Sometimes the
-  spread operator makes this difficult so you can use the
-  `Exact<GetAllAddonsParams>` workaround from
+  spread operator triggers an error like
+  'Inexact type is incompatible with exact type' but that's a
+  [bug](https://github.com/facebook/flow/issues/2405).
+  You can use the `Exact<T>` workaround from
   [`src/core/types/coreTypes`](https://github.com/mozilla/addons-frontend/blob/master/src/core/types/coreTypes.js)
-  if you have to.
+  if you have to. This is meant as a working replacement for
+  [$Exact<T>](https://flow.org/en/docs/types/utilities/#toc-exact).
 * Try to avoid loose types like `Object` or `any` but feel free to use
   them if you are spending too much time declaring types that depend on other
   types that depend on other types, and so on.
