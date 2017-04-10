@@ -27,8 +27,11 @@ import type { SubmitReviewParams } from 'amo/api';
 import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFn } from 'core/types/reduxTypes';
-import type { AddonType, AddonTypeProp, AddonVersionType }
-  from 'core/types/addonTypes';
+import type {
+  AddonType,
+  AddonTypeProp,
+  AddonVersionType
+} from 'core/types/addonTypes';
 
 import './styles.scss';
 
