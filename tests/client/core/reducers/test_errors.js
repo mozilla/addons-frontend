@@ -151,4 +151,18 @@ describe('errors reducer', () => {
     const state = errors(undefined, action);
     assert.equal(state[action.payload.id].code, code);
   });
+
+  it('does not turn an error code into a message', () => {
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: {
+        code: 'ERROR_SIGNATURE_EXPIRED',
+        detail: 'Some message.',
+      },
+    });
+    const action = setError({ id: 'some-id', error });
+    const state = errors(undefined, action);
+    assert.deepEqual(state[action.payload.id].messages, ['Some message.']);
+  });
 });

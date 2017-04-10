@@ -13,7 +13,7 @@ import { gettext } from 'core/utils';
  */
 function getMessagesFromError(error) {
   let data = {
-    errorCode: undefined,
+    code: undefined,
     messages: [gettext('An unexpected error occurred')],
   };
   log.info('Extracting messages from error object:', error);
@@ -23,6 +23,10 @@ function getMessagesFromError(error) {
 
     Object.keys(error.response.data).forEach((key) => {
       const val = error.response.data[key];
+      if (key === 'code') {
+        data = { ...data, code: val };
+        return;
+      }
       if (Array.isArray(val)) {
         // Most API reponse errors will consist of a key (which could be a
         // form field) and an array of localized messages.
@@ -48,8 +52,6 @@ function getMessagesFromError(error) {
     } else {
       log.warn('API error response did not contain any messages', error);
     }
-
-    data = { ...data, code: error.response.data.code };
   }
   return data;
 }
