@@ -144,7 +144,8 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
 * You can add a `$FLOW_FIXME` comment to skip a Flow check if you run
   into a bug or if you hit something that's making you bang your head on
   the keyboard. If it's something you think is unfixable then use
-  `$FLOW_IGNORE` instead.
+  `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link
+  to a github issue if possible.
 
 ### Code coverage
 
