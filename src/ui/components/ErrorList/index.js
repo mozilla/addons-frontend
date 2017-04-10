@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
+import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
@@ -36,7 +37,7 @@ class ErrorList extends React.Component {
         // Until then, let's just prevent it from triggering an exception.
         msgString = JSON.stringify(msgString);
       }
-      if (code === 'ERROR_SIGNATURE_EXPIRED') {
+      if (code === API_ERROR_SIGNATURE_EXPIRED) {
         // This API error describes exactly what happened but that isn't
         // very helpful for AMO users. Let's help them figure it out.
         log.debug(`Detected ${code}, replacing API translation: ${msgString}`);
@@ -45,7 +46,7 @@ class ErrorList extends React.Component {
       items.push(msgString);
     });
 
-    if (code === 'ERROR_SIGNATURE_EXPIRED') {
+    if (code === API_ERROR_SIGNATURE_EXPIRED) {
       items.push(
         <Button onClick={() => _window.location.reload()}>
           {i18n.gettext('Reload To Continue')}

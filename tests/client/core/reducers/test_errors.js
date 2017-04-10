@@ -1,5 +1,6 @@
 import { createApiError } from 'core/api/index';
 import { clearError, setError } from 'core/actions/errors';
+import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
 import errors, { initialState } from 'core/reducers/errors';
 
 export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
@@ -138,18 +139,17 @@ describe('errors reducer', () => {
   });
 
   it('adds an error code', () => {
-    const code = 'ERROR_SIGNATURE_EXPIRED';
     const error = createApiError({
       response: { status: 401 },
       apiURL: 'https://some/api/endpoint',
       jsonResponse: {
-        code,
+        code: API_ERROR_SIGNATURE_EXPIRED,
         detail: 'Any message about an expired signature.',
       },
     });
     const action = setError({ id: 'some-id', error });
     const state = errors(undefined, action);
-    assert.equal(state[action.payload.id].code, code);
+    assert.equal(state[action.payload.id].code, API_ERROR_SIGNATURE_EXPIRED);
   });
 
   it('does not turn an error code into a message', () => {
@@ -157,7 +157,7 @@ describe('errors reducer', () => {
       response: { status: 401 },
       apiURL: 'https://some/api/endpoint',
       jsonResponse: {
-        code: 'ERROR_SIGNATURE_EXPIRED',
+        code: API_ERROR_SIGNATURE_EXPIRED,
         detail: 'Some message.',
       },
     });

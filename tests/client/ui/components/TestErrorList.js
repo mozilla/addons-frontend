@@ -2,6 +2,7 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
 
+import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/client/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -50,7 +51,7 @@ describe('ui/components/ErrorList', () => {
     const _window = { location: { reload: sinon.stub() } };
     const root = render({
       _window,
-      code: 'ERROR_SIGNATURE_EXPIRED',
+      code: API_ERROR_SIGNATURE_EXPIRED,
       messages: ['Signature error'],
     });
 
