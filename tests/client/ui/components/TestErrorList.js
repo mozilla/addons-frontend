@@ -46,13 +46,18 @@ describe('ui/components/ErrorList', () => {
     assert.equal(root.textContent, JSON.stringify(objectMessage));
   });
 
-  it('renders a reload button', () => {
+  it('renders a reload button for signature expired errors', () => {
     const _window = { location: { reload: sinon.stub() } };
     const root = render({
       _window,
-      messages: ['Some error'],
-      needsPageRefresh: true,
+      code: 'ERROR_SIGNATURE_EXPIRED',
+      messages: ['Signature error'],
     });
+
+    const message = root.querySelectorAll('.ErrorList-item')[0];
+    // A better message should be displayed:
+    assert.equal(message.textContent, 'Your session has expired');
+
     const button = root.querySelector('.ErrorList-item .Button');
     assert.equal(button.textContent, 'Reload To Continue');
     Simulate.click(button);

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 
@@ -12,19 +13,18 @@ import './styles.scss';
 class ErrorList extends React.Component {
   static propTypes = {
     _window: PropTypes.object,
+    code: PropTypes.string,
     className: PropTypes.string,
     i18n: PropTypes.object.isRequired,
     messages: PropTypes.array.isRequired,
-    needsPageRefresh: PropTypes.boolean,
   }
 
   static defaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
-    needsPageRefresh: false,
   };
 
   render() {
-    const { _window, className, i18n, messages, needsPageRefresh } = this.props;
+    const { _window, code, className, i18n, messages } = this.props;
     const items = [];
 
     messages.forEach((msg) => {
@@ -36,10 +36,16 @@ class ErrorList extends React.Component {
         // Until then, let's just prevent it from triggering an exception.
         msgString = JSON.stringify(msgString);
       }
+      if (code === 'ERROR_SIGNATURE_EXPIRED') {
+        // This API error describes exactly what happened but that isn't
+        // very helpful for AMO users. Let's help them figure it out.
+        log.debug(`Detected ${code}, replacing API translation: ${msgString}`);
+        msgString = i18n.gettext('Your session has expired');
+      }
       items.push(msgString);
     });
 
-    if (needsPageRefresh) {
+    if (code === 'ERROR_SIGNATURE_EXPIRED') {
       items.push(
         <Button onClick={() => _window.location.reload()}>
           {i18n.gettext('Reload To Continue')}
