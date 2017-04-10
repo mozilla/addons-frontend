@@ -15,7 +15,8 @@
 ./flow/libs/dedent.js.flow
 
 [options]
-# This maps all sass imports to a dummy flow file to suppress import errors.
+# This maps all Sass/SCSS imports to a dummy Flow file to suppress import
+# errors. It's not necessary for Flow to analyze Sass/SCSS files.
 module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/flowStub.js.flow'
 module.system=node
 module.system.node.resolve_dirname=node_modules
