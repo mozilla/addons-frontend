@@ -1,12 +1,4 @@
 /* @flow */
-import {
-  ADDON_TYPE_DICT,
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
-  ADDON_TYPE_THEME,
-} from 'core/constants';
-
 export type AddonVersionType = {|
   id: number,
   channel: string,
@@ -22,13 +14,6 @@ export type AddonAuthorType = {|
   name: string,
   url: string,
 |};
-
-export type AddonTypeProp =
-  typeof ADDON_TYPE_DICT |
-  typeof ADDON_TYPE_LANG |
-  typeof ADDON_TYPE_SEARCH |
-  typeof ADDON_TYPE_THEME |
-  typeof ADDON_TYPE_EXTENSION;
 
 export type AddonType = {|
   id: number,
@@ -76,7 +61,7 @@ export type AddonType = {|
   support_url: string,
   tags: Array<string>,
   theme_data: Object,
-  type: AddonTypeProp,
+  type: string,
   url: string,
   weekly_downloads: number,
 |};

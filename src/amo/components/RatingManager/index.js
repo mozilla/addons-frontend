@@ -27,11 +27,7 @@ import type { SubmitReviewParams } from 'amo/api';
 import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/reduxTypes';
-import type {
-  AddonType,
-  AddonTypeProp,
-  AddonVersionType
-} from 'core/types/addonTypes';
+import type { AddonType, AddonVersionType } from 'core/types/addonTypes';
 
 import './styles.scss';
 
@@ -113,7 +109,7 @@ export class RatingManagerBase extends React.Component {
   }
 
   getLogInPrompt(
-    { addonType }: {| addonType: AddonTypeProp |},
+    { addonType }: {| addonType: string |},
     {
       validAddonTypes = defaultValidAddonTypes,
     }: {|

@@ -10,7 +10,7 @@ import {
 } from 'core/constants';
 
 export type SetAuthTokenAction = {|
-  type: typeof SET_AUTH_TOKEN,
+  type: string,
   payload: {| token: string |},
 |};
 
@@ -25,7 +25,7 @@ export function setAuthToken(token: string): SetAuthTokenAction {
 }
 
 export type LogOutUserAction = {|
-  type: typeof LOG_OUT_USER,
+  type: string,
 |};
 
 export function logOutUser(): LogOutUserAction {
@@ -33,7 +33,7 @@ export function logOutUser(): LogOutUserAction {
 }
 
 export type SetClientAppAction = {|
-  type: typeof SET_CLIENT_APP,
+  type: string,
   payload: {| clientApp: string |},
 |};
 
@@ -48,7 +48,7 @@ export function setClientApp(clientApp: string): SetClientAppAction {
 }
 
 export type SetLangAction = {|
-  type: typeof SET_LANG,
+  type: string,
   payload: {| lang: string |},
 |};
 
@@ -60,7 +60,7 @@ export function setLang(lang: string): SetLangAction {
 }
 
 export type SetUserAgentAction = {|
-  type: typeof SET_USER_AGENT,
+  type: string,
   payload: {| userAgent: string |},
 |};
 
@@ -72,7 +72,7 @@ export function setUserAgent(userAgent: string): SetUserAgentAction {
 }
 
 export type LoadEntitiesAction = {|
-  type: typeof ENTITIES_LOADED,
+  type: string,
   payload: {| entities: Array<Object> |},
 |};
 
@@ -84,7 +84,7 @@ export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
 }
 
 export type SetCurrentUserAction = {|
-  type: typeof SET_CURRENT_USER,
+  type: string,
   payload: {| username: string |},
 |};
 

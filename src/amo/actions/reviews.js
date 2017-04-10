@@ -36,7 +36,7 @@ export function denormalizeReview(review: ApiReviewType): UserReviewType {
 }
 
 export type SetReviewAction = {|
-  type: typeof SET_REVIEW,
+  type: string,
   payload: UserReviewType,
 |};
 
@@ -57,7 +57,7 @@ export const setDenormalizedReview = (
 };
 
 export type SetAddonReviewsAction = {|
-  type: typeof SET_ADDON_REVIEWS,
+  type: string,
   payload: {|
     addonSlug: string,
     reviews: Array<UserReviewType>,
