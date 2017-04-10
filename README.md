@@ -117,7 +117,7 @@ Here is our Flow manifesto:
 * Never import a real JS object just to reference its type. Make a type alias
   and import that instead.
 * Never add more type annotations than you need. Flow is really good at
-  inferring types from standard JavaScript code; it will tell you
+  inferring types from standard JS code; it will tell you
   when you need to add explicit annotations.
 * When a function like `getAllAddons` takes object arguments, call its
   type object `GetAllAddonsParams`. Example:
