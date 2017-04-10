@@ -34,10 +34,8 @@ export class ErrorHandler {
   }
 
   renderError() {
-    const { messages, needsPageRefresh } = this.capturedError;
-    return (
-      <ErrorList messages={messages} needsPageRefresh={needsPageRefresh} />
-    );
+    const { code, messages } = this.capturedError;
+    return <ErrorList messages={messages} code={code} />;
   }
 
   handle(error) {
