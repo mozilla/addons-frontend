@@ -38,7 +38,7 @@ import './styles.scss';
 type LoadSavedReviewFunc = ({|
   userId: number,
   addonId: number,
-|}) => Promise<*>;
+|}) => Promise<any>;
 
 type SubmitReviewFn = (SubmitReviewParams) => Promise<void>;
 
