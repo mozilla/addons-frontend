@@ -13,8 +13,8 @@ import { gettext } from 'core/utils';
  */
 function getMessagesFromError(error) {
   let data = {
+    errorCode: undefined,
     messages: [gettext('An unexpected error occurred')],
-    needsPageRefresh: false,
   };
   log.info('Extracting messages from error object:', error);
 
@@ -49,16 +49,7 @@ function getMessagesFromError(error) {
       log.warn('API error response did not contain any messages', error);
     }
 
-    if (
-      error.response.data.detail &&
-      // TODO: switch to checking for a code after
-      // https://github.com/mozilla/addons-server/issues/5122
-      error.response.data.detail === 'Signature has expired.'
-    ) {
-      // In this case, the only way to recover from the error is to
-      // refresh the page. It is impossible to fully avoid this state.
-      data = { ...data, needsPageRefresh: true };
-    }
+    data = { ...data, code: error.response.data.code };
   }
   return data;
 }
@@ -73,11 +64,11 @@ export default function errors(state = initialState, action) {
         [action.payload.id]: null,
       };
     case SET_ERROR: {
-      const { messages, needsPageRefresh } =
+      const { code, messages } =
         getMessagesFromError(action.payload.error);
       return {
         ...state,
-        [action.payload.id]: { messages, needsPageRefresh },
+        [action.payload.id]: { code, messages },
       };
     }
     default:
