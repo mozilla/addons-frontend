@@ -26,8 +26,8 @@ import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api';
 import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
-import type { DispatchFunc } from 'core/types/reduxTypes';
-import type { AddonType, AddonVersionType } from 'core/types/addonTypes';
+import type { DispatchFunc } from 'core/types/redux';
+import type { AddonType, AddonVersionType } from 'core/types/addons';
 
 import './styles.scss';
 

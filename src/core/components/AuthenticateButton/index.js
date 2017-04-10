@@ -12,7 +12,7 @@ import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
-import type { DispatchFunc } from 'core/types/reduxTypes';
+import type { DispatchFunc } from 'core/types/redux';
 
 type HandleLogInFunc = (
   location: UrlFormatParams, options?: {| _window: typeof window |}
