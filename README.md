@@ -112,7 +112,7 @@ Here is our Flow manifesto:
 * Try to avoid magic [Flow declarations](https://flowtype.org/en/docs/config/libs/)
   for any *internal* code. Just declare a
   [type alias](https://flowtype.org/en/docs/types/aliases/) next to the code
-  where it's used and export / import it like any other object.
+  where it's used and export/import it like any other object.
 * Never import a real JS object just to reference its type. Make a type alias
   and import that instead.
 * Never add more type annotations then you need to. Flow is really good at
