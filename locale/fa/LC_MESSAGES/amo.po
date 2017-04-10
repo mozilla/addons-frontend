@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-04-03 17:04+0000\n"
+"PO-Revision-Date: 2017-04-09 21:15+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -24,20 +24,20 @@ msgstr "در حال حاضر فایرفاکس برای iOS از افزونه‌�
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "این افزونه نیازمند یک <a href=\"%(downloadUrl)s\">نسخه جدیدتر فایرفاکس</a> است (حداقل نسخه %(minVersion)s). هم‌اکنون شما از نسخه %(yourVersion)s فایرفاکس استفاده می‌کنید."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "مرورگر شما از افزونه‌ها پشتیبانی نمی‌کند. شما می‌توانید <a href=\"%(downloadUrl)s\"> را دریافت کرده </a> تا بتوانید این افزونه را نصب کنید."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
+msgstr[0] "همه‌ی %(count)s بازخورد‌ها را بخوانید"
 
 #: src/amo/components/AddonDetail.js:144
 msgid "No reviews yet"
-msgstr ""
+msgstr "تاکنون بدون بازخوردی ندارد"
 
 #: src/amo/components/AddonDetail.js:153
 msgid "Rate your experience"
@@ -53,34 +53,29 @@ msgstr "فرادادهٔ ضمیمه"
 
 #: src/amo/components/AddonDetail.js:228
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "درباره این %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-#, fuzzy
 msgid "Cancel preview"
-msgstr "یک بررسی بنویسید"
+msgstr "لغو پیش‌نمایش"
 
 #: src/amo/components/AddonDetail.js:92
-#, fuzzy
 msgid "Tap to preview"
-msgstr "یک بررسی بنویسید"
+msgstr "انتخاب برای پیش‌نمایش"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "%(users)s کاربر"
+msgstr[0] "%(total)s کاربر"
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "بدون امتیاز"
+msgstr[0] "%(total)s بازخورد"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
-msgstr "یک بررسی بنویسید"
+msgstr "بدون بازخورد"
 
 #: src/amo/components/AddonMeta.js:41
 msgid "Used by"
@@ -88,45 +83,43 @@ msgstr "استفاده شده توسط"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "صفحه نخست"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "سایت پشتیبانی"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr ""
+msgstr "اطلاعات بیشتر"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "افزونه‌های فایرفاکس"
+msgstr "پیوند‌های افزونه"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
-msgstr ""
+msgstr "نسخه"
 
 #: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
-msgstr ""
+msgstr "آخرین بروزرسانی"
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
-msgstr ""
+msgstr "گواهینامه"
 
 #: src/amo/components/AddonMoreInfo.js:81
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "سیاست‌های حریم‌خصوصی"
 
 #: src/amo/components/AddonMoreInfo.js:87
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "سیاست‌های حریم خصوصی برای این افزونه را بخوانید"
 
 #: src/amo/components/AddonReview.js:104
 msgid "Write a review"
@@ -134,12 +127,11 @@ msgstr "یک بررسی بنویسید"
 
 #: src/amo/components/AddonReview.js:110
 msgid "Review text"
-msgstr ""
+msgstr "متن بازخورد"
 
 #: src/amo/components/AddonReview.js:124
-#, fuzzy
 msgid "Submit review"
-msgstr "یک بررسی بنویسید"
+msgstr "ثبت بازخورد"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
@@ -147,94 +139,95 @@ msgstr "به همه دنیا بگویید که چرا این ضمیمه باحا
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "به ما بگویید چرا این افزونه را دوست دارید. صریح و مختصر بنویسید."
 
 #: src/amo/components/AddonReview.js:95
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "به همه دنیا بگویید که چرا این ضمیمه باحال است!"
+msgstr "به همه دنیا درباره این افزونه بگویید."
 
 #: src/amo/components/AddonReview.js:96
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "از تجربه خود با این افزونه به ما بگویید. صریح و مختصر بنویسید."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "از %(authorName)s، %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
-#, fuzzy
 msgid "Loading..."
-msgstr "در حال جستجو…"
+msgstr "در حال بارگذاری..."
 
 #: src/amo/components/AddonReviewList.js:62
-#, fuzzy
 msgid "Add-on icon"
-msgstr "افزونه‌های فایرفاکس"
+msgstr "آیکن افزونه‌"
 
 #: src/amo/components/AddonReviewList.js:67
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "بازخوردها برای %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:70
-#, fuzzy
 msgid "All written reviews"
-msgstr "یک بررسی بنویسید"
+msgstr "همه بازخوردهای نوشته شده"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
-msgstr ""
+msgstr "بارگذاری دسته‌ها ناموفق بود."
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "هیچ دسته‌بندی یافت نشد."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"اگر شما به حساب کاربری خود وارد شده‌اید و فکر میکنید این خطا نادرست است، لطفاً <a href=\"%(url)s\"> یک گزارش خطا ثبت کنید</a>. به ما بگویید کجا به مشکل برخوردید و سعی انجام چه کاری را داشته‌اید، و "
+"ما این مشکل را برطرف خواهیم کرد."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
-msgstr ""
+msgstr "مجاز نیست"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "متاسفیم، اما شما برای دسترسی به این صفحه تایید نشده‌اید. اگر شما به ناحیه کاربری خود وارد نشده‌اید تلاش کنید که از لینک بالای این صفحه استفاده کنید."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
+"اگر شما یک پیوند را از جایی دنبال کرده‌اید، لطفا <a href=\"%(url)s\">یک گزارش خطا</a> ارسال کنید. به ما بگویید از کجا آمده‌اید و قصد انجام چه کاری را داشته‌اید، و ما سعی خواهیم کرد که این مشکل را "
+"برطرف کنیم."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
-msgstr ""
+msgstr "صفحه پیدا نشد"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr ""
+msgstr "متاسفانه نمی‌توانیم چیزی در آدرسی که شما وارد کردید پیدا کنیم. اگر به وسیله یک پیوند به این افزونه رسیده‌اید، این احتمال وجود دارد که افزونه توسط سازنده‌اش حذف شده باشد."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"اگر اطلاعات اضافی‌ای دارید که ممکن است به ما کمک کند می‌توانید <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">گزارش خطا</a> ارسال کنید. به ما بگویید چه کارهایی انجام داده‌اید که "
+"منجر به این خطا شده و با این مشکل را برطرف خواهیم کرد."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "خطای کارگزار"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "متاسفانه خطایی در سرور ما رخ داد و نتوانستیم درخواست شما را کامل کنیم. این خطا نگه داری شده و مورد بررسی قرار خواهد گرفت."
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "مرور تمام ضمیمه‌ها"
+msgstr "افزونه‌های منتخب بیشتر"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "پوسته‌های منتخب بیشتر"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -246,7 +239,7 @@ msgstr "نکات حقوقی"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "گزارش خطا"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -254,81 +247,71 @@ msgstr "نمایش میزکار وب‌سایت"
 
 #: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "قالب‌ها"
 
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
-#, fuzzy
 msgid "Extensions"
-msgstr "فرادادهٔ ضمیمه"
+msgstr "افزونه‌ها"
 
 #: src/amo/components/LandingPage.js:119
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "ظاهر مرورگر خود را تغییر دهید. از هزاران قالب انتخاب کنید و به فایرفاکسِ خود نمایی بدهید که دوست دارید."
 
 #: src/amo/components/LandingPage.js:121
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr ""
+msgstr "نصب ابزار قدرتمندی که اینترنت‌گردی شما را سریع‌تر و امن‌تر می‌کند، افزونه‌ها مرورگر را متعلق به شما می‌کند."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "مرور بر اساس دسته‌بندی"
 
 #: src/amo/components/LandingPage.js:51
-#, fuzzy
 msgid "Featured extensions"
-msgstr "مرور تمام ضمیمه‌ها"
+msgstr "افزونه‌های منتخب"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "More featured extensions"
-msgstr "مرور تمام ضمیمه‌ها"
+msgstr "افزونه‌های منتخب بیشتر"
 
 #: src/amo/components/LandingPage.js:56
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "مرور تمام ضمیمه‌ها"
+msgstr "محبوب‌ترین افزونه‌ها"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "More popular extensions"
-msgstr "مرور تمام ضمیمه‌ها"
+msgstr "افزونه‌های محبوب بیشتر"
 
 #: src/amo/components/LandingPage.js:62
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "مرور تمام ضمیمه‌ها"
+msgstr "افزونه‌های با بیشترین امتیاز"
 
 #: src/amo/components/LandingPage.js:70
-#, fuzzy
 msgid "More highly rated extensions"
-msgstr "مرور تمام ضمیمه‌ها"
+msgstr "پوسته‌های داری امتیاز بالای بیشتر"
 
 #: src/amo/components/LandingPage.js:73
 msgid "Featured themes"
-msgstr ""
+msgstr "پوسته‌های منتخب"
 
 #: src/amo/components/LandingPage.js:77
 msgid "More featured themes"
-msgstr ""
+msgstr "پوسته‌های منتخب بیشتر"
 
 #: src/amo/components/LandingPage.js:78
-#, fuzzy
 msgid "Most popular themes"
-msgstr "مرور تمام تم‌ها"
+msgstr "محبوب‌ترین پوسته‌ها"
 
 #: src/amo/components/LandingPage.js:83
-#, fuzzy
 msgid "More popular themes"
-msgstr "مرور تمام تم‌ها"
+msgstr "پوسته‌های محبوب بیشتر"
 
 #: src/amo/components/LandingPage.js:84
-#, fuzzy
 msgid "Top rated themes"
-msgstr "مرور تمام تم‌ها"
+msgstr "پوسته‌های با بیشترین امتیاز"
 
 #: src/amo/components/LandingPage.js:89
 msgid "More highly rated themes"
-msgstr ""
+msgstr "پوسته‌هایی با امتیاز ِبالای بیشتر"
 
 #: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
@@ -340,20 +323,19 @@ msgstr "افزونه‌های فایرفاکس"
 
 #: src/amo/components/RatingManager/index.js:101
 msgid "Log in to rate this search engine"
-msgstr ""
+msgstr "وارد شوید تا به این موتور جستجو رای دهید"
 
 #: src/amo/components/RatingManager/index.js:103
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "وارد شوید تا به این قالب رای دهید"
 
 #: src/amo/components/RatingManager/index.js:105
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "درباره این ضمیمه"
+msgstr "وارد شوید تا به این افزونه امتیاز دهید"
 
 #: src/amo/components/RatingManager/index.js:111
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "وارد شوید تا به این افزونه رای دهید"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -361,27 +343,25 @@ msgstr "از تجربه خود در استفاده از %(addonName)s چه فک�
 
 #: src/amo/components/RatingManager/index.js:97
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "برای رای دادن به این لغت‌نامه وارد شوید"
 
 #: src/amo/components/RatingManager/index.js:99
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "برای رای دادن به این بستهٔ زبان وارد شوید"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
-#, fuzzy
 msgid "Search"
-msgstr "در حال جستجو…"
+msgstr "جستجو"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "جستجوی افزونه‌ها و پوسته‌ها"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
-msgstr ""
+msgstr "پوسته‌ای برای پیش‌نمایش وجود ندارد"
 
 #: src/amo/components/SearchResults.js:42
-#, fuzzy
 msgid "Searching…"
 msgstr "در حال جستجو…"
 
@@ -390,37 +370,36 @@ msgid "No results were found for \"%(query)s\"."
 msgstr "هیچ نتیجه‌ای برای «%(query)s» پیدا نشد."
 
 #: src/amo/components/SearchResults.js:52
-#, fuzzy
 msgid "No results were found."
-msgstr "هیچ نتیجه‌ای برای «%(query)s» پیدا نشد."
+msgstr "هیچ نتیجه‌ای پیدا نشد."
 
 #: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "لطفاً عبارت جستجو را برای جستجو در افزونه‌های فایرفاکس وارد کنید."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "بروزرسانی‌های اخیر"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "مرتبط"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
-msgstr ""
+msgstr "بیشترین کاربر"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Top Rated"
-msgstr ""
+msgstr "بیشترین رای"
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "مرتب‌سازی"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "صفحات پیشنهادی"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -431,9 +410,8 @@ msgid "Browse all themes"
 msgstr "مرور تمام تم‌ها"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "افزونه‌های فایرفاکس"
+msgstr "صفحه خانگی افزودنه‌ها"
 
 #: src/amo/containers/App.js:106
 msgid "Add-ons for Firefox"
@@ -441,11 +419,11 @@ msgstr "افزونه‌های فایرفاکس"
 
 #: src/amo/containers/Home.js:39
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
+msgstr "افزونه‌های امکانات ویژه‌ای هستند که می‌توانید به فایرفاکس خود اضافه کنید. پوسته‌ها به شما اجازه می‌دهند که ظاهر مرورگر خود را تغییر دهید."
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "شما می‌توانید شیوه کار فایرفاکس را تغییر دهید…"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -457,7 +435,7 @@ msgstr "گرفتن عکس از صفحه"
 
 #: src/amo/containers/Home.js:61
 msgid "Find news"
-msgstr ""
+msgstr "یافتن اخبار"
 
 #: src/amo/containers/Home.js:64
 msgid "Shop online"
@@ -469,11 +447,11 @@ msgstr "اجتماعی بودن"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr ""
+msgstr "بازی کردن"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…یا همینطور ظاهر آن"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
@@ -485,7 +463,7 @@ msgstr "انتضاعی"
 
 #: src/amo/containers/Home.js:81
 msgid "Holiday"
-msgstr ""
+msgstr "تعطیلات"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -497,7 +475,7 @@ msgstr "ورزشی"
 
 #: src/amo/containers/Home.js:84
 msgid "Solid"
-msgstr ""
+msgstr "تک‌رنگ"
 
 #: src/core/components/AuthenticateButton/index.js:49
 msgid "Log out"
@@ -509,25 +487,23 @@ msgstr "ورود/ثبت‌نام"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "متاسفیم، اما خطایی رخ داد و ما نتوانستیم درخواست شما را کامل کنیم. ما این خطا را ضبط کرده‌ایم و آن را بررسی می‌کنیم."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "کد خطا: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "متاسفیم، نمی‌توانیم چیزی در URL وارد شده پیدا کنیم."
 
 #: src/core/components/InstallButton/index.js:72
-#, fuzzy
 msgid "Install Theme"
-msgstr "در حال نصب %(name)s."
+msgstr "نصب پوسته"
 
 #: src/core/components/InstallButton/index.js:88
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "افزونه‌های فایرفاکس"
+msgstr "افزودن به فایرفاکس"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
@@ -571,24 +547,23 @@ msgstr "صفحه %(currentPage)s از %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "افزودنی شما حاضر است"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "هم‌اکنون شما می‌توانید به %(name)s از نوار ابزار دسترسی داشته باشید."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr ""
+msgstr "خب!"
 
 #: src/core/reducers/errors.js:15
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "یک خطای پیش‌بینی نشده رخ داد"
 
 #: src/ui/components/Rating/index.js:91
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "میانگین امتیازها: %(rating)s از ۵"
+msgstr "دارای رتبه %(rating)s از ۵"
 
 #: src/ui/components/Rating/index.js:94
 msgid "No ratings"
@@ -596,7 +571,7 @@ msgstr "بدون امتیاز"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\"> باز کردن </span> برای خواندن بیشتر"
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "میانگین امتیازها: %(rating)s از ۵"
