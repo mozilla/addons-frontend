@@ -139,7 +139,8 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   [`src/core/types/coreTypes`](https://github.com/mozilla/addons-frontend/blob/master/src/core/types/coreTypes.js)
   if you have to.
 * Try to avoid loose types like `Object` or `any` but feel free to use
-  them if you are falling down a rabbit hole.
+  them if you are spending too much time declaring types that depend on other
+  types that depend on other types, and so on.
 * You can add a `$FLOW_FIXME` comment to skip a Flow check if you run
   into a bug or if you hit something that's making you bang your head on
   the keyboard. If it's something you think is unfixable then use
