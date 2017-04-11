@@ -28,22 +28,22 @@ class ErrorList extends React.Component {
     const { _window, code, className, i18n, messages } = this.props;
     const items = [];
 
-    messages.forEach((msg) => {
-      let msgString = msg;
-      if (typeof msgString === 'object') {
+    messages.forEach((messageItem) => {
+      let message = messageItem;
+      if (typeof message === 'object') {
         // This handles an unlikely scenario where an API error response
         // contains nested objects within objects. If this happens in real
         // life let's fix it or make the display prettier.
         // Until then, let's just prevent it from triggering an exception.
-        msgString = JSON.stringify(msgString);
+        message = JSON.stringify(message);
       }
       if (code === API_ERROR_SIGNATURE_EXPIRED) {
         // This API error describes exactly what happened but that isn't
         // very helpful for AMO users. Let's help them figure it out.
-        log.debug(`Detected ${code}, replacing API translation: ${msgString}`);
-        msgString = i18n.gettext('Your session has expired');
+        log.debug(`Detected ${code}, replacing API translation: ${message}`);
+        message = i18n.gettext('Your session has expired');
       }
-      items.push(msgString);
+      items.push(message);
     });
 
     if (!items.length) {
