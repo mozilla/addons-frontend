@@ -11,7 +11,7 @@ import log from 'core/logger';
  * http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#responses
  */
 function getMessagesFromError(error) {
-  let data = {
+  let errorData = {
     code: ERROR_UNKNOWN,
     messages: [],
   };
@@ -21,7 +21,7 @@ function getMessagesFromError(error) {
     Object.keys(error.response.data).forEach((key) => {
       const val = error.response.data[key];
       if (key === 'code') {
-        data = { ...data, code: val };
+        errorData = { ...errorData, code: val };
         return;
       }
       if (Array.isArray(val)) {
@@ -31,25 +31,25 @@ function getMessagesFromError(error) {
         val.forEach((msg) => {
           if (key === 'non_field_errors') {
             // Add a generic error not related to a specific field.
-            data.messages.push(msg);
+            errorData.messages.push(msg);
           } else {
             // Add field specific error message.
             // The field is not localized but we need to show it as a hint.
-            data.messages.push(`${key}: ${msg}`);
+            errorData.messages.push(`${key}: ${msg}`);
           }
         });
       } else {
         // This is most likely not a form field error so just show the message.
-        data.messages.push(val);
+        errorData.messages.push(val);
       }
     });
   }
 
-  if (!data.messages.length) {
+  if (!errorData.messages.length) {
     log.warn('Error object did not contain any messages', error);
   }
 
-  return data;
+  return errorData;
 }
 
 export const initialState = {};
