@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
 "PO-Revision-Date: 2017-03-16 02:02+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -62,12 +62,12 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s에 대한 정보"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "미리보기 취소"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "탭하여 미리보기"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "미리보기 취소"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 #, fuzzy
@@ -169,8 +169,7 @@ msgstr ""
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s로 부터, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "검색중..."
@@ -601,9 +600,17 @@ msgstr "이제 툴바에서 %(name)s를 사용할 수 있습니다."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "예기치 못한 오류 발생됨"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:91
 #, fuzzy
