@@ -104,4 +104,10 @@ module.exports = {
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-prod/
   publicSentryDsn: 'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
+
+  // The amount of time (in seconds) that an auth token lives for.
+  // This needs to match the SESSION_COOKIE_AGE in addons-server:
+  // https://github.com/mozilla/addons-server/blob/master/src/olympia/lib/settings_base.py#L990
+  authTokenValidFor: 2592000, // 30 days
+  // TODO: patch addons-server with a comment about keeping in sync with this.
 };

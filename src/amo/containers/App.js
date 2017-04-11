@@ -82,6 +82,8 @@ export class AppBase extends React.Component {
     if (authToken) {
       log.info('Setting a logout timer when the token expires');
       this.setLogOutTimer(authToken);
+    } else {
+      log.info('No authToken');
     }
   }
 
@@ -92,7 +94,19 @@ export class AppBase extends React.Component {
     const createdAt = base62.decode(parts[1]);
     // GMT Unix timestamp:
     console.log('token created at timestamp:', createdAt);
+    console.log('authTokenValidFor:', config.get('authTokenValidFor'));
+    const expiresAt = config.get('authTokenValidFor');
+    const now = Date.now() / 1000;
     console.log('token created at:', new Date(createdAt * 1000));
+
+    console.log('now:', now);
+    const expirationTime = createdAt + expiresAt - now;
+    console.log('expirationTime:', expirationTime);
+
+    setTimeout(() => this.props.logOutUser(), expirationTime * 1000);
+
+    console.log('token expires at:',
+      new Date((now + expirationTime) * 1000));
   }
 
   onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {

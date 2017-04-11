@@ -66,6 +66,7 @@ module.exports = {
   //
   clientConfigKeys: [
     'allowErrorSimulation',
+    'authTokenValidFor',
     'amoCDN',
     'apiHost',
     'apiPath',
