@@ -1,6 +1,6 @@
 import { createApiError } from 'core/api/index';
 import { clearError, setError } from 'core/actions/errors';
-import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
+import { API_ERROR_SIGNATURE_EXPIRED, ERROR_UNKNOWN } from 'core/constants';
 import errors, { initialState } from 'core/reducers/errors';
 
 export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
@@ -24,16 +24,6 @@ describe('errors reducer', () => {
     assert.deepEqual(errors(undefined, { type: 'UNRELATED' }), initialState);
   });
 
-  it('stores a simple error', () => {
-    const error = new Error('some message');
-    const action = setError({ id: 'some-id', error });
-    const state = errors(undefined, action);
-    assert.deepEqual(state[action.payload.id], {
-      messages: ['An unexpected error occurred'],
-      code: undefined,
-    });
-  });
-
   it('handles API object responses', () => {
     const message = 'Authentication credentials were not provided.';
     const error = createApiError({
@@ -44,7 +34,7 @@ describe('errors reducer', () => {
     const action = setError({ id: 'some-id', error });
     const state = errors(undefined, action);
     assert.deepEqual(state[action.payload.id], {
-      code: undefined,
+      code: ERROR_UNKNOWN,
       messages: [message],
     });
   });
@@ -90,11 +80,13 @@ describe('errors reducer', () => {
     assert.equal(state.action2.messages[0], 'action2');
   });
 
-  it('creates a default error message', () => {
+  it('stores a generic error', () => {
     const action = setError({ id: 'action1', error: new Error('any message') });
     const state = errors(undefined, action);
-    assert.deepEqual(state[action.payload.id].messages,
-                     ['An unexpected error occurred']);
+    assert.deepEqual(state[action.payload.id], {
+      code: ERROR_UNKNOWN,
+      messages: [],
+    });
   });
 
   it('gets non_field_errors from API error response', () => {
@@ -128,13 +120,13 @@ describe('errors reducer', () => {
     assert.include(messages, 'password: sorry, it cannot be 1234');
   });
 
-  it('handles API responses without any messages', () => {
+  it('stores API responses when they do not have messages', () => {
     // This API error has no messages (hopefully this won't ever happen).
     const action = setError({ id: 'some-id', error: createFakeApiError() });
     const state = errors(undefined, action);
     assert.deepEqual(state[action.payload.id], {
-      code: undefined,
-      messages: ['An unexpected error occurred'],
+      code: ERROR_UNKNOWN,
+      messages: [],
     });
   });
 

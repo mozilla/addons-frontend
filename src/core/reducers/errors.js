@@ -1,6 +1,5 @@
-import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
+import { CLEAR_ERROR, ERROR_UNKNOWN, SET_ERROR } from 'core/constants';
 import log from 'core/logger';
-import { gettext } from 'core/utils';
 
 /*
  * This inspects an error object and returns an array of messages from it.
@@ -13,14 +12,12 @@ import { gettext } from 'core/utils';
  */
 function getMessagesFromError(error) {
   let data = {
-    code: undefined,
-    messages: [gettext('An unexpected error occurred')],
+    code: ERROR_UNKNOWN,
+    messages: [],
   };
   log.info('Extracting messages from error object:', error);
 
   if (error && error.response && error.response.data) {
-    const apiMessages = [];
-
     Object.keys(error.response.data).forEach((key) => {
       const val = error.response.data[key];
       if (key === 'code') {
@@ -34,25 +31,24 @@ function getMessagesFromError(error) {
         val.forEach((msg) => {
           if (key === 'non_field_errors') {
             // Add a generic error not related to a specific field.
-            apiMessages.push(msg);
+            data.messages.push(msg);
           } else {
             // Add field specific error message.
             // The field is not localized but we need to show it as a hint.
-            apiMessages.push(`${key}: ${msg}`);
+            data.messages.push(`${key}: ${msg}`);
           }
         });
       } else {
         // This is most likely not a form field error so just show the message.
-        apiMessages.push(val);
+        data.messages.push(val);
       }
     });
-
-    if (apiMessages.length) {
-      data = { ...data, messages: apiMessages };
-    } else {
-      log.warn('API error response did not contain any messages', error);
-    }
   }
+
+  if (!data.messages.length) {
+    log.warn('Error object did not contain any messages', error);
+  }
+
   return data;
 }
 

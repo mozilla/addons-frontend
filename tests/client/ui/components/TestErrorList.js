@@ -31,6 +31,11 @@ describe('ui/components/ErrorList', () => {
     assert.equal(root.textContent, 'Some error');
   });
 
+  it('renders a generic message for errors without a message', () => {
+    const root = render({ messages: [] });
+    assert.equal(root.textContent, 'An unexpected error occurred');
+  });
+
   it('renders all messages', () => {
     const root = render({
       messages: ['One', 'Two', 'Three'],

@@ -6,6 +6,7 @@ import { createStore, combineReducers } from 'redux';
 
 import I18nProvider from 'core/i18n/Provider';
 import { createApiError } from 'core/api/index';
+import { ERROR_UNKNOWN } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
 import { ErrorHandler, withErrorHandler, withErrorHandling }
@@ -13,6 +14,7 @@ import { ErrorHandler, withErrorHandler, withErrorHandling }
 import errors from 'core/reducers/errors';
 import { getFakeI18nInst } from 'tests/client/helpers';
 import { createFakeApiError } from 'tests/client/core/reducers/test_errors';
+import ErrorList from 'ui/components/ErrorList';
 
 class SomeComponentBase extends React.Component {
   static propTypes = {
@@ -36,14 +38,14 @@ function createWrappedComponent({
     id, name: 'SomeComponent', ...options,
   })(SomeComponent);
 
-  const provider = renderIntoDocument(
+  const tree = renderIntoDocument(
     <I18nProvider i18n={getFakeI18nInst()}>
       <ComponentWithErrorHandling store={store} {...customProps} />
     </I18nProvider>
   );
-  const component = findRenderedComponentWithType(provider, SomeComponent);
+  const component = findRenderedComponentWithType(tree, SomeComponent);
 
-  return { store, component, dom: findDOMNode(provider) };
+  return { store, component, dom: findDOMNode(tree), tree };
 }
 
 describe('errorHandler', () => {
@@ -105,25 +107,29 @@ describe('errorHandler', () => {
   });
 
   describe('withErrorHandling', () => {
-    it('renders an error above component content', () => {
+    it('renders a generic error above component content', () => {
       const id = 'some-handler-id';
 
       const store = createErrorStore();
       store.dispatch(setError({ id, error: new Error() }));
 
-      const { dom } = createWrappedComponent({
+      const { dom, tree } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorList').textContent,
-                   'An unexpected error occurred');
+      const errorList = findRenderedComponentWithType(tree, ErrorList);
+      assert.equal(errorList.props.code, ERROR_UNKNOWN);
+      assert.deepEqual(errorList.props.messages, []);
+
       // It also renders component content:
       assert.equal(dom.querySelector('.SomeComponent').textContent,
                    'Component text');
     });
 
-    it('renders a nested API response object', () => {
+    it('passes a nested API response object', () => {
       const id = 'some-handler-id';
 
+      // This is a possible but unlikely API response. Make sure
+      // it gets passed to ErrorList correctly.
       const nestedMessage = { nested: { message: 'end' } };
       const store = createErrorStore();
       const error = createApiError({
@@ -133,18 +139,20 @@ describe('errorHandler', () => {
       });
       store.dispatch(setError({ id, error }));
 
-      const { dom } = createWrappedComponent({
+      const { tree } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorList').textContent,
-                   JSON.stringify(nestedMessage));
+      const errorList = findRenderedComponentWithType(tree, ErrorList);
+      assert.deepEqual(errorList.props.messages, [nestedMessage]);
     });
 
     it('renders component content when there is no error', () => {
-      const { dom } = createWrappedComponent({
+      const { dom, tree } = createWrappedComponent({
         decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorList'), null);
+      assert.throws(
+        () => findRenderedComponentWithType(tree, ErrorList),
+        /Did not find exactly one match/);
       assert.equal(dom.textContent, 'Component text');
     });
 
@@ -157,13 +165,13 @@ describe('errorHandler', () => {
       });
       store.dispatch(setError({ id, error }));
 
-      const { dom } = createWrappedComponent({
+      const { tree } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      const items = dom.querySelectorAll('.ErrorList-item');
-      assert(items.length, 'error list was not rendered');
-      assert.equal(items[0].textContent, 'first error');
-      assert.equal(items[1].textContent, 'second error');
+
+      const errorList = findRenderedComponentWithType(tree, ErrorList);
+      assert.deepEqual(
+        errorList.props.messages, ['first error', 'second error']);
     });
 
     it('erases cleared errors', () => {
@@ -173,10 +181,12 @@ describe('errorHandler', () => {
       store.dispatch(setError({ id, error: new Error() }));
       store.dispatch(clearError(id));
 
-      const { dom } = createWrappedComponent({
+      const { tree } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorList'), null);
+      assert.throws(
+        () => findRenderedComponentWithType(tree, ErrorList),
+        /Did not find exactly one match/);
     });
 
     it('ignores errors sent by other error handlers', () => {
@@ -185,10 +195,12 @@ describe('errorHandler', () => {
         id: 'another-handler-id', error: new Error(),
       }));
 
-      const { dom } = createWrappedComponent({
+      const { tree } = createWrappedComponent({
         store, id: 'this-handler-id', decorator: withErrorHandling,
       });
-      assert.equal(dom.querySelector('.ErrorList'), null);
+      assert.throws(
+        () => findRenderedComponentWithType(tree, ErrorList),
+        /Did not find exactly one match/);
     });
 
     it('passes through wrapped component properties without an error', () => {

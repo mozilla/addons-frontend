@@ -46,6 +46,11 @@ class ErrorList extends React.Component {
       items.push(msgString);
     });
 
+    if (!items.length) {
+      log.debug(`No messages were passed to ErrorList, code: ${code}`);
+      items.push(i18n.gettext('An unexpected error occurred'));
+    }
+
     if (code === API_ERROR_SIGNATURE_EXPIRED) {
       items.push(
         <Button onClick={() => _window.location.reload()}>
