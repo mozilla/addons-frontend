@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
 "PO-Revision-Date: 2016-12-22 21:11+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -64,12 +64,12 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:92
 #, fuzzy
-msgid "Cancel preview"
+msgid "Tap to preview"
 msgstr "כתיבת סקירה"
 
 #: src/amo/components/AddonDetail.js:92
 #, fuzzy
-msgid "Tap to preview"
+msgid "Cancel preview"
 msgstr "כתיבת סקירה"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
@@ -172,8 +172,7 @@ msgstr ""
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr ""
 
@@ -614,8 +613,16 @@ msgstr ""
 msgid "OK!"
 msgstr ""
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:91
