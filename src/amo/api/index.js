@@ -53,7 +53,7 @@ export function submitReview({
 }: SubmitReviewParams): Promise<ApiReviewType> {
   return new Promise(
     (resolve) => {
-      const data = {
+      const review = {
         addon: undefined,
         rating,
         version: versionId,
@@ -67,17 +67,17 @@ export function submitReview({
         endpoint = `${endpoint}/${reviewId}`;
         method = 'PATCH';
         // You cannot update the version of an existing review.
-        data.version = undefined;
+        review.version = undefined;
       } else {
         if (!addonId) {
           throw new Error('addonId is required when posting a new review');
         }
-        data.addon = addonId;
+        review.addon = addonId;
       }
 
       resolve(callApi({
         endpoint,
-        body: data,
+        body: review,
         method,
         auth: true,
         state: apiState,
