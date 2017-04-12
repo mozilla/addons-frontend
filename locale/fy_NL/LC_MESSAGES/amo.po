@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-11 19:32+0000\n"
-"PO-Revision-Date: 2017-03-29 06:48+0000\n"
+"PO-Revision-Date: 2017-04-12 12:00+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -15,33 +15,20 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonCompatibilityError/index.js:53
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Om dizze add-on te ynstallearjen moatte jo <a href=\"%(downloadUrl)s"
-"\">Firefox downloade</a>."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Om dizze add-on te ynstallearjen moatte jo <a href=\"%(downloadUrl)s\">Firefox downloade</a>."
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox foar iOS stipet op dit stuit noch gjin add-ons."
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Dizze add-on fereasket in <a href=\"%(downloadUrl)s\">nijere ferzje fan "
-"Firefox</a> (op syn minst ferzje %(minVersion)s). Jo brûke Firefox "
-"%(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Dizze add-on fereasket in <a href=\"%(downloadUrl)s\">nijere ferzje fan Firefox</a> (op syn minst ferzje %(minVersion)s). Jo brûke Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Jo browser stipet gjin add-ons. Jo kinne <a href=\"%(downloadUrl)s\">Firefox "
-"downloade</a> om dizze add-on te ynstallearjen."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Jo browser stipet gjin add-ons. Jo kinne <a href=\"%(downloadUrl)s\">Firefox downloade</a> om dizze add-on te ynstallearjen."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -151,23 +138,19 @@ msgstr "Beoardieling yntsjinje"
 
 #: src/amo/components/AddonReview.js:88
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
-"Fertel de wrâld wêrom't jo tinke dat dizze útwreiding bjusterbaarlik is!"
+msgstr "Fertel de wrâld wêrom't jo tinke dat dizze útwreiding bjusterbaarlik is!"
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Fertel ús wat jo sa befalt oan dizze útwreiding. Wês konkreet en koart."
+msgstr "Fertel ús wat jo sa befalt oan dizze útwreiding. Wês konkreet en koart."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
 msgstr "Jou in beskriuwing oer dizze útwreiding."
 
 #: src/amo/components/AddonReview.js:96
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Fertel ús oer jo ûnderfining mei dizze útwreiding. Wês konkreet en koart."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Fertel ús oer jo ûnderfining mei dizze útwreiding. Wês konkreet en koart."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
@@ -198,76 +181,44 @@ msgid "No categories found."
 msgstr "Gjin kategoryen fûn."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
-msgstr ""
-"As jo oanmeld binne en tinke dat dizze melding ûnterjochte is, <a href="
-"\"%(url)s\">meld dan in probleem</a>. Fertel ús wêr't jo wei kamen en wat jo "
-"probearre te iepenjen, en wy sille it ferhelpe."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr "As jo oanmeld binne en tinke dat dizze melding ûnterjochte is, <a href=\"%(url)s\">meld dan in probleem</a>. Fertel ús wêr't jo wei kamen en wat jo probearre te iepenjen, en wy sille it ferhelpe."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "Net autorisearre"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Sorry, mar jo hawwe gjin tagong ta dizze side. As jo net oanmeld binne, "
-"probearje jo dan oan te melden fia de keppeling boppe oan yn de side."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Sorry, mar jo hawwe gjin tagong ta dizze side. As jo net oanmeld binne, probearje jo dan oan te melden fia de keppeling boppe oan yn de side."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"As jo in keppeling earne wei folge hawwe, <a href=\"%(url)s\">meld dan in "
-"probleem</a>. Fertel ús wêr't jo wei kamen en wêr't jo nei op syk wiene, en "
-"wy sille probearje it op te lossen."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "As jo in keppeling earne wei folge hawwe, <a href=\"%(url)s\">meld dan in probleem</a>. Fertel ús wêr't jo wei kamen en wêr't jo nei op syk wiene, en wy sille probearje it op te lossen."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:32
-#: src/core/components/ErrorPage/NotFound/index.js:24
+#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "Side net fûn"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Sorry, mar wy kinne neat op it troch jo ynfierde adres fine. As jo in "
-"keppeling nei in add-on folge hawwe, is it mooglik dat de add-on troch de "
-"skriuwer fuortsmiten is."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Sorry, mar wy kinne neat op it troch jo ynfierde adres fine. As jo in keppeling nei in add-on folge hawwe, is it mooglik dat de add-on troch de skriuwer fuortsmiten is."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"As jo oanfoljende gegevens hawwe dy't ús helpe soene kinne, kinne jo <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">in probleem "
-"melde</a>. Fertel ús hokker stappen jo folge hawwe dy't nei de flater liede, "
-"en wy sille probearje it op te lossen."
+"As jo oanfoljende gegevens hawwe dy't ús helpe soene kinne, kinne jo <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">in probleem melde</a>. Fertel ús hokker stappen jo folge hawwe"
+" dy't nei de flater liede, en wy sille probearje it op te lossen."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:31
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Serverflater"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Sorry, mar der is in flater bard mei ús server, en wy koene jo oanfraach net "
-"foltôgje. Wy hawwe dizze flater fêstlein en sille him ûndersykje."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Sorry, mar der is in flater bard mei ús server, en wy koene jo oanfraach net foltôgje. Wy hawwe dizze flater fêstlein en sille him ûndersykje."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -302,20 +253,12 @@ msgid "Extensions"
 msgstr "Utwreidingen"
 
 #: src/amo/components/LandingPage.js:119
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Wizigje it uterlik fan jo browser. Kies út tûzenen tema's om Firefox oan te "
-"klaaien sa as jo wolle."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Wizigje it uterlik fan jo browser. Kies út tûzenen tema's om Firefox oan te klaaien sa as jo wolle."
 
 #: src/amo/components/LandingPage.js:121
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Ynstallearje krêftige helpmiddelen dy't it sneupjen flugger en feiliger "
-"makket, add-ons meitsje jo browser fan jo."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Ynstallearje krêftige helpmiddelen dy't it sneupjen flugger en feiliger makket, add-ons meitsje jo browser fan jo."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
@@ -474,12 +417,8 @@ msgid "Add-ons for Firefox"
 msgstr "Add-ons foar Firefox"
 
 #: src/amo/containers/Home.js:39
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
-msgstr ""
-"Utwreidingen binne spesjale funksjes dy't jo oan Firefox tafoegje kinne. Mei "
-"tema’s kinne jo de foarmjouwing fan jo browser wizigje."
+msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+msgstr "Utwreidingen binne spesjale funksjes dy't jo oan Firefox tafoegje kinne. Mei tema’s kinne jo de foarmjouwing fan jo browser wizigje."
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -546,15 +485,10 @@ msgid "Log in/Sign up"
 msgstr "Oanmelde/registrearje"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Sorry, mar der is in flater bard, en wy koene jo oanfraach net foltôgje. Wy "
-"hawwe dizze flater fêstlein en sille him ûndersykje."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Sorry, mar der is in flater bard, en wy koene jo oanfraach net foltôgje. Wy hawwe dizze flater fêstlein en sille him ûndersykje."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "Flaterkoade: %(status)s."
 
@@ -580,8 +514,7 @@ msgstr "%(name)s wurdt ynstallearre."
 
 #: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s is ynstallearre en ynskeakele. Klik om de add-on fuort te smiten."
+msgstr "%(name)s is ynstallearre en ynskeakele. Klik om de add-on fuort te smiten."
 
 #: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
@@ -625,7 +558,7 @@ msgstr "OK!"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Jo sesje is ferrûn"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
@@ -633,7 +566,7 @@ msgstr "Der is in ûnferwachte flater bard"
 
 #: src/ui/components/ErrorList/index.js:57
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Laad opnij om troch te gean"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
@@ -701,8 +634,7 @@ msgstr "<span class=\"visually-hidden\">Klap út om</span> mear te lêzen"
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
 #~ msgstr[0] "Jo sykopdracht nei ‘%(query)s’ hat %(count)s resultaat opsmiten."
-#~ msgstr[1] ""
-#~ "Jo sykopdracht nei ‘%(query)s’ hat %(count)s resultaten opsmiten."
+#~ msgstr[1] "Jo sykopdracht nei ‘%(query)s’ hat %(count)s resultaten opsmiten."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Fier in jildige sykopdracht yn"
