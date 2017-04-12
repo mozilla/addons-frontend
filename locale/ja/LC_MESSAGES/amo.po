@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-27 18:31+0000\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"PO-Revision-Date: 2017-04-12 00:19+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -56,12 +56,12 @@ msgid "About this %(addonType)s"
 msgstr "この %(addonType)s について"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "プレビューをキャンセル"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "タップしてプレビュー"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "プレビューをキャンセル"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -551,9 +551,17 @@ msgstr "今後はツールバーから %(name)s へアクセスできます。"
 msgid "OK!"
 msgstr "OK!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "セッションが期限切れとなりました"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "予期せぬエラーが発生しました"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "再読み込みして続ける"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

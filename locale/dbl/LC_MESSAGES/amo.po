@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,12 +61,12 @@ msgid "About this %(addonType)s"
 msgstr "Ȧƀǿŭŧ ŧħīş %(ȧḓḓǿƞŦẏƥḗ)ş"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "Ƈȧƞƈḗŀ ƥřḗṽīḗẇ"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "Ŧȧƥ ŧǿ ƥřḗṽīḗẇ"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Ƈȧƞƈḗŀ ƥřḗṽīḗẇ"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -164,8 +164,7 @@ msgstr "Ŧḗŀŀ ŭş ẇħȧŧ ẏǿŭ ŀǿṽḗ ȧƀǿŭŧ ŧħīş ḗẋŧ
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "ƒřǿḿ %(ȧŭŧħǿřȠȧḿḗ)ş, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Ŀǿȧḓīƞɠ..."
 
@@ -593,9 +592,17 @@ msgstr "Ƞǿẇ ẏǿŭ ƈȧƞ ȧƈƈḗşş %(name)s ƒřǿḿ ŧħḗ ŧǿǿŀ
 msgid "OK!"
 msgstr "ǾĶ!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Ȧƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

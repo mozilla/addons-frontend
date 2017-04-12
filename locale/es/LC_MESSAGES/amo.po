@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-30 20:54+0000\n"
-"Last-Translator: jlG <jlg.l10n.es@gmail.com>\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"PO-Revision-Date: 2017-04-12 08:27+0000\n"
+"Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -57,12 +57,12 @@ msgid "About this %(addonType)s"
 msgstr "Sobre este %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "Cancelar vista previa"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "Presiona para ver la vista previa"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Cancelar vista previa"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -557,9 +557,17 @@ msgstr "Ahora puedes acceder a %(name)s desde la barra de herramientas."
 msgid "OK!"
 msgstr "¡Vale!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Tu sesión ha expirado"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Se ha producido un error inesperado"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Recarga la página para continuar"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

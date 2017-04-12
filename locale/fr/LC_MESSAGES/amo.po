@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-27 17:31+0000\n"
-"Last-Translator: robby.roudon <robby.roudon@laposte.net>\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"PO-Revision-Date: 2017-04-12 12:07+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -57,12 +57,12 @@ msgid "About this %(addonType)s"
 msgstr "À propos de %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "Fermer l’aperçu"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "Appuyer pour afficher l’aperçu"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Fermer l’aperçu"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -562,9 +562,17 @@ msgstr "Vous pouvez désormais accéder à %(name)s depuis la barre d’outils."
 msgid "OK!"
 msgstr "OK"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Votre session a expiré"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Une erreur inattendue s’est produite"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Rechargez la page pour continuer"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

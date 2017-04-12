@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-28 14:15+0000\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"PO-Revision-Date: 2017-04-12 14:01+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -56,12 +56,12 @@ msgid "About this %(addonType)s"
 msgstr "關於此%(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "取消預覽"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "點擊預覽"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "取消預覽"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -551,9 +551,17 @@ msgstr "現在可以在工具列使用 %(name)s。"
 msgid "OK!"
 msgstr "好喔！"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "您的登入階段已逾期"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "發生未預期的錯誤"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "重新載入以繼續"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

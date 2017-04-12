@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-04-01 19:33+0000\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"PO-Revision-Date: 2017-04-12 17:37+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -57,12 +57,12 @@ msgid "About this %(addonType)s"
 msgstr "Om denne %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "Avbryt førehandsvising"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "Trykk for å førehandsvise"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Avbryt førehandsvising"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -558,9 +558,17 @@ msgstr "No kan du få tilgang til %(name)s frå verktøylinja."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Økta di har gått ut"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Det oppstod ein uventa feil"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Oppdater for å fortsetje"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-04-07 06:58+0000\n"
+"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"PO-Revision-Date: 2017-04-07 06:48+0000\n"
 "Last-Translator: Alfredos-Panagiotis Damkalis <fredy@fredy.gr>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -57,12 +57,12 @@ msgid "About this %(addonType)s"
 msgstr "Σχετικά με αυτό το %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "Ακύρωση προεπισκόπησης"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "Πατήστε για προεπισκόπηση"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Ακύρωση προεπισκόπησης"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -562,9 +562,17 @@ msgstr "Μπορείτε πλέον να έχετε πρόσβαση στο %(na
 msgid "OK!"
 msgstr "Εντάξει!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Η συνεδρία σας έχει λήξει"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Προέκυψε απροσδόκητο σφάλμα"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Επαναφορτώστε τη σελίδα για να συνεχίσετε"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
