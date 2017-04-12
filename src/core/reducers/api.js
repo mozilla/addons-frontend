@@ -15,7 +15,7 @@ import type {
   SetLangAction,
   SetUserAgentAction,
 } from 'core/actions/index';
-import type { Exact } from 'core/types/core';
+import type { Exact } from 'core/types/util';
 
 type UserAgentInfoType = {|
   browser: string,
