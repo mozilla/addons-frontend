@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-11 19:32+0000\n"
-"PO-Revision-Date: 2017-04-12 07:59+0000\n"
+"PO-Revision-Date: 2017-04-12 08:44+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -182,7 +182,7 @@ msgstr "Не са намерени категории."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr ""
+msgstr "Ако сте вписани и смятате, че това съобщение е грешка, моля, <a href=\"%(url)s\">докладвайте за дефект</a>. Разкажете ни от къде дойдохте и какво опитвахте да отворите и ние ще оправим проблема."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
