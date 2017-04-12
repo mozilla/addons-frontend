@@ -44,7 +44,8 @@ export type AddonType = {|
   |},
   review_url: string,
   slug: string,
-  status: 'beta'
+  status:
+    | 'beta'
     | 'lite'
     | 'public'
     | 'deleted'
