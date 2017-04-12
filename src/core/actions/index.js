@@ -10,8 +10,8 @@ import {
 } from 'core/constants';
 
 export type SetAuthTokenAction = {|
-  type: string,
   payload: {| token: string |},
+  type: string,
 |};
 
 export function setAuthToken(token: string): SetAuthTokenAction {
@@ -33,8 +33,8 @@ export function logOutUser(): LogOutUserAction {
 }
 
 export type SetClientAppAction = {|
-  type: string,
   payload: {| clientApp: string |},
+  type: string,
 |};
 
 export function setClientApp(clientApp: string): SetClientAppAction {
@@ -48,8 +48,8 @@ export function setClientApp(clientApp: string): SetClientAppAction {
 }
 
 export type SetLangAction = {|
-  type: string,
   payload: {| lang: string |},
+  type: string,
 |};
 
 export function setLang(lang: string): SetLangAction {
@@ -60,8 +60,8 @@ export function setLang(lang: string): SetLangAction {
 }
 
 export type SetUserAgentAction = {|
-  type: string,
   payload: {| userAgent: string |},
+  type: string,
 |};
 
 export function setUserAgent(userAgent: string): SetUserAgentAction {
@@ -72,8 +72,8 @@ export function setUserAgent(userAgent: string): SetUserAgentAction {
 }
 
 export type LoadEntitiesAction = {|
-  type: string,
   payload: {| entities: Array<Object> |},
+  type: string,
 |};
 
 export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
@@ -84,8 +84,8 @@ export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
 }
 
 export type SetCurrentUserAction = {|
-  type: string,
   payload: {| username: string |},
+  type: string,
 |};
 
 export function setCurrentUser(username: string): SetCurrentUserAction {

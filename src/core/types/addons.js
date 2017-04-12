@@ -1,9 +1,9 @@
 /* @flow */
 export type AddonVersionType = {|
-  id: number,
   channel: string,
   edit_url: string,
   files: Array<Object>,
+  id: number,
   // The `text` property is omitted from addon.current_version.license.
   license: { name: string, url: string },
   reviewed: Date,
@@ -16,7 +16,6 @@ export type AddonAuthorType = {|
 |};
 
 export type AddonType = {|
-  id: number,
   authors: Array<AddonAuthorType>,
   average_daily_users: number,
   categories: Object,
@@ -30,17 +29,18 @@ export type AddonType = {|
   has_privacy_policy: boolean,
   homepage: string,
   icon_url: string,
+  id: number,
   is_disabled: boolean,
   is_experimental: boolean,
   is_source_public: boolean,
-  name: string,
   last_updated: Date,
   latest_unlisted_version: ?AddonVersionType,
+  name: string,
   previews: Array<Object>,
   public_stats: boolean,
   ratings: {|
-    count: number,
     average: number,
+    count: number,
   |},
   review_url: string,
   slug: string,

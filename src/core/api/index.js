@@ -64,15 +64,15 @@ export function createApiError(
 }
 
 type CallApiParams = {|
-  endpoint: string,
-  schema?: Object,
-  params?: Object,
   auth?: boolean,
-  state?: ApiStateType,
-  method?: 'GET' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'PUT' | 'PATCH',
   body?: Object,
   credentials?: boolean,
+  endpoint: string,
   errorHandler?: ErrorHandlerType,
+  method?: 'GET' | 'POST' | 'DELETE' | 'HEAD' | 'OPTIONS' | 'PUT' | 'PATCH',
+  params?: Object,
+  schema?: Object,
+  state?: ApiStateType,
 |};
 
 export function callApi({
@@ -161,9 +161,9 @@ export function callApi({
 
 type SearchParams = {|
   api: ApiStateType,
-  page: number,
   auth: boolean,
   filters: Object,
+  page: number,
 |};
 
 export function search(
@@ -240,17 +240,17 @@ export function login({ api, code, state }: LoginParams) {
 
 // These are all possible parameters to url.format()
 export type UrlFormatParams = {|
-  +href?: string;
-  +protocol?: string;
-  +slashes?: boolean;
   +auth?: string;
-  +hostname?: string;
-  +port?: string | number;
-  +host?: string;
-  +pathname?: string;
-  +search?: string;
-  +query?: Object;
   +hash?: string;
+  +host?: string;
+  +hostname?: string;
+  +href?: string;
+  +pathname?: string;
+  +port?: string | number;
+  +protocol?: string;
+  +query?: Object;
+  +search?: string;
+  +slashes?: boolean;
 |};
 
 export function startLoginUrl({ location }: { location: UrlFormatParams }) {

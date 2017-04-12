@@ -11,10 +11,10 @@ export type ApiReviewType = {|
   |},
   body: string,
   created: Date,
-  title: string,
   id: number,
   is_latest: boolean,
   rating: number,
+  title: string,
   user: {|
     id: number,
     name: string,
@@ -29,13 +29,13 @@ export type ApiReviewType = {|
 // can type check each one independently.
 export type SubmitReviewParams = {|
   addonId?: number,
-  rating?: number,
   apiState?: ApiStateType,
+  body?: string,
   errorHandler?: ErrorHandlerType,
+  rating?: number,
+  reviewId?: number,
   title?: string,
   versionId?: number,
-  body?: string,
-  reviewId?: number,
 |};
 
 /*
@@ -113,8 +113,8 @@ export function getReviews(
 }
 
 type GetLatestReviewParams = {|
-  user: number,
   addon: number,
+  user: number,
 |};
 
 export function getLatestUserReview(

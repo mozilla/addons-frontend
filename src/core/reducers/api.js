@@ -23,17 +23,17 @@ type UserAgentInfoType = {|
 |};
 
 export type ApiStateType = {
-  token: ?string,
-  lang: ?string,
   clientApp: ?string,
+  lang: ?string,
+  token: ?string,
   userAgent: ?string,
   userAgentInfo: ?UserAgentInfoType,
 };
 
 export const initialApiState = {
-  token: null,
-  lang: null,
   clientApp: null,
+  lang: null,
+  token: null,
   userAgent: null,
   userAgentInfo: null,
 };
