@@ -148,7 +148,7 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   into a bug or if you hit something that's making you bang your head on
   the keyboard. If it's something you think is unfixable then use
   `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link
-  to a github issue if possible.
+  to a GitHub issue if possible.
 
 ### Code coverage
 
