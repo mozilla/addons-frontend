@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-11 19:32+0000\n"
-"PO-Revision-Date: 2017-04-07 06:58+0000\n"
-"Last-Translator: Alfredos-Panagiotis Damkalis <fredy@fredy.gr>\n"
+"PO-Revision-Date: 2017-04-12 00:40+0000\n"
+"Last-Translator: Giorgos S. <giorgos.skafidas@gmx.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -15,34 +15,20 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonCompatibilityError/index.js:53
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Πρέπει να κάνετε <a href=\"%(downloadUrl)s\">λήψη του Firefox</a> για να "
-"εγκαταστήσετε αυτό το πρόσθετο."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Πρέπει να κάνετε <a href=\"%(downloadUrl)s\">λήψη του Firefox</a> για να εγκαταστήσετε αυτό το πρόσθετο."
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Ο Firefox για iOS προς το παρόν δεν υποστηρίζει πρόσθετα."
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Για αυτό το πρόσθετο απαιτείται μια <a href=\"%(downloadUrl)s\">νεότερη "
-"έκδοση του Firefox</a> (τουλάχιστον %(minVersion)s). Η έκδοση του Firefox "
-"σας είναι η %(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Για αυτό το πρόσθετο απαιτείται μια <a href=\"%(downloadUrl)s\">νεότερη έκδοση του Firefox</a> (τουλάχιστον %(minVersion)s). Η έκδοση του Firefox σας είναι η %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Ο περιηγητής σας δεν υποστηρίζει πρόσθετα. Μπορείτε να κάνετε <a href="
-"\"%(downloadUrl)s\">λήψη του Firefox</a> για να εγκαταστήσετε αυτό το "
-"πρόσθετο."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Ο περιηγητής σας δεν υποστηρίζει πρόσθετα. Μπορείτε να κάνετε <a href=\"%(downloadUrl)s\">λήψη του Firefox</a> για να εγκαταστήσετε αυτό το πρόσθετο."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -156,20 +142,15 @@ msgstr "Πείτε στον κόσμο γιατί θεωρείτε ότι αυτ
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Πείτε μας τι σάς αρέσει σε αυτή την επέκταση. Να είστε συγκεκριμένοι και "
-"συνοπτικοί."
+msgstr "Πείτε μας τι σάς αρέσει σε αυτή την επέκταση. Να είστε συγκεκριμένοι και συνοπτικοί."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
 msgstr "Πείτε στον κόσμο για αυτή την επέκταση."
 
 #: src/amo/components/AddonReview.js:96
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Πείτε μας σχετικά με την εμπειρία σας με αυτή την επέκταση. Να είστε σαφής "
-"και περιεκτικός."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Πείτε μας σχετικά με την εμπειρία σας με αυτή την επέκταση. Να είστε σαφής και περιεκτικός."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
@@ -200,81 +181,50 @@ msgid "No categories found."
 msgstr "Δεν βρέθηκαν κατηγορίες."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Αν έχετε συνδεθεί και θεωρείτε ότι δεν θα έπρεπε να εμφανίζεται αυτό το "
-"μήνυμα, παρακαλώ <a href=\"%(url)s\">αναφέρετε το πρόβλημα</a>. Περιγράψτε "
-"μας από πού ήρθατε και τι προσπαθούσατε να προσπελάσετε προκειμένου να "
-"επιλύσουμε αυτό το θέμα."
+"Αν έχετε συνδεθεί και θεωρείτε ότι δεν θα έπρεπε να εμφανίζεται αυτό το μήνυμα, παρακαλώ <a href=\"%(url)s\">αναφέρετε το πρόβλημα</a>. Περιγράψτε μας από πού ήρθατε και τι προσπαθούσατε να "
+"προσπελάσετε προκειμένου να επιλύσουμε αυτό το θέμα."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "Μη πιστοποιημένο"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Λυπούμαστε, αλλά δεν σας επιτρέπεται η πρόσβαση σε αυτή τη σελίδα. Αν δεν "
-"έχετε συνδεθεί, προσπαθήστε να συνδεθείτε μέσω του συνδέσμου στο πάνω μέρος "
-"της σελίδας."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Λυπούμαστε, αλλά δεν σας επιτρέπεται η πρόσβαση σε αυτή τη σελίδα. Αν δεν έχετε συνδεθεί, προσπαθήστε να συνδεθείτε μέσω του συνδέσμου στο πάνω μέρος της σελίδας."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
-"Αν ακολουθήσατε έναν σύνδεσμο από κάπου αλλού, παρακαλώ <a href=\"%(url)s"
-"\">αναφέρετε το πρόβλημα</a>. Περιγράψτε μας από πού ήρθατε και τι "
-"προσπαθούσατε να προσπελάσετε και θα κάνουμε ό,τι μπορούμε για να επιλύσουμε "
-"το θέμα."
+"Αν ακολουθήσατε έναν σύνδεσμο από κάπου αλλού, παρακαλώ <a href=\"%(url)s\">αναφέρετε το πρόβλημα</a>. Περιγράψτε μας από πού ήρθατε και τι προσπαθούσατε να προσπελάσετε και θα κάνουμε ό,τι μπορούμε"
+" για να επιλύσουμε το θέμα."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:32
-#: src/core/components/ErrorPage/NotFound/index.js:24
+#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "Η σελίδα δεν βρέθηκε"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
 msgstr ""
-"Λυπούμαστε, αλλά δεν μπορούμε να εντοπίσουμε κάτι στη διεύθυνση που "
-"εισαγάγατε. Αν ακολουθήσατε έναν σύνδεσμο προς κάποιο πρόσθετο, ενδέχεται "
-"αυτό το πρόσθετο να έχει αφαιρεθεί από τον δημιουργό του."
+"Λυπούμαστε, αλλά δεν μπορούμε να εντοπίσουμε κάτι στη διεύθυνση που εισαγάγατε. Αν ακολουθήσατε έναν σύνδεσμο προς κάποιο πρόσθετο, ενδέχεται αυτό το πρόσθετο να έχει αφαιρεθεί από τον δημιουργό "
+"του."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Αν διαθέτετε περισσότερες πληροφορίες που θα μπορούσαν να μας βοηθήσουν, "
-"μπορείτε να <a href=\"https://github.com/mozilla/addons-frontend/issues/new/"
-"\">αναφέρετε το πρόβλημα</a>. Περιγράψτε μας τα βήματα που ακολουθήσατε πριν "
-"λάβετε το μήνυμα σφάλματος και θα κάνουμε ό,τι μπορούμε για να επιλύσουμε το "
-"θέμα."
+"Αν διαθέτετε περισσότερες πληροφορίες που θα μπορούσαν να μας βοηθήσουν, μπορείτε να <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">αναφέρετε το πρόβλημα</a>. Περιγράψτε μας τα "
+"βήματα που ακολουθήσατε πριν λάβετε το μήνυμα σφάλματος και θα κάνουμε ό,τι μπορούμε για να επιλύσουμε το θέμα."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:31
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Σφάλμα διακομιστή"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Λυπούμαστε, αλλά προέκυψε ένα σφάλμα στον εξυπηρετητή μας και δεν μπορέσαμε "
-"να ικανοποιήσουμε το αίτημα σας. Το σφάλμα αυτό έχει καταγραφεί και θα το "
-"διερευνήσουμε."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Λυπούμαστε, αλλά προέκυψε ένα σφάλμα στον εξυπηρετητή μας και δεν μπορέσαμε να ικανοποιήσουμε το αίτημα σας. Το σφάλμα αυτό έχει καταγραφεί και θα το διερευνήσουμε."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -309,20 +259,12 @@ msgid "Extensions"
 msgstr "Επεκτάσεις"
 
 #: src/amo/components/LandingPage.js:119
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Αλλάξτε την εμφάνιση του περιηγητή σας. Επιλέξτε ανάμεσα σε χιλιάδες θέματα "
-"για να δώσετε στον Firefox το στυλ που προτιμάτε."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Αλλάξτε την εμφάνιση του περιηγητή σας. Επιλέξτε ανάμεσα σε χιλιάδες θέματα για να δώσετε στον Firefox το στυλ που προτιμάτε."
 
 #: src/amo/components/LandingPage.js:121
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Εγκαταστήστε ισχυρά εργαλεία που κάνουν την περιήγηση ταχύτερη και "
-"ασφαλέστερη. Με τα πρόσθετα φέρνετε τον περιηγητή στα μέτρα σας."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Εγκαταστήστε ισχυρά εργαλεία που κάνουν την περιήγηση ταχύτερη και ασφαλέστερη. Με τα πρόσθετα φέρνετε τον περιηγητή στα μέτρα σας."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
@@ -438,8 +380,7 @@ msgstr "Δεν βρέθηκαν αποτελέσματα."
 
 #: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
-"Παρακαλώ εισάγετε έναν όρο αναζήτησης για αναζήτηση στα Πρόσθετα Firefox."
+msgstr "Παρακαλώ εισάγετε έναν όρο αναζήτησης για αναζήτηση στα Πρόσθετα Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
@@ -482,12 +423,8 @@ msgid "Add-ons for Firefox"
 msgstr "Πρόσθετα για το Firefox"
 
 #: src/amo/containers/Home.js:39
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
-msgstr ""
-"Οι επεκτάσεις είναι ειδικές λειτουργίες που μπορείτε να προσθέσετε στον "
-"Firefox. Τα θέματα σας επιτρέπουν να αλλάξετε την εμφάνιση του περιηγητή σας."
+msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+msgstr "Οι επεκτάσεις είναι ειδικές λειτουργίες που μπορείτε να προσθέσετε στον Firefox. Τα θέματα σας επιτρέπουν να αλλάξετε την εμφάνιση του περιηγητή σας."
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -554,15 +491,10 @@ msgid "Log in/Sign up"
 msgstr "Σύνδεση/Εγγραφή"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Λυπούμαστε, αλλά προέκυψε ένα σφάλμα και δεν μπορέσαμε να ικανοποιήσουμε το "
-"αίτημα σας. Το σφάλμα αυτό έχει καταγραφεί και θα το διερευνήσουμε."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Λυπούμαστε, αλλά προέκυψε ένα σφάλμα και δεν μπορέσαμε να ικανοποιήσουμε το αίτημα σας. Το σφάλμα αυτό έχει καταγραφεί και θα το διερευνήσουμε."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "Κωδικός σφάλματος: %(status)s."
 
@@ -588,9 +520,7 @@ msgstr "Γίνεται εγκατάσταση του %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για "
-"απεγκατάσταση."
+msgstr "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για απεγκατάσταση."
 
 #: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
@@ -634,7 +564,7 @@ msgstr "Εντάξει!"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Η συνεδρία σας έχει λήξει"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
@@ -642,7 +572,7 @@ msgstr "Προέκυψε απροσδόκητο σφάλμα"
 
 #: src/ui/components/ErrorList/index.js:57
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Επαναφορτώστε τη σελίδα για να συνεχίσετε"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
@@ -654,8 +584,7 @@ msgstr "Καμία κριτική"
 
 #: src/ui/components/ShowMoreCard/index.js:58
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
-"<span class=\"visually-hidden\">Επέκταση για</span> ανάγνωση περισσότερων"
+msgstr "<span class=\"visually-hidden\">Επέκταση για</span> ανάγνωση περισσότερων"
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s από 5"
@@ -711,8 +640,7 @@ msgstr ""
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
 #~ msgstr[0] "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτέλεσμα."
-#~ msgstr[1] ""
-#~ "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτελέσματα."
+#~ msgstr[1] "Η αναζήτησή σας για το \"%(query)s\" είχε %(count)s αποτελέσματα."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Παρακαλώ κάντε μια έγκυρη αναζήτηση"
