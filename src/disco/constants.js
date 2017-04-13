@@ -38,4 +38,5 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'deployment-checker@mozilla.org', // Site Deployment Checker
   'screenshots@mozilla.org', // Firefox Screenshots
   'disable-prefetch@mozilla.org', // Disable Prefetch
+  'activity-stream@mozilla.org', // Activity Stream
 ];
