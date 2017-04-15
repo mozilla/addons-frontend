@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-11 19:32+0000\n"
-"PO-Revision-Date: 2017-03-27 17:32+0000\n"
+"PO-Revision-Date: 2017-04-15 13:15+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -263,7 +263,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "Bla gjennom etter kategori"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
@@ -559,7 +559,7 @@ msgstr "OK!"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
-msgstr ""
+msgstr "Økten din har utløpt"
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
@@ -567,7 +567,7 @@ msgstr "En uventet feil oppstod"
 
 #: src/ui/components/ErrorList/index.js:57
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Oppdater for å fortsette"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
