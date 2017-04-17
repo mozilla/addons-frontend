@@ -24,7 +24,6 @@ before_install:
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then gunzip -c geckodriver.tar.gz | tar xopf -; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then chmod +x geckodriver && sudo mv geckodriver /usr/local/bin; fi
 before_script:
-- echo "TODO: npm rebuild node-sass"
 - if [ $GUI ]; then export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start && sleep 3; fi
 script:
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then
