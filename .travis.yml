@@ -24,6 +24,9 @@ before_install:
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then gunzip -c geckodriver.tar.gz | tar xopf -; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then chmod +x geckodriver && sudo mv geckodriver /usr/local/bin; fi
 before_script:
+# Make sure we have the right node-sass. See:
+# https://github.com/webpack-contrib/css-loader/issues/240#issuecomment-252661267
+- npm rebuild node-sass
 - if [ $GUI ]; then export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start && sleep 3; fi
 script:
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then
