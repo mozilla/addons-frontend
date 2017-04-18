@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-11 19:32+0000\n"
-"PO-Revision-Date: 2017-04-18 09:33+0000\n"
+"PO-Revision-Date: 2017-04-18 09:42+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -16,19 +16,19 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:53
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Lypset të <a href=\"%(downloadUrl)s\">shkarkoni Firefox-in</a> që të instaloni këtë shtesë."
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox-i për iOS hëpërhë nuk i mbulon shtesat."
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Kjo shtesë lyp një <a href=\"%(downloadUrl)s\">version më të ri të Firefox-it</a> (të paktën versionin %(minVersion)s). Po përdorni Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Shfletuesi juaj nuk i mbulon shtesat. Mund të <a href=\"%(downloadUrl)s\">shkarkoni Firefox-in</a> që të instaloni këtë shtesë."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -183,6 +183,8 @@ msgstr "S’gjetën kategori."
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Nëse e keni bërë hyrjen dhe mendoni se ky mesazh është një gabim, ju lutemi, <a href=\"%(url)s\">hapni një çështje</a>. Tregonani se nga erdhët dhe ku po përpiqeshit të hynit, dhe do ta zgjidhim "
+"çështjen."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
@@ -210,6 +212,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Nëse keni të dhëna shtesë që mund të na ndihmonin, mund <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">të hapni një çështje</a>. Tregonani hapat që ju shpunë te gabimi dhe do të "
+"bëjmë ç’është e mundur për ta ndrequr."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
@@ -217,7 +221,7 @@ msgstr "Gabim Shërbyesi"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Na ndjeni, por pati një gabim me shërbyesin tonë dhe s’mundëm të plotësonim kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -253,7 +257,7 @@ msgstr "Zgjerime"
 
 #: src/amo/components/LandingPage.js:119
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "Ndryshoni pamjen e shfletuesit tuaj. Zgjidhni prej mijëra temash, për t’i dhënë Firefox-it pamjen që doni."
 
 #: src/amo/components/LandingPage.js:121
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
@@ -485,7 +489,7 @@ msgstr "Hyni/Regjistrohuni"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
@@ -493,7 +497,7 @@ msgstr "Kod gabimi: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Na ndjeni, por s’gjejmë dot ndonjë gjë te URL-ja që dhatë."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
