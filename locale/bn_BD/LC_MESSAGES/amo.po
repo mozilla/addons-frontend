@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
 "PO-Revision-Date: 2017-04-04 15:48+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
@@ -70,12 +70,12 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s সম্বন্ধে"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Cancel preview"
 msgstr "পর্যালোচনা বাতিল করুন"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -373,33 +373,33 @@ msgstr "আপনার ভাষায় ব্রাউজ করুন"
 msgid "Firefox Add-ons"
 msgstr "Firefox অ্যাড-অনস"
 
-#: src/amo/components/RatingManager/index.js:101
-msgid "Log in to rate this search engine"
-msgstr "সার্চ ইঞ্জিন রেট করতে লগিন করুন"
-
-#: src/amo/components/RatingManager/index.js:103
-msgid "Log in to rate this theme"
-msgstr "থিম রেট করতে লগিন করুন"
-
-#: src/amo/components/RatingManager/index.js:105
-msgid "Log in to rate this extension"
-msgstr "এক্সটেনশন রেট করতে লগিন করুন"
-
-#: src/amo/components/RatingManager/index.js:111
-msgid "Log in to rate this add-on"
-msgstr "এই অ্যাড-অন রেট দিতে লগইন করুন"
-
-#: src/amo/components/RatingManager/index.js:135
-msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "%(addonName)s এর সাথে আপনার অভিজ্ঞতা কেমন?"
-
-#: src/amo/components/RatingManager/index.js:97
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this dictionary"
 msgstr "এই অভিধন রেট করতে লগইন করুন"
 
-#: src/amo/components/RatingManager/index.js:99
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this language pack"
 msgstr "ভাষা প্যাক রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "সার্চ ইঞ্জিন রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "থিম রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:130
+msgid "Log in to rate this extension"
+msgstr "এক্সটেনশন রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "এই অ্যাড-অন রেট দিতে লগইন করুন"
+
+#: src/amo/components/RatingManager/index.js:160
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "%(addonName)s এর সাথে আপনার অভিজ্ঞতা কেমন?"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -533,11 +533,11 @@ msgstr "খেলাধুলা সংক্রান্ত"
 msgid "Solid"
 msgstr "কঠিন"
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "লগ আউট"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "লগ ইন/সাইন আপ"
 
