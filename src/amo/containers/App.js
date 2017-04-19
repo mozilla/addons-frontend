@@ -23,6 +23,7 @@ import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
+import type { InstalledAddon } from 'core/reducers/installations';
 
 import 'amo/css/App.scss';
 import 'core/fonts/fira.scss';
@@ -182,8 +183,7 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
     logOutUser() {
       dispatch(logOutUser());
     },
-    // TODO: define payload type in core/reducers/installations
-    handleGlobalEvent(payload: Object) {
+    handleGlobalEvent(payload: InstalledAddon) {
       dispatch({ type: INSTALL_STATE, payload });
     },
     setUserAgent(userAgent: string) {

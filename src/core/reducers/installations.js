@@ -1,3 +1,5 @@
+/* @flow */
+/* global Node */
 import {
   DOWNLOAD_PROGRESS,
   DOWNLOADING,
@@ -13,13 +15,38 @@ import {
   UNINSTALL_COMPLETE,
   acceptedInstallTypes,
 } from 'core/constants';
+import type { AddonType } from 'core/types/addons';
+import type { Exact } from 'core/types/util';
 
+export type InstalledAddon = {
+  downloadProgress?: number,
+  error?: string,
+  guid: $PropertyType<AddonType, 'guid'>,
+  isPreviewingTheme?: boolean,
+  needsRestart?: boolean,
+  status?: $PropertyType<AddonType, 'status'>,
+  themePreviewNode?: Node,
+  url?: $PropertyType<AddonType, 'url'>,
+};
 
-export default function installations(state = {}, { type, payload }) {
+type InstallationAction = {|
+  type: string,
+  payload: InstalledAddon,
+|};
+
+type InstallationState = {
+  [guid: $PropertyType<AddonType, 'guid'>]: InstalledAddon,
+};
+
+export default function installations(
+  state: InstallationState = {}, { type, payload }: InstallationAction,
+) {
   if (!acceptedInstallTypes.includes(type)) {
     return state;
   }
-  let addon;
+  let addon: Exact<InstalledAddon> = {
+    guid: '',
+  };
   if (state[payload.guid]) {
     addon = { ...state[payload.guid] };
   }
