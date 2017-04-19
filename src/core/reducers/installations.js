@@ -1,5 +1,5 @@
 /* @flow */
-/* global Node */
+/* global Node, $PropertyType */
 import {
   DOWNLOAD_PROGRESS,
   DOWNLOADING,

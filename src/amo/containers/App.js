@@ -1,8 +1,9 @@
 /* @flow */
-/* global Event, Navigator, Node, navigator, window */
+/* eslint-disable react/sort-comp */
+/* global $PropertyType, Event, Navigator, Node, navigator, window */
 import base62 from 'base62';
 import config from 'config';
-import React, { PropTypes } from 'react';
+import React from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
@@ -21,6 +22,7 @@ import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { InstalledAddon } from 'core/reducers/installations';
@@ -32,28 +34,29 @@ interface MozNavigator extends Navigator {
   mozAddonManager?: Object,
 }
 
+type AppProps = {
+  ErrorPage: typeof DefaultErrorPage,
+  FooterComponent: typeof Footer,
+  InfoDialogComponent: typeof InfoDialog,
+  MastHeadComponent: typeof MastHead,
+  _addChangeListeners: Function,
+  _navigator: typeof navigator,
+  authToken: string,
+  children: any,
+  clientApp: string,
+  handleGlobalEvent: Function,
+  i18n: Object,
+  lang: string,
+  location: UrlFormatParams,
+  logOutUser: Function,
+  mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
+  setUserAgent: Function,
+  userAgent: string,
+}
 
 export class AppBase extends React.Component {
   mastHead: Node;
-
-  static propTypes = {
-    ErrorPage: PropTypes.node.isRequired,
-    FooterComponent: PropTypes.node.isRequired,
-    InfoDialogComponent: PropTypes.node.isRequired,
-    MastHeadComponent: PropTypes.node.isRequired,
-    _addChangeListeners: PropTypes.func,
-    _navigator: PropTypes.object,
-    authToken: PropTypes.string,
-    children: PropTypes.node,
-    clientApp: PropTypes.string.isRequired,
-    handleGlobalEvent: PropTypes.func.isRequired,
-    i18n: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired,
-    location: PropTypes.object.isRequired,
-    mozAddonManager: PropTypes.object,
-    setUserAgent: PropTypes.func.isRequired,
-    userAgent: PropTypes.string,
-  }
+  props: AppProps;
 
   static defaultProps = {
     ErrorPage: DefaultErrorPage,
