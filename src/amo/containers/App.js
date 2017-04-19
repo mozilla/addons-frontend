@@ -1,4 +1,5 @@
-/* global navigator, window */
+/* @flow */
+/* global Event, Navigator, Node, navigator, window */
 import base62 from 'base62';
 import config from 'config';
 import React, { PropTypes } from 'react';
@@ -20,12 +21,20 @@ import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import type { ApiStateType } from 'core/reducers/api';
+import type { DispatchFunc } from 'core/types/redux';
 
 import 'amo/css/App.scss';
 import 'core/fonts/fira.scss';
 
+interface MozNavigator extends Navigator {
+  mozAddonManager?: Object,
+}
+
 
 export class AppBase extends React.Component {
+  mastHead: Node;
+
   static propTypes = {
     ErrorPage: PropTypes.node.isRequired,
     FooterComponent: PropTypes.node.isRequired,
@@ -52,7 +61,8 @@ export class AppBase extends React.Component {
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
     _navigator: (typeof navigator !== 'undefined' ? navigator : null),
-    mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    mozAddonManager:
+      config.get('server') ? {} : (navigator: MozNavigator).mozAddonManager,
     userAgent: null,
   }
 
@@ -87,7 +97,7 @@ export class AppBase extends React.Component {
     }
   }
 
-  setLogOutTimer(authToken) {
+  setLogOutTimer(authToken: string) {
     const parts = authToken.split(':');
     console.log('authToken: ', authToken);
     base62.setCharacterSet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
@@ -109,7 +119,14 @@ export class AppBase extends React.Component {
       new Date((now + expirationTime) * 1000));
   }
 
-  onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {
+  onViewDesktop = (
+    event: Event,
+    {
+      window_ = window, cookie_ = cookie,
+    }: {
+      window_: typeof window, cookie_: typeof cookie,
+    } = {}
+  ) => {
     event.preventDefault();
     if (window_ && window_.location) {
       cookie_.save('mamo', 'off', { path: '/' });
@@ -153,22 +170,23 @@ export class AppBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = (state: { api: ApiStateType }) => ({
   authToken: state.api && state.api.token,
   clientApp: state.api.clientApp,
   lang: state.api.lang,
   userAgent: state.api.userAgent,
 });
 
-export function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch: DispatchFunc) {
   return {
     logOutUser() {
       dispatch(logOutUser());
     },
-    handleGlobalEvent(payload) {
+    // TODO: define payload type in core/reducers/installations
+    handleGlobalEvent(payload: Object) {
       dispatch({ type: INSTALL_STATE, payload });
     },
-    setUserAgent(userAgent) {
+    setUserAgent(userAgent: string) {
       dispatch(setUserAgentAction(userAgent));
     },
   };
