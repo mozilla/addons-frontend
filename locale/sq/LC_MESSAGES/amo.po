@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
 "PO-Revision-Date: 2017-04-18 09:42+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -15,20 +15,33 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonCompatibilityError/index.js:53
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Lypset të <a href=\"%(downloadUrl)s\">shkarkoni Firefox-in</a> që të instaloni këtë shtesë."
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"Lypset të <a href=\"%(downloadUrl)s\">shkarkoni Firefox-in</a> që të "
+"instaloni këtë shtesë."
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox-i për iOS hëpërhë nuk i mbulon shtesat."
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Kjo shtesë lyp një <a href=\"%(downloadUrl)s\">version më të ri të Firefox-it</a> (të paktën versionin %(minVersion)s). Po përdorni Firefox %(yourVersion)s."
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"Kjo shtesë lyp një <a href=\"%(downloadUrl)s\">version më të ri të Firefox-"
+"it</a> (të paktën versionin %(minVersion)s). Po përdorni Firefox "
+"%(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Shfletuesi juaj nuk i mbulon shtesat. Mund të <a href=\"%(downloadUrl)s\">shkarkoni Firefox-in</a> që të instaloni këtë shtesë."
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"Shfletuesi juaj nuk i mbulon shtesat. Mund të <a href=\"%(downloadUrl)s"
+"\">shkarkoni Firefox-in</a> që të instaloni këtë shtesë."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -57,12 +70,12 @@ msgid "About this %(addonType)s"
 msgstr "Mbi këtë %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "Prekeni për paraparje"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Cancel preview"
 msgstr "Anulojeni paraparjen"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "Prekeni për paraparje"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -149,8 +162,10 @@ msgid "Tell the world about this extension."
 msgstr "Tregojini botës mbi këtë zgjerim."
 
 #: src/amo/components/AddonReview.js:96
-msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "Na tregoni rreth përvojës suaj me këtë zgjerim. Jini specifik dhe fjalëprerë."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+"Na tregoni rreth përvojës suaj me këtë zgjerim. Jini specifik dhe fjalëprerë."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
@@ -181,47 +196,75 @@ msgid "No categories found."
 msgstr "S’gjetën kategori."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
-"Nëse e keni bërë hyrjen dhe mendoni se ky mesazh është një gabim, ju lutemi, <a href=\"%(url)s\">hapni një çështje</a>. Tregonani se nga erdhët dhe ku po përpiqeshit të hynit, dhe do ta zgjidhim "
-"çështjen."
+"Nëse e keni bërë hyrjen dhe mendoni se ky mesazh është një gabim, ju lutemi, "
+"<a href=\"%(url)s\">hapni një çështje</a>. Tregonani se nga erdhët dhe ku po "
+"përpiqeshit të hynit, dhe do ta zgjidhim çështjen."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "Jo i Autorizuar"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Na ndjeni, por s’jeni i autorizuar të hyni në këtë faqe. Nëse s’keni bërë hyrjen, provoni të hyni duke përdorur lidhjen në krye të faqes."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"Na ndjeni, por s’jeni i autorizuar të hyni në këtë faqe. Nëse s’keni bërë "
+"hyrjen, provoni të hyni duke përdorur lidhjen në krye të faqes."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
 msgstr ""
-"Nëse ndoqët një lidhje prej diku gjetkë, ju lutemi, <a href=\"%(url)s\">hapni një çështje</a>. Tregonani se prej nga erdhët dhe për çfarë po shihnit, dhe do të bëjmë ç’është e mundur për ta ndrequr."
+"Nëse ndoqët një lidhje prej diku gjetkë, ju lutemi, <a href=\"%(url)s"
+"\">hapni një çështje</a>. Tregonani se prej nga erdhët dhe për çfarë po "
+"shihnit, dhe do të bëjmë ç’është e mundur për ta ndrequr."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
+#: src/amo/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "S’u gjet faqe"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "Na ndjeni, por s’gjejmë dot gjë te adresa që dhatë. Nëse ndoqët një lidhje për te një shtesë, mundet që shtesa të jetë hequr nga autori i saj."
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"Na ndjeni, por s’gjejmë dot gjë te adresa që dhatë. Nëse ndoqët një lidhje "
+"për te një shtesë, mundet që shtesa të jetë hequr nga autori i saj."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
-"Nëse keni të dhëna shtesë që mund të na ndihmonin, mund <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">të hapni një çështje</a>. Tregonani hapat që ju shpunë te gabimi dhe do të "
-"bëjmë ç’është e mundur për ta ndrequr."
+"Nëse keni të dhëna shtesë që mund të na ndihmonin, mund <a href=\"https://"
+"github.com/mozilla/addons-frontend/issues/new/\">të hapni një çështje</a>. "
+"Tregonani hapat që ju shpunë te gabimi dhe do të bëjmë ç’është e mundur për "
+"ta ndrequr."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Gabim Shërbyesi"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Na ndjeni, por pati një gabim me shërbyesin tonë dhe s’mundëm të plotësonim kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"Na ndjeni, por pati një gabim me shërbyesin tonë dhe s’mundëm të plotësonim "
+"kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -256,12 +299,20 @@ msgid "Extensions"
 msgstr "Zgjerime"
 
 #: src/amo/components/LandingPage.js:119
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Ndryshoni pamjen e shfletuesit tuaj. Zgjidhni prej mijëra temash, për t’i dhënë Firefox-it pamjen që doni."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Ndryshoni pamjen e shfletuesit tuaj. Zgjidhni prej mijëra temash, për t’i "
+"dhënë Firefox-it pamjen që doni."
 
 #: src/amo/components/LandingPage.js:121
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "Instaloni mjete të fuqishme që e bëjnë shfletimin më të shpejtë dhe më të parrezik, shtesa për ta bërë shfletuesin si e doni."
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+"Instaloni mjete të fuqishme që e bëjnë shfletimin më të shpejtë dhe më të "
+"parrezik, shtesa për ta bërë shfletuesin si e doni."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
@@ -323,33 +374,33 @@ msgstr "Shfletoni në gjuhën tuaj"
 msgid "Firefox Add-ons"
 msgstr "Shtesa Firefox-i"
 
-#: src/amo/components/RatingManager/index.js:101
-msgid "Log in to rate this search engine"
-msgstr "Që të vlerësoni këtë motor kërkimesh, bëni hyrjen"
-
-#: src/amo/components/RatingManager/index.js:103
-msgid "Log in to rate this theme"
-msgstr "Që të vlerësoni këtë temë, bëni hyrjen"
-
-#: src/amo/components/RatingManager/index.js:105
-msgid "Log in to rate this extension"
-msgstr "Që të vlerësoni këtë zgjerim, bëni hyrjen"
-
-#: src/amo/components/RatingManager/index.js:111
-msgid "Log in to rate this add-on"
-msgstr "Që të vlerësoni këtë shtesë, bëni hyrjen"
-
-#: src/amo/components/RatingManager/index.js:135
-msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "A po ju pëlqen %(addonName)s?"
-
-#: src/amo/components/RatingManager/index.js:97
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this dictionary"
 msgstr "Që të vlerësoni këtë fjalor, bëni hyrjen"
 
-#: src/amo/components/RatingManager/index.js:99
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this language pack"
 msgstr "Që të vlerësoni këtë paketë gjuhe, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "Që të vlerësoni këtë motor kërkimesh, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "Që të vlerësoni këtë temë, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:130
+msgid "Log in to rate this extension"
+msgstr "Që të vlerësoni këtë zgjerim, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "Që të vlerësoni këtë shtesë, bëni hyrjen"
+
+#: src/amo/components/RatingManager/index.js:160
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "A po ju pëlqen %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -420,8 +471,12 @@ msgid "Add-ons for Firefox"
 msgstr "Shtesa për Firefox-in"
 
 #: src/amo/containers/Home.js:39
-msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr "Zgjerimet janë veçori speciale që mund t’ia shtoni Firefox-it. Temat ju lejojnë të ndryshoni pamjen e shfletuesit."
+msgid ""
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
+msgstr ""
+"Zgjerimet janë veçori speciale që mund t’ia shtoni Firefox-it. Temat ju "
+"lejojnë të ndryshoni pamjen e shfletuesit."
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -479,19 +534,24 @@ msgstr "Sportive"
 msgid "Solid"
 msgstr "Solide"
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "Dilni"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "Hyni/Regjistrohuni"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E "
+"kemi regjistruar këtë gabim dhe do ta hetojmë."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "Kod gabimi: %(status)s."
 
@@ -517,7 +577,8 @@ msgstr "Instalim i %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s është e instaluar dhe e aktivizuar. Klikoni që të çinstalohet."
+msgstr ""
+"%(name)s është e instaluar dhe e aktivizuar. Klikoni që të çinstalohet."
 
 #: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
