@@ -239,4 +239,6 @@ module.exports = {
 
   sentryDsn: process.env.SENTRY_DSN || null,
   publicSentryDsn: null,
+
+  authTokenValidFor: null,
 };
