@@ -1,7 +1,7 @@
 import UAParser from 'ua-parser-js';
 
 import * as actions from 'core/actions';
-import api from 'core/reducers/api';
+import api, { initialApiState } from 'core/reducers/api';
 import { signedInApiState, userAgents, userAuthToken }
   from 'tests/client/helpers';
 
@@ -20,9 +20,9 @@ describe('api reducer', () => {
   });
 
   it('clears the auth token on log out', () => {
-    const expectedState = { ...signedInApiState };
-    assert.ok(expectedState.token, 'signed in state did not have a token');
-    delete expectedState.token;
+    const state = { ...signedInApiState };
+    assert.ok(state.token, 'signed in state did not have a token');
+    const expectedState = { ...state, token: null };
     assert.deepEqual(
       api(signedInApiState, actions.logOutUser()), expectedState);
   });
@@ -82,6 +82,7 @@ describe('api reducer', () => {
   });
 
   it('defaults to an empty object', () => {
-    assert.deepEqual(api(undefined, { type: 'UNRELATED' }), {});
+    assert.deepEqual(
+      api(undefined, { type: 'UNRELATED' }), { ...initialApiState });
   });
 });

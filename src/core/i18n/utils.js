@@ -1,3 +1,4 @@
+/* @flow */
 import config from 'config';
 import Jed from 'jed';
 import moment from 'moment';
@@ -13,7 +14,7 @@ const supportedLangs = langs.concat(Object.keys(langMap));
 const rtlLangs = config.get('rtlLangs');
 
 
-export function localeToLang(locale, log_ = log) {
+export function localeToLang(locale?: any, log_?: typeof log = log) {
   let lang;
   if (locale && locale.split) {
     const parts = locale.split('_');
@@ -34,7 +35,7 @@ export function localeToLang(locale, log_ = log) {
   return lang;
 }
 
-export function langToLocale(language, log_ = log) {
+export function langToLocale(language?: any, log_?: typeof log = log) {
   let locale;
   if (language && language.split) {
     const parts = language.split('-');
@@ -55,23 +56,36 @@ export function langToLocale(language, log_ = log) {
   return locale;
 }
 
-export function normalizeLang(lang) {
+export function normalizeLang(lang?: string) {
   return localeToLang(langToLocale(lang));
 }
 
-export function normalizeLocale(locale) {
+export function normalizeLocale(locale: string) {
   return langToLocale(localeToLang(locale));
 }
 
-export function isSupportedLang(lang, { _supportedLangs = supportedLangs } = {}) {
+type IsSupportedLangOptions = {|
+  _supportedLangs: typeof supportedLangs,
+|};
+
+export function isSupportedLang(
+  lang?: string,
+  { _supportedLangs = supportedLangs }: IsSupportedLangOptions = {}
+) {
   return _supportedLangs.includes(lang);
 }
 
-export function isValidLang(lang, { _langs = langs } = {}) {
+type IsValidLangOptions = {|
+  _langs: typeof langs,
+|};
+
+export function isValidLang(
+  lang?: string, { _langs = langs }: IsValidLangOptions = {}
+) {
   return _langs.includes(lang);
 }
 
-export function sanitizeLanguage(langOrLocale) {
+export function sanitizeLanguage(langOrLocale?: string) {
   let language = normalizeLang(langOrLocale);
   // Only look in the un-mapped lang list.
   if (!isValidLang(language)) {
@@ -81,12 +95,12 @@ export function sanitizeLanguage(langOrLocale) {
   return language;
 }
 
-export function isRtlLang(lang) {
+export function isRtlLang(lang: string) {
   const language = sanitizeLanguage(lang);
   return rtlLangs.includes(language);
 }
 
-export function getDirection(lang) {
+export function getDirection(lang: string) {
   return isRtlLang(lang) ? 'rtl' : 'ltr';
 }
 
@@ -105,7 +119,7 @@ function qualityCmp(a, b) {
  * sorted array of objects. Example object:
  * { lang: 'pl', quality: 0.7 }
  */
-export function parseAcceptLanguage(header) {
+export function parseAcceptLanguage(header: string) {
   // pl,fr-FR;q=0.3,en-US;q=0.1
   if (!header || !header.split) {
     return [];
@@ -129,6 +143,10 @@ export function parseAcceptLanguage(header) {
   return langList;
 }
 
+type GetLangFromHeaderOptions = {|
+  _supportedLangs?: Object,
+|};
+
 
 /*
  * Given an accept-language header and a list of currently
@@ -137,7 +155,9 @@ export function parseAcceptLanguage(header) {
  * Note: this doesn't map languages e.g. pt -> pt-PT. Use sanitizeLanguage for that.
  *
  */
-export function getLangFromHeader(acceptLanguage, { _supportedLangs } = {}) {
+export function getLangFromHeader(
+  acceptLanguage: string, { _supportedLangs }: GetLangFromHeaderOptions = {}
+) {
   let userLang;
   if (acceptLanguage) {
     const langList = parseAcceptLanguage(acceptLanguage);
@@ -156,13 +176,18 @@ export function getLangFromHeader(acceptLanguage, { _supportedLangs } = {}) {
   return normalizeLang(userLang);
 }
 
+type GetLanguageParams = {|
+  lang: string,
+  acceptLanguage: string,
+|};
+
 /*
  * Check validity of language:
  * - If invalid, fall-back to accept-language.
  * - Return object with lang and isLangFromHeader hint.
  *
  */
-export function getLanguage({ lang, acceptLanguage } = {}) {
+export function getLanguage({ lang, acceptLanguage }: GetLanguageParams = {}) {
   let userLang = lang;
   let isLangFromHeader = false;
   // If we don't have a supported userLang yet try accept-language.
@@ -177,7 +202,7 @@ export function getLanguage({ lang, acceptLanguage } = {}) {
 }
 
 // moment uses locales like "en-gb" whereas we use "en_GB".
-export function makeMomentLocale(locale) {
+export function makeMomentLocale(locale: string) {
   return locale.replace('_', '-').toLowerCase();
 }
 
@@ -191,12 +216,32 @@ function oneLineTranslationString(translationKey) {
   return translationKey;
 }
 
+type I18nConfig = {|
+  // The following keys configure Jed.
+  // See http://messageformat.github.io/Jed/
+  domain: string,
+  locale_data: {
+    [domain: string]: {
+      '': { // an empty string configures the domain.
+        domain: string,
+        lang: string,
+        plural_forms: string,
+      },
+      [message: string]: Array<string>,
+    },
+  },
+  // This is our custom configuration for moment.
+  _momentDefineLocale?: Function,
+|};
+
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.
-export function makeI18n(i18nData, lang, _Jed = Jed) {
+export function makeI18n(i18nData: I18nConfig, lang: string, _Jed: Jed = Jed) {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
 
+  // TODO: move all of this to an I18n class that extends Jed so that we
+  // can type-check all the components that rely on the i18n object.
   i18n.formatNumber = (number) => number.toLocaleString(lang);
 
   // This adds the correct moment locale for the active locale so we can get
