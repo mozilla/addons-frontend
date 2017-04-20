@@ -36,7 +36,7 @@ export class InstallButtonBase extends React.Component {
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
     _log: log,
-    _window: window,
+    _window: typeof window !== 'undefined' ? window : {},
   }
 
   installTheme = (event) => {

@@ -21,7 +21,6 @@ import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import {
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NOT_FIREFOX,
 } from 'core/constants';
