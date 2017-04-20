@@ -3,13 +3,37 @@ import reviews, { initialState } from 'amo/reducers/reviews';
 import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
 
 describe('amo.reducers.reviews', () => {
+  function setFakeReview({
+    userId = fakeReview.user.id,
+    addonId = fakeReview.addon.id,
+    versionId = fakeReview.version.id,
+    ...overrides } = {}
+  ) {
+    return setReview({
+      ...fakeReview,
+      user: {
+        ...fakeReview.user,
+        id: userId,
+      },
+      addon: {
+        ...fakeReview.addon,
+        id: addonId,
+      },
+      version: {
+        ...fakeReview.version,
+        id: versionId,
+      },
+      ...overrides,
+    });
+  }
+
   it('defaults to an empty object', () => {
     assert.deepEqual(reviews(undefined, { type: 'SOME_OTHER_ACTION' }),
                      initialState);
   });
 
   it('stores a user review', () => {
-    const action = setReview(fakeReview);
+    const action = setFakeReview();
     const state = reviews(undefined, action);
     const storedReview =
       state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
@@ -32,21 +56,21 @@ describe('amo.reducers.reviews', () => {
   it('preserves existing user rating data', () => {
     let state;
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 1,
       userId: 1,
       addonId: 1,
       rating: 1,
     }));
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 2,
       userId: 1,
       addonId: 2,
       rating: 5,
     }));
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 3,
       userId: 2,
       addonId: 2,
@@ -64,17 +88,17 @@ describe('amo.reducers.reviews', () => {
     const userId = fakeReview.user.id;
     const addonId = fakeReview.addon.id;
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 1,
       versionId: 1,
     }));
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 2,
       versionId: 2,
     }));
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 3,
       versionId: 3,
     }));
@@ -87,7 +111,7 @@ describe('amo.reducers.reviews', () => {
 
   it('preserves unrelated state', () => {
     let state = { ...initialState, somethingUnrelated: 'erp' };
-    state = reviews(state, setReview(fakeReview));
+    state = reviews(state, setFakeReview());
     assert.equal(state.somethingUnrelated, 'erp');
   });
 
@@ -96,19 +120,19 @@ describe('amo.reducers.reviews', () => {
     const userId = fakeReview.user.id;
     let state;
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 1,
-      isLatest: true,
+      is_latest: true,
     }));
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 2,
-      isLatest: true,
+      is_latest: true,
     }));
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 3,
-      isLatest: true,
+      is_latest: true,
     }));
 
     // Make sure only the newest submitted one is the latest:
@@ -122,14 +146,14 @@ describe('amo.reducers.reviews', () => {
     const userId = fakeReview.user.id;
     let state;
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 1,
-      isLatest: true,
+      is_latest: true,
     }));
 
-    state = reviews(state, setReview(fakeReview, {
+    state = reviews(state, setFakeReview({
       id: 2,
-      isLatest: false,
+      is_latest: false,
     }));
 
     assert.equal(state[userId][addonId][1].isLatest, true);

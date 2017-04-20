@@ -11,16 +11,20 @@
   justify-content: space-between;
 }
 
+.Paginate {
+  padding: 0 30px;
+  margin-bottom: 30px;
+}
+
 .Paginate .Paginate-item {
-  @include button($background: #fff, $color: #000);
+  @include button($background: $base-color, $color: $link-color);
 
   display: inline-block;
   font-size: $font-size-s;
   font-variant: small-caps;
   font-weight: normal;
   line-height: 2;
-  margin: 0;
-  min-width: 40%;
+  min-width: 48%;
   text-align: center;
 }
 

@@ -21,6 +21,7 @@ import translate from 'core/i18n/translate';
 import { loadEntities } from 'core/actions';
 import * as coreApi from 'core/api';
 import { denormalizeAddon } from 'core/reducers/addons';
+import { initialApiState } from 'core/reducers/api';
 import I18nProvider from 'core/i18n/Provider';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
@@ -254,7 +255,7 @@ describe('amo/components/AddonReviewList', () => {
       mockCoreApi
         .expects('fetchAddon')
         .once()
-        .withArgs({ slug: addonSlug, api: {} })
+        .withArgs({ slug: addonSlug, api: { ...initialApiState } })
         .returns(Promise.resolve(createFetchAddonResult(fakeAddon)));
 
       mockAmoApi
