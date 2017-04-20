@@ -22,7 +22,7 @@ import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 
 describe('App', () => {
@@ -60,6 +60,7 @@ describe('App', () => {
   function render({ children = [], ...customProps } = {}) {
     const props = {
       i18n: getFakeI18nInst(),
+      logOutUser: sinon.stub(),
       location: sinon.stub(),
       isAuthenticated: true,
       store: createStore(),
@@ -203,5 +204,66 @@ describe('App', () => {
     const rootNode = findDOMNode(root);
 
     assert.include(rootNode.textContent, 'Page not found');
+  });
+
+  describe('handling expired auth tokens', () => {
+    let clock;
+
+    beforeEach(() => {
+      clock = sinon.useFakeTimers(Date.now());
+    });
+
+    afterEach(() => {
+      clock.restore();
+    });
+
+    it('logs out when the token expires', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = userAuthToken();
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor, logOutUser });
+
+      const fuzz = 3; // acount for rounding the offset calculation.
+      clock.tick((authTokenValidFor + fuzz) * 1000);
+      assert.ok(logOutUser.called, 'expected logOutUser() to be called');
+    });
+
+    it('does not log out until the token expires', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = userAuthToken();
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor, logOutUser });
+
+      clock.tick(5 * 1000); // 5 seconds
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() to NOT be called');
+    });
+
+    it('only starts a timer when authTokenValidFor is configured', () => {
+      const authToken = userAuthToken();
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor: null, logOutUser });
+
+      clock.tick(100 * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('ignores malformed tokens', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = userAuthToken({}, {
+        tokenCreatedAt: 'bogus-timestamp',
+      });
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor, logOutUser });
+
+      clock.tick(authTokenValidFor * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
   });
 });

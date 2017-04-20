@@ -1,8 +1,8 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
 /* global $PropertyType, Event, Navigator, Node, navigator, window */
-import base62 from 'base62';
 import config from 'config';
+import { oneLine } from 'common-tags';
 import React from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
@@ -11,12 +11,13 @@ import LoadingBar from 'react-redux-loading-bar';
 import { compose } from 'redux';
 
 import SearchForm from 'amo/components/SearchForm';
-import { getErrorComponent } from 'amo/utils';
+import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
 import { addChangeListeners } from 'core/addonManager';
-import { logOutUser, setUserAgent as setUserAgentAction }
-  from 'core/actions';
+import {
+  logOutUser as logOutUserAction, setUserAgent as setUserAgentAction,
+} from 'core/actions';
 import { INSTALL_STATE } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
@@ -39,18 +40,19 @@ type AppProps = {
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
   MastHeadComponent: typeof MastHead,
-  _addChangeListeners: Function,
+  _addChangeListeners: () => void,
   _navigator: typeof navigator,
-  authToken: string,
+  authToken?: string,
+  authTokenValidFor?: number,
   children: any,
   clientApp: string,
-  handleGlobalEvent: Function,
+  handleGlobalEvent: () => void,
   i18n: Object,
   lang: string,
   location: UrlFormatParams,
-  logOutUser: Function,
+  logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
-  setUserAgent: Function,
+  setUserAgent: () => void,
   userAgent: string,
 }
 
@@ -65,6 +67,7 @@ export class AppBase extends React.Component {
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
     _navigator: (typeof navigator !== 'undefined' ? navigator : null),
+    authTokenValidFor: config.get('authTokenValidFor'),
     mozAddonManager:
       config.get('server') ? {} : (navigator: MozNavigator).mozAddonManager,
     userAgent: null,
@@ -93,6 +96,7 @@ export class AppBase extends React.Component {
       setUserAgent(_navigator.userAgent);
     }
 
+    // TODO: support componentWillReceiveProps too.
     if (authToken) {
       log.info('Setting a logout timer when the token expires');
       this.setLogOutTimer(authToken);
@@ -102,25 +106,40 @@ export class AppBase extends React.Component {
   }
 
   setLogOutTimer(authToken: string) {
+    const { authTokenValidFor, logOutUser } = this.props;
+
+    const expiresAt = authTokenValidFor;
+    if (!expiresAt) {
+      log.warn(oneLine`configured authTokenValidFor is falsey, not
+        checking for auth expiration`);
+      return;
+    }
+
     const parts = authToken.split(':');
-    console.log('authToken: ', authToken);
-    base62.setCharacterSet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
-    const createdAt = base62.decode(parts[1]);
-    // GMT Unix timestamp:
-    console.log('token created at timestamp:', createdAt);
-    console.log('authTokenValidFor:', config.get('authTokenValidFor'));
-    const expiresAt = config.get('authTokenValidFor');
+    const encodedTimestamp = parts[1];
+    const base62 = getDjangoBase62();
+    // This is a UTC Unix timestamp.
+    const createdAt = base62.decode(encodedTimestamp);
+    if (!/[0-9.]+/.test(createdAt)) {
+      log.error(
+        `Got an invalid timestamp from auth token: ${encodedTimestamp}`);
+      return;
+    }
+    const readableCreatedAt = new Date(createdAt * 1000).toString();
+    log.debug(`Auth token was created at: ${readableCreatedAt}`);
+
+    // Get the current UTC Unix timestamp.
     const now = Date.now() / 1000;
-    console.log('token created at:', new Date(createdAt * 1000));
+    // Set the expiration time in seconds.
+    const expirationTime = (createdAt + expiresAt) - now;
 
-    console.log('now:', now);
-    const expirationTime = createdAt + expiresAt - now;
-    console.log('expirationTime:', expirationTime);
-
-    setTimeout(() => this.props.logOutUser(), expirationTime * 1000);
-
-    console.log('token expires at:',
-      new Date((now + expirationTime) * 1000));
+    const readableExpiration =
+      new Date((now + expirationTime) * 1000).toString();
+    log.debug(`Auth token expires at ${readableExpiration}`);
+    setTimeout(() => {
+      log.info('Logging out because the auth token has expired');
+      logOutUser();
+    }, expirationTime * 1000);
   }
 
   onViewDesktop = (
@@ -184,7 +203,7 @@ export const mapStateToProps = (state: { api: ApiStateType }) => ({
 export function mapDispatchToProps(dispatch: DispatchFunc) {
   return {
     logOutUser() {
-      dispatch(logOutUser());
+      dispatch(logOutUserAction());
     },
     handleGlobalEvent(payload: InstalledAddon) {
       dispatch({ type: INSTALL_STATE, payload });

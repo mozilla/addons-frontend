@@ -5,6 +5,7 @@ import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 import UAParser from 'ua-parser-js';
 
+import { getDjangoBase62 } from 'amo/utils';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
@@ -13,7 +14,10 @@ import { initialApiState } from 'core/reducers/api';
  * Return a fake authentication token that can be
  * at least decoded in a realistic way.
  */
-export function userAuthToken(dataOverrides = {}, { tokenData } = {}) {
+export function userAuthToken(
+  dataOverrides = {},
+  { tokenCreatedAt = (Date.now() / 1000).toFixed(0), tokenData } = {},
+) {
   const data = {
     user_id: 102345,
     ...dataOverrides,
@@ -23,10 +27,12 @@ export function userAuthToken(dataOverrides = {}, { tokenData } = {}) {
   if (!encodedToken) {
     encodedToken = base64url.encode(JSON.stringify(data));
   }
-  const authId = base64url.encode('pretend this is an auth ID');
-  const sig = base64url.encode('pretend this is a signature');
 
-  return `${encodedToken}:${authId}:${sig}`;
+  const base62 = getDjangoBase62();
+  const timestamp = base62.encode(tokenCreatedAt);
+  const sig = base64url.encode('pretend-this-is-a-signature');
+
+  return `${encodedToken}:${timestamp}:${sig}`;
 }
 
 export function shallowRender(stuff) {
