@@ -209,6 +209,15 @@ describe('App', () => {
   describe('handling expired auth tokens', () => {
     let clock;
 
+    function renderAppWithAuth(customProps = {}) {
+      const props = {
+        authToken: userAuthToken(),
+        logOutUser: sinon.stub(),
+        ...customProps,
+      };
+      return render(props);
+    }
+
     beforeEach(() => {
       clock = sinon.useFakeTimers(Date.now());
     });
@@ -219,10 +228,9 @@ describe('App', () => {
 
     it('logs out when the token expires', () => {
       const authTokenValidFor = 10; // seconds
-      const authToken = userAuthToken();
       const logOutUser = sinon.stub();
 
-      render({ authToken, authTokenValidFor, logOutUser });
+      renderAppWithAuth({ authTokenValidFor, logOutUser });
 
       const fuzz = 3; // acount for rounding the offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
@@ -247,10 +255,9 @@ describe('App', () => {
 
     it('does not log out until the token expires', () => {
       const authTokenValidFor = 10; // seconds
-      const authToken = userAuthToken();
       const logOutUser = sinon.stub();
 
-      render({ authToken, authTokenValidFor, logOutUser });
+      renderAppWithAuth({ authTokenValidFor, logOutUser });
 
       clock.tick(5 * 1000); // 5 seconds
       assert.notOk(logOutUser.called,
@@ -258,10 +265,9 @@ describe('App', () => {
     });
 
     it('only starts a timer when authTokenValidFor is configured', () => {
-      const authToken = userAuthToken();
       const logOutUser = sinon.stub();
 
-      render({ authToken, authTokenValidFor: null, logOutUser });
+      renderAppWithAuth({ authTokenValidFor: null, logOutUser });
 
       clock.tick(100 * 1000);
       assert.notOk(logOutUser.called,
