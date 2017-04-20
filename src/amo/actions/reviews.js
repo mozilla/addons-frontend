@@ -1,15 +1,32 @@
+/* @flow */
 import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
+import type { ApiReviewType } from 'amo/api';
 
-export function denormalizeReview(review) {
+export type UserReviewType = {|
+  addonId: number,
+  addonSlug: string,
+  body: string,
+  created: Date,
+  id: number,
+  isLatest: boolean,
+  rating: number,
+  title: string,
+  userId: number,
+  userName: string,
+  userUrl: string,
+  versionId: ?number,
+|};
+
+export function denormalizeReview(review: ApiReviewType): UserReviewType {
   return {
     addonId: review.addon.id,
     addonSlug: review.addon.slug,
     body: review.body,
     created: review.created,
-    title: review.title,
     id: review.id,
     isLatest: review.is_latest,
     rating: review.rating,
+    title: review.title,
     userId: review.user.id,
     userName: review.user.name,
     userUrl: review.user.url,
@@ -18,26 +35,43 @@ export function denormalizeReview(review) {
   };
 }
 
-const setReviewAction = (review) => ({ type: SET_REVIEW, payload: review });
+export type SetReviewAction = {|
+  type: string,
+  payload: UserReviewType,
+|};
 
-export const setReview = (review, reviewOverrides = {}) => {
+export const setReview = (review: ApiReviewType): SetReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  return setReviewAction({
-    ...denormalizeReview(review),
-    ...reviewOverrides,
-  });
+  return { type: SET_REVIEW, payload: denormalizeReview(review) };
 };
 
-export const setDenormalizedReview = (review) => {
+export const setDenormalizedReview = (
+  review: UserReviewType
+): SetReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
-  return setReviewAction(review);
+  return { type: SET_REVIEW, payload: review };
 };
 
-export const setAddonReviews = ({ addonSlug, reviews }) => {
+export type SetAddonReviewsAction = {|
+  type: string,
+  payload: {|
+    addonSlug: string,
+    reviews: Array<UserReviewType>,
+  |},
+|};
+
+type SetAddonReviewsParams = {|
+  addonSlug: string,
+  reviews: Array<ApiReviewType>,
+|};
+
+export const setAddonReviews = (
+  { addonSlug, reviews }: SetAddonReviewsParams
+): SetAddonReviewsAction => {
   if (!addonSlug) {
     throw new Error('addonSlug cannot be empty');
   }

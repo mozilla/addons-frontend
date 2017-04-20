@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-21 21:21+0000\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"PO-Revision-Date: 2017-04-12 12:07+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -84,14 +84,12 @@ msgstr[0] "%(total)s utilisateur"
 msgstr[1] "%(total)s utilisateurs"
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s note"
 msgstr[1] "%(total)s notes"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
 msgstr "Aucune critique pour l’instant"
 
@@ -166,7 +164,6 @@ msgid "Tell the world about this extension."
 msgstr "Faites connaître cette extension."
 
 #: src/amo/components/AddonReview.js:96
-#, fuzzy
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
@@ -176,8 +173,7 @@ msgstr ""
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "par %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -207,6 +203,9 @@ msgid ""
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
 "trying to access, and we'll fix the issue."
 msgstr ""
+"Si vous êtes connecté et pensez que ce message est une erreur, s’il vous "
+"plaît <a href=\"%(url)s\">reportez un problème</a>. Dites nous d'où vous "
+"venez et ce à quoi vous tentiez d’accéder, nous allons corriger ce problème."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
@@ -217,6 +216,9 @@ msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
 msgstr ""
+"Vous n’avez pas l’autorisation d’accéder à cette page. Si vous n’êtes pas "
+"connecté(e), essayez de vous connecter en utilisant le lien en haut de la "
+"page."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
 msgid ""
@@ -224,6 +226,9 @@ msgid ""
 "issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll do our best to fix it."
 msgstr ""
+"Si vous avez suivi un lien depuis un autre endroit, merci de <a href="
+"\"%(url)s\">nous signaler le problème</a>. Dites-nous d’où vous veniez, ce "
+"que vous cherchiez et nous ferons de notre mieux pour le corriger."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32
 #: src/core/components/ErrorPage/NotFound/index.js:24
@@ -236,6 +241,9 @@ msgid ""
 "followed a link to an add-on, it's possible that add-on has been removed by "
 "its author."
 msgstr ""
+"Nous n'avons malheureusement rien trouvé à l'adresse indiquée. Si vous avez "
+"suivi un lien vers un module, il est possible que celui-ci ait été supprimé "
+"par son auteur."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -244,6 +252,10 @@ msgid ""
 "a>. Tell us what steps you took that lead to the error and we'll do our best "
 "to fix it."
 msgstr ""
+"Si vous avez des informations supplémentaires qui pourraient nous aider, "
+"vous pouvez <a href=\"https://github.com/mozilla/addons-frontend/issues/new/"
+"\">signaler le problème</a>. Dites-nous quelles étapes vous avez effectuées "
+"avant d’arriver à l’erreur et nous ferons de notre mieux pour la résoudre."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31
 #: src/core/components/ErrorPage/GenericError/index.js:24
@@ -255,6 +267,9 @@ msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
 msgstr ""
+"Une erreur s’est malheureusement produite sur notre serveur et nous n’avons "
+"pu répondre à votre demande. Nous avons enregistré cette erreur et allons "
+"l’analyser."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -293,16 +308,21 @@ msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
+"Modifiez l'apparence de votre navigateur. Personnalisez-le en choisissant un "
+"thème. Il y en a des milliers !"
 
 #: src/amo/components/LandingPage.js:121
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
 msgstr ""
+"Installez des outils puissants qui rendent votre navigation plus sûre et "
+"plus rapide. Les modules complémentaires vous permettent de personnaliser "
+"votre navigateur."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "Parcourir par catégorie"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
@@ -360,33 +380,33 @@ msgstr "Naviguez dans votre langue"
 msgid "Firefox Add-ons"
 msgstr "Modules Firefox"
 
-#: src/amo/components/RatingManager/index.js:101
-msgid "Log in to rate this search engine"
-msgstr "Connectez-vous pour noter ce moteur de recherche"
-
-#: src/amo/components/RatingManager/index.js:103
-msgid "Log in to rate this theme"
-msgstr "Connectez-vous pour noter ce thème"
-
-#: src/amo/components/RatingManager/index.js:105
-msgid "Log in to rate this extension"
-msgstr "Connectez-vous pour noter cette extension"
-
-#: src/amo/components/RatingManager/index.js:111
-msgid "Log in to rate this add-on"
-msgstr "Connectez-vous pour noter ce module complémentaire"
-
-#: src/amo/components/RatingManager/index.js:135
-msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "Avez-vous apprécié votre usage de %(addonName)s ?"
-
-#: src/amo/components/RatingManager/index.js:97
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this dictionary"
 msgstr "Connectez-vous pour noter ce dictionnaire"
 
-#: src/amo/components/RatingManager/index.js:99
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this language pack"
 msgstr "Connectez-vous pour noter ce paquetage linguistique"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "Connectez-vous pour noter ce moteur de recherche"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "Connectez-vous pour noter ce thème"
+
+#: src/amo/components/RatingManager/index.js:130
+msgid "Log in to rate this extension"
+msgstr "Connectez-vous pour noter cette extension"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "Connectez-vous pour noter ce module complémentaire"
+
+#: src/amo/components/RatingManager/index.js:160
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "Avez-vous apprécié votre usage de %(addonName)s ?"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -523,11 +543,11 @@ msgstr "Sportive"
 msgid "Solid"
 msgstr "Motifs"
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "Se déconnecter"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "Se connecter/S’inscrire"
 
@@ -536,6 +556,8 @@ msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
 msgstr ""
+"Navré, mais une erreur est survenue et nous n’avons pu répondre à votre "
+"demande. Nous avons enregistré cette erreur et allons l’analyser."
 
 #: src/core/components/ErrorPage/GenericError/index.js:33
 #: src/core/components/ErrorPage/NotFound/index.js:30
@@ -544,7 +566,7 @@ msgstr "Code d’erreur : %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Navré, mais nous ne trouvons rien de correspondant à l’URL demandée."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
@@ -606,9 +628,17 @@ msgstr "Vous pouvez désormais accéder à %(name)s depuis la barre d’outils."
 msgid "OK!"
 msgstr "OK"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Votre session a expiré"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Une erreur inattendue s’est produite"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Rechargez la page pour continuer"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

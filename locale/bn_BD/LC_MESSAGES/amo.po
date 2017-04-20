@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
 "PO-Revision-Date: 2017-04-04 15:48+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,20 +15,33 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonCompatibilityError/index.js:53
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "অ্যাড-অনটি ইন্সটল করতে হলে আপনাকে <a href=\"%(downloadUrl)s\">Firefox ডাউনলোড</a> করতে হবে।"
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"অ্যাড-অনটি ইন্সটল করতে হলে আপনাকে <a href=\"%(downloadUrl)s\">Firefox ডাউনলোড</"
+"a> করতে হবে।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS এর জন্যৈ Firefox বর্তমানে অ্যাড-অন সমর্থন করে না।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "এই অ্যাড-অনটির জন্যে <a href=\"%(downloadUrl)s\"> Firefox এর নতুন সংষ্করণ</a> (অন্তত %(minVersion)s সংস্করণ প্রয়োজন)। আপনি ব্যবহার করছেন Firefox %(yourVersion)s।"
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"এই অ্যাড-অনটির জন্যে <a href=\"%(downloadUrl)s\"> Firefox এর নতুন সংষ্করণ</a> "
+"(অন্তত %(minVersion)s সংস্করণ প্রয়োজন)। আপনি ব্যবহার করছেন Firefox "
+"%(yourVersion)s।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "আপনার ব্রাউজার অ্যাড-অন সমর্থন করে না। আপনি <a href=\"%(downloadUrl)s\">Firefox ডাউনলোড</a> করে এই অ্যাড-অন ইনস্টল করতে পারেন।"
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"আপনার ব্রাউজার অ্যাড-অন সমর্থন করে না। আপনি <a href=\"%(downloadUrl)s\">Firefox "
+"ডাউনলোড</a> করে এই অ্যাড-অন ইনস্টল করতে পারেন।"
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -149,7 +162,8 @@ msgid "Tell the world about this extension."
 msgstr "এই এক্সটেনশনটি সম্পর্কে পৃথিবীকে বলুন।"
 
 #: src/amo/components/AddonReview.js:96
-msgid "Tell us about your experience with this extension. Be specific and concise."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
 msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
 
 #: src/amo/components/AddonReviewList.js:38
@@ -181,46 +195,75 @@ msgid "No categories found."
 msgstr "কোন বিভাগ পাওয়া যায়নি।"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
-"আপনি যদি সাইন ইন থাকেন এবং মনে করেন এই বার্তাটি একটি ত্রুটি, অনুগ্রহ করে <a href=\"%(url)s\">একটি ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছেন, আপনি কি অ্যাক্সেস করার চেষ্টা করছিলেন, "
-"আমরা সমস্যাটি সমাধান করব।"
+"আপনি যদি সাইন ইন থাকেন এবং মনে করেন এই বার্তাটি একটি ত্রুটি, অনুগ্রহ করে <a href="
+"\"%(url)s\">একটি ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছেন, আপনি "
+"কি অ্যাক্সেস করার চেষ্টা করছিলেন, আমরা সমস্যাটি সমাধান করব।"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "অনুমোদিত নয়"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "দুঃখিত, কিন্তু আপনি এই পৃষ্ঠায় যাওয়ার জন্য অনুমোদিত নন। আপনি সাইন ইন অবস্থায় না থাকলে, পৃষ্ঠার উপরের লিঙ্কটি ব্যবহার করে সাইন ইন করার চেষ্টা করুন।"
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"দুঃখিত, কিন্তু আপনি এই পৃষ্ঠায় যাওয়ার জন্য অনুমোদিত নন। আপনি সাইন ইন অবস্থায় না "
+"থাকলে, পৃষ্ঠার উপরের লিঙ্কটি ব্যবহার করে সাইন ইন করার চেষ্টা করুন।"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "আপনি কোথাও থেকে একটি লিঙ্ক অনুসরণ করে আসলে, অনুগ্রহ করে <a href=\"%(url)s\">একটি ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছিলেন আর কি খুঁজছিলেন, আমরা এটা ঠিক করতে যথাসাধ্য চেষ্টা করব।"
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
+msgstr ""
+"আপনি কোথাও থেকে একটি লিঙ্ক অনুসরণ করে আসলে, অনুগ্রহ করে <a href=\"%(url)s\">একটি "
+"ইস্যু সাবমিট</a> করুন। আমাদের বলুন আপনি কোথা থেকে এসেছিলেন আর কি খুঁজছিলেন, আমরা "
+"এটা ঠিক করতে যথাসাধ্য চেষ্টা করব।"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
+#: src/amo/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "পাতা পাওয়া যায়নি"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "দুঃখিত, কিন্তু আমরা আপনার লেখা ঠিকানাটিতে কিছু খুঁজে পাচ্ছি না। আপনি একটি অ্যাড-অন লিঙ্ক অনুসরণ করে থাকলে, সম্ভবত অ্যাড-অনটি তার ডেভেলপার কর্তৃক অপসারণ করা হয়েছে।"
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"দুঃখিত, কিন্তু আমরা আপনার লেখা ঠিকানাটিতে কিছু খুঁজে পাচ্ছি না। আপনি একটি অ্যাড-অন "
+"লিঙ্ক অনুসরণ করে থাকলে, সম্ভবত অ্যাড-অনটি তার ডেভেলপার কর্তৃক অপসারণ করা হয়েছে।"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
-"আপনার নিকট অতিরিক্ত তথ্য থাকলে সেটি দিয়ে আমাদের সাহায্য করতে চাইলে <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\"> একটি ইস্যু সাবমিট</a> করতে পারেন। আমাদের বলুন আপনার কোন "
-"পদক্ষেপে এই ত্রুটির সম্মুখীন হয়েছেন, আমরা এটা ঠিক করতে আমাদের যথাসাধ্য চেষ্টা করব।"
+"আপনার নিকট অতিরিক্ত তথ্য থাকলে সেটি দিয়ে আমাদের সাহায্য করতে চাইলে <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\"> একটি ইস্যু সাবমিট</"
+"a> করতে পারেন। আমাদের বলুন আপনার কোন পদক্ষেপে এই ত্রুটির সম্মুখীন হয়েছেন, আমরা এটা "
+"ঠিক করতে আমাদের যথাসাধ্য চেষ্টা করব।"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "সার্ভার ত্রুটি"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "দুঃখিত, কিন্তু আমাদের সার্ভারের একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারেনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা তদন্ত করা হবে।"
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"দুঃখিত, কিন্তু আমাদের সার্ভারের একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে "
+"পারেনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা তদন্ত করা হবে।"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -255,12 +298,20 @@ msgid "Extensions"
 msgstr "এক্সটেনশন সমূহ"
 
 #: src/amo/components/LandingPage.js:119
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "আপনার ব্রাউজারের চেহারা পরিবর্তন করুন। আপনি Firefox কে যে রকম দেখতে চান তা হাজারও থিমের মাঝে থেকে পছন্দ করুন।"
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"আপনার ব্রাউজারের চেহারা পরিবর্তন করুন। আপনি Firefox কে যে রকম দেখতে চান তা "
+"হাজারও থিমের মাঝে থেকে পছন্দ করুন।"
 
 #: src/amo/components/LandingPage.js:121
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "আপনার বাউজারকে আরো দ্রুত ও নিরাপদ করতে শক্তিশালী টুল ইনস্টল করুন, এড-অন আপনার ব্রাউজারকে আপনারই বানায়।"
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+"আপনার বাউজারকে আরো দ্রুত ও নিরাপদ করতে শক্তিশালী টুল ইনস্টল করুন, এড-অন আপনার "
+"ব্রাউজারকে আপনারই বানায়।"
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
@@ -322,33 +373,33 @@ msgstr "আপনার ভাষায় ব্রাউজ করুন"
 msgid "Firefox Add-ons"
 msgstr "Firefox অ্যাড-অনস"
 
-#: src/amo/components/RatingManager/index.js:101
-msgid "Log in to rate this search engine"
-msgstr "সার্চ ইঞ্জিন রেট করতে লগিন করুন"
-
-#: src/amo/components/RatingManager/index.js:103
-msgid "Log in to rate this theme"
-msgstr "থিম রেট করতে লগিন করুন"
-
-#: src/amo/components/RatingManager/index.js:105
-msgid "Log in to rate this extension"
-msgstr "এক্সটেনশন রেট করতে লগিন করুন"
-
-#: src/amo/components/RatingManager/index.js:111
-msgid "Log in to rate this add-on"
-msgstr "এই অ্যাড-অন রেট দিতে লগইন করুন"
-
-#: src/amo/components/RatingManager/index.js:135
-msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "%(addonName)s এর সাথে আপনার অভিজ্ঞতা কেমন?"
-
-#: src/amo/components/RatingManager/index.js:97
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this dictionary"
 msgstr "এই অভিধন রেট করতে লগইন করুন"
 
-#: src/amo/components/RatingManager/index.js:99
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this language pack"
 msgstr "ভাষা প্যাক রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "সার্চ ইঞ্জিন রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "থিম রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:130
+msgid "Log in to rate this extension"
+msgstr "এক্সটেনশন রেট করতে লগিন করুন"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "এই অ্যাড-অন রেট দিতে লগইন করুন"
+
+#: src/amo/components/RatingManager/index.js:160
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "%(addonName)s এর সাথে আপনার অভিজ্ঞতা কেমন?"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -419,8 +470,12 @@ msgid "Add-ons for Firefox"
 msgstr "Firefox এর জন্য অ্যাড-অন"
 
 #: src/amo/containers/Home.js:39
-msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr "এক্সটেনশনগুলো বিশেষ বৈশিষ্ট্য যা আপনি Firefox y যোগ করতে পারেন। থিম আপনার ব্রাউজারের চেহারা পরিবর্তন করতে সাহায্য করবে।"
+msgid ""
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
+msgstr ""
+"এক্সটেনশনগুলো বিশেষ বৈশিষ্ট্য যা আপনি Firefox y যোগ করতে পারেন। থিম আপনার "
+"ব্রাউজারের চেহারা পরিবর্তন করতে সাহায্য করবে।"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -478,19 +533,24 @@ msgstr "খেলাধুলা সংক্রান্ত"
 msgid "Solid"
 msgstr "কঠিন"
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "লগ আউট"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "লগ ইন/সাইন আপ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই "
+"ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "এরর কোড: %(status)s"
 
@@ -558,9 +618,17 @@ msgstr "আপনি এখন টুলবার থেকে %(name)s এ প�
 msgid "OK!"
 msgstr "ঠিক আছে!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "একটি অপ্রত্যাশিত ত্রুটি সংঘটিত হয়েছে"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"
