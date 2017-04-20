@@ -7,6 +7,7 @@ import UAParser from 'ua-parser-js';
 
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
+import { initialApiState } from 'core/reducers/api';
 
 /*
  * Return a fake authentication token that can be
@@ -109,6 +110,7 @@ export function assertNotHasClass(el, className) {
 const userAgentForState = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 const { browser, os } = UAParser(userAgentForState);
 export const signedInApiState = Object.freeze({
+  ...initialApiState,
   lang: 'en-US',
   token: 'secret-token',
   userAgent: userAgentForState,

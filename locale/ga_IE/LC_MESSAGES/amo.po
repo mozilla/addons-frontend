@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-11 19:32+0000\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
 "PO-Revision-Date: 2017-02-03 21:54+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -68,12 +68,12 @@ msgstr ""
 
 #: src/amo/components/AddonDetail.js:92
 #, fuzzy
-msgid "Tap to preview"
+msgid "Cancel preview"
 msgstr "Scríobh léirmheas"
 
 #: src/amo/components/AddonDetail.js:92
 #, fuzzy
-msgid "Cancel preview"
+msgid "Tap to preview"
 msgstr "Scríobh léirmheas"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
@@ -381,34 +381,34 @@ msgstr "Brabhsáil i do theanga dhúchais"
 msgid "Firefox Add-ons"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/RatingManager/index.js:101
+#: src/amo/components/RatingManager/index.js:122
+msgid "Log in to rate this dictionary"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:124
+msgid "Log in to rate this language pack"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this search engine"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:103
+#: src/amo/components/RatingManager/index.js:128
 msgid "Log in to rate this theme"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:105
+#: src/amo/components/RatingManager/index.js:130
 #, fuzzy
 msgid "Log in to rate this extension"
 msgstr "Maidir leis an eisínteacht seo"
 
-#: src/amo/components/RatingManager/index.js:111
+#: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this add-on"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:135
+#: src/amo/components/RatingManager/index.js:160
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "An dtaitníonn %(addonName)s leat?"
-
-#: src/amo/components/RatingManager/index.js:97
-msgid "Log in to rate this dictionary"
-msgstr ""
-
-#: src/amo/components/RatingManager/index.js:99
-msgid "Log in to rate this language pack"
-msgstr ""
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 #, fuzzy
@@ -544,11 +544,11 @@ msgstr "Spórtúil"
 msgid "Solid"
 msgstr ""
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "Logáil amach"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "Logáil isteach/Cláraigh"
 
