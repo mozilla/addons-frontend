@@ -166,7 +166,7 @@ export class RatingManagerBase extends React.Component {
 
     return (
       <div className="RatingManager">
-        {showTextEntry ?
+        {showTextEntry && isLoggedIn ?
           <AddonReview
             onReviewSubmitted={onReviewSubmitted}
             review={userReview}

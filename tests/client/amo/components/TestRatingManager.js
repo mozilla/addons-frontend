@@ -178,6 +178,22 @@ describe('RatingManager', () => {
       });
   });
 
+  it('does not render an AddonReview when logged out', () => {
+    const userReview = setReview(fakeReview).payload;
+    const FakeAddonReview = sinon.spy(() => <div />);
+    const userId = null; // logged out
+    const root = render({ AddonReview: FakeAddonReview, userReview, userId });
+
+    assert.equal(FakeAddonReview.called, false,
+      'expected AddonReview to initially not be visible');
+
+    return root.onSelectRating(5)
+      .then(() => {
+        assert.notOk(
+          FakeAddonReview.called, 'AddonReview was rendered unexpectedly');
+      });
+  });
+
   it('configures a rating component', () => {
     const userReview = setReview(fakeReview).payload;
     const RatingStub = sinon.spy(() => (<div />));
