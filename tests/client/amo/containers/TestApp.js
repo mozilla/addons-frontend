@@ -229,6 +229,22 @@ describe('App', () => {
       assert.ok(logOutUser.called, 'expected logOutUser() to be called');
     });
 
+    it('only sets one timer when receiving new props', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = userAuthToken();
+      const logOutUser = sinon.stub();
+
+      const root = render({ authToken, authTokenValidFor, logOutUser });
+      // Simulate updating the component with new properties.
+      root.componentWillReceiveProps({ authToken });
+
+      const fuzz = 3; // acount for rounding the offset calculation.
+      clock.tick((authTokenValidFor + fuzz) * 1000);
+      assert.ok(logOutUser.called, 'expected logOutUser() to be called');
+      assert.ok(logOutUser.calledOnce,
+        'logOutUser() should only be called once');
+    });
+
     it('does not log out until the token expires', () => {
       const authTokenValidFor = 10; // seconds
       const authToken = userAuthToken();

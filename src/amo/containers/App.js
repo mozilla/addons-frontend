@@ -59,6 +59,7 @@ type AppProps = {
 export class AppBase extends React.Component {
   mastHead: Node;
   props: AppProps;
+  scheduledLogout: number;
 
   static defaultProps = {
     ErrorPage: DefaultErrorPage,
@@ -96,12 +97,17 @@ export class AppBase extends React.Component {
       setUserAgent(_navigator.userAgent);
     }
 
-    // TODO: support componentWillReceiveProps too.
     if (authToken) {
       log.info('Setting a logout timer when the token expires');
       this.setLogOutTimer(authToken);
-    } else {
-      log.info('No authToken');
+    }
+  }
+
+  componentWillReceiveProps(nextProps: AppProps) {
+    const { authToken } = nextProps;
+    if (authToken) {
+      log.info('Setting a new logout timer when the token expires');
+      this.setLogOutTimer(authToken);
     }
   }
 
@@ -136,7 +142,11 @@ export class AppBase extends React.Component {
     const readableExpiration =
       new Date((now + expirationTime) * 1000).toString();
     log.debug(`Auth token expires at ${readableExpiration}`);
-    setTimeout(() => {
+
+    if (this.scheduledLogout) {
+      clearTimeout(this.scheduledLogout);
+    }
+    this.scheduledLogout = setTimeout(() => {
       log.info('Logging out because the auth token has expired');
       logOutUser();
     }, expirationTime * 1000);
