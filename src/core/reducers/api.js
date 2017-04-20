@@ -1,3 +1,4 @@
+/* @flow */
 import UAParser from 'ua-parser-js';
 
 import {
@@ -7,8 +8,44 @@ import {
   SET_CLIENT_APP,
   SET_USER_AGENT,
 } from 'core/constants';
+import type {
+  SetAuthTokenAction,
+  LogOutUserAction,
+  SetClientAppAction,
+  SetLangAction,
+  SetUserAgentAction,
+} from 'core/actions/index';
+import type { Exact } from 'core/types/util';
 
-export default function api(state = {}, action) {
+type UserAgentInfoType = {|
+  browser: string,
+  os: string,
+|};
+
+export type ApiStateType = {
+  clientApp: ?string,
+  lang: ?string,
+  token: ?string,
+  userAgent: ?string,
+  userAgentInfo: ?UserAgentInfoType,
+};
+
+export const initialApiState = {
+  clientApp: null,
+  lang: null,
+  token: null,
+  userAgent: null,
+  userAgentInfo: null,
+};
+
+export default function api(
+  state: Exact<ApiStateType> = initialApiState,
+  action: SetAuthTokenAction
+    & SetLangAction
+    & SetClientAppAction
+    & SetUserAgentAction
+    & LogOutUserAction
+): Exact<ApiStateType> {
   switch (action.type) {
     case SET_AUTH_TOKEN:
       return { ...state, token: action.payload.token };
@@ -27,11 +64,7 @@ export default function api(state = {}, action) {
         };
       }
     case LOG_OUT_USER:
-      {
-        const newState = { ...state };
-        delete newState.token;
-        return newState;
-      }
+      return { ...state, token: null };
     default:
       return state;
   }

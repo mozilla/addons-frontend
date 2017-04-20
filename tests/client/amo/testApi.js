@@ -18,10 +18,11 @@ describe('amo.api', () => {
     // These are all the default values for fields that can be posted to the
     // endpoint.
     const defaultParams = {
-      rating: undefined,
-      version: undefined,
+      addon: undefined,
       body: undefined,
+      rating: undefined,
       title: undefined,
+      version: undefined,
     };
     const baseParams = {
       apiState: { ...signedInApiState, token: 'new-token' },

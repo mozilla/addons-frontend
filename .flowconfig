@@ -1,0 +1,26 @@
+[ignore]
+# Ignore built/minified addons-frontend code.
+<PROJECT_ROOT>/dist/.*
+
+# These modules opt into Flow but we don't need to check them.
+.*/node_modules/babel.*
+.*/node_modules/react-nested-status
+.*/node_modules/stylelint
+
+[include]
+
+[libs]
+# TODO: this can go away after
+# https://github.com/mozilla/addons-frontend/issues/2092
+./flow/libs/dedent.js.flow
+
+[options]
+# This maps all Sass/SCSS imports to a dummy Flow file to suppress import
+# errors. It's not necessary for Flow to analyze Sass/SCSS files.
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/flowStub.js.flow'
+module.system=node
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=./src
+log.file=./flow/logs/flow.log
+suppress_comment= \\(.\\|\n\\)*\\$FLOW_FIXME
+suppress_comment= \\(.\\|\n\\)*\\$FLOW_IGNORE

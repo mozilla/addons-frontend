@@ -5,6 +5,7 @@ import createStore from 'amo/store';
 import * as featuredActions from 'amo/actions/featured';
 import * as landingActions from 'amo/actions/landing';
 import * as api from 'core/api';
+import { initialApiState } from 'core/reducers/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -39,7 +40,9 @@ describe('amo/utils', () => {
       mockApi
         .expects('featured')
         .once()
-        .withArgs({ api: {}, filters: { addonType, page_size: 25 } })
+        .withArgs({
+          api: { ...initialApiState }, filters: { addonType, page_size: 25 },
+        })
         .returns(Promise.resolve({ entities, result }));
 
       return loadFeaturedAddons({ store, params: ownProps.params })
@@ -61,13 +64,15 @@ describe('amo/utils', () => {
       mockApi
         .expects('featured')
         .once()
-        .withArgs({ api: {}, filters: { addonType, page_size: 4 } })
+        .withArgs({
+          api: { ...initialApiState }, filters: { addonType, page_size: 4 },
+        })
         .returns(Promise.resolve({ entities, result }));
       mockApi
         .expects('search')
         .once()
         .withArgs({
-          api: {},
+          api: { ...initialApiState },
           filters: { addonType, page_size: 4, sort: SEARCH_SORT_TOP_RATED },
           page: 1,
         })
@@ -76,7 +81,7 @@ describe('amo/utils', () => {
         .expects('search')
         .once()
         .withArgs({
-          api: {},
+          api: { ...initialApiState },
           filters: { addonType, page_size: 4, sort: SEARCH_SORT_POPULAR },
           page: 1,
         })

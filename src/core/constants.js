@@ -174,3 +174,11 @@ export const GLOBAL_EVENT_STATUS_MAP = {
 // The events here are set directly on mozAddonManager
 // they will be fired by addons and themes.
 export const GLOBAL_EVENTS = Object.keys(GLOBAL_EVENT_STATUS_MAP);
+
+// Generic error codes.
+export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';
+// API error codes. These values match the error codes defined here:
+// http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#unauthorized-and-permission-denied
+export const API_ERROR_DECODING_SIGNATURE = 'ERROR_DECODING_SIGNATURE';
+export const API_ERROR_INVALID_HEADER = 'ERROR_INVALID_HEADER';
+export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
