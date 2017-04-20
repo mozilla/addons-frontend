@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-05 18:36+0000\n"
-"Last-Translator: Mehmet Ali <tutaste21@gmail.com>\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"PO-Revision-Date: 2017-04-14 17:44+0000\n"
+"Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -19,22 +19,29 @@ msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
 msgstr ""
+"Bu eklentiyi yüklemek için <a href=\"%(downloadUrl)s\">Firefox'u indirmeniz</"
+"a> gerekir."
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "iOS için Firefox henüz eklentileri desteklemiyor."
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
+"Bu eklenti <a href=\"%(downloadUrl)s\">Firefox'un daha yeni bir sürümünü</a> "
+"gerektirir (en az %(minVersion)s). Siz Firefox %(yourVersion)s "
+"kullanıyorsunuz."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
+"Tarayıcınız eklentileri desteklemiyor. Bu eklentiyi yüklemek için <a href="
+"\"%(downloadUrl)s\"> Firefox'u indirebilirsiniz </a>."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -165,8 +172,7 @@ msgstr ""
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
@@ -225,6 +231,8 @@ msgid ""
 "followed a link to an add-on, it's possible that add-on has been removed by "
 "its author."
 msgstr ""
+"Üzgünüz, yazdığınız adreste bir şey bulamadık. Bir eklenti bağlantısına "
+"tıkladıysanız o eklenti, geliştiricisi tarafından kaldırılmış olabilir."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
@@ -282,6 +290,8 @@ msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
+"Tarayıcınızın görünümünü değiştirin. Binlerce temadan istediğiniz seçerek "
+"Firefox'unuzu giydirin."
 
 #: src/amo/components/LandingPage.js:121
 msgid ""
@@ -291,7 +301,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "Kategoriye göre göz at"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
@@ -349,34 +359,34 @@ msgstr "Kendi dilinizde gezin"
 msgid "Firefox Add-ons"
 msgstr "Firefox Eklentileri"
 
-#: src/amo/components/RatingManager/index.js:101
+#: src/amo/components/RatingManager/index.js:122
+msgid "Log in to rate this dictionary"
+msgstr "Bu sözlüğü derecelendirmek için giriş yapın"
+
+#: src/amo/components/RatingManager/index.js:124
+msgid "Log in to rate this language pack"
+msgstr "Bu dil paketini derecelendirmek için giriş yapın"
+
+#: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this search engine"
 msgstr "Bu arama motorunu derecelendirmek için giriş yapın"
 
-#: src/amo/components/RatingManager/index.js:103
+#: src/amo/components/RatingManager/index.js:128
 msgid "Log in to rate this theme"
 msgstr "Bu temayı derecelendirmek için giriş yapın"
 
-#: src/amo/components/RatingManager/index.js:105
+#: src/amo/components/RatingManager/index.js:130
 #, fuzzy
 msgid "Log in to rate this extension"
 msgstr "En yüksek puanlı uzantılar"
 
-#: src/amo/components/RatingManager/index.js:111
+#: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this add-on"
 msgstr "Bu eklentiyi derecelendirmek için giriş yapın"
 
-#: src/amo/components/RatingManager/index.js:135
+#: src/amo/components/RatingManager/index.js:160
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s deneyiminizden ne kadar memnunsunuz?"
-
-#: src/amo/components/RatingManager/index.js:97
-msgid "Log in to rate this dictionary"
-msgstr "Bu sözlüğü derecelendirmek için giriş yapın"
-
-#: src/amo/components/RatingManager/index.js:99
-msgid "Log in to rate this language pack"
-msgstr "Bu dil paketini derecelendirmek için giriş yapın"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -512,11 +522,11 @@ msgstr "Spor"
 msgid "Solid"
 msgstr "Düz"
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "Çıkış"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "Giriş/Kayıt"
 
@@ -533,7 +543,7 @@ msgstr "Hata kodu: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Üzgünüz, yazdığınız adreste bir şey bulamadık."
 
 #: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
@@ -595,9 +605,17 @@ msgstr "%(name)s artık araç çubuğunuzda."
 msgid "OK!"
 msgstr "Tamam!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Oturumunuzun süresi doldu"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Beklenmeyen bir hata oluştu"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Devam etmek için sayfayı tazeleyin"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

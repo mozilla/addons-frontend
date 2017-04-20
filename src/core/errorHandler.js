@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 
 import { clearError, setError } from 'core/actions/errors';
 import log from 'core/logger';
-
-import 'core/css/ErrorHandler.scss';
+import ErrorList from 'ui/components/ErrorList';
 
 function generateHandlerId({ name = '' } = {}) {
   return `${name}-${Math.random().toString(36).substr(2, 9)}`;
@@ -35,23 +34,8 @@ export class ErrorHandler {
   }
 
   renderError() {
-    return (
-      <ul className="ErrorHandler-list">
-        {this.capturedError.messages.map(
-          (msg) => {
-            let msgString = msg;
-            if (typeof msgString === 'object') {
-              // This is an unlikely scenario where an API response
-              // contains nested objects within objects. If this
-              // happens in real life let's make it prettier.
-              // Until then, let's just prevent a stack trace.
-              msgString = JSON.stringify(msg);
-            }
-            return <li className="ErrorHandler-list-item">{msgString}</li>;
-          }
-        )}
-      </ul>
-    );
+    const { code, messages } = this.capturedError;
+    return <ErrorList messages={messages} code={code} />;
   }
 
   handle(error) {
@@ -60,6 +44,8 @@ export class ErrorHandler {
     this.dispatch(setError(info));
   }
 }
+
+export type ErrorHandlerType = typeof ErrorHandler;
 
 /*
  * This is a decorator that gives a component the ability to handle errors.

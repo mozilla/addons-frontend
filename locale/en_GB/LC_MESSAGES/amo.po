@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-18 16:32+0000\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"PO-Revision-Date: 2017-04-07 05:30+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
 "Language: en_GB\n"
@@ -83,16 +83,14 @@ msgstr[0] "%(total)s user"
 msgstr[1] "%(total)s users"
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s rating"
-msgstr[1] "%(total)s ratings"
+msgstr[0] "%(total)s review"
+msgstr[1] "%(total)s reviews"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
-msgstr "No reviews yet"
+msgstr "No reviews"
 
 #: src/amo/components/AddonMeta.js:41
 msgid "Used by"
@@ -172,8 +170,7 @@ msgstr ""
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "from %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -306,16 +303,20 @@ msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
 
 #: src/amo/components/LandingPage.js:121
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
 msgstr ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "Browse by category"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
@@ -373,33 +374,33 @@ msgstr "Browse in your language"
 msgid "Firefox Add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/RatingManager/index.js:101
-msgid "Log in to rate this search engine"
-msgstr "Log in to rate this search engine"
-
-#: src/amo/components/RatingManager/index.js:103
-msgid "Log in to rate this theme"
-msgstr "Log in to rate this theme"
-
-#: src/amo/components/RatingManager/index.js:105
-msgid "Log in to rate this extension"
-msgstr "Log in to rate this extension"
-
-#: src/amo/components/RatingManager/index.js:111
-msgid "Log in to rate this add-on"
-msgstr "Log in to rate this add-on"
-
-#: src/amo/components/RatingManager/index.js:135
-msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "How are you enjoying your experience with %(addonName)s?"
-
-#: src/amo/components/RatingManager/index.js:97
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this dictionary"
 msgstr "Log in to rate this dictionary"
 
-#: src/amo/components/RatingManager/index.js:99
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this language pack"
 msgstr "Log in to rate this language pack"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "Log in to rate this search engine"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "Log in to rate this theme"
+
+#: src/amo/components/RatingManager/index.js:130
+msgid "Log in to rate this extension"
+msgstr "Log in to rate this extension"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "Log in to rate this add-on"
+
+#: src/amo/components/RatingManager/index.js:160
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "How are you enjoying your experience with %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -533,11 +534,11 @@ msgstr "Sporty"
 msgid "Solid"
 msgstr "Solid"
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "Log out"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "Log in/Sign up"
 
@@ -618,9 +619,17 @@ msgstr "Now you can access %(name)s from the toolbar."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-19 15:01+0000\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"PO-Revision-Date: 2017-04-12 17:37+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -84,16 +84,14 @@ msgstr[0] "%(total)s brukar"
 msgstr[1] "%(total)s brukarar"
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s vurdering"
 msgstr[1] "%(total)s vurderingar"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
-msgstr "Ingen vurderingar enno"
+msgstr "Ingen vurderingar"
 
 #: src/amo/components/AddonMeta.js:41
 msgid "Used by"
@@ -173,8 +171,7 @@ msgstr ""
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "frå %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Lastar…"
 
@@ -308,16 +305,20 @@ msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
+"Endre utsjånad på nettlesaren. Vel frå tusenvis av utvidingar for å gje "
+"Firefox den utsjånaden du vil."
 
 #: src/amo/components/LandingPage.js:121
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
 msgstr ""
+"Installer kraftige verktyg som gjer surfinga raskare og tryggare, utvidingar "
+"gjer nettlesaren til din eigen."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "Bla gjennom etter kategori"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
@@ -375,33 +376,33 @@ msgstr "Surf på ditt språk"
 msgid "Firefox Add-ons"
 msgstr "Firefox-utvidingar"
 
-#: src/amo/components/RatingManager/index.js:101
-msgid "Log in to rate this search engine"
-msgstr "Logg inn for å vurdere denne søkjemotoren"
-
-#: src/amo/components/RatingManager/index.js:103
-msgid "Log in to rate this theme"
-msgstr "Logg inn for å vurdere dette temaet"
-
-#: src/amo/components/RatingManager/index.js:105
-msgid "Log in to rate this extension"
-msgstr "Logg inn for å vurdere denne utvidinga"
-
-#: src/amo/components/RatingManager/index.js:111
-msgid "Log in to rate this add-on"
-msgstr "Logg inn for å vurdere denne utvidinga"
-
-#: src/amo/components/RatingManager/index.js:135
-msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "Kva synest du om %(addonName)s?"
-
-#: src/amo/components/RatingManager/index.js:97
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this dictionary"
 msgstr "Logg inn for å vurdere denne ordboka"
 
-#: src/amo/components/RatingManager/index.js:99
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this language pack"
 msgstr "Logg inn for å vurdere denne språkpakken"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "Logg inn for å vurdere denne søkjemotoren"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "Logg inn for å vurdere dette temaet"
+
+#: src/amo/components/RatingManager/index.js:130
+msgid "Log in to rate this extension"
+msgstr "Logg inn for å vurdere denne utvidinga"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "Logg inn for å vurdere denne utvidinga"
+
+#: src/amo/components/RatingManager/index.js:160
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "Kva synest du om %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -535,11 +536,11 @@ msgstr "Sporty"
 msgid "Solid"
 msgstr "Einsfarga"
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "Logg ut"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "Logg inn/Registrer deg"
 
@@ -620,9 +621,17 @@ msgstr "No kan du få tilgang til %(name)s frå verktøylinja."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Økta di har gått ut"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Det oppstod ein uventa feil"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Oppdater for å fortsetje"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

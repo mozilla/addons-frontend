@@ -1,6 +1,7 @@
 import createStore from 'amo/store';
 import * as searchActions from 'core/actions/search';
 import * as api from 'core/api';
+import { initialApiState } from 'core/reducers/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { loadByCategoryIfNeeded, mapStateToProps } from 'core/searchUtils';
 
@@ -52,7 +53,7 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
     mockApi
       .expects('search')
       .once()
-      .withArgs({ page: 1, filters, api: {}, auth: {} })
+      .withArgs({ page: 1, filters, api: { ...initialApiState }, auth: {} })
       .returns(Promise.resolve({ entities, result }));
     return loadByCategoryIfNeeded({
       store,
@@ -77,7 +78,7 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
     mockApi
       .expects('search')
       .once()
-      .withArgs({ page: 1, filters, api: {}, auth: {} })
+      .withArgs({ page: 1, filters, api: { ...initialApiState }, auth: {} })
       .returns(Promise.resolve({ entities, result }));
     return loadByCategoryIfNeeded({
       store,
