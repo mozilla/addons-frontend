@@ -18,6 +18,7 @@ import {
   setLang,
   setUserAgent as setUserAgentAction,
 } from 'core/actions';
+import { logOutUser as logOutUserAction } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE } from 'core/constants';
@@ -310,6 +311,13 @@ describe('App', () => {
       clock.tick(authTokenValidFor * 1000);
       assert.notOk(logOutUser.called,
         'expected logOutUser() NOT to be called');
+    });
+
+    it('maps a logOutUser action', () => {
+      const dispatch = sinon.stub();
+      const { logOutUser } = mapDispatchToProps(dispatch);
+      logOutUser();
+      assert.deepEqual(dispatch.firstCall.args[0], logOutUserAction());
     });
   });
 });
