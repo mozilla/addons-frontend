@@ -113,7 +113,6 @@ export class AppBase extends React.Component {
 
   setLogOutTimer(authToken: string) {
     const { authTokenValidFor, logOutUser } = this.props;
-
     const expiresAt = authTokenValidFor;
     if (!expiresAt) {
       log.warn(oneLine`configured authTokenValidFor is falsey, not
@@ -124,11 +123,19 @@ export class AppBase extends React.Component {
     const parts = authToken.split(':');
     const encodedTimestamp = parts[1];
     const base62 = getDjangoBase62();
-    // This is a UTC Unix timestamp.
-    const createdAt = base62.decode(encodedTimestamp);
-    if (!/[0-9.]+/.test(createdAt)) {
+    let createdAt;
+    try {
+      // This is a UTC Unix timestamp.
+      createdAt = base62.decode(encodedTimestamp);
+    } catch (base62Error) {
       log.error(
-        `Got an invalid timestamp from auth token: ${encodedTimestamp}`);
+        `Auth token "${encodedTimestamp}" triggered this base62 error: "${base62Error}"`);
+      return;
+    }
+    // If the encoded timestamp was malformed it will be 0 or negative.
+    if (createdAt <= 0) {
+      log.error(oneLine`Got an invalid timestamp from auth token;
+        encoded value: ${encodedTimestamp}; decoded value: ${createdAt}`);
       return;
     }
     const readableCreatedAt = new Date(createdAt * 1000).toString();
@@ -138,7 +145,6 @@ export class AppBase extends React.Component {
     const now = Date.now() / 1000;
     // Set the expiration time in seconds.
     const expirationTime = (createdAt + expiresAt) - now;
-
     const readableExpiration =
       new Date((now + expirationTime) * 1000).toString();
     log.debug(`Auth token expires at ${readableExpiration}`);

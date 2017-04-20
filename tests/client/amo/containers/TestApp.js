@@ -274,11 +274,35 @@ describe('App', () => {
         'expected logOutUser() NOT to be called');
     });
 
-    it('ignores malformed tokens', () => {
+    it('ignores malformed timestamps', () => {
       const authTokenValidFor = 10; // seconds
       const authToken = userAuthToken({}, {
         tokenCreatedAt: 'bogus-timestamp',
       });
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor, logOutUser });
+
+      clock.tick(authTokenValidFor * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('ignores empty timestamps', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = 'this-is-a-token-with-an-empty-timestamp';
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor, logOutUser });
+
+      clock.tick(authTokenValidFor * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('ignores malformed tokens', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = 'not-auth-data:^&invalid-characters:not-a-signature';
       const logOutUser = sinon.stub();
 
       render({ authToken, authTokenValidFor, logOutUser });
