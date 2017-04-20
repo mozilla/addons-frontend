@@ -14,11 +14,11 @@ import {
 } from 'amo/containers/App';
 import createStore from 'amo/store';
 import {
+  logOutUser as logOutUserAction,
   setClientApp,
   setLang,
   setUserAgent as setUserAgentAction,
 } from 'core/actions';
-import { logOutUser as logOutUserAction } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE } from 'core/constants';
