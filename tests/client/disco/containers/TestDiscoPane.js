@@ -25,6 +25,14 @@ const { DiscoPaneBase } = helpers;
 
 
 describe('AddonPage', () => {
+  let fakeVideo;
+  let fakeTracking;
+
+  beforeEach(() => {
+    fakeTracking = { sendEvent: sinon.stub() };
+    fakeVideo = { play: sinon.stub(), pause: sinon.stub() };
+  });
+
   function render(props) {
     // Stub InfoDialog since it uses the store and is irrelevant.
     sinon.stub(InfoDialog, 'default', () => <p>InfoDialog</p>);
@@ -35,11 +43,17 @@ describe('AddonPage', () => {
     const results = [{ addon: 'foo', type: ADDON_TYPE_EXTENSION }];
     const i18n = getFakeI18nInst();
 
-    // We need the providers for i18n and since InstallButton will pull data from the store.
+    // We need providers because InstallButton will pull data from the store.
     return findDOMNode(renderIntoDocument(
       <DiscoPaneBase
-        store={store} i18n={i18n} results={results} {...props}
-        AddonComponent={MockedSubComponent} />
+        AddonComponent={MockedSubComponent}
+        i18n={i18n}
+        results={results}
+        store={store}
+        _tracking={fakeTracking}
+        _video={fakeVideo}
+        {...props}
+      />
     ));
   }
 
@@ -58,27 +72,23 @@ describe('AddonPage', () => {
     });
 
     it('tracks video being played', () => {
-      const fakeTracking = {
-        sendEvent: sinon.stub(),
-      };
-      const root = render({ _tracking: fakeTracking });
+      const root = render();
       Simulate.click(root.querySelector('.play-video'));
       assert.ok(fakeTracking.sendEvent.calledWith({
         category: VIDEO_CATEGORY,
         action: 'play',
       }));
+      assert.ok(fakeVideo.play.calledOnce);
     });
 
     it('tracks video being closed', () => {
-      const fakeTracking = {
-        sendEvent: sinon.stub(),
-      };
-      const root = render({ _tracking: fakeTracking });
+      const root = render();
       Simulate.click(root.querySelector('.close-video a'));
       assert.ok(fakeTracking.sendEvent.calledWith({
         category: VIDEO_CATEGORY,
         action: 'close',
       }));
+      assert.ok(fakeVideo.pause.calledOnce);
     });
   });
 
@@ -175,10 +185,7 @@ describe('AddonPage', () => {
 
   describe('See more add-ons link', () => {
     it('tracks see more addons link being clicked', () => {
-      const fakeTracking = {
-        sendEvent: sinon.stub(),
-      };
-      const root = render({ _tracking: fakeTracking });
+      const root = render();
       Simulate.click(root.querySelector('.amo-link a'));
       assert.ok(fakeTracking.sendEvent.calledWith({
         category: NAVIGATION_CATEGORY,

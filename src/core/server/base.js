@@ -7,22 +7,23 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 import Express from 'express';
 import helmet from 'helmet';
+import Raven from 'raven';
 import cookie from 'react-cookie';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
+import { loadFail } from 'redux-connect/lib/store';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
+import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
-import {
-  getErrorMsg,
-  getReduxConnectError,
-} from 'core/resourceErrors/reduxConnectErrors';
-import { prefixMiddleWare } from 'core/middleware';
+import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
 import { convertBoolean } from 'core/utils';
-import { setClientApp, setLang, setJwt } from 'core/actions';
+import { setAuthToken, setClientApp, setLang, setUserAgent }
+  from 'core/actions';
 import log from 'core/logger';
 import {
   getDirection,
@@ -54,17 +55,65 @@ function getNoScriptStyles({ appName }) {
   return undefined;
 }
 
-function showErrorPage(res, status) {
-  let adjustedStatus = status;
-  let error = getErrorMsg(adjustedStatus);
-  if (!error) {
-    adjustedStatus = 500;
-    error = getErrorMsg(adjustedStatus);
+const appName = config.get('appName');
+
+function getPageProps({ noScriptStyles = '', store, req, res }) {
+  // Get SRI for deployed services only.
+  const sriData = (isDeployed) ? JSON.parse(
+    fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
+  ) : {};
+
+  // Check the lang supplied by res.locals.lang for validity
+  // or fall-back to the default.
+  const lang = isValidLang(res.locals.lang) ?
+    res.locals.lang : config.get('defaultLang');
+  const dir = getDirection(lang);
+  store.dispatch(setLang(lang));
+  if (res.locals.clientApp) {
+    store.dispatch(setClientApp(res.locals.clientApp));
+  } else if (req && req.url) {
+    log.warn(`No clientApp for this URL: ${req.url}`);
+  } else {
+    log.warn('No clientApp (error)');
   }
-  return res.status(adjustedStatus).end(error);
+  if (res.locals.userAgent) {
+    store.dispatch(setUserAgent(res.locals.userAgent));
+  } else {
+    log.info('No userAgent found in request headers.');
+  }
+
+  return {
+    appName,
+    assets: webpackIsomorphicTools.assets(),
+    htmlLang: lang,
+    htmlDir: dir,
+    includeSri: isDeployed,
+    noScriptStyles,
+    sriData,
+    store,
+    trackingEnabled: convertBoolean(config.get('trackingEnabled')),
+  };
 }
 
-const appName = config.get('appName');
+function showErrorPage({ createStore, error = {}, req, res, status }) {
+  const store = createStore();
+  const pageProps = getPageProps({ store, req, res });
+
+  const componentDeclaredStatus = NestedStatus.rewind();
+  let adjustedStatus = status || componentDeclaredStatus || 500;
+  if (error.response && error.response.status) {
+    adjustedStatus = error.response.status;
+  }
+
+  const apiError = createApiError({ response: { status: adjustedStatus } });
+  store.dispatch(loadFail('ServerBase', { ...apiError, ...error }));
+
+  const HTML = ReactDOM.renderToString(
+    <ServerHtml {...pageProps} />);
+  return res.status(adjustedStatus)
+    .send(`<!DOCTYPE html>\n${HTML}`)
+    .end();
+}
 
 function logRequests(req, res, next) {
   const start = new Date();
@@ -74,9 +123,29 @@ function logRequests(req, res, next) {
   log.info({ req, res, start, finish, elapsed });
 }
 
+function hydrateOnClient({ res, props = {}, pageProps }) {
+  const HTML =
+    ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+  const componentDeclaredStatus = NestedStatus.rewind();
+  return res.status(componentDeclaredStatus)
+    .send(`<!DOCTYPE html>\n${HTML}`)
+    .end();
+}
+
 function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   const app = new Express();
   app.disable('x-powered-by');
+
+  const sentryDsn = config.get('sentryDsn');
+  if (sentryDsn) {
+    Raven.config(sentryDsn, { logger: 'server-js' }).install();
+    app.use(Raven.requestHandler());
+    log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
+    // The error handler is defined below.
+  } else {
+    log.warn(
+      'Sentry reporting is disabled; Set config.sentryDsn to enable it.');
+  }
 
   app.use(logRequests);
 
@@ -146,7 +215,12 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     app.use(prefixMiddleWare);
   }
 
-  app.use((req, res) => {
+  // Add trailing slashes to URLs
+  if (config.get('enableTrailingSlashesMiddleware')) {
+    app.use(trailingSlashesMiddleware);
+  }
+
+  app.use((req, res, next) => {
     if (isDevelopment) {
       log.info(oneLine`Clearing require cache for webpack isomorphic tools.
         [Development Mode]`);
@@ -156,65 +230,44 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     }
 
     match({ location: req.url, routes }, (
-      err, redirectLocation, renderProps
+      matchError, redirectLocation, renderProps
     ) => {
-      cookie.plugToRequest(req, res);
-
-      if (err) {
-        log.error({ err, req });
-        return showErrorPage(res, 500);
+      if (matchError) {
+        log.info(`match() returned an error for ${req.url}: ${matchError}`);
+        return next(matchError);
       }
-
       if (!renderProps) {
-        return showErrorPage(res, 404);
+        log.info(`match() did not return renderProps for ${req.url}`);
+        return showErrorPage({ createStore, status: 404, req, res });
       }
 
-      const store = createStore();
-      const token = cookie.load(config.get('cookieName'));
-      if (token) {
-        store.dispatch(setJwt(token));
-      }
-      // Get SRI for deployed services only.
-      const sriData = (isDeployed) ? JSON.parse(
-        fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
-      ) : {};
+      let htmlLang;
+      let locale;
+      let pageProps;
+      let store;
 
-      // Check the lang supplied by res.locals.lang for validity
-      // or fall-back to the default.
-      const lang = isValidLang(res.locals.lang) ?
-        res.locals.lang : config.get('defaultLang');
-      const dir = getDirection(lang);
-      const locale = langToLocale(lang);
-      store.dispatch(setLang(lang));
-      if (res.locals.clientApp) {
-        store.dispatch(setClientApp(res.locals.clientApp));
-      } else {
-        log.warn(`No clientApp for this URL: ${req.url}`);
-      }
+      try {
+        cookie.plugToRequest(req, res);
 
-      function hydrateOnClient(props = {}) {
-        const pageProps = {
-          appName: appInstanceName,
-          assets: webpackIsomorphicTools.assets(),
-          htmlLang: lang,
-          htmlDir: dir,
-          includeSri: isDeployed,
-          noScriptStyles,
-          sriData,
-          store,
-          trackingEnabled: convertBoolean(config.get('trackingEnabled')),
-          ...props,
-        };
+        store = createStore();
+        const token = cookie.load(config.get('cookieName'));
+        if (token) {
+          store.dispatch(setAuthToken(token));
+        }
 
-        const HTML = ReactDOM.renderToString(
-          <ServerHtml {...pageProps} />);
-        res.send(`<!DOCTYPE html>\n${HTML}`);
-      }
+        pageProps = getPageProps({ noScriptStyles, store, req, res });
+        if (config.get('disableSSR') === true) {
+          log.warn(
+            'Server side rendering disabled; responding without loading');
+          return hydrateOnClient({ res, pageProps });
+        }
 
-      // Set disableSSR to true to debug
-      // client-side-only render.
-      if (config.get('disableSSR') === true) {
-        return Promise.resolve(hydrateOnClient());
+        htmlLang = pageProps.htmlLang;
+        locale = langToLocale(htmlLang);
+      } catch (preLoadError) {
+        log.info(
+          `Caught an error in match() before loadOnServer(): ${preLoadError}`);
+        return next(preLoadError);
       }
 
       return loadOnServer({ ...renderProps, store })
@@ -233,7 +286,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             log.info(
               `Falling back to default lang: "${config.get('defaultLang')}".`);
           }
-          const i18n = makeI18n(i18nData, lang);
+          const i18n = makeI18n(i18nData, htmlLang);
 
           const InitialComponent = (
             <I18nProvider i18n={i18n}>
@@ -243,25 +296,40 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             </I18nProvider>
           );
 
-          const asyncConnectLoadState = store.getState().reduxAsyncConnect.loadState || {};
-          const reduxResult = getReduxConnectError(asyncConnectLoadState);
-          if (reduxResult.status) {
-            return showErrorPage(res, reduxResult.status);
+          const errorPage = store.getState().errorPage;
+          if (errorPage && errorPage.hasError) {
+            log.info(`Error page was dispatched to state: ${errorPage.error}`);
+            throw errorPage.error;
           }
 
-          return hydrateOnClient({ component: InitialComponent });
+          return hydrateOnClient({
+            props: { component: InitialComponent },
+            pageProps,
+            res,
+          });
         })
-        .catch((error) => {
-          log.error({ err: error });
-          return showErrorPage(res, 500);
+        .catch((loadError) => {
+          log.error(`Caught error from loadOnServer(): ${loadError}`);
+          next(loadError);
         });
     });
   });
 
-  // eslint-disable-next-line no-unused-vars
-  app.use((err, req, res, next) => {
-    log.error({ err });
-    return showErrorPage(res, 500);
+  // Error handlers:
+
+  if (sentryDsn) {
+    app.use(Raven.errorHandler());
+  }
+
+  app.use((error, req, res, next) => {
+    if (res.headersSent) {
+      log.warn(dedent`Ignoring error for ${req.url}
+        because a response was already sent; error: ${error}`);
+      return next(error);
+    }
+    log.error(`Showing 500 page for error: ${error}`);
+    log.error({ err: error }); // log the stack trace too.
+    return showErrorPage({ createStore, error, status: 500, req, res });
   });
 
   return app;
@@ -300,12 +368,23 @@ export function runServer({
             if (err) {
               return reject(err);
             }
-            log.info(oneLine`🔥  Addons-frontend server is running [ENV:${env}]
-              [APP:${app}] [isDevelopment:${isDevelopment}
-              [isDeployed:${isDeployed}] [apiHost:${config.get('apiHost')}]
-              [apiPath:${config.get('apiPath')}]`);
-            log.info(
-              `👁  Open your browser at http://${host}:${port} to view it.`);
+            const proxyEnabled = convertBoolean(config.get('proxyEnabled'));
+            // Not using oneLine here since it seems to change '  ' to ' '.
+            log.info([
+              `🔥  Addons-frontend server is running [ENV:${env}] [APP:${app}]`,
+              `[isDevelopment:${isDevelopment}] [isDeployed:${isDeployed}]`,
+              `[apiHost:${config.get('apiHost')}] [apiPath:${config.get('apiPath')}]`,
+            ].join(' '));
+            if (proxyEnabled) {
+              const proxyPort = config.get('proxyPort');
+              log.info(
+                `🚦  Proxy detected, frontend running at http://${host}:${port}.`);
+              log.info(
+                `👁  Open your browser at http://localhost:${proxyPort} to view it.`);
+            } else {
+              log.info(
+                `👁  Open your browser at http://${host}:${port} to view it.`);
+            }
             return resolve(server);
           });
         } else {

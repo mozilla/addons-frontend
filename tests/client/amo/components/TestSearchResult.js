@@ -2,6 +2,7 @@ import React from 'react';
 import {
   findRenderedComponentWithType,
   findRenderedDOMComponentWithClass,
+  scryRenderedDOMComponentsWithClass,
   renderIntoDocument,
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
@@ -11,6 +12,7 @@ import SearchResult from 'amo/components/SearchResult';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
+import { ADDON_TYPE_THEME } from 'core/constants';
 
 
 describe('<SearchResult />', () => {
@@ -50,9 +52,14 @@ describe('<SearchResult />', () => {
     assert.ok(node);
   });
 
+  it('ignores an empty author list', () => {
+    const myRoot = renderResult({ ...result, authors: undefined });
+    const nodes = scryRenderedDOMComponentsWithClass(myRoot, 'SearchResult-author');
+    assert.equal(nodes.length, 0);
+  });
+
   it("renders only the first author's name when there are multiple", () => {
-    const authors = findRenderedDOMComponentWithClass(root,
-                                                      'SearchResult-author');
+    const authors = findRenderedDOMComponentWithClass(root, 'SearchResult-author');
     assert.equal(authors.textContent, 'A funky déveloper');
   });
 
@@ -83,5 +90,42 @@ describe('<SearchResult />', () => {
     const node = findRenderedDOMComponentWithClass(root, 'Rating');
     assert.equal(node.textContent,
                  `Rated ${fakeAddon.ratings.average} out of 5`);
+  });
+
+  it('displays a placeholder if the icon is malformed', () => {
+    const themeResult = {
+      ...result,
+      icon_url: 'whatevs',
+    };
+    const themeRoot = renderResult(themeResult);
+    const iconPlaceholder = findRenderedDOMComponentWithClass(
+      themeRoot, 'SearchResult-icon');
+    const iconSrc = iconPlaceholder.src;
+    assert.ok(iconSrc.startsWith('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAA'), iconSrc);
+  });
+
+  it('adds theme specific class', () => {
+    const themeResult = {
+      ...result,
+      type: ADDON_TYPE_THEME,
+      theme_data: {
+        previewURL: 'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
+      },
+    };
+    const themeRoot = renderResult(themeResult);
+    const themeSearchResult = findRenderedDOMComponentWithClass(
+      themeRoot, 'SearchResult--theme');
+    assert.ok(themeSearchResult);
+  });
+
+  it('displays a message if the theme preview image is bogus', () => {
+    const themeResult = {
+      ...result,
+      type: ADDON_TYPE_THEME,
+    };
+    const themeRoot = renderResult(themeResult);
+    const themeSearchNoImage = findRenderedDOMComponentWithClass(
+      themeRoot, 'SearchResult-notheme');
+    assert.equal(themeSearchNoImage.textContent, 'No theme preview available');
   });
 });

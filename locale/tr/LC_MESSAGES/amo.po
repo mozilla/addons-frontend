@@ -1,0 +1,645 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: amo\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"PO-Revision-Date: 2017-04-14 17:44+0000\n"
+"Last-Translator: Selim Şumlu <selim@sum.lu>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pontoon\n"
+
+#: src/amo/components/AddonCompatibilityError/index.js:53
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"Bu eklentiyi yüklemek için <a href=\"%(downloadUrl)s\">Firefox'u indirmeniz</"
+"a> gerekir."
+
+#: src/amo/components/AddonCompatibilityError/index.js:57
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "iOS için Firefox henüz eklentileri desteklemiyor."
+
+#: src/amo/components/AddonCompatibilityError/index.js:60
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"Bu eklenti <a href=\"%(downloadUrl)s\">Firefox'un daha yeni bir sürümünü</a> "
+"gerektirir (en az %(minVersion)s). Siz Firefox %(yourVersion)s "
+"kullanıyorsunuz."
+
+#: src/amo/components/AddonCompatibilityError/index.js:74
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"Tarayıcınız eklentileri desteklemiyor. Bu eklentiyi yüklemek için <a href="
+"\"%(downloadUrl)s\"> Firefox'u indirebilirsiniz </a>."
+
+#: src/amo/components/AddonDetail.js:131
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "%(count)s incelemenin hepsini oku"
+
+#: src/amo/components/AddonDetail.js:144
+msgid "No reviews yet"
+msgstr "Henüz inceleme yapılmamış"
+
+#: src/amo/components/AddonDetail.js:153
+msgid "Rate your experience"
+msgstr "Deneyiminize puan verin"
+
+#: src/amo/components/AddonDetail.js:183
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)sgeliştiren: %(authorList)s%(endSpan)s"
+
+#: src/amo/components/AddonDetail.js:210
+msgid "Extension Metadata"
+msgstr "Uzantı meta verileri"
+
+#: src/amo/components/AddonDetail.js:228
+msgid "About this %(addonType)s"
+msgstr "Bu %(addonType)s hakkında"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Ön izlemeyi iptal et"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "Ön izleme için dokunun"
+
+#: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
+msgid "%(total)s user"
+msgid_plural "%(total)s users"
+msgstr[0] "%(total)s kullanıcı"
+
+#: src/amo/components/AddonMeta.js:30
+#, fuzzy
+msgid "%(total)s review"
+msgid_plural "%(total)s reviews"
+msgstr[0] "%(total)s puanlama"
+
+#: src/amo/components/AddonMeta.js:35
+#, fuzzy
+msgid "No reviews"
+msgstr "Henüz inceleme yapılmamış"
+
+#: src/amo/components/AddonMeta.js:41
+msgid "Used by"
+msgstr "Kullanan"
+
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr "Ana Sayfa"
+
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr "Destek Sitesi"
+
+#: src/amo/components/AddonMoreInfo.js:38
+msgid "More information"
+msgstr "Daha fazla bilgi"
+
+#: src/amo/components/AddonMoreInfo.js:42
+msgid "Add-on Links"
+msgstr "Eklenti Bağlantıları"
+
+#: src/amo/components/AddonMoreInfo.js:53
+msgid "Version"
+msgstr "Sürüm"
+
+#: src/amo/components/AddonMoreInfo.js:57
+msgid "Last updated"
+msgstr "Son güncelleme"
+
+#: src/amo/components/AddonMoreInfo.js:62
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo.js:70
+msgid "License"
+msgstr "Lisans"
+
+#: src/amo/components/AddonMoreInfo.js:81
+msgid "Privacy Policy"
+msgstr "Gizlilik İlkeleri"
+
+#: src/amo/components/AddonMoreInfo.js:87
+msgid "Read the privacy policy for this add-on"
+msgstr "Bu eklentinin gizlilik ilkelerini okuyun"
+
+#: src/amo/components/AddonReview.js:104
+msgid "Write a review"
+msgstr "İnceleme yazın"
+
+#: src/amo/components/AddonReview.js:110
+msgid "Review text"
+msgstr "İnceleme metni"
+
+#: src/amo/components/AddonReview.js:124
+msgid "Submit review"
+msgstr "İncelemeyi gönder"
+
+#: src/amo/components/AddonReview.js:88
+msgid "Tell the world why you think this extension is fantastic!"
+msgstr "Neden bu uzantının harika olduğunu anlatın!"
+
+#: src/amo/components/AddonReview.js:91
+msgid "Tell us what you love about this extension. Be specific and concise."
+msgstr ""
+"Bize bu uzantının nesini sevdiğinizi anlatın. Mümkün olduğunca detay verin."
+
+#: src/amo/components/AddonReview.js:95
+msgid "Tell the world about this extension."
+msgstr "Arkadaşlarınıza bu uzantıdan bahsedin."
+
+#: src/amo/components/AddonReview.js:96
+#, fuzzy
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+"Bize bu uzantının nesini sevdiğinizi anlatın. Mümkün olduğunca detay verin."
+
+#: src/amo/components/AddonReviewList.js:38
+msgid "from %(authorName)s, %(timestamp)s"
+msgstr "%(authorName)s, %(timestamp)s"
+
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+#: src/amo/components/AddonReviewList.js:62
+msgid "Add-on icon"
+msgstr "Eklenti simgesi"
+
+#: src/amo/components/AddonReviewList.js:67
+msgid "Reviews for %(addonName)s"
+msgstr "%(addonName)s incelemeleri"
+
+#: src/amo/components/AddonReviewList.js:70
+msgid "All written reviews"
+msgstr "Tüm yazılı incelemeler"
+
+#: src/amo/components/Categories.js:34
+msgid "Failed to load categories."
+msgstr "Kategoriler yüklenemedi."
+
+#: src/amo/components/Categories.js:42
+msgid "No categories found."
+msgstr "Kategori bulunamadı."
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:21
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:33
+msgid "Not Authorized"
+msgstr "Yetkili değilsiniz"
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:21
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/NotFound/index.js:24
+msgid "Page not found"
+msgstr "Sayfa bulunamadı"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:34
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"Üzgünüz, yazdığınız adreste bir şey bulamadık. Bir eklenti bağlantısına "
+"tıkladıysanız o eklenti, geliştiricisi tarafından kaldırılmış olabilir."
+
+#: src/amo/components/ErrorPage/ServerError/index.js:21
+msgid ""
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
+msgstr ""
+
+#: src/amo/components/ErrorPage/ServerError/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:24
+msgid "Server Error"
+msgstr "Sunucu Hatası"
+
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+
+#: src/amo/components/FeaturedAddons/index.js:32
+msgid "More Featured Extensions"
+msgstr "Daha fazla öne çıkan uzantı"
+
+#: src/amo/components/FeaturedAddons/index.js:34
+msgid "More Featured Themes"
+msgstr "Daha fazla öne çıkan tema"
+
+#: src/amo/components/Footer.js:30
+msgid "Privacy policy"
+msgstr "Gizlilik ilkesi"
+
+#: src/amo/components/Footer.js:36
+msgid "Legal notices"
+msgstr "Yasal uyarılar"
+
+#: src/amo/components/Footer.js:42
+msgid "Report a bug"
+msgstr "Hata bildir"
+
+#: src/amo/components/Footer.js:49
+msgid "View desktop site"
+msgstr "Masaüstü sitesini göster"
+
+#: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
+msgid "Themes"
+msgstr "Temalar"
+
+#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
+msgid "Extensions"
+msgstr "Uzantılar"
+
+#: src/amo/components/LandingPage.js:119
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Tarayıcınızın görünümünü değiştirin. Binlerce temadan istediğiniz seçerek "
+"Firefox'unuzu giydirin."
+
+#: src/amo/components/LandingPage.js:121
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:147
+msgid "Browse by category"
+msgstr "Kategoriye göre göz at"
+
+#: src/amo/components/LandingPage.js:51
+msgid "Featured extensions"
+msgstr "Öne çıkan uzantılar"
+
+#: src/amo/components/LandingPage.js:55
+msgid "More featured extensions"
+msgstr "Daha fazla öne çıkan uzantı"
+
+#: src/amo/components/LandingPage.js:56
+msgid "Most popular extensions"
+msgstr "En popüler uzantılar"
+
+#: src/amo/components/LandingPage.js:61
+msgid "More popular extensions"
+msgstr "Daha fazla popüler uzantı"
+
+#: src/amo/components/LandingPage.js:62
+msgid "Top rated extensions"
+msgstr "En yüksek puanlı uzantılar"
+
+#: src/amo/components/LandingPage.js:70
+msgid "More highly rated extensions"
+msgstr "Daha fazla yüksek puanlı uzantı"
+
+#: src/amo/components/LandingPage.js:73
+msgid "Featured themes"
+msgstr "Öne çıkan temalar"
+
+#: src/amo/components/LandingPage.js:77
+msgid "More featured themes"
+msgstr "Daha fazla öne çıkan tema"
+
+#: src/amo/components/LandingPage.js:78
+msgid "Most popular themes"
+msgstr "En popüler temalar"
+
+#: src/amo/components/LandingPage.js:83
+msgid "More popular themes"
+msgstr "Daha fazla popüler tema"
+
+#: src/amo/components/LandingPage.js:84
+msgid "Top rated themes"
+msgstr "En yüksek puanlı temalar"
+
+#: src/amo/components/LandingPage.js:89
+msgid "More highly rated themes"
+msgstr "Daha fazla yüksek puanlı tema"
+
+#: src/amo/components/LanguagePicker.js:49
+msgid "Browse in your language"
+msgstr "Kendi dilinizde gezin"
+
+#: src/amo/components/MastHead.js:31
+msgid "Firefox Add-ons"
+msgstr "Firefox Eklentileri"
+
+#: src/amo/components/RatingManager/index.js:122
+msgid "Log in to rate this dictionary"
+msgstr "Bu sözlüğü derecelendirmek için giriş yapın"
+
+#: src/amo/components/RatingManager/index.js:124
+msgid "Log in to rate this language pack"
+msgstr "Bu dil paketini derecelendirmek için giriş yapın"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "Bu arama motorunu derecelendirmek için giriş yapın"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "Bu temayı derecelendirmek için giriş yapın"
+
+#: src/amo/components/RatingManager/index.js:130
+#, fuzzy
+msgid "Log in to rate this extension"
+msgstr "En yüksek puanlı uzantılar"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "Bu eklentiyi derecelendirmek için giriş yapın"
+
+#: src/amo/components/RatingManager/index.js:160
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "%(addonName)s deneyiminizden ne kadar memnunsunuz?"
+
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
+msgid "Search"
+msgstr "Ara"
+
+#: src/amo/components/SearchForm.js:51
+msgid "Search extensions and themes"
+msgstr "Uzantılarda ve temalarda ara"
+
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr "Tema ön izlemesi yok"
+
+#: src/amo/components/SearchResults.js:42
+msgid "Searching…"
+msgstr "Aranıyor…"
+
+#: src/amo/components/SearchResults.js:48
+msgid "No results were found for \"%(query)s\"."
+msgstr "\"%(query)s\" için sonuç bulunamadı."
+
+#: src/amo/components/SearchResults.js:52
+msgid "No results were found."
+msgstr "Hiç sonuç bulunamadı."
+
+#: src/amo/components/SearchResults.js:55
+msgid "Please enter a search term to search Firefox Add-ons."
+msgstr "Firefox Eklentileri'nde aramak istediğiniz terimi yazın."
+
+#: src/amo/components/SearchSort/index.js:40
+msgid "Recently Updated"
+msgstr "Son Güncellenenler"
+
+#: src/amo/components/SearchSort/index.js:41
+msgid "Relevance"
+msgstr "İlgi"
+
+#: src/amo/components/SearchSort/index.js:42
+msgid "Most Users"
+msgstr "En çok kullanıcı"
+
+#: src/amo/components/SearchSort/index.js:43
+msgid "Top Rated"
+msgstr "En yüksek puan"
+
+#: src/amo/components/SearchSort/index.js:66
+msgid "Sort"
+msgstr "Sıralama"
+
+#: src/amo/components/SuggestedPages/index.js:20
+msgid "Suggested Pages"
+msgstr "Önerilen sayfalar"
+
+#: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
+msgid "Browse all extensions"
+msgstr "Tüm uzantılara göz atın"
+
+#: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
+msgid "Browse all themes"
+msgstr "Tüm temalara göz atın"
+
+#: src/amo/components/SuggestedPages/index.js:35
+msgid "Add-ons Home Page"
+msgstr "Eklentiler Ana Sayfası"
+
+#: src/amo/containers/App.js:106
+msgid "Add-ons for Firefox"
+msgstr "Firefox Eklentileri"
+
+#: src/amo/containers/Home.js:39
+#, fuzzy
+msgid ""
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
+msgstr ""
+"Uzantılar Firefox'a ekleyebileceğiniz yeni özelliklerdir.\n"
+"Temalar tarayıcınızın görünümünü değiştirmenizi sağlar."
+
+#: src/amo/containers/Home.js:52
+msgid "You can change how Firefox works…"
+msgstr "Firefox'un çalışma şeklini…"
+
+#: src/amo/containers/Home.js:55
+msgid "Block ads"
+msgstr "Reklamları engelleyin"
+
+#: src/amo/containers/Home.js:58
+msgid "Screenshot"
+msgstr "Ekran görüntüsü"
+
+#: src/amo/containers/Home.js:61
+msgid "Find news"
+msgstr "Haberleri bulun"
+
+#: src/amo/containers/Home.js:64
+msgid "Shop online"
+msgstr "Alışveriş yapın"
+
+#: src/amo/containers/Home.js:67
+msgid "Be social"
+msgstr "Sosyalleşin"
+
+#: src/amo/containers/Home.js:70
+msgid "Play games"
+msgstr "Oyun oynayın"
+
+#: src/amo/containers/Home.js:77
+msgid "…or what it looks like"
+msgstr "…veya görünümünü değiştirebilirsiniz"
+
+#: src/amo/containers/Home.js:79
+msgid "Wild"
+msgstr "Vahşi"
+
+#: src/amo/containers/Home.js:80
+msgid "Abstract"
+msgstr "Soyut"
+
+#: src/amo/containers/Home.js:81
+#, fuzzy
+msgid "Holiday"
+msgstr "Düz"
+
+#: src/amo/containers/Home.js:82
+msgid "Scenic"
+msgstr "Manzara"
+
+#: src/amo/containers/Home.js:83
+msgid "Sporty"
+msgstr "Spor"
+
+#: src/amo/containers/Home.js:84
+msgid "Solid"
+msgstr "Düz"
+
+#: src/core/components/AuthenticateButton/index.js:61
+msgid "Log out"
+msgstr "Çıkış"
+
+#: src/core/components/AuthenticateButton/index.js:62
+msgid "Log in/Sign up"
+msgstr "Giriş/Kayıt"
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
+msgid "Error code: %(status)s."
+msgstr "Hata kodu: %(status)s."
+
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "Üzgünüz, yazdığınız adreste bir şey bulamadık."
+
+#: src/core/components/InstallButton/index.js:72
+msgid "Install Theme"
+msgstr "Temayı yükle"
+
+#: src/core/components/InstallButton/index.js:88
+msgid "Add to Firefox"
+msgstr "Firefox’a ekle"
+
+#: src/core/components/InstallSwitch/index.js:54
+msgid "Downloading %(name)s."
+msgstr "%(name)s indiriliyor."
+
+#: src/core/components/InstallSwitch/index.js:57
+msgid "Installing %(name)s."
+msgstr "%(name)s yükleniyor."
+
+#: src/core/components/InstallSwitch/index.js:61
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr "%(name)s yüklendi ve etkinleştirildi. Kaldırmak için tıklayın."
+
+#: src/core/components/InstallSwitch/index.js:64
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s etkisizleştirildi. Etkinleştirmek için tıklayın."
+
+#: src/core/components/InstallSwitch/index.js:67
+msgid "Uninstalling %(name)s."
+msgstr "%(name)s kaldırılıyor."
+
+#: src/core/components/InstallSwitch/index.js:70
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s kaldırıldı. Yüklemek için tıklayın."
+
+#: src/core/components/InstallSwitch/index.js:73
+msgid "Install state for %(name)s is unknown."
+msgstr "%(name)s yükleme durumu bilinmiyor."
+
+#: src/core/components/Paginate/index.js:107
+msgid "Previous"
+msgstr "Önceki"
+
+#: src/core/components/Paginate/index.js:119
+msgid "Next"
+msgstr "Sonraki"
+
+#: src/core/components/Paginate/index.js:98
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr "Sayfa %(currentPage)s / %(totalPages)s"
+
+#: src/core/containers/InfoDialog/index.js:31
+msgid "Your add-on is ready"
+msgstr "Eklentiniz hazır"
+
+#: src/core/containers/InfoDialog/index.js:33
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "%(name)s artık araç çubuğunuzda."
+
+#: src/core/containers/InfoDialog/index.js:38
+msgid "OK!"
+msgstr "Tamam!"
+
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Oturumunuzun süresi doldu"
+
+#: src/ui/components/ErrorList/index.js:51
+msgid "An unexpected error occurred"
+msgstr "Beklenmeyen bir hata oluştu"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Devam etmek için sayfayı tazeleyin"
+
+#: src/ui/components/Rating/index.js:91
+msgid "Rated %(rating)s out of 5"
+msgstr "5 üzerinden %(rating)s puan"
+
+#: src/ui/components/Rating/index.js:94
+msgid "No ratings"
+msgstr "Puan yok"
+
+#: src/ui/components/ShowMoreCard/index.js:58
+msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
+msgstr "Devamını okumak için <span class=\"visually-hidden\">genişletin</span>"
+
+#~ msgid "%(averageRating)s out of 5"
+#~ msgstr "5 üzerinden %(averageRating)s"
+
+#~ msgid "Not yet rated"
+#~ msgstr "Henüz puanlanmamış"
+
+#~ msgid "Loading…"
+#~ msgstr "Yükleniyor…"
+
+#~ msgid "Fashionable"
+#~ msgstr "Moda"
+
+#~ msgid "Website"
+#~ msgstr "Web sitesi"

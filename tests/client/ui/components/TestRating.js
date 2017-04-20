@@ -40,13 +40,13 @@ describe('ui/components/Rating', () => {
   });
 
   it('can be classified as small', () => {
-    const root = render({ size: 'small' });
+    const root = render({ styleName: 'small' });
     assert.include(root.element.className, 'Rating--small');
   });
 
-  it('throws an error for invalid sizes', () => {
-    assert.throws(() => render({ size: 'x-large' }),
-      /size=x-large is not a valid value; possible values: small, large/);
+  it('throws an error for invalid styleNames', () => {
+    assert.throws(() => render({ styleName: 'x-large' }),
+      /styleName=x-large is not a valid value; possible values: small,/);
   });
 
   it('lets you select a one star rating', () => {
@@ -103,16 +103,46 @@ describe('ui/components/Rating', () => {
     });
   });
 
-  it('rounds down average ratings to an integer', () => {
-    // This should be treated like a rating of 3.
-    const root = render({ rating: 3.6 });
+  it('renders half stars in ratings', () => {
+    // This should be treated like a rating of 3.5 (three and a half stars).
+    const root = render({ rating: 3.60001 });
 
-    // Make sure only the first 3 stars are selected.
+    // The first three stars are fully highlighted
     [1, 2, 3].forEach((rating) => {
       assert.equal(root.ratingElements[rating].className,
                    'Rating-choice Rating-selected-star');
     });
-    [4, 5].forEach((rating) => {
+    [4].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice Rating-half-star');
+    });
+    [5].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice');
+    });
+  });
+
+  it('rounds ratings to nearest 0.5 multiple', () => {
+    // This should be treated like a rating of 3.5 in text.
+    const root = render({ rating: 3.60001 });
+
+    assert.include(findDOMNode(root).title, '3.6 out of 5');
+  });
+
+  it('rounds readOnly average ratings to nearest 0.5 multiple', () => {
+    // This should be treated like a rating of 3.5.
+    const root = render({ rating: 3.6, readOnly: true });
+
+    // The first three stars are fully highlighted
+    [1, 2, 3].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice Rating-selected-star');
+    });
+    [4].forEach((rating) => {
+      assert.equal(root.ratingElements[rating].className,
+                   'Rating-choice Rating-half-star');
+    });
+    [5].forEach((rating) => {
       assert.equal(root.ratingElements[rating].className,
                    'Rating-choice');
     });
@@ -201,7 +231,7 @@ describe('ui/components/Rating', () => {
     it('does not classify as editable when read-only', () => {
       const root = render({ readOnly: true });
       // Make sure it doesn't have the -editable class.
-      assert.equal(root.element.className, 'Rating');
+      assert.notInclude(root.element.className, 'Rating--editable');
     });
 
     it('does not render buttons in read-only mode', () => {

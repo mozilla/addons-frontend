@@ -12,30 +12,33 @@ import { match } from 'react-router';
 import {
   AddonDetailBase,
   allowedDescriptionTags,
+  mapStateToProps,
 } from 'amo/components/AddonDetail';
 import AddonMeta from 'amo/components/AddonMeta';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, INCOMPATIBLE_NOT_FIREFOX } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
 import I18nProvider from 'core/i18n/Provider';
-import { fakeAddon } from 'tests/client/amo/helpers';
+import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
 import { getFakeI18nInst } from 'tests/client/helpers';
 
 
 function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
   const i18n = getFakeI18nInst();
-  const initialState = { api: { clientApp: 'android', lang: 'pt' } };
   return {
     addon,
     ...addon,
+    getClientCompatibility: () => ({ compatible: true }),
+    getBrowserThemeData: () => '{}',
     i18n,
+    location: { pathname: '/addon/detail/' },
     // Configure AddonDetail with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
-    store: createStore(initialState),
+    store: createStore({ api: signedInApiState }),
     ...customProps,
   };
 }
@@ -46,7 +49,7 @@ function render(...args) {
   return findRenderedComponentWithType(renderIntoDocument(
     <Provider store={store}>
       <I18nProvider i18n={i18n}>
-        <AddonDetailBase {...props} />
+        <AddonDetailBase store={store} {...props} />
       </I18nProvider>
     </Provider>
   ), AddonDetailBase);
@@ -58,6 +61,14 @@ function renderAsDOMNode(...args) {
 }
 
 describe('AddonDetail', () => {
+  const incompatibleClientResult = {
+    compatible: false,
+    maxVersion: null,
+    minVersion: null,
+    reason: INCOMPATIBLE_NOT_FIREFOX,
+  };
+  const getClientCompatibilityFalse = () => incompatibleClientResult;
+
   it('renders a name', () => {
     const rootNode = renderAsDOMNode();
     assert.include(rootNode.querySelector('h1').textContent,
@@ -139,6 +150,23 @@ describe('AddonDetail', () => {
                    'About this extension');
   });
 
+  it('uses the summary as the description if no description exists', () => {
+    const addon = { ...fakeAddon, summary: 'short text' };
+    delete addon.description;
+    const rootNode = renderAsDOMNode({ addon });
+    assert.equal(
+      rootNode.querySelector('.AddonDescription-contents').textContent,
+      addon.summary);
+  });
+
+  it('uses the summary as the description if description is blank', () => {
+    const addon = { ...fakeAddon, description: '', summary: 'short text' };
+    const rootNode = renderAsDOMNode({ addon });
+    assert.equal(
+      rootNode.querySelector('.AddonDescription-contents').textContent,
+      addon.summary);
+  });
+
   it('sanitizes bad description HTML', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
     const rootNode = renderAsDOMNode({
@@ -197,9 +225,11 @@ describe('AddonDetail', () => {
   });
 
   it('configures the overall ratings section', () => {
-    const root = findRenderedComponentWithType(render(),
+    const location = { pathname: '/en-US/firefox/addon/some-slug/' };
+    const root = findRenderedComponentWithType(render({ location }),
                                                RatingManagerWithI18n);
     assert.deepEqual(root.props.addon, fakeAddon);
+    assert.deepEqual(root.props.location, location);
   });
 
   it('renders a summary', () => {
@@ -208,6 +238,20 @@ describe('AddonDetail', () => {
       rootNode.querySelector('.AddonDetail-summary').textContent,
       fakeAddon.summary
     );
+  });
+
+  it('renders a summary with links', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        summary: '<a href="http://foo.com/">my website</a>',
+      },
+    });
+    assert.include(
+      rootNode.querySelector('.AddonDetail-summary').textContent, 'my website');
+    assert.equal(rootNode.querySelectorAll('.AddonDetail-summary a').length, 1);
+    assert.equal(
+      rootNode.querySelector('.AddonDetail-summary a').href, 'http://foo.com/');
   });
 
   it('renders an amo CDN icon image', () => {
@@ -233,52 +277,76 @@ describe('AddonDetail', () => {
     assert.include(src, 'image/png');
   });
 
-  it('renders a theme preview as an img before mounting', () => {
+  it('renders a theme preview as an img', () => {
     const root = render({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
       },
-      getBrowserThemeData: () => '{}',
     });
     const rootNode = findDOMNode(root);
-    root.setState({ mounted: false });
-
     const image = rootNode.querySelector('.AddonDetail-theme-header-image');
     assert.equal(image.tagName, 'IMG');
     assert.ok(image.classList.contains('AddonDetail-theme-header-image'));
     assert.equal(image.src, 'https://amo/preview.png');
-    assert.equal(image.alt, 'Press to preview');
+    assert.equal(image.alt, 'Tap to preview');
   });
 
-  it('sets mounted in the state in componentDidMount', () => {
+  it('enables a theme preview for supported clients', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      getCompatibleClient: () => ({ compatible: true }),
+    });
+    const button = rootNode.querySelector('.AddonDetail-theme-header-label');
+    assert.equal(button.disabled, false);
+  });
+
+  it('disables install switch for unsupported clients', () => {
+    const rootNode = renderAsDOMNode({
+      getClientCompatibility: getClientCompatibilityFalse,
+    });
+    assert.isTrue(
+      rootNode.querySelector('.InstallButton-switch input').disabled);
+  });
+
+  it('throws an error if compatibility props are missing', () => {
+    const compatibilityResult = { ...incompatibleClientResult };
+    delete compatibilityResult.minVersion;
+    assert.throws(() => {
+      renderAsDOMNode({ getClientCompatibility: () => compatibilityResult });
+    }, /minVersion is required/);
+  });
+
+  it('disables a theme preview for unsupported clients', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      getClientCompatibility: getClientCompatibilityFalse,
+    });
+    const button = rootNode.querySelector('.AddonDetail-theme-header-label');
+    assert.equal(button.disabled, true);
+  });
+
+  it('unsets the theme preview on component unmount', () => {
+    const resetThemePreview = sinon.spy();
     const root = render({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
+        isPreviewingTheme: true,
+        themePreviewNode: 'theme-preview-node',
+        resetThemePreview,
       },
-      getBrowserThemeData: () => '{}',
     });
-    root.setState({ mounted: false });
-
-    root.componentDidMount();
-
-    assert.equal(root.state.mounted, true);
-  });
-
-  it('renders a theme preview as a background image when mounted', () => {
-    const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-        previewURL: 'https://amo/preview.png',
-      },
-      getBrowserThemeData: () => '{}',
-    });
-    const image = rootNode.querySelector('.AddonDetail-theme-header-image');
-    assert.equal(image.style.backgroundImage, 'url("https://amo/preview.png")');
+    root.componentWillUnmount();
+    assert.ok(resetThemePreview.calledWith('theme-preview-node'));
   });
 
   it('sets the browsertheme data on the header', () => {
@@ -294,34 +362,18 @@ describe('AddonDetail', () => {
     assert.equal(header.dataset.browsertheme, '{"the":"themedata"}');
   });
 
-  it('previews a theme on touchstart', () => {
-    const previewTheme = sinon.spy();
+  it('toggles a theme on click', () => {
+    const toggleThemePreview = sinon.spy();
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      getBrowserThemeData: () => '{}',
-      previewTheme,
+      toggleThemePreview,
     });
     const header = rootNode.querySelector('.AddonDetail-theme-header');
-    Simulate.touchStart(header);
-    assert.ok(previewTheme.calledWith(header));
-  });
-
-  it('resets a theme preview on touchend', () => {
-    const resetPreviewTheme = sinon.spy();
-    const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      },
-      getBrowserThemeData: () => '{}',
-      resetPreviewTheme,
-    });
-    const header = rootNode.querySelector('.AddonDetail-theme-header');
-    Simulate.touchEnd(header);
-    assert.ok(resetPreviewTheme.calledWith(header));
+    Simulate.click(header);
+    assert.ok(toggleThemePreview.calledWith(header));
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {
@@ -357,6 +409,8 @@ describe('AddonDetail', () => {
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
       assert.equal(footer.textContent, 'No reviews yet');
+      assert.equal(root.querySelector('footer').className,
+                   'Card-footer-text');
     });
 
     it('prompts you to read one review', () => {
@@ -366,6 +420,8 @@ describe('AddonDetail', () => {
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
       assert.equal(footer.textContent, 'Read 1 review');
+      assert.equal(root.querySelector('footer').className,
+                   'Card-footer-link');
     });
 
     it('prompts you to read many reviews', () => {
@@ -418,5 +474,15 @@ describe('AddonDetail', () => {
         });
       });
     });
+  });
+});
+
+describe('AddonDetals mapStateToProps', () => {
+  it('sets the clientApp and userAgent', () => {
+    const { clientApp, userAgentInfo } = mapStateToProps({
+      api: signedInApiState });
+
+    assert.equal(clientApp, signedInApiState.clientApp);
+    assert.equal(userAgentInfo, signedInApiState.userAgentInfo);
   });
 });

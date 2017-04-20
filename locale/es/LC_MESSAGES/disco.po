@@ -1,11 +1,11 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2017-01-24 14:57+0000\n"
-"Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
+"POT-Creation-Date: 2017-04-04 17:17+0000\n"
+"PO-Revision-Date: 2017-03-17 21:25+0000\n"
+"Last-Translator: jlG <jlg.l10n.es@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -14,39 +14,65 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/ErrorPage/GenericError/index.js:24
+msgid "Server Error"
+msgstr "Error del servidor"
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Lo sentimos, pero ha habido un error y no hemos podido completar tu "
+"petición. Hemos registrado este error y vamos a investigarlo."
+
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
+msgid "Error code: %(status)s."
+msgstr "Código de error: %(status)s."
+
+#: src/core/components/ErrorPage/NotFound/index.js:24
+msgid "Page not found"
+msgstr "Página no encontrada"
+
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr ""
+"Lo sentimos, pero no hemos encontrado nada en la URL que has introducido."
+
+#: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
-#: src/core/components/InstallSwitch/index.js:49
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "Descargando %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "Instalando %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:56
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s está instalado y activado. Haz clic para desinstalar."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s está desactivado. Haz clic para activar."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "Desinstalando %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s se ha desinstalado. Haz clic para instalar."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "Se desconoce el estado de la instalación de %(name)s."
 
@@ -62,83 +88,87 @@ msgstr "Ya puedes acceder a %(name)s desde la barra de herramientas."
 msgid "OK!"
 msgstr "¡Vale!"
 
-#: src/disco/components/Addon.js:107
-msgid "Hover over the image to preview"
-msgstr "Pasa por la imagen para visualizarla"
-
-#: src/disco/components/Addon.js:128
-msgid "Installation failed. Please try again."
-msgstr "Falló la instalación. Vuelve a intentarlo, por favor."
-
-#: src/disco/components/Addon.js:130
-msgid "Download failed. Please check your connection."
-msgstr "Falló la descarga. Comprueba tu conexión, por favor."
-
-#: src/disco/components/Addon.js:132
-msgid "An unexpected error occurred during installation."
-msgstr "Se ha producido un error inesperado durante la instalación."
-
-#: src/disco/components/Addon.js:134
-msgid "An unexpected error occurred during uninstallation."
-msgstr "Se ha producido un error inesperado durante la desinstalación."
-
-#: src/disco/components/Addon.js:137
-msgid "An unexpected error occurred."
-msgstr "Se ha producido un error inesperado."
-
-#: src/disco/components/Addon.js:145
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "El complemento se desinstalará tras reiniciar Firefox."
-
-#: src/disco/components/Addon.js:147
-msgid "Please restart Firefox to use this add-on."
-msgstr "Por favor, reinicia Firefox para usar este complemento."
-
-#: src/disco/components/Addon.js:67
-msgid "Close"
-msgstr "Cerrar"
-
-#: src/disco/components/Addon.js:97
+#: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Pasa por encima para verla o haz clic para instalar %(name)s"
 
-#: src/disco/containers/App.js:27
+#: src/disco/components/Addon.js:113
+msgid "Hover over the image to preview"
+msgstr "Pasa por la imagen para visualizarla"
+
+#: src/disco/components/Addon.js:134
+msgid "Installation failed. Please try again."
+msgstr "Falló la instalación. Vuelve a intentarlo, por favor."
+
+#: src/disco/components/Addon.js:136
+msgid "Download failed. Please check your connection."
+msgstr "Falló la descarga. Comprueba tu conexión, por favor."
+
+#: src/disco/components/Addon.js:138
+msgid "An unexpected error occurred during installation."
+msgstr "Se ha producido un error inesperado durante la instalación."
+
+#: src/disco/components/Addon.js:140
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Se ha producido un error inesperado durante la desinstalación."
+
+#: src/disco/components/Addon.js:143
+msgid "An unexpected error occurred."
+msgstr "Se ha producido un error inesperado."
+
+#: src/disco/components/Addon.js:151
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "El complemento se desinstalará tras reiniciar Firefox."
+
+#: src/disco/components/Addon.js:153
+msgid "Please restart Firefox to use this add-on."
+msgstr "Por favor, reinicia Firefox para usar este complemento."
+
+#: src/disco/components/Addon.js:68
+msgid "Close"
+msgstr "Cerrar"
+
+#: src/disco/containers/App.js:32
 msgid "Discover Add-ons"
 msgstr "Descubrir complementos"
 
-#: src/disco/containers/DiscoPane.js:105
-msgid "Click to play"
-msgstr "Haz clic para reproducir"
-
-#: src/disco/containers/DiscoPane.js:106
-msgid "to find out more about add-ons"
-msgstr "para saber más sobre los complementos"
-
-#: src/disco/containers/DiscoPane.js:115
-msgid "Close video"
-msgstr "Cerrar video"
-
-#: src/disco/containers/DiscoPane.js:126
-msgid "See more add-ons!"
-msgstr "¡Ver más complementos!"
-
-#: src/disco/containers/DiscoPane.js:96
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "Personaliza tu Firefox"
 
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
-"There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
-"and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Hay miles de complementos gratis, creados por desarrolladores de todo el mundo\n"
-"y que te ayudan a personalizar Firefox. Desde divertidos temas visuales a herramientas \n"
-"y funciones alucinantes para que navegues más rápido y seguro. Los complementos te\n"
-"ayudan a personalizar tu navegador. Para empezar, te recomendamos algunos por su\n"
+"Hay miles de complementos gratis, creados por desarrolladores de todo el "
+"mundo\n"
+"y que te ayudan a personalizar Firefox. Desde divertidos temas visuales a "
+"herramientas \n"
+"y funciones alucinantes para que navegues más rápido y seguro. Los "
+"complementos te\n"
+"ayudan a personalizar tu navegador. Para empezar, te recomendamos algunos "
+"por su\n"
 "rendimiento y funcionalidad."
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "Haz clic para reproducir"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "para saber más sobre los complementos"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "Cerrar video"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "¡Ver más complementos!"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Instalado y agregado a la barra de herramientas"

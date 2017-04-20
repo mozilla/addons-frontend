@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2017-01-24 14:37+0000\n"
+"POT-Creation-Date: 2017-04-04 17:17+0000\n"
+"PO-Revision-Date: 2017-04-16 17:27+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -14,39 +14,59 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/ErrorPage/GenericError/index.js:24
+msgid "Server Error"
+msgstr "伺服器發生錯誤"
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "抱歉，有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修復。"
+
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+msgid "Error code: %(status)s."
+msgstr "錯誤代碼: %(status)s。"
+
+#: src/core/components/ErrorPage/NotFound/index.js:24
+msgid "Page not found"
+msgstr "找不到頁面"
+
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "很抱歉，我們找不到您輸入的網址的資料內容。"
+
+#: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
 msgstr "安裝佈景主題"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
-#: src/core/components/InstallSwitch/index.js:49
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "正在下載 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "正在安裝 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:56
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "已安裝啟用 %(name)s，點擊移除。"
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s 已停用，點擊啟用。"
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "正在移除 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "已移除 %(name)s，點擊安裝。"
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s 的安裝狀態未知。"
 
@@ -62,78 +82,75 @@ msgstr "您現在可在工具列使用 %(name)s。"
 msgid "OK!"
 msgstr "好！"
 
-#: src/disco/components/Addon.js:107
-msgid "Hover over the image to preview"
-msgstr "滑過圖片進行預覽"
-
-#: src/disco/components/Addon.js:128
-msgid "Installation failed. Please try again."
-msgstr "安裝失敗，請再試一次。"
-
-#: src/disco/components/Addon.js:130
-msgid "Download failed. Please check your connection."
-msgstr "下載失敗，請檢查網路連線。"
-
-#: src/disco/components/Addon.js:132
-msgid "An unexpected error occurred during installation."
-msgstr "安裝時發生未預期的錯誤。"
-
-#: src/disco/components/Addon.js:134
-msgid "An unexpected error occurred during uninstallation."
-msgstr "移除時發生未預期的錯誤。"
-
-#: src/disco/components/Addon.js:137
-msgid "An unexpected error occurred."
-msgstr "發生未預期的錯誤。"
-
-#: src/disco/components/Addon.js:145
-msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "您重新啟動 Firefox 後將移除此附加元件。"
-
-#: src/disco/components/Addon.js:147
-msgid "Please restart Firefox to use this add-on."
-msgstr "重新啟動 Firefox 後即可使用此附加元件。"
-
-#: src/disco/components/Addon.js:67
-msgid "Close"
-msgstr "關閉"
-
-#: src/disco/components/Addon.js:97
+#: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
 msgstr "滑動以預覽或點擊安裝 %(name)s"
 
-#: src/disco/containers/App.js:27
+#: src/disco/components/Addon.js:113
+msgid "Hover over the image to preview"
+msgstr "滑過圖片進行預覽"
+
+#: src/disco/components/Addon.js:134
+msgid "Installation failed. Please try again."
+msgstr "安裝失敗，請再試一次。"
+
+#: src/disco/components/Addon.js:136
+msgid "Download failed. Please check your connection."
+msgstr "下載失敗，請檢查網路連線。"
+
+#: src/disco/components/Addon.js:138
+msgid "An unexpected error occurred during installation."
+msgstr "安裝時發生未預期的錯誤。"
+
+#: src/disco/components/Addon.js:140
+msgid "An unexpected error occurred during uninstallation."
+msgstr "移除時發生未預期的錯誤。"
+
+#: src/disco/components/Addon.js:143
+msgid "An unexpected error occurred."
+msgstr "發生未預期的錯誤。"
+
+#: src/disco/components/Addon.js:151
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "您重新啟動 Firefox 後將移除此附加元件。"
+
+#: src/disco/components/Addon.js:153
+msgid "Please restart Firefox to use this add-on."
+msgstr "重新啟動 Firefox 後即可使用此附加元件。"
+
+#: src/disco/components/Addon.js:68
+msgid "Close"
+msgstr "關閉"
+
+#: src/disco/containers/App.js:32
 msgid "Discover Add-ons"
 msgstr "探索附加元件"
 
-#: src/disco/containers/DiscoPane.js:105
-msgid "Click to play"
-msgstr "點擊播放"
-
-#: src/disco/containers/DiscoPane.js:106
-msgid "to find out more about add-ons"
-msgstr "以了解附加元件的更多資訊"
-
-#: src/disco/containers/DiscoPane.js:115
-msgid "Close video"
-msgstr "關閉影片"
-
-#: src/disco/containers/DiscoPane.js:126
-msgid "See more add-ons!"
-msgstr "看看更多附加元件！"
-
-#: src/disco/containers/DiscoPane.js:96
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "個人化您的 Firefox"
 
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
-"There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
-"and functionality."
-msgstr "有數以千計的附加元件可讓您把 Firefox 變得有您的樣子，不論是漂亮的佈景主題、讓您瀏覽時更快、更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦效能與功能都很傑出的附加元件。"
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr "全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "點擊播放"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "以了解附加元件的更多資訊"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "關閉影片"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "看看更多附加元件！"
 
 #~ msgid "Preview %(name)s"
 #~ msgstr "預覽 %(name)s"

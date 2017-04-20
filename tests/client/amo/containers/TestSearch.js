@@ -6,6 +6,7 @@ import {
   parsePage,
 } from 'core/searchUtils';
 import * as api from 'core/api';
+import { signedInApiState } from 'tests/client/amo/helpers';
 
 describe('Search.mapStateToProps()', () => {
   const state = {
@@ -22,6 +23,22 @@ describe('Search.mapStateToProps()', () => {
       results: [{ slug: 'ab', name: 'ad-block' }],
     },
   };
+
+  it('does not have search params with undefined query params', () => {
+    const props = mapStateToProps(
+      state,
+      { location: { query: { q: undefined } } }
+    );
+    assert.isFalse(props.hasSearchParams);
+  });
+
+  it('should handle queries that need encoding', () => {
+    const props = mapStateToProps(
+      state,
+      { location: { query: { q: '&' } } }
+    );
+    assert.isTrue(props.hasSearchParams);
+  });
 
   it('passes the search state if the URL and state query matches', () => {
     const props = mapStateToProps(
@@ -137,7 +154,7 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const page = 10;
     const filters = { query: 'no ads' };
     const state = {
-      api: { token: 'a.jwt.token' },
+      api: signedInApiState,
       search: { loading: false, page, filters: { query: 'old query' } },
     };
     const dispatch = sinon.spy();

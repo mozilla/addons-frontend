@@ -4,9 +4,9 @@
 $input-height: 48px;
 $icon-margin-start: 24px;
 $icon-margin-end: 12px;
-$transition-duration: 250ms;
 
 .SearchInput {
+  height: 48px;
   position: relative;
   text-align: center;
   width: 100%;
@@ -20,49 +20,51 @@ $transition-duration: 250ms;
 
     vertical-align: top;
   }
-
-  .SearchInput-animation-icon {
-    @include start(0);
-
-    opacity: 0;
-    position: absolute;
-    transition: opacity 1ms $transition-duration, transform $transition-duration;
-  }
 }
 
-.SearchInput--text {
-  @include text-align-start();
+.SearchInput-animation-icon {
+  @include start(0);
 
-  .SearchInput-label {
-    color: transparent;
+  opacity: 0;
+  position: absolute;
+  // If changing this delay please update the JS setTimeout
+  // in the SearchInput component.
+  transition: transform 250ms;
 
-    & .Icon-magnifying-glass {
-      opacity: 0;
-      transition: none;
-    }
+  .SearchInput--text &,
+  .SearchInput--animating & {
+    opacity: 1;
   }
 
-  .SearchInput-animation-icon {
-    opacity: 1;
+  .SearchInput--text & {
     // Use !important to overwrite style properties added in JS.
     transform: translateX(0) !important;
-    transition: transform $transition-duration;
   }
 }
 
 .SearchInput-label {
   @include font-regular();
   // Include the start margin on the end so that icon and text is centred together.
-  @include margin-end($icon-margin-start);
+  @include padding-end($icon-margin-start);
 
   display: inline-block;
   height: $input-height;
   line-height: $input-height;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   top: 0;
+  white-space: nowrap;
 
-  & .Icon-magnifying-glass {
-    opacity: 1;
-    transition: opacity 1ms $transition-duration;
+  .SearchInput--text & {
+    color: transparent;
+  }
+}
+
+.SearchInput-label-icon {
+  .SearchInput--text &,
+  .SearchInput--animating & {
+    opacity: 0;
   }
 }
 
@@ -79,11 +81,11 @@ $transition-duration: 250ms;
   top: 0;
   width: 100%;
 
-  &::placeholder {
+  .SearchInput--animating & {
     color: transparent;
   }
 
-  &:focus {
-    @include text-align-start();
+  &::placeholder {
+    color: transparent;
   }
 }

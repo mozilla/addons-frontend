@@ -1,12 +1,16 @@
 import deepEqual from 'deep-eql';
+import React from 'react';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-connect';
 import { compose } from 'redux';
 
 import SearchPage from 'amo/components/SearchPage';
 import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
-import { apiAddonType } from 'core/utils';
+import { apiAddonType, safeAsyncConnect } from 'core/utils';
 
+
+export function CategoryPageBase(props) {
+  return <SearchPage enableSearchSort={false} {...props} />;
+}
 
 export function mapStateToProps(state, ownProps) {
   const filters = {
@@ -35,9 +39,6 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
-  asyncConnect([{
-    deferred: true,
-    promise: loadByCategoryIfNeeded,
-  }]),
+  safeAsyncConnect([{ promise: loadByCategoryIfNeeded }]),
   connect(mapStateToProps),
-)(SearchPage);
+)(CategoryPageBase);

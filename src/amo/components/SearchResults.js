@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
@@ -29,10 +30,18 @@ class SearchResults extends React.Component {
     } = this.props;
     const { query } = filters;
 
+    let loadingMessage;
     let messageText;
 
     if (loading) {
-      messageText = i18n.gettext('Searching...');
+      loadingMessage = (
+        <div
+          className="visually-hidden"
+          ref={(ref) => { this.loadingText = ref; }}
+        >
+          {i18n.gettext('Searching…')}
+        </div>
+      );
     } else if (count === 0 && hasSearchParams) {
       if (query) {
         messageText = i18n.sprintf(
@@ -44,11 +53,12 @@ class SearchResults extends React.Component {
       }
     } else if (!hasSearchParams) {
       messageText = i18n.gettext(
-        'Please enter a search term to search Mozilla Add-ons.');
+        'Please enter a search term to search Firefox Add-ons.');
     }
 
     return (
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
+        {loadingMessage}
         <AddonsCard addons={hasSearchParams ? results : null}>
           {messageText ? (
             <p ref={(ref) => { this.message = ref; }}
@@ -62,4 +72,6 @@ class SearchResults extends React.Component {
   }
 }
 
-export default translate({ withRef: true })(SearchResults);
+export default compose(
+  translate({ withRef: true }),
+)(SearchResults);

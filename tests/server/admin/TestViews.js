@@ -3,7 +3,7 @@ import request from 'supertest-as-promised';
 
 import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
-describe('Search App GET requests', () => {
+describe('Admin views', () => {
   let app;
 
   before(() => runTestServer({ app: 'admin' })

@@ -1,8 +1,8 @@
 /*
  * This is the default (production) config for the discovery pane app.
  */
+import { amoProdCDN } from './lib/shared';
 
-const amoCDN = 'https://addons.cdn.mozilla.net';
 const staticHost = 'https://addons-discovery.cdn.mozilla.net';
 
 module.exports = {
@@ -10,6 +10,7 @@ module.exports = {
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
   clientConfigKeys: [
+    'allowErrorSimulation',
     'appName',
     'amoCDN',
     'apiHost',
@@ -23,6 +24,7 @@ module.exports = {
     'isDevelopment',
     'langs',
     'langMap',
+    'publicSentryDsn',
     'rtlLangs',
     'trackingEnabled',
     'trackingId',
@@ -42,7 +44,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoCDN,
+        amoProdCDN,
         staticHost,
         'https://www.google-analytics.com',
       ],
@@ -58,4 +60,7 @@ module.exports = {
   enablePostCssLoader: false,
 
   po2jsonFuzzyOutput: false,
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-prod/
+  publicSentryDsn: 'https://b9e70d0dca144344a7a5674c29b08355@sentry.prod.mozaws.net/186',
 };

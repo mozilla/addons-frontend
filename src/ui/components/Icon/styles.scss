@@ -1,4 +1,5 @@
 @import "./vars";
+@import '~core/css/inc/mixins';
 
 .Icon {
   content: '';
@@ -18,6 +19,11 @@
   width: 23px;
 }
 
+.Icon-fox {
+  background: url('./fox.svg') center no-repeat;
+  background-size: cover;
+}
+
 .Icon-user {
   background: url('./user.svg') center no-repeat;
   background-size: contain;
@@ -28,7 +34,45 @@
   background-size: contain;
 }
 
+.Icon-star-empty {
+  background: url('./star-empty.svg') center no-repeat;
+  background-size: contain;
+}
+
+.Icon-star-full {
+  background: url('./star-full.svg') center no-repeat;
+  background-size: contain;
+}
+
+.Icon-star-half {
+  background: url('./star-half.svg') center no-repeat;
+  background-size: contain;
+}
+
 .Icon-user-dark {
   background: url('./user-dark.svg') center no-repeat;
   background-size: contain;
+}
+
+.Icon-browse {
+  background: url('./bullet-list.svg') center no-repeat;
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+}
+
+.Icon-themes {
+  background: url('./themes.svg') center no-repeat;
+  background-size: cover;
+  height: 45px;
+  min-width: 37.3px;
+  width: 37.3px;
+}
+
+.Icon-extensions {
+  background: url('./extensions.svg') center no-repeat;
+  background-size: cover;
+  height: 44.7px;
+  min-width: 46.3px;
+  width: 46.3px;
 }

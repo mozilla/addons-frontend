@@ -1,24 +1,43 @@
+/* @flow */
 import {
-  LOG_OUT_USER,
-  SET_JWT,
-  SET_CLIENT_APP,
-  SET_LANG,
   ENTITIES_LOADED,
+  LOG_OUT_USER,
+  SET_AUTH_TOKEN,
+  SET_CLIENT_APP,
   SET_CURRENT_USER,
+  SET_LANG,
+  SET_USER_AGENT,
 } from 'core/constants';
 
-export function setJwt(token) {
+export type SetAuthTokenAction = {|
+  payload: {| token: string |},
+  type: string,
+|};
+
+export function setAuthToken(token: string): SetAuthTokenAction {
+  if (!token) {
+    throw new Error('token cannot be falsey');
+  }
   return {
-    type: SET_JWT,
+    type: SET_AUTH_TOKEN,
     payload: { token },
   };
 }
 
-export function logOutUser() {
+export type LogOutUserAction = {|
+  type: string,
+|};
+
+export function logOutUser(): LogOutUserAction {
   return { type: LOG_OUT_USER };
 }
 
-export function setClientApp(clientApp) {
+export type SetClientAppAction = {|
+  payload: {| clientApp: string |},
+  type: string,
+|};
+
+export function setClientApp(clientApp: string): SetClientAppAction {
   if (!clientApp) {
     throw new Error('clientApp cannot be falsey');
   }
@@ -28,25 +47,50 @@ export function setClientApp(clientApp) {
   };
 }
 
-export function setLang(lang) {
+export type SetLangAction = {|
+  payload: {| lang: string |},
+  type: string,
+|};
+
+export function setLang(lang: string): SetLangAction {
   return {
     type: SET_LANG,
     payload: { lang },
   };
 }
 
-export function loadEntities(entities) {
+export type SetUserAgentAction = {|
+  payload: {| userAgent: string |},
+  type: string,
+|};
+
+export function setUserAgent(userAgent: string): SetUserAgentAction {
+  return {
+    type: SET_USER_AGENT,
+    payload: { userAgent },
+  };
+}
+
+export type LoadEntitiesAction = {|
+  payload: {| entities: Array<Object> |},
+  type: string,
+|};
+
+export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
   return {
     type: ENTITIES_LOADED,
     payload: { entities },
   };
 }
 
-export function setCurrentUser(username) {
+export type SetCurrentUserAction = {|
+  payload: {| username: string |},
+  type: string,
+|};
+
+export function setCurrentUser(username: string): SetCurrentUserAction {
   return {
     type: SET_CURRENT_USER,
-    payload: {
-      username,
-    },
+    payload: { username },
   };
 }

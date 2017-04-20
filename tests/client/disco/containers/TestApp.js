@@ -4,9 +4,15 @@ import {
   findRenderedComponentWithType,
   renderIntoDocument,
 } from 'react-addons-test-utils';
+import { Provider } from 'react-redux';
+import { loadFail } from 'redux-connect/lib/store';
 
 import { AppBase, mapStateToProps } from 'disco/containers/App';
+import createStore from 'disco/store';
+import { createApiError } from 'core/api';
+import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/client/helpers';
+
 
 class MyComponent extends React.Component {
   render() {
@@ -14,16 +20,20 @@ class MyComponent extends React.Component {
   }
 }
 
-function renderApp(extraProps = {}) {
+function renderApp(extraProps = {}, store = createStore()) {
   const props = {
     browserVersion: '50',
     i18n: getFakeI18nInst(),
     ...extraProps,
   };
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <AppBase {...props}>
-      <MyComponent />
-    </AppBase>
+    <Provider store={store}>
+      <I18nProvider i18n={props.i18n}>
+        <AppBase {...props}>
+          <MyComponent />
+        </AppBase>
+      </I18nProvider>
+    </Provider>
   ), AppBase);
   return findDOMNode(root);
 }
@@ -58,6 +68,34 @@ describe('App', () => {
   it('does not render padding compensation class for FF > 50', () => {
     const rootNode = renderApp({ browserVersion: '52.0a1' });
     assert.notInclude(rootNode.className, 'padding-compensation');
+  });
+});
+
+describe('App errors', () => {
+  it('renders a 404', () => {
+    const store = createStore();
+    const error = createApiError({
+      apiURL: 'http://test.com',
+      response: { status: 404 },
+    });
+    store.dispatch(loadFail('ReduxKey', error));
+
+    const rootNode = renderApp({}, store);
+    assert.notInclude(rootNode.textContent, 'The component');
+    assert.include(rootNode.textContent, 'Page not found');
+  });
+
+  it('renders a generic error', () => {
+    const store = createStore();
+    const error = createApiError({
+      apiURL: 'http://test.com',
+      response: { status: 500 },
+    });
+    store.dispatch(loadFail('ReduxKey', error));
+
+    const rootNode = renderApp({}, store);
+    assert.notInclude(rootNode.textContent, 'The component');
+    assert.include(rootNode.textContent, 'Server Error');
   });
 });
 

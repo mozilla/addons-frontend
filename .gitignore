@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+flow/logs/*log*
 
 # Runtime data
 pids
@@ -48,3 +49,4 @@ tests/ui/__pycache__
 *.pyc
 
 .DS_Store
+src/locale/*

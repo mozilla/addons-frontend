@@ -1,16 +1,19 @@
-.Rating {
+@import "./vars";
+
+.Rating,
+.Rating-star-group {
   display: flex;
-  justify-content: center;
-  margin: 15px 0;
 }
 
-$star-size: 46px;
-$star-gutter: 10px;
+.Rating {
+  justify-content: center;
+  margin: $rating-top-margin 0;
+}
 
 .Rating-choice {
-  background: url('./img/dim-star.svg') center/$star-size no-repeat;
-  height: $star-size + $star-gutter;
-  width: $star-size + $star-gutter;
+  background: url('./img/dim-star.svg') center/$rating-l-star-size no-repeat;
+  height: $rating-l-star-size + $rating-l-star-gutter;
+  width: $rating-l-star-size + $rating-l-star-gutter;
 }
 
 .Rating--editable {
@@ -41,18 +44,32 @@ $star-gutter: 10px;
   background-image: url('./img/yellow-star.svg');
 }
 
-.Rating--small {
-  $star-size: 13px;
-  $star-gutter: 4px;
+.Rating-half-star {
+  background-image: url('./img/yellow-star-half.svg');
 
-  .Rating-star-group {
-    display: flex;
+  [dir=rtl] & {
+    transform: scaleX(-1);
+  }
+}
+
+.Rating--small .Rating-choice,
+.Rating--small-monochrome .Rating-choice {
+  margin: 0;
+  background-size: $rating-s-star-size;
+  height: $rating-s-star-size + $rating-s-star-gutter;
+  width: $rating-s-star-size + $rating-s-star-gutter;
+}
+
+.Rating--small-monochrome {
+  .Rating-choice {
+    background-image: url('~ui/components/Icon/star-empty.svg');
   }
 
-  .Rating-choice {
-    margin: 0;
-    background-size: $star-size;
-    height: $star-size + $star-gutter;
-    width: $star-size + $star-gutter;
+  .Rating-selected-star {
+    background-image: url('~ui/components/Icon/star-full.svg');
+  }
+
+  .Rating-half-star {
+    background-image: url('~ui/components/Icon/star-half.svg');
   }
 }

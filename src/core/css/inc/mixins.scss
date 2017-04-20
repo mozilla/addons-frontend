@@ -58,6 +58,18 @@
   outline: none;
 }
 
+@mixin disabled($background) {
+  @if lightness($background) > 80 {
+    background: adjust-hue(darken(desaturate($background, 85%), 13%), 6);
+  }
+
+  @else {
+    background: adjust-hue(lighten(desaturate($background, 85%), 13%), 6);
+  }
+
+  cursor: not-allowed;
+}
+
 /* stylelint-disable at-rule-empty-line-before, media-feature-no-missing-punctuation  */
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
@@ -73,7 +85,7 @@
 /* Arrows */
 $default-arrow-margin: 3px;
 @mixin arrow($margin: $default-arrow-margin) {
-  background: url('~amo/img/icons/arrow.svg') 50% 50% no-repeat;
+  background: url('~amo/img/icons/arrow-link-color.svg') 50% 50% no-repeat;
   border-radius: $border-radius-m;
   content: '';
   display: inline-block;
@@ -97,6 +109,10 @@ $default-arrow-margin: 3px;
   @include arrow($margin);
 
   transform: rotate(90deg);
+
+  [dir=rtl] & {
+    transform: rotate(270deg);
+  }
 }
 
 // This alias to arrow (which is the same as arrow-next) makes it easier to
@@ -128,6 +144,23 @@ $default-arrow-margin: 3px;
   @include arrow($margin);
 
   transform: rotate(270deg);
+
+  [dir=rtl] & {
+    transform: rotate(90deg);
+  }
+}
+
+@mixin arrow-link-right-aligned() {
+  background-image: url('~amo/img/icons/arrow-link-color.svg');
+  margin-right: 0;
+  position: absolute;
+  right: 8px;
+  top: 14px;
+
+  [dir=rtl] & {
+    left: 8px;
+    right: auto;
+  }
 }
 
 /* Button */
@@ -172,13 +205,7 @@ $color: $text-color-message) {
 
   &:disabled,
   &.disabled {
-    @if lightness($background) > 80 {
-      background: adjust-hue(darken(desaturate($background, 85%), 13%), 6);
-    } @else {
-      background: adjust-hue(lighten(desaturate($background, 85%), 13%), 6);
-    }
-
-    cursor: not-allowed;
+    @include disabled($background);
   }
 
   &.warning {
@@ -264,6 +291,16 @@ $color: $text-color-message) {
 
   [dir=rtl] & {
     margin-left: $val;
+  }
+}
+
+@mixin padding-end($val) {
+  [dir=ltr] & {
+    padding-right: $val;
+  }
+
+  [dir=rtl] & {
+    padding-left: $val;
   }
 }
 

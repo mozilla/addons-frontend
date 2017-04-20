@@ -25,6 +25,26 @@ describe('<AddonMoreInfo />', () => {
     ), AddonMoreInfoBase);
   }
 
+  it('does renders a link <dt> if links exist', () => {
+    const partialAddon = {
+      ...fakeAddon,
+      homepage: null,
+      support_url: 'foo.com',
+    };
+    const root = render({ addon: partialAddon });
+
+    assert.equal(root.linkTitle.textContent, 'Add-on Links');
+  });
+
+  it('does not render a link <dt> if no links exist', () => {
+    const partialAddon = deepcopy(fakeAddon);
+    delete partialAddon.homepage;
+    delete partialAddon.support_url;
+    const root = render({ addon: partialAddon });
+
+    assert.equal(root.linkTitle, undefined);
+  });
+
   it('does not render a homepage if none exists', () => {
     const partialAddon = deepcopy(fakeAddon);
     delete partialAddon.homepage;
@@ -36,9 +56,25 @@ describe('<AddonMoreInfo />', () => {
   it('renders the homepage of an add-on', () => {
     const root = render();
 
-    assert.equal(root.homepageLink.textContent, 'http://hamsterdance.com/');
+    assert.equal(root.homepageLink.textContent, 'Homepage');
     assert.equal(root.homepageLink.tagName, 'A');
     assert.equal(root.homepageLink.href, 'http://hamsterdance.com/');
+  });
+
+  it('does not render a support link if none exists', () => {
+    const partialAddon = deepcopy(fakeAddon);
+    delete partialAddon.support_url;
+    const root = render({ addon: partialAddon });
+
+    assert.equal(root.supportLink, undefined);
+  });
+
+  it('renders the support link of an add-on', () => {
+    const root = render();
+
+    assert.equal(root.supportLink.textContent, 'Support Site');
+    assert.equal(root.supportLink.tagName, 'A');
+    assert.equal(root.supportLink.href, 'http://support.hampsterdance.com/');
   });
 
   it('renders the version number of an add-on', () => {
@@ -70,7 +106,9 @@ describe('<AddonMoreInfo />', () => {
 
     assert.equal(findDOMNode(root.privacyPolicyLink).textContent,
       'Read the privacy policy for this add-on');
-    assert.equal(root.privacyPolicyLink.props.to,
-      '/addons/addon/chill-out/privacy-policy/');
+    // TODO: Change this to an internal `<Link>` tag and use `assert.equal`
+    // once https://github.com/mozilla/addons-frontend/issues/1828 is fixed.
+    assert.include(root.privacyPolicyLink.href,
+      '/addon/chill-out/privacy/');
   });
 });

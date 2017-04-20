@@ -11,6 +11,7 @@ export default class SearchPage extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.node.isRequired,
     count: PropTypes.number,
+    enableSearchSort: PropTypes.bool,
     filters: PropTypes.object,
     hasSearchParams: PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
@@ -23,6 +24,7 @@ export default class SearchPage extends React.Component {
   static defaultProps = {
     LinkComponent: Link,
     count: 0,
+    enableSearchSort: true,
     filters: {},
     pathname: '/search/',
     results: [],
@@ -30,8 +32,8 @@ export default class SearchPage extends React.Component {
 
   render() {
     const {
-      LinkComponent, count, filters, hasSearchParams, loading, page, pathname,
-      results,
+      LinkComponent, count, enableSearchSort, filters, hasSearchParams,
+      loading, page, pathname, results,
     } = this.props;
     const queryParams = this.props.queryParams ||
       convertFiltersToQueryParams(filters);
@@ -39,7 +41,7 @@ export default class SearchPage extends React.Component {
       <Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
         pathname={pathname} queryParams={queryParams} />
     ) : [];
-    const searchSort = hasSearchParams && results.length ? (
+    const searchSort = enableSearchSort && hasSearchParams && results.length ? (
       <SearchSort filters={filters} pathname={pathname} />
     ) : null;
 

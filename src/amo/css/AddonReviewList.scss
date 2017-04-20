@@ -40,6 +40,8 @@
 }
 
 .AddonReviewList-li {
+  word-break: break-all;
+
   > h3 {
     padding: 0;
     margin: 0;

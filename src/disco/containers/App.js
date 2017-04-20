@@ -5,31 +5,36 @@ import { compose } from 'redux';
 import classNames from 'classnames';
 
 import 'disco/css/App.scss';
+import DefaultErrorPage from 'core/components/ErrorPage';
 import translate from 'core/i18n/translate';
 
 
 export class AppBase extends React.Component {
   static propTypes = {
+    ErrorPage: PropTypes.node.isRequired,
     browserVersion: PropTypes.string.isRequired,
     children: PropTypes.node,
     i18n: PropTypes.object.isRequired,
   }
 
+  static defaultProps = {
+    ErrorPage: DefaultErrorPage,
+  }
+
   render() {
-    const { browserVersion, children, i18n } = this.props;
+    const { ErrorPage, browserVersion, children, i18n } = this.props;
     const classes = classNames('disco-pane', {
       'padding-compensation': parseInt(browserVersion, 10) < 50,
     });
 
     return (
       <div className={classes}>
-        <Helmet
-          defaultTitle={i18n.gettext('Discover Add-ons')}
-          meta={[
-            { name: 'robots', content: 'noindex' },
-          ]}
-        />
-        {children}
+        <Helmet defaultTitle={i18n.gettext('Discover Add-ons')}>
+          <meta name="robots" content="noindex" />
+        </Helmet>
+        <ErrorPage>
+          {children}
+        </ErrorPage>
       </div>
     );
   }

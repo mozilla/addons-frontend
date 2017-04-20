@@ -1,245 +1,717 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-11-10 09:55+0000\n"
-"PO-Revision-Date: 2016-11-10 14:17+0000\n"
-"Last-Translator: Victor Bychek <a@bychek.ru>\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"PO-Revision-Date: 2017-04-12 11:54+0000\n"
+"Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonDetail.js:49
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)s от %(authorList)s %(endSpan)s"
+#: src/amo/components/AddonCompatibilityError/index.js:53
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"Вам необходимо <a href=\"%(downloadUrl)s\">загрузить Firefox</a>, чтобы "
+"установить это дополнение."
 
-#: src/amo/components/AddonDetail.js:74
-msgid "Extension Metadata"
-msgstr "Метаданные расширения"
+#: src/amo/components/AddonCompatibilityError/index.js:57
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "Firefox для iOS в настоящее время не поддерживает дополнения."
 
-#: src/amo/components/AddonDetail.js:81
-msgid "Screenshots"
-msgstr "Скриншоты"
+#: src/amo/components/AddonCompatibilityError/index.js:60
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"Этому дополнению требуется <a href=\"%(downloadUrl)s\">более новая версия "
+"Firefox</a> (как минимум %(minVersion)s). Вы используете Firefox "
+"%(yourVersion)s."
 
-#: src/amo/components/AddonDetail.js:88
-msgid "About this extension"
-msgstr "Об этом расширении"
+#: src/amo/components/AddonCompatibilityError/index.js:74
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"Ваш браузер не поддерживает дополнения. Вы можете <a href=\"%(downloadUrl)s"
+"\">загрузить Firefox</a>, чтобы установить это дополнение."
 
-#: src/amo/components/AddonDetail.js:96
+#: src/amo/components/AddonDetail.js:131
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "Прочитать %(count)s отзыв"
+msgstr[1] "Прочитать %(count)s отзыва"
+msgstr[2] "Прочитать %(count)s отзывов"
+
+#: src/amo/components/AddonDetail.js:144
+msgid "No reviews yet"
+msgstr "Пока отзывов нет"
+
+#: src/amo/components/AddonDetail.js:153
 msgid "Rate your experience"
 msgstr "Оцените работу расширения"
 
-#: src/amo/components/AddonMeta.js:19
-msgid "Category"
-msgstr "Категория"
+#: src/amo/components/AddonDetail.js:183
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)s от %(authorList)s %(endSpan)s"
 
-#: src/amo/components/AddonMeta.js:24
+#: src/amo/components/AddonDetail.js:210
+msgid "Extension Metadata"
+msgstr "Метаданные расширения"
+
+#: src/amo/components/AddonDetail.js:228
+msgid "About this %(addonType)s"
+msgstr "Об этом %(addonType)s"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Отменить предпросмотр"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Tap to preview"
+msgstr "Нажмите для предпросмотра"
+
+#: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
+msgid "%(total)s user"
+msgid_plural "%(total)s users"
+msgstr[0] "%(total)s пользователь"
+msgstr[1] "%(total)s пользователя"
+msgstr[2] "%(total)s пользователей"
+
+#: src/amo/components/AddonMeta.js:30
+msgid "%(total)s review"
+msgid_plural "%(total)s reviews"
+msgstr[0] "%(total)s отзыв"
+msgstr[1] "%(total)s отзыва"
+msgstr[2] "%(total)s отзывов"
+
+#: src/amo/components/AddonMeta.js:35
+msgid "No reviews"
+msgstr "Нет отзывов"
+
+#: src/amo/components/AddonMeta.js:41
 msgid "Used by"
 msgstr "Используется"
 
-#: src/amo/components/AddonMeta.js:29
-msgid "Sentiment"
-msgstr "Мнение"
+#: src/amo/components/AddonMoreInfo.js:24
+msgid "Homepage"
+msgstr "Домашняя страница"
 
-#: src/amo/components/AddonReview.js:109
-msgid "Back"
-msgstr "Назад"
+#: src/amo/components/AddonMoreInfo.js:32
+msgid "Support Site"
+msgstr "Сайт поддержки"
 
-#: src/amo/components/AddonReview.js:113
-msgid "Submit"
-msgstr "Отправить"
+#: src/amo/components/AddonMoreInfo.js:38
+msgid "More information"
+msgstr "Больше информации"
 
-#: src/amo/components/AddonReview.js:41
-msgid "Please enter some text"
-msgstr "Пожалуйста, введите текст"
+#: src/amo/components/AddonMoreInfo.js:42
+msgid "Add-on Links"
+msgstr "Ссылки дополнения"
 
-#: src/amo/components/AddonReview.js:90
+#: src/amo/components/AddonMoreInfo.js:53
+msgid "Version"
+msgstr "Версия"
+
+#: src/amo/components/AddonMoreInfo.js:57
+msgid "Last updated"
+msgstr "Последнее обновление"
+
+#: src/amo/components/AddonMoreInfo.js:62
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo.js:70
+msgid "License"
+msgstr "Лицензия"
+
+#: src/amo/components/AddonMoreInfo.js:81
+msgid "Privacy Policy"
+msgstr "Политика приватности"
+
+#: src/amo/components/AddonMoreInfo.js:87
+msgid "Read the privacy policy for this add-on"
+msgstr "Прочитать политику приватности для этого дополнения"
+
+#: src/amo/components/AddonReview.js:104
 msgid "Write a review"
 msgstr "Написать отзыв"
 
-#: src/amo/components/AddonReview.js:92
-msgid "Tell the world why you think this extension is fantastic!"
-msgstr "Расскажите миру, почему вы думаете, что это расширение является фантастическим!"
+#: src/amo/components/AddonReview.js:110
+msgid "Review text"
+msgstr "Текст отзыва"
 
-#: src/amo/components/Footer.js:27
+#: src/amo/components/AddonReview.js:124
+msgid "Submit review"
+msgstr "Отправить отзыв"
+
+#: src/amo/components/AddonReview.js:88
+msgid "Tell the world why you think this extension is fantastic!"
+msgstr ""
+"Расскажите миру, почему вы думаете, что это расширение является "
+"фантастическим!"
+
+#: src/amo/components/AddonReview.js:91
+msgid "Tell us what you love about this extension. Be specific and concise."
+msgstr ""
+"Расскажите нам о том, что вы любите это расширение. Будьте конкретны и "
+"лаконичны."
+
+#: src/amo/components/AddonReview.js:95
+msgid "Tell the world about this extension."
+msgstr "Расскажите миру об этом расширении."
+
+#: src/amo/components/AddonReview.js:96
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+"Расскажите нам о вашей работе с этим расширением. Будьте конкретны и "
+"лаконичны."
+
+#: src/amo/components/AddonReviewList.js:38
+msgid "from %(authorName)s, %(timestamp)s"
+msgstr "от %(authorName)s, %(timestamp)s"
+
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#: src/amo/components/AddonReviewList.js:62
+msgid "Add-on icon"
+msgstr "Значок дополнения"
+
+#: src/amo/components/AddonReviewList.js:67
+msgid "Reviews for %(addonName)s"
+msgstr "Отзывы на %(addonName)s"
+
+#: src/amo/components/AddonReviewList.js:70
+msgid "All written reviews"
+msgstr "Все написанные отзывы"
+
+#: src/amo/components/Categories.js:34
+msgid "Failed to load categories."
+msgstr "Не удалось загрузить категории."
+
+#: src/amo/components/Categories.js:42
+msgid "No categories found."
+msgstr "Категорий не найдено."
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:21
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
+msgstr ""
+"Если вы вошли на сайт и думаете, что это сообщение - ошибка, пожалуйста, <a "
+"href=\"%(url)s\">сообщите об ошибке</a>. Расскажите нам, откуда вы пришли и "
+"к чему пытались получить доступ, и мы исправим эту проблему."
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:33
+msgid "Not Authorized"
+msgstr "Не авторизован"
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"Извините, но у вас нет прав для доступа к этой странице. Если вы не вошли на "
+"сайт, попробуйте войти, используя ссылку в верху страницы."
+
+#: src/amo/components/ErrorPage/NotFound/index.js:21
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
+msgstr ""
+"Если вы перешли по ссылке с другого места, пожалуйста, <a href=\"%(url)s"
+"\">сообщите об ошибке</a>. Расскажите нам, откуда вы пришли и к чему "
+"пытались получить доступ, и мы сделаем всё возможное, чтобы исправить эту "
+"проблему."
+
+#: src/amo/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/NotFound/index.js:24
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+#: src/amo/components/ErrorPage/NotFound/index.js:34
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"Извините, мы не можем ничего найти по введённому адресу. Если перешли по "
+"ссылке на дополнение, то возможно, что оно было удалено своим автором."
+
+#: src/amo/components/ErrorPage/ServerError/index.js:21
+msgid ""
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
+msgstr ""
+"Если у вас дополнительная информация, которая может нам помочь, то вы можете "
+"<a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">сообщить "
+"об проблеме</a>. Расскажите нам, какие шаги привели к ошибке и мы сделаем "
+"всё возможное, чтобы её исправить."
+
+#: src/amo/components/ErrorPage/ServerError/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:24
+msgid "Server Error"
+msgstr "Ошибка сервера"
+
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"Извините, произошла ошибка на нашем сервере и мы не смогли завершить ваш "
+"запрос. Мы записали эту ошибку и будем с ней разбираться."
+
+#: src/amo/components/FeaturedAddons/index.js:32
+msgid "More Featured Extensions"
+msgstr "Больше избранных расширений"
+
+#: src/amo/components/FeaturedAddons/index.js:34
+msgid "More Featured Themes"
+msgstr "Больше избранных тем"
+
+#: src/amo/components/Footer.js:30
 msgid "Privacy policy"
 msgstr "Политика приватности"
 
-#: src/amo/components/Footer.js:33
+#: src/amo/components/Footer.js:36
 msgid "Legal notices"
 msgstr "Юридические уведомления"
 
-#: src/amo/components/Footer.js:39
+#: src/amo/components/Footer.js:42
+msgid "Report a bug"
+msgstr "Сообщить об ошибке"
+
+#: src/amo/components/Footer.js:49
 msgid "View desktop site"
 msgstr "Просмотр сайта для компьютеров"
 
-#: src/amo/components/LanguagePicker.js:20
+#: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
+msgid "Themes"
+msgstr "Темы"
+
+#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
+msgid "Extensions"
+msgstr "Расширения"
+
+#: src/amo/components/LandingPage.js:119
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Измените внешний вид вашего браузера. Выбирайте из тысяч тем, чтобы придать "
+"вашему Firefox образ, который вы хотите."
+
+#: src/amo/components/LandingPage.js:121
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+"Установите мощные инструменты, которые сделают ваш веб-сёрфинг быстрее и "
+"безопаснее, дополнения сделают ваш браузер только вашим."
+
+#: src/amo/components/LandingPage.js:147
+msgid "Browse by category"
+msgstr "Просмотр по категориям"
+
+#: src/amo/components/LandingPage.js:51
+msgid "Featured extensions"
+msgstr "Избранные расширения"
+
+#: src/amo/components/LandingPage.js:55
+msgid "More featured extensions"
+msgstr "Больше избранных расширений"
+
+#: src/amo/components/LandingPage.js:56
+msgid "Most popular extensions"
+msgstr "Самые популярные расширения"
+
+#: src/amo/components/LandingPage.js:61
+msgid "More popular extensions"
+msgstr "Больше популярных расширений"
+
+#: src/amo/components/LandingPage.js:62
+msgid "Top rated extensions"
+msgstr "Самые высоко оцененные расширения"
+
+#: src/amo/components/LandingPage.js:70
+msgid "More highly rated extensions"
+msgstr "Больше высоко оцененных расширений"
+
+#: src/amo/components/LandingPage.js:73
+msgid "Featured themes"
+msgstr "Избранные темы"
+
+#: src/amo/components/LandingPage.js:77
+msgid "More featured themes"
+msgstr "Больше избранных тем"
+
+#: src/amo/components/LandingPage.js:78
+msgid "Most popular themes"
+msgstr "Самые популярные темы"
+
+#: src/amo/components/LandingPage.js:83
+msgid "More popular themes"
+msgstr "Больше популярных тем"
+
+#: src/amo/components/LandingPage.js:84
+msgid "Top rated themes"
+msgstr "Самые высоко оцененные темы"
+
+#: src/amo/components/LandingPage.js:89
+msgid "More highly rated themes"
+msgstr "Больше высоко оцененных тем"
+
+#: src/amo/components/LanguagePicker.js:49
 msgid "Browse in your language"
 msgstr "Открыть на моём языке"
 
-#: src/amo/components/MastHead.js:29
+#: src/amo/components/MastHead.js:31
 msgid "Firefox Add-ons"
 msgstr "Дополнения Firefox"
 
-#: src/amo/components/OverallRating.js:45
+#: src/amo/components/RatingManager/index.js:122
+msgid "Log in to rate this dictionary"
+msgstr "Войдите, чтобы оценить этот словарь"
+
+#: src/amo/components/RatingManager/index.js:124
+msgid "Log in to rate this language pack"
+msgstr "Войдите, чтобы оценить этот языковой пакет"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "Войдите, чтобы оценить эту поисковую систему"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "Войдите, чтобы оценить эту тему"
+
+#: src/amo/components/RatingManager/index.js:130
+msgid "Log in to rate this extension"
+msgstr "Войдите, чтобы оценить это расширение"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "Войдите, чтобы оценить это дополнение"
+
+#: src/amo/components/RatingManager/index.js:160
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Как вы оцениваете ваш опыт работы с %(addonName)s?"
 
-#: src/amo/components/ScreenShots.js:28
-msgid "screenshot %(imageNumber)s of %(totalImages)s"
-msgstr "скриншот %(imageNumber)s из %(totalImages)s"
+#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
+msgid "Search"
+msgstr "Поиск"
 
-#: src/amo/components/SearchResult.js:23
-msgid "Average rating: %(rating)s out of 5"
-msgstr "Средний рейтинг: %(rating)s из 5"
+#: src/amo/components/SearchForm.js:51
+msgid "Search extensions and themes"
+msgstr "Поиск расширений и тем"
 
-#: src/amo/components/SearchResult.js:29
-msgid "No ratings"
-msgstr "Нет оценок"
+#: src/amo/components/SearchResult.js:49
+msgid "No theme preview available"
+msgstr "Предпросмотр тем недоступен"
 
-#: src/amo/components/SearchResult.js:43
-msgid "%(users)s user"
-msgid_plural "%(users)s users"
-msgstr[0] "%(users)s пользователь"
-msgstr[1] "%(users)s пользователя"
-msgstr[2] "%(users)s пользователей"
+#: src/amo/components/SearchResults.js:42
+msgid "Searching…"
+msgstr "Поиск…"
 
-#: src/amo/containers/App.js:39
-msgid "Log out"
-msgstr "Выйти"
-
-#: src/amo/containers/App.js:39
-msgid "Log in/Sign up"
-msgstr "Войти / Зарегистрироваться"
-
-#: src/amo/containers/App.js:51
-msgid "Add-ons for Firefox"
-msgstr "Дополнения для Firefox"
-
-#: src/amo/containers/Home.js:18
-msgid "What do you want Firefox to do?"
-msgstr "Что вы хотите, чтобы сделал Firefox?"
-
-#: src/amo/containers/Home.js:20
-msgid "Block ads"
-msgstr "Блокировка рекламы"
-
-#: src/amo/containers/Home.js:21
-msgid "Screenshot"
-msgstr "Скриншоты"
-
-#: src/amo/containers/Home.js:22
-msgid "Save stuff"
-msgstr "Сохранение материалов"
-
-#: src/amo/containers/Home.js:23
-msgid "Shop online"
-msgstr "Покупки онлайн"
-
-#: src/amo/containers/Home.js:24
-msgid "Be social"
-msgstr "Будьте в сети"
-
-#: src/amo/containers/Home.js:25
-msgid "Share stuff"
-msgstr "Поделиться материалами"
-
-#: src/amo/containers/Home.js:28
-msgid "Browse all extensions"
-msgstr "Просмотреть все расширения"
-
-#: src/amo/containers/Home.js:31
-msgid "How do you want Firefox to look?"
-msgstr "Как бы вы хотели, чтобы выглядел Firefox?"
-
-#: src/amo/containers/Home.js:33
-msgid "Wild"
-msgstr "Свобода"
-
-#: src/amo/containers/Home.js:34
-msgid "Abstract"
-msgstr "Абстрактные"
-
-#: src/amo/containers/Home.js:35
-msgid "Fashionable"
-msgstr "Модные"
-
-#: src/amo/containers/Home.js:36
-msgid "Scenic"
-msgstr "Украшающие"
-
-#: src/amo/containers/Home.js:37
-msgid "Sporty"
-msgstr "Спортивные"
-
-#: src/amo/containers/Home.js:38
-msgid "Mystical"
-msgstr "Мистические"
-
-#: src/amo/containers/Home.js:41
-msgid "Browse all themes"
-msgstr "Просмотреть все темы"
-
-#: src/core/components/InstallButton/index.js:49
-msgid "Downloading %(name)s."
-msgstr "Загрузка %(name)s."
-
-#: src/core/components/InstallButton/index.js:52
-msgid "Installing %(name)s."
-msgstr "Установка %(name)s."
-
-#: src/core/components/InstallButton/index.js:56
-msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s установлено и включено. Щёлкните, чтобы удалить."
-
-#: src/core/components/InstallButton/index.js:59
-msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s отключено. Щёлкните, чтобы включить."
-
-#: src/core/components/InstallButton/index.js:62
-msgid "Uninstalling %(name)s."
-msgstr "Удаление %(name)s."
-
-#: src/core/components/InstallButton/index.js:65
-msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s удалено. Щёлкните, чтобы установить."
-
-#: src/core/components/InstallButton/index.js:68
-msgid "Install state for %(name)s is unknown."
-msgstr "Состояние установки для %(name)s неизвестно."
-
-#: src/core/components/Paginate/index.js:102
-msgid "Previous"
-msgstr "Назад"
-
-#: src/core/components/Paginate/index.js:104
-msgid "Next"
-msgstr "Вперёд"
-
-#: src/core/components/Paginate/index.js:97
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Страница %(currentPage)s из %(totalPages)s"
-
-#: src/core/components/Search/SearchResults.js:40
-msgid "Your search for \"%(query)s\" returned %(count)s result."
-msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-msgstr[0] "По вашему запросу \"%(query)s\" нашёлся %(count)s результат."
-msgstr[1] "По вашему запросу \"%(query)s\" нашлось %(count)s результата."
-msgstr[2] "По вашему запросу \"%(query)s\" нашлось %(count)s результатов."
-
-#: src/core/components/Search/SearchResults.js:56
-msgid "Searching..."
-msgstr "Поиск..."
-
-#: src/core/components/Search/SearchResults.js:59
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
 msgstr "Результатов для \"%(query)s\" не найдено."
 
-#: src/core/components/Search/SearchResults.js:61
-msgid "Please supply a valid search"
-msgstr "Пожалуйста, введите корректный поисковый запрос"
+#: src/amo/components/SearchResults.js:52
+msgid "No results were found."
+msgstr "Результатов не найдено."
+
+#: src/amo/components/SearchResults.js:55
+msgid "Please enter a search term to search Firefox Add-ons."
+msgstr ""
+"Пожалуйста, введите поисковый термин, чтобы искать среди дополнений для "
+"Firefox."
+
+#: src/amo/components/SearchSort/index.js:40
+msgid "Recently Updated"
+msgstr "Недавно обновлённые"
+
+#: src/amo/components/SearchSort/index.js:41
+msgid "Relevance"
+msgstr "Релевантность"
+
+#: src/amo/components/SearchSort/index.js:42
+msgid "Most Users"
+msgstr "Число пользователей"
+
+#: src/amo/components/SearchSort/index.js:43
+msgid "Top Rated"
+msgstr "Лидеры рейтинга"
+
+#: src/amo/components/SearchSort/index.js:66
+msgid "Sort"
+msgstr "Сортировать"
+
+#: src/amo/components/SuggestedPages/index.js:20
+msgid "Suggested Pages"
+msgstr "Предложенные страницы"
+
+#: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
+msgid "Browse all extensions"
+msgstr "Просмотреть все расширения"
+
+#: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
+msgid "Browse all themes"
+msgstr "Просмотреть все темы"
+
+#: src/amo/components/SuggestedPages/index.js:35
+msgid "Add-ons Home Page"
+msgstr "Домашняя страница дополнений"
+
+#: src/amo/containers/App.js:106
+msgid "Add-ons for Firefox"
+msgstr "Дополнения для Firefox"
+
+#: src/amo/containers/Home.js:39
+msgid ""
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
+msgstr ""
+"Расширения - специальные функции, которые вы можете добавить в Firefox. Темы "
+"позволяют вам изменить внешний вид вашего браузера."
+
+#: src/amo/containers/Home.js:52
+msgid "You can change how Firefox works…"
+msgstr "Вы можете изменить работу Firefox…"
+
+#: src/amo/containers/Home.js:55
+msgid "Block ads"
+msgstr "Блокировка рекламы"
+
+#: src/amo/containers/Home.js:58
+msgid "Screenshot"
+msgstr "Скриншоты"
+
+#: src/amo/containers/Home.js:61
+msgid "Find news"
+msgstr "Поиск новостей"
+
+#: src/amo/containers/Home.js:64
+msgid "Shop online"
+msgstr "Покупки онлайн"
+
+#: src/amo/containers/Home.js:67
+msgid "Be social"
+msgstr "Социальные сети"
+
+#: src/amo/containers/Home.js:70
+msgid "Play games"
+msgstr "Играйте в игры"
+
+#: src/amo/containers/Home.js:77
+msgid "…or what it looks like"
+msgstr "…или его внешний вид"
+
+#: src/amo/containers/Home.js:79
+msgid "Wild"
+msgstr "Свобода"
+
+#: src/amo/containers/Home.js:80
+msgid "Abstract"
+msgstr "Абстрактные"
+
+#: src/amo/containers/Home.js:81
+msgid "Holiday"
+msgstr "Праздничные"
+
+#: src/amo/containers/Home.js:82
+msgid "Scenic"
+msgstr "Украшающие"
+
+#: src/amo/containers/Home.js:83
+msgid "Sporty"
+msgstr "Спортивные"
+
+#: src/amo/containers/Home.js:84
+msgid "Solid"
+msgstr "Сплошные"
+
+#: src/core/components/AuthenticateButton/index.js:61
+msgid "Log out"
+msgstr "Выйти"
+
+#: src/core/components/AuthenticateButton/index.js:62
+msgid "Log in/Sign up"
+msgstr "Войти / Зарегистрироваться"
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Извините, произошла ошибка и мы не смогли выполнить ваш запрос. Мы записали "
+"эту ошибку и будем с ней разбираться."
+
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
+msgid "Error code: %(status)s."
+msgstr "Код ошибки: %(status)s."
+
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "Извините, мы не смогли ничего найти по URL, который вы ввели."
+
+#: src/core/components/InstallButton/index.js:72
+msgid "Install Theme"
+msgstr "Установить тему"
+
+#: src/core/components/InstallButton/index.js:88
+msgid "Add to Firefox"
+msgstr "Добавить в Firefox"
+
+#: src/core/components/InstallSwitch/index.js:54
+msgid "Downloading %(name)s."
+msgstr "Загрузка %(name)s."
+
+#: src/core/components/InstallSwitch/index.js:57
+msgid "Installing %(name)s."
+msgstr "Установка %(name)s."
+
+#: src/core/components/InstallSwitch/index.js:61
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr "%(name)s установлено и включено. Щёлкните, чтобы удалить."
+
+#: src/core/components/InstallSwitch/index.js:64
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s отключено. Щёлкните, чтобы включить."
+
+#: src/core/components/InstallSwitch/index.js:67
+msgid "Uninstalling %(name)s."
+msgstr "Удаление %(name)s."
+
+#: src/core/components/InstallSwitch/index.js:70
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s удалено. Щёлкните, чтобы установить."
+
+#: src/core/components/InstallSwitch/index.js:73
+msgid "Install state for %(name)s is unknown."
+msgstr "Состояние установки для %(name)s неизвестно."
+
+#: src/core/components/Paginate/index.js:107
+msgid "Previous"
+msgstr "Назад"
+
+#: src/core/components/Paginate/index.js:119
+msgid "Next"
+msgstr "Вперёд"
+
+#: src/core/components/Paginate/index.js:98
+msgid "Page %(currentPage)s of %(totalPages)s"
+msgstr "Страница %(currentPage)s из %(totalPages)s"
+
+#: src/core/containers/InfoDialog/index.js:31
+msgid "Your add-on is ready"
+msgstr "Ваше дополнение готово"
+
+#: src/core/containers/InfoDialog/index.js:33
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Теперь вы можете получить доступ к %(name)s с панели инструментов."
+
+#: src/core/containers/InfoDialog/index.js:38
+msgid "OK!"
+msgstr "ОК!"
+
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Срок действия сеанса истёк"
+
+#: src/ui/components/ErrorList/index.js:51
+msgid "An unexpected error occurred"
+msgstr "Обнаружена непредвиденная ошибка"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Перезагрузите для продолжения"
+
+#: src/ui/components/Rating/index.js:91
+msgid "Rated %(rating)s out of 5"
+msgstr "Оценено на %(rating)s из 5"
+
+#: src/ui/components/Rating/index.js:94
+msgid "No ratings"
+msgstr "Нет оценок"
+
+#: src/ui/components/ShowMoreCard/index.js:58
+msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
+msgstr ""
+"<span class=\"visually-hidden\">Разверните, чтобы</span> прочитать больше"
+
+#~ msgid "%(averageRating)s out of 5"
+#~ msgstr "%(averageRating)s из 5"
+
+#~ msgid "Not yet rated"
+#~ msgstr "Пока не оценено"
+
+#~ msgid "Loading…"
+#~ msgstr "Загрузка…"
+
+#~ msgid "Fashionable"
+#~ msgstr "Модные"
+
+#~ msgid "Website"
+#~ msgstr "Веб-сайт"
+
+#~ msgid "Screenshots"
+#~ msgstr "Скриншоты"
+
+#~ msgid "Category"
+#~ msgstr "Категория"
+
+#~ msgid "Sentiment"
+#~ msgstr "Мнение"
+
+#~ msgid "Back"
+#~ msgstr "Назад"
+
+#~ msgid "Submit"
+#~ msgstr "Отправить"
+
+#~ msgid "Please enter some text"
+#~ msgstr "Пожалуйста, введите текст"
+
+#~ msgid "screenshot %(imageNumber)s of %(totalImages)s"
+#~ msgstr "скриншот %(imageNumber)s из %(totalImages)s"
+
+#~ msgid "What do you want Firefox to do?"
+#~ msgstr "Что вы хотите, чтобы сделал Firefox?"
+
+#~ msgid "Save stuff"
+#~ msgstr "Сохранение материалов"
+
+#~ msgid "Share stuff"
+#~ msgstr "Поделиться материалами"
+
+#~ msgid "How do you want Firefox to look?"
+#~ msgstr "Как бы вы хотели, чтобы выглядел Firefox?"
+
+#~ msgid "Mystical"
+#~ msgstr "Мистические"
+
+#~ msgid "Your search for \"%(query)s\" returned %(count)s result."
+#~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
+#~ msgstr[0] "По вашему запросу \"%(query)s\" нашёлся %(count)s результат."
+#~ msgstr[1] "По вашему запросу \"%(query)s\" нашлось %(count)s результата."
+#~ msgstr[2] "По вашему запросу \"%(query)s\" нашлось %(count)s результатов."
+
+#~ msgid "Please supply a valid search"
+#~ msgstr "Пожалуйста, введите корректный поисковый запрос"

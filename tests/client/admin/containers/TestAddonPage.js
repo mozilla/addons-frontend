@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 
 import AddonPage from 'admin/containers/AddonPage';
 import createStore from 'admin/store';
+import I18nProvider from 'core/i18n/Provider';
+import { getFakeI18nInst } from 'tests/client/helpers';
+
 
 describe('AddonPage', () => {
   const basicAddon = {
@@ -24,7 +27,9 @@ describe('AddonPage', () => {
     const store = createStore(state);
     return findDOMNode(renderIntoDocument(
       <Provider store={store} key="provider">
-        <AddonPage {...props} />
+        <I18nProvider i18n={getFakeI18nInst()}>
+          <AddonPage {...props} />
+        </I18nProvider>
       </Provider>
     ));
   }
@@ -193,7 +198,12 @@ describe('AddonPage', () => {
 
   it('renders NotFound when the add-on is not loaded', () => {
     const initialState = { addons: { 'my-addon': basicAddon } };
-    const root = render({ state: initialState, props: { params: { slug: 'other-addon' } } });
-    assert(root.querySelector('h1').textContent.includes("we can't find what you're looking for"));
+    const root = render({
+      state: initialState,
+      props: { params: { slug: 'other-addon' } },
+    });
+    assert.include(root.querySelector('h1').textContent, 'Page not found');
+    assert.include(root.textContent,
+      "Sorry, but we can't find anything at the URL you entered");
   });
 });

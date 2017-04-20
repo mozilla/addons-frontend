@@ -1,13 +1,11 @@
 // Config for the -dev server.
-
-const amoCDN = 'https://addons-dev-cdn.allizom.org';
-const apiHost = 'https://addons-dev.allizom.org';
+import { amoDevCDN, apiDevHost, sentryHost } from './lib/shared';
 
 
 module.exports = {
-  apiHost,
-  amoCDN,
-  staticHost: amoCDN,
+  apiHost: apiDevHost,
+  amoCDN: amoDevCDN,
+  staticHost: amoDevCDN,
 
   enableClientConsole: true,
 
@@ -15,19 +13,25 @@ module.exports = {
   CSP: {
     directives: {
       connectSrc: [
-        apiHost,
+        apiDevHost,
+        sentryHost,
       ],
       imgSrc: [
         "'self'",
-        amoCDN,
+        amoDevCDN,
         'data:',
       ],
       scriptSrc: [
-        amoCDN,
+        amoDevCDN,
       ],
       styleSrc: [
-        amoCDN,
+        amoDevCDN,
       ],
     },
   },
+
+  allowErrorSimulation: true,
+
+  // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-dev/
+  publicSentryDsn: 'https://2c975f188a8b4d728ecbb8179cff9c26@sentry.prod.mozaws.net/181',
 };

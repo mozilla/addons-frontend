@@ -1,10 +1,10 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2017-01-24 18:02+0000\n"
+"POT-Creation-Date: 2017-04-04 17:17+0000\n"
+"PO-Revision-Date: 2017-03-18 00:35+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -14,39 +14,64 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/ErrorPage/GenericError/index.js:24
+msgid "Server Error"
+msgstr "Serverfel"
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Tyvärr, men ett fel uppstod och vi kunde inte slutföra din begäran. Vi har "
+"loggat detta fel och kommer att undersöka det."
+
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
+msgid "Error code: %(status)s."
+msgstr "Felkod: %(status)s."
+
+#: src/core/components/ErrorPage/NotFound/index.js:24
+msgid "Page not found"
+msgstr "Sidan kunde inte hittas"
+
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "Tyvärr, men vi kan inte hitta något på den URL som du angav."
+
+#: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
 msgstr "Installera tema"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
 msgstr "Lägg till i Firefox"
 
-#: src/core/components/InstallSwitch/index.js:49
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "Hämtar %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "Installerar %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:56
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s är installerad och aktiveras. Klicka för att avinstallera."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s är inaktiverad. Klicka för att aktivera."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "Avinstallerar %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s är avinstallerad. Klicka för att installera."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "Installationstillstånd för %(name)s är okänt."
 
@@ -62,83 +87,85 @@ msgstr "Nu kan du komma åt %(name)s från verktygsfältet."
 msgid "OK!"
 msgstr "Ok!"
 
-#: src/disco/components/Addon.js:107
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
+"Håll muspekaren över för att förhandsgranska eller klicka för att installera "
+"%(name)s"
+
+#: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
 msgstr "Håll muspekaren över bilden för att förhandsgranska"
 
-#: src/disco/components/Addon.js:128
+#: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
 msgstr "Installationen misslyckades. Försök igen."
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
 msgstr "Hämtningen misslyckades. Kontrollera din anslutning."
 
-#: src/disco/components/Addon.js:132
+#: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
 msgstr "Ett oväntat fel uppstod under installationen."
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ett oväntat fel uppstod under avinstallationen."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
 msgstr "Ett oväntat fel inträffade."
 
-#: src/disco/components/Addon.js:145
+#: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Detta tillägg kommer att avinstalleras efter omstart av Firefox."
 
-#: src/disco/components/Addon.js:147
+#: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
 msgstr "Starta om Firefox för att använda detta tillägg."
 
-#: src/disco/components/Addon.js:67
+#: src/disco/components/Addon.js:68
 msgid "Close"
 msgstr "Stäng"
 
-#: src/disco/components/Addon.js:97
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Håll muspekaren över för att förhandsgranska eller klicka för att installera %(name)s"
-
-#: src/disco/containers/App.js:27
+#: src/disco/containers/App.js:32
 msgid "Discover Add-ons"
 msgstr "Upptäck tillägg"
 
-#: src/disco/containers/DiscoPane.js:105
-msgid "Click to play"
-msgstr "Klicka för att spela"
-
-#: src/disco/containers/DiscoPane.js:106
-msgid "to find out more about add-ons"
-msgstr "för att få reda på mer om tillägg"
-
-#: src/disco/containers/DiscoPane.js:115
-msgid "Close video"
-msgstr "Stäng video"
-
-#: src/disco/containers/DiscoPane.js:126
-msgid "See more add-ons!"
-msgstr "Visa fler tillägg!"
-
-#: src/disco/containers/DiscoPane.js:96
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "Anpassa Firefox"
 
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
-"There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
-"and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Det finns tusentals tillägg som är gratis, skapade av utvecklare över hela världen, \n"
-"som du kan installera för att anpassa Firefox. Från roliga visuella teman till kraftfulla \n"
-"verktyg som gör surfning snabbare och säkrare, tillägg gör din webbläsare till din egen.\n"
-"För att hjälpa dig att komma igång, här är några vi rekommenderar för deras \n"
-"enastående prestanda och funktionalitet."
+"Det finns tusentals tillägg som är gratis, skapade av utvecklare över hela "
+"världen, som du kan installera för att anpassa Firefox. Från roliga visuella "
+"teman till kraftfulla verktyg som gör surfning snabbare och säkrare, tillägg "
+"gör din webbläsare till din egen. För att hjälpa dig att komma igång, här är "
+"några vi rekommenderar för deras enastående prestanda och funktionalitet."
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "Klicka för att spela"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "för att få reda på mer om tillägg"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "Stäng video"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "Visa fler tillägg!"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Installerad och tillagd till verktygsfältet"

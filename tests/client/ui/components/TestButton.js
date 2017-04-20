@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
 
+import Link from 'amo/components/Link';
 import { shallowRender } from 'tests/client/helpers';
 import Button from 'ui/components/Button';
 
@@ -16,10 +16,10 @@ describe('<Button />', () => {
 
   it('renders a link with an href', () => {
     const href = 'https://addons.mozilla.org';
-    const button = shallowRender(<Button className="Bar" href={href}>Link text!</Button>);
+    const button = shallowRender(<Button className="Bar" to={href}>Link text!</Button>);
     assert.equal(button.type, Link);
     assert.equal(button.props.className, 'Button Bar');
-    assert.strictEqual(button.props.href, href);
+    assert.strictEqual(button.props.to, href);
     assert.equal(button.props.children, 'Link text!');
   });
 });

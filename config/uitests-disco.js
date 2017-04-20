@@ -1,4 +1,4 @@
-const amoCDN = 'https://addons.cdn.mozilla.net';
+import { amoProdCDN } from './lib/shared';
 
 module.exports = {
   staticHost: '',
@@ -13,7 +13,7 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoCDN,
+        amoProdCDN,
         'https://www.google-analytics.com',
       ],
       mediaSrc: ["'self'"],

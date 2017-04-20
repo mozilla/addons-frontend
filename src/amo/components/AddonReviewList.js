@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { asyncConnect } from 'redux-connect';
 
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
-import { getAddonReviews } from 'amo/api';
+import { getReviews } from 'amo/api';
 import translate from 'core/i18n/translate';
-import { findAddon, loadAddonIfNeeded } from 'core/utils';
+import { findAddon, loadAddonIfNeeded, safeAsyncConnect } from 'core/utils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
 
@@ -34,7 +33,7 @@ export class AddonReviewListBase extends React.Component {
         <h3>{review.title}</h3>
         <p>{review.body}</p>
         <div className="AddonReviewList-by-line">
-          <Rating size="small" rating={review.rating} readOnly />
+          <Rating styleName="small" rating={review.rating} readOnly />
           {/* L10n: Example: "from Jose, last week" */}
           {i18n.sprintf(i18n.gettext('from %(authorName)s, %(timestamp)s'),
                         { authorName: review.userName, timestamp })}
@@ -82,8 +81,8 @@ export class AddonReviewListBase extends React.Component {
   }
 }
 
-export function loadAddonReviews({ addonSlug, dispatch }) {
-  return getAddonReviews({ addonSlug })
+export function loadAddonReviews({ addonId, addonSlug, dispatch }) {
+  return getReviews({ addon: addonId })
     .then((allReviews) => {
       // Ignore reviews with null bodies as those are incomplete.
       // For example, the user selected a star rating but hasn't submitted
@@ -98,10 +97,11 @@ export function loadInitialData({ store, params }) {
   if (!addonSlug) {
     return Promise.reject(new Error('missing URL param addonSlug'));
   }
-  return Promise.all([
-    loadAddonReviews({ addonSlug, dispatch: store.dispatch }),
-    loadAddonIfNeeded({ store, params: { slug: addonSlug } }),
-  ]);
+  return loadAddonIfNeeded({ store, params: { slug: addonSlug } })
+    .then(() => findAddon(store.getState(), addonSlug))
+    .then((addon) => loadAddonReviews({
+      addonId: addon.id, addonSlug, dispatch: store.dispatch,
+    }));
 }
 
 export function mapStateToProps(state, ownProps) {
@@ -116,10 +116,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
-  asyncConnect([{
-    deferred: true,
-    promise: loadInitialData,
-  }]),
+  safeAsyncConnect([{ promise: loadInitialData }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(AddonReviewListBase);

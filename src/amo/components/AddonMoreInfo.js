@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
-import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
+import { trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
 
 import './AddonMoreInfo.scss';
@@ -17,14 +17,37 @@ export class AddonMoreInfoBase extends React.Component {
   render() {
     const { addon, i18n } = this.props;
 
+    let homepage = trimAndAddProtocolToUrl(addon.homepage);
+    if (homepage) {
+      homepage = (
+        <li><a href={homepage} ref={(ref) => { this.homepageLink = ref; }}>
+          {i18n.gettext('Homepage')}
+        </a></li>
+      );
+    }
+    let supportUrl = trimAndAddProtocolToUrl(addon.support_url);
+    if (supportUrl) {
+      supportUrl = (
+        <li><a href={supportUrl} ref={(ref) => { this.supportLink = ref; }}>
+          {i18n.gettext('Support Site')}
+        </a></li>
+      );
+    }
+
     return (
       <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
         <dl className="AddonMoreInfo-contents">
-          {addon.homepage ? <dt>{i18n.gettext('Website')}</dt> : null}
-          {addon.homepage ? (
-            <dd>
-              <a href={addon.homepage}
-                ref={(ref) => { this.homepageLink = ref; }}>{addon.homepage}</a>
+          {homepage || supportUrl ? (
+            <dt ref={(ref) => { this.linkTitle = ref; }}>
+              {i18n.gettext('Add-on Links')}
+            </dt>
+          ) : null}
+          {homepage || supportUrl ? (
+            <dd className="AddonMoreInfo-contents-links">
+              <ul className="AddonMoreInfo-contents-links-list">
+                {homepage}
+                {supportUrl}
+              </ul>
             </dd>
           ) : null}
           <dt>{i18n.gettext('Version')}</dt>
@@ -59,10 +82,10 @@ export class AddonMoreInfoBase extends React.Component {
           ) : null}
           {addon.has_privacy_policy ? (
             <dd>
-              <Link to={`/addons/addon/${addon.slug}/privacy-policy/`}
+              <a href={`/addon/${addon.slug}/privacy/`}
                 ref={(ref) => { this.privacyPolicyLink = ref; }}>
                 {i18n.gettext('Read the privacy policy for this add-on')}
-              </Link>
+              </a>
             </dd>
           ) : null}
         </dl>

@@ -4,26 +4,33 @@ import React, { PropTypes } from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import LoadingBar from 'react-redux-loading-bar';
 import { compose } from 'redux';
 
-import 'core/fonts/fira.scss';
-import 'amo/css/App.scss';
 import SearchForm from 'amo/components/SearchForm';
-import { addChangeListeners } from 'core/addonManager';
-import { INSTALL_STATE } from 'core/constants';
-import InfoDialog from 'core/containers/InfoDialog';
-import { handleResourceErrors } from 'core/resourceErrors/decorator';
-import translate from 'core/i18n/translate';
+import { getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import MastHead from 'amo/components/MastHead';
+import { addChangeListeners } from 'core/addonManager';
+import { setUserAgent as setUserAgentAction } from 'core/actions';
+import { INSTALL_STATE } from 'core/constants';
+import DefaultErrorPage from 'core/components/ErrorPage';
+import InfoDialog from 'core/containers/InfoDialog';
+import translate from 'core/i18n/translate';
+import log from 'core/logger';
+
+import 'amo/css/App.scss';
+import 'core/fonts/fira.scss';
 
 
 export class AppBase extends React.Component {
   static propTypes = {
+    ErrorPage: PropTypes.node.isRequired,
     FooterComponent: PropTypes.node.isRequired,
     InfoDialogComponent: PropTypes.node.isRequired,
     MastHeadComponent: PropTypes.node.isRequired,
     _addChangeListeners: PropTypes.func,
+    _navigator: PropTypes.object,
     children: PropTypes.node,
     clientApp: PropTypes.string.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
@@ -31,20 +38,42 @@ export class AppBase extends React.Component {
     lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
+    setUserAgent: PropTypes.func.isRequired,
+    userAgent: PropTypes.string,
   }
 
   static defaultProps = {
+    ErrorPage: DefaultErrorPage,
     FooterComponent: Footer,
     InfoDialogComponent: InfoDialog,
     MastHeadComponent: MastHead,
     _addChangeListeners: addChangeListeners,
+    _navigator: (typeof navigator !== 'undefined' ? navigator : null),
     mozAddonManager: config.get('server') ? {} : navigator.mozAddonManager,
+    userAgent: null,
   }
 
   componentDidMount() {
-    const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
+    const {
+      _addChangeListeners,
+      _navigator,
+      handleGlobalEvent,
+      mozAddonManager,
+      setUserAgent,
+      userAgent,
+    } = this.props;
+
     // Use addonManager.addChangeListener to setup and filter events.
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
+
+    // If userAgent isn't set in state it could be that we couldn't get one
+    // from the request headers on our first (server) request. If that's the
+    // case we try to load them from navigator.
+    if (!userAgent && _navigator && _navigator.userAgent) {
+      log.info(
+        'userAgent not in state on App load; using navigator.userAgent.');
+      setUserAgent(_navigator.userAgent);
+    }
   }
 
   onViewDesktop = (event, { window_ = window, cookie_ = cookie } = {}) => {
@@ -57,6 +86,7 @@ export class AppBase extends React.Component {
 
   render() {
     const {
+      ErrorPage,
       FooterComponent,
       InfoDialogComponent,
       MastHeadComponent,
@@ -66,18 +96,22 @@ export class AppBase extends React.Component {
       lang,
       location,
     } = this.props;
+
     const isHomePage = Boolean(location.pathname && location.pathname.match(
       new RegExp(`^\\/${lang}\\/${clientApp}\\/?$`)));
     const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
+        <LoadingBar className="App-loading-bar" />
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         <InfoDialogComponent />
         <MastHeadComponent
           SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
           query={query} ref={(ref) => { this.mastHead = ref; }} />
         <div className="App-content">
-          {children}
+          <ErrorPage getErrorComponent={getErrorComponent}>
+            {children}
+          </ErrorPage>
         </div>
         <FooterComponent handleViewDesktop={this.onViewDesktop}
           location={location} />
@@ -89,6 +123,7 @@ export class AppBase extends React.Component {
 export const mapStateToProps = (state) => ({
   clientApp: state.api.clientApp,
   lang: state.api.lang,
+  userAgent: state.api.userAgent,
 });
 
 export function mapDispatchToProps(dispatch) {
@@ -96,11 +131,13 @@ export function mapDispatchToProps(dispatch) {
     handleGlobalEvent(payload) {
       dispatch({ type: INSTALL_STATE, payload });
     },
+    setUserAgent(userAgent) {
+      dispatch(setUserAgentAction(userAgent));
+    },
   };
 }
 
 export default compose(
-  handleResourceErrors,
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
 )(AppBase);

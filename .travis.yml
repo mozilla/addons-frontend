@@ -2,26 +2,25 @@ sudo: required
 services:
   - docker
 addons:
-  firefox: "latest"
+  firefox: latest
 language: node_js
 node_js:
-- '4'
 - '6'
 env:
   matrix:
   - TASK=lint
   - TASK=unittest GUI=1
   - TASK=servertest
-  - TOXENV=discopane-ui-tests GUI=1 PYTEST_ADDOPTS=--base-url=http://localhost:4000
+  - TOXENV=discopane-ui-tests GUI=1 PYTEST_BASE_URL=http://localhost:4000
   - TOXENV=flake8
 cache:
   yarn: true
   directories:
   - node_modules
 before_install:
-- npm install -g npm@3 
+- npm install -g yarn
 - if [ $TOXENV ]; then sudo pip install tox; fi
-- if [[ $TOXENV == 'discopane-ui-tests' ]]; then wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.10.0/geckodriver-v0.10.0-linux64.tar.gz; fi
+- if [[ $TOXENV == 'discopane-ui-tests' ]]; then wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.14.0/geckodriver-v0.14.0-linux64.tar.gz; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then gunzip -c geckodriver.tar.gz | tar xopf -; fi
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then chmod +x geckodriver && sudo mv geckodriver /usr/local/bin; fi
 before_script:
@@ -30,7 +29,5 @@ script:
 - if [[ $TOXENV == 'discopane-ui-tests' ]]; then
     docker run --cidfile=./docker-container.txt -d -p 4000:4000 -e NODE_APP_INSTANCE=disco -e NODE_ENV=uitests $(docker build -q .) /bin/sh -c "npm run build && npm run start" && sleep 60 && docker logs --tail=all $(cat ./docker-container.txt);
   fi
-- if [ $TOXENV ]; then export PYTEST_ADDOPTS=--base-url=http://localhost:4000 && tox; fi
+- if [ $TOXENV ]; then tox; fi
 - if [ -z $TOXENV ]; then npm run $TASK; fi
-addons:
-  firefox: latest

@@ -1,11 +1,10 @@
-/* eslint-disable arrow-body-style */
 import {
-  getAddonReviews,
   getLatestUserReview,
-  getUserReviews,
+  getReviews,
   submitReview,
 } from 'amo/api';
 import * as api from 'core/api';
+import { unexpectedSuccess } from 'tests/client/helpers';
 import { fakeReview, signedInApiState } from 'tests/client/amo/helpers';
 
 describe('amo.api', () => {
@@ -19,9 +18,11 @@ describe('amo.api', () => {
     // These are all the default values for fields that can be posted to the
     // endpoint.
     const defaultParams = {
-      rating: undefined,
-      version: undefined,
+      addon: undefined,
       body: undefined,
+      rating: undefined,
+      title: undefined,
+      version: undefined,
     };
     const baseParams = {
       apiState: { ...signedInApiState, token: 'new-token' },
@@ -30,15 +31,15 @@ describe('amo.api', () => {
     // look like an error to callApi().
     const genericApiResponse = { field: 'value' };
 
-    it('requires an addonSlug', () => {
+    it('requires an addonId when posting', () => {
       const params = {
         ...baseParams,
-        addonSlug: null,
+        addonId: null,
       };
 
       return submitReview(params)
-        .then(() => assert(false, 'unexpected success'), (error) => {
-          assert.match(error.message, /addonSlug is required/);
+        .then(unexpectedSuccess, (error) => {
+          assert.match(error.message, /addonId is required/);
         });
     });
 
@@ -46,7 +47,7 @@ describe('amo.api', () => {
       const params = {
         ...baseParams,
         rating: 5,
-        addonSlug: 'chill-out',
+        addonId: 445,
         versionId: 321,
         errorHandler: sinon.stub(),
       };
@@ -54,9 +55,12 @@ describe('amo.api', () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `addons/addon/${params.addonSlug}/reviews`,
+          endpoint: 'reviews/review',
           body: {
-            ...defaultParams, rating: params.rating, version: params.versionId,
+            ...defaultParams,
+            addon: params.addonId,
+            rating: params.rating,
+            version: params.versionId,
           },
           method: 'POST',
           auth: true,
@@ -76,13 +80,12 @@ describe('amo.api', () => {
         ...baseParams,
         body: 'some new body',
         reviewId: 987,
-        addonSlug: 'chill-out',
       };
 
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `addons/addon/${params.addonSlug}/reviews/${params.reviewId}`,
+          endpoint: `reviews/review/${params.reviewId}`,
           body: {
             ...defaultParams, body: params.body,
           },
@@ -104,13 +107,12 @@ describe('amo.api', () => {
         reviewId: 987,
         body: 'some new body',
         versionId: 99876,
-        addonSlug: 'chill-out',
       };
 
       mockApi
         .expects('callApi')
         .withArgs({
-          endpoint: `addons/addon/${params.addonSlug}/reviews/${params.reviewId}`,
+          endpoint: `reviews/review/${params.reviewId}`,
           body: {
             // Make sure that version is not passed in.
             ...defaultParams, body: params.body, version: undefined,
@@ -127,34 +129,7 @@ describe('amo.api', () => {
     });
   });
 
-  describe('getUserReviews', () => {
-    it('gets all user reviews', () => {
-      const userId = 8877;
-      const reviewList = [fakeReview];
-      const response = { results: reviewList };
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          endpoint: `accounts/account/${userId}/reviews`,
-        })
-        .returns(Promise.resolve(response));
-
-      return getUserReviews({ userId })
-        .then((reviews) => {
-          mockApi.verify();
-          assert.deepEqual(reviews, reviewList);
-        });
-    });
-
-    it('requires a user ID', () => {
-      mockApi.expects('callApi').never();
-      return getUserReviews()
-        .then(() => assert(false, 'unexpected success'), (error) => {
-          assert.equal(error.message, 'userId cannot be falsey');
-          mockApi.verify();
-        });
-    });
-
+  describe('getReviews', () => {
     it('does not support paging yet', () => {
       mockApi
         .expects('callApi')
@@ -164,86 +139,63 @@ describe('amo.api', () => {
         }));
 
       // This will log a warning so just make sure it doesn't throw.
-      return getUserReviews({ userId: 123 });
+      return getReviews({ user: 123 });
     });
 
-    it('allows you to fetch reviews for a specific add-on', () => {
+    it('allows you to fetch reviews by any param', () => {
+      const params = {
+        user: 123, addon: 321, show_grouped_ratings: 1,
+      };
       mockApi
         .expects('callApi')
-        .returns(Promise.resolve({
-          results: [
-            fakeReview,
-            // This review should be ignored.
-            { ...fakeReview, addon: { ...fakeReview.addon, id: 33998 } },
-          ],
-        }));
+        .withArgs({ endpoint: 'reviews/review', params })
+        .returns(Promise.resolve({ results: [fakeReview] }));
 
-      return getUserReviews({ userId: 123, addonId: fakeReview.addon.id })
+      return getReviews(params)
         .then((reviews) => {
           assert.deepEqual(reviews, [fakeReview]);
-        });
-    });
-  });
-
-  describe('getAddonReviews', () => {
-    it('gets all add-on reviews', () => {
-      const addonSlug = 'ublock';
-      const reviewList = [fakeReview];
-      const response = { results: reviewList };
-      mockApi
-        .expects('callApi')
-        .once()
-        .withArgs({
-          method: 'GET',
-          endpoint: `addons/addon/${addonSlug}/reviews`,
-        })
-        .returns(Promise.resolve(response));
-
-      return getAddonReviews({ addonSlug })
-        .then((reviews) => {
           mockApi.verify();
-          assert.deepEqual(reviews, reviewList);
         });
     });
 
-    it('requires a truthy addonSlug', () => {
-      return getAddonReviews()
-        .then(() => assert(false, 'Unexpected success'), (error) => {
-          assert.match(error.message, /addonSlug cannot be falsey/);
-        });
-    });
-
-    it('does not support paging yet', () => {
+    it('requires a user or addon', () => {
       mockApi
         .expects('callApi')
-        .returns(Promise.resolve({
-          results: [],
-          next: '/reviews/next-page/',
-        }));
+        .returns(Promise.resolve({ results: [fakeReview] }));
 
-      // This will log a warning so just make sure it doesn't throw.
-      return getAddonReviews({ addonSlug: 'ublock' });
+      return getReviews()
+        .then(unexpectedSuccess, (error) => {
+          assert.match(error.message, /user or addon must be specified/);
+        });
     });
   });
 
   describe('getLatestUserReview', () => {
-    it('allows you to fetch only the latest review', () => {
-      const latestReview = { ...fakeReview, is_latest: true };
+    it('returns the lone review result since that is the latest', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({ results: [fakeReview] }));
+
+      return getLatestUserReview({ user: 123, addon: 321 })
+        .then((review) => {
+          assert.deepEqual(review, fakeReview);
+        });
+    });
+
+    it('throws an error if multple reviews are received', () => {
       mockApi
         .expects('callApi')
         .returns(Promise.resolve({
+          // In real life, the API should never return multiple reviews like this.
           results: [
             fakeReview,
-            latestReview,
+            { id: 456, ...fakeReview },
           ],
         }));
 
-      return getLatestUserReview({
-        userId: 123,
-        addonId: fakeReview.addon.id,
-      })
-        .then((review) => {
-          assert.deepEqual(review, latestReview);
+      return getLatestUserReview({ user: 123, addon: fakeReview.addon.id })
+        .then(unexpectedSuccess, (error) => {
+          assert.match(error.message, /received multiple review objects/);
         });
     });
 
@@ -252,11 +204,20 @@ describe('amo.api', () => {
         .expects('callApi')
         .returns(Promise.resolve({ results: [] }));
 
-      return getLatestUserReview({
-        userId: 123,
-      })
+      return getLatestUserReview({ user: 123, addon: 321 })
         .then((review) => {
           assert.strictEqual(review, null);
+        });
+    });
+
+    it('requires a user and addon', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({ results: [] }));
+
+      return getLatestUserReview()
+        .then(unexpectedSuccess, (error) => {
+          assert.match(error.message, /user and addon must be specified/);
         });
     });
   });

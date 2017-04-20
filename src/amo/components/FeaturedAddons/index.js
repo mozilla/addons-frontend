@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { asyncConnect } from 'redux-connect';
 import { compose } from 'redux';
 
 import SearchResults from 'amo/components/SearchResults';
 import { loadFeaturedAddons } from 'amo/utils';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { safeAsyncConnect } from 'core/utils';
 
 import './FeaturedAddons.scss';
 
@@ -61,9 +61,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
-  asyncConnect([
-    { deferred: true, promise: loadFeaturedAddons },
-  ]),
+  safeAsyncConnect([{ promise: loadFeaturedAddons }]),
   connect(mapStateToProps),
   translate(),
 )(FeaturedAddonsBase);

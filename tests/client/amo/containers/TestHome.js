@@ -22,8 +22,8 @@ describe('Home', () => {
     ), Home).getWrappedInstance();
     const rootNode = findDOMNode(root);
     const content = [
-      'What do you want Firefox to do?',
-      'How do you want Firefox to look?',
+      'You can change how Firefox works…',
+      '…or what it looks like',
     ];
     Array.from(rootNode.querySelectorAll('.HomePage-subheading'))
       .map((el, index) => assert.equal(el.textContent, content[index]));

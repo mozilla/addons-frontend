@@ -9,10 +9,16 @@ import { Provider } from 'react-redux';
 import * as landingActions from 'amo/actions/landing';
 import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
 import createStore from 'amo/store';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
+} from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
+import { visibleAddonType } from 'core/utils';
 import { fakeAddon } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, shallowRender } from 'tests/client/helpers';
 
 
 describe('<LandingPage />', () => {
@@ -30,16 +36,56 @@ describe('<LandingPage />', () => {
 
   it('renders a LandingPage with no addons set', () => {
     const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
     assert.include(root.textContent, 'Featured extensions');
     assert.include(root.textContent, 'More featured extensions');
   });
 
+  it('sets the links in each footer for extensions', () => {
+    const root = shallowRender(
+      <LandingPageBase i18n={getFakeI18nInst()} params={{
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      }} />
+    );
+
+    assert.deepEqual(root.props.children[1].props.footerLink, {
+      pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
+    });
+    assert.deepEqual(root.props.children[2].props.footerLink, {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
+    });
+    assert.deepEqual(root.props.children[3].props.footerLink, {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
+    });
+  });
+
+  it('sets the links in each footer for themes', () => {
+    const root = shallowRender(
+      <LandingPageBase i18n={getFakeI18nInst()} params={{
+        visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+      }} />
+    );
+
+    assert.deepEqual(root.props.children[1].props.footerLink, {
+      pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
+    });
+    assert.deepEqual(root.props.children[2].props.footerLink, {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
+    });
+    assert.deepEqual(root.props.children[3].props.footerLink, {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
+    });
+  });
+
   it('renders a LandingPage with themes HTML', () => {
     const root = render({
-      addonType: ADDON_TYPE_THEME,
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
     assert.include(root.textContent, 'Featured themes');
@@ -90,8 +136,8 @@ describe('<LandingPage />', () => {
       },
     }));
     const root = render({
-      ...mapStateToProps(
-        store.getState(), { params: { visibleAddonType: 'themes' } }),
+      ...mapStateToProps(store.getState()),
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
     assert.deepEqual(
@@ -101,9 +147,17 @@ describe('<LandingPage />', () => {
     );
   });
 
-  it('throws if add-on type is not supported', () => {
+  it('renders not found if add-on type is not supported', () => {
+    const root = render({ params: { visibleAddonType: 'XUL' } });
+    assert.include(root.textContent, 'Page not found');
+  });
+
+  it('throws for any error other than an unknown addonType', () => {
     assert.throws(() => {
-      render({ addonType: 'XUL' });
-    }, 'No LandingPage content for addonType: XUL');
+      render({
+        apiAddonType: () => { throw new Error('Ice cream'); },
+        params: { visibleAddonType: 'doesnotmatter' },
+      });
+    }, 'Ice cream');
   });
 });

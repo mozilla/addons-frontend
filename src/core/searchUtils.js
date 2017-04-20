@@ -21,7 +21,7 @@ export const paramsToFilter = {
 // our filter keys and back again.
 export function convertFiltersToQueryParams(filters) {
   return Object.keys(paramsToFilter).reduce((object, key) => {
-    if (typeof filters[paramsToFilter[key]] !== 'undefined' &&
+    if (filters && typeof filters[paramsToFilter[key]] !== 'undefined' &&
       filters[paramsToFilter[key]] !== '') {
       return { ...object, [key]: filters[paramsToFilter[key]] };
     }
@@ -56,7 +56,7 @@ export function mapStateToProps(state, ownProps) {
   // to be able to search on only clientApp this would need changing or
   // would need to be overridden.
   const hasSearchParams = Object.values(location.query).some((param) => (
-    typeof param !== 'undefined' && param.length
+    param && param.length
   ));
 
   return { ...state.search, filters, hasSearchParams };

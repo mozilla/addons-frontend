@@ -1,10 +1,10 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-24 12:23+0000\n"
-"PO-Revision-Date: 2017-01-28 23:29+0000\n"
+"POT-Creation-Date: 2017-04-04 17:17+0000\n"
+"PO-Revision-Date: 2017-03-18 13:10+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -14,39 +14,64 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/InstallButton/index.js:42
+#: src/core/components/ErrorPage/GenericError/index.js:24
+msgid "Server Error"
+msgstr "Serverfejl"
+
+#: src/core/components/ErrorPage/GenericError/index.js:27
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Beklager, men der var en fejl, og vi kunne ikke gennemføre din forespørgsel. "
+"Vi har registreret fejlen og vil undersøge den."
+
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
+msgid "Error code: %(status)s."
+msgstr "Fejlkode: %(status)s."
+
+#: src/core/components/ErrorPage/NotFound/index.js:24
+msgid "Page not found"
+msgstr "Siden blev ikke fundet"
+
+#: src/core/components/ErrorPage/NotFound/index.js:26
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "Vi beklager, men vi kan ikke finde noget på adressen, du indtastede."
+
+#: src/core/components/InstallButton/index.js:72
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/InstallButton/index.js:48
+#: src/core/components/InstallButton/index.js:88
 msgid "Add to Firefox"
 msgstr "Føj til Firefox"
 
-#: src/core/components/InstallSwitch/index.js:49
+#: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
 msgstr "Henter %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:52
+#: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
 msgstr "Installerer %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:56
+#: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s er installeret og aktiveret. Klik for at afinstallere."
 
-#: src/core/components/InstallSwitch/index.js:59
+#: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s er deaktiveret. Klik for at aktivere."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
 msgstr "Afinstallerer %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s er afinstalleret. Klik for at installere."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
 msgstr "Installationstilstand for %(name)s er ukendt."
 
@@ -62,77 +87,81 @@ msgstr "Du kan nu tilgå %(name)s fra værktøjslinjen."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:107
+#: src/disco/components/Addon.js:100
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
+"Hold markøren over for at få vist et eksempel, eller klik for at installere "
+"%(name)s"
+
+#: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
 msgstr "Hold markøren over for billedet for at få vist et eksempel"
 
-#: src/disco/components/Addon.js:128
+#: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
 msgstr "Installationen mislykkedes. Prøv igen."
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
 msgstr "Filhentning mislykkedes. Kontroller din forbindelse."
 
-#: src/disco/components/Addon.js:132
+#: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
 msgstr "Der opstod en uventet fejl under installationen."
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Der opstod en uventet fejl under afinstallationen."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
 msgstr "Der opstod en uventet fejl."
 
-#: src/disco/components/Addon.js:145
+#: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Denne tilføjelse vil blive afinstalleret, når du genstarter Firefox."
 
-#: src/disco/components/Addon.js:147
+#: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
 msgstr "Genstart Firefox for at bruge denne tilføjelse."
 
-#: src/disco/components/Addon.js:67
+#: src/disco/components/Addon.js:68
 msgid "Close"
 msgstr "Luk"
 
-#: src/disco/components/Addon.js:97
-msgid "Hover to preview or click to install %(name)s"
-msgstr "Hold markøren over for at få vist et eksempel, eller klik for at installere %(name)s"
-
-#: src/disco/containers/App.js:27
+#: src/disco/containers/App.js:32
 msgid "Discover Add-ons"
 msgstr "Find tilføjelser"
 
-#: src/disco/containers/DiscoPane.js:105
-msgid "Click to play"
-msgstr "Klik for at afspille"
-
-#: src/disco/containers/DiscoPane.js:106
-msgid "to find out more about add-ons"
-msgstr "for at finde ud af mere om tilføjelser"
-
-#: src/disco/containers/DiscoPane.js:115
-msgid "Close video"
-msgstr "Luk video"
-
-#: src/disco/containers/DiscoPane.js:126
-msgid "See more add-ons!"
-msgstr "Se flere tilføjelser!"
-
-#: src/disco/containers/DiscoPane.js:96
+#: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
 msgstr "Tilpas Firefox"
 
-#: src/disco/containers/DiscoPane.js:97
+#: src/disco/containers/DiscoPane.js:104
 msgid ""
-"There are thousands of free add-ons, created by developers all over\n"
-"the world, that you can install to personalize your Firefox. From fun visual themes\n"
-"to powerful tools that make browsing faster and safer, add-ons make your browser yours.\n"
-"To help you get started, here are some we recommend for their stand-out performance\n"
-"and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Udviklere over hele verden har lavet tusindvis af gratis tilføjelser, der kan personliggøre din surfen på internettet — du kan tilføje alt fra sjove temaer til kraftfulde værktøjer og funktioner. "
-"Her er nogle, som du kan prøve."
+"Udviklere over hele verden har lavet tusindvis af gratis tilføjelser, der "
+"kan personliggøre din surfen på internettet — du kan tilføje alt fra sjove "
+"temaer til kraftfulde værktøjer og funktioner. Her er nogle, som du kan "
+"prøve."
+
+#: src/disco/containers/DiscoPane.js:112
+msgid "Click to play"
+msgstr "Klik for at afspille"
+
+#: src/disco/containers/DiscoPane.js:113
+msgid "to find out more about add-ons"
+msgstr "for at finde ud af mere om tilføjelser"
+
+#: src/disco/containers/DiscoPane.js:122
+msgid "Close video"
+msgstr "Luk video"
+
+#: src/disco/containers/DiscoPane.js:133
+msgid "See more add-ons!"
+msgstr "Se flere tilføjelser!"
