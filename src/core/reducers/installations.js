@@ -30,8 +30,8 @@ export type InstalledAddon = {
 };
 
 type InstallationAction = {|
-  type: string,
   payload: InstalledAddon,
+  type: string,
 |};
 
 type InstallationState = {
