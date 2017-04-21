@@ -14,7 +14,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   validAddonTypes as defaultValidAddonTypes,
 } from 'core/constants';
@@ -122,8 +122,8 @@ export class RatingManagerBase extends React.Component {
         return i18n.gettext('Log in to rate this dictionary');
       case ADDON_TYPE_LANG:
         return i18n.gettext('Log in to rate this language pack');
-      case ADDON_TYPE_SEARCH:
-        return i18n.gettext('Log in to rate this search engine');
+      case ADDON_TYPE_OPENSEARCH:
+        return i18n.gettext('Log in to rate this search plugin');
       case ADDON_TYPE_THEME:
         return i18n.gettext('Log in to rate this theme');
       case ADDON_TYPE_EXTENSION:

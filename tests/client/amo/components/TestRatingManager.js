@@ -10,7 +10,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
@@ -247,9 +247,9 @@ describe('RatingManager', () => {
       assert.include(prompt, 'language pack');
     });
 
-    it('renders a login prompt for the search engine', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_SEARCH);
-      assert.include(prompt, 'search engine');
+    it('renders a login prompt for the search plugin', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_OPENSEARCH);
+      assert.include(prompt, 'search plugin');
     });
 
     it('renders a login prompt for themes', () => {

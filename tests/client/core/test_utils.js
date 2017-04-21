@@ -15,7 +15,9 @@ import * as actions from 'core/actions';
 import * as categoriesActions from 'core/actions/categories';
 import * as api from 'core/api';
 import {
+  ADDON_TYPE_OPENSEARCH,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
@@ -217,7 +219,8 @@ describe('isCompatibleWithUserAgent', () => {
   it('is compatible with Firefox desktop', () => {
     userAgents.firefox.forEach((userAgent) => {
       assert.deepEqual(
-        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        isCompatibleWithUserAgent({
+          addon: fakeAddon, userAgentInfo: UAParser(userAgent) }),
         { compatible: true, reason: null },
         `UA string: ${userAgent}`);
     });
@@ -226,7 +229,8 @@ describe('isCompatibleWithUserAgent', () => {
   it('is compatible with Firefox Android', () => {
     userAgents.firefoxAndroid.forEach((userAgent) => {
       assert.deepEqual(
-        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        isCompatibleWithUserAgent({
+          addon: fakeAddon, userAgentInfo: UAParser(userAgent) }),
         { compatible: true, reason: null },
         `UA string: ${userAgent}`);
     });
@@ -235,7 +239,8 @@ describe('isCompatibleWithUserAgent', () => {
   it('is compatible with Firefox OS', () => {
     userAgents.firefoxOS.forEach((userAgent) => {
       assert.deepEqual(
-        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        isCompatibleWithUserAgent({
+          addon: fakeAddon, userAgentInfo: UAParser(userAgent) }),
         { compatible: true, reason: null },
         `UA string: ${userAgent}`);
     });
@@ -244,7 +249,8 @@ describe('isCompatibleWithUserAgent', () => {
   it('is incompatible with Firefox iOS', () => {
     userAgents.firefoxIOS.forEach((userAgent) => {
       assert.deepEqual(
-        isCompatibleWithUserAgent({ userAgentInfo: UAParser(userAgent) }),
+        isCompatibleWithUserAgent({
+          addon: fakeAddon, userAgentInfo: UAParser(userAgent) }),
         { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS },
         `UA string: ${userAgent}`);
     });
@@ -257,15 +263,61 @@ describe('isCompatibleWithUserAgent', () => {
       os: { name: 'iOS' },
     };
     assert.deepEqual(
-      isCompatibleWithUserAgent({ minVersion: '9.0', userAgentInfo }),
+      isCompatibleWithUserAgent({
+        addon: fakeAddon, minVersion: '9.0', userAgentInfo }),
       { compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS }
+    );
+  });
+
+  it('should mark Firefox without window.external as incompatible', () => {
+    const userAgentInfo = {
+      browser: { name: 'Firefox' },
+      os: { name: 'Windows' },
+    };
+    const fakeOpenSearchAddon = { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH };
+    const fakeWindow = {};
+
+    assert.deepEqual(
+      isCompatibleWithUserAgent({
+        _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH }
+    );
+  });
+
+  it('should mark Firefox without OpenSearch support as incompatible', () => {
+    const userAgentInfo = {
+      browser: { name: 'Firefox' },
+      os: { name: 'Windows' },
+    };
+    const fakeOpenSearchAddon = { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH };
+    const fakeWindow = { external: {} };
+
+    assert.deepEqual(
+      isCompatibleWithUserAgent({
+        _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }),
+      { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH }
+    );
+  });
+
+  it('should mark Firefox with OpenSearch support as compatible', () => {
+    const userAgentInfo = {
+      browser: { name: 'Firefox' },
+      os: { name: 'Windows' },
+    };
+    const fakeOpenSearchAddon = { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH };
+    const fakeWindow = { external: { AddSearchProvider: sinon.stub() } };
+
+    assert.deepEqual(
+      isCompatibleWithUserAgent({
+        _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }),
+      { compatible: true, reason: null }
     );
   });
 
   it('should mark non-Firefox UAs as incompatible', () => {
     const userAgentInfo = { browser: { name: 'Chrome' } };
     assert.deepEqual(
-      isCompatibleWithUserAgent({ userAgentInfo }),
+      isCompatibleWithUserAgent({ addon: fakeAddon, userAgentInfo }),
       { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
   });
 
@@ -274,8 +326,9 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox', version: '10.0' },
       os: { name: 'Windows' },
     };
-    assert.deepEqual(isCompatibleWithUserAgent({
-      minVersion: '10.1', userAgentInfo }),
+    assert.deepEqual(
+      isCompatibleWithUserAgent({
+        addon: fakeAddon, minVersion: '10.1', userAgentInfo }),
       { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
   });
 
@@ -285,8 +338,9 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox', version: '24.0' },
       os: { name: 'Windows' },
     };
-    assert.deepEqual(isCompatibleWithUserAgent({
-      maxVersion: '8', userAgentInfo }),
+    assert.deepEqual(
+      isCompatibleWithUserAgent({
+        addon: fakeAddon, maxVersion: '8', userAgentInfo }),
       { compatible: true, reason: null });
   });
 
@@ -295,7 +349,8 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox', version: '10.0' },
       os: { name: 'Windows' },
     };
-    assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
+    assert.deepEqual(
+      isCompatibleWithUserAgent({ addon: fakeAddon, userAgentInfo }),
       { compatible: true, reason: null });
   });
 
@@ -306,8 +361,9 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox', version: '54.0' },
       os: { name: 'Windows' },
     };
-    assert.deepEqual(isCompatibleWithUserAgent({
-      maxVersion: '*', userAgentInfo }),
+    assert.deepEqual(
+      isCompatibleWithUserAgent({
+        addon: fakeAddon, maxVersion: '*', userAgentInfo }),
       { compatible: true, reason: null });
   });
 
@@ -320,8 +376,9 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox', version: '54.0' },
       os: { name: 'Windows' },
     };
-    assert.deepEqual(isCompatibleWithUserAgent({
-      _log: fakeLog, minVersion: '*', userAgentInfo }),
+    assert.deepEqual(
+      isCompatibleWithUserAgent({
+        _log: fakeLog, addon: fakeAddon, minVersion: '*', userAgentInfo }),
       { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
     assert.include(fakeLog.error.firstCall.args[0],
       'minVersion of "*" was passed to isCompatibleWithUserAgent()');
@@ -329,13 +386,15 @@ describe('isCompatibleWithUserAgent', () => {
 
   it('is incompatible with empty user agent values', () => {
     const userAgentInfo = { browser: { name: '' } };
-    assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
+    assert.deepEqual(
+      isCompatibleWithUserAgent({ addon: fakeAddon, userAgentInfo }),
       { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
   });
 
   it('is incompatible with non-string user agent values', () => {
     const userAgentInfo = { browser: { name: null }, os: { name: null } };
-    assert.deepEqual(isCompatibleWithUserAgent({ userAgentInfo }),
+    assert.deepEqual(
+      isCompatibleWithUserAgent({ addon: fakeAddon, userAgentInfo }),
       { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
   });
 });
@@ -915,6 +974,24 @@ describe('getCompatibleVersions', () => {
 
     assert.equal(maxVersion, null);
     assert.equal(minVersion, null);
+  });
+
+  it('should log info when OpenSearch type is found', () => {
+    const fakeLog = { info: sinon.stub() };
+    const openSearchAddon = {
+      ...fakeAddon,
+      current_version: {
+        compatibility: {},
+      },
+      type: ADDON_TYPE_OPENSEARCH,
+    };
+    const { maxVersion, minVersion } = getCompatibleVersions({
+      _log: fakeLog, addon: openSearchAddon, clientApp: 'firefox' });
+
+    assert.equal(maxVersion, null);
+    assert.equal(minVersion, null);
+    assert.include(fakeLog.info.firstCall.args[0],
+      `addon is type ${ADDON_TYPE_OPENSEARCH}`);
   });
 });
 

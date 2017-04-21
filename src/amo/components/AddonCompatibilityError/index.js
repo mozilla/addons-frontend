@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
@@ -53,6 +54,9 @@ export class AddonCompatibilityErrorBase extends React.Component {
       message = i18n.sprintf(i18n.gettext(`You need to
         <a href="%(downloadUrl)s">download Firefox</a> to install this add-on.`
       ), { downloadUrl });
+    } else if (reason === INCOMPATIBLE_NO_OPENSEARCH) {
+      message = i18n.gettext(
+        'Your version of Firefox does not support search plugins.');
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
         'Firefox for iOS does not currently support add-ons.');
