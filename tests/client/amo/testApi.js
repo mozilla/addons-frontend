@@ -222,12 +222,36 @@ describe('amo.api', () => {
         });
     });
 
-    it('requires a user, addon, and version', () => {
+    it('requires user, addon, and version', () => {
       mockApi
         .expects('callApi')
         .returns(Promise.resolve({ results: [] }));
 
       return getLatestUserReview()
+        .then(unexpectedSuccess, (error) => {
+          assert.match(
+            error.message, /user, addon, and version must be specified/);
+        });
+    });
+
+    it('requires addon and version', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({ results: [] }));
+
+      return getLatestUserReview({ user: 123 })
+        .then(unexpectedSuccess, (error) => {
+          assert.match(
+            error.message, /user, addon, and version must be specified/);
+        });
+    });
+
+    it('requires a version', () => {
+      mockApi
+        .expects('callApi')
+        .returns(Promise.resolve({ results: [] }));
+
+      return getLatestUserReview({ addon: 321, user: 123 })
         .then(unexpectedSuccess, (error) => {
           assert.match(
             error.message, /user, addon, and version must be specified/);

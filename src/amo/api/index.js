@@ -91,9 +91,9 @@ type GetReviewsParams = {|
   filter?: string,
   page?: number,
   page_size?: number,
+  show_grouped_ratings?: boolean,
   user: number,
   version?: number,
-  show_grouped_ratings?: boolean,
 |};
 
 export function getReviews(
