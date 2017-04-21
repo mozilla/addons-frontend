@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 17:03+0000\n"
-"PO-Revision-Date: 2017-03-21 08:46+0000\n"
+"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"PO-Revision-Date: 2017-04-12 08:44+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -83,14 +83,12 @@ msgstr[0] "%(total)s потребител"
 msgstr[1] "%(total)s потребителя"
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s оценка"
-msgstr[1] "%(total)s оценки"
+msgstr[0] "%(total)s рецензия"
+msgstr[1] "%(total)s рецензии"
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
 msgstr "Няма рецензии"
 
@@ -171,8 +169,7 @@ msgstr "Разкажете ни за своя опит с това разшир�
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "от %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52
-#: src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Зареждане…"
 
@@ -202,6 +199,9 @@ msgid ""
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
 "trying to access, and we'll fix the issue."
 msgstr ""
+"Ако сте вписани и смятате, че това съобщение е грешка, моля, <a href="
+"\"%(url)s\">докладвайте за дефект</a>. Разкажете ни от къде дойдохте и какво "
+"опитвахте да отворите и ние ще оправим проблема."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
@@ -290,16 +290,20 @@ msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
+"Променете облика на своя четец. Изберете от хилядите теми, за да направите "
+"Firefox по свой вкус."
 
 #: src/amo/components/LandingPage.js:121
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
 msgstr ""
+"Инсталирайте мощни инструменти в помощ на по-бързото и безопасно "
+"разглеждане, добавките правят четеца изцяло ваш."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "Преглед по категория"
 
 #: src/amo/components/LandingPage.js:51
 msgid "Featured extensions"
@@ -357,33 +361,33 @@ msgstr "Четете на своя език"
 msgid "Firefox Add-ons"
 msgstr "Добавки за Firefox"
 
-#: src/amo/components/RatingManager/index.js:101
-msgid "Log in to rate this search engine"
-msgstr "За да оцените тази търсеща машина се впишете"
-
-#: src/amo/components/RatingManager/index.js:103
-msgid "Log in to rate this theme"
-msgstr "За да оцените тази тема се впишете"
-
-#: src/amo/components/RatingManager/index.js:105
-msgid "Log in to rate this extension"
-msgstr "За да оцените това разширение се впишете"
-
-#: src/amo/components/RatingManager/index.js:111
-msgid "Log in to rate this add-on"
-msgstr "За да оцените тази добавка се впишете"
-
-#: src/amo/components/RatingManager/index.js:135
-msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "До каква степен ви харесва %(addonName)s?"
-
-#: src/amo/components/RatingManager/index.js:97
+#: src/amo/components/RatingManager/index.js:122
 msgid "Log in to rate this dictionary"
 msgstr "За да оцените тази добавка се впишете"
 
-#: src/amo/components/RatingManager/index.js:99
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this language pack"
 msgstr "За да оцените този езиков пакет се впишете"
+
+#: src/amo/components/RatingManager/index.js:126
+msgid "Log in to rate this search engine"
+msgstr "За да оцените тази търсеща машина се впишете"
+
+#: src/amo/components/RatingManager/index.js:128
+msgid "Log in to rate this theme"
+msgstr "За да оцените тази тема се впишете"
+
+#: src/amo/components/RatingManager/index.js:130
+msgid "Log in to rate this extension"
+msgstr "За да оцените това разширение се впишете"
+
+#: src/amo/components/RatingManager/index.js:136
+msgid "Log in to rate this add-on"
+msgstr "За да оцените тази добавка се впишете"
+
+#: src/amo/components/RatingManager/index.js:160
+msgid "How are you enjoying your experience with %(addonName)s?"
+msgstr "До каква степен ви харесва %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
@@ -391,7 +395,7 @@ msgstr "Търсене"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr "Търсене разширения и теми"
+msgstr "Търсене на разширения и теми"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
@@ -487,7 +491,7 @@ msgstr "Социални"
 
 #: src/amo/containers/Home.js:70
 msgid "Play games"
-msgstr "Играе игри"
+msgstr "Игри"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
@@ -517,11 +521,11 @@ msgstr "Спортен"
 msgid "Solid"
 msgstr "Плътен"
 
-#: src/core/components/AuthenticateButton/index.js:49
+#: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
 msgstr "Изход"
 
-#: src/core/components/AuthenticateButton/index.js:50
+#: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
 msgstr "Вход/Регистрация"
 
@@ -602,9 +606,17 @@ msgstr "Може да отворите %(name)s от лентата с инст�
 msgid "OK!"
 msgstr "Добре!"
 
-#: src/core/reducers/errors.js:15
+#: src/ui/components/ErrorList/index.js:44
+msgid "Your session has expired"
+msgstr "Сесията ви е изтекла"
+
+#: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
 msgstr "Възникна неочаквана грешка"
+
+#: src/ui/components/ErrorList/index.js:57
+msgid "Reload To Continue"
+msgstr "Презаредете, за да продължите"
 
 #: src/ui/components/Rating/index.js:91
 msgid "Rated %(rating)s out of 5"

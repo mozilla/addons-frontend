@@ -1,4 +1,4 @@
-/* global navigator */
+/* global navigator, window */
 /* eslint-disable react/prop-types */
 import url from 'url';
 
@@ -18,9 +18,11 @@ import { categories, fetchAddon } from 'core/api';
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import {
+  ADDON_TYPE_OPENSEARCH,
   API_ADDON_TYPES_MAPPING,
   VISIBLE_ADDON_TYPES_MAPPING,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
@@ -250,6 +252,15 @@ export function safeAsyncConnect(
   configs, { asyncConnect = defaultAsyncConnect } = {}
 ) {
   const safeConfigs = configs.map((conf) => {
+    let key = conf.key;
+    if (!key) {
+      // If asyncConnect does not get a key in its config, it
+      // will not dispatch LOAD_FAIL for thrown errors!
+      // Other than that, the key is used to set a magic component
+      // property (which we never rely on) so it's really not so
+      // important.
+      key = '__safeAsyncConnect_key__';
+    }
     if (!conf.promise) {
       // This is the only way we use asyncConnect() for now.
       throw new Error(
@@ -258,6 +269,7 @@ export function safeAsyncConnect(
     }
     return {
       ...conf,
+      key,
       deferred: true,
       promise: safePromise(conf.promise),
     };
@@ -307,7 +319,7 @@ export function render404IfConfigKeyIsFalse(
   };
 }
 
-export function getCompatibleVersions({ addon, clientApp } = {}) {
+export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
   if (
@@ -316,8 +328,11 @@ export function getCompatibleVersions({ addon, clientApp } = {}) {
     if (addon.current_version.compatibility[clientApp]) {
       maxVersion = addon.current_version.compatibility[clientApp].max;
       minVersion = addon.current_version.compatibility[clientApp].min;
+    } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
+      _log.info(oneLine`addon is type ${ADDON_TYPE_OPENSEARCH}; no
+        compatibility info found but this is expected.`, { addon, clientApp });
     } else {
-      log.error(
+      _log.error(
         'addon found with no compatibility info for valid clientApp',
         { addon, clientApp }
       );
@@ -328,7 +343,8 @@ export function getCompatibleVersions({ addon, clientApp } = {}) {
 }
 
 export function isCompatibleWithUserAgent({
-  _log = log, maxVersion, minVersion, userAgentInfo,
+  _log = log, _window = typeof window !== 'undefined' ? window : {},
+  addon, maxVersion, minVersion, userAgentInfo,
 } = {}) {
   // If the userAgent is false there was likely a programming error.
   if (!userAgentInfo) {
@@ -375,6 +391,13 @@ export function isCompatibleWithUserAgent({
       return { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION };
     }
 
+    if (
+      addon.type === ADDON_TYPE_OPENSEARCH &&
+      !(_window.external && 'AddSearchProvider' in _window.external)
+    ) {
+      return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
+    }
+
     // If we made it here we're compatible (yay!)
     return { compatible: true, reason: null };
   }
@@ -389,7 +412,7 @@ export function getClientCompatibility({
   const { maxVersion, minVersion } = getCompatibleVersions({
     addon, clientApp });
   const { compatible, reason } = isCompatibleWithUserAgent({
-    maxVersion, minVersion, userAgentInfo });
+    addon, maxVersion, minVersion, userAgentInfo });
 
   return { compatible, maxVersion, minVersion, reason };
 }

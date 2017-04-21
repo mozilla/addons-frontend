@@ -43,13 +43,13 @@ export const FATAL_ERROR = 'FATAL_ERROR';
 export const ADDON_TYPE_DICT = 'dictionary';
 export const ADDON_TYPE_EXTENSION = 'extension';
 export const ADDON_TYPE_LANG = 'language';
-export const ADDON_TYPE_SEARCH = 'search';
+export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_THEME = 'persona';
 export const validAddonTypes = [
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
 ];
 // Mapping of the add-on types we show in URLs, etc. and what they map
@@ -70,6 +70,7 @@ export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
 
 // Incompatibility codes for clients that can't install an add-on.
 export const INCOMPATIBLE_FIREFOX_FOR_IOS = 'INCOMPATIBLE_FIREFOX_FOR_IOS';
+export const INCOMPATIBLE_NO_OPENSEARCH = 'INCOMPATIBLE_NO_OPENSEARCH';
 export const INCOMPATIBLE_NOT_FIREFOX = 'INCOMPATIBLE_NOT_FIREFOX';
 export const INCOMPATIBLE_UNDER_MIN_VERSION = 'INCOMPATIBLE_UNDER_MIN_VERSION';
 
@@ -174,3 +175,11 @@ export const GLOBAL_EVENT_STATUS_MAP = {
 // The events here are set directly on mozAddonManager
 // they will be fired by addons and themes.
 export const GLOBAL_EVENTS = Object.keys(GLOBAL_EVENT_STATUS_MAP);
+
+// Generic error codes.
+export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';
+// API error codes. These values match the error codes defined here:
+// http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#unauthorized-and-permission-denied
+export const API_ERROR_DECODING_SIGNATURE = 'ERROR_DECODING_SIGNATURE';
+export const API_ERROR_INVALID_HEADER = 'ERROR_INVALID_HEADER';
+export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';

@@ -10,10 +10,11 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
+import { initialApiState } from 'core/reducers/api';
 import * as amoApi from 'amo/api';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
@@ -68,7 +69,9 @@ describe('RatingManager', () => {
 
     assert.equal(loadSavedReview.called, true);
     const args = loadSavedReview.firstCall.args[0];
-    assert.deepEqual(args, { userId, addonId: addon.id });
+    assert.deepEqual(args, {
+      userId, addonId: addon.id, versionId: version.id,
+    });
   });
 
   it('creates a rating with add-on and version info', () => {
@@ -80,7 +83,6 @@ describe('RatingManager', () => {
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
       addon: { ...fakeAddon, id: 12345, slug: 'some-slug' },
-      userId: 92345,
     });
     return root.onSelectRating(5)
       .then(() => {
@@ -91,7 +93,6 @@ describe('RatingManager', () => {
         assert.equal(call.apiState.token, 'new-token');
         assert.equal(call.addonId, 12345);
         assert.equal(call.errorHandler, errorHandler);
-        assert.equal(call.userId, 92345);
         assert.strictEqual(call.reviewId, undefined);
       });
   });
@@ -248,9 +249,9 @@ describe('RatingManager', () => {
       assert.include(prompt, 'language pack');
     });
 
-    it('renders a login prompt for the search engine', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_SEARCH);
-      assert.include(prompt, 'search engine');
+    it('renders a login prompt for the search plugin', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_OPENSEARCH);
+      assert.include(prompt, 'search plugin');
     });
 
     it('renders a login prompt for themes', () => {
@@ -315,12 +316,13 @@ describe('RatingManager', () => {
       it('finds and dispatches a review', () => {
         const userId = fakeReview.user.id;
         const addonId = fakeReview.addon.id;
+        const versionId = fakeReview.version.id;
         mockApi
           .expects('getLatestUserReview')
-          .withArgs({ user: userId, addon: addonId })
+          .withArgs({ user: userId, addon: addonId, version: versionId })
           .returns(Promise.resolve(fakeReview));
 
-        return actions.loadSavedReview({ userId, addonId })
+        return actions.loadSavedReview({ userId, addonId, versionId })
           .then(() => {
             mockApi.verify();
             assert.equal(dispatch.called, true);
@@ -374,7 +376,7 @@ describe('RatingManager', () => {
     });
 
     it('sets an empty apiState when not signed in', () => {
-      assert.deepEqual(getMappedProps().apiState, {});
+      assert.deepEqual(getMappedProps().apiState, { ...initialApiState });
     });
 
     it('sets an empty userId when not signed in', () => {
@@ -395,7 +397,7 @@ describe('RatingManager', () => {
     it('sets a user review to the latest matching one in state', () => {
       signIn({ userId: fakeReview.user.id });
 
-      const action = setReview(fakeReview, { isLatest: true });
+      const action = setReview({ ...fakeReview, is_latest: true });
       store.dispatch(action);
       const dispatchedReview = action.payload;
 
@@ -411,9 +413,13 @@ describe('RatingManager', () => {
       signIn({ userId: userIdOne });
 
       // Save a review for user two.
-      store.dispatch(setReview(fakeReview, {
-        isLatest: true,
-        userId: userIdTwo,
+      store.dispatch(setReview({
+        ...fakeReview,
+        is_latest: true,
+        user: {
+          ...fakeReview.user,
+          id: userIdTwo,
+        },
         rating: savedRating,
       }));
 
@@ -435,18 +441,18 @@ describe('RatingManager', () => {
       signIn({ userId: fakeReview.user.id });
 
       function createReview(overrides) {
-        const action = setReview(fakeReview, overrides);
+        const action = setReview({ ...fakeReview, ...overrides });
         store.dispatch(action);
         return action.payload;
       }
 
       createReview({
         id: 1,
-        isLatest: false,
+        is_latest: false,
       });
       const latestReview = createReview({
         id: 2,
-        isLatest: true,
+        is_latest: true,
       });
 
       assert.deepEqual(getMappedProps().userReview, latestReview);

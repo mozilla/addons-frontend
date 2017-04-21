@@ -1,4 +1,7 @@
-import React, { PropTypes } from 'react';
+/* @flow */
+/* global Node */
+/* eslint-disable react/sort-comp, react/no-unused-prop-types */
+import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -11,33 +14,51 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   validAddonTypes as defaultValidAddonTypes,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
+import type { ErrorHandlerType } from 'core/errorHandler';
+import type { UserReviewType } from 'amo/actions/reviews';
+import type { SubmitReviewParams } from 'amo/api';
+import type { UrlFormatParams } from 'core/api';
+import type { ApiStateType } from 'core/reducers/api';
+import type { DispatchFunc } from 'core/types/redux';
+import type { AddonType, AddonVersionType } from 'core/types/addons';
 
 import './styles.scss';
 
+type LoadSavedReviewFunc = ({|
+  userId: number,
+  addonId: number,
+  versionId: number,
+|}) => Promise<any>;
+
+type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
+
+type RatingManagerProps = {|
+  AddonReview: typeof DefaultAddonReview,
+  AuthenticateButton: typeof DefaultAuthenticateButton,
+  Rating: typeof DefaultRating,
+  addon: AddonType,
+  apiState: ApiStateType,
+  errorHandler: ErrorHandlerType,
+  i18n: Object,
+  loadSavedReview: LoadSavedReviewFunc,
+  location: UrlFormatParams,
+  submitReview: SubmitReviewFunc,
+  userId: number,
+  userReview: UserReviewType,
+  version: AddonVersionType,
+|};
 
 export class RatingManagerBase extends React.Component {
-  static propTypes = {
-    AddonReview: PropTypes.node,
-    AuthenticateButton: PropTypes.node,
-    addon: PropTypes.object.isRequired,
-    errorHandler: PropTypes.func.isRequired,
-    apiState: PropTypes.object,
-    i18n: PropTypes.object.isRequired,
-    loadSavedReview: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
-    Rating: PropTypes.node,
-    submitReview: PropTypes.func.isRequired,
-    userId: PropTypes.number,
-    userReview: PropTypes.object,
-    version: PropTypes.object.isRequired,
-  }
+  props: RatingManagerProps;
+  ratingLegend: Node;
+  state: {| showTextEntry: boolean |};
 
   static defaultProps = {
     AddonReview: DefaultAddonReview,
@@ -45,26 +66,26 @@ export class RatingManagerBase extends React.Component {
     Rating: DefaultRating,
   }
 
-  constructor(props) {
+  constructor(props: RatingManagerProps) {
     super(props);
-    const { loadSavedReview, userId, addon } = props;
+    const { loadSavedReview, userId, addon, version } = props;
     this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedReview({ userId, addonId: addon.id });
+      loadSavedReview({ userId, addonId: addon.id, versionId: version.id });
     }
   }
 
-  onSelectRating = (rating) => {
-    const { userId, userReview, version } = this.props;
+  onSelectRating = (rating: number) => {
+    const { userReview, version } = this.props;
 
     const params = {
       errorHandler: this.props.errorHandler,
       rating,
       apiState: this.props.apiState,
       addonId: this.props.addon.id,
+      reviewId: undefined,
       versionId: version.id,
-      userId,
     };
 
     if (userReview) {
@@ -89,7 +110,12 @@ export class RatingManagerBase extends React.Component {
   }
 
   getLogInPrompt(
-    { addonType }, { validAddonTypes = defaultValidAddonTypes } = {}
+    { addonType }: {| addonType: string |},
+    {
+      validAddonTypes = defaultValidAddonTypes,
+    }: {|
+      validAddonTypes: typeof defaultValidAddonTypes,
+    |} = {}
   ) {
     const { i18n } = this.props;
     switch (addonType) {
@@ -97,8 +123,8 @@ export class RatingManagerBase extends React.Component {
         return i18n.gettext('Log in to rate this dictionary');
       case ADDON_TYPE_LANG:
         return i18n.gettext('Log in to rate this language pack');
-      case ADDON_TYPE_SEARCH:
-        return i18n.gettext('Log in to rate this search engine');
+      case ADDON_TYPE_OPENSEARCH:
+        return i18n.gettext('Log in to rate this search plugin');
       case ADDON_TYPE_THEME:
         return i18n.gettext('Log in to rate this theme');
       case ADDON_TYPE_EXTENSION:
@@ -165,7 +191,10 @@ export class RatingManagerBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state, ownProps) => {
+// TODO: when all state types are exported, define `state`.
+export const mapStateToProps = (
+  state: Object, ownProps: RatingManagerProps
+) => {
   const userId = state.auth && state.auth.userId;
   let userReview;
 
@@ -193,10 +222,19 @@ export const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export const mapDispatchToProps = (dispatch) => ({
+type DispatchMappedProps = {|
+  loadSavedReview: LoadSavedReviewFunc,
+  submitReview: SubmitReviewFunc,
+|}
 
-  loadSavedReview({ userId, addonId }) {
-    return getLatestUserReview({ user: userId, addon: addonId })
+export const mapDispatchToProps = (
+  dispatch: DispatchFunc
+): DispatchMappedProps => ({
+
+  loadSavedReview({ userId, addonId, versionId }) {
+    return getLatestUserReview({
+      user: userId, addon: addonId, version: versionId,
+    })
       .then((review) => {
         if (review) {
           dispatch(setReview(review));

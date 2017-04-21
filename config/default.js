@@ -195,7 +195,7 @@ module.exports = {
     sv: 'sv-SE',
     zh: 'zh-CN',
   },
-  rtlLangs: ['ar', 'dbr', 'fa', 'he'],
+  rtlLangs: ['ar', 'dbr', 'fa', 'he', 'ur'],
   defaultLang: 'en-US',
 
   po2jsonFuzzyOutput: false,
