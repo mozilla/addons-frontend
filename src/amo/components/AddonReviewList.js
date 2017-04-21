@@ -14,7 +14,6 @@ import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
-import type { UrlFormatParams } from 'core/api';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc, ReduxStore } from 'core/types/redux';
 
@@ -111,12 +110,12 @@ export class AddonReviewListBase extends React.Component {
 
 export function loadAddonReviews(
   {
-    addonId, addonSlug, dispatch,
+    addonId, addonSlug, dispatch, page,
   }: {
-    addonId: number, addonSlug: string, dispatch: DispatchFunc,
+    addonId: number, addonSlug: string, dispatch: DispatchFunc, page: number,
   }
 ) {
-  return getReviews({ addon: addonId })
+  return getReviews({ addon: addonId, page })
     .then((allReviews) => {
       // Ignore reviews with null bodies as those are incomplete.
       // For example, the user selected a star rating but hasn't submitted
@@ -128,28 +127,30 @@ export function loadAddonReviews(
 
 export function loadInitialData(
   {
-    store, params,
+    location, params, store,
   }: {
-    store: ReduxStore,
-    location: UrlFormatParams,
+    location: { query: Object },
     params: AddonReviewListRouteParams,
+    store: ReduxStore,
   }
 ) {
   const { addonSlug } = params;
   if (!addonSlug) {
     return Promise.reject(new Error('missing URL param addonSlug'));
   }
+  let page = 1;
   return new Promise((resolve) => {
     // TODO: move page data to state or something.
-    // const page = parsePage(location.query && location.query.page);
-    // console.log(`AddonReviewList on page: ${page}`);
+    console.log('location', location);
+    page = parsePage(location.query.page);
+    console.log(`AddonReviewList on page: ${page}`);
     // TODO: send page to loadAddonReviews()
     return resolve();
   })
     .then(() => loadAddonIfNeeded({ store, params: { slug: addonSlug } }))
     .then(() => findAddon(store.getState(), addonSlug))
     .then((addon) => loadAddonReviews({
-      addonId: addon.id, addonSlug, dispatch: store.dispatch,
+      addonId: addon.id, addonSlug, dispatch: store.dispatch, page,
     }));
 }
 
