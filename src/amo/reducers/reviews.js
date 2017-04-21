@@ -1,10 +1,29 @@
+/* @flow */
 import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
+import type {
+  SetAddonReviewsAction, SetReviewAction, UserReviewType,
+} from 'amo/actions/reviews';
+
+type ReviewsByAddon = {
+  [slug: string]: Array<UserReviewType>,
+}
+
+export type ReviewState = {|
+  byAddon: ReviewsByAddon,
+  // TODO: make this consistent by moving it to state.byUser
+  [userId: number]: {
+    [addonId: number]: Array<UserReviewType>,
+  },
+|};
 
 export const initialState = {
   byAddon: {},
 };
 
-function mergeInNewReview(latestReview, oldReviews = {}) {
+function mergeInNewReview(
+  latestReview: UserReviewType,
+  oldReviews: ReviewsByAddon = {},
+): { [id: string | number]: Array<UserReviewType> } {
   const mergedReviews = {};
 
   Object.keys(oldReviews).forEach((id) => {
@@ -19,16 +38,18 @@ function mergeInNewReview(latestReview, oldReviews = {}) {
   return mergedReviews;
 }
 
-export default function reviews(state = initialState, { payload, type }) {
+
+export default function reviews(
+  state: ReviewState = initialState,
+  { payload, type }: { payload: any, type: string },
+) {
   switch (type) {
     case SET_REVIEW: {
       const existingReviews =
         state[payload.userId] ? state[payload.userId][payload.addonId] : {};
       const latestReview = payload;
-      // TODO: make this consistent by moving it to state.byUser
       return {
         ...state,
-        // This is a map of reviews by user ID, addon ID, and review ID.
         [payload.userId]: {
           ...state[payload.userId],
           [payload.addonId]: mergeInNewReview(latestReview, existingReviews),

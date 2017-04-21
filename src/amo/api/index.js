@@ -87,12 +87,12 @@ export function submitReview({
 }
 
 type GetReviewsParams = {|
-  addon: number,
+  addon?: number,
   filter?: string,
   page?: number,
   page_size?: number,
   show_grouped_ratings?: boolean,
-  user: number,
+  user?: number,
   version?: number,
 |};
 

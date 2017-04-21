@@ -1,3 +1,4 @@
+/* @flow */
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -11,27 +12,42 @@ import { findAddon, loadAddonIfNeeded, safeAsyncConnect } from 'core/utils';
 import { parsePage } from 'core/searchUtils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
+import type { UserReviewType } from 'amo/actions/reviews';
+import type { ReviewState } from 'amo/reducers/reviews';
+import type { UrlFormatParams } from 'core/api';
+import type { AddonType } from 'core/types/addons';
+import type { DispatchFunc, ReduxStore } from 'core/types/redux';
 
 import 'amo/css/AddonReviewList.scss';
 
+type AddonReviewListRouteParams = {|
+  addonSlug: string,
+|}
+
+type AddonReviewProps = {|
+  i18n: Object,
+  addon?: AddonType,
+  addonSlug: string,
+  params: AddonReviewListRouteParams,
+  reviews?: Array<UserReviewType>
+|};
 
 export class AddonReviewListBase extends React.Component {
-  static propTypes = {
-    i18n: PropTypes.object.isRequired,
-    addon: PropTypes.object,
-    params: PropTypes.object.isRequired,
-    reviews: PropTypes.array,
-  }
+  props: AddonReviewProps;
 
   addonURL() {
-    return `/addon/${this.props.addon.slug}/`;
+    const { addon } = this.props;
+    if (!addon) {
+      throw new Error('cannot access addonURL() with a falsey addon property');
+    }
+    return `/addon/${addon.slug}/`;
   }
 
   selfURL() {
     return `${this.addonURL()}/reviews/`;
   }
 
-  renderReview(review) {
+  renderReview(review: UserReviewType) {
     const { i18n } = this.props;
     const timestamp = i18n.moment(review.created).fromNow();
     return (
@@ -53,7 +69,8 @@ export class AddonReviewListBase extends React.Component {
     if (!params.addonSlug) {
       throw new Error('params.addonSlug cannot be falsey');
     }
-    if (!reviews) {
+    if (!reviews || !addon) {
+      // TODO: add a spinner
       return <div>{i18n.gettext('Loading...')}</div>;
     }
 
@@ -92,7 +109,13 @@ export class AddonReviewListBase extends React.Component {
   }
 }
 
-export function loadAddonReviews({ addonId, addonSlug, dispatch }) {
+export function loadAddonReviews(
+  {
+    addonId, addonSlug, dispatch,
+  }: {
+    addonId: number, addonSlug: string, dispatch: DispatchFunc,
+  }
+) {
   return getReviews({ addon: addonId })
     .then((allReviews) => {
       // Ignore reviews with null bodies as those are incomplete.
@@ -103,15 +126,23 @@ export function loadAddonReviews({ addonId, addonSlug, dispatch }) {
     });
 }
 
-export function loadInitialData({ store, params, location }) {
+export function loadInitialData(
+  {
+    store, params,
+  }: {
+    store: ReduxStore,
+    location: UrlFormatParams,
+    params: AddonReviewListRouteParams,
+  }
+) {
   const { addonSlug } = params;
   if (!addonSlug) {
     return Promise.reject(new Error('missing URL param addonSlug'));
   }
   return new Promise((resolve) => {
     // TODO: move page data to state or something.
-    const page = parsePage(location.query.page);
-    console.log(`AddonReviewList on page: ${page}`);
+    // const page = parsePage(location.query && location.query.page);
+    // console.log(`AddonReviewList on page: ${page}`);
     // TODO: send page to loadAddonReviews()
     return resolve();
   })
@@ -122,7 +153,9 @@ export function loadInitialData({ store, params, location }) {
     }));
 }
 
-export function mapStateToProps(state, ownProps) {
+export function mapStateToProps(
+  state: { reviews: ReviewState }, ownProps: AddonReviewProps,
+) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey addonSlug parameter');
   }
