@@ -85,14 +85,12 @@ export class InstallButtonBase extends React.Component {
         </Button>
       );
     } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
-      const onClick = (event) => {
+      const onClick = buttonIsDisabled ? null : (event) => {
         event.preventDefault();
         event.stopPropagation();
 
-        if (compatible) {
-          _log.info('Adding OpenSearch Provider', { addon });
-          _window.external.AddSearchProvider(addon.installURL);
-        }
+        _log.info('Adding OpenSearch Provider', { addon });
+        _window.external.AddSearchProvider(addon.installURL);
 
         return false;
       };

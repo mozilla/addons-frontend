@@ -174,7 +174,7 @@ describe('<InstallButton />', () => {
     assert.equal(root.type, 'div');
     const buttonComponent = root.props.children[1];
     assert.equal(buttonComponent.type, Button);
-    assert.equal(buttonComponent.props.className,
+    assert.include(buttonComponent.props.className,
       'Button InstallButton-button');
     assert.equal(buttonComponent.props.children, 'Add to Firefox');
   });
@@ -188,8 +188,8 @@ describe('<InstallButton />', () => {
     assert.equal(root.type, 'div');
     const buttonComponent = root.props.children[1];
     assert.equal(buttonComponent.type, Button);
-    assert.equal(buttonComponent.props.className,
-      'Button InstallButton-button InstallButton-button--disabled');
+    assert.include(buttonComponent.props.className,
+      'InstallButton-button--disabled');
     assert.equal(buttonComponent.props.children, 'Add to Firefox');
   });
 

@@ -248,9 +248,9 @@ describe('RatingManager', () => {
       assert.include(prompt, 'language pack');
     });
 
-    it('renders a login prompt for the search engine', () => {
+    it('renders a login prompt for the search plugin', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_OPENSEARCH);
-      assert.include(prompt, 'search engine');
+      assert.include(prompt, 'search plugin');
     });
 
     it('renders a login prompt for themes', () => {
