@@ -22,6 +22,7 @@ import {
   API_ADDON_TYPES_MAPPING,
   VISIBLE_ADDON_TYPES_MAPPING,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
@@ -342,7 +343,8 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
 }
 
 export function isCompatibleWithUserAgent({
-  _log = log, maxVersion, minVersion, userAgentInfo,
+  _log = log, _window = typeof window !== 'undefined' ? window : {},
+  addon, maxVersion, minVersion, userAgentInfo,
 } = {}) {
   // If the userAgent is false there was likely a programming error.
   if (!userAgentInfo) {
@@ -389,6 +391,13 @@ export function isCompatibleWithUserAgent({
       return { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION };
     }
 
+    if (
+      addon.type === ADDON_TYPE_OPENSEARCH &&
+      !(_window.external && 'AddSearchProvider' in _window.external)
+    ) {
+      return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
+    }
+
     // If we made it here we're compatible (yay!)
     return { compatible: true, reason: null };
   }
@@ -403,7 +412,7 @@ export function getClientCompatibility({
   const { maxVersion, minVersion } = getCompatibleVersions({
     addon, clientApp });
   const { compatible, reason } = isCompatibleWithUserAgent({
-    maxVersion, minVersion, userAgentInfo });
+    addon, maxVersion, minVersion, userAgentInfo });
 
   return { compatible, maxVersion, minVersion, reason };
 }

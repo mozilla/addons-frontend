@@ -8,6 +8,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   UNKNOWN,
 } from 'core/constants';
@@ -21,6 +22,10 @@ describe('<InstallButton />', () => {
   const getClientCompatibilityFalse = () => ({
     compatible: false,
     reason: INCOMPATIBLE_NOT_FIREFOX,
+  });
+  const getClientCompatibilityFalseOpenSearch = () => ({
+    compatible: false,
+    reason: INCOMPATIBLE_NO_OPENSEARCH,
   });
 
   const renderProps = (customProps = {}) => ({
@@ -176,11 +181,8 @@ describe('<InstallButton />', () => {
 
   it('disables the OpenSearch button if not compatible', () => {
     const root = render({
-      addon: {
-        ...fakeAddon,
-        type: ADDON_TYPE_OPENSEARCH,
-      },
-      getClientCompatibility: () => ({ compatible: false, reason: null }),
+      addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
+      getClientCompatibility: getClientCompatibilityFalseOpenSearch,
     });
 
     assert.equal(root.type, 'div');
@@ -205,23 +207,7 @@ describe('<InstallButton />', () => {
     Simulate.click(installButton);
 
     assert.equal(fakeLog.info.firstCall.args[0], 'Adding OpenSearch Provider');
-    assert.ok(
-      fakeWindow.external.AddSearchProvider.calledWith(fakeAddon.installURL));
-  });
-
-  it('disables the button/does nothing if OpenSearch is not available', () => {
-    const fakeLog = { info: sinon.stub() };
-    const fakeWindow = { external: undefined };
-    const rootNode = renderToDom({
-      addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
-      getClientCompatibility: getClientCompatibilityFalse,
-      _log: fakeLog,
-      _window: fakeWindow,
-    });
-    const installButton = rootNode.querySelector('.InstallButton-button');
-
-    Simulate.click(installButton);
-
-    assert.notOk(fakeLog.info.called);
+    assert.equal(fakeWindow.external.AddSearchProvider.firstCall.args[0],
+      fakeAddon.installURL);
   });
 });

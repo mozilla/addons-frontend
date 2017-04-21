@@ -89,10 +89,7 @@ export class InstallButtonBase extends React.Component {
         event.preventDefault();
         event.stopPropagation();
 
-        if (
-          !buttonIsDisabled && _window.external &&
-          'AddSearchProvider' in _window.external
-        ) {
+        if (compatible) {
           _log.info('Adding OpenSearch Provider', { addon });
           _window.external.AddSearchProvider(addon.installURL);
         }
