@@ -172,11 +172,21 @@ describe('amo.api', () => {
 
   describe('getLatestUserReview', () => {
     it('returns the lone review result since that is the latest', () => {
+      const params = { user: 123, addon: 321, version: 456 };
       mockApi
         .expects('callApi')
+        .withArgs({
+          endpoint: 'reviews/review',
+          // Make sure it filters with the correct params:
+          params: {
+            addon: params.addon,
+            user: params.user,
+            version: params.version,
+          },
+        })
         .returns(Promise.resolve({ results: [fakeReview] }));
 
-      return getLatestUserReview({ user: 123, addon: 321 })
+      return getLatestUserReview(params)
         .then((review) => {
           assert.deepEqual(review, fakeReview);
         });
@@ -193,7 +203,9 @@ describe('amo.api', () => {
           ],
         }));
 
-      return getLatestUserReview({ user: 123, addon: fakeReview.addon.id })
+      return getLatestUserReview({
+        user: 123, addon: fakeReview.addon.id, version: fakeReview.version.id,
+      })
         .then(unexpectedSuccess, (error) => {
           assert.match(error.message, /received multiple review objects/);
         });
@@ -204,20 +216,21 @@ describe('amo.api', () => {
         .expects('callApi')
         .returns(Promise.resolve({ results: [] }));
 
-      return getLatestUserReview({ user: 123, addon: 321 })
+      return getLatestUserReview({ user: 123, addon: 321, version: 456 })
         .then((review) => {
           assert.strictEqual(review, null);
         });
     });
 
-    it('requires a user and addon', () => {
+    it('requires a user, addon, and version', () => {
       mockApi
         .expects('callApi')
         .returns(Promise.resolve({ results: [] }));
 
       return getLatestUserReview()
         .then(unexpectedSuccess, (error) => {
-          assert.match(error.message, /user and addon must be specified/);
+          assert.match(
+            error.message, /user, addon, and version must be specified/);
         });
     });
   });

@@ -69,7 +69,9 @@ describe('RatingManager', () => {
 
     assert.equal(loadSavedReview.called, true);
     const args = loadSavedReview.firstCall.args[0];
-    assert.deepEqual(args, { userId, addonId: addon.id });
+    assert.deepEqual(args, {
+      userId, addonId: addon.id, versionId: version.id,
+    });
   });
 
   it('creates a rating with add-on and version info', () => {
@@ -314,12 +316,13 @@ describe('RatingManager', () => {
       it('finds and dispatches a review', () => {
         const userId = fakeReview.user.id;
         const addonId = fakeReview.addon.id;
+        const versionId = fakeReview.version.id;
         mockApi
           .expects('getLatestUserReview')
-          .withArgs({ user: userId, addon: addonId })
+          .withArgs({ user: userId, addon: addonId, version: versionId })
           .returns(Promise.resolve(fakeReview));
 
-        return actions.loadSavedReview({ userId, addonId })
+        return actions.loadSavedReview({ userId, addonId, versionId })
           .then(() => {
             mockApi.verify();
             assert.equal(dispatch.called, true);

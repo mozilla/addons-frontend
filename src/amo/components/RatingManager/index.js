@@ -34,6 +34,7 @@ import './styles.scss';
 type LoadSavedReviewFunc = ({|
   userId: number,
   addonId: number,
+  versionId: number,
 |}) => Promise<any>;
 
 type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
@@ -67,11 +68,11 @@ export class RatingManagerBase extends React.Component {
 
   constructor(props: RatingManagerProps) {
     super(props);
-    const { loadSavedReview, userId, addon } = props;
+    const { loadSavedReview, userId, addon, version } = props;
     this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedReview({ userId, addonId: addon.id });
+      loadSavedReview({ userId, addonId: addon.id, versionId: version.id });
     }
   }
 
@@ -230,8 +231,10 @@ export const mapDispatchToProps = (
   dispatch: DispatchFunc
 ): DispatchMappedProps => ({
 
-  loadSavedReview({ userId, addonId }) {
-    return getLatestUserReview({ user: userId, addon: addonId })
+  loadSavedReview({ userId, addonId, versionId }) {
+    return getLatestUserReview({
+      user: userId, addon: addonId, version: versionId,
+    })
       .then((review) => {
         if (review) {
           dispatch(setReview(review));

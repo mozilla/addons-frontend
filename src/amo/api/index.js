@@ -88,7 +88,12 @@ export function submitReview({
 
 type GetReviewsParams = {|
   addon: number,
+  filter?: string,
+  page?: number,
+  page_size?: number,
   user: number,
+  version?: number,
+  show_grouped_ratings?: boolean,
 |};
 
 export function getReviews(
@@ -115,17 +120,19 @@ export function getReviews(
 type GetLatestReviewParams = {|
   addon: number,
   user: number,
+  version: number,
 |};
 
 export function getLatestUserReview(
-  { user, addon }: GetLatestReviewParams = {}
+  { user, addon, version }: GetLatestReviewParams = {}
 ) {
   return new Promise((resolve) => {
-    if (!user || !addon) {
-      throw new Error('Both user and addon must be specified');
+    if (!user || !addon || !version) {
+      throw new Error('user, addon, and version must be specified');
     }
-    // The API will only return the latest user review for this add-on.
-    resolve(getReviews({ user, addon }));
+    // The API will only return the latest user review for this add-on
+    // and version.
+    resolve(getReviews({ user, addon, version }));
   })
     .then((reviews) => {
       if (reviews.length === 1) {
