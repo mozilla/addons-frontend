@@ -224,7 +224,7 @@
   "devDependencies": {
     "autoprefixer": "6.7.7",
     "babel-core": "6.24.1",
-    "babel-eslint": "7.2.2",
+    "babel-eslint": "7.2.3",
     "babel-gettext-extractor": "git+https://github.com/muffinresearch/babel-gettext-extractor.git#0d39d3882bc846e7dcb6c9ff6463896c96920ce6",
     "babel-loader": "6.4.1",
     "babel-plugin-istanbul": "4.1.1",
@@ -253,7 +253,7 @@
     "eslint-plugin-react": "6.10.3",
     "fetch-mock": "5.10.0",
     "file-loader": "0.11.1",
-    "flow-bin": "0.38.0",
+    "flow-bin": "0.44.2",
     "glob": "7.1.1",
     "http-proxy": "1.16.2",
     "json-loader": "0.5.4",
@@ -267,7 +267,7 @@
     "karma-sinon": "1.0.5",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "2.0.3",
-    "mocha": "3.2.0",
+    "mocha": "3.3.0",
     "node-sass": "4.5.2",
     "piping": "1.0.0-rc.4",
     "po2json": "0.4.5",
@@ -291,8 +291,8 @@
     "svg-url-loader": "2.0.2",
     "tosource": "1.0.0",
     "webpack": "1.14.0",
-    "webpack-dev-middleware": "1.10.1",
-    "webpack-dev-server": "2.4.1",
+    "webpack-dev-middleware": "1.10.2",
+    "webpack-dev-server": "2.4.4",
     "webpack-hot-middleware": "2.18.0"
   }
 }
