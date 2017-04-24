@@ -10,10 +10,18 @@ type ReviewsByAddon = {
 
 export type ReviewState = {|
   byAddon: ReviewsByAddon,
-  // TODO: make this consistent by moving it to state.byUser
-  [userId: number]: {
-    [addonId: number]: Array<UserReviewType>,
-  },
+  // TODO: make this consistent by moving it from state[userId] to
+  // state.byUser[userId]
+  //
+  // Also note that this needs to move to state.byUser before its type
+  // can be expressed in Flow without conflicting with state.byAddon.
+  //
+  // This is what the current data structure looks like:
+  // [userId: string]: {
+  //   [addonId: string]: {
+  //     [reviewId: string]: UserReviewType,
+  //   },
+  // },
 |};
 
 export const initialState = {
