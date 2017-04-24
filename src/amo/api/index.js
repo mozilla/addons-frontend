@@ -98,7 +98,7 @@ type GetReviewsParams = {|
 
 export function getReviews(
   { user, addon, ...params }: GetReviewsParams = {}
-) {
+): Promise<Array<ApiReviewType>> {
   return new Promise((resolve) => {
     if (!user && !addon) {
       throw new Error('Either user or addon must be specified');
@@ -125,7 +125,7 @@ type GetLatestReviewParams = {|
 
 export function getLatestUserReview(
   { user, addon, version }: GetLatestReviewParams = {}
-) {
+): Promise<null | ApiReviewType> {
   return new Promise((resolve) => {
     if (!user || !addon || !version) {
       throw new Error('user, addon, and version must be specified');
