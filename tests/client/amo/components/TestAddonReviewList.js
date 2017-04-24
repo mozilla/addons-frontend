@@ -56,6 +56,7 @@ describe('amo/components/AddonReviewList', () => {
       const store = createStore();
       const props = {
         addon: addon && denormalizeAddon(addon),
+        location: { query: {} },
         params,
         reviews: loadedReviews,
         ...customProps,

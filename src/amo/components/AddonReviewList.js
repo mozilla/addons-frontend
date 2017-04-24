@@ -16,6 +16,7 @@ import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc, ReduxStore } from 'core/types/redux';
+import type { ReactRouterLocation } from 'core/types/router';
 
 import 'amo/css/AddonReviewList.scss';
 
@@ -23,16 +24,17 @@ type AddonReviewListRouteParams = {|
   addonSlug: string,
 |}
 
-type AddonReviewProps = {|
+type AddonReviewListProps = {|
   i18n: Object,
   addon?: AddonType,
   addonSlug: string,
+  location: ReactRouterLocation,
   params: AddonReviewListRouteParams,
   reviews?: Array<UserReviewType>
 |};
 
 export class AddonReviewListBase extends React.Component {
-  props: AddonReviewProps;
+  props: AddonReviewListProps;
 
   addonURL() {
     const { addon } = this.props;
@@ -64,7 +66,8 @@ export class AddonReviewListBase extends React.Component {
   }
 
   render() {
-    const { addon, params, i18n, reviews } = this.props;
+    const { addon, location, params, i18n, reviews } = this.props;
+    console.log('what props did we actually get?', this.props);
     if (!params.addonSlug) {
       throw new Error('params.addonSlug cannot be falsey');
     }
@@ -100,7 +103,7 @@ export class AddonReviewListBase extends React.Component {
         <Paginate
           LinkComponent={Link}
           count={100}
-          currentPage={1}
+          currentPage={parsePage(location.query.page)}
           pathname={this.selfURL()}
         />
       </div>
@@ -110,10 +113,13 @@ export class AddonReviewListBase extends React.Component {
 
 export function loadAddonReviews(
   {
-    addonId, addonSlug, dispatch, page,
-  }: {
-    addonId: number, addonSlug: string, dispatch: DispatchFunc, page: number,
-  }
+    addonId, addonSlug, dispatch, page = 1,
+  }: {|
+    addonId: number,
+    addonSlug: string,
+    dispatch: DispatchFunc,
+    page?: number,
+  |}
 ) {
   return getReviews({ addon: addonId, page })
     .then((allReviews) => {
@@ -128,23 +134,19 @@ export function loadAddonReviews(
 export function loadInitialData(
   {
     location, params, store,
-  }: {
-    location: { query: Object },
+  }: {|
+    location: ReactRouterLocation,
     params: AddonReviewListRouteParams,
     store: ReduxStore,
-  }
+  |}
 ) {
   const { addonSlug } = params;
   if (!addonSlug) {
     return Promise.reject(new Error('missing URL param addonSlug'));
   }
-  let page = 1;
+  let page;
   return new Promise((resolve) => {
-    // TODO: move page data to state or something.
-    console.log('location', location);
     page = parsePage(location.query.page);
-    console.log(`AddonReviewList on page: ${page}`);
-    // TODO: send page to loadAddonReviews()
     return resolve();
   })
     .then(() => loadAddonIfNeeded({ store, params: { slug: addonSlug } }))
@@ -155,7 +157,7 @@ export function loadInitialData(
 }
 
 export function mapStateToProps(
-  state: { reviews: ReviewState }, ownProps: AddonReviewProps,
+  state: { reviews: ReviewState }, ownProps: AddonReviewListProps,
 ) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey addonSlug parameter');
