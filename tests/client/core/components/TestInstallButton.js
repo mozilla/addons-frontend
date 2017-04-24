@@ -6,7 +6,9 @@ import { InstallButtonBase } from 'core/components/InstallButton';
 import InstallSwitch from 'core/components/InstallSwitch';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   UNKNOWN,
 } from 'core/constants';
@@ -20,6 +22,10 @@ describe('<InstallButton />', () => {
   const getClientCompatibilityFalse = () => ({
     compatible: false,
     reason: INCOMPATIBLE_NOT_FIREFOX,
+  });
+  const getClientCompatibilityFalseOpenSearch = () => ({
+    compatible: false,
+    reason: INCOMPATIBLE_NO_OPENSEARCH,
   });
 
   const renderProps = (customProps = {}) => ({
@@ -154,5 +160,54 @@ describe('<InstallButton />', () => {
     const buttonComponent = root.props.children[1];
     assert.equal(buttonComponent.type, Button);
     assert.strictEqual(buttonComponent.props.disabled, true);
+  });
+
+  it('renders a button for OpenSearch regardless of mozAddonManager', () => {
+    const root = render({
+      addon: {
+        ...fakeAddon,
+        hasAddonManager: true,
+        type: ADDON_TYPE_OPENSEARCH,
+      },
+    });
+
+    assert.equal(root.type, 'div');
+    const buttonComponent = root.props.children[1];
+    assert.equal(buttonComponent.type, Button);
+    assert.include(buttonComponent.props.className,
+      'Button InstallButton-button');
+    assert.equal(buttonComponent.props.children, 'Add to Firefox');
+  });
+
+  it('disables the OpenSearch button if not compatible', () => {
+    const root = render({
+      addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
+      getClientCompatibility: getClientCompatibilityFalseOpenSearch,
+    });
+
+    assert.equal(root.type, 'div');
+    const buttonComponent = root.props.children[1];
+    assert.equal(buttonComponent.type, Button);
+    assert.include(buttonComponent.props.className,
+      'InstallButton-button--disabled');
+    assert.equal(buttonComponent.props.children, 'Add to Firefox');
+  });
+
+  it('disables install switch and uses button for OpenSearch plugins', () => {
+    const fakeLog = { info: sinon.stub() };
+    const fakeWindow = { external: { AddSearchProvider: sinon.stub() } };
+    const rootNode = renderToDom({
+      addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
+      _log: fakeLog,
+      _window: fakeWindow,
+    });
+    const installButton = rootNode.querySelector('.InstallButton-button');
+    assert.equal(installButton.textContent, 'Add to Firefox');
+
+    Simulate.click(installButton);
+
+    assert.equal(fakeLog.info.firstCall.args[0], 'Adding OpenSearch Provider');
+    assert.equal(fakeWindow.external.AddSearchProvider.firstCall.args[0],
+      fakeAddon.installURL);
   });
 });

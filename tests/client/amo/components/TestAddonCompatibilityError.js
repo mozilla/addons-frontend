@@ -10,6 +10,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import createStore from 'amo/store';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
+  INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
@@ -79,6 +80,17 @@ describe('AddonCompatibilityError', () => {
 
     assert.include(rootNode.textContent,
       'Firefox for iOS does not currently support add-ons.');
+  });
+
+  it('renders a notice for browsers that do not support OpenSearch', () => {
+    const root = render({
+      reason: INCOMPATIBLE_NO_OPENSEARCH,
+      userAgentInfo: { browser: { name: 'Firefox' }, os: { name: 'Plan 9' } },
+    });
+    const rootNode = findDOMNode(root);
+
+    assert.include(rootNode.textContent,
+      'Your version of Firefox does not support search plugins.');
   });
 
   it('renders a notice and logs a warning when reason code not known', () => {

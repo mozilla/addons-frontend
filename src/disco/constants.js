@@ -39,4 +39,5 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'screenshots@mozilla.org', // Firefox Screenshots
   'disable-prefetch@mozilla.org', // Disable Prefetch
   'activity-stream@mozilla.org', // Activity Stream
+  'disable-cert-transparency@mozilla.org', // Disable TLS Certificate Transparency
 ];

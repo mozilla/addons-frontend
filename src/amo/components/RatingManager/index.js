@@ -14,7 +14,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   validAddonTypes as defaultValidAddonTypes,
 } from 'core/constants';
@@ -34,6 +34,7 @@ import './styles.scss';
 type LoadSavedReviewFunc = ({|
   userId: number,
   addonId: number,
+  versionId: number,
 |}) => Promise<any>;
 
 type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
@@ -67,11 +68,11 @@ export class RatingManagerBase extends React.Component {
 
   constructor(props: RatingManagerProps) {
     super(props);
-    const { loadSavedReview, userId, addon } = props;
+    const { loadSavedReview, userId, addon, version } = props;
     this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedReview({ userId, addonId: addon.id });
+      loadSavedReview({ userId, addonId: addon.id, versionId: version.id });
     }
   }
 
@@ -122,8 +123,8 @@ export class RatingManagerBase extends React.Component {
         return i18n.gettext('Log in to rate this dictionary');
       case ADDON_TYPE_LANG:
         return i18n.gettext('Log in to rate this language pack');
-      case ADDON_TYPE_SEARCH:
-        return i18n.gettext('Log in to rate this search engine');
+      case ADDON_TYPE_OPENSEARCH:
+        return i18n.gettext('Log in to rate this search plugin');
       case ADDON_TYPE_THEME:
         return i18n.gettext('Log in to rate this theme');
       case ADDON_TYPE_EXTENSION:
@@ -230,8 +231,10 @@ export const mapDispatchToProps = (
   dispatch: DispatchFunc
 ): DispatchMappedProps => ({
 
-  loadSavedReview({ userId, addonId }) {
-    return getLatestUserReview({ user: userId, addon: addonId })
+  loadSavedReview({ userId, addonId, versionId }) {
+    return getLatestUserReview({
+      user: userId, addon: addonId, version: versionId,
+    })
       .then((review) => {
         if (review) {
           dispatch(setReview(review));

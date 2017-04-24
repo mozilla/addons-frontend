@@ -10,7 +10,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_SEARCH,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
@@ -69,7 +69,9 @@ describe('RatingManager', () => {
 
     assert.equal(loadSavedReview.called, true);
     const args = loadSavedReview.firstCall.args[0];
-    assert.deepEqual(args, { userId, addonId: addon.id });
+    assert.deepEqual(args, {
+      userId, addonId: addon.id, versionId: version.id,
+    });
   });
 
   it('creates a rating with add-on and version info', () => {
@@ -263,9 +265,9 @@ describe('RatingManager', () => {
       assert.include(prompt, 'language pack');
     });
 
-    it('renders a login prompt for the search engine', () => {
-      const prompt = getAuthPromptForType(ADDON_TYPE_SEARCH);
-      assert.include(prompt, 'search engine');
+    it('renders a login prompt for the search plugin', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_OPENSEARCH);
+      assert.include(prompt, 'search plugin');
     });
 
     it('renders a login prompt for themes', () => {
@@ -330,12 +332,13 @@ describe('RatingManager', () => {
       it('finds and dispatches a review', () => {
         const userId = fakeReview.user.id;
         const addonId = fakeReview.addon.id;
+        const versionId = fakeReview.version.id;
         mockApi
           .expects('getLatestUserReview')
-          .withArgs({ user: userId, addon: addonId })
+          .withArgs({ user: userId, addon: addonId, version: versionId })
           .returns(Promise.resolve(fakeReview));
 
-        return actions.loadSavedReview({ userId, addonId })
+        return actions.loadSavedReview({ userId, addonId, versionId })
           .then(() => {
             mockApi.verify();
             assert.equal(dispatch.called, true);
