@@ -166,15 +166,18 @@ describe('amo/components/AddonReviewList', () => {
     it('loads all add-on reviews', () => {
       const addonSlug = fakeAddon.slug;
       const dispatch = sinon.stub();
+      const page = 2;
       const reviews = [fakeReview];
 
       mockAmoApi
         .expects('getReviews')
         .once()
-        .withArgs({ addon: fakeAddon.id })
+        .withArgs({ addon: fakeAddon.id, page })
         .returns(Promise.resolve(reviews));
 
-      return loadAddonReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
+      return loadAddonReviews({
+        addonId: fakeAddon.id, addonSlug, dispatch, page,
+      })
         .then(() => {
           mockAmoApi.verify();
 
@@ -266,6 +269,7 @@ describe('amo/components/AddonReviewList', () => {
     it('gets initial data from the API', () => {
       const store = createStore();
       const addonSlug = fakeAddon.slug;
+      const page = 2;
       const reviews = [fakeReview];
 
       mockCoreApi
@@ -277,10 +281,12 @@ describe('amo/components/AddonReviewList', () => {
       mockAmoApi
         .expects('getReviews')
         .once()
-        .withArgs({ addon: fakeAddon.id })
+        .withArgs({ addon: fakeAddon.id, page })
         .returns(Promise.resolve(reviews));
 
-      return loadInitialData({ store, params: { addonSlug } })
+      return loadInitialData({
+        location: { query: { page } }, store, params: { addonSlug },
+      })
         .then(() => {
           mockAmoApi.verify();
           mockCoreApi.verify();
@@ -294,7 +300,9 @@ describe('amo/components/AddonReviewList', () => {
 
     it('requires a slug param', () => {
       const store = createStore();
-      return loadInitialData({ store, params: { addonSlug: null } })
+      return loadInitialData({
+        location: { query: {} }, store, params: { addonSlug: null },
+      })
         .then(unexpectedSuccess, (error) => {
           assert.match(error.message, /missing URL param addonSlug/);
         });
