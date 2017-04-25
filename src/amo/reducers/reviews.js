@@ -5,23 +5,28 @@ import type {
 } from 'amo/actions/reviews';
 
 type ReviewsByAddon = {
-  [slug: string]: Array<UserReviewType>,
+  [slug: string]: {|
+    reviewCount: number,
+    reviews: Array<UserReviewType>,
+  |},
 }
 
 export type ReviewState = {|
   byAddon: ReviewsByAddon,
-  // TODO: make this consistent by moving it from state[userId] to
-  // state.byUser[userId]
-  //
-  // Also note that this needs to move to state.byUser before its type
-  // can be expressed in Flow without conflicting with state.byAddon.
-  //
+
   // This is what the current data structure looks like:
   // [userId: string]: {
   //   [addonId: string]: {
   //     [reviewId: string]: UserReviewType,
   //   },
   // },
+  //
+  // TODO: make this consistent by moving it from state[userId] to
+  // state.byUser[userId]
+  //
+  // Also note that this needs to move to state.byUser before its type
+  // can be expressed in Flow without conflicting with state.byAddon.
+  //
 |};
 
 export const initialState = {
@@ -30,7 +35,7 @@ export const initialState = {
 
 function mergeInNewReview(
   latestReview: UserReviewType,
-  oldReviews: ReviewsByAddon = {},
+  oldReviews: { [reviewId: string]: UserReviewType } = {},
 ): { [id: string | number]: Array<UserReviewType> } {
   const mergedReviews = {};
 
@@ -69,7 +74,10 @@ export default function reviews(
         ...state,
         byAddon: {
           ...state.byAddon,
-          [payload.addonSlug]: payload.reviews,
+          [payload.addonSlug]: {
+            reviewCount: payload.reviewCount,
+            reviews: payload.reviews,
+          },
         },
       };
     }

@@ -166,9 +166,10 @@ export function mapStateToProps(
     throw new Error('The component had a falsey addonSlug parameter');
   }
   const addonSlug = ownProps.params.addonSlug;
+  const reviewData = state.reviews.byAddon[addonSlug];
   return {
     addon: findAddon(state, addonSlug),
-    reviews: state.reviews.byAddon[addonSlug],
+    reviews: reviewData && reviewData.reviews,
   };
 }
 

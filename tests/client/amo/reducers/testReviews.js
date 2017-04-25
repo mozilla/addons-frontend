@@ -169,7 +169,7 @@ describe('amo.reducers.reviews', () => {
         reviewCount: 2,
       });
       const state = reviews(undefined, action);
-      const storedReviews = state.byAddon[fakeAddon.slug];
+      const storedReviews = state.byAddon[fakeAddon.slug].reviews;
       assert.equal(storedReviews.length, 2);
       assert.equal(storedReviews[0].id, review1.id);
       assert.equal(storedReviews[1].id, review2.id);
@@ -191,9 +191,9 @@ describe('amo.reducers.reviews', () => {
         reviewCount: 2,
       }));
 
-      assert.equal(state.byAddon[addon1.slug][0].id, review1.id);
-      assert.equal(state.byAddon[addon2.slug][0].id, review2.id);
-      assert.equal(state.byAddon[addon2.slug][1].id, review3.id);
+      assert.equal(state.byAddon[addon1.slug].reviews[0].id, review1.id);
+      assert.equal(state.byAddon[addon2.slug].reviews[0].id, review2.id);
+      assert.equal(state.byAddon[addon2.slug].reviews[1].id, review3.id);
     });
   });
 });
