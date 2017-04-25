@@ -195,5 +195,17 @@ describe('amo.reducers.reviews', () => {
       assert.equal(state.byAddon[addon2.slug].reviews[0].id, review2.id);
       assert.equal(state.byAddon[addon2.slug].reviews[1].id, review3.id);
     });
+
+    it('stores review counts', () => {
+      const state = reviews(undefined, setAddonReviews({
+        addonSlug: 'slug1', reviews: [fakeReview], reviewCount: 1,
+      }));
+      const newState = reviews(state, setAddonReviews({
+        addonSlug: 'slug2', reviews: [fakeReview, fakeReview], reviewCount: 2,
+      }));
+
+      assert.equal(newState.byAddon.slug1.reviewCount, 1);
+      assert.equal(newState.byAddon.slug2.reviewCount, 2);
+    });
   });
 });

@@ -30,7 +30,8 @@ type AddonReviewListProps = {|
   addonSlug: string,
   location: ReactRouterLocation,
   params: AddonReviewListRouteParams,
-  reviews?: Array<UserReviewType>
+  reviewCount?: number,
+  reviews?: Array<UserReviewType>,
 |};
 
 export class AddonReviewListBase extends React.Component {
@@ -45,7 +46,7 @@ export class AddonReviewListBase extends React.Component {
   }
 
   selfURL() {
-    return `${this.addonURL()}/reviews/`;
+    return `${this.addonURL()}reviews/`;
   }
 
   renderReview(review: UserReviewType) {
@@ -66,7 +67,7 @@ export class AddonReviewListBase extends React.Component {
   }
 
   render() {
-    const { addon, location, params, i18n, reviews } = this.props;
+    const { addon, location, params, i18n, reviewCount, reviews } = this.props;
     console.log('what props did we actually get?', this.props);
     if (!params.addonSlug) {
       throw new Error('params.addonSlug cannot be falsey');
@@ -102,7 +103,7 @@ export class AddonReviewListBase extends React.Component {
         </CardList>
         <Paginate
           LinkComponent={Link}
-          count={100}
+          count={reviewCount}
           currentPage={parsePage(location.query.page)}
           pathname={this.selfURL()}
         />
@@ -169,6 +170,7 @@ export function mapStateToProps(
   const reviewData = state.reviews.byAddon[addonSlug];
   return {
     addon: findAddon(state, addonSlug),
+    reviewCount: reviewData && reviewData.reviewCount,
     reviews: reviewData && reviewData.reviews,
   };
 }

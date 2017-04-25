@@ -18,6 +18,7 @@ import {
   mapStateToProps,
 } from 'amo/components/AddonReviewList';
 import Link from 'amo/components/Link';
+import Paginate from 'core/components/Paginate';
 import translate from 'core/i18n/translate';
 import { loadEntities } from 'core/actions';
 import * as coreApi from 'core/api';
@@ -60,6 +61,7 @@ describe('amo/components/AddonReviewList', () => {
         addon: addon && denormalizeAddon(addon),
         location: { query: {} },
         params,
+        reviewCount: loadedReviews && loadedReviews.length,
         reviews: loadedReviews,
         ...customProps,
       };
@@ -145,9 +147,15 @@ describe('amo/components/AddonReviewList', () => {
     });
 
     it('produces an addon URL', () => {
-      const root =
-        findRenderedComponentWithType(render(), AddonReviewListBase);
+      const root = findRenderedComponentWithType(
+        render(), AddonReviewListBase);
       assert.equal(root.addonURL(), `/addon/${fakeAddon.slug}/`);
+    });
+
+    it('produces a URL to itself', () => {
+      const root = findRenderedComponentWithType(
+        render(), AddonReviewListBase);
+      assert.equal(root.selfURL(), `/addon/${fakeAddon.slug}/reviews/`);
     });
 
     it('requires an addon prop to produce a URL', () => {
@@ -155,6 +163,38 @@ describe('amo/components/AddonReviewList', () => {
         addon: null,
       }), AddonReviewListBase);
       assert.throws(() => root.addonURL(), /cannot access addonURL/);
+    });
+
+    it('configures a paginator with the right URL', () => {
+      const tree = render();
+      const root = findRenderedComponentWithType(tree, AddonReviewListBase);
+      const paginator = findRenderedComponentWithType(tree, Paginate);
+
+      assert.equal(paginator.props.pathname, root.selfURL());
+    });
+
+    it('configures a paginator with the right Link', () => {
+      const paginator = findRenderedComponentWithType(render(), Paginate);
+      assert.equal(paginator.props.LinkComponent, Link);
+    });
+
+    it('configures a paginator with the right review count', () => {
+      const paginator = findRenderedComponentWithType(
+        render({ reviewCount: 500 }), Paginate);
+      assert.equal(paginator.props.count, 500);
+    });
+
+    it('sets the paginator to page 1 without a query', () => {
+      const paginator = findRenderedComponentWithType(
+        // Render with an empty query string.
+        render({ location: { query: {} } }), Paginate);
+      assert.equal(paginator.props.currentPage, 1);
+    });
+
+    it('sets the paginator to the query string page', () => {
+      const paginator = findRenderedComponentWithType(
+        render({ location: { query: { page: 3 } } }), Paginate);
+      assert.equal(paginator.props.currentPage, 3);
     });
   });
 
@@ -262,6 +302,16 @@ describe('amo/components/AddonReviewList', () => {
     it('only loads existing reviews', () => {
       const props = getMappedProps();
       assert.strictEqual(props.reviews, undefined);
+      assert.strictEqual(props.reviewCount, undefined);
+    });
+
+    it('sets reviewCount prop from from state', () => {
+      store.dispatch(setAddonReviews({
+        addonSlug: fakeAddon.slug, reviews: [fakeReview], reviewCount: 1,
+      }));
+
+      const props = getMappedProps();
+      assert.equal(props.reviewCount, 1);
     });
   });
 
