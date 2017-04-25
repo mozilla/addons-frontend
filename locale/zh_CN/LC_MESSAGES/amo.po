@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"POT-Creation-Date: 2017-04-25 18:40+0000\n"
 "PO-Revision-Date: 2017-04-12 02:17+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,18 +14,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonCompatibilityError/index.js:53
+#: src/amo/components/AddonCompatibilityError/index.js:54
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
 msgstr ""
 "您需要 <a href=\"%(downloadUrl)s\">下载 Firefox</a> 才能安装这个附加组件。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:57
+#: src/amo/components/AddonCompatibilityError/index.js:58
+msgid "Your version of Firefox does not support search plugins."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox iOS 版目前尚不支持附加组件。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -33,7 +37,7 @@ msgstr ""
 "此附加组件需要 <a href=\"%(downloadUrl)s\">较新版本的 Firefox</a>（至少 "
 "%(minVersion)s）。您目前使用的是 Firefox %(yourVersion)s。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:78
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -360,31 +364,32 @@ msgstr "切换界面语言"
 msgid "Firefox Add-ons"
 msgstr "Firefox 附加组件"
 
-#: src/amo/components/RatingManager/index.js:122
+#: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
 msgstr "登录以评价此词典"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
 msgstr "登录以评价此语言包"
 
-#: src/amo/components/RatingManager/index.js:126
-msgid "Log in to rate this search engine"
+#: src/amo/components/RatingManager/index.js:127
+#, fuzzy
+msgid "Log in to rate this search plugin"
 msgstr "登录以评价此搜索引擎"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this theme"
 msgstr "登录以评价此主题"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this extension"
 msgstr "登录以评价此扩展"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
 msgstr "登录以评价此附加组件"
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:161
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "使用 %(addonName)s 的感觉如何？"
 
@@ -543,13 +548,14 @@ msgstr "错误代码：%(status)s。"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "很抱歉，但我们无法用您输入的地址找到信息。"
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "安装主题"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "添加到 Firefox"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "安装主题"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."

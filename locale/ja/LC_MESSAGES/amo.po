@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"POT-Creation-Date: 2017-04-25 18:40+0000\n"
 "PO-Revision-Date: 2017-04-12 00:19+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonCompatibilityError/index.js:53
+#: src/amo/components/AddonCompatibilityError/index.js:54
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -22,11 +22,15 @@ msgstr ""
 "このアドオンをインストールするには <a href=\"%(downloadUrl)s\">Firefox をダウ"
 "ンロード</a> してください。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:57
+#: src/amo/components/AddonCompatibilityError/index.js:58
+msgid "Your version of Firefox does not support search plugins."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS 版 Firefox は今のところアドオンに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -35,7 +39,7 @@ msgstr ""
 "a> (%(minVersion)s 以上) を必要とします。あなたは Firefox %(yourVersion)s を"
 "お使いです。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:78
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -373,31 +377,32 @@ msgstr "あなたの言語で表示"
 msgid "Firefox Add-ons"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/RatingManager/index.js:122
+#: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
 msgstr "ログインしてこの辞書を評価"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
 msgstr "ログインしてこの言語パックを評価"
 
-#: src/amo/components/RatingManager/index.js:126
-msgid "Log in to rate this search engine"
+#: src/amo/components/RatingManager/index.js:127
+#, fuzzy
+msgid "Log in to rate this search plugin"
 msgstr "ログインしてこの検索エンジンを評価"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this theme"
 msgstr "ログインしてこのテーマを評価"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this extension"
 msgstr "ログインしてこの拡張機能を評価"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
 msgstr "ログインしてこのアドオンを評価"
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:161
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s での体験をどのように楽しんでいますか？"
 
@@ -558,13 +563,14 @@ msgstr "エラーコード: %(status)s"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "申し訳ありませんが、入力された URL には何も見つかりませんでした。"
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "テーマをインストール"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "Firefox へ追加"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "テーマをインストール"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."

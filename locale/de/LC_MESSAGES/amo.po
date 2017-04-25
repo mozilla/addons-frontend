@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"POT-Creation-Date: 2017-04-25 18:40+0000\n"
 "PO-Revision-Date: 2017-04-12 15:42+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonCompatibilityError/index.js:53
+#: src/amo/components/AddonCompatibilityError/index.js:54
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -22,11 +22,15 @@ msgstr ""
 "Um dieses Add-On zu installieren, müssen Sie <a href=\"%(downloadUrl)s\"> "
 "Firefox herunterladen</a>."
 
-#: src/amo/components/AddonCompatibilityError/index.js:57
+#: src/amo/components/AddonCompatibilityError/index.js:58
+msgid "Your version of Firefox does not support search plugins."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox für iOS unterstützt derzeit keine Add-Ons."
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -34,7 +38,7 @@ msgstr ""
 "Dieses Add-On erfordert eine <a href=\"%(downloadUrl)s\">neuere Version von "
 "Firefox </a> (mindestens %(minVersion)s). Sie nutzen Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:78
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -379,31 +383,32 @@ msgstr "In Ihrer Sprache ansehen"
 msgid "Firefox Add-ons"
 msgstr "Add-ons für Firefox"
 
-#: src/amo/components/RatingManager/index.js:122
+#: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
 msgstr "Melden Sie sich an, um dieses Wörterbuch zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
 msgstr "Melden Sie sich an, um dieses Sprachpaket zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:126
-msgid "Log in to rate this search engine"
+#: src/amo/components/RatingManager/index.js:127
+#, fuzzy
+msgid "Log in to rate this search plugin"
 msgstr "Melden Sie sich an, um diese Suchmaschine zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this theme"
 msgstr "Melden Sie sich an, um dieses Theme zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this extension"
 msgstr "Melden Sie sich an, um diese Erweiterung zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
 msgstr "Melden Sie sich an, um dieses Add-on zu bewerten"
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:161
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Wie gefällt Ihnen %(addonName)s?"
 
@@ -567,13 +572,14 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Entschuldigen Sie, aber wir konnten zu der eingegebenen URL nichts finden."
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "Theme installieren"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "Zu Firefox hinzufügen"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "Theme installieren"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."

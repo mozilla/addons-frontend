@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"POT-Creation-Date: 2017-04-25 18:40+0000\n"
 "PO-Revision-Date: 2017-04-14 08:59+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -14,21 +14,37 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonCompatibilityError/index.js:53
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Abyste mohli nainstalovat tento doplněk, musíte si <a href=\"%(downloadUrl)s\">stáhnout Firefox</a>."
+#: src/amo/components/AddonCompatibilityError/index.js:54
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"Abyste mohli nainstalovat tento doplněk, musíte si <a href=\"%(downloadUrl)s"
+"\">stáhnout Firefox</a>."
 
-#: src/amo/components/AddonCompatibilityError/index.js:57
+#: src/amo/components/AddonCompatibilityError/index.js:58
+msgid "Your version of Firefox does not support search plugins."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox pro iOS zatím nepodporuje doplňky."
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Tento doplněk vyžaduje <a href=\"%(downloadUrl)s\">novější verzi Firefoxu</a> (alespoň %(minVersion)s). Vaše verze je %(yourVersion)s."
+#: src/amo/components/AddonCompatibilityError/index.js:64
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"Tento doplněk vyžaduje <a href=\"%(downloadUrl)s\">novější verzi Firefoxu</"
+"a> (alespoň %(minVersion)s). Vaše verze je %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Váš prohlížeč nepodporuje doplňky. Pro instalaci tohoto doplňku si můžete <a href=\"%(downloadUrl)s\">stáhnout Firefox</a>."
+#: src/amo/components/AddonCompatibilityError/index.js:78
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"Váš prohlížeč nepodporuje doplňky. Pro instalaci tohoto doplňku si můžete <a "
+"href=\"%(downloadUrl)s\">stáhnout Firefox</a>."
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -145,15 +161,18 @@ msgstr "Řekněte celému světu, proč si myslíte, že je tenhle doplněk úž
 
 #: src/amo/components/AddonReview.js:91
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Řekněte nám, co se vám na tomto doplňku líbí. Buďte konkrétní a svědomití."
+msgstr ""
+"Řekněte nám, co se vám na tomto doplňku líbí. Buďte konkrétní a svědomití."
 
 #: src/amo/components/AddonReview.js:95
 msgid "Tell the world about this extension."
 msgstr "Řekněte světu o tomto rozšíření."
 
 #: src/amo/components/AddonReview.js:96
-msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "Řekněte nám, co si myslíte o tomto doplňku. Buďte konkrétní a svědomití."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+"Řekněte nám, co si myslíte o tomto doplňku. Buďte konkrétní a svědomití."
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
@@ -184,46 +203,76 @@ msgid "No categories found."
 msgstr "Žádné kategorie nebyly nalezeny."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
-"Pokud jste přihlášeni a myslíte si, že tato zpráva je chybou, <a href=\"%(url)s\">nahlaste nám ji prosím</a>. Sdělte nám, odkud jste přišli a kam jste se chtěli dostat, a my se postaráme o nápravu."
+"Pokud jste přihlášeni a myslíte si, že tato zpráva je chybou, <a href="
+"\"%(url)s\">nahlaste nám ji prosím</a>. Sdělte nám, odkud jste přišli a kam "
+"jste se chtěli dostat, a my se postaráme o nápravu."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "Neautorizováno"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Omlouváme se, ale k této stránce nemáte přístup. Pokud nejste přihlášeni, zkuste se přihlásit pomocí odkazu v horní části stránky."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"Omlouváme se, ale k této stránce nemáte přístup. Pokud nejste přihlášeni, "
+"zkuste se přihlásit pomocí odkazu v horní části stránky."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
 msgstr ""
-"Pokud jste se sem dostali pomocí některého z odkazů, <a href=\"%(url)s\">nahlaste nám prosím chybu</a>. Sdělte nám, odkud jste přišli a co jste hledali, a my uděláme vše proto, abychom to napravili."
+"Pokud jste se sem dostali pomocí některého z odkazů, <a href=\"%(url)s"
+"\">nahlaste nám prosím chybu</a>. Sdělte nám, odkud jste přišli a co jste "
+"hledali, a my uděláme vše proto, abychom to napravili."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
+#: src/amo/components/ErrorPage/NotFound/index.js:32
+#: src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "Stránka nenalezena"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "Omlouváme se, ale na adrese, kterou jste zadali, nemůžeme nic najít. Pokud jste klepli na odkaz na doplněk, je možné, že byl odebrán jeho autorem."
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"Omlouváme se, ale na adrese, kterou jste zadali, nemůžeme nic najít. Pokud "
+"jste klepli na odkaz na doplněk, je možné, že byl odebrán jeho autorem."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
-"Pokud máte další informace, které by nám mohly pomoci, můžete <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">nahlásit problém</a>. Sdělte nám, jaké kroky vás vedly k této chybě, "
-"a my uděláme vše pro to, abychom ji opravili."
+"Pokud máte další informace, které by nám mohly pomoci, můžete <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">nahlásit problém</"
+"a>. Sdělte nám, jaké kroky vás vedly k této chybě, a my uděláme vše pro to, "
+"abychom ji opravili."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "Chyba serveru"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Omlouváme se, ale na našem serveru došlo k chybě, kvůli které jsme nemohli dokončit váš požadavek. Chyba byla zaznamenána a budeme se jí co nejdříve věnovat."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"Omlouváme se, ale na našem serveru došlo k chybě, kvůli které jsme nemohli "
+"dokončit váš požadavek. Chyba byla zaznamenána a budeme se jí co nejdříve "
+"věnovat."
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -258,12 +307,20 @@ msgid "Extensions"
 msgstr "Rozšíření"
 
 #: src/amo/components/LandingPage.js:119
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Změňte vzhled svého prohlížeče. Vyberte si z tisíců motivů a přizpůsobte si svůj Firefox."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Změňte vzhled svého prohlížeče. Vyberte si z tisíců motivů a přizpůsobte si "
+"svůj Firefox."
 
 #: src/amo/components/LandingPage.js:121
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "Nainstalujte si mocné nástroje, se kterými bude prohlížení rychlejší a bezpečnější. S doplňky je váš prohlížeč skutečně váš."
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+"Nainstalujte si mocné nástroje, se kterými bude prohlížení rychlejší a "
+"bezpečnější. S doplňky je váš prohlížeč skutečně váš."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
@@ -325,31 +382,32 @@ msgstr "Procházet ve vašem jazyce"
 msgid "Firefox Add-ons"
 msgstr "Doplňky pro Firefox"
 
-#: src/amo/components/RatingManager/index.js:122
+#: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
 msgstr "Pro hodnocení tohoto slovníku se přihlaste"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
 msgstr "Pro hodnocení tohoto jazykového balíčku se přihlaste"
 
-#: src/amo/components/RatingManager/index.js:126
-msgid "Log in to rate this search engine"
+#: src/amo/components/RatingManager/index.js:127
+#, fuzzy
+msgid "Log in to rate this search plugin"
 msgstr "Pro hodnocení tohoto vyhledávače se přihlaste"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this theme"
 msgstr "Pro hodnocení tohoto motivu se přihlaste"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this extension"
 msgstr "Pro hodnocení tohoto rozšíření se přihlaste"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
 msgstr "Pro hodnocení tohoto doplňku se přihlaste"
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:161
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Jak si užíváte používání doplňku %(addonName)s?"
 
@@ -379,7 +437,8 @@ msgstr "Nebyly nalezeny žádné výsledky."
 
 #: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr "Vložte prosím vyhledávací dotaz pro hledání na serveru Doplňky pro Firefox."
+msgstr ""
+"Vložte prosím vyhledávací dotaz pro hledání na serveru Doplňky pro Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
@@ -422,8 +481,12 @@ msgid "Add-ons for Firefox"
 msgstr "Doplňky pro Firefox"
 
 #: src/amo/containers/Home.js:39
-msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr "Rozšíření jsou speciální funkce, které můžete přidat do Firefoxu. Motivy vám dovolí změnit vzhled vašeho prohlížeče."
+msgid ""
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
+msgstr ""
+"Rozšíření jsou speciální funkce, které můžete přidat do Firefoxu. Motivy vám "
+"dovolí změnit vzhled vašeho prohlížeče."
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -490,10 +553,15 @@ msgid "Log in/Sign up"
 msgstr "Přihlásit se / Zaregistrovat se"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Omlouváme se, ale došlo k chybě, kvůli které jsme nemohli dokončit váš požadavek. Chyba byla zaznamenána a budeme se jí co nejdříve věnovat."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Omlouváme se, ale došlo k chybě, kvůli které jsme nemohli dokončit váš "
+"požadavek. Chyba byla zaznamenána a budeme se jí co nejdříve věnovat."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "Chybový kód: %(status)s."
 
@@ -501,13 +569,14 @@ msgstr "Chybový kód: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Omlouváme se, ale na zadané adrese nemůžeme nic najít."
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "Nainstalovat motiv"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "Přidat do Firefoxu"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "Nainstalovat motiv"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
