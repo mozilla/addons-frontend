@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-04 17:17+0000\n"
+"POT-Creation-Date: 2017-04-25 18:43+0000\n"
 "PO-Revision-Date: 2017-03-17 17:17+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,13 +40,14 @@ msgstr "Strona njeje so namakała"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Bohužel njemóžemy ničo na URL namakać, kotryž sće podał."
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "Drastu instalować"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "Drastu instalować"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-04 17:17+0000\n"
+"POT-Creation-Date: 2017-04-25 18:43+0000\n"
 "PO-Revision-Date: 2017-03-18 10:50+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
@@ -40,13 +40,14 @@ msgstr "Страница не найдена"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Извините, мы не смогли ничего найти по URL, который вы ввели."
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "Установить тему"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "Добавить в Firefox"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "Установить тему"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."

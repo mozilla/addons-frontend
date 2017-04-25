@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-04 17:17+0000\n"
+"POT-Creation-Date: 2017-04-25 18:43+0000\n"
 "PO-Revision-Date: 2017-03-19 15:02+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,13 +39,14 @@ msgstr "Fann ikkje sida"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn."
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "Installer tema"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "Installer tema"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
