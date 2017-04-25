@@ -3,7 +3,6 @@ import { callApi } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { PaginatedApiResponse } from 'core/types/api';
-import log from 'core/logger';
 
 export type ApiReviewType = {|
   addon: {|

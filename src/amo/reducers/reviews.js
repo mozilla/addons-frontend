@@ -1,8 +1,6 @@
 /* @flow */
 import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
-import type {
-  SetAddonReviewsAction, SetReviewAction, UserReviewType,
-} from 'amo/actions/reviews';
+import type { UserReviewType } from 'amo/actions/reviews';
 
 type ReviewsByAddon = {
   [slug: string]: {|

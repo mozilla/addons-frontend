@@ -1,5 +1,6 @@
 /* @flow */
-import React, { PropTypes } from 'react';
+/* eslint-disable react/no-unused-prop-types */
+import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -27,7 +28,6 @@ type AddonReviewListRouteParams = {|
 type AddonReviewListProps = {|
   i18n: Object,
   addon?: AddonType,
-  addonSlug: string,
   location: ReactRouterLocation,
   params: AddonReviewListRouteParams,
   reviewCount?: number,
@@ -68,7 +68,6 @@ export class AddonReviewListBase extends React.Component {
 
   render() {
     const { addon, location, params, i18n, reviewCount, reviews } = this.props;
-    console.log('what props did we actually get?', this.props);
     if (!params.addonSlug) {
       throw new Error('params.addonSlug cannot be falsey');
     }
@@ -164,7 +163,7 @@ export function mapStateToProps(
   state: { reviews: ReviewState }, ownProps: AddonReviewListProps,
 ) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
-    throw new Error('The component had a falsey addonSlug parameter');
+    throw new Error('The component had a falsey params.addonSlug parameter');
   }
   const addonSlug = ownProps.params.addonSlug;
   const reviewData = state.reviews.byAddon[addonSlug];

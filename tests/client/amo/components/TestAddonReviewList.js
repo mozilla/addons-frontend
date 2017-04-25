@@ -268,12 +268,12 @@ describe('amo/components/AddonReviewList', () => {
 
     it('requires component properties', () => {
       assert.throws(() => getMappedProps({ params: null }),
-                    /component had a falsey addonSlug parameter/);
+                    /component had a falsey params.addonSlug parameter/);
     });
 
     it('requires an existing slug property', () => {
       assert.throws(() => getMappedProps({ params: {} }),
-                    /component had a falsey addonSlug parameter/);
+                    /component had a falsey params.addonSlug parameter/);
     });
 
     it('loads all reviews from state', () => {
