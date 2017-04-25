@@ -4,6 +4,7 @@ import {
   DOWNLOAD_PROGRESS,
   ENABLED,
   ERROR,
+  INSTALL_CANCELLED,
   INSTALL_COMPLETE,
   INSTALL_ERROR,
   INSTALL_STATE,
@@ -16,7 +17,7 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import installations from 'core/reducers/installations';
+import installations, { loadAddon } from 'core/reducers/installations';
 
 describe('installations reducer', () => {
   it('is an empty object by default', () => {
@@ -216,6 +217,25 @@ describe('installations reducer', () => {
       });
   });
 
+  it('updates the status on INSTALL_CANCELLED', () => {
+    const state = {
+      'my-addon@me.com': {
+        guid: 'my-addon@me.com',
+        url: 'https://cdn.amo/download/my-addon.xpi',
+        downloadProgress: 100,
+        status: DOWNLOAD_PROGRESS,
+      },
+    };
+    const installationsState = installations(state, {
+      type: INSTALL_CANCELLED,
+      payload: { guid: 'my-addon@me.com' },
+    });
+    const addon = installationsState['my-addon@me.com'];
+
+    assert.equal(addon.downloadProgress, 0);
+    assert.equal(addon.status, UNINSTALLED);
+  });
+
   it('updates the status on UNINSTALL_COMPLETE', () => {
     const state = {
       'my-addon@me.com': {
@@ -316,5 +336,12 @@ describe('installations reducer', () => {
           isPreviewingTheme: false,
         },
       });
+  });
+});
+
+describe('installations loadAddon', () => {
+  it('returns null when no add-on found', () => {
+    const addon = loadAddon({ guid: '302', state: {} });
+    assert.equal(addon, null);
   });
 });
