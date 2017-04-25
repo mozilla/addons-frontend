@@ -2017,9 +2017,9 @@ domhandler@^2.3.0:
   dependencies:
     domelementtype "1"
 
-dompurify@0.8.6:
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-0.8.6.tgz#f5b481d271b1c891feafe12ec9ef45d474fb665a"
+dompurify@0.8.7:
+  version "0.8.7"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-0.8.7.tgz#3cb7626f137e8e2008fe8a026352d87117fdb06b"
 
 domutils@1.5.1, domutils@^1.5.1:
   version "1.5.1"
@@ -3304,7 +3304,7 @@ is-binary-path@^1.0.0:
   dependencies:
     binary-extensions "^1.0.0"
 
-is-buffer@^1.0.2:
+is-buffer@^1.0.2, is-buffer@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.5.tgz#1f3b26ef613b214b88cbca23cc6c01d87961eecc"
 
@@ -3788,10 +3788,10 @@ kind-of@^2.0.1:
     is-buffer "^1.0.2"
 
 kind-of@^3.0.2:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.1.0.tgz#475d698a5e49ff5e53d14e3e732429dc8bf4cf47"
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.0.tgz#b58abe4d5c044ad33726a8c1525b48cf891bff07"
   dependencies:
-    is-buffer "^1.0.2"
+    is-buffer "^1.1.5"
 
 klaw@^1.0.0:
   version "1.3.1"
@@ -6859,8 +6859,8 @@ whatwg-fetch@^0.9.0:
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-0.9.0.tgz#0e3684c6cb9995b43efc9df03e4c365d95fd9cc0"
 
 whatwg-url@^4.3.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-4.7.0.tgz#202035ac1955b087cdd20fa8b58ded3ab1cd2af5"
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-4.7.1.tgz#df4dc2e3f25a63b1fa5b32ed6d6c139577d690de"
   dependencies:
     tr46 "~0.0.3"
     webidl-conversions "^3.0.0"
