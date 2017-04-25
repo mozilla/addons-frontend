@@ -32,6 +32,7 @@ export const REDUX_CONNECT_LOAD_FAIL = '@redux-conn/LOAD_FAIL';
 
 // Add-on error states.
 export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
+export const INSTALL_CANCELLED = 'INSTALL_CANCELLED';
 export const INSTALL_FAILED = 'INSTALL_FAILED';
 
 // Unrecoverable errors.
@@ -139,17 +140,6 @@ export const DOWNLOAD_PROGRESS = 'DOWNLOAD_PROGRESS';
 export const INSTALL_COMPLETE = 'INSTALL_COMPLETE';
 export const UNINSTALL_COMPLETE = 'UNINSTALL_COMPLETE';
 export const INSTALL_ERROR = 'INSTALL_ERROR';
-
-export const acceptedInstallTypes = [
-  INSTALL_STATE,
-  START_DOWNLOAD,
-  DOWNLOAD_PROGRESS,
-  INSTALL_COMPLETE,
-  UNINSTALL_COMPLETE,
-  INSTALL_ERROR,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
-];
 
 // Tracking categories.
 export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
