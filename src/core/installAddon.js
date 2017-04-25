@@ -20,6 +20,7 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_CATEGORY,
   INSTALL_ERROR,
+  INSTALL_CANCELLED,
   INSTALL_FAILED,
   INSTALL_STATE,
   SET_ENABLE_NOT_AVAILABLE,
@@ -70,6 +71,11 @@ export function makeProgressHandler(dispatch, guid) {
       dispatch({
         type: INSTALL_ERROR,
         payload: { guid, error: DOWNLOAD_FAILED },
+      });
+    } else if (event.type === 'onInstallCancelled') {
+      dispatch({
+        type: INSTALL_CANCELLED,
+        payload: { guid },
       });
     } else if (event.type === 'onInstallFailed') {
       dispatch({
