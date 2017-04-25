@@ -26,7 +26,9 @@ import { initialApiState } from 'core/reducers/api';
 import I18nProvider from 'core/i18n/Provider';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
-import { getFakeI18nInst, unexpectedSuccess } from 'tests/client/helpers';
+import {
+  apiResponsePage, getFakeI18nInst, unexpectedSuccess,
+} from 'tests/client/helpers';
 
 function getLoadedReviews({
   addonSlug = fakeAddon.slug, reviews = [fakeReview] } = {},
@@ -173,7 +175,7 @@ describe('amo/components/AddonReviewList', () => {
         .expects('getReviews')
         .once()
         .withArgs({ addon: fakeAddon.id, page })
-        .returns(Promise.resolve(reviews));
+        .returns(apiResponsePage({ results: reviews }));
 
       return loadAddonReviews({
         addonId: fakeAddon.id, addonSlug, dispatch, page,
@@ -194,7 +196,7 @@ describe('amo/components/AddonReviewList', () => {
 
       mockAmoApi
         .expects('getReviews')
-        .returns(Promise.resolve(reviews));
+        .returns(apiResponsePage({ results: reviews }));
 
       return loadAddonReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
         .then(() => {
@@ -282,7 +284,7 @@ describe('amo/components/AddonReviewList', () => {
         .expects('getReviews')
         .once()
         .withArgs({ addon: fakeAddon.id, page })
-        .returns(Promise.resolve(reviews));
+        .returns(apiResponsePage({ results: reviews }));
 
       return loadInitialData({
         location: { query: { page } }, store, params: { addonSlug },

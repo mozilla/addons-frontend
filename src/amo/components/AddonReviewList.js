@@ -122,7 +122,8 @@ export function loadAddonReviews(
   |}
 ) {
   return getReviews({ addon: addonId, page })
-    .then((allReviews) => {
+    .then((response) => {
+      const allReviews = response.results;
       // Ignore reviews with null bodies as those are incomplete.
       // For example, the user selected a star rating but hasn't submitted
       // review text yet.

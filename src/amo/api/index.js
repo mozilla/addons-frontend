@@ -2,6 +2,7 @@
 import { callApi } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';
+import type { PaginatedApiResponse } from 'core/types/api';
 import log from 'core/logger';
 
 export type ApiReviewType = {|
@@ -96,9 +97,11 @@ type GetReviewsParams = {|
   version?: number,
 |};
 
+type GetReviewsApiResponse = PaginatedApiResponse<ApiReviewType>;
+
 export function getReviews(
   { user, addon, ...params }: GetReviewsParams = {}
-): Promise<Array<ApiReviewType>> {
+): Promise<GetReviewsApiResponse> {
   return new Promise((resolve) => {
     if (!user && !addon) {
       throw new Error('Either user or addon must be specified');
@@ -107,14 +110,7 @@ export function getReviews(
       endpoint: 'reviews/review',
       params: { user, addon, ...params },
     }));
-  })
-    .then((response) => {
-      // TODO: implement paging through response.next
-      if (response.next) {
-        log.warn('paging is not yet implemented');
-      }
-      return response.results;
-    });
+  });
 }
 
 type GetLatestReviewParams = {|
@@ -134,7 +130,8 @@ export function getLatestUserReview(
     // and version.
     resolve(getReviews({ user, addon, version }));
   })
-    .then((reviews) => {
+    .then((response) => {
+      const reviews = response.results;
       if (reviews.length === 1) {
         return reviews[0];
       } else if (reviews.length === 0) {

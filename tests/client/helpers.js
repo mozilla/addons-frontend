@@ -172,3 +172,15 @@ export const userAgents = {
       Safari/600.1.4`,
   ],
 };
+
+export function apiResponsePage({
+  count, next, previous, pageSize = 25, results = [],
+} = {}) {
+  return Promise.resolve({
+    count: typeof count !== 'undefined' ? count : results.length,
+    next,
+    page_size: pageSize,
+    previous,
+    results,
+  });
+}

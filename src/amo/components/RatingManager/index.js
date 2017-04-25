@@ -48,6 +48,7 @@ type RatingManagerProps = {|
   errorHandler: ErrorHandlerType,
   i18n: Object,
   loadSavedReview: LoadSavedReviewFunc,
+  // TODO: ReactRouterLocation
   location: UrlFormatParams,
   submitReview: SubmitReviewFunc,
   userId: number,
