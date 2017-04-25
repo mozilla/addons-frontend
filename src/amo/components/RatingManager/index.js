@@ -24,10 +24,10 @@ import DefaultRating from 'ui/components/Rating';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api';
-import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
+import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
@@ -48,8 +48,7 @@ type RatingManagerProps = {|
   errorHandler: ErrorHandlerType,
   i18n: Object,
   loadSavedReview: LoadSavedReviewFunc,
-  // TODO: ReactRouterLocation
-  location: UrlFormatParams,
+  location: ReactRouterLocation,
   submitReview: SubmitReviewFunc,
   userId: number,
   userReview: UserReviewType,
