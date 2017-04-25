@@ -31,9 +31,9 @@ import {
 } from 'tests/client/helpers';
 
 function getLoadedReviews({
-  addonSlug = fakeAddon.slug, reviews = [fakeReview] } = {},
+  addonSlug = fakeAddon.slug, reviews = [fakeReview], reviewCount = 1 } = {},
 ) {
-  const action = setAddonReviews({ addonSlug, reviews });
+  const action = setAddonReviews({ addonSlug, reviewCount, reviews });
   // This is how reviews look after they have been loaded.
   return action.payload.reviews;
 }
@@ -184,7 +184,9 @@ describe('amo/components/AddonReviewList', () => {
           mockAmoApi.verify();
 
           assert.ok(dispatch.called);
-          const expectedAction = setAddonReviews({ addonSlug, reviews });
+          const expectedAction = setAddonReviews({
+            addonSlug, reviewCount: reviews.length, reviews,
+          });
           assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
         });
     });
@@ -200,8 +202,10 @@ describe('amo/components/AddonReviewList', () => {
 
       return loadAddonReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
         .then(() => {
+          // Expect an action with a filtered review array.
+          // However, the count will not take into account the filtering.
           const expectedAction = setAddonReviews({
-            addonSlug, reviews: [fakeReview],
+            addonSlug, reviews: [fakeReview], reviewCount: 2,
           });
           assert.ok(dispatch.called);
           assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
@@ -246,7 +250,9 @@ describe('amo/components/AddonReviewList', () => {
 
     it('loads all reviews from state', () => {
       const reviews = [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }];
-      const action = setAddonReviews({ addonSlug: fakeAddon.slug, reviews });
+      const action = setAddonReviews({
+        addonSlug: fakeAddon.slug, reviews, reviewCount: reviews.length,
+      });
       store.dispatch(action);
 
       const props = getMappedProps();

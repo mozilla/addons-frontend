@@ -60,17 +60,19 @@ export type SetAddonReviewsAction = {|
   type: string,
   payload: {|
     addonSlug: string,
+    reviewCount: number,
     reviews: Array<UserReviewType>,
   |},
 |};
 
 type SetAddonReviewsParams = {|
   addonSlug: string,
+  reviewCount: number,
   reviews: Array<ApiReviewType>,
 |};
 
 export const setAddonReviews = (
-  { addonSlug, reviews }: SetAddonReviewsParams
+  { addonSlug, reviewCount, reviews }: SetAddonReviewsParams
 ): SetAddonReviewsAction => {
   if (!addonSlug) {
     throw new Error('addonSlug cannot be empty');
@@ -78,10 +80,14 @@ export const setAddonReviews = (
   if (!Array.isArray(reviews)) {
     throw new Error('reviews must be an Array');
   }
+  if (typeof reviewCount === 'undefined') {
+    throw new Error('reviewCount must be set');
+  }
   return {
     type: SET_ADDON_REVIEWS,
     payload: {
       addonSlug,
+      reviewCount,
       reviews: reviews.map((review) => denormalizeReview(review)),
     },
   };
