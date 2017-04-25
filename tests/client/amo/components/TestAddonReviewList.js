@@ -121,18 +121,6 @@ describe('amo/components/AddonReviewList', () => {
       assert.include(byLine, fakeReview.user.name);
     });
 
-    // This test might be hard now that there are paginator links.
-    it.skip('renders header links', () => {
-      const tree = render({ reviews: [fakeReview] });
-      const links = scryRenderedComponentsWithType(tree, Link);
-
-      assert.equal(links.length, 2);
-      const expectedDest = '/addon/chill-out/';
-      links.forEach((link) => {
-        assert.equal(link.props.to, expectedDest);
-      });
-    });
-
     it('renders an icon in the header', () => {
       const root = renderToDOM({ addon: fakeAddon });
       const img = root.querySelector('.AddonReviewList-header-icon img');
