@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-25 18:40+0000\n"
-"PO-Revision-Date: 2017-04-12 00:19+0000\n"
+"PO-Revision-Date: 2017-04-26 21:08+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -15,37 +15,24 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddonCompatibilityError/index.js:54
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"このアドオンをインストールするには <a href=\"%(downloadUrl)s\">Firefox をダウ"
-"ンロード</a> してください。"
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "このアドオンをインストールするには <a href=\"%(downloadUrl)s\">Firefox をダウンロード</a> してください。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:58
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "お使いのバージョンの Firefox は検索エンジンに対応していません。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS 版 Firefox は今のところアドオンに対応していません。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:64
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"このアドオンは <a href=\"%(downloadUrl)s\">より新しいバージョンの Firefox</"
-"a> (%(minVersion)s 以上) を必要とします。あなたは Firefox %(yourVersion)s を"
-"お使いです。"
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "このアドオンは <a href=\"%(downloadUrl)s\">より新しいバージョンの Firefox</a> (%(minVersion)s 以上) を必要とします。あなたは Firefox %(yourVersion)s をお使いです。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:78
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"お使いのブラウザーはアドオンに対応していません。<a href=\"%(downloadUrl)s"
-"\">Firefox をダウンロード</a> すればこのアドオンをインストールできます。"
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "お使いのブラウザーはアドオンに対応していません。<a href=\"%(downloadUrl)s\">Firefox をダウンロード</a> すればこのアドオンをインストールできます。"
 
 #: src/amo/components/AddonDetail.js:131
 msgid "Read %(count)s review"
@@ -163,10 +150,8 @@ msgid "Tell the world about this extension."
 msgstr "この拡張機能をレビューしてください。"
 
 #: src/amo/components/AddonReview.js:96
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"この拡張機能を使ったあなたの体験について、具体的かつ簡潔に教えてください。"
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "この拡張機能を使ったあなたの体験について、具体的かつ簡潔に教えてください。"
 
 #: src/amo/components/AddonReviewList.js:38
 msgid "from %(authorName)s, %(timestamp)s"
@@ -197,77 +182,42 @@ msgid "No categories found."
 msgstr "カテゴリーが見つかりませんでした。"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
-msgstr ""
-"もしあなたがログインしていてこのメッセージがエラーだと思われる場合は、<a "
-"href=\"%(url)s\">問題を報告</a> してください。参照元のページと何を探していた"
-"かを教えてもらえれば、問題の修正に役立ちます。"
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr "もしあなたがログインしていてこのメッセージがエラーだと思われる場合は、<a href=\"%(url)s\">問題を報告</a> してください。参照元のページと何を探していたかを教えてもらえれば、問題の修正に役立ちます。"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
 msgstr "権限がありません"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"申し訳ありませんが、あなたにはこのページへアクセスする権限がありません。もし"
-"ログインしていない場合はページの上にあるリンクを使ってログインしてみてくださ"
-"い。"
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "申し訳ありませんが、あなたにはこのページへアクセスする権限がありません。もしログインしていない場合はページの上にあるリンクを使ってログインしてみてください。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:21
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"もしあなたがどこからかリンクを辿ってきた場合は、<a href=\"%(url)s\">問題を報"
-"告</a> してください。参照元のページと何を探していたかを教えてもらえれば、私達"
-"は問題の修正に最善を尽くします。"
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "もしあなたがどこからかリンクを辿ってきた場合は、<a href=\"%(url)s\">問題を報告</a> してください。参照元のページと何を探していたかを教えてもらえれば、私達は問題の修正に最善を尽くします。"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:32
-#: src/core/components/ErrorPage/NotFound/index.js:24
+#: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
 msgstr "ページが見つかりませんでした"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"申し訳ありませんが、入力されたアドレスには何も見つかりませんでした。もしあな"
-"たがアドオンへのリンクを辿ってきた場合は、作者によってそのアドオンが削除され"
-"た可能性があります。"
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "申し訳ありませんが、入力されたアドレスには何も見つかりませんでした。もしあなたがアドオンへのリンクを辿ってきた場合は、作者によってそのアドオンが削除された可能性があります。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:21
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
-msgstr ""
-"もし何か役に立つ詳しい情報をお持ちの場合は <a href=\"https://github.com/"
-"mozilla/addons-frontend/issues/new/\">問題を報告</a> してください。エラーにつ"
-"ながるまでの手順を教えてもらえれば、私達は問題の修正に最善を尽くします。"
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
+msgstr "もし何か役に立つ詳しい情報をお持ちの場合は <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">問題を報告</a> してください。エラーにつながるまでの手順を教えてもらえれば、私達は問題の修正に最善を尽くします。"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:31
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
 msgstr "サーバーエラー"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"申し訳ありませんが、サーバー上でエラーが発生したため、あなたのリクエストを完"
-"了することができませんでした。私達はこのエラーを記録しており、今後調査を行い"
-"ます。"
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "申し訳ありませんが、サーバー上でエラーが発生したため、あなたのリクエストを完了することができませんでした。私達はこのエラーを記録しており、今後調査を行います。"
 
 #: src/amo/components/FeaturedAddons/index.js:32
 msgid "More Featured Extensions"
@@ -302,20 +252,12 @@ msgid "Extensions"
 msgstr "拡張機能"
 
 #: src/amo/components/LandingPage.js:119
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"ブラウザーの見た目を変えてみましょう。何千種類ものテーマから好きなものを選ん"
-"で、Firefox のデザインを自分好みに設定できます。"
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "ブラウザーの見た目を変えてみましょう。何千種類ものテーマから好きなものを選んで、Firefox のデザインを自分好みに設定できます。"
 
 #: src/amo/components/LandingPage.js:121
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"ブラウジングをより素早く安全にするパワフルなアドオンを追加して、ブラウザーを"
-"自分だけのものに。"
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "ブラウジングをより素早く安全にするパワフルなアドオンを追加して、ブラウザーを自分だけのものに。"
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
@@ -386,7 +328,6 @@ msgid "Log in to rate this language pack"
 msgstr "ログインしてこの言語パックを評価"
 
 #: src/amo/components/RatingManager/index.js:127
-#, fuzzy
 msgid "Log in to rate this search plugin"
 msgstr "ログインしてこの検索エンジンを評価"
 
@@ -475,12 +416,8 @@ msgid "Add-ons for Firefox"
 msgstr "Add-ons for Firefox"
 
 #: src/amo/containers/Home.js:39
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
-msgstr ""
-"拡張機能は Firefox へ追加できる特別な機能です。テーマはブラウザーの見た目を変"
-"えることができます。"
+msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+msgstr "拡張機能は Firefox へ追加できる特別な機能です。テーマはブラウザーの見た目を変えることができます。"
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -547,15 +484,10 @@ msgid "Log in/Sign up"
 msgstr "ログイン・登録"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することが"
-"できませんでした。私達はこのエラーを記録しており、今後調査を行います。"
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することができませんでした。私達はこのエラーを記録しており、今後調査を行います。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "エラーコード: %(status)s"
 
@@ -563,8 +495,7 @@ msgstr "エラーコード: %(status)s"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "申し訳ありませんが、入力された URL には何も見つかりませんでした。"
 
-#: src/core/components/InstallButton/index.js:105
-#: src/core/components/InstallButton/index.js:121
+#: src/core/components/InstallButton/index.js:105 src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "Firefox へ追加"
 
@@ -582,8 +513,7 @@ msgstr "%(name)s をインストールしています。"
 
 #: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s はインストールされ有効化されました。削除するにはここをクリック。"
+msgstr "%(name)s はインストールされ有効化されました。削除するにはここをクリック。"
 
 #: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
@@ -702,8 +632,7 @@ msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "「%(query)s」を検索したところ %(count)s 件の結果が見つかりました。"
+#~ msgstr[0] "「%(query)s」を検索したところ %(count)s 件の結果が見つかりました。"
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "検索語を正しく入力してください"
