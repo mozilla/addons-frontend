@@ -18,7 +18,7 @@ import { addChangeListeners } from 'core/addonManager';
 import {
   logOutUser as logOutUserAction, setUserAgent as setUserAgentAction,
 } from 'core/actions';
-import { INSTALL_STATE } from 'core/constants';
+import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
@@ -147,6 +147,12 @@ export class AppBase extends React.Component {
       new Date((now + expirationTime) * 1000).toString();
     log.debug(`Auth token expires at ${readableExpiration}`);
 
+    const setTimeoutDelay = expirationTime * 1000;
+    if (setTimeoutDelay >= maximumSetTimeoutDelay) {
+      log.debug(oneLine`No logout was scheduled because the expiration
+        exceeded the setTimeout limit`);
+      return;
+    }
     if (this.scheduledLogout) {
       clearTimeout(this.scheduledLogout);
     }
@@ -154,7 +160,7 @@ export class AppBase extends React.Component {
     this.scheduledLogout = setTimeout(() => {
       log.info('Logging out because the auth token has expired');
       logOutUser();
-    }, expirationTime * 1000);
+    }, setTimeoutDelay);
   }
 
   onViewDesktop = (

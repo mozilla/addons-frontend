@@ -21,7 +21,7 @@ import {
 } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
-import { INSTALL_STATE } from 'core/constants';
+import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
@@ -309,6 +309,18 @@ describe('App', () => {
       render({ authToken, authTokenValidFor, logOutUser });
 
       clock.tick(authTokenValidFor * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('does not set a timeout for expirations too far in the future', () => {
+      const authTokenValidFor = (maximumSetTimeoutDelay / 1000) + 1;
+      const logOutUser = sinon.stub();
+
+      renderAppWithAuth({ authTokenValidFor, logOutUser });
+
+      const fuzz = 3; // account for the rounded offset calculation.
+      clock.tick((authTokenValidFor + fuzz) * 1000);
       assert.notOk(logOutUser.called,
         'expected logOutUser() NOT to be called');
     });
