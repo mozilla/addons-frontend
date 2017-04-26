@@ -233,7 +233,7 @@ describe('App', () => {
 
       renderAppWithAuth({ authTokenValidFor, logOutUser });
 
-      const fuzz = 3; // acount for rounding the offset calculation.
+      const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
       assert.ok(logOutUser.called, 'expected logOutUser() to be called');
     });
