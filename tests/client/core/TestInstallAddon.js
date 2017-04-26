@@ -16,6 +16,7 @@ import {
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_CATEGORY,
+  INSTALL_CANCELLED,
   INSTALL_FAILED,
   INSTALL_STATE,
   INSTALLED,
@@ -278,15 +279,26 @@ describe('withInstallHelpers inner functions', () => {
       }));
     });
 
+    it('resets status to uninstalled on onInstallCancelled', () => {
+      const dispatch = sinon.spy();
+      const guid = '{my-addon}';
+      const handler = makeProgressHandler(dispatch, guid);
+      handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallCancelled' });
+      assert.deepEqual(dispatch.firstCall.args[0], {
+        type: INSTALL_CANCELLED,
+        payload: { guid },
+      });
+    });
+
     it('sets status to error on onInstallFailed', () => {
       const dispatch = sinon.spy();
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
-      assert(dispatch.calledWith({
+      assert.deepEqual(dispatch.firstCall.args[0], {
         type: 'INSTALL_ERROR',
         payload: { guid, error: INSTALL_FAILED },
-      }));
+      });
     });
 
     it('does nothing on unknown events', () => {
