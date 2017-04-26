@@ -262,7 +262,7 @@ describe('App', () => {
 
       clock.tick(5 * 1000); // 5 seconds
       assert.notOk(logOutUser.called,
-        'expected logOutUser() to NOT be called');
+        'expected logOutUser() NOT to be called');
     });
 
     it('only starts a timer when authTokenValidFor is configured', () => {
