@@ -160,15 +160,15 @@ export class AppBase extends React.Component {
   onViewDesktop = (
     event: Event,
     {
-      window_ = window, cookie_ = cookie,
-    }: {
-      window_: typeof window, cookie_: typeof cookie,
-    } = {}
+      _window = window, _cookie = cookie,
+    }: {|
+      _window: typeof window, _cookie: typeof cookie,
+    |} = {}
   ) => {
     event.preventDefault();
-    if (window_ && window_.location) {
-      cookie_.save('mamo', 'off', { path: '/' });
-      window_.location.reload();
+    if (_window && _window.location) {
+      _cookie.save('mamo', 'off', { path: '/' });
+      _window.location.reload();
     }
   }
 

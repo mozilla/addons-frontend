@@ -112,7 +112,7 @@ describe('App', () => {
     };
 
     const root = render();
-    root.onViewDesktop(fakeEvent, { window_: fakeWindow, cookie_: fakeCookieLib });
+    root.onViewDesktop(fakeEvent, { _window: fakeWindow, _cookie: fakeCookieLib });
     assert.ok(fakeEvent.preventDefault.called);
     assert.ok(fakeCookieLib.save.calledWith('mamo', 'off'));
     assert.ok(fakeWindow.location.reload.called);
