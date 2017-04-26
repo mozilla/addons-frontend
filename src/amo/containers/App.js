@@ -98,7 +98,7 @@ export class AppBase extends React.Component {
     }
 
     if (authToken) {
-      log.info('Setting a logout timer when the token expires');
+      log.info('Setting a logout timer for when the token expires');
       this.setLogOutTimer(authToken);
     }
   }
@@ -106,7 +106,7 @@ export class AppBase extends React.Component {
   componentWillReceiveProps(nextProps: AppProps) {
     const { authToken } = nextProps;
     if (authToken) {
-      log.info('Setting a new logout timer when the token expires');
+      log.info('Setting a new logout timer for when the token expires');
       this.setLogOutTimer(authToken);
     }
   }
