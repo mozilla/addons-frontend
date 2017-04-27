@@ -32,6 +32,7 @@ export const REDUX_CONNECT_LOAD_FAIL = '@redux-conn/LOAD_FAIL';
 
 // Add-on error states.
 export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
+export const INSTALL_CANCELLED = 'INSTALL_CANCELLED';
 export const INSTALL_FAILED = 'INSTALL_FAILED';
 
 // Unrecoverable errors.
@@ -140,17 +141,6 @@ export const INSTALL_COMPLETE = 'INSTALL_COMPLETE';
 export const UNINSTALL_COMPLETE = 'UNINSTALL_COMPLETE';
 export const INSTALL_ERROR = 'INSTALL_ERROR';
 
-export const acceptedInstallTypes = [
-  INSTALL_STATE,
-  START_DOWNLOAD,
-  DOWNLOAD_PROGRESS,
-  INSTALL_COMPLETE,
-  UNINSTALL_COMPLETE,
-  INSTALL_ERROR,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
-];
-
 // Tracking categories.
 export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
 export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
@@ -183,3 +173,9 @@ export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';
 export const API_ERROR_DECODING_SIGNATURE = 'ERROR_DECODING_SIGNATURE';
 export const API_ERROR_INVALID_HEADER = 'ERROR_INVALID_HEADER';
 export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
+
+// This is the limit in milleseconds for how long a setTimeout delay can be.
+// No setTimeout should be scheduled for this time because it
+// will be triggered immediately.
+// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Maximum_delay_value
+export const maximumSetTimeoutDelay = 2147483647;

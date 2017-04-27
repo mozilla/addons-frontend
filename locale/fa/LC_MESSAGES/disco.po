@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-04 17:17+0000\n"
+"POT-Creation-Date: 2017-04-25 18:43+0000\n"
 "PO-Revision-Date: 2017-04-09 12:30+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "خطای کارگزار"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "متاسفانه خطایی رخ داد و ما نتوانستیم درخواست شما را کامل کنیم. این خطا نگه داری شده و مورد بررسی قرار خواهد گرفت."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"متاسفانه خطایی رخ داد و ما نتوانستیم درخواست شما را کامل کنیم. این خطا نگه "
+"داری شده و مورد بررسی قرار خواهد گرفت."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
 msgstr "کد خطا: %(status)s."
 
@@ -34,13 +39,14 @@ msgstr "صفحه پیدا نشد"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "متاسفیم، نتوانستیم چیزی در آدرس URL وارد شده پیدا کنیم."
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "نصب قالب"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "نصب قالب"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
@@ -132,13 +138,20 @@ msgstr "فایرفاکس خود را شخصی سازی کنید"
 
 #: src/disco/containers/DiscoPane.js:104
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"هزاران افزودنی رایگان وجود دارد که توسط توسعه‌دهندگانی از سراسر دنیا ساخته شده‌اند،\n"
-"که شما می‌توانید آنها را نصب کنید و فایرفاکس را برای خود شخصی‌سازی کنید. از تم‌های نمایشی\n"
-"جالب تا ابزارهای قدرتمندی که می‌توانند مرور اینترنت را سریع‌تر و امن‌تر کنند، افزودنی‌ها\n"
-"مرورگر را با شما منطبق می‌کند. برای کمک به شما، این‌ها تعدادی از مواردی هستند که\n"
+"هزاران افزودنی رایگان وجود دارد که توسط توسعه‌دهندگانی از سراسر دنیا ساخته "
+"شده‌اند،\n"
+"که شما می‌توانید آنها را نصب کنید و فایرفاکس را برای خود شخصی‌سازی کنید. از "
+"تم‌های نمایشی\n"
+"جالب تا ابزارهای قدرتمندی که می‌توانند مرور اینترنت را سریع‌تر و امن‌تر کنند، "
+"افزودنی‌ها\n"
+"مرورگر را با شما منطبق می‌کند. برای کمک به شما، این‌ها تعدادی از مواردی هستند "
+"که\n"
 "ما به دلیل کارایی و کارکردشان به شما توصیه می کنیم."
 
 #: src/disco/containers/DiscoPane.js:112

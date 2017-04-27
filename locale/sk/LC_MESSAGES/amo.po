@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-18 16:29+0000\n"
+"POT-Creation-Date: 2017-04-25 18:40+0000\n"
 "PO-Revision-Date: 2017-04-12 17:18+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonCompatibilityError/index.js:53
+#: src/amo/components/AddonCompatibilityError/index.js:54
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -22,11 +22,15 @@ msgstr ""
 "Na inštaláciu tohoto doplnku si musíte <a href=\"%(downloadUrl)s\">prevziať "
 "Firefox</a>."
 
-#: src/amo/components/AddonCompatibilityError/index.js:57
+#: src/amo/components/AddonCompatibilityError/index.js:58
+msgid "Your version of Firefox does not support search plugins."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox pre iOS v súčasnosti nepodporuje doplnky."
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -34,7 +38,7 @@ msgstr ""
 "Tento doplnok vyžaduje <a href=\"%(downloadUrl)s\">novšiu verziu Firefoxu</"
 "a> (aspoň verziu %(minVersion)s). Vy používate Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:78
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -379,31 +383,32 @@ msgstr "Prehliadanie vo vašom jazyku"
 msgid "Firefox Add-ons"
 msgstr "Doplnky pre Firefox"
 
-#: src/amo/components/RatingManager/index.js:122
+#: src/amo/components/RatingManager/index.js:123
 msgid "Log in to rate this dictionary"
 msgstr "Ak chcete ohodnotiť tento slovník, musíte sa prihlásiť"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this language pack"
 msgstr "Ak chcete ohodnotiť tento jazykový balíček, musíte sa prihlásiť"
 
-#: src/amo/components/RatingManager/index.js:126
-msgid "Log in to rate this search engine"
+#: src/amo/components/RatingManager/index.js:127
+#, fuzzy
+msgid "Log in to rate this search plugin"
 msgstr "Ak chcete ohodnotiť tento vyhľadávací modul, musíte sa prihlásiť"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this theme"
 msgstr "Ak chcete ohodnotiť túto tému vzhľadu, musíte sa prihlásiť"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this extension"
 msgstr "Ak chcete ohodnotiť toto rozšírenie, musíte sa prihlásiť"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this add-on"
 msgstr "Ak chcete ohodnotiť tento doplnok, musíte sa prihlásiť"
 
-#: src/amo/components/RatingManager/index.js:160
+#: src/amo/components/RatingManager/index.js:161
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Ako si užívate používanie doplnku %(addonName)s?"
 
@@ -564,13 +569,14 @@ msgstr "Kód chyby: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Ospravedlňujeme sa, ale na zadanej adrese nemôžeme nič nájsť."
 
-#: src/core/components/InstallButton/index.js:72
-msgid "Install Theme"
-msgstr "Nainštalovať tému vzhľadu"
-
-#: src/core/components/InstallButton/index.js:88
+#: src/core/components/InstallButton/index.js:105
+#: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
 msgstr "Pridať do Firefoxu"
+
+#: src/core/components/InstallButton/index.js:84
+msgid "Install Theme"
+msgstr "Nainštalovať tému vzhľadu"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."

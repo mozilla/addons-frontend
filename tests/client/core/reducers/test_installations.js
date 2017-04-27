@@ -4,6 +4,7 @@ import {
   DOWNLOAD_PROGRESS,
   ENABLED,
   ERROR,
+  INSTALL_CANCELLED,
   INSTALL_COMPLETE,
   INSTALL_ERROR,
   INSTALL_STATE,
@@ -216,6 +217,25 @@ describe('installations reducer', () => {
       });
   });
 
+  it('updates the status on INSTALL_CANCELLED', () => {
+    const state = {
+      'my-addon@me.com': {
+        guid: 'my-addon@me.com',
+        url: 'https://cdn.amo/download/my-addon.xpi',
+        downloadProgress: 100,
+        status: DOWNLOAD_PROGRESS,
+      },
+    };
+    const installationsState = installations(state, {
+      type: INSTALL_CANCELLED,
+      payload: { guid: 'my-addon@me.com' },
+    });
+    const addon = installationsState['my-addon@me.com'];
+
+    assert.equal(addon.downloadProgress, 0);
+    assert.equal(addon.status, UNINSTALLED);
+  });
+
   it('updates the status on UNINSTALL_COMPLETE', () => {
     const state = {
       'my-addon@me.com': {
@@ -316,5 +336,17 @@ describe('installations reducer', () => {
           isPreviewingTheme: false,
         },
       });
+  });
+
+  it('cannot update a non-existant add-on', () => {
+    assert.throws(
+      () => installations({}, {
+        type: INSTALL_ERROR,
+        payload: {
+          guid: 'my-addon@me.com',
+          error: 'an-error',
+        },
+      }),
+      /no add-on with guid my-addon@me.com found/);
   });
 });
