@@ -17,7 +17,7 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import installations, { loadAddon } from 'core/reducers/installations';
+import installations from 'core/reducers/installations';
 
 describe('installations reducer', () => {
   it('is an empty object by default', () => {
@@ -337,11 +337,16 @@ describe('installations reducer', () => {
         },
       });
   });
-});
 
-describe('installations loadAddon', () => {
-  it('returns null when no add-on found', () => {
-    const addon = loadAddon({ guid: '302', state: {} });
-    assert.equal(addon, null);
+  it('cannot update a non-existant add-on', () => {
+    assert.throws(
+      () => installations({}, {
+        type: INSTALL_ERROR,
+        payload: {
+          guid: 'my-addon@me.com',
+          error: 'an-error',
+        },
+      }),
+      /no add-on with guid my-addon@me.com found/);
   });
 });

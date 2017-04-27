@@ -1,3 +1,5 @@
+import base62 from 'base62';
+
 import {
   FEATURED_ADDONS_TO_LOAD,
   LANDING_PAGE_ADDON_COUNT,
@@ -72,4 +74,18 @@ export function getErrorComponent(status) {
     default:
       return ServerError;
   }
+}
+
+/*
+ * Return a base62 object that encodes/decodes just like how Django does it
+ * for cookie timestamps.
+ *
+ * See:
+ * https://github.com/django/django/blob/0b9f366c60134a0ca2873c156b9c80acb7ffd8b5/django/core/signing.py#L180
+ */
+export function getDjangoBase62() {
+  // This is the alphabet used by Django.
+  base62.setCharacterSet(
+    '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+  return base62;
 }

@@ -14,15 +14,16 @@ import {
 } from 'amo/containers/App';
 import createStore from 'amo/store';
 import {
+  logOutUser as logOutUserAction,
   setClientApp,
   setLang,
   setUserAgent as setUserAgentAction,
 } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
-import { INSTALL_STATE } from 'core/constants';
+import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 
 
 describe('App', () => {
@@ -60,6 +61,7 @@ describe('App', () => {
   function render({ children = [], ...customProps } = {}) {
     const props = {
       i18n: getFakeI18nInst(),
+      logOutUser: sinon.stub(),
       location: sinon.stub(),
       isAuthenticated: true,
       store: createStore(),
@@ -110,7 +112,7 @@ describe('App', () => {
     };
 
     const root = render();
-    root.onViewDesktop(fakeEvent, { window_: fakeWindow, cookie_: fakeCookieLib });
+    root.onViewDesktop(fakeEvent, { _window: fakeWindow, _cookie: fakeCookieLib });
     assert.ok(fakeEvent.preventDefault.called);
     assert.ok(fakeCookieLib.save.calledWith('mamo', 'off'));
     assert.ok(fakeWindow.location.reload.called);
@@ -203,5 +205,131 @@ describe('App', () => {
     const rootNode = findDOMNode(root);
 
     assert.include(rootNode.textContent, 'Page not found');
+  });
+
+  describe('handling expired auth tokens', () => {
+    let clock;
+
+    function renderAppWithAuth(customProps = {}) {
+      const props = {
+        authToken: userAuthToken(),
+        logOutUser: sinon.stub(),
+        ...customProps,
+      };
+      return render(props);
+    }
+
+    beforeEach(() => {
+      clock = sinon.useFakeTimers(Date.now());
+    });
+
+    afterEach(() => {
+      clock.restore();
+    });
+
+    it('logs out when the token expires', () => {
+      const authTokenValidFor = 10; // seconds
+      const logOutUser = sinon.stub();
+
+      renderAppWithAuth({ authTokenValidFor, logOutUser });
+
+      const fuzz = 3; // account for the rounded offset calculation.
+      clock.tick((authTokenValidFor + fuzz) * 1000);
+      assert.ok(logOutUser.called, 'expected logOutUser() to be called');
+    });
+
+    it('only sets one timer when receiving new props', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = userAuthToken();
+      const logOutUser = sinon.stub();
+
+      const root = render({ authToken, authTokenValidFor, logOutUser });
+      // Simulate updating the component with new properties.
+      root.componentWillReceiveProps({ authToken });
+
+      const fuzz = 3; // account for the rounded offset calculation.
+      clock.tick((authTokenValidFor + fuzz) * 1000);
+      assert.ok(logOutUser.called, 'expected logOutUser() to be called');
+      assert.ok(logOutUser.calledOnce,
+        'logOutUser() should only be called once');
+    });
+
+    it('does not log out until the token expires', () => {
+      const authTokenValidFor = 10; // seconds
+      const logOutUser = sinon.stub();
+
+      renderAppWithAuth({ authTokenValidFor, logOutUser });
+
+      clock.tick(5 * 1000); // 5 seconds
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('only starts a timer when authTokenValidFor is configured', () => {
+      const logOutUser = sinon.stub();
+
+      renderAppWithAuth({ authTokenValidFor: null, logOutUser });
+
+      clock.tick(100 * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('ignores malformed timestamps', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = userAuthToken({}, {
+        tokenCreatedAt: 'bogus-timestamp',
+      });
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor, logOutUser });
+
+      clock.tick(authTokenValidFor * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('ignores empty timestamps', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = 'this-is-a-token-with-an-empty-timestamp';
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor, logOutUser });
+
+      clock.tick(authTokenValidFor * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('ignores malformed tokens', () => {
+      const authTokenValidFor = 10; // seconds
+      const authToken = 'not-auth-data:^&invalid-characters:not-a-signature';
+      const logOutUser = sinon.stub();
+
+      render({ authToken, authTokenValidFor, logOutUser });
+
+      clock.tick(authTokenValidFor * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('does not set a timeout for expirations too far in the future', () => {
+      const authTokenValidFor = (maximumSetTimeoutDelay / 1000) + 1;
+      const logOutUser = sinon.stub();
+
+      renderAppWithAuth({ authTokenValidFor, logOutUser });
+
+      const fuzz = 3; // account for the rounded offset calculation.
+      clock.tick((authTokenValidFor + fuzz) * 1000);
+      assert.notOk(logOutUser.called,
+        'expected logOutUser() NOT to be called');
+    });
+
+    it('maps a logOutUser action', () => {
+      const dispatch = sinon.stub();
+      const { logOutUser } = mapDispatchToProps(dispatch);
+      logOutUser();
+      assert.deepEqual(dispatch.firstCall.args[0], logOutUserAction());
+    });
   });
 });

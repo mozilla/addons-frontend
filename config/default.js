@@ -66,6 +66,7 @@ module.exports = {
   //
   clientConfigKeys: [
     'allowErrorSimulation',
+    'authTokenValidFor',
     'amoCDN',
     'apiHost',
     'apiPath',
@@ -238,4 +239,8 @@ module.exports = {
 
   sentryDsn: process.env.SENTRY_DSN || null,
   publicSentryDsn: null,
+
+  // The amount of time (in seconds) that an auth token lives for. This is
+  // currently only used in AMO.
+  authTokenValidFor: null,
 };

@@ -173,3 +173,9 @@ export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';
 export const API_ERROR_DECODING_SIGNATURE = 'ERROR_DECODING_SIGNATURE';
 export const API_ERROR_INVALID_HEADER = 'ERROR_INVALID_HEADER';
 export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
+
+// This is the limit in milleseconds for how long a setTimeout delay can be.
+// No setTimeout should be scheduled for this time because it
+// will be triggered immediately.
+// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Maximum_delay_value
+export const maximumSetTimeoutDelay = 2147483647;

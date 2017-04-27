@@ -1,3 +1,5 @@
+/* @flow */
+/* global Node, $PropertyType */
 import {
   DOWNLOAD_PROGRESS,
   DOWNLOADING,
@@ -13,86 +15,117 @@ import {
   UNINSTALLED,
   UNINSTALL_COMPLETE,
 } from 'core/constants';
-import log from 'core/logger';
+import type { AddonType } from 'core/types/addons';
 
+export type InstalledAddon = {
+  downloadProgress?: number,
+  error?: string,
+  guid: $PropertyType<AddonType, 'guid'>,
+  isPreviewingTheme?: boolean,
+  needsRestart?: boolean,
+  status?: $PropertyType<AddonType, 'status'>,
+  themePreviewNode?: Node,
+  url?: $PropertyType<AddonType, 'url'>,
+};
 
-export function loadAddon({ guid, state }) {
-  if (state[guid]) {
-    return { ...state[guid] };
+type InstallationAction = {|
+  payload: InstalledAddon,
+  type: string,
+|};
+
+type InstallationState = {
+  [guid: $PropertyType<AddonType, 'guid'>]: InstalledAddon,
+};
+
+export default function installations(
+  state: InstallationState = {}, { type, payload }: InstallationAction,
+) {
+  function updateAddon(newProps: Object): InstalledAddon {
+    const guid = payload.guid;
+    const addon = state[guid];
+    if (!addon) {
+      throw new Error(
+        `Cannot reduce type ${type}; no add-on with guid ${guid} found.`);
+    }
+    return {
+      ...addon,
+      ...newProps,
+    };
   }
-
-  log.warn(`No add-on with guid ${guid} found.`);
-  return null;
-}
-
-export default function installations(state = {}, { type, payload }) {
-  let addon;
 
   switch (type) {
     case INSTALL_STATE:
-      addon = {
-        guid: payload.guid,
-        url: payload.url,
-        error: payload.error,
-        downloadProgress: 0,
-        status: payload.status,
-        needsRestart: payload.needsRestart || false,
+      return {
+        ...state,
+        [payload.guid]: {
+          guid: payload.guid,
+          url: payload.url,
+          error: payload.error,
+          downloadProgress: 0,
+          status: payload.status,
+          needsRestart: payload.needsRestart || false,
+        },
       };
-
-      return { ...state, [payload.guid]: addon };
     case START_DOWNLOAD:
-      addon = loadAddon({ guid: payload.guid, state });
-
-      addon.status = DOWNLOADING;
-
-      return { ...state, [payload.guid]: addon };
+      return {
+        ...state,
+        [payload.guid]: updateAddon({
+          status: DOWNLOADING,
+        }),
+      };
     case DOWNLOAD_PROGRESS:
-      addon = loadAddon({ guid: payload.guid, state });
-
-      addon.downloadProgress = payload.downloadProgress;
-
-      return { ...state, [payload.guid]: addon };
+      return {
+        ...state,
+        [payload.guid]: updateAddon({
+          downloadProgress: payload.downloadProgress,
+        }),
+      };
     case INSTALL_COMPLETE:
-      addon = loadAddon({ guid: payload.guid, state });
-
-      addon.status = INSTALLED;
-
-      return { ...state, [payload.guid]: addon };
+      return {
+        ...state,
+        [payload.guid]: updateAddon({
+          status: INSTALLED,
+        }),
+      };
     case UNINSTALL_COMPLETE:
-      addon = loadAddon({ guid: payload.guid, state });
-
-      addon.status = UNINSTALLED;
-
-      return { ...state, [payload.guid]: addon };
+      return {
+        ...state,
+        [payload.guid]: updateAddon({
+          status: UNINSTALLED,
+        }),
+      };
     case INSTALL_CANCELLED:
-      addon = loadAddon({ guid: payload.guid, state });
-
-      addon.downloadProgress = 0;
-      addon.status = UNINSTALLED;
-
-      return { ...state, [payload.guid]: addon };
-    /* istanbul ignore case */
+      return {
+        ...state,
+        [payload.guid]: updateAddon({
+          downloadProgress: 0,
+          status: UNINSTALLED,
+        }),
+      };
     case INSTALL_ERROR:
-      addon = loadAddon({ guid: payload.guid, state });
-
-      addon.downloadProgress = 0;
-      addon.status = ERROR;
-      addon.error = payload.error;
-
-      return { ...state, [payload.guid]: addon };
+      return {
+        ...state,
+        [payload.guid]: updateAddon({
+          downloadProgress: 0,
+          error: payload.error,
+          status: ERROR,
+        }),
+      };
     case THEME_PREVIEW:
-      addon = loadAddon({ guid: payload.guid, state });
-
-      addon.isPreviewingTheme = true;
-      addon.themePreviewNode = payload.themePreviewNode;
-
-      return { ...state, [payload.guid]: addon };
+      return {
+        ...state,
+        [payload.guid]: updateAddon({
+          isPreviewingTheme: true,
+          themePreviewNode: payload.themePreviewNode,
+        }),
+      };
     case THEME_RESET_PREVIEW:
-      addon = loadAddon({ guid: payload.guid, state });
-
-      addon.isPreviewingTheme = false;
-
-      return { ...state, [payload.guid]: addon };
+      return {
+        ...state,
+        [payload.guid]: updateAddon({
+          isPreviewingTheme: false,
+        }),
+      };
     default:
       return state;
   }
