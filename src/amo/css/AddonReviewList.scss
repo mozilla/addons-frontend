@@ -2,6 +2,10 @@
 
 .AddonReviewList {
   padding: 10px;
+
+  .CardList {
+    margin-bottom: $vertical-space-xs;
+  }
 }
 
 .AddonReviewList-header {
