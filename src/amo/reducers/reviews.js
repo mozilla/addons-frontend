@@ -53,7 +53,7 @@ function mergeInNewReview(
 
 export default function reviews(
   state: ReviewState = initialState,
-  { payload, type }: { payload: any, type: string },
+  { payload, type }: {| payload: any, type: string |},
 ) {
   switch (type) {
     case SET_REVIEW: {
