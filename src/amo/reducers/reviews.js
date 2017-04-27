@@ -34,7 +34,7 @@ export const initialState = {
 function mergeInNewReview(
   latestReview: UserReviewType,
   oldReviews: { [reviewId: string]: UserReviewType } = {},
-): { [id: string | number]: Array<UserReviewType> } {
+): { [id: string]: Array<UserReviewType> } {
   const mergedReviews = {};
 
   Object.keys(oldReviews).forEach((id) => {
