@@ -45,7 +45,7 @@ export class AddonReviewListBase extends React.Component {
     return `/addon/${addon.slug}/`;
   }
 
-  selfURL() {
+  url() {
     return `${this.addonURL()}reviews/`;
   }
 
@@ -104,7 +104,7 @@ export class AddonReviewListBase extends React.Component {
           LinkComponent={Link}
           count={reviewCount}
           currentPage={parsePage(location.query.page)}
-          pathname={this.selfURL()}
+          pathname={this.url()}
         />
       </div>
     );

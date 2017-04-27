@@ -143,7 +143,7 @@ describe('amo/components/AddonReviewList', () => {
     it('produces a URL to itself', () => {
       const root = findRenderedComponentWithType(
         render(), AddonReviewListBase);
-      assert.equal(root.selfURL(), `/addon/${fakeAddon.slug}/reviews/`);
+      assert.equal(root.url(), `/addon/${fakeAddon.slug}/reviews/`);
     });
 
     it('requires an addon prop to produce a URL', () => {
@@ -158,7 +158,7 @@ describe('amo/components/AddonReviewList', () => {
       const root = findRenderedComponentWithType(tree, AddonReviewListBase);
       const paginator = findRenderedComponentWithType(tree, Paginate);
 
-      assert.equal(paginator.props.pathname, root.selfURL());
+      assert.equal(paginator.props.pathname, root.url());
     });
 
     it('configures a paginator with the right Link', () => {
