@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  findRenderedComponentWithType,
   renderIntoDocument,
   scryRenderedComponentsWithType,
 } from 'react-addons-test-utils';
@@ -17,6 +18,7 @@ import {
   mapStateToProps,
 } from 'amo/components/AddonReviewList';
 import Link from 'amo/components/Link';
+import Paginate from 'core/components/Paginate';
 import translate from 'core/i18n/translate';
 import { loadEntities } from 'core/actions';
 import * as coreApi from 'core/api';
@@ -25,12 +27,14 @@ import { initialApiState } from 'core/reducers/api';
 import I18nProvider from 'core/i18n/Provider';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
-import { getFakeI18nInst, unexpectedSuccess } from 'tests/client/helpers';
+import {
+  apiResponsePage, getFakeI18nInst, unexpectedSuccess,
+} from 'tests/client/helpers';
 
 function getLoadedReviews({
-  addonSlug = fakeAddon.slug, reviews = [fakeReview] } = {},
+  addonSlug = fakeAddon.slug, reviews = [fakeReview], reviewCount = 1 } = {},
 ) {
-  const action = setAddonReviews({ addonSlug, reviews });
+  const action = setAddonReviews({ addonSlug, reviewCount, reviews });
   // This is how reviews look after they have been loaded.
   return action.payload.reviews;
 }
@@ -54,8 +58,10 @@ describe('amo/components/AddonReviewList', () => {
       const loadedReviews = reviews ? getLoadedReviews({ reviews }) : null;
       const store = createStore();
       const props = {
-        addon: denormalizeAddon(addon),
+        addon: addon && denormalizeAddon(addon),
+        location: { query: {} },
         params,
+        reviewCount: loadedReviews && loadedReviews.length,
         reviews: loadedReviews,
         ...customProps,
       };
@@ -115,17 +121,6 @@ describe('amo/components/AddonReviewList', () => {
       assert.include(byLine, fakeReview.user.name);
     });
 
-    it('renders header links', () => {
-      const tree = render({ reviews: [fakeReview] });
-      const links = scryRenderedComponentsWithType(tree, Link);
-
-      assert.equal(links.length, 2);
-      const expectedDest = '/addon/chill-out/';
-      links.forEach((link) => {
-        assert.equal(link.props.to, expectedDest);
-      });
-    });
-
     it('renders an icon in the header', () => {
       const root = renderToDOM({ addon: fakeAddon });
       const img = root.querySelector('.AddonReviewList-header-icon img');
@@ -137,6 +132,57 @@ describe('amo/components/AddonReviewList', () => {
       const h1 = root.querySelector('.AddonReviewList-header h1');
       assert.equal(h1.className, 'visually-hidden');
       assert.equal(h1.textContent, `Reviews for ${fakeAddon.name}`);
+    });
+
+    it('produces an addon URL', () => {
+      const root = findRenderedComponentWithType(
+        render(), AddonReviewListBase);
+      assert.equal(root.addonURL(), `/addon/${fakeAddon.slug}/`);
+    });
+
+    it('produces a URL to itself', () => {
+      const root = findRenderedComponentWithType(
+        render(), AddonReviewListBase);
+      assert.equal(root.url(), `/addon/${fakeAddon.slug}/reviews/`);
+    });
+
+    it('requires an addon prop to produce a URL', () => {
+      const root = findRenderedComponentWithType(render({
+        addon: null,
+      }), AddonReviewListBase);
+      assert.throws(() => root.addonURL(), /cannot access addonURL/);
+    });
+
+    it('configures a paginator with the right URL', () => {
+      const tree = render();
+      const root = findRenderedComponentWithType(tree, AddonReviewListBase);
+      const paginator = findRenderedComponentWithType(tree, Paginate);
+
+      assert.equal(paginator.props.pathname, root.url());
+    });
+
+    it('configures a paginator with the right Link', () => {
+      const paginator = findRenderedComponentWithType(render(), Paginate);
+      assert.equal(paginator.props.LinkComponent, Link);
+    });
+
+    it('configures a paginator with the right review count', () => {
+      const paginator = findRenderedComponentWithType(
+        render({ reviewCount: 500 }), Paginate);
+      assert.equal(paginator.props.count, 500);
+    });
+
+    it('sets the paginator to page 1 without a query', () => {
+      const paginator = findRenderedComponentWithType(
+        // Render with an empty query string.
+        render({ location: { query: {} } }), Paginate);
+      assert.equal(paginator.props.currentPage, 1);
+    });
+
+    it('sets the paginator to the query string page', () => {
+      const paginator = findRenderedComponentWithType(
+        render({ location: { query: { page: 3 } } }), Paginate);
+      assert.equal(paginator.props.currentPage, 3);
     });
   });
 
@@ -150,20 +196,25 @@ describe('amo/components/AddonReviewList', () => {
     it('loads all add-on reviews', () => {
       const addonSlug = fakeAddon.slug;
       const dispatch = sinon.stub();
+      const page = 2;
       const reviews = [fakeReview];
 
       mockAmoApi
         .expects('getReviews')
         .once()
-        .withArgs({ addon: fakeAddon.id })
-        .returns(Promise.resolve(reviews));
+        .withArgs({ addon: fakeAddon.id, page })
+        .returns(apiResponsePage({ results: reviews }));
 
-      return loadAddonReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
+      return loadAddonReviews({
+        addonId: fakeAddon.id, addonSlug, dispatch, page,
+      })
         .then(() => {
           mockAmoApi.verify();
 
           assert.ok(dispatch.called);
-          const expectedAction = setAddonReviews({ addonSlug, reviews });
+          const expectedAction = setAddonReviews({
+            addonSlug, reviewCount: reviews.length, reviews,
+          });
           assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
         });
     });
@@ -175,12 +226,14 @@ describe('amo/components/AddonReviewList', () => {
 
       mockAmoApi
         .expects('getReviews')
-        .returns(Promise.resolve(reviews));
+        .returns(apiResponsePage({ results: reviews }));
 
       return loadAddonReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
         .then(() => {
+          // Expect an action with a filtered review array.
+          // However, the count will not take into account the filtering.
           const expectedAction = setAddonReviews({
-            addonSlug, reviews: [fakeReview],
+            addonSlug, reviews: [fakeReview], reviewCount: 2,
           });
           assert.ok(dispatch.called);
           assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
@@ -215,17 +268,19 @@ describe('amo/components/AddonReviewList', () => {
 
     it('requires component properties', () => {
       assert.throws(() => getMappedProps({ params: null }),
-                    /component had a falsey addonSlug parameter/);
+                    /component had a falsey params.addonSlug parameter/);
     });
 
     it('requires an existing slug property', () => {
       assert.throws(() => getMappedProps({ params: {} }),
-                    /component had a falsey addonSlug parameter/);
+                    /component had a falsey params.addonSlug parameter/);
     });
 
     it('loads all reviews from state', () => {
       const reviews = [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }];
-      const action = setAddonReviews({ addonSlug: fakeAddon.slug, reviews });
+      const action = setAddonReviews({
+        addonSlug: fakeAddon.slug, reviews, reviewCount: reviews.length,
+      });
       store.dispatch(action);
 
       const props = getMappedProps();
@@ -235,6 +290,16 @@ describe('amo/components/AddonReviewList', () => {
     it('only loads existing reviews', () => {
       const props = getMappedProps();
       assert.strictEqual(props.reviews, undefined);
+      assert.strictEqual(props.reviewCount, undefined);
+    });
+
+    it('sets reviewCount prop from from state', () => {
+      store.dispatch(setAddonReviews({
+        addonSlug: fakeAddon.slug, reviews: [fakeReview], reviewCount: 1,
+      }));
+
+      const props = getMappedProps();
+      assert.equal(props.reviewCount, 1);
     });
   });
 
@@ -250,6 +315,7 @@ describe('amo/components/AddonReviewList', () => {
     it('gets initial data from the API', () => {
       const store = createStore();
       const addonSlug = fakeAddon.slug;
+      const page = 2;
       const reviews = [fakeReview];
 
       mockCoreApi
@@ -261,10 +327,12 @@ describe('amo/components/AddonReviewList', () => {
       mockAmoApi
         .expects('getReviews')
         .once()
-        .withArgs({ addon: fakeAddon.id })
-        .returns(Promise.resolve(reviews));
+        .withArgs({ addon: fakeAddon.id, page })
+        .returns(apiResponsePage({ results: reviews }));
 
-      return loadInitialData({ store, params: { addonSlug } })
+      return loadInitialData({
+        location: { query: { page } }, store, params: { addonSlug },
+      })
         .then(() => {
           mockAmoApi.verify();
           mockCoreApi.verify();
@@ -278,7 +346,9 @@ describe('amo/components/AddonReviewList', () => {
 
     it('requires a slug param', () => {
       const store = createStore();
-      return loadInitialData({ store, params: { addonSlug: null } })
+      return loadInitialData({
+        location: { query: {} }, store, params: { addonSlug: null },
+      })
         .then(unexpectedSuccess, (error) => {
           assert.match(error.message, /missing URL param addonSlug/);
         });

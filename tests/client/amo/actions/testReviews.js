@@ -44,15 +44,28 @@ describe('amo.actions.reviews', () => {
   });
 
   describe('setAddonReviews', () => {
+    const defaultParams = {
+      reviews: [fakeReview],
+      reviewCount: 1,
+      addonSlug: fakeAddon.slug,
+    };
+
     it('requires an addonSlug', () => {
-      const reviews = [fakeReview];
-      assert.throws(() => setAddonReviews({ reviews }),
-                    /addonSlug cannot be empty/);
+      const params = { ...defaultParams };
+      delete params.addonSlug;
+      assert.throws(() => setAddonReviews(params), /addonSlug cannot be empty/);
     });
 
     it('requires a list of reviews', () => {
-      assert.throws(() => setAddonReviews({ addonSlug: fakeAddon.slug }),
-                    /reviews must be an Array/);
+      const params = { ...defaultParams };
+      delete params.reviews;
+      assert.throws(() => setAddonReviews(params), /reviews must be an Array/);
+    });
+
+    it('requires a count of reviews', () => {
+      const params = { ...defaultParams };
+      delete params.reviewCount;
+      assert.throws(() => setAddonReviews(params), /reviewCount must be set/);
     });
   });
 });

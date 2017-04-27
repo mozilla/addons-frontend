@@ -23,9 +23,9 @@ import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterLocation } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
 
 import 'amo/css/App.scss';
@@ -49,7 +49,7 @@ type AppProps = {
   handleGlobalEvent: () => void,
   i18n: Object,
   lang: string,
-  location: UrlFormatParams,
+  location: ReactRouterLocation,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
   setUserAgent: () => void,

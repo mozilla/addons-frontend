@@ -165,10 +165,10 @@ describe('amo.reducers.reviews', () => {
       const review1 = fakeReview;
       const review2 = { ...fakeReview, id: 3 };
       const action = setAddonReviews({
-        addonSlug: fakeAddon.slug, reviews: [review1, review2],
+        addonSlug: fakeAddon.slug, reviews: [review1, review2], reviewCount: 2,
       });
       const state = reviews(undefined, action);
-      const storedReviews = state.byAddon[fakeAddon.slug];
+      const storedReviews = state.byAddon[fakeAddon.slug].reviews;
       assert.equal(storedReviews.length, 2);
       assert.equal(storedReviews[0].id, review1.id);
       assert.equal(storedReviews[1].id, review2.id);
@@ -179,17 +179,31 @@ describe('amo.reducers.reviews', () => {
       const review1 = fakeReview;
       const addon2 = { ...fakeAddon, slug: 'something-else' };
       const review2 = { ...fakeReview, id: 3 };
+      const review3 = { ...fakeReview, id: 4 };
 
       let state;
       state = reviews(state, setAddonReviews({
-        addonSlug: addon1.slug, reviews: [review1],
+        addonSlug: addon1.slug, reviews: [review1], reviewCount: 1,
       }));
       state = reviews(state, setAddonReviews({
-        addonSlug: addon2.slug, reviews: [review2],
+        addonSlug: addon2.slug, reviews: [review2, review3], reviewCount: 2,
       }));
 
-      assert.equal(state.byAddon[addon1.slug][0].id, review1.id);
-      assert.equal(state.byAddon[addon2.slug][0].id, review2.id);
+      assert.equal(state.byAddon[addon1.slug].reviews[0].id, review1.id);
+      assert.equal(state.byAddon[addon2.slug].reviews[0].id, review2.id);
+      assert.equal(state.byAddon[addon2.slug].reviews[1].id, review3.id);
+    });
+
+    it('stores review counts', () => {
+      const state = reviews(undefined, setAddonReviews({
+        addonSlug: 'slug1', reviews: [fakeReview], reviewCount: 1,
+      }));
+      const newState = reviews(state, setAddonReviews({
+        addonSlug: 'slug2', reviews: [fakeReview, fakeReview], reviewCount: 2,
+      }));
+
+      assert.equal(newState.byAddon.slug1.reviewCount, 1);
+      assert.equal(newState.byAddon.slug2.reviewCount, 2);
     });
   });
 });

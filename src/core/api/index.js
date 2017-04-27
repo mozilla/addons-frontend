@@ -15,6 +15,7 @@ import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
+import type { ReactRouterLocation } from 'core/types/router';
 
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
@@ -238,22 +239,9 @@ export function login({ api, code, state }: LoginParams) {
   });
 }
 
-// These are all possible parameters to url.format()
-export type UrlFormatParams = {|
-  +auth?: string;
-  +hash?: string;
-  +host?: string;
-  +hostname?: string;
-  +href?: string;
-  +pathname?: string;
-  +port?: string | number;
-  +protocol?: string;
-  +query?: Object;
-  +search?: string;
-  +slashes?: boolean;
-|};
-
-export function startLoginUrl({ location }: { location: UrlFormatParams }) {
+export function startLoginUrl(
+  { location }: {| location: ReactRouterLocation |},
+) {
   const configName = config.get('fxaConfig');
   const params = {
     config: undefined,

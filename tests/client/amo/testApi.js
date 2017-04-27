@@ -130,18 +130,6 @@ describe('amo.api', () => {
   });
 
   describe('getReviews', () => {
-    it('does not support paging yet', () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve({
-          results: [],
-          next: '/reviews/next-page/',
-        }));
-
-      // This will log a warning so just make sure it doesn't throw.
-      return getReviews({ user: 123 });
-    });
-
     it('allows you to fetch reviews by any param', () => {
       const params = {
         user: 123, addon: 321, show_grouped_ratings: 1,
@@ -152,8 +140,8 @@ describe('amo.api', () => {
         .returns(Promise.resolve({ results: [fakeReview] }));
 
       return getReviews(params)
-        .then((reviews) => {
-          assert.deepEqual(reviews, [fakeReview]);
+        .then((response) => {
+          assert.deepEqual(response.results, [fakeReview]);
           mockApi.verify();
         });
     });

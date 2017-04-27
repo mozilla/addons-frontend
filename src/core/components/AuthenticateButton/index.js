@@ -10,12 +10,12 @@ import { logOutFromServer, startLoginUrl } from 'core/api';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
-import type { UrlFormatParams } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterLocation } from 'core/types/router';
 
 type HandleLogInFunc = (
-  location: UrlFormatParams, options?: {| _window: typeof window |}
+  location: ReactRouterLocation, options?: {| _window: typeof window |}
 ) => void;
 
 type HandleLogOutFunc = ({| api: ApiStateType |}) => Promise<void>;
@@ -27,7 +27,7 @@ type AuthenticateButtonProps = {|
   handleLogOut: HandleLogOutFunc,
   i18n: Object,
   isAuthenticated: boolean,
-  location: UrlFormatParams,
+  location: ReactRouterLocation,
   logInText?: string,
   logOutText?: string,
   noIcon: boolean,

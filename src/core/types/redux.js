@@ -5,3 +5,8 @@
 // See: https://github.com/reactjs/react-redux/pull/389
 // and: https://github.com/reactjs/redux/pull/1887/files#diff-46d86d39c8da613247f843ee8ca43ebc
 export type DispatchFunc = (action: Object) => void;
+
+export type ReduxStore = {|
+  dispatch: DispatchFunc,
+  getState: () => Object,
+|};

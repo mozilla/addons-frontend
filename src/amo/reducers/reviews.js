@@ -1,10 +1,41 @@
+/* @flow */
 import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
+import type { UserReviewType } from 'amo/actions/reviews';
+
+type ReviewsByAddon = {
+  [slug: string]: {|
+    reviewCount: number,
+    reviews: Array<UserReviewType>,
+  |},
+}
+
+export type ReviewState = {|
+  byAddon: ReviewsByAddon,
+
+  // This is what the current data structure looks like:
+  // [userId: string]: {
+  //   [addonId: string]: {
+  //     [reviewId: string]: UserReviewType,
+  //   },
+  // },
+  //
+  // TODO: make this consistent by moving it from state[userId] to
+  // state.byUser[userId]
+  // https://github.com/mozilla/addons-frontend/issues/1791
+  //
+  // Also note that this needs to move to state.byUser before its type
+  // can be expressed in Flow without conflicting with state.byAddon.
+  //
+|};
 
 export const initialState = {
   byAddon: {},
 };
 
-function mergeInNewReview(latestReview, oldReviews = {}) {
+function mergeInNewReview(
+  latestReview: UserReviewType,
+  oldReviews: { [reviewId: string]: UserReviewType } = {},
+): { [id: string]: Array<UserReviewType> } {
   const mergedReviews = {};
 
   Object.keys(oldReviews).forEach((id) => {
@@ -19,16 +50,18 @@ function mergeInNewReview(latestReview, oldReviews = {}) {
   return mergedReviews;
 }
 
-export default function reviews(state = initialState, { payload, type }) {
+
+export default function reviews(
+  state: ReviewState = initialState,
+  { payload, type }: {| payload: any, type: string |},
+) {
   switch (type) {
     case SET_REVIEW: {
       const existingReviews =
         state[payload.userId] ? state[payload.userId][payload.addonId] : {};
       const latestReview = payload;
-      // TODO: make this consistent by moving it to state.byUser
       return {
         ...state,
-        // This is a map of reviews by user ID, addon ID, and review ID.
         [payload.userId]: {
           ...state[payload.userId],
           [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
@@ -40,7 +73,10 @@ export default function reviews(state = initialState, { payload, type }) {
         ...state,
         byAddon: {
           ...state.byAddon,
-          [payload.addonSlug]: payload.reviews,
+          [payload.addonSlug]: {
+            reviewCount: payload.reviewCount,
+            reviews: payload.reviews,
+          },
         },
       };
     }

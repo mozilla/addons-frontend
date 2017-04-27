@@ -2,7 +2,7 @@
 import { callApi } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import log from 'core/logger';
+import type { PaginatedApiResponse } from 'core/types/api';
 
 export type ApiReviewType = {|
   addon: {|
@@ -87,18 +87,20 @@ export function submitReview({
 }
 
 type GetReviewsParams = {|
-  addon: number,
+  addon?: number,
   filter?: string,
   page?: number,
   page_size?: number,
   show_grouped_ratings?: boolean,
-  user: number,
+  user?: number,
   version?: number,
 |};
 
+type GetReviewsApiResponse = PaginatedApiResponse<ApiReviewType>;
+
 export function getReviews(
   { user, addon, ...params }: GetReviewsParams = {}
-) {
+): Promise<GetReviewsApiResponse> {
   return new Promise((resolve) => {
     if (!user && !addon) {
       throw new Error('Either user or addon must be specified');
@@ -107,14 +109,7 @@ export function getReviews(
       endpoint: 'reviews/review',
       params: { user, addon, ...params },
     }));
-  })
-    .then((response) => {
-      // TODO: implement paging through response.next
-      if (response.next) {
-        log.warn('paging is not yet implemented');
-      }
-      return response.results;
-    });
+  });
 }
 
 type GetLatestReviewParams = {|
@@ -125,7 +120,7 @@ type GetLatestReviewParams = {|
 
 export function getLatestUserReview(
   { user, addon, version }: GetLatestReviewParams = {}
-) {
+): Promise<null | ApiReviewType> {
   return new Promise((resolve) => {
     if (!user || !addon || !version) {
       throw new Error('user, addon, and version must be specified');
@@ -134,7 +129,8 @@ export function getLatestUserReview(
     // and version.
     resolve(getReviews({ user, addon, version }));
   })
-    .then((reviews) => {
+    .then((response) => {
+      const reviews = response.results;
       if (reviews.length === 1) {
         return reviews[0];
       } else if (reviews.length === 0) {
