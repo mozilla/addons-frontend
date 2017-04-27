@@ -5,7 +5,7 @@ import type { ApiReviewType } from 'amo/api';
 export type UserReviewType = {|
   addonId: number,
   addonSlug: string,
-  body: string,
+  body?: string,
   created: Date,
   id: number,
   isLatest: boolean,
