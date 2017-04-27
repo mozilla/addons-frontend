@@ -21,6 +21,7 @@ export type ReviewState = {|
   //
   // TODO: make this consistent by moving it from state[userId] to
   // state.byUser[userId]
+  // https://github.com/mozilla/addons-frontend/issues/1791
   //
   // Also note that this needs to move to state.byUser before its type
   // can be expressed in Flow without conflicting with state.byAddon.
