@@ -136,10 +136,54 @@ describe('amo.api', () => {
       };
       mockApi
         .expects('callApi')
-        .withArgs({ endpoint: 'reviews/review', params })
+        .withArgs({
+          auth: false,
+          endpoint: 'reviews/review',
+          params,
+          state: undefined,
+        })
         .returns(Promise.resolve({ results: [fakeReview] }));
 
       return getReviews(params)
+        .then((response) => {
+          assert.deepEqual(response.results, [fakeReview]);
+          mockApi.verify();
+        });
+    });
+
+    it('passes auth to the API when logged in', () => {
+      const params = { addon: 321, user: 123 };
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: 'reviews/review',
+          params,
+          state: signedInApiState,
+        })
+        .returns(Promise.resolve({ results: [fakeReview] }));
+
+      return getReviews({ ...params, apiState: signedInApiState })
+        .then((response) => {
+          assert.deepEqual(response.results, [fakeReview]);
+          mockApi.verify();
+        });
+    });
+
+    it('does not pass auth to the API when logged out', () => {
+      const params = { addon: 321, user: 123 };
+      const signedOutApiState = { ...signedInApiState, token: null };
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: false,
+          endpoint: 'reviews/review',
+          params,
+          state: signedOutApiState,
+        })
+        .returns(Promise.resolve({ results: [fakeReview] }));
+
+      return getReviews({ ...params, apiState: signedOutApiState })
         .then((response) => {
           assert.deepEqual(response.results, [fakeReview]);
           mockApi.verify();
@@ -164,6 +208,7 @@ describe('amo.api', () => {
       mockApi
         .expects('callApi')
         .withArgs({
+          auth: false,
           endpoint: 'reviews/review',
           // Make sure it filters with the correct params:
           params: {
@@ -171,12 +216,32 @@ describe('amo.api', () => {
             user: params.user,
             version: params.version,
           },
+          state: undefined,
         })
         .returns(Promise.resolve({ results: [fakeReview] }));
 
       return getLatestUserReview(params)
         .then((review) => {
+          mockApi.verify();
           assert.deepEqual(review, fakeReview);
+        });
+    });
+
+    it('passes auth state to the API', () => {
+      const params = { user: 123, addon: 321, version: 456 };
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: 'reviews/review',
+          params,
+          state: signedInApiState,
+        })
+        .returns(Promise.resolve({ results: [fakeReview] }));
+
+      return getLatestUserReview({ ...params, apiState: signedInApiState })
+        .then(() => {
+          mockApi.verify();
         });
     });
 

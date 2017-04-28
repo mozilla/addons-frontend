@@ -65,12 +65,17 @@ describe('RatingManager', () => {
     };
     const loadSavedReview = sinon.spy();
 
-    render({ userId, addon, version, loadSavedReview });
+    render({
+      apiState: signedInApiState, userId, addon, version, loadSavedReview,
+    });
 
     assert.equal(loadSavedReview.called, true);
     const args = loadSavedReview.firstCall.args[0];
     assert.deepEqual(args, {
-      userId, addonId: addon.id, versionId: version.id,
+      apiState: signedInApiState,
+      userId,
+      addonId: addon.id,
+      versionId: version.id,
     });
   });
 
@@ -335,10 +340,17 @@ describe('RatingManager', () => {
         const versionId = fakeReview.version.id;
         mockApi
           .expects('getLatestUserReview')
-          .withArgs({ user: userId, addon: addonId, version: versionId })
+          .withArgs({
+            apiState: signedInApiState,
+            user: userId,
+            addon: addonId,
+            version: versionId,
+          })
           .returns(Promise.resolve(fakeReview));
 
-        return actions.loadSavedReview({ userId, addonId, versionId })
+        return actions.loadSavedReview({
+          apiState: signedInApiState, userId, addonId, versionId,
+        })
           .then(() => {
             mockApi.verify();
             assert.equal(dispatch.called, true);
@@ -350,7 +362,9 @@ describe('RatingManager', () => {
         const addonId = 8765;
         mockApi.expects('getLatestUserReview').returns(Promise.resolve(null));
 
-        return actions.loadSavedReview({ userId: 123, addonId })
+        return actions.loadSavedReview({
+          apiState: initialApiState, userId: 123, addonId,
+        })
           .then(() => {
             assert.equal(dispatch.called, false);
           });

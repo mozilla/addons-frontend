@@ -88,6 +88,7 @@ export function submitReview({
 
 type GetReviewsParams = {|
   addon?: number,
+  apiState?: ApiStateType,
   filter?: string,
   page?: number,
   page_size?: number,
@@ -99,27 +100,31 @@ type GetReviewsParams = {|
 type GetReviewsApiResponse = PaginatedApiResponse<ApiReviewType>;
 
 export function getReviews(
-  { user, addon, ...params }: GetReviewsParams = {}
+  { apiState, user, addon, ...params }: GetReviewsParams = {}
 ): Promise<GetReviewsApiResponse> {
   return new Promise((resolve) => {
     if (!user && !addon) {
       throw new Error('Either user or addon must be specified');
     }
     resolve(callApi({
+      // Make an authenticated request if an API token exists.
+      auth: Boolean(apiState && apiState.token),
       endpoint: 'reviews/review',
       params: { user, addon, ...params },
+      state: apiState,
     }));
   });
 }
 
-type GetLatestReviewParams = {|
+export type GetLatestReviewParams = {|
   addon: number,
+  apiState?: ApiStateType,
   user: number,
   version: number,
 |};
 
 export function getLatestUserReview(
-  { user, addon, version }: GetLatestReviewParams = {}
+  { apiState, user, addon, version }: GetLatestReviewParams = {}
 ): Promise<null | ApiReviewType> {
   return new Promise((resolve) => {
     if (!user || !addon || !version) {
@@ -127,7 +132,7 @@ export function getLatestUserReview(
     }
     // The API will only return the latest user review for this add-on
     // and version.
-    resolve(getReviews({ user, addon, version }));
+    resolve(getReviews({ apiState, user, addon, version }));
   })
     .then((response) => {
       const reviews = response.results;
