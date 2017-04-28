@@ -1,5 +1,5 @@
 /* @flow */
-/* global Node */
+/* global $PropertyType, Node */
 /* eslint-disable react/sort-comp, react/no-unused-prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
@@ -23,7 +23,7 @@ import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { SubmitReviewParams } from 'amo/api';
+import type { GetLatestReviewParams, SubmitReviewParams } from 'amo/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
@@ -32,9 +32,10 @@ import type { ReactRouterLocation } from 'core/types/router';
 import './styles.scss';
 
 type LoadSavedReviewFunc = ({|
-  userId: number,
-  addonId: number,
-  versionId: number,
+  addonId: $PropertyType<GetLatestReviewParams, 'addon'>,
+  apiState: ApiStateType,
+  userId: $PropertyType<GetLatestReviewParams, 'user'>,
+  versionId: $PropertyType<GetLatestReviewParams, 'version'>,
 |}) => Promise<any>;
 
 type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
@@ -68,11 +69,11 @@ export class RatingManagerBase extends React.Component {
 
   constructor(props: RatingManagerProps) {
     super(props);
-    const { loadSavedReview, userId, addon, version } = props;
+    const { apiState, loadSavedReview, userId, addon, version } = props;
     this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedReview({ userId, addonId: addon.id, versionId: version.id });
+      loadSavedReview({ apiState, userId, addonId: addon.id, versionId: version.id });
     }
   }
 
@@ -231,9 +232,9 @@ export const mapDispatchToProps = (
   dispatch: DispatchFunc
 ): DispatchMappedProps => ({
 
-  loadSavedReview({ userId, addonId, versionId }) {
+  loadSavedReview({ apiState, userId, addonId, versionId }) {
     return getLatestUserReview({
-      user: userId, addon: addonId, version: versionId,
+      apiState, user: userId, addon: addonId, version: versionId,
     })
       .then((review) => {
         if (review) {
