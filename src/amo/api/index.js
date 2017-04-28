@@ -109,9 +109,9 @@ export function getReviews(
     resolve(callApi({
       // Make an authenticated request if an API token exists.
       auth: Boolean(apiState && apiState.token),
-      state: apiState,
       endpoint: 'reviews/review',
       params: { user, addon, ...params },
+      state: apiState,
     }));
   });
 }
