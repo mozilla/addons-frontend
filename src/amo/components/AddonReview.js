@@ -45,12 +45,12 @@ export class AddonReviewBase extends React.Component {
 
   constructor(props: AddonReviewProps) {
     super(props);
-    this.localStore = new LocalStore('AddonReview');
-    // const storedData = this.localStore.getStored();
-    const storedData = {};
     this.state = {
-      reviewBody: storedData.reviewBody || props.review.body,
+      reviewBody: props.review.body,
     };
+    this.localStore = new LocalStore(`AddonReview:${props.review.id}`);
+    this.localStore.getData()
+      .then((data) => this.setState(data));
   }
 
   componentWillReceiveProps(nextProps: AddonReviewProps) {
@@ -96,7 +96,8 @@ export class AddonReviewBase extends React.Component {
 
   onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
     const data = { reviewBody: event.target.value };
-    // this.localStore.store(data);
+    // TODO: maybe debounce this since it will happen on every keystroke.
+    this.localStore.setData(data);
     this.setState(data);
   }
 
