@@ -160,7 +160,7 @@ export function loadInitialData(
 }
 
 export function mapStateToProps(
-  state: { reviews: ReviewState }, ownProps: AddonReviewListProps,
+  state: {| reviews: ReviewState |}, ownProps: AddonReviewListProps,
 ) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey params.addonSlug parameter');
