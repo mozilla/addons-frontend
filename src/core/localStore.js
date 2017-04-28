@@ -1,22 +1,41 @@
 /* @flow */
-import localForage from 'localforage';
+import defaultLocalForage from 'localforage';
 
 import log from 'core/logger';
 
-export default class LocalStore {
-  id: string;
+export function configureLocalForage(
+  {
+    localForage = defaultLocalForage,
+  }: {|
+    localForage: typeof defaultLocalForage,
+  |} = {}
+) {
+  localForage.config({
+    name: 'addons-frontend',
+    version: '1.0',
+    storeName: 'core.localStore',
+  });
+}
 
-  constructor(id: string) {
+type LocalStoreOptions = {|
+  localForage: typeof defaultLocalForage,
+|};
+
+export class LocalStore {
+  id: string;
+  localForage: typeof defaultLocalForage;
+
+  constructor(
+    id: string,
+    { localForage = defaultLocalForage }: LocalStoreOptions = {},
+  ) {
     this.id = id;
-    localForage.config({
-      name: 'addons-frontend',
-      version: '1.0',
-      storeName: 'core.localStore',
-    });
+    this.localForage = localForage;
+    configureLocalForage({ localForage });
   }
 
-  getData(): Promise<Object> {
-    return localForage.getItem(this.id)
+  getData(): Promise<Object | null> {
+    return this.localForage.getItem(this.id)
       .then((data) => {
         if (!data) {
           return null;
@@ -30,7 +49,7 @@ export default class LocalStore {
   }
 
   removeData(): Promise<void> {
-    return localForage.removeItem(this.id)
+    return this.localForage.removeItem(this.id)
       .catch((error) => {
         log.error(`Error with localForage.removeItem("${this.id}"): ${error}`);
         throw error;
@@ -38,10 +57,20 @@ export default class LocalStore {
   }
 
   setData(data: Object): Promise<void> {
-    return localForage.setItem(this.id, data)
+    if (typeof data !== 'object' || data === null) {
+      return Promise.reject(
+        new Error('The argument to setData() must be an object'));
+    }
+    return this.localForage.setItem(this.id, data)
       .catch((error) => {
         log.error(`Error with localForage.setItem("${this.id}"): ${error}`);
         throw error;
       });
   }
+}
+
+export default function createLocalStore(
+  id: string, options?: LocalStoreOptions
+) {
+  return new LocalStore(id, options);
 }
