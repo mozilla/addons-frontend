@@ -10,6 +10,7 @@ import { refreshAddon } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import LocalStore from 'core/localStore';
+import log from 'core/logger';
 import OverlayCard from 'ui/components/OverlayCard';
 import type { SetReviewAction, UserReviewType } from 'amo/actions/reviews';
 import type { ApiReviewType, SubmitReviewParams } from 'amo/api/index';
@@ -50,7 +51,12 @@ export class AddonReviewBase extends React.Component {
     };
     this.localStore = new LocalStore(`AddonReview:${props.review.id}`);
     this.localStore.getData()
-      .then((data) => this.setState(data));
+      .then((data) => {
+        if (data) {
+          log.debug('Initializing AddonReview data from LocalStore', data);
+          this.setState(data);
+        }
+      });
   }
 
   componentWillReceiveProps(nextProps: AddonReviewProps) {
@@ -89,6 +95,7 @@ export class AddonReviewBase extends React.Component {
       // Give the parent a callback saying that the review has been submitted.
       // Example: this might close the review entry overlay.
       .then(() => onReviewSubmitted())
+      // TODO: delete localStore data
       .then(() => this.props.refreshAddon({
         addonSlug: review.addonSlug, apiState,
       }));

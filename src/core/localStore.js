@@ -19,12 +19,12 @@ export default class LocalStore {
     return localForage.getItem(this.id)
       .then((data) => {
         if (!data) {
-          return {};
+          return null;
         }
         return data;
       })
       .catch((error) => {
-        log.error(`error with localForage.getItem("${this.id}"): ${error}`);
+        log.error(`Error with localForage.getItem("${this.id}"): ${error}`);
         throw error;
       });
   }
@@ -32,7 +32,7 @@ export default class LocalStore {
   removeData(): Promise<void> {
     return localForage.removeItem(this.id)
       .catch((error) => {
-        log.error(`error with localForage.removeItem("${this.id}"): ${error}`);
+        log.error(`Error with localForage.removeItem("${this.id}"): ${error}`);
         throw error;
       });
   }
@@ -40,7 +40,7 @@ export default class LocalStore {
   setData(data: Object): Promise<void> {
     return localForage.setItem(this.id, data)
       .catch((error) => {
-        log.error(`error with localForage.setItem("${this.id}"): ${error}`);
+        log.error(`Error with localForage.setItem("${this.id}"): ${error}`);
         throw error;
       });
   }
