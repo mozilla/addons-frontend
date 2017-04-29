@@ -2,6 +2,7 @@
 /* eslint-disable react/sort-comp */
 /* global $Shape, Event, HTMLInputElement, Node */
 import { oneLine } from 'common-tags';
+import defaultDebounce from 'debounce';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -26,6 +27,7 @@ import 'amo/css/AddonReview.scss';
 type AddonReviewProps = {|
   apiState?: ApiStateType,
   createLocalStore: typeof defaultLocalStoreCreator,
+  debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
   i18n: Object,
   onReviewSubmitted: () => Promise<void>,
@@ -49,6 +51,7 @@ export class AddonReviewBase extends React.Component {
 
   static defaultProps = {
     createLocalStore: defaultLocalStoreCreator,
+    debounce: defaultDebounce,
   };
 
   constructor(props: AddonReviewProps) {
@@ -115,8 +118,13 @@ export class AddonReviewBase extends React.Component {
 
   onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
     const data = { reviewBody: event.target.value };
-    // TODO: maybe debounce this since it will happen on every keystroke.
-    this.localStore.setData(data);
+    const storeText = this.props.debounce(() => {
+      // After a few keystrokes, save the text to a local store
+      // so we can recover from crashes.
+      this.localStore.setData(data);
+    }, 500, false);
+
+    storeText();
     this.setState(data);
   }
 

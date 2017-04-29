@@ -186,6 +186,7 @@ describe('AddonReview', () => {
     });
     const root = render({
       createLocalStore: () => store,
+      debounce: (callback) => () => callback(),
     });
 
     const textarea = root.reviewTextarea;
