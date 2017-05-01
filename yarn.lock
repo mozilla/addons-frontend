@@ -1834,10 +1834,6 @@ dateformat@^1.0.6:
     get-stdin "^4.0.1"
     meow "^3.3.0"
 
-debounce@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.0.2.tgz#503cc674d8d7f737099664fb75ddbd36b9626dc6"
-
 debug@2.2.0, debug@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
@@ -5986,6 +5982,10 @@ shelljs@0.7.7, shelljs@^0.7.5:
 signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+simple-debounce@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/simple-debounce/-/simple-debounce-0.0.3.tgz#237296bb60d01d86cc49c9ce4fc09cbfcd0430dd"
 
 sinon@2.1.0:
   version "2.1.0"

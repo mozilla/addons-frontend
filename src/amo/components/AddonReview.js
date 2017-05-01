@@ -2,7 +2,7 @@
 /* eslint-disable react/sort-comp */
 /* global $Shape, Event, HTMLInputElement, Node */
 import { oneLine } from 'common-tags';
-import defaultDebounce from 'debounce';
+import defaultDebounce from 'simple-debounce';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -122,7 +122,7 @@ export class AddonReviewBase extends React.Component {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.
       this.localStore.setData(data);
-    }, 500, false);
+    }, 800);
 
     storeText();
     this.setState(data);
