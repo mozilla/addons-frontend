@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-25 18:40+0000\n"
-"PO-Revision-Date: 2017-04-26 21:04+0000\n"
+"PO-Revision-Date: 2017-05-01 21:03+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -20,7 +20,7 @@ msgstr "Du må <a href=\"%(downloadUrl)s\">laste ned Firefox</a> for å installe
 
 #: src/amo/components/AddonCompatibilityError/index.js:58
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Firefox-versjonen din støttar ikkje programtillegg for søk."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
