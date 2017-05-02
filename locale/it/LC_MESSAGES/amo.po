@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:40+0000\n"
-"PO-Revision-Date: 2017-04-24 08:35+0000\n"
-"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
+"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"PO-Revision-Date: 2017-04-30 15:10+0000\n"
+"Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:58
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "La versione di Firefox un uso non supporta i plugin di ricerca."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
@@ -77,12 +77,12 @@ msgid "About this %(addonType)s"
 msgstr "Informazioni per %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "Annulla anteprima"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "Tocca qui per l’anteprima"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Annulla anteprima"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -177,23 +177,23 @@ msgstr ""
 "Descrivi in modo sintetico e concreto la tua esperienza con il componente "
 "aggiuntivo."
 
-#: src/amo/components/AddonReviewList.js:38
+#: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "di %(authorName)s, il %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:76 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Caricamento in corso…"
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:86
 msgid "Add-on icon"
 msgstr "Icona componente aggiuntivo"
 
-#: src/amo/components/AddonReviewList.js:67
+#: src/amo/components/AddonReviewList.js:91
 msgid "Reviews for %(addonName)s"
 msgstr "Recensioni per %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:70
+#: src/amo/components/AddonReviewList.js:94
 msgid "All written reviews"
 msgstr "Scrivi una recensione"
 
@@ -389,32 +389,31 @@ msgstr "Visualizza nella lingua preferita"
 msgid "Firefox Add-ons"
 msgstr "Componenti aggiuntivi per Firefox"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
 msgstr "Effettua l’accesso per dare un voto a questo dizionario"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
 msgstr "Effettua l’accesso per dare un voto a questo language pack"
 
-#: src/amo/components/RatingManager/index.js:127
-#, fuzzy
+#: src/amo/components/RatingManager/index.js:128
 msgid "Log in to rate this search plugin"
-msgstr "Effettua l’accesso per dare un voto a questo plugin di ricerca"
+msgstr "Effettua l’accesso per dare una valutazione a questo plugin di ricerca"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
 msgstr "Effettua l’accesso per dare un voto a questo tema"
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this extension"
 msgstr "Effettua l’accesso per dare un voto a questa estensione"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this add-on"
 msgstr "Effettua l’accesso per dare un voto a questo componente aggiuntivo"
 
-#: src/amo/components/RatingManager/index.js:161
+#: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Come valuti la tua esperienza utente con %(addonName)s?"
 
@@ -484,7 +483,7 @@ msgstr "Esplora tutti i temi"
 msgid "Add-ons Home Page"
 msgstr "Pagina iniziale componenti aggiuntivi"
 
-#: src/amo/containers/App.js:106
+#: src/amo/containers/App.js:200
 msgid "Add-ons for Firefox"
 msgstr "Componenti aggiuntivi per Firefox"
 

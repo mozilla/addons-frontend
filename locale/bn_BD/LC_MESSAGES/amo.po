@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:40+0000\n"
+"POT-Creation-Date: 2017-05-02 17:05+0000\n"
 "PO-Revision-Date: 2017-04-04 15:48+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
@@ -74,12 +74,12 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s সম্বন্ধে"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "পর্যালোচনা বাতিল করুন"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "পর্যালোচনা বাতিল করুন"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -170,23 +170,23 @@ msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr "এই এক্সটেনসনটির কোন বিষয়টি আপনার ভাল লেগেছে, আমাদের নির্দিষ্ট করে বলুন।"
 
-#: src/amo/components/AddonReviewList.js:38
+#: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(timestamp)s সময় %(authorName)s হইতে"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:76 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "লোড করা হচ্ছে..."
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:86
 msgid "Add-on icon"
 msgstr "অ্যাড-অন আইকন"
 
-#: src/amo/components/AddonReviewList.js:67
+#: src/amo/components/AddonReviewList.js:91
 msgid "Reviews for %(addonName)s"
 msgstr "পর্যালোচনা %(addonName)s এর জন্যে"
 
-#: src/amo/components/AddonReviewList.js:70
+#: src/amo/components/AddonReviewList.js:94
 msgid "All written reviews"
 msgstr "সকল পর্যালোচনা"
 
@@ -377,32 +377,32 @@ msgstr "আপনার ভাষায় ব্রাউজ করুন"
 msgid "Firefox Add-ons"
 msgstr "Firefox অ্যাড-অনস"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
 msgstr "এই অভিধন রেট করতে লগইন করুন"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
 msgstr "ভাষা প্যাক রেট করতে লগিন করুন"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/RatingManager/index.js:128
 #, fuzzy
 msgid "Log in to rate this search plugin"
 msgstr "সার্চ ইঞ্জিন রেট করতে লগিন করুন"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
 msgstr "থিম রেট করতে লগিন করুন"
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this extension"
 msgstr "এক্সটেনশন রেট করতে লগিন করুন"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this add-on"
 msgstr "এই অ্যাড-অন রেট দিতে লগইন করুন"
 
-#: src/amo/components/RatingManager/index.js:161
+#: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s এর সাথে আপনার অভিজ্ঞতা কেমন?"
 
@@ -470,7 +470,7 @@ msgstr "সব থিম ব্রাউজ করুন"
 msgid "Add-ons Home Page"
 msgstr "অ্যাড-অন হোমপেজ"
 
-#: src/amo/containers/App.js:106
+#: src/amo/containers/App.js:200
 msgid "Add-ons for Firefox"
 msgstr "Firefox এর জন্য অ্যাড-অন"
 

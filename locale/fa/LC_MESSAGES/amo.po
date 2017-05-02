@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:40+0000\n"
-"PO-Revision-Date: 2017-04-13 10:53+0000\n"
+"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"PO-Revision-Date: 2017-04-27 08:15+0000\n"
 "Last-Translator: Amin Mahmudian <amin.mahmudian@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:58
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "نسخه فایرفاکس شما از افزونه‌های جستجو پشتیبانی نمی‌کند."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
@@ -73,12 +73,12 @@ msgid "About this %(addonType)s"
 msgstr "درباره این %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "لغو پیش‌نمایش"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "انتخاب برای پیش‌نمایش"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "لغو پیش‌نمایش"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -167,23 +167,23 @@ msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr "از تجربه خود با این افزونه به ما بگویید. صریح و مختصر بنویسید."
 
-#: src/amo/components/AddonReviewList.js:38
+#: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "از %(authorName)s، %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:76 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "در حال بارگذاری..."
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:86
 msgid "Add-on icon"
 msgstr "آیکن افزونه‌"
 
-#: src/amo/components/AddonReviewList.js:67
+#: src/amo/components/AddonReviewList.js:91
 msgid "Reviews for %(addonName)s"
 msgstr "بازخوردها برای %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:70
+#: src/amo/components/AddonReviewList.js:94
 msgid "All written reviews"
 msgstr "همه بازخوردهای نوشته شده"
 
@@ -375,32 +375,31 @@ msgstr "مرور به زبان شما"
 msgid "Firefox Add-ons"
 msgstr "افزونه‌های فایرفاکس"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
 msgstr "برای رای دادن به این لغت‌نامه وارد شوید"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
 msgstr "برای رای دادن به این بستهٔ زبان وارد شوید"
 
-#: src/amo/components/RatingManager/index.js:127
-#, fuzzy
+#: src/amo/components/RatingManager/index.js:128
 msgid "Log in to rate this search plugin"
 msgstr "وارد شوید تا به این موتور جستجو رای دهید"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
 msgstr "وارد شوید تا به این قالب رای دهید"
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this extension"
 msgstr "وارد شوید تا به این افزونه امتیاز دهید"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this add-on"
 msgstr "وارد شوید تا به این افزونه رای دهید"
 
-#: src/amo/components/RatingManager/index.js:161
+#: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "از تجربه خود در استفاده از %(addonName)s چه فکری می‌کنید؟"
 
@@ -468,7 +467,7 @@ msgstr "مرور تمام تم‌ها"
 msgid "Add-ons Home Page"
 msgstr "صفحه خانگی افزودنه‌ها"
 
-#: src/amo/containers/App.js:106
+#: src/amo/containers/App.js:200
 msgid "Add-ons for Firefox"
 msgstr "افزونه‌های فایرفاکس"
 

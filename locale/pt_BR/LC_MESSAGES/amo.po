@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:40+0000\n"
-"PO-Revision-Date: 2017-04-11 23:34+0000\n"
+"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"PO-Revision-Date: 2017-05-01 23:43+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:58
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Sua versão do Firefox não suporta plugins de pesquisa."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "Firefox for iOS does not currently support add-ons."
@@ -74,12 +74,12 @@ msgid "About this %(addonType)s"
 msgstr "Sobre esta %(addonType)s"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "Cancelar visualização"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "Toque para visualizar"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "Cancelar visualização"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -172,23 +172,23 @@ msgid ""
 msgstr ""
 "Diga-nos sobre sua experiência com esta extensão. Seja específico e conciso."
 
-#: src/amo/components/AddonReviewList.js:38
+#: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "de %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:76 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "Carregando..."
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:86
 msgid "Add-on icon"
 msgstr "Ícone da extensão"
 
-#: src/amo/components/AddonReviewList.js:67
+#: src/amo/components/AddonReviewList.js:91
 msgid "Reviews for %(addonName)s"
 msgstr "Análises de %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:70
+#: src/amo/components/AddonReviewList.js:94
 msgid "All written reviews"
 msgstr "Todas as análises escritas"
 
@@ -380,32 +380,31 @@ msgstr "Navegue no seu idioma"
 msgid "Firefox Add-ons"
 msgstr "Extensões do Firefox"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
 msgstr "Identifique-se para avaliar este dicionário"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
 msgstr "Identifique-se para avaliar este pacote de idiomas"
 
-#: src/amo/components/RatingManager/index.js:127
-#, fuzzy
+#: src/amo/components/RatingManager/index.js:128
 msgid "Log in to rate this search plugin"
-msgstr "Identifique-se para avaliar este mecanismo de pesquisa"
+msgstr "Identifique-se para avaliar este plugin de pesquisa"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
 msgstr "Identifique-se para avaliar este tema"
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this extension"
 msgstr "Identifique-se para avaliar esta extensão"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this add-on"
 msgstr "Identifique-se para avaliar esta extensão"
 
-#: src/amo/components/RatingManager/index.js:161
+#: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Como está desfrutando da sua experiência com %(addonName)s?"
 
@@ -473,7 +472,7 @@ msgstr "Navegue por todos os temas"
 msgid "Add-ons Home Page"
 msgstr "Página inicial das extensões"
 
-#: src/amo/containers/App.js:106
+#: src/amo/containers/App.js:200
 msgid "Add-ons for Firefox"
 msgstr "Extensões para o Firefox"
 
