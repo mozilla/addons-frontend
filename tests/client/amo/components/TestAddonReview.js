@@ -24,8 +24,8 @@ const defaultReview = {
 function fakeLocalState(overrides = {}) {
   return {
     load: () => Promise.resolve(),
-    removeData: () => Promise.resolve(),
-    setData: () => Promise.resolve(),
+    clear: () => Promise.resolve(),
+    save: () => Promise.resolve(),
     ...overrides,
   };
 }
@@ -182,7 +182,7 @@ describe('AddonReview', () => {
 
   it('stores text locally when you type text', () => {
     const store = fakeLocalState({
-      setData: sinon.spy(() => Promise.resolve()),
+      save: sinon.spy(() => Promise.resolve()),
     });
     const root = render({
       createLocalState: () => store,
@@ -193,15 +193,15 @@ describe('AddonReview', () => {
     textarea.value = 'some review';
     Simulate.input(textarea);
 
-    assert.ok(store.setData.called, 'setData() should have been called');
-    assert.deepEqual(store.setData.firstCall.args[0], {
+    assert.ok(store.save.called, 'save() should have been called');
+    assert.deepEqual(store.save.firstCall.args[0], {
       reviewBody: 'some review',
     });
   });
 
   it('removes the stored state after a successful submission', () => {
     const store = fakeLocalState({
-      removeData: sinon.spy(() => Promise.resolve()),
+      clear: sinon.spy(() => Promise.resolve()),
     });
     const root = render({
       createLocalState: () => store,
@@ -218,7 +218,7 @@ describe('AddonReview', () => {
 
     return root.onSubmit(event)
       .then(() => {
-        assert.ok(store.removeData.called, 'removeData() should have been called');
+        assert.ok(store.clear.called, 'clear() should have been called');
       });
   });
 

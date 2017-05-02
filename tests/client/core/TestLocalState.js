@@ -31,7 +31,7 @@ describe('LocalState', () => {
   it('lets you get and set data', () => {
     const dataToStore = { name: 'Aristotle' };
 
-    return store.setData(dataToStore)
+    return store.save(dataToStore)
       .then(() => store.load())
       .then((storedData) => {
         assert.deepEqual(storedData, dataToStore);
@@ -46,7 +46,7 @@ describe('LocalState', () => {
   });
 
   it('lets you remove data', () => {
-    return store.setData({ name: 'Aristotle' })
+    return store.save({ name: 'Aristotle' })
       .then(() => store.clear())
       .then(() => store.load())
       .then((data) => {
@@ -66,13 +66,13 @@ describe('LocalState', () => {
       });
   });
 
-  it('can handle setData() errors', () => {
+  it('can handle save() errors', () => {
     const errStore = createLocalState('some-id', {
       localForage: fakeLocalForage({
         setItem: () => Promise.reject(new Error('some localForage error')),
       }),
     });
-    return errStore.setData({})
+    return errStore.save({})
       .then(unexpectedSuccess, (error) => {
         assert.equal(error.message, 'some localForage error');
       });
@@ -91,14 +91,14 @@ describe('LocalState', () => {
   });
 
   it('requires you to store an object', () => {
-    return store.setData(1)
+    return store.save(1)
       .then(unexpectedSuccess, (error) => {
         assert.match(error.message, /must be an object/);
       });
   });
 
   it('definitely does not let you store null', () => {
-    return store.setData(null)
+    return store.save(null)
       .then(unexpectedSuccess, (error) => {
         assert.match(error.message, /must be an object/);
       });
@@ -107,8 +107,8 @@ describe('LocalState', () => {
   it('lets you work with multiple stores', () => {
     const store1 = createLocalState('store1');
     const store2 = createLocalState('store2');
-    return store1.setData({ number: 1 })
-      .then(() => store2.setData({ number: 2 }))
+    return store1.save({ number: 1 })
+      .then(() => store2.save({ number: 2 }))
       .then(() => store1.load())
       .then((data) => {
         assert.deepEqual(data, { number: 1 });

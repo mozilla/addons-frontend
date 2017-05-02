@@ -56,10 +56,10 @@ export class LocalState {
       });
   }
 
-  setData(data: Object): Promise<void> {
+  save(data: Object): Promise<void> {
     if (typeof data !== 'object' || data === null) {
       return Promise.reject(
-        new Error('The argument to setData() must be an object'));
+        new Error('The argument to save() must be an object'));
     }
     return this.localForage.setItem(this.id, data)
       .catch((error) => {
