@@ -1,4 +1,9 @@
-import React, { PropTypes } from 'react';
+/* @flow */
+/* eslint-disable react/sort-comp */
+/* global $Shape, Event, HTMLInputElement, Node */
+import { oneLine } from 'common-tags';
+import defaultDebounce from 'simple-debounce';
+import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -7,43 +12,82 @@ import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
 import { refreshAddon } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import defaultLocalStateCreator, { LocalState } from 'core/localState';
+import log from 'core/logger';
 import OverlayCard from 'ui/components/OverlayCard';
+import type { SetReviewAction, UserReviewType } from 'amo/actions/reviews';
+import type { SubmitReviewParams } from 'amo/api/index';
+import type { ApiStateType } from 'core/reducers/api';
+import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
+import type { ElementEvent } from 'core/types/dom';
+import type { DispatchFunc } from 'core/types/redux';
 
 import 'amo/css/AddonReview.scss';
 
+type AddonReviewProps = {|
+  apiState?: ApiStateType,
+  createLocalState: typeof defaultLocalStateCreator,
+  debounce: typeof defaultDebounce,
+  errorHandler: ErrorHandlerType,
+  i18n: Object,
+  onReviewSubmitted: () => void | Promise<void>,
+  refreshAddon: () => Promise<void>,
+  review: UserReviewType,
+  setDenormalizedReview: (review: $Shape<UserReviewType>) => SetReviewAction,
+  updateReviewText: (review: $Shape<SubmitReviewParams>) => Promise<void>,
+|};
+
+type AddonReviewState = {|
+  reviewBody: ?string,
+|};
 
 export class AddonReviewBase extends React.Component {
-  static propTypes = {
-    apiState: PropTypes.object,
-    errorHandler: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
-    onReviewSubmitted: PropTypes.func.isRequired,
-    refreshAddon: PropTypes.func.isRequired,
-    review: PropTypes.object.isRequired,
-    setDenormalizedReview: PropTypes.func.isRequired,
-    updateReviewText: PropTypes.func.isRequired,
-  }
+  localState: LocalState;
+  props: AddonReviewProps;
+  reviewForm: Node;
+  reviewPrompt: Node;
+  reviewTextarea: Node;
+  state: AddonReviewState;
 
-  constructor(props) {
+  static defaultProps = {
+    createLocalState: defaultLocalStateCreator,
+    debounce: defaultDebounce,
+  };
+
+  constructor(props: AddonReviewProps) {
     super(props);
-    this.state = { reviewBody: props.review.body };
-    this.reviewTextarea = null;
+    this.state = {
+      reviewBody: props.review.body,
+    };
+    this.localState = props.createLocalState(`AddonReview:${props.review.id}`);
+    this.checkForStoredState();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: AddonReviewProps) {
     const { review } = nextProps;
     if (review) {
       this.setState({ reviewBody: review.body });
     }
   }
 
-  onSubmit = (event) => {
+  checkForStoredState() {
+    return this.localState.load()
+      .then((storedState) => {
+        if (storedState) {
+          log.debug(oneLine`Initializing AddonReview state from LocalState
+            ${this.localState.id}`, storedState);
+          this.setState(storedState);
+        }
+      });
+  }
+
+  onSubmit = (event: Event) => {
     const { apiState, errorHandler, onReviewSubmitted, review } = this.props;
     const { reviewBody } = this.state;
     event.preventDefault();
     event.stopPropagation();
 
-    const newReviewParams = { body: reviewBody };
+    const newReviewParams = { body: reviewBody || undefined };
     const updatedReview = { ...review, ...newReviewParams };
 
     const params = {
@@ -63,16 +107,29 @@ export class AddonReviewBase extends React.Component {
 
     // Next, update the review with an actual API request.
     return this.props.updateReviewText(params)
-      // Give the parent a callback saying that the review has been submitted.
-      // Example: this might close the review entry overlay.
-      .then(() => onReviewSubmitted())
-      .then(() => this.props.refreshAddon({
-        addonSlug: review.addonSlug, apiState,
-      }));
+      .then(() => Promise.all([
+        // Give the parent a callback saying that the review has been
+        // submitted. Example: this might close the review entry overlay.
+        onReviewSubmitted(),
+        // Clear the locally stored state since we are in sync with
+        // the API now.
+        this.localState.clear(),
+        this.props.refreshAddon({
+          addonSlug: review.addonSlug, apiState,
+        }),
+      ]));
   }
 
-  onBodyInput = (event) => {
-    this.setState({ reviewBody: event.target.value });
+  onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
+    const saveState = this.props.debounce((state) => {
+      // After a few keystrokes, save the text to a local store
+      // so we can recover from crashes.
+      this.localState.save(state);
+    }, 800);
+
+    const newState = { reviewBody: event.target.value };
+    saveState(newState);
+    this.setState(newState);
   }
 
   render() {
@@ -129,19 +186,21 @@ export class AddonReviewBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = (state: {| api: ApiStateType |}) => ({
   apiState: state.api,
 });
 
-export const mapDispatchToProps = (dispatch) => ({
-  refreshAddon({ addonSlug, apiState }) {
+export const mapDispatchToProps = (dispatch: DispatchFunc) => ({
+  refreshAddon(
+    { addonSlug, apiState }: {| addonSlug: string, apiState: ApiStateType |},
+  ) {
     return refreshAddon({ addonSlug, apiState, dispatch });
   },
-  setDenormalizedReview(review) {
+  setDenormalizedReview(review: UserReviewType) {
     dispatch(setDenormalizedReview(review));
   },
-  updateReviewText(...params) {
-    return submitReview(...params)
+  updateReviewText(params: SubmitReviewParams): Promise<void> {
+    return submitReview(params)
       .then((review) => dispatch(setReview(review)));
   },
 });

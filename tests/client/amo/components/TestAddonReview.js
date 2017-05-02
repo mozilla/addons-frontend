@@ -21,8 +21,18 @@ const defaultReview = {
   id: 3321, addonId: fakeAddon.id, addonSlug: fakeAddon.slug, rating: 5,
 };
 
+function fakeLocalState(overrides = {}) {
+  return {
+    clear: () => Promise.resolve(),
+    load: () => Promise.resolve(),
+    save: () => Promise.resolve(),
+    ...overrides,
+  };
+}
+
 function render({ ...customProps } = {}) {
   const props = {
+    createLocalState: () => fakeLocalState(),
     errorHandler: new ErrorHandler({
       id: 'some-id',
       dispatch: sinon.stub(),
@@ -109,6 +119,107 @@ describe('AddonReview', () => {
       },
     });
     assert.equal(root.state.reviewBody, 'New body');
+  });
+
+  it('looks for state in a local store at initialization', () => {
+    const store = fakeLocalState({
+      load: sinon.spy(() => Promise.resolve({
+        reviewBody: 'stored body',
+      })),
+    });
+    render({ createLocalState: () => store });
+    assert.ok(store.load.called, 'load() should have been called');
+  });
+
+  it('looks for state in a local store and loads it', () => {
+    const store = fakeLocalState({
+      load: sinon.spy(() => Promise.resolve({
+        reviewBody: 'stored body',
+      })),
+    });
+    const root = render({ createLocalState: () => store });
+    return root.checkForStoredState()
+      .then(() => {
+        assert.equal(root.state.reviewBody, 'stored body');
+      });
+  });
+
+  it('ignores null entries when retrieving locally stored state', () => {
+    const store = fakeLocalState({
+      load: sinon.spy(() => Promise.resolve(null)),
+    });
+    const root = render({
+      createLocalState: () => store,
+      review: {
+        ...defaultReview,
+        body: 'Existing body',
+      },
+    });
+    return root.checkForStoredState()
+      .then(() => {
+        assert.equal(root.state.reviewBody, 'Existing body');
+      });
+  });
+
+  it('overrides existing text with locally stored text', () => {
+    const store = fakeLocalState({
+      load: sinon.spy(() => Promise.resolve({
+        reviewBody: 'Stored text',
+      })),
+    });
+    const root = render({
+      createLocalState: () => store,
+      review: {
+        ...defaultReview,
+        body: 'Existing text',
+      },
+    });
+    return root.checkForStoredState()
+      .then(() => {
+        assert.equal(root.state.reviewBody, 'Stored text');
+      });
+  });
+
+  it('stores text locally when you type text', () => {
+    const store = fakeLocalState({
+      save: sinon.spy(() => Promise.resolve()),
+    });
+    const root = render({
+      createLocalState: () => store,
+      debounce: (callback) => (...args) => callback(...args),
+    });
+
+    const textarea = root.reviewTextarea;
+    textarea.value = 'some review';
+    Simulate.input(textarea);
+
+    assert.ok(store.save.called, 'save() should have been called');
+    assert.deepEqual(store.save.firstCall.args[0], {
+      reviewBody: 'some review',
+    });
+  });
+
+  it('removes the stored state after a successful submission', () => {
+    const store = fakeLocalState({
+      clear: sinon.spy(() => Promise.resolve()),
+    });
+    const root = render({
+      createLocalState: () => store,
+    });
+
+    const textarea = root.reviewTextarea;
+    textarea.value = 'some review';
+    Simulate.input(textarea);
+
+    const event = {
+      preventDefault: sinon.stub(),
+      stopPropagation: sinon.stub(),
+    };
+
+    return root.onSubmit(event)
+      .then(() => {
+        assert.ok(store.clear.called, 'clear() should have been called');
+      });
   });
 
   it('prompts you appropriately when you are happy', () => {
