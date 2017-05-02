@@ -2,7 +2,7 @@
 
 import { applyMiddleware, compose } from 'redux';
 import { loadingBarMiddleware } from 'react-redux-loading-bar';
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import config from 'config';
 
 
