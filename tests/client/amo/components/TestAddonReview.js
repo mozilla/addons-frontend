@@ -23,8 +23,8 @@ const defaultReview = {
 
 function fakeLocalState(overrides = {}) {
   return {
-    load: () => Promise.resolve(),
     clear: () => Promise.resolve(),
+    load: () => Promise.resolve(),
     save: () => Promise.resolve(),
     ...overrides,
   };

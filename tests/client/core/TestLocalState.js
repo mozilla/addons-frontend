@@ -13,42 +13,42 @@ function fakeLocalForage(overrides = {}) {
 }
 
 describe('LocalState', () => {
-  let store;
+  let localState;
 
   before(() => {
     configureLocalForage();
   });
 
   beforeEach(() => {
-    store = createLocalState('some-id');
-    return store.localForage.clear();
+    localState = createLocalState('some-id');
+    return localState.localForage.clear();
   });
 
   afterEach(() => {
-    return store.localForage.clear();
+    return localState.localForage.clear();
   });
 
   it('lets you get and set data', () => {
     const dataToStore = { name: 'Aristotle' };
 
-    return store.save(dataToStore)
-      .then(() => store.load())
-      .then((storedData) => {
-        assert.deepEqual(storedData, dataToStore);
+    return localState.save(dataToStore)
+      .then(() => localState.load())
+      .then((localStatedData) => {
+        assert.deepEqual(localStatedData, dataToStore);
       });
   });
 
-  it('returns null when no data has been stored', () => {
-    return store.load()
+  it('returns null when no data has been saved', () => {
+    return localState.load()
       .then((data) => {
         assert.strictEqual(data, null);
       });
   });
 
   it('lets you remove data', () => {
-    return store.save({ name: 'Aristotle' })
-      .then(() => store.clear())
-      .then(() => store.load())
+    return localState.save({ name: 'Aristotle' })
+      .then(() => localState.clear())
+      .then(() => localState.load())
       .then((data) => {
         assert.strictEqual(data, null);
       });
@@ -90,30 +90,30 @@ describe('LocalState', () => {
       });
   });
 
-  it('requires you to store an object', () => {
-    return store.save(1)
+  it('requires you to localState an object', () => {
+    return localState.save(1)
       .then(unexpectedSuccess, (error) => {
         assert.match(error.message, /must be an object/);
       });
   });
 
-  it('definitely does not let you store null', () => {
-    return store.save(null)
+  it('definitely does not let you save null', () => {
+    return localState.save(null)
       .then(unexpectedSuccess, (error) => {
         assert.match(error.message, /must be an object/);
       });
   });
 
-  it('lets you work with multiple stores', () => {
-    const store1 = createLocalState('store1');
-    const store2 = createLocalState('store2');
-    return store1.save({ number: 1 })
-      .then(() => store2.save({ number: 2 }))
-      .then(() => store1.load())
+  it('lets you work with multiple instances', () => {
+    const localState1 = createLocalState('one');
+    const localState2 = createLocalState('two');
+    return localState1.save({ number: 1 })
+      .then(() => localState2.save({ number: 2 }))
+      .then(() => localState1.load())
       .then((data) => {
         assert.deepEqual(data, { number: 1 });
       })
-      .then(() => store2.load())
+      .then(() => localState2.load())
       .then((data) => {
         assert.deepEqual(data, { number: 2 });
       });
