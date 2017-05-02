@@ -28,13 +28,13 @@ describe('LocalState', () => {
     return localState.localForage.clear();
   });
 
-  it('lets you get and set data', () => {
-    const dataToStore = { name: 'Aristotle' };
+  it('lets you save and load data', () => {
+    const state = { name: 'Aristotle' };
 
-    return localState.save(dataToStore)
+    return localState.save(state)
       .then(() => localState.load())
-      .then((localStatedData) => {
-        assert.deepEqual(localStatedData, dataToStore);
+      .then((savedState) => {
+        assert.deepEqual(savedState, state);
       });
   });
 
