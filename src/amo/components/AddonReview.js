@@ -30,7 +30,7 @@ type AddonReviewProps = {|
   debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
   i18n: Object,
-  onReviewSubmitted: () => Promise<void>,
+  onReviewSubmitted: () => void | Promise<void>,
   refreshAddon: () => Promise<void>,
   review: UserReviewType,
   setDenormalizedReview: (review: $Shape<UserReviewType>) => SetReviewAction,
@@ -110,10 +110,14 @@ export class AddonReviewBase extends React.Component {
       // Give the parent a callback saying that the review has been submitted.
       // Example: this might close the review entry overlay.
       .then(() => onReviewSubmitted())
-      .then(() => this.localState.clear())
-      .then(() => this.props.refreshAddon({
-        addonSlug: review.addonSlug, apiState,
-      }));
+      .then(() => Promise.all([
+        // Since we successfully stored the state using the API, we
+        // no longer need to save it locally.
+        this.localState.clear(),
+        this.props.refreshAddon({
+          addonSlug: review.addonSlug, apiState,
+        }),
+      ]));
   }
 
   onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
