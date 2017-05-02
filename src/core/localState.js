@@ -48,7 +48,7 @@ export class LocalState {
       });
   }
 
-  removeData(): Promise<void> {
+  clear(): Promise<void> {
     return this.localForage.removeItem(this.id)
       .catch((error) => {
         log.error(`Error with localForage.removeItem("${this.id}"): ${error}`);

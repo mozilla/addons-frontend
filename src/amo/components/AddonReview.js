@@ -110,7 +110,7 @@ export class AddonReviewBase extends React.Component {
       // Give the parent a callback saying that the review has been submitted.
       // Example: this might close the review entry overlay.
       .then(() => onReviewSubmitted())
-      .then(() => this.localState.removeData())
+      .then(() => this.localState.clear())
       .then(() => this.props.refreshAddon({
         addonSlug: review.addonSlug, apiState,
       }));

@@ -47,7 +47,7 @@ describe('LocalState', () => {
 
   it('lets you remove data', () => {
     return store.setData({ name: 'Aristotle' })
-      .then(() => store.removeData())
+      .then(() => store.clear())
       .then(() => store.load())
       .then((data) => {
         assert.strictEqual(data, null);
@@ -78,13 +78,13 @@ describe('LocalState', () => {
       });
   });
 
-  it('can handle removeData() errors', () => {
+  it('can handle clear() errors', () => {
     const errStore = createLocalState('some-id', {
       localForage: fakeLocalForage({
         removeItem: () => Promise.reject(new Error('some localForage error')),
       }),
     });
-    return errStore.removeData()
+    return errStore.clear()
       .then(unexpectedSuccess, (error) => {
         assert.equal(error.message, 'some localForage error');
       });
