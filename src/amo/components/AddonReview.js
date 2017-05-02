@@ -72,11 +72,11 @@ export class AddonReviewBase extends React.Component {
 
   checkForStoredState() {
     return this.localState.load()
-      .then((data) => {
-        if (data) {
-          log.debug(oneLine`Initializing AddonReview data from LocalState
-            ${this.localState.id}`, data);
-          this.setState(data);
+      .then((storedState) => {
+        if (storedState) {
+          log.debug(oneLine`Initializing AddonReview state from LocalState
+            ${this.localState.id}`, storedState);
+          this.setState(storedState);
         }
       });
   }
