@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:40+0000\n"
+"POT-Creation-Date: 2017-05-02 17:05+0000\n"
 "PO-Revision-Date: 2017-04-11 05:47+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,12 +71,12 @@ msgid "About this %(addonType)s"
 msgstr "เกี่ยวกับ %(addonType)s นี้"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "ยกเลิกการแสดงตัวอย่าง"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "แตะเพื่อแสดงตัวอย่าง"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "ยกเลิกการแสดงตัวอย่าง"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
@@ -165,23 +165,23 @@ msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:38
+#: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "จาก %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:76 src/amo/components/Categories.js:26
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:86
 msgid "Add-on icon"
 msgstr "ไอคอนส่วนเสริม"
 
-#: src/amo/components/AddonReviewList.js:67
+#: src/amo/components/AddonReviewList.js:91
 msgid "Reviews for %(addonName)s"
 msgstr "บทวิจารณ์สำหรับ %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:70
+#: src/amo/components/AddonReviewList.js:94
 #, fuzzy
 msgid "All written reviews"
 msgstr "เขียนบทวิจารณ์"
@@ -363,32 +363,32 @@ msgstr "เรียกดูในภาษาของคุณ"
 msgid "Firefox Add-ons"
 msgstr "ส่วนเสริม Firefox"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนพจนานุกรมนี้"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดภาษานี้"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/RatingManager/index.js:128
 #, fuzzy
 msgid "Log in to rate this search plugin"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนเครื่องมือค้นหานี้"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดตกแต่งนี้"
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this extension"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนขยายนี้"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this add-on"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
 
-#: src/amo/components/RatingManager/index.js:161
+#: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "คุณเพลิดเพลินกับประสบการณ์ของคุณกับ %(addonName)s แค่ไหน?"
 
@@ -456,7 +456,7 @@ msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 msgid "Add-ons Home Page"
 msgstr "หน้าแรกส่วนเสริม"
 
-#: src/amo/containers/App.js:106
+#: src/amo/containers/App.js:200
 msgid "Add-ons for Firefox"
 msgstr "ส่วนเสริมสำหรับ Firefox"
 
