@@ -107,12 +107,12 @@ export class AddonReviewBase extends React.Component {
 
     // Next, update the review with an actual API request.
     return this.props.updateReviewText(params)
-      // Give the parent a callback saying that the review has been submitted.
-      // Example: this might close the review entry overlay.
-      .then(() => onReviewSubmitted())
       .then(() => Promise.all([
-        // Since we successfully stored the state using the API, we
-        // no longer need to save it locally.
+        // Give the parent a callback saying that the review has been
+        // submitted. Example: this might close the review entry overlay.
+        onReviewSubmitted(),
+        // Clear the locally stored state since we are in sync with
+        // the API now.
         this.localState.clear(),
         this.props.refreshAddon({
           addonSlug: review.addonSlug, apiState,
