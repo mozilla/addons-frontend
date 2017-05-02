@@ -21,7 +21,7 @@ const defaultReview = {
   id: 3321, addonId: fakeAddon.id, addonSlug: fakeAddon.slug, rating: 5,
 };
 
-function fakeLocalStore(overrides = {}) {
+function fakeLocalState(overrides = {}) {
   return {
     getData: () => Promise.resolve(),
     removeData: () => Promise.resolve(),
@@ -32,7 +32,7 @@ function fakeLocalStore(overrides = {}) {
 
 function render({ ...customProps } = {}) {
   const props = {
-    createLocalStore: () => fakeLocalStore(),
+    createLocalState: () => fakeLocalState(),
     errorHandler: new ErrorHandler({
       id: 'some-id',
       dispatch: sinon.stub(),
@@ -122,22 +122,22 @@ describe('AddonReview', () => {
   });
 
   it('looks for state in a local store at initialization', () => {
-    const store = fakeLocalStore({
+    const store = fakeLocalState({
       getData: sinon.spy(() => Promise.resolve({
         reviewBody: 'stored body',
       })),
     });
-    render({ createLocalStore: () => store });
+    render({ createLocalState: () => store });
     assert.ok(store.getData.called, 'getData() should have been called');
   });
 
   it('looks for state in a local store and loads it', () => {
-    const store = fakeLocalStore({
+    const store = fakeLocalState({
       getData: sinon.spy(() => Promise.resolve({
         reviewBody: 'stored body',
       })),
     });
-    const root = render({ createLocalStore: () => store });
+    const root = render({ createLocalState: () => store });
     return root.checkForStoredState()
       .then(() => {
         assert.equal(root.state.reviewBody, 'stored body');
@@ -145,11 +145,11 @@ describe('AddonReview', () => {
   });
 
   it('ignores null entries when retrieving locally stored state', () => {
-    const store = fakeLocalStore({
+    const store = fakeLocalState({
       getData: sinon.spy(() => Promise.resolve(null)),
     });
     const root = render({
-      createLocalStore: () => store,
+      createLocalState: () => store,
       review: {
         ...defaultReview,
         body: 'Existing body',
@@ -162,13 +162,13 @@ describe('AddonReview', () => {
   });
 
   it('overrides existing text with locally stored text', () => {
-    const store = fakeLocalStore({
+    const store = fakeLocalState({
       getData: sinon.spy(() => Promise.resolve({
         reviewBody: 'Stored text',
       })),
     });
     const root = render({
-      createLocalStore: () => store,
+      createLocalState: () => store,
       review: {
         ...defaultReview,
         body: 'Existing text',
@@ -181,11 +181,11 @@ describe('AddonReview', () => {
   });
 
   it('stores text locally when you type text', () => {
-    const store = fakeLocalStore({
+    const store = fakeLocalState({
       setData: sinon.spy(() => Promise.resolve()),
     });
     const root = render({
-      createLocalStore: () => store,
+      createLocalState: () => store,
       debounce: (callback) => (...args) => callback(...args),
     });
 
@@ -200,11 +200,11 @@ describe('AddonReview', () => {
   });
 
   it('removes the stored state after a successful submission', () => {
-    const store = fakeLocalStore({
+    const store = fakeLocalState({
       removeData: sinon.spy(() => Promise.resolve()),
     });
     const root = render({
-      createLocalStore: () => store,
+      createLocalState: () => store,
     });
 
     const textarea = root.reviewTextarea;

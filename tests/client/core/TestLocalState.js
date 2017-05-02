@@ -1,4 +1,4 @@
-import createLocalStore, { configureLocalForage } from 'core/localStore';
+import createLocalState, { configureLocalForage } from 'core/localState';
 import { unexpectedSuccess } from 'tests/client/helpers';
 
 function fakeLocalForage(overrides = {}) {
@@ -12,7 +12,7 @@ function fakeLocalForage(overrides = {}) {
   };
 }
 
-describe('LocalStore', () => {
+describe('LocalState', () => {
   let store;
 
   before(() => {
@@ -20,7 +20,7 @@ describe('LocalStore', () => {
   });
 
   beforeEach(() => {
-    store = createLocalStore('some-id');
+    store = createLocalState('some-id');
     return store.localForage.clear();
   });
 
@@ -55,7 +55,7 @@ describe('LocalStore', () => {
   });
 
   it('can handle getData() errors', () => {
-    const errStore = createLocalStore('some-id', {
+    const errStore = createLocalState('some-id', {
       localForage: fakeLocalForage({
         getItem: () => Promise.reject(new Error('some localForage error')),
       }),
@@ -67,7 +67,7 @@ describe('LocalStore', () => {
   });
 
   it('can handle setData() errors', () => {
-    const errStore = createLocalStore('some-id', {
+    const errStore = createLocalState('some-id', {
       localForage: fakeLocalForage({
         setItem: () => Promise.reject(new Error('some localForage error')),
       }),
@@ -79,7 +79,7 @@ describe('LocalStore', () => {
   });
 
   it('can handle removeData() errors', () => {
-    const errStore = createLocalStore('some-id', {
+    const errStore = createLocalState('some-id', {
       localForage: fakeLocalForage({
         removeItem: () => Promise.reject(new Error('some localForage error')),
       }),
@@ -105,8 +105,8 @@ describe('LocalStore', () => {
   });
 
   it('lets you work with multiple stores', () => {
-    const store1 = createLocalStore('store1');
-    const store2 = createLocalStore('store2');
+    const store1 = createLocalState('store1');
+    const store2 = createLocalState('store2');
     return store1.setData({ number: 1 })
       .then(() => store2.setData({ number: 2 }))
       .then(() => store1.getData())

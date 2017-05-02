@@ -12,7 +12,7 @@ import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
 import { refreshAddon } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import defaultLocalStoreCreator, { LocalStore } from 'core/localStore';
+import defaultLocalStateCreator, { LocalState } from 'core/localState';
 import log from 'core/logger';
 import OverlayCard from 'ui/components/OverlayCard';
 import type { SetReviewAction, UserReviewType } from 'amo/actions/reviews';
@@ -26,7 +26,7 @@ import 'amo/css/AddonReview.scss';
 
 type AddonReviewProps = {|
   apiState?: ApiStateType,
-  createLocalStore: typeof defaultLocalStoreCreator,
+  createLocalState: typeof defaultLocalStateCreator,
   debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
   i18n: Object,
@@ -42,7 +42,7 @@ type AddonReviewState = {|
 |};
 
 export class AddonReviewBase extends React.Component {
-  localStore: LocalStore;
+  localState: LocalState;
   props: AddonReviewProps;
   reviewForm: Node;
   reviewPrompt: Node;
@@ -50,7 +50,7 @@ export class AddonReviewBase extends React.Component {
   state: AddonReviewState;
 
   static defaultProps = {
-    createLocalStore: defaultLocalStoreCreator,
+    createLocalState: defaultLocalStateCreator,
     debounce: defaultDebounce,
   };
 
@@ -59,7 +59,7 @@ export class AddonReviewBase extends React.Component {
     this.state = {
       reviewBody: props.review.body,
     };
-    this.localStore = props.createLocalStore(`AddonReview:${props.review.id}`);
+    this.localState = props.createLocalState(`AddonReview:${props.review.id}`);
     this.checkForStoredState();
   }
 
@@ -71,11 +71,11 @@ export class AddonReviewBase extends React.Component {
   }
 
   checkForStoredState() {
-    return this.localStore.getData()
+    return this.localState.getData()
       .then((data) => {
         if (data) {
-          log.debug(oneLine`Initializing AddonReview data from LocalStore
-            ${this.localStore.id}`, data);
+          log.debug(oneLine`Initializing AddonReview data from LocalState
+            ${this.localState.id}`, data);
           this.setState(data);
         }
       });
@@ -110,7 +110,7 @@ export class AddonReviewBase extends React.Component {
       // Give the parent a callback saying that the review has been submitted.
       // Example: this might close the review entry overlay.
       .then(() => onReviewSubmitted())
-      .then(() => this.localStore.removeData())
+      .then(() => this.localState.removeData())
       .then(() => this.props.refreshAddon({
         addonSlug: review.addonSlug, apiState,
       }));
@@ -120,7 +120,7 @@ export class AddonReviewBase extends React.Component {
     const storeData = this.props.debounce((dataToSave) => {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.
-      this.localStore.setData(dataToSave);
+      this.localState.setData(dataToSave);
     }, 800);
 
     const data = { reviewBody: event.target.value };

@@ -13,21 +13,21 @@ export function configureLocalForage(
   localForage.config({
     name: 'addons-frontend',
     version: '1.0',
-    storeName: 'core.localStore',
+    storeName: 'core.LocalState',
   });
 }
 
-type LocalStoreOptions = {|
+type LocalStateOptions = {|
   localForage: typeof defaultLocalForage,
 |};
 
-export class LocalStore {
+export class LocalState {
   id: string;
   localForage: typeof defaultLocalForage;
 
   constructor(
     id: string,
-    { localForage = defaultLocalForage }: LocalStoreOptions = {},
+    { localForage = defaultLocalForage }: LocalStateOptions = {},
   ) {
     this.id = id;
     this.localForage = localForage;
@@ -69,8 +69,8 @@ export class LocalStore {
   }
 }
 
-export default function createLocalStore(
-  id: string, options?: LocalStoreOptions
+export default function createLocalState(
+  id: string, options?: LocalStateOptions
 ) {
-  return new LocalStore(id, options);
+  return new LocalState(id, options);
 }
