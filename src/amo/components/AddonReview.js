@@ -121,15 +121,15 @@ export class AddonReviewBase extends React.Component {
   }
 
   onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
-    const storeData = this.props.debounce((dataToSave) => {
+    const saveState = this.props.debounce((state) => {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.
-      this.localState.save(dataToSave);
+      this.localState.save(state);
     }, 800);
 
-    const data = { reviewBody: event.target.value };
-    storeData(data);
-    this.setState(data);
+    const newState = { reviewBody: event.target.value };
+    saveState(newState);
+    this.setState(newState);
   }
 
   render() {
