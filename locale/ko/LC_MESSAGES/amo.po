@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:40+0000\n"
+"POT-Creation-Date: 2017-05-02 17:05+0000\n"
 "PO-Revision-Date: 2017-03-16 02:02+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -66,12 +66,12 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s에 대한 정보"
 
 #: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "미리보기 취소"
-
-#: src/amo/components/AddonDetail.js:92
 msgid "Tap to preview"
 msgstr "탭하여 미리보기"
+
+#: src/amo/components/AddonDetail.js:92
+msgid "Cancel preview"
+msgstr "미리보기 취소"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 #, fuzzy
@@ -169,25 +169,25 @@ msgid ""
 msgstr ""
 "이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
 
-#: src/amo/components/AddonReviewList.js:38
+#: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s로 부터, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:52 src/amo/components/Categories.js:26
+#: src/amo/components/AddonReviewList.js:76 src/amo/components/Categories.js:26
 #, fuzzy
 msgid "Loading..."
 msgstr "검색중..."
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:86
 #, fuzzy
 msgid "Add-on icon"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/AddonReviewList.js:67
+#: src/amo/components/AddonReviewList.js:91
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s에 대한 리뷰"
 
-#: src/amo/components/AddonReviewList.js:70
+#: src/amo/components/AddonReviewList.js:94
 #, fuzzy
 msgid "All written reviews"
 msgstr "리뷰 작성"
@@ -360,32 +360,32 @@ msgstr "내 언어로 검색"
 msgid "Firefox Add-ons"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/RatingManager/index.js:123
+#: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
 msgstr "로그인하여 이 사전의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:125
+#: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
 msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/RatingManager/index.js:128
 #, fuzzy
 msgid "Log in to rate this search plugin"
 msgstr "로그인하여 이 검색엔진의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
 msgstr "로그인하여 이 테마의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this extension"
 msgstr "로그인하여 이 확장 기능의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this add-on"
 msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:161
+#: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s 부가 기능을 어떻게 사용하셨나요?"
 
@@ -453,7 +453,7 @@ msgstr "모든 테마 탐색하기"
 msgid "Add-ons Home Page"
 msgstr "부가 기능 홈 페이지"
 
-#: src/amo/containers/App.js:106
+#: src/amo/containers/App.js:200
 msgid "Add-ons for Firefox"
 msgstr "Firefox 부가 기능"
 
