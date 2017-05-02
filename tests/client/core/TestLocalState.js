@@ -32,14 +32,14 @@ describe('LocalState', () => {
     const dataToStore = { name: 'Aristotle' };
 
     return store.setData(dataToStore)
-      .then(() => store.getData())
+      .then(() => store.load())
       .then((storedData) => {
         assert.deepEqual(storedData, dataToStore);
       });
   });
 
   it('returns null when no data has been stored', () => {
-    return store.getData()
+    return store.load()
       .then((data) => {
         assert.strictEqual(data, null);
       });
@@ -48,19 +48,19 @@ describe('LocalState', () => {
   it('lets you remove data', () => {
     return store.setData({ name: 'Aristotle' })
       .then(() => store.removeData())
-      .then(() => store.getData())
+      .then(() => store.load())
       .then((data) => {
         assert.strictEqual(data, null);
       });
   });
 
-  it('can handle getData() errors', () => {
+  it('can handle load() errors', () => {
     const errStore = createLocalState('some-id', {
       localForage: fakeLocalForage({
         getItem: () => Promise.reject(new Error('some localForage error')),
       }),
     });
-    return errStore.getData()
+    return errStore.load()
       .then(unexpectedSuccess, (error) => {
         assert.equal(error.message, 'some localForage error');
       });
@@ -109,11 +109,11 @@ describe('LocalState', () => {
     const store2 = createLocalState('store2');
     return store1.setData({ number: 1 })
       .then(() => store2.setData({ number: 2 }))
-      .then(() => store1.getData())
+      .then(() => store1.load())
       .then((data) => {
         assert.deepEqual(data, { number: 1 });
       })
-      .then(() => store2.getData())
+      .then(() => store2.load())
       .then((data) => {
         assert.deepEqual(data, { number: 2 });
       });

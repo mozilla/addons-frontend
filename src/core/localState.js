@@ -34,7 +34,7 @@ export class LocalState {
     configureLocalForage({ localForage });
   }
 
-  getData(): Promise<Object | null> {
+  load(): Promise<Object | null> {
     return this.localForage.getItem(this.id)
       .then((data) => {
         if (!data) {
