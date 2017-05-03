@@ -23,20 +23,15 @@ import NotFound from './components/ErrorPage/NotFound';
 import SearchPage from './containers/SearchPage';
 import ServerError from './components/ErrorPage/ServerError';
 
+// If you add a new route here, check that the nginx rules maintained by ops
+// are in sync. See:
+// https://github.com/mozilla-services/puppet-config/tree/master/amo
 
 export default (
   <Route path="/:lang/:application" component={App}>
     <IndexRoute component={Home} />
     <Route path="addon/:slug/" component={DetailPage} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
-    {/* These user routes are to make the proxy serve each URL from */}
-    {/* addons-server until we can fix the :visibleAddonType route below. */}
-    {/* https://github.com/mozilla/addons-frontend/issues/2029 */}
-    {/* We are mimicing these URLs: https://github.com/mozilla/addons-server/blob/master/src/olympia/users/urls.py#L20 */}
-    <Route path="users/:userAction" component={NotFound} />
-    <Route path="users/:userAction/" component={NotFound} />
-    {/* https://github.com/mozilla/addons-frontend/issues/1975 */}
-    <Route path="user/:user/" component={NotFound} />
     <Route path=":visibleAddonType/categories/" component={CategoryList} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={CategoryPage} />
