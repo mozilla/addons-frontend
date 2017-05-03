@@ -23,6 +23,9 @@ import NotFound from './components/ErrorPage/NotFound';
 import SearchPage from './containers/SearchPage';
 import ServerError from './components/ErrorPage/ServerError';
 
+// If you add a new route here, check that the nginx rules maintained by ops
+// are in sync. See:
+// https://github.com/mozilla-services/puppet-config/tree/master/amo
 
 export default (
   <Route path="/:lang/:application" component={App}>
