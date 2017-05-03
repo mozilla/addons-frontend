@@ -11,7 +11,9 @@ export default function themeAction(node, action, _doc = document) {
   node.dispatchEvent(event);
 }
 
-export function getThemeData({ id, name, headerURL, footerURL, textcolor, accentcolor, author }) {
+export function getThemeData({
+  id, name, description, headerURL, footerURL, textcolor, accentcolor, author,
+}) {
   // This extracts the relevant theme data from the larger add-on data object.
-  return { id, name, headerURL, footerURL, textcolor, accentcolor, author };
+  return { id, name, description, headerURL, footerURL, textcolor, accentcolor, author };
 }
