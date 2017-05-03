@@ -29,6 +29,7 @@ describe('Theme Preview Lib', () => {
     const themeData = {
       id: 50,
       name: 'my theme',
+      description: 'my theme description',
       headerURL: 'foo.com',
       footerURL: 'bar.com',
       textcolor: '#fff',
