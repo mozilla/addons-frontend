@@ -12,7 +12,7 @@ export default function themeAction(node, action, _doc = document) {
 }
 
 export function getThemeData({
-id, name, description, headerURL, footerURL, textcolor, accentcolor, author,
+  id, name, description, headerURL, footerURL, textcolor, accentcolor, author,
 }) {
   // This extracts the relevant theme data from the larger add-on data object.
   return { id, name, description, headerURL, footerURL, textcolor, accentcolor, author };
