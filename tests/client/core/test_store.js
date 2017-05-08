@@ -60,4 +60,12 @@ describe('core store middleware', () => {
     assert.isFunction(middleware({ _config: configForDev(true), _window }));
     assert.equal(_window.devToolsExtension.called, true);
   });
+
+  it('only adds the devtools store enhancer in development', () => {
+    const _window = {
+      devToolsExtension: sinon.spy((createStore) => createStore),
+    };
+    assert.isFunction(middleware({ _config: configForDev(false), _window }));
+    assert.equal(_window.devToolsExtension.called, false);
+  });
 });
