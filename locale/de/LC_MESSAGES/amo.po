@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-05-02 17:05+0000\n"
-"PO-Revision-Date: 2017-05-08 19:37+0000\n"
+"PO-Revision-Date: 2017-05-08 20:58+0000\n"
 "Last-Translator: paul.trevor <paul.trevor@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -562,7 +562,7 @@ msgstr "Sie können jetzt über die Symbolleiste auf %(name)s zugreifen."
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr "Ok!"
+msgstr "OK!"
 
 #: src/ui/components/ErrorList/index.js:44
 msgid "Your session has expired"
