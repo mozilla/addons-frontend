@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-05-02 17:05+0000\n"
-"PO-Revision-Date: 2017-05-08 18:55+0000\n"
+"PO-Revision-Date: 2017-05-08 19:37+0000\n"
 "Last-Translator: paul.trevor <paul.trevor@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -430,7 +430,7 @@ msgstr "Erweiterungen sind besondere Funktionen, die Sie zu Firefox hinzufügen 
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
-msgstr "Sie können die Funktionen von Firefox anpassen…"
+msgstr "Sie können die Funktionen von Firefox anpassen …"
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
@@ -458,7 +458,7 @@ msgstr "Spiele spielen"
 
 #: src/amo/containers/Home.js:77
 msgid "…or what it looks like"
-msgstr "…oder sein Aussehen"
+msgstr "… oder sein Aussehen"
 
 #: src/amo/containers/Home.js:79
 msgid "Wild"
