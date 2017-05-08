@@ -1,10 +1,11 @@
 import { middleware } from 'core/store';
 
 describe('core store middleware', () => {
-  function configForDev(isDevelopment) {
+  function configForDev(isDevelopment, config = {}) {
+    const finalConfig = { isDevelopment, ...config };
     return {
       get(key) {
-        return (key === 'isDevelopment') ? isDevelopment : false;
+        return finalConfig[key];
       },
     };
   }
@@ -32,6 +33,14 @@ describe('core store middleware', () => {
       _config: configForDev(true), _createLogger, _window,
     }));
     assert.equal(_createLogger.called, true);
+  });
+
+  it('does not create a logger for the server', () => {
+    const _createLogger = sinon.stub();
+    assert.isFunction(middleware({
+      _config: configForDev(true, { server: true }), _createLogger,
+    }));
+    assert.equal(_createLogger.called, false);
   });
 
   it('uses a placeholder store enhancer when devtools is not installed', () => {
