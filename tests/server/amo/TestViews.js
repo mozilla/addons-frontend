@@ -5,6 +5,7 @@ import { assert } from 'chai';
 import request from 'supertest-as-promised';
 
 import log from 'core/logger';
+
 import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
 const defaultURL = '/en-US/firefox/';
@@ -98,13 +99,13 @@ describe('AMO GET Requests', () => {
         removeVersionFile();
         assert.deepEqual(res.body, versionData);
       })
-      .catch((error) => {
+      .catch((testError) => {
         try {
           removeVersionFile();
-        } catch(error) {
+        } catch (error) {
           log.warn(`Error in removeVersionFile(): ${error}`);
         }
-        throw error;
+        throw testError;
       });
   });
 });
