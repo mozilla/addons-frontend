@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"POT-Creation-Date: 2017-05-09 16:40+0000\n"
 "PO-Revision-Date: 2017-04-26 21:08+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
@@ -138,35 +138,35 @@ msgstr "プライバシーポリシー"
 msgid "Read the privacy policy for this add-on"
 msgstr "このアドオンのプライバシーポリシーを読む"
 
-#: src/amo/components/AddonReview.js:104
-msgid "Write a review"
-msgstr "レビューを書く"
-
-#: src/amo/components/AddonReview.js:110
-msgid "Review text"
-msgstr "レビューテキスト"
-
-#: src/amo/components/AddonReview.js:124
-msgid "Submit review"
-msgstr "レビューを送信"
-
-#: src/amo/components/AddonReview.js:88
+#: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "この拡張機能が素晴らしいと思う理由を他の人にも伝えましょう！"
 
-#: src/amo/components/AddonReview.js:91
+#: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr "この拡張機能のどこが気に入っているか、具体的かつ簡潔に教えてください。"
 
-#: src/amo/components/AddonReview.js:95
+#: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "この拡張機能をレビューしてください。"
 
-#: src/amo/components/AddonReview.js:96
+#: src/amo/components/AddonReview.js:153
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "この拡張機能を使ったあなたの体験について、具体的かつ簡潔に教えてください。"
+
+#: src/amo/components/AddonReview.js:161
+msgid "Write a review"
+msgstr "レビューを書く"
+
+#: src/amo/components/AddonReview.js:167
+msgid "Review text"
+msgstr "レビューテキスト"
+
+#: src/amo/components/AddonReview.js:181
+msgid "Submit review"
+msgstr "レビューを送信"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"

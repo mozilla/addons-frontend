@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"POT-Creation-Date: 2017-05-09 16:40+0000\n"
 "PO-Revision-Date: 2017-03-16 02:02+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -135,39 +135,39 @@ msgstr "개인정보 보호정책"
 msgid "Read the privacy policy for this add-on"
 msgstr "이 부가 기능에 대한 개인 정보 보호 정책 읽기"
 
-#: src/amo/components/AddonReview.js:104
-msgid "Write a review"
-msgstr "리뷰 작성"
-
-#: src/amo/components/AddonReview.js:110
-msgid "Review text"
-msgstr ""
-
-#: src/amo/components/AddonReview.js:124
-#, fuzzy
-msgid "Submit review"
-msgstr "리뷰 작성"
-
-#: src/amo/components/AddonReview.js:88
+#: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알려주세요!"
 
-#: src/amo/components/AddonReview.js:91
+#: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 "이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
 
-#: src/amo/components/AddonReview.js:95
+#: src/amo/components/AddonReview.js:152
 #, fuzzy
 msgid "Tell the world about this extension."
 msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알려주세요!"
 
-#: src/amo/components/AddonReview.js:96
+#: src/amo/components/AddonReview.js:153
 #, fuzzy
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
+
+#: src/amo/components/AddonReview.js:161
+msgid "Write a review"
+msgstr "리뷰 작성"
+
+#: src/amo/components/AddonReview.js:167
+msgid "Review text"
+msgstr ""
+
+#: src/amo/components/AddonReview.js:181
+#, fuzzy
+msgid "Submit review"
+msgstr "리뷰 작성"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"

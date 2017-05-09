@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"POT-Creation-Date: 2017-05-09 16:40+0000\n"
 "PO-Revision-Date: 2017-04-30 15:10+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -144,38 +144,38 @@ msgstr "Informativa sulla privacy"
 msgid "Read the privacy policy for this add-on"
 msgstr "Consulta l’informativa sulla privacy per questo componente aggiuntivo"
 
-#: src/amo/components/AddonReview.js:104
-msgid "Write a review"
-msgstr "Scrivi una recensione"
-
-#: src/amo/components/AddonReview.js:110
-msgid "Review text"
-msgstr "Testo recensione"
-
-#: src/amo/components/AddonReview.js:124
-msgid "Submit review"
-msgstr "Invia recensione"
-
-#: src/amo/components/AddonReview.js:88
+#: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "Spiega agli altri utenti i motivi per cui apprezzi questa estensione."
 
-#: src/amo/components/AddonReview.js:91
+#: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 "Spiega che cosa apprezzi di questa estensione. Cerca di essere preciso e "
 "allo stesso tempo sintetico."
 
-#: src/amo/components/AddonReview.js:95
+#: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "Fai conoscere a tutti questa estensione."
 
-#: src/amo/components/AddonReview.js:96
+#: src/amo/components/AddonReview.js:153
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "Descrivi in modo sintetico e concreto la tua esperienza con il componente "
 "aggiuntivo."
+
+#: src/amo/components/AddonReview.js:161
+msgid "Write a review"
+msgstr "Scrivi una recensione"
+
+#: src/amo/components/AddonReview.js:167
+msgid "Review text"
+msgstr "Testo recensione"
+
+#: src/amo/components/AddonReview.js:181
+msgid "Submit review"
+msgstr "Invia recensione"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
