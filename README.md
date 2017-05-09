@@ -242,6 +242,21 @@ Example: Building and running a production instance of the admin app:
 NODE_APP_INSTANCE=admin NODE_ENV=production npm run build && npm run start
 ```
 
+## What version is deployed?
+
+You can check to see what commit of `addons-frontend` is deployed by
+making a request like this:
+
+````
+curl https://addons-dev.allizom.org/__frontend_version__
+{
+   "build" : "https://circleci.com/gh/mozilla/addons-server/6550",
+   "commit" : "87f49a40ee7a5e87d9b9efde8e91b9019e8b13d1",
+   "source" : "https://github.com/mozilla/addons-server",
+   "version" : ""
+}
+````
+
 ## Overview and rationale
 
 This project will hold distinct front-ends e.g:

@@ -1,6 +1,10 @@
+import fs from 'fs';
+import path from 'path';
+
 import { assert } from 'chai';
 import request from 'supertest-as-promised';
 
+import log from 'core/logger';
 import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
 const defaultURL = '/en-US/firefox/';
@@ -62,4 +66,45 @@ describe('AMO GET Requests', () => {
       assert.equal(res.header.location,
         '/en-US/firefox/search/');
     }));
+
+  it('should return the application version', () => {
+    const projectRoot = path.join(__dirname, '..', '..', '..');
+    const versionFile = path.join(projectRoot, 'version.json');
+
+    if (!fs.statSync(path.join(projectRoot, 'package.json'))) {
+      throw new Error(`Wait, is this not the project root? ${projectRoot}`);
+    }
+
+    const versionData = {
+      build: 'https://circleci.com/gh/mozilla/addons-server/6550',
+      source: 'https://github.com/mozilla/addons-server',
+      // This is typically blank for some reason.
+      version: '',
+      commit: '87f49a40ee7a5e87d9b9efde8e91b9019e8b13d1',
+    };
+
+    // Simulate how ops writes a version file in our project root.
+    fs.writeFileSync(versionFile, JSON.stringify(versionData));
+
+    function removeVersionFile() {
+      fs.unlinkSync(versionFile);
+    }
+
+    return request(app)
+      .get('/__frontend_version__')
+      .set('Accept', 'application/json')
+      .expect(200)
+      .then((res) => {
+        removeVersionFile();
+        assert.deepEqual(res.body, versionData);
+      })
+      .catch((error) => {
+        try {
+          removeVersionFile();
+        } catch(error) {
+          log.warn(`Error in removeVersionFile(): ${error}`);
+        }
+        throw error;
+      });
+  });
 });

@@ -186,9 +186,10 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   }
 
   // Return version information as json
-  app.get('/__version__', (req, res) => {
-    fs.stat(version, (err) => {
-      if (err) {
+  app.get('/__frontend_version__', (req, res) => {
+    fs.stat(version, (error) => {
+      if (error) {
+        log.error(`Could not stat version file ${version}: ${error}`);
         res.sendStatus(415);
       } else {
         res.setHeader('Content-Type', 'application/json');
