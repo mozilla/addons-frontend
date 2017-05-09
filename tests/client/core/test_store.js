@@ -1,10 +1,11 @@
 import { middleware } from 'core/store';
 
 describe('core store middleware', () => {
-  function configForDev(isDevelopment) {
+  function configForDev(isDevelopment, config = {}) {
+    const finalConfig = { isDevelopment, ...config };
     return {
       get(key) {
-        return (key === 'isDevelopment') ? isDevelopment : false;
+        return finalConfig[key];
       },
     };
   }
@@ -34,6 +35,14 @@ describe('core store middleware', () => {
     assert.equal(_createLogger.called, true);
   });
 
+  it('does not create a logger for the server', () => {
+    const _createLogger = sinon.stub();
+    assert.isFunction(middleware({
+      _config: configForDev(true, { server: true }), _createLogger,
+    }));
+    assert.equal(_createLogger.called, false);
+  });
+
   it('uses a placeholder store enhancer when devtools is not installed', () => {
     const _window = {}; // devToolsExtension() is undefined
     const enhancer = middleware({
@@ -50,5 +59,13 @@ describe('core store middleware', () => {
     };
     assert.isFunction(middleware({ _config: configForDev(true), _window }));
     assert.equal(_window.devToolsExtension.called, true);
+  });
+
+  it('only adds the devtools store enhancer in development', () => {
+    const _window = {
+      devToolsExtension: sinon.spy((createStore) => createStore),
+    };
+    assert.isFunction(middleware({ _config: configForDev(false), _window }));
+    assert.equal(_window.devToolsExtension.called, false);
   });
 });

@@ -31,21 +31,19 @@ export function middleware({
   _config = config, _createLogger = createLogger,
   _window = typeof window !== 'undefined' ? window : null,
 } = {}) {
-  if (_config.get('isDevelopment')) {
-    return compose(
-      applyMiddleware(
-        _createLogger(),
-        loadingBarMiddleware(PROMISE_PREFIXES),
-      ),
-      _window && _window.devToolsExtension ?
-        _window.devToolsExtension() : (createStore) => createStore
-    );
+  const isDev = _config.get('isDevelopment');
+
+  const callbacks = [];
+  if (isDev && !_config.get('server')) {
+    // Log all Redux actions but only when in development
+    // and only on the client side.
+    callbacks.push(_createLogger());
   }
+  callbacks.push(loadingBarMiddleware(PROMISE_PREFIXES));
 
   return compose(
-    applyMiddleware(
-      loadingBarMiddleware(PROMISE_PREFIXES),
-    ),
-    (createStore) => createStore,
+    applyMiddleware(...callbacks),
+    isDev && _window && _window.devToolsExtension ?
+      _window.devToolsExtension() : (createStore) => createStore
   );
 }
