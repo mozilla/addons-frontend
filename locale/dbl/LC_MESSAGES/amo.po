@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"POT-Creation-Date: 2017-05-09 16:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,35 +134,35 @@ msgstr "Ƥřīṽȧƈẏ Ƥǿŀīƈẏ"
 msgid "Read the privacy policy for this add-on"
 msgstr "Řḗȧḓ ŧħḗ ƥřīṽȧƈẏ ƥǿŀīƈẏ ƒǿř ŧħīş ȧḓḓ-ǿƞ"
 
-#: src/amo/components/AddonReview.js:104
-msgid "Write a review"
-msgstr "Ẇřīŧḗ ȧ řḗṽīḗẇ"
-
-#: src/amo/components/AddonReview.js:110
-msgid "Review text"
-msgstr "Řḗṽīḗẇ ŧḗẋŧ"
-
-#: src/amo/components/AddonReview.js:124
-msgid "Submit review"
-msgstr "Şŭƀḿīŧ řḗṽīḗẇ"
-
-#: src/amo/components/AddonReview.js:88
+#: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "Ŧḗŀŀ ŧħḗ ẇǿřŀḓ ẇħẏ ẏǿŭ ŧħīƞķ ŧħīş ḗẋŧḗƞşīǿƞ īş ƒȧƞŧȧşŧīƈ!"
 
-#: src/amo/components/AddonReview.js:91
+#: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr "Ŧḗŀŀ ŭş ẇħȧŧ ẏǿŭ ŀǿṽḗ ȧƀǿŭŧ ŧħīş ḗẋŧḗƞşīǿƞ. Ɓḗ şƥḗƈīƒīƈ ȧƞḓ ƈǿƞƈīşḗ."
 
-#: src/amo/components/AddonReview.js:95
+#: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "Ŧḗŀŀ ŧħḗ ẇǿřŀḓ ȧƀǿŭŧ ŧħīş ḗẋŧḗƞşīǿƞ."
 
-#: src/amo/components/AddonReview.js:96
+#: src/amo/components/AddonReview.js:153
 #, fuzzy
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr "Ŧḗŀŀ ŭş ẇħȧŧ ẏǿŭ ŀǿṽḗ ȧƀǿŭŧ ŧħīş ḗẋŧḗƞşīǿƞ. Ɓḗ şƥḗƈīƒīƈ ȧƞḓ ƈǿƞƈīşḗ."
+
+#: src/amo/components/AddonReview.js:161
+msgid "Write a review"
+msgstr "Ẇřīŧḗ ȧ řḗṽīḗẇ"
+
+#: src/amo/components/AddonReview.js:167
+msgid "Review text"
+msgstr "Řḗṽīḗẇ ŧḗẋŧ"
+
+#: src/amo/components/AddonReview.js:181
+msgid "Submit review"
+msgstr "Şŭƀḿīŧ řḗṽīḗẇ"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"

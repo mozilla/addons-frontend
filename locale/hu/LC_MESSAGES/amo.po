@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"POT-Creation-Date: 2017-05-09 16:40+0000\n"
 "PO-Revision-Date: 2017-04-27 09:24+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -141,38 +141,38 @@ msgstr "Adatvédelmi irányelvek"
 msgid "Read the privacy policy for this add-on"
 msgstr "Olvassa el a kiegészítő adatvédelmi irányelveit"
 
-#: src/amo/components/AddonReview.js:104
-msgid "Write a review"
-msgstr "Értékelés írása"
-
-#: src/amo/components/AddonReview.js:110
-msgid "Review text"
-msgstr "Értékelés szövege"
-
-#: src/amo/components/AddonReview.js:124
-msgid "Submit review"
-msgstr "Értékelés beküldése"
-
-#: src/amo/components/AddonReview.js:88
+#: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr ""
 "Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus kiterjesztés!"
 
-#: src/amo/components/AddonReview.js:91
+#: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 "Mondja el, miért szereti ezt a kiterjesztést. Legyen konkrét és lényegretörő."
 
-#: src/amo/components/AddonReview.js:95
+#: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "Mutassa be a világnak ezt a kiterjesztést."
 
-#: src/amo/components/AddonReview.js:96
+#: src/amo/components/AddonReview.js:153
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "Mondja el tapasztalatait ezzel a kiterjesztéssel. Legyen konkrét és "
 "lényegretörő."
+
+#: src/amo/components/AddonReview.js:161
+msgid "Write a review"
+msgstr "Értékelés írása"
+
+#: src/amo/components/AddonReview.js:167
+msgid "Review text"
+msgstr "Értékelés szövege"
+
+#: src/amo/components/AddonReview.js:181
+msgid "Submit review"
+msgstr "Értékelés beküldése"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"

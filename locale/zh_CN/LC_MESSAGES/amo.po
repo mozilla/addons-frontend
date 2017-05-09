@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"POT-Creation-Date: 2017-05-09 16:40+0000\n"
 "PO-Revision-Date: 2017-04-27 09:05+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
@@ -136,34 +136,34 @@ msgstr "隐私政策"
 msgid "Read the privacy policy for this add-on"
 msgstr "阅读此附加组件的隐私政策"
 
-#: src/amo/components/AddonReview.js:104
-msgid "Write a review"
-msgstr "撰写评价"
-
-#: src/amo/components/AddonReview.js:110
-msgid "Review text"
-msgstr "评价内容"
-
-#: src/amo/components/AddonReview.js:124
-msgid "Submit review"
-msgstr "提交评价"
-
-#: src/amo/components/AddonReview.js:88
+#: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "告诉这世界为什么您觉得这个附加组件很棒！"
 
-#: src/amo/components/AddonReview.js:91
+#: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr "告诉我们您怎么看这个扩展。还望具体而简明。"
 
-#: src/amo/components/AddonReview.js:95
+#: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "告诉全世界，此扩展怎么样。"
 
-#: src/amo/components/AddonReview.js:96
+#: src/amo/components/AddonReview.js:153
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr "告诉我们您使用这个扩展的体验如何。应具体而简明。"
+
+#: src/amo/components/AddonReview.js:161
+msgid "Write a review"
+msgstr "撰写评价"
+
+#: src/amo/components/AddonReview.js:167
+msgid "Review text"
+msgstr "评价内容"
+
+#: src/amo/components/AddonReview.js:181
+msgid "Submit review"
+msgstr "提交评价"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"

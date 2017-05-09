@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"POT-Creation-Date: 2017-05-09 16:40+0000\n"
 "PO-Revision-Date: 2017-04-27 00:11+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -144,38 +144,38 @@ msgstr "Polityka prywatności"
 msgid "Read the privacy policy for this add-on"
 msgstr "Przeczytaj politykę prywatności tego dodatku"
 
-#: src/amo/components/AddonReview.js:104
-msgid "Write a review"
-msgstr "Napisz recenzję"
-
-#: src/amo/components/AddonReview.js:110
-msgid "Review text"
-msgstr "Podgląda tekstu"
-
-#: src/amo/components/AddonReview.js:124
-msgid "Submit review"
-msgstr "Wyślij recenzję"
-
-#: src/amo/components/AddonReview.js:88
+#: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "Powiedz światu, dlaczego to rozszerzenie jest wspaniałe!"
 
-#: src/amo/components/AddonReview.js:91
+#: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 "Powiedz nam, dlaczego uwielbiasz to rozszerzenie. Prosimy o konkrety "
 "i zwięzłość."
 
-#: src/amo/components/AddonReview.js:95
+#: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "Opowiedz światu o tym rozszerzeniu."
 
-#: src/amo/components/AddonReview.js:96
+#: src/amo/components/AddonReview.js:153
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "Opowiedz nam o swoich wrażeniach z tym rozszerzeniem. Prosimy o konkrety "
 "i zwięzłość."
+
+#: src/amo/components/AddonReview.js:161
+msgid "Write a review"
+msgstr "Napisz recenzję"
+
+#: src/amo/components/AddonReview.js:167
+msgid "Review text"
+msgstr "Podgląda tekstu"
+
+#: src/amo/components/AddonReview.js:181
+msgid "Submit review"
+msgstr "Wyślij recenzję"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"

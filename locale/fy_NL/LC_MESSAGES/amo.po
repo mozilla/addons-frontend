@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-02 17:05+0000\n"
+"POT-Creation-Date: 2017-05-09 16:40+0000\n"
 "PO-Revision-Date: 2017-04-28 07:38+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -141,37 +141,37 @@ msgstr "Privacybelied"
 msgid "Read the privacy policy for this add-on"
 msgstr "It privacybelied foar dizze add-on lêze"
 
-#: src/amo/components/AddonReview.js:104
-msgid "Write a review"
-msgstr "In beoardieling skriuwe"
-
-#: src/amo/components/AddonReview.js:110
-msgid "Review text"
-msgstr "Tekst beoardiele"
-
-#: src/amo/components/AddonReview.js:124
-msgid "Submit review"
-msgstr "Beoardieling yntsjinje"
-
-#: src/amo/components/AddonReview.js:88
+#: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr ""
 "Fertel de wrâld wêrom't jo tinke dat dizze útwreiding bjusterbaarlik is!"
 
-#: src/amo/components/AddonReview.js:91
+#: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 "Fertel ús wat jo sa befalt oan dizze útwreiding. Wês konkreet en koart."
 
-#: src/amo/components/AddonReview.js:95
+#: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "Jou in beskriuwing oer dizze útwreiding."
 
-#: src/amo/components/AddonReview.js:96
+#: src/amo/components/AddonReview.js:153
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "Fertel ús oer jo ûnderfining mei dizze útwreiding. Wês konkreet en koart."
+
+#: src/amo/components/AddonReview.js:161
+msgid "Write a review"
+msgstr "In beoardieling skriuwe"
+
+#: src/amo/components/AddonReview.js:167
+msgid "Review text"
+msgstr "Tekst beoardiele"
+
+#: src/amo/components/AddonReview.js:181
+msgid "Submit review"
+msgstr "Beoardieling yntsjinje"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
