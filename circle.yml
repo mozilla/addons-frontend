@@ -18,6 +18,7 @@ dependencies:
     - "~/docker"
   pre:
     - npm install -g npm@3
+    - sudo pip install --upgrade pip
     - sudo apt-get update; sudo apt-get install pigz
     - sudo pip install tox mozdownload mozinstall
     - mozdownload --version latest --destination firefox.tar.bz2
