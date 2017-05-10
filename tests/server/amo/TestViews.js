@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { assert } from 'chai';
+import config from 'config';
 import request from 'supertest-as-promised';
 
 import log from 'core/logger';
@@ -69,12 +70,7 @@ describe('AMO GET Requests', () => {
     }));
 
   it('should return the application version', () => {
-    const projectRoot = path.join(__dirname, '..', '..', '..');
-    const versionFile = path.join(projectRoot, 'version.json');
-
-    if (!fs.statSync(path.join(projectRoot, 'package.json'))) {
-      throw new Error(`Wait, is this not the project root? ${projectRoot}`);
-    }
+    const versionFile = path.join(config.basePath, 'version.json');
 
     const versionData = {
       build: 'https://circleci.com/gh/mozilla/addons-server/6550',
