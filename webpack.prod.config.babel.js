@@ -111,16 +111,13 @@ const settings = {
       saveAs: path.join(__dirname, 'dist/sri.json'),
     }),
     // optimizations
-    // TODO, put these back:
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   comments: false,
-    //   compress: {
-    //     drop_console: true,
-    //     warnings: false,
-    //   },
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      comments: false,
+      compress: {
+        drop_console: true,
+      },
+    }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     // This function helps ensure we do bail if a compilation error
     // is encountered since --bail doesn't cause the build to fail with
