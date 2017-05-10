@@ -72,10 +72,19 @@ export default Object.assign({}, webpackConfig, {
         query: BABEL_QUERY,
       }, {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?importLoaders=2!postcss-loader?outputStyle=expanded',
+        use: [
+          'style-loader',
+          'css-loader?importLoaders=2',
+          'postcss-loader?outputStyle=expanded',
+        ],
       }, {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader?importLoaders=2!postcss-loader!sass-loader?outputStyle=expanded',
+        use: [
+          'style-loader',
+          'css-loader?importLoaders=2',
+          'postcss-loader',
+          'sass-loader?outputStyle=expanded',
+        ],
       }, {
         test: /\.svg$/,
         loader: 'svg-url-loader?limit=10000',

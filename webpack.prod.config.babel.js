@@ -47,13 +47,20 @@ const settings = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader?importLoaders=2&sourceMap!postcss-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true',
+          use: [
+            'css-loader?importLoaders=2&sourceMap',
+            'postcss-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true',
+          ],
         }),
       }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader?importLoaders=2&sourceMap!postcss-loader!sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true',
+          use: [
+            'css-loader?importLoaders=2&sourceMap',
+            'postcss-loader',
+            'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true',
+          ],
         }),
       }, {
         test: /\.svg$/,
