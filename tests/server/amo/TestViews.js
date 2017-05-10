@@ -5,8 +5,6 @@ import { assert } from 'chai';
 import config from 'config';
 import request from 'supertest-as-promised';
 
-import log from 'core/logger';
-
 import { checkSRI, parseCSP, runTestServer } from '../helpers';
 
 const defaultURL = '/en-US/firefox/';
@@ -69,7 +67,7 @@ describe('AMO GET Requests', () => {
         '/en-US/firefox/search/');
     }));
 
-  it('should return the application version', () => {
+  describe('application version views', () => {
     const versionFile = path.join(config.basePath, 'version.json');
 
     const versionData = {
@@ -80,28 +78,33 @@ describe('AMO GET Requests', () => {
       commit: '87f49a40ee7a5e87d9b9efde8e91b9019e8b13d1',
     };
 
-    // Simulate how ops writes a version file in our project root.
-    fs.writeFileSync(versionFile, JSON.stringify(versionData));
+    beforeEach(() => {
+      // Simulate how ops writes a version file in our project root.
+      fs.writeFileSync(versionFile, JSON.stringify(versionData));
+    });
 
-    function removeVersionFile() {
+    afterEach(() => {
       fs.unlinkSync(versionFile);
-    }
+    });
 
-    return request(app)
-      .get('/__frontend_version__')
-      .set('Accept', 'application/json')
-      .expect(200)
-      .then((res) => {
-        removeVersionFile();
-        assert.deepEqual(res.body, versionData);
-      })
-      .catch((testError) => {
-        try {
-          removeVersionFile();
-        } catch (error) {
-          log.warn(`Error in removeVersionFile(): ${error}`);
-        }
-        throw testError;
-      });
+    it('should respond to __version__ with version info', () => {
+      return request(app)
+        .get('/__version__')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .then((res) => {
+          assert.deepEqual(res.body, versionData);
+        });
+    });
+
+    it('should respond to __frontend_version__ with version info', () => {
+      return request(app)
+        .get('/__frontend_version__')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .then((res) => {
+          assert.deepEqual(res.body, versionData);
+        });
+    });
   });
 });

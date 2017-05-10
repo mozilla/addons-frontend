@@ -47,6 +47,7 @@ module.exports = {
     'static',
     'user-media',
     '__frontend_version__',
+    '__version__',
   ],
 
   // This needs to be kept in sync with addons-server's SUPPORTED_NONAPPS
@@ -77,6 +78,7 @@ module.exports = {
     'static',
     'user-media',
     '__frontend_version__',
+    '__version__',
   ],
   // These URLs are exceptions to our trailing slash URL redirects; if we
   // find a URL that matches this pattern we won't redirect to the same url
