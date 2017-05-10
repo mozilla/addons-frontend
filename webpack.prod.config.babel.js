@@ -101,9 +101,10 @@ const settings = {
       /locale$/,
       new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
     ),
-    // TODO: Figure out the equivalent of this:
-    // https://github.com/webpack-contrib/extract-text-webpack-plugin
-    // new ExtractTextPlugin('[name]-[contenthash].css', { allChunks: true }),
+    new ExtractTextPlugin({
+      filename: '[name]-[contenthash].css',
+      allChunks: true,
+    }),
     new SriStatsPlugin({
       algorithm: 'sha512',
       write: true,
