@@ -64,45 +64,45 @@ export default Object.assign({}, webpackConfig, {
     publicPath: `//${webpackHost}:${webpackPort}/`,
   }),
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: BABEL_QUERY,
       }, {
         test: /\.css$/,
-        loader: 'style!css?importLoaders=2!postcss?outputStyle=expanded',
+        loader: 'style-loader!css-loader?importLoaders=2!postcss-loader?outputStyle=expanded',
       }, {
         test: /\.scss$/,
-        loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
+        loader: 'style-loader!css-loader?importLoaders=2!postcss-loader!sass-loader?outputStyle=expanded',
       }, {
         test: /\.svg$/,
-        loader: 'svg-url?limit=10000',
+        loader: 'svg-url-loader?limit=10000',
       }, {
         test: /\.jpg$/,
-        loader: 'url?limit=10000&mimetype=image/jpeg',
+        loader: 'url-loader?limit=10000&mimetype=image/jpeg',
       }, {
         test: /\.png$/,
-        loader: 'url?limit=10000&mimetype=image/png',
+        loader: 'url-loader?limit=10000&mimetype=image/png',
       }, {
         test: /\.gif/,
-        loader: 'url?limit=10000&mimetype=image/gif',
+        loader: 'url-loader?limit=10000&mimetype=image/gif',
       }, {
         test: /\.webm$/,
-        loader: 'url?limit=10000&mimetype=video/webm',
+        loader: 'url-loader?limit=10000&mimetype=video/webm',
       }, {
         test: /\.mp4$/,
-        loader: 'url?limit=10000&mimetype=video/mp4',
+        loader: 'url-loader?limit=10000&mimetype=video/mp4',
       }, {
         test: /\.otf$/,
-        loader: 'url?limit=10000&mimetype=application/font-sfnt',
+        loader: 'url-loader?limit=10000&mimetype=application/font-sfnt',
       }, {
         test: /\.woff$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff',
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
       }, {
         test: /\.woff2$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff2',
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff2',
       },
     ],
   },

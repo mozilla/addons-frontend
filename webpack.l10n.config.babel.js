@@ -65,14 +65,14 @@ const BABEL_QUERY = Object.assign({}, babelrcObject, {
   plugins: babelPlugins.concat(babelL10nPlugins),
 });
 
-const newLoaders = webpackConfig.module.loaders.slice(0);
+const newRules = webpackConfig.module.rules.slice(0);
 // Assumes the js loader is the first one.
-newLoaders[0].query = BABEL_QUERY;
+newRules[0].query = BABEL_QUERY;
 
 export default Object.assign({}, webpackConfig, {
   entry: { [appName]: `src/${appName}/client` },
   module: {
-    loaders: newLoaders,
+    rules: newRules,
   },
   plugins: [
     new webpack.IgnorePlugin(new RegExp(`locale\\/.*\\/${appName}\\.js$`)),

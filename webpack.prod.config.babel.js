@@ -27,7 +27,9 @@ for (const app of appsBuildList) {
 const settings = {
   devtool: 'source-map',
   context: path.resolve(__dirname),
-  progress: true,
+  devServer: {
+    progress: true,
+  },
   entry: entryPoints,
   output: {
     path: path.join(__dirname, 'dist'),
@@ -36,44 +38,50 @@ const settings = {
     publicPath: config.has('staticHost') ? `${config.get('staticHost')}/` : '/',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
       }, {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader?importLoaders=2&sourceMap!postcss-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true',
+        }),
       }, {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader?importLoaders=2&sourceMap!postcss-loader!sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true',
+        }),
       }, {
         test: /\.svg$/,
-        loader: 'svg-url?limit=10000',
+        loader: 'svg-url-loader?limit=10000',
       }, {
         test: /\.jpg$/,
-        loader: 'url?limit=10000&mimetype=image/jpeg',
+        loader: 'url-loader?limit=10000&mimetype=image/jpeg',
       }, {
         test: /\.png$/,
-        loader: 'url?limit=10000&mimetype=image/png',
+        loader: 'url-loader?limit=10000&mimetype=image/png',
       }, {
         test: /\.gif/,
-        loader: 'url?limit=10000&mimetype=image/gif',
+        loader: 'url-loader?limit=10000&mimetype=image/gif',
       }, {
         test: /\.webm$/,
-        loader: 'url?limit=10000&mimetype=video/webm',
+        loader: 'url-loader?limit=10000&mimetype=video/webm',
       }, {
         test: /\.mp4$/,
-        loader: 'url?limit=10000&mimetype=video/mp4',
+        loader: 'url-loader?limit=10000&mimetype=video/mp4',
       }, {
         test: /\.otf$/,
-        loader: 'url?limit=10000&mimetype=application/font-sfnt',
+        loader: 'url-loader?limit=10000&mimetype=application/font-sfnt',
       }, {
         test: /\.woff$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff',
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
       }, {
         test: /\.woff2$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff2',
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff2',
       },
     ],
   },
@@ -93,22 +101,25 @@ const settings = {
       /locale$/,
       new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
     ),
-    new ExtractTextPlugin('[name]-[contenthash].css', { allChunks: true }),
+    // TODO: Figure out the equivalent of this:
+    // https://github.com/webpack-contrib/extract-text-webpack-plugin
+    // new ExtractTextPlugin('[name]-[contenthash].css', { allChunks: true }),
     new SriStatsPlugin({
       algorithm: 'sha512',
       write: true,
       saveAs: path.join(__dirname, 'dist/sri.json'),
     }),
     // optimizations
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false,
-      compress: {
-        drop_console: true,
-        warnings: false,
-      },
-    }),
+    // TODO, put these back:
+    // new webpack.optimize.DedupePlugin(),
+    // new webpack.optimize.OccurenceOrderPlugin(),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   comments: false,
+    //   compress: {
+    //     drop_console: true,
+    //     warnings: false,
+    //   },
+    // }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     // This function helps ensure we do bail if a compilation error
     // is encountered since --bail doesn't cause the build to fail with
@@ -128,19 +139,20 @@ const settings = {
     alias: {
       'normalize.css': 'normalize.css/normalize.css',
     },
-    root: [
+    modules: [
       path.resolve(__dirname),
       path.resolve('./src'),
+      'node_modules',
     ],
-    modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
 };
 
 if (config.get('enablePostCssLoader')) {
-  settings.postcss = [
-    autoprefixer({ browsers: ['last 2 versions'] }),
-  ];
+  // TODO: figure out how to do this.
+  // settings.postcss = [
+  //   autoprefixer({ browsers: ['last 2 versions'] }),
+  // ];
 }
 
 export default settings;
