@@ -37,6 +37,7 @@ import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
 
 const env = config.util.getEnv('NODE_ENV');
+// This is a magic file that gets written by deployment scripts.
 const version = path.join(config.get('basePath'), 'version.json');
 const isDeployed = config.get('isDeployed');
 const isDevelopment = config.get('isDevelopment');
@@ -185,17 +186,23 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     app.use(Express.static(path.join(config.get('basePath'), 'dist')));
   }
 
-  // Return version information as json
-  app.get('/__version__', (req, res) => {
-    fs.stat(version, (err) => {
-      if (err) {
+  // Show version/commit information as JSON.
+  function viewVersion(req, res) {
+    fs.stat(version, (error) => {
+      if (error) {
+        log.error(`Could not stat version file ${version}: ${error}`);
         res.sendStatus(415);
       } else {
         res.setHeader('Content-Type', 'application/json');
         fs.createReadStream(version).pipe(res);
       }
     });
-  });
+  }
+
+  // Following the ops monitoring convention, return version info at this URL.
+  app.get('/__version__', viewVersion);
+  // For AMO, this helps differentiate from /__version__ served by addons-server.
+  app.get('/__frontend_version__', viewVersion);
 
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));

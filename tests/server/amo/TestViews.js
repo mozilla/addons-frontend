@@ -1,4 +1,8 @@
+import fs from 'fs';
+import path from 'path';
+
 import { assert } from 'chai';
+import config from 'config';
 import request from 'supertest-as-promised';
 
 import { checkSRI, parseCSP, runTestServer } from '../helpers';
@@ -62,4 +66,45 @@ describe('AMO GET Requests', () => {
       assert.equal(res.header.location,
         '/en-US/firefox/search/');
     }));
+
+  describe('application version views', () => {
+    const versionFile = path.join(config.basePath, 'version.json');
+
+    const versionData = {
+      build: 'https://circleci.com/gh/mozilla/addons-server/6550',
+      source: 'https://github.com/mozilla/addons-server',
+      // This is typically blank for some reason.
+      version: '',
+      commit: '87f49a40ee7a5e87d9b9efde8e91b9019e8b13d1',
+    };
+
+    beforeEach(() => {
+      // Simulate how ops writes a version file in our project root.
+      fs.writeFileSync(versionFile, JSON.stringify(versionData));
+    });
+
+    afterEach(() => {
+      fs.unlinkSync(versionFile);
+    });
+
+    it('should respond to __version__ with version info', () => {
+      return request(app)
+        .get('/__version__')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .then((res) => {
+          assert.deepEqual(res.body, versionData);
+        });
+    });
+
+    it('should respond to __frontend_version__ with version info', () => {
+      return request(app)
+        .get('/__frontend_version__')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .then((res) => {
+          assert.deepEqual(res.body, versionData);
+        });
+    });
+  });
 });

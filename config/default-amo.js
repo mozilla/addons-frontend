@@ -46,6 +46,7 @@ module.exports = {
     'blocklist',
     'static',
     'user-media',
+    '__frontend_version__',
     '__version__',
   ],
 
@@ -76,6 +77,7 @@ module.exports = {
     'sunbird',
     'static',
     'user-media',
+    '__frontend_version__',
     '__version__',
   ],
   // These URLs are exceptions to our trailing slash URL redirects; if we
