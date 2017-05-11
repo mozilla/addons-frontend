@@ -94,31 +94,55 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
         ],
       }, {
         test: /\.svg$/,
-        loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+        use: [{ loader: 'svg-url-loader', options: { limit: 10000 } }],
       }, {
         test: /\.jpg$/,
-        loader: 'url-loader?limit=10000&mimetype=image/jpeg',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'image/jpeg' },
+        }],
       }, {
         test: /\.png$/,
-        loader: 'url-loader?limit=10000&mimetype=image/png',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'image/png' },
+        }],
       }, {
         test: /\.gif/,
-        loader: 'url-loader?limit=10000&mimetype=image/gif',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'image/gif' },
+        }],
       }, {
         test: /\.webm$/,
-        loader: 'url-loader?limit=10000&mimetype=video/webm',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'video/webm' },
+        }],
       }, {
         test: /\.mp4$/,
-        loader: 'url-loader?limit=10000&mimetype=video/mp4',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'video/mp4' },
+        }],
       }, {
         test: /\.otf$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-sfnt',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'application/font-sfnt' },
+        }],
       }, {
         test: /\.woff$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'application/font-woff' },
+        }],
       }, {
         test: /\.woff2$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff2',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'application/font-woff2' },
+        }],
       },
     ],
   },

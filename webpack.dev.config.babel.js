@@ -73,45 +73,69 @@ export default Object.assign({}, webpackConfig, {
       }, {
         test: /\.css$/,
         use: [
-          'style-loader',
-          'css-loader?importLoaders=2',
-          'postcss-loader?outputStyle=expanded',
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { importLoaders: 2 } },
+          { loader: 'postcss-loader', options: { outputStyle: 'expanded' } },
         ],
       }, {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          'css-loader?importLoaders=2',
-          'postcss-loader',
-          'sass-loader?outputStyle=expanded',
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { importLoaders: 2 } },
+          { loader: 'postcss-loader' },
+          { loader: 'sass-loader', options: { outputStyle: 'expanded' } },
         ],
       }, {
         test: /\.svg$/,
-        loader: 'svg-url-loader?limit=10000',
+        use: [{ loader: 'svg-url-loader', options: { limit: 10000 } }],
       }, {
         test: /\.jpg$/,
-        loader: 'url-loader?limit=10000&mimetype=image/jpeg',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'image/jpeg' },
+        }],
       }, {
         test: /\.png$/,
-        loader: 'url-loader?limit=10000&mimetype=image/png',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'image/png' },
+        }],
       }, {
         test: /\.gif/,
-        loader: 'url-loader?limit=10000&mimetype=image/gif',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'image/gif' },
+        }],
       }, {
         test: /\.webm$/,
-        loader: 'url-loader?limit=10000&mimetype=video/webm',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'video/webm' },
+        }],
       }, {
         test: /\.mp4$/,
-        loader: 'url-loader?limit=10000&mimetype=video/mp4',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'video/mp4' },
+        }],
       }, {
         test: /\.otf$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-sfnt',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'application/font-sfnt' },
+        }],
       }, {
         test: /\.woff$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'application/font-woff' },
+        }],
       }, {
         test: /\.woff2$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff2',
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000, mimetype: 'application/font-woff2' },
+        }],
       },
     ],
   },
