@@ -205,7 +205,7 @@ if (config.get('enablePostCssLoader')) {
   settings.plugins.push(
     new webpack.LoaderOptionsPlugin({
       options: {
-        context: __dirname,
+        context: path.resolve(__dirname),
         postcss: [
           autoprefixer({ browsers: ['last 2 versions'] }),
         ],
