@@ -202,10 +202,16 @@ const settings = {
 };
 
 if (config.get('enablePostCssLoader')) {
-  // TODO: figure out how to do this.
-  // settings.postcss = [
-  //   autoprefixer({ browsers: ['last 2 versions'] }),
-  // ];
+  settings.plugins.push(
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: __dirname,
+        postcss: [
+          autoprefixer({ browsers: ['last 2 versions'] }),
+        ],
+      },
+    })
+  );
 }
 
 export default settings;
