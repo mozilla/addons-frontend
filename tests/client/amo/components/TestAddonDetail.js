@@ -122,8 +122,36 @@ describe('AddonDetail', () => {
     });
     // Make sure an actual script tag was not created.
     assert.equal(rootNode.querySelector('h1 script'), null);
-    // Make sure the script HTML has been escaped and removed.
-    assert.notInclude(rootNode.querySelector('h1').textContent, 'script');
+    // Make sure the script removed.
+    assert.notInclude(rootNode.querySelector('h1').innerHTML, '<script>');
+  });
+
+  it('sanitizes a summary', () => {
+    const scriptHTML = '<script>alert(document.cookie);</script>';
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        summary: scriptHTML,
+      },
+    });
+    // Make sure an actual script tag was not created.
+    assert.equal(rootNode.querySelector('.AddonDetail-summary script'), null);
+    // Make sure the script has been removed.
+    assert.notInclude(rootNode.querySelector('.AddonDetail-summary').innerHTML, '<script>');
+  });
+
+  it('sanitizes bad description HTML', () => {
+    const scriptHTML = '<script>alert(document.cookie);</script>';
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        description: scriptHTML,
+      },
+    });
+    // Make sure an actual script tag was not created.
+    assert.equal(rootNode.querySelector('.AddonDescription script'), null);
+    // Make sure the script has been removed.
+    assert.notInclude(rootNode.querySelector('.AddonDescription').innerHTML, '<script>');
   });
 
   it('allows certain HTML tags in the title', () => {
@@ -169,21 +197,6 @@ describe('AddonDetail', () => {
     assert.equal(
       rootNode.querySelector('.AddonDescription-contents').textContent,
       addon.summary);
-  });
-
-  it('sanitizes bad description HTML', () => {
-    const scriptHTML = '<script>alert(document.cookie);</script>';
-    const rootNode = renderAsDOMNode({
-      addon: {
-        ...fakeAddon,
-        description: scriptHTML,
-      },
-    });
-    // Make sure an actual script tag was not created.
-    assert.equal(rootNode.querySelector('.AddonDescription script'), null);
-    // Make sure the script HTML has been escaped and removed.
-    assert.notInclude(
-      rootNode.querySelector('.AddonDescription').textContent, scriptHTML);
   });
 
   it('converts new lines in the description to breaks', () => {
