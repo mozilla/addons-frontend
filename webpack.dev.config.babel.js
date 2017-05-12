@@ -7,14 +7,11 @@ import config from 'config';
 import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
-import { getClientConfig } from 'core/utils';
-
-import { getRules } from './webpack-common';
+import { getPlugins, getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
 import webpackIsomorphicToolsConfig
   from './src/core/server/webpack-isomorphic-tools-config';
 
-const clientConfig = getClientConfig(config);
 const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
 
 const webpackIsomorphicToolsPlugin =
@@ -33,7 +30,8 @@ const babelDevPlugins = [['react-transform', {
 }]];
 
 const BABEL_QUERY = Object.assign({}, babelrcObject, {
-  plugins: localDevelopment ? babelPlugins.concat(babelDevPlugins) : babelPlugins,
+  plugins: localDevelopment ?
+    babelPlugins.concat(babelDevPlugins) : babelPlugins,
 });
 
 const webpackHost = config.get('webpackServerHost');
@@ -68,21 +66,7 @@ export default Object.assign({}, webpackConfig, {
     rules: getRules({ babelQuery: BABEL_QUERY, bundleStylesWithJs: true }),
   },
   plugins: [
-    new webpack.DefinePlugin({
-      CLIENT_CONFIG: JSON.stringify(clientConfig),
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    // Replaces server config module with the subset clientConfig object.
-    new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
-    // This allow us to exclude locales for other apps being built.
-    new webpack.ContextReplacementPlugin(
-      /locale$/,
-      new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
-    ),
-    // Substitutes client only config.
-    new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
-    // Use the browser's window for window.
-    new webpack.NormalModuleReplacementPlugin(/core\/window/, 'core/browserWindow.js'),
+    ...getPlugins(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),

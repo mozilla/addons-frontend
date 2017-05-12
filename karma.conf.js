@@ -10,11 +10,11 @@ const fs = require('fs');
 const webpack = require('webpack');
 const config = require('config');
 
-const getRules = require('./webpack-common').getRules;
-const getClientConfig = require('./src/core/utils').getClientConfig;
+const webpackCommon = require('./webpack-common');
+const getPlugins = webpackCommon.getPlugins;
+const getRules = webpackCommon.getRules;
 const webpackConfigProd = require('./webpack.prod.config.babel').default;
 
-const clientConfig = getClientConfig(config);
 const babelrc = fs.readFileSync('./.babelrc');
 const babelQuery = JSON.parse(babelrc);
 
@@ -25,16 +25,13 @@ const coverageReporters = [{
 babelQuery.plugins.push(['istanbul', { include: 'src/**' }]);
 
 const newWebpackConfig = Object.assign({}, webpackConfigProd, {
-  plugins: [
-    new webpack.DefinePlugin({
-      CLIENT_CONFIG: JSON.stringify(clientConfig),
-    }),
-    // Replaces server config module with the subset clientConfig object.
-    new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
-    // Substitutes client only config.
-    new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
-    // Use the browser's window for window.
-    new webpack.NormalModuleReplacementPlugin(/core\/window/, 'core/browserWindow.js'),
+  devtool: 'inline-source-map',
+  module: {
+    rules: getRules({ babelQuery: babelQuery, bundleStylesWithJs: true }),
+  },
+  output: undefined,
+  entry: undefined,
+  plugins: getPlugins({ excludeOtherAppLocales: false }).concat([
     // Plugin to show any webpack warnings and prevent tests from running
     // Based on: https://gist.github.com/Stuk/6b574049435df532e905
     function WebpackWarningPlugin() {
@@ -69,13 +66,7 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
         }
       });
     },
-  ],
-  devtool: 'inline-source-map',
-  module: {
-    rules: getRules({ babelQuery: babelQuery, bundleStylesWithJs: true }),
-  },
-  output: undefined,
-  entry: undefined,
+  ]),
 });
 
 const reporters = [

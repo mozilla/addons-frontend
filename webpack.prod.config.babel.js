@@ -8,13 +8,9 @@ import SriStatsPlugin from 'sri-stats-webpack-plugin';
 import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
-import { getClientConfig } from 'core/utils';
-
-import { getRules } from './webpack-common';
+import { getPlugins, getRules } from './webpack-common';
 import webpackIsomorphicToolsConfig
   from './src/core/server/webpack-isomorphic-tools-config';
-
-const clientConfig = getClientConfig(config);
 
 const appName = config.get('appName');
 const appsBuildList = appName ? [appName] : config.get('validAppNames');
@@ -42,21 +38,7 @@ const settings = {
     rules: getRules(),
   },
   plugins: [
-    new webpack.DefinePlugin({
-      CLIENT_CONFIG: JSON.stringify(clientConfig),
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    // Replaces server config module with the subset clientConfig object.
-    new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
-    // Substitutes client only config.
-    new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
-    // Use the browser's window for window.
-    new webpack.NormalModuleReplacementPlugin(/core\/window/, 'core/browserWindow.js'),
-    // This allow us to exclude locales for other apps being built.
-    new webpack.ContextReplacementPlugin(
-      /locale$/,
-      new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
-    ),
+    ...getPlugins(),
     new ExtractTextPlugin({
       filename: '[name]-[contenthash].css',
       allChunks: true,

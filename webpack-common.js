@@ -1,4 +1,8 @@
+import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import webpack from 'webpack';
+
+import { getClientConfig } from 'core/utils';
 
 export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
   let styleRules;
@@ -132,4 +136,37 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
       }],
     },
   ];
+}
+
+export function getPlugins({ excludeOtherAppLocales = true } = {}) {
+  const appName = config.get('appName');
+  const clientConfig = getClientConfig(config);
+
+  const plugins = [
+    new webpack.DefinePlugin({
+      CLIENT_CONFIG: JSON.stringify(clientConfig),
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+    // Replaces server config module with the subset clientConfig object.
+    new webpack.NormalModuleReplacementPlugin(
+      /config$/, 'core/client/config.js'),
+    // Substitutes client only config.
+    new webpack.NormalModuleReplacementPlugin(
+      /core\/logger$/, 'core/client/logger.js'),
+    // Use the browser's window for window.
+    new webpack.NormalModuleReplacementPlugin(
+      /core\/window/, 'core/browserWindow.js'),
+  ];
+
+  if (excludeOtherAppLocales) {
+    plugins.push(
+      // This allow us to exclude locales for other apps being built.
+      new webpack.ContextReplacementPlugin(
+        /locale$/,
+        new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
+      ),
+    );
+  }
+
+  return plugins;
 }

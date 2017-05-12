@@ -72,6 +72,7 @@ export default Object.assign({}, webpackConfig, {
     rules: getRules({ babelQuery: BABEL_QUERY });
   },
   plugins: [
+    // Don't generate modules for locale files.
     new webpack.IgnorePlugin(new RegExp(`locale\\/.*\\/${appName}\\.js$`)),
     ...webpackConfig.plugins,
   ],
