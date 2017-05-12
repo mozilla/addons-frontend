@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';

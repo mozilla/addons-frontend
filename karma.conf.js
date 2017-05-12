@@ -7,13 +7,11 @@ require('babel-register');
 
 const fs = require('fs');
 
-const webpack = require('webpack');
-const config = require('config');
-
 const webpackCommon = require('./webpack-common');
+const webpackConfigProd = require('./webpack.prod.config.babel').default;
+
 const getPlugins = webpackCommon.getPlugins;
 const getRules = webpackCommon.getRules;
-const webpackConfigProd = require('./webpack.prod.config.babel').default;
 
 const babelrc = fs.readFileSync('./.babelrc');
 const babelQuery = JSON.parse(babelrc);
@@ -27,11 +25,12 @@ babelQuery.plugins.push(['istanbul', { include: 'src/**' }]);
 const newWebpackConfig = Object.assign({}, webpackConfigProd, {
   devtool: 'inline-source-map',
   module: {
-    rules: getRules({ babelQuery: babelQuery, bundleStylesWithJs: true }),
+    rules: getRules({ babelQuery, bundleStylesWithJs: true }),
   },
   output: undefined,
   entry: undefined,
-  plugins: getPlugins({ excludeOtherAppLocales: false }).concat([
+  plugins: [
+    ...getPlugins({ excludeOtherAppLocales: false }),
     // Plugin to show any webpack warnings and prevent tests from running
     // Based on: https://gist.github.com/Stuk/6b574049435df532e905
     function WebpackWarningPlugin() {
@@ -66,7 +65,7 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
         }
       });
     },
-  ]),
+  ],
 });
 
 const reporters = [
