@@ -238,9 +238,10 @@ The env vars are:
 
 Example: Building and running a production instance of the admin app:
 
-```
-NODE_APP_INSTANCE=admin NODE_ENV=production npm run build && npm run start
-```
+````
+NODE_APP_INSTANCE=amo NODE_ENV=production npm run build
+NODE_APP_INSTANCE=amo NODE_ENV=production npm run start
+````
 
 ## What version is deployed?
 
