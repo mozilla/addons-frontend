@@ -285,7 +285,7 @@
     "semver": "^5.3.0",
     "shelljs": "^0.7.7",
     "sinon": "^2.2.0",
-    "sri-stats-webpack-plugin": "^0.7.3",
+    "sri-stats-webpack-plugin": "github:sopherio/sri-stats-webpack-plugin#f23de19e1d84dab50e59076e05bcafa508ba64c4",
     "style-loader": "^0.17.0",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",

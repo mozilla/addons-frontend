@@ -6348,11 +6348,11 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
-sri-stats-webpack-plugin@^0.7.3:
+"sri-stats-webpack-plugin@github:sopherio/sri-stats-webpack-plugin#f23de19e1d84dab50e59076e05bcafa508ba64c4":
   version "0.7.3"
-  resolved "https://registry.yarnpkg.com/sri-stats-webpack-plugin/-/sri-stats-webpack-plugin-0.7.3.tgz#2051a34356857b22bbf7c57beac7482647dbe919"
+  resolved "https://codeload.github.com/sopherio/sri-stats-webpack-plugin/tar.gz/f23de19e1d84dab50e59076e05bcafa508ba64c4"
   dependencies:
-    webpack-custom-stats-patch "^0.3.0"
+    webpack-custom-stats-patch "github:sopherio/webpack-custom-stats-patch"
 
 sshpk@^1.7.0:
   version "1.13.0"
@@ -7027,9 +7027,9 @@ webidl-conversions@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.1.tgz#8015a17ab83e7e1b311638486ace81da6ce206a0"
 
-webpack-custom-stats-patch@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/webpack-custom-stats-patch/-/webpack-custom-stats-patch-0.3.0.tgz#544491a63b8e0ad9a61f93da5f8fc2d22a69d8b7"
+"webpack-custom-stats-patch@github:sopherio/webpack-custom-stats-patch":
+  version "1.0.0"
+  resolved "https://codeload.github.com/sopherio/webpack-custom-stats-patch/tar.gz/f091395ab0c420e566bc2d940d946f0f10872268"
   dependencies:
     lodash.merge "^4.4.0"
 
