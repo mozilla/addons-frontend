@@ -16,7 +16,8 @@ const validAppNames = [
 
 // Throw if the appName supplied is not valid.
 if (appName && !validAppNames.includes(appName)) {
-  throw new Error(`App ${appName} is not enabled`);
+  throw new Error(
+    `App "${appName}" is not enabled; valid app names: ${validAppNames}`);
 }
 
 
