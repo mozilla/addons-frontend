@@ -10,6 +10,7 @@ const fs = require('fs');
 const webpack = require('webpack');
 const config = require('config');
 
+const getRules = require('./webpack-common').getRules;
 const getClientConfig = require('./src/core/utils').getClientConfig;
 const webpackConfigProd = require('./webpack.prod.config.babel').default;
 
@@ -71,80 +72,7 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
   ],
   devtool: 'inline-source-map',
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: babelQuery,
-      }, {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader?importLoaders=2',
-          'postcss-loader?outputStyle=expanded',
-        ],
-      }, {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader?importLoaders=2',
-          'postcss-loader',
-          'sass-loader?outputStyle=expanded',
-        ],
-      }, {
-        test: /\.svg$/,
-        use: [{ loader: 'svg-url-loader', options: { limit: 10000 } }],
-      }, {
-        test: /\.jpg$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'image/jpeg' },
-        }],
-      }, {
-        test: /\.png$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'image/png' },
-        }],
-      }, {
-        test: /\.gif/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'image/gif' },
-        }],
-      }, {
-        test: /\.webm$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'video/webm' },
-        }],
-      }, {
-        test: /\.mp4$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'video/mp4' },
-        }],
-      }, {
-        test: /\.otf$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'application/font-sfnt' },
-        }],
-      }, {
-        test: /\.woff$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'application/font-woff' },
-        }],
-      }, {
-        test: /\.woff2$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'application/font-woff2' },
-        }],
-      },
-    ],
+    rules: getRules({ babelQuery: babelQuery, bundleStylesWithJs: true }),
   },
   output: undefined,
   entry: undefined,

@@ -9,6 +9,7 @@ import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
 import { getClientConfig } from 'core/utils';
 
+import { getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
 import webpackIsomorphicToolsConfig
   from './src/core/server/webpack-isomorphic-tools-config';
@@ -64,80 +65,7 @@ export default Object.assign({}, webpackConfig, {
     publicPath: `//${webpackHost}:${webpackPort}/`,
   }),
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: BABEL_QUERY,
-      }, {
-        test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader', options: { importLoaders: 2 } },
-          { loader: 'postcss-loader', options: { outputStyle: 'expanded' } },
-        ],
-      }, {
-        test: /\.scss$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader', options: { importLoaders: 2 } },
-          { loader: 'postcss-loader' },
-          { loader: 'sass-loader', options: { outputStyle: 'expanded' } },
-        ],
-      }, {
-        test: /\.svg$/,
-        use: [{ loader: 'svg-url-loader', options: { limit: 10000 } }],
-      }, {
-        test: /\.jpg$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'image/jpeg' },
-        }],
-      }, {
-        test: /\.png$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'image/png' },
-        }],
-      }, {
-        test: /\.gif/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'image/gif' },
-        }],
-      }, {
-        test: /\.webm$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'video/webm' },
-        }],
-      }, {
-        test: /\.mp4$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'video/mp4' },
-        }],
-      }, {
-        test: /\.otf$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'application/font-sfnt' },
-        }],
-      }, {
-        test: /\.woff$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'application/font-woff' },
-        }],
-      }, {
-        test: /\.woff2$/,
-        use: [{
-          loader: 'url-loader',
-          options: { limit: 10000, mimetype: 'application/font-woff2' },
-        }],
-      },
-    ],
+    rules: getRules({ babelQuery: BABEL_QUERY, bundleStylesWithJs: true }),
   },
   plugins: [
     new webpack.DefinePlugin({
