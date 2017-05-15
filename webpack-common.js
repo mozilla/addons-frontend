@@ -93,58 +93,10 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
     ...styleRules,
     {
       test: /\.svg$/,
-      use: [{
-        loader: 'svg-url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'image/svg+xml' },
-      }],
+      use: [{ loader: 'svg-url-loader', options: urlLoaderOptions }],
     }, {
-      test: /\.jpg$/,
-      use: [{
-        loader: 'url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'image/jpeg' },
-      }],
-    }, {
-      test: /\.png$/,
-      use: [{
-        loader: 'url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'image/png' },
-      }],
-    }, {
-      test: /\.gif/,
-      use: [{
-        loader: 'url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'image/gif' },
-      }],
-    }, {
-      test: /\.webm$/,
-      use: [{
-        loader: 'url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'video/webm' },
-      }],
-    }, {
-      test: /\.mp4$/,
-      use: [{
-        loader: 'url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'video/mp4' },
-      }],
-    }, {
-      test: /\.otf$/,
-      use: [{
-        loader: 'url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'application/font-sfnt' },
-      }],
-    }, {
-      test: /\.woff$/,
-      use: [{
-        loader: 'url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'application/font-woff' },
-      }],
-    }, {
-      test: /\.woff2$/,
-      use: [{
-        loader: 'url-loader',
-        options: { ...urlLoaderOptions, mimetype: 'application/font-woff2' },
-      }],
+      test: /\.(jpg|png|gif|webm|mp4|otf|woff|woff2)$/,
+      use: [{ loader: 'url-loader', options: urlLoaderOptions }],
     },
   ];
 }
