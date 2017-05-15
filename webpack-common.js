@@ -5,6 +5,13 @@ import webpack from 'webpack';
 
 import { getClientConfig } from 'core/utils';
 
+// Common options for URL loaders (i.e. derivatives of file-loader).
+const urlLoaderOptions = {
+  // If a media file is less than this size in bytes, it will be linked as a data: URL.
+  // Otherwise it will be linked as a separate file URL.
+  limit: 10000,
+};
+
 export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
   let styleRules;
 
@@ -86,54 +93,57 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
     ...styleRules,
     {
       test: /\.svg$/,
-      use: [{ loader: 'svg-url-loader', options: { limit: 10000 } }],
+      use: [{
+        loader: 'svg-url-loader',
+        options: { ...urlLoaderOptions, mimetype: 'image/svg+xml' },
+      }],
     }, {
       test: /\.jpg$/,
       use: [{
         loader: 'url-loader',
-        options: { limit: 10000, mimetype: 'image/jpeg' },
+        options: { ...urlLoaderOptions, mimetype: 'image/jpeg' },
       }],
     }, {
       test: /\.png$/,
       use: [{
         loader: 'url-loader',
-        options: { limit: 10000, mimetype: 'image/png' },
+        options: { ...urlLoaderOptions, mimetype: 'image/png' },
       }],
     }, {
       test: /\.gif/,
       use: [{
         loader: 'url-loader',
-        options: { limit: 10000, mimetype: 'image/gif' },
+        options: { ...urlLoaderOptions, mimetype: 'image/gif' },
       }],
     }, {
       test: /\.webm$/,
       use: [{
         loader: 'url-loader',
-        options: { limit: 10000, mimetype: 'video/webm' },
+        options: { ...urlLoaderOptions, mimetype: 'video/webm' },
       }],
     }, {
       test: /\.mp4$/,
       use: [{
         loader: 'url-loader',
-        options: { limit: 10000, mimetype: 'video/mp4' },
+        options: { ...urlLoaderOptions, mimetype: 'video/mp4' },
       }],
     }, {
       test: /\.otf$/,
       use: [{
         loader: 'url-loader',
-        options: { limit: 10000, mimetype: 'application/font-sfnt' },
+        options: { ...urlLoaderOptions, mimetype: 'application/font-sfnt' },
       }],
     }, {
       test: /\.woff$/,
       use: [{
         loader: 'url-loader',
-        options: { limit: 10000, mimetype: 'application/font-woff' },
+        options: { ...urlLoaderOptions, mimetype: 'application/font-woff' },
       }],
     }, {
       test: /\.woff2$/,
       use: [{
         loader: 'url-loader',
-        options: { limit: 10000, mimetype: 'application/font-woff2' },
+        options: { ...urlLoaderOptions, mimetype: 'application/font-woff2' },
       }],
     },
   ];
