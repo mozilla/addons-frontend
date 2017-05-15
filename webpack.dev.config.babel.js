@@ -54,6 +54,9 @@ for (const app of appsBuildList) {
 
 export default Object.assign({}, webpackConfig, {
   devtool: 'inline-source-map',
+  devServer: {
+    progress: true,
+  },
   context: path.resolve(__dirname),
   entry: entryPoints,
   output: Object.assign({}, webpackConfig.output, {

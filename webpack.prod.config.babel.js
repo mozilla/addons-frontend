@@ -24,9 +24,6 @@ for (const app of appsBuildList) {
 const settings = {
   devtool: 'source-map',
   context: path.resolve(__dirname),
-  devServer: {
-    progress: true,
-  },
   entry: entryPoints,
   output: {
     path: path.join(__dirname, 'dist'),
