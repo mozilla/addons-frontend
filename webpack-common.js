@@ -148,13 +148,17 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
       CLIENT_CONFIG: JSON.stringify(clientConfig),
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    // Replaces server config module with the subset clientConfig object.
+    // Since the NodeJS code does not run from a webpack bundle, here
+    // are a few replacements that affect only the client side bundle.
+    //
+    // This replaces the config with a new module that has sensitive,
+    // server-only keys removed.
     new webpack.NormalModuleReplacementPlugin(
       /config$/, 'core/client/config.js'),
-    // Substitutes client only config.
+    // This replaces the logger with a more lightweight logger for the client.
     new webpack.NormalModuleReplacementPlugin(
       /core\/logger$/, 'core/client/logger.js'),
-    // Use the browser's window for window.
+    // This swaps the server side window object with a standard browser window.
     new webpack.NormalModuleReplacementPlugin(
       /core\/window/, 'core/browserWindow.js'),
   ];
