@@ -6279,7 +6279,7 @@ source-map@^0.1.41:
   dependencies:
     amdefine ">=0.0.4"
 
-source-map@^0.4.2, source-map@^0.4.4:
+source-map@^0.4.2, source-map@^0.4.4, source-map@~0.4.1:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
   dependencies:
@@ -6346,12 +6346,6 @@ split2@^0.2.1:
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
-
-"sri-stats-webpack-plugin@github:sopherio/sri-stats-webpack-plugin#f23de19e1d84dab50e59076e05bcafa508ba64c4":
-  version "0.7.3"
-  resolved "https://codeload.github.com/sopherio/sri-stats-webpack-plugin/tar.gz/f23de19e1d84dab50e59076e05bcafa508ba64c4"
-  dependencies:
-    webpack-custom-stats-patch "github:sopherio/webpack-custom-stats-patch"
 
 sshpk@^1.7.0:
   version "1.13.0"
@@ -7026,11 +7020,12 @@ webidl-conversions@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.1.tgz#8015a17ab83e7e1b311638486ace81da6ce206a0"
 
-"webpack-custom-stats-patch@github:sopherio/webpack-custom-stats-patch":
-  version "1.0.0"
-  resolved "https://codeload.github.com/sopherio/webpack-custom-stats-patch/tar.gz/f091395ab0c420e566bc2d940d946f0f10872268"
+webpack-core@^0.6.8:
+  version "0.6.9"
+  resolved "https://registry.yarnpkg.com/webpack-core/-/webpack-core-0.6.9.tgz#fc571588c8558da77be9efb6debdc5a3b172bdc2"
   dependencies:
-    lodash.merge "^4.4.0"
+    source-list-map "~0.1.7"
+    source-map "~0.4.1"
 
 webpack-dev-middleware@^1.0.11, webpack-dev-middleware@^1.10.2:
   version "1.10.2"
@@ -7096,6 +7091,12 @@ webpack-sources@^0.2.3:
   dependencies:
     source-list-map "^1.1.1"
     source-map "~0.5.3"
+
+webpack-subresource-integrity@^1.0.0-rc.1:
+  version "1.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/webpack-subresource-integrity/-/webpack-subresource-integrity-1.0.0-rc.1.tgz#2e92b3917cdb34de58e2b313ff2f9d4bfa081c78"
+  dependencies:
+    webpack-core "^0.6.8"
 
 webpack@^2.5.1:
   version "2.5.1"

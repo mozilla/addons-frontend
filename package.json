@@ -285,17 +285,18 @@
     "semver": "^5.3.0",
     "shelljs": "^0.7.7",
     "sinon": "^2.2.0",
-    "sri-stats-webpack-plugin": "github:sopherio/sri-stats-webpack-plugin#f23de19e1d84dab50e59076e05bcafa508ba64c4",
     "style-loader": "^0.17.0",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "supertest": "^3.0.0",
     "supertest-as-promised": "^4.0.2",
     "svg-url-loader": "^2.0.2",
+    "tmp": "^0.0.31",
     "tosource": "^1.0.0",
     "webpack": "^2.5.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-dev-server": "^2.4.5",
-    "webpack-hot-middleware": "^2.18.0"
+    "webpack-hot-middleware": "^2.18.0",
+    "webpack-subresource-integrity": "^1.0.0-rc.1"
   }
 }
