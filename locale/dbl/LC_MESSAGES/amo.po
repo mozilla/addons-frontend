@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-09 16:40+0000\n"
+"POT-Creation-Date: 2017-05-16 22:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,39 +38,39 @@ msgid ""
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:131
+#: src/amo/components/AddonDetail.js:130
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Řḗȧḓ %(count)s řḗṽīḗẇ"
 msgstr[1] "Řḗȧḓ ȧŀŀ %(count)s řḗṽīḗẇş"
 
-#: src/amo/components/AddonDetail.js:144
+#: src/amo/components/AddonDetail.js:143
 msgid "No reviews yet"
 msgstr "Ƞǿ řḗṽīḗẇş ẏḗŧ"
 
-#: src/amo/components/AddonDetail.js:153
+#: src/amo/components/AddonDetail.js:152
 msgid "Rate your experience"
 msgstr "Řȧŧḗ ẏǿŭř ḗẋƥḗřīḗƞƈḗ"
 
-#: src/amo/components/AddonDetail.js:183
+#: src/amo/components/AddonDetail.js:182
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(ȧḓḓǿƞȠȧḿḗ)ş %(şŧȧřŧŞƥȧƞ)şƀẏ %(ȧŭŧħǿřĿīşŧ)ş%(ḗƞḓŞƥȧƞ)ş"
 
-#: src/amo/components/AddonDetail.js:210
+#: src/amo/components/AddonDetail.js:209
 msgid "Extension Metadata"
 msgstr "Ḗẋŧḗƞşīǿƞ Ḿḗŧȧḓȧŧȧ"
 
-#: src/amo/components/AddonDetail.js:228
+#: src/amo/components/AddonDetail.js:227
 msgid "About this %(addonType)s"
 msgstr "Ȧƀǿŭŧ ŧħīş %(ȧḓḓǿƞŦẏƥḗ)ş"
 
-#: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "Ŧȧƥ ŧǿ ƥřḗṽīḗẇ"
-
-#: src/amo/components/AddonDetail.js:92
+#: src/amo/components/AddonDetail.js:91
 msgid "Cancel preview"
 msgstr "Ƈȧƞƈḗŀ ƥřḗṽīḗẇ"
+
+#: src/amo/components/AddonDetail.js:91
+msgid "Tap to preview"
+msgstr "Ŧȧƥ ŧǿ ƥřḗṽīḗẇ"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"

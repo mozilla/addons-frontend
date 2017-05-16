@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-09 16:40+0000\n"
+"POT-Creation-Date: 2017-05-16 22:21+0000\n"
 "PO-Revision-Date: 2017-04-27 09:24+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -47,39 +47,39 @@ msgstr ""
 "A böngészője nem támogatja a kiegészítőket. <a href=\"%(downloadUrl)s"
 "\">Letöltheti a Firefoxot</a> a kiegészítő telepítéséhez."
 
-#: src/amo/components/AddonDetail.js:131
+#: src/amo/components/AddonDetail.js:130
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s értékelés elolvasása"
 msgstr[1] "%(count)s értékelés elolvasása"
 
-#: src/amo/components/AddonDetail.js:144
+#: src/amo/components/AddonDetail.js:143
 msgid "No reviews yet"
 msgstr "Még nincsenek értékelések"
 
-#: src/amo/components/AddonDetail.js:153
+#: src/amo/components/AddonDetail.js:152
 msgid "Rate your experience"
 msgstr "Értékelje a tapasztalatait"
 
-#: src/amo/components/AddonDetail.js:183
+#: src/amo/components/AddonDetail.js:182
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)skészítette: %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:210
+#: src/amo/components/AddonDetail.js:209
 msgid "Extension Metadata"
 msgstr "Kiterjesztés metaadatai"
 
-#: src/amo/components/AddonDetail.js:228
+#: src/amo/components/AddonDetail.js:227
 msgid "About this %(addonType)s"
 msgstr "%(addonType)s névjegye"
 
-#: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "Nyomja meg az előnézethez"
-
-#: src/amo/components/AddonDetail.js:92
+#: src/amo/components/AddonDetail.js:91
 msgid "Cancel preview"
 msgstr "Előnézet megszüntetése"
+
+#: src/amo/components/AddonDetail.js:91
+msgid "Tap to preview"
+msgstr "Nyomja meg az előnézethez"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
 msgid "%(total)s user"
