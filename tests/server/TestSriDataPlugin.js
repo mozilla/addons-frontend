@@ -83,12 +83,12 @@ describe('SriDataPlugin', () => {
   it('handles multiple asset files', () => {
     return compile({
       entry: {
-        app1: path.join(srcDir, 'app'),
+        app: path.join(srcDir, 'app'),
         app2: path.join(srcDir, 'app'),
       },
     })
       .then(({ sriData }) => {
-        assert.match(sriData['app1.js'], /^sha512-.*/);
+        assert.match(sriData['app.js'], /^sha512-.*/);
         assert.match(sriData['app2.js'], /^sha512-.*/);
       });
   });

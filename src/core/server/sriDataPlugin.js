@@ -19,22 +19,16 @@ export default class SriDataPlugin {
     compiler.plugin('done', (stats) => {
       const sriStats = {};
       try {
-        Object.values(stats.toJson().assetsByChunkName).forEach(
-          (chunkFileResult) => {
-            const chunkFiles = Array.isArray(chunkFileResult) ?
-              chunkFileResult : [chunkFileResult];
-            chunkFiles.forEach((baseName) => {
-              const asset = stats.compilation.assets[baseName];
-              if (!asset.integrity) {
-                throw new Error(
-                  oneLine`The integrity property is falsey for
-                  asset ${baseName}; Is the webpack-subresource-integrity
-                  plugin installed and enabled?`);
-              }
-              sriStats[baseName] = asset.integrity;
-            });
+        Object.keys(stats.compilation.assets).forEach((baseName) => {
+          const asset = stats.compilation.assets[baseName];
+          if (!asset.integrity) {
+            throw new Error(
+              oneLine`The integrity property is falsey for
+              asset ${baseName}; Is the webpack-subresource-integrity
+              plugin installed and enabled?`);
           }
-        );
+          sriStats[baseName] = asset.integrity;
+        });
 
         fs.writeFileSync(this.saveAs, JSON.stringify(sriStats));
       } catch (error) {
