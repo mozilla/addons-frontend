@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-09 16:40+0000\n"
+"POT-Creation-Date: 2017-05-16 22:21+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -39,39 +39,39 @@ msgid ""
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:131
+#: src/amo/components/AddonDetail.js:130
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/amo/components/AddonDetail.js:144
+#: src/amo/components/AddonDetail.js:143
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:153
+#: src/amo/components/AddonDetail.js:152
 msgid "Rate your experience"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:183
+#: src/amo/components/AddonDetail.js:182
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:210
+#: src/amo/components/AddonDetail.js:209
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:228
+#: src/amo/components/AddonDetail.js:227
 msgid "About this %(addonType)s"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
+#: src/amo/components/AddonDetail.js:91
+msgid "Cancel preview"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
+#: src/amo/components/AddonDetail.js:91
+msgid "Tap to preview"
 msgstr ""
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
