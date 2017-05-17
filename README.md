@@ -236,11 +236,72 @@ The env vars are:
 | npm run start          |  Starts the express server (requires env vars)      |
 | npm run build          |  Builds the libs (all apps) (requires env vars)     |
 
-Example: Building and running a production instance of the admin app:
+Example: Building and running a production instance of the AMO app:
 
-```
-NODE_APP_INSTANCE=admin NODE_ENV=production npm run build && npm run start
-```
+````
+NODE_APP_INSTANCE=amo NODE_ENV=production npm run build
+NODE_APP_INSTANCE=amo NODE_ENV=production npm run start
+````
+
+To run the app locally in production mode you'll need to create a config file
+that looks something like this. Name it exactly as `config/local-production-amo.js`.
+
+````js
+import { apiStageHost, amoStageCDN } from './lib/shared';
+
+module.exports = {
+  // Statics will be served by node.
+  staticHost: '',
+  // FIXME: sign-in isn't working.
+  // fxaConfig: 'local',
+
+  // The node server host and port.
+  serverHost: '127.0.0.1',
+  serverPort: 3000,
+
+  enableClientConsole: true,
+  apiHost: apiStageHost,
+  amoCDN: amoStageCDN,
+
+  CSP: {
+    directives: {
+      connectSrc: [
+        apiStageHost,
+      ],
+      scriptSrc: [
+        "'self'",
+        'https://www.google-analytics.com',
+      ],
+      styleSrc: ["'self'"],
+      imgSrc: [
+        "'self'",
+        'data:',
+        amoStageCDN,
+        'https://www.google-analytics.com',
+      ],
+      mediaSrc: ["'self'"],
+      fontSrc: [
+        "'self'",
+        'data:',
+        amoStageCDN,
+      ],
+    },
+  },
+
+  // This is needed to serve assets locally.
+  enableNodeStatics: true,
+  trackingEnabled: false,
+  // Do not send client side errors to Sentry.
+  publicSentryDsn: null,
+};
+````
+
+After this, re-build and restart using `npm run build` and `npm run start`
+as documented above.
+If you have used `localhost` before with a different configuration,
+be sure to clear your cookies.
+
+**NOTE**: At this time, it's not possible to sign in using this approach.
 
 ## What version is deployed?
 

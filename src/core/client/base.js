@@ -78,7 +78,7 @@ export default function makeClient(routes, createStore) {
   try {
     if (locale !== langToLocale(config.get('defaultLang'))) {
       // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-      require(`bundle?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(renderApp);
+      require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(renderApp);
     } else {
       renderApp({});
     }

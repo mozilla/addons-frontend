@@ -20,15 +20,15 @@ if (!fs.statSync(configDir).isDirectory()) {
 }
 
 const disallowedFiles = fs.readdirSync(configDir)
-  // Disallow any local configs except for development configs.
-  .filter((name) =>
-    name.startsWith('local') && !name.startsWith('local-development'))
+  // Disallow any local configs that could possibly pollute the tests.
+  .filter((name) => name === 'local.js' || name.startsWith('local-test'))
   .map((name) => path.join(configDir, name).replace(process.cwd(), '.'));
 
 if (disallowedFiles.length) {
   console.log(chalk.red(
     'These local config files are not allowed because they might pollute ' +
-    'the test environment. Prefix them with local-development- instead:'));
+    'the test environment. Prefix them with local-development- or remove ' +
+    'them:'));
   console.log(chalk.red(disallowedFiles.join('\n')));
   process.exit(1);
 }

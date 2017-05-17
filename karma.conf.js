@@ -7,13 +7,12 @@ require('babel-register');
 
 const fs = require('fs');
 
-const webpack = require('webpack');
-const config = require('config');
-
-const getClientConfig = require('./src/core/utils').getClientConfig;
+const webpackCommon = require('./webpack-common');
 const webpackConfigProd = require('./webpack.prod.config.babel').default;
 
-const clientConfig = getClientConfig(config);
+const getPlugins = webpackCommon.getPlugins;
+const getRules = webpackCommon.getRules;
+
 const babelrc = fs.readFileSync('./.babelrc');
 const babelQuery = JSON.parse(babelrc);
 
@@ -24,16 +23,14 @@ const coverageReporters = [{
 babelQuery.plugins.push(['istanbul', { include: 'src/**' }]);
 
 const newWebpackConfig = Object.assign({}, webpackConfigProd, {
+  devtool: 'inline-source-map',
+  module: {
+    rules: getRules({ babelQuery, bundleStylesWithJs: true }),
+  },
+  output: undefined,
+  entry: undefined,
   plugins: [
-    new webpack.DefinePlugin({
-      CLIENT_CONFIG: JSON.stringify(clientConfig),
-    }),
-    // Replaces server config module with the subset clientConfig object.
-    new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
-    // Substitutes client only config.
-    new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
-    // Use the browser's window for window.
-    new webpack.NormalModuleReplacementPlugin(/core\/window/, 'core/browserWindow.js'),
+    ...getPlugins({ excludeOtherAppLocales: false }),
     // Plugin to show any webpack warnings and prevent tests from running
     // Based on: https://gist.github.com/Stuk/6b574049435df532e905
     function WebpackWarningPlugin() {
@@ -69,52 +66,6 @@ const newWebpackConfig = Object.assign({}, webpackConfigProd, {
       });
     },
   ],
-  devtool: 'inline-source-map',
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: babelQuery,
-      }, {
-        test: /\.css$/,
-        loader: 'style!css?importLoaders=2!postcss?outputStyle=expanded',
-      }, {
-        test: /\.scss$/,
-        loader: 'style!css?importLoaders=2!postcss!sass?outputStyle=expanded',
-      }, {
-        test: /\.svg$/,
-        loader: 'url?limit=10000&mimetype=image/svg+xml',
-      }, {
-        test: /\.jpg$/,
-        loader: 'url?limit=10000&mimetype=image/jpeg',
-      }, {
-        test: /\.png$/,
-        loader: 'url?limit=10000&mimetype=image/png',
-      }, {
-        test: /\.gif/,
-        loader: 'url?limit=10000&mimetype=image/gif',
-      }, {
-        test: /\.webm$/,
-        loader: 'url?limit=10000&mimetype=video/webm',
-      }, {
-        test: /\.mp4$/,
-        loader: 'url?limit=10000&mimetype=video/mp4',
-      }, {
-        test: /\.otf$/,
-        loader: 'url?limit=10000&mimetype=application/font-sfnt',
-      }, {
-        test: /\.woff$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff',
-      }, {
-        test: /\.woff2$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff2',
-      },
-    ],
-  },
-  output: undefined,
-  entry: undefined,
 });
 
 const reporters = [
