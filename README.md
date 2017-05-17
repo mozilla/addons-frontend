@@ -247,17 +247,27 @@ To run the app locally in production mode you'll need to create a config file
 that looks something like this. Name it exactly as `config/local-production-amo.js`.
 
 ````js
-import { amoProdCDN } from './lib/shared';
+import { apiStageHost, amoStageCDN } from './lib/shared';
 
 module.exports = {
   // Statics will be served by node.
-  staticHost: undefined,
+  staticHost: '',
+  // FIXME: sign-in isn't working.
+  // fxaConfig: 'local',
+
+  // The node server host and port.
+  serverHost: '127.0.0.1',
+  serverPort: 3000,
 
   enableClientConsole: true,
-  apiHost: 'http://localhost:3000',
+  apiHost: apiStageHost,
+  amoCDN: amoStageCDN,
 
   CSP: {
     directives: {
+      connectSrc: [
+        apiStageHost,
+      ],
       scriptSrc: [
         "'self'",
         'https://www.google-analytics.com',
@@ -266,22 +276,32 @@ module.exports = {
       imgSrc: [
         "'self'",
         'data:',
-        amoProdCDN,
+        amoStageCDN,
         'https://www.google-analytics.com',
       ],
       mediaSrc: ["'self'"],
+      fontSrc: [
+        "'self'",
+        'data:',
+        amoStageCDN,
+      ],
     },
   },
 
+  // This is needed to serve assets locally.
+  enableNodeStatics: true,
+  trackingEnabled: false,
   // Do not send client side errors to Sentry.
   publicSentryDsn: null,
 };
 ````
 
-After this, re-run `npm run build` and `npm run start`.
+After this, re-build and restart using `npm run build` and `npm run start`
+as documented above.
+If you have used `localhost` before with a different configuration,
+be sure to clear your cookies.
 
-**NOTE**: This isn't fully working yet.
-See https://github.com/mozilla/addons-frontend/issues/2392
+**NOTE**: At this time, it's not possible to sign in using this approach.
 
 ## What version is deployed?
 
