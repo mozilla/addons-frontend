@@ -39,6 +39,6 @@ let poFile;
 for (locale of debugLocales) {
   potFile = path.join(templateDir, `${appName}.pot`);
   poFile = path.join(localeDir, locale, 'LC_MESSAGES', `${appName}.po`);
-  rewrite = locale === 'dbl' ? 'unicode' : 'flipped';
-  shell.exec(`podebug -i ${potFile} -o ${poFile} --rewrite ${rewrite}`);
+  rewrite = locale === 'dbl' ? 'unicode' : 'mirror';
+  shell.exec(`node_modules/.bin/potools debug ${potFile} --format ${rewrite} --output ${poFile}`);
 }
