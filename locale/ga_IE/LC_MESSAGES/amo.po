@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-09 16:40+0000\n"
+"POT-Creation-Date: 2017-05-16 22:21+0000\n"
 "PO-Revision-Date: 2017-02-03 21:54+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -41,7 +41,7 @@ msgid ""
 "\">download Firefox</a> to install this add-on."
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:131
+#: src/amo/components/AddonDetail.js:130
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
@@ -50,34 +50,34 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: src/amo/components/AddonDetail.js:144
+#: src/amo/components/AddonDetail.js:143
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:153
+#: src/amo/components/AddonDetail.js:152
 msgid "Rate your experience"
 msgstr "Rátáil d'eispéireas"
 
-#: src/amo/components/AddonDetail.js:183
+#: src/amo/components/AddonDetail.js:182
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sle %(authorList)s%(endSpan)s"
 
-#: src/amo/components/AddonDetail.js:210
+#: src/amo/components/AddonDetail.js:209
 msgid "Extension Metadata"
 msgstr "Meiteashonraí na hEisínteachta"
 
-#: src/amo/components/AddonDetail.js:228
+#: src/amo/components/AddonDetail.js:227
 msgid "About this %(addonType)s"
 msgstr ""
 
-#: src/amo/components/AddonDetail.js:92
-#, fuzzy
-msgid "Tap to preview"
-msgstr "Scríobh léirmheas"
-
-#: src/amo/components/AddonDetail.js:92
+#: src/amo/components/AddonDetail.js:91
 #, fuzzy
 msgid "Cancel preview"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/AddonDetail.js:91
+#, fuzzy
+msgid "Tap to preview"
 msgstr "Scríobh léirmheas"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
