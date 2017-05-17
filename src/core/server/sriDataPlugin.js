@@ -4,9 +4,6 @@ import fs from 'fs';
 
 import { oneLine } from 'common-tags';
 
-// TODO: hopefully we can uplift this.
-// See https://github.com/waysact/webpack-subresource-integrity/issues/45
-
 export default class SriDataPlugin {
   constructor({ saveAs } = {}) {
     if (!saveAs) {
