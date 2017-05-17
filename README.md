@@ -236,12 +236,52 @@ The env vars are:
 | npm run start          |  Starts the express server (requires env vars)      |
 | npm run build          |  Builds the libs (all apps) (requires env vars)     |
 
-Example: Building and running a production instance of the admin app:
+Example: Building and running a production instance of the AMO app:
 
 ````
 NODE_APP_INSTANCE=amo NODE_ENV=production npm run build
 NODE_APP_INSTANCE=amo NODE_ENV=production npm run start
 ````
+
+To run the app locally in production mode you'll need to create a config file
+that looks something like this. Name it exactly as `config/local-production-amo.js`.
+
+````js
+import { amoProdCDN } from './lib/shared';
+
+module.exports = {
+  // Statics will be served by node.
+  staticHost: undefined,
+
+  enableClientConsole: true,
+  apiHost: 'http://localhost:3000',
+
+  CSP: {
+    directives: {
+      scriptSrc: [
+        "'self'",
+        'https://www.google-analytics.com',
+      ],
+      styleSrc: ["'self'"],
+      imgSrc: [
+        "'self'",
+        'data:',
+        amoProdCDN,
+        'https://www.google-analytics.com',
+      ],
+      mediaSrc: ["'self'"],
+    },
+  },
+
+  // Do not send client side errors to Sentry.
+  publicSentryDsn: null,
+};
+````
+
+After this, re-run `npm run build` and `npm run start`.
+
+**NOTE**: This isn't fully working yet.
+See https://github.com/mozilla/addons-frontend/issues/2392
 
 ## What version is deployed?
 
