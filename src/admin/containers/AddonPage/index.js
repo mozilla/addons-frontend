@@ -33,6 +33,7 @@ class AddonPage extends React.Component {
     ];
     if (addon.homepage) {
       items.push([
+        // eslint-disable-next-line react/jsx-key
         <a href={addon.homepage}
            rel="external noopener noreferrer" target="_blank">{_('View homepage')}</a>,
         'homepage',
@@ -40,12 +41,14 @@ class AddonPage extends React.Component {
     }
     if (addon.support_email) {
       items.push([
+        // eslint-disable-next-line react/jsx-key
         <a href={`mailto:${addon.support_email}`}>{_('Email support')}</a>,
         'support_email',
       ]);
     }
     if (addon.support_url) {
       items.push([
+        // eslint-disable-next-line react/jsx-key
         <a href={addon.support_url}
            rel="external noopener noreferrer" target="_blank">{_('View support site')}</a>,
         'support_url',
@@ -85,6 +88,7 @@ class AddonPage extends React.Component {
                   [file.status, 'status'],
                   [`${file.size} bytes`, 'size'],
                   [file.created, 'created'],
+                  // eslint-disable-next-line react/jsx-key
                   [<a href={file.url}>{_('Download')}</a>, 'download'],
                 ], 'file-info')}
               </li>

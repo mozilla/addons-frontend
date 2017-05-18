@@ -66,8 +66,8 @@ export class SearchSortBase extends React.Component {
           {i18n.gettext('Sort')}
         </a>
         <ul id="SearchSortOptions" className="SearchSort-list">
-          {this.sortOptions().map((option) => (
-            <li className="SearchSort-list-item">
+          {this.sortOptions().map((option, index) => (
+            <li key={`sort-${index}`} className="SearchSort-list-item">
               <SearchSortLink currentSort={currentSort} filters={filters}
                 pathname={pathname} sort={option.sort}>
                 {option.text}

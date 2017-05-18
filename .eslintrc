@@ -83,12 +83,12 @@
     "react/prefer-stateless-function": "off",
     "react/jsx-indent-props": "off",
     "react/jsx-closing-bracket-location": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-first-prop-new-line": "off",
+    "react/jsx-key": "error",
     "react/no-string-refs": "error",
     // FIXME: Deprecate use of findDOMNode https://github.com/mozilla/addons-frontend/issues/968
     "react/no-find-dom-node": "off",
-    // FIXME: Switch using .jsx for jsx files https://github.com/mozilla/addons-frontend/issues/969.
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "settings": {
     "import/ignore": [

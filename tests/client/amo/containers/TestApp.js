@@ -92,7 +92,7 @@ describe('App', () => {
         return <p>The component</p>;
       }
     }
-    const root = render({ children: [<MyComponent />] });
+    const root = render({ children: [<MyComponent key="key" />] });
     const rootNode = findDOMNode(root);
     assert.equal(rootNode.tagName.toLowerCase(), 'div');
     assert.equal(rootNode.querySelector('p').textContent, 'The component');

@@ -106,9 +106,10 @@ export class PaginateBase extends React.Component {
             page={currentPage - 1}
             text={i18n.gettext('Previous')}
           />
-          {this.visiblePages({ pageCount }).map((page) =>
+          {this.visiblePages({ pageCount }).map((page, index) =>
             <PaginatorLink
               {...linkParams}
+              key={`page-${index}`}
               page={page}
             />
           )}

@@ -49,7 +49,7 @@ export class CategoriesBase extends React.Component {
         <ul className="Categories-list"
           ref={(ref) => { this.categories = ref; }}>
           {Object.values(categories).map((category) => (
-            <li className="Categories-list-item">
+            <li key={category.slug} className="Categories-list-item">
               <Link className="Categories-link"
                 to={`/${visibleAddonType(addonType)}/${category.slug}/`}>
                 {category.name}
