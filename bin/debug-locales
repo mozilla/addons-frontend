@@ -3,14 +3,7 @@
 
 /*
  * Generate a unicode debug locale and a flipped rtl
- * debug locale using podebug.
- *
- * podebug is a dependency you can install it with:
-
- * OSX:
- *   brew install translate-toolkit
- * Debian Linux variants:
- *   sudo apt-get install translate-toolkit
+ * debug locale using potools.
  *
  */
 require('babel-register');
@@ -39,6 +32,6 @@ let poFile;
 for (locale of debugLocales) {
   potFile = path.join(templateDir, `${appName}.pot`);
   poFile = path.join(localeDir, locale, 'LC_MESSAGES', `${appName}.po`);
-  rewrite = locale === 'dbl' ? 'unicode' : 'flipped';
-  shell.exec(`podebug -i ${potFile} -o ${poFile} --rewrite ${rewrite}`);
+  rewrite = locale === 'dbl' ? 'unicode' : 'mirror';
+  shell.exec(`node_modules/.bin/potools debug ${potFile} --format ${rewrite} --output ${poFile}`);
 }

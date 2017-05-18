@@ -5,163 +5,147 @@ msgstr ""
 "POT-Creation-Date: 2017-04-25 18:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"MIME-Version: 1.0\n"
 
 #: src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr "‮Sǝɹʌǝɹ Ǝɹɹoɹ"
+msgstr "ɹoɹɹƎ ɹǝʌɹǝS"
 
 #: src/core/components/ErrorPage/GenericError/index.js:27
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr ".ʇı ǝʇɐƃıʇsǝʌuı ʅʅıʍ puɐ ɹoɹɹǝ sıɥʇ pǝƃƃoʅ ǝʌɐɥ ǝＭ .ʇsǝnbǝɹ ɹnoʎ ǝʇǝʅdɯoɔ ʇ,upʅnoɔ ǝʍ puɐ ɹoɹɹǝ uɐ sɐʍ ǝɹǝɥʇ ʇnq ´ʎɹɹoS"
 
 #: src/core/components/ErrorPage/GenericError/index.js:33
 #: src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
-msgstr "‮Ǝɹɹoɹ ɔopǝ: %(status)s‮˙"
+msgstr ".%(status)s :ǝpoɔ ɹoɹɹƎ"
 
 #: src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
-msgstr "‮Ԁɐƃǝ uoʇ ɟonup"
+msgstr "punoɟ ʇou ǝƃɐԀ"
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr ".pǝɹǝʇuǝ noʎ ⅂ᴚ∩ ǝɥʇ ʇɐ ƃuıɥʇʎuɐ puıɟ ʇ,uɐɔ ǝʍ ʇnq ´ʎɹɹoS"
 
 #: src/core/components/InstallButton/index.js:105
 #: src/core/components/InstallButton/index.js:121
 msgid "Add to Firefox"
-msgstr "‮∀pp ʇo Ⅎıɹǝɟox"
+msgstr "xoɟǝɹıℲ oʇ pp∀"
 
 #: src/core/components/InstallButton/index.js:84
 msgid "Install Theme"
-msgstr "‮Iusʇɐʅʅ ⊥ɥǝɯǝ"
+msgstr "ǝɯǝɥ⊥ ʅʅɐʇsuI"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
-msgstr "‮ᗡoʍuʅoɐpıuƃ %(name)s‮˙"
+msgstr ".%(name)s ƃuıpɐoʅuʍoᗡ"
 
 #: src/core/components/InstallSwitch/index.js:57
 msgid "Installing %(name)s."
-msgstr "‮Iusʇɐʅʅıuƃ %(name)s‮˙"
+msgstr ".%(name)s ƃuıʅʅɐʇsuI"
 
 #: src/core/components/InstallSwitch/index.js:61
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s‮ ıs ıusʇɐʅʅǝp ɐup ǝuɐqʅǝp˙ Ↄʅıɔʞ ʇo nuıusʇɐʅʅ˙"
+msgstr ".ʅʅɐʇsuıun oʇ ʞɔıʅↃ .pǝʅqɐuǝ puɐ pǝʅʅɐʇsuı sı %(name)s"
 
 #: src/core/components/InstallSwitch/index.js:64
 msgid "%(name)s is disabled. Click to enable."
-msgstr "%(name)s‮ ıs pısɐqʅǝp˙ Ↄʅıɔʞ ʇo ǝuɐqʅǝ˙"
+msgstr ".ǝʅqɐuǝ oʇ ʞɔıʅↃ .pǝʅqɐsıp sı %(name)s"
 
 #: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
-msgstr "‮∩uıusʇɐʅʅıuƃ %(name)s‮˙"
+msgstr ".%(name)s ƃuıʅʅɐʇsuıu∩"
 
 #: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
-msgstr "%(name)s‮ ıs nuıusʇɐʅʅǝp˙ Ↄʅıɔʞ ʇo ıusʇɐʅʅ˙"
+msgstr ".ʅʅɐʇsuı oʇ ʞɔıʅↃ .pǝʅʅɐʇsuıun sı %(name)s"
 
 #: src/core/components/InstallSwitch/index.js:73
 msgid "Install state for %(name)s is unknown."
-msgstr "‮Iusʇɐʅʅ sʇɐʇǝ ɟoɹ %(name)s‮ ıs nuʞuoʍu˙"
+msgstr ".uʍouʞun sı %(name)s ɹoɟ ǝʇɐʇs ʅʅɐʇsuI"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr "‮⅄onɹ ɐpp-ou ıs ɹǝɐpʎ"
+msgstr "ʎpɐǝɹ sı uo-ppɐ ɹno⅄"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
-msgstr "‮Noʍ ʎon ɔɐu ɐɔɔǝss %(name)s‮ ɟɹoɯ ʇɥǝ ʇooʅqɐɹ˙"
+msgstr ".ɹɐqʅooʇ ǝɥʇ ɯoɹɟ %(name)s ssǝɔɔɐ uɐɔ noʎ ʍoN"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "OK!"
-msgstr "‮OӼ¡"
+msgstr "¡ӼO"
 
 #: src/disco/components/Addon.js:100
 msgid "Hover to preview or click to install %(name)s"
-msgstr "‮Hoʌǝɹ ʇo dɹǝʌıǝʍ oɹ ɔʅıɔʞ ʇo ıusʇɐʅʅ %(name)s"
+msgstr "%(name)s ʅʅɐʇsuı oʇ ʞɔıʅɔ ɹo ʍǝıʌǝɹd oʇ ɹǝʌoH"
 
 #: src/disco/components/Addon.js:113
 msgid "Hover over the image to preview"
-msgstr "‮Hoʌǝɹ oʌǝɹ ʇɥǝ ıɯɐƃǝ ʇo dɹǝʌıǝʍ"
+msgstr "ʍǝıʌǝɹd oʇ ǝƃɐɯı ǝɥʇ ɹǝʌo ɹǝʌoH"
 
 #: src/disco/components/Addon.js:134
 msgid "Installation failed. Please try again."
-msgstr "‮Iusʇɐʅʅɐʇıou ɟɐıʅǝp˙ Ԁʅǝɐsǝ ʇɹʎ ɐƃɐıu˙"
+msgstr ".uıɐƃɐ ʎɹʇ ǝsɐǝʅԀ .pǝʅıɐɟ uoıʇɐʅʅɐʇsuI"
 
 #: src/disco/components/Addon.js:136
 msgid "Download failed. Please check your connection."
-msgstr "‮ᗡoʍuʅoɐp ɟɐıʅǝp˙ Ԁʅǝɐsǝ ɔɥǝɔʞ ʎonɹ ɔouuǝɔʇıou˙"
+msgstr ".uoıʇɔǝuuoɔ ɹnoʎ ʞɔǝɥɔ ǝsɐǝʅԀ .pǝʅıɐɟ pɐoʅuʍoᗡ"
 
 #: src/disco/components/Addon.js:138
 msgid "An unexpected error occurred during installation."
-msgstr "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp pnɹıuƃ ıusʇɐʅʅɐʇıou˙"
+msgstr ".uoıʇɐʅʅɐʇsuı ƃuıɹnp pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
 #: src/disco/components/Addon.js:140
 msgid "An unexpected error occurred during uninstallation."
-msgstr "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp pnɹıuƃ nuıusʇɐʅʅɐʇıou˙"
+msgstr ".uoıʇɐʅʅɐʇsuıun ƃuıɹnp pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
 #: src/disco/components/Addon.js:143
 msgid "An unexpected error occurred."
-msgstr "‮∀u nuǝxdǝɔʇǝp ǝɹɹoɹ oɔɔnɹɹǝp˙"
+msgstr ".pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
 #: src/disco/components/Addon.js:151
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "‮⊥ɥıs ɐpp-ou ʍıʅʅ qǝ nuıusʇɐʅʅǝp ɐɟʇǝɹ ʎon ɹǝsʇɐɹʇ Ⅎıɹǝɟox˙"
+msgstr ".xoɟǝɹıℲ ʇɹɐʇsǝɹ noʎ ɹǝʇɟɐ pǝʅʅɐʇsuıun ǝq ʅʅıʍ uo-ppɐ sıɥ⊥"
 
 #: src/disco/components/Addon.js:153
 msgid "Please restart Firefox to use this add-on."
-msgstr "‮Ԁʅǝɐsǝ ɹǝsʇɐɹʇ Ⅎıɹǝɟox ʇo nsǝ ʇɥıs ɐpp-ou˙"
+msgstr ".uo-ppɐ sıɥʇ ǝsn oʇ xoɟǝɹıℲ ʇɹɐʇsǝɹ ǝsɐǝʅԀ"
 
 #: src/disco/components/Addon.js:68
 msgid "Close"
-msgstr "‮Ↄʅosǝ"
+msgstr "ǝsoʅↃ"
 
 #: src/disco/containers/App.js:32
 msgid "Discover Add-ons"
-msgstr "‮ᗡısɔoʌǝɹ ∀pp-ous"
+msgstr "suo-pp∀ ɹǝʌoɔsıᗡ"
 
 #: src/disco/containers/DiscoPane.js:103
 msgid "Personalize Your Firefox"
-msgstr "‮Ԁǝɹsouɐʅızǝ ⅄onɹ Ⅎıɹǝɟox"
+msgstr "xoɟǝɹıℲ ɹno⅄ ǝzıʅɐuosɹǝԀ"
 
 #: src/disco/containers/DiscoPane.js:104
-#, fuzzy
-msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
-msgstr ""
-"‮⊥ɥǝɹǝ ɐɹǝ ʇɥonsɐups oɟ ɟɹǝǝ ɐpp-ous´ ɔɹǝɐʇǝp qʎ pǝʌǝʅodǝɹs ɐʅʅ oʌǝɹ\n"
-"‮ʇɥǝ ʍoɹʅp´ ʇɥɐʇ ʎon ɔɐu ıusʇɐʅʅ ʇo dǝɹsouɐʅızǝ ʎonɹ Ⅎıɹǝɟox˙ Ⅎɹoɯ ɟnu ʌısnɐʅ "
-"ʇɥǝɯǝs\n"
-"‮ʇo doʍǝɹɟnʅ ʇooʅs ʇɥɐʇ ɯɐʞǝ qɹoʍsıuƃ ɟɐsʇǝɹ ɐup sɐɟǝɹ´ ɐpp-ous ɯɐʞǝ ʎonɹ "
-"qɹoʍsǝɹ ʎonɹs˙\n"
-"‮⊥o ɥǝʅd ʎon ƃǝʇ sʇɐɹʇǝp´ ɥǝɹǝ ɐɹǝ soɯǝ ʍǝ ɹǝɔoɯɯǝup ɟoɹ ʇɥǝıɹ sʇɐup-onʇ "
-"dǝɹɟoɹɯɐuɔǝ\n"
-"‮ɐup ɟnuɔʇıouɐʅıʇʎ˙"
+msgid "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr ".ʎʇıʅɐuoıʇɔunɟ puɐ ǝɔuɐɯɹoɟɹǝd ʇno-puɐʇs ɹıǝɥʇ ɹoɟ puǝɯɯoɔǝɹ ǝʍ ǝɯos ǝɹɐ ǝɹǝɥ ´pǝʇɹɐʇs ʇǝƃ noʎ dʅǝɥ o⊥ .sɹnoʎ ɹǝsʍoɹq ɹnoʎ ǝʞɐɯ suo-ppɐ ´ɹǝɟɐs puɐ ɹǝʇsɐɟ ƃuısʍoɹq ǝʞɐɯ ʇɐɥʇ sʅooʇ ʅnɟɹǝʍod oʇ sǝɯǝɥʇ ʅɐnsıʌ unɟ ɯoɹℲ .xoɟǝɹıℲ ɹnoʎ ǝzıʅɐuosɹǝd oʇ ʅʅɐʇsuı uɐɔ noʎ ʇɐɥʇ ´pʅɹoʍ ǝɥʇ ɹǝʌo ʅʅɐ sɹǝdoʅǝʌǝp ʎq pǝʇɐǝɹɔ ´suo-ppɐ ǝǝɹɟ ɟo spuɐsnoɥʇ ǝɹɐ ǝɹǝɥ⊥"
 
 #: src/disco/containers/DiscoPane.js:112
 msgid "Click to play"
-msgstr "‮Ↄʅıɔʞ ʇo dʅɐʎ"
+msgstr "ʎɐʅd oʇ ʞɔıʅↃ"
 
 #: src/disco/containers/DiscoPane.js:113
 msgid "to find out more about add-ons"
-msgstr "‮ʇo ɟıup onʇ ɯoɹǝ ɐqonʇ ɐpp-ous"
+msgstr "suo-ppɐ ʇnoqɐ ǝɹoɯ ʇno puıɟ oʇ"
 
 #: src/disco/containers/DiscoPane.js:122
 msgid "Close video"
-msgstr "‮Ↄʅosǝ ʌıpǝo"
+msgstr "oǝpıʌ ǝsoʅↃ"
 
 #: src/disco/containers/DiscoPane.js:133
 msgid "See more add-ons!"
-msgstr "‮Sǝǝ ɯoɹǝ ɐpp-ous¡"
+msgstr "¡suo-ppɐ ǝɹoɯ ǝǝS"
