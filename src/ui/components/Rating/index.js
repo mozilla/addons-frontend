@@ -62,6 +62,7 @@ export class RatingBase extends React.Component {
             thisRating - 0.5 <= rating),
         }),
         id: `Rating-rating-${thisRating}`,
+        key: `rating-${thisRating}`,
         ref: (ref) => { this.ratingElements[thisRating] = ref; },
       };
 
