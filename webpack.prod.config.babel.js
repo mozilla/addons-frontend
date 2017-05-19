@@ -72,7 +72,7 @@ const settings = {
   resolve: {
     alias: {
       'normalize.css': 'normalize.css/normalize.css',
-      'tests': path.resolve('./tests'),
+      tests: path.resolve('./tests'),
     },
     modules: [
       path.resolve('./src'),
