@@ -5,7 +5,6 @@ import config from 'config';
 const appsList = config.get('validAppNames');
 
 describe('App Specific Frameguard Config', () => {
-
   afterEach(() => {
     delete process.env.NODE_APP_INSTANCE;
   });
