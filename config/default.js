@@ -1,7 +1,7 @@
 // CONFIG defaults (aka PRODUCTION)
 // WARNING: No test/stage/dev/development config should
 // live here.
-import 'babel-polyfill';
+// import 'babel-polyfill';
 
 import path from 'path';
 

@@ -1,6 +1,7 @@
 /* eslint-disable no-loop-func */
 import config from 'config';
 import request from 'supertest-as-promised';
+import { Helmet } from 'react-helmet';
 
 import { runTestServer } from '../helpers';
 
@@ -15,10 +16,15 @@ const headers = { 'Content-Type': 'application/json' };
 describe('Details Page', () => {
   let app;
 
-  before(() => runTestServer({ app: 'amo' })
-    .then((server) => {
-      app = server;
-    }));
+  before(() => {
+    // Tell helmet to run as if it's a server render.
+    // This is caused by the jsdom env.
+    Helmet.canUseDOM = false;
+    return runTestServer({ app: 'amo' })
+      .then((server) => {
+        app = server;
+      });
+  });
 
   after(() => {
     webpackIsomorphicTools.undo();

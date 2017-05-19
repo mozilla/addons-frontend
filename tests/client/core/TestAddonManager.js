@@ -213,9 +213,11 @@ describe('addonManager', () => {
       });
     });
 
-    it('throws on unknown event', () => assert.throws(() => {
-      handleChangeEvent({ type: 'whatevs' });
-    }, Error, /Unknown global event/));
+    it('throws on unknown event', () => {
+      assert.throws(() => {
+        handleChangeEvent({ type: 'whatevs' });
+      }, Error, /Unknown global event/);
+    });
   });
 
   describe('enable()', () => {

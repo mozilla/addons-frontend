@@ -16,8 +16,9 @@ describe('Locale Config', () => {
   // eslint-disable-next-line no-restricted-syntax
   for (const lang of langs) {
     // eslint-disable no-loop-func
-    it(`should have a corresponding ${lang} dir in locale`, () =>
-        fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang))));
+    it(`should have a corresponding ${lang} dir in locale`, () => {
+      fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang)));
+    });
   }
 
   // eslint-disable-next-line no-restricted-syntax

@@ -1,19 +1,25 @@
 import { assert } from 'chai';
-import requireUncached from 'require-uncached';
 import config from 'config';
 
 const appsList = config.get('validAppNames');
 
 describe('App Specific Frameguard Config', () => {
+  const existingNodeEnv = process.env.NODE_ENV;
+
   afterEach(() => {
+    process.env.NODE_ENV = existingNodeEnv;
     delete process.env.NODE_APP_INSTANCE;
   });
 
   // eslint-disable-next-line no-restricted-syntax
   for (const appName of appsList) {
+    // eslint-disable-next-line no-loop-func
     it(`should default frameGuard to "deny" for ${appName} in production`, () => {
+      process.env.NODE_ENV = 'production';
       process.env.NODE_APP_INSTANCE = appName;
-      const conf = requireUncached('config');
+      jest.resetModules();
+      // eslint-disable-next-line global-require
+      const conf = require('config');
       const frameGuardConfig = conf.get('frameGuard');
       assert.equal(frameGuardConfig.action, 'deny');
       assert.equal(frameGuardConfig.domain, undefined);

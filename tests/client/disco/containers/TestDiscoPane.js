@@ -1,3 +1,4 @@
+import config from 'config';
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
@@ -158,6 +159,7 @@ describe('AddonPage', () => {
   describe('mapDispatchToProps', () => {
     it('calls dispatch when handleGlobalEvent is called with data', () => {
       const dispatch = sinon.spy();
+      sinon.stub(config, 'get').withArgs('server').returns(false);
       const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
       const payload = { id: 'whatever' };
       handleGlobalEvent(payload);

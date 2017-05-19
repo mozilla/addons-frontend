@@ -43,7 +43,7 @@ describe('authentication reducer', () => {
       });
       assert.throws(
         () => setAndReduceToken(token),
-        Error, /Error parsing auth token .* JSON\.parse: unexpected character/);
+        Error, /Error parsing auth token "{"malformed JSON"}/);
     });
 
     it('throws an error for a token without a data segment', () => {
@@ -55,7 +55,7 @@ describe('authentication reducer', () => {
     it('throws an error for an incorrectly encoded data segment', () => {
       assert.throws(
         () => setAndReduceToken('incorrectly-encoded-data-segment:authId:sig'),
-        Error, /Error parsing auth token .* unexpected character at line 1/);
+        Error, /Error parsing auth token "incorrectly-encoded-data-segment/);
     });
 
     it('throws an error for a missing user_id', () => {
@@ -66,6 +66,7 @@ describe('authentication reducer', () => {
       assert.throws(
         () => setAndReduceToken(token),
         Error, /Error parsing auth token .* user_id is missing/);
+
     });
   });
 

@@ -9,8 +9,7 @@ node_js:
 env:
   matrix:
   - TASK=lint
-  - TASK=unittest GUI=1
-  - TASK=servertest
+  - TASK=test-ci
   - TOXENV=discopane-ui-tests GUI=1 PYTEST_BASE_URL=http://localhost:4000
   - TOXENV=flake8
 cache:

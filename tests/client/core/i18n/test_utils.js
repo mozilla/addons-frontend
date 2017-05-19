@@ -270,7 +270,7 @@ describe('i18n utils', () => {
       assert.deepEqual(result, [
         { lang: 'en', quality: 0.7 },
         { lang: 'fil', quality: 0.5 },
-      ], sinon.format(result));
+      ]);
     });
 
     it('deals with whitespace around delimiters except "="', () => {
@@ -279,7 +279,7 @@ describe('i18n utils', () => {
       assert.deepEqual(result, [
         { lang: 'en', quality: 0.7 },
         { lang: 'fil', quality: 0.5 },
-      ], sinon.format(result));
+      ]);
     });
 
     it('orders non-quality items higher', () => {
@@ -288,7 +288,7 @@ describe('i18n utils', () => {
       assert.deepEqual(result, [
         { lang: 'fil', quality: 1 },
         { lang: 'en', quality: 0.7 },
-      ], sinon.format(result));
+      ]);
     });
 
     it('parses header where all entries have a quality value', () => {
@@ -297,7 +297,7 @@ describe('i18n utils', () => {
       assert.deepEqual(result, [
         { lang: 'de', quality: 1 },
         { lang: 'en', quality: 0.5 },
-      ], sinon.format(result));
+      ]);
     });
 
     it('handles entries with the same quality value', () => {
@@ -305,7 +305,7 @@ describe('i18n utils', () => {
       assert.deepEqual(utils.parseAcceptLanguage(input), [
         { lang: 'de', quality: 0.5 },
         { lang: 'en', quality: 0.5 },
-      ], sinon.format(utils.parseAcceptLanguage(input)));
+      ]);
     });
   });
 
@@ -446,6 +446,7 @@ describe('i18n utils', () => {
     });
 
     it('localised formatting a number', () => {
+      // Skipped because node gives a different result.
       const i18n = utils.makeI18n({}, 'de', FakeJed);
       assert.equal(i18n.formatNumber(9518231), '9.518.231');
     });

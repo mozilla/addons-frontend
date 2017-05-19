@@ -101,8 +101,8 @@ describe('<SearchResult />', () => {
     const themeRoot = renderResult(themeResult);
     const iconPlaceholder = findRenderedDOMComponentWithClass(
       themeRoot, 'SearchResult-icon');
-    const iconSrc = iconPlaceholder.src;
-    assert.ok(iconSrc.startsWith('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAA'), iconSrc);
+    // image requires under jest return the filename.
+    assert.equal(iconPlaceholder.src, 'default-64.png');
   });
 
   it('adds theme specific class', () => {

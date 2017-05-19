@@ -86,6 +86,7 @@ describe('withInstallHelpers', () => {
 describe('withInstallHelpers inner functions', () => {
   const src = 'TestInstallAddon';
   const WrappedComponent = sinon.stub();
+  let configStub;
   let mapDispatchToProps;
 
   function getMapStateToProps({ _tracking, installations = {}, state = {} } = {}) {
@@ -94,6 +95,10 @@ describe('withInstallHelpers inner functions', () => {
 
   before(() => {
     mapDispatchToProps = makeMapDispatchToProps({ WrappedComponent, src });
+  });
+
+  beforeEach(() => {
+    configStub = sinon.stub(config, 'get').withArgs('server').returns(false);
   });
 
   describe('setCurrentStatus', () => {
@@ -617,7 +622,8 @@ describe('withInstallHelpers inner functions', () => {
 
   describe('mapDispatchToProps', () => {
     it('is empty when there is no navigator', () => {
-      const configStub = sinon.stub(config, 'get').returns(true);
+      sinon.restore();
+      configStub = sinon.stub(config, 'get').withArgs('server').returns(true);
       assert.deepEqual(mapDispatchToProps(sinon.spy()), { WrappedComponent });
       assert(configStub.calledOnce);
       assert(configStub.calledWith('server'));

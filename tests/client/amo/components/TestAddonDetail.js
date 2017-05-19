@@ -291,7 +291,7 @@ describe('AddonDetail', () => {
       },
     });
     const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
-    assert.include(src, 'image/png');
+    assert.equal(src, 'default-64.png');
   });
 
   it('renders a theme preview as an img', () => {
@@ -375,7 +375,7 @@ describe('AddonDetail', () => {
       getBrowserThemeData: () => '{"the":"themedata"}',
     });
     const header = rootNode.querySelector('.AddonDetail-theme-header');
-    assert.equal(header.dataset.browsertheme, '{"the":"themedata"}');
+    assert.equal(header.getAttribute('data-browsertheme'), '{"the":"themedata"}');
   });
 
   it('toggles a theme on click', () => {

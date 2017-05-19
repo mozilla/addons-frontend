@@ -73,12 +73,12 @@ describe('<SearchPage />', () => {
 
   it('does not render a SearchSort when there are no filters', () => {
     const root = render({ hasSearchParams: false, results: [] });
-    assert.throws(() => findByTag(root, SearchSort), 'child is null');
+    assert.throws(() => findByTag(root, SearchSort), "Cannot read property 'type' of null");
   });
 
   it('does not render a SearchSort when there are no results', () => {
     const root = render({ hasSearchParams: true, results: [] });
-    assert.throws(() => findByTag(root, SearchSort), 'child is null');
+    assert.throws(() => findByTag(root, SearchSort), "Cannot read property 'type' of null");
   });
 
   it('does not render SearchSort when enableSearchSort is false', () => {
@@ -86,6 +86,6 @@ describe('<SearchPage />', () => {
       enableSearchSort: false,
       hasSearchParams: true,
     });
-    assert.throws(() => findByTag(root, SearchSort), 'child is null');
+    assert.throws(() => findByTag(root, SearchSort), "Cannot read property 'type' of null");
   });
 });
