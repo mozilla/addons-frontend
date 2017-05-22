@@ -21,8 +21,10 @@ const apiHosts = {
 
 
 describe('CSP Config Defaults', () => {
+  const existingNodeEnv = process.env.NODE_ENV;
+
   afterEach(() => {
-    process.env.NODE_ENV = 'production';
+    process.env.NODE_ENV = existingNodeEnv;
   });
 
   // eslint-disable-next-line no-restricted-syntax

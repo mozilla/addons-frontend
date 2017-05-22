@@ -48,7 +48,7 @@ const entryPoints = {};
 for (const app of appsBuildList) {
   entryPoints[app] = [
     hmr,
-    `src/${app}/client`,
+    `${app}/client`,
   ];
 }
 

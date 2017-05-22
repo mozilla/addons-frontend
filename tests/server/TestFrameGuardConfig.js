@@ -6,7 +6,6 @@ const appsList = config.get('validAppNames');
 
 describe('App Specific Frameguard Config', () => {
   afterEach(() => {
-    process.env.NODE_ENV = 'production';
     delete process.env.NODE_APP_INSTANCE;
   });
 

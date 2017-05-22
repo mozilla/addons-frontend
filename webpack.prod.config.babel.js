@@ -19,7 +19,7 @@ const appsBuildList = appName ? [appName] : config.get('validAppNames');
 const entryPoints = {};
 // eslint-disable-next-line no-restricted-syntax
 for (const app of appsBuildList) {
-  entryPoints[app] = `src/${app}/client`;
+  entryPoints[app] = `${app}/client`;
 }
 
 const settings = {
@@ -72,9 +72,9 @@ const settings = {
   resolve: {
     alias: {
       'normalize.css': 'normalize.css/normalize.css',
+      tests: path.resolve('./tests'),
     },
     modules: [
-      path.resolve(__dirname),
       path.resolve('./src'),
       'node_modules',
     ],
