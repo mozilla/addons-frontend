@@ -243,6 +243,7 @@ export function makeI18n(i18nData: I18nConfig, lang: string, _Jed: Jed = Jed) {
   // TODO: move all of this to an I18n class that extends Jed so that we
   // can type-check all the components that rely on the i18n object.
   // Note: the available locales for tests are controlled in tests/setup.js
+  // $FLOW_IGNORE
   i18n.formatNumber = (number) => new Intl.NumberFormat(lang).format(number);
 
   // This adds the correct moment locale for the active locale so we can get
