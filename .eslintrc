@@ -4,11 +4,15 @@
   },
   "extends": "airbnb",
   "globals": {
-    "dedent",
     "CLIENT_CONFIG": true,
     "assert": true,
+    "beforeAll": true,
+    "afterAll": true,
+    "dedent",
+    "expect": true,
+    "jest": true,
     "sinon": true,
-    "webpackIsomorphicTools": true
+    "webpackIsomorphicTools": true,
   },
   "parser": "babel-eslint",
   "rules": {

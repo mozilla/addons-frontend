@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import { assert } from 'chai';
 import sinon from 'sinon';
+import { areIntlLocalesSupported } from 'intl-locales-supported';
 
 class LocalStorageMock {
   constructor() {
@@ -30,7 +31,6 @@ class LocalStorageMock {
 }
 global.localStorage = new LocalStorageMock();
 
-const areIntlLocalesSupported = require('intl-locales-supported');
 const localesMyAppSupports = [
   'de-DE', 'fr',
 ];
@@ -40,12 +40,14 @@ if (global.Intl) {
   if (!areIntlLocalesSupported(localesMyAppSupports)) {
     // `Intl` exists, but it doesn't have the data we need, so load the
     // polyfill and patch the constructors we need with the polyfill's.
+    // eslint-disable-next-line global-require
     const IntlPolyfill = require('intl');
     Intl.NumberFormat = IntlPolyfill.NumberFormat;
     Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
   }
 } else {
   // No `Intl`, so use and load the polyfill.
+  // eslint-disable-next-line global-require
   global.Intl = require('intl');
 }
 
@@ -56,6 +58,7 @@ global.after = afterAll;
 global.assert = assert;
 
 // Patch missing console.debug in node.
+// eslint-disable-next-line no-console
 console.debug = console.log;
 
 // Setup sinon global to be a sandbox which is restored

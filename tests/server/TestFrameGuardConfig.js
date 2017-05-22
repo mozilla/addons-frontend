@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import { assert } from 'chai';
 import config from 'config';
 

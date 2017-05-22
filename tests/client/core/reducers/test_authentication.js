@@ -66,7 +66,6 @@ describe('authentication reducer', () => {
       assert.throws(
         () => setAndReduceToken(token),
         Error, /Error parsing auth token .* user_id is missing/);
-
     });
   });
 
