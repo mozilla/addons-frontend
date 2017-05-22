@@ -71,6 +71,7 @@ export class RatingBase extends React.Component {
       }
 
       return (
+        // eslint-disable-next-line react/jsx-key
         <button
           onClick={this.onSelectRating}
           value={thisRating}
