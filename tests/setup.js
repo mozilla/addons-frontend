@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import sinon from 'sinon';
 import { assert } from 'chai';
+import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
 
 class LocalStorageMock {
@@ -67,6 +68,8 @@ global.sinon = realSinon.sandbox.create();
 global.sinon.createStubInstance = realSinon.createStubInstance;
 global.sinon.format = realSinon.format;
 global.sinon.assert = realSinon.assert;
+// Stub the magic constant webpack normally supplies.
+global.CLIENT_CONFIG = require('core/utils').getClientConfig(config);
 
 afterEach(() => {
   global.sinon.restore();

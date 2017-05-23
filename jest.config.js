@@ -1,17 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-require('babel-register');
-
-const config = require('config');
-
-function getClientConfig(_config) {
-  const clientConfig = {};
-  // eslint-disable-next-line no-restricted-syntax
-  for (const key of _config.get('clientConfigKeys')) {
-    clientConfig[key] = _config.get(key);
-  }
-  return clientConfig;
-}
-
 module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>/node_modules/',
@@ -19,9 +5,6 @@ module.exports = {
     '<rootDir>/tests/',
     '<rootDir>/config/',
   ],
-  globals: {
-    CLIENT_CONFIG: getClientConfig(config),
-  },
   moduleDirectories: [
     'src',
     'node_modules',
