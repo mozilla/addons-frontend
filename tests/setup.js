@@ -1,6 +1,6 @@
 import 'babel-polyfill';
-import { assert } from 'chai';
 import sinon from 'sinon';
+import { assert } from 'chai';
 import areIntlLocalesSupported from 'intl-locales-supported';
 
 class LocalStorageMock {

@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('babel-register');
+
 const config = require('config');
 
 function getClientConfig(_config) {

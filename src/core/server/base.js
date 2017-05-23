@@ -1,4 +1,3 @@
-import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
@@ -19,13 +18,13 @@ import { loadFail } from 'redux-connect/lib/store';
 import { END } from 'redux-saga';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
+import log from 'core/logger';
 import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
-import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
+import * as middleware from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setAuthToken, setClientApp, setLang, setUserAgent }
   from 'core/actions';
-import log from 'core/logger';
 import {
   getDirection,
   isValidLang,
@@ -43,23 +42,10 @@ const version = path.join(config.get('basePath'), 'version.json');
 const isDeployed = config.get('isDeployed');
 const isDevelopment = config.get('isDevelopment');
 
-function getNoScriptStyles({ appName }) {
-  const cssPath = path.join(config.get('basePath'), `src/${appName}/noscript.css`);
-  try {
-    return fs.readFileSync(cssPath);
-  } catch (e) {
-    if (e.code !== 'ENOENT') {
-      log.info(`noscript styles could not be parsed from ${cssPath}`);
-    } else {
-      log.debug(`noscript styles not found at ${cssPath}`);
-    }
-  }
-  return undefined;
-}
 
 const appName = config.get('appName');
 
-function getPageProps({ noScriptStyles = '', store, req, res }) {
+export function getPageProps({ noScriptStyles = '', store, req, res }) {
   // Get SRI for deployed services only.
   const sriData = (isDeployed) ? JSON.parse(
     fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
@@ -117,13 +103,6 @@ function showErrorPage({ createStore, error = {}, req, res, status }) {
     .end();
 }
 
-function logRequests(req, res, next) {
-  const start = new Date();
-  next();
-  const finish = new Date();
-  const elapsed = finish - start;
-  log.info({ req, res, start, finish, elapsed });
-}
 
 function hydrateOnClient({ res, props = {}, pageProps }) {
   const HTML =
@@ -149,17 +128,13 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       'Sentry reporting is disabled; Set config.sentryDsn to enable it.');
   }
 
-  app.use(logRequests);
+  app.use(middleware.logRequests);
 
   // Set HTTP Strict Transport Security headers
-  app.use(helmet.hsts({
-    force: true,
-    includeSubDomains: false,
-    maxAge: 31536000, // seconds
-  }));
+  app.use(middleware.hsts());
 
   // Sets X-Frame-Options
-  app.use(helmet.frameguard(config.get('frameGuard')));
+  app.use(middleware.frameguard());
 
   // Sets x-content-type-options:"nosniff"
   app.use(helmet.noSniff());
@@ -168,23 +143,12 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   app.use(helmet.xssFilter());
 
   // CSP configuration.
-  const csp = config.get('CSP');
-  const noScriptStyles = getNoScriptStyles({ appName: appInstanceName });
-  if (csp) {
-    if (noScriptStyles) {
-      const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
-      const cspValue = `'sha256-${hash}'`;
-      if (!csp.directives.styleSrc.includes(cspValue)) {
-        csp.directives.styleSrc.push(cspValue);
-      }
-    }
-    app.use(helmet.contentSecurityPolicy(csp));
-  } else {
-    log.warn('CSP has been disabled from the config');
-  }
+  const noScriptStyles = middleware.getNoScriptStyles(appName);
+  app.use(middleware.csp({ noScriptStyles }));
 
+  // Serve assets locally from node ap (no-op by default).
   if (config.get('enableNodeStatics')) {
-    app.use(Express.static(path.join(config.get('basePath'), 'dist')));
+    app.use(middleware.serveAssetsLocally());
   }
 
   // Show version/commit information as JSON.
@@ -208,11 +172,6 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
 
-  // Redirect from / for the search app it's a 302 to prevent caching.
-  if (appInstanceName === 'search') {
-    app.get('/', (req, res) => res.redirect(302, '/search'));
-  }
-
   if (appInstanceName === 'disco' && isDevelopment) {
     app.get('/', (req, res) =>
       res.redirect(302, '/en-US/firefox/discovery/pane/48.0/Darwin/normal'));
@@ -220,12 +179,12 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   // Handle application and lang redirections.
   if (config.get('enablePrefixMiddleware')) {
-    app.use(prefixMiddleWare);
+    app.use(middleware.prefixMiddleware);
   }
 
   // Add trailing slashes to URLs
   if (config.get('enableTrailingSlashesMiddleware')) {
-    app.use(trailingSlashesMiddleware);
+    app.use(middleware.trailingSlashesMiddleware);
   }
 
   app.use((req, res, next) => {
