@@ -12,7 +12,7 @@ describe('<AddonsCard />', () => {
     return shallowRender(<AddonsCard {...props} />);
   }
 
-  before(() => {
+  beforeAll(() => {
     addons = [
       { name: 'I am add-on! ', slug: 'i-am-addon' },
       { name: 'I am also add-on!', slug: 'i-am-also-addon' },

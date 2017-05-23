@@ -51,17 +51,13 @@ if (global.Intl) {
   global.Intl = require('intl');
 }
 
-
-const realSinon = sinon;
-global.before = beforeAll;
-global.after = afterAll;
-
 // Patch missing console.debug in node.
 // eslint-disable-next-line no-console
 console.debug = console.log;
 
 // Setup sinon global to be a sandbox which is restored
 // after each test.
+const realSinon = sinon;
 global.sinon = realSinon.sandbox.create();
 global.sinon.createStubInstance = realSinon.createStubInstance;
 global.sinon.format = realSinon.format;

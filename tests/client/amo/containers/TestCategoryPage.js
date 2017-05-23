@@ -22,7 +22,7 @@ describe('CategoryPage.mapStateToProps()', () => {
   let filters;
   let ownProps;
 
-  before(() => {
+  beforeAll(() => {
     filters = {
       addonType: ADDON_TYPE_THEME,
       category: 'ad-block',

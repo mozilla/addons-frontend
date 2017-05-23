@@ -15,7 +15,7 @@ function fakeLocalForage(overrides = {}) {
 describe('LocalState', () => {
   let localState;
 
-  before(() => {
+  beforeAll(() => {
     configureLocalForage();
   });
 

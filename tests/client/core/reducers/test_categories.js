@@ -41,7 +41,7 @@ describe('categories reducer', () => {
   describe('CATEGORIES_LOAD', () => {
     let state;
 
-    before(() => {
+    beforeAll(() => {
       const result = [
         {
           application: 'android',

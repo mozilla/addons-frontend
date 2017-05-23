@@ -6,7 +6,7 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 describe('landing reducer', () => {
   let initialData;
 
-  before(() => {
+  beforeAll(() => {
     initialData = {
       featured: { count: 0, results: [] },
       highlyRated: { count: 0, results: [] },

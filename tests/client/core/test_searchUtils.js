@@ -27,7 +27,7 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
   let filters;
   let ownProps;
 
-  before(() => {
+  beforeAll(() => {
     filters = {
       addonType: ADDON_TYPE_THEME,
       category: 'anime',

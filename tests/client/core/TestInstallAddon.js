@@ -93,7 +93,7 @@ describe('withInstallHelpers inner functions', () => {
     return mapStateToProps({ installations, addons: {} }, state, { _tracking });
   }
 
-  before(() => {
+  beforeAll(() => {
     mapDispatchToProps = makeMapDispatchToProps({ WrappedComponent, src });
   });
 
