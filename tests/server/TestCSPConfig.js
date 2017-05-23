@@ -32,6 +32,8 @@ describe('CSP Config Defaults', () => {
     // eslint-disable-next-lint no-loop-func
     it(`should have a source-list config for ${env}`, () => {
       process.env.NODE_ENV = env;
+      // Reset the require cache so that the config require
+      // takes into account changes to NODE_ENV.
       jest.resetModules();
       const cdnHost = cdnHosts[env];
       const apiHost = apiHosts[env];
@@ -51,6 +53,8 @@ describe('CSP Config Defaults', () => {
   describe('CSP defaults', () => {
     beforeEach(() => {
       process.env.NODE_ENV = 'production';
+      // Reset the require cache so that the config require
+      // takes into account changes to NODE_ENV.
       jest.resetModules();
     });
 

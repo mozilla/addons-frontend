@@ -8,14 +8,10 @@ const appsList = config.get('validAppNames');
 
 
 describe('Frameguard Middleware', () => {
-  let oldNodeEnv;
-
-  beforeEach(() => {
-    oldNodeEnv = process.env.NODE_ENV;
-  });
+  const existingNodeEnv = process.env.NODE_ENV;
 
   afterEach(() => {
-    process.env.NODE_ENV = oldNodeEnv;
+    process.env.NODE_ENV = existingNodeEnv;
     delete process.env.NODE_APP_INSTANCE;
   });
 
