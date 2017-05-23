@@ -90,4 +90,23 @@ describe('<Link />', () => {
       { pathname: 'test' }
     );
   });
+
+  it('passes other `href` types through to link', () => {
+    const root = render({ base: null, href: null });
+
+    assert.equal(findRenderedComponentWithType(root, Link).props.href, null);
+  });
+
+  it('passes `href` without leading slash without base', () => {
+    const root = render({ base: '/base/', href: 'test' });
+
+    assert.equal(findRenderedComponentWithType(root, Link).props.href, 'test');
+  });
+
+  it('normalizes the href path with a string', () => {
+    const root = render({ base: '/foo/', href: '/test' });
+
+    assert.equal(
+      findRenderedComponentWithType(root, Link).props.href, '/foo/test');
+  });
 });

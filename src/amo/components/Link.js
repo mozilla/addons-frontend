@@ -10,6 +10,7 @@ export class LinkBase extends React.Component {
   static propTypes = {
     base: PropTypes.string,
     children: PropTypes.node,
+    href: PropTypes.string,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }
 
@@ -18,7 +19,12 @@ export class LinkBase extends React.Component {
   }
 
   render() {
-    const { base, children, to } = this.props;
+    const { base, children, href, to } = this.props;
+
+    if (typeof href === 'string' && href.startsWith('/')) {
+      let linkHref = path.join(base, href);
+      return <Link {...this.props} href={linkHref}>{children}</Link>;
+    }
 
     let linkTo = to;
     if (typeof to === 'string' && to.startsWith('/')) {
