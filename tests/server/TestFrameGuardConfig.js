@@ -1,5 +1,4 @@
 /* eslint-disable global-require */
-import { assert } from 'chai';
 import config from 'config';
 
 const appsList = config.get('validAppNames');
@@ -22,8 +21,8 @@ describe('App Specific Frameguard Config', () => {
       // eslint-disable-next-line global-require
       const conf = require('config');
       const frameGuardConfig = conf.get('frameGuard');
-      assert.equal(frameGuardConfig.action, 'deny');
-      assert.equal(frameGuardConfig.domain, undefined);
+      expect(frameGuardConfig.action).toEqual('deny');
+      expect(frameGuardConfig.domain).toEqual(undefined);
     });
   }
 });

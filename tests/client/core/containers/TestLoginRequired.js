@@ -18,7 +18,7 @@ describe('<LoginRequired />', () => {
         <MyComponent />
       </LoginRequiredBase>
     );
-    assert.equal(root.type, LoginPage);
+    expect(root.type).toEqual(LoginPage);
   });
 
   it('renders the children when authenticated', () => {
@@ -27,20 +27,16 @@ describe('<LoginRequired />', () => {
         <MyComponent />
       </LoginRequiredBase>
     );
-    assert.equal(root.type, MyComponent);
+    expect(root.type).toEqual(MyComponent);
   });
 
   describe('mapStateToProps', () => {
     it('sets authenticated to true when there is a token', () => {
-      assert.deepEqual(
-        mapStateToProps({ auth: { token: 'foo' } }),
-        { authenticated: true });
+      expect(mapStateToProps({ auth: { token: 'foo' } })).toEqual({ authenticated: true });
     });
 
     it('sets authenticated to false when there is not a token', () => {
-      assert.deepEqual(
-        mapStateToProps({ auth: {} }),
-        { authenticated: false });
+      expect(mapStateToProps({ auth: {} })).toEqual({ authenticated: false });
     });
   });
 });

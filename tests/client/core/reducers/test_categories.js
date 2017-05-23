@@ -16,25 +16,25 @@ describe('categories reducer', () => {
 
   it('defaults to an empty set of categories', () => {
     const state = categories(initialState, { type: 'unrelated' });
-    assert.deepEqual(state.categories, emptyCategoryList());
+    expect(state.categories).toEqual(emptyCategoryList());
   });
 
   it('defaults to not loading', () => {
     const { loading } = categories(undefined, { type: 'unrelated' });
-    assert.equal(loading, false);
+    expect(loading).toEqual(false);
   });
 
   it('defaults to not error', () => {
     const { error } = categories(undefined, { type: 'unrelated' });
-    assert.equal(error, false);
+    expect(error).toEqual(false);
   });
 
   describe('CATEGORIES_FETCH', () => {
     it('sets loading', () => {
       const state = categories(initialState, categoriesFetch());
-      assert.deepEqual(state.categories, emptyCategoryList());
-      assert.equal(state.error, false);
-      assert.equal(state.loading, true);
+      expect(state.categories).toEqual(emptyCategoryList());
+      expect(state.error).toEqual(false);
+      expect(state.loading).toEqual(true);
     });
   });
 
@@ -173,7 +173,7 @@ describe('categories reducer', () => {
       //
       // This can be changed once
       // https://github.com/mozilla/addons-server/issues/4766 is fixed.
-      assert.deepEqual(state.categories, {
+      expect(state.categories).toEqual({
         firefox: {
           [ADDON_TYPE_DICT]: {},
           [ADDON_TYPE_EXTENSION]: {
@@ -263,12 +263,12 @@ describe('categories reducer', () => {
 
     it('sets loading', () => {
       const { loading } = state;
-      assert.strictEqual(loading, false);
+      expect(loading).toBe(false);
     });
 
     it('sets no error', () => {
       const { error } = state;
-      assert.deepEqual(error, false);
+      expect(error).toEqual(false);
     });
   });
 
@@ -280,7 +280,7 @@ describe('categories reducer', () => {
       const state = categories(initialState, {
         type: 'CATEGORIES_FAIL', payload: { error, loading },
       });
-      assert.deepEqual(state, {
+      expect(state).toEqual({
         categories: emptyCategoryList(), error, loading,
       });
     });

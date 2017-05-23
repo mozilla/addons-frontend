@@ -5,7 +5,7 @@ describe('CATEGORIES_FETCH', () => {
   const action = actions.categoriesFetch();
 
   it('sets the type', () => {
-    assert.equal(action.type, 'CATEGORIES_FETCH');
+    expect(action.type).toEqual('CATEGORIES_FETCH');
   });
 });
 
@@ -17,11 +17,12 @@ describe('CATEGORIES_LOAD', () => {
   const action = actions.categoriesLoad(response);
 
   it('sets the type', () => {
-    assert.equal(action.type, 'CATEGORIES_LOAD');
+    expect(action.type).toEqual('CATEGORIES_LOAD');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload.result, ['foo', 'bar']);
+    expect(action.payload.loading).toEqual(false);
+    expect(action.payload.result).toEqual(['foo', 'bar']);
   });
 });
 
@@ -30,10 +31,10 @@ describe('CATEGORIES_FAIL', () => {
   const action = actions.categoriesFail(error);
 
   it('sets the type', () => {
-    assert.equal(action.type, 'CATEGORIES_FAIL');
+    expect(action.type).toEqual('CATEGORIES_FAIL');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload.error, error);
+    expect(action.payload.error).toEqual(error);
   });
 });

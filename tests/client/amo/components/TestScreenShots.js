@@ -38,19 +38,19 @@ describe('<ScreenShots />', () => {
     ];
     const root = shallowRender(<ScreenShots previews={previews} />);
     const gallery = root.props.children.props.children;
-    assert.equal(gallery.type, PhotoSwipeGallery);
-    assert.deepEqual(gallery.props.items, items);
-    assert.deepEqual(gallery.props.thumbnailContent, thumbnailContent);
+    expect(gallery.type).toEqual(PhotoSwipeGallery);
+    expect(gallery.props.items).toEqual(items);
+    expect(gallery.props.thumbnailContent).toEqual(thumbnailContent);
   });
 
   it('renders custom thumbnail', () => {
     const item = { src: 'https://foo.com/img.png' };
     const thumbnail = thumbnailContent(item);
-    assert.equal(thumbnail.type, 'img');
-    assert.equal(thumbnail.props.src, 'https://foo.com/img.png');
-    assert.equal(thumbnail.props.height, '200');
-    assert.equal(thumbnail.props.width, '320');
-    assert.equal(thumbnail.props.alt, '');
+    expect(thumbnail.type).toEqual('img');
+    expect(thumbnail.props.src).toEqual('https://foo.com/img.png');
+    expect(thumbnail.props.height).toEqual(200);
+    expect(thumbnail.props.width).toEqual(320);
+    expect(thumbnail.props.alt).toEqual('');
   });
 
   it('scrolls to the active item on close', () => {
@@ -67,6 +67,6 @@ describe('<ScreenShots />', () => {
     const photoswipe = { getCurrentIndex: () => 1 };
     root.onClose(photoswipe);
     // 0 += 500 - 55
-    assert.equal(list.scrollLeft, 445);
+    expect(list.scrollLeft).toEqual(445);
   });
 });

@@ -29,18 +29,13 @@ describe('Footer', () => {
   it('renders a footer', () => {
     const root = renderFooter();
 
-    assert.equal(root.querySelector('.Footer-privacy').textContent,
-      'Privacy policy');
-    assert.equal(root.querySelector('.Footer-privacy').href,
-      'https://www.mozilla.org/en-GB/privacy/websites/');
-    assert.equal(root.querySelector('.Footer-legal').textContent,
-      'Legal notices');
-    assert.equal(root.querySelector('.Footer-legal').href,
-      'https://www.mozilla.org/en-GB/about/legal/');
+    expect(root.querySelector('.Footer-privacy').textContent).toEqual('Privacy policy');
+    expect(root.querySelector('.Footer-privacy').href).toEqual('https://www.mozilla.org/en-GB/privacy/websites/');
+    expect(root.querySelector('.Footer-legal').textContent).toEqual('Legal notices');
+    expect(root.querySelector('.Footer-legal').href).toEqual('https://www.mozilla.org/en-GB/about/legal/');
     // This link isn't localized because MDN will 404 on some
     // locales and not others.
     // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
-    assert.equal(root.querySelector('.Footer-fileissue').href,
-      'https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
+    expect(root.querySelector('.Footer-fileissue').href).toEqual('https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
   });
 });

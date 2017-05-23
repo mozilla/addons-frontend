@@ -11,16 +11,14 @@ describe('<UserPage />', () => {
   it('renders the username and email', () => {
     const root = findDOMNode(renderIntoDocument(
       <UserPageBase email="me@example.com" username="my-username" />));
-    assert.deepEqual(
-      Array.from(root.querySelectorAll('li')).map((li) => li.textContent),
-      ['username: my-username', 'email: me@example.com']);
+    expect(Array.from(root.querySelectorAll('li')).map((li) => li.textContent)).toEqual(['username: my-username', 'email: me@example.com']);
   });
 
   it('pulls the user data from state', () => {
     const user = { username: 'me', email: 'me@example.com' };
-    assert.strictEqual(
-      mapStateToProps({ auth: { username: user.username }, users: { [user.username]: user } }),
-      user);
+    expect(
+      mapStateToProps({ auth: { username: user.username }, users: { [user.username]: user } })
+    ).toBe(user);
   });
 
   describe('loadProfileIfNeeded', () => {
@@ -50,8 +48,8 @@ describe('<UserPage />', () => {
         .withArgs({ api: apiConfig })
         .returns(Promise.resolve({ entities, result }));
       return loadProfileIfNeeded({ store }).then(() => {
-        assert(dispatch.calledWith(loadEntities(entities)));
-        assert(dispatch.calledWith(setCurrentUser('the-username')));
+        expect(dispatch.calledWith(loadEntities(entities))).toBeTruthy();
+        expect(dispatch.calledWith(setCurrentUser('the-username'))).toBeTruthy();
         mockApi.verify();
       });
     });
@@ -73,7 +71,7 @@ describe('<UserPage />', () => {
         .expects('fetchProfile')
         .never();
       return loadProfileIfNeeded({ store }).then(() => {
-        assert(!dispatch.called, 'dispatch should not be called');
+        expect(!dispatch.called).toBeTruthy();
         mockApi.verify();
       });
     });

@@ -1,6 +1,5 @@
 import 'babel-polyfill';
 import sinon from 'sinon';
-import { assert } from 'chai';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
 
@@ -56,7 +55,6 @@ if (global.Intl) {
 const realSinon = sinon;
 global.before = beforeAll;
 global.after = afterAll;
-global.assert = assert;
 
 // Patch missing console.debug in node.
 // eslint-disable-next-line no-console

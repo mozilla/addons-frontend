@@ -14,7 +14,7 @@ describe('CategoryPage.mapStateToProps()', () => {
 
   it('sets enableSearchSort to `false`', () => {
     const root = render();
-    assert.equal(root.props.enableSearchSort, false);
+    expect(root.props.enableSearchSort).toEqual(false);
   });
 });
 
@@ -43,7 +43,7 @@ describe('CategoryPage.mapStateToProps()', () => {
     store.dispatch(searchStart({ filters, results: [] }));
     const props = mapStateToProps(store.getState(), ownProps);
 
-    assert.deepEqual(props, {
+    expect(props).toEqual({
       count: 0,
       filters,
       hasSearchParams: true,
@@ -62,7 +62,7 @@ describe('CategoryPage.mapStateToProps()', () => {
     mismatchedState.search.filters.clientApp = 'nothing';
     const props = mapStateToProps(mismatchedState, ownProps);
 
-    assert.deepEqual(props, {
+    expect(props).toEqual({
       hasSearchParams: true,
       pathname: '/themes/ad-block/',
       queryParams: { page: 1 },

@@ -22,20 +22,18 @@ describe('<AdminAddonsCard />', () => {
   it('renders add-ons when supplied', () => {
     const root = render({ addons });
     const list = root.props.children[1];
-    assert.equal(typeof root.props.children[0], 'undefined');
-    assert.equal(list.type, 'ul');
-    assert.deepEqual(list.props.children.map((c) => c.type),
-      [AdminSearchResult, AdminSearchResult]);
-    assert.deepEqual(list.props.children.map((c) => c.props.addon), addons);
+    expect(typeof root.props.children[0]).toEqual('undefined');
+    expect(list.type).toEqual('ul');
+    expect(list.props.children.map((c) => c.type)).toEqual([AdminSearchResult, AdminSearchResult]);
+    expect(list.props.children.map((c) => c.props.addon)).toEqual(addons);
   });
 
   it('renders children', () => {
     const root = render({ addons, children: (<div>I am content</div>) });
     const list = root.props.children[1];
-    assert.equal(root.props.children[0].type, 'div');
-    assert.equal(list.type, 'ul');
-    assert.deepEqual(list.props.children.map((c) => c.type),
-      [AdminSearchResult, AdminSearchResult]);
-    assert.deepEqual(list.props.children.map((c) => c.props.addon), addons);
+    expect(root.props.children[0].type).toEqual('div');
+    expect(list.type).toEqual('ul');
+    expect(list.props.children.map((c) => c.type)).toEqual([AdminSearchResult, AdminSearchResult]);
+    expect(list.props.children.map((c) => c.props.addon)).toEqual(addons);
   });
 });

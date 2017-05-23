@@ -12,71 +12,64 @@ describe('<OverlayCard />', () => {
 
   it('renders an OverlayCard', () => {
     const root = render();
-    assert(root.overlayCard);
+    expect(root.overlayCard).toBeTruthy();
   });
 
   it('passes the header', () => {
     const root = render({ header: 'header' });
     const rootNode = findDOMNode(root);
 
-    assert.include(
-      rootNode.querySelector('.Card-header').textContent, 'header');
+    expect(rootNode.querySelector('.Card-header').textContent).toContain('header');
   });
 
   it('passes a footer link', () => {
     const root = render({ footerLink: <a href="/somewhere">link</a> });
     const rootNode = findDOMNode(root);
 
-    assert.include(
-      rootNode.querySelector('.Card-footer-link').textContent, 'link');
+    expect(rootNode.querySelector('.Card-footer-link').textContent).toContain('link');
   });
 
   it('passes footer text', () => {
     const root = render({ footerText: 'footer text' });
     const rootNode = findDOMNode(root);
 
-    assert.include(
-      rootNode.querySelector('.Card-footer-text').textContent, 'footer text');
+    expect(rootNode.querySelector('.Card-footer-text').textContent).toContain('footer text');
   });
 
   it('passes children', () => {
     const root = render({ children: <div className="kids">hi</div> });
     const rootNode = findDOMNode(root);
 
-    assert.include(
-      rootNode.querySelector('.kids').textContent, 'hi');
+    expect(rootNode.querySelector('.kids').textContent).toContain('hi');
   });
 
   it('is hidden by default', () => {
     const root = render();
-    assert.notInclude(
-      root.overlay.overlayContainer.className, 'Overlay--visible');
+    expect(root.overlay.overlayContainer.className).not.toContain('Overlay--visible');
   });
 
   it('is visible when the `visibleOnLoad` prop is passed', () => {
     const root = render({ visibleOnLoad: true });
-    assert.include(root.overlay.overlayContainer.className, 'Overlay--visible');
+    expect(root.overlay.overlayContainer.className).toContain('Overlay--visible');
   });
 
   it('is shown and hidden when `hide()` and `show()` are called', () => {
     const root = render();
 
     root.show();
-    assert.include(root.overlay.overlayContainer.className, 'Overlay--visible');
+    expect(root.overlay.overlayContainer.className).toContain('Overlay--visible');
 
     root.hide();
-    assert.notInclude(
-      root.overlay.overlayContainer.className, 'Overlay--visible');
+    expect(root.overlay.overlayContainer.className).not.toContain('Overlay--visible');
   });
 
   it('is toggled', () => {
     const root = render();
 
     root.toggle();
-    assert.include(root.overlay.overlayContainer.className, 'Overlay--visible');
+    expect(root.overlay.overlayContainer.className).toContain('Overlay--visible');
 
     root.toggle();
-    assert.notInclude(
-      root.overlay.overlayContainer.className, 'Overlay--visible');
+    expect(root.overlay.overlayContainer.className).not.toContain('Overlay--visible');
   });
 });

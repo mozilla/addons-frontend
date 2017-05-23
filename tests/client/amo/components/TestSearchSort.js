@@ -31,11 +31,11 @@ describe('<SearchSortBase />', () => {
     const root = render({ filters: { query: 'test' }, pathname: '/search/' });
     const rootNode = findDOMNode(root);
 
-    assert.notInclude(rootNode.className, 'SearchSort--visible');
+    expect(rootNode.className).not.toContain('SearchSort--visible');
 
     Simulate.click(root.searchToggle);
 
-    assert.include(rootNode.className, 'SearchSort--visible');
+    expect(rootNode.className).toContain('SearchSort--visible');
   });
 
   it('blurs the toggle when closing the sort options with a click/tap', () => {
@@ -44,11 +44,11 @@ describe('<SearchSortBase />', () => {
 
     // Open the sort options.
     Simulate.click(root.searchToggle);
-    assert.ok(blurSpy.notCalled);
+    expect(blurSpy.notCalled).toBeTruthy();
 
     // Close the sort options, which should blur the toggle link.
     Simulate.click(root.searchToggle);
-    assert.ok(blurSpy.calledOnce);
+    expect(blurSpy.calledOnce).toBeTruthy();
   });
 
   it('does not alter keyboard focus when keypress closes the sorter', () => {
@@ -61,6 +61,6 @@ describe('<SearchSortBase />', () => {
     // Close the sort options, which should not blur the toggle link as it's
     // done with the keyboard and not a click/tap.
     Simulate.keyPress(root.searchToggle);
-    assert.ok(blurSpy.notCalled);
+    expect(blurSpy.notCalled).toBeTruthy();
   });
 });

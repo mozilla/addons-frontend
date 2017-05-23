@@ -8,7 +8,7 @@ describe('<JsonData />', () => {
   it('renders an object', () => {
     const obj = { foo: 'bar', baz: 'quux' };
     const pre = findDOMNode(renderIntoDocument(<JsonData data={obj} />)).querySelector('pre');
-    assert.equal(pre.textContent, dedent`{
+    expect(pre.textContent).toEqual(dedent`{
       "foo": "bar",
       "baz": "quux"
     }`);
@@ -18,13 +18,13 @@ describe('<JsonData />', () => {
     const obj = { foo: 'bar', baz: 'quux' };
     const root = findDOMNode(renderIntoDocument(<JsonData data={obj} />));
     const toggle = root.querySelector('.JsonData-toggle');
-    assert.ok(!root.classList.contains('JsonData-visible'));
-    assert.equal(toggle.textContent, 'Show JSON');
+    expect(!root.classList.contains('JsonData-visible')).toBeTruthy();
+    expect(toggle.textContent).toEqual('Show JSON');
     Simulate.click(root.querySelector('.JsonData-toggle'));
-    assert.ok(root.classList.contains('JsonData-visible'));
-    assert.equal(toggle.textContent, 'Hide JSON');
+    expect(root.classList.contains('JsonData-visible')).toBeTruthy();
+    expect(toggle.textContent).toEqual('Hide JSON');
     Simulate.click(root.querySelector('.JsonData-toggle'));
-    assert.ok(!root.classList.contains('JsonData-visible'));
-    assert.equal(toggle.textContent, 'Show JSON');
+    expect(!root.classList.contains('JsonData-visible')).toBeTruthy();
+    expect(toggle.textContent).toEqual('Show JSON');
   });
 });

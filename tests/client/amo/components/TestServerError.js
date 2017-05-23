@@ -36,7 +36,6 @@ describe('<ServerError />', () => {
   it('renders a server error', () => {
     const rootNode = render();
 
-    assert.include(rootNode.textContent,
-      'but there was an error with our server and');
+    expect(rootNode.textContent).toContain('but there was an error with our server and');
   });
 });

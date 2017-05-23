@@ -8,18 +8,18 @@ describe('<Button />', () => {
   it('renders a button', () => {
     const onClick = sinon.spy();
     const button = shallowRender(<Button className="Foo" onClick={onClick}>My button!</Button>);
-    assert.equal(button.type, 'button');
-    assert.equal(button.props.className, 'Button Foo');
-    assert.strictEqual(button.props.onClick, onClick);
-    assert.equal(button.props.children, 'My button!');
+    expect(button.type).toEqual('button');
+    expect(button.props.className).toEqual('Button Foo');
+    expect(button.props.onClick).toBe(onClick);
+    expect(button.props.children).toEqual('My button!');
   });
 
   it('renders a link with an href', () => {
     const href = 'https://addons.mozilla.org';
     const button = shallowRender(<Button className="Bar" to={href}>Link text!</Button>);
-    assert.equal(button.type, Link);
-    assert.equal(button.props.className, 'Button Bar');
-    assert.strictEqual(button.props.to, href);
-    assert.equal(button.props.children, 'Link text!');
+    expect(button.type).toEqual(Link);
+    expect(button.props.className).toEqual('Button Bar');
+    expect(button.props.to).toBe(href);
+    expect(button.props.children).toEqual('Link text!');
   });
 });

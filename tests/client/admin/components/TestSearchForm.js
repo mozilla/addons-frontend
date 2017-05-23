@@ -47,40 +47,40 @@ describe('<AdminSearchForm />', () => {
   });
 
   it('does nothing on submit', () => {
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
     input.value = 'adblock';
     Simulate.submit(form);
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
   });
 
   it('updates the location on enter', () => {
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
     input.value = 'adblock';
     Simulate.keyDown(input, { key: 'Enter', shiftKey: false });
-    assert(router.push.calledWith('/somewhere?q=adblock'));
+    expect(router.push.calledWith('/somewhere?q=adblock')).toBeTruthy();
   });
 
   it('looks up the add-on to see if you are lucky', () => {
     loadAddon.returns(Promise.resolve('adblock'));
     input.value = 'adblock@adblock.com';
     Simulate.click(root.go);
-    assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
+    expect(loadAddon.calledWith({ api, query: 'adblock@adblock.com' })).toBeTruthy();
   });
 
   it('looks up the add-on to see if you are lucky on Shift+Enter', () => {
     loadAddon.returns(Promise.resolve('adblock'));
     input.value = 'adblock@adblock.com';
     Simulate.keyDown(input, { key: 'Enter', shiftKey: true });
-    assert(loadAddon.calledWith({ api, query: 'adblock@adblock.com' }));
+    expect(loadAddon.calledWith({ api, query: 'adblock@adblock.com' })).toBeTruthy();
   });
 
   it('redirects to the add-on if you are lucky', () => {
     loadAddon.returns(Promise.resolve('adblock'));
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
     input.value = 'adblock@adblock.com';
     Simulate.click(root.go);
     return wait(1)
-      .then(() => assert(router.push.calledWith('/search/addons/adblock')));
+      .then(() => expect(router.push.calledWith('/search/addons/adblock')).toBeTruthy());
   });
 
   it('searches if it is not found', () => {
@@ -88,14 +88,14 @@ describe('<AdminSearchForm />', () => {
     input.value = 'adblock@adblock.com';
     Simulate.click(root.go);
     return wait(1)
-      .then(() => assert(router.push.calledWith('/somewhere?q=adblock@adblock.com')));
+      .then(() => expect(router.push.calledWith('/somewhere?q=adblock@adblock.com')).toBeTruthy());
   });
 });
 
 describe('SearchForm mapStateToProps', () => {
   it('passes the api through', () => {
     const api = { lang: 'de', token: 'someauthtoken' };
-    assert.deepEqual(mapStateToProps({ foo: 'bar', api }), { api });
+    expect(mapStateToProps({ foo: 'bar', api })).toEqual({ api });
   });
 });
 
@@ -122,7 +122,7 @@ describe('SearchForm loadAddon', () => {
     const { loadAddon } = mapDispatchToProps(dispatch);
     return loadAddon({ api, query: slug })
       .then(() => {
-        assert(dispatch.calledWith(action));
+        expect(dispatch.calledWith(action)).toBeTruthy();
         mockApi.verify();
         mockActions.verify();
       });

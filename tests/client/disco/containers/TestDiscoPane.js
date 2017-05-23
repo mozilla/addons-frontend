@@ -61,35 +61,35 @@ describe('AddonPage', () => {
   describe('video', () => {
     it('is small by default', () => {
       const root = render();
-      assert.notOk(root.querySelector('.show-video'));
+      expect(root.querySelector('.show-video')).toBeFalsy();
     });
 
     it('gets bigger and smaller when clicked', () => {
       const root = render();
       Simulate.click(root.querySelector('.play-video'));
-      assert.ok(root.querySelector('.show-video'));
+      expect(root.querySelector('.show-video')).toBeTruthy();
       Simulate.click(root.querySelector('.close-video a'));
-      assert.notOk(root.querySelector('.show-video'));
+      expect(root.querySelector('.show-video')).toBeFalsy();
     });
 
     it('tracks video being played', () => {
       const root = render();
       Simulate.click(root.querySelector('.play-video'));
-      assert.ok(fakeTracking.sendEvent.calledWith({
+      expect(fakeTracking.sendEvent.calledWith({
         category: VIDEO_CATEGORY,
         action: 'play',
-      }));
-      assert.ok(fakeVideo.play.calledOnce);
+      })).toBeTruthy();
+      expect(fakeVideo.play.calledOnce).toBeTruthy();
     });
 
     it('tracks video being closed', () => {
       const root = render();
       Simulate.click(root.querySelector('.close-video a'));
-      assert.ok(fakeTracking.sendEvent.calledWith({
+      expect(fakeTracking.sendEvent.calledWith({
         category: VIDEO_CATEGORY,
         action: 'close',
-      }));
-      assert.ok(fakeVideo.pause.calledOnce);
+      })).toBeTruthy();
+      expect(fakeVideo.pause.calledOnce).toBeTruthy();
     });
   });
 
@@ -102,7 +102,7 @@ describe('AddonPage', () => {
       };
       const getAddons = sinon.stub(discoApi, 'getDiscoveryAddons');
       return helpers.loadDataIfNeeded({ store })
-        .then(() => assert.notOk(getAddons.called));
+        .then(() => expect(getAddons.called).toBeFalsy());
     });
 
     it('loads the addons if there are none', () => {
@@ -131,9 +131,9 @@ describe('AddonPage', () => {
         .returns(Promise.resolve({ entities, result }));
       return helpers.loadDataIfNeeded({ store })
         .then(() => {
-          assert.ok(getAddons.calledWith({ api }));
-          assert.ok(dispatch.calledWith(loadEntities(entities)));
-          assert.ok(dispatch.calledWith(discoResults([{ addon: 'foo' }])));
+          expect(getAddons.calledWith({ api })).toBeTruthy();
+          expect(dispatch.calledWith(loadEntities(entities))).toBeTruthy();
+          expect(dispatch.calledWith(discoResults([{ addon: 'foo' }]))).toBeTruthy();
         });
     });
   });
@@ -143,7 +143,7 @@ describe('AddonPage', () => {
       const props = helpers.mapStateToProps({
         discoResults: [],
       });
-      assert.sameMembers(Object.keys(props), ['results']);
+      expect(Object.keys(props)).toEqual(['results']);
     });
 
     it('sets the results', () => {
@@ -152,7 +152,7 @@ describe('AddonPage', () => {
         discoResults: [{ addon: 'two' }],
         infoDialog: {},
       });
-      assert.deepEqual(props.results, [{ slug: 'two', addon: 'two' }]);
+      expect(props.results).toEqual([{ slug: 'two', addon: 'two' }]);
     });
   });
 
@@ -163,15 +163,14 @@ describe('AddonPage', () => {
       const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
       const payload = { id: 'whatever' };
       handleGlobalEvent(payload);
-      assert.ok(dispatch.calledWith({ type: INSTALL_STATE, payload }));
+      expect(dispatch.calledWith({ type: INSTALL_STATE, payload })).toBeTruthy();
     });
 
     it('is empty when there is no navigator', () => {
       const configStub = {
         get: sinon.stub().returns(true),
       };
-      assert.deepEqual(
-        helpers.mapDispatchToProps(sinon.spy(), { _config: configStub }), {});
+      expect(helpers.mapDispatchToProps(sinon.spy(), { _config: configStub })).toEqual({});
     });
   });
 
@@ -181,7 +180,7 @@ describe('AddonPage', () => {
         addEventListener: sinon.stub(),
       };
       render({ mozAddonManager: fakeMozAddonManager });
-      assert.equal(fakeMozAddonManager.addEventListener.callCount, GLOBAL_EVENTS.length);
+      expect(fakeMozAddonManager.addEventListener.callCount).toEqual(GLOBAL_EVENTS.length);
     });
   });
 
@@ -189,11 +188,11 @@ describe('AddonPage', () => {
     it('tracks see more addons link being clicked', () => {
       const root = render();
       Simulate.click(root.querySelector('.amo-link a'));
-      assert.ok(fakeTracking.sendEvent.calledWith({
+      expect(fakeTracking.sendEvent.calledWith({
         category: NAVIGATION_CATEGORY,
         action: 'click',
         label: 'See More Add-ons',
-      }));
+      })).toBeTruthy();
     });
   });
 });

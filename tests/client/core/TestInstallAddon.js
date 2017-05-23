@@ -49,7 +49,7 @@ describe('withInstallHelpers', () => {
     const _makeMapDispatchToProps = sinon.spy();
     const WrappedComponent = sinon.stub();
     withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(WrappedComponent);
-    assert.ok(_makeMapDispatchToProps.calledWith({ WrappedComponent, src: 'Howdy' }));
+    expect(_makeMapDispatchToProps.calledWith({ WrappedComponent, src: 'Howdy' })).toBeTruthy();
   });
 
   it('wraps the component in WithInstallHelpers', () => {
@@ -57,13 +57,13 @@ describe('withInstallHelpers', () => {
     const Component = withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
     const { store } = createStore();
     const root = shallowRender(<Component store={store} />);
-    assert.equal(root.type, WithInstallHelpers);
+    expect(root.type).toEqual(WithInstallHelpers);
   });
 
   it('throws without a src', () => {
-    assert.throws(() => {
+    expect(() => {
       withInstallHelpers({})(() => {});
-    }, /src is required/);
+    }).toThrow();
   });
 
   it('sets the current status in componentDidMount with an addonManager', () => {
@@ -71,7 +71,7 @@ describe('withInstallHelpers', () => {
     renderIntoDocument(
       <WithInstallHelpers WrappedComponent={() => <div />} hasAddonManager
       setCurrentStatus={setCurrentStatus} />);
-    assert.ok(setCurrentStatus.called);
+    expect(setCurrentStatus.called).toBeTruthy();
   });
 
   it('does not set the current status in componentDidMount without an addonManager', () => {
@@ -79,7 +79,7 @@ describe('withInstallHelpers', () => {
     renderIntoDocument(
       <WithInstallHelpers WrappedComponent={() => <div />} hasAddonManager={false}
       setCurrentStatus={setCurrentStatus} />);
-    assert.notOk(setCurrentStatus.called);
+    expect(setCurrentStatus.called).toBeFalsy();
   });
 });
 
@@ -110,10 +110,10 @@ describe('withInstallHelpers inner functions', () => {
         dispatch, { _addonManager: getFakeAddonManagerWrapper(), guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: ENABLED, url: installURL },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -134,10 +134,10 @@ describe('withInstallHelpers inner functions', () => {
       });
       return setCurrentStatus()
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: DISABLED, url: installURL },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -158,10 +158,10 @@ describe('withInstallHelpers inner functions', () => {
       });
       return setCurrentStatus()
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: DISABLED, url: installURL },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -176,10 +176,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: ENABLED, url: installURL },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -198,10 +198,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: DISABLED, url: installURL },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -220,10 +220,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: DISABLED, url: installURL },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -236,10 +236,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: UNINSTALLED, url: installURL },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -253,10 +253,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: ERROR, error: FATAL_ERROR },
-          }), 'dispatch was not called with FATAL_ERROR');
+          })).toBeTruthy();
         });
     });
   });
@@ -267,10 +267,10 @@ describe('withInstallHelpers inner functions', () => {
       const guid = 'foo@addon';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_DOWNLOADING', progress: 300, maxProgress: 990 });
-      assert(dispatch.calledWith({
+      expect(dispatch.calledWith({
         type: DOWNLOAD_PROGRESS,
         payload: { downloadProgress: 30, guid },
-      }));
+      })).toBeTruthy();
     });
 
     it('sets status to error on onDownloadFailed', () => {
@@ -278,10 +278,10 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
-      assert(dispatch.calledWith({
+      expect(dispatch.calledWith({
         type: 'INSTALL_ERROR',
         payload: { guid, error: DOWNLOAD_FAILED },
-      }));
+      })).toBeTruthy();
     });
 
     it('resets status to uninstalled on onInstallCancelled', () => {
@@ -289,7 +289,7 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallCancelled' });
-      assert.deepEqual(dispatch.firstCall.args[0], {
+      expect(dispatch.firstCall.args[0]).toEqual({
         type: INSTALL_CANCELLED,
         payload: { guid },
       });
@@ -300,7 +300,7 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
-      assert.deepEqual(dispatch.firstCall.args[0], {
+      expect(dispatch.firstCall.args[0]).toEqual({
         type: 'INSTALL_ERROR',
         payload: { guid, error: INSTALL_FAILED },
       });
@@ -311,7 +311,7 @@ describe('withInstallHelpers inner functions', () => {
       const guid = 'foo@addon';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
-      assert.notOk(dispatch.called);
+      expect(dispatch.called).toBeFalsy();
     });
   });
 
@@ -331,8 +331,8 @@ describe('withInstallHelpers inner functions', () => {
       const fakeShowInfo = sinon.stub();
       return enable({ _showInfo: fakeShowInfo })
         .then(() => {
-          assert.ok(fakeAddonManager.enable.calledWith(guid));
-          assert.ok(fakeShowInfo.calledWith({ name, iconUrl }));
+          expect(fakeAddonManager.enable.calledWith(guid)).toBeTruthy();
+          expect(fakeShowInfo.calledWith({ name, iconUrl })).toBeTruthy();
         });
     });
 
@@ -347,8 +347,8 @@ describe('withInstallHelpers inner functions', () => {
       const fakeShowInfo = sinon.stub();
       return enable({ _showInfo: fakeShowInfo })
         .then(() => {
-          assert.ok(fakeAddonManager.enable.calledWith(guid));
-          assert.ok(fakeShowInfo.neverCalledWith({ name, iconUrl }));
+          expect(fakeAddonManager.enable.calledWith(guid)).toBeTruthy();
+          expect(fakeShowInfo.neverCalledWith({ name, iconUrl })).toBeTruthy();
         });
     });
 
@@ -362,10 +362,10 @@ describe('withInstallHelpers inner functions', () => {
         { name, iconUrl, guid, _addonManager: fakeAddonManager });
       return enable()
         .then(() => {
-          assert.ok(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: ERROR, error: FATAL_ERROR },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -379,10 +379,10 @@ describe('withInstallHelpers inner functions', () => {
         { name, iconUrl, guid, _addonManager: fakeAddonManager });
       return enable()
         .then(() => {
-          assert.notOk(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: ERROR, error: FATAL_ERROR },
-          }));
+          })).toBeFalsy();
         });
     });
   });
@@ -399,7 +399,7 @@ describe('withInstallHelpers inner functions', () => {
         { _addonManager: fakeAddonManager, installURL });
       return install({ guid, installURL })
         .then(() => {
-          assert(fakeAddonManager.install.calledWith(installURL, sinon.match.func, { src }));
+          expect(fakeAddonManager.install.calledWith(installURL, sinon.match.func, { src })).toBeTruthy();
         });
     });
 
@@ -416,11 +416,11 @@ describe('withInstallHelpers inner functions', () => {
         { _tracking: fakeTracking, _addonManager: fakeAddonManager, name });
       return install({ guid, installURL, name, type })
         .then(() => {
-          assert(fakeTracking.sendEvent.calledWith({
+          expect(fakeTracking.sendEvent.calledWith({
             action: TRACKING_TYPE_EXTENSION,
             category: INSTALL_CATEGORY,
             label: 'hai-addon',
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -431,10 +431,10 @@ describe('withInstallHelpers inner functions', () => {
         dispatch,
         { _addonManager: fakeAddonManager, guid });
       return install({ guid, installURL })
-        .then(() => assert(dispatch.calledWith({
+        .then(() => expect(dispatch.calledWith({
           type: START_DOWNLOAD,
           payload: { guid },
-        })));
+        })).toBeTruthy());
     });
 
     it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
@@ -452,25 +452,25 @@ describe('withInstallHelpers inner functions', () => {
         });
       return install({ guid, installURL })
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: SHOW_INFO,
             payload: {
               addonName: 'test-addon',
               imageURL: iconUrl,
               closeAction: sinon.match.func,
             },
-          }));
+          })).toBeTruthy();
 
           // Grab the first arg of second call.
           const arg = dispatch.getCall(1).args[0];
           // Prove we're looking at the SHOW_INFO dispatch.
-          assert.equal(arg.type, SHOW_INFO);
+          expect(arg.type).toEqual(SHOW_INFO);
 
           // Test that close action dispatches.
           arg.payload.closeAction();
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: CLOSE_INFO,
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -489,14 +489,14 @@ describe('withInstallHelpers inner functions', () => {
         });
       return install({ guid, installURL })
         .then(() => {
-          assert(dispatch.neverCalledWith({
+          expect(dispatch.neverCalledWith({
             type: SHOW_INFO,
             payload: {
               addonName: 'test-addon',
               imageURL: iconUrl,
               closeAction: sinon.match.func,
             },
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -510,10 +510,10 @@ describe('withInstallHelpers inner functions', () => {
 
       return install({ guid, installURL })
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: ERROR, error: FATAL_INSTALL_ERROR },
-          }), 'dispatch was not called with FATAL_INSTALL_ERROR');
+          })).toBeTruthy();
         });
     });
   });
@@ -528,14 +528,14 @@ describe('withInstallHelpers inner functions', () => {
       const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL })
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: {
               guid,
               status: UNINSTALLING,
             },
-          }));
-          assert(fakeAddonManager.uninstall.calledWith(guid));
+          })).toBeTruthy();
+          expect(fakeAddonManager.uninstall.calledWith(guid)).toBeTruthy();
         });
     });
 
@@ -546,17 +546,17 @@ describe('withInstallHelpers inner functions', () => {
       const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL })
         .then(() => {
-          assert(dispatch.calledWith({
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: {
               guid,
               status: UNINSTALLING,
             },
-          }));
-          assert(dispatch.calledWith({
+          })).toBeTruthy();
+          expect(dispatch.calledWith({
             type: INSTALL_STATE,
             payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },
-          }), 'dispatch was not called with FATAL_UNINSTALL_ERROR');
+          })).toBeTruthy();
         });
     });
 
@@ -572,11 +572,11 @@ describe('withInstallHelpers inner functions', () => {
         { _tracking: fakeTracking, _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL, name, type })
         .then(() => {
-          assert.ok(fakeTracking.sendEvent.calledWith({
+          expect(fakeTracking.sendEvent.calledWith({
             action: TRACKING_TYPE_EXTENSION,
             category: UNINSTALL_CATEGORY,
             label: 'whatevs',
-          }), 'correctly called');
+          })).toBeTruthy();
         });
     });
 
@@ -591,11 +591,11 @@ describe('withInstallHelpers inner functions', () => {
         { _tracking: fakeTracking, _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL, name, type: ADDON_TYPE_THEME })
         .then(() => {
-          assert(fakeTracking.sendEvent.calledWith({
+          expect(fakeTracking.sendEvent.calledWith({
             action: TRACKING_TYPE_THEME,
             category: UNINSTALL_CATEGORY,
             label: 'whatevs',
-          }));
+          })).toBeTruthy();
         });
     });
 
@@ -611,11 +611,11 @@ describe('withInstallHelpers inner functions', () => {
         { _tracking: fakeTracking, _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL, name, type })
         .then(() => {
-          assert(fakeTracking.sendEvent.calledWith({
+          expect(fakeTracking.sendEvent.calledWith({
             action: 'invalid',
             category: UNINSTALL_CATEGORY,
             label: 'whatevs',
-          }));
+          })).toBeTruthy();
         });
     });
   });
@@ -624,24 +624,24 @@ describe('withInstallHelpers inner functions', () => {
     it('is empty when there is no navigator', () => {
       sinon.restore();
       configStub = sinon.stub(config, 'get').withArgs('server').returns(true);
-      assert.deepEqual(mapDispatchToProps(sinon.spy()), { WrappedComponent });
-      assert(configStub.calledOnce);
-      assert(configStub.calledWith('server'));
+      expect(mapDispatchToProps(sinon.spy())).toEqual({ WrappedComponent });
+      expect(configStub.calledOnce).toBeTruthy();
+      expect(configStub.calledWith('server')).toBeTruthy();
     });
 
     it('requires an installURL for extensions', () => {
-      assert.throws(() => {
+      expect(() => {
         makeMapDispatchToProps({})(sinon.spy(), { type: ADDON_TYPE_EXTENSION });
-      }, /installURL is required/);
-      assert.doesNotThrow(() => {
+      }).toThrow();
+      expect(() => {
         makeMapDispatchToProps({})(sinon.spy(), {
           installURL: 'foo.com',
           type: ADDON_TYPE_EXTENSION,
         });
-      });
-      assert.doesNotThrow(() => {
+      }).not.toThrow();
+      expect(() => {
         makeMapDispatchToProps({})(sinon.spy(), { type: ADDON_TYPE_THEME });
-      });
+      }).not.toThrow();
     });
 
     describe('previewTheme', () => {
@@ -654,14 +654,14 @@ describe('withInstallHelpers inner functions', () => {
         const themeAction = sinon.spy();
         const node = sinon.stub();
         previewTheme(node, themeAction);
-        assert.ok(themeAction.calledWith(node, THEME_PREVIEW));
-        assert.ok(dispatchSpy.calledWith({
+        expect(themeAction.calledWith(node, THEME_PREVIEW)).toBeTruthy();
+        expect(dispatchSpy.calledWith({
           type: THEME_PREVIEW,
           payload: {
             guid: 'fake-guid@whatever',
             themePreviewNode: node,
           },
-        }));
+        })).toBeTruthy();
       });
     });
 
@@ -675,13 +675,13 @@ describe('withInstallHelpers inner functions', () => {
         const themeAction = sinon.spy();
         const node = sinon.stub();
         resetThemePreview(node, themeAction);
-        assert.ok(themeAction.calledWith(node, THEME_RESET_PREVIEW));
-        assert.ok(dispatchSpy.calledWith({
+        expect(themeAction.calledWith(node, THEME_RESET_PREVIEW)).toBeTruthy();
+        expect(dispatchSpy.calledWith({
           type: THEME_RESET_PREVIEW,
           payload: {
             guid: 'fake-guid@whatever',
           },
-        }));
+        })).toBeTruthy();
       });
     });
   });
@@ -708,7 +708,7 @@ describe('withInstallHelpers inner functions', () => {
       const node = sinon.stub();
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
-      assert(stubs._themeAction.calledWith(node, THEME_INSTALL));
+      expect(stubs._themeAction.calledWith(node, THEME_INSTALL)).toBeTruthy();
     });
 
     it('tracks a theme install', () => {
@@ -716,11 +716,11 @@ describe('withInstallHelpers inner functions', () => {
       const node = sinon.stub();
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
-      assert(stubs._tracking.sendEvent.calledWith({
+      expect(stubs._tracking.sendEvent.calledWith({
         action: TRACKING_TYPE_THEME,
         category: INSTALL_CATEGORY,
         label: 'hai-theme',
-      }));
+      })).toBeTruthy();
     });
 
     it('does not try to install theme if INSTALLED', () => {
@@ -728,8 +728,8 @@ describe('withInstallHelpers inner functions', () => {
       const node = sinon.stub();
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
-      assert.notOk(stubs._tracking.sendEvent.called);
-      assert.notOk(stubs._themeAction.called);
+      expect(stubs._tracking.sendEvent.called).toBeFalsy();
+      expect(stubs._themeAction.called).toBeFalsy();
     });
 
     it('does not try to install theme if it is an extension', () => {
@@ -737,8 +737,8 @@ describe('withInstallHelpers inner functions', () => {
       const node = sinon.stub();
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
-      assert.notOk(stubs._tracking.sendEvent.called);
-      assert.notOk(stubs._themeAction.called);
+      expect(stubs._tracking.sendEvent.called).toBeFalsy();
+      expect(stubs._themeAction.called).toBeFalsy();
     });
   });
 
@@ -746,7 +746,7 @@ describe('withInstallHelpers inner functions', () => {
     it('formats the browser theme data', () => {
       const { getBrowserThemeData } = getMapStateToProps();
       sinon.stub(themePreview, 'getThemeData').returns({ foo: 'wat' });
-      assert.equal(getBrowserThemeData({ some: 'data' }), '{"foo":"wat"}');
+      expect(getBrowserThemeData({ some: 'data' })).toEqual('{"foo":"wat"}');
     });
   });
 
@@ -770,7 +770,7 @@ describe('withInstallHelpers inner functions', () => {
       });
       props.previewTheme = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
-      assert.ok(props.previewTheme.calledWith(node, themeAction));
+      expect(props.previewTheme.calledWith(node, themeAction)).toBeTruthy();
     });
 
     it('calls previewTheme if theme is not enabled', () => {
@@ -793,7 +793,7 @@ describe('withInstallHelpers inner functions', () => {
       });
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
-      assert.ok(props.resetThemePreview.calledWith(node, themeAction));
+      expect(props.resetThemePreview.calledWith(node, themeAction)).toBeTruthy();
     });
 
     it('logs if theme is not available', () => {
@@ -815,7 +815,7 @@ describe('withInstallHelpers inner functions', () => {
       });
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
-      assert.ok(fakeLog.info.calledWith('Theme foo@bar.com could not be found'));
+      expect(fakeLog.info.calledWith('Theme foo@bar.com could not be found')).toBeTruthy();
     });
 
     it('logs if theme is already enabled', () => {
@@ -838,7 +838,9 @@ describe('withInstallHelpers inner functions', () => {
       });
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
-      assert.ok(fakeLog.info.calledWith(sinon.match('Theme foo@bar.com is already enabled')));
+      expect(
+        fakeLog.info.calledWith(sinon.match('Theme foo@bar.com is already enabled'))
+      ).toBeTruthy();
     });
   });
 });

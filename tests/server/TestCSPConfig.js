@@ -1,4 +1,3 @@
-import { assert } from 'chai';
 import require from 'require-uncached';
 
 const deployedEnvs = [
@@ -40,13 +39,13 @@ describe('CSP Config Defaults', () => {
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
       expect(cspConfig.scriptSrc).toContain(cdnHost);
-      assert.notInclude(cspConfig.scriptSrc, "'self'");
-      assert.include(cspConfig.imgSrc, cdnHost);
-      assert.include(cspConfig.imgSrc, "'self'");
-      assert.include(cspConfig.styleSrc, cdnHost);
-      assert.notInclude(cspConfig.styleSrc, "'self'");
-      assert.include(cspConfig.connectSrc, apiHost);
-      assert.notInclude(cspConfig.connectSrc, "'self'");
+      expect(cspConfig.scriptSrc).not.toContain("'self'");
+      expect(cspConfig.imgSrc).toContain(cdnHost);
+      expect(cspConfig.imgSrc).toContain("'self'");
+      expect(cspConfig.styleSrc).toContain(cdnHost);
+      expect(cspConfig.styleSrc).not.toContain("'self'");
+      expect(cspConfig.connectSrc).toContain(apiHost);
+      expect(cspConfig.connectSrc).not.toContain("'self'");
     });
   }
 
@@ -67,37 +66,37 @@ describe('CSP Config Defaults', () => {
     it('should default base-uri to "\'self\'"', () => {
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      assert.deepEqual(cspConfig.baseUri, ["'self'"]);
+      expect(cspConfig.baseUri).toEqual(["'self'"]);
     });
 
     it('should default form-action to "\'none\'"', () => {
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      assert.deepEqual(cspConfig.formAction, ["'none'"]);
+      expect(cspConfig.formAction).toEqual(["'none'"]);
     });
 
     it('should default frame-src to "\'none\'"', () => {
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      assert.deepEqual(cspConfig.frameSrc, ["'none'"]);
+      expect(cspConfig.frameSrc).toEqual(["'none'"]);
     });
 
     it('should default child-src to "\'none\'"', () => {
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      assert.deepEqual(cspConfig.childSrc, ["'none'"]);
+      expect(cspConfig.childSrc).toEqual(["'none'"]);
     });
 
     it('should default object-src to "\'none\'"', () => {
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      assert.deepEqual(cspConfig.objectSrc, ["'none'"]);
+      expect(cspConfig.objectSrc).toEqual(["'none'"]);
     });
 
     it('should default media-src to "\'none\'"', () => {
       const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      assert.deepEqual(cspConfig.mediaSrc, ["'none'"]);
+      expect(cspConfig.mediaSrc).toEqual(["'none'"]);
     });
   });
 });

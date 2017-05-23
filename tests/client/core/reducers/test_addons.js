@@ -9,7 +9,7 @@ describe('addon reducer', () => {
   });
 
   it('returns the old state', () => {
-    assert.strictEqual(originalState, addons(originalState, { type: 'BLAH' }));
+    expect(originalState).toBe(addons(originalState, { type: 'BLAH' }));
   });
 
   it('stores addons from entities', () => {
@@ -22,7 +22,7 @@ describe('addon reducer', () => {
         },
       },
     });
-    assert.deepEqual(state, { foo: { slug: 'foo' }, bar: { slug: 'bar' }, baz: { slug: 'baz' } });
+    expect(state).toEqual({ foo: { slug: 'foo' }, bar: { slug: 'bar' }, baz: { slug: 'baz' } });
   });
 
   it('pulls down the install URL from the file', () => {
@@ -34,14 +34,14 @@ describe('addon reducer', () => {
         files: [fileOne, fileTwo],
       },
     };
-    assert.deepEqual(
-      addons(undefined, { payload: { entities: { addons: { installable: addon } } } }),
-      {
-        installable: {
-          ...addon,
-          installURL: 'https://a.m.o/download.xpi',
-        },
-      });
+    expect(
+      addons(undefined, { payload: { entities: { addons: { installable: addon } } } })
+    ).toEqual({
+      installable: {
+        ...addon,
+        installURL: 'https://a.m.o/download.xpi',
+      },
+    });
   });
 
   it('sets the icon_url as iconUrl', () => {
@@ -49,14 +49,14 @@ describe('addon reducer', () => {
       slug: 'installable',
       icon_url: 'http://foo.com/img.png',
     };
-    assert.deepEqual(
-      addons(undefined, { payload: { entities: { addons: { installable: addon } } } }),
-      {
-        installable: {
-          ...addon,
-          iconUrl: 'http://foo.com/img.png',
-        },
-      });
+    expect(
+      addons(undefined, { payload: { entities: { addons: { installable: addon } } } })
+    ).toEqual({
+      installable: {
+        ...addon,
+        iconUrl: 'http://foo.com/img.png',
+      },
+    });
   });
 
   it('flattens theme data', () => {
@@ -70,18 +70,16 @@ describe('addon reducer', () => {
         },
       },
     });
-    assert.deepEqual(
-      state,
-      {
-        foo: { slug: 'foo' },
-        bar: { slug: 'bar' },
-        baz: {
-          id: 42,
-          slug: 'baz',
-          theme_thing: 'some-data',
-          guid: '42@personas.mozilla.org',
-          type: ADDON_TYPE_THEME,
-        },
-      });
+    expect(state).toEqual({
+      foo: { slug: 'foo' },
+      bar: { slug: 'bar' },
+      baz: {
+        id: 42,
+        slug: 'baz',
+        theme_thing: 'some-data',
+        guid: '42@personas.mozilla.org',
+        type: ADDON_TYPE_THEME,
+      },
+    });
   });
 });

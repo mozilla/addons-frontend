@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 
-import { assert } from 'chai';
 import webpack from 'webpack';
 import SriPlugin from 'webpack-subresource-integrity';
 import tmp from 'tmp';
@@ -76,7 +75,7 @@ describe('SriDataPlugin', () => {
       },
     })
       .then(({ sriData }) => {
-        assert.match(sriData['app.js'], /^sha512-.*/);
+        expect(sriData['app.js']).toMatch(/^sha512-.*/);
       });
   });
 
@@ -88,8 +87,8 @@ describe('SriDataPlugin', () => {
       },
     })
       .then(({ sriData }) => {
-        assert.match(sriData['app.js'], /^sha512-.*/);
-        assert.match(sriData['app2.js'], /^sha512-.*/);
+        expect(sriData['app.js']).toMatch(/^sha512-.*/);
+        expect(sriData['app2.js']).toMatch(/^sha512-.*/);
       });
   });
 
@@ -101,16 +100,14 @@ describe('SriDataPlugin', () => {
       includeSriPlugin: false,
     })
       .then(
-        () => assert.fail(null, null, 'Unexpected success'),
+        () => expect(false).toBe(true),
         (error) => {
-          assert.match(error.message,
-            /The integrity property is falsey for asset app\.js/);
+          expect(error.message).toMatch(/The integrity property is falsey for asset app\.js/);
         }
       );
   });
 
   it('requires a saveAs parameter', () => {
-    assert.throws(
-      () => new SriDataPlugin(), /saveAs parameter cannot be empty/);
+    expect(() => new SriDataPlugin()).toThrow();
   });
 });

@@ -7,22 +7,22 @@ import { shallowRender } from 'tests/client/helpers';
 describe('<AdminNavBar />', () => {
   it('renders a link to Search but not log out unauthenticated', () => {
     const root = shallowRender(<AdminNavBar isAuthenticated={false} />);
-    assert.equal(root.type, NavBar);
+    expect(root.type).toEqual(NavBar);
     const link = root.props.children[0];
-    assert.equal(link.type, NavBarLink);
-    assert.equal(link.props.to, '/search');
-    assert.equal(link.props.children, 'Search');
+    expect(link.type).toEqual(NavBarLink);
+    expect(link.props.to).toEqual('/search');
+    expect(link.props.children).toEqual('Search');
   });
 
   it('renders a link to Search and log out authenticated', () => {
     const handleLogOut = sinon.spy();
     const root = shallowRender(<AdminNavBar isAuthenticated handleLogOut={handleLogOut} />);
-    assert.equal(root.type, NavBar);
+    expect(root.type).toEqual(NavBar);
     const link = root.props.children[0];
-    assert.equal(link.type, NavBarLink);
-    assert.equal(link.props.to, '/search');
-    assert.equal(link.props.children, 'Search');
+    expect(link.type).toEqual(NavBarLink);
+    expect(link.props.to).toEqual('/search');
+    expect(link.props.children).toEqual('Search');
     const logOutButton = root.props.children[1];
-    assert.strictEqual(logOutButton.props.onClick, handleLogOut);
+    expect(logOutButton.props.onClick).toBe(handleLogOut);
   });
 });

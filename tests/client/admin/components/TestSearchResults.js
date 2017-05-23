@@ -17,7 +17,7 @@ describe('<SearchResults />', () => {
 
   it('renders empty search results container', () => {
     const root = renderResults();
-    assert.include(root.message.textContent, 'enter a search term');
+    expect(root.message.textContent).toContain('enter a search term');
   });
 
   it('renders no results when searched but nothing is found', () => {
@@ -27,12 +27,12 @@ describe('<SearchResults />', () => {
       loading: false,
       results: [],
     });
-    assert.include(root.message.textContent, 'No results were found');
+    expect(root.message.textContent).toContain('No results were found');
   });
 
   it('renders error when no search params exist', () => {
     const root = renderResults({ hasSearchParams: false });
-    assert.include(root.message.textContent, 'enter a search term');
+    expect(root.message.textContent).toContain('enter a search term');
   });
 
   it('renders error when no results and valid query', () => {
@@ -40,8 +40,7 @@ describe('<SearchResults />', () => {
       filters: { query: 'test' },
       hasSearchParams: true,
     });
-    assert.include(root.message.firstChild.textContent,
-      'No results were found');
+    expect(root.message.firstChild.textContent).toContain('No results were found');
   });
 
   it('renders a loading message when loading', () => {
@@ -50,6 +49,6 @@ describe('<SearchResults />', () => {
       hasSearchParams: true,
       loading: true,
     });
-    assert.equal(root.message.textContent, 'Searching...');
+    expect(root.message.textContent).toEqual('Searching...');
   });
 });

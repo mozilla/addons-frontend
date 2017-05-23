@@ -34,7 +34,7 @@ describe('<AddonMoreInfo />', () => {
     };
     const root = render({ addon: partialAddon });
 
-    assert.equal(root.linkTitle.textContent, 'Add-on Links');
+    expect(root.linkTitle.textContent).toEqual('Add-on Links');
   });
 
   it('does not render a link <dt> if no links exist', () => {
@@ -43,7 +43,7 @@ describe('<AddonMoreInfo />', () => {
     delete partialAddon.support_url;
     const root = render({ addon: partialAddon });
 
-    assert.equal(root.linkTitle, undefined);
+    expect(root.linkTitle).toEqual(undefined);
   });
 
   it('does not render a homepage if none exists', () => {
@@ -51,15 +51,15 @@ describe('<AddonMoreInfo />', () => {
     delete partialAddon.homepage;
     const root = render({ addon: partialAddon });
 
-    assert.equal(root.homepageLink, undefined);
+    expect(root.homepageLink).toEqual(undefined);
   });
 
   it('renders the homepage of an add-on', () => {
     const root = render();
 
-    assert.equal(root.homepageLink.textContent, 'Homepage');
-    assert.equal(root.homepageLink.tagName, 'A');
-    assert.equal(root.homepageLink.href, 'http://hamsterdance.com/');
+    expect(root.homepageLink.textContent).toEqual('Homepage');
+    expect(root.homepageLink.tagName).toEqual('A');
+    expect(root.homepageLink.href).toEqual('http://hamsterdance.com/');
   });
 
   it('does not render a support link if none exists', () => {
@@ -67,50 +67,48 @@ describe('<AddonMoreInfo />', () => {
     delete partialAddon.support_url;
     const root = render({ addon: partialAddon });
 
-    assert.equal(root.supportLink, undefined);
+    expect(root.supportLink).toEqual(undefined);
   });
 
   it('renders the support link of an add-on', () => {
     const root = render();
 
-    assert.equal(root.supportLink.textContent, 'Support Site');
-    assert.equal(root.supportLink.tagName, 'A');
-    assert.equal(root.supportLink.href, 'http://support.hampsterdance.com/');
+    expect(root.supportLink.textContent).toEqual('Support Site');
+    expect(root.supportLink.tagName).toEqual('A');
+    expect(root.supportLink.href).toEqual('http://support.hampsterdance.com/');
   });
 
   it('renders the version number of an add-on', () => {
     const root = render();
 
-    assert.equal(root.version.textContent, '2.0.0');
-    assert.equal(root.version.tagName, 'DD');
+    expect(root.version.textContent).toEqual('2.0.0');
+    expect(root.version.tagName).toEqual('DD');
   });
 
   it('renders the license and link', () => {
     const root = render();
 
-    assert.equal(root.licenseHeader.textContent, 'License');
-    assert.equal(root.licenseLink.textContent, 'tofulicense');
-    assert.equal(root.licenseLink.tagName, 'A');
-    assert.equal(root.licenseLink.href, 'http://license.com/');
+    expect(root.licenseHeader.textContent).toEqual('License');
+    expect(root.licenseLink.textContent).toEqual('tofulicense');
+    expect(root.licenseLink.tagName).toEqual('A');
+    expect(root.licenseLink.href).toEqual('http://license.com/');
   });
 
   it('does not render a privacy policy if none exists', () => {
     const partialAddon = { ...fakeAddon, has_privacy_policy: false };
     const root = render({ addon: partialAddon });
 
-    assert.equal(root.privacyPolicyLink, undefined);
+    expect(root.privacyPolicyLink).toEqual(undefined);
   });
 
   it('renders the privacy policy and link', () => {
     const addon = { ...fakeAddon, has_privacy_policy: true };
     const root = render({ addon });
 
-    assert.equal(findDOMNode(root.privacyPolicyLink).textContent,
-      'Read the privacy policy for this add-on');
-    // TODO: Change this to an internal `<Link>` tag and use `assert.equal`
+    expect(findDOMNode(root.privacyPolicyLink).textContent).toEqual('Read the privacy policy for this add-on');
+    // TODO: Change this to an internal `<Link>` tag and use `expect().toBe`
     // once https://github.com/mozilla/addons-frontend/issues/1828 is fixed.
-    assert.include(root.privacyPolicyLink.props.href,
-      '/addon/chill-out/privacy/');
+    expect(root.privacyPolicyLink.props.href).toContain('/addon/chill-out/privacy/');
   });
 
   it('renders the EULA and link', () => {

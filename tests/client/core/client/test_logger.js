@@ -24,13 +24,13 @@ describe('logger.bindConsoleMethod()', () => {
   it('aliases as expected', () => {
     const logAlias = getAlias('log');
     logAlias('whatever');
-    assert.ok(fakeConsole.log.called, 'log should be called');
+    expect(fakeConsole.log.called).toBeTruthy();
   });
 
   it('throws if the method does not exist on the object', () => {
-    assert.throws(() => {
+    expect(() => {
       getAlias('bazinga');
-    }, Error, 'console method "bazinga" does not exist');
+    }).toThrow();
   });
 
   it('should call Function.prototype.apply if bind does not exist', () => {
@@ -42,7 +42,7 @@ describe('logger.bindConsoleMethod()', () => {
     };
     const infoAlias = getAlias('info', { _function: fakeFunc });
     infoAlias('hello');
-    assert.ok(fakeFunc.prototype.apply.called);
+    expect(fakeFunc.prototype.apply.called).toBeTruthy();
   });
 
   it('uses a noop function if the client console loggin is off', () => {
@@ -50,14 +50,14 @@ describe('logger.bindConsoleMethod()', () => {
     const fakeNoopFunc = sinon.stub();
     const infoAlias = getAlias('info', { _noop: fakeNoopFunc });
     infoAlias('hello');
-    assert.ok(fakeNoopFunc.called);
+    expect(fakeNoopFunc.called).toBeTruthy();
   });
 
   it('still throws if invalid method despite being noop', () => {
     fakeConfig.get.withArgs('enableClientConsole').returns(false);
     const fakeNoopFunc = sinon.stub();
-    assert.throws(() => {
+    expect(() => {
       getAlias('bazinga', { _noop: fakeNoopFunc });
-    }, Error, 'console method "bazinga" does not exist');
+    }).toThrow();
   });
 });

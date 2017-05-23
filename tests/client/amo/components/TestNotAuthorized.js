@@ -36,6 +36,6 @@ describe('<NotAuthorized />', () => {
   it('renders a not authorized error', () => {
     const rootNode = render();
 
-    assert.include(rootNode.textContent, 'Not Authorized');
+    expect(rootNode.textContent).toContain('Not Authorized');
   });
 });

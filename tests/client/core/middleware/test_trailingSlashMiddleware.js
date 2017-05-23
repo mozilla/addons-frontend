@@ -30,7 +30,7 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.ok(fakeNext.called);
+    expect(fakeNext.called).toBeTruthy();
   });
 
   it('should add trailing slashes to a URL if one is not found', () => {
@@ -40,8 +40,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(fakeRes.redirect.firstCall.args, [301, '/foo/bar/']);
-    assert.notOk(fakeNext.called);
+    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/foo/bar/']);
+    expect(fakeNext.called).toBeFalsy();
   });
 
   it('should not add trailing slashes if the URL has an exception', () => {
@@ -51,8 +51,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.notOk(fakeRes.redirect.called);
-    assert.ok(fakeNext.called);
+    expect(fakeRes.redirect.called).toBeFalsy();
+    expect(fakeNext.called).toBeTruthy();
   });
 
   it('should handle trailing slash exceptions with $lang', () => {
@@ -62,8 +62,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.notOk(fakeRes.redirect.called);
-    assert.ok(fakeNext.called);
+    expect(fakeRes.redirect.called).toBeFalsy();
+    expect(fakeNext.called).toBeTruthy();
   });
 
   it('should handle trailing slash exceptions with $clientApp', () => {
@@ -73,8 +73,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.notOk(fakeRes.redirect.called);
-    assert.ok(fakeNext.called);
+    expect(fakeRes.redirect.called).toBeFalsy();
+    expect(fakeNext.called).toBeTruthy();
   });
 
   it('should handle trailing slash exceptions with $lang/$clientApp', () => {
@@ -84,8 +84,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.notOk(fakeRes.redirect.called);
-    assert.ok(fakeNext.called);
+    expect(fakeRes.redirect.called).toBeFalsy();
+    expect(fakeNext.called).toBeTruthy();
   });
 
   it('should not be an exception without $lang/$clientApp', () => {
@@ -95,9 +95,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(fakeRes.redirect.firstCall.args,
-      [301, '/slash/trailing/']);
-    assert.notOk(fakeNext.called);
+    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/slash/trailing/']);
+    expect(fakeNext.called).toBeFalsy();
   });
 
   it('should not be an exception without both $lang/$clientApp', () => {
@@ -107,9 +106,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(fakeRes.redirect.firstCall.args,
-      [301, '/en-US/slash/trailing/']);
-    assert.notOk(fakeNext.called);
+    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/en-US/slash/trailing/']);
+    expect(fakeNext.called).toBeFalsy();
   });
 
   it('redirects a URL with $lang and $clientApp without an exception', () => {
@@ -119,9 +117,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(fakeRes.redirect.firstCall.args,
-      [301, '/en-US/firefox/trailing/']);
-    assert.notOk(fakeNext.called);
+    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/en-US/firefox/trailing/']);
+    expect(fakeNext.called).toBeFalsy();
   });
 
   it('detects an exception that has a query string', () => {
@@ -131,8 +128,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.notOk(fakeRes.redirect.called);
-    assert.ok(fakeNext.called);
+    expect(fakeRes.redirect.called).toBeFalsy();
+    expect(fakeNext.called).toBeTruthy();
   });
 
   it('does not remove query string', () => {
@@ -142,9 +139,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(fakeRes.redirect.firstCall.args,
-      [301, '/hello/?query=test']);
-    assert.notOk(fakeNext.called);
+    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/hello/?query=test']);
+    expect(fakeNext.called).toBeFalsy();
   });
 
   it('should not be an exception without both $lang/$clientApp', () => {
@@ -154,9 +150,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(fakeRes.redirect.firstCall.args,
-      [301, '/firefox/slash/trailing/']);
-    assert.notOk(fakeNext.called);
+    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/firefox/slash/trailing/']);
+    expect(fakeNext.called).toBeFalsy();
   });
 
   it('should include query params in the redirect', () => {
@@ -166,9 +161,8 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(fakeRes.redirect.firstCall.args,
-      [301, '/foo/search/?q=foo&category=bar']);
-    assert.notOk(fakeNext.called);
+    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/foo/search/?q=foo&category=bar']);
+    expect(fakeNext.called).toBeFalsy();
   });
 
   it('should handle several ? in URL (though that should never happen)', () => {
@@ -178,8 +172,7 @@ describe('Trailing Slashes Middleware', () => {
     };
     trailingSlashesMiddleware(
       fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    assert.deepEqual(fakeRes.redirect.firstCall.args,
-      [301, '/foo/search/?q=foo&category=bar?test=bad']);
-    assert.notOk(fakeNext.called);
+    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/foo/search/?q=foo&category=bar?test=bad']);
+    expect(fakeNext.called).toBeFalsy();
   });
 });

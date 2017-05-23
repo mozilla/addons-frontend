@@ -9,27 +9,24 @@ describe('disco api', () => {
       const callApi = sinon.stub(coreApi, 'callApi');
       const api = { some: 'apiconfig' };
       getDiscoveryAddons({ api });
-      assert.ok(callApi.calledWith({
+      expect(callApi.calledWith({
         endpoint: 'discovery',
         schema: { results: [discoResult] },
         state: api,
-      }));
+      })).toBeTruthy();
     });
   });
 
   describe('discoResult', () => {
     it("uses the addon's guid as an id", () => {
       const normalized = normalize({ addon: { guid: '{foo}' } }, discoResult);
-      assert.deepEqual(
-        normalized,
-        {
-          entities: {
-            addons: { '{foo}': { guid: '{foo}' } },
-            discoResults: { '{foo}': { addon: '{foo}' } },
-          },
-          result: '{foo}',
+      expect(normalized).toEqual({
+        entities: {
+          addons: { '{foo}': { guid: '{foo}' } },
+          discoResults: { '{foo}': { addon: '{foo}' } },
         },
-        sinon.format(normalized.entities));
+        result: '{foo}',
+      });
     });
   });
 });

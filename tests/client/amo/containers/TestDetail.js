@@ -10,9 +10,9 @@ import { shallowRender } from 'tests/client/helpers';
 describe('DetailPage', () => {
   it('renders AddonDetail with the same props', () => {
     const root = shallowRender(<DetailPageBase foo="bar" baz="quux" />);
-    assert.equal(root.props.className, 'DetailPage', sinon.format(root));
-    assert.deepEqual(root.props.children.props, { foo: 'bar', baz: 'quux' });
-    assert.equal(root.props.children.type, AddonDetail);
+    expect(root.props.className).toEqual('DetailPage');
+    expect(root.props.children.props).toEqual({ foo: 'bar', baz: 'quux' });
+    expect(root.props.children.type).toEqual(AddonDetail);
   });
 
   describe('mapStateToProps', () => {
@@ -29,8 +29,8 @@ describe('DetailPage', () => {
         },
       };
       const props = mapStateToProps(state, ownProps);
-      assert.deepEqual(props, { addon, ...addon, ...installation });
-      assert.equal(props.status, INSTALLED);
+      expect(props).toEqual({ addon, ...addon, ...installation });
+      expect(props.status).toEqual(INSTALLED);
     });
 
     it('sets status to UNKNOWN if no installation', () => {
@@ -43,7 +43,7 @@ describe('DetailPage', () => {
         installations: {},
       };
       const props = mapStateToProps(state, ownProps);
-      assert.deepEqual(props, { addon, ...addon, status: UNKNOWN });
+      expect(props).toEqual({ addon, ...addon, status: UNKNOWN });
     });
   });
 });

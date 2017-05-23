@@ -15,13 +15,13 @@ describe('App', () => {
     const root = shallowRender(
       <AppBase isAuthenticated handleLogOut={() => {}}><MyComponent /></AppBase>
     );
-    assert.equal(root.type, 'div');
+    expect(root.type).toEqual('div');
     // First child is <Helmet />.
     // Second child is <NavBar />.
     // Third child is the <div className="App"> wrapper.
     const wrapper = root.props.children[2];
-    assert.equal(wrapper.props.className, 'App');
-    assert.equal(wrapper.props.children.type, MyComponent);
+    expect(wrapper.props.className).toEqual('App');
+    expect(wrapper.props.children.type).toEqual(MyComponent);
   });
 
   describe('mapDispatchToProps.handleLogOut', () => {
@@ -35,20 +35,20 @@ describe('App', () => {
 
     it('clears the cookie', () => {
       mapDispatchToProps.handleLogOut();
-      assert.ok(remove.called, 'handleLogOut() did not remove the cookie');
-      assert.equal(remove.firstCall.args[0], 'pretend-cookie-name');
+      expect(remove.called).toBeTruthy();
+      expect(remove.firstCall.args[0]).toEqual('pretend-cookie-name');
     });
 
     it('logs out the user', () => {
-      assert.deepEqual(mapDispatchToProps.handleLogOut(), { type: 'LOG_OUT_USER' });
+      expect(mapDispatchToProps.handleLogOut()).toEqual({ type: 'LOG_OUT_USER' });
     });
   });
 
   it('is authenticated when there is a token', () => {
-    assert.deepEqual(mapStateToProps({ auth: { token: 'foo' } }), { isAuthenticated: true });
+    expect(mapStateToProps({ auth: { token: 'foo' } })).toEqual({ isAuthenticated: true });
   });
 
   it('is not authenticated when there is no token', () => {
-    assert.deepEqual(mapStateToProps({ auth: {} }), { isAuthenticated: false });
+    expect(mapStateToProps({ auth: {} })).toEqual({ isAuthenticated: false });
   });
 });

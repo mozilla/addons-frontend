@@ -4,17 +4,17 @@ import featured, { initialState } from 'amo/reducers/featured';
 describe('featured reducer', () => {
   it('defaults to not loading', () => {
     const { loading } = featured(initialState, { type: 'unrelated' });
-    assert.strictEqual(loading, false);
+    expect(loading).toBe(false);
   });
 
   it('defaults to `null` addonType', () => {
     const { addonType } = featured(initialState, { type: 'unrelated' });
-    assert.strictEqual(addonType, null);
+    expect(addonType).toBe(null);
   });
 
   it('defaults to empty results', () => {
     const { results } = featured(initialState, { type: 'unrelated' });
-    assert.deepEqual(results, []);
+    expect(results).toEqual([]);
   });
 
   describe('FEATURED_GET', () => {
@@ -22,9 +22,9 @@ describe('featured reducer', () => {
       const { addonType, loading, results } = featured(
         initialState, actions.getFeatured({ addonType: 'theme' }));
 
-      assert.equal(addonType, 'theme');
-      assert.equal(loading, true);
-      assert.deepEqual(results, []);
+      expect(addonType).toEqual('theme');
+      expect(loading).toEqual(true);
+      expect(results).toEqual([]);
     });
   });
 
@@ -45,9 +45,9 @@ describe('featured reducer', () => {
           result: { results: ['foo', 'food'] },
         })
       );
-      assert.equal(addonType, 'theme');
-      assert.strictEqual(loading, false);
-      assert.deepEqual(results, [{ slug: 'foo' }, { slug: 'food' }]);
+      expect(addonType).toEqual('theme');
+      expect(loading).toBe(false);
+      expect(results).toEqual([{ slug: 'foo' }, { slug: 'food' }]);
     });
   });
 });

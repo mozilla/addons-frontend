@@ -21,7 +21,7 @@ export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
 
 describe('errors reducer', () => {
   it('defaults to an empty object', () => {
-    assert.deepEqual(errors(undefined, { type: 'UNRELATED' }), initialState);
+    expect(errors(undefined, { type: 'UNRELATED' })).toEqual(initialState);
   });
 
   it('handles API object responses', () => {
@@ -33,7 +33,7 @@ describe('errors reducer', () => {
     });
     const action = setError({ id: 'some-id', error });
     const state = errors(undefined, action);
-    assert.deepEqual(state[action.payload.id], {
+    expect(state[action.payload.id]).toEqual({
       code: ERROR_UNKNOWN,
       messages: [message],
     });
@@ -51,8 +51,8 @@ describe('errors reducer', () => {
     state = errors(state, action1);
     state = errors(state, action2);
 
-    assert.equal(state.action1.messages[0], 'action1');
-    assert.equal(state.action2.messages[0], 'action2');
+    expect(state.action1.messages[0]).toEqual('action1');
+    expect(state.action2.messages[0]).toEqual('action2');
   });
 
   it('can clear an existing error', () => {
@@ -61,7 +61,7 @@ describe('errors reducer', () => {
     state = errors(state, setError({ id, error: new Error('action1') }));
     state = errors(state, clearError(id));
 
-    assert.strictEqual(state[id], null);
+    expect(state[id]).toBe(null);
   });
 
   it('only clears a single error', () => {
@@ -77,13 +77,13 @@ describe('errors reducer', () => {
     state = errors(state, clearError('action1'));
 
     // Make sure the other error was not cleared.
-    assert.equal(state.action2.messages[0], 'action2');
+    expect(state.action2.messages[0]).toEqual('action2');
   });
 
   it('stores a generic error', () => {
     const action = setError({ id: 'action1', error: new Error('any message') });
     const state = errors(undefined, action);
-    assert.deepEqual(state[action.payload.id], {
+    expect(state[action.payload.id]).toEqual({
       code: ERROR_UNKNOWN,
       messages: [],
     });
@@ -99,7 +99,7 @@ describe('errors reducer', () => {
       error: createFakeApiError({ nonFieldErrors }),
     });
     const state = errors(undefined, action);
-    assert.deepEqual(state[action.payload.id].messages, nonFieldErrors);
+    expect(state[action.payload.id].messages).toEqual(nonFieldErrors);
   });
 
   it('gets field errors from API error response', () => {
@@ -115,16 +115,16 @@ describe('errors reducer', () => {
     const state = errors(undefined, action);
     const messages = state[action.payload.id].messages;
 
-    assert.include(messages, 'username: not long enough');
-    assert.include(messages, 'username: contains invalid characters');
-    assert.include(messages, 'password: sorry, it cannot be 1234');
+    expect(messages).toContain('username: not long enough');
+    expect(messages).toContain('username: contains invalid characters');
+    expect(messages).toContain('password: sorry, it cannot be 1234');
   });
 
   it('stores API responses when they do not have messages', () => {
     // This API error has no messages (hopefully this won't ever happen).
     const action = setError({ id: 'some-id', error: createFakeApiError() });
     const state = errors(undefined, action);
-    assert.deepEqual(state[action.payload.id], {
+    expect(state[action.payload.id]).toEqual({
       code: ERROR_UNKNOWN,
       messages: [],
     });
@@ -141,7 +141,7 @@ describe('errors reducer', () => {
     });
     const action = setError({ id: 'some-id', error });
     const state = errors(undefined, action);
-    assert.equal(state[action.payload.id].code, API_ERROR_SIGNATURE_EXPIRED);
+    expect(state[action.payload.id].code).toEqual(API_ERROR_SIGNATURE_EXPIRED);
   });
 
   it('does not turn an error code into a message', () => {
@@ -155,6 +155,6 @@ describe('errors reducer', () => {
     });
     const action = setError({ id: 'some-id', error });
     const state = errors(undefined, action);
-    assert.deepEqual(state[action.payload.id].messages, ['Some message.']);
+    expect(state[action.payload.id].messages).toEqual(['Some message.']);
   });
 });

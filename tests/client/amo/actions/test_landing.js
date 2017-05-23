@@ -6,15 +6,15 @@ describe('LANDING_GET', () => {
   const action = getLanding({ addonType: ADDON_TYPE_THEME });
 
   it('sets the type', () => {
-    assert.equal(action.type, 'LANDING_GET');
+    expect(action.type).toEqual('LANDING_GET');
   });
 
   it('sets the filters', () => {
-    assert.deepEqual(action.payload, { addonType: ADDON_TYPE_THEME });
+    expect(action.payload).toEqual({ addonType: ADDON_TYPE_THEME });
   });
 
   it('throws if no addonType is set', () => {
-    assert.throws(() => getLanding({}), 'addonType must be set');
+    expect(() => getLanding({})).toThrow();
   });
 });
 
@@ -27,11 +27,11 @@ describe('LANDING_LOADED', () => {
   const action = loadLanding({ addonType: ADDON_TYPE_THEME, ...response });
 
   it('sets the type', () => {
-    assert.equal(action.type, 'LANDING_LOADED');
+    expect(action.type).toEqual('LANDING_LOADED');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload, { addonType: ADDON_TYPE_THEME, ...response });
+    expect(action.payload).toEqual({ addonType: ADDON_TYPE_THEME, ...response });
   });
 });
 
@@ -39,10 +39,10 @@ describe('LANDING_FAILED', () => {
   const action = failLanding({ addonType: 'extension' });
 
   it('sets the type', () => {
-    assert.equal(action.type, 'LANDING_FAILED');
+    expect(action.type).toEqual('LANDING_FAILED');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload, { addonType: 'extension' });
+    expect(action.payload).toEqual({ addonType: 'extension' });
   });
 });

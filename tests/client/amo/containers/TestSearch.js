@@ -29,7 +29,7 @@ describe('Search.mapStateToProps()', () => {
       state,
       { location: { query: { q: undefined } } }
     );
-    assert.isFalse(props.hasSearchParams);
+    expect(props.hasSearchParams).toBe(false);
   });
 
   it('should handle queries that need encoding', () => {
@@ -37,7 +37,7 @@ describe('Search.mapStateToProps()', () => {
       state,
       { location: { query: { q: '&' } } }
     );
-    assert.isTrue(props.hasSearchParams);
+    expect(props.hasSearchParams).toBe(true);
   });
 
   it('passes the search state if the URL and state query matches', () => {
@@ -45,7 +45,7 @@ describe('Search.mapStateToProps()', () => {
       state,
       { location: { query: { q: 'ad-block' } } }
     );
-    assert.deepEqual(props, state.search);
+    expect(props).toEqual(state.search);
   });
 
   it('passes search state even if the URL and state query do not match', () => {
@@ -53,10 +53,7 @@ describe('Search.mapStateToProps()', () => {
       state,
       { location: { query: { q: 'more-ads' } } }
     );
-    assert.deepEqual(
-      props,
-      { ...state.search, filters: { query: 'more-ads' } }
-    );
+    expect(props).toEqual({ ...state.search, filters: { query: 'more-ads' } });
   });
 });
 
@@ -69,53 +66,53 @@ describe('Search.isLoaded()', () => {
   };
 
   it('is loaded when not loading and page + filters match', () => {
-    assert(isLoaded({ state, page: 2, filters: { query: 'ad-block' } }));
+    expect(isLoaded({ state, page: 2, filters: { query: 'ad-block' } })).toBeTruthy();
   });
 
   it('is not loaded when loading', () => {
-    assert(!isLoaded({
+    expect(!isLoaded({
       state: { ...state, loading: true },
       page: 2,
       filters: { query: 'ad-block' },
-    }));
+    })).toBeTruthy();
   });
 
   it('is not loaded when the query does not match', () => {
-    assert(!isLoaded({ state, page: 2, filters: { query: 'youtube' } }));
+    expect(!isLoaded({ state, page: 2, filters: { query: 'youtube' } })).toBeTruthy();
   });
 
   it('is not loaded when the page does not match', () => {
-    assert(!isLoaded({ state, page: 3, filters: { query: 'ad-block' } }));
+    expect(!isLoaded({ state, page: 3, filters: { query: 'ad-block' } })).toBeTruthy();
   });
 });
 
 describe('CurrentSearchPage.parsePage()', () => {
   it('returns a number', () => {
-    assert.strictEqual(parsePage(10), 10);
+    expect(parsePage(10)).toBe(10);
   });
 
   it('parses a number from a string', () => {
-    assert.strictEqual(parsePage('8'), 8);
+    expect(parsePage('8')).toBe(8);
   });
 
   it('treats negatives as 1', () => {
-    assert.strictEqual(parsePage('-10'), 1);
+    expect(parsePage('-10')).toBe(1);
   });
 
   it('treats words as 1', () => {
-    assert.strictEqual(parsePage('hmmm'), 1);
+    expect(parsePage('hmmm')).toBe(1);
   });
 
   it('treats "0" as 1', () => {
-    assert.strictEqual(parsePage('0'), 1);
+    expect(parsePage('0')).toBe(1);
   });
 
   it('treats 0 as 1', () => {
-    assert.strictEqual(parsePage(0), 1);
+    expect(parsePage(0)).toBe(1);
   });
 
   it('treats empty strings as 1', () => {
-    assert.strictEqual(parsePage(''), 1);
+    expect(parsePage('')).toBe(1);
   });
 });
 
@@ -129,7 +126,7 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     };
     const location = { query: { page: undefined, q: undefined } };
     loadSearchResultsIfNeeded({ store, location });
-    assert.notOk(dispatchSpy.called);
+    expect(dispatchSpy.called).toBeFalsy();
   });
 
   it('returns right away when loaded', () => {
@@ -147,7 +144,7 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
       getState: () => ({ api: { clientApp: 'firefox' }, search: state }),
     };
     const location = { query: { page, q: filters.query } };
-    assert.strictEqual(loadSearchResultsIfNeeded({ store, location }), true);
+    expect(loadSearchResultsIfNeeded({ store, location })).toBe(true);
   });
 
   it('loads the search results when needed', () => {
@@ -170,14 +167,10 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
       .returns(Promise.resolve({ entities, result }));
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
-      assert(
-        dispatch.firstCall.calledWith(
-          searchActions.searchStart({ filters, page })),
-          'searchStart not called');
-      assert(
-        dispatch.secondCall.calledWith(
-          searchActions.searchLoad({ filters, entities, result })),
-          'searchLoad not called');
+      expect(dispatch.firstCall.calledWith(
+        searchActions.searchStart({ filters, page }))).toBeTruthy();
+      expect(dispatch.secondCall.calledWith(
+        searchActions.searchLoad({ filters, entities, result }))).toBeTruthy();
     });
   });
 
@@ -199,14 +192,10 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
       .returns(Promise.reject());
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
-      assert(
-        dispatch.firstCall.calledWith(
-          searchActions.searchStart({ filters, page })),
-          'searchStart not called');
-      assert(
-        dispatch.secondCall.calledWith(
-          searchActions.searchFail({ page, filters })),
-          'searchFail not called');
+      expect(dispatch.firstCall.calledWith(
+        searchActions.searchStart({ filters, page }))).toBeTruthy();
+      expect(dispatch.secondCall.calledWith(
+        searchActions.searchFail({ page, filters }))).toBeTruthy();
     });
   });
 });

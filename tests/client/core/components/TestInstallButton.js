@@ -50,31 +50,28 @@ describe('<InstallButton />', () => {
       id: 'foo@personas.mozilla.org',
     };
     const root = render({ foo: 'foo', hasAddonManager: true, i18n, addon });
-    assert.equal(root.type, 'div');
-    assert.equal(root.props.className, 'InstallButton InstallButton--use-switch');
+    expect(root.type).toEqual('div');
+    expect(root.props.className).toEqual('InstallButton InstallButton--use-switch');
     const switchComponent = root.props.children[0];
-    assert.equal(switchComponent.type, InstallSwitch);
+    expect(switchComponent.type).toEqual(InstallSwitch);
 
     const props = switchComponent.props;
-    assert.deepEqual(props.addon, addon);
-    assert.equal(props.className, 'InstallButton-switch');
-    assert.equal(props.foo, 'foo');
-    assert.strictEqual(props.hasAddonManager, true);
-    assert.deepEqual(props.i18n, i18n);
+    expect(props.addon).toEqual(addon);
+    expect(props.className).toEqual('InstallButton-switch');
+    expect(props.foo).toEqual('foo');
+    expect(props.hasAddonManager).toBe(true);
+    expect(props.i18n).toEqual(i18n);
   });
 
   it('renders a theme button when mozAddonManager is not available', () => {
     const addon = { ...fakeAddon, type: ADDON_TYPE_THEME };
     const root = render({ hasAddonManager: false, addon });
-    assert.equal(root.type, 'div');
-    assert.equal(
-      root.props.className, 'InstallButton InstallButton--use-button');
+    expect(root.type).toEqual('div');
+    expect(root.props.className).toEqual('InstallButton InstallButton--use-button');
     const buttonComponent = root.props.children[1];
-    assert.equal(buttonComponent.type, Button);
-    assert.equal(buttonComponent.props.children, 'Install Theme');
-    assert.equal(
-      buttonComponent.props['data-browsertheme'],
-      JSON.stringify(themePreview.getThemeData(addon)));
+    expect(buttonComponent.type).toEqual(Button);
+    expect(buttonComponent.props.children).toEqual('Install Theme');
+    expect(buttonComponent.props['data-browsertheme']).toEqual(JSON.stringify(themePreview.getThemeData(addon)));
   });
 
   it('calls installTheme when clicked', () => {
@@ -86,9 +83,9 @@ describe('<InstallButton />', () => {
     const buttonComponent = root.querySelector('.InstallButton-button');
     Simulate.click(buttonComponent, { preventDefault });
 
-    assert.ok(preventDefault.called);
-    assert.ok(installTheme.called);
-    assert.deepEqual(installTheme.firstCall.args, [
+    expect(preventDefault.called).toBeTruthy();
+    expect(installTheme.called).toBeTruthy();
+    expect(installTheme.firstCall.args).toEqual([
       buttonComponent, { ...addon, status: UNKNOWN },
     ]);
   });
@@ -104,16 +101,16 @@ describe('<InstallButton />', () => {
       hasAddonManager: false,
     });
 
-    assert.equal(root.type, 'div');
-    assert.equal(root.props.className, 'InstallButton InstallButton--use-button');
+    expect(root.type).toEqual('div');
+    expect(root.props.className).toEqual('InstallButton InstallButton--use-button');
     const buttonComponent = root.props.children[1];
-    assert.equal(buttonComponent.type, Button);
+    expect(buttonComponent.type).toEqual(Button);
 
     const props = buttonComponent.props;
-    assert.equal(props.children, 'Add to Firefox');
-    assert.equal(props.className, 'InstallButton-button');
-    assert.equal(props.to, installURL);
-    assert.equal(props.size, 'normal');
+    expect(props.children).toEqual('Add to Firefox');
+    expect(props.className).toEqual('InstallButton-button');
+    expect(props.to).toEqual(installURL);
+    expect(props.size).toEqual('normal');
   });
 
   it('disables add-on install when client does not support addons', () => {
@@ -127,24 +124,21 @@ describe('<InstallButton />', () => {
       getClientCompatibility: getClientCompatibilityFalse,
     });
 
-    assert.equal(root.type, 'div');
+    expect(root.type).toEqual('div');
     const buttonComponent = root.props.children[1];
-    assert.equal(buttonComponent.type, Button);
-    assert.include(
-      buttonComponent.props.className, 'InstallButton-button--disabled');
-    assert.strictEqual(buttonComponent.props.to, installURL);
+    expect(buttonComponent.type).toEqual(Button);
+    expect(buttonComponent.props.className).toContain('InstallButton-button--disabled');
+    expect(buttonComponent.props.to).toBe(installURL);
 
-    assert.isFunction(buttonComponent.props.onClick);
+    expect(typeof buttonComponent.props.onClick).toBe('function');
     const event = {
       preventDefault: sinon.stub(),
       stopPropagation: sinon.stub(),
     };
     // A return value of false will prevent the anchor tag from firing.
-    assert.strictEqual(buttonComponent.props.onClick(event), false);
-    assert.ok(
-      event.preventDefault.called, 'event.preventDefault() was not called');
-    assert.ok(
-      event.stopPropagation.called, 'event.stopPropagation() was not called');
+    expect(buttonComponent.props.onClick(event)).toBe(false);
+    expect(event.preventDefault.called).toBeTruthy();
+    expect(event.stopPropagation.called).toBeTruthy();
   });
 
   it('disables theme install when client does not support addons', () => {
@@ -156,10 +150,10 @@ describe('<InstallButton />', () => {
       getClientCompatibility: getClientCompatibilityFalse,
     });
 
-    assert.equal(root.type, 'div');
+    expect(root.type).toEqual('div');
     const buttonComponent = root.props.children[1];
-    assert.equal(buttonComponent.type, Button);
-    assert.strictEqual(buttonComponent.props.disabled, true);
+    expect(buttonComponent.type).toEqual(Button);
+    expect(buttonComponent.props.disabled).toBe(true);
   });
 
   it('renders a button for OpenSearch regardless of mozAddonManager', () => {
@@ -171,12 +165,11 @@ describe('<InstallButton />', () => {
       },
     });
 
-    assert.equal(root.type, 'div');
+    expect(root.type).toEqual('div');
     const buttonComponent = root.props.children[1];
-    assert.equal(buttonComponent.type, Button);
-    assert.include(buttonComponent.props.className,
-      'Button InstallButton-button');
-    assert.equal(buttonComponent.props.children, 'Add to Firefox');
+    expect(buttonComponent.type).toEqual(Button);
+    expect(buttonComponent.props.className).toContain('Button InstallButton-button');
+    expect(buttonComponent.props.children).toEqual('Add to Firefox');
   });
 
   it('disables the OpenSearch button if not compatible', () => {
@@ -185,12 +178,11 @@ describe('<InstallButton />', () => {
       getClientCompatibility: getClientCompatibilityFalseOpenSearch,
     });
 
-    assert.equal(root.type, 'div');
+    expect(root.type).toEqual('div');
     const buttonComponent = root.props.children[1];
-    assert.equal(buttonComponent.type, Button);
-    assert.include(buttonComponent.props.className,
-      'InstallButton-button--disabled');
-    assert.equal(buttonComponent.props.children, 'Add to Firefox');
+    expect(buttonComponent.type).toEqual(Button);
+    expect(buttonComponent.props.className).toContain('InstallButton-button--disabled');
+    expect(buttonComponent.props.children).toEqual('Add to Firefox');
   });
 
   it('disables install switch and uses button for OpenSearch plugins', () => {
@@ -202,12 +194,11 @@ describe('<InstallButton />', () => {
       _window: fakeWindow,
     });
     const installButton = rootNode.querySelector('.InstallButton-button');
-    assert.equal(installButton.textContent, 'Add to Firefox');
+    expect(installButton.textContent).toEqual('Add to Firefox');
 
     Simulate.click(installButton);
 
-    assert.equal(fakeLog.info.firstCall.args[0], 'Adding OpenSearch Provider');
-    assert.equal(fakeWindow.external.AddSearchProvider.firstCall.args[0],
-      fakeAddon.installURL);
+    expect(fakeLog.info.firstCall.args[0]).toEqual('Adding OpenSearch Provider');
+    expect(fakeWindow.external.AddSearchProvider.firstCall.args[0]).toEqual(fakeAddon.installURL);
   });
 });

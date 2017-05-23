@@ -6,38 +6,38 @@ describe('core/actions/errors', () => {
     it('creates an error action', () => {
       const id = 'some-id';
       const error = new Error('some syntax error');
-      assert.deepEqual(setError({ id, error }), {
+      expect(setError({ id, error })).toEqual({
         type: SET_ERROR,
         payload: { error, id },
       });
     });
 
     it('requires an ID', () => {
-      assert.throws(() => {
+      expect(() => {
         setError({ error: new Error('some syntax error') });
-      }, /id cannot be empty/);
+      }).toThrow();
     });
 
     it('requires an error', () => {
-      assert.throws(() => {
+      expect(() => {
         setError({ id: 'some-id' });
-      }, /error cannot be empty/);
+      }).toThrow();
     });
   });
 
   describe('clearError', () => {
     it('clears an error', () => {
       const id = 'some-id';
-      assert.deepEqual(clearError(id), {
+      expect(clearError(id)).toEqual({
         type: CLEAR_ERROR,
         payload: { id },
       });
     });
 
     it('requires an ID', () => {
-      assert.throws(() => {
+      expect(() => {
         clearError();
-      }, /id cannot be empty/);
+      }).toThrow();
     });
   });
 });

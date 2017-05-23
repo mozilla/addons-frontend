@@ -29,7 +29,7 @@ describe('<ErrorPage />', () => {
   it('renders children when there are no errors', () => {
     const rootNode = render({ children: <div>hello</div> });
 
-    assert.equal(rootNode.textContent, 'hello');
+    expect(rootNode.textContent).toEqual('hello');
   });
 
   it('renders an error page on error', () => {
@@ -42,14 +42,13 @@ describe('<ErrorPage />', () => {
 
     const rootNode = render({ children: <div>hello</div> }, store);
 
-    assert.notEqual(rootNode.textContent, 'hello');
-    assert.include(rootNode.textContent, 'Error code: 404');
+    expect(rootNode.textContent).not.toEqual('hello');
+    expect(rootNode.textContent).toContain('Error code: 404');
   });
 });
 
 describe('<ErrorPage mapStateToProps />', () => {
   it('returns errorPage from state', () => {
-    assert.deepEqual(
-      mapStateToProps({ errorPage: 'howdy' }), { errorPage: 'howdy' });
+    expect(mapStateToProps({ errorPage: 'howdy' })).toEqual({ errorPage: 'howdy' });
   });
 });

@@ -12,19 +12,19 @@ describe('Config Environment Variables', () => {
 
   it('should allow host overrides', () => {
     let conf = require('config');
-    assert.equal(conf.get('serverHost'), '127.0.0.1', 'initial host is set');
+    expect(conf.get('serverHost')).toEqual('127.0.0.1');
     process.env.SERVER_HOST = '0.0.0.0';
     jest.resetModules();
     conf = require('config');
-    assert.equal(conf.get('serverHost'), '0.0.0.0', 'host is overidden');
+    expect(conf.get('serverHost')).toEqual('0.0.0.0');
   });
 
   it('should allow port overrides', () => {
     let conf = require('config');
-    assert.equal(conf.get('serverPort'), '4000', 'Initial port is set');
-    process.env.SERVER_PORT = '5000';
+    expect(parseInt(conf.get('serverPort'), 10)).toEqual(4000);
+    process.env.SERVER_PORT = 5000;
     jest.resetModules();
     conf = require('config');
-    assert.equal(conf.get('serverPort'), '5000', 'Port is overidden');
+    expect(parseInt(conf.get('serverPort'), 10)).toEqual(5000);
   });
 });
