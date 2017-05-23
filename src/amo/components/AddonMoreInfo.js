@@ -89,6 +89,17 @@ export class AddonMoreInfoBase extends React.Component {
               </Link>
             </dd>
           ) : null}
+          {addon.has_eula ? (
+            <dt>{i18n.gettext('End-User License Agreement')}</dt>
+          ) : null}
+          {addon.has_eula ? (
+            <dd>
+              <Link href={`/addon/${addon.slug}/eula/`}
+                ref={(ref) => { this.eulaLink = ref; }}>
+                {i18n.gettext('Read the license agreement for this add-on')}
+              </Link>
+            </dd>
+          ) : null}
         </dl>
       </Card>
     );

@@ -94,15 +94,15 @@ describe('<AddonMoreInfo />', () => {
   });
 
   it('does not render a privacy policy if none exists', () => {
-    const partialAddon = deepcopy(fakeAddon);
-    partialAddon.has_privacy_policy = false;
+    const partialAddon = { ...fakeAddon, has_privacy_policy: false };
     const root = render({ addon: partialAddon });
 
     assert.equal(root.privacyPolicyLink, undefined);
   });
 
   it('renders the privacy policy and link', () => {
-    const root = render();
+    const addon = { ...fakeAddon, has_privacy_policy: true };
+    const root = render({ addon });
 
     assert.equal(findDOMNode(root.privacyPolicyLink).textContent,
       'Read the privacy policy for this add-on');
@@ -110,5 +110,21 @@ describe('<AddonMoreInfo />', () => {
     // once https://github.com/mozilla/addons-frontend/issues/1828 is fixed.
     assert.include(root.privacyPolicyLink.props.href,
       '/addon/chill-out/privacy/');
+  });
+
+  it('renders the EULA and link', () => {
+    const addon = { ...fakeAddon, has_eula: true };
+    const root = render({ addon });
+
+    assert.equal(findDOMNode(root.eulaLink).textContent,
+      'Read the license agreement for this add-on');
+    assert.include(root.eulaLink.props.href, '/addon/chill-out/eula/');
+  });
+
+  it('does not render a EULA if none exists', () => {
+    const partialAddon = { ...fakeAddon, has_eula: false };
+    const root = render({ addon: partialAddon });
+
+    assert.equal(root.eulaLink, undefined);
   });
 });
