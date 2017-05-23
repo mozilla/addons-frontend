@@ -446,7 +446,6 @@ describe('i18n utils', () => {
     });
 
     it('localised formatting a number', () => {
-      // Skipped because node gives a different result.
       const i18n = utils.makeI18n({}, 'de', FakeJed);
       assert.equal(i18n.formatNumber(9518231), '9.518.231');
     });
