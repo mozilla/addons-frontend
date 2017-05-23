@@ -22,18 +22,23 @@ module.exports = {
   globals: {
     CLIENT_CONFIG: getClientConfig(config),
   },
-  moduleDirectories: ['node_modules', 'src', '<rootDir>'],
+  moduleDirectories: [
+    'src',
+    'node_modules',
+    '<rootDir>',
+  ],
   moduleFileExtensions: [
     'js',
     'json',
     'jsx',
   ],
   moduleNameMapper: {
-    // '^config$': '<rootDir>/src/core/client/config',
     // Prevent un-transpiled react-photoswipe code being required.
     '^photoswipe$': '<rootDir>/node_modules/photoswipe',
+    // Use the client-side logger by default for tests.
     '^core/logger$': '<rootDir>/src/core/client/logger',
     '^core/window$': '<rootDir>/src/core/browserWindow',
+    // Replaces the following formats with an empty module.
     '^.+\\.(scss|css|svg|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
   },
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
@@ -44,6 +49,8 @@ module.exports = {
   ],
   transform: {
     '^.+\\.js$': 'babel-jest',
+    // This transforms images to be a module that exports the filename.
+    // Tests can assert on the filenname.
     '^.+\\.(jpg|jpeg|gif|png)$': '<rootDir>/tests/fileTransformer',
   },
   transformIgnorePatterns: [
