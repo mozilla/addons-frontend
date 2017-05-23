@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-04-12 17:18+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -611,7 +611,7 @@ msgstr "Stav inštalácie doplnku %(name)s nie je známy."
 msgid "Previous"
 msgstr "Predchádzajúca"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "Ďalšia"
 
@@ -643,11 +643,11 @@ msgstr "Nastala neočakávaná chyba"
 msgid "Reload To Continue"
 msgstr "Ak chcete pokračovať, obnovte kartu"
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
 msgstr "Hodnotenie: %(rating)s z 5"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "Žiadne hodnotenie"
 

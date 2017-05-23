@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2016-11-10 12:48+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
@@ -603,7 +603,7 @@ msgstr "Desconozse l'estáu d'instalación pa %(name)s."
 msgid "Previous"
 msgstr "Previo"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "Siguiente"
 
@@ -635,12 +635,12 @@ msgstr ""
 msgid "Reload To Continue"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Valoración media: %(rating)s de 5"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "Nun hai valoraciones"
 

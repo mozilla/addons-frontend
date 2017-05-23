@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-04-26 21:02+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
@@ -616,7 +616,7 @@ msgstr "Instalaciski status za %(name)s je njeznaty."
 msgid "Previous"
 msgstr "Předchadne"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "Přichodne"
 
@@ -648,11 +648,11 @@ msgstr "Njewočakowany zmylk je wustupił"
 msgid "Reload To Continue"
 msgstr "Začitajće znowa, zo byšće pokročował"
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
 msgstr "Z %(rating)s z 5 hwěžkow pohódnoćeny"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "Žane pohódnoćenja"
 
