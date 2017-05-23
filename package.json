@@ -20,8 +20,8 @@
     "lint": "npm run eslint && npm run stylelint",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && cat ./coverage/lcov.info | coveralls",
-    "test": "bin/config-check.js && jest",
-    "test-watch": "bin/config-check.js && jest --watch",
+    "test": "bin/config-check.js && jest --watch",
+    "test-once": "bin/config-check.js && jest",
     "test-coverage": "bin/config-check.js && jest --coverage",
     "version-check": "node bin/version-check.js",
     "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
