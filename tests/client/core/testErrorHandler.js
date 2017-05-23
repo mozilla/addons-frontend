@@ -228,7 +228,8 @@ describe('errorHandler', () => {
       const error = new Error();
       errorHandler.handle(error);
       expect(errorHandler.dispatch.called).toBeTruthy();
-      expect(errorHandler.dispatch.firstCall.args[0]).toEqual(setError({ id: errorHandler.id, error }));
+      expect(errorHandler.dispatch.firstCall.args[0])
+        .toEqual(setError({ id: errorHandler.id, error }));
     });
 
     it('clears an error', () => {

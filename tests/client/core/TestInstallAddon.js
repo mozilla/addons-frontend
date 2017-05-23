@@ -399,7 +399,8 @@ describe('withInstallHelpers inner functions', () => {
         { _addonManager: fakeAddonManager, installURL });
       return install({ guid, installURL })
         .then(() => {
-          expect(fakeAddonManager.install.calledWith(installURL, sinon.match.func, { src })).toBeTruthy();
+          expect(fakeAddonManager.install.calledWith(installURL, sinon.match.func, { src }))
+            .toBeTruthy();
         });
     });
 

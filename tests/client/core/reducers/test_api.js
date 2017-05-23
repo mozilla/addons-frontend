@@ -33,39 +33,40 @@ describe('api reducer', () => {
   it('stores the clientApp', () => {
     const existingState = { bar: 'baz' };
     const clientApp = 'firefox';
-    expect(api(existingState, actions.setClientApp(clientApp))).toEqual({ ...existingState, clientApp });
+    expect(api(existingState, actions.setClientApp(clientApp)))
+      .toEqual({ ...existingState, clientApp });
   });
 
   it('stores the userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = userAgents.firefox[1];
     const { browser, os } = UAParser(userAgent);
-
-    expect(api(existingState, actions.setUserAgent(userAgent))).toEqual({ ...existingState, userAgent, userAgentInfo: { browser, os } });
+    expect(api(existingState, actions.setUserAgent(userAgent)))
+      .toEqual({ ...existingState, userAgent, userAgentInfo: { browser, os } });
   });
 
   it('allows garbage userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = '&***$myName Is Garbage b0wser!___**2é';
     const { browser, os } = UAParser(userAgent);
-
-    expect(api(existingState, actions.setUserAgent(userAgent))).toEqual({ ...existingState, userAgent, userAgentInfo: { browser, os } });
+    expect(api(existingState, actions.setUserAgent(userAgent)))
+      .toEqual({ ...existingState, userAgent, userAgentInfo: { browser, os } });
   });
 
   it('allows empty userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = '';
     const { browser, os } = UAParser(userAgent);
-
-    expect(api(existingState, actions.setUserAgent(userAgent))).toEqual({ ...existingState, userAgent, userAgentInfo: { browser, os } });
+    expect(api(existingState, actions.setUserAgent(userAgent)))
+      .toEqual({ ...existingState, userAgent, userAgentInfo: { browser, os } });
   });
 
   it('allows undefined userAgent', () => {
     const existingState = { bar: 'baz' };
     const userAgent = undefined;
     const { browser, os } = UAParser(userAgent);
-
-    expect(api(existingState, actions.setUserAgent(userAgent))).toEqual({ ...existingState, userAgent, userAgentInfo: { browser, os } });
+    expect(api(existingState, actions.setUserAgent(userAgent)))
+      .toEqual({ ...existingState, userAgent, userAgentInfo: { browser, os } });
   });
 
   it('defaults to an empty object', () => {

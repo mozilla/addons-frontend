@@ -99,8 +99,6 @@ export class MockedSubComponent extends React.Component {
   }
 }
 
-const formatClassList = (classList) => Array.prototype.join.call(classList, ', ');
-
 export function assertHasClass(el, className) {
   expect(el.classList.contains(className)).toBeTruthy();
 }
