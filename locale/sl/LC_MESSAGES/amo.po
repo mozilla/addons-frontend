@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-04-26 21:38+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
@@ -609,7 +609,7 @@ msgstr "Ni znano, ali je %(name)s nameščen ali ne."
 msgid "Previous"
 msgstr "Prejšnja"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "Naslednja"
 
@@ -641,11 +641,11 @@ msgstr "Prišlo je do nepričakovane napake"
 msgid "Reload To Continue"
 msgstr "Ponovno naloži za nadaljevanje"
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
 msgstr "Ocenjeno z %(rating)s od 5"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "Ni ocen"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-05-05 10:13+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -607,7 +607,7 @@ msgstr "Installeringsstatus for %(name)s er ukjent."
 msgid "Previous"
 msgstr "Forrige"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "Neste"
 
@@ -639,11 +639,11 @@ msgstr "En uventet feil oppstod"
 msgid "Reload To Continue"
 msgstr "Oppdater for å fortsette"
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
 msgstr "Vurdert %(rating)s ut av 5"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "Ingen vurderinger"
 

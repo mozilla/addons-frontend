@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-04-27 00:11+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -607,7 +607,7 @@ msgstr "Stan instalacji dodatku „%(name)s” jest nieznany."
 msgid "Previous"
 msgstr "Wstecz"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "Dalej"
 
@@ -639,11 +639,11 @@ msgstr "Wystąpił nieoczekiwany błąd"
 msgid "Reload To Continue"
 msgstr "Wczytaj ponownie, aby kontynuować"
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
 msgstr "Ocena: %(rating)s na 5"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "Brak ocen"
 

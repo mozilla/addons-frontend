@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-04-27 04:50+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -592,7 +592,7 @@ msgstr "%(name)s 的安裝狀態未知。"
 msgid "Previous"
 msgstr "上一個"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "下一個"
 
@@ -624,11 +624,11 @@ msgstr "發生未預期的錯誤"
 msgid "Reload To Continue"
 msgstr "重新載入以繼續"
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
 msgstr "評價 %(rating)s 分，滿分 5 分"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "無評價"
 

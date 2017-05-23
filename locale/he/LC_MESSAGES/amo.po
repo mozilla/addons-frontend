@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2016-12-22 21:11+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -599,7 +599,7 @@ msgstr "מצב ההתקנה של %(name)s אינו ידוע."
 msgid "Previous"
 msgstr "הקודם"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "הבא"
 
@@ -631,12 +631,12 @@ msgstr ""
 msgid "Reload To Continue"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "דירוג ממוצע: %(rating)s מתוך 5"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "ללא דירוג"
 

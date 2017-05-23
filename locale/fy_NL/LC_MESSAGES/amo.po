@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-04-28 07:38+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
@@ -608,7 +608,7 @@ msgstr "Ynstallaasjesteat foar %(name)s is net bekend."
 msgid "Previous"
 msgstr "Foarige"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "Folgjende"
 
@@ -640,11 +640,11 @@ msgstr "Der is in ûnferwachte flater bard"
 msgid "Reload To Continue"
 msgstr "Laad opnij om troch te gean"
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
 msgstr "Wurdearring %(rating)s fan 5"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "Gjin wurdearringen"
 

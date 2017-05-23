@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-03-16 02:02+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -586,7 +586,7 @@ msgstr "%(name)s의 설치 상태를 알 수 없습니다."
 msgid "Previous"
 msgstr "이전"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "다음"
 
@@ -618,12 +618,12 @@ msgstr "예기치 못한 오류 발생됨"
 msgid "Reload To Continue"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "평균 점수: 5 점 중 %(rating)s"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "평가 없음"
 

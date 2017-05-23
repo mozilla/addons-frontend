@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-16 22:21+0000\n"
+"POT-Creation-Date: 2017-05-23 22:18+0000\n"
 "PO-Revision-Date: 2017-05-03 16:21+0000\n"
 "Last-Translator: Victor Bychek <a@bychek.ru>\n"
 "Language-Team: none\n"
@@ -616,7 +616,7 @@ msgstr "Состояние установки для %(name)s неизвестн
 msgid "Previous"
 msgstr "Назад"
 
-#: src/core/components/Paginate/index.js:119
+#: src/core/components/Paginate/index.js:120
 msgid "Next"
 msgstr "Вперёд"
 
@@ -648,11 +648,11 @@ msgstr "Обнаружена непредвиденная ошибка"
 msgid "Reload To Continue"
 msgstr "Перезагрузите для продолжения"
 
-#: src/ui/components/Rating/index.js:91
+#: src/ui/components/Rating/index.js:93
 msgid "Rated %(rating)s out of 5"
 msgstr "Оценено на %(rating)s из 5"
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:96
 msgid "No ratings"
 msgstr "Нет оценок"
 
