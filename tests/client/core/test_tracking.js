@@ -74,7 +74,7 @@ describe('Tracking', () => {
   it('should throw if page not set', () => {
     expect(() => {
       tracking.setPage();
-    }).toThrow();
+    }).toThrowError(/page is required/);
   });
 
   it('should call ga with setPage', () => {
@@ -85,7 +85,7 @@ describe('Tracking', () => {
   it('should throw if category not set', () => {
     expect(() => {
       tracking.sendEvent();
-    }).toThrow();
+    }).toThrowError(/category is required/);
   });
 
   it('should throw if action not set', () => {
@@ -93,7 +93,7 @@ describe('Tracking', () => {
       tracking.sendEvent({
         category: 'whatever',
       });
-    }).toThrow();
+    }).toThrowError(/action is required/);
   });
 
   it('should call _ga with sendEvent', () => {

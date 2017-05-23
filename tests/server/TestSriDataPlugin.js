@@ -108,6 +108,6 @@ describe('SriDataPlugin', () => {
   });
 
   it('requires a saveAs parameter', () => {
-    expect(() => new SriDataPlugin()).toThrow();
+    expect(() => new SriDataPlugin()).toThrowError(/saveAs parameter cannot be empty/);
   });
 });

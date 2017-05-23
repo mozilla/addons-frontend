@@ -321,6 +321,6 @@ describe('installations reducer', () => {
         guid: 'my-addon@me.com',
         error: 'an-error',
       },
-    })).toThrow();
+    })).toThrowError(/no add-on with guid my-addon@me.com found/);
   });
 });

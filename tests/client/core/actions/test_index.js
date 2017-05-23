@@ -4,7 +4,8 @@ import { userAgents } from 'tests/client/helpers';
 
 describe('core actions setAuthToken', () => {
   it('requires a token', () => {
-    expect(() => actions.setAuthToken()).toThrow();
+    expect(() => actions.setAuthToken())
+      .toThrowError(/token cannot be falsey/);
   });
 });
 
@@ -20,7 +21,8 @@ describe('core actions setClientApp', () => {
   });
 
   it('requires a clientApp value', () => {
-    expect(() => actions.setClientApp('')).toThrow();
+    expect(() => actions.setClientApp(''))
+      .toThrowError(/cannot be falsey/);
   });
 });
 

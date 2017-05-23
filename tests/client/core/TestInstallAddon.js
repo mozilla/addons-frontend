@@ -63,7 +63,7 @@ describe('withInstallHelpers', () => {
   it('throws without a src', () => {
     expect(() => {
       withInstallHelpers({})(() => {});
-    }).toThrow();
+    }).toThrowError(/src is required/);
   });
 
   it('sets the current status in componentDidMount with an addonManager', () => {
@@ -633,16 +633,18 @@ describe('withInstallHelpers inner functions', () => {
     it('requires an installURL for extensions', () => {
       expect(() => {
         makeMapDispatchToProps({})(sinon.spy(), { type: ADDON_TYPE_EXTENSION });
-      }).toThrow();
+      }).toThrowError(/installURL is required/);
+
       expect(() => {
         makeMapDispatchToProps({})(sinon.spy(), {
           installURL: 'foo.com',
           type: ADDON_TYPE_EXTENSION,
         });
-      }).not.toThrow();
+      }).not.toThrowError();
+
       expect(() => {
         makeMapDispatchToProps({})(sinon.spy(), { type: ADDON_TYPE_THEME });
-      }).not.toThrow();
+      }).not.toThrowError();
     });
 
     describe('previewTheme', () => {

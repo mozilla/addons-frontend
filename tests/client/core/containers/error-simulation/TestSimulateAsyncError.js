@@ -22,6 +22,6 @@ describe('SimulateAsyncError', () => {
   it('throws an async error', () => {
     render();
     // Trigger the setTimeout() callback:
-    expect(() => clock.tick(50)).toThrow();
+    expect(() => clock.tick(50)).toThrowError(/simulated asynchronous error/);
   });
 });

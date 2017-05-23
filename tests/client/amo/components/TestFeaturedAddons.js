@@ -64,6 +64,6 @@ describe('<FeaturedAddons />', () => {
   it('throws if add-on type is not supported', () => {
     expect(() => {
       render({ addonType: 'XUL' });
-    }).toThrow();
+    }).toThrowError('Invalid addonType: "XUL"');
   });
 });

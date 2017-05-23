@@ -215,7 +215,7 @@ describe('addonManager', () => {
     it('throws on unknown event', () => {
       expect(() => {
         handleChangeEvent({ type: 'whatevs' });
-      }).toThrow();
+      }).toThrowError(/Unknown global event/);
     });
   });
 

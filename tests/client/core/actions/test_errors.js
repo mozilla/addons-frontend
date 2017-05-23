@@ -15,13 +15,13 @@ describe('core/actions/errors', () => {
     it('requires an ID', () => {
       expect(() => {
         setError({ error: new Error('some syntax error') });
-      }).toThrow();
+      }).toThrowError(/id cannot be empty/);
     });
 
     it('requires an error', () => {
       expect(() => {
         setError({ id: 'some-id' });
-      }).toThrow();
+      }).toThrowError(/error cannot be empty/);
     });
   });
 
@@ -37,7 +37,7 @@ describe('core/actions/errors', () => {
     it('requires an ID', () => {
       expect(() => {
         clearError();
-      }).toThrow();
+      }).toThrowError(/id cannot be empty/);
     });
   });
 });

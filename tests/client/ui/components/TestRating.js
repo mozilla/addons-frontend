@@ -45,7 +45,8 @@ describe('ui/components/Rating', () => {
   });
 
   it('throws an error for invalid styleNames', () => {
-    expect(() => render({ styleName: 'x-large' })).toThrow();
+    expect(() => render({ styleName: 'x-large' }))
+      .toThrowError(/styleName=x-large is not a valid value; possible values: small,/);
   });
 
   it('lets you select a one star rating', () => {
@@ -201,7 +202,8 @@ describe('ui/components/Rating', () => {
     const root = render({ onSelectRating: null });
 
     const button = root.ratingElements[4];
-    expect(() => Simulate.click(button, makeFakeEvent())).toThrow();
+    expect(() => Simulate.click(button, makeFakeEvent()))
+      .toThrowError(/onSelectRating was empty/);
   });
 
   describe('readOnly=true', () => {

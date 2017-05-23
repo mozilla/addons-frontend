@@ -13,7 +13,7 @@ describe('FEATURED_GET', () => {
   });
 
   it('throws if no addonType is set', () => {
-    expect(() => getFeatured({})).toThrow();
+    expect(() => getFeatured({})).toThrowError('addonType must be set');
   });
 });
 

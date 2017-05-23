@@ -141,18 +141,18 @@ describe('<HoverIntent />', () => {
       <HoverIntent {...props} sensitivity={5} interval={10}>
         <span onMouseOver={() => {}}>Test</span>
       </HoverIntent>
-    )).toThrow();
+    )).toThrowError(/onMouseOver/);
 
     expect(() => renderIntoDocument(
       <HoverIntent {...props} sensitivity={5} interval={10}>
         <span onMouseOut={() => {}}>Test</span>
       </HoverIntent>
-    )).toThrow();
+    )).toThrowError(/onMouseOut/);
 
     expect(() => renderIntoDocument(
       <HoverIntent {...props} sensitivity={5} interval={10}>
         <span onMouseMove={() => {}}>Test</span>
       </HoverIntent>
-    )).toThrow();
+    )).toThrowError(/onMouseMove/);
   });
 });

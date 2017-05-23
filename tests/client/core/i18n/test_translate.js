@@ -65,7 +65,7 @@ describe('translate()', () => {
     const wrappedComponent = findRenderedComponentWithType(root, Component);
     expect(() => {
       wrappedComponent.getWrappedInstance();
-    }).toThrow();
+    }).toThrowError('To access the wrapped instance');
   });
 
   it('returns the wrapped instance when using withRef', () => {

@@ -37,15 +37,18 @@ describe('authentication reducer', () => {
       const token = userAuthToken({}, {
         tokenData: '{"malformed JSON"}',
       });
-      expect(() => setAndReduceToken(token)).toThrow();
+      expect(() => setAndReduceToken(token))
+        .toThrowError(/Error parsing auth token "{"malformed JSON"}/);
     });
 
     it('throws an error for a token without a data segment', () => {
-      expect(() => setAndReduceToken('fake-token-without-enough-segments')).toThrow();
+      expect(() => setAndReduceToken('fake-token-without-enough-segments'))
+        .toThrowError(/Error parsing auth token .* not enough auth token segments/);
     });
 
     it('throws an error for an incorrectly encoded data segment', () => {
-      expect(() => setAndReduceToken('incorrectly-encoded-data-segment:authId:sig')).toThrow();
+      expect(() => setAndReduceToken('incorrectly-encoded-data-segment:authId:sig'))
+        .toThrowError(/Error parsing auth token "incorrectly-encoded-data-segment/);
     });
 
     it('throws an error for a missing user_id', () => {
@@ -53,7 +56,8 @@ describe('authentication reducer', () => {
       const encodedData = base64url.encode('{}');
       const tokenData = `${encodedData}:authId:signature`;
       const token = userAuthToken({}, { tokenData });
-      expect(() => setAndReduceToken(token)).toThrow();
+      expect(() => setAndReduceToken(token))
+        .toThrowError(/Error parsing auth token .* user_id is missing/);
     });
   });
 

@@ -11,7 +11,7 @@ import { fakeAddon, fakeReview } from 'tests/client/amo/helpers';
 describe('amo.actions.reviews', () => {
   describe('setReview', () => {
     it('requires a truthy review', () => {
-      expect(() => setReview()).toThrow();
+      expect(() => setReview()).toThrowError(/review cannot be empty/);
     });
 
     it('denormalizes a review', () => {
@@ -27,7 +27,7 @@ describe('amo.actions.reviews', () => {
 
   describe('setDenormalizedReview', () => {
     it('requires a truthy review', () => {
-      expect(() => setDenormalizedReview()).toThrow();
+      expect(() => setDenormalizedReview()).toThrowError(/review cannot be empty/);
     });
 
     it('creates an action with the exact review object', () => {
@@ -52,19 +52,19 @@ describe('amo.actions.reviews', () => {
     it('requires an addonSlug', () => {
       const params = { ...defaultParams };
       delete params.addonSlug;
-      expect(() => setAddonReviews(params)).toThrow();
+      expect(() => setAddonReviews(params)).toThrowError(/addonSlug cannot be empty/);
     });
 
     it('requires a list of reviews', () => {
       const params = { ...defaultParams };
       delete params.reviews;
-      expect(() => setAddonReviews(params)).toThrow();
+      expect(() => setAddonReviews(params)).toThrowError(/reviews must be an Array/);
     });
 
     it('requires a count of reviews', () => {
       const params = { ...defaultParams };
       delete params.reviewCount;
-      expect(() => setAddonReviews(params)).toThrow();
+      expect(() => setAddonReviews(params)).toThrowError(/reviewCount must be set/);
     });
   });
 });

@@ -21,25 +21,29 @@ describe('<PaginatorLink />', () => {
   it('requires currentPage', () => {
     const props = { ...renderProps };
     delete props.currentPage;
-    expect(() => renderIntoDocument(<PaginatorLink {...props} />)).toThrow();
+    expect(() => renderIntoDocument(<PaginatorLink {...props} />))
+      .toThrowError(/currentPage .* cannot be undefined/);
   });
 
   it('requires pathname', () => {
     const props = { ...renderProps };
     delete props.pathname;
-    expect(() => renderIntoDocument(<PaginatorLink {...props} />)).toThrow();
+    expect(() => renderIntoDocument(<PaginatorLink {...props} />))
+      .toThrowError(/pathname .* cannot be undefined/);
   });
 
   it('requires a page', () => {
     const props = { ...renderProps };
     delete props.page;
-    expect(() => renderIntoDocument(<PaginatorLink {...props} />)).toThrow();
+    expect(() => renderIntoDocument(<PaginatorLink {...props} />))
+      .toThrowError(/page .* cannot be undefined/);
   });
 
   it('requires pageCount', () => {
     const props = { ...renderProps };
     delete props.pageCount;
-    expect(() => renderIntoDocument(<PaginatorLink {...props} />)).toThrow();
+    expect(() => renderIntoDocument(<PaginatorLink {...props} />))
+      .toThrowError(/pageCount .* cannot be undefined/);
   });
 
   describe('when the link is to the current page', () => {

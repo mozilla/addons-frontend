@@ -70,12 +70,14 @@ describe('<SearchPage />', () => {
 
   it('does not render a SearchSort when there are no filters', () => {
     const root = render({ hasSearchParams: false, results: [] });
-    expect(() => findByTag(root, SearchSort)).toThrow();
+    expect(() => findByTag(root, SearchSort))
+      .toThrowError("Cannot read property 'type' of null");
   });
 
   it('does not render a SearchSort when there are no results', () => {
     const root = render({ hasSearchParams: true, results: [] });
-    expect(() => findByTag(root, SearchSort)).toThrow();
+    expect(() => findByTag(root, SearchSort))
+      .toThrowError("Cannot read property 'type' of null");
   });
 
   it('does not render SearchSort when enableSearchSort is false', () => {
@@ -83,6 +85,7 @@ describe('<SearchPage />', () => {
       enableSearchSort: false,
       hasSearchParams: true,
     });
-    expect(() => findByTag(root, SearchSort)).toThrow();
+    expect(() => findByTag(root, SearchSort))
+      .toThrowError("Cannot read property 'type' of null");
   });
 });

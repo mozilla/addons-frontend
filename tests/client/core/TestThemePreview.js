@@ -5,7 +5,7 @@ describe('Theme Preview Lib', () => {
   it('throws for invalid action', () => {
     expect(() => {
       themeAction(null, 'whatever');
-    }).toThrow();
+    }).toThrowError('Invalid theme action requested');
   });
 
   it('sets-up the event for previews', () => {

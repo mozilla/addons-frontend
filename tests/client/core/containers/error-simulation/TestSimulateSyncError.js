@@ -10,6 +10,6 @@ describe('SimulateSyncError', () => {
   }
 
   it('throws a simulated error', () => {
-    expect(() => render()).toThrow();
+    expect(() => render()).toThrowError(/simulated synchronous error/);
   });
 });

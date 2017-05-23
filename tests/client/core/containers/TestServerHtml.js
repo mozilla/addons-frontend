@@ -153,13 +153,13 @@ describe('<ServerHtml />', () => {
     expect(() => {
       const html = render({ includeSri: false });
       html.getStatic({ filePath: 'disco-foo', type: 'whatever' });
-    }).toThrow();
+    }).toThrowError('Unknown static type');
   });
 
   it('throws for missing SRI data', () => {
     expect(() => {
       render({ sriData: {} });
-    }).toThrow();
+    }).toThrowError(/SRI Data is missing/);
   });
 
   it('does not render empty noscript styles', () => {

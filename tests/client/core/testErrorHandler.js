@@ -146,7 +146,8 @@ describe('errorHandler', () => {
       const { dom, tree } = createWrappedComponent({
         decorator: withErrorHandling,
       });
-      expect(() => findRenderedComponentWithType(tree, ErrorList)).toThrow();
+      expect(() => findRenderedComponentWithType(tree, ErrorList))
+        .toThrowError(/Did not find exactly one match/);
       expect(dom.textContent).toEqual('Component text');
     });
 
@@ -177,7 +178,8 @@ describe('errorHandler', () => {
       const { tree } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      expect(() => findRenderedComponentWithType(tree, ErrorList)).toThrow();
+      expect(() => findRenderedComponentWithType(tree, ErrorList))
+        .toThrowError(/Did not find exactly one match/);
     });
 
     it('ignores errors sent by other error handlers', () => {
@@ -189,7 +191,8 @@ describe('errorHandler', () => {
       const { tree } = createWrappedComponent({
         store, id: 'this-handler-id', decorator: withErrorHandling,
       });
-      expect(() => findRenderedComponentWithType(tree, ErrorList)).toThrow();
+      expect(() => findRenderedComponentWithType(tree, ErrorList))
+        .toThrowError(/Did not find exactly one match/);
     });
 
     it('passes through wrapped component properties without an error', () => {

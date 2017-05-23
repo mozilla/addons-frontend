@@ -275,7 +275,8 @@ describe('RatingManager', () => {
     });
 
     it('cannot render a login prompt for unknown extension types', () => {
-      expect(() => getAuthPromptForType('xul')).toThrow();
+      expect(() => getAuthPromptForType('xul'))
+        .toThrowError(/Unknown extension type: xul/);
     });
 
     it('renders a random valid extension type', () => {

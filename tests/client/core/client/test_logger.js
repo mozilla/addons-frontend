@@ -30,7 +30,7 @@ describe('logger.bindConsoleMethod()', () => {
   it('throws if the method does not exist on the object', () => {
     expect(() => {
       getAlias('bazinga');
-    }).toThrow();
+    }).toThrowError('console method "bazinga" does not exist');
   });
 
   it('should call Function.prototype.apply if bind does not exist', () => {
@@ -58,6 +58,6 @@ describe('logger.bindConsoleMethod()', () => {
     const fakeNoopFunc = sinon.stub();
     expect(() => {
       getAlias('bazinga', { _noop: fakeNoopFunc });
-    }).toThrow();
+    }).toThrowError('console method "bazinga" does not exist');
   });
 });

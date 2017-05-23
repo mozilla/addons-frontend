@@ -214,7 +214,7 @@ describe('<Addon />', () => {
       const data = { ...result, type: 'Whatever' };
       expect(() => {
         renderAddon({ addon: data, ...data });
-      }).toThrow();
+      }).toThrowError('Invalid addon type');
     });
 
     it('tracks an add-on link click', () => {

@@ -318,7 +318,7 @@ describe('AddonDetail', () => {
     delete compatibilityResult.minVersion;
     expect(() => {
       renderAsDOMNode({ getClientCompatibility: () => compatibilityResult });
-    }).toThrow();
+    }).toThrowError(/minVersion is required/);
   });
 
   it('disables a theme preview for unsupported clients', () => {

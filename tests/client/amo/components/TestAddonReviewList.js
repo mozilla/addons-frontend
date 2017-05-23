@@ -83,7 +83,8 @@ describe('amo/components/AddonReviewList', () => {
     }
 
     it('requires an addonSlug property', () => {
-      expect(() => render({ params: { addonSlug: null } })).toThrow();
+      expect(() => render({ params: { addonSlug: null } }))
+        .toThrowError(/addonSlug cannot be falsey/);
     });
 
     it('waits for reviews to load', () => {
@@ -149,7 +150,7 @@ describe('amo/components/AddonReviewList', () => {
       const root = findRenderedComponentWithType(render({
         addon: null,
       }), AddonReviewListBase);
-      expect(() => root.addonURL()).toThrow();
+      expect(() => root.addonURL()).toThrowError(/cannot access addonURL/);
     });
 
     it('configures a paginator with the right URL', () => {
@@ -266,11 +267,13 @@ describe('amo/components/AddonReviewList', () => {
     });
 
     it('requires component properties', () => {
-      expect(() => getMappedProps({ params: null })).toThrow();
+      expect(() => getMappedProps({ params: null }))
+        .toThrowError(/component had a falsey params.addonSlug parameter/);
     });
 
     it('requires an existing slug property', () => {
-      expect(() => getMappedProps({ params: {} })).toThrow();
+      expect(() => getMappedProps({ params: {} }))
+        .toThrowError(/component had a falsey params.addonSlug parameter/);
     });
 
     it('loads all reviews from state', () => {

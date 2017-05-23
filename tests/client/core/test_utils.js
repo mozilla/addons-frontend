@@ -59,7 +59,7 @@ describe('apiAddonType', () => {
     expect(() => {
       // "theme" is not a valid pluralAddonType mapping; it should be "themes".
       apiAddonType('theme');
-    }).toThrow();
+    }).toThrowError('"theme" not found in API_ADDON_TYPES_MAPPING');
   });
 
   // See:
@@ -67,7 +67,7 @@ describe('apiAddonType', () => {
   it('does not return a false positive on a method', () => {
     expect(() => {
       apiAddonType('hasOwnProperty');
-    }).toThrow();
+    }).toThrowError('"hasOwnProperty" not found in API_ADDON_TYPES_MAPPING');
   });
 });
 
@@ -184,7 +184,7 @@ describe('isCompatibleWithUserAgent', () => {
   it('should throw if no userAgentInfo supplied', () => {
     expect(() => {
       isCompatibleWithUserAgent({ userAgent: null, reason: null });
-    }).toThrow();
+    }).toThrowError('userAgentInfo is required');
   });
 
   it('is incompatible with Android/webkit', () => {
@@ -596,7 +596,7 @@ describe('visibleAddonType', () => {
     expect(() => {
       // "theme" is not a valid visible addonType; it should be "themes".
       visibleAddonType('personas');
-    }).toThrow();
+    }).toThrowError('"personas" not found in VISIBLE_ADDON_TYPES_MAPPING');
   });
 
   // See:
@@ -604,7 +604,7 @@ describe('visibleAddonType', () => {
   it('does not return a false positive on a method', () => {
     expect(() => {
       visibleAddonType('hasOwnProperty');
-    }).toThrow();
+    }).toThrowError('"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING');
   });
 });
 
@@ -630,7 +630,8 @@ describe('safeAsyncConnect', () => {
   });
 
   it('requires a promise', () => {
-    expect(() => safeAsyncConnect([{ key: 'thing' }])).toThrow();
+    expect(() => safeAsyncConnect([{ key: 'thing' }]))
+      .toThrowError(/Expected safeAsyncConnect.* config to define a promise/);
   });
 
   it('adds a deferred: true property', () => {
@@ -755,7 +756,7 @@ describe('render404IfConfigKeyIsFalse', () => {
   }
 
   it('requires a config key', () => {
-    expect(() => render404IfConfigKeyIsFalse()).toThrow();
+    expect(() => render404IfConfigKeyIsFalse()).toThrowError(/configKey cannot be empty/);
   });
 
   it('returns a 404 when disabled by the config', () => {

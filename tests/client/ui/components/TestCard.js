@@ -46,7 +46,7 @@ describe('<Card />', () => {
     expect(() => render({
       footerLink: <a href="/some-link">Some link</a>,
       footerText: 'something else',
-    })).toThrow();
+    })).toThrowError(/cannot specify footerLink and footerText/);
   });
 
   it('hides footer if none supplied', () => {

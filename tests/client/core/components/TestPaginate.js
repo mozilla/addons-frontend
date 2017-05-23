@@ -37,19 +37,22 @@ describe('<Paginate />', () => {
       it('does not allow an undefined count', () => {
         const props = getRenderProps();
         delete props.count;
-        expect(() => renderIntoDocument(<Paginate {...props} />)).toThrow();
+        expect(() => renderIntoDocument(<Paginate {...props} />))
+          .toThrowError(/count property cannot be undefined/);
       });
 
       it('does not allow an undefined currentPage', () => {
         const props = getRenderProps();
         delete props.currentPage;
-        expect(() => renderIntoDocument(<Paginate {...props} />)).toThrow();
+        expect(() => renderIntoDocument(<Paginate {...props} />))
+          .toThrowError(/currentPage property cannot be undefined/);
       });
 
       it('does not allow an undefined pathname', () => {
         const props = getRenderProps();
         delete props.pathname;
-        expect(() => renderIntoDocument(<Paginate {...props} />)).toThrow();
+        expect(() => renderIntoDocument(<Paginate {...props} />))
+          .toThrowError(/pathname property cannot be undefined/);
       });
     });
 
@@ -70,11 +73,13 @@ describe('<Paginate />', () => {
       });
 
       it('does not allow a per page value of zero', () => {
-        expect(() => renderPaginate({ count: 5, perPage: 0 })).toThrow();
+        expect(() => renderPaginate({ count: 5, perPage: 0 }))
+          .toThrowError(/0 is not allowed/);
       });
 
       it('does not allow a negative per page value', () => {
-        expect(() => renderPaginate({ count: 5, perPage: -1 })).toThrow();
+        expect(() => renderPaginate({ count: 5, perPage: -1 }))
+          .toThrowError(/-1 is not allowed/);
       });
     });
 

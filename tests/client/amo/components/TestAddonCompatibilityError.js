@@ -104,7 +104,7 @@ describe('AddonCompatibilityError', () => {
   it('throws an error if no reason is supplied', () => {
     expect(() => {
       render({ userAgentInfo: defaultUserAgentInfo });
-    }).toThrow();
+    }).toThrowError('AddonCompatibilityError requires a "reason" prop');
   });
 
   it('throws an error if minVersion is missing', () => {
@@ -114,6 +114,6 @@ describe('AddonCompatibilityError', () => {
         reason: INCOMPATIBLE_NOT_FIREFOX,
         userAgentInfo: defaultUserAgentInfo,
       });
-    }).toThrow();
+    }).toThrowError('minVersion is required; it cannot be undefined');
   });
 });

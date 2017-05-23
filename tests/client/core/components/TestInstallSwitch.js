@@ -124,7 +124,7 @@ describe('<InstallSwitch />', () => {
   it('should throw on bogus status', () => {
     expect(() => {
       renderButton({ status: 'BOGUS' });
-    }).toThrow();
+    }).toThrowError('Invalid add-on status');
   });
 
   it('should not throw for ENABLING', () => {

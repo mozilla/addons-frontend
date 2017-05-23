@@ -157,6 +157,6 @@ describe('<LandingPage />', () => {
         apiAddonType: () => { throw new Error('Ice cream'); },
         params: { visibleAddonType: 'doesnotmatter' },
       });
-    }).toThrow();
+    }).toThrowError('Ice cream');
   });
 });

@@ -27,7 +27,7 @@ describe('SimulateClientError', () => {
   it('lets you trigger an error', () => {
     const root = render();
     const button = root.querySelector('button');
-    expect(() => Simulate.click(button)).toThrow();
+    expect(() => Simulate.click(button)).toThrowError(/simulated client error/);
   });
 
   it('toggles the trigger prompt', () => {
@@ -36,7 +36,7 @@ describe('SimulateClientError', () => {
     const triggerPrompt = '💣 Go ahead, trigger an error';
 
     expect(button.textContent).toEqual(triggerPrompt);
-    expect(() => Simulate.click(button)).toThrow();
+    expect(() => Simulate.click(button)).toThrowError();
     expect(button.textContent).toEqual('Nice! Check Sentry');
 
     // Trigger the setTimeout() callback:

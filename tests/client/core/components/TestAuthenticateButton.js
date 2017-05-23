@@ -40,7 +40,8 @@ describe('<AuthenticateButton />', () => {
 
   it('lets you hide the Icon', () => {
     const root = renderTree({ noIcon: true });
-    expect(() => findRenderedComponentWithType(root, Icon)).toThrow();
+    expect(() => findRenderedComponentWithType(root, Icon))
+      .toThrowError(/Did not find exactly one match/);
   });
 
   it('lets you customize the log in text', () => {

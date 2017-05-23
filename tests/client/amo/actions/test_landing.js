@@ -14,7 +14,7 @@ describe('LANDING_GET', () => {
   });
 
   it('throws if no addonType is set', () => {
-    expect(() => getLanding({})).toThrow();
+    expect(() => getLanding({})).toThrowError('addonType must be set');
   });
 });
 
