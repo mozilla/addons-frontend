@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import { trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -82,10 +83,10 @@ export class AddonMoreInfoBase extends React.Component {
           ) : null}
           {addon.has_privacy_policy ? (
             <dd>
-              <a href={`/addon/${addon.slug}/privacy/`}
+              <Link href={`/addon/${addon.slug}/privacy/`}
                 ref={(ref) => { this.privacyPolicyLink = ref; }}>
                 {i18n.gettext('Read the privacy policy for this add-on')}
-              </a>
+              </Link>
             </dd>
           ) : null}
         </dl>

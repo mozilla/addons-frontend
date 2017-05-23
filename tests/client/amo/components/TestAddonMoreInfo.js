@@ -108,7 +108,7 @@ describe('<AddonMoreInfo />', () => {
       'Read the privacy policy for this add-on');
     // TODO: Change this to an internal `<Link>` tag and use `assert.equal`
     // once https://github.com/mozilla/addons-frontend/issues/1828 is fixed.
-    assert.include(root.privacyPolicyLink.href,
+    assert.include(root.privacyPolicyLink.props.href,
       '/addon/chill-out/privacy/');
   });
 });
