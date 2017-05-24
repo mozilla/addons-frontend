@@ -10,6 +10,7 @@ export class LinkBase extends React.Component {
   static propTypes = {
     base: PropTypes.string,
     children: PropTypes.node,
+    href: PropTypes.string,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }
 
@@ -18,7 +19,17 @@ export class LinkBase extends React.Component {
   }
 
   render() {
-    const { base, children, to } = this.props;
+    const { base, children, href, to, ...customProps } = this.props;
+
+    if (typeof href === 'string' && typeof to !== 'undefined') {
+      throw new Error(
+        'Cannot use "href" prop and "to" prop in the same Link component');
+    }
+
+    if (typeof href === 'string') {
+      const linkHref = href.startsWith('/') ? path.join(base, href) : href;
+      return <a {...customProps} href={linkHref}>{children}</a>;
+    }
 
     let linkTo = to;
     if (typeof to === 'string' && to.startsWith('/')) {
@@ -31,7 +42,7 @@ export class LinkBase extends React.Component {
       };
     }
 
-    return <Link {...this.props} to={linkTo}>{children}</Link>;
+    return <Link {...customProps} to={linkTo}>{children}</Link>;
   }
 }
 
