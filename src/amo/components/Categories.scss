@@ -10,6 +10,10 @@
   list-style: none;
   margin: 0 auto;
   padding: 0;
+
+  [dir=rtl] & {
+    transform: scale(-1, 1);
+  }
 }
 
 .Categories-link {
@@ -19,6 +23,6 @@
   text-decoration: none;
 
   [dir=rtl] & {
-    padding-right: 1em;
+    transform: scale(-1, 1);
   }
 }
