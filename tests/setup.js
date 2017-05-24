@@ -32,7 +32,7 @@ class LocalStorageMock {
 global.localStorage = new LocalStorageMock();
 
 const localesMyAppSupports = [
-  'de-DE', 'fr',
+  'de', 'fr',
 ];
 
 if (global.Intl) {

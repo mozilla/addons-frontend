@@ -25,10 +25,13 @@ module.exports = {
     '^.+\\.(scss|css|svg|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
   },
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
-  testPathIgnorePatterns: ['/node_modules', '<rootDir>/config'],
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/(assets|bin|config|coverage|dist|docs|flow|locale|src)/',
+  ],
   testMatch: [
-    '**/__tests__/**/*.js?(x)',
     '**/[Tt]est(*).js?(x)',
+    '**/__tests__/**/*.js?(x)',
   ],
   transform: {
     '^.+\\.js$': 'babel-jest',
@@ -39,5 +42,5 @@ module.exports = {
   transformIgnorePatterns: [
     '<rootDir>/node_modules/',
   ],
-  verbose: true,
+  verbose: false,
 };
