@@ -70,22 +70,16 @@ describe('<Link />', () => {
     expect(findRenderedComponentWithType(root, Link).props.to).toEqual({ pathname: 'test' });
   });
 
-  it('normalizes the path with an object', () => {
-    const root = render({ base: '/foo', to: { pathname: 'test' } });
-
-    expect(findRenderedComponentWithType(root, Link).props.to).toEqual({ pathname: 'test' });
-  });
-
   it('renders children when `to` is used', () => {
     const root = render({ base: '/foo/', children: 'hello', to: '/test' });
 
-    assert.equal(findDOMNode(root).textContent, 'hello');
+    expect(findDOMNode(root).textContent).toEqual('hello');
   });
 
   it('does add base prop to Link component', () => {
     const root = render({ base: '/foo/', children: 'bonjour', to: '/test' });
 
-    assert.equal(findRenderedComponentWithType(root, Link).props.base, null);
+    expect(findRenderedComponentWithType(root, Link).props.base).toEqual(null);
   });
 
   it('ignores `href` if not a string type', () => {
@@ -93,37 +87,37 @@ describe('<Link />', () => {
 
     // If no href attribute is supplied the component will render a Link
     // component instead of an <a> tag.
-    assert.ok(findRenderedComponentWithType(root, Link));
+    expect(findRenderedComponentWithType(root, Link)).toBeTruthy();
   });
 
   it('does not prepend base to `href` with no leading slash', () => {
     const root = render({ base: '/base/', href: 'test' });
 
-    assert.notInclude(findDOMNode(root, 'a').href, '/base/');
-    assert.include(findDOMNode(root, 'a').href, 'test');
+    expect(findDOMNode(root, 'a').href).not.toContain('/base/');
+    expect(findDOMNode(root, 'a').href).toContain('test');
   });
 
   it('normalizes the `href` path with a string', () => {
     const root = render({ base: '/foo/', href: '/test' });
 
-    assert.include(findDOMNode(root, 'a').href, '/foo/test');
+    expect(findDOMNode(root, 'a').href).toInclude('/foo/test');
   });
 
   it('renders children when `href` is used', () => {
     const root = render({ base: '/foo/', children: 'bonjour', href: '/test' });
 
-    assert.equal(findDOMNode(root).textContent, 'bonjour');
+    expect(findDOMNode(root).textContent).toEqual('bonjour');
   });
 
   it('does not add base prop to <a> tag', () => {
     const root = render({ base: '/foo/', children: 'bonjour', href: '/test' });
 
-    assert.equal(findDOMNode(root).attributes.getNamedItem('base'), null);
+    expect(findDOMNode(root).attributes.getNamedItem('base')).toEqual(null);
   });
 
   it('throws an error if both `href` and `to` are supplied', () => {
-    assert.throws(() => {
+    expect(() => {
       render({ href: '/test', to: '/test' });
-    }, 'Cannot use "href" prop and "to" prop in the same Link component');
+    }).toThrowError('Cannot use "href" prop and "to" prop in the same Link component');
   });
 });

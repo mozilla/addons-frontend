@@ -15,6 +15,9 @@
     "webpackIsomorphicTools": true,
   },
   "parser": "babel-eslint",
+  "plugins": [
+    "jest"
+  ],
   "rules": {
     "arrow-body-style": "off",
     "arrow-parens": ["error", "always"],
@@ -74,6 +77,10 @@
     "import/prefer-default-export": ["off"],
     // This ensures a new line after all import statements.
     "import/newline-after-import": ["error"],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error",
     "jsx-a11y/no-static-element-interactions": "off",
     "no-console": "error",
     // We use import/no-duplicates instead because it supports Flow types.

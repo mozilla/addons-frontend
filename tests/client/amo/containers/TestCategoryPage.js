@@ -7,7 +7,7 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 import { shallowRender } from 'tests/client/helpers';
 
 
-describe('CategoryPage.mapStateToProps()', () => {
+describe('CategoryPage', () => {
   function render(props = {}) {
     return shallowRender(<CategoryPageBase {...props} />);
   }

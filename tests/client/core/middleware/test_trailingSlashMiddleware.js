@@ -143,7 +143,7 @@ describe('Trailing Slashes Middleware', () => {
     expect(fakeNext.called).toBeFalsy();
   });
 
-  it('should not be an exception without both $lang/$clientApp', () => {
+  it('should not be an exception with missing $lang', () => {
     const fakeReq = {
       originalUrl: '/firefox/slash/trailing',
       headers: {},

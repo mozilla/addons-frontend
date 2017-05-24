@@ -124,7 +124,7 @@ describe('Prefix Middleware', () => {
     expect(fakeRes.set.firstCall.args).toEqual(['vary', []]);
   });
 
-  it('should render a 404 when a clientApp URL exception is found', () => {
+  it('should render a 404 with clientApp exception', () => {
     const fakeReq = {
       originalUrl: '/en-US/developers/',
       headers: {},

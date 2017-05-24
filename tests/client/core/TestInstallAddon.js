@@ -776,7 +776,7 @@ describe('withInstallHelpers inner functions', () => {
       expect(props.previewTheme.calledWith(node, themeAction)).toBeTruthy();
     });
 
-    it('calls previewTheme if theme is not enabled', () => {
+    it('calls resetPreviewTheme', () => {
       const fakeLog = {
         info: sinon.spy(),
       };
