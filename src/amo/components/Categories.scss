@@ -17,4 +17,8 @@
   display: block;
   padding: 1em 0;
   text-decoration: none;
+
+  [dir=rtl] & {
+    padding-right: 1em;
+  }
 }
