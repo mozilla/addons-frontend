@@ -1,7 +1,11 @@
-import 'babel-polyfill';
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
+import values from 'object.values';
+
+if (!Object.values) {
+  values.shim();
+}
 
 class LocalStorageMock {
   constructor() {
