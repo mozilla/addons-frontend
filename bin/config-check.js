@@ -20,8 +20,9 @@ if (!fs.statSync(configDir).isDirectory()) {
 }
 
 const disallowedFiles = fs.readdirSync(configDir)
-  // Disallow any local configs that could possibly pollute the tests.
-  .filter((name) => name === 'local.js' || name.startsWith('local-test'))
+  // Disallow any local configs except for development configs.
+  .filter((name) =>
+    name.startsWith('local') && !name.startsWith('local-development'))
   .map((name) => path.join(configDir, name).replace(process.cwd(), '.'));
 
 if (disallowedFiles.length) {
