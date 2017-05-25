@@ -62,12 +62,16 @@ You can enter the interactive [jest][] mode by typing `yarn test`.
 This is the easiest way to develop new features.
 
 Here are a few tips:
+
 * When you start `yarn test`, you can switch to your code editor and begin
   adding test files or changing existing code. As you save each file, [jest][]
   will only run tests related to the code you change.
 * If you had typed `a` when you first started then [jest][] will continue to
   run the full suite even when you change specific files. Type `o` to switch
   back to the mode of only running tests related to the files you are changing.
+* If you see something like `Error watching file for changes: EMFILE` on Mac OS
+  then `brew install watchman` might fix it.
+  See https://github.com/facebook/jest/issues/1767
 
 #### Run a subset of the tests
 
