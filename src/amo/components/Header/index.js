@@ -8,10 +8,10 @@ import AuthenticateButton from 'core/components/AuthenticateButton';
 import translate from 'core/i18n/translate';
 
 import 'mozilla-tabzilla/css/_tabzilla.scss';
-import './MastHead.scss';
+import './styles.scss';
 
 
-export class MastHeadBase extends React.Component {
+export class HeaderBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     isHomePage: PropTypes.bool.isRequired,
@@ -28,22 +28,22 @@ export class MastHeadBase extends React.Component {
   render() {
     const { SearchFormComponent, i18n, isHomePage, location, query } = this.props;
     const headerLink = (
-      <Link className="MastHead-title" to="/">
+      <Link className="Header-title" to="/">
         {i18n.gettext('Firefox Add-ons')}
       </Link>
     );
 
     return (
-      <div className="MastHead">
-        <div className="MastHead-top-row">
+      <div className="Header">
+        <div className="Header-top-row">
           <div id="tabzilla">
             <a href="https://www.mozilla.org">Mozilla</a>
           </div>
-          <AuthenticateButton className="MastHead-auth-button" size="small" location={location} />
+          <AuthenticateButton className="Header-auth-button" size="small" location={location} />
         </div>
-        <header className="MastHead-header">
+        <header className="Header-header">
           {isHomePage
-            ? <h1 className="MastHead-title-wrapper">{headerLink}</h1>
+            ? <h1 className="Header-title-wrapper">{headerLink}</h1>
             : headerLink}
         </header>
         <SearchFormComponent pathname="/search/" query={query} />
@@ -54,4 +54,4 @@ export class MastHeadBase extends React.Component {
 
 export default compose(
   translate({ withRef: true }),
-)(MastHeadBase);
+)(HeaderBase);

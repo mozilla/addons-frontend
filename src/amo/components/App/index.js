@@ -13,7 +13,7 @@ import { compose } from 'redux';
 import SearchForm from 'amo/components/SearchForm';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
-import MastHead from 'amo/components/MastHead';
+import Header from 'amo/components/Header';
 import { addChangeListeners } from 'core/addonManager';
 import {
   logOutUser as logOutUserAction, setUserAgent as setUserAgentAction,
@@ -41,7 +41,7 @@ type AppProps = {
   ErrorPage: typeof DefaultErrorPage,
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
-  MastHeadComponent: typeof MastHead,
+  HeaderComponent: typeof Header,
   _addChangeListeners: () => void,
   _navigator: typeof navigator,
   authToken?: string,
@@ -67,7 +67,7 @@ export class AppBase extends React.Component {
     ErrorPage: DefaultErrorPage,
     FooterComponent: Footer,
     InfoDialogComponent: InfoDialog,
-    MastHeadComponent: MastHead,
+    HeaderComponent: Header,
     _addChangeListeners: addChangeListeners,
     _navigator: (typeof navigator !== 'undefined' ? navigator : null),
     authTokenValidFor: config.get('authTokenValidFor'),
@@ -185,7 +185,7 @@ export class AppBase extends React.Component {
       ErrorPage,
       FooterComponent,
       InfoDialogComponent,
-      MastHeadComponent,
+      HeaderComponent,
       children,
       clientApp,
       i18n,
@@ -201,7 +201,7 @@ export class AppBase extends React.Component {
         <LoadingBar className="App-loading-bar" />
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         <InfoDialogComponent />
-        <MastHeadComponent
+        <HeaderComponent
           SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
           query={query} ref={(ref) => { this.mastHead = ref; }} />
         <div className="App-content">

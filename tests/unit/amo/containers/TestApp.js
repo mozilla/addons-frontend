@@ -42,7 +42,7 @@ describe('App', () => {
   }
 
   // eslint-disable-next-line react/no-multi-comp
-  class FakeMastHeadComponent extends React.Component {
+  class FakeHeaderComponent extends React.Component {
     render() {
       // eslint-disable-next-line react/prop-types
       return <div>{this.props.children}</div>;
@@ -73,7 +73,7 @@ describe('App', () => {
           <AppBase
             FooterComponent={FakeFooterComponent}
             InfoDialogComponent={FakeInfoDialogComponent}
-            MastHeadComponent={FakeMastHeadComponent}
+            HeaderComponent={FakeHeaderComponent}
             SearchFormComponent={FakeSearchFormComponent}
             ErrorPage={FakeErrorPageComponent}
             setUserAgent={sinon.stub()}
