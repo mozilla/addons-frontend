@@ -9,10 +9,10 @@ import { csp, getNoScriptStyles } from 'core/middleware';
 
 
 describe('CSP Middleware', () => {
-  const exisitingNodeEnv = process.env.NODE_ENV;
+  const existingNodeEnv = process.env.NODE_ENV;
 
   afterEach(() => {
-    process.env.NODE_ENV = exisitingNodeEnv;
+    process.env.NODE_ENV = existingNodeEnv;
     delete process.env.NODE_APP_INSTANCE;
   });
 
