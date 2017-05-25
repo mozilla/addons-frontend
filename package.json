@@ -83,7 +83,7 @@
       }
     },
     "test-ci": {
-      "command": "npm run version-check && npm run flow:check && npm run test-coverage && npm run eslint && npm run stylelint",
+      "command": "npm run version-check && npm run flow:check && npm run test-coverage",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
