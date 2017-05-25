@@ -8,7 +8,6 @@ module.exports = {
   moduleDirectories: [
     'src',
     'node_modules',
-    '<rootDir>',
   ],
   moduleFileExtensions: [
     'js',
@@ -21,6 +20,10 @@ module.exports = {
     // Use the client-side logger by default for tests.
     '^core/logger$': '<rootDir>/src/core/client/logger',
     '^core/window$': '<rootDir>/src/core/browserWindow',
+    // Alias tests for tests to be able to import helpers.
+    '^tests/(.*)$': '<rootDir>/tests/$1',
+    // Alias package.json so it can be imported.
+    '^package$': '<rootDir>/package.json',
     // Replaces the following formats with an empty module.
     '^.+\\.(scss|css|svg|woff|woff2|mp4|webm)$': '<rootDir>/tests/emptyModule',
   },
