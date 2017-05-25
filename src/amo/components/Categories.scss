@@ -12,7 +12,8 @@
   padding: 0;
 
   [dir=rtl] & {
-    transform: scale(-1, 1);
+    background-image: url('../img/icons/arrow-left.svg');
+    background-position-x: 0%;
   }
 }
 
@@ -21,8 +22,4 @@
   display: block;
   padding: 1em 0;
   text-decoration: none;
-
-  [dir=rtl] & {
-    transform: scale(-1, 1);
-  }
 }
