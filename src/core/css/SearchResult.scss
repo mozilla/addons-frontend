@@ -57,8 +57,7 @@
   }
 }
 
-.SearchResult-author,
-.SearchResult-users {
+.SearchResult-author-users {
   color: $sub-text-color;
   display: inline-block;
   font-size: $font-size-s;
@@ -73,12 +72,6 @@
       float: left;
     }
   }
-}
-
-.SearchResult-author {
-  display: block;
-  margin-right: 0.5em;
-  word-wrap: break-word;
 }
 
 .SearchResult-info {
@@ -100,6 +93,7 @@
   float: right;
   height: 38px;
   width: 38px;
+  margin-top: 9px;
 
   .SearchResult--theme & {
     display: block;
