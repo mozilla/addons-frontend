@@ -56,7 +56,7 @@ describe('amo/components/AddonReviewList', () => {
       ...customProps
     } = {}) {
       const loadedReviews = reviews ? getLoadedReviews({ reviews }) : null;
-      const store = createStore();
+      const { store } = createStore();
       const props = {
         addon: addon && denormalizeAddon(addon),
         location: { query: {} },
@@ -245,7 +245,7 @@ describe('amo/components/AddonReviewList', () => {
     let store;
 
     beforeEach(() => {
-      store = createStore();
+      store = createStore().store;
     });
 
     function getMappedProps({
@@ -313,7 +313,7 @@ describe('amo/components/AddonReviewList', () => {
     });
 
     it('gets initial data from the API', () => {
-      const store = createStore();
+      const { store } = createStore();
       const addonSlug = fakeAddon.slug;
       const page = 2;
       const reviews = [fakeReview];
@@ -345,7 +345,7 @@ describe('amo/components/AddonReviewList', () => {
     });
 
     it('requires a slug param', () => {
-      const store = createStore();
+      const { store } = createStore();
       return loadInitialData({
         location: { query: {} }, store, params: { addonSlug: null },
       })

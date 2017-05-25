@@ -4,6 +4,7 @@ import makeClient from 'core/client/base';
 import 'core/tracking';
 
 import routes from './routes';
+import sagas from './sagas';
 import createStore from './store';
 
-makeClient(routes, createStore);
+makeClient(routes, createStore, { sagas });

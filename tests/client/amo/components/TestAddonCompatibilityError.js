@@ -31,9 +31,10 @@ describe('AddonCompatibilityError', () => {
       lang: props.lang,
       userAgentInfo: props.userAgentInfo,
     };
+    const { store } = createStore({ api });
 
     return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore({ api })}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <AddonCompatibilityError minVersion={null} {...props} />
         </I18nProvider>

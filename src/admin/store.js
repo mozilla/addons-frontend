@@ -9,9 +9,11 @@ import users from 'core/reducers/users';
 import { middleware } from 'core/store';
 
 export default function createStore(initialState = {}) {
-  return _createStore(
+  const store = _createStore(
     combineReducers({ addons, api, auth, search, reduxAsyncConnect, users }),
     initialState,
     middleware(),
   );
+
+  return { store };
 }

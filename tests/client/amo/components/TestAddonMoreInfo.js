@@ -15,10 +15,11 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 describe('<AddonMoreInfo />', () => {
   const initialState = { api: { clientApp: 'android', lang: 'pt' } };
+  const { store } = createStore(initialState);
 
   function render(props) {
     return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <AddonMoreInfoBase i18n={getFakeI18nInst()} addon={fakeAddon}
           {...props} />
       </Provider>

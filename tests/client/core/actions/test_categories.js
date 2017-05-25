@@ -1,49 +1,39 @@
 import * as actions from 'core/actions/categories';
 
 
-describe('CATEGORIES_GET', () => {
-  const params = {
-    loading: true,
-  };
-  const action = actions.categoriesGet(params);
+describe('CATEGORIES_FETCH', () => {
+  const action = actions.categoriesFetch();
 
   it('sets the type', () => {
-    assert.equal(action.type, 'CATEGORIES_GET');
-  });
-
-  it('sets the query', () => {
-    assert.deepEqual(action.payload, params);
+    assert.equal(action.type, 'CATEGORIES_FETCH');
   });
 });
 
 describe('CATEGORIES_LOAD', () => {
-  const params = {
+  const response = {
+    entities: {},
     result: ['foo', 'bar'],
-    loading: false,
   };
-  const action = actions.categoriesLoad(params);
+  const action = actions.categoriesLoad(response);
 
   it('sets the type', () => {
     assert.equal(action.type, 'CATEGORIES_LOAD');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload.loading, false);
     assert.deepEqual(action.payload.result, ['foo', 'bar']);
   });
 });
 
-describe('CATEGORIES_FAILED', () => {
-  const params = {
-    loading: false,
-  };
-  const action = actions.categoriesFail(params);
+describe('CATEGORIES_FAIL', () => {
+  const error = new Error('I am an error');
+  const action = actions.categoriesFail(error);
 
   it('sets the type', () => {
-    assert.equal(action.type, 'CATEGORIES_FAILED');
+    assert.equal(action.type, 'CATEGORIES_FAIL');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload, params);
+    assert.deepEqual(action.payload.error, error);
   });
 });

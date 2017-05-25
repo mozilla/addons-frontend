@@ -9,12 +9,7 @@ import React from 'react';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
 
 import { loadEntities } from 'core/actions';
-import {
-  categoriesGet,
-  categoriesLoad,
-  categoriesFail,
-} from 'core/actions/categories';
-import { categories, fetchAddon } from 'core/api';
+import { fetchAddon } from 'core/api';
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import {
@@ -126,27 +121,6 @@ export function loadAddonIfNeeded(
   log.info(`Add-on ${slug} not found in state; fetching from API`);
   // This loads the add-on into state.
   return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
-}
-
-// asyncConnect() helper for loading categories for browsing and displaying
-// info.
-export function getCategories({ dispatch, api }) {
-  dispatch(categoriesGet());
-  return categories({ api })
-    .then((response) => dispatch(categoriesLoad(response)))
-    .catch(() => dispatch(categoriesFail()));
-}
-
-export function isLoaded({ state }) {
-  return state.categories.length && !state.loading;
-}
-
-export function loadCategoriesIfNeeded({ store: { dispatch, getState } }) {
-  const state = getState();
-  if (!isLoaded({ state: state.categories })) {
-    return getCategories({ dispatch, api: state.api });
-  }
-  return true;
 }
 
 export function isAllowedOrigin(urlString, { allowedOrigins = [config.get('amoCDN')] } = {}) {

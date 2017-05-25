@@ -16,7 +16,7 @@ describe('<FeaturedAddons />', () => {
 
   beforeEach(() => {
     const initialState = { api: signedInApiState };
-    store = createStore(initialState);
+    store = createStore(initialState).store;
   });
 
   function render({ ...props }) {

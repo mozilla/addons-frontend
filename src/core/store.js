@@ -30,6 +30,7 @@ const PROMISE_PREFIXES = {
 export function middleware({
   _config = config, _createLogger = createLogger,
   _window = typeof window !== 'undefined' ? window : null,
+  sagaMiddleware = null,
 } = {}) {
   const isDev = _config.get('isDevelopment');
 
@@ -38,6 +39,9 @@ export function middleware({
     // Log all Redux actions but only when in development
     // and only on the client side.
     callbacks.push(_createLogger());
+  }
+  if (sagaMiddleware) {
+    callbacks.push(sagaMiddleware);
   }
   callbacks.push(loadingBarMiddleware(PROMISE_PREFIXES));
 

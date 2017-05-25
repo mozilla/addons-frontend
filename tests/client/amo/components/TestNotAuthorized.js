@@ -17,7 +17,7 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 describe('<NotAuthorized />', () => {
   function render({ ...props }) {
-    const store = createStore(signedInApiState);
+    const { store } = createStore(signedInApiState);
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 401 },

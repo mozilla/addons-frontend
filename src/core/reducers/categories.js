@@ -3,16 +3,24 @@ import config from 'config';
 
 import {
   ADDON_TYPE_THEME,
-  CATEGORIES_GET,
+  CATEGORIES_FETCH,
   CATEGORIES_LOAD,
-  CATEGORIES_FAILED,
+  CATEGORIES_FAIL,
+  validAddonTypes,
 } from 'core/constants';
 import log from 'core/logger';
 
 
 export function emptyCategoryList() {
   return config.get('validClientApplications')
-    .reduce((object, appName) => ({ ...object, [appName]: {} }), {});
+    .reduce((object, appName) => {
+      return {
+        ...object,
+        [appName]: validAddonTypes.reduce((appObject, addonType) => {
+          return { ...appObject, [addonType]: [] };
+        }, {}),
+      };
+    }, {});
 }
 
 const initialState = {
@@ -25,22 +33,25 @@ export default function categories(state = initialState, action) {
   const { payload } = action;
 
   switch (action.type) {
-    case CATEGORIES_GET:
+    case CATEGORIES_FETCH:
       return { ...state, ...payload, loading: true };
     case CATEGORIES_LOAD:
       {
         const categoryList = emptyCategoryList();
-        payload.result.forEach((result) => {
+        Object.values(payload.result).forEach((result) => {
           // If the API returns data for an application we don't support,
           // we'll ignore it for now.
           if (!categoryList[result.application]) {
-            log.warn(oneLine`Category data for unknown application
+            log.warn(oneLine`Category data for unknown clientApp
               "${result.application}" received from API.`);
             return;
           }
 
           if (!categoryList[result.application][result.type]) {
-            categoryList[result.application][result.type] = [];
+            log.warn(oneLine`add-on category for unknown add-on type
+              "${result.type}" for clientApp "${result.type}" received
+              from API.`);
+            return;
           }
 
           categoryList[result.application][result.type].push(result);
@@ -75,8 +86,13 @@ export default function categories(state = initialState, action) {
           categories: categoryList,
         };
       }
-    case CATEGORIES_FAILED:
-      return { ...initialState, ...payload, error: true };
+    case CATEGORIES_FAIL:
+      return {
+        ...initialState,
+        ...payload,
+        loading: false,
+        error: payload.error,
+      };
     default:
       return state;
   }

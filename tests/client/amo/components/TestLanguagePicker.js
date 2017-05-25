@@ -18,9 +18,10 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 describe('LanguagePicker', () => {
   function renderLanguagePicker({ ...props }) {
     const initialState = { api: { clientApp: 'android', lang: 'fr' } };
+    const { store } = createStore(initialState);
 
     return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <LanguagePickerBase i18n={getFakeI18nInst()} {...props} />
       </Provider>
     ), LanguagePickerBase);

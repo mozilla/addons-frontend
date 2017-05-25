@@ -376,7 +376,7 @@ describe('RatingManager', () => {
     let store;
 
     beforeEach(() => {
-      store = createStore();
+      store = createStore().store;
     });
 
     function getMappedProps({

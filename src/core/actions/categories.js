@@ -1,29 +1,26 @@
 import {
-  CATEGORIES_GET,
+  CATEGORIES_FETCH,
   CATEGORIES_LOAD,
-  CATEGORIES_FAILED,
+  CATEGORIES_FAIL,
 } from 'core/constants';
 
-export function categoriesGet() {
+export function categoriesFetch() {
   return {
-    type: CATEGORIES_GET,
-    payload: { loading: true },
+    type: CATEGORIES_FETCH,
+    payload: {},
   };
 }
 
-export function categoriesLoad({ result }) {
+export function categoriesLoad(response) {
   return {
     type: CATEGORIES_LOAD,
-    payload: {
-      loading: false,
-      result: Object.values(result),
-    },
+    payload: { result: response.result },
   };
 }
 
-export function categoriesFail() {
+export function categoriesFail(error) {
   return {
-    type: CATEGORIES_FAILED,
-    payload: { loading: false },
+    type: CATEGORIES_FAIL,
+    payload: { error },
   };
 }

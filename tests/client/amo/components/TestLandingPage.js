@@ -25,8 +25,10 @@ describe('<LandingPage />', () => {
   const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
 
   function render({ ...props }) {
+    const { store } = createStore(initialState);
+
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <LandingPageBase i18n={getFakeI18nInst()} {...props} />
         </I18nProvider>
@@ -93,7 +95,7 @@ describe('<LandingPage />', () => {
   });
 
   it('renders each add-on when set', () => {
-    const store = createStore(initialState);
+    const { store } = createStore(initialState);
     store.dispatch(landingActions.loadLanding({
       featured: {
         entities: {

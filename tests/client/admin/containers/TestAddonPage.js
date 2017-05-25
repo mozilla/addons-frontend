@@ -24,7 +24,7 @@ describe('AddonPage', () => {
   };
 
   function render({ props, state }) {
-    const store = createStore(state);
+    const { store } = createStore(state);
     return findDOMNode(renderIntoDocument(
       <Provider store={store} key="provider">
         <I18nProvider i18n={getFakeI18nInst()}>

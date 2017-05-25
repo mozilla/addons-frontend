@@ -39,7 +39,7 @@ describe('CategoryPage.mapStateToProps()', () => {
   });
 
   it('passes the search state if the filters and state matches', () => {
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(searchStart({ filters, results: [] }));
     const props = mapStateToProps(store.getState(), ownProps);
 
@@ -56,7 +56,7 @@ describe('CategoryPage.mapStateToProps()', () => {
   });
 
   it('does not pass search state if the filters and state do not match', () => {
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(searchStart({ filters }));
     const mismatchedState = store.getState();
     mismatchedState.search.filters.clientApp = 'nothing';

@@ -55,7 +55,7 @@ describe('withInstallHelpers', () => {
   it('wraps the component in WithInstallHelpers', () => {
     const _makeMapDispatchToProps = sinon.spy();
     const Component = withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
-    const store = createStore();
+    const { store } = createStore();
     const root = shallowRender(<Component store={store} />);
     assert.equal(root.type, WithInstallHelpers);
   });
