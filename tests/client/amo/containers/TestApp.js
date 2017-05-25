@@ -11,7 +11,7 @@ import {
   AppBase,
   mapDispatchToProps,
   mapStateToProps,
-} from 'amo/containers/App';
+} from 'amo/components/App';
 import createStore from 'amo/store';
 import {
   logOutUser as logOutUserAction,
