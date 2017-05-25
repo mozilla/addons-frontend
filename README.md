@@ -85,7 +85,7 @@ Alternatively, you can start the test runner with a
 [specific file or regular expression](https://facebook.github.io/jest/docs/en/cli.html#jest-regexfortestfiles),
 like:
 ````
-yarn test tests/server/TestCSPConfig.js
+yarn test tests/client/amo/components/TestAddonDetail.js
 ````
 
 #### Run all tests
