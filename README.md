@@ -78,13 +78,15 @@ Here are a few tips:
 By default, `yarn test` will only run a subset of tests that relate to the code
 you are working on.
 
-If you only want to run a few tests, you can start with a test file, like:
+To explicitly run a subset of tests, you can type `t` or `p` which are explained
+in the [jest][] watch usage.
+
+Alternatively, you can start the test runner with a
+[specific file or regular expression](https://facebook.github.io/jest/docs/en/cli.html#jest-regexfortestfiles),
+like:
 ````
 yarn test tests/server/TestCSPConfig.js
 ````
-
-If you are already in `yarn test`, you can type `t` to match a test name by
-keyword. For example, type "CSP" to run the tests in the file up above.
 
 #### Run all tests
 
