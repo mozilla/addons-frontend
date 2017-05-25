@@ -30,32 +30,32 @@ describe('<InfoDialogBase />', () => {
   it('Should render a dialog with aria role', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
-    assert.equal(root.getAttribute('role'), 'dialog');
+    expect(root.getAttribute('role')).toEqual('dialog');
   });
 
   it('Should render a title', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
-    assert.equal(root.querySelector('#show-info-title').textContent, 'Your add-on is ready');
+    expect(root.querySelector('#show-info-title').textContent).toEqual('Your add-on is ready');
   });
 
   it('Should render a description containing the add-on name', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
-    assert.include(root.querySelector('#show-info-description').textContent, 'A Test Add-on');
+    expect(root.querySelector('#show-info-description').textContent).toContain('A Test Add-on');
   });
 
   it('should have an img element with a src', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
-    assert.ok(root.querySelector('img').src, 'https://addons-dev-cdn.allizom.org/whatever');
+    expect(root.querySelector('img').src).toBeTruthy();
   });
 
   it('should call closeAction func when clicking close', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
     Simulate.click(root.querySelector('button'));
-    assert.ok(closeAction.called, 'closeAction stub was called');
+    expect(closeAction.called).toBeTruthy();
   });
 });
 
@@ -95,7 +95,7 @@ describe('Clicking outside <InfoDialogBase />', () => {
     ReactDOM.render(<FakeContainer />, mountNode);
     const outsideNode = document.getElementById('outside-component');
     simulateClick(outsideNode);
-    assert.ok(closeAction.called, 'closeAction stub was called');
+    expect(closeAction.called).toBeTruthy();
   });
 });
 
@@ -103,17 +103,17 @@ describe('<ShowInfoDialog />', () => {
   it('renders InfoDialogBase when it is told to', () => {
     const data = { some: 'data' };
     const root = shallowRender(<ShowInfoDialog data={data} show />);
-    assert.equal(root.type, InfoDialogBase);
-    assert.deepEqual(root.props, data);
+    expect(root.type).toEqual(InfoDialogBase);
+    expect(root.props).toEqual(data);
   });
 
   it('does not render InfoDialogBase when not told to', () => {
     const root = shallowRender(<ShowInfoDialog show={false} />);
-    assert.equal(root, null);
+    expect(root).toEqual(null);
   });
 
   it('mapStateToProps pulls infoDialog state', () => {
     const infoDialog = { infoDialogState: 'you bet' };
-    assert.strictEqual(mapStateToProps({ addons: [], infoDialog }), infoDialog);
+    expect(mapStateToProps({ addons: [], infoDialog })).toBe(infoDialog);
   });
 });

@@ -30,55 +30,54 @@ describe('<SearchPage />', () => {
   it('renders the results', () => {
     const root = render();
     const results = findByTag(root, SearchResults);
-    assert.strictEqual(results.props.count, props.count);
-    assert.strictEqual(results.props.results, props.results);
-    assert.strictEqual(results.props.hasSearchParams, props.hasSearchParams);
-    assert.strictEqual(results.props.filters, props.filters);
-    assert.strictEqual(results.props.loading, props.loading);
-    assert.strictEqual(results.props.pathname, props.pathname);
-    assert.deepEqual(
-      Object.keys(results.props).sort(),
-      [
-        'count',
-        'filters',
-        'hasSearchParams',
-        'loading',
-        'pathname',
-        'results',
-      ].sort()
-    );
+    expect(results.props.count).toBe(props.count);
+    expect(results.props.results).toBe(props.results);
+    expect(results.props.hasSearchParams).toBe(props.hasSearchParams);
+    expect(results.props.filters).toBe(props.filters);
+    expect(results.props.loading).toBe(props.loading);
+    expect(results.props.pathname).toBe(props.pathname);
+    expect(Object.keys(results.props).sort()).toEqual([
+      'count',
+      'filters',
+      'hasSearchParams',
+      'loading',
+      'pathname',
+      'results',
+    ].sort());
   });
 
   it('renders a Paginate', () => {
     const root = render();
     const paginator = findByTag(root, Paginate);
-    assert.equal(paginator.props.count, 80);
-    assert.equal(paginator.props.currentPage, 3);
-    assert.equal(paginator.props.pathname, '/search/');
-    assert.deepEqual(paginator.props.queryParams, { q: 'foo' });
+    expect(paginator.props.count).toEqual(80);
+    expect(paginator.props.currentPage).toEqual(3);
+    expect(paginator.props.pathname).toEqual('/search/');
+    expect(paginator.props.queryParams).toEqual({ q: 'foo' });
   });
 
   it('does not render a Paginate when there is no search term', () => {
     const root = render({ filters: { query: null }, count: 0 });
     const paginators = findAllByTag(root, Paginate);
-    assert.deepEqual(paginators, []);
+    expect(paginators).toEqual([]);
   });
 
   it('does render a SearchSort when there are filters and results', () => {
     const root = render();
     const sort = findByTag(root, SearchSort);
-    assert.equal(sort.props.filters, props.filters);
-    assert.equal(sort.props.pathname, props.pathname);
+    expect(sort.props.filters).toEqual(props.filters);
+    expect(sort.props.pathname).toEqual(props.pathname);
   });
 
   it('does not render a SearchSort when there are no filters', () => {
     const root = render({ hasSearchParams: false, results: [] });
-    assert.throws(() => findByTag(root, SearchSort), 'child is null');
+    expect(() => findByTag(root, SearchSort))
+      .toThrowError("Cannot read property 'type' of null");
   });
 
   it('does not render a SearchSort when there are no results', () => {
     const root = render({ hasSearchParams: true, results: [] });
-    assert.throws(() => findByTag(root, SearchSort), 'child is null');
+    expect(() => findByTag(root, SearchSort))
+      .toThrowError("Cannot read property 'type' of null");
   });
 
   it('does not render SearchSort when enableSearchSort is false', () => {
@@ -86,6 +85,7 @@ describe('<SearchPage />', () => {
       enableSearchSort: false,
       hasSearchParams: true,
     });
-    assert.throws(() => findByTag(root, SearchSort), 'child is null');
+    expect(() => findByTag(root, SearchSort))
+      .toThrowError("Cannot read property 'type' of null");
   });
 });

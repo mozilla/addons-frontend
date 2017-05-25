@@ -8,7 +8,7 @@ describe('users reducer', () => {
   });
 
   it('returns the old state', () => {
-    assert.strictEqual(originalState, users(originalState, { type: 'BLAH' }));
+    expect(originalState).toBe(users(originalState, { type: 'BLAH' }));
   });
 
   it('stores users from entities', () => {
@@ -21,8 +21,8 @@ describe('users reducer', () => {
         },
       },
     });
-    assert.deepEqual(
-      state,
-      { foo: { username: 'foo' }, bar: { username: 'bar' }, baz: { username: 'baz' } });
+    expect(state).toEqual(
+      { foo: { username: 'foo' }, bar: { username: 'bar' }, baz: { username: 'baz' } }
+    );
   });
 });

@@ -12,35 +12,35 @@ describe('core store middleware', () => {
 
   it('includes the middleware in development', () => {
     const _createLogger = sinon.stub();
-    assert.isFunction(middleware({
+    expect(typeof middleware({
       _config: configForDev(true), _createLogger,
-    }));
-    assert.equal(_createLogger.called, true);
+    })).toBe('function');
+    expect(_createLogger.called).toEqual(true);
   });
 
   it('does not apply middleware if not in development', () => {
     const _createLogger = sinon.stub();
-    assert.isFunction(middleware({
+    expect(typeof middleware({
       _config: configForDev(false), _createLogger,
-    }));
-    assert.equal(_createLogger.called, false);
+    })).toBe('function');
+    expect(_createLogger.called).toEqual(false);
   });
 
   it('handles a falsey window while on the server', () => {
     const _createLogger = sinon.stub();
     const _window = null;
-    assert.isFunction(middleware({
+    expect(typeof middleware({
       _config: configForDev(true), _createLogger, _window,
-    }));
-    assert.equal(_createLogger.called, true);
+    })).toBe('function');
+    expect(_createLogger.called).toEqual(true);
   });
 
   it('does not create a logger for the server', () => {
     const _createLogger = sinon.stub();
-    assert.isFunction(middleware({
+    expect(typeof middleware({
       _config: configForDev(true, { server: true }), _createLogger,
-    }));
-    assert.equal(_createLogger.called, false);
+    })).toBe('function');
+    expect(_createLogger.called).toEqual(false);
   });
 
   it('uses a placeholder store enhancer when devtools is not installed', () => {
@@ -48,24 +48,24 @@ describe('core store middleware', () => {
     const enhancer = middleware({
       _config: configForDev(true), _window,
     });
-    assert.isFunction(enhancer);
+    expect(typeof enhancer).toBe('function');
     const createStore = () => {};
-    assert.isFunction(enhancer(createStore));
+    expect(typeof enhancer(createStore)).toBe('function');
   });
 
   it('adds the devtools store enhancer in development', () => {
     const _window = {
       devToolsExtension: sinon.spy((createStore) => createStore),
     };
-    assert.isFunction(middleware({ _config: configForDev(true), _window }));
-    assert.equal(_window.devToolsExtension.called, true);
+    expect(typeof middleware({ _config: configForDev(true), _window })).toBe('function');
+    expect(_window.devToolsExtension.called).toEqual(true);
   });
 
   it('only adds the devtools store enhancer in development', () => {
     const _window = {
       devToolsExtension: sinon.spy((createStore) => createStore),
     };
-    assert.isFunction(middleware({ _config: configForDev(false), _window }));
-    assert.equal(_window.devToolsExtension.called, false);
+    expect(typeof middleware({ _config: configForDev(false), _window })).toBe('function');
+    expect(_window.devToolsExtension.called).toEqual(false);
   });
 });

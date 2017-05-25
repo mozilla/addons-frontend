@@ -75,8 +75,7 @@ describe('AddonDetail', () => {
 
   it('renders a name', () => {
     const rootNode = renderAsDOMNode();
-    assert.include(rootNode.querySelector('h1').textContent,
-                   'Chill Out');
+    expect(rootNode.querySelector('h1').textContent).toContain('Chill Out');
   });
 
   it('renders a single author', () => {
@@ -90,10 +89,8 @@ describe('AddonDetail', () => {
         }],
       },
     });
-    assert.equal(rootNode.querySelector('h1').textContent,
-                 'Chill Out by Krupa');
-    assert.equal(rootNode.querySelector('h1 a').attributes.href.value,
-                 authorUrl);
+    expect(rootNode.querySelector('h1').textContent).toEqual('Chill Out by Krupa');
+    expect(rootNode.querySelector('h1 a').attributes.href.value).toEqual(authorUrl);
   });
 
   it('renders multiple authors', () => {
@@ -109,8 +106,7 @@ describe('AddonDetail', () => {
         }],
       },
     });
-    assert.equal(rootNode.querySelector('h1').textContent,
-                 'Chill Out by Krupa, Fligtar');
+    expect(rootNode.querySelector('h1').textContent).toEqual('Chill Out by Krupa, Fligtar');
   });
 
   it('sanitizes a title', () => {
@@ -121,9 +117,9 @@ describe('AddonDetail', () => {
       },
     });
     // Make sure an actual script tag was not created.
-    assert.equal(rootNode.querySelector('h1 script'), null);
+    expect(rootNode.querySelector('h1 script')).toEqual(null);
     // Make sure the script removed.
-    assert.notInclude(rootNode.querySelector('h1').innerHTML, '<script>');
+    expect(rootNode.querySelector('h1').innerHTML).not.toContain('<script>');
   });
 
   it('sanitizes a summary', () => {
@@ -135,9 +131,9 @@ describe('AddonDetail', () => {
       },
     });
     // Make sure an actual script tag was not created.
-    assert.equal(rootNode.querySelector('.AddonDetail-summary script'), null);
+    expect(rootNode.querySelector('.AddonDetail-summary script')).toEqual(null);
     // Make sure the script has been removed.
-    assert.notInclude(rootNode.querySelector('.AddonDetail-summary').innerHTML, '<script>');
+    expect(rootNode.querySelector('.AddonDetail-summary').innerHTML).not.toContain('<script>');
   });
 
   it('sanitizes bad description HTML', () => {
@@ -149,9 +145,9 @@ describe('AddonDetail', () => {
       },
     });
     // Make sure an actual script tag was not created.
-    assert.equal(rootNode.querySelector('.AddonDescription script'), null);
+    expect(rootNode.querySelector('.AddonDescription script')).toEqual(null);
     // Make sure the script has been removed.
-    assert.notInclude(rootNode.querySelector('.AddonDescription').innerHTML, '<script>');
+    expect(rootNode.querySelector('.AddonDescription').innerHTML).not.toContain('<script>');
   });
 
   it('allows certain HTML tags in the title', () => {
@@ -165,38 +161,33 @@ describe('AddonDetail', () => {
       },
     });
     // Make sure these tags were whitelisted.
-    assert.equal(rootNode.querySelector('h1 span a').textContent, 'Krupa');
+    expect(rootNode.querySelector('h1 span a').textContent).toEqual('Krupa');
     // Make sure the santizer didn't strip the class attribute:
     const byLine = rootNode.querySelector('h1 span');
-    assert.ok(byLine.attributes.class, 'the class attribute is not empty');
+    expect(byLine.attributes.class).toBeTruthy();
   });
 
   it('configures the install button', () => {
     const root = findRenderedComponentWithType(render(), InstallButton);
-    assert.equal(root.props.slug, fakeAddon.slug);
+    expect(root.props.slug).toEqual(fakeAddon.slug);
   });
 
   it('sets the type in the header', () => {
     const rootNode = renderAsDOMNode();
-    assert.include(rootNode.querySelector('.AddonDescription h2').textContent,
-                   'About this extension');
+    expect(rootNode.querySelector('.AddonDescription h2').textContent).toContain('About this extension');
   });
 
   it('uses the summary as the description if no description exists', () => {
     const addon = { ...fakeAddon, summary: 'short text' };
     delete addon.description;
     const rootNode = renderAsDOMNode({ addon });
-    assert.equal(
-      rootNode.querySelector('.AddonDescription-contents').textContent,
-      addon.summary);
+    expect(rootNode.querySelector('.AddonDescription-contents').textContent).toEqual(addon.summary);
   });
 
   it('uses the summary as the description if description is blank', () => {
     const addon = { ...fakeAddon, description: '', summary: 'short text' };
     const rootNode = renderAsDOMNode({ addon });
-    assert.equal(
-      rootNode.querySelector('.AddonDescription-contents').textContent,
-      addon.summary);
+    expect(rootNode.querySelector('.AddonDescription-contents').textContent).toEqual(addon.summary);
   });
 
   it('converts new lines in the description to breaks', () => {
@@ -206,7 +197,7 @@ describe('AddonDetail', () => {
         description: '\n\n\n',
       },
     });
-    assert.lengthOf(rootNode.querySelectorAll('.AddonDescription br'), 3);
+    expect(rootNode.querySelectorAll('.AddonDescription br').length).toBe(3);
   });
 
   it('preserves certain HTML tags in the description', () => {
@@ -221,10 +212,9 @@ describe('AddonDetail', () => {
     const rootNode = renderAsDOMNode({ addon: { ...fakeAddon, description } });
     // eslint-disable-next-line no-restricted-syntax
     for (const tagToCheck of allowedTags) {
-      assert.lengthOf(
-        rootNode.querySelectorAll(`.AddonDescription-contents ${tagToCheck}`),
-        1, `${tagToCheck} tag was not whitelisted`
-      );
+      expect(
+        rootNode.querySelectorAll(`.AddonDescription-contents ${tagToCheck}`).length
+      ).toBe(1);
     }
   });
 
@@ -237,24 +227,21 @@ describe('AddonDetail', () => {
       },
     });
     const anchor = rootNode.querySelector('.AddonDescription a');
-    assert.equal(anchor.attributes.onclick, null);
-    assert.equal(anchor.attributes.href, null);
+    expect(anchor.getAttribute('onclick')).toEqual(null);
+    expect(anchor.getAttribute('href')).toEqual(null);
   });
 
   it('configures the overall ratings section', () => {
     const location = { pathname: '/en-US/firefox/addon/some-slug/' };
     const root = findRenderedComponentWithType(render({ location }),
                                                RatingManagerWithI18n);
-    assert.deepEqual(root.props.addon, fakeAddon);
-    assert.deepEqual(root.props.location, location);
+    expect(root.props.addon).toEqual(fakeAddon);
+    expect(root.props.location).toEqual(location);
   });
 
   it('renders a summary', () => {
     const rootNode = renderAsDOMNode();
-    assert.include(
-      rootNode.querySelector('.AddonDetail-summary').textContent,
-      fakeAddon.summary
-    );
+    expect(rootNode.querySelector('.AddonDetail-summary').textContent).toContain(fakeAddon.summary);
   });
 
   it('renders a summary with links', () => {
@@ -264,11 +251,9 @@ describe('AddonDetail', () => {
         summary: '<a href="http://foo.com/">my website</a>',
       },
     });
-    assert.include(
-      rootNode.querySelector('.AddonDetail-summary').textContent, 'my website');
-    assert.equal(rootNode.querySelectorAll('.AddonDetail-summary a').length, 1);
-    assert.equal(
-      rootNode.querySelector('.AddonDetail-summary a').href, 'http://foo.com/');
+    expect(rootNode.querySelector('.AddonDetail-summary').textContent).toContain('my website');
+    expect(rootNode.querySelectorAll('.AddonDetail-summary a').length).toEqual(1);
+    expect(rootNode.querySelector('.AddonDetail-summary a').href).toEqual('http://foo.com/');
   });
 
   it('renders an amo CDN icon image', () => {
@@ -280,7 +265,7 @@ describe('AddonDetail', () => {
       },
     });
     const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
-    assert.equal(src, iconURL);
+    expect(src).toEqual(iconURL);
   });
 
   it('renders a fall-back asset', () => {
@@ -291,7 +276,7 @@ describe('AddonDetail', () => {
       },
     });
     const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
-    assert.include(src, 'image/png');
+    expect(src).toEqual('default-64.png');
   });
 
   it('renders a theme preview as an img', () => {
@@ -304,10 +289,10 @@ describe('AddonDetail', () => {
     });
     const rootNode = findDOMNode(root);
     const image = rootNode.querySelector('.AddonDetail-theme-header-image');
-    assert.equal(image.tagName, 'IMG');
-    assert.ok(image.classList.contains('AddonDetail-theme-header-image'));
-    assert.equal(image.src, 'https://amo/preview.png');
-    assert.equal(image.alt, 'Tap to preview');
+    expect(image.tagName).toEqual('IMG');
+    expect(image.classList.contains('AddonDetail-theme-header-image')).toBeTruthy();
+    expect(image.src).toEqual('https://amo/preview.png');
+    expect(image.alt).toEqual('Tap to preview');
   });
 
   it('enables a theme preview for supported clients', () => {
@@ -318,23 +303,22 @@ describe('AddonDetail', () => {
       },
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
-    assert.equal(button.disabled, false);
+    expect(button.disabled).toEqual(false);
   });
 
   it('disables install switch for unsupported clients', () => {
     const rootNode = renderAsDOMNode({
       getClientCompatibility: getClientCompatibilityFalse,
     });
-    assert.isTrue(
-      rootNode.querySelector('.InstallButton-switch input').disabled);
+    expect(rootNode.querySelector('.InstallButton-switch input').disabled).toBe(true);
   });
 
   it('throws an error if compatibility props are missing', () => {
     const compatibilityResult = { ...incompatibleClientResult };
     delete compatibilityResult.minVersion;
-    assert.throws(() => {
+    expect(() => {
       renderAsDOMNode({ getClientCompatibility: () => compatibilityResult });
-    }, /minVersion is required/);
+    }).toThrowError(/minVersion is required/);
   });
 
   it('disables a theme preview for unsupported clients', () => {
@@ -346,7 +330,7 @@ describe('AddonDetail', () => {
       getClientCompatibility: getClientCompatibilityFalse,
     });
     const button = rootNode.querySelector('.AddonDetail-theme-header-label');
-    assert.equal(button.disabled, true);
+    expect(button.disabled).toEqual(true);
   });
 
   it('unsets the theme preview on component unmount', () => {
@@ -362,7 +346,7 @@ describe('AddonDetail', () => {
       },
     });
     root.componentWillUnmount();
-    assert.ok(resetThemePreview.calledWith('theme-preview-node'));
+    expect(resetThemePreview.calledWith('theme-preview-node')).toBeTruthy();
   });
 
   it('sets the browsertheme data on the header', () => {
@@ -375,7 +359,7 @@ describe('AddonDetail', () => {
       getBrowserThemeData: () => '{"the":"themedata"}',
     });
     const header = rootNode.querySelector('.AddonDetail-theme-header');
-    assert.equal(header.dataset.browsertheme, '{"the":"themedata"}');
+    expect(header.getAttribute('data-browsertheme')).toEqual('{"the":"themedata"}');
   });
 
   it('toggles a theme on click', () => {
@@ -389,19 +373,19 @@ describe('AddonDetail', () => {
     });
     const header = rootNode.querySelector('.AddonDetail-theme-header');
     Simulate.click(header);
-    assert.ok(toggleThemePreview.calledWith(header));
+    expect(toggleThemePreview.calledWith(header)).toBeTruthy();
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {
     const rootNode = renderAsDOMNode();
 
-    assert.ok(rootNode.querySelector('.AddonMoreInfo-contents'));
+    expect(rootNode.querySelector('.AddonMoreInfo-contents')).toBeTruthy();
   });
 
   it('renders meta data for the add-on', () => {
     const root = render({ addon: fakeAddon });
     const metaData = findRenderedComponentWithType(root, AddonMeta);
-    assert.deepEqual(metaData.props.addon, fakeAddon);
+    expect(metaData.props.addon).toEqual(fakeAddon);
   });
 
   describe('read reviews footer', () => {
@@ -424,9 +408,8 @@ describe('AddonDetail', () => {
       });
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
-      assert.equal(footer.textContent, 'No reviews yet');
-      assert.equal(root.querySelector('footer').className,
-                   'Card-footer-text');
+      expect(footer.textContent).toEqual('No reviews yet');
+      expect(root.querySelector('footer').className).toEqual('Card-footer-text');
     });
 
     it('prompts you to read one review', () => {
@@ -435,9 +418,8 @@ describe('AddonDetail', () => {
       });
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
-      assert.equal(footer.textContent, 'Read 1 review');
-      assert.equal(root.querySelector('footer').className,
-                   'Card-footer-link');
+      expect(footer.textContent).toEqual('Read 1 review');
+      expect(root.querySelector('footer').className).toEqual('Card-footer-link');
     });
 
     it('prompts you to read many reviews', () => {
@@ -446,7 +428,7 @@ describe('AddonDetail', () => {
       });
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
-      assert.equal(footer.textContent, 'Read all 5 reviews');
+      expect(footer.textContent).toEqual('Read all 5 reviews');
     });
 
     it('localizes the review count', () => {
@@ -455,7 +437,7 @@ describe('AddonDetail', () => {
       });
       const footer =
         root.querySelector('.AddonDetail-read-reviews-footer');
-      assert.include(footer.textContent, '10,000');
+      expect(footer.textContent).toContain('10,000');
     });
 
     it('links to all reviews', () => {
@@ -471,11 +453,11 @@ describe('AddonDetail', () => {
       const allLinks = scryRenderedComponentsWithType(root, Link)
         .filter((component) =>
           component.props.className === 'AddonDetail-all-reviews-link');
-      assert.equal(allLinks.length, 1);
+      expect(allLinks.length).toEqual(1);
 
       const link = allLinks[0];
       const path = link.props.to;
-      assert.equal(path, '/addon/chill-out/reviews/');
+      expect(path).toEqual('/addon/chill-out/reviews/');
 
       return new Promise((resolve, reject) => {
         match({ location: path, routes }, (error, redirectLocation, props) => {
@@ -483,9 +465,7 @@ describe('AddonDetail', () => {
             return reject(error);
           }
           // Check to make sure it is a valid routed path.
-          assert.ok(
-            props,
-            `props was falsey which means the path ${path} is invalid`);
+          expect(props).toBeTruthy();
           return resolve();
         });
       });
@@ -498,7 +478,7 @@ describe('AddonDetals mapStateToProps', () => {
     const { clientApp, userAgentInfo } = mapStateToProps({
       api: signedInApiState });
 
-    assert.equal(clientApp, signedInApiState.clientApp);
-    assert.equal(userAgentInfo, signedInApiState.userAgentInfo);
+    expect(clientApp).toEqual(signedInApiState.clientApp);
+    expect(userAgentInfo).toEqual(signedInApiState.userAgentInfo);
   });
 });

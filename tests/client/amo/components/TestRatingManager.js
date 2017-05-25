@@ -53,7 +53,7 @@ function render(customProps = {}) {
 describe('RatingManager', () => {
   it('prompts you to rate the add-on by name', () => {
     const root = render({ addon: { ...fakeAddon, name: 'Some Add-on' } });
-    assert.include(root.ratingLegend.textContent, 'Some Add-on');
+    expect(root.ratingLegend.textContent).toContain('Some Add-on');
   });
 
   it('loads saved ratings on construction', () => {
@@ -69,9 +69,9 @@ describe('RatingManager', () => {
       apiState: signedInApiState, userId, addon, version, loadSavedReview,
     });
 
-    assert.equal(loadSavedReview.called, true);
+    expect(loadSavedReview.called).toEqual(true);
     const args = loadSavedReview.firstCall.args[0];
-    assert.deepEqual(args, {
+    expect(args).toEqual({
       apiState: signedInApiState,
       userId,
       addonId: addon.id,
@@ -91,14 +91,14 @@ describe('RatingManager', () => {
     });
     return root.onSelectRating(5)
       .then(() => {
-        assert.equal(submitReview.called, true);
+        expect(submitReview.called).toEqual(true);
 
         const call = submitReview.firstCall.args[0];
-        assert.equal(call.versionId, 321);
-        assert.equal(call.apiState.token, 'new-token');
-        assert.equal(call.addonId, 12345);
-        assert.equal(call.errorHandler, errorHandler);
-        assert.strictEqual(call.reviewId, undefined);
+        expect(call.versionId).toEqual(321);
+        expect(call.apiState.token).toEqual('new-token');
+        expect(call.addonId).toEqual(12345);
+        expect(call.errorHandler).toEqual(errorHandler);
+        expect(call.reviewId).toBe(undefined);
       });
   });
 
@@ -113,12 +113,12 @@ describe('RatingManager', () => {
     });
     return root.onSelectRating(5)
       .then(() => {
-        assert.ok(submitReview.called);
+        expect(submitReview.called).toBeTruthy();
 
         const call = submitReview.firstCall.args[0];
-        assert.ok(call.reviewId);
-        assert.equal(call.reviewId, fakeReview.id);
-        assert.equal(call.versionId, fakeReview.version.id);
+        expect(call.reviewId).toBeTruthy();
+        expect(call.reviewId).toEqual(fakeReview.id);
+        expect(call.versionId).toEqual(fakeReview.version.id);
       });
   });
 
@@ -147,15 +147,15 @@ describe('RatingManager', () => {
     });
     return root.onSelectRating(newReview.rating)
       .then(() => {
-        assert.ok(submitReview.called);
+        expect(submitReview.called).toBeTruthy();
 
         // Make sure the review is submitted in a way where it will be
         // newly created against the current version.
         const call = submitReview.firstCall.args[0];
-        assert.equal(call.reviewId, undefined);
-        assert.equal(call.versionId, addon.current_version.id);
-        assert.equal(call.rating, newReview.rating);
-        assert.equal(call.addonId, newReview.addon.id);
+        expect(call.reviewId).toEqual(undefined);
+        expect(call.versionId).toEqual(addon.current_version.id);
+        expect(call.rating).toEqual(newReview.rating);
+        expect(call.addonId).toEqual(newReview.addon.id);
       });
   });
 
@@ -164,24 +164,20 @@ describe('RatingManager', () => {
     const FakeAddonReview = sinon.spy(() => <div />);
     const root = render({ AddonReview: FakeAddonReview, userReview });
 
-    assert.equal(FakeAddonReview.called, false,
-      'expected AddonReview to initially not be visible');
+    expect(FakeAddonReview.called).toEqual(false);
 
     return root.onSelectRating(5)
       .then(() => {
-        assert.ok(FakeAddonReview.called,
-          'expected AddonReview to be visible after submiting a rating');
+        expect(FakeAddonReview.called).toBeTruthy();
 
         const props = FakeAddonReview.firstCall.args[0];
-        assert.deepEqual(props.review, userReview);
+        expect(props.review).toEqual(userReview);
 
         // Now make sure the callback is configured.
-        assert.equal(root.state.showTextEntry, true,
-          'expected state to indicate that AddonReview is visible');
+        expect(root.state.showTextEntry).toEqual(true);
         // Trigger the callback just like AddonReview would after completion.
         props.onReviewSubmitted();
-        assert.equal(root.state.showTextEntry, false,
-          'expected state to indicate that AddonReview is hidden');
+        expect(root.state.showTextEntry).toEqual(false);
       });
   });
 
@@ -191,13 +187,11 @@ describe('RatingManager', () => {
     const userId = null; // logged out
     const root = render({ AddonReview: FakeAddonReview, userReview, userId });
 
-    assert.equal(FakeAddonReview.called, false,
-      'expected AddonReview to initially not be visible');
+    expect(FakeAddonReview.called).toEqual(false);
 
     return root.onSelectRating(5)
       .then(() => {
-        assert.notOk(
-          FakeAddonReview.called, 'AddonReview was rendered unexpectedly');
+        expect(FakeAddonReview.called).toBeFalsy();
       });
   });
 
@@ -207,10 +201,10 @@ describe('RatingManager', () => {
 
     const root = render({ Rating: RatingStub, userReview });
 
-    assert.equal(RatingStub.called, true);
+    expect(RatingStub.called).toEqual(true);
     const props = RatingStub.firstCall.args[0];
-    assert.equal(props.onSelectRating, root.onSelectRating);
-    assert.equal(props.rating, userReview.rating);
+    expect(props.onSelectRating).toEqual(root.onSelectRating);
+    expect(props.rating).toEqual(userReview.rating);
   });
 
   it('sets a blank rating when there is no saved review', () => {
@@ -218,9 +212,9 @@ describe('RatingManager', () => {
 
     render({ Rating: RatingStub, userReview: null });
 
-    assert.equal(RatingStub.called, true);
+    expect(RatingStub.called).toEqual(true);
     const props = RatingStub.firstCall.args[0];
-    assert.strictEqual(props.rating, undefined);
+    expect(props.rating).toBe(undefined);
   });
 
   describe('when user is signed out', () => {
@@ -234,7 +228,7 @@ describe('RatingManager', () => {
         AuthenticateButton,
         addon: { ...fakeAddon, type: addonType },
       });
-      assert.ok(AuthenticateButton.called, 'AuthenticateButton was not rendered');
+      expect(AuthenticateButton.called).toBeTruthy();
       const props = AuthenticateButton.firstCall.args[0];
       return props.logInText;
     }
@@ -242,7 +236,7 @@ describe('RatingManager', () => {
     it('does not load saved ratings', () => {
       const loadSavedReview = sinon.spy();
       renderWithoutUser({ loadSavedReview });
-      assert.equal(loadSavedReview.called, false);
+      expect(loadSavedReview.called).toEqual(false);
     });
 
     it('renders an AuthenticateButton', () => {
@@ -250,39 +244,39 @@ describe('RatingManager', () => {
       const location = { pathname: '/some/path/' };
       renderWithoutUser({ AuthenticateButton, location });
 
-      assert.ok(AuthenticateButton.called, 'AuthenticateButton was not rendered');
+      expect(AuthenticateButton.called).toBeTruthy();
       const props = AuthenticateButton.firstCall.args[0];
-      assert.deepEqual(props.location, location);
+      expect(props.location).toEqual(location);
     });
 
     it('renders a login prompt for the dictionary', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_DICT);
-      assert.include(prompt, 'dictionary');
+      expect(prompt).toContain('dictionary');
     });
 
     it('renders a login prompt for the extension', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_EXTENSION);
-      assert.include(prompt, 'extension');
+      expect(prompt).toContain('extension');
     });
 
     it('renders a login prompt for the language pack', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_LANG);
-      assert.include(prompt, 'language pack');
+      expect(prompt).toContain('language pack');
     });
 
     it('renders a login prompt for the search plugin', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_OPENSEARCH);
-      assert.include(prompt, 'search plugin');
+      expect(prompt).toContain('search plugin');
     });
 
     it('renders a login prompt for themes', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_THEME);
-      assert.include(prompt, 'theme');
+      expect(prompt).toContain('theme');
     });
 
     it('cannot render a login prompt for unknown extension types', () => {
-      assert.throws(
-        () => getAuthPromptForType('xul'), /Unknown extension type: xul/);
+      expect(() => getAuthPromptForType('xul'))
+        .toThrowError(/Unknown extension type: xul/);
     });
 
     it('renders a random valid extension type', () => {
@@ -294,7 +288,7 @@ describe('RatingManager', () => {
         { validAddonTypes: ['banana'] }
       );
       // The prompt should just call it an add-on:
-      assert.include(prompt, 'add-on');
+      expect(prompt).toContain('add-on');
     });
   });
 
@@ -325,9 +319,9 @@ describe('RatingManager', () => {
 
         return actions.submitReview(params)
           .then(() => {
-            assert.equal(dispatch.called, true);
+            expect(dispatch.called).toEqual(true);
             const action = dispatch.firstCall.args[0];
-            assert.deepEqual(action, setReview(fakeReview));
+            expect(action).toEqual(setReview(fakeReview));
             mockApi.verify();
           });
       });
@@ -353,8 +347,8 @@ describe('RatingManager', () => {
         })
           .then(() => {
             mockApi.verify();
-            assert.equal(dispatch.called, true);
-            assert.deepEqual(dispatch.firstCall.args[0], setReview(fakeReview));
+            expect(dispatch.called).toEqual(true);
+            expect(dispatch.firstCall.args[0]).toEqual(setReview(fakeReview));
           });
       });
 
@@ -366,7 +360,7 @@ describe('RatingManager', () => {
           apiState: initialApiState, userId: 123, addonId,
         })
           .then(() => {
-            assert.equal(dispatch.called, false);
+            expect(dispatch.called).toEqual(false);
           });
       });
     });
@@ -399,29 +393,29 @@ describe('RatingManager', () => {
       signIn();
 
       const state = store.getState();
-      assert(state.api.token, 'a valid token exists in state');
+      expect(state.api.token).toBeTruthy();
 
       const props = getMappedProps();
-      assert.deepEqual(props.apiState, state.api);
+      expect(props.apiState).toEqual(state.api);
     });
 
     it('sets an empty apiState when not signed in', () => {
-      assert.deepEqual(getMappedProps().apiState, { ...initialApiState });
+      expect(getMappedProps().apiState).toEqual({ ...initialApiState });
     });
 
     it('sets an empty userId when not signed in', () => {
-      assert.equal(getMappedProps().userId, undefined);
+      expect(getMappedProps().userId).toEqual(undefined);
     });
 
     it('sets the userId property from the state', () => {
       const userId = 91234;
       signIn({ userId });
-      assert.equal(getMappedProps().userId, userId);
+      expect(getMappedProps().userId).toEqual(userId);
     });
 
     it('sets an empty user review when no reviews are in state', () => {
       signIn();
-      assert.strictEqual(getMappedProps().userReview, undefined);
+      expect(getMappedProps().userReview).toBe(undefined);
     });
 
     it('sets a user review to the latest matching one in state', () => {
@@ -432,7 +426,7 @@ describe('RatingManager', () => {
       const dispatchedReview = action.payload;
 
       const userReview = getMappedProps().userReview;
-      assert.deepEqual(userReview, dispatchedReview);
+      expect(userReview).toEqual(dispatchedReview);
     });
 
     it('ignores reviews from other users', () => {
@@ -453,7 +447,7 @@ describe('RatingManager', () => {
         rating: savedRating,
       }));
 
-      assert.strictEqual(getMappedProps().userReview, undefined);
+      expect(getMappedProps().userReview).toBe(undefined);
     });
 
     it('ignores reviews for another add-on', () => {
@@ -464,7 +458,7 @@ describe('RatingManager', () => {
         addonId: 554433, // this is a review for an unrelated add-on
       }));
 
-      assert.strictEqual(getMappedProps().userReview, undefined);
+      expect(getMappedProps().userReview).toBe(undefined);
     });
 
     it('only finds the latest review for an add-on', () => {
@@ -485,7 +479,7 @@ describe('RatingManager', () => {
         is_latest: true,
       });
 
-      assert.deepEqual(getMappedProps().userReview, latestReview);
+      expect(getMappedProps().userReview).toEqual(latestReview);
     });
   });
 });

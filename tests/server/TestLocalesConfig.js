@@ -3,7 +3,6 @@
 import fs from 'fs';
 import path from 'path';
 
-import { assert } from 'chai';
 import config from 'config';
 import glob from 'glob';
 
@@ -16,8 +15,9 @@ describe('Locale Config', () => {
   // eslint-disable-next-line no-restricted-syntax
   for (const lang of langs) {
     // eslint-disable no-loop-func
-    it(`should have a corresponding ${lang} dir in locale`, () =>
-        fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang))));
+    it(`should have a corresponding ${lang} dir in locale`, () => {
+      fs.lstatSync(path.join(basePath, 'locale', langToLocale(lang)));
+    });
   }
 
   // eslint-disable-next-line no-restricted-syntax
@@ -29,7 +29,7 @@ describe('Locale Config', () => {
     }
     // eslint-disable no-loop-func
     it(`should have a corresponding ${lang} entry the locale dir in the config`, () =>
-      assert.include(langs, lang, `Should be a "${lang}" entry in config.langs`));
+      expect(langs).toContain(lang));
   }
 });
 
@@ -39,7 +39,7 @@ describe('Check Locale JS for entities', () => {
     it(`${localeJSFile} should not have html entities`, (done) => {
       fs.readFile(localeJSFile, 'utf8', (err, data) => {
         if (!err) {
-          assert.notOk(/&[^\s]+;/.test(data));
+          expect(/&[^\s]+;/.test(data)).toBeFalsy();
         } else {
           throw new Error(err);
         }

@@ -43,65 +43,65 @@ describe('<InstallSwitch />', () => {
   it('should be disabled if isDisabled status is UNKNOWN', () => {
     const button = renderButton({ status: UNKNOWN });
     const switchEl = button.switchEl;
-    assert.equal(switchEl.props.disabled, true);
+    expect(switchEl.props.disabled).toEqual(true);
   });
 
   it('should reflect DISABLED status', () => {
     const button = renderButton({ status: DISABLED });
     const switchEl = button.switchEl;
-    assert.equal(switchEl.props.disabled, false);
-    assert.include(switchEl.props.label, 'test-addon is disabled');
-    assert.include(switchEl.props.label, 'Click to enable');
+    expect(switchEl.props.disabled).toEqual(false);
+    expect(switchEl.props.label).toContain('test-addon is disabled');
+    expect(switchEl.props.label).toContain('Click to enable');
   });
 
   it('should reflect UNINSTALLED status', () => {
     const button = renderButton({ status: UNINSTALLED });
     const switchEl = button.switchEl;
-    assert.equal(switchEl.props.disabled, false);
-    assert.include(switchEl.props.label, 'test-addon is uninstalled');
-    assert.include(switchEl.props.label, 'Click to install');
+    expect(switchEl.props.disabled).toEqual(false);
+    expect(switchEl.props.label).toContain('test-addon is uninstalled');
+    expect(switchEl.props.label).toContain('Click to install');
   });
 
   it('should reflect INSTALLED status', () => {
     const button = renderButton({ status: INSTALLED });
     const switchEl = button.switchEl;
-    assert.equal(switchEl.props.checked, true);
-    assert.equal(switchEl.props.success, true);
+    expect(switchEl.props.checked).toEqual(true);
+    expect(switchEl.props.success).toEqual(true);
   });
 
   it('should reflect ENABLED status', () => {
     const button = renderButton({ status: ENABLED });
     const switchEl = button.switchEl;
-    assert.equal(switchEl.props.checked, true);
-    assert.include(switchEl.props.label, 'test-addon is installed and enabled');
-    assert.include(switchEl.props.label, 'Click to uninstall');
-    assert.equal(switchEl.props.success, true);
+    expect(switchEl.props.checked).toEqual(true);
+    expect(switchEl.props.label).toContain('test-addon is installed and enabled');
+    expect(switchEl.props.label).toContain('Click to uninstall');
+    expect(switchEl.props.success).toEqual(true);
   });
 
   it('should reflect download downloadProgress', () => {
     const button = renderButton({ status: DOWNLOADING, downloadProgress: 50 });
     const switchEl = button.switchEl;
-    assert.equal(switchEl.props.progress, 50);
-    assert.include(switchEl.props.label, 'Downloading test-addon');
+    expect(switchEl.props.progress).toEqual(50);
+    expect(switchEl.props.label).toContain('Downloading test-addon');
   });
 
   it('should reflect installation', () => {
     const button = renderButton({ status: INSTALLING });
     const switchEl = button.switchEl;
-    assert.equal(switchEl.props.checked, true);
-    assert.include(switchEl.props.label, 'Installing test-addon');
+    expect(switchEl.props.checked).toEqual(true);
+    expect(switchEl.props.label).toContain('Installing test-addon');
   });
 
   it('should reflect ENABLING status', () => {
     const button = renderButton({ status: ENABLING });
     const switchEl = button.switchEl;
-    assert.equal(switchEl.props.checked, true);
+    expect(switchEl.props.checked).toEqual(true);
   });
 
   it('should reflect uninstallation', () => {
     const button = renderButton({ status: UNINSTALLING });
     const switchEl = button.switchEl;
-    assert.include(switchEl.props.label, 'Uninstalling test-addon');
+    expect(switchEl.props.label).toContain('Uninstalling test-addon');
   });
 
   it('should not call anything on click when neither installed or uninstalled', () => {
@@ -110,23 +110,21 @@ describe('<InstallSwitch />', () => {
     const button = renderButton({ status: DOWNLOADING, install, uninstall });
     const root = findDOMNode(button);
     Simulate.click(root);
-    assert.ok(!install.called);
-    assert.ok(!uninstall.called);
+    expect(!install.called).toBeTruthy();
+    expect(!uninstall.called).toBeTruthy();
   });
 
   it('should associate the label and input with id and for attributes', () => {
     const button = renderButton({ status: UNINSTALLED, slug: 'foo' });
     const root = findDOMNode(button);
-    assert.equal(root.querySelector('input').getAttribute('id'),
-                'install-button-foo', 'id is set');
-    assert.equal(root.querySelector('label').getAttribute('for'),
-                'install-button-foo', 'for attribute matches id');
+    expect(root.querySelector('input').getAttribute('id')).toEqual('install-button-foo');
+    expect(root.querySelector('label').getAttribute('for')).toEqual('install-button-foo');
   });
 
   it('should throw on bogus status', () => {
-    assert.throws(() => {
+    expect(() => {
       renderButton({ status: 'BOGUS' });
-    }, Error, 'Invalid add-on status');
+    }).toThrowError('Invalid add-on status');
   });
 
   it('should not throw for ENABLING', () => {
@@ -152,9 +150,9 @@ describe('<InstallSwitch />', () => {
     });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
-    assert.ok(installTheme.calledOnce, installTheme.callCount);
+    expect(installTheme.calledOnce).toBeTruthy();
     const themeDataEl = installTheme.args[0][0];
-    assert.equal(themeDataEl.getAttribute('data-browsertheme'), JSON.stringify(browsertheme));
+    expect(themeDataEl.getAttribute('data-browsertheme')).toEqual(JSON.stringify(browsertheme));
   });
 
   it('should call install function on click when uninstalled', () => {
@@ -166,7 +164,7 @@ describe('<InstallSwitch />', () => {
     const button = renderButton({ guid, i18n, install, installURL, name, status: UNINSTALLED });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
-    assert(install.calledWith());
+    expect(install.calledWith()).toBeTruthy();
   });
 
   it('should call enable function on click when uninstalled', () => {
@@ -178,7 +176,7 @@ describe('<InstallSwitch />', () => {
     const button = renderButton({ guid, i18n, enable, installURL, name, status: DISABLED });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
-    assert(enable.calledWith());
+    expect(enable.calledWith()).toBeTruthy();
   });
 
   it('should call uninstall function on click when installed', () => {
@@ -190,7 +188,7 @@ describe('<InstallSwitch />', () => {
     const button = renderButton({ guid, installURL, name, status: INSTALLED, type, uninstall });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
-    assert(uninstall.calledWith({ guid, installURL, name, type }));
+    expect(uninstall.calledWith({ guid, installURL, name, type })).toBeTruthy();
   });
 
   it('returns early when button is clicked on disabled switch', () => {
@@ -217,9 +215,9 @@ describe('<InstallSwitch />', () => {
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
 
-    assert(enable.notCalled);
-    assert(install.notCalled);
-    assert(installTheme.notCalled);
-    assert(uninstall.notCalled);
+    expect(enable.notCalled).toBeTruthy();
+    expect(install.notCalled).toBeTruthy();
+    expect(installTheme.notCalled).toBeTruthy();
+    expect(uninstall.notCalled).toBeTruthy();
   });
 });

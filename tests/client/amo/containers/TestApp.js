@@ -94,8 +94,8 @@ describe('App', () => {
     }
     const root = render({ children: [<MyComponent key="key" />] });
     const rootNode = findDOMNode(root);
-    assert.equal(rootNode.tagName.toLowerCase(), 'div');
-    assert.equal(rootNode.querySelector('p').textContent, 'The component');
+    expect(rootNode.tagName.toLowerCase()).toEqual('div');
+    expect(rootNode.querySelector('p').textContent).toEqual('The component');
   });
 
   it('sets the mamo cookie to "off"', () => {
@@ -113,23 +113,23 @@ describe('App', () => {
 
     const root = render();
     root.onViewDesktop(fakeEvent, { _window: fakeWindow, _cookie: fakeCookieLib });
-    assert.ok(fakeEvent.preventDefault.called);
-    assert.ok(fakeCookieLib.save.calledWith('mamo', 'off'));
-    assert.ok(fakeWindow.location.reload.called);
+    expect(fakeEvent.preventDefault.called).toBeTruthy();
+    expect(fakeCookieLib.save.calledWith('mamo', 'off')).toBeTruthy();
+    expect(fakeWindow.location.reload.called).toBeTruthy();
   });
 
   it('sets isHomePage to true when on the root path', () => {
     const location = { pathname: '/en-GB/android/' };
     const root = render({ clientApp: 'android', lang: 'en-GB', location });
 
-    assert.isTrue(root.mastHead.props.isHomePage);
+    expect(root.mastHead.props.isHomePage).toBe(true);
   });
 
   it('sets isHomePage to true when on the root path without a slash', () => {
     const location = { pathname: '/en-GB/android' };
     const root = render({ clientApp: 'android', lang: 'en-GB', location });
 
-    assert.isTrue(root.mastHead.props.isHomePage);
+    expect(root.mastHead.props.isHomePage).toBe(true);
   });
 
   it('sets isHomePage to false when not on the root path', () => {
@@ -137,7 +137,7 @@ describe('App', () => {
     const root = render({
       clientApp: 'android', lang: 'en-GB', location });
 
-    assert.isFalse(root.mastHead.props.isHomePage);
+    expect(root.mastHead.props.isHomePage).toBe(false);
   });
 
   it('sets up a callback for setting add-on status', () => {
@@ -145,7 +145,7 @@ describe('App', () => {
     const { handleGlobalEvent } = mapDispatchToProps(dispatch);
     const payload = { guid: '@my-addon', status: 'some-status' };
     handleGlobalEvent(payload);
-    assert.ok(dispatch.calledWith({ type: INSTALL_STATE, payload }));
+    expect(dispatch.calledWith({ type: INSTALL_STATE, payload })).toBeTruthy();
   });
 
   it('sets up a callback for setting the userAgentInfo', () => {
@@ -154,28 +154,28 @@ describe('App', () => {
     const userAgent = 'tofubrowser';
 
     setUserAgent(userAgent);
-    assert.ok(dispatch.calledWith(setUserAgentAction(userAgent)));
+    expect(dispatch.calledWith(setUserAgentAction(userAgent))).toBeTruthy();
   });
 
   it('sets the clientApp as props', () => {
     const { store } = createStore();
     store.dispatch(setClientApp('android'));
     const { clientApp } = mapStateToProps(store.getState());
-    assert.equal(clientApp, 'android');
+    expect(clientApp).toEqual('android');
   });
 
   it('sets the lang as props', () => {
     const { store } = createStore();
     store.dispatch(setLang('de'));
     const { lang } = mapStateToProps(store.getState());
-    assert.equal(lang, 'de');
+    expect(lang).toEqual('de');
   });
 
   it('sets the userAgent as props', () => {
     const { store } = createStore();
     store.dispatch(setUserAgentAction('tofubrowser'));
     const { userAgent } = mapStateToProps(store.getState());
-    assert.equal(userAgent, 'tofubrowser');
+    expect(userAgent).toEqual('tofubrowser');
   });
 
   it('uses navigator.userAgent if userAgent prop is empty', () => {
@@ -183,7 +183,7 @@ describe('App', () => {
     const _navigator = { userAgent: 'Firefox 10000000.0' };
     render({ _navigator, setUserAgent, userAgent: '' });
 
-    assert.equal(setUserAgent.firstCall.args[0], _navigator.userAgent);
+    expect(setUserAgent.firstCall.args[0]).toEqual(_navigator.userAgent);
   });
 
   it('renders an error component on error', () => {
@@ -204,7 +204,7 @@ describe('App', () => {
     });
     const rootNode = findDOMNode(root);
 
-    assert.include(rootNode.textContent, 'Page not found');
+    expect(rootNode.textContent).toContain('Page not found');
   });
 
   describe('handling expired auth tokens', () => {
@@ -235,7 +235,7 @@ describe('App', () => {
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
-      assert.ok(logOutUser.called, 'expected logOutUser() to be called');
+      expect(logOutUser.called).toBeTruthy();
     });
 
     it('only sets one timer when receiving new props', () => {
@@ -249,9 +249,8 @@ describe('App', () => {
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
-      assert.ok(logOutUser.called, 'expected logOutUser() to be called');
-      assert.ok(logOutUser.calledOnce,
-        'logOutUser() should only be called once');
+      expect(logOutUser.called).toBeTruthy();
+      expect(logOutUser.calledOnce).toBeTruthy();
     });
 
     it('does not log out until the token expires', () => {
@@ -261,8 +260,7 @@ describe('App', () => {
       renderAppWithAuth({ authTokenValidFor, logOutUser });
 
       clock.tick(5 * 1000); // 5 seconds
-      assert.notOk(logOutUser.called,
-        'expected logOutUser() NOT to be called');
+      expect(logOutUser.called).toBeFalsy();
     });
 
     it('only starts a timer when authTokenValidFor is configured', () => {
@@ -271,8 +269,7 @@ describe('App', () => {
       renderAppWithAuth({ authTokenValidFor: null, logOutUser });
 
       clock.tick(100 * 1000);
-      assert.notOk(logOutUser.called,
-        'expected logOutUser() NOT to be called');
+      expect(logOutUser.called).toBeFalsy();
     });
 
     it('ignores malformed timestamps', () => {
@@ -285,8 +282,7 @@ describe('App', () => {
       render({ authToken, authTokenValidFor, logOutUser });
 
       clock.tick(authTokenValidFor * 1000);
-      assert.notOk(logOutUser.called,
-        'expected logOutUser() NOT to be called');
+      expect(logOutUser.called).toBeFalsy();
     });
 
     it('ignores empty timestamps', () => {
@@ -297,8 +293,7 @@ describe('App', () => {
       render({ authToken, authTokenValidFor, logOutUser });
 
       clock.tick(authTokenValidFor * 1000);
-      assert.notOk(logOutUser.called,
-        'expected logOutUser() NOT to be called');
+      expect(logOutUser.called).toBeFalsy();
     });
 
     it('ignores malformed tokens', () => {
@@ -309,8 +304,7 @@ describe('App', () => {
       render({ authToken, authTokenValidFor, logOutUser });
 
       clock.tick(authTokenValidFor * 1000);
-      assert.notOk(logOutUser.called,
-        'expected logOutUser() NOT to be called');
+      expect(logOutUser.called).toBeFalsy();
     });
 
     it('does not set a timeout for expirations too far in the future', () => {
@@ -321,15 +315,14 @@ describe('App', () => {
 
       const fuzz = 3; // account for the rounded offset calculation.
       clock.tick((authTokenValidFor + fuzz) * 1000);
-      assert.notOk(logOutUser.called,
-        'expected logOutUser() NOT to be called');
+      expect(logOutUser.called).toBeFalsy();
     });
 
     it('maps a logOutUser action', () => {
       const dispatch = sinon.stub();
       const { logOutUser } = mapDispatchToProps(dispatch);
       logOutUser();
-      assert.deepEqual(dispatch.firstCall.args[0], logOutUserAction());
+      expect(dispatch.firstCall.args[0]).toEqual(logOutUserAction());
     });
   });
 });

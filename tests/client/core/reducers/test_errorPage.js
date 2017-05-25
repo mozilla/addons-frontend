@@ -18,22 +18,22 @@ describe('errorPage reducer', () => {
 
   it('defaults to no error and nothing to clear', () => {
     const state = errorPage(initialState, { type: 'unrelated' });
-    assert.deepEqual(state, initialState);
+    expect(state).toEqual(initialState);
   });
 
   describe('REDUX_CONNECT_END_GLOBAL_LOAD', () => {
     it('sets clearOnNext then clears it next time', () => {
       store.dispatch({ type: 'unrelated', payload: {} });
       let state = getErrorPageState(store);
-      assert.equal(state.clearOnNext, false);
+      expect(state.clearOnNext).toEqual(false);
 
       store.dispatch(endGlobalLoad());
       state = getErrorPageState(store);
-      assert.equal(state.clearOnNext, true);
+      expect(state.clearOnNext).toEqual(true);
 
       store.dispatch(endGlobalLoad());
       state = getErrorPageState(store);
-      assert.deepEqual(state.statusCode, initialState.statusCode);
+      expect(state.statusCode).toEqual(initialState.statusCode);
     });
   });
 
@@ -41,7 +41,7 @@ describe('errorPage reducer', () => {
     it('sets an error on load fail; is cleared after the next request', () => {
       store.dispatch({ type: 'unrelated', payload: {} });
       let state = getErrorPageState(store);
-      assert.equal(state.error, null);
+      expect(state.error).toEqual(null);
 
       const error = createApiError({
         apiURL: 'http://test.com',
@@ -50,20 +50,20 @@ describe('errorPage reducer', () => {
       store.dispatch(loadFail('ReduxKey', error));
       state = getErrorPageState(store);
 
-      assert.equal(state.hasError, true);
-      assert.equal(state.statusCode, error.response.status);
-      assert.deepEqual(state.error, error);
+      expect(state.hasError).toEqual(true);
+      expect(state.statusCode).toEqual(error.response.status);
+      expect(state.error).toEqual(error);
 
       store.dispatch(endGlobalLoad());
       state = getErrorPageState(store);
 
-      assert.equal(state.clearOnNext, true);
+      expect(state.clearOnNext).toEqual(true);
 
       store.dispatch(endGlobalLoad());
       state = getErrorPageState(store);
 
-      assert.equal(state.clearOnNext, false);
-      assert.equal(state.hasError, false);
+      expect(state.clearOnNext).toEqual(false);
+      expect(state.hasError).toEqual(false);
     });
 
     it('sets a 500 statusCode when no response is present', () => {
@@ -74,8 +74,8 @@ describe('errorPage reducer', () => {
       store.dispatch(loadFail('ReduxKey', error));
       state = getErrorPageState(store);
 
-      assert.equal(state.hasError, true);
-      assert.equal(state.statusCode, 500);
+      expect(state.hasError).toEqual(true);
+      expect(state.statusCode).toEqual(500);
     });
   });
 });

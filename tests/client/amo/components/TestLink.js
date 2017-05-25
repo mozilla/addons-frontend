@@ -19,88 +19,66 @@ describe('<Link />', () => {
   it('uses clientApp and lang from API state', () => {
     const props = mapStateToProps(defaultState);
 
-    assert(props.base, '/fr/android');
+    expect(props.base).toBeTruthy();
   });
 
   it('accepts an empty base', () => {
     const root = render({ to: 'test' });
 
-    assert.equal(
-      findRenderedComponentWithType(root, Link).props.to, 'test');
+    expect(findRenderedComponentWithType(root, Link).props.to).toEqual('test');
   });
 
   it('allows overrides to base', () => {
     const root = render({ base: '/en-US', to: '/categories' });
 
-    assert.equal(
-      findRenderedComponentWithType(root, Link).props.to, '/en-US/categories');
+    expect(findRenderedComponentWithType(root, Link).props.to).toEqual('/en-US/categories');
   });
 
   it('passes an object through as a to param', () => {
     const root = render({ base: '/en-US', to: { pathname: '/categories' } });
 
-    assert.deepEqual(
-      findRenderedComponentWithType(root, Link).props.to,
-      { pathname: '/en-US/categories' }
-    );
+    expect(findRenderedComponentWithType(root, Link).props.to).toEqual({ pathname: '/en-US/categories' });
   });
 
   it('passes other `to` types through to link', () => {
     const root = render({ base: null, to: null });
 
-    assert.equal(findRenderedComponentWithType(root, Link).props.to, null);
+    expect(findRenderedComponentWithType(root, Link).props.to).toEqual(null);
   });
 
   it('passes `to` without leading slash without base', () => {
     const root = render({ base: '/base/', to: 'test' });
 
-    assert.equal(findRenderedComponentWithType(root, Link).props.to, 'test');
+    expect(findRenderedComponentWithType(root, Link).props.to).toEqual('test');
   });
 
   it('passes `to.pathname` without leading slash without base', () => {
     const root = render({ base: '/base/', to: { pathname: 'test' } });
 
-    assert.deepEqual(
-      findRenderedComponentWithType(root, Link).props.to,
-      { pathname: 'test' }
-    );
+    expect(findRenderedComponentWithType(root, Link).props.to).toEqual({ pathname: 'test' });
   });
 
   it('normalizes the path with a string', () => {
     const root = render({ base: '/foo/', to: '/test' });
 
-    assert.equal(
-      findRenderedComponentWithType(root, Link).props.to, '/foo/test');
+    expect(findRenderedComponentWithType(root, Link).props.to).toEqual('/foo/test');
   });
 
   it('normalizes the path with an object', () => {
     const root = render({ base: '/foo', to: { pathname: 'test' } });
 
-    assert.deepEqual(
-      findRenderedComponentWithType(root, Link).props.to,
-      { pathname: 'test' }
-    );
-  });
-
-  it('normalizes the path with an object', () => {
-    const root = render({ base: '/foo', to: { pathname: 'test' } });
-
-    assert.deepEqual(
-      findRenderedComponentWithType(root, Link).props.to,
-      { pathname: 'test' }
-    );
+    expect(findRenderedComponentWithType(root, Link).props.to).toEqual({ pathname: 'test' });
   });
 
   it('renders children when `to` is used', () => {
     const root = render({ base: '/foo/', children: 'hello', to: '/test' });
 
-    assert.equal(findDOMNode(root).textContent, 'hello');
+    expect(findDOMNode(root).textContent).toEqual('hello');
   });
 
-  it('does add base prop to Link component', () => {
+  it('does not pass base prop through to Link component', () => {
     const root = render({ base: '/foo/', children: 'bonjour', to: '/test' });
-
-    assert.equal(findRenderedComponentWithType(root, Link).props.base, null);
+    expect(findRenderedComponentWithType(root, Link).props.base).toEqual(undefined);
   });
 
   it('ignores `href` if not a string type', () => {
@@ -108,37 +86,37 @@ describe('<Link />', () => {
 
     // If no href attribute is supplied the component will render a Link
     // component instead of an <a> tag.
-    assert.ok(findRenderedComponentWithType(root, Link));
+    expect(findRenderedComponentWithType(root, Link)).toBeTruthy();
   });
 
   it('does not prepend base to `href` with no leading slash', () => {
     const root = render({ base: '/base/', href: 'test' });
 
-    assert.notInclude(findDOMNode(root, 'a').href, '/base/');
-    assert.include(findDOMNode(root, 'a').href, 'test');
+    expect(findDOMNode(root, 'a').href).not.toContain('/base/');
+    expect(findDOMNode(root, 'a').href).toContain('test');
   });
 
   it('normalizes the `href` path with a string', () => {
     const root = render({ base: '/foo/', href: '/test' });
 
-    assert.include(findDOMNode(root, 'a').href, '/foo/test');
+    expect(findDOMNode(root, 'a').href).toContain('/foo/test');
   });
 
   it('renders children when `href` is used', () => {
     const root = render({ base: '/foo/', children: 'bonjour', href: '/test' });
 
-    assert.equal(findDOMNode(root).textContent, 'bonjour');
+    expect(findDOMNode(root).textContent).toEqual('bonjour');
   });
 
   it('does not add base prop to <a> tag', () => {
     const root = render({ base: '/foo/', children: 'bonjour', href: '/test' });
 
-    assert.equal(findDOMNode(root).attributes.getNamedItem('base'), null);
+    expect(findDOMNode(root).attributes.getNamedItem('base')).toEqual(null);
   });
 
   it('throws an error if both `href` and `to` are supplied', () => {
-    assert.throws(() => {
+    expect(() => {
       render({ href: '/test', to: '/test' });
-    }, 'Cannot use "href" prop and "to" prop in the same Link component');
+    }).toThrowError('Cannot use "href" prop and "to" prop in the same Link component');
   });
 });

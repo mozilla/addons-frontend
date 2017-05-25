@@ -27,9 +27,9 @@ describe('<SuggestedPages />', () => {
   it('renders Suggested Pages', () => {
     const rootNode = render();
 
-    assert.include(rootNode.textContent, 'Suggested Pages');
-    assert.include(rootNode.textContent, 'Browse all extensions');
+    expect(rootNode.textContent).toContain('Suggested Pages');
+    expect(rootNode.textContent).toContain('Browse all extensions');
     // There should be three links on the page.
-    assert.lengthOf(rootNode.querySelectorAll('a'), 3);
+    expect(rootNode.querySelectorAll('a').length).toBe(3);
   });
 });

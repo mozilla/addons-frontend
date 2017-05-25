@@ -57,11 +57,8 @@ describe('<Addon />', () => {
       const data = { ...result, status: ERROR, setCurrentStatus: sinon.stub() };
       const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
-      assert.equal(
-        error.querySelector('p').textContent,
-        'An unexpected error occurred.',
-        'error message should be present');
-      assert.equal(error.querySelector('.close'), null);
+      expect(error.querySelector('p').textContent).toEqual('An unexpected error occurred.');
+      expect(error.querySelector('.close')).toEqual(null);
     });
 
     it('renders a default error overlay with no close link for FATAL_ERROR', () => {
@@ -73,11 +70,8 @@ describe('<Addon />', () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
-      assert.equal(
-        error.querySelector('p').textContent,
-        'An unexpected error occurred.',
-        'error message should be present');
-      assert.equal(error.querySelector('.close'), null);
+      expect(error.querySelector('p').textContent).toEqual('An unexpected error occurred.');
+      expect(error.querySelector('.close')).toEqual(null);
     });
 
     it('renders a specific overlay with no close link for FATAL_INSTALL_ERROR', () => {
@@ -89,11 +83,8 @@ describe('<Addon />', () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
-      assert.equal(
-        error.querySelector('p').textContent,
-        'An unexpected error occurred during installation.',
-        'error message should be present');
-      assert.equal(error.querySelector('.close'), null);
+      expect(error.querySelector('p').textContent).toEqual('An unexpected error occurred during installation.');
+      expect(error.querySelector('.close')).toEqual(null);
     });
 
     it('renders a specific overlay with no close link for FATAL_UNINSTALL_ERROR', () => {
@@ -105,11 +96,8 @@ describe('<Addon />', () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
-      assert.equal(
-        error.querySelector('p').textContent,
-        'An unexpected error occurred during uninstallation.',
-        'error message should be present');
-      assert.equal(error.querySelector('.close'), null);
+      expect(error.querySelector('p').textContent).toEqual('An unexpected error occurred during uninstallation.');
+      expect(error.querySelector('.close')).toEqual(null);
     });
 
     it('renders an install error overlay', () => {
@@ -118,12 +106,9 @@ describe('<Addon />', () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
-      assert.equal(
-        error.querySelector('p').textContent,
-        'Installation failed. Please try again.',
-        'error message should be present');
+      expect(error.querySelector('p').textContent).toEqual('Installation failed. Please try again.');
       Simulate.click(error.querySelector('.close'));
-      assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
+      expect(data.setCurrentStatus.called).toBeTruthy();
     });
 
     it('renders an error overlay', () => {
@@ -132,52 +117,43 @@ describe('<Addon />', () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const error = findDOMNode(root).querySelector('.notification.error');
-      assert.equal(
-        error.querySelector('p').textContent,
-        'Download failed. Please check your connection.',
-        'error message should be present');
+      expect(error.querySelector('p').textContent).toEqual('Download failed. Please check your connection.');
       Simulate.click(error.querySelector('.close'));
-      assert.ok(data.setCurrentStatus.called, 'setCurrentStatus should be called');
+      expect(data.setCurrentStatus.called).toBeTruthy();
     });
 
     it('does not normally render an error', () => {
       const root = renderAddon({ addon: result, ...result });
-      assert.notOk(findDOMNode(root).querySelector('.notification.error'));
+      expect(findDOMNode(root).querySelector('.notification.error')).toBeFalsy();
     });
 
     it('renders a default restart notification', () => {
       const data = { ...result, needsRestart: true };
       const root = renderAddon({ addon: data, ...data });
       const restart = findDOMNode(root).querySelector('.notification.restart');
-      assert.equal(
-        restart.querySelector('p').textContent,
-        'Please restart Firefox to use this add-on.',
-        'restart message should be present');
+      expect(restart.querySelector('p').textContent).toEqual('Please restart Firefox to use this add-on.');
     });
 
     it('renders a uninstallation restart notification', () => {
       const data = { ...result, needsRestart: true, status: UNINSTALLING };
       const root = renderAddon({ addon: data, ...data });
       const restart = findDOMNode(root).querySelector('.notification.restart');
-      assert.equal(
-        restart.querySelector('p').textContent,
-        'This add-on will be uninstalled after you restart Firefox.',
-        'restart uninstallation message should be present');
+      expect(restart.querySelector('p').textContent).toEqual('This add-on will be uninstalled after you restart Firefox.');
     });
 
     it('does not normally render a restart notification', () => {
       const root = renderAddon({ addon: result, ...result });
-      assert.notOk(findDOMNode(root).querySelector('.notification.restart'));
+      expect(findDOMNode(root).querySelector('.notification.restart')).toBeFalsy();
     });
 
     it('renders the heading', () => {
       const root = renderAddon({ addon: result, ...result });
-      assert.include(root.heading.textContent, 'test-heading');
+      expect(root.heading.textContent).toContain('test-heading');
     });
 
     it('renders the editorial description', () => {
       const root = renderAddon({ addon: result, ...result });
-      assert.equal(root.editorialDescription.textContent, 'test-editorial-description');
+      expect(root.editorialDescription.textContent).toEqual('test-editorial-description');
     });
 
     it('purifies the heading', () => {
@@ -186,7 +162,7 @@ describe('<Addon />', () => {
         heading: '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
       };
       const root = renderAddon({ addon: data, ...data });
-      assert.include(root.heading.innerHTML, 'Hey! This is <span>an add-on</span>');
+      expect(root.heading.innerHTML).toContain('Hey! This is <span>an add-on</span>');
     });
 
     it('purifies the heading with a link and adds link attrs', () => {
@@ -196,8 +172,8 @@ describe('<Addon />', () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const link = root.heading.querySelector('a');
-      assert.equal(link.getAttribute('rel'), 'noopener noreferrer');
-      assert.equal(link.getAttribute('target'), '_blank');
+      expect(link.getAttribute('rel')).toEqual('noopener noreferrer');
+      expect(link.getAttribute('target')).toEqual('_blank');
     });
 
     it('purifies the heading with a bad link', () => {
@@ -207,7 +183,7 @@ describe('<Addon />', () => {
       };
       const root = renderAddon({ addon: data, ...data });
       const link = root.heading.querySelector('a');
-      assert.equal(link.getAttribute('href'), null);
+      expect(link.getAttribute('href')).toEqual(null);
     });
 
     it('purifies the editorial description', () => {
@@ -217,28 +193,28 @@ describe('<Addon />', () => {
                      '<i>Reviewed by <cite>a person</cite></i>',
       };
       const root = renderAddon({ addon: data, ...data });
-      assert.equal(
-        root.editorialDescription.innerHTML,
-        '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>');
+      expect(root.editorialDescription.innerHTML).toEqual(
+        '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>'
+      );
     });
 
     it('does render a logo for an extension', () => {
       const root = renderAddon({ addon: result, ...result });
-      assert.ok(findDOMNode(root).querySelector('.logo'));
+      expect(findDOMNode(root).querySelector('.logo')).toBeTruthy();
     });
 
     it("doesn't render a theme image for an extension", () => {
       const root = renderAddon({ addon: result, ...result });
-      assert.equal(findDOMNode(root).querySelector('.theme-image'), null);
+      expect(findDOMNode(root).querySelector('.theme-image')).toEqual(null);
     });
 
     it('throws on invalid add-on type', () => {
       const root = renderAddon({ addon: result, ...result });
-      assert.include(root.heading.textContent, 'test-heading');
+      expect(root.heading.textContent).toContain('test-heading');
       const data = { ...result, type: 'Whatever' };
-      assert.throws(() => {
+      expect(() => {
         renderAddon({ addon: data, ...data });
-      }, Error, 'Invalid addon type');
+      }).toThrowError('Invalid addon type');
     });
 
     it('tracks an add-on link click', () => {
@@ -257,11 +233,11 @@ describe('<Addon />', () => {
       // We click the heading providing the link nodeName to emulate
       // bubbling.
       Simulate.click(heading, { target: { nodeName: 'A' } });
-      assert.ok(fakeTracking.sendEvent.calledWith({
+      expect(fakeTracking.sendEvent.calledWith({
         action: TRACKING_TYPE_EXTENSION,
         category: CLICK_CATEGORY,
         label: 'foo',
-      }), sinon.format(fakeTracking.sendEvent.firstCall.args));
+      })).toBeTruthy();
     });
   });
 
@@ -275,11 +251,11 @@ describe('<Addon />', () => {
     });
 
     it('does render the theme image for a theme', () => {
-      assert.ok(findDOMNode(root).querySelector('.theme-image'));
+      expect(findDOMNode(root).querySelector('.theme-image')).toBeTruthy();
     });
 
     it("doesn't render the logo for a theme", () => {
-      assert.notOk(findDOMNode(root).querySelector('.logo'));
+      expect(findDOMNode(root).querySelector('.logo')).toBeFalsy();
     });
   });
 
@@ -306,23 +282,23 @@ describe('<Addon />', () => {
     it('runs theme preview onHoverIntent on theme image', () => {
       const hoverIntent = findRenderedComponentWithType(root, HoverIntent);
       hoverIntent.props.onHoverIntent({ currentTarget: themeImage });
-      assert.ok(previewTheme.calledWith(themeImage));
+      expect(previewTheme.calledWith(themeImage)).toBeTruthy();
     });
 
     it('resets theme preview onHoverIntentEnd on theme image', () => {
       const hoverIntent = findRenderedComponentWithType(root, HoverIntent);
       hoverIntent.props.onHoverIntentEnd({ currentTarget: themeImage });
-      assert.ok(resetThemePreview.calledWith(themeImage));
+      expect(resetThemePreview.calledWith(themeImage)).toBeTruthy();
     });
 
     it('runs theme preview onFocus on theme image', () => {
       Simulate.focus(themeImage);
-      assert.ok(previewTheme.calledWith(themeImage));
+      expect(previewTheme.calledWith(themeImage)).toBeTruthy();
     });
 
     it('resets theme preview onBlur on theme image', () => {
       Simulate.blur(themeImage);
-      assert.ok(resetThemePreview.calledWith(themeImage));
+      expect(resetThemePreview.calledWith(themeImage)).toBeTruthy();
     });
 
     it('calls installTheme on click', () => {
@@ -338,8 +314,8 @@ describe('<Addon />', () => {
       themeImage = findDOMNode(root).querySelector('.theme-image');
       const preventDefault = sinon.spy();
       Simulate.click(themeImage, { preventDefault });
-      assert.ok(preventDefault.called);
-      assert.ok(installTheme.calledWith(themeImage, data.addon));
+      expect(preventDefault.called).toBeTruthy();
+      expect(installTheme.calledWith(themeImage, data.addon)).toBeTruthy();
     });
   });
 
@@ -353,7 +329,7 @@ describe('<Addon />', () => {
         installations: { foo: { some: 'data' }, 'foo@addon': addon },
         addons: { 'foo@addon': { addonProp: 'addonValue' } },
       }, { guid: 'foo@addon' });
-      assert.deepEqual(props, {
+      expect(props).toEqual({
         addon: {
           addonProp: 'addonValue',
         },
@@ -368,7 +344,7 @@ describe('<Addon />', () => {
         installations: {},
         addons: {},
       }, { guid: 'nope@addon' });
-      assert.deepEqual(props, { addon: {} });
+      expect(props).toEqual({ addon: {} });
     });
   });
 });

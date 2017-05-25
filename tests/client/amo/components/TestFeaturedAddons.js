@@ -30,10 +30,7 @@ describe('<FeaturedAddons />', () => {
       featuredActions.getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
-    assert.include(
-      root.props.children[0].props.children,
-      'More Featured Extensions'
-    );
+    expect(root.props.children[0].props.children).toContain('More Featured Extensions');
   });
 
   it('renders a FeaturedAddons page with themes HTML', () => {
@@ -41,10 +38,7 @@ describe('<FeaturedAddons />', () => {
       featuredActions.getFeatured({ addonType: ADDON_TYPE_THEME }));
     const root = render(mapStateToProps(store.getState()));
 
-    assert.include(
-      root.props.children[0].props.children,
-      'More Featured Themes'
-    );
+    expect(root.props.children[0].props.children).toContain('More Featured Themes');
   });
 
   it('renders each add-on when set', () => {
@@ -64,15 +58,12 @@ describe('<FeaturedAddons />', () => {
     }));
     const root = render(mapStateToProps(store.getState()));
 
-    assert.deepEqual(
-      root.props.children[1].props.results.map((result) => result.name),
-      ['Howdy', 'Howdy again']
-    );
+    expect(root.props.children[1].props.results.map((result) => result.name)).toEqual(['Howdy', 'Howdy again']);
   });
 
   it('throws if add-on type is not supported', () => {
-    assert.throws(() => {
+    expect(() => {
       render({ addonType: 'XUL' });
-    }, 'Invalid addonType: "XUL"');
+    }).toThrowError('Invalid addonType: "XUL"');
   });
 });

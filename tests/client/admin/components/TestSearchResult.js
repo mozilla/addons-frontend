@@ -16,36 +16,36 @@ describe('<AdminSearchResult />', () => {
   const root = renderIntoDocument(<AdminSearchResult addon={result} />);
 
   it('renders the name', () => {
-    assert.equal(root.name.props.children, 'A search result');
+    expect(root.name.props.children).toEqual('A search result');
   });
 
   it('renders the type', () => {
-    assert.equal(root.type.textContent, 'Extension');
+    expect(root.type.textContent).toEqual('Extension');
   });
 
   it('renders the status', () => {
-    assert.equal(root.status.textContent, 'Fully Reviewed');
+    expect(root.status.textContent).toEqual('Fully Reviewed');
   });
 
   it('renders the number of files', () => {
-    assert.equal(root.fileCount.textContent, '2 files');
+    expect(root.fileCount.textContent).toEqual('2 files');
   });
 
   it('outputs zero if no files exist', () => {
     const thisResult = { ...result, current_version: { } };
     const thisRoot = renderIntoDocument(
       <AdminSearchResult addon={thisResult} />);
-    assert.equal(thisRoot.fileCount.textContent, '0 files');
+    expect(thisRoot.fileCount.textContent).toEqual('0 files');
   });
 
   it('links to the detail page', () => {
-    assert.equal(root.name.props.to, '/search/addons/a-search-result');
+    expect(root.name.props.to).toEqual('/search/addons/a-search-result');
   });
 
   it('renders the number of files singularly', () => {
     const thisResult = { ...result, current_version: { files: [{}] } };
     const thisRoot = renderIntoDocument(
       <AdminSearchResult addon={thisResult} />);
-    assert.equal(thisRoot.fileCount.textContent, '1 file');
+    expect(thisRoot.fileCount.textContent).toEqual('1 file');
   });
 });

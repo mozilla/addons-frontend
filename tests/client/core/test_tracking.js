@@ -31,7 +31,7 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    assert.ok(tracking._log.info.calledWith(sinon.match(/OFF/), 'Tracking init'));
+    expect(tracking._log.info.calledWith(sinon.match(/OFF/), 'Tracking init')).toBeTruthy();
   });
 
   it('should log OFF when not enabled due to missing id', () => {
@@ -42,7 +42,9 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    assert.ok(tracking._log.info.secondCall.calledWith(sinon.match(/OFF/), 'Missing tracking id'));
+    expect(
+      tracking._log.info.secondCall.calledWith(sinon.match(/OFF/), 'Missing tracking id')
+    ).toBeTruthy();
   });
 
   it('should send initial page view when enabled', () => {
@@ -54,7 +56,7 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    assert.ok(window.ga.calledWith('send', 'pageview'));
+    expect(window.ga.calledWith('send', 'pageview')).toBeTruthy();
   });
 
   it('should not send initial page view when disabled', () => {
@@ -66,32 +68,32 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    assert.notOk(window.ga.calledWith('send', 'pageview'));
+    expect(window.ga.calledWith('send', 'pageview')).toBeFalsy();
   });
 
   it('should throw if page not set', () => {
-    assert.throws(() => {
+    expect(() => {
       tracking.setPage();
-    }, Error, /page is required/);
+    }).toThrowError(/page is required/);
   });
 
   it('should call ga with setPage', () => {
     tracking.setPage('whatever');
-    assert.ok(window.ga.called);
+    expect(window.ga.called).toBeTruthy();
   });
 
   it('should throw if category not set', () => {
-    assert.throws(() => {
+    expect(() => {
       tracking.sendEvent();
-    }, Error, /category is required/);
+    }).toThrowError(/category is required/);
   });
 
   it('should throw if action not set', () => {
-    assert.throws(() => {
+    expect(() => {
       tracking.sendEvent({
         category: 'whatever',
       });
-    }, Error, /action is required/);
+    }).toThrowError(/action is required/);
   });
 
   it('should call _ga with sendEvent', () => {
@@ -99,7 +101,7 @@ describe('Tracking', () => {
       category: 'whatever',
       action: 'some-action',
     });
-    assert.ok(window.ga.called);
+    expect(window.ga.called).toBeTruthy();
   });
 
   it('should call _ga when pageView is called', () => {
@@ -108,20 +110,20 @@ describe('Tracking', () => {
       dimension2: 'whatever2',
     };
     tracking.pageView(data);
-    assert.ok(window.ga.calledWith('send', 'pageview', data));
+    expect(window.ga.calledWith('send', 'pageview', data)).toBeTruthy();
   });
 });
 
 describe('getAction', () => {
   it('returns addon for TYPE_EXTENSION', () => {
-    assert.equal(getAction(ADDON_TYPE_EXTENSION), TRACKING_TYPE_EXTENSION);
+    expect(getAction(ADDON_TYPE_EXTENSION)).toEqual(TRACKING_TYPE_EXTENSION);
   });
 
   it('returns theme for TYPE_THEME', () => {
-    assert.equal(getAction(ADDON_TYPE_THEME), TRACKING_TYPE_THEME);
+    expect(getAction(ADDON_TYPE_THEME)).toEqual(TRACKING_TYPE_THEME);
   });
 
   it('returns invalid for unknown type', () => {
-    assert.equal(getAction('whatever'), 'invalid');
+    expect(getAction('whatever')).toEqual('invalid');
   });
 });

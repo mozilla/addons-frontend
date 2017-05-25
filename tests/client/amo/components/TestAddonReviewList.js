@@ -83,13 +83,13 @@ describe('amo/components/AddonReviewList', () => {
     }
 
     it('requires an addonSlug property', () => {
-      assert.throws(() => render({ params: { addonSlug: null } }),
-                    /addonSlug cannot be falsey/);
+      expect(() => render({ params: { addonSlug: null } }))
+        .toThrowError(/addonSlug cannot be falsey/);
     });
 
     it('waits for reviews to load', () => {
       const root = renderToDOM({ reviews: null });
-      assert.equal(root.textContent, 'Loading...');
+      expect(root.textContent).toEqual('Loading...');
     });
 
     it('renders a list of reviews with ratings', () => {
@@ -99,58 +99,58 @@ describe('amo/components/AddonReviewList', () => {
       ];
       const tree = render({ reviews });
       const ratings = scryRenderedComponentsWithType(tree, Rating);
-      assert.equal(ratings.length, 2);
+      expect(ratings.length).toEqual(2);
 
-      assert.equal(ratings[0].props.rating, 1);
-      assert.equal(ratings[0].props.readOnly, true);
-      assert.equal(ratings[1].props.rating, 2);
-      assert.equal(ratings[1].props.readOnly, true);
+      expect(ratings[0].props.rating).toEqual(1);
+      expect(ratings[0].props.readOnly).toEqual(true);
+      expect(ratings[1].props.rating).toEqual(2);
+      expect(ratings[1].props.readOnly).toEqual(true);
     });
 
     it('renders a review', () => {
       const root = renderToDOM({ reviews: [fakeReview] });
 
       const title = root.querySelector('.AddonReviewList-li h3');
-      assert.equal(title.textContent, fakeReview.title);
+      expect(title.textContent).toEqual(fakeReview.title);
 
       const body = root.querySelector('.AddonReviewList-li p');
-      assert.equal(body.textContent, fakeReview.body);
+      expect(body.textContent).toEqual(fakeReview.body);
 
       const byLine =
         root.querySelector('.AddonReviewList-by-line').textContent;
-      assert.include(byLine, fakeReview.user.name);
+      expect(byLine).toContain(fakeReview.user.name);
     });
 
     it('renders an icon in the header', () => {
       const root = renderToDOM({ addon: fakeAddon });
       const img = root.querySelector('.AddonReviewList-header-icon img');
-      assert.equal(img.src, fakeAddon.icon_url);
+      expect(img.src).toEqual(fakeAddon.icon_url);
     });
 
     it('renders a hidden h1 for SEO', () => {
       const root = renderToDOM({ addon: fakeAddon });
       const h1 = root.querySelector('.AddonReviewList-header h1');
-      assert.equal(h1.className, 'visually-hidden');
-      assert.equal(h1.textContent, `Reviews for ${fakeAddon.name}`);
+      expect(h1.className).toEqual('visually-hidden');
+      expect(h1.textContent).toEqual(`Reviews for ${fakeAddon.name}`);
     });
 
     it('produces an addon URL', () => {
       const root = findRenderedComponentWithType(
         render(), AddonReviewListBase);
-      assert.equal(root.addonURL(), `/addon/${fakeAddon.slug}/`);
+      expect(root.addonURL()).toEqual(`/addon/${fakeAddon.slug}/`);
     });
 
     it('produces a URL to itself', () => {
       const root = findRenderedComponentWithType(
         render(), AddonReviewListBase);
-      assert.equal(root.url(), `/addon/${fakeAddon.slug}/reviews/`);
+      expect(root.url()).toEqual(`/addon/${fakeAddon.slug}/reviews/`);
     });
 
     it('requires an addon prop to produce a URL', () => {
       const root = findRenderedComponentWithType(render({
         addon: null,
       }), AddonReviewListBase);
-      assert.throws(() => root.addonURL(), /cannot access addonURL/);
+      expect(() => root.addonURL()).toThrowError(/cannot access addonURL/);
     });
 
     it('configures a paginator with the right URL', () => {
@@ -158,31 +158,31 @@ describe('amo/components/AddonReviewList', () => {
       const root = findRenderedComponentWithType(tree, AddonReviewListBase);
       const paginator = findRenderedComponentWithType(tree, Paginate);
 
-      assert.equal(paginator.props.pathname, root.url());
+      expect(paginator.props.pathname).toEqual(root.url());
     });
 
     it('configures a paginator with the right Link', () => {
       const paginator = findRenderedComponentWithType(render(), Paginate);
-      assert.equal(paginator.props.LinkComponent, Link);
+      expect(paginator.props.LinkComponent).toEqual(Link);
     });
 
     it('configures a paginator with the right review count', () => {
       const paginator = findRenderedComponentWithType(
         render({ reviewCount: 500 }), Paginate);
-      assert.equal(paginator.props.count, 500);
+      expect(paginator.props.count).toEqual(500);
     });
 
     it('sets the paginator to page 1 without a query', () => {
       const paginator = findRenderedComponentWithType(
         // Render with an empty query string.
         render({ location: { query: {} } }), Paginate);
-      assert.equal(paginator.props.currentPage, 1);
+      expect(paginator.props.currentPage).toEqual(1);
     });
 
     it('sets the paginator to the query string page', () => {
       const paginator = findRenderedComponentWithType(
         render({ location: { query: { page: 3 } } }), Paginate);
-      assert.equal(paginator.props.currentPage, 3);
+      expect(paginator.props.currentPage).toEqual(3);
     });
   });
 
@@ -211,11 +211,11 @@ describe('amo/components/AddonReviewList', () => {
         .then(() => {
           mockAmoApi.verify();
 
-          assert.ok(dispatch.called);
+          expect(dispatch.called).toBeTruthy();
           const expectedAction = setAddonReviews({
             addonSlug, reviewCount: reviews.length, reviews,
           });
-          assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
+          expect(dispatch.firstCall.args[0]).toEqual(expectedAction);
         });
     });
 
@@ -235,8 +235,8 @@ describe('amo/components/AddonReviewList', () => {
           const expectedAction = setAddonReviews({
             addonSlug, reviews: [fakeReview], reviewCount: 2,
           });
-          assert.ok(dispatch.called);
-          assert.deepEqual(dispatch.firstCall.args[0], expectedAction);
+          expect(dispatch.called).toBeTruthy();
+          expect(dispatch.firstCall.args[0]).toEqual(expectedAction);
         });
     });
   });
@@ -257,23 +257,23 @@ describe('amo/components/AddonReviewList', () => {
     it('loads addon from state', () => {
       store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps();
-      assert.deepEqual(props.addon, denormalizeAddon(fakeAddon));
+      expect(props.addon).toEqual(denormalizeAddon(fakeAddon));
     });
 
     it('ignores other add-ons', () => {
       store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps({ addonSlug: 'other-slug' });
-      assert.strictEqual(props.addon, undefined);
+      expect(props.addon).toBe(undefined);
     });
 
     it('requires component properties', () => {
-      assert.throws(() => getMappedProps({ params: null }),
-                    /component had a falsey params.addonSlug parameter/);
+      expect(() => getMappedProps({ params: null }))
+        .toThrowError(/component had a falsey params.addonSlug parameter/);
     });
 
     it('requires an existing slug property', () => {
-      assert.throws(() => getMappedProps({ params: {} }),
-                    /component had a falsey params.addonSlug parameter/);
+      expect(() => getMappedProps({ params: {} }))
+        .toThrowError(/component had a falsey params.addonSlug parameter/);
     });
 
     it('loads all reviews from state', () => {
@@ -284,13 +284,13 @@ describe('amo/components/AddonReviewList', () => {
       store.dispatch(action);
 
       const props = getMappedProps();
-      assert.deepEqual(props.reviews, action.payload.reviews);
+      expect(props.reviews).toEqual(action.payload.reviews);
     });
 
     it('only loads existing reviews', () => {
       const props = getMappedProps();
-      assert.strictEqual(props.reviews, undefined);
-      assert.strictEqual(props.reviewCount, undefined);
+      expect(props.reviews).toBe(undefined);
+      expect(props.reviewCount).toBe(undefined);
     });
 
     it('sets reviewCount prop from from state', () => {
@@ -299,7 +299,7 @@ describe('amo/components/AddonReviewList', () => {
       }));
 
       const props = getMappedProps();
-      assert.equal(props.reviewCount, 1);
+      expect(props.reviewCount).toEqual(1);
     });
   });
 
@@ -339,8 +339,8 @@ describe('amo/components/AddonReviewList', () => {
 
           const props = mapStateToProps(store.getState(),
                                         { params: { addonSlug } });
-          assert.deepEqual(props.addon, denormalizeAddon(fakeAddon));
-          assert.deepEqual(props.reviews, getLoadedReviews({ reviews }));
+          expect(props.addon).toEqual(denormalizeAddon(fakeAddon));
+          expect(props.reviews).toEqual(getLoadedReviews({ reviews }));
         });
     });
 
@@ -350,7 +350,7 @@ describe('amo/components/AddonReviewList', () => {
         location: { query: {} }, store, params: { addonSlug: null },
       })
         .then(unexpectedSuccess, (error) => {
-          assert.match(error.message, /missing URL param addonSlug/);
+          expect(error.message).toMatch(/missing URL param addonSlug/);
         });
     });
   });

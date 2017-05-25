@@ -59,8 +59,7 @@ describe('Categories', () => {
       loading: false,
     });
 
-    assert.equal(root.querySelector('.Categories-list').textContent,
-      'GamesTravel');
+    expect(root.querySelector('.Categories-list').textContent).toEqual('GamesTravel');
   });
 
   it('renders loading when loading', () => {
@@ -71,7 +70,7 @@ describe('Categories', () => {
       loading: true,
     });
 
-    assert.include(root.textContent, 'Loading');
+    expect(root.textContent).toContain('Loading');
   });
 
   it('renders a message when there are no categories', () => {
@@ -82,7 +81,7 @@ describe('Categories', () => {
       loading: false,
     });
 
-    assert.equal(root.textContent, 'No categories found.');
+    expect(root.textContent).toEqual('No categories found.');
   });
 
   it('renders an error', () => {
@@ -93,7 +92,7 @@ describe('Categories', () => {
       loading: false,
     });
 
-    assert.equal(root.textContent, 'Failed to load categories.');
+    expect(root.textContent).toEqual('Failed to load categories.');
   });
 });
 
@@ -108,7 +107,7 @@ describe('mapStateToProps', () => {
       params: { visibleAddonType: 'extensions' },
     });
 
-    assert.deepEqual(props, {
+    expect(props).toEqual({
       addonType: ADDON_TYPE_EXTENSION,
       categories: {
         Games: {

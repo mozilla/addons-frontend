@@ -36,6 +36,6 @@ describe('<NotFound />', () => {
   it('renders a not found error', () => {
     const rootNode = render();
 
-    assert.include(rootNode.textContent, 'Page not found');
+    expect(rootNode.textContent).toContain('Page not found');
   });
 });

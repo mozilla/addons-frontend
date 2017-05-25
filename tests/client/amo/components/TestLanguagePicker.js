@@ -30,13 +30,13 @@ describe('LanguagePicker', () => {
   it('renders a LanguagePicker', () => {
     const root = renderLanguagePicker();
 
-    assert.equal(root.selector.tagName, 'SELECT');
+    expect(root.selector.tagName).toEqual('SELECT');
   });
 
   it('selects the current locale', () => {
     const root = renderLanguagePicker({ currentLocale: 'fr' });
 
-    assert.equal(findDOMNode(root).querySelector('option:checked').value, 'fr');
+    expect(findDOMNode(root).querySelector('option:checked').value).toEqual('fr');
   });
 
   it('changes the language on change', () => {
@@ -52,7 +52,7 @@ describe('LanguagePicker', () => {
     };
     Simulate.change(root.selector, fakeEvent);
 
-    assert.equal(_window.location, '/es/firefox/');
+    expect(_window.location).toEqual('/es/firefox/');
   });
 });
 
@@ -67,7 +67,7 @@ describe('changeLocaleURL', () => {
       newLocale: 'en-GB',
     });
 
-    assert.equal(newURL, '/en-GB/firefox/nowhere/?page=1&q=search');
+    expect(newURL).toEqual('/en-GB/firefox/nowhere/?page=1&q=search');
   });
 
   it('handles URLs without query params', () => {
@@ -77,7 +77,7 @@ describe('changeLocaleURL', () => {
       newLocale: 'ar',
     });
 
-    assert.equal(newURL, '/ar/firefox/nowhere/');
+    expect(newURL).toEqual('/ar/firefox/nowhere/');
   });
 
   it('only changes the locale section of the URL', () => {
@@ -90,6 +90,6 @@ describe('changeLocaleURL', () => {
       newLocale: 'ar',
     });
 
-    assert.equal(newURL, '/ar/firefox/en-US-to-en-GB-guide/?foo=en-US');
+    expect(newURL).toEqual('/ar/firefox/en-US-to-en-GB-guide/?foo=en-US');
   });
 });

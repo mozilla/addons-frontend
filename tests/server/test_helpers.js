@@ -1,4 +1,3 @@
-import { assert } from 'chai';
 import { oneLine } from 'common-tags';
 
 import { parseCSP } from './helpers';
@@ -13,11 +12,11 @@ describe('server test helpers', () => {
         https://addons-dev-cdn.allizom.org 127.0.0.1:3001; style-src 'self' blob:
         'sha256-8VVSrUT/1AZpxCZNGwNROSnacmbseuppeBCace7a/Wc='; report-uri /__cspreport__`;
       const policy = parseCSP(headerContent);
-      assert.deepEqual(policy.imgSrc, ["'self'", '127.0.0.1:3001']);
-      assert.deepEqual(
-        policy.styleSrc,
-        ["'self'", 'blob:', "'sha256-8VVSrUT/1AZpxCZNGwNROSnacmbseuppeBCace7a/Wc='"]);
-      assert.deepEqual(policy.reportUri, ['/__cspreport__']);
+      expect(policy.imgSrc).toEqual(["'self'", '127.0.0.1:3001']);
+      expect(policy.styleSrc).toEqual(
+        ["'self'", 'blob:', "'sha256-8VVSrUT/1AZpxCZNGwNROSnacmbseuppeBCace7a/Wc='"]
+      );
+      expect(policy.reportUri).toEqual(['/__cspreport__']);
     });
   });
 });

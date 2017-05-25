@@ -28,8 +28,7 @@ describe('amo.reducers.reviews', () => {
   }
 
   it('defaults to an empty object', () => {
-    assert.deepEqual(reviews(undefined, { type: 'SOME_OTHER_ACTION' }),
-                     initialState);
+    expect(reviews(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(initialState);
   });
 
   it('stores a user review', () => {
@@ -37,7 +36,7 @@ describe('amo.reducers.reviews', () => {
     const state = reviews(undefined, action);
     const storedReview =
       state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
-    assert.deepEqual(storedReview, {
+    expect(storedReview).toEqual({
       id: fakeReview.id,
       addonId: fakeReview.addon.id,
       addonSlug: fakeReview.addon.slug,
@@ -78,9 +77,9 @@ describe('amo.reducers.reviews', () => {
     }));
 
     // Make sure all reviews co-exist by userId, addonId, review ID.
-    assert.equal(state[1][1][1].rating, 1);
-    assert.equal(state[1][2][2].rating, 5);
-    assert.equal(state[2][2][3].rating, 4);
+    expect(state[1][1][1].rating).toEqual(1);
+    expect(state[1][2][2].rating).toEqual(5);
+    expect(state[2][2][3].rating).toEqual(4);
   });
 
   it('preserves existing add-on reviews', () => {
@@ -104,15 +103,15 @@ describe('amo.reducers.reviews', () => {
     }));
 
     // Make sure all reviews co-exist by userId, addonId, review ID.
-    assert.equal(state[userId][addonId][1].id, 1);
-    assert.equal(state[userId][addonId][2].id, 2);
-    assert.equal(state[userId][addonId][3].id, 3);
+    expect(state[userId][addonId][1].id).toEqual(1);
+    expect(state[userId][addonId][2].id).toEqual(2);
+    expect(state[userId][addonId][3].id).toEqual(3);
   });
 
   it('preserves unrelated state', () => {
     let state = { ...initialState, somethingUnrelated: 'erp' };
     state = reviews(state, setFakeReview());
-    assert.equal(state.somethingUnrelated, 'erp');
+    expect(state.somethingUnrelated).toEqual('erp');
   });
 
   it('only allows one review to be the latest', () => {
@@ -136,9 +135,9 @@ describe('amo.reducers.reviews', () => {
     }));
 
     // Make sure only the newest submitted one is the latest:
-    assert.equal(state[userId][addonId][1].isLatest, false);
-    assert.equal(state[userId][addonId][2].isLatest, false);
-    assert.equal(state[userId][addonId][3].isLatest, true);
+    expect(state[userId][addonId][1].isLatest).toEqual(false);
+    expect(state[userId][addonId][2].isLatest).toEqual(false);
+    expect(state[userId][addonId][3].isLatest).toEqual(true);
   });
 
   it('preserves an older latest review', () => {
@@ -156,8 +155,8 @@ describe('amo.reducers.reviews', () => {
       is_latest: false,
     }));
 
-    assert.equal(state[userId][addonId][1].isLatest, true);
-    assert.equal(state[userId][addonId][2].isLatest, false);
+    expect(state[userId][addonId][1].isLatest).toEqual(true);
+    expect(state[userId][addonId][2].isLatest).toEqual(false);
   });
 
   describe('setAddonReviews', () => {
@@ -169,9 +168,9 @@ describe('amo.reducers.reviews', () => {
       });
       const state = reviews(undefined, action);
       const storedReviews = state.byAddon[fakeAddon.slug].reviews;
-      assert.equal(storedReviews.length, 2);
-      assert.equal(storedReviews[0].id, review1.id);
-      assert.equal(storedReviews[1].id, review2.id);
+      expect(storedReviews.length).toEqual(2);
+      expect(storedReviews[0].id).toEqual(review1.id);
+      expect(storedReviews[1].id).toEqual(review2.id);
     });
 
     it('preserves existing add-on reviews', () => {
@@ -189,9 +188,9 @@ describe('amo.reducers.reviews', () => {
         addonSlug: addon2.slug, reviews: [review2, review3], reviewCount: 2,
       }));
 
-      assert.equal(state.byAddon[addon1.slug].reviews[0].id, review1.id);
-      assert.equal(state.byAddon[addon2.slug].reviews[0].id, review2.id);
-      assert.equal(state.byAddon[addon2.slug].reviews[1].id, review3.id);
+      expect(state.byAddon[addon1.slug].reviews[0].id).toEqual(review1.id);
+      expect(state.byAddon[addon2.slug].reviews[0].id).toEqual(review2.id);
+      expect(state.byAddon[addon2.slug].reviews[1].id).toEqual(review3.id);
     });
 
     it('stores review counts', () => {
@@ -202,8 +201,8 @@ describe('amo.reducers.reviews', () => {
         addonSlug: 'slug2', reviews: [fakeReview, fakeReview], reviewCount: 2,
       }));
 
-      assert.equal(newState.byAddon.slug1.reviewCount, 1);
-      assert.equal(newState.byAddon.slug2.reviewCount, 2);
+      expect(newState.byAddon.slug1.reviewCount).toEqual(1);
+      expect(newState.byAddon.slug2.reviewCount).toEqual(2);
     });
   });
 });

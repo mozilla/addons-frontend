@@ -47,7 +47,7 @@ export function findAllByTag(root, tag) {
 
 export function findByTag(root, tag) {
   const matches = findAllByTag(root, tag);
-  assert.equal(matches.length, 1, 'expected one match');
+  expect(matches.length).toEqual(1);
   return matches[0];
 }
 
@@ -70,7 +70,7 @@ export function getFakeAddonManagerWrapper({
 }
 
 export function unexpectedSuccess() {
-  return assert.fail(null, null, 'Unexpected success');
+  return expect(false).toBe(true);
 }
 
 export function JedSpy(data = {}) {
@@ -99,18 +99,12 @@ export class MockedSubComponent extends React.Component {
   }
 }
 
-const formatClassList = (classList) => Array.prototype.join.call(classList, ', ');
-
 export function assertHasClass(el, className) {
-  assert.ok(
-    el.classList.contains(className),
-    `expected ${className} in ${formatClassList(el.classList)}`);
+  expect(el.classList.contains(className)).toBeTruthy();
 }
 
 export function assertNotHasClass(el, className) {
-  assert.notOk(
-    el.classList.contains(className),
-    `expected ${className} to not be in in ${formatClassList(el.classList)}`);
+  expect(el.classList.contains(className)).toBeFalsy();
 }
 
 const userAgentForState = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';

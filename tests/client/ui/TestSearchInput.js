@@ -21,17 +21,17 @@ describe('<SearchInput />', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
     root.animateLeft = 100;
     root.setIconPosition();
-    assert.equal(root.animateIcon.style.transform, 'translateX(-100px)');
+    expect(root.animateIcon.style.transform).toEqual('translateX(-100px)');
   });
 
   it('sets the icon position on resize', () => {
     const addEventListener = sinon.stub(window, 'addEventListener');
     const removeEventListener = sinon.stub(window, 'removeEventListener');
     const root = renderIntoDocument(<SearchInput name="foo" />);
-    assert.ok(addEventListener.calledWith('resize', root.setIconPosition));
-    assert.notOk(removeEventListener.called);
+    expect(addEventListener.calledWith('resize', root.setIconPosition)).toBeTruthy();
+    expect(removeEventListener.called).toBeFalsy();
     root.componentWillUnmount();
-    assert.ok(removeEventListener.calledWith('resize', root.setIconPosition));
+    expect(removeEventListener.calledWith('resize', root.setIconPosition)).toBeTruthy();
   });
 
   it('starts with the --text class with a defaultValue', () => {
@@ -41,9 +41,9 @@ describe('<SearchInput />', () => {
 
   it('sets the value in state on input', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
-    assert.equal(root.state.value, undefined);
+    expect(root.state.value).toEqual(undefined);
     Simulate.input(root.input, { target: { value: 'test' } });
-    assert.equal(root.state.value, 'test');
+    expect(root.state.value).toEqual('test');
   });
 
   it('sets and removes the --text class on focus and blur when empty', () => {
@@ -113,6 +113,6 @@ describe('<SearchInput />', () => {
 
   it('exposes the value of the input', () => {
     const root = renderIntoDocument(<SearchInput name="foo" defaultValue="yo" />);
-    assert.equal(root.value, 'yo');
+    expect(root.value).toEqual('yo');
   });
 });

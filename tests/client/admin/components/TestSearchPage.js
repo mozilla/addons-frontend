@@ -27,13 +27,13 @@ describe('<AdminSearchPage />', () => {
   it('has a nice heading', () => {
     const root = render();
     const heading = findByTag(root, 'h1');
-    assert.equal(heading.props.children, 'Add-on Search');
+    expect(heading.props.children).toEqual('Add-on Search');
   });
 
   it('renders the query', () => {
     const root = render();
     const form = findByTag(root, AdminSearchForm);
-    assert.deepEqual(form.props, {
+    expect(form.props).toEqual({
       pathname: '/search/',
       query: 'foo',
     });
@@ -42,15 +42,15 @@ describe('<AdminSearchPage />', () => {
   it('renders a Paginate', () => {
     const root = render();
     const paginator = findByTag(root, Paginate);
-    assert.equal(paginator.props.count, 80);
-    assert.equal(paginator.props.currentPage, 3);
-    assert.equal(paginator.props.pathname, '/search/');
-    assert.deepEqual(paginator.props.queryParams, { q: 'foo' });
+    expect(paginator.props.count).toEqual(80);
+    expect(paginator.props.currentPage).toEqual(3);
+    expect(paginator.props.pathname).toEqual('/search/');
+    expect(paginator.props.queryParams).toEqual({ q: 'foo' });
   });
 
   it('does not render a Paginate when there is no search term', () => {
     const root = render({ filters: { query: null }, count: 0 });
     const paginators = findAllByTag(root, Paginate);
-    assert.deepEqual(paginators, []);
+    expect(paginators).toEqual([]);
   });
 });

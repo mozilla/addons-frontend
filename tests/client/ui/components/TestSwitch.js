@@ -21,69 +21,69 @@ describe('<Switch />', () => {
     const button = renderButton();
     const root = findDOMNode(button);
     const checkbox = root.querySelector('input[type=checkbox]');
-    assert.equal(checkbox.hasAttribute('disabled'), false);
-    assert.equal(checkbox.checked, false);
+    expect(checkbox.hasAttribute('disabled')).toEqual(false);
+    expect(checkbox.checked).toEqual(false);
   });
 
   it('is inactive when disabled', () => {
     const button = renderButton({ disabled: true });
     const root = findDOMNode(button);
     const checkbox = root.querySelector('input[type=checkbox]');
-    assert.equal(checkbox.hasAttribute('disabled'), true);
-    assert.equal(checkbox.checked, false);
+    expect(checkbox.hasAttribute('disabled')).toEqual(true);
+    expect(checkbox.checked).toEqual(false);
   });
 
   it('is active when checked and not disabled', () => {
     const button = renderButton({ checked: true });
     const root = findDOMNode(button);
     const checkbox = root.querySelector('input[type=checkbox]');
-    assert.equal(checkbox.hasAttribute('disabled'), false);
-    assert.equal(checkbox.checked, true);
+    expect(checkbox.hasAttribute('disabled')).toEqual(false);
+    expect(checkbox.checked).toEqual(true);
   });
 
   it('is inactive when checked and disabled', () => {
     const button = renderButton({ checked: true, disabled: true });
     const root = findDOMNode(button);
     const checkbox = root.querySelector('input[type=checkbox]');
-    assert.equal(checkbox.hasAttribute('disabled'), true);
-    assert.equal(checkbox.checked, true);
+    expect(checkbox.hasAttribute('disabled')).toEqual(true);
+    expect(checkbox.checked).toEqual(true);
   });
 
   it('shows success when success is set', () => {
     const button = renderButton({ success: true });
     const root = findDOMNode(button);
-    assert.ok(root.classList.contains('Switch--success'));
+    expect(root.classList.contains('Switch--success')).toBeTruthy();
   });
 
   it('does not include the progress when it is undefined', () => {
     const button = renderButton();
     const root = findDOMNode(button);
-    assert.equal(root.getAttribute('data-progress'), 0);
+    expect(root.getAttribute('data-progress')).toEqual('0');
   });
 
   it('reflects valid progress values', () => {
     const button = renderButton({ progress: 50 });
     const root = findDOMNode(button);
-    assert.ok(root.classList.contains('Switch--progress'));
-    assert.equal(root.getAttribute('data-progress'), 50);
+    expect(root.classList.contains('Switch--progress')).toBeTruthy();
+    expect(root.getAttribute('data-progress')).toEqual('50');
   });
 
   it('reflects indefinite progress', () => {
     const button = renderButton({ checked: true, progress: Infinity });
     const root = findDOMNode(button);
-    assert.ok(root.classList.contains('Switch--indefinite'));
+    expect(root.classList.contains('Switch--indefinite')).toBeTruthy();
     const checkbox = root.querySelector('input[type=checkbox]');
-    assert.equal(checkbox.checked, true, 'checked is true');
-    assert.equal(root.getAttribute('data-progress'), 100);
+    expect(checkbox.checked).toEqual(true);
+    expect(root.getAttribute('data-progress')).toEqual('100');
   });
 
   it('reflects indefinite reverse progress', () => {
     const button = renderButton({ checked: false, progress: -Infinity });
     const root = findDOMNode(button);
-    assert.ok(root.classList.contains('Switch--indefinite-reverse'));
+    expect(root.classList.contains('Switch--indefinite-reverse')).toBeTruthy();
     const checkbox = root.querySelector('input[type=checkbox]');
-    assert.equal(checkbox.checked, false, 'checked is false');
-    assert.equal(root.getAttribute('data-progress'), 0);
+    expect(checkbox.checked).toEqual(false);
+    expect(root.getAttribute('data-progress')).toEqual('0');
   });
 
   it('passes change calls to onChange', () => {
@@ -91,17 +91,13 @@ describe('<Switch />', () => {
     const root = findDOMNode(renderButton({ onChange }));
     const checkbox = root.querySelector('input[type=checkbox]');
     Simulate.change(checkbox);
-    assert.ok(onChange.calledWith());
+    expect(onChange.calledWith()).toBeTruthy();
   });
 
   it('associates the label and input with id and for attributes', () => {
     const button = renderButton({ name: 'foo' });
     const root = findDOMNode(button);
-    assert.equal(root.querySelector('input').getAttribute('id'),
-                'install-button-foo',
-                'id is set');
-    assert.equal(root.querySelector('label').getAttribute('for'),
-                'install-button-foo',
-                'for attribute matches id');
+    expect(root.querySelector('input').getAttribute('id')).toEqual('install-button-foo');
+    expect(root.querySelector('label').getAttribute('for')).toEqual('install-button-foo');
   });
 });

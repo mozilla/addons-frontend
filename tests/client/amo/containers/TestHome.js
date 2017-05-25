@@ -27,6 +27,6 @@ describe('Home', () => {
       '…or what it looks like',
     ];
     Array.from(rootNode.querySelectorAll('.HomePage-subheading'))
-      .map((el, index) => assert.equal(el.textContent, content[index]));
+      .map((el, index) => expect(el.textContent).toEqual(content[index]));
   });
 });

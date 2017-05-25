@@ -47,62 +47,62 @@ describe('<SearchForm />', () => {
   });
 
   it('renders a form', () => {
-    assert.ok(form.classList.contains('SearchForm-form'));
+    expect(form.classList.contains('SearchForm-form')).toBeTruthy();
   });
 
   it('renders a search input', () => {
-    assert.equal(input.placeholder, 'Search extensions and themes');
-    assert.equal(input.type, 'search');
+    expect(input.placeholder).toEqual('Search extensions and themes');
+    expect(input.type).toEqual('search');
   });
 
   it('renders the query', () => {
-    assert.equal(input.value, 'foo');
+    expect(input.value).toEqual('foo');
   });
 
   it('changes the URL on submit', () => {
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
     input.value = 'adblock';
     Simulate.submit(form);
-    assert(router.push.called);
+    expect(router.push.called).toBeTruthy();
   });
 
   it('blurs the form on submit', () => {
     const blurSpy = sinon.stub(input, 'blur');
-    assert(!blurSpy.called);
+    expect(!blurSpy.called).toBeTruthy();
     input.value = 'something';
     Simulate.submit(form);
-    assert(blurSpy.called);
+    expect(blurSpy.called).toBeTruthy();
   });
 
   it('does nothing on non-Enter keydowns', () => {
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
     input.value = 'adblock';
     Simulate.keyDown(input, { key: 'A', shiftKey: true });
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
   });
 
   it('updates the location on form submit', () => {
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
     input.value = 'adblock';
     Simulate.click(root.submitButton);
-    assert(router.push.called);
+    expect(router.push.called).toBeTruthy();
   });
 
   it('encodes the value of the search text', () => {
-    assert(!router.push.called);
+    expect(!router.push.called).toBeTruthy();
     input.value = '& 26 %';
     Simulate.click(root.submitButton);
-    assert(router.push.calledWith({
+    expect(router.push.calledWith({
       pathname: '/de/firefox/search/',
       query: { q: '& 26 %' },
-    }));
+    })).toBeTruthy();
   });
 });
 
 describe('SearchForm mapStateToProps', () => {
   it('passes the api through', () => {
     const api = { clientApp: 'firefox', lang: 'de', token: 'someauthtoken' };
-    assert.deepEqual(mapStateToProps({ foo: 'bar', api }), { api });
+    expect(mapStateToProps({ foo: 'bar', api })).toEqual({ api });
   });
 });
 
@@ -129,7 +129,7 @@ describe('SearchForm loadAddon', () => {
     const { loadAddon } = mapDispatchToProps(dispatch);
     return loadAddon({ api, query: slug })
       .then(() => {
-        assert(dispatch.calledWith(action));
+        expect(dispatch.calledWith(action)).toBeTruthy();
         mockApi.verify();
         mockActions.verify();
       });

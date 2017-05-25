@@ -1,26 +1,30 @@
-import { assert } from 'chai';
-import requireUncached from 'require-uncached';
-
+/* eslint-disable global-require */
 
 describe('Config Environment Variables', () => {
+  beforeEach(() => {
+    jest.resetModules();
+  });
+
   afterEach(() => {
     delete process.env.SERVER_HOST;
     delete process.env.SERVER_PORT;
   });
 
   it('should allow host overrides', () => {
-    let conf = requireUncached('config');
-    assert.equal(conf.get('serverHost'), '127.0.0.1', 'initial host is set');
+    let conf = require('config');
+    expect(conf.get('serverHost')).toEqual('127.0.0.1');
     process.env.SERVER_HOST = '0.0.0.0';
-    conf = requireUncached('config');
-    assert.equal(conf.get('serverHost'), '0.0.0.0', 'host is overidden');
+    jest.resetModules();
+    conf = require('config');
+    expect(conf.get('serverHost')).toEqual('0.0.0.0');
   });
 
   it('should allow port overrides', () => {
-    let conf = requireUncached('config');
-    assert.equal(conf.get('serverPort'), '4000', 'Initial port is set');
-    process.env.SERVER_PORT = '5000';
-    conf = requireUncached('config');
-    assert.equal(conf.get('serverPort'), '5000', 'Port is overidden');
+    let conf = require('config');
+    expect(parseInt(conf.get('serverPort'), 10)).toEqual(4000);
+    process.env.SERVER_PORT = 5000;
+    jest.resetModules();
+    conf = require('config');
+    expect(parseInt(conf.get('serverPort'), 10)).toEqual(5000);
   });
 });

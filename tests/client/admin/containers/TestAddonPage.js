@@ -70,86 +70,79 @@ describe('AddonPage', () => {
     });
 
     it('renders the name', () => {
-      assert.equal(root.querySelector('h1').textContent, 'Addon!');
+      expect(root.querySelector('h1').textContent).toEqual('Addon!');
     });
 
     it('renders the summary', () => {
-      assert.equal(root.querySelector('.addon--summary').textContent, 'My add-on');
+      expect(root.querySelector('.addon--summary').textContent).toEqual('My add-on');
     });
 
     it('renders the description', () => {
-      assert.equal(
-        root.querySelector('.addon--description').textContent, 'An add-on that adds on.');
+      expect(root.querySelector('.addon--description').textContent).toEqual('An add-on that adds on.');
     });
 
     it('renders the tags', () => {
       const tags = Array.from(root.querySelector('.addon--tags').childNodes);
       const tagText = tags.map((tag) => tag.textContent);
-      assert.deepEqual(tagText, ['foo-tag', 'bar-tag']);
+      expect(tagText).toEqual(['foo-tag', 'bar-tag']);
     });
 
     it('renders the addon info', () => {
       const infoText = info.map((infum) => infum.textContent);
-      assert.deepEqual(
-        infoText,
-        ['extension', 'public', 'View on site', 'Edit on site', 'View on editors',
-          'View homepage', 'Email support', 'View support site']);
+      expect(infoText).toEqual(['extension', 'public', 'View on site', 'Edit on site', 'View on editors',
+        'View homepage', 'Email support', 'View support site']);
     });
 
     it('renders the AMO page as a link', () => {
       const url = info.find(
         (infum) => infum.textContent === 'View on site').firstChild;
-      assert.equal(url.tagName, 'A');
-      assert.equal(url.getAttribute('href'), 'https://addons.mozilla.org/firefox/addon/my-addon/');
+      expect(url.tagName).toEqual('A');
+      expect(url.getAttribute('href')).toEqual('https://addons.mozilla.org/firefox/addon/my-addon/');
     });
 
     it('renders the manage page as a link', () => {
       const url = info.find(
         (infum) => infum.textContent === 'Edit on site').firstChild;
-      assert.equal(url.tagName, 'A');
-      assert.equal(
-        url.getAttribute('href'), 'https://addons.mozilla.org/developers/addon/my-addon/edit');
+      expect(url.tagName).toEqual('A');
+      expect(url.getAttribute('href')).toEqual('https://addons.mozilla.org/developers/addon/my-addon/edit');
     });
 
     it('renders the support email as a mailto', () => {
       const email = info.find((infum) => infum.textContent === 'Email support').firstChild;
-      assert.equal(email.tagName, 'A');
-      assert.equal(email.getAttribute('href'), 'mailto:my-addon@example.com');
+      expect(email.tagName).toEqual('A');
+      expect(email.getAttribute('href')).toEqual('mailto:my-addon@example.com');
     });
 
     it('renders the support url as a link', () => {
       const url = info.find(
         (infum) => infum.textContent === 'View support site').firstChild;
-      assert.equal(url.tagName, 'A');
-      assert.equal(url.getAttribute('href'), 'https://example.com/my-addon/support');
+      expect(url.tagName).toEqual('A');
+      expect(url.getAttribute('href')).toEqual('https://example.com/my-addon/support');
     });
 
     it('renders the homepage as a link', () => {
       const url = info.find(
         (infum) => infum.textContent === 'View homepage').firstChild;
-      assert.equal(url.tagName, 'A');
-      assert.equal(url.getAttribute('href'), 'https://example.com/my-addon');
+      expect(url.tagName).toEqual('A');
+      expect(url.getAttribute('href')).toEqual('https://example.com/my-addon');
     });
 
     it('renders the current version header', () => {
-      assert.equal(
-        root.querySelector('.addon--current-version h2').textContent,
-        'Current version');
+      expect(root.querySelector('.addon--current-version h2').textContent).toEqual('Current version');
     });
 
     it('renders the current version', () => {
       const version = Array
         .from(root.querySelector('.addon--version-info').childNodes)
         .map((infum) => infum.textContent);
-      assert.deepEqual(version, ['2.5-beta.1', 'View on site', 'Edit on site']);
+      expect(version).toEqual(['2.5-beta.1', 'View on site', 'Edit on site']);
     });
 
     it('renders the file info', () => {
       const file = Array
         .from(root.querySelector('.addon--file-info').childNodes)
         .map((infum) => infum.textContent);
-      assert.deepEqual(
-        file, ['linux', 'public', '556677 bytes', '2016-04-01T12:11:10', 'Download']);
+      expect(file).toEqual(['linux', 'public', '556677 bytes', '2016-04-01T12:11:10', 'Download']);
     });
   });
 
@@ -164,19 +157,16 @@ describe('AddonPage', () => {
     it('does not render the info', () => {
       const info = Array.from(root.querySelector('.addon--info').childNodes);
       const infoText = info.map((infum) => infum.textContent);
-      assert.deepEqual(
-        infoText,
-        ['extension', 'public', 'View on site', 'Edit on site', 'View on editors']);
+      expect(infoText).toEqual(['extension', 'public', 'View on site', 'Edit on site', 'View on editors']);
     });
 
     it('does not render the tags', () => {
       const tags = root.querySelector('.addon--tags');
-      assert.strictEqual(tags, null);
+      expect(tags).toBe(null);
     });
 
     it('notes that there is no current version', () => {
-      assert.equal(
-        root.querySelector('.addon--current-version h2').textContent, 'No current version');
+      expect(root.querySelector('.addon--current-version h2').textContent).toEqual('No current version');
     });
   });
 
@@ -192,7 +182,7 @@ describe('AddonPage', () => {
 
     it('does not render the version', () => {
       const root = render({ state: initialState, props: { params: { slug: 'my-addon' } } });
-      assert.strictEqual(root.querySelector('.addon--current-version'), null);
+      expect(root.querySelector('.addon--current-version')).toBe(null);
     });
   });
 
@@ -202,8 +192,7 @@ describe('AddonPage', () => {
       state: initialState,
       props: { params: { slug: 'other-addon' } },
     });
-    assert.include(root.querySelector('h1').textContent, 'Page not found');
-    assert.include(root.textContent,
-      "Sorry, but we can't find anything at the URL you entered");
+    expect(root.querySelector('h1').textContent).toContain('Page not found');
+    expect(root.textContent).toContain("Sorry, but we can't find anything at the URL you entered");
   });
 });

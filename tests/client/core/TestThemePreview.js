@@ -3,9 +3,9 @@ import { THEME_PREVIEW } from 'core/constants';
 
 describe('Theme Preview Lib', () => {
   it('throws for invalid action', () => {
-    assert.throws(() => {
+    expect(() => {
       themeAction(null, 'whatever');
-    }, Error, 'Invalid theme action requested');
+    }).toThrowError('Invalid theme action requested');
   });
 
   it('sets-up the event for previews', () => {
@@ -20,9 +20,9 @@ describe('Theme Preview Lib', () => {
     };
     fakeDoc.createEvent.returns(fakeEvent);
     themeAction(fakeNode, THEME_PREVIEW, fakeDoc);
-    assert.ok(fakeDoc.createEvent.calledWith('Events'), 'Should call createEvent');
-    assert.ok(fakeEvent.initEvent.calledWith(THEME_PREVIEW, true, false), 'Should call initEvent');
-    assert.ok(fakeNode.dispatchEvent.calledWith(fakeEvent), 'should call dispatchEvent');
+    expect(fakeDoc.createEvent.calledWith('Events')).toBeTruthy();
+    expect(fakeEvent.initEvent.calledWith(THEME_PREVIEW, true, false)).toBeTruthy();
+    expect(fakeNode.dispatchEvent.calledWith(fakeEvent)).toBeTruthy();
   });
 
   it('returns themeData from getThemeData', () => {
@@ -37,9 +37,9 @@ describe('Theme Preview Lib', () => {
       author: 'carmen',
     };
 
-    assert.deepEqual(themeData, getThemeData(themeData));
+    expect(themeData).toEqual(getThemeData(themeData));
     // Make sure it doesn't accept extra keys
-    assert.deepEqual(themeData, getThemeData({ ...themeData, badKey: true }));
+    expect(themeData).toEqual(getThemeData({ ...themeData, badKey: true }));
   });
 });
 

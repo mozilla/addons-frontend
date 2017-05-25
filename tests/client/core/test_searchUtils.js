@@ -19,7 +19,7 @@ describe('searchUtils mapStateToProps()', () => {
     // clientApp is always supplied and it's not enough to search on, so we
     // don't allow searches on it.
     const props = mapStateToProps(state, { location: { query: { } } });
-    assert.deepEqual(props, { filters: {}, hasSearchParams: false });
+    expect(props).toEqual({ filters: {}, hasSearchParams: false });
   });
 });
 
@@ -27,7 +27,7 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
   let filters;
   let ownProps;
 
-  before(() => {
+  beforeAll(() => {
     filters = {
       addonType: ADDON_TYPE_THEME,
       category: 'anime',
@@ -60,11 +60,11 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
       location: ownProps.location,
       params: ownProps.params,
     }).then(() => {
-      assert.strictEqual(loadByCategoryIfNeeded({
+      expect(loadByCategoryIfNeeded({
         store,
         location: ownProps.location,
         params: ownProps.params,
-      }), true);
+      })).toBe(true);
     });
   });
 

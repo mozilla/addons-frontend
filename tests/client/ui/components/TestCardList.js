@@ -12,16 +12,16 @@ function renderToDOM(props) {
 describe('ui/components/CardList', () => {
   it('adds a CardList class', () => {
     const root = renderToDOM();
-    assert.include(root.className, 'CardList');
+    expect(root.className).toContain('CardList');
   });
 
   it('adds a custom CSS class', () => {
     const root = renderToDOM({ className: 'SystematicDysfunctioner' });
-    assert.include(root.className, 'SystematicDysfunctioner');
+    expect(root.className).toContain('SystematicDysfunctioner');
   });
 
   it('renders children', () => {
     const root = renderToDOM({ children: <div>Child Content</div> });
-    assert.equal(root.textContent, 'Child Content');
+    expect(root.textContent).toEqual('Child Content');
   });
 });

@@ -20,28 +20,27 @@ describe('<ShowMoreCard />', () => {
     // We have to manually set the expanded flag to false because we
     // don't have a clientHeight in the tests.
     root.setState({ expanded: false });
-    assert.notInclude(rootNode.className, '.ShowMoreCard--expanded');
-    assert.strictEqual(root.state.expanded, false);
-    assert.equal(rootNode.querySelector('.Card-footer-link').textContent,
-                 'Expand to Read more');
+    expect(rootNode.className).not.toContain('.ShowMoreCard--expanded');
+    expect(root.state.expanded).toBe(false);
+    expect(rootNode.querySelector('.Card-footer-link').textContent).toEqual('Expand to Read more');
 
     Simulate.click(rootNode.querySelector('.Card-footer-link a'));
 
-    assert.include(rootNode.className, 'ShowMoreCard--expanded');
-    assert.strictEqual(root.state.expanded, true);
+    expect(rootNode.className).toContain('ShowMoreCard--expanded');
+    expect(root.state.expanded).toBe(true);
 
-    assert.equal(rootNode.querySelector('.Card-footer-link'), null);
+    expect(rootNode.querySelector('.Card-footer-link')).toEqual(null);
   });
 
   it('is expanded by default', () => {
     const root = render({ children: 'Hello I am description' });
-    assert.strictEqual(root.state.expanded, true);
+    expect(root.state.expanded).toBe(true);
   });
 
   it('truncates the contents if they are too long', () => {
     const root = render({ children: 'Hello I am description' });
     root.truncateToMaxHeight({ clientHeight: 101 });
-    assert.strictEqual(root.state.expanded, false);
+    expect(root.state.expanded).toBe(false);
   });
 
   it('renders className', () => {
@@ -50,12 +49,12 @@ describe('<ShowMoreCard />', () => {
       className: 'test',
     });
     const rootNode = findDOMNode(root);
-    assert.include(rootNode.className, 'test');
+    expect(rootNode.className).toContain('test');
   });
 
   it('renders children', () => {
     const root = render({ children: 'Hello I am description' });
     const rootNode = findDOMNode(root);
-    assert.include(rootNode.textContent, 'Hello I am description');
+    expect(rootNode.textContent).toContain('Hello I am description');
   });
 });

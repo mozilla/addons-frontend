@@ -41,8 +41,8 @@ describe('<LandingPage />', () => {
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
-    assert.include(root.textContent, 'Featured extensions');
-    assert.include(root.textContent, 'More featured extensions');
+    expect(root.textContent).toContain('Featured extensions');
+    expect(root.textContent).toContain('More featured extensions');
   });
 
   it('sets the links in each footer for extensions', () => {
@@ -52,14 +52,14 @@ describe('<LandingPage />', () => {
       }} />
     );
 
-    assert.deepEqual(root.props.children[1].props.footerLink, {
+    expect(root.props.children[1].props.footerLink).toEqual({
       pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
     });
-    assert.deepEqual(root.props.children[2].props.footerLink, {
+    expect(root.props.children[2].props.footerLink).toEqual({
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
     });
-    assert.deepEqual(root.props.children[3].props.footerLink, {
+    expect(root.props.children[3].props.footerLink).toEqual({
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
     });
@@ -72,14 +72,14 @@ describe('<LandingPage />', () => {
       }} />
     );
 
-    assert.deepEqual(root.props.children[1].props.footerLink, {
+    expect(root.props.children[1].props.footerLink).toEqual({
       pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
     });
-    assert.deepEqual(root.props.children[2].props.footerLink, {
+    expect(root.props.children[2].props.footerLink).toEqual({
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
     });
-    assert.deepEqual(root.props.children[3].props.footerLink, {
+    expect(root.props.children[3].props.footerLink).toEqual({
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
     });
@@ -90,8 +90,8 @@ describe('<LandingPage />', () => {
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    assert.include(root.textContent, 'Featured themes');
-    assert.include(root.textContent, 'More featured themes');
+    expect(root.textContent).toContain('Featured themes');
+    expect(root.textContent).toContain('More featured themes');
   });
 
   it('renders each add-on when set', () => {
@@ -142,24 +142,21 @@ describe('<LandingPage />', () => {
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    assert.deepEqual(
-      Object.values(root.querySelectorAll('.SearchResult-heading'))
-        .map((heading) => heading.textContent),
-      ['Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again']
-    );
+    expect(Object.values(root.querySelectorAll('.SearchResult-heading'))
+      .map((heading) => heading.textContent)).toEqual(['Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again']);
   });
 
   it('renders not found if add-on type is not supported', () => {
     const root = render({ params: { visibleAddonType: 'XUL' } });
-    assert.include(root.textContent, 'Page not found');
+    expect(root.textContent).toContain('Page not found');
   });
 
   it('throws for any error other than an unknown addonType', () => {
-    assert.throws(() => {
+    expect(() => {
       render({
         apiAddonType: () => { throw new Error('Ice cream'); },
         params: { visibleAddonType: 'doesnotmatter' },
       });
-    }, 'Ice cream');
+    }).toThrowError('Ice cream');
   });
 });

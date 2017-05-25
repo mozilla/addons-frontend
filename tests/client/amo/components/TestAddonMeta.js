@@ -34,14 +34,14 @@ describe('<AddonMeta>', () => {
       const root = render({
         addon: { ...fakeAddon, average_daily_users: 2 },
       });
-      assert.equal(getUserCount(root), '2 users');
+      expect(getUserCount(root)).toEqual('2 users');
     });
 
     it('renders one user', () => {
       const root = render({
         addon: { ...fakeAddon, average_daily_users: 1 },
       });
-      assert.equal(getUserCount(root), '1 user');
+      expect(getUserCount(root)).toEqual('1 user');
     });
 
     it('localizes the user count', () => {
@@ -50,7 +50,7 @@ describe('<AddonMeta>', () => {
         addon: { ...fakeAddon, average_daily_users: 1000 },
         i18n,
       });
-      assert.match(getUserCount(root), /^1\.000/);
+      expect(getUserCount(root)).toMatch(/^1\.000/);
     });
   });
 
@@ -78,34 +78,34 @@ describe('<AddonMeta>', () => {
 
     it('renders the average rating', () => {
       const root = renderRatings({ average: 3.5 });
-      assert.equal(getRating(root), 'Rated 3.5 out of 5');
+      expect(getRating(root)).toEqual('Rated 3.5 out of 5');
     });
 
     it('localizes average rating', () => {
       const i18n = getFakeI18nInst({ lang: 'de' });
       const root = renderRatings({ average: 3.5 }, { i18n });
-      assert.include(getRating(root), '3,5');
+      expect(getRating(root)).toContain('3,5');
     });
 
     it('renders a count of multiple ratings', () => {
       const root = renderRatings({ count: 5 });
-      assert.equal(getReviewCount(root), '5 reviews');
+      expect(getReviewCount(root)).toEqual('5 reviews');
     });
 
     it('renders a count of one rating', () => {
       const root = renderRatings({ count: 1 });
-      assert.equal(getReviewCount(root), '1 review');
+      expect(getReviewCount(root)).toEqual('1 review');
     });
 
     it('localizes review count', () => {
       const i18n = getFakeI18nInst({ lang: 'de' });
       const root = renderRatings({ count: 1000 }, { i18n });
-      assert.include(getReviewCount(root), '1.000');
+      expect(getReviewCount(root)).toContain('1.000');
     });
 
     it('renders empty ratings', () => {
       const root = renderRatings({ average: null });
-      assert.equal(getRating(root), 'No ratings');
+      expect(getRating(root)).toEqual('No ratings');
     });
   });
 });
