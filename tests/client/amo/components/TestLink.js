@@ -76,10 +76,9 @@ describe('<Link />', () => {
     expect(findDOMNode(root).textContent).toEqual('hello');
   });
 
-  it('does add base prop to Link component', () => {
+  it('does not pass base prop through to Link component', () => {
     const root = render({ base: '/foo/', children: 'bonjour', to: '/test' });
-
-    expect(findRenderedComponentWithType(root, Link).props.base).toEqual(null);
+    expect(findRenderedComponentWithType(root, Link).props.base).toEqual(undefined);
   });
 
   it('ignores `href` if not a string type', () => {
@@ -100,7 +99,7 @@ describe('<Link />', () => {
   it('normalizes the `href` path with a string', () => {
     const root = render({ base: '/foo/', href: '/test' });
 
-    expect(findDOMNode(root, 'a').href).toInclude('/foo/test');
+    expect(findDOMNode(root, 'a').href).toContain('/foo/test');
   });
 
   it('renders children when `href` is used', () => {

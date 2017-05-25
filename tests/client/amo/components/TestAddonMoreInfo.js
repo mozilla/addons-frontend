@@ -115,15 +115,15 @@ describe('<AddonMoreInfo />', () => {
     const addon = { ...fakeAddon, has_eula: true };
     const root = render({ addon });
 
-    assert.equal(findDOMNode(root.eulaLink).textContent,
-      'Read the license agreement for this add-on');
-    assert.include(root.eulaLink.props.href, '/addon/chill-out/eula/');
+    expect(findDOMNode(root.eulaLink).textContent)
+      .toEqual('Read the license agreement for this add-on');
+    expect(root.eulaLink.props.href).toContain('/addon/chill-out/eula/');
   });
 
   it('does not render a EULA if none exists', () => {
     const partialAddon = { ...fakeAddon, has_eula: false };
     const root = render({ addon: partialAddon });
 
-    assert.equal(root.eulaLink, undefined);
+    expect(root.eulaLink).toEqual(undefined);
   });
 });
