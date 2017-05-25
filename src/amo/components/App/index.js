@@ -29,8 +29,9 @@ import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
 
-import 'amo/css/App.scss';
 import 'core/fonts/fira.scss';
+import './styles.scss';
+
 
 interface MozNavigator extends Navigator {
   mozAddonManager?: Object,
