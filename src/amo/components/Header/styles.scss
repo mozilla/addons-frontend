@@ -1,13 +1,13 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
 
-.MastHead {
+.Header {
   background: $masthead-color;
   min-height: 100px;
   position: relative;
 }
 
-.MastHead-header {
+.Header-header {
   padding: 30px 0;
   text-align: center;
 
@@ -16,7 +16,7 @@
   }
 }
 
-.MastHead-title {
+.Header-title {
   align-items: center;
   color: $header-font-color;
   display: flex;
@@ -32,7 +32,7 @@
   }
 
   &::before {
-    background: url('../img/icons/fox-puzzle.svg') no-repeat 50% 50%;
+    background: url('~amo/img/icons/fox-puzzle.svg') no-repeat 50% 50%;
     content: '';
     display: inline-block;
     min-height: 50px;
@@ -45,13 +45,13 @@
   }
 }
 
-.MastHead-top-row {
+.Header-top-row {
   display: flex;
   margin: 0 15px;
   justify-content: space-between;
 }
 
-.Button.MastHead-auth-button {
+.Button.Header-auth-button {
   color: $masthead-color;
   margin-top: 15px;
 
