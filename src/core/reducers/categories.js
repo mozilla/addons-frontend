@@ -38,23 +38,30 @@ export default function categories(state = initialState, action) {
     case CATEGORIES_LOAD:
       {
         const categoryList = emptyCategoryList();
-        Object.values(payload.result).forEach((result) => {
-          // If the API returns data for an application we don't support,
-          // we'll ignore it for now.
-          if (!categoryList[result.application]) {
-            log.warn(oneLine`Category data for unknown clientApp
-              "${result.application}" received from API.`);
+        Object.values(payload.result).forEach((category) => {
+          // This category has no data, so skip it.
+          if (!category || !category.application) {
+            log.warn(
+              'category or category.application was false-y.', category);
             return;
           }
 
-          if (!categoryList[result.application][result.type]) {
+          // If the API returns data for an application we don't support,
+          // we'll ignore it for now.
+          if (!categoryList[category.application]) {
+            log.warn(oneLine`Category data for unknown clientApp
+              "${category.application}" received from API.`);
+            return;
+          }
+
+          if (!categoryList[category.application][category.type]) {
             log.warn(oneLine`add-on category for unknown add-on type
-              "${result.type}" for clientApp "${result.type}" received
+              "${category.type}" for clientApp "${category.type}" received
               from API.`);
             return;
           }
 
-          categoryList[result.application][result.type].push(result);
+          categoryList[category.application][category.type].push(category);
         });
 
         Object.keys(categoryList).forEach((appName) => {
