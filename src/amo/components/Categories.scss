@@ -10,6 +10,10 @@
   list-style: none;
   margin: 0 auto;
   padding: 0;
+
+  [dir=rtl] & {
+    background: none;
+  }
 }
 
 .Categories-link {
@@ -17,4 +21,13 @@
   display: block;
   padding: 1em 0;
   text-decoration: none;
+
+  [dir=rtl] &::before {
+    background: url('../img/icons/arrow.svg') 100% 50% no-repeat;
+    content: '';
+    float: left;
+    height: 19px;
+    transform: scale(-1, 1);
+    width: 11px;
+  }
 }
