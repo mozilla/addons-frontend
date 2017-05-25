@@ -52,7 +52,7 @@ Here are some commands you can run:
 | yarn lint            |  Runs all the JS + SCSS linters                                                 |
 | yarn version-check   |  Checks you have the required dependencies                                      |
 | yarn test            |  Enters [jest][] in watch mode                                                  |
-| yarn test-ci         |  Runs all continuous integration checks. This is only meant ro run on TravisCI. |
+| yarn test-ci         |  Runs all continuous integration checks. This is only meant to run on TravisCI. |
 | yarn test-coverage   |  Runs all tests and reports code coverage                                       |
 | yarn test-once       |  Runs all tests with [jest][] and exits                                         |
 
