@@ -50,11 +50,11 @@ describe('categoriesSaga', () => {
       })
       .returns(Promise.resolve({ entities, result }));
 
-    assert.deepEqual(sagaTester.getState(), initialState);
+    expect(sagaTester.getState()).toEqual(initialState);
 
     sagaTester.dispatch(actions.categoriesFetch());
 
-    assert.deepEqual(sagaTester.getState(), {
+    expect(sagaTester.getState()).toEqual({
       ...initialState,
       categories: { ...initialState.categories, loading: true },
     });
@@ -64,16 +64,16 @@ describe('categoriesSaga', () => {
     const calledActions = sagaTester.getCalledActions();
 
     // First action is CATEGORIES_FETCH.
-    assert.deepEqual(calledActions[0], actions.categoriesFetch());
+    expect(calledActions[0]).toEqual(actions.categoriesFetch());
 
     // Next action is showing the loading bar.
-    assert.deepEqual(calledActions[1], showLoading());
+    expect(calledActions[1]).toEqual(showLoading());
 
     // Next action is loading the categories returned by the API.
-    assert.deepEqual(calledActions[2], actions.categoriesLoad({ result }));
+    expect(calledActions[2]).toEqual(actions.categoriesLoad({ result }));
 
     // Last action is to hide the loading bar.
-    assert.deepEqual(calledActions[3], hideLoading());
+    expect(calledActions[3]).toEqual(hideLoading());
 
     mockApi.verify();
   });
@@ -84,7 +84,7 @@ describe('categoriesSaga', () => {
 
     mockApi.expects('categories').throws(error);
 
-    assert.deepEqual(sagaTester.getState(), initialState);
+    expect(sagaTester.getState()).toEqual(initialState);
 
     sagaTester.dispatch(actions.categoriesFetch());
 
@@ -93,16 +93,16 @@ describe('categoriesSaga', () => {
     const calledActions = sagaTester.getCalledActions();
 
     // First action is CATEGORIES_FETCH.
-    assert.deepEqual(calledActions[0], actions.categoriesFetch());
+    expect(calledActions[0]).toEqual(actions.categoriesFetch());
 
     // Next action is showing the loading bar.
-    assert.deepEqual(calledActions[1], showLoading());
+    expect(calledActions[1]).toEqual(showLoading());
 
     // Next action is failure because the API request failed.
-    assert.deepEqual(calledActions[2], actions.categoriesFail(error));
+    expect(calledActions[2]).toEqual(actions.categoriesFail(error));
 
     // Last action is to hide the loading bar.
-    assert.deepEqual(calledActions[3], hideLoading());
+    expect(calledActions[3]).toEqual(hideLoading());
   });
 
   it('should respond to all CATEGORIES_FETCH actions', async () => {
@@ -125,7 +125,7 @@ describe('categoriesSaga', () => {
 
     await sagaTester.waitFor(CATEGORIES_LOAD);
 
-    assert.equal(sagaTester.numCalled(CATEGORIES_LOAD), 2);
+    expect(sagaTester.numCalled(CATEGORIES_LOAD)).toBe(2);
 
     // Ensure the categories API was called twice because we respond to every
     // CATEGORIES_FETCH dispatch.

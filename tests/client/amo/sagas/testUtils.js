@@ -33,7 +33,7 @@ describe('Saga utils', () => {
 
     await sagaTester.waitFor('TEST_GOT_API');
 
-    assert.deepEqual(sagaTester.getLatestCalledAction(), {
+    expect(sagaTester.getLatestCalledAction()).toEqual({
       type: 'TEST_GOT_API',
       payload: state.api,
     });

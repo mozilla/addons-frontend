@@ -21,7 +21,6 @@ describe('CATEGORIES_LOAD', () => {
   });
 
   it('sets the payload', () => {
-    expect(action.payload.loading).toEqual(false);
     expect(action.payload.result).toEqual(['foo', 'bar']);
   });
 });

@@ -2,7 +2,7 @@ import createStore from 'amo/store';
 
 describe('amo createStore', () => {
   it('sets the reducers', () => {
-    const store = createStore();
+    const { store } = createStore();
     expect(Object.keys(store.getState()).sort()).toEqual([
       'addons',
       'api',
@@ -22,7 +22,7 @@ describe('amo createStore', () => {
   });
 
   it('creates an empty store', () => {
-    const store = createStore();
+    const { store } = createStore();
     expect(store.getState().addons).toEqual({});
   });
 });

@@ -15,7 +15,6 @@ describe('<LoadingText />', () => {
   it('renders LoadingText element with className', () => {
     const root = render();
     const rootNode = ReactDOM.findDOMNode(root);
-
-    assert.include(rootNode.className, 'LoadingText');
+    expect(rootNode.className).toContain('LoadingText');
   });
 });

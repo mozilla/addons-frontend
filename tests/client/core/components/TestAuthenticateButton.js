@@ -107,7 +107,7 @@ describe('<AuthenticateButton />', () => {
   });
 
   it('pulls isAuthenticated from state', () => {
-    const store = createStore(combineReducers({ api }));
+    const { store } = createStore(combineReducers({ api }));
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(false);
     store.dispatch(setAuthToken(userAuthToken({ user_id: 123 })));
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);

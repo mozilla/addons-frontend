@@ -107,7 +107,7 @@ describe('mapStateToProps', () => {
       params: { visibleAddonType: 'extensions' },
     });
 
-    assert.deepEqual(props, {
+    expect(props).toEqual({
       addonType: ADDON_TYPE_EXTENSION,
       categories: {
         Games: {
