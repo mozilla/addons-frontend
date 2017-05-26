@@ -208,7 +208,7 @@ describe('api', () => {
     });
   });
 
-  describe('admin search api', () => {
+  describe('core/api.search()', () => {
     function mockResponse(responseProps = {}) {
       return createApiResponse({
         jsonData: {
