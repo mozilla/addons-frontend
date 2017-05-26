@@ -4,7 +4,6 @@
 }
 
 .Categories-list-item {
-  background: url('../img/icons/arrow.svg') 100% 50% no-repeat;
   border-bottom: 2px solid #000;
   display: block;
   list-style: none;
@@ -17,4 +16,17 @@
   display: block;
   padding: 1em 0;
   text-decoration: none;
+
+  &::before {
+    background: url('../img/icons/arrow.svg') 100% 50% no-repeat;
+    content: '';
+    float: right;
+    height: 19px;
+    width: 11px;
+  }
+
+  [dir=rtl] &::before {
+    float: left;
+    transform: scale(-1, 1);
+  }
 }
