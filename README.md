@@ -42,7 +42,6 @@ Here are some commands you can run:
 
 | Command              | Description                                                                     |
 |----------------------|---------------------------------------------------------------------------------|
-| yarn dev:admin       |  Starts the dev server (admin app)                                              |
 | yarn dev:amo         |  Starts the dev server and proxy (amo)                                          |
 | yarn dev:amo:no-proxy|  Starts the dev server without proxy (amo)                                      |
 | yarn dev:disco       |  Starts the dev server (discovery pane)                                         |
@@ -348,9 +347,8 @@ curl https://addons-dev.allizom.org/__version__
 
 This project will hold distinct front-ends e.g:
 
-* Editors' admin/search tool
 * Discovery Pane
-* and beyond...
+* AMO or `addons.mozilla.org`
 
 We've made a conscious decision to avoid "premature modularization" and
 keep this all in one repository. This will help us build out the necessary

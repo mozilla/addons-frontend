@@ -9,7 +9,6 @@
     "build-locales": "bin/build-locales",
     "extract-locales": "better-npm-run extract-locales",
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
-    "dev:admin": "better-npm-run dev:admin",
     "dev:amo": "better-npm-run dev:amo",
     "dev:amo:no-proxy": "better-npm-run dev:amo:no-proxy",
     "dev:disco": "better-npm-run dev:disco",
@@ -31,12 +30,6 @@
       "command": "npm run clean && npm run version-check && npm run build-locales && webpack --bail --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
       "env": {
         "NODE_PATH": "./:./src"
-      }
-    },
-    "dev:admin": {
-      "command": "better-npm-run start-dev",
-      "env": {
-        "NODE_APP_INSTANCE": "admin"
       }
     },
     "dev:amo": {
