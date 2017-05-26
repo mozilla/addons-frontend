@@ -8,9 +8,9 @@ node_js:
 - '6'
 env:
   matrix:
-  - ADDONS_FRONTEND_BUILD_ALL=1 COMMAND=yarn build
-  - COMMAND=yarn lint
-  - COMMAND=yarn test-ci
+  - COMMAND="export ADDONS_FRONTEND_BUILD_ALL=1 && yarn build"
+  - COMMAND="yarn lint"
+  - COMMAND="yarn test-ci"
   - TOXENV=discopane-ui-tests GUI=1 PYTEST_BASE_URL=http://localhost:4000
   - TOXENV=flake8
 cache:
