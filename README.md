@@ -25,7 +25,8 @@ Never submit security-related bugs through a Github Issue or by email.
 
 * You need [Node](https://nodejs.org/) 6.x which is the current
   [LTS](https://github.com/nodejs/LTS) (long term support) release.
-* To make life easier, also install [yarn](https://yarnpkg.com/en/).
+* Install [yarn](https://yarnpkg.com/en/) to manage dependencies
+  and run scripts.
 
 The easiest way to manage multiple node versions in development is to use
 [nvm](https://github.com/creationix/nvm).
@@ -170,7 +171,9 @@ This will print a table of files showing the percentage of code coverage.
 The uncovered lines will be shown in the right column but you can open
 the full report in a browser:
 
-    open coverage/lcov-report/index.html
+````
+open coverage/lcov-report/index.html
+````
 
 ### Running AMO for local development
 
@@ -212,7 +215,7 @@ module.exports = {
 };
 ````
 
-When you start up your front-end discover pane server, it will now apply
+When you start up your front-end Discovery Pane server, it will now apply
 overrides from your local configuration file:
 
     yarn dev:disco
@@ -364,4 +367,4 @@ still can.
 * Universal rendering via node
 * Unit tests with high coverage (aiming for 100%)
 
-[jest]: http://facebook.github.io/jest/docs/en/getting-started.html
+[jest]: https://facebook.github.io/jest/docs/en/getting-started.html
