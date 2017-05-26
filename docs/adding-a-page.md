@@ -98,7 +98,7 @@ export default (
 
 ### Starting the server
 
-Now that the component is setup we can run `npm start dev:search` and navigate to
+Now that the component is setup we can run `yarn dev:search` and navigate to
 [http://localhost:3000/user](http://localhost:3000/user) to see the page. Since our component is
 wrapped in the `LoginRequired` component you will need to be logged in to see the page.
 
