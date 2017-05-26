@@ -52,9 +52,7 @@ export function mapStateToProps(state, ownProps) {
   });
 
   // We don't count ALL filters here (eg clientApp) because it's not enough
-  // to search on and it's in every request on AMO. If admin search wanted
-  // to be able to search on only clientApp this would need changing or
-  // would need to be overridden.
+  // to search on and it's in every request on AMO.
   const hasSearchParams = Object.values(location.query).some((param) => (
     param && param.length
   ));
