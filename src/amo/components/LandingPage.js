@@ -140,9 +140,9 @@ export class LandingPageBase extends React.Component {
 
           <div className="LandingPage-header-bottom">
             <Button
-              appearance="light"
               className="LandingPage-browse-button"
               to={`/${visibleAddonType}/categories/`}
+              type="light"
             >
               <Icon name="browse" className="LandingPage-browse-icon" />
               {i18n.gettext('Browse by category')}

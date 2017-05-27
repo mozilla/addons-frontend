@@ -164,39 +164,69 @@ $default-arrow-margin: 3px;
 }
 
 /* Button */
-@mixin button($background: $button-background-color,
-$color: $text-color-message) {
+@mixin button(
+  $background,
+  $background-active: #fff,
+  $background-hover: #fff,
+  $border-color: transparent,
+  $border-radius: $border-radius-s,
+  $color: $white
+) {
   @include font-regular();
 
   background: $background;
-  border-radius: $border-radius-default;
-  border: 0;
-  color: $color;
-  cursor: pointer;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
   display: inline-block;
-  font-size: $font-size-m;
-  line-height: 1.5em;
   margin: 0;
-  padding: 0.5em 1em;
+  min-height: 39px;
+  padding: 10px 14px 8px;
   text-align: center;
   text-decoration: none;
+  text-shadow: 1px 1px 0 transparentize(invert($color), 0.5);
   transition-duration: $transition-short;
-  transition-property: background-color;
+  transition-property: background-color border-color;
+  vertical-align: middle;
+
+  .Icon {
+    @include margin-end(6px);
+
+    height: 16px;
+    vertical-align: top;
+    width: 16px;
+  }
+
+  &.Button--size-small {
+    &,
+    &:link {
+      font-size: $font-size-s;
+      min-height: 27px;
+      padding: 4px 10px 2px;
+    }
+
+    .Icon {
+      @include margin-end(4px);
+
+      height: 14px;
+      width: 14px;
+    }
+  }
+
+  // We frustratingly target :link directly so we need this override.
+  &,
+  &:link {
+    color: $color;
+    font-size: $font-size-default;
+    font-weight: 400;
+  }
+
+  &:hover {
+    background: $background-hover;
+  }
 
   &:active,
-  &:hover,
   &:focus {
-    @if lightness($background) < 5% {
-      background: lighten($background, 9%);
-    } @else {
-      background: darken($background, 3%);
-    }
-
-    @if lightness($background) > 80% {
-      color: black;
-    } @else {
-      color: white;
-    }
+    background: $background-active;
   }
 
   &:focus {
@@ -207,10 +237,10 @@ $color: $text-color-message) {
   &.disabled {
     @include disabled($background);
   }
-
-  &.warning {
-    background: $warning;
-  }
+  //
+  // &.warning {
+  //   background: $warning;
+  // }
 
   &.button-start {
     border-bottom-right-radius: 0;
@@ -226,10 +256,19 @@ $color: $text-color-message) {
     border-top-left-radius: 0;
   }
 
-  &.button-inverse {
+  &.Button--inverse {
     background: transparent;
-    border: 1px solid $background;
-    color: $background;
+    border-color: $background;
+    color: $color;
+
+    &:hover {
+      border-color: $background-hover;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $background-active;
+    }
   }
 
   &::-moz-focus-inner {
