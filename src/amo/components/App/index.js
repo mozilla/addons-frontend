@@ -58,7 +58,7 @@ type AppProps = {
 }
 
 export class AppBase extends React.Component {
-  mastHead: Node;
+  header: Node;
   props: AppProps;
   scheduledLogout: number;
 
@@ -183,8 +183,8 @@ export class AppBase extends React.Component {
     const {
       ErrorPage,
       FooterComponent,
-      InfoDialogComponent,
       HeaderComponent,
+      InfoDialogComponent,
       children,
       clientApp,
       i18n,
@@ -201,8 +201,12 @@ export class AppBase extends React.Component {
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         <InfoDialogComponent />
         <HeaderComponent
-          SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
-          query={query} ref={(ref) => { this.mastHead = ref; }} />
+          SearchFormComponent={SearchForm}
+          isHomePage={isHomePage}
+          location={location}
+          query={query}
+          ref={(ref) => { this.header = ref; }}
+        />
         <div className="App-content">
           <ErrorPage getErrorComponent={getErrorComponent}>
             {children}

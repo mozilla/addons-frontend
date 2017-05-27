@@ -1,5 +1,6 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 @import "~ui/components/Icon/vars";
 
 $page-margin: 20px 10px;
@@ -43,7 +44,7 @@ $page-margin: 20px 10px;
 }
 
 .AddonDetail-header {
-  background: $masthead-color;
+  background: $header-base-color;
   color: $header-font-color;
   margin: 0;
   padding: $page-margin;
@@ -56,7 +57,7 @@ $page-margin: 20px 10px;
 
 .AddonDetail-metadata {
   align-items: center;
-  background-color: $masthead-light-color;
+  background-color: $header-search-color;
   color: #fff;
   display: flex;
   flex-flow: row wrap;

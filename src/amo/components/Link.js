@@ -12,15 +12,17 @@ export class LinkBase extends React.Component {
     base: PropTypes.string,
     children: PropTypes.node,
     href: PropTypes.string,
+    prefix: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }
 
   static defaultProps = {
     base: '',
+    prefix: true,
   }
 
   render() {
-    const { base, children, href, to, ...customProps } = this.props;
+    const { base, children, href, prefix, to, ...customProps } = this.props;
 
     if (typeof href === 'string' && typeof to !== 'undefined') {
       throw new Error(
@@ -28,17 +30,18 @@ export class LinkBase extends React.Component {
     }
 
     if (typeof href === 'string') {
-      const linkHref = href.startsWith('/') ? path.join(base, href) : href;
+      const linkHref = href.startsWith('/') && prefix ?
+        path.join(base, href) : href;
       return <a {...customProps} href={linkHref}>{children}</a>;
     }
 
     let linkTo = to;
-    if (typeof to === 'string' && to.startsWith('/')) {
-      linkTo = path.join(base, to);
+    if (typeof to === 'string') {
+      linkTo = to.startsWith('/') && prefix ? path.join(base, to) : to;
     } else if (to && to.pathname) {
       linkTo = {
         ...to,
-        pathname: to.pathname.startsWith('/') ?
+        pathname: to.pathname.startsWith('/') && prefix ?
           path.join(base, to.pathname) : to.pathname,
       };
     }

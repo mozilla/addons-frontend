@@ -1,15 +1,20 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 
 .Header {
-  background: $masthead-color;
+  background: $header-base-color;
   min-height: 100px;
   position: relative;
 }
 
-.Header-header {
-  padding: 30px 0;
+.Header-content {
+  padding: 10px 0;
   text-align: center;
+
+  @include respond-to(mobile) {
+    padding: 25px 0 10px;
+  }
 
   h1 {
     margin: 0;
@@ -31,39 +36,28 @@
     text-decoration: none;
   }
 
-  &::before {
-    background: url('~amo/img/icons/fox-puzzle.svg') no-repeat 50% 50%;
-    content: '';
-    display: inline-block;
-    min-height: 50px;
-    margin-right: 10px;
-    min-width: 50px;
-
-    [dir=rtl] & {
-      margin: 0 0 0 10px;
-    }
+  .Header-addons-icon {
+    @include margin-end(8px);
+    margin-top: -16px;
   }
 }
 
 .Header-top-row {
   display: flex;
   margin: 0 15px;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: flex-end;
 }
 
-.Button.Header-auth-button {
-  color: $masthead-color;
-  margin-top: 15px;
+.Header-developer-hub-link {
+  @include margin-end(10px);
+  margin-top: 10px;
 
-  &,
-  &:hover {
-    background: #fff;
-    color: $masthead-color;
-  }
+  // @include respond-to(small) {
+  //   display: none;
+  // }
+}
 
-  .Icon {
-    @include margin-end(0.5em);
-
-    vertical-align: top;
-  }
+.Header-auth-button {
+  margin-top: 10px;
 }
