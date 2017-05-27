@@ -34,10 +34,16 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  width: calc(100% - 40px);
   word-wrap: break-word;
 
   .SearchResult--theme & {
     float: left;
+    width: calc(100% - 85px);
+
+    [dir=rtl] & {
+      text-align: left;
+    }
   }
 }
 
