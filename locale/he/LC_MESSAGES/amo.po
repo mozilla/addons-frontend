@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-05-23 22:18+0000\n"
-"PO-Revision-Date: 2017-05-28 18:40+0000\n"
+"PO-Revision-Date: 2017-05-28 18:46+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -72,13 +72,13 @@ msgstr "הקישו לתצוגה מקדימה"
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "משתמש %(total)s"
-msgstr[1] ""
+msgstr[1] "%(total)s משתמשים"
 
 #: src/amo/components/AddonMeta.js:30
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "סקירה %(total)s"
-msgstr[1] ""
+msgstr[1] "%(total)s סקירות"
 
 #: src/amo/components/AddonMeta.js:35
 msgid "No reviews"
@@ -137,9 +137,8 @@ msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 
 #: src/amo/components/AddonReview.js:152
-#, fuzzy
 msgid "Tell the world about this extension."
-msgstr "ספרו לעולם מדוע אתם חושבים שהרחבה זו נהדרת!"
+msgstr "ספרו לעולם על הרחבה זו."
 
 #: src/amo/components/AddonReview.js:153
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -154,9 +153,8 @@ msgid "Review text"
 msgstr "מלל סקירה"
 
 #: src/amo/components/AddonReview.js:181
-#, fuzzy
 msgid "Submit review"
-msgstr "כתיבת סקירה"
+msgstr "שליחת סקירה"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
@@ -167,9 +165,8 @@ msgid "Loading..."
 msgstr "בטעינה..."
 
 #: src/amo/components/AddonReviewList.js:86
-#, fuzzy
 msgid "Add-on icon"
-msgstr "תוספות עבור Firefox"
+msgstr "צלמית התוספת"
 
 #: src/amo/components/AddonReviewList.js:91
 msgid "Reviews for %(addonName)s"
@@ -226,9 +223,8 @@ msgid "Sorry, but there was an error with our server and we couldn't complete yo
 msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:32
-#, fuzzy
 msgid "More Featured Extensions"
-msgstr "עיון בכל ההרחבות"
+msgstr "הרחבות מומלצות נוספות"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
@@ -271,29 +267,24 @@ msgid "Browse by category"
 msgstr "עיון לפי קטגוריה"
 
 #: src/amo/components/LandingPage.js:51
-#, fuzzy
 msgid "Featured extensions"
-msgstr "עיון בכל ההרחבות"
+msgstr "הרחבות מומלצות"
 
 #: src/amo/components/LandingPage.js:55
-#, fuzzy
 msgid "More featured extensions"
-msgstr "עיון בכל ההרחבות"
+msgstr "הרחבות מומלצות נוספות"
 
 #: src/amo/components/LandingPage.js:56
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "עיון בכל ההרחבות"
+msgstr "ההרחבות הפופולריות ביותר"
 
 #: src/amo/components/LandingPage.js:61
-#, fuzzy
 msgid "More popular extensions"
-msgstr "עיון בכל ההרחבות"
+msgstr "הרחבות פופולריות נוספות"
 
 #: src/amo/components/LandingPage.js:62
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "עיון בכל ההרחבות"
+msgstr "ההרחבות המדורגות ביותר"
 
 #: src/amo/components/LandingPage.js:70
 #, fuzzy
@@ -309,19 +300,16 @@ msgid "More featured themes"
 msgstr "ערכות נושא מומלצות נוספות"
 
 #: src/amo/components/LandingPage.js:78
-#, fuzzy
 msgid "Most popular themes"
-msgstr "עיון בכל ערכות הנושא"
+msgstr "ערכות הנושא הפופולריות ביותר"
 
 #: src/amo/components/LandingPage.js:83
-#, fuzzy
 msgid "More popular themes"
-msgstr "עיון בכל ערכות הנושא"
+msgstr "ערכות נושא פופולריות נוספות"
 
 #: src/amo/components/LandingPage.js:84
-#, fuzzy
 msgid "Top rated themes"
-msgstr "עיון בכל ערכות הנושא"
+msgstr "ערכות הנושא המדורגות ביותר"
 
 #: src/amo/components/LandingPage.js:89
 msgid "More highly rated themes"
@@ -344,9 +332,8 @@ msgid "Log in to rate this language pack"
 msgstr "יש להתחבר כדי לדרג חבילת שפה זו"
 
 #: src/amo/components/RatingManager/index.js:128
-#, fuzzy
 msgid "Log in to rate this search plugin"
-msgstr "על אודות הרחבה זו"
+msgstr "יש להתחבר כדי לדרג מנוע חיפוש זה"
 
 #: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
@@ -585,9 +572,8 @@ msgid "Reload To Continue"
 msgstr "טעינה מחדש להמשך"
 
 #: src/ui/components/Rating/index.js:93
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "דירוג ממוצע: %(rating)s מתוך 5"
+msgstr "דירוג: %(rating)s מתוך 5"
 
 #: src/ui/components/Rating/index.js:96
 msgid "No ratings"
