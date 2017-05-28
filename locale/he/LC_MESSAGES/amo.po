@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-05-23 22:18+0000\n"
-"PO-Revision-Date: 2017-05-28 17:56+0000\n"
+"PO-Revision-Date: 2017-05-28 18:40+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -61,58 +61,52 @@ msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/AddonDetail.js:91
-#, fuzzy
 msgid "Cancel preview"
-msgstr "כתיבת סקירה"
+msgstr "ביטול תצוגה מקדימה"
 
 #: src/amo/components/AddonDetail.js:91
-#, fuzzy
 msgid "Tap to preview"
-msgstr "כתיבת סקירה"
+msgstr "הקישו לתצוגה מקדימה"
 
 #: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
-#, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "משתמש %(users)s"
-msgstr[1] "%(users)s משתמשים"
+msgstr[0] "משתמש %(total)s"
+msgstr[1] ""
 
 #: src/amo/components/AddonMeta.js:30
-#, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] "ללא דירוג"
-msgstr[1] "ללא דירוג"
+msgstr[0] "סקירה %(total)s"
+msgstr[1] ""
 
 #: src/amo/components/AddonMeta.js:35
-#, fuzzy
 msgid "No reviews"
-msgstr "כתיבת סקירה"
+msgstr "אין סקירות"
 
 #: src/amo/components/AddonMeta.js:41
 msgid "Used by"
-msgstr ""
+msgstr "בשימוש ע״י"
 
 #: src/amo/components/AddonMoreInfo.js:24
 msgid "Homepage"
-msgstr ""
+msgstr "דף הבית"
 
 #: src/amo/components/AddonMoreInfo.js:32
 msgid "Support Site"
-msgstr ""
+msgstr "דף תמיכה"
 
 #: src/amo/components/AddonMoreInfo.js:38
 msgid "More information"
-msgstr ""
+msgstr "מידע נוסף"
 
 #: src/amo/components/AddonMoreInfo.js:42
-#, fuzzy
 msgid "Add-on Links"
-msgstr "תוספות עבור Firefox"
+msgstr "קישורים לתוספת"
 
 #: src/amo/components/AddonMoreInfo.js:53
 msgid "Version"
-msgstr ""
+msgstr "גרסה"
 
 #: src/amo/components/AddonMoreInfo.js:57
 msgid "Last updated"
@@ -120,14 +114,13 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:62
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:70
 msgid "License"
-msgstr ""
+msgstr "רישיון"
 
 #: src/amo/components/AddonMoreInfo.js:81
-#, fuzzy
 msgid "Privacy Policy"
 msgstr "מדיניות פרטיות"
 
@@ -158,7 +151,7 @@ msgstr "כתיבת סקירה"
 
 #: src/amo/components/AddonReview.js:167
 msgid "Review text"
-msgstr ""
+msgstr "מלל סקירה"
 
 #: src/amo/components/AddonReview.js:181
 #, fuzzy
@@ -167,11 +160,11 @@ msgstr "כתיבת סקירה"
 
 #: src/amo/components/AddonReviewList.js:62
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "מאת %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:76 src/amo/components/Categories.js:26
 msgid "Loading..."
-msgstr ""
+msgstr "בטעינה..."
 
 #: src/amo/components/AddonReviewList.js:86
 #, fuzzy
@@ -180,12 +173,11 @@ msgstr "תוספות עבור Firefox"
 
 #: src/amo/components/AddonReviewList.js:91
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "סקירות עבור %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:94
-#, fuzzy
 msgid "All written reviews"
-msgstr "כתיבת סקירה"
+msgstr "כל הסקירות הכתובות"
 
 #: src/amo/components/Categories.js:34
 msgid "Failed to load categories."
@@ -193,7 +185,7 @@ msgstr ""
 
 #: src/amo/components/Categories.js:42
 msgid "No categories found."
-msgstr ""
+msgstr "לא נמצאו קטגוריות."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:21
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -201,7 +193,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:33
 msgid "Not Authorized"
-msgstr ""
+msgstr "לא מורשה"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
@@ -213,7 +205,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:32 src/core/components/ErrorPage/NotFound/index.js:24
 msgid "Page not found"
-msgstr ""
+msgstr "הדף לא נמצא"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
@@ -227,7 +219,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:31 src/core/components/ErrorPage/GenericError/index.js:24
 msgid "Server Error"
-msgstr ""
+msgstr "שגיאת שרת"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -240,7 +232,7 @@ msgstr "עיון בכל ההרחבות"
 
 #: src/amo/components/FeaturedAddons/index.js:34
 msgid "More Featured Themes"
-msgstr ""
+msgstr "ערכות נושא מומלצות נוספות"
 
 #: src/amo/components/Footer.js:30
 msgid "Privacy policy"
@@ -252,7 +244,7 @@ msgstr "מידע משפטי"
 
 #: src/amo/components/Footer.js:42
 msgid "Report a bug"
-msgstr ""
+msgstr "דיווח על תקלה"
 
 #: src/amo/components/Footer.js:49
 msgid "View desktop site"
@@ -260,11 +252,11 @@ msgstr "תצוגת אתר שולחני"
 
 #: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
 msgid "Themes"
-msgstr ""
+msgstr "ערכות נושא"
 
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
 msgid "Extensions"
-msgstr ""
+msgstr "הרחבות"
 
 #: src/amo/components/LandingPage.js:119
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -276,7 +268,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
-msgstr ""
+msgstr "עיון לפי קטגוריה"
 
 #: src/amo/components/LandingPage.js:51
 #, fuzzy
@@ -310,11 +302,11 @@ msgstr "עיון בכל ההרחבות"
 
 #: src/amo/components/LandingPage.js:73
 msgid "Featured themes"
-msgstr ""
+msgstr "ערכות נושא מומלצות"
 
 #: src/amo/components/LandingPage.js:77
 msgid "More featured themes"
-msgstr ""
+msgstr "ערכות נושא מומלצות נוספות"
 
 #: src/amo/components/LandingPage.js:78
 #, fuzzy
@@ -345,11 +337,11 @@ msgstr "תוספות של Firefox"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "יש להתחבר כדי לדרג מילון זה"
 
 #: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "יש להתחבר כדי לדרג חבילת שפה זו"
 
 #: src/amo/components/RatingManager/index.js:128
 #, fuzzy
@@ -358,16 +350,15 @@ msgstr "על אודות הרחבה זו"
 
 #: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "יש להתחבר כדי לדרג ערכת נושא זו"
 
 #: src/amo/components/RatingManager/index.js:132
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "על אודות הרחבה זו"
+msgstr "יש להתחבר כדי לדרג הרחבה זו"
 
 #: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "יש להתחבר כדי לדרג תוספת זו"
 
 #: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -375,11 +366,11 @@ msgstr ""
 
 #: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
 msgid "Search"
-msgstr ""
+msgstr "חיפוש"
 
 #: src/amo/components/SearchForm.js:51
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "חיפוש הרחבות וערכות נושא"
 
 #: src/amo/components/SearchResult.js:49
 msgid "No theme preview available"
@@ -387,28 +378,27 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:42
 msgid "Searching…"
-msgstr ""
+msgstr "חיפוש…"
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found for \"%(query)s\"."
-msgstr "לא נמצאו תוצאות עבור \"%(query)s\"."
+msgstr "לא נמצאו תוצאות עבור ״%(query)s״."
 
 #: src/amo/components/SearchResults.js:52
-#, fuzzy
 msgid "No results were found."
-msgstr "לא נמצאו תוצאות עבור \"%(query)s\"."
+msgstr "לא נמצאו תוצאות."
 
 #: src/amo/components/SearchResults.js:55
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "נא להזין מונח חיפוש כדי לחפש בתוספות של Firefox."
 
 #: src/amo/components/SearchSort/index.js:40
 msgid "Recently Updated"
-msgstr ""
+msgstr "עודכנו לאחרונה"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Relevance"
-msgstr ""
+msgstr "רלוונטיות"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Most Users"
@@ -420,11 +410,11 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:66
 msgid "Sort"
-msgstr ""
+msgstr "מיון"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "דפים מוצעים"
 
 #: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
 msgid "Browse all extensions"
@@ -435,9 +425,8 @@ msgid "Browse all themes"
 msgstr "עיון בכל ערכות הנושא"
 
 #: src/amo/components/SuggestedPages/index.js:35
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "תוספות עבור Firefox"
+msgstr "דף הבית של התוספות"
 
 #: src/amo/containers/App.js:200
 msgid "Add-ons for Firefox"
@@ -445,7 +434,7 @@ msgstr "תוספות עבור Firefox"
 
 #: src/amo/containers/Home.js:39
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
+msgstr "הרחבות הינן תכונות מיוחדות אותן ניתן להוסיף ל־Firefox. ערכות נושא מאפשרות לך לשנות את תצוגת הדפדפן שלך."
 
 #: src/amo/containers/Home.js:52
 msgid "You can change how Firefox works…"
@@ -453,7 +442,7 @@ msgstr ""
 
 #: src/amo/containers/Home.js:55
 msgid "Block ads"
-msgstr "לחסום מודעות"
+msgstr ""
 
 #: src/amo/containers/Home.js:58
 msgid "Screenshot"
@@ -489,7 +478,7 @@ msgstr "מופשט"
 
 #: src/amo/containers/Home.js:81
 msgid "Holiday"
-msgstr ""
+msgstr "חופשה"
 
 #: src/amo/containers/Home.js:82
 msgid "Scenic"
@@ -517,21 +506,19 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:33 src/core/components/ErrorPage/NotFound/index.js:30
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "קוד שגיאה: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:26
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
 #: src/core/components/InstallButton/index.js:105 src/core/components/InstallButton/index.js:121
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "תוספות עבור Firefox"
+msgstr "הוספה ל־Firefox"
 
 #: src/core/components/InstallButton/index.js:84
-#, fuzzy
 msgid "Install Theme"
-msgstr "%(name)s בהתקנה."
+msgstr "התקנת ערכת נושא"
 
 #: src/core/components/InstallSwitch/index.js:54
 msgid "Downloading %(name)s."
@@ -551,7 +538,7 @@ msgstr "%(name)s מנוטרל. יש ללחוץ להפעלה."
 
 #: src/core/components/InstallSwitch/index.js:67
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s בהסרת התקנה."
 
 #: src/core/components/InstallSwitch/index.js:70
 msgid "%(name)s is uninstalled. Click to install."
@@ -575,7 +562,7 @@ msgstr "עמוד %(currentPage)s מתוך %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:31
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "התוספת שלך מוכנה"
 
 #: src/core/containers/InfoDialog/index.js:33
 msgid "Now you can access %(name)s from the toolbar."
@@ -591,11 +578,11 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:51
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "אירעה שגיאה בלתי צפויה"
 
 #: src/ui/components/ErrorList/index.js:57
 msgid "Reload To Continue"
-msgstr ""
+msgstr "טעינה מחדש להמשך"
 
 #: src/ui/components/Rating/index.js:93
 #, fuzzy
