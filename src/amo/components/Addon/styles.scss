@@ -58,7 +58,7 @@ $page-margin: 20px 10px;
 .Addon-metadata {
   align-items: center;
   background-color: $header-search-color;
-  color: #fff;
+  color: $white;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -71,7 +71,16 @@ $page-margin: 20px 10px;
   }
 }
 
-.Addon-theme-header {
+.AddonDetail-theme-header-label {
+  $label-margin: 12px;
+
+  @include start($label-margin);
+
+  bottom: $label-margin;
+  position: absolute;
+}
+
+.AddonDetail-theme-header {
   line-height: 0;
   position: relative;
 }
@@ -83,38 +92,4 @@ $page-margin: 20px 10px;
   height: 100px;
   display: block;
   width: 100%;
-}
-
-.Addon-theme-header-label {
-  $label-margin: 12px;
-
-  @include start($label-margin);
-
-  border-radius: 8px;
-  bottom: $label-margin;
-  color: #fff;
-  font-size: 12px;
-  line-height: $default-icon-size;
-  padding: $label-margin;
-  position: absolute;
-  text-transform: uppercase;
-  user-select: none;
-}
-
-.Addon-theme-preview-icon {
-  @include margin-end(8px);
-
-  vertical-align: top;
-}
-
-.Addon-icon {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-
-  img {
-    display: inline-block;
-    height: 64px;
-    width: 64px;
-  }
 }

@@ -38,12 +38,6 @@ body {
 }
 
 .App-content {
-  // @include respond-to(desktop) {
-  //   background: green;
-  // }
-  // @include respond-to(mobile) {
-  //   background: $accent-color;
-  // }
   background: $accent-color;
   flex-grow: 1;
   padding: 0 0 $padding-page;

@@ -23,6 +23,7 @@ import {
   sanitizeHTML,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
+import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
@@ -104,14 +105,16 @@ export class AddonBase extends React.Component {
           ref={(el) => { this.wrapper = el; }}
           onClick={this.onClick}
         >
-          {installStatus !== ENABLED ?
-            <button
+          {installStatus !== ENABLED ? (
+            <Button
+              className="AddonDetail-theme-header-label Button--neutral"
               disabled={!compatible}
-              className="Button Addon-theme-header-label"
-              htmlFor="Addon-theme-header">
-              <Icon name="eye" className="Addon-theme-preview-icon" />
+              htmlFor="AddonDetail-theme-header"
+            >
+              <Icon name="eye" className="AddonDetail-theme-preview-icon" />
               {label}
-            </button> : null}
+            </Button>
+          ) : null}
           {headerImage}
         </div>
       );
@@ -212,7 +215,11 @@ export class AddonBase extends React.Component {
             {i18n.gettext('Extension Metadata')}
           </h2>
           <AddonMeta addon={addon} />
-          <InstallButton {...this.props} disabled={!compatible} />
+          <InstallButton
+            {...this.props}
+            className="Button--action Button--small"
+            disabled={!compatible}
+          />
           {!compatible ? (
             <AddonCompatibilityError maxVersion={maxVersion}
               minVersion={minVersion} reason={reason} />

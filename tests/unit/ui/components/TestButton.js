@@ -7,7 +7,8 @@ import Button from 'ui/components/Button';
 describe('<Button />', () => {
   it('renders a button', () => {
     const onClick = sinon.spy();
-    const button = shallowRender(<Button className="Foo" onClick={onClick}>My button!</Button>);
+    const button = shallowRender(
+      <Button className="Foo" onClick={onClick}>My button!</Button>);
     expect(button.type).toEqual('button');
     expect(button.props.className).toContain('Button');
     expect(button.props.className).toContain('Foo');
@@ -17,7 +18,8 @@ describe('<Button />', () => {
 
   it('renders a link with an href', () => {
     const href = 'https://addons.mozilla.org';
-    const button = shallowRender(<Button className="Bar" to={href}>Link text!</Button>);
+    const button = shallowRender(
+      <Button className="Bar" to={href}>Link text!</Button>);
     expect(button.type).toEqual(Link);
     expect(button.props.className).toContain('Button');
     expect(button.props.className).toContain('Bar');

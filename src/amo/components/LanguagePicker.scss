@@ -7,8 +7,6 @@ $selector-padding: 10px;
 }
 
 .LanguagePicker-selector {
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background:
     url('../img/icons/globe.svg') no-repeat #{$selector-padding} 50%,

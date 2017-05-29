@@ -7,10 +7,6 @@
 }
 
 .HomePage-welcome {
-  @include respond-to(desktop) {
-    display: none;
-  };
-
   background: $header-base-color;
   color: $white;
   margin: -10px -10px 0;

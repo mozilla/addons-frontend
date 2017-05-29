@@ -54,7 +54,10 @@ class ErrorList extends React.Component {
 
     if (code === API_ERROR_SIGNATURE_EXPIRED) {
       items.push(
-        <Button onClick={() => _window.location.reload()}>
+        <Button
+          className="Button--action"
+          onClick={() => _window.location.reload()}
+        >
           {i18n.gettext('Reload To Continue')}
         </Button>
       );

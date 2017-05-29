@@ -102,15 +102,16 @@ describe('<InstallButton />', () => {
     });
 
     expect(root.type).toEqual('div');
-    expect(root.props.className).toEqual('InstallButton InstallButton--use-button');
+    expect(root.props.className).toContain(
+      'InstallButton InstallButton--use-button');
     const buttonComponent = root.props.children[1];
     expect(buttonComponent.type).toEqual(Button);
 
     const props = buttonComponent.props;
     expect(props.children).toEqual('Add to Firefox');
-    expect(props.className).toEqual('InstallButton-button');
-    expect(props.to).toEqual(installURL);
-    expect(props.size).toEqual('normal');
+    expect(props.className).toContain('InstallButton-button');
+    expect(props.className).not.toContain('Button--small');
+    expect(props.href).toEqual(installURL);
   });
 
   it('disables add-on install when client does not support addons', () => {
@@ -127,8 +128,9 @@ describe('<InstallButton />', () => {
     expect(root.type).toEqual('div');
     const buttonComponent = root.props.children[1];
     expect(buttonComponent.type).toEqual(Button);
-    expect(buttonComponent.props.className).toContain('InstallButton-button--disabled');
-    expect(buttonComponent.props.to).toBe(installURL);
+    expect(buttonComponent.props.className).toContain(
+      'InstallButton-button--disabled');
+    expect(buttonComponent.props.href).toBe(installURL);
 
     expect(typeof buttonComponent.props.onClick).toBe('function');
     const event = {
@@ -168,7 +170,8 @@ describe('<InstallButton />', () => {
     expect(root.type).toEqual('div');
     const buttonComponent = root.props.children[1];
     expect(buttonComponent.type).toEqual(Button);
-    expect(buttonComponent.props.className).toContain('Button InstallButton-button');
+    expect(buttonComponent.props.className).toContain('Button--action');
+    expect(buttonComponent.props.className).toContain('InstallButton-button');
     expect(buttonComponent.props.children).toEqual('Add to Firefox');
   });
 
