@@ -9,11 +9,11 @@
 }
 
 .Header-content {
-  padding: 10px 0;
+  padding: 20px 0 10px;
   text-align: center;
 
-  @include respond-to(mobile) {
-    padding: 25px 0 10px;
+  @include respond-to(large) {
+    padding: 10px 0;
   }
 
   h1 {
@@ -38,24 +38,22 @@
 
   .Header-addons-icon {
     @include margin-end(8px);
-    margin-top: -16px;
+
+    height: 35px;
+    width: 35px;
   }
 }
 
 .Header-top-row {
   display: flex;
   margin: 0 15px;
-  // justify-content: space-between;
   justify-content: flex-end;
 }
 
 .Header-developer-hub-link {
   @include margin-end(10px);
-  margin-top: 10px;
 
-  // @include respond-to(small) {
-  //   display: none;
-  // }
+  margin-top: 10px;
 }
 
 .Header-auth-button {

@@ -41,11 +41,3 @@ $background-gray: $background-grey;
 $type-black: $black;
 
 $header-accent-color: #0d96ff;
-
-@mixin typography-medium() {
-  character: 0px;
-  color: $type-black;
-  font-face: HelveticaNeue, 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.3;
-}

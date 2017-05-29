@@ -1,7 +1,7 @@
 @import '~core/css/inc/mixins';
 @import '~ui/css/vars';
 
-.Button--type-neutral {
+.Button--neutral {
   @include button(
     $background: $neutral-base-color,
     $background-active: $neutral-active-color,
@@ -9,7 +9,7 @@
   );
 }
 
-.Button--type-light {
+.Button--light {
   @include button(
     $background: $light-base-color,
     $background-active: $light-active-color,
@@ -18,7 +18,7 @@
   );
 }
 
-.Button--type-action {
+.Button--action {
   @include button(
     $background: $action-base-color,
     $background-active: $action-active-color,
@@ -26,7 +26,7 @@
   );
 }
 
-.Button--type-confirm {
+.Button--confirm {
   @include button(
     $background: $action-base-color,
     $background-active: $action-active-color,
@@ -34,7 +34,7 @@
   );
 }
 
-.Button--type-alert {
+.Button--alert {
   @include button(
     $background: $action-base-color,
     $background-active: $action-active-color,
@@ -42,7 +42,7 @@
   );
 }
 
-.Button--type-report {
+.Button--report {
   @include button(
     $background: $action-base-color,
     $background-active: $action-active-color,

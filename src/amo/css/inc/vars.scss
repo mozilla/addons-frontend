@@ -1,11 +1,5 @@
 @import "~core/css/inc/vars";
 
-
-
-// -------------
-
-// Styles from old mobile design.
-
 $body-font-color: #000;
 $loading-bar-color: #329af0;
 
@@ -16,12 +10,13 @@ $masthead-light-color: #495057;
 $footer-color: #212529;
 $accent-color: #ebebeb;
 
+// No "small" breakpoint is defined here because we are mobile-first.
+// Instead of adding a rule for only mobile, add a mobile rule and override
+// it with `@include respond-to(medium) { [...] }`.
 $breakpoints: (
-  small: '(max-width: 499px)',
-  medium: '(min-width: 500px)',
-  large: '(min-width: 720px)',
-  desktop: only screen and (min-width: 720px),
-  mobile: only screen and (max-width: 719px),
+  mediumOnly: only screen and (min-width: 500px) and (max-width: 719px),
+  medium: only screen and (min-width: 500px),
+  large: only screen and (min-width: 720px),
 );
 
 $page-margin: 20px 10px;

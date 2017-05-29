@@ -11,37 +11,19 @@ export default class Button extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    inverse: PropTypes.bool,
+    href: PropTypes.string,
     to: PropTypes.string,
-    size: PropTypes.string,
   }
-
-  static defaultProps = {
-    inverse: false,
-    size: 'normal',
-    type: 'neutral',
-  };
 
   render() {
     const {
       children,
       className,
       href,
-      inverse,
       to,
-      size,
-      type,
-      ...rest,
+      ...rest
     } = this.props;
-    const props = {
-      className: classNames('Button', className, [
-        `Button--size-${size}`,
-        `Button--type-${type}`,
-      ], {
-        'Button--inverse': inverse,
-      }),
-      ...rest,
-    };
+    const props = { className: classNames('Button', className), ...rest };
 
     if (href || to) {
       if (href) {
@@ -50,7 +32,7 @@ export default class Button extends React.Component {
         props.to = to;
       }
 
-      return <Link {...props}>{children}</Link>
+      return <Link {...props}>{children}</Link>;
     }
 
     return <button {...props}>{children}</button>;
