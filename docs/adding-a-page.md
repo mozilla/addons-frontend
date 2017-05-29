@@ -110,7 +110,8 @@ react-redux's `connect()` to set the props for us as if it were pulling the data
 
 ```jsx
 // src/search/containers/UserPage/index.js
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -250,7 +251,8 @@ use [redux-connect](https://github.com/makeomatic/redux-connect)'s `asyncConnect
 
 ```jsx
 // src/search/containers/AddonPage/index.js
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { asyncConnect } from 'redux-connect';
