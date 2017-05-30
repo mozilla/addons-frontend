@@ -1,0 +1,13 @@
+// This is only a partial definition of
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
+
+declare class Intl$NumberFormat {
+  constructor(lang: string): void;
+  format(number: Number): string;
+}
+
+declare type IntlType = {
+  NumberFormat: Class<Intl$NumberFormat>,
+}
+
+declare var Intl: typeof undefined | IntlType;

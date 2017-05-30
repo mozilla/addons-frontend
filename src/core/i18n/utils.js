@@ -244,7 +244,6 @@ export function makeI18n(i18nData: I18nConfig, lang: string, _Jed: Jed = Jed) {
   // can type-check all the components that rely on the i18n object.
   // Note: the available locales for tests are controlled in tests/setup.js
   i18n.formatNumber = (number) => {
-    // $FLOW_IGNORE
     if (typeof Intl === 'object' && Object.prototype.hasOwnProperty.call(Intl, 'NumberFormat')) {
       return new Intl.NumberFormat(lang).format(number);
     }
