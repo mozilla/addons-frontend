@@ -243,8 +243,16 @@ export function makeI18n(i18nData: I18nConfig, lang: string, _Jed: Jed = Jed) {
   // TODO: move all of this to an I18n class that extends Jed so that we
   // can type-check all the components that rely on the i18n object.
   // Note: the available locales for tests are controlled in tests/setup.js
-  // $FLOW_IGNORE
-  i18n.formatNumber = (number) => new Intl.NumberFormat(lang).format(number);
+  i18n.formatNumber = (number) => {
+    // $FLOW_IGNORE
+    if (typeof Intl === 'object' && Object.prototype.hasOwnProperty.call(Intl, 'NumberFormat')) {
+      return new Intl.NumberFormat(lang).format(number);
+    }
+    // Intl is not yet supported on FF Android though it is expected to land in 54
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=1215247
+    /* istanbul ignore next */
+    return number.toLocaleString(lang);
+  };
 
   // This adds the correct moment locale for the active locale so we can get
   // localised dates, times, etc.
