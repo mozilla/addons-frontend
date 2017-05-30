@@ -160,6 +160,9 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   the keyboard. If it's something you think is unfixable then use
   `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link
   to a GitHub issue if possible.
+* If you're stumped on why some Flow annotations aren't working, try using
+  the `flow type-at-pos` command to trace which types are being applied to the
+  code. See `flow --help` for details.
 
 ### Code coverage
 
