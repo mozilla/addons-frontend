@@ -14,7 +14,7 @@
     "dev:amo:no-proxy": "better-npm-run dev:amo:no-proxy",
     "dev:disco": "better-npm-run dev:disco",
     "eslint": "eslint .",
-    "flow:check": "flow check",
+    "flow": "flow",
     "flow:dev": "chokidar .flowconfig flow/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
