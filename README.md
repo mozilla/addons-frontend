@@ -253,15 +253,15 @@ The env vars are:
 | yarn start  |  Starts the express server (requires env vars)      |
 | yarn build  |  Builds the libs (all apps) (requires env vars)     |
 
-Example: Building and running a production instance of the AMO app:
+**Example:** Building and running a production instance of the AMO app:
 
 ```
 NODE_APP_INSTANCE=amo NODE_ENV=production yarn build
 NODE_APP_INSTANCE=amo NODE_ENV=production yarn start
 ```
 
-To run the app locally in production mode you'll need to create a config file
-that looks something like this. Name it exactly as `config/local-production-amo.js`.
+**Note: To run the app locally in production mode you'll need to create a config file for local production builds.**
+It must be saved as `config/local-production-amo.js` and should look like:
 
 ```js
 import { apiStageHost, amoStageCDN } from './lib/shared';
