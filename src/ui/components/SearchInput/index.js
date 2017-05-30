@@ -1,5 +1,6 @@
 /* global document, window */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Icon from 'ui/components/Icon';

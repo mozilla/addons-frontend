@@ -1,4 +1,5 @@
-import { Children, Component, PropTypes } from 'react';
+import { Children, Component } from 'react';
+import PropTypes from 'prop-types';
 
 /*
  * This Provider expects to be passed an initialized
