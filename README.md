@@ -40,21 +40,22 @@ The easiest way to manage multiple node versions in development is to use
 
 Here are some commands you can run:
 
-| Command              | Description                                                                     |
-|----------------------|---------------------------------------------------------------------------------|
-| yarn dev:amo         |  Starts the dev server and proxy (amo)                                          |
-| yarn dev:amo:no-proxy|  Starts the dev server without proxy (amo)                                      |
-| yarn dev:disco       |  Starts the dev server (discovery pane)                                         |
-| yarn flow:check      |  Check for Flow errors and exit                                                 |
-| yarn flow:dev        |  Continuously check for Flow errors                                             |
-| yarn eslint          |  Lints the JS                                                                   |
-| yarn stylelint       |  Lints the SCSS                                                                 |
-| yarn lint            |  Runs all the JS + SCSS linters                                                 |
-| yarn version-check   |  Checks you have the required dependencies                                      |
-| yarn test            |  Enters [jest][] in watch mode                                                  |
-| yarn test-ci         |  Runs all continuous integration checks. This is only meant to run on TravisCI. |
-| yarn test-coverage   |  Runs all tests and reports code coverage                                       |
-| yarn test-once       |  Runs all tests with [jest][] and exits                                         |
+| Command                   | Description |
+|---------------------------|-------------|
+| yarn dev:amo              | Start the dev server and proxy (amo) |
+| yarn dev:amo:no-proxy     | Start the dev server without proxy (amo) |
+| yarn dev:disco            | Start the dev server (discovery pane) |
+| yarn flow:check           | Check for Flow errors and exit |
+| yarn flow:dev             | Continuously check for Flow errors |
+| yarn eslint               | Lint the JS |
+| yarn stylelint            | Lint the SCSS |
+| yarn lint                 | Run all the JS + SCSS linters |
+| yarn version-check        | Check you have the required dependencies |
+| yarn test                 | Run all tests (Enters [jest][] in `--watch` mode) |
+| yarn test-coverage        | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
+| yarn test-coverage-once   | Run all tests, generate code coverage report, then exit |
+| yarn test-once            | Run all tests with [jest][], then exit |
+| yarn test-ci              | Run all continuous integration checks. This is only meant to run on TravisCI. |
 
 ### Running tests
 
@@ -84,16 +85,16 @@ in the [jest][] watch usage.
 Alternatively, you can start the test runner with a
 [specific file or regular expression](https://facebook.github.io/jest/docs/en/cli.html#jest-regexfortestfiles),
 like:
-````
+```
 yarn test tests/client/amo/components/TestAddonDetail.js
-````
+```
 
 #### Run all tests
 
 If you want to run all tests and exit, type:
-````
+```
 yarn test-once
-````
+```
 
 ### Flow
 
@@ -131,7 +132,7 @@ Here is our Flow manifesto:
 * When a function like `getAllAddons` takes object arguments, call its
   type object `GetAllAddonsParams`. Example:
 
-````js
+```js
 type GetAllAddonsParams = {|
   categoryId: number,
 |};
@@ -139,7 +140,7 @@ type GetAllAddonsParams = {|
 function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   ...
 }
-````
+```
 
 * Use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types)
   via the pipe syntax (`{| key: ... |}`) when possible. Sometimes the
@@ -162,17 +163,17 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
 ### Code coverage
 
 To see a report of code coverage, type:
-````
-yarn test-coverage
-````
+```
+yarn test-coverage-once
+```
 
 This will print a table of files showing the percentage of code coverage.
 The uncovered lines will be shown in the right column but you can open
 the full report in a browser:
 
-````
+```
 open coverage/lcov-report/index.html
-````
+```
 
 ### Running AMO for local development
 
@@ -208,11 +209,11 @@ test suite.
 Here's what `local-development-disco.js` would look like when
 overriding the `apiHost` parameter so that it points to your docker container:
 
-````javascript
+```javascript
 module.exports = {
   apiHost: 'http://olympia.dev',
 };
-````
+```
 
 When you start up your front-end Discovery Pane server, it will now apply
 overrides from your local configuration file:
@@ -230,11 +231,11 @@ URL will fail our Content Security Policy (CSP) and clutter your console
 with errors. You can turn off all CSP errors by settings CSP to `false`
 in any local config file, such as `local-development-amo.js`. Example:
 
-````javascript
+```javascript
 module.exports = {
   CSP: false,
 };
-````
+```
 
 ### Building and running services
 
@@ -246,22 +247,22 @@ The env vars are:
 `NODE_APP_INSTANCE` this is the name of the app e.g. 'disco'
 `NODE_ENV` this is the node environment. e.g. production, dev, stage, development.
 
-| Script                 | Description                                         |
-|------------------------|-----------------------------------------------------|
-| yarn start          |  Starts the express server (requires env vars)      |
-| yarn build          |  Builds the libs (all apps) (requires env vars)     |
+| Script      | Description                                         |
+|-------------|-----------------------------------------------------|
+| yarn start  |  Starts the express server (requires env vars)      |
+| yarn build  |  Builds the libs (all apps) (requires env vars)     |
 
 Example: Building and running a production instance of the AMO app:
 
-````
+```
 NODE_APP_INSTANCE=amo NODE_ENV=production yarn build
 NODE_APP_INSTANCE=amo NODE_ENV=production yarn start
-````
+```
 
 To run the app locally in production mode you'll need to create a config file
 that looks something like this. Name it exactly as `config/local-production-amo.js`.
 
-````js
+```js
 import { apiStageHost, amoStageCDN } from './lib/shared';
 
 module.exports = {
@@ -309,7 +310,7 @@ module.exports = {
   // Do not send client side errors to Sentry.
   publicSentryDsn: null,
 };
-````
+```
 
 After this, re-build and restart using `yarn build` and `yarn start`
 as documented above.
@@ -323,7 +324,7 @@ be sure to clear your cookies.
 You can check to see what commit of `addons-frontend` is deployed by
 making a request like this:
 
-````
+```
 curl https://addons-dev.allizom.org/__frontend_version__
 {
    "build" : "https://circleci.com/gh/mozilla/addons-server/6550",
@@ -331,7 +332,7 @@ curl https://addons-dev.allizom.org/__frontend_version__
    "source" : "https://github.com/mozilla/addons-server",
    "version" : ""
 }
-````
+```
 
 This will return a 415 response if a `version.json` file doesn't exist
 in the root directory. This file is typically generated by the deploy process.
@@ -339,9 +340,9 @@ in the root directory. This file is typically generated by the deploy process.
 For consistency with monitoring scripts, the same data can be retrieved
 at this URL:
 
-````
+```
 curl https://addons-dev.allizom.org/__version__
-````
+```
 
 ## Overview and rationale
 
