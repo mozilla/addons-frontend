@@ -10,6 +10,7 @@ import {
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 
+import { currentViewSet } from 'amo/actions/currentView';
 import {
   AddonBase,
   allowedDescriptionTags,
@@ -44,6 +45,7 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
   return {
     addon,
     ...addon,
+    dispatch: sinon.stub(),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
@@ -81,6 +83,15 @@ describe('Addon', () => {
     reason: INCOMPATIBLE_NOT_FIREFOX,
   };
   const getClientCompatibilityFalse = () => incompatibleClientResult;
+
+  it('dispatches currentViewSet with addonType', () => {
+    const fakeDispatch = sinon.stub();
+    render({ dispatch: fakeDispatch });
+
+    expect(
+      fakeDispatch.calledWith(currentViewSet({ addonType: fakeAddon.type }))
+    ).toBeTruthy();
+  });
 
   it('renders a name', () => {
     const rootNode = renderAsDOMNode();

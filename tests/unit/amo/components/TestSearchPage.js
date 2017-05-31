@@ -17,6 +17,7 @@ describe('<SearchPage />', () => {
   beforeEach(() => {
     props = {
       count: 80,
+      dispatch: sinon.stub(),
       filters: { query: 'foo' },
       hasSearchParams: true,
       page: 3,

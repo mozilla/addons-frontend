@@ -3,6 +3,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
+import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
@@ -68,6 +69,7 @@ export class HeaderBase extends React.Component {
             ? <h1 className="Header-title-wrapper">{headerLink}</h1>
             : headerLink}
         </div>
+        <SectionLinks location={location} />
         <SearchFormComponent pathname="/search/" query={query} />
       </header>
     );
