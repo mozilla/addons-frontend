@@ -6,6 +6,7 @@ import {
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 
+import { currentViewSet } from 'amo/actions/currentView';
 import createStore from 'amo/store';
 import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
 import { setClientApp, setLang } from 'core/actions';
@@ -20,13 +21,13 @@ const categoriesResponse = {
       application: 'android',
       name: 'Games',
       slug: 'Games',
-      type: 'extension',
+      type: ADDON_TYPE_EXTENSION,
     },
     {
       application: 'android',
       name: 'Travel',
       slug: 'travel',
-      type: 'extension',
+      type: ADDON_TYPE_EXTENSION,
     },
   ],
 };
@@ -45,26 +46,56 @@ describe('Categories', () => {
       dispatch: sinon.stub(),
     };
 
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
+    return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
         <CategoriesBase i18n={getFakeI18nInst()} {...baseProps} {...props} />
       </Provider>
-    ), CategoriesBase));
+    ), CategoriesBase);
   }
 
-  it('renders Categories', () => {
+  function renderDomNode(props) {
+    return findDOMNode(render(props));
+  }
+
+  it('dispatches currentViewSet with addonType', () => {
+    const fakeDispatch = sinon.stub();
     const root = render({
-      addonType: 'extension',
+      addonType: ADDON_TYPE_EXTENSION,
+      dispatch: fakeDispatch,
+    });
+
+    expect(fakeDispatch.calledWith(currentViewSet({
+      addonType: ADDON_TYPE_EXTENSION,
+    }))).toBeTruthy();
+
+    // Make sure that we update the addonType when `componentDidUpdate()`
+    // is called. This will happen when changing from one route that uses
+    // this component to another–the props will be updated so
+    // `componentDidUpdate()` is called without the component being
+    // mounted again.
+    // TODO: This feels naughty; can it be done better?
+    root.componentDidUpdate();
+    expect(fakeDispatch.calledTwice).toBeTruthy();
+    expect(fakeDispatch.calledWith(currentViewSet({
+      addonType: ADDON_TYPE_EXTENSION,
+    }))).toBeTruthy();
+  });
+
+  it('renders Categories', () => {
+    const root = renderDomNode({
+      addonType: ADDON_TYPE_EXTENSION,
       error: false,
       loading: false,
     });
 
-    expect(root.querySelector('.Categories-list').textContent).toEqual('GamesTravel');
+    expect(
+      root.querySelector('.Categories-list').textContent
+    ).toEqual('GamesTravel');
   });
 
   it('renders loading when loading', () => {
-    const root = render({
-      addonType: 'extension',
+    const root = renderDomNode({
+      addonType: ADDON_TYPE_EXTENSION,
       categories: [],
       error: false,
       loading: true,
@@ -74,8 +105,8 @@ describe('Categories', () => {
   });
 
   it('renders a message when there are no categories', () => {
-    const root = render({
-      addonType: 'extension',
+    const root = renderDomNode({
+      addonType: ADDON_TYPE_EXTENSION,
       categories: [],
       error: false,
       loading: false,
@@ -85,8 +116,8 @@ describe('Categories', () => {
   });
 
   it('renders an error', () => {
-    const root = render({
-      addonType: 'extension',
+    const root = renderDomNode({
+      addonType: ADDON_TYPE_EXTENSION,
       categories: [],
       error: true,
       loading: false,
@@ -114,13 +145,13 @@ describe('mapStateToProps', () => {
           application: 'android',
           name: 'Games',
           slug: 'Games',
-          type: 'extension',
+          type: ADDON_TYPE_EXTENSION,
         },
         travel: {
           application: 'android',
           name: 'Travel',
           slug: 'travel',
-          type: 'extension',
+          type: ADDON_TYPE_EXTENSION,
         },
       },
       clientApp: 'android',

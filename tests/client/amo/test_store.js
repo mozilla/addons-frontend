@@ -8,6 +8,7 @@ describe('amo createStore', () => {
       'api',
       'auth',
       'categories',
+      'currentView',
       'errorPage',
       'errors',
       'featured',
