@@ -47,6 +47,7 @@ Here are some commands you can run:
 | yarn dev:amo:no-proxy     | Start the dev server without proxy (amo) |
 | yarn dev:disco            | Start the dev server (discovery pane) |
 | yarn flow                 | Run Flow. By default this checks for errors and exits |
+| yarn flow:check           | Explicitly check for Flow errors and exit |
 | yarn flow:dev             | Continuously check for Flow errors |
 | yarn eslint               | Lint the JS |
 | yarn stylelint            | Lint the SCSS |

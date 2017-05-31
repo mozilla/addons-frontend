@@ -15,6 +15,7 @@
     "dev:disco": "better-npm-run dev:disco",
     "eslint": "eslint .",
     "flow": "flow",
+    "flow:check": "flow check",
     "flow:dev": "chokidar .flowconfig flow/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
@@ -84,7 +85,7 @@
       }
     },
     "test-ci": {
-      "command": "npm run version-check && npm run flow && npm run test-coverage-once",
+      "command": "npm run version-check && npm run flow:check && npm run test-coverage-once",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
