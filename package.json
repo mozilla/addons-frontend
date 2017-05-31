@@ -84,7 +84,7 @@
       }
     },
     "test-ci": {
-      "command": "npm run version-check && npm run flow:check && npm run test-coverage-once",
+      "command": "npm run version-check && npm run flow && npm run test-coverage-once",
       "env": {
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
