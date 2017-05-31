@@ -5733,9 +5733,9 @@ react-proxy@^1.1.7:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
 
-react-redux-loading-bar@2.8.2:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/react-redux-loading-bar/-/react-redux-loading-bar-2.8.2.tgz#a5e16490ccd28fdcfd4db127f3c01adbe4a31321"
+react-redux-loading-bar@2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/react-redux-loading-bar/-/react-redux-loading-bar-2.9.1.tgz#26d10ff08194e533f088f26fb2d42b1248d61ff8"
   dependencies:
     prop-types "^15.5.6"
 
