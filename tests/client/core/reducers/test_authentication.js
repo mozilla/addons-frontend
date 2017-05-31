@@ -14,17 +14,6 @@ describe('authentication reducer', () => {
     expect(auth(state, { type: 'UNRELATED' })).toBe(state);
   });
 
-  it('sets the user on SET_CURRENT_USER', () => {
-    const username = 'my-username';
-    expect(auth(undefined, { type: 'SET_CURRENT_USER', payload: { username } })).toEqual({ username });
-  });
-
-  it('maintains the token when adding a username', () => {
-    const username = 'name-of-user';
-    const token = userAuthToken();
-    expect(auth({ token }, { type: 'SET_CURRENT_USER', payload: { username } })).toEqual({ token, username });
-  });
-
   describe('set and reduce auth token', () => {
     const setAndReduceToken = (token) => auth(undefined, setAuthToken(token));
 
