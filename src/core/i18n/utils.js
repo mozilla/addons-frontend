@@ -236,8 +236,7 @@ type I18nConfig = {|
 |};
 
 type makeI18nOptions = {|
-  // FIXME this should be tied back to the Intl type.
-  _Intl?: any,
+  _Intl?: typeof Intl,
 |};
 
 

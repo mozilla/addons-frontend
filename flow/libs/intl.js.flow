@@ -1,15 +1,17 @@
-// This is only a partial definition of
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
+// This is only a partial definition of Intl (https://mzl.la/1dsIHLk MDN)
 
 declare class Intl$NumberFormat {
   constructor(locales: string | Array<string>, options?: Object): void;
-  format(number: Number): string;
+  format(number: number): string;
 }
 
 declare type IntlType = {
   NumberFormat: Class<Intl$NumberFormat>,
 }
 
-// Mark it as possibly undefined since
-// Safari and some recent versions of Firefox for Android do not implement it.
-declare var Intl: typeof undefined | IntlType;
+
+// Intl can be undefined since Safari and some recent versions of Firefox 
+// for Android do not implement it.
+// The expected declaration here is `declare var Intl: void | IntlType;`
+// but that breaks, see https://github.com/facebook/flow/issues/4077
+declare var Intl: IntlType;
