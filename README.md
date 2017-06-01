@@ -45,7 +45,8 @@ Here are some commands you can run:
 | yarn dev:amo              | Start the dev server and proxy (amo) |
 | yarn dev:amo:no-proxy     | Start the dev server without proxy (amo) |
 | yarn dev:disco            | Start the dev server (discovery pane) |
-| yarn flow:check           | Check for Flow errors and exit |
+| yarn flow                 | Run Flow. By default this checks for errors and exits |
+| yarn flow:check           | Explicitly check for Flow errors and exit |
 | yarn flow:dev             | Continuously check for Flow errors |
 | yarn eslint               | Lint the JS |
 | yarn stylelint            | Lint the SCSS |
@@ -159,6 +160,9 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   the keyboard. If it's something you think is unfixable then use
   `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link
   to a GitHub issue if possible.
+* If you're stumped on why some Flow annotations aren't working, try using
+  the `yarn flow type-at-pos ...` command to trace which types are being applied
+  to the code. See `yarn flow -- --help type-at-pos` for details.
 
 ### Code coverage
 
