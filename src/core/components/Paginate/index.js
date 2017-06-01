@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import PaginatorLink from 'core/components/PaginatorLink';
@@ -106,9 +107,10 @@ export class PaginateBase extends React.Component {
             page={currentPage - 1}
             text={i18n.gettext('Previous')}
           />
-          {this.visiblePages({ pageCount }).map((page) =>
+          {this.visiblePages({ pageCount }).map((page, index) =>
             <PaginatorLink
               {...linkParams}
+              key={`page-${index}`}
               page={page}
             />
           )}

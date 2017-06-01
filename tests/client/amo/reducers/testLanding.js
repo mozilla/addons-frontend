@@ -6,7 +6,7 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 describe('landing reducer', () => {
   let initialData;
 
-  before(() => {
+  beforeAll(() => {
     initialData = {
       featured: { count: 0, results: [] },
       highlyRated: { count: 0, results: [] },
@@ -18,7 +18,7 @@ describe('landing reducer', () => {
   it('defaults to not loading', () => {
     const { loading } = landing(undefined, { type: 'unrelated' });
 
-    assert.strictEqual(loading, false);
+    expect(loading).toBe(false);
   });
 
   it('defaults to zero count', () => {
@@ -26,18 +26,18 @@ describe('landing reducer', () => {
       type: 'unrelated',
     });
 
-    assert.strictEqual(featured.count, 0);
-    assert.strictEqual(highlyRated.count, 0);
-    assert.strictEqual(popular.count, 0);
+    expect(featured.count).toBe(0);
+    expect(highlyRated.count).toBe(0);
+    expect(popular.count).toBe(0);
   });
 
   it('defaults to empty results', () => {
     const { featured, highlyRated, popular } = landing(undefined, {
       type: 'unrelated',
     });
-    assert.deepEqual(featured.results, []);
-    assert.deepEqual(highlyRated.results, []);
-    assert.deepEqual(popular.results, []);
+    expect(featured.results).toEqual([]);
+    expect(highlyRated.results).toEqual([]);
+    expect(popular.results).toEqual([]);
   });
 
   describe('LANDING_GET', () => {
@@ -52,11 +52,11 @@ describe('landing reducer', () => {
         addonType, featured, highlyRated, loading, popular,
       } = landing(initialState, getLanding({ addonType: ADDON_TYPE_THEME }));
 
-      assert.equal(addonType, ADDON_TYPE_THEME);
-      assert.equal(loading, true);
-      assert.deepEqual(featured, { foo: 'bar' });
-      assert.deepEqual(highlyRated, { count: 0 });
-      assert.deepEqual(popular, { results: [] });
+      expect(addonType).toEqual(ADDON_TYPE_THEME);
+      expect(loading).toEqual(true);
+      expect(featured).toEqual({ foo: 'bar' });
+      expect(highlyRated).toEqual({ count: 0 });
+      expect(popular).toEqual({ results: [] });
     });
   });
 
@@ -81,10 +81,10 @@ describe('landing reducer', () => {
           popular: { entities, result: { count: 0, results: [] } },
         },
       });
-      assert.equal(featured.count, 2);
-      assert.deepEqual(featured.results, [{ slug: 'foo' }, { slug: 'food' }]);
-      assert.deepEqual(highlyRated, { count: 0, results: [] });
-      assert.deepEqual(popular, { count: 0, results: [] });
+      expect(featured.count).toEqual(2);
+      expect(featured.results).toEqual([{ slug: 'foo' }, { slug: 'food' }]);
+      expect(highlyRated).toEqual({ count: 0, results: [] });
+      expect(popular).toEqual({ count: 0, results: [] });
     });
 
     it('does not set null keys', () => {
@@ -109,7 +109,7 @@ describe('landing reducer', () => {
           popular: { entities, result: { count: 0, results: [] } },
         },
       });
-      assert.deepEqual(highlyRated, 'hello');
+      expect(highlyRated).toEqual('hello');
     });
   });
 
@@ -119,7 +119,7 @@ describe('landing reducer', () => {
       const state = landing(initialState,
         { type: 'LANDING_FAILED', payload: { page: 2, addonType: ADDON_TYPE_THEME } });
 
-      assert.deepEqual(state, {
+      expect(state).toEqual({
         addonType: ADDON_TYPE_THEME,
         featured: { count: 0, results: [] },
         highlyRated: { count: 0, results: [] },

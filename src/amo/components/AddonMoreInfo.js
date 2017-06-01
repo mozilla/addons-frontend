@@ -1,6 +1,8 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import { trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -82,10 +84,21 @@ export class AddonMoreInfoBase extends React.Component {
           ) : null}
           {addon.has_privacy_policy ? (
             <dd>
-              <a href={`/addon/${addon.slug}/privacy/`}
+              <Link href={`/addon/${addon.slug}/privacy/`}
                 ref={(ref) => { this.privacyPolicyLink = ref; }}>
                 {i18n.gettext('Read the privacy policy for this add-on')}
-              </a>
+              </Link>
+            </dd>
+          ) : null}
+          {addon.has_eula ? (
+            <dt>{i18n.gettext('End-User License Agreement')}</dt>
+          ) : null}
+          {addon.has_eula ? (
+            <dd>
+              <Link href={`/addon/${addon.slug}/eula/`}
+                ref={(ref) => { this.eulaLink = ref; }}>
+                {i18n.gettext('Read the license agreement for this add-on')}
+              </Link>
             </dd>
           ) : null}
         </dl>

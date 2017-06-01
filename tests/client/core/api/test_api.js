@@ -47,7 +47,7 @@ describe('api', () => {
     }
 
     it('does not use remote host for api calls', () => {
-      assert.equal(apiHost, 'https://localhost');
+      expect(apiHost).toEqual('https://localhost');
     });
 
     it('transforms method to upper case', () => {
@@ -80,7 +80,7 @@ describe('api', () => {
 
       return api.callApi({ endpoint: 'resource', errorHandler })
         .then(() => {
-          assert.ok(errorHandler.clear.called);
+          expect(errorHandler.clear.called).toBeTruthy();
         });
     });
 
@@ -96,10 +96,9 @@ describe('api', () => {
 
       return api.callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
-          assert.ok(errorHandler.handle.called);
+          expect(errorHandler.handle.called).toBeTruthy();
           const args = errorHandler.handle.firstCall.args;
-          assert.deepEqual(args[0].response.data.non_field_errors,
-                           nonFieldErrors);
+          expect(args[0].response.data.non_field_errors).toEqual(nonFieldErrors);
         });
     });
 
@@ -116,8 +115,7 @@ describe('api', () => {
 
       return api.callApi({ endpoint: 'resource' })
         .then(unexpectedSuccess, (err) => {
-          assert.equal(err.message,
-            'pretend this was a response with invalid JSON');
+          expect(err.message).toEqual('pretend this was a response with invalid JSON');
         });
     });
 
@@ -145,9 +143,9 @@ describe('api', () => {
 
       return api.callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
-          assert.ok(errorHandler.handle.called);
+          expect(errorHandler.handle.called).toBeTruthy();
           const args = errorHandler.handle.firstCall.args;
-          assert.equal(args[0].message, 'this could be any error');
+          expect(args[0].message).toEqual('this could be any error');
         });
     });
 
@@ -170,47 +168,47 @@ describe('api', () => {
   describe('makeQueryString', () => {
     it('transforms an object to a query string', () => {
       const query = api.makeQueryString({ user: 123, addon: 321 });
-      assert.include(query, 'user=123');
-      assert.include(query, 'addon=321');
+      expect(query).toContain('user=123');
+      expect(query).toContain('addon=321');
     });
 
     it('ignores undefined query string values', () => {
       const query = api.makeQueryString({ user: undefined, addon: 321 });
-      assert.equal(query, '?addon=321');
+      expect(query).toEqual('?addon=321');
     });
 
     it('ignores null query string values', () => {
       const query = api.makeQueryString({ user: null, addon: 321 });
-      assert.equal(query, '?addon=321');
+      expect(query).toEqual('?addon=321');
     });
 
     it('ignores empty string query string values', () => {
       const query = api.makeQueryString({ user: '', addon: 321 });
-      assert.equal(query, '?addon=321');
+      expect(query).toEqual('?addon=321');
     });
 
     it('handles falsey integers', () => {
       const query = api.makeQueryString({ some_flag: 0 });
-      assert.equal(query, '?some_flag=0');
+      expect(query).toEqual('?some_flag=0');
     });
 
     it('handles truthy integers', () => {
       const query = api.makeQueryString({ some_flag: 1 });
-      assert.equal(query, '?some_flag=1');
+      expect(query).toEqual('?some_flag=1');
     });
 
     it('handles false values', () => {
       const query = api.makeQueryString({ some_flag: false });
-      assert.equal(query, '?some_flag=false');
+      expect(query).toEqual('?some_flag=false');
     });
 
     it('handles true values', () => {
       const query = api.makeQueryString({ some_flag: true });
-      assert.equal(query, '?some_flag=true');
+      expect(query).toEqual('?some_flag=true');
     });
   });
 
-  describe('admin search api', () => {
+  describe('core/api.search()', () => {
     function mockResponse(responseProps = {}) {
       return createApiResponse({
         jsonData: {
@@ -243,8 +241,8 @@ describe('api', () => {
       mockWindow.expects('fetch').once().returns(mockResponse());
       return api.search({ api: {}, auth: true, filters: { query: 'foo' } })
         .then((results) => {
-          assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
-          assert.deepEqual(results.entities, {
+          expect(results.result.results).toEqual(['foo', 'food', 'football']);
+          expect(results.entities).toEqual({
             addons: {
               foo: { slug: 'foo' },
               food: { slug: 'food' },
@@ -268,8 +266,8 @@ describe('api', () => {
         page: 3,
       })
         .then(unexpectedSuccess, (err) => {
-          assert.equal(err.response.status, 401);
-          assert.equal(err.response.apiURL, url);
+          expect(err.response.status).toEqual(401);
+          expect(err.response.apiURL).toEqual(url);
         });
     });
   });
@@ -334,8 +332,8 @@ describe('api', () => {
         filters: { query: 'foo' },
       })
         .then((results) => {
-          assert.deepEqual(results.result.results, ['foo', 'food', 'football']);
-          assert.deepEqual(results.entities, {
+          expect(results.result.results).toEqual(['foo', 'food', 'football']);
+          expect(results.entities).toEqual({
             addons: {
               foo: { slug: 'foo' },
               food: { slug: 'food' },
@@ -367,7 +365,7 @@ describe('api', () => {
         filters: { addonType: ADDON_TYPE_THEME },
       })
         .then((response) => {
-          assert.deepEqual(response, {
+          expect(response).toEqual({
             entities: {
               addons: {
                 foo: { slug: 'foo' },
@@ -414,8 +412,8 @@ describe('api', () => {
       return api.fetchAddon('foo')
         .then((results) => {
           const foo = { slug: 'foo', name: 'Foo!' };
-          assert.deepEqual(results.result, 'foo');
-          assert.deepEqual(results.entities, { addons: { foo } });
+          expect(results.result).toEqual('foo');
+          expect(results.entities).toEqual({ addons: { foo } });
         });
     });
 
@@ -433,8 +431,7 @@ describe('api', () => {
       return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
         .then(unexpectedSuccess,
           (error) => {
-            assert.equal(error.message,
-              'Error calling: /api/v3/addons/addon/foo/');
+            expect(error.message).toEqual('Error calling: /api/v3/addons/addon/foo/');
           });
     });
 
@@ -453,8 +450,8 @@ describe('api', () => {
       return api.fetchAddon({ api: { lang: 'en-US', token }, slug: 'bar' })
         .then((results) => {
           const foo = { slug: 'foo', name: 'Foo!' };
-          assert.deepEqual(results.result, 'foo');
-          assert.deepEqual(results.entities, { addons: { foo } });
+          expect(results.result).toEqual('foo');
+          expect(results.entities).toEqual({ addons: { foo } });
           mockWindow.verify();
         });
     });
@@ -471,22 +468,19 @@ describe('api', () => {
       const error = _createApiError({
         apiURL: `${config.get('apiHost')}/api/v3/addons/addon/123/`,
       });
-      assert.equal(error.message,
-        'Error calling: /api/v3/addons/addon/123/');
+      expect(error.message).toEqual('Error calling: /api/v3/addons/addon/123/');
     });
 
     it('strips query params from the abbreviated URL', () => {
       const error = _createApiError({
         apiURL: `${config.get('apiHost')}/api/resource/?lang=en-US`,
       });
-      assert.equal(error.message,
-        'Error calling: /api/resource/');
+      expect(error.message).toEqual('Error calling: /api/resource/');
     });
 
     it('copes with a missing API URL', () => {
       const error = _createApiError();
-      assert.equal(error.message,
-        'Error calling: [unknown URL]');
+      expect(error.message).toEqual('Error calling: [unknown URL]');
     });
   });
 
@@ -509,7 +503,7 @@ describe('api', () => {
         .returns(mockResponse());
       return api.login({ api: { lang: 'en-US' }, code: 'my-code', state: 'my-state' })
         .then((apiResponse) => {
-          assert.strictEqual(apiResponse, response);
+          expect(apiResponse).toBe(response);
           mockWindow.verify();
         });
     });
@@ -542,7 +536,7 @@ describe('api', () => {
         .returns(createApiResponse({ jsonData: user }));
       return api.fetchProfile({ api: { lang: 'en-US', token } })
         .then((apiResponse) => {
-          assert.deepEqual(apiResponse, {
+          expect(apiResponse).toEqual({
             entities: { users: { foo: user } },
             result: 'foo',
           });
@@ -557,14 +551,13 @@ describe('api', () => {
 
     it('includes the next path', () => {
       const location = { pathname: '/foo', query: { bar: 'BAR' } };
-      assert.deepEqual(getStartLoginQs(location), { to: '/foo?bar=BAR' });
+      expect(getStartLoginQs(location)).toEqual({ to: '/foo?bar=BAR' });
     });
 
     it('includes the next path the config if set', () => {
       sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
       const location = { pathname: '/foo' };
-      assert.deepEqual(
-        getStartLoginQs(location), { to: '/foo', config: 'my-config' });
+      expect(getStartLoginQs(location)).toEqual({ to: '/foo', config: 'my-config' });
     });
   });
 

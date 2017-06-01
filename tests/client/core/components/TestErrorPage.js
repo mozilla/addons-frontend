@@ -16,7 +16,7 @@ import { signedInApiState } from 'tests/client/amo/helpers';
 
 
 describe('<ErrorPage />', () => {
-  function render({ ...props }, store = createStore(signedInApiState)) {
+  function render({ ...props }, store = createStore(signedInApiState).store) {
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
@@ -29,11 +29,11 @@ describe('<ErrorPage />', () => {
   it('renders children when there are no errors', () => {
     const rootNode = render({ children: <div>hello</div> });
 
-    assert.equal(rootNode.textContent, 'hello');
+    expect(rootNode.textContent).toEqual('hello');
   });
 
   it('renders an error page on error', () => {
-    const store = createStore(signedInApiState);
+    const { store } = createStore(signedInApiState);
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },
@@ -42,14 +42,13 @@ describe('<ErrorPage />', () => {
 
     const rootNode = render({ children: <div>hello</div> }, store);
 
-    assert.notEqual(rootNode.textContent, 'hello');
-    assert.include(rootNode.textContent, 'Error code: 404');
+    expect(rootNode.textContent).not.toEqual('hello');
+    expect(rootNode.textContent).toContain('Error code: 404');
   });
 });
 
 describe('<ErrorPage mapStateToProps />', () => {
   it('returns errorPage from state', () => {
-    assert.deepEqual(
-      mapStateToProps({ errorPage: 'howdy' }), { errorPage: 'howdy' });
+    expect(mapStateToProps({ errorPage: 'howdy' })).toEqual({ errorPage: 'howdy' });
   });
 });

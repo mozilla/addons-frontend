@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -17,7 +18,6 @@ import { withInstallHelpers } from 'core/installAddon';
 import {
   isAllowedOrigin,
   getClientCompatibility as _getClientCompatibility,
-  ngettext,
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
@@ -128,7 +128,7 @@ export class AddonDetailBase extends React.Component {
     if (addon.ratings.count) {
       const count = addon.ratings.count;
       const linkText = i18n.sprintf(
-        ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
+        i18n.ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
         { count: i18n.formatNumber(count) },
       );
 
@@ -176,8 +176,7 @@ export class AddonDetailBase extends React.Component {
     const description = addon.description ? addon.description : addon.summary;
     const descriptionSanitized = sanitizeHTML(
       nl2br(description), allowedDescriptionTags);
-    const summarySanitized = sanitizeHTML(
-      addon.summary, ['a']);
+    const summarySanitized = sanitizeHTML(addon.summary, ['a']);
     const title = i18n.sprintf(
       // L10n: Example: The Add-On <span>by The Author</span>
       i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {

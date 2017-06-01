@@ -11,6 +11,9 @@
 
 [libs]
 # TODO: this can go away after
+# https://github.com/facebook/flow/issues/2801
+./flow/libs/intl.js.flow
+# TODO: this can go away after
 # https://github.com/mozilla/addons-frontend/issues/2092
 ./flow/libs/dedent.js.flow
 

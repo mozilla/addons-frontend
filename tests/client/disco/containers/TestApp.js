@@ -20,7 +20,7 @@ class MyComponent extends React.Component {
   }
 }
 
-function renderApp(extraProps = {}, store = createStore()) {
+function renderApp(extraProps = {}, store = createStore().store) {
   const props = {
     browserVersion: '50',
     i18n: getFakeI18nInst(),
@@ -41,39 +41,39 @@ function renderApp(extraProps = {}, store = createStore()) {
 describe('App', () => {
   it('renders its children', () => {
     const rootNode = renderApp();
-    assert.equal(rootNode.tagName.toLowerCase(), 'div');
-    assert.equal(rootNode.querySelector('p').textContent, 'The component');
+    expect(rootNode.tagName.toLowerCase()).toEqual('div');
+    expect(rootNode.querySelector('p').textContent).toEqual('The component');
   });
 
   it('renders padding compensation class for FF < 50', () => {
     const rootNode = renderApp({ browserVersion: '49.0' });
-    assert.include(rootNode.className, 'padding-compensation');
+    expect(rootNode.className).toContain('padding-compensation');
   });
 
   it('does not render padding compensation class for a bogus value', () => {
     const rootNode = renderApp({ browserVersion: 'whatever' });
-    assert.notInclude(rootNode.className, 'padding-compensation');
+    expect(rootNode.className).not.toContain('padding-compensation');
   });
 
   it('does not render padding compensation class for a undefined value', () => {
     const rootNode = renderApp({ browserVersion: undefined });
-    assert.notInclude(rootNode.className, 'padding-compensation');
+    expect(rootNode.className).not.toContain('padding-compensation');
   });
 
   it('does not render padding compensation class for FF == 50', () => {
     const rootNode = renderApp({ browserVersion: '50.0' });
-    assert.notInclude(rootNode.className, 'padding-compensation');
+    expect(rootNode.className).not.toContain('padding-compensation');
   });
 
   it('does not render padding compensation class for FF > 50', () => {
     const rootNode = renderApp({ browserVersion: '52.0a1' });
-    assert.notInclude(rootNode.className, 'padding-compensation');
+    expect(rootNode.className).not.toContain('padding-compensation');
   });
 });
 
 describe('App errors', () => {
   it('renders a 404', () => {
-    const store = createStore();
+    const { store } = createStore();
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },
@@ -81,12 +81,12 @@ describe('App errors', () => {
     store.dispatch(loadFail('ReduxKey', error));
 
     const rootNode = renderApp({}, store);
-    assert.notInclude(rootNode.textContent, 'The component');
-    assert.include(rootNode.textContent, 'Page not found');
+    expect(rootNode.textContent).not.toContain('The component');
+    expect(rootNode.textContent).toContain('Page not found');
   });
 
   it('renders a generic error', () => {
-    const store = createStore();
+    const { store } = createStore();
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 500 },
@@ -94,8 +94,8 @@ describe('App errors', () => {
     store.dispatch(loadFail('ReduxKey', error));
 
     const rootNode = renderApp({}, store);
-    assert.notInclude(rootNode.textContent, 'The component');
-    assert.include(rootNode.textContent, 'Server Error');
+    expect(rootNode.textContent).not.toContain('The component');
+    expect(rootNode.textContent).toContain('Server Error');
   });
 });
 
@@ -107,6 +107,6 @@ describe('mapStateToProps', () => {
   };
 
   it('returns browserVersion', () => {
-    assert.equal(mapStateToProps(null, fakeRouterParams).browserVersion, '49.0');
+    expect(mapStateToProps(null, fakeRouterParams).browserVersion).toEqual('49.0');
   });
 });

@@ -15,7 +15,7 @@ function fakeLocalForage(overrides = {}) {
 describe('LocalState', () => {
   let localState;
 
-  before(() => {
+  beforeAll(() => {
     configureLocalForage();
   });
 
@@ -34,14 +34,14 @@ describe('LocalState', () => {
     return localState.save(state)
       .then(() => localState.load())
       .then((savedState) => {
-        assert.deepEqual(savedState, state);
+        expect(savedState).toEqual(state);
       });
   });
 
   it('returns null when no data has been saved', () => {
     return localState.load()
       .then((data) => {
-        assert.strictEqual(data, null);
+        expect(data).toBe(null);
       });
   });
 
@@ -50,7 +50,7 @@ describe('LocalState', () => {
       .then(() => localState.clear())
       .then(() => localState.load())
       .then((data) => {
-        assert.strictEqual(data, null);
+        expect(data).toBe(null);
       });
   });
 
@@ -62,7 +62,7 @@ describe('LocalState', () => {
     });
     return errStore.load()
       .then(unexpectedSuccess, (error) => {
-        assert.equal(error.message, 'some localForage error');
+        expect(error.message).toEqual('some localForage error');
       });
   });
 
@@ -74,7 +74,7 @@ describe('LocalState', () => {
     });
     return errStore.save({})
       .then(unexpectedSuccess, (error) => {
-        assert.equal(error.message, 'some localForage error');
+        expect(error.message).toEqual('some localForage error');
       });
   });
 
@@ -86,21 +86,21 @@ describe('LocalState', () => {
     });
     return errStore.clear()
       .then(unexpectedSuccess, (error) => {
-        assert.equal(error.message, 'some localForage error');
+        expect(error.message).toEqual('some localForage error');
       });
   });
 
   it('requires you to localState an object', () => {
     return localState.save(1)
       .then(unexpectedSuccess, (error) => {
-        assert.match(error.message, /must be an object/);
+        expect(error.message).toMatch(/must be an object/);
       });
   });
 
   it('definitely does not let you save null', () => {
     return localState.save(null)
       .then(unexpectedSuccess, (error) => {
-        assert.match(error.message, /must be an object/);
+        expect(error.message).toMatch(/must be an object/);
       });
   });
 
@@ -111,11 +111,11 @@ describe('LocalState', () => {
       .then(() => localState2.save({ number: 2 }))
       .then(() => localState1.load())
       .then((data) => {
-        assert.deepEqual(data, { number: 1 });
+        expect(data).toEqual({ number: 1 });
       })
       .then(() => localState2.load())
       .then((data) => {
-        assert.deepEqual(data, { number: 2 });
+        expect(data).toEqual({ number: 2 });
       });
   });
 });

@@ -3,16 +3,24 @@ import config from 'config';
 
 import {
   ADDON_TYPE_THEME,
-  CATEGORIES_GET,
+  CATEGORIES_FETCH,
   CATEGORIES_LOAD,
-  CATEGORIES_FAILED,
+  CATEGORIES_FAIL,
+  validAddonTypes,
 } from 'core/constants';
 import log from 'core/logger';
 
 
 export function emptyCategoryList() {
   return config.get('validClientApplications')
-    .reduce((object, appName) => ({ ...object, [appName]: {} }), {});
+    .reduce((object, appName) => {
+      return {
+        ...object,
+        [appName]: validAddonTypes.reduce((appObject, addonType) => {
+          return { ...appObject, [addonType]: [] };
+        }, {}),
+      };
+    }, {});
 }
 
 const initialState = {
@@ -25,25 +33,35 @@ export default function categories(state = initialState, action) {
   const { payload } = action;
 
   switch (action.type) {
-    case CATEGORIES_GET:
+    case CATEGORIES_FETCH:
       return { ...state, ...payload, loading: true };
     case CATEGORIES_LOAD:
       {
         const categoryList = emptyCategoryList();
-        payload.result.forEach((result) => {
-          // If the API returns data for an application we don't support,
-          // we'll ignore it for now.
-          if (!categoryList[result.application]) {
-            log.warn(oneLine`Category data for unknown application
-              "${result.application}" received from API.`);
+        Object.values(payload.result).forEach((category) => {
+          // This category has no data, so skip it.
+          if (!category || !category.application) {
+            log.warn(
+              'category or category.application was false-y.', category);
             return;
           }
 
-          if (!categoryList[result.application][result.type]) {
-            categoryList[result.application][result.type] = [];
+          // If the API returns data for an application we don't support,
+          // we'll ignore it for now.
+          if (!categoryList[category.application]) {
+            log.warn(oneLine`Category data for unknown clientApp
+              "${category.application}" received from API.`);
+            return;
           }
 
-          categoryList[result.application][result.type].push(result);
+          if (!categoryList[category.application][category.type]) {
+            log.warn(oneLine`add-on category for unknown add-on type
+              "${category.type}" for clientApp "${category.type}" received
+              from API.`);
+            return;
+          }
+
+          categoryList[category.application][category.type].push(category);
         });
 
         Object.keys(categoryList).forEach((appName) => {
@@ -75,8 +93,13 @@ export default function categories(state = initialState, action) {
           categories: categoryList,
         };
       }
-    case CATEGORIES_FAILED:
-      return { ...initialState, ...payload, error: true };
+    case CATEGORIES_FAIL:
+      return {
+        ...initialState,
+        ...payload,
+        loading: false,
+        error: payload.error,
+      };
     default:
       return state;
   }

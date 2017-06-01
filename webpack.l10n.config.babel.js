@@ -5,6 +5,7 @@ import chalk from 'chalk';
 import config from 'config';
 import webpack from 'webpack';
 
+import { getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
 
 
@@ -65,16 +66,14 @@ const BABEL_QUERY = Object.assign({}, babelrcObject, {
   plugins: babelPlugins.concat(babelL10nPlugins),
 });
 
-const newLoaders = webpackConfig.module.loaders.slice(0);
-// Assumes the js loader is the first one.
-newLoaders[0].query = BABEL_QUERY;
-
 export default Object.assign({}, webpackConfig, {
-  entry: { [appName]: `src/${appName}/client` },
+  entry: { [appName]: `${appName}/client` },
   module: {
-    loaders: newLoaders,
+    rules: getRules({ babelQuery: BABEL_QUERY }),
   },
   plugins: [
+    // Don't generate modules for locale files.
     new webpack.IgnorePlugin(new RegExp(`locale\\/.*\\/${appName}\\.js$`)),
-  ].concat(webpackConfig.plugins),
+    ...webpackConfig.plugins,
+  ],
 });

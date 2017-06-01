@@ -46,6 +46,7 @@ module.exports = {
     'blocklist',
     'static',
     'user-media',
+    '__frontend_version__',
     '__version__',
   ],
 
@@ -57,7 +58,6 @@ module.exports = {
   // because they are app-independant, like `/en-US/developers/`.
   validClientAppUrlExceptions: [
     'about',
-    'admin',
     'apps',
     'blocklist',
     'contribute.json',
@@ -76,6 +76,7 @@ module.exports = {
     'sunbird',
     'static',
     'user-media',
+    '__frontend_version__',
     '__version__',
   ],
   // These URLs are exceptions to our trailing slash URL redirects; if we

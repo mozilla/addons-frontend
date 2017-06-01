@@ -82,30 +82,26 @@ describe('AddonReview', () => {
 
     return root.onSubmit(event)
       .then(() => {
-        assert.ok(event.preventDefault.called);
+        expect(event.preventDefault.called).toBeTruthy();
 
-        assert.ok(setDenormalizedReview.called);
-        assert.deepEqual(
-          setDenormalizedReview.firstCall.args[0],
-          { ...defaultReview, body: 'some review' },
-        );
+        expect(setDenormalizedReview.called).toBeTruthy();
+        expect(setDenormalizedReview.firstCall.args[0]).toEqual({ ...defaultReview, body: 'some review' });
 
-        assert.ok(updateReviewText.called);
+        expect(updateReviewText.called).toBeTruthy();
         const params = updateReviewText.firstCall.args[0];
-        assert.equal(params.body, 'some review');
-        assert.equal(params.addonId, defaultReview.addonId);
-        assert.equal(params.errorHandler, errorHandler);
-        assert.equal(params.reviewId, defaultReview.id);
-        assert.equal(params.apiState, signedInApiState);
+        expect(params.body).toEqual('some review');
+        expect(params.addonId).toEqual(defaultReview.addonId);
+        expect(params.errorHandler).toEqual(errorHandler);
+        expect(params.reviewId).toEqual(defaultReview.id);
+        expect(params.apiState).toEqual(signedInApiState);
 
-        assert.ok(refreshAddon.called);
-        assert.deepEqual(refreshAddon.firstCall.args[0], {
+        expect(refreshAddon.called).toBeTruthy();
+        expect(refreshAddon.firstCall.args[0]).toEqual({
           addonSlug: defaultReview.addonSlug,
           apiState: signedInApiState,
         });
 
-        assert.ok(onReviewSubmitted.called,
-          'onReviewSubmitted() should have been called after updating');
+        expect(onReviewSubmitted.called).toBeTruthy();
       });
   });
 
@@ -118,7 +114,7 @@ describe('AddonReview', () => {
         body: 'New body',
       },
     });
-    assert.equal(root.state.reviewBody, 'New body');
+    expect(root.state.reviewBody).toEqual('New body');
   });
 
   it('looks for state in a local store at initialization', () => {
@@ -128,7 +124,7 @@ describe('AddonReview', () => {
       })),
     });
     render({ createLocalState: () => store });
-    assert.ok(store.load.called, 'load() should have been called');
+    expect(store.load.called).toBeTruthy();
   });
 
   it('looks for state in a local store and loads it', () => {
@@ -140,7 +136,7 @@ describe('AddonReview', () => {
     const root = render({ createLocalState: () => store });
     return root.checkForStoredState()
       .then(() => {
-        assert.equal(root.state.reviewBody, 'stored body');
+        expect(root.state.reviewBody).toEqual('stored body');
       });
   });
 
@@ -157,7 +153,7 @@ describe('AddonReview', () => {
     });
     return root.checkForStoredState()
       .then(() => {
-        assert.equal(root.state.reviewBody, 'Existing body');
+        expect(root.state.reviewBody).toEqual('Existing body');
       });
   });
 
@@ -176,7 +172,7 @@ describe('AddonReview', () => {
     });
     return root.checkForStoredState()
       .then(() => {
-        assert.equal(root.state.reviewBody, 'Stored text');
+        expect(root.state.reviewBody).toEqual('Stored text');
       });
   });
 
@@ -193,8 +189,8 @@ describe('AddonReview', () => {
     textarea.value = 'some review';
     Simulate.input(textarea);
 
-    assert.ok(store.save.called, 'save() should have been called');
-    assert.deepEqual(store.save.firstCall.args[0], {
+    expect(store.save.called).toBeTruthy();
+    expect(store.save.firstCall.args[0]).toEqual({
       reviewBody: 'some review',
     });
   });
@@ -218,30 +214,26 @@ describe('AddonReview', () => {
 
     return root.onSubmit(event)
       .then(() => {
-        assert.ok(store.clear.called, 'clear() should have been called');
+        expect(store.clear.called).toBeTruthy();
       });
   });
 
   it('prompts you appropriately when you are happy', () => {
     const root = render({ review: { ...defaultReview, rating: 4 } });
-    assert.match(root.reviewPrompt.textContent,
-                 /Tell the world why you think this extension is fantastic!/);
-    assert.match(root.reviewTextarea.placeholder,
-                 /Tell us what you love/);
+    expect(root.reviewPrompt.textContent).toMatch(/Tell the world why you think this extension is fantastic!/);
+    expect(root.reviewTextarea.placeholder).toMatch(/Tell us what you love/);
   });
 
   it('prompts you appropriately when you are unhappy', () => {
     const root = render({ review: { ...defaultReview, rating: 3 } });
-    assert.match(root.reviewPrompt.textContent,
-                 /Tell the world about this extension./);
-    assert.match(root.reviewTextarea.placeholder,
-                 /Tell us about your experience/);
+    expect(root.reviewPrompt.textContent).toMatch(/Tell the world about this extension./);
+    expect(root.reviewTextarea.placeholder).toMatch(/Tell us about your experience/);
   });
 
   it('allows you to edit existing review text', () => {
     const body = 'I am disappointed that it does not glow in the dark';
     const root = render({ review: { ...defaultReview, body } });
-    assert.equal(root.reviewTextarea.textContent, body);
+    expect(root.reviewTextarea.textContent).toEqual(body);
   });
 
   it('triggers the submit handler', () => {
@@ -250,23 +242,23 @@ describe('AddonReview', () => {
     Simulate.submit(root.reviewForm);
 
     // Just make sure the submit handler is hooked up.
-    assert.ok(updateReviewText.called);
+    expect(updateReviewText.called).toBeTruthy();
   });
 
   it('requires a review object', () => {
     const review = { nope: 'not even close' };
     try {
       render({ review });
-      assert(false, 'unexpected success');
+      expect(false).toBeTruthy();
     } catch (error) {
-      assert.match(error.message, /Unexpected review property: {"nope".*/);
+      expect(error.message).toMatch(/Unexpected review property: {"nope".*/);
     }
   });
 
   describe('mapStateToProps', () => {
     it('maps apiState to props', () => {
       const props = mapStateToProps({ api: signedInApiState });
-      assert.deepEqual(props.apiState, signedInApiState);
+      expect(props.apiState).toEqual(signedInApiState);
     });
   });
 
@@ -300,8 +292,8 @@ describe('AddonReview', () => {
         return actions.updateReviewText({ ...params })
           .then(() => {
             mockApi.verify();
-            assert.ok(dispatch.called, 'the new review should be dispatched');
-            assert.deepEqual(dispatch.firstCall.args[0], setReview(fakeReview));
+            expect(dispatch.called).toBeTruthy();
+            expect(dispatch.firstCall.args[0]).toEqual(setReview(fakeReview));
           });
       });
     });
@@ -328,10 +320,10 @@ describe('AddonReview', () => {
         };
         actions.setDenormalizedReview(review);
 
-        assert.ok(dispatch.called);
+        expect(dispatch.called).toBeTruthy();
         const action = dispatch.firstCall.args[0];
-        assert.equal(action.type, SET_REVIEW);
-        assert.deepEqual(action.payload, review);
+        expect(action.type).toEqual(SET_REVIEW);
+        expect(action.payload).toEqual(review);
       });
     });
   });

@@ -18,7 +18,7 @@ import { getFakeI18nInst, userAuthToken } from 'tests/client/helpers';
 import Icon from 'ui/components/Icon';
 
 function createStore() {
-  return _createStore(combineReducers({ api: apiReducer }));
+  return { store: _createStore(combineReducers({ api: apiReducer })) };
 }
 
 describe('<AuthenticateButton />', () => {
@@ -29,47 +29,46 @@ describe('<AuthenticateButton />', () => {
 
   it('passes along a className', () => {
     const root = render({ className: 'MyComponent-auth-button' });
-    assert.ok(root.classList.contains('MyComponent-auth-button'));
+    expect(root.classList.contains('MyComponent-auth-button')).toBeTruthy();
   });
 
   it('renders an Icon by default', () => {
     const root = renderTree();
     const icon = findRenderedComponentWithType(root, Icon);
-    assert.ok(icon, 'Icon was not rendered');
+    expect(icon).toBeTruthy();
   });
 
   it('lets you hide the Icon', () => {
     const root = renderTree({ noIcon: true });
-    assert.throws(
-      () => findRenderedComponentWithType(root, Icon),
-      /Did not find exactly one match/);
+    expect(() => findRenderedComponentWithType(root, Icon))
+      .toThrowError(/Did not find exactly one match/);
   });
 
   it('lets you customize the log in text', () => {
     const root = render({ isAuthenticated: false, logInText: 'Maybe log in?' });
-    assert.equal(root.textContent, 'Maybe log in?');
+    expect(root.textContent).toEqual('Maybe log in?');
   });
 
   it('lets you customize the log out text', () => {
     const root = render({ isAuthenticated: true, logOutText: 'Maybe log out?' });
-    assert.equal(root.textContent, 'Maybe log out?');
+    expect(root.textContent).toEqual('Maybe log out?');
   });
 
   it('shows a log in button when unauthenticated', () => {
     const handleLogIn = sinon.spy();
     const location = sinon.stub();
     const root = render({ isAuthenticated: false, handleLogIn, location });
-    assert.equal(root.textContent, 'Log in/Sign up');
+    expect(root.textContent).toEqual('Log in/Sign up');
     Simulate.click(root);
-    assert.ok(handleLogIn.calledWith(location));
+    expect(handleLogIn.calledWith(location)).toBeTruthy();
   });
 
   it('shows a log out button when authenticated', () => {
     const handleLogOut = sinon.spy();
     const root = render({ handleLogOut, isAuthenticated: true });
-    assert.equal(root.textContent, 'Log out');
+    expect(root.textContent).toEqual('Log out');
     Simulate.click(root);
-    assert.ok(handleLogOut.called);
+    expect(handleLogOut.called).toBeTruthy();
   });
 
   it('updates the location on handleLogIn', () => {
@@ -82,8 +81,8 @@ describe('<AuthenticateButton />', () => {
       api: { lang: 'en-GB' },
     });
     handleLogIn(location, { _window });
-    assert.equal(_window.location, 'https://a.m.org/login');
-    assert.ok(startLoginUrlStub.calledWith({ location }));
+    expect(_window.location).toEqual('https://a.m.org/login');
+    expect(startLoginUrlStub.calledWith({ location })).toBeTruthy();
   });
 
   it('gets the server to clear cookie and auth token in handleLogOut', () => {
@@ -94,24 +93,23 @@ describe('<AuthenticateButton />', () => {
     };
     sinon.stub(config, 'get', (key) => _config[key]);
 
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(setAuthToken(userAuthToken({ user_id: 99 })));
     const apiConfig = { token: store.getState().api.token };
-    assert.ok(apiConfig.token, 'token was falsey');
+    expect(apiConfig.token).toBeTruthy();
 
     const { handleLogOut } = mapDispatchToProps(store.dispatch);
     return handleLogOut({ api: apiConfig })
       .then(() => {
-        assert.notOk(store.getState().api.token);
-        assert.deepEqual(
-          api.logOutFromServer.firstCall.args[0], { api: apiConfig });
+        expect(store.getState().api.token).toBeFalsy();
+        expect(api.logOutFromServer.firstCall.args[0]).toEqual({ api: apiConfig });
       });
   });
 
   it('pulls isAuthenticated from state', () => {
-    const store = createStore(combineReducers({ api }));
-    assert.equal(mapStateToProps(store.getState()).isAuthenticated, false);
+    const { store } = createStore(combineReducers({ api }));
+    expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(false);
     store.dispatch(setAuthToken(userAuthToken({ user_id: 123 })));
-    assert.equal(mapStateToProps(store.getState()).isAuthenticated, true);
+    expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);
   });
 });

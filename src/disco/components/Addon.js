@@ -2,7 +2,8 @@
 
 import classNames from 'classnames';
 import { sprintf } from 'jed';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import { compose } from 'redux';

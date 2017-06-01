@@ -1,6 +1,7 @@
 /* global window */
 import classNames from 'classnames';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
@@ -61,7 +62,7 @@ class ErrorList extends React.Component {
 
     return (
       <ul className={classNames('ErrorList', className)}>
-        {items.map((item) => <li className="ErrorList-item">{item}</li>)}
+        {items.map((item, index) => <li className="ErrorList-item" key={`erroritem-${index}`}>{item}</li>)}
       </ul>
     );
   }

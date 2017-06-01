@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   renderIntoDocument,
 } from 'react-addons-test-utils';
@@ -29,6 +30,6 @@ describe('I18nProvider', () => {
   it('sets the i18n as context', () => {
     const i18n = getFakeI18nInst();
     render({ i18n });
-    assert.ok(i18n.gettext.calledWith('Howdy'));
+    expect(i18n.gettext.calledWith('Howdy')).toBeTruthy();
   });
 });

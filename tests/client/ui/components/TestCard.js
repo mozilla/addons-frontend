@@ -11,58 +11,58 @@ describe('<Card />', () => {
 
   it('renders a Card', () => {
     const root = render({ className: 'TofuSection' });
-    assert(root.cardContainer);
-    assert.equal(root.cardContainer.tagName, 'SECTION');
-    assert.include(root.cardContainer.className, 'Card');
-    assert.include(root.cardContainer.className, 'TofuSection');
+    expect(root.cardContainer).toBeTruthy();
+    expect(root.cardContainer.tagName).toEqual('SECTION');
+    expect(root.cardContainer.className).toContain('Card');
+    expect(root.cardContainer.className).toContain('TofuSection');
   });
 
   it('shows header if supplied', () => {
     const root = render({ header: 'foo' });
-    assert(root.header);
+    expect(root.header).toBeTruthy();
   });
 
   it('hides header if none supplied', () => {
     const root = render({ children: 'hello' });
-    assert(!root.header);
-    assert.include(root.cardContainer.className, 'Card--no-header');
+    expect(!root.header).toBeTruthy();
+    expect(root.cardContainer.className).toContain('Card--no-header');
   });
 
   it('shows footer text if supplied', () => {
     const root = render({ footerText: 'foo' });
-    assert(root.footer);
-    assert.equal(root.footer.textContent, 'foo');
-    assert.equal(root.footer.className, 'Card-footer-text');
+    expect(root.footer).toBeTruthy();
+    expect(root.footer.textContent).toEqual('foo');
+    expect(root.footer.className).toEqual('Card-footer-text');
   });
 
   it('shows a footer link if supplied', () => {
     const root = render({ footerLink: <a href="/some-link">Some link</a> });
-    assert(root.footer);
-    assert.equal(root.footer.textContent, 'Some link');
-    assert.equal(root.footer.className, 'Card-footer-link');
+    expect(root.footer).toBeTruthy();
+    expect(root.footer.textContent).toEqual('Some link');
+    expect(root.footer.className).toEqual('Card-footer-link');
   });
 
   it('throws an error if you mix footer content', () => {
-    assert.throws(() => render({
+    expect(() => render({
       footerLink: <a href="/some-link">Some link</a>,
       footerText: 'something else',
-    }), /cannot specify footerLink and footerText/);
+    })).toThrowError(/cannot specify footerLink and footerText/);
   });
 
   it('hides footer if none supplied', () => {
     const root = render({ children: 'hello' });
-    assert(!root.footer);
-    assert.include(root.cardContainer.className, 'Card--no-footer');
+    expect(!root.footer).toBeTruthy();
+    expect(root.cardContainer.className).toContain('Card--no-footer');
   });
 
   it('renders children', () => {
     const root = render({ children: 'hello' });
-    assert(root.contents);
-    assert.include(root.contents.textContent, 'hello');
+    expect(root.contents).toBeTruthy();
+    expect(root.contents.textContent).toContain('hello');
   });
 
   it('omits the content div with no children', () => {
     const root = render();
-    assert(!root.contents);
+    expect(!root.contents).toBeTruthy();
   });
 });

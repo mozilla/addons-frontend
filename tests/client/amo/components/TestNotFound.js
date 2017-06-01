@@ -17,7 +17,7 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 describe('<NotFound />', () => {
   function render({ ...props }) {
-    const store = createStore(signedInApiState);
+    const { store } = createStore(signedInApiState);
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },
@@ -36,6 +36,6 @@ describe('<NotFound />', () => {
   it('renders a not found error', () => {
     const rootNode = render();
 
-    assert.include(rootNode.textContent, 'Page not found');
+    expect(rootNode.textContent).toContain('Page not found');
   });
 });

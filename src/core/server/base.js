@@ -1,4 +1,3 @@
-import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
@@ -16,15 +15,16 @@ import { Provider } from 'react-redux';
 import { match } from 'react-router';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
 import { loadFail } from 'redux-connect/lib/store';
+import { END } from 'redux-saga';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
+import log from 'core/logger';
 import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
-import { prefixMiddleWare, trailingSlashesMiddleware } from 'core/middleware';
+import * as middleware from 'core/middleware';
 import { convertBoolean } from 'core/utils';
 import { setAuthToken, setClientApp, setLang, setUserAgent }
   from 'core/actions';
-import log from 'core/logger';
 import {
   getDirection,
   isValidLang,
@@ -37,27 +37,15 @@ import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
 
 const env = config.util.getEnv('NODE_ENV');
+// This is a magic file that gets written by deployment scripts.
 const version = path.join(config.get('basePath'), 'version.json');
 const isDeployed = config.get('isDeployed');
 const isDevelopment = config.get('isDevelopment');
 
-function getNoScriptStyles({ appName }) {
-  const cssPath = path.join(config.get('basePath'), `src/${appName}/noscript.css`);
-  try {
-    return fs.readFileSync(cssPath);
-  } catch (e) {
-    if (e.code !== 'ENOENT') {
-      log.info(`noscript styles could not be parsed from ${cssPath}`);
-    } else {
-      log.debug(`noscript styles not found at ${cssPath}`);
-    }
-  }
-  return undefined;
-}
 
 const appName = config.get('appName');
 
-function getPageProps({ noScriptStyles = '', store, req, res }) {
+export function getPageProps({ noScriptStyles = '', store, req, res }) {
   // Get SRI for deployed services only.
   const sriData = (isDeployed) ? JSON.parse(
     fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
@@ -96,7 +84,7 @@ function getPageProps({ noScriptStyles = '', store, req, res }) {
 }
 
 function showErrorPage({ createStore, error = {}, req, res, status }) {
-  const store = createStore();
+  const { store } = createStore();
   const pageProps = getPageProps({ store, req, res });
 
   const componentDeclaredStatus = NestedStatus.rewind();
@@ -115,13 +103,6 @@ function showErrorPage({ createStore, error = {}, req, res, status }) {
     .end();
 }
 
-function logRequests(req, res, next) {
-  const start = new Date();
-  next();
-  const finish = new Date();
-  const elapsed = finish - start;
-  log.info({ req, res, start, finish, elapsed });
-}
 
 function hydrateOnClient({ res, props = {}, pageProps }) {
   const HTML =
@@ -147,17 +128,13 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       'Sentry reporting is disabled; Set config.sentryDsn to enable it.');
   }
 
-  app.use(logRequests);
+  app.use(middleware.logRequests);
 
   // Set HTTP Strict Transport Security headers
-  app.use(helmet.hsts({
-    force: true,
-    includeSubDomains: false,
-    maxAge: 31536000, // seconds
-  }));
+  app.use(middleware.hsts());
 
   // Sets X-Frame-Options
-  app.use(helmet.frameguard(config.get('frameGuard')));
+  app.use(middleware.frameguard());
 
   // Sets x-content-type-options:"nosniff"
   app.use(helmet.noSniff());
@@ -166,44 +143,34 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
   app.use(helmet.xssFilter());
 
   // CSP configuration.
-  const csp = config.get('CSP');
-  const noScriptStyles = getNoScriptStyles({ appName: appInstanceName });
-  if (csp) {
-    if (noScriptStyles) {
-      const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
-      const cspValue = `'sha256-${hash}'`;
-      if (!csp.directives.styleSrc.includes(cspValue)) {
-        csp.directives.styleSrc.push(cspValue);
-      }
-    }
-    app.use(helmet.contentSecurityPolicy(csp));
-  } else {
-    log.warn('CSP has been disabled from the config');
-  }
+  const noScriptStyles = middleware.getNoScriptStyles(appName);
+  app.use(middleware.csp({ noScriptStyles }));
 
+  // Serve assets locally from node ap (no-op by default).
   if (config.get('enableNodeStatics')) {
-    app.use(Express.static(path.join(config.get('basePath'), 'dist')));
+    app.use(middleware.serveAssetsLocally());
   }
 
-  // Return version information as json
-  app.get('/__version__', (req, res) => {
-    fs.stat(version, (err) => {
-      if (err) {
+  // Show version/commit information as JSON.
+  function viewVersion(req, res) {
+    fs.stat(version, (error) => {
+      if (error) {
+        log.error(`Could not stat version file ${version}: ${error}`);
         res.sendStatus(415);
       } else {
         res.setHeader('Content-Type', 'application/json');
         fs.createReadStream(version).pipe(res);
       }
     });
-  });
+  }
+
+  // Following the ops monitoring convention, return version info at this URL.
+  app.get('/__version__', viewVersion);
+  // For AMO, this helps differentiate from /__version__ served by addons-server.
+  app.get('/__frontend_version__', viewVersion);
 
   // Return 200 for csp reports - this will need to be overridden when deployed.
   app.post('/__cspreport__', (req, res) => res.status(200).end('ok'));
-
-  // Redirect from / for the search app it's a 302 to prevent caching.
-  if (appInstanceName === 'search') {
-    app.get('/', (req, res) => res.redirect(302, '/search'));
-  }
 
   if (appInstanceName === 'disco' && isDevelopment) {
     app.get('/', (req, res) =>
@@ -212,12 +179,12 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   // Handle application and lang redirections.
   if (config.get('enablePrefixMiddleware')) {
-    app.use(prefixMiddleWare);
+    app.use(middleware.prefixMiddleware);
   }
 
   // Add trailing slashes to URLs
   if (config.get('enableTrailingSlashesMiddleware')) {
-    app.use(trailingSlashesMiddleware);
+    app.use(middleware.trailingSlashesMiddleware);
   }
 
   app.use((req, res, next) => {
@@ -244,12 +211,15 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       let htmlLang;
       let locale;
       let pageProps;
+      let sagaMiddleware;
       let store;
 
       try {
         cookie.plugToRequest(req, res);
 
-        store = createStore();
+        const storeAndSagas = createStore();
+        sagaMiddleware = storeAndSagas.sagaMiddleware;
+        store = storeAndSagas.store;
         const token = cookie.load(config.get('cookieName'));
         if (token) {
           store.dispatch(setAuthToken(token));
@@ -302,10 +272,35 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
             throw errorPage.error;
           }
 
-          return hydrateOnClient({
-            props: { component: InitialComponent },
-            pageProps,
-            res,
+          const props = { component: InitialComponent };
+
+          // TODO: Remove the try/catch block once all apps are using
+          // redux-saga.
+          let sagas;
+          try {
+            // eslint-disable-next-line global-require, import/no-dynamic-require
+            sagas = require(`${appName}/sagas`).default;
+          } catch (err) {
+            log.warn(
+              `sagas not found for this app (src/${appName}/sagas)`, err);
+          }
+
+          if (!sagas || !sagaMiddleware) {
+            return hydrateOnClient({ props, pageProps, res });
+          }
+
+          const runningSagas = sagaMiddleware.run(sagas);
+          // We need to render once because it will force components
+          // with sagas to call the sagas and load their data.
+          ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+
+          // Send the redux-saga END action to stop sagas from running
+          // indefinitely. This is only done for server-side rendering.
+          store.dispatch(END);
+
+          // Once all sagas have completed, we load the page.
+          return runningSagas.done.then(() => {
+            return hydrateOnClient({ props, pageProps, res });
           });
         })
         .catch((loadError) => {

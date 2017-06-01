@@ -5,12 +5,11 @@ describe('SEARCH_STARTED', () => {
     { filters: { query: 'foo' }, page: 5, results: [] });
 
   it('sets the type', () => {
-    assert.equal(action.type, 'SEARCH_STARTED');
+    expect(action.type).toEqual('SEARCH_STARTED');
   });
 
   it('sets the query and existing results', () => {
-    assert.deepEqual(action.payload,
-      { filters: { query: 'foo' }, page: 5, results: [] });
+    expect(action.payload).toEqual({ filters: { query: 'foo' }, page: 5, results: [] });
   });
 });
 
@@ -20,11 +19,11 @@ describe('SEARCH_LOADED', () => {
   const action = actions.searchLoad({ filters: { query: 'foø' }, entities, result });
 
   it('sets the type', () => {
-    assert.equal(action.type, 'SEARCH_LOADED');
+    expect(action.type).toEqual('SEARCH_LOADED');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload, { filters: { query: 'foø' }, entities, result });
+    expect(action.payload).toEqual({ filters: { query: 'foø' }, entities, result });
   });
 });
 
@@ -32,10 +31,10 @@ describe('SEARCH_FAILED', () => {
   const action = actions.searchFail({ filters: { query: 'foo' }, page: 25 });
 
   it('sets the type', () => {
-    assert.equal(action.type, 'SEARCH_FAILED');
+    expect(action.type).toEqual('SEARCH_FAILED');
   });
 
   it('sets the payload', () => {
-    assert.deepEqual(action.payload, { page: 25, filters: { query: 'foo' } });
+    expect(action.payload).toEqual({ page: 25, filters: { query: 'foo' } });
   });
 });

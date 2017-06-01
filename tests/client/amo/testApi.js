@@ -39,7 +39,7 @@ describe('amo.api', () => {
 
       return submitReview(params)
         .then(unexpectedSuccess, (error) => {
-          assert.match(error.message, /addonId is required/);
+          expect(error.message).toMatch(/addonId is required/);
         });
     });
 
@@ -70,7 +70,7 @@ describe('amo.api', () => {
         .returns(Promise.resolve(genericApiResponse));
 
       return submitReview(params).then((apiResponse) => {
-        assert.deepEqual(apiResponse, genericApiResponse);
+        expect(apiResponse).toEqual(genericApiResponse);
         mockApi.verify();
       });
     });
@@ -96,7 +96,7 @@ describe('amo.api', () => {
         .returns(Promise.resolve(genericApiResponse));
 
       return submitReview(params).then((apiResponse) => {
-        assert.deepEqual(apiResponse, genericApiResponse);
+        expect(apiResponse).toEqual(genericApiResponse);
         mockApi.verify();
       });
     });
@@ -146,7 +146,7 @@ describe('amo.api', () => {
 
       return getReviews(params)
         .then((response) => {
-          assert.deepEqual(response.results, [fakeReview]);
+          expect(response.results).toEqual([fakeReview]);
           mockApi.verify();
         });
     });
@@ -165,7 +165,7 @@ describe('amo.api', () => {
 
       return getReviews({ ...params, apiState: signedInApiState })
         .then((response) => {
-          assert.deepEqual(response.results, [fakeReview]);
+          expect(response.results).toEqual([fakeReview]);
           mockApi.verify();
         });
     });
@@ -185,7 +185,7 @@ describe('amo.api', () => {
 
       return getReviews({ ...params, apiState: signedOutApiState })
         .then((response) => {
-          assert.deepEqual(response.results, [fakeReview]);
+          expect(response.results).toEqual([fakeReview]);
           mockApi.verify();
         });
     });
@@ -197,7 +197,7 @@ describe('amo.api', () => {
 
       return getReviews()
         .then(unexpectedSuccess, (error) => {
-          assert.match(error.message, /user or addon must be specified/);
+          expect(error.message).toMatch(/user or addon must be specified/);
         });
     });
   });
@@ -223,7 +223,7 @@ describe('amo.api', () => {
       return getLatestUserReview(params)
         .then((review) => {
           mockApi.verify();
-          assert.deepEqual(review, fakeReview);
+          expect(review).toEqual(fakeReview);
         });
     });
 
@@ -260,7 +260,7 @@ describe('amo.api', () => {
         user: 123, addon: fakeReview.addon.id, version: fakeReview.version.id,
       })
         .then(unexpectedSuccess, (error) => {
-          assert.match(error.message, /received multiple review objects/);
+          expect(error.message).toMatch(/received multiple review objects/);
         });
     });
 
@@ -271,7 +271,7 @@ describe('amo.api', () => {
 
       return getLatestUserReview({ user: 123, addon: 321, version: 456 })
         .then((review) => {
-          assert.strictEqual(review, null);
+          expect(review).toBe(null);
         });
     });
 
@@ -282,8 +282,7 @@ describe('amo.api', () => {
 
       return getLatestUserReview()
         .then(unexpectedSuccess, (error) => {
-          assert.match(
-            error.message, /user, addon, and version must be specified/);
+          expect(error.message).toMatch(/user, addon, and version must be specified/);
         });
     });
 
@@ -294,8 +293,7 @@ describe('amo.api', () => {
 
       return getLatestUserReview({ user: 123 })
         .then(unexpectedSuccess, (error) => {
-          assert.match(
-            error.message, /user, addon, and version must be specified/);
+          expect(error.message).toMatch(/user, addon, and version must be specified/);
         });
     });
 
@@ -306,8 +304,7 @@ describe('amo.api', () => {
 
       return getLatestUserReview({ addon: 321, user: 123 })
         .then(unexpectedSuccess, (error) => {
-          assert.match(
-            error.message, /user, addon, and version must be specified/);
+          expect(error.message).toMatch(/user, addon, and version must be specified/);
         });
     });
   });

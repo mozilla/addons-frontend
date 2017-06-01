@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
@@ -53,15 +54,14 @@ describe('errorHandler', () => {
     it('provides a unique errorHandler property', () => {
       const { component } = createWrappedComponent();
       const errorHandler = component.props.errorHandler;
-      assert.instanceOf(errorHandler, ErrorHandler);
-      assert.match(errorHandler.id, /^SomeComponent-/);
+      expect(errorHandler).toBeInstanceOf(ErrorHandler);
+      expect(errorHandler.id).toMatch(/^SomeComponent-/);
     });
 
     it('creates a unique handler ID per wrapped component', () => {
       const { component: component1 } = createWrappedComponent();
       const { component: component2 } = createWrappedComponent();
-      assert.notEqual(component1.props.errorHandler.id,
-                      component2.props.errorHandler.id);
+      expect(component1.props.errorHandler.id).not.toEqual(component2.props.errorHandler.id);
     });
 
     it('creates a unique handler ID per component instance', () => {
@@ -79,8 +79,7 @@ describe('errorHandler', () => {
       const component1 = getRenderedComponent();
       const component2 = getRenderedComponent();
 
-      assert.notEqual(component1.props.errorHandler.id,
-                      component2.props.errorHandler.id);
+      expect(component1.props.errorHandler.id).not.toEqual(component2.props.errorHandler.id);
     });
 
     it('configures an error handler for action dispatching', () => {
@@ -92,9 +91,8 @@ describe('errorHandler', () => {
       const error = new Error();
       errorHandler.handle(error);
 
-      assert.ok(store.dispatch.called);
-      assert.deepEqual(store.dispatch.firstCall.args[0],
-                       setError({ id: errorHandler.id, error }));
+      expect(store.dispatch.called).toBeTruthy();
+      expect(store.dispatch.firstCall.args[0]).toEqual(setError({ id: errorHandler.id, error }));
     });
 
     it('passes through wrapped component properties', () => {
@@ -102,7 +100,7 @@ describe('errorHandler', () => {
         customProps: { color: 'red' },
       });
 
-      assert.equal(component.props.color, 'red');
+      expect(component.props.color).toEqual('red');
     });
   });
 
@@ -117,12 +115,11 @@ describe('errorHandler', () => {
         store, id, decorator: withErrorHandling,
       });
       const errorList = findRenderedComponentWithType(tree, ErrorList);
-      assert.equal(errorList.props.code, ERROR_UNKNOWN);
-      assert.deepEqual(errorList.props.messages, []);
+      expect(errorList.props.code).toEqual(ERROR_UNKNOWN);
+      expect(errorList.props.messages).toEqual([]);
 
       // It also renders component content:
-      assert.equal(dom.querySelector('.SomeComponent').textContent,
-                   'Component text');
+      expect(dom.querySelector('.SomeComponent').textContent).toEqual('Component text');
     });
 
     it('passes a nested API response object', () => {
@@ -143,17 +140,16 @@ describe('errorHandler', () => {
         store, id, decorator: withErrorHandling,
       });
       const errorList = findRenderedComponentWithType(tree, ErrorList);
-      assert.deepEqual(errorList.props.messages, [nestedMessage]);
+      expect(errorList.props.messages).toEqual([nestedMessage]);
     });
 
     it('renders component content when there is no error', () => {
       const { dom, tree } = createWrappedComponent({
         decorator: withErrorHandling,
       });
-      assert.throws(
-        () => findRenderedComponentWithType(tree, ErrorList),
-        /Did not find exactly one match/);
-      assert.equal(dom.textContent, 'Component text');
+      expect(() => findRenderedComponentWithType(tree, ErrorList))
+        .toThrowError(/Did not find exactly one match/);
+      expect(dom.textContent).toEqual('Component text');
     });
 
     it('renders multiple error messages', () => {
@@ -170,8 +166,7 @@ describe('errorHandler', () => {
       });
 
       const errorList = findRenderedComponentWithType(tree, ErrorList);
-      assert.deepEqual(
-        errorList.props.messages, ['first error', 'second error']);
+      expect(errorList.props.messages).toEqual(['first error', 'second error']);
     });
 
     it('erases cleared errors', () => {
@@ -184,9 +179,8 @@ describe('errorHandler', () => {
       const { tree } = createWrappedComponent({
         store, id, decorator: withErrorHandling,
       });
-      assert.throws(
-        () => findRenderedComponentWithType(tree, ErrorList),
-        /Did not find exactly one match/);
+      expect(() => findRenderedComponentWithType(tree, ErrorList))
+        .toThrowError(/Did not find exactly one match/);
     });
 
     it('ignores errors sent by other error handlers', () => {
@@ -198,9 +192,8 @@ describe('errorHandler', () => {
       const { tree } = createWrappedComponent({
         store, id: 'this-handler-id', decorator: withErrorHandling,
       });
-      assert.throws(
-        () => findRenderedComponentWithType(tree, ErrorList),
-        /Did not find exactly one match/);
+      expect(() => findRenderedComponentWithType(tree, ErrorList))
+        .toThrowError(/Did not find exactly one match/);
     });
 
     it('passes through wrapped component properties without an error', () => {
@@ -208,7 +201,7 @@ describe('errorHandler', () => {
         decorator: withErrorHandling,
         customProps: { color: 'red' },
       });
-      assert.equal(component.props.color, 'red');
+      expect(component.props.color).toEqual('red');
     });
 
     it('passes through wrapped component properties with an error', () => {
@@ -222,7 +215,7 @@ describe('errorHandler', () => {
         decorator: withErrorHandling,
         customProps: { color: 'red' },
       });
-      assert.equal(component.props.color, 'red');
+      expect(component.props.color).toEqual('red');
     });
   });
 
@@ -238,26 +231,25 @@ describe('errorHandler', () => {
     it('dispatches an error', () => {
       const error = new Error();
       errorHandler.handle(error);
-      assert.ok(errorHandler.dispatch.called);
-      assert.deepEqual(errorHandler.dispatch.firstCall.args[0],
-                       setError({ id: errorHandler.id, error }));
+      expect(errorHandler.dispatch.called).toBeTruthy();
+      expect(errorHandler.dispatch.firstCall.args[0])
+        .toEqual(setError({ id: errorHandler.id, error }));
     });
 
     it('clears an error', () => {
       errorHandler.clear();
-      assert.ok(errorHandler.dispatch.called);
-      assert.deepEqual(errorHandler.dispatch.firstCall.args[0],
-                       clearError(errorHandler.id));
+      expect(errorHandler.dispatch.called).toBeTruthy();
+      expect(errorHandler.dispatch.firstCall.args[0]).toEqual(clearError(errorHandler.id));
     });
 
     it('tells you if it has an error', () => {
       const handler = new ErrorHandler({ capturedError: new Error() });
-      assert.strictEqual(handler.hasError(), true);
+      expect(handler.hasError()).toBe(true);
     });
 
     it('tells you if it does not have an error', () => {
       const handler = new ErrorHandler();
-      assert.strictEqual(handler.hasError(), false);
+      expect(handler.hasError()).toBe(false);
     });
   });
 });

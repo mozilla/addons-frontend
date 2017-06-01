@@ -34,6 +34,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  word-wrap: break-word;
 
   .SearchResult--theme & {
     float: left;
@@ -60,7 +61,7 @@
 .SearchResult-author,
 .SearchResult-users {
   color: $sub-text-color;
-  display: inline-block;
+  display: block;
   font-size: $font-size-s;
   font-weight: normal;
   margin: 0;
@@ -76,7 +77,6 @@
 }
 
 .SearchResult-author {
-  display: block;
   margin-right: 0.5em;
   word-wrap: break-word;
 }

@@ -25,6 +25,7 @@ export const fakeAddon = Object.freeze({
   summary: 'This is a summary of the chill out add-on',
   description: 'This is a longer description of the chill out add-on',
   has_privacy_policy: true,
+  has_eula: true,
   homepage: 'http://hamsterdance.com/',
   support_url: 'http://support.hampsterdance.com/',
   type: 'extension',

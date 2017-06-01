@@ -16,7 +16,9 @@ import I18nProvider from 'core/i18n/Provider';
 import log from 'core/logger';
 
 
-export default function makeClient(routes, createStore) {
+export default function makeClient(
+  routes, createStore, { sagas = null } = {},
+) {
   // This code needs to come before anything else so we get logs/errors
   // if anything else in this function goes wrong.
   const publicSentryDsn = config.get('publicSentryDsn');
@@ -47,7 +49,12 @@ export default function makeClient(routes, createStore) {
         log.error('Could not load initial redux data');
       }
     }
-    const store = createStore(initialState);
+    const { sagaMiddleware, store } = createStore(initialState);
+    if (sagas && sagaMiddleware) {
+      sagaMiddleware.run(sagas);
+    } else {
+      log.warn(`sagas not found for this app (src/${appName}/sagas)`);
+    }
 
     // wrapper to make redux-connect applyRouterMiddleware compatible see
     // https://github.com/taion/react-router-scroll/issues/3
@@ -78,7 +85,7 @@ export default function makeClient(routes, createStore) {
   try {
     if (locale !== langToLocale(config.get('defaultLang'))) {
       // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-      require(`bundle?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(renderApp);
+      require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(renderApp);
     } else {
       renderApp({});
     }

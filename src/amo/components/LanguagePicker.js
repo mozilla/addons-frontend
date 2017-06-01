@@ -1,5 +1,6 @@
 /* global window */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -50,8 +51,8 @@ export class LanguagePickerBase extends React.Component {
         </h3>
         <select className="LanguagePicker-selector" defaultValue={currentLocale}
           ref={(ref) => { this.selector = ref; }} onChange={this.onChange}>
-          {Object.keys(languages).map((locale) => (
-            <option value={locale}>{languages[locale].native}</option>
+          {Object.keys(languages).map((locale, index) => (
+            <option key={`${locale}-${index}`} value={locale}>{languages[locale].native}</option>
           ))}
         </select>
       </div>

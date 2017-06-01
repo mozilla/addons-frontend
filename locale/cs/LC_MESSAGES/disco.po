@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:43+0000\n"
+"POT-Creation-Date: 2017-05-31 16:40+0000\n"
 "PO-Revision-Date: 2017-03-17 18:53+0000\n"
 "Last-Translator: Michal Vašíček <michalvasicek@icloud.com>\n"
 "Language-Team: none\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Chyba serveru"
 
-#: src/core/components/ErrorPage/GenericError/index.js:27
+#: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
@@ -26,117 +26,117 @@ msgstr ""
 "Omlouváme se, ale došlo k chybě, kvůli které jsme nemohli dokončit váš "
 "požadavek. Chyba byla zaznamenána a budeme se jí co nejdříve věnovat."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Kód chyby: %(status)s."
 
-#: src/core/components/ErrorPage/NotFound/index.js:24
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Stránka nenalezena"
 
-#: src/core/components/ErrorPage/NotFound/index.js:26
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Omlouváme se, ale na zadané adrese nemůžeme nic najít."
 
-#: src/core/components/InstallButton/index.js:105
-#: src/core/components/InstallButton/index.js:121
+#: src/core/components/InstallButton/index.js:106
+#: src/core/components/InstallButton/index.js:122
 msgid "Add to Firefox"
 msgstr "Přidat do Firefoxu"
 
-#: src/core/components/InstallButton/index.js:84
+#: src/core/components/InstallButton/index.js:85
 msgid "Install Theme"
 msgstr "Nainstalovat motiv"
 
-#: src/core/components/InstallSwitch/index.js:54
+#: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
 msgstr "Stahování doplňku %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:57
+#: src/core/components/InstallSwitch/index.js:58
 msgid "Installing %(name)s."
 msgstr "Instalace doplňku %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:61
+#: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "Doplněk %(name)s je nainstalován a povolen. Klepněte pro odinstalaci."
 
-#: src/core/components/InstallSwitch/index.js:64
+#: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is disabled. Click to enable."
 msgstr "Doplněk %(name)s je zakázán. Klepněte pro povolení."
 
-#: src/core/components/InstallSwitch/index.js:67
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Uninstalling %(name)s."
 msgstr "Odinstalace doplňku %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:70
+#: src/core/components/InstallSwitch/index.js:71
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "Doplněk %(name)s byl odinstalován. Klepněte pro instalaci."
 
-#: src/core/components/InstallSwitch/index.js:73
+#: src/core/components/InstallSwitch/index.js:74
 msgid "Install state for %(name)s is unknown."
 msgstr "Stav instalace doplňku %(name)s není známý."
 
-#: src/core/containers/InfoDialog/index.js:31
+#: src/core/containers/InfoDialog/index.js:32
 msgid "Your add-on is ready"
 msgstr "Váš doplněk je připraven"
 
-#: src/core/containers/InfoDialog/index.js:33
+#: src/core/containers/InfoDialog/index.js:34
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Nyní můžete přistupovat k %(name)s z panelu nástrojů."
 
-#: src/core/containers/InfoDialog/index.js:38
+#: src/core/containers/InfoDialog/index.js:39
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:100
+#: src/disco/components/Addon.js:101
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Najeďte myší pro náhled nebo klepněte pro instalaci doplňku %(name)s"
 
-#: src/disco/components/Addon.js:113
+#: src/disco/components/Addon.js:114
 msgid "Hover over the image to preview"
 msgstr "Pro náhled přejeďte nad obrázkem myší"
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:135
 msgid "Installation failed. Please try again."
 msgstr "Instalace selhala. Zkuste to prosím znovu."
 
-#: src/disco/components/Addon.js:136
+#: src/disco/components/Addon.js:137
 msgid "Download failed. Please check your connection."
 msgstr "Stahování selhalo. Zkontrolujte prosím své připojení."
 
-#: src/disco/components/Addon.js:138
+#: src/disco/components/Addon.js:139
 msgid "An unexpected error occurred during installation."
 msgstr "Během instalace došlo k neočekávané chybě."
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:141
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Během odinstalace došlo k neočekávané chybě."
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:144
 msgid "An unexpected error occurred."
 msgstr "Došlo k neočekávané chybě."
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:152
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tento doplněk bude odinstalován jakmile restartujete Firefox."
 
-#: src/disco/components/Addon.js:153
+#: src/disco/components/Addon.js:154
 msgid "Please restart Firefox to use this add-on."
 msgstr "Pro použití tohoto doplňku prosím restartujte Firefox."
 
-#: src/disco/components/Addon.js:68
+#: src/disco/components/Addon.js:69
 msgid "Close"
 msgstr "Zavřít"
 
-#: src/disco/containers/App.js:32
+#: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
 msgstr "Objevte doplňky"
 
-#: src/disco/containers/DiscoPane.js:103
+#: src/disco/containers/DiscoPane.js:104
 msgid "Personalize Your Firefox"
 msgstr "Přizpůsobte si svůj Firefox"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:105
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -151,19 +151,19 @@ msgstr ""
 "prohlížečem. Abychom vám do začátku pomohli, vybrali jsme některé, které pro "
 "jejich výkon a funkce doporučujeme."
 
-#: src/disco/containers/DiscoPane.js:112
+#: src/disco/containers/DiscoPane.js:113
 msgid "Click to play"
 msgstr "Klepněte a spusťte"
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:114
 msgid "to find out more about add-ons"
 msgstr "a zjistěte více o doplňcích"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:123
 msgid "Close video"
 msgstr "Zavřít video"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:134
 msgid "See more add-ons!"
 msgstr "Zobrazte si více doplňků!"
 

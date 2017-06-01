@@ -23,9 +23,10 @@ describe('MastHead', () => {
   function renderMastHead({ ...props }) {
     const MyMastHead = translate({ withRef: true })(MastHeadBase);
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
+    const { store } = createStore(initialState);
 
     return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <MyMastHead {...props} />
         </I18nProvider>
@@ -42,8 +43,8 @@ describe('MastHead', () => {
     const headerTag = findDOMNode(root)
       .querySelector('.MastHead-title-wrapper');
 
-    assert.equal(headerTag.textContent, 'Firefox Add-ons');
-    assert.equal(headerTag.tagName, 'H1');
+    expect(headerTag.textContent).toEqual('Firefox Add-ons');
+    expect(headerTag.tagName).toEqual('H1');
   });
 
   it('always renders a link in the header', () => {
@@ -54,8 +55,8 @@ describe('MastHead', () => {
     const titleLink = findDOMNode(root).querySelector('.MastHead-title');
     const h1Tag = findDOMNode(root).querySelector('h1');
 
-    assert(!h1Tag);
-    assert.equal(titleLink.textContent, 'Firefox Add-ons');
-    assert.equal(titleLink.tagName, 'A');
+    expect(!h1Tag).toBeTruthy();
+    expect(titleLink.textContent).toEqual('Firefox Add-ons');
+    expect(titleLink.tagName).toEqual('A');
   });
 });

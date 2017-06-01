@@ -37,54 +37,49 @@ describe('<Paginate />', () => {
       it('does not allow an undefined count', () => {
         const props = getRenderProps();
         delete props.count;
-        assert.throws(
-          () => renderIntoDocument(<Paginate {...props} />),
-          /count property cannot be undefined/);
+        expect(() => renderIntoDocument(<Paginate {...props} />))
+          .toThrowError(/count property cannot be undefined/);
       });
 
       it('does not allow an undefined currentPage', () => {
         const props = getRenderProps();
         delete props.currentPage;
-        assert.throws(
-          () => renderIntoDocument(<Paginate {...props} />),
-          /currentPage property cannot be undefined/);
+        expect(() => renderIntoDocument(<Paginate {...props} />))
+          .toThrowError(/currentPage property cannot be undefined/);
       });
 
       it('does not allow an undefined pathname', () => {
         const props = getRenderProps();
         delete props.pathname;
-        assert.throws(
-          () => renderIntoDocument(<Paginate {...props} />),
-          /pathname property cannot be undefined/);
+        expect(() => renderIntoDocument(<Paginate {...props} />))
+          .toThrowError(/pathname property cannot be undefined/);
       });
     });
 
     describe('pageCount()', () => {
       it('is count / perPage', () => {
         const root = renderPaginate({ count: 100, perPage: 5 });
-        assert.equal(root.pageCount(), 20);
+        expect(root.pageCount()).toEqual(20);
       });
 
       it('uses the ceiling of the result', () => {
         const root = renderPaginate({ count: 101, perPage: 5 });
-        assert.equal(root.pageCount(), 21);
+        expect(root.pageCount()).toEqual(21);
       });
 
       it('can handle a count of zero', () => {
         const root = renderPaginate({ count: 0 });
-        assert.equal(root.pageCount(), 0);
+        expect(root.pageCount()).toEqual(0);
       });
 
       it('does not allow a per page value of zero', () => {
-        assert.throws(
-          () => renderPaginate({ count: 5, perPage: 0 }),
-          /0 is not allowed/);
+        expect(() => renderPaginate({ count: 5, perPage: 0 }))
+          .toThrowError(/0 is not allowed/);
       });
 
       it('does not allow a negative per page value', () => {
-        assert.throws(
-          () => renderPaginate({ count: 5, perPage: -1 }),
-          /-1 is not allowed/);
+        expect(() => renderPaginate({ count: 5, perPage: -1 }))
+          .toThrowError(/-1 is not allowed/);
       });
     });
 
@@ -98,34 +93,32 @@ describe('<Paginate />', () => {
         const commonParams = { count: 30, perPage: 3, showPages: 5 };
 
         it('will be 0 by default', () => {
-          assert.deepEqual(
-            getVisiblePages({ count: 30, perPage: 3, currentPage: 1 }),
-            []);
+          expect(getVisiblePages({ count: 30, perPage: 3, currentPage: 1 })).toEqual([]);
         });
 
         it('will not be less than 0', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 1 });
-          assert.deepEqual(pages, [1, 2, 3, 4, 5]);
+          expect(pages).toEqual([1, 2, 3, 4, 5]);
         });
 
         it('will not offset near the start', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 2 });
-          assert.deepEqual(pages, [1, 2, 3, 4, 5]);
+          expect(pages).toEqual([1, 2, 3, 4, 5]);
         });
 
         it('will offset near the middle', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 5 });
-          assert.deepEqual(pages, [3, 4, 5, 6, 7]);
+          expect(pages).toEqual([3, 4, 5, 6, 7]);
         });
 
         it('will offset more near the end', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 9 });
-          assert.deepEqual(pages, [6, 7, 8, 9, 10]);
+          expect(pages).toEqual([6, 7, 8, 9, 10]);
         });
 
         it('will not offset more than showPages', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 10 });
-          assert.deepEqual(pages, [6, 7, 8, 9, 10]);
+          expect(pages).toEqual([6, 7, 8, 9, 10]);
         });
       });
 
@@ -134,34 +127,34 @@ describe('<Paginate />', () => {
 
         it('will not be less than 0', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 1 });
-          assert.deepEqual(pages, [1, 2, 3]);
+          expect(pages).toEqual([1, 2, 3]);
         });
 
         it('will not offset near the middle', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 2 });
-          assert.deepEqual(pages, [1, 2, 3]);
+          expect(pages).toEqual([1, 2, 3]);
         });
 
         it('will not offset near the end', () => {
           const pages = getVisiblePages({
             count: 128, perPage: 25, showPages: 9, currentPage: 6,
           });
-          assert.deepEqual(pages, [1, 2, 3, 4, 5, 6]);
+          expect(pages).toEqual([1, 2, 3, 4, 5, 6]);
         });
 
         it('will not offset more than showPages', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 3 });
-          assert.deepEqual(pages, [1, 2, 3]);
+          expect(pages).toEqual([1, 2, 3]);
         });
 
         it('will not render when showPages is false-y', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 3, showPages: 0 });
-          assert.deepEqual(pages, []);
+          expect(pages).toEqual([]);
         });
 
         it('will not render when showPages is false', () => {
           const pages = getVisiblePages({ ...commonParams, currentPage: 3, showPages: false });
-          assert.deepEqual(pages, []);
+          expect(pages).toEqual([]);
         });
       });
     });
@@ -171,12 +164,12 @@ describe('<Paginate />', () => {
 
       it('will not render if there is only one page', () => {
         const root = findDOMNode(renderPaginate({ ...commonParams }));
-        assert.equal(root, null);
+        expect(root).toEqual(null);
       });
 
       it('will render with more than one page', () => {
         const root = findDOMNode(renderPaginate({ ...commonParams, count: 30 }));
-        assert.ok(root.classList.contains('Paginate'));
+        expect(root.classList.contains('Paginate')).toBeTruthy();
       });
     });
   });
@@ -200,11 +193,11 @@ describe('<Paginate />', () => {
 
     const links = scryRenderedComponentsWithType(root, PaginatorLink);
     // Just do a quick sanity check on the first link.
-    assert.equal(links[0].props.LinkComponent, LinkComponent);
-    assert.deepEqual(links[0].props.queryParams, queryParams);
-    assert.equal(links[0].props.currentPage, currentPage);
-    assert.equal(links[0].props.pathname, pathname);
-    assert.equal(links[0].props.pageCount, pageCount);
+    expect(links[0].props.LinkComponent).toEqual(LinkComponent);
+    expect(links[0].props.queryParams).toEqual(queryParams);
+    expect(links[0].props.currentPage).toEqual(currentPage);
+    expect(links[0].props.pathname).toEqual(pathname);
+    expect(links[0].props.pageCount).toEqual(pageCount);
   });
 
   it('renders the right links', () => {
@@ -238,17 +231,14 @@ describe('<Paginate />', () => {
 
     return renderPaginateRoute().then((root) => {
       const links = Array.from(root.querySelectorAll('a'));
-      assert.deepEqual(
-        links.map((link) => [link.textContent, link.getAttribute('href')]),
-        [
-          ['Previous', '/some-path/?page=4'],
-          ['3', '/some-path/?page=3'],
-          ['4', '/some-path/?page=4'],
-          ['6', '/some-path/?page=6'],
-          ['7', '/some-path/?page=7'],
-          ['Next', '/some-path/?page=6'],
-        ],
-      );
+      expect(links.map((link) => [link.textContent, link.getAttribute('href')])).toEqual([
+        ['Previous', '/some-path/?page=4'],
+        ['3', '/some-path/?page=3'],
+        ['4', '/some-path/?page=4'],
+        ['6', '/some-path/?page=6'],
+        ['7', '/some-path/?page=7'],
+        ['Next', '/some-path/?page=6'],
+      ]);
     });
   });
 });

@@ -31,7 +31,7 @@ describe('amo/utils', () => {
   describe('loadFeaturedAddons()', () => {
     it('requests a large page of featured add-ons', () => {
       const addonType = ADDON_TYPE_EXTENSION;
-      const store = createStore({ application: 'android' });
+      const { store } = createStore({ application: 'android' });
       store.dispatch(featuredActions.getFeatured({ addonType }));
       const mockApi = sinon.mock(api);
       const entities = sinon.stub();
@@ -55,7 +55,7 @@ describe('amo/utils', () => {
   describe('loadLandingAddons()', () => {
     it('calls featured and search APIs to collect results', () => {
       const addonType = ADDON_TYPE_THEME;
-      const store = createStore({ application: 'android' });
+      const { store } = createStore({ application: 'android' });
       store.dispatch(landingActions.getLanding({ addonType }));
       const mockApi = sinon.mock(api);
       const entities = sinon.stub();
@@ -97,7 +97,7 @@ describe('amo/utils', () => {
     });
 
     it('returns a rejected Promise if the addonsType is wrong', () => {
-      const store = createStore({ application: 'android' });
+      const { store } = createStore({ application: 'android' });
 
       return loadLandingAddons({
         store,
@@ -105,29 +105,26 @@ describe('amo/utils', () => {
       })
         .then(unexpectedSuccess)
         .catch((err) => {
-          assert.equal(
-            err.message,
-            '"addon-with-a-typo" not found in API_ADDON_TYPES_MAPPING'
-          );
+          expect(err.message).toEqual('"addon-with-a-typo" not found in API_ADDON_TYPES_MAPPING');
         });
     });
   });
 
   describe('getErrorComponent', () => {
     it('returns a NotAuthorized component for 401 errors', () => {
-      assert.deepEqual(getErrorComponent(401), NotAuthorized);
+      expect(getErrorComponent(401)).toEqual(NotAuthorized);
     });
 
     it('returns a NotFound component for 404 errors', () => {
-      assert.deepEqual(getErrorComponent(404), NotFound);
+      expect(getErrorComponent(404)).toEqual(NotFound);
     });
 
     it('returns a ServerError component for 500 errors', () => {
-      assert.deepEqual(getErrorComponent(500), ServerError);
+      expect(getErrorComponent(500)).toEqual(ServerError);
     });
 
     it('returns a ServerError component by default', () => {
-      assert.deepEqual(getErrorComponent(501), ServerError);
+      expect(getErrorComponent(501)).toEqual(ServerError);
     });
   });
 });

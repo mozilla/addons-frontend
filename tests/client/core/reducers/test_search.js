@@ -3,17 +3,17 @@ import search from 'core/reducers/search';
 describe('search reducer', () => {
   it('defaults to an set of filters', () => {
     const { filters } = search(undefined, { type: 'unrelated' });
-    assert.deepEqual(filters, {});
+    expect(filters).toEqual({});
   });
 
   it('defaults to not loading', () => {
     const { loading } = search(undefined, { type: 'unrelated' });
-    assert.strictEqual(loading, false);
+    expect(loading).toBe(false);
   });
 
   it('defaults to empty results', () => {
     const { results } = search(undefined, { type: 'unrelated' });
-    assert.deepEqual(results, []);
+    expect(results).toEqual([]);
   });
 
   describe('SEARCH_STARTED', () => {
@@ -25,9 +25,9 @@ describe('search reducer', () => {
           results: [{ slug: 'bar' }],
         },
         { type: 'SEARCH_STARTED', payload: { filters: { query: 'foo' } } });
-      assert.deepEqual(state.filters, { query: 'foo' });
-      assert.strictEqual(state.loading, true);
-      assert.deepEqual(state.results, [{ slug: 'bar' }]);
+      expect(state.filters).toEqual({ query: 'foo' });
+      expect(state.loading).toBe(true);
+      expect(state.results).toEqual([{ slug: 'bar' }]);
     });
   });
 
@@ -65,23 +65,23 @@ describe('search reducer', () => {
 
     it('sets the filters', () => {
       const { filters } = getNextState();
-      assert.deepEqual(filters, { query: 'foo' });
+      expect(filters).toEqual({ query: 'foo' });
     });
 
     it('sets loading', () => {
       const { loading } = getNextState();
-      assert.strictEqual(loading, false);
+      expect(loading).toBe(false);
     });
 
     it('sets the results', () => {
       const { results } = getNextState();
-      assert.deepEqual(results, [{ slug: 'foo' }, { slug: 'food' }]);
+      expect(results).toEqual([{ slug: 'foo' }, { slug: 'food' }]);
     });
 
     it('sets the results in order', () => {
       response.result.results = ['food', 'foo'];
       const { results } = getNextState();
-      assert.deepEqual(results, [{ slug: 'food' }, { slug: 'foo' }]);
+      expect(results).toEqual([{ slug: 'food' }, { slug: 'foo' }]);
     });
   });
 
@@ -96,7 +96,7 @@ describe('search reducer', () => {
         results: [1, 2, 3],
       };
       const state = search(initialState, { type: 'SEARCH_FAILED', payload: { page, filters } });
-      assert.deepEqual(state, { count: 0, loading: false, page, filters, results: [] });
+      expect(state).toEqual({ count: 0, loading: false, page, filters, results: [] });
     });
   });
 });

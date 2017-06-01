@@ -1,3 +1,4 @@
+/* global Intl */
 /* @flow */
 import config from 'config';
 import Jed from 'jed';
@@ -234,15 +235,40 @@ type I18nConfig = {|
   _momentDefineLocale?: Function,
 |};
 
+type makeI18nOptions = {|
+  // FIXME this should be tied back to the Intl type.
+  _Intl?: any,
+|};
+
+
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.
-export function makeI18n(i18nData: I18nConfig, lang: string, _Jed: Jed = Jed) {
+export function makeI18n(
+  i18nData: I18nConfig,
+  lang: string,
+  _Jed: Jed = Jed,
+  { _Intl = Intl }: makeI18nOptions = {}
+) {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
 
   // TODO: move all of this to an I18n class that extends Jed so that we
   // can type-check all the components that rely on the i18n object.
-  i18n.formatNumber = (number) => number.toLocaleString(lang);
+  // Note: the available locales for tests are controlled in tests/setup.js
+  if (typeof _Intl === 'object' && Object.prototype.hasOwnProperty.call(_Intl, 'NumberFormat')) {
+    i18n.numberFormat = new _Intl.NumberFormat(lang);
+  }
+
+  i18n.formatNumber = (number) => {
+    if (typeof i18n.numberFormat !== 'undefined') {
+      log.info('Using Intl.NumberFormat');
+      return i18n.numberFormat.format(number);
+    }
+    // Intl is not yet supported on FF Android though it is expected to land in 54
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=1215247
+    log.info('Falling back to [number].toLocaleString');
+    return number.toLocaleString(lang);
+  };
 
   // This adds the correct moment locale for the active locale so we can get
   // localised dates, times, etc.

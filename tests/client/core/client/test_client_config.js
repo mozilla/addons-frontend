@@ -11,32 +11,32 @@ describe('client-config module', () => {
   });
 
   it('provides no access to the underlying data from outside', () => {
-    assert.equal(config.objData, undefined);
+    expect(config.objData).toEqual(undefined);
   });
 
   it('has the right methods', () => {
-    assert.sameMembers(Object.keys(new ClientConfig({})), ['get', 'has']);
+    expect(Object.keys(new ClientConfig({}))).toEqual(expect.arrayContaining(['get', 'has']));
   });
 
   describe('ClientConfig.get()', () => {
     it('returns a key when present', () => {
-      assert.equal(config.get('foo'), 'test-value-1');
+      expect(config.get('foo')).toEqual('test-value-1');
     });
 
     it('throws if key is missing', () => {
-      assert.throws(() => {
+      expect(() => {
         config.get('missing-key');
-      }, Error, /Key "missing-key" was not found in clientConfig/);
+      }).toThrowError(/Key "missing-key" was not found in clientConfig/);
     });
   });
 
   describe('ClientConfig.has()', () => {
     it('returns true if key is present', () => {
-      assert.ok(config.has('foo'));
+      expect(config.has('foo')).toBeTruthy();
     });
 
     it('returns false if key is missing', () => {
-      assert.notOk(config.has('whatevs'));
+      expect(config.has('whatevs')).toBeFalsy();
     });
   });
 });

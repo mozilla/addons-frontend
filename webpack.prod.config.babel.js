@@ -4,16 +4,14 @@ import path from 'path';
 import autoprefixer from 'autoprefixer';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import SriStatsPlugin from 'sri-stats-webpack-plugin';
+import SriPlugin from 'webpack-subresource-integrity';
 import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
-import { getClientConfig } from 'core/utils';
-
+import SriDataPlugin from './src/core/server/sriDataPlugin';
+import { getPlugins, getRules } from './webpack-common';
 import webpackIsomorphicToolsConfig
   from './src/core/server/webpack-isomorphic-tools-config';
-
-const clientConfig = getClientConfig(config);
 
 const appName = config.get('appName');
 const appsBuildList = appName ? [appName] : config.get('validAppNames');
@@ -21,95 +19,42 @@ const appsBuildList = appName ? [appName] : config.get('validAppNames');
 const entryPoints = {};
 // eslint-disable-next-line no-restricted-syntax
 for (const app of appsBuildList) {
-  entryPoints[app] = `src/${app}/client`;
+  entryPoints[app] = `${app}/client`;
 }
 
 const settings = {
   devtool: 'source-map',
   context: path.resolve(__dirname),
-  progress: true,
   entry: entryPoints,
   output: {
+    crossOriginLoading: 'anonymous',
     path: path.join(__dirname, 'dist'),
     filename: '[name]-[chunkhash].js',
     chunkFilename: '[name]-[chunkhash].js',
     publicPath: config.has('staticHost') ? `${config.get('staticHost')}/` : '/',
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-      }, {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
-      }, {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=2&sourceMap!postcss!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
-      }, {
-        test: /\.svg$/,
-        loader: 'svg-url?limit=10000',
-      }, {
-        test: /\.jpg$/,
-        loader: 'url?limit=10000&mimetype=image/jpeg',
-      }, {
-        test: /\.png$/,
-        loader: 'url?limit=10000&mimetype=image/png',
-      }, {
-        test: /\.gif/,
-        loader: 'url?limit=10000&mimetype=image/gif',
-      }, {
-        test: /\.webm$/,
-        loader: 'url?limit=10000&mimetype=video/webm',
-      }, {
-        test: /\.mp4$/,
-        loader: 'url?limit=10000&mimetype=video/mp4',
-      }, {
-        test: /\.otf$/,
-        loader: 'url?limit=10000&mimetype=application/font-sfnt',
-      }, {
-        test: /\.woff$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff',
-      }, {
-        test: /\.woff2$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff2',
-      },
-    ],
+    rules: getRules(),
   },
   plugins: [
-    new webpack.DefinePlugin({
-      CLIENT_CONFIG: JSON.stringify(clientConfig),
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    // Replaces server config module with the subset clientConfig object.
-    new webpack.NormalModuleReplacementPlugin(/config$/, 'core/client/config.js'),
-    // Substitutes client only config.
-    new webpack.NormalModuleReplacementPlugin(/core\/logger$/, 'core/client/logger.js'),
-    // Use the browser's window for window.
-    new webpack.NormalModuleReplacementPlugin(/core\/window/, 'core/browserWindow.js'),
-    // This allow us to exclude locales for other apps being built.
-    new webpack.ContextReplacementPlugin(
-      /locale$/,
-      new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
-    ),
-    new ExtractTextPlugin('[name]-[contenthash].css', { allChunks: true }),
-    new SriStatsPlugin({
-      algorithm: 'sha512',
-      write: true,
-      saveAs: path.join(__dirname, 'dist/sri.json'),
+    ...getPlugins(),
+    new ExtractTextPlugin({
+      filename: '[name]-[contenthash].css',
+      allChunks: true,
     }),
     // optimizations
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       comments: false,
       compress: {
         drop_console: true,
-        warnings: false,
       },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
+    new SriPlugin({ hashFuncNames: ['sha512'] }),
+    new SriDataPlugin({
+      saveAs: path.join(__dirname, 'dist', 'sri.json'),
+    }),
     // This function helps ensure we do bail if a compilation error
     // is encountered since --bail doesn't cause the build to fail with
     // uglify errors.
@@ -127,20 +72,27 @@ const settings = {
   resolve: {
     alias: {
       'normalize.css': 'normalize.css/normalize.css',
+      tests: path.resolve('./tests'),
     },
-    root: [
-      path.resolve(__dirname),
+    modules: [
       path.resolve('./src'),
+      'node_modules',
     ],
-    modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
 };
 
 if (config.get('enablePostCssLoader')) {
-  settings.postcss = [
-    autoprefixer({ browsers: ['last 2 versions'] }),
-  ];
+  settings.plugins.push(
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: path.resolve(__dirname),
+        postcss: [
+          autoprefixer({ browsers: ['last 2 versions'] }),
+        ],
+      },
+    })
+  );
 }
 
 export default settings;

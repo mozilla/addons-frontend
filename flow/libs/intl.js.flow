@@ -1,0 +1,15 @@
+// This is only a partial definition of
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
+
+declare class Intl$NumberFormat {
+  constructor(locales: string | Array<string>, options?: Object): void;
+  format(number: Number): string;
+}
+
+declare type IntlType = {
+  NumberFormat: Class<Intl$NumberFormat>,
+}
+
+// Mark it as possibly undefined since
+// Safari and some recent versions of Firefox for Android do not implement it.
+declare var Intl: typeof undefined | IntlType;

@@ -7,14 +7,14 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 import { shallowRender } from 'tests/client/helpers';
 
 
-describe('CategoryPage.mapStateToProps()', () => {
+describe('CategoryPage', () => {
   function render(props = {}) {
     return shallowRender(<CategoryPageBase {...props} />);
   }
 
   it('sets enableSearchSort to `false`', () => {
     const root = render();
-    assert.equal(root.props.enableSearchSort, false);
+    expect(root.props.enableSearchSort).toEqual(false);
   });
 });
 
@@ -22,7 +22,7 @@ describe('CategoryPage.mapStateToProps()', () => {
   let filters;
   let ownProps;
 
-  before(() => {
+  beforeAll(() => {
     filters = {
       addonType: ADDON_TYPE_THEME,
       category: 'ad-block',
@@ -39,11 +39,11 @@ describe('CategoryPage.mapStateToProps()', () => {
   });
 
   it('passes the search state if the filters and state matches', () => {
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(searchStart({ filters, results: [] }));
     const props = mapStateToProps(store.getState(), ownProps);
 
-    assert.deepEqual(props, {
+    expect(props).toEqual({
       count: 0,
       filters,
       hasSearchParams: true,
@@ -56,13 +56,13 @@ describe('CategoryPage.mapStateToProps()', () => {
   });
 
   it('does not pass search state if the filters and state do not match', () => {
-    const store = createStore();
+    const { store } = createStore();
     store.dispatch(searchStart({ filters }));
     const mismatchedState = store.getState();
     mismatchedState.search.filters.clientApp = 'nothing';
     const props = mapStateToProps(mismatchedState, ownProps);
 
-    assert.deepEqual(props, {
+    expect(props).toEqual({
       hasSearchParams: true,
       pathname: '/themes/ad-block/',
       queryParams: { page: 1 },

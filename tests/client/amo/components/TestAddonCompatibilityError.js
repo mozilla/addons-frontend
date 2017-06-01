@@ -31,9 +31,10 @@ describe('AddonCompatibilityError', () => {
       lang: props.lang,
       userAgentInfo: props.userAgentInfo,
     };
+    const { store } = createStore({ api });
 
     return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={createStore({ api })}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <AddonCompatibilityError minVersion={null} {...props} />
         </I18nProvider>
@@ -48,10 +49,8 @@ describe('AddonCompatibilityError', () => {
       userAgentInfo: { browser: { name: 'Chrome' }, os: {} } });
     const rootNode = findDOMNode(root);
 
-    assert.equal(rootNode.querySelector('a').href,
-      'https://www.mozilla.org/es/firefox/');
-    assert.include(rootNode.textContent,
-      'You need to download Firefox to install this add-on.');
+    expect(rootNode.querySelector('a').href).toEqual('https://www.mozilla.org/es/firefox/');
+    expect(rootNode.textContent).toContain('You need to download Firefox to install this add-on.');
   });
 
   it('renders a notice for old versions of Firefox', () => {
@@ -63,12 +62,10 @@ describe('AddonCompatibilityError', () => {
     });
     const rootNode = findDOMNode(root);
 
-    assert.equal(rootNode.querySelector('a').href,
-      'https://www.mozilla.org/fr/firefox/');
-    assert.include(rootNode.textContent,
-      'This add-on requires a newer version of Firefox');
-    assert.include(rootNode.textContent, '(at least version 11.0)');
-    assert.include(rootNode.textContent, 'You are using Firefox 8.0.');
+    expect(rootNode.querySelector('a').href).toEqual('https://www.mozilla.org/fr/firefox/');
+    expect(rootNode.textContent).toContain('This add-on requires a newer version of Firefox');
+    expect(rootNode.textContent).toContain('(at least version 11.0)');
+    expect(rootNode.textContent).toContain('You are using Firefox 8.0.');
   });
 
   it('renders a notice for iOS users', () => {
@@ -78,8 +75,7 @@ describe('AddonCompatibilityError', () => {
     });
     const rootNode = findDOMNode(root);
 
-    assert.include(rootNode.textContent,
-      'Firefox for iOS does not currently support add-ons.');
+    expect(rootNode.textContent).toContain('Firefox for iOS does not currently support add-ons.');
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {
@@ -89,8 +85,7 @@ describe('AddonCompatibilityError', () => {
     });
     const rootNode = findDOMNode(root);
 
-    assert.include(rootNode.textContent,
-      'Your version of Firefox does not support search plugins.');
+    expect(rootNode.textContent).toContain('Your version of Firefox does not support search plugins.');
   });
 
   it('renders a notice and logs a warning when reason code not known', () => {
@@ -102,24 +97,23 @@ describe('AddonCompatibilityError', () => {
     });
     const rootNode = findDOMNode(root);
 
-    assert.isTrue(fakeLog.warn.called);
-    assert.include(rootNode.textContent,
-      'Your browser does not support add-ons.');
+    expect(fakeLog.warn.called).toBe(true);
+    expect(rootNode.textContent).toContain('Your browser does not support add-ons.');
   });
 
   it('throws an error if no reason is supplied', () => {
-    assert.throws(() => {
+    expect(() => {
       render({ userAgentInfo: defaultUserAgentInfo });
-    }, 'AddonCompatibilityError requires a "reason" prop');
+    }).toThrowError('AddonCompatibilityError requires a "reason" prop');
   });
 
   it('throws an error if minVersion is missing', () => {
-    assert.throws(() => {
+    expect(() => {
       render({
         minVersion: undefined,
         reason: INCOMPATIBLE_NOT_FIREFOX,
         userAgentInfo: defaultUserAgentInfo,
       });
-    }, 'minVersion is required; it cannot be undefined');
+    }).toThrowError('minVersion is required; it cannot be undefined');
   });
 });

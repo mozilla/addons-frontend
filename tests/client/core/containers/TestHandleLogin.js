@@ -42,7 +42,7 @@ describe('<HandleLogin />', () => {
 
     it('notifies the user that they are being logged in', () => {
       const root = render(store, location, router);
-      assert.equal(root.textContent, 'Logging you in...');
+      expect(root.textContent).toEqual('Logging you in...');
     });
 
     it('sends the code and token to the api', () => {
@@ -57,8 +57,8 @@ describe('<HandleLogin />', () => {
         router: {},
       };
       renderIntoDocument(<HandleLoginBase {...props} />);
-      assert.ok(props.loadData.called);
-      assert.equal(props.loadData.firstCall.args[0].router, props.router);
+      expect(props.loadData.called).toBeTruthy();
+      expect(props.loadData.firstCall.args[0].router).toEqual(props.router);
     });
   });
 
@@ -76,16 +76,14 @@ describe('<HandleLogin />', () => {
 
     it('gives an error', () => {
       const root = render(store, location, router);
-      assert.equal(
-        root.querySelector('p').textContent,
-        'There was an error logging you in, please try again.');
+      expect(root.querySelector('p').textContent).toEqual('There was an error logging you in, please try again.');
     });
 
     it('shows a login link', () => {
       const root = render(store, location, router);
       const link = root.querySelector('a');
-      assert.equal(link.pathname, '/api/v3/accounts/login/start/');
-      assert.equal(link.textContent, 'Login');
+      expect(link.pathname).toEqual('/api/v3/accounts/login/start/');
+      expect(link.textContent).toEqual('Login');
     });
 
     it('does not call the API', () => {
@@ -120,8 +118,8 @@ describe('<HandleLogin />', () => {
       const { apiConfig, dispatch, location, payload, router } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
       return loadData({ api: apiConfig, location, router }).then(() => {
-        assert(dispatch.calledOnce, 'dispatch not called');
-        assert.deepEqual(dispatch.firstCall.args[0], setAuthToken(payload.token));
+        expect(dispatch.calledOnce).toBeTruthy();
+        expect(dispatch.firstCall.args[0]).toEqual(setAuthToken(payload.token));
       });
     });
 

@@ -17,7 +17,7 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 
 describe('<ServerError />', () => {
   function render({ ...props }) {
-    const store = createStore(signedInApiState);
+    const { store } = createStore(signedInApiState);
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 500 },
@@ -36,7 +36,6 @@ describe('<ServerError />', () => {
   it('renders a server error', () => {
     const rootNode = render();
 
-    assert.include(rootNode.textContent,
-      'but there was an error with our server and');
+    expect(rootNode.textContent).toContain('but there was an error with our server and');
   });
 });

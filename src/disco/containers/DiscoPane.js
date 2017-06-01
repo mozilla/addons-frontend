@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 /* global navigator, window */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { camelizeKeys as camelCaseKeys } from 'humps';
 import { connect } from 'react-redux';
 import { compose } from 'redux';

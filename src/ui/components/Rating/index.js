@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import log from 'core/logger';
@@ -62,6 +63,7 @@ export class RatingBase extends React.Component {
             thisRating - 0.5 <= rating),
         }),
         id: `Rating-rating-${thisRating}`,
+        key: `rating-${thisRating}`,
         ref: (ref) => { this.ratingElements[thisRating] = ref; },
       };
 
@@ -70,6 +72,7 @@ export class RatingBase extends React.Component {
       }
 
       return (
+        // eslint-disable-next-line react/jsx-key
         <button
           onClick={this.onSelectRating}
           value={thisRating}

@@ -1,4 +1,11 @@
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
+import { categoriesFetch } from 'core/actions/categories';
 import categories, { emptyCategoryList } from 'core/reducers/categories';
 
 
@@ -9,37 +16,32 @@ describe('categories reducer', () => {
 
   it('defaults to an empty set of categories', () => {
     const state = categories(initialState, { type: 'unrelated' });
-    assert.deepEqual(state.categories, {
-      android: {}, firefox: {},
-    });
+    expect(state.categories).toEqual(emptyCategoryList());
   });
 
   it('defaults to not loading', () => {
     const { loading } = categories(undefined, { type: 'unrelated' });
-    assert.equal(loading, false);
+    expect(loading).toEqual(false);
   });
 
   it('defaults to not error', () => {
     const { error } = categories(undefined, { type: 'unrelated' });
-    assert.equal(error, false);
+    expect(error).toEqual(false);
   });
 
-  describe('CATEGORIES_GET', () => {
+  describe('CATEGORIES_FETCH', () => {
     it('sets loading', () => {
-      const state = categories(initialState,
-        { type: 'CATEGORIES_GET', payload: { loading: true } });
-      assert.deepEqual(state.categories, {
-        android: {}, firefox: {},
-      });
-      assert.equal(state.error, false);
-      assert.equal(state.loading, true);
+      const state = categories(initialState, categoriesFetch());
+      expect(state.categories).toEqual(emptyCategoryList());
+      expect(state.error).toEqual(false);
+      expect(state.loading).toEqual(true);
     });
   });
 
   describe('CATEGORIES_LOAD', () => {
     let state;
 
-    before(() => {
+    beforeAll(() => {
       const result = [
         {
           application: 'android',
@@ -95,6 +97,12 @@ describe('categories reducer', () => {
           slug: 'i-should-not-appear',
           type: ADDON_TYPE_EXTENSION,
         },
+        {
+          application: 'android',
+          name: 'I should also not appear',
+          slug: 'i-should-also-not-appear',
+          type: 'FAKE_TYPE',
+        },
       ];
       state = categories(initialState, {
         type: 'CATEGORIES_LOAD',
@@ -103,26 +111,61 @@ describe('categories reducer', () => {
     });
 
     it('sets the categories', () => {
-      const themes = {
-        anime: {
+      const result = [
+        {
+          application: 'android',
+          name: 'Alerts & Update',
+          slug: 'alert-update',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          application: 'android',
+          name: 'Blogging',
+          slug: 'blogging',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          application: 'android',
+          name: 'Games',
+          slug: 'Games',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          application: 'firefox',
+          name: 'Alerts & Update',
+          slug: 'alert-update',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          application: 'firefox',
+          name: 'Security',
+          slug: 'security',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
           application: 'firefox',
           name: 'Anime',
           slug: 'anime',
           type: ADDON_TYPE_THEME,
         },
-        naturé: {
+        {
           application: 'firefox',
           name: 'Naturé',
           slug: 'naturé',
           type: ADDON_TYPE_THEME,
         },
-        painting: {
+        {
           application: 'firefox',
           name: 'Painting',
           slug: 'painting',
           type: ADDON_TYPE_THEME,
         },
-      };
+      ];
+      state = categories(initialState, {
+        type: 'CATEGORIES_LOAD',
+        payload: { result },
+      });
+
       // Notice all Firefox theme categories are also set as Android theme
       // categories and no Android categories are returned. This reflects the
       // current state of AMO.
@@ -130,8 +173,9 @@ describe('categories reducer', () => {
       //
       // This can be changed once
       // https://github.com/mozilla/addons-server/issues/4766 is fixed.
-      assert.deepEqual(state.categories, {
+      expect(state.categories).toEqual({
         firefox: {
+          [ADDON_TYPE_DICT]: {},
           [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
               application: 'firefox',
@@ -146,9 +190,31 @@ describe('categories reducer', () => {
               type: ADDON_TYPE_EXTENSION,
             },
           },
-          [ADDON_TYPE_THEME]: themes,
+          [ADDON_TYPE_LANG]: {},
+          [ADDON_TYPE_OPENSEARCH]: {},
+          [ADDON_TYPE_THEME]: {
+            anime: {
+              application: 'firefox',
+              name: 'Anime',
+              slug: 'anime',
+              type: ADDON_TYPE_THEME,
+            },
+            naturé: {
+              application: 'firefox',
+              name: 'Naturé',
+              slug: 'naturé',
+              type: ADDON_TYPE_THEME,
+            },
+            painting: {
+              application: 'firefox',
+              name: 'Painting',
+              slug: 'painting',
+              type: ADDON_TYPE_THEME,
+            },
+          },
         },
         android: {
+          [ADDON_TYPE_DICT]: {},
           [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
               application: 'android',
@@ -169,31 +235,52 @@ describe('categories reducer', () => {
               type: ADDON_TYPE_EXTENSION,
             },
           },
-          [ADDON_TYPE_THEME]: themes,
+          [ADDON_TYPE_LANG]: {},
+          [ADDON_TYPE_OPENSEARCH]: {},
+          [ADDON_TYPE_THEME]: {
+            anime: {
+              application: 'firefox',
+              name: 'Anime',
+              slug: 'anime',
+              type: ADDON_TYPE_THEME,
+            },
+            naturé: {
+              application: 'firefox',
+              name: 'Naturé',
+              slug: 'naturé',
+              type: ADDON_TYPE_THEME,
+            },
+            painting: {
+              application: 'firefox',
+              name: 'Painting',
+              slug: 'painting',
+              type: ADDON_TYPE_THEME,
+            },
+          },
         },
       });
     });
 
     it('sets loading', () => {
       const { loading } = state;
-      assert.strictEqual(loading, false);
+      expect(loading).toBe(false);
     });
 
     it('sets no error', () => {
       const { error } = state;
-      assert.deepEqual(error, false);
+      expect(error).toEqual(false);
     });
   });
 
-  describe('CATEGORIES_FAILED', () => {
+  describe('CATEGORIES_FAIL', () => {
     it('sets error to be true', () => {
       const error = true;
       const loading = false;
 
       const state = categories(initialState, {
-        type: 'CATEGORIES_FAILED', payload: { error, loading },
+        type: 'CATEGORIES_FAIL', payload: { error, loading },
       });
-      assert.deepEqual(state, {
+      expect(state).toEqual({
         categories: emptyCategoryList(), error, loading,
       });
     });

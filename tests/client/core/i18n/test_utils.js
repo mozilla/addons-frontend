@@ -10,55 +10,55 @@ const defaultLang = config.get('defaultLang');
 describe('i18n utils', () => {
   describe('normalizeLang()', () => {
     it('should normalize standard languages', () => {
-      assert.equal(utils.normalizeLang('en-us'), 'en-US');
-      assert.equal(utils.normalizeLang('AR'), 'ar');
+      expect(utils.normalizeLang('en-us')).toEqual('en-US');
+      expect(utils.normalizeLang('AR')).toEqual('ar');
     });
 
     it('should cope with a locale input too', () => {
-      assert.equal(utils.normalizeLang('en_US'), 'en-US');
+      expect(utils.normalizeLang('en_US')).toEqual('en-US');
     });
 
     it('should handle a 3 char language', () => {
-      assert.equal(utils.normalizeLang('HaW'), 'haw');
+      expect(utils.normalizeLang('HaW')).toEqual('haw');
     });
 
     it('should handle a 3 char language with 2 parts', () => {
-      assert.equal(utils.normalizeLang('SoN-Ml'), 'son-ML');
+      expect(utils.normalizeLang('SoN-Ml')).toEqual('son-ML');
     });
 
     it('should handle a language with 3 parts', () => {
-      assert.equal(utils.normalizeLang('ja-JP-mac'), 'ja-Mac');
+      expect(utils.normalizeLang('ja-JP-mac')).toEqual('ja-Mac');
     });
 
     it('should return undefined for no match', () => {
-      assert.equal(utils.normalizeLang(1), undefined);
-      assert.equal(utils.normalizeLang(''), undefined);
+      expect(utils.normalizeLang(1)).toEqual(undefined);
+      expect(utils.normalizeLang('')).toEqual(undefined);
     });
   });
 
   describe('normalizeLocale()', () => {
     it('should normalize a locale', () => {
-      assert.equal(utils.normalizeLocale('en_us'), 'en_US');
-      assert.equal(utils.normalizeLocale('AR'), 'ar');
+      expect(utils.normalizeLocale('en_us')).toEqual('en_US');
+      expect(utils.normalizeLocale('AR')).toEqual('ar');
     });
 
     it('should cope with a language input too', () => {
-      assert.equal(utils.normalizeLocale('en-us'), 'en_US');
-      assert.equal(utils.normalizeLocale('EN-US'), 'en_US');
+      expect(utils.normalizeLocale('en-us')).toEqual('en_US');
+      expect(utils.normalizeLocale('EN-US')).toEqual('en_US');
     });
   });
 
   describe('langToLocale()', () => {
     it('should convert en-US to en_US', () => {
-      assert.equal(utils.langToLocale('en-US'), 'en_US');
+      expect(utils.langToLocale('en-US')).toEqual('en_US');
     });
 
     it('should convert sr-Latn to sr_Latn', () => {
-      assert.equal(utils.langToLocale('sr-Latn'), 'sr_Latn');
+      expect(utils.langToLocale('sr-Latn')).toEqual('sr_Latn');
     });
 
     it('should convert sr-Cyrl-RS to sr_RS', () => {
-      assert.equal(utils.langToLocale('sr-Cyrl-RS'), 'sr_RS');
+      expect(utils.langToLocale('sr-Cyrl-RS')).toEqual('sr_RS');
     });
 
     it('logs if no match found', () => {
@@ -66,26 +66,26 @@ describe('i18n utils', () => {
         error: sinon.stub(),
       };
       utils.langToLocale('whatevs-this-is-really-odd', fakeLog);
-      assert.ok(fakeLog.error.called);
+      expect(fakeLog.error.called).toBeTruthy();
     });
 
     it('should return undefined for invalid input', () => {
-      assert.equal(utils.langToLocale(''), undefined);
-      assert.equal(utils.langToLocale(1), undefined);
+      expect(utils.langToLocale('')).toEqual(undefined);
+      expect(utils.langToLocale(1)).toEqual(undefined);
     });
   });
 
   describe('localeToLang()', () => {
     it('should convert en_US to en-US', () => {
-      assert.equal(utils.localeToLang('en_US'), 'en-US');
+      expect(utils.localeToLang('en_US')).toEqual('en-US');
     });
 
     it('should convert sr_Latn to sr-Latn', () => {
-      assert.equal(utils.localeToLang('sr_Latn'), 'sr-Latn');
+      expect(utils.localeToLang('sr_Latn')).toEqual('sr-Latn');
     });
 
     it('should convert sr_Cyrl_RS to sr-RS', () => {
-      assert.equal(utils.localeToLang('sr_Cyrl_RS'), 'sr-RS');
+      expect(utils.localeToLang('sr_Cyrl_RS')).toEqual('sr-RS');
     });
 
     it('logs if too many parts found', () => {
@@ -93,219 +93,219 @@ describe('i18n utils', () => {
         error: sinon.stub(),
       };
       utils.localeToLang('what_the_heck_is_this', fakeLog);
-      assert.ok(fakeLog.error.called);
+      expect(fakeLog.error.called).toBeTruthy();
     });
 
     it('should return undefined for invalid input', () => {
-      assert.equal(utils.localeToLang(''), undefined);
-      assert.equal(utils.localeToLang(1), undefined);
+      expect(utils.localeToLang('')).toEqual(undefined);
+      expect(utils.localeToLang(1)).toEqual(undefined);
     });
   });
 
   describe('sanitizeLanguage()', () => {
     it('should get a standard language ', () => {
-      assert.equal(utils.sanitizeLanguage('ar'), 'ar');
+      expect(utils.sanitizeLanguage('ar')).toEqual('ar');
     });
 
     it('should convert short form lang to longer', () => {
-      assert.equal(utils.sanitizeLanguage('en'), 'en-US');
+      expect(utils.sanitizeLanguage('en')).toEqual('en-US');
     });
 
     it('should return the default if lookup not present', () => {
-      assert.equal(utils.sanitizeLanguage('awooga'), defaultLang);
+      expect(utils.sanitizeLanguage('awooga')).toEqual(defaultLang);
     });
 
     it('should return the default if bad type', () => {
-      assert.equal(utils.sanitizeLanguage(1), defaultLang);
+      expect(utils.sanitizeLanguage(1)).toEqual(defaultLang);
     });
 
     it('should return a lang if handed a locale', () => {
-      assert.equal(utils.sanitizeLanguage('en_US'), 'en-US');
+      expect(utils.sanitizeLanguage('en_US')).toEqual('en-US');
     });
 
     it('should return the default if handed undefined', () => {
-      assert.equal(utils.sanitizeLanguage(undefined), defaultLang);
+      expect(utils.sanitizeLanguage(undefined)).toEqual(defaultLang);
     });
 
     it('should return the default if handed an empty string', () => {
-      assert.equal(utils.sanitizeLanguage(''), 'en-US');
+      expect(utils.sanitizeLanguage('')).toEqual('en-US');
     });
   });
 
   describe('getDirection()', () => {
     it('should see ar as rtl', () => {
-      assert.equal(utils.getDirection('ar'), 'rtl');
+      expect(utils.getDirection('ar')).toEqual('rtl');
     });
 
     it('should see en-US as ltr', () => {
-      assert.equal(utils.getDirection('en-US'), 'ltr');
+      expect(utils.getDirection('en-US')).toEqual('ltr');
     });
 
     it('should see en as ltr', () => {
-      assert.equal(utils.getDirection('en'), 'ltr');
+      expect(utils.getDirection('en')).toEqual('ltr');
     });
 
     it('should default to ltr on bad input', () => {
-      assert.equal(utils.getDirection('whatevs'), 'ltr');
+      expect(utils.getDirection('whatevs')).toEqual('ltr');
     });
 
     it('should default to ltr on bad type', () => {
-      assert.equal(utils.getDirection(1), 'ltr');
+      expect(utils.getDirection(1)).toEqual('ltr');
     });
   });
 
   describe('isValidLang()', () => {
     it('should see en-us as an invalid lang', () => {
-      assert.equal(utils.isValidLang('en-us'), false);
+      expect(utils.isValidLang('en-us')).toEqual(false);
     });
 
     it('should see en_US as an invalid lang', () => {
-      assert.equal(utils.isValidLang('en_US'), false);
+      expect(utils.isValidLang('en_US')).toEqual(false);
     });
 
     it('should see en-US as a valid lang', () => {
-      assert.equal(utils.isValidLang('en-US'), true);
+      expect(utils.isValidLang('en-US')).toEqual(true);
     });
 
     it('should see incorrect type as invalid lang', () => {
-      assert.equal(utils.isValidLang(1), false);
+      expect(utils.isValidLang(1)).toEqual(false);
     });
 
     it('should see bogus value as invalid lang', () => {
-      assert.equal(utils.isValidLang('awooga'), false);
+      expect(utils.isValidLang('awooga')).toEqual(false);
     });
 
     it('should see pt as an invalid lang since it requires mapping', () => {
-      assert.equal(utils.isValidLang('pt'), false);
+      expect(utils.isValidLang('pt')).toEqual(false);
     });
   });
 
   describe('isSupportedLang()', () => {
     it('should see en-us as an unsupported lang', () => {
-      assert.equal(utils.isSupportedLang('en-us'), false);
+      expect(utils.isSupportedLang('en-us')).toEqual(false);
     });
 
     it('should see en_US as an unsupported lang', () => {
-      assert.equal(utils.isSupportedLang('en_US'), false);
+      expect(utils.isSupportedLang('en_US')).toEqual(false);
     });
 
     it('should see en-US as a supported lang', () => {
-      assert.equal(utils.isSupportedLang('en-US'), true);
+      expect(utils.isSupportedLang('en-US')).toEqual(true);
     });
 
     it('should see incorrect type as unsupported lang', () => {
-      assert.equal(utils.isSupportedLang(1), false);
+      expect(utils.isSupportedLang(1)).toEqual(false);
     });
 
     it('should see bogus value as an unsupported lang', () => {
-      assert.equal(utils.isSupportedLang('awooga'), false);
+      expect(utils.isSupportedLang('awooga')).toEqual(false);
     });
 
     it('should see pt as a supported lang (requires mapping)', () => {
-      assert.equal(utils.isSupportedLang('pt'), true);
+      expect(utils.isSupportedLang('pt')).toEqual(true);
     });
   });
 
   describe('getLanguage()', () => {
     it('should return default lang if called without args', () => {
       const result = utils.getLanguage();
-      assert.equal(result.lang, defaultLang);
-      assert.equal(result.isLangFromHeader, false);
+      expect(result.lang).toEqual(defaultLang);
+      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should return default lang if no lang is provided', () => {
       const result = utils.getLanguage({ lang: '' });
-      assert.equal(result.lang, defaultLang);
-      assert.equal(result.isLangFromHeader, false);
+      expect(result.lang).toEqual(defaultLang);
+      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should return default lang if bad lang is provided', () => {
       const result = utils.getLanguage({ lang: 'bogus' });
-      assert.equal(result.lang, defaultLang);
-      assert.equal(result.isLangFromHeader, false);
+      expect(result.lang).toEqual(defaultLang);
+      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should return default lang if bad lang type provided', () => {
       const result = utils.getLanguage({ lang: 1 });
-      assert.equal(result.lang, defaultLang);
-      assert.equal(result.isLangFromHeader, false);
+      expect(result.lang).toEqual(defaultLang);
+      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should return lang if provided via the URL', () => {
       const result = utils.getLanguage({ lang: 'fr' });
-      assert.equal(result.lang, 'fr');
-      assert.equal(result.isLangFromHeader, false);
+      expect(result.lang).toEqual('fr');
+      expect(result.isLangFromHeader).toEqual(false);
     });
 
     it('should fall-back to accept-language', () => {
       const acceptLanguage = 'pt-br;q=0.5,en-us;q=0.3,en;q=0.2';
       const result = utils.getLanguage({ lang: 'bogus', acceptLanguage });
-      assert.equal(result.lang, 'pt-BR');
-      assert.equal(result.isLangFromHeader, true);
+      expect(result.lang).toEqual('pt-BR');
+      expect(result.isLangFromHeader).toEqual(true);
     });
 
     it('should map lang from accept-language too', () => {
       const acceptLanguage = 'pt;q=0.5,en-us;q=0.3,en;q=0.2';
       const result = utils.getLanguage({ lang: 'wat', acceptLanguage });
-      assert.equal(result.lang, 'pt-PT');
-      assert.equal(result.isLangFromHeader, true);
+      expect(result.lang).toEqual('pt-PT');
+      expect(result.isLangFromHeader).toEqual(true);
     });
 
     it('should fallback when nothing matches', () => {
       const acceptLanguage = 'awooga;q=0.5';
       const result = utils.getLanguage({ lang: 'wat', acceptLanguage });
-      assert.equal(result.lang, defaultLang);
-      assert.equal(result.isLangFromHeader, true);
+      expect(result.lang).toEqual(defaultLang);
+      expect(result.isLangFromHeader).toEqual(true);
     });
   });
 
   describe('utils.parseAcceptLanguage()', () => {
     it('returns an empty list if no arg is passed', () => {
-      assert.deepEqual(utils.parseAcceptLanguage(), []);
+      expect(utils.parseAcceptLanguage()).toEqual([]);
     });
 
     it('orders an accept-language header', () => {
       const input = 'fil;q=0.5,en;q=0.7';
       const result = utils.parseAcceptLanguage(input);
-      assert.deepEqual(result, [
+      expect(result).toEqual([
         { lang: 'en', quality: 0.7 },
         { lang: 'fil', quality: 0.5 },
-      ], sinon.format(result));
+      ]);
     });
 
     it('deals with whitespace around delimiters except "="', () => {
       const input = 'fil ; q=0.5 , en ; q=0.7';
       const result = utils.parseAcceptLanguage(input);
-      assert.deepEqual(result, [
+      expect(result).toEqual([
         { lang: 'en', quality: 0.7 },
         { lang: 'fil', quality: 0.5 },
-      ], sinon.format(result));
+      ]);
     });
 
     it('orders non-quality items higher', () => {
       const input = 'fil,en;q=0.7';
       const result = utils.parseAcceptLanguage(input);
-      assert.deepEqual(result, [
+      expect(result).toEqual([
         { lang: 'fil', quality: 1 },
         { lang: 'en', quality: 0.7 },
-      ], sinon.format(result));
+      ]);
     });
 
     it('parses header where all entries have a quality value', () => {
       const input = 'de; q=1.0, en; q=0.5';
       const result = utils.parseAcceptLanguage(input);
-      assert.deepEqual(result, [
+      expect(result).toEqual([
         { lang: 'de', quality: 1 },
         { lang: 'en', quality: 0.5 },
-      ], sinon.format(result));
+      ]);
     });
 
     it('handles entries with the same quality value', () => {
       const input = 'de; q=0.5, en; q=0.5';
-      assert.deepEqual(utils.parseAcceptLanguage(input), [
+      expect(utils.parseAcceptLanguage(input)).toEqual([
         { lang: 'de', quality: 0.5 },
         { lang: 'en', quality: 0.5 },
-      ], sinon.format(utils.parseAcceptLanguage(input)));
+      ]);
     });
   });
 
@@ -314,21 +314,21 @@ describe('i18n utils', () => {
       const acceptLanguage = 'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa'];
       const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
-      assert.equal(result, 'pa');
+      expect(result).toEqual('pa');
     });
 
     it('should find an exact language match for Punjabi India', () => {
       const acceptLanguage = 'pa-in,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa'];
       const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
-      assert.equal(result, 'pa');
+      expect(result).toEqual('pa');
     });
 
     it('should not extend into region unless exact match is found', () => {
       const acceptLanguage = 'pa,sv;q=0.8,fi;q=0.7,it-ch;q=0.5,en-us;q=0.3,en;q=0.2';
       const supportedLangs = ['af', 'en-US', 'pa-IN'];
       const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
-      assert.equal(result, 'en-US');
+      expect(result).toEqual('en-US');
     });
 
     it('should not match Finnish to Filipino (Philiippines)', () => {
@@ -341,7 +341,7 @@ describe('i18n utils', () => {
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi'];
       const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
-      assert.equal(result, 'en-US');
+      expect(result).toEqual('en-US');
     });
 
     it('should support Filipino (Philippines)', () => {
@@ -354,7 +354,7 @@ describe('i18n utils', () => {
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi', 'fil-PH'];
       const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
-      assert.equal(result, 'fil-PH');
+      expect(result).toEqual('fil-PH');
     });
 
     it('should support Filipino without region', () => {
@@ -367,26 +367,26 @@ describe('i18n utils', () => {
         q=0.17,ko-KR;q=0.14,ko;q=0.11,es-ES;q=0.09,es;q=0.06,en-AP;q=0.0`;
       const supportedLangs = ['en-US', 'fi', 'fil'];
       const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
-      assert.equal(result, 'fil');
+      expect(result).toEqual('fil');
     });
 
     it('should return undefined language for no match', () => {
       const acceptLanguage = 'whatever';
       const supportedLangs = ['af', 'en-US', 'pa'];
       const result = utils.getLangFromHeader(acceptLanguage, { _supportedLangs: supportedLangs });
-      assert.equal(result, undefined);
+      expect(result).toEqual(undefined);
     });
 
     it('should return undefined for empty string', () => {
       const acceptLanguage = '';
       const result = utils.getLangFromHeader(acceptLanguage);
-      assert.equal(result, undefined);
+      expect(result).toEqual(undefined);
     });
 
     it('should return undefined for bad type', () => {
       const acceptLanguage = null;
       const result = utils.getLangFromHeader(acceptLanguage);
-      assert.equal(result, undefined);
+      expect(result).toEqual(undefined);
     });
   });
 
@@ -408,13 +408,13 @@ describe('i18n utils', () => {
     it('adds a localised moment to the i18n object', () => {
       const i18nData = {};
       const i18n = utils.makeI18n(i18nData, 'en-US', FakeJed);
-      assert.ok(i18n.moment);
-      assert.typeOf(i18n.moment, 'function');
+      expect(i18n.moment).toBeTruthy();
+      expect(typeof i18n.moment).toBe('function');
     });
 
     it('exposes the lang', () => {
       const i18n = utils.makeI18n({}, 'af', FakeJed);
-      assert.equal(i18n.lang, 'af');
+      expect(i18n.lang).toEqual('af');
     });
 
     it('tries to localise moment', () => {
@@ -425,7 +425,7 @@ describe('i18n utils', () => {
         },
       };
       const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
-      assert.equal(i18n.moment.locale(), 'fr');
+      expect(i18n.moment.locale()).toEqual('fr');
     });
 
     it('does not localise if _momentDefineLocale is not a function', () => {
@@ -437,17 +437,42 @@ describe('i18n utils', () => {
       };
 
       const i18n = utils.makeI18n(i18nData, 'en', FakeJed);
-      assert.equal(i18n.moment.locale(), 'en');
+      expect(i18n.moment.locale()).toEqual('en');
     });
 
     it('formats a number', () => {
       const i18n = utils.makeI18n({}, 'en', FakeJed);
-      assert.equal(i18n.formatNumber(9518231), '9,518,231');
+      expect(i18n.formatNumber(9518231)).toEqual('9,518,231');
     });
 
-    it('localised formatting a number', () => {
+    it('Creates an Intl.NumberFormat instance and uses it for formatting', () => {
+      const numberFormatSpy = sinon.spy(Intl, 'NumberFormat');
       const i18n = utils.makeI18n({}, 'de', FakeJed);
-      assert.equal(i18n.formatNumber(9518231), '9.518.231');
+      sinon.assert.calledWith(numberFormatSpy, 'de');
+      const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
+      const number = 9518231;
+      expect(i18n.formatNumber(number)).toEqual('9.518.231');
+      sinon.assert.notCalled(toLocaleStringSpy);
+    });
+
+    it('falls-back to number.toLocaleString if Intl is not an object', () => {
+      const numberFormatSpy = sinon.spy(Intl, 'NumberFormat');
+      const i18n = utils.makeI18n({}, 'de', FakeJed, { _Intl: false });
+      const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
+      const number = 1234;
+      expect(i18n.formatNumber(number)).toEqual('1,234');
+      sinon.assert.calledWith(toLocaleStringSpy, 'de');
+      sinon.assert.notCalled(numberFormatSpy);
+    });
+
+    it('falls-back to number.toLocaleString when Intl is missing a NumberFormat constructor', () => {
+      const numberFormatSpy = sinon.spy(Intl, 'NumberFormat');
+      const i18n = utils.makeI18n({}, 'fr', FakeJed, { _Intl: {} });
+      const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
+      const number = 12345;
+      expect(i18n.formatNumber(number)).toEqual('12,345');
+      sinon.assert.calledWith(toLocaleStringSpy, 'fr');
+      sinon.assert.notCalled(numberFormatSpy);
     });
   });
 });

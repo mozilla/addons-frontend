@@ -1,5 +1,4 @@
-import { assert } from 'chai';
-import requireUncached from 'require-uncached';
+import require from 'require-uncached';
 
 const deployedEnvs = [
   'dev',
@@ -21,68 +20,83 @@ const apiHosts = {
 
 
 describe('CSP Config Defaults', () => {
+  const existingNodeEnv = process.env.NODE_ENV;
+
   afterEach(() => {
-    process.env.NODE_ENV = 'production';
+    process.env.NODE_ENV = existingNodeEnv;
   });
 
   // eslint-disable-next-line no-restricted-syntax
   for (const env of deployedEnvs) {
+    // eslint-disable-next-lint no-loop-func
     it(`should have a source-list config for ${env}`, () => {
       process.env.NODE_ENV = env;
+      // Reset the require cache so that the config require
+      // takes into account changes to NODE_ENV.
+      jest.resetModules();
       const cdnHost = cdnHosts[env];
       const apiHost = apiHosts[env];
-      const config = requireUncached('config');
+      const config = require('config');
       const cspConfig = config.get('CSP').directives;
-      assert.include(cspConfig.scriptSrc, cdnHost);
-      assert.notInclude(cspConfig.scriptSrc, "'self'");
-      assert.include(cspConfig.imgSrc, cdnHost);
-      assert.include(cspConfig.imgSrc, "'self'");
-      assert.include(cspConfig.styleSrc, cdnHost);
-      assert.notInclude(cspConfig.styleSrc, "'self'");
-      assert.include(cspConfig.connectSrc, apiHost);
-      assert.notInclude(cspConfig.connectSrc, "'self'");
+      expect(cspConfig.scriptSrc).toContain(cdnHost);
+      expect(cspConfig.scriptSrc).not.toContain("'self'");
+      expect(cspConfig.imgSrc).toContain(cdnHost);
+      expect(cspConfig.imgSrc).toContain("'self'");
+      expect(cspConfig.styleSrc).toContain(cdnHost);
+      expect(cspConfig.styleSrc).not.toContain("'self'");
+      expect(cspConfig.connectSrc).toContain(apiHost);
+      expect(cspConfig.connectSrc).not.toContain("'self'");
     });
   }
 
-  it('should default default-src to "\'none\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.defaultSrc, ["'none'"]);
-  });
+  describe('CSP defaults', () => {
+    beforeEach(() => {
+      process.env.NODE_ENV = 'production';
+      // Reset the require cache so that the config require
+      // takes into account changes to NODE_ENV.
+      jest.resetModules();
+    });
 
-  it('should default base-uri to "\'self\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.baseUri, ["'self'"]);
-  });
+    it('should default default-src to "\'none\'"', () => {
+      const config = require('config');
+      const cspConfig = config.get('CSP').directives;
+      expect(cspConfig.defaultSrc).toEqual(["'none'"]);
+    });
 
-  it('should default form-action to "\'none\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.formAction, ["'none'"]);
-  });
+    it('should default base-uri to "\'self\'"', () => {
+      const config = require('config');
+      const cspConfig = config.get('CSP').directives;
+      expect(cspConfig.baseUri).toEqual(["'self'"]);
+    });
 
-  it('should default frame-src to "\'none\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.frameSrc, ["'none'"]);
-  });
+    it('should default form-action to "\'none\'"', () => {
+      const config = require('config');
+      const cspConfig = config.get('CSP').directives;
+      expect(cspConfig.formAction).toEqual(["'none'"]);
+    });
 
-  it('should default child-src to "\'none\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.childSrc, ["'none'"]);
-  });
+    it('should default frame-src to "\'none\'"', () => {
+      const config = require('config');
+      const cspConfig = config.get('CSP').directives;
+      expect(cspConfig.frameSrc).toEqual(["'none'"]);
+    });
 
-  it('should default object-src to "\'none\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.objectSrc, ["'none'"]);
-  });
+    it('should default child-src to "\'none\'"', () => {
+      const config = require('config');
+      const cspConfig = config.get('CSP').directives;
+      expect(cspConfig.childSrc).toEqual(["'none'"]);
+    });
 
-  it('should default media-src to "\'none\'"', () => {
-    const config = requireUncached('config');
-    const cspConfig = config.get('CSP').directives;
-    assert.deepEqual(cspConfig.mediaSrc, ["'none'"]);
+    it('should default object-src to "\'none\'"', () => {
+      const config = require('config');
+      const cspConfig = config.get('CSP').directives;
+      expect(cspConfig.objectSrc).toEqual(["'none'"]);
+    });
+
+    it('should default media-src to "\'none\'"', () => {
+      const config = require('config');
+      const cspConfig = config.get('CSP').directives;
+      expect(cspConfig.mediaSrc).toEqual(["'none'"]);
+    });
   });
 });

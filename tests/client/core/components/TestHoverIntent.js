@@ -49,21 +49,21 @@ describe('<HoverIntent />', () => {
 
     Simulate.mouseOver(innerElement, { clientX: 1, clientY: 2 });
     clock.tick(75);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseMove(innerElement, { clientX: 10, clientY: 0 });
     clock.tick(50);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseMove(innerElement, { clientX: 10, clientY: 1 });
     clock.tick(50);
-    assert.ok(onHoverIntent.calledOnce);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.calledOnce).toBeTruthy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseOut(innerElement);
-    assert.ok(onHoverIntentEnd.calledOnce);
+    expect(onHoverIntentEnd.calledOnce).toBeTruthy();
   });
 
   it("does not run onHoverIntent if mouse doesn't slow on inner element", () => {
@@ -71,22 +71,22 @@ describe('<HoverIntent />', () => {
 
     Simulate.mouseOver(innerElement, { clientX: 0, clientY: 0 });
     clock.tick(75);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseMove(innerElement, { clientX: 5, clientY: 5 });
     clock.tick(50);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseMove(innerElement, { clientX: 10, clientY: 10 });
     clock.tick(50);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseOut(innerElement);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
   });
 
   it("does not run onHoverIntent if mouse doesn't move enough on inner element", () => {
@@ -94,22 +94,22 @@ describe('<HoverIntent />', () => {
 
     Simulate.mouseOver(innerElement, { clientX: 0, clientY: 0 });
     clock.tick(75);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseMove(innerElement, { clientX: 1, clientY: 0 });
     clock.tick(50);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseMove(innerElement, { clientX: 1, clientY: 1 });
     clock.tick(50);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseOut(innerElement);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
   });
 
   it('clears the hover intent interval when component unmounts', () => {
@@ -117,42 +117,42 @@ describe('<HoverIntent />', () => {
 
     Simulate.mouseOver(innerElement, { clientX: 0, clientY: 0 });
     clock.tick(75);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
     hoverIntent.componentWillUnmount();
 
     Simulate.mouseMove(innerElement, { clientX: 10, clientY: 0 });
     clock.tick(50);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseMove(innerElement, { clientX: 10, clientY: 1 });
     clock.tick(50);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
 
     Simulate.mouseOut(innerElement);
-    assert.isNotOk(onHoverIntent.called);
-    assert.isNotOk(onHoverIntentEnd.called);
+    expect(onHoverIntent.called).toBeFalsy();
+    expect(onHoverIntentEnd.called).toBeFalsy();
   });
 
   it('throws if child provides onMouse events', () => {
-    assert.throws(() => renderIntoDocument(
+    expect(() => renderIntoDocument(
       <HoverIntent {...props} sensitivity={5} interval={10}>
         <span onMouseOver={() => {}}>Test</span>
       </HoverIntent>
-    ), /onMouseOver/);
+    )).toThrowError(/onMouseOver/);
 
-    assert.throws(() => renderIntoDocument(
+    expect(() => renderIntoDocument(
       <HoverIntent {...props} sensitivity={5} interval={10}>
         <span onMouseOut={() => {}}>Test</span>
       </HoverIntent>
-    ), /onMouseOut/);
+    )).toThrowError(/onMouseOut/);
 
-    assert.throws(() => renderIntoDocument(
+    expect(() => renderIntoDocument(
       <HoverIntent {...props} sensitivity={5} interval={10}>
         <span onMouseMove={() => {}}>Test</span>
       </HoverIntent>
-    ), /onMouseMove/);
+    )).toThrowError(/onMouseMove/);
   });
 });

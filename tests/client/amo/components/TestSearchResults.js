@@ -15,9 +15,10 @@ import { getFakeI18nInst } from 'tests/client/helpers';
 describe('<SearchResults />', () => {
   function renderResults(props) {
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
+    const { store } = createStore(initialState);
 
     return findRenderedComponentWithType(render(
-      <Provider store={createStore(initialState)}>
+      <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <SearchResults {...props} />
         </I18nProvider>
@@ -27,7 +28,7 @@ describe('<SearchResults />', () => {
 
   it('renders empty search results container', () => {
     const root = renderResults();
-    assert.include(root.message.textContent, 'enter a search term');
+    expect(root.message.textContent).toContain('enter a search term');
   });
 
   it('renders no results if hasSearchParams is false', () => {
@@ -36,8 +37,8 @@ describe('<SearchResults />', () => {
       loading: false,
       results: [fakeAddon],
     });
-    assert.include(root.message.textContent, 'enter a search term');
-    assert.notInclude(root.container.textContent, fakeAddon.name);
+    expect(root.message.textContent).toContain('enter a search term');
+    expect(root.container.textContent).not.toContain(fakeAddon.name);
   });
 
   it('renders no results when searched but nothing is found', () => {
@@ -47,12 +48,12 @@ describe('<SearchResults />', () => {
       loading: false,
       results: [],
     });
-    assert.include(root.message.textContent, 'No results were found');
+    expect(root.message.textContent).toContain('No results were found');
   });
 
   it('renders error when no search params exist', () => {
     const root = renderResults({ hasSearchParams: false });
-    assert.include(root.message.textContent, 'enter a search term');
+    expect(root.message.textContent).toContain('enter a search term');
   });
 
   it('renders error when no results and valid query', () => {
@@ -60,8 +61,7 @@ describe('<SearchResults />', () => {
       filters: { query: 'test' },
       hasSearchParams: true,
     });
-    assert.include(root.message.firstChild.textContent,
-      'No results were found');
+    expect(root.message.firstChild.textContent).toContain('No results were found');
   });
 
   it('renders searching text during search', () => {
@@ -70,6 +70,6 @@ describe('<SearchResults />', () => {
       hasSearchParams: true,
       loading: true,
     });
-    assert.equal(root.loadingText.textContent, 'Searching…');
+    expect(root.loadingText.textContent).toEqual('Searching…');
   });
 });

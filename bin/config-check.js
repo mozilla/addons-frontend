@@ -28,7 +28,8 @@ const disallowedFiles = fs.readdirSync(configDir)
 if (disallowedFiles.length) {
   console.log(chalk.red(
     'These local config files are not allowed because they might pollute ' +
-    'the test environment. Prefix them with local-development- instead:'));
+    'the test environment. Prefix them with local-development- or remove ' +
+    'them:'));
   console.log(chalk.red(disallowedFiles.join('\n')));
   process.exit(1);
 }
