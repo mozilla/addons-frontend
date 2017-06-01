@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-05-31 16:16+0000\n"
-"PO-Revision-Date: 2017-06-01 20:27+0000\n"
+"PO-Revision-Date: 2017-06-01 20:35+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -92,9 +92,8 @@ msgid "Used by"
 msgstr "Používa"
 
 #: src/amo/components/AddonMoreInfo.js:100
-#, fuzzy
 msgid "Read the license agreement for this add-on"
-msgstr "Prečítajte si zásady ochrany súkromia tohto doplnku"
+msgstr "Prečítajte si licenčnú zmluvu pre tento doplnok"
 
 #: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
