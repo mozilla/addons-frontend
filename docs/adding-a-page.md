@@ -4,6 +4,8 @@ This will outline what is required to add a page to the project. A basic knowled
 [react](https://facebook.github.io/react/docs/getting-started.html) and
 [redux](http://redux.js.org/) is assumed.
 
+**Note:** This page is very out-of-date and does not reflect our practices anymore. We now use [redux-saga](https://github.com/redux-saga/redux-saga) for API requests. See `amo/components/Categories.js` for a more modern example of a component that makes API/async requests for data.
+
 ## Structure
 
 A basic app structure will look like this:

@@ -4,7 +4,6 @@ import log from 'core/logger';
 import {
   LOG_OUT_USER,
   SET_AUTH_TOKEN,
-  SET_CURRENT_USER,
 } from 'core/constants';
 
 function getUserIdFromAuthToken(token) {
@@ -37,8 +36,6 @@ export default function authentication(state = {}, action) {
         // because the server is responsible for that.
         userId: getUserIdFromAuthToken(payload.token),
       };
-    case SET_CURRENT_USER:
-      return { ...state, username: payload.username };
     case LOG_OUT_USER:
       return {};
     default:
