@@ -12,12 +12,14 @@ import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
-import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
+import { ADDON_TYPE_THEME, ENABLED, UNKNOWN } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
   isAllowedOrigin,
   getClientCompatibility as _getClientCompatibility,
+  loadAddonIfNeeded,
   nl2br,
+  safeAsyncConnect,
   sanitizeHTML,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -241,14 +243,26 @@ export class AddonDetailBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(state, ownProps) {
+  const { slug } = ownProps.params;
+  const addon = state.addons[slug];
+  const installation = state.installations[addon.guid] || { status: UNKNOWN };
+
   return {
+    addon,
+    // FIXME, these spreads are gross
+    ...addon,
+    ...installation,
     clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };
 }
 
 export default compose(
+  safeAsyncConnect([{
+    key: 'DetailPage',
+    promise: loadAddonIfNeeded,
+  }]),
   translate({ withRef: true }),
   withInstallHelpers({ src: 'dp-btn-primary' }),
   connect(mapStateToProps),

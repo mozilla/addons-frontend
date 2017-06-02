@@ -1,14 +1,19 @@
 import base64url from 'base64url';
 import config from 'config';
 import Jed from 'jed';
+import { normalize } from 'normalizr';
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 import UAParser from 'ua-parser-js';
 
 import { getDjangoBase62 } from 'amo/utils';
+import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
+
+export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
+export const sampleUserAgentParsed = UAParser(sampleUserAgent);
 
 /*
  * Return a fake authentication token that can be
@@ -107,13 +112,12 @@ export function assertNotHasClass(el, className) {
   expect(el.classList.contains(className)).toBeFalsy();
 }
 
-const userAgentForState = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
-const { browser, os } = UAParser(userAgentForState);
+const { browser, os } = sampleUserAgentParsed;
 export const signedInApiState = Object.freeze({
   ...initialApiState,
   lang: 'en-US',
   token: 'secret-token',
-  userAgent: userAgentForState,
+  userAgent: sampleUserAgent,
   userAgentInfo: { browser, os },
 });
 
@@ -183,4 +187,10 @@ export function apiResponsePage({
     previous,
     results,
   });
+}
+
+export function createFetchAddonResult(addon) {
+  // Simulate how callApi() applies the add-on schema to
+  // the API server response.
+  return normalize(addon, coreApi.addon);
 }

@@ -20,14 +20,19 @@ import Link from 'amo/components/Link';
 import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
+import { loadEntities } from 'core/actions';
 import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NOT_FIREFOX,
 } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
 import I18nProvider from 'core/i18n/Provider';
-import { fakeAddon, signedInApiState } from 'tests/client/amo/helpers';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import {
+  dispatchSignInActions, fakeAddon, signedInApiState,
+} from 'tests/client/amo/helpers';
+import {
+  createFetchAddonResult, getFakeI18nInst, sampleUserAgentParsed,
+} from 'tests/client/helpers';
 
 
 function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
@@ -474,11 +479,35 @@ describe('AddonDetail', () => {
 });
 
 describe('AddonDetals mapStateToProps', () => {
-  it('sets the clientApp and userAgent', () => {
-    const { clientApp, userAgentInfo } = mapStateToProps({
-      api: signedInApiState });
+  let store;
 
-    expect(clientApp).toEqual(signedInApiState.clientApp);
-    expect(userAgentInfo).toEqual(signedInApiState.userAgentInfo);
+  beforeEach(() => {
+    store = createStore().store;
+  });
+
+  function signIn(params) {
+    dispatchSignInActions({ store, ...params });
+  }
+
+  function fetchAddon({ addon = fakeAddon } = {}) {
+    store.dispatch(loadEntities(createFetchAddonResult(addon).entities));
+  }
+
+  function _mapStateToProps(
+    state = store.getState(),
+    ownProps = { params: { slug: fakeAddon.slug } },
+  ) {
+    return mapStateToProps(state, ownProps);
+  }
+
+  it('sets the clientApp and userAgent', () => {
+    const clientAppFromAgent = 'firefox';
+    signIn({ clientApp: clientAppFromAgent });
+    fetchAddon();
+    const { clientApp, userAgentInfo } = _mapStateToProps();
+
+    expect(clientApp).toEqual(clientAppFromAgent);
+    const { browser, os } = sampleUserAgentParsed;
+    expect(userAgentInfo).toEqual({ browser, os });
   });
 });

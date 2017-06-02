@@ -17,7 +17,7 @@ import CategoryPage from './containers/CategoryPage';
 import FeaturedAddons from './components/FeaturedAddons';
 import LandingPage from './components/LandingPage';
 import Home from './containers/Home';
-import DetailPage from './containers/DetailPage';
+import AddonDetail from './components/AddonDetail';
 import NotAuthorized from './components/ErrorPage/NotAuthorized';
 import NotFound from './components/ErrorPage/NotFound';
 import SearchPage from './containers/SearchPage';
@@ -30,7 +30,7 @@ import ServerError from './components/ErrorPage/ServerError';
 export default (
   <Route path="/:lang/:application" component={App}>
     <IndexRoute component={Home} />
-    <Route path="addon/:slug/" component={DetailPage} />
+    <Route path="addon/:slug/" component={AddonDetail} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
     <Route path=":visibleAddonType/categories/" component={Categories} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
