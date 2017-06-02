@@ -40,4 +40,6 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'disable-prefetch@mozilla.org', // Disable Prefetch
   'activity-stream@mozilla.org', // Activity Stream
   'disable-cert-transparency@mozilla.org', // Disable TLS Certificate Transparency
+  'disable-ocsp-stapling@mozilla.org', // Disable OCSP Stapling
+  'onboarding@mozilla.org', // Photon onboarding
 ];
