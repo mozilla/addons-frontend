@@ -1,0 +1,8 @@
+# This sets some defaults for ack (https://beyondgrep.com/)
+# that make searching the addons-frontend code a bit easier.
+
+--ignore-dir=coverage
+--ignore-dir=dist
+--ignore-dir=locale
+--ignore-dir=node_modules
+--ignore-file=is:webpack-assets.json
