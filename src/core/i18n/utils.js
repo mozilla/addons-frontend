@@ -255,17 +255,18 @@ export function makeI18n(
   // can type-check all the components that rely on the i18n object.
   // Note: the available locales for tests are controlled in tests/setup.js
   if (typeof _Intl === 'object' && Object.prototype.hasOwnProperty.call(_Intl, 'NumberFormat')) {
+    log.info('Intl.NumberFormat exists');
     i18n.numberFormat = new _Intl.NumberFormat(lang);
+  } else {
+    log.info('Intl.NumberFormat does NOT exist');
   }
 
   i18n.formatNumber = (number) => {
     if (typeof i18n.numberFormat !== 'undefined') {
-      log.info('Using Intl.NumberFormat');
       return i18n.numberFormat.format(number);
     }
     // Intl is not yet supported on FF Android though it is expected to land in 54
     // See https://bugzilla.mozilla.org/show_bug.cgi?id=1215247
-    log.info('Falling back to [number].toLocaleString');
     return number.toLocaleString(lang);
   };
 
