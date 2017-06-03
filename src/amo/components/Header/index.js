@@ -10,7 +10,6 @@ import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 
-import 'mozilla-tabzilla/css/_tabzilla.scss';
 import './styles.scss';
 
 
