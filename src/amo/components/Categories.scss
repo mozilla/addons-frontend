@@ -9,6 +9,11 @@
   list-style: none;
   margin: 0 auto;
   padding: 0;
+
+  [dir=rtl] & {
+    background-image: url('../img/icons/arrow-left.svg');
+    background-position-x: 0%;
+  }
 }
 
 .Categories-link {
