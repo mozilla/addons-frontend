@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
@@ -76,6 +77,11 @@ export class HeaderBase extends React.Component {
   }
 }
 
+export function mapStateToProps(state) {
+  return { isHomePage: state.currentView.isHomePage };
+}
+
 export default compose(
+  connect(mapStateToProps),
   translate({ withRef: true }),
 )(HeaderBase);
