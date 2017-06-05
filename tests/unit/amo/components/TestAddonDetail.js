@@ -24,6 +24,7 @@ import { loadEntities } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_THEME,
+  ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALLED,
   UNKNOWN,
@@ -319,6 +320,30 @@ describe('AddonDetail', () => {
       getClientCompatibility: getClientCompatibilityFalse,
     });
     expect(rootNode.querySelector('.InstallButton-switch input').disabled).toBe(true);
+  });
+
+  it('enables a theme preview for non-enabled add-ons', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      status: UNKNOWN,
+    });
+    const button = rootNode.querySelector('.AddonDetail-theme-header-label');
+    expect(button).toBeTruthy();
+  });
+
+  it('disables theme preview for enabled add-ons', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      status: ENABLED,
+    });
+    const button = rootNode.querySelector('.AddonDetail-theme-header-label');
+    expect(button).toEqual(null);
   });
 
   it('throws an error if compatibility props are missing', () => {
