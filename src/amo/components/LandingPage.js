@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { currentViewSet } from 'amo/actions/currentView';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { loadLandingAddons } from 'amo/utils';
@@ -30,6 +31,8 @@ import './LandingPage.scss';
 export class LandingPageBase extends React.Component {
   static propTypes = {
     apiAddonType: PropTypes.func.isRequired,
+    contentForType: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
     featuredAddons: PropTypes.array,
     highlyRatedAddons: PropTypes.array,
     popularAddons: PropTypes.array,
@@ -41,9 +44,33 @@ export class LandingPageBase extends React.Component {
 
   static defaultProps = {
     apiAddonType: getApiAddonType,
+    contentForType: null,
   }
 
-  contentForType(visibleAddonType) {
+  componentWillMount() {
+    this.setCurrentViewType();
+  }
+
+  componentDidUpdate() {
+    this.setCurrentViewType();
+  }
+
+  setCurrentViewType() {
+    const { apiAddonType, dispatch, params } = this.props;
+
+    try {
+      const addonType = apiAddonType(params.visibleAddonType);
+      dispatch(currentViewSet({ addonType }));
+    } catch (err) {
+      if (err instanceof AddonTypeNotFound) {
+        log.info('AddonTypeNotFound in setCurrentViewType()', err);
+      } else {
+        throw err;
+      }
+    }
+  }
+
+  contentForType = (visibleAddonType) => {
     const { apiAddonType, i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
 
@@ -95,13 +122,18 @@ export class LandingPageBase extends React.Component {
   }
 
   render() {
-    const { featuredAddons, highlyRatedAddons, popularAddons } = this.props;
+    const {
+      featuredAddons,
+      highlyRatedAddons,
+      popularAddons,
+      i18n,
+    } = this.props;
     const { visibleAddonType } = this.props.params;
-    const { i18n } = this.props;
+    const contentForType = this.props.contentForType || this.contentForType;
 
     let content;
     try {
-      content = this.contentForType(visibleAddonType);
+      content = contentForType(visibleAddonType);
     } catch (err) {
       if (err instanceof AddonTypeNotFound) {
         log.info('Rendering <NotFound /> for error:', err);
@@ -140,8 +172,7 @@ export class LandingPageBase extends React.Component {
 
           <div className="LandingPage-header-bottom">
             <Button
-              appearance="light"
-              className="LandingPage-browse-button"
+              className="LandingPage-browse-button Button--light"
               to={`/${visibleAddonType}/categories/`}
             >
               <Icon name="browse" className="LandingPage-browse-icon" />

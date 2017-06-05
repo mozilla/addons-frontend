@@ -11,7 +11,7 @@ describe('DetailPage', () => {
   it('renders AddonDetail with the same props', () => {
     const root = shallowRender(<DetailPageBase foo="bar" baz="quux" />);
     expect(root.props.className).toEqual('DetailPage');
-    expect(root.props.children.props).toEqual({ foo: 'bar', baz: 'quux' });
+    expect(root.props.children.props).toEqual({ baz: 'quux', foo: 'bar' });
     expect(root.props.children.type).toEqual(AddonDetail);
   });
 

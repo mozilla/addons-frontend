@@ -1,5 +1,6 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 @import "~ui/components/Icon/vars";
 
 $page-margin: 20px 10px;
@@ -43,7 +44,7 @@ $page-margin: 20px 10px;
 }
 
 .AddonDetail-header {
-  background: $masthead-color;
+  background: $header-base-color;
   color: $header-font-color;
   margin: 0;
   padding: $page-margin;
@@ -56,8 +57,8 @@ $page-margin: 20px 10px;
 
 .AddonDetail-metadata {
   align-items: center;
-  background-color: $masthead-light-color;
-  color: #fff;
+  background-color: $header-search-color;
+  color: $white;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -68,6 +69,15 @@ $page-margin: 20px 10px;
     margin-top: 10px;
     width: 100%;
   }
+}
+
+.AddonDetail-theme-header-label {
+  $label-margin: 12px;
+
+  @include start($label-margin);
+
+  bottom: $label-margin;
+  position: absolute;
 }
 
 .AddonDetail-theme-header {
@@ -82,38 +92,4 @@ $page-margin: 20px 10px;
   height: 100px;
   display: block;
   width: 100%;
-}
-
-.AddonDetail-theme-header-label {
-  $label-margin: 12px;
-
-  @include start($label-margin);
-
-  border-radius: 8px;
-  bottom: $label-margin;
-  color: #fff;
-  font-size: 12px;
-  line-height: $default-icon-size;
-  padding: $label-margin;
-  position: absolute;
-  text-transform: uppercase;
-  user-select: none;
-}
-
-.AddonDetail-theme-preview-icon {
-  @include margin-end(8px);
-
-  vertical-align: top;
-}
-
-.AddonDetail-icon {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-
-  img {
-    display: inline-block;
-    height: 64px;
-    width: 64px;
-  }
 }

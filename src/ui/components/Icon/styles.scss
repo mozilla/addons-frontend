@@ -16,11 +16,20 @@
 .Icon-eye {
   background: url('./eye.svg') center no-repeat;
   background-size: cover;
-  width: 23px;
+
+  &,
+  .Button & {
+    width: 23px;
+  }
 }
 
 .Icon-fox {
   background: url('./fox.svg') center no-repeat;
+  background-size: cover;
+}
+
+.Icon-fox-light {
+  background: url('./fox-light.svg') center no-repeat;
   background-size: cover;
 }
 
@@ -75,4 +84,12 @@
   height: 44.7px;
   min-width: 46.3px;
   width: 46.3px;
+}
+
+.Icon-extensions-complex {
+  background: url('./extensions-complex.svg') center no-repeat;
+  background-size: cover;
+  height: 32px;
+  min-width: 29px;
+  width: 29px;
 }

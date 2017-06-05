@@ -1,0 +1,46 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.SectionLinks {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4.5px;
+}
+
+.SectionLinks-item {
+  display: inline-block;
+}
+
+.SectionLinks-link,
+.SectionLinks-link:link {
+  color: transparentize($white, 0.5);
+  margin: 0 15px;
+  padding: 0 0 2px;
+  text-decoration: none;
+  transition-duration: $transition-short;
+  transition-property: border color;
+
+  &:focus,
+  &:hover {
+    border-bottom: 3px solid transparentize($white, 0.5);
+  }
+
+  &:active {
+    border-bottom: 3px solid $white;
+  }
+}
+
+.SectionLinks-link--active,
+.SectionLinks-link--active:link {
+  color: $white;
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    border-bottom: 3px solid $white;
+  }
+}

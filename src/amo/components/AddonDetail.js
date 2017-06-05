@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { currentViewSet } from 'amo/actions/currentView';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
@@ -22,6 +23,7 @@ import {
   sanitizeHTML,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
+import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
@@ -48,6 +50,7 @@ export class AddonDetailBase extends React.Component {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    dispatch: PropTypes.func.isRequired,
     getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -65,8 +68,19 @@ export class AddonDetailBase extends React.Component {
     getClientCompatibility: _getClientCompatibility,
   }
 
+  componentWillMount() {
+    const { addon, dispatch } = this.props;
+
+    dispatch(currentViewSet({ addonType: addon.type }));
+  }
+
   componentWillUnmount() {
-    const { isPreviewingTheme, resetThemePreview, themePreviewNode } = this.props;
+    const {
+      isPreviewingTheme,
+      resetThemePreview,
+      themePreviewNode,
+    } = this.props;
+
     if (isPreviewingTheme && themePreviewNode) {
       resetThemePreview(themePreviewNode);
     }
@@ -102,13 +116,14 @@ export class AddonDetailBase extends React.Component {
           onClick={this.onClick}
         >
           {status !== ENABLED ?
-            <button
+            <Button
+              className="AddonDetail-theme-header-label Button--neutral"
               disabled={!compatible}
-              className="Button AddonDetail-theme-header-label"
-              htmlFor="AddonDetail-theme-header">
+              htmlFor="AddonDetail-theme-header"
+            >
               <Icon name="eye" className="AddonDetail-theme-preview-icon" />
               {label}
-            </button> : null}
+            </Button> : null}
           {headerImage}
         </div>
       );
@@ -209,7 +224,11 @@ export class AddonDetailBase extends React.Component {
             {i18n.gettext('Extension Metadata')}
           </h2>
           <AddonMeta addon={addon} />
-          <InstallButton {...this.props} disabled={!compatible} />
+          <InstallButton
+            {...this.props}
+            className="Button--action Button--small"
+            disabled={!compatible}
+          />
           {!compatible ? (
             <AddonCompatibilityError maxVersion={maxVersion}
               minVersion={minVersion} reason={reason} />
