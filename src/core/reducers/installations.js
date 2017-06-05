@@ -28,7 +28,7 @@ export type InstalledAddon = {
   url?: $PropertyType<AddonType, 'url'>,
 };
 
-type InstallationAction = {|
+export type InstallationAction = {|
   payload: InstalledAddon,
   type: string,
 |};

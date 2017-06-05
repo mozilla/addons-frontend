@@ -25,9 +25,10 @@ import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NOT_FIREFOX,
+  INSTALLED,
+  UNKNOWN,
 } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
-import { INSTALLED, UNKNOWN } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import {
   dispatchSignInActions, fakeAddon, signedInApiState,
