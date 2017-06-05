@@ -251,8 +251,6 @@ export function mapStateToProps(state, ownProps) {
   return {
     addon,
     status: installation.status,
-    themePreviewNode: installation.themePreviewNode,
-    isPreviewingTheme: installation.isPreviewingTheme,
     clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };

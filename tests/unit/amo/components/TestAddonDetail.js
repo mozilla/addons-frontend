@@ -21,9 +21,7 @@ import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
-import {
-  setInstallState, setThemePreviewNode,
-} from 'core/actions/installations';
+import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_THEME,
   ENABLED,
@@ -539,25 +537,6 @@ describe('AddonDetals mapStateToProps', () => {
     expect(clientApp).toEqual(clientAppFromAgent);
     const { browser, os } = sampleUserAgentParsed;
     expect(userAgentInfo).toEqual({ browser, os });
-  });
-
-  it('pulls installation data from state', () => {
-    signIn();
-    fetchAddon({
-      addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
-    });
-    store.dispatch(setInstallState({
-      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
-    }));
-    // Pretend this is a theme node.
-    const themeNode = document.createElement('div');
-    store.dispatch(setThemePreviewNode({
-      guid: fakeAddon.guid, node: themeNode,
-    }));
-    const { isPreviewingTheme, themePreviewNode } = _mapStateToProps();
-
-    expect(isPreviewingTheme).toEqual(true);
-    expect(themePreviewNode).toEqual(themeNode);
   });
 
   it('sets status to INSTALLED when add-on is installed', () => {
