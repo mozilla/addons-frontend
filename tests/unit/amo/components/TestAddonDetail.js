@@ -506,7 +506,7 @@ describe('AddonDetail', () => {
   });
 });
 
-describe('AddonDetals mapStateToProps', () => {
+describe('mapStateToProps', () => {
   let store;
 
   beforeEach(() => {
