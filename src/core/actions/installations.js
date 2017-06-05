@@ -1,11 +1,13 @@
 /* @flow */
 /* global Node */
 import { INSTALL_STATE } from 'core/constants';
-import type { InstallationAction } from 'core/reducers/installations';
+import type {
+  InstalledAddon, InstallationAction,
+} from 'core/reducers/installations';
 
-// TODO: test me
-// TODO: use this in core/installAddon
-export function setInstallState(installation: InstallationAction) {
+export function setInstallState(
+  installation: InstalledAddon,
+): InstallationAction {
   return {
     type: INSTALL_STATE,
     payload: installation,

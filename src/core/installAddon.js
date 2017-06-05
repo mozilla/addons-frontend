@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
+import { setInstallState } from 'core/actions/installations';
 import log from 'core/logger';
 import themeAction, { getThemeData } from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
@@ -23,7 +24,6 @@ import {
   INSTALL_ERROR,
   INSTALL_CANCELLED,
   INSTALL_FAILED,
-  INSTALL_STATE,
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
@@ -192,26 +192,19 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
             const status = addon.isActive && addon.isEnabled ?
               ENABLED : DISABLED;
 
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { ...payload, status },
-            });
+            dispatch(setInstallState({ ...payload, status }));
           }, () => {
             log.info(
               `Add-on "${guid}" not found so setting status to UNINSTALLED`);
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { ...payload, status: UNINSTALLED },
-            });
+            dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
           })
           .catch((err) => {
             log.error(err);
             // Dispatch a generic error should the success/error functions
             // throw.
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { guid, status: ERROR, error: FATAL_ERROR },
-            });
+            dispatch(setInstallState({
+              guid, status: ERROR, error: FATAL_ERROR,
+            }));
           });
       },
 
@@ -229,10 +222,9 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
                 `addon.setEnabled not available. Unable to enable ${guid}`);
             } else {
               log.error(err);
-              dispatch({
-                type: INSTALL_STATE,
-                payload: { guid, status: ERROR, error: FATAL_ERROR },
-              });
+              dispatch(setInstallState({
+                guid, status: ERROR, error: FATAL_ERROR,
+              }));
             }
           });
       },
@@ -255,18 +247,14 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
           })
           .catch((err) => {
             log.error(err);
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { guid, status: ERROR, error: FATAL_INSTALL_ERROR },
-            });
+            dispatch(setInstallState({
+              guid, status: ERROR, error: FATAL_INSTALL_ERROR,
+            }));
           });
       },
 
       uninstall({ guid, name, type }) {
-        dispatch({
-          type: INSTALL_STATE,
-          payload: { guid, status: UNINSTALLING },
-        });
+        dispatch(setInstallState({ guid, status: UNINSTALLING }));
 
         const action = getAction(type);
         return _addonManager.uninstall(guid)
@@ -279,10 +267,9 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
           })
           .catch((err) => {
             log.error(err);
-            dispatch({
-              type: INSTALL_STATE,
-              payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },
-            });
+            dispatch(setInstallState({
+              guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
+            }));
           });
       },
     };

@@ -18,7 +18,8 @@ import { addChangeListeners } from 'core/addonManager';
 import {
   logOutUser as logOutUserAction, setUserAgent as setUserAgentAction,
 } from 'core/actions';
-import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
+import { setInstallState } from 'core/actions/installations';
+import { maximumSetTimeoutDelay } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
@@ -227,7 +228,7 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
       dispatch(logOutUserAction());
     },
     handleGlobalEvent(payload: InstalledAddon) {
-      dispatch({ type: INSTALL_STATE, payload });
+      dispatch(setInstallState(payload));
     },
     setUserAgent(userAgent: string) {
       dispatch(setUserAgentAction(userAgent));
