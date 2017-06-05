@@ -260,7 +260,7 @@ export function mapStateToProps(state, ownProps) {
 
 export default compose(
   safeAsyncConnect([{
-    key: 'DetailPage',
+    key: 'AddonDetail',
     promise: loadAddonIfNeeded,
   }]),
   translate({ withRef: true }),
