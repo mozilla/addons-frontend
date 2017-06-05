@@ -250,9 +250,9 @@ export function mapStateToProps(state, ownProps) {
 
   return {
     addon,
-    // FIXME, these spreads are gross
-    ...addon,
-    ...installation,
+    status: installation.status,
+    themePreviewNode: installation.themePreviewNode,
+    isPreviewingTheme: installation.isPreviewingTheme,
     clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };
