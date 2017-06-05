@@ -12,14 +12,18 @@ import { setClientApp, setLang } from 'core/actions';
 
 
 describe('<Link />', () => {
-  const { store } = createStore();
-  store.dispatch(setClientApp('android'));
-  store.dispatch(setLang('fr'));
+  let store;
 
   function render(props) {
     // eslint-disable-next-line jsx-a11y/anchor-has-content
     return renderIntoDocument(<Link store={store} {...props} />);
   }
+
+  beforeEach(() => {
+    store = createStore().store;
+    store.dispatch(setClientApp('android'));
+    store.dispatch(setLang('fr'));
+  });
 
   it('uses clientApp and lang from API state', () => {
     const props = mapStateToProps(store.getState());

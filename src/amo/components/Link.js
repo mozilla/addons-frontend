@@ -1,5 +1,4 @@
-import path from 'path';
-
+import joinUrl from 'join-url';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -24,12 +23,15 @@ export class LinkBase extends React.Component {
   }
 
   urlPrefix({ clientApp, lang, prependClientApp, prependLang } = {}) {
-    if (prependClientApp && prependLang) {
-      return `/${lang}/${clientApp}/`;
-    } else if (prependClientApp) {
-      return `/${clientApp}/`;
-    } else if (prependLang) {
-      return `/${lang}/`;
+    const prefix = [];
+    if (prependLang) {
+      prefix.push(lang);
+    }
+    if (prependClientApp) {
+      prefix.push(clientApp);
+    }
+    if (prefix.length) {
+      return `/${prefix.join('/')}/`;
     }
 
     // If no prefixes should be applied we'll return null and pass the
@@ -67,17 +69,18 @@ export class LinkBase extends React.Component {
     }
 
     if (typeof href === 'string') {
-      const linkHref = urlPrefix ? path.join(urlPrefix, href) : href;
+      const linkHref = urlPrefix ? joinUrl.pathname(urlPrefix, href) : href;
       return <a {...customProps} href={linkHref}>{children}</a>;
     }
 
     let linkTo = to;
     if (typeof to === 'string') {
-      linkTo = urlPrefix ? path.join(urlPrefix, to) : to;
+      linkTo = urlPrefix ? joinUrl.pathname(urlPrefix, to) : to;
     } else if (to && to.pathname) {
       linkTo = {
         ...to,
-        pathname: urlPrefix ? path.join(urlPrefix, to.pathname) : to.pathname,
+        pathname: urlPrefix ?
+          joinUrl.pathname(urlPrefix, to.pathname) : to.pathname,
       };
     }
 

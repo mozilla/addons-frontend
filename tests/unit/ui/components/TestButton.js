@@ -9,6 +9,7 @@ describe('<Button />', () => {
     const onClick = sinon.spy();
     const button = shallowRender(
       <Button className="Foo" onClick={onClick}>My button!</Button>);
+
     expect(button.type).toEqual('button');
     expect(button.props.className).toContain('Button');
     expect(button.props.className).toContain('Foo');
@@ -20,6 +21,7 @@ describe('<Button />', () => {
     const href = 'https://addons.mozilla.org';
     const button = shallowRender(
       <Button className="Bar" to={href}>Link text!</Button>);
+
     expect(button.type).toEqual(Link);
     expect(button.props.className).toContain('Button');
     expect(button.props.className).toContain('Bar');

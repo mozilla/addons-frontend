@@ -10,7 +10,7 @@ import createStore from 'amo/store';
 import { HeaderBase } from 'amo/components/Header';
 import { setClientApp, setLang } from 'core/actions';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/client/helpers';
+import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 class FakeChild extends React.Component {
@@ -41,8 +41,7 @@ describe('Header', () => {
       children: FakeChild,
       SearchFormComponent: FakeChild,
     });
-    const headerTag = findDOMNode(root)
-      .querySelector('.Header-title-wrapper');
+    const headerTag = findDOMNode(root).querySelector('.Header-title-wrapper');
 
     expect(headerTag.textContent).toEqual('Firefox Add-ons');
     expect(headerTag.tagName).toEqual('H1');
@@ -56,7 +55,7 @@ describe('Header', () => {
     const titleLink = findDOMNode(root).querySelector('.Header-title');
     const h1Tag = findDOMNode(root).querySelector('h1');
 
-    expect(!h1Tag).toBeTruthy();
+    expect(h1Tag).toBeFalsy();
     expect(titleLink.textContent).toEqual('Firefox Add-ons');
     expect(titleLink.tagName).toEqual('A');
   });

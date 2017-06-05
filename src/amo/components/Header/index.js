@@ -38,7 +38,7 @@ export class HeaderBase extends React.Component {
       <Link className="Header-title" to="/">
         <Icon className="Header-addons-icon" name="fox-light" />
         {
-          // l10n: "Firefox" should not be translated. :-)
+          // translators: "Firefox" should not be translated. :-)
           i18n.gettext('Firefox Add-ons')
         }
       </Link>

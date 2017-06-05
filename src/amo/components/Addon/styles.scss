@@ -71,7 +71,7 @@ $page-margin: 20px 10px;
   }
 }
 
-.AddonDetail-theme-header-label {
+.Addon-theme-header-label {
   $label-margin: 12px;
 
   @include start($label-margin);
@@ -80,7 +80,7 @@ $page-margin: 20px 10px;
   position: absolute;
 }
 
-.AddonDetail-theme-header {
+.Addon-theme-header {
   line-height: 0;
   position: relative;
 }

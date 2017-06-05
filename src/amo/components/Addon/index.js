@@ -107,11 +107,11 @@ export class AddonBase extends React.Component {
         >
           {installStatus !== ENABLED ? (
             <Button
-              className="AddonDetail-theme-header-label Button--neutral"
+              className="Addon-theme-header-label Button--neutral"
               disabled={!compatible}
-              htmlFor="AddonDetail-theme-header"
+              htmlFor="Addon-theme-header"
             >
-              <Icon name="eye" className="AddonDetail-theme-preview-icon" />
+              <Icon name="eye" className="Addon-theme-preview-icon" />
               {label}
             </Button>
           ) : null}
