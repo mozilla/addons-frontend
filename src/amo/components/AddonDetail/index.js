@@ -246,11 +246,11 @@ export class AddonDetailBase extends React.Component {
 export function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
   const addon = state.addons[slug];
-  const installation = state.installations[addon.guid] || { status: UNKNOWN };
+  const installation = state.installations[addon.guid];
 
   return {
     addon,
-    status: installation.status,
+    status: installation ? installation.status : UNKNOWN,
     clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };
