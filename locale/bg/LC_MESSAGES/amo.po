@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-05-31 16:16+0000\n"
-"PO-Revision-Date: 2017-06-01 07:33+0000\n"
+"PO-Revision-Date: 2017-06-05 07:19+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -206,11 +206,11 @@ msgstr "Неупълномощени"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Съжаляваме, но нямате права за достъп до тази страница. Ако не сте вписани се впишете от препратката горе на страницата."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "Ако сте последвали препратка от някъде, моля, <a href=\"%(url)s\">докладвайте дефект</a>. Опишете ни от къде сте дошли и какво търсите и ние ще направим всичко възможно, за да отстраним проблема."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
