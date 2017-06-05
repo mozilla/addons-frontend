@@ -21,11 +21,13 @@ import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
+import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NOT_FIREFOX,
 } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
+import { INSTALLED, UNKNOWN } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import {
   dispatchSignInActions, fakeAddon, signedInApiState,
@@ -509,5 +511,37 @@ describe('AddonDetals mapStateToProps', () => {
     expect(clientApp).toEqual(clientAppFromAgent);
     const { browser, os } = sampleUserAgentParsed;
     expect(userAgentInfo).toEqual({ browser, os });
+  });
+
+  it('pulls the add-on from state', () => {
+    signIn();
+    fetchAddon();
+    store.dispatch(setInstallState({
+      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
+    }));
+    const { status } = _mapStateToProps();
+
+    // TODO: test all the spread props here.
+    // expect(props).toEqual({
+    // addon, ...addon, ...installation });
+  });
+
+  it('sets status to INSTALLED when add-on is installed', () => {
+    signIn();
+    fetchAddon();
+    store.dispatch(setInstallState({
+      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
+    }));
+    const { status } = _mapStateToProps();
+
+    expect(status).toEqual(INSTALLED);
+  });
+
+  it('sets status to UNKNOWN when add-on is not installed', () => {
+    signIn();
+    fetchAddon();
+    const { status } = _mapStateToProps();
+
+    expect(status).toEqual(UNKNOWN);
   });
 });
