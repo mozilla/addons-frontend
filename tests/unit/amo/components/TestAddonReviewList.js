@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { findDOMNode } from 'react-dom';
 
 import * as amoApi from 'amo/api';
+import fallbackIcon from 'amo/img/icons/default-64.png';
 import createStore from 'amo/store';
 import { setAddonReviews } from 'amo/actions/reviews';
 import {
@@ -114,10 +115,21 @@ describe('amo/components/AddonReviewList', () => {
       expect(byLine).toContain(fakeReview.user.name);
     });
 
-    it('renders an icon in the header', () => {
+    it("renders the add-on's icon in the header", () => {
       const root = renderToDOM({ addon: fakeAddon });
       const img = root.querySelector('.AddonReviewList-header-icon img');
       expect(img.src).toEqual(fakeAddon.icon_url);
+    });
+
+    it('renders the fallback icon if the origin is not allowed', () => {
+      const root = renderToDOM({
+        addon: {
+          ...fakeAddon,
+          icon_url: 'http://foo.com/hax.png',
+        },
+      });
+      const img = root.querySelector('.AddonReviewList-header-icon img');
+      expect(img.src).toEqual(fallbackIcon);
     });
 
     it('renders a hidden h1 for SEO', () => {

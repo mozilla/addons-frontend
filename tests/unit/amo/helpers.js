@@ -11,7 +11,7 @@ export const fakeAddon = Object.freeze({
   id: 1234,
   guid: '1234@my-addons.firefox',
   name: 'Chill Out',
-  icon_url: 'http://olympia.dev/static/img/addon-icons/webdev-64.png',
+  icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
   slug: 'chill-out',
   average_daily_users: 100,
   authors: [{
