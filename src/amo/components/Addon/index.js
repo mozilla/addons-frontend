@@ -58,7 +58,7 @@ export class AddonBase extends React.Component {
     location: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
     themePreviewNode: PropTypes.element,
-    status: PropTypes.string.isRequired,
+    installStatus: PropTypes.string.isRequired,
     toggleThemePreview: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
   }
@@ -85,7 +85,7 @@ export class AddonBase extends React.Component {
       getBrowserThemeData,
       i18n,
       isPreviewingTheme,
-      status,
+      installStatus,
     } = this.props;
     const { previewURL, type } = addon;
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
@@ -104,7 +104,7 @@ export class AddonBase extends React.Component {
           ref={(el) => { this.wrapper = el; }}
           onClick={this.onClick}
         >
-          {status !== ENABLED ?
+          {installStatus !== ENABLED ?
             <button
               disabled={!compatible}
               className="Button Addon-theme-header-label"
@@ -250,7 +250,7 @@ export function mapStateToProps(state, ownProps) {
 
   return {
     addon,
-    status: installation ? installation.status : UNKNOWN,
+    installStatus: installation ? installation.status : UNKNOWN,
     clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };

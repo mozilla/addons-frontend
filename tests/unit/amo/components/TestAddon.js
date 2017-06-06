@@ -328,7 +328,7 @@ describe('Addon', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      status: UNKNOWN,
+      installStatus: UNKNOWN,
     });
     const button = rootNode.querySelector('.Addon-theme-header-label');
     expect(button).toBeTruthy();
@@ -340,7 +340,7 @@ describe('Addon', () => {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
-      status: ENABLED,
+      installStatus: ENABLED,
     });
     const button = rootNode.querySelector('.Addon-theme-header-label');
     expect(button).toEqual(null);
@@ -539,22 +539,22 @@ describe('mapStateToProps', () => {
     expect(userAgentInfo).toEqual({ browser, os });
   });
 
-  it('sets status to INSTALLED when add-on is installed', () => {
+  it('sets installStatus to INSTALLED when add-on is installed', () => {
     signIn();
     fetchAddon();
     store.dispatch(setInstallState({
       guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
     }));
-    const { status } = _mapStateToProps();
+    const { installStatus } = _mapStateToProps();
 
-    expect(status).toEqual(INSTALLED);
+    expect(installStatus).toEqual(INSTALLED);
   });
 
-  it('sets status to UNKNOWN when add-on is not installed', () => {
+  it('sets installStatus to UNKNOWN when add-on is not installed', () => {
     signIn();
     fetchAddon();
-    const { status } = _mapStateToProps();
+    const { installStatus } = _mapStateToProps();
 
-    expect(status).toEqual(UNKNOWN);
+    expect(installStatus).toEqual(UNKNOWN);
   });
 });
