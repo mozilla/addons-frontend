@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-31 16:16+0000\n"
+"POT-Creation-Date: 2017-06-06 20:13+0000\n"
 "PO-Revision-Date: 2017-04-11 05:47+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,6 +13,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
+
+#: src/amo/components/Addon/index.js:137
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
+
+#: src/amo/components/Addon/index.js:150
+msgid "No reviews yet"
+msgstr "ยังไม่มีบทวิจารณ์"
+
+#: src/amo/components/Addon/index.js:159
+msgid "Rate your experience"
+msgstr "ให้คะแนนประสบการณ์ของคุณ"
+
+#: src/amo/components/Addon/index.js:188
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
+
+#: src/amo/components/Addon/index.js:215
+msgid "Extension Metadata"
+msgstr "Metadata ส่วนขยาย"
+
+#: src/amo/components/Addon/index.js:237
+msgid "About this %(addonType)s"
+msgstr "เกี่ยวกับ %(addonType)s นี้"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Cancel preview"
+msgstr "ยกเลิกการแสดงตัวอย่าง"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "แตะเพื่อแสดงตัวอย่าง"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -44,39 +77,6 @@ msgid ""
 msgstr ""
 "เบราว์เซอร์ของคุณไม่รองรับส่วนเสริม คุณสามารถ <a href=\"%(downloadUrl)s\">ดาวน์โหลด "
 "Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
-
-#: src/amo/components/AddonDetail.js:131
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
-
-#: src/amo/components/AddonDetail.js:144
-msgid "No reviews yet"
-msgstr "ยังไม่มีบทวิจารณ์"
-
-#: src/amo/components/AddonDetail.js:153
-msgid "Rate your experience"
-msgstr "ให้คะแนนประสบการณ์ของคุณ"
-
-#: src/amo/components/AddonDetail.js:182
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
-
-#: src/amo/components/AddonDetail.js:209
-msgid "Extension Metadata"
-msgstr "Metadata ส่วนขยาย"
-
-#: src/amo/components/AddonDetail.js:227
-msgid "About this %(addonType)s"
-msgstr "เกี่ยวกับ %(addonType)s นี้"
-
-#: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "ยกเลิกการแสดงตัวอย่าง"
-
-#: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "แตะเพื่อแสดงตัวอย่าง"
 
 #: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
@@ -194,6 +194,10 @@ msgstr "บทวิจารณ์สำหรับ %(addonName)s"
 msgid "All written reviews"
 msgstr "เขียนบทวิจารณ์"
 
+#: src/amo/components/App/index.js:202
+msgid "Add-ons for Firefox"
+msgstr "ส่วนเสริมสำหรับ Firefox"
+
 #: src/amo/components/Categories.js:49
 msgid "Failed to load categories."
 msgstr "ไม่สามารถโหลดหมวดหมู่"
@@ -287,6 +291,14 @@ msgstr "รายงานข้อบกพร่อง"
 msgid "View desktop site"
 msgstr "ดูไซต์สำหรับเดสก์ท็อป"
 
+#: src/amo/components/Header/index.js:42
+msgid "Firefox Add-ons"
+msgstr "ส่วนเสริม Firefox"
+
+#: src/amo/components/Header/index.js:57
+msgid "Developer Hub"
+msgstr ""
+
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
 msgid "Themes"
 msgstr "ชุดตกแต่ง"
@@ -307,7 +319,7 @@ msgid ""
 "your browser yours."
 msgstr ""
 
-#: src/amo/components/LandingPage.js:148
+#: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
 msgstr "เรียกดูตามหมวดหมู่"
 
@@ -371,10 +383,6 @@ msgstr ""
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
 msgstr "เรียกดูในภาษาของคุณ"
-
-#: src/amo/components/MastHead.js:32
-msgid "Firefox Add-ons"
-msgstr "ส่วนเสริม Firefox"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
@@ -469,10 +477,6 @@ msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 msgid "Add-ons Home Page"
 msgstr "หน้าแรกส่วนเสริม"
 
-#: src/amo/containers/App.js:200
-msgid "Add-ons for Firefox"
-msgstr "ส่วนเสริมสำหรับ Firefox"
-
 #: src/amo/containers/Home.js:40
 msgid ""
 "Extensions are special features you can add to Firefox. Themes let you "
@@ -558,8 +562,8 @@ msgstr "รหัสข้อผิดพลาด: %(status)s"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:106
-#: src/core/components/InstallButton/index.js:122
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "เพิ่มไปยัง Firefox"
 
@@ -627,7 +631,7 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
-#: src/ui/components/ErrorList/index.js:58
+#: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
 msgstr ""
 
