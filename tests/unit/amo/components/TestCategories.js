@@ -6,7 +6,7 @@ import {
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 
-import { currentViewSet } from 'amo/actions/currentView';
+import { setCurrentView } from 'amo/actions/currentView';
 import createStore from 'amo/store';
 import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
 import { setClientApp, setLang } from 'core/actions';
@@ -57,14 +57,14 @@ describe('Categories', () => {
     return findDOMNode(render(props));
   }
 
-  it('dispatches currentViewSet with addonType', () => {
+  it('dispatches setCurrentView with addonType', () => {
     const fakeDispatch = sinon.stub();
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
       dispatch: fakeDispatch,
     });
 
-    expect(fakeDispatch.calledWith(currentViewSet({
+    expect(fakeDispatch.calledWith(setCurrentView({
       addonType: ADDON_TYPE_EXTENSION,
     }))).toBeTruthy();
 
@@ -76,7 +76,7 @@ describe('Categories', () => {
     // TODO: This feels naughty; can it be done better?
     root.componentDidUpdate();
     expect(fakeDispatch.calledTwice).toBeTruthy();
-    expect(fakeDispatch.calledWith(currentViewSet({
+    expect(fakeDispatch.calledWith(setCurrentView({
       addonType: ADDON_TYPE_EXTENSION,
     }))).toBeTruthy();
   });

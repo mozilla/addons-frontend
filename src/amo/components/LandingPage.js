@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { currentViewSet } from 'amo/actions/currentView';
+import { setCurrentView } from 'amo/actions/currentView';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { loadLandingAddons } from 'amo/utils';
@@ -60,7 +60,7 @@ export class LandingPageBase extends React.Component {
 
     try {
       const addonType = apiAddonType(params.visibleAddonType);
-      dispatch(currentViewSet({ addonType }));
+      dispatch(setCurrentView({ addonType }));
     } catch (err) {
       if (err instanceof AddonTypeNotFound) {
         log.info('AddonTypeNotFound in setCurrentViewType()', err);

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { currentViewSet } from 'amo/actions/currentView';
+import { setCurrentView } from 'amo/actions/currentView';
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 
@@ -37,7 +37,7 @@ export class HomeBase extends React.Component {
   componentWillMount() {
     const { dispatch } = this.props;
 
-    dispatch(currentViewSet({ isExploring: true, isHomePage: true }));
+    dispatch(setCurrentView({ isExploring: true, isHomePage: true }));
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { currentViewSet } from 'amo/actions/currentView';
+import { setCurrentView } from 'amo/actions/currentView';
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
 import SearchResults from 'amo/components/SearchResults';
@@ -37,7 +37,7 @@ export default class SearchPage extends React.Component {
     const { dispatch, filters } = this.props;
 
     const { addonType } = filters;
-    dispatch(currentViewSet({ addonType, isExploring: !addonType }));
+    dispatch(setCurrentView({ addonType, isExploring: !addonType }));
   }
 
   render() {

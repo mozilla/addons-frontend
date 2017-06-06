@@ -10,7 +10,7 @@ import {
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 
-import { currentViewSet } from 'amo/actions/currentView';
+import { setCurrentView } from 'amo/actions/currentView';
 import {
   AddonBase,
   allowedDescriptionTags,
@@ -84,12 +84,12 @@ describe('Addon', () => {
   };
   const getClientCompatibilityFalse = () => incompatibleClientResult;
 
-  it('dispatches currentViewSet with addonType', () => {
+  it('dispatches setCurrentView with addonType', () => {
     const fakeDispatch = sinon.stub();
     render({ dispatch: fakeDispatch });
 
     expect(
-      fakeDispatch.calledWith(currentViewSet({ addonType: fakeAddon.type }))
+      fakeDispatch.calledWith(setCurrentView({ addonType: fakeAddon.type }))
     ).toBeTruthy();
   });
 

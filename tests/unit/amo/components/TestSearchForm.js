@@ -1,7 +1,7 @@
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
-import { currentViewSet } from 'amo/actions/currentView';
+import { setCurrentView } from 'amo/actions/currentView';
 import {
   SearchFormBase,
   mapDispatchToProps,
@@ -142,7 +142,7 @@ describe('SearchForm mapStateToProps', () => {
     store.dispatch(actions.setAuthToken(userAuthToken()));
     store.dispatch(actions.setClientApp('firefox'));
     store.dispatch(actions.setLang('de'));
-    store.dispatch(currentViewSet({ addonType: 'cool' }));
+    store.dispatch(setCurrentView({ addonType: 'cool' }));
 
     const state = store.getState();
 
