@@ -246,7 +246,9 @@ export function makeI18n(
   i18nData: I18nConfig,
   lang: string,
   _Jed: Jed = Jed,
-  { _Intl = Intl }: makeI18nOptions = {}
+  // Checks required to guard against ReferenceError when Intl is not defined.
+  // $FLOW_FIXME
+  { _Intl = typeof Intl !== 'undefined' ? Intl : undefined }: makeI18nOptions = {}
 ) {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
