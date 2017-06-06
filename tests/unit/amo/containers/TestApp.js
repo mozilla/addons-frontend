@@ -11,7 +11,7 @@ import {
   AppBase,
   mapDispatchToProps,
   mapStateToProps,
-} from 'amo/containers/App';
+} from 'amo/components/App';
 import createStore from 'amo/store';
 import {
   logOutUser as logOutUserAction,
@@ -42,7 +42,7 @@ describe('App', () => {
   }
 
   // eslint-disable-next-line react/no-multi-comp
-  class FakeMastHeadComponent extends React.Component {
+  class FakeHeaderComponent extends React.Component {
     render() {
       // eslint-disable-next-line react/prop-types
       return <div>{this.props.children}</div>;
@@ -73,7 +73,7 @@ describe('App', () => {
           <AppBase
             FooterComponent={FakeFooterComponent}
             InfoDialogComponent={FakeInfoDialogComponent}
-            MastHeadComponent={FakeMastHeadComponent}
+            HeaderComponent={FakeHeaderComponent}
             SearchFormComponent={FakeSearchFormComponent}
             ErrorPage={FakeErrorPageComponent}
             setUserAgent={sinon.stub()}
@@ -122,14 +122,14 @@ describe('App', () => {
     const location = { pathname: '/en-GB/android/' };
     const root = render({ clientApp: 'android', lang: 'en-GB', location });
 
-    expect(root.mastHead.props.isHomePage).toBe(true);
+    expect(root.header.props.isHomePage).toBe(true);
   });
 
   it('sets isHomePage to true when on the root path without a slash', () => {
     const location = { pathname: '/en-GB/android' };
     const root = render({ clientApp: 'android', lang: 'en-GB', location });
 
-    expect(root.mastHead.props.isHomePage).toBe(true);
+    expect(root.header.props.isHomePage).toBe(true);
   });
 
   it('sets isHomePage to false when not on the root path', () => {
@@ -137,7 +137,7 @@ describe('App', () => {
     const root = render({
       clientApp: 'android', lang: 'en-GB', location });
 
-    expect(root.mastHead.props.isHomePage).toBe(false);
+    expect(root.header.props.isHomePage).toBe(false);
   });
 
   it('sets up a callback for setting add-on status', () => {

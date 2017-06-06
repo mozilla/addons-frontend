@@ -7,10 +7,10 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
-import { MastHeadBase } from 'amo/components/MastHead';
-import { getFakeI18nInst } from 'tests/unit/helpers';
-import translate from 'core/i18n/translate';
+import { HeaderBase } from 'amo/components/Header';
+import { setClientApp, setLang } from 'core/actions';
 import I18nProvider from 'core/i18n/Provider';
+import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 class FakeChild extends React.Component {
@@ -19,43 +19,43 @@ class FakeChild extends React.Component {
   }
 }
 
-describe('MastHead', () => {
-  function renderMastHead({ ...props }) {
-    const MyMastHead = translate({ withRef: true })(MastHeadBase);
-    const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
-    const { store } = createStore(initialState);
+describe('Header', () => {
+  function renderHeader({ ...props }) {
+    const { store } = createStore();
+    store.dispatch(setClientApp('android'));
+    store.dispatch(setLang('en-GB'));
+    const fakeI18n = getFakeI18nInst();
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <MyMastHead {...props} />
+        <I18nProvider i18n={fakeI18n}>
+          <HeaderBase i18n={fakeI18n} {...props} />
         </I18nProvider>
       </Provider>
-    ), MyMastHead).getWrappedInstance();
+    ), HeaderBase);
   }
 
   it('renders an <h1> when isHomepage is true', () => {
-    const root = renderMastHead({
+    const root = renderHeader({
       isHomePage: true,
       children: FakeChild,
       SearchFormComponent: FakeChild,
     });
-    const headerTag = findDOMNode(root)
-      .querySelector('.MastHead-title-wrapper');
+    const headerTag = findDOMNode(root).querySelector('.Header-title-wrapper');
 
     expect(headerTag.textContent).toEqual('Firefox Add-ons');
     expect(headerTag.tagName).toEqual('H1');
   });
 
   it('always renders a link in the header', () => {
-    const root = renderMastHead({
+    const root = renderHeader({
       children: FakeChild,
       SearchFormComponent: FakeChild,
     });
-    const titleLink = findDOMNode(root).querySelector('.MastHead-title');
+    const titleLink = findDOMNode(root).querySelector('.Header-title');
     const h1Tag = findDOMNode(root).querySelector('h1');
 
-    expect(!h1Tag).toBeTruthy();
+    expect(h1Tag).toBeFalsy();
     expect(titleLink.textContent).toEqual('Firefox Add-ons');
     expect(titleLink.tagName).toEqual('A');
   });

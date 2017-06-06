@@ -76,7 +76,7 @@ $addon-padding: 20px;
     }
   }
 
-  @include respond-to('large') {
+  @include respond-to(large) {
     &:not(.theme) .Addon-install-button {
       align-self: center;
       border: 0;
@@ -102,7 +102,7 @@ $addon-padding: 20px;
     }
   }
 
-  @include respond-to('large') {
+  @include respond-to(large) {
     .logo {
       padding: 0 15px;
     }
@@ -167,7 +167,7 @@ $addon-padding: 20px;
       }
     }
 
-    @include respond-to('large') {
+    @include respond-to(large) {
       .copy {
         padding: 30px 20px;
       }
@@ -179,7 +179,7 @@ $addon-padding: 20px;
     align-items: left;
   }
 
-  @include respond-to('large') {
+  @include respond-to(large) {
     &:not(.theme) .content {
       flex-direction: row;
       align-items: center;

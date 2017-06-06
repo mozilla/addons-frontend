@@ -57,6 +57,8 @@ module.exports = {
   // add custom dimension data.
   trackingSendInitPageView: false,
 
+  // This is disabled for the disco pane because Firefox is the only target
+  // so we don't need auto-prefixing, etc.
   enablePostCssLoader: false,
 
   po2jsonFuzzyOutput: false,

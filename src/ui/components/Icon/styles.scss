@@ -16,11 +16,20 @@
 .Icon-eye {
   background: url('./eye.svg') center no-repeat;
   background-size: cover;
-  width: 23px;
+
+  &,
+  .Button & {
+    width: 23px;
+  }
 }
 
 .Icon-fox {
   background: url('./fox.svg') center no-repeat;
+  background-size: cover;
+}
+
+.Icon-fox-light {
+  background: url('./fox-light.svg') center no-repeat;
   background-size: cover;
 }
 

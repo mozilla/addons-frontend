@@ -1,12 +1,14 @@
+@import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 
 .HomePage {
   padding: $padding-page;
 }
 
 .HomePage-welcome {
-  background: $masthead-color;
-  color: #fff;
+  background: $header-base-color;
+  color: $white;
   margin: -10px -10px 0;
   padding: 20px;
 }

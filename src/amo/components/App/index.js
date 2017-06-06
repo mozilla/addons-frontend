@@ -13,7 +13,7 @@ import { compose } from 'redux';
 import SearchForm from 'amo/components/SearchForm';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
-import MastHead from 'amo/components/MastHead';
+import Header from 'amo/components/Header';
 import { addChangeListeners } from 'core/addonManager';
 import {
   logOutUser as logOutUserAction, setUserAgent as setUserAgentAction,
@@ -29,8 +29,9 @@ import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
 
-import 'amo/css/App.scss';
 import 'core/fonts/fira.scss';
+import './styles.scss';
+
 
 interface MozNavigator extends Navigator {
   mozAddonManager?: Object,
@@ -40,7 +41,7 @@ type AppProps = {
   ErrorPage: typeof DefaultErrorPage,
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
-  MastHeadComponent: typeof MastHead,
+  HeaderComponent: typeof Header,
   _addChangeListeners: () => void,
   _navigator: typeof navigator,
   authToken?: string,
@@ -58,7 +59,7 @@ type AppProps = {
 }
 
 export class AppBase extends React.Component {
-  mastHead: Node;
+  header: Node;
   props: AppProps;
   scheduledLogout: number;
 
@@ -66,7 +67,7 @@ export class AppBase extends React.Component {
     ErrorPage: DefaultErrorPage,
     FooterComponent: Footer,
     InfoDialogComponent: InfoDialog,
-    MastHeadComponent: MastHead,
+    HeaderComponent: Header,
     _addChangeListeners: addChangeListeners,
     _navigator: (typeof navigator !== 'undefined' ? navigator : null),
     authTokenValidFor: config.get('authTokenValidFor'),
@@ -183,8 +184,8 @@ export class AppBase extends React.Component {
     const {
       ErrorPage,
       FooterComponent,
+      HeaderComponent,
       InfoDialogComponent,
-      MastHeadComponent,
       children,
       clientApp,
       i18n,
@@ -200,9 +201,13 @@ export class AppBase extends React.Component {
         <LoadingBar className="App-loading-bar" />
         <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
         <InfoDialogComponent />
-        <MastHeadComponent
-          SearchFormComponent={SearchForm} isHomePage={isHomePage} location={location}
-          query={query} ref={(ref) => { this.mastHead = ref; }} />
+        <HeaderComponent
+          SearchFormComponent={SearchForm}
+          isHomePage={isHomePage}
+          location={location}
+          query={query}
+          ref={(ref) => { this.header = ref; }}
+        />
         <div className="App-content">
           <ErrorPage getErrorComponent={getErrorComponent}>
             {children}

@@ -11,7 +11,7 @@ import SimulateSyncError from
 import HandleLogin from 'core/containers/HandleLogin';
 
 import AddonReviewList from './components/AddonReviewList';
-import App from './containers/App';
+import App from './components/App';
 import Categories from './components/Categories';
 import CategoryPage from './containers/CategoryPage';
 import FeaturedAddons from './components/FeaturedAddons';
