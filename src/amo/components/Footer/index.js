@@ -58,7 +58,7 @@ export class FooterBase extends React.Component {
 
         <a
           className="Footer-mozilla-link"
-          href="https://mozilla.org/"
+          href={`https://mozilla.org/${lang}/`}
           title={homepageText}
         >
           <Icon className="Footer-mozilla-logo" name="mozilla" />
