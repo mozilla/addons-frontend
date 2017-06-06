@@ -11,23 +11,32 @@ import { Provider } from 'react-redux';
 import { match } from 'react-router';
 
 import {
-  AddonDetailBase,
+  AddonBase,
   allowedDescriptionTags,
   mapStateToProps,
-} from 'amo/components/AddonDetail';
+} from 'amo/components/Addon';
 import AddonMeta from 'amo/components/AddonMeta';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
 import { RatingManagerWithI18n } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
+import { loadEntities } from 'core/actions';
+import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_THEME,
+  ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
+  INSTALLED,
+  UNKNOWN,
 } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
 import I18nProvider from 'core/i18n/Provider';
-import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import {
+  dispatchSignInActions, fakeAddon, signedInApiState,
+} from 'tests/unit/amo/helpers';
+import {
+  createFetchAddonResult, getFakeI18nInst, sampleUserAgentParsed,
+} from 'tests/unit/helpers';
 
 
 function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
@@ -39,7 +48,7 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
-    // Configure AddonDetail with a non-redux depdendent RatingManager.
+    // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
     store: createStore({ api: signedInApiState }).store,
@@ -53,10 +62,10 @@ function render(...args) {
   return findRenderedComponentWithType(renderIntoDocument(
     <Provider store={store}>
       <I18nProvider i18n={i18n}>
-        <AddonDetailBase store={store} {...props} />
+        <AddonBase store={store} {...props} />
       </I18nProvider>
     </Provider>
-  ), AddonDetailBase);
+  ), AddonBase);
 }
 
 function renderAsDOMNode(...args) {
@@ -64,7 +73,7 @@ function renderAsDOMNode(...args) {
   return findDOMNode(root);
 }
 
-describe('AddonDetail', () => {
+describe('Addon', () => {
   const incompatibleClientResult = {
     compatible: false,
     maxVersion: null,
@@ -131,9 +140,9 @@ describe('AddonDetail', () => {
       },
     });
     // Make sure an actual script tag was not created.
-    expect(rootNode.querySelector('.AddonDetail-summary script')).toEqual(null);
+    expect(rootNode.querySelector('.Addon-summary script')).toEqual(null);
     // Make sure the script has been removed.
-    expect(rootNode.querySelector('.AddonDetail-summary').innerHTML).not.toContain('<script>');
+    expect(rootNode.querySelector('.Addon-summary').innerHTML).not.toContain('<script>');
   });
 
   it('sanitizes bad description HTML', () => {
@@ -241,7 +250,7 @@ describe('AddonDetail', () => {
 
   it('renders a summary', () => {
     const rootNode = renderAsDOMNode();
-    expect(rootNode.querySelector('.AddonDetail-summary').textContent).toContain(fakeAddon.summary);
+    expect(rootNode.querySelector('.Addon-summary').textContent).toContain(fakeAddon.summary);
   });
 
   it('renders a summary with links', () => {
@@ -251,9 +260,9 @@ describe('AddonDetail', () => {
         summary: '<a href="http://foo.com/">my website</a>',
       },
     });
-    expect(rootNode.querySelector('.AddonDetail-summary').textContent).toContain('my website');
-    expect(rootNode.querySelectorAll('.AddonDetail-summary a').length).toEqual(1);
-    expect(rootNode.querySelector('.AddonDetail-summary a').href).toEqual('http://foo.com/');
+    expect(rootNode.querySelector('.Addon-summary').textContent).toContain('my website');
+    expect(rootNode.querySelectorAll('.Addon-summary a').length).toEqual(1);
+    expect(rootNode.querySelector('.Addon-summary a').href).toEqual('http://foo.com/');
   });
 
   it('renders an amo CDN icon image', () => {
@@ -264,7 +273,7 @@ describe('AddonDetail', () => {
         icon_url: iconURL,
       },
     });
-    const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
+    const src = rootNode.querySelector('.Addon-icon img').getAttribute('src');
     expect(src).toEqual(iconURL);
   });
 
@@ -275,7 +284,7 @@ describe('AddonDetail', () => {
         icon_url: 'http://foo.com/whatever.jpg',
       },
     });
-    const src = rootNode.querySelector('.AddonDetail-icon img').getAttribute('src');
+    const src = rootNode.querySelector('.Addon-icon img').getAttribute('src');
     expect(src).toEqual('default-64.png');
   });
 
@@ -288,9 +297,9 @@ describe('AddonDetail', () => {
       },
     });
     const rootNode = findDOMNode(root);
-    const image = rootNode.querySelector('.AddonDetail-theme-header-image');
+    const image = rootNode.querySelector('.Addon-theme-header-image');
     expect(image.tagName).toEqual('IMG');
-    expect(image.classList.contains('AddonDetail-theme-header-image')).toBeTruthy();
+    expect(image.classList.contains('Addon-theme-header-image')).toBeTruthy();
     expect(image.src).toEqual('https://amo/preview.png');
     expect(image.alt).toEqual('Tap to preview');
   });
@@ -302,7 +311,7 @@ describe('AddonDetail', () => {
         type: ADDON_TYPE_THEME,
       },
     });
-    const button = rootNode.querySelector('.AddonDetail-theme-header-label');
+    const button = rootNode.querySelector('.Addon-theme-header-label');
     expect(button.disabled).toEqual(false);
   });
 
@@ -311,6 +320,30 @@ describe('AddonDetail', () => {
       getClientCompatibility: getClientCompatibilityFalse,
     });
     expect(rootNode.querySelector('.InstallButton-switch input').disabled).toBe(true);
+  });
+
+  it('enables a theme preview for non-enabled add-ons', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      installStatus: UNKNOWN,
+    });
+    const button = rootNode.querySelector('.Addon-theme-header-label');
+    expect(button).toBeTruthy();
+  });
+
+  it('disables theme preview for enabled add-ons', () => {
+    const rootNode = renderAsDOMNode({
+      addon: {
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      },
+      installStatus: ENABLED,
+    });
+    const button = rootNode.querySelector('.Addon-theme-header-label');
+    expect(button).toEqual(null);
   });
 
   it('throws an error if compatibility props are missing', () => {
@@ -329,7 +362,7 @@ describe('AddonDetail', () => {
       },
       getClientCompatibility: getClientCompatibilityFalse,
     });
-    const button = rootNode.querySelector('.AddonDetail-theme-header-label');
+    const button = rootNode.querySelector('.Addon-theme-header-label');
     expect(button.disabled).toEqual(true);
   });
 
@@ -358,7 +391,7 @@ describe('AddonDetail', () => {
       },
       getBrowserThemeData: () => '{"the":"themedata"}',
     });
-    const header = rootNode.querySelector('.AddonDetail-theme-header');
+    const header = rootNode.querySelector('.Addon-theme-header');
     expect(header.getAttribute('data-browsertheme')).toEqual('{"the":"themedata"}');
   });
 
@@ -371,7 +404,7 @@ describe('AddonDetail', () => {
       },
       toggleThemePreview,
     });
-    const header = rootNode.querySelector('.AddonDetail-theme-header');
+    const header = rootNode.querySelector('.Addon-theme-header');
     Simulate.click(header);
     expect(toggleThemePreview.calledWith(header)).toBeTruthy();
   });
@@ -407,7 +440,7 @@ describe('AddonDetail', () => {
         ratingsCount: 0,
       });
       const footer =
-        root.querySelector('.AddonDetail-read-reviews-footer');
+        root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('No reviews yet');
       expect(root.querySelector('footer').className).toEqual('Card-footer-text');
     });
@@ -417,7 +450,7 @@ describe('AddonDetail', () => {
         ratingsCount: 1,
       });
       const footer =
-        root.querySelector('.AddonDetail-read-reviews-footer');
+        root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('Read 1 review');
       expect(root.querySelector('footer').className).toEqual('Card-footer-link');
     });
@@ -427,7 +460,7 @@ describe('AddonDetail', () => {
         ratingsCount: 5,
       });
       const footer =
-        root.querySelector('.AddonDetail-read-reviews-footer');
+        root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('Read all 5 reviews');
     });
 
@@ -436,7 +469,7 @@ describe('AddonDetail', () => {
         ratingsCount: 10000,
       });
       const footer =
-        root.querySelector('.AddonDetail-read-reviews-footer');
+        root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toContain('10,000');
     });
 
@@ -452,7 +485,7 @@ describe('AddonDetail', () => {
       });
       const allLinks = scryRenderedComponentsWithType(root, Link)
         .filter((component) =>
-          component.props.className === 'AddonDetail-all-reviews-link');
+          component.props.className === 'Addon-all-reviews-link');
       expect(allLinks.length).toEqual(1);
 
       const link = allLinks[0];
@@ -473,12 +506,55 @@ describe('AddonDetail', () => {
   });
 });
 
-describe('AddonDetals mapStateToProps', () => {
-  it('sets the clientApp and userAgent', () => {
-    const { clientApp, userAgentInfo } = mapStateToProps({
-      api: signedInApiState });
+describe('mapStateToProps', () => {
+  let store;
 
-    expect(clientApp).toEqual(signedInApiState.clientApp);
-    expect(userAgentInfo).toEqual(signedInApiState.userAgentInfo);
+  beforeEach(() => {
+    store = createStore().store;
+  });
+
+  function signIn(params) {
+    dispatchSignInActions({ store, ...params });
+  }
+
+  function fetchAddon({ addon = fakeAddon } = {}) {
+    store.dispatch(loadEntities(createFetchAddonResult(addon).entities));
+  }
+
+  function _mapStateToProps(
+    state = store.getState(),
+    ownProps = { params: { slug: fakeAddon.slug } },
+  ) {
+    return mapStateToProps(state, ownProps);
+  }
+
+  it('sets the clientApp and userAgent', () => {
+    const clientAppFromAgent = 'firefox';
+    signIn({ clientApp: clientAppFromAgent });
+    fetchAddon();
+    const { clientApp, userAgentInfo } = _mapStateToProps();
+
+    expect(clientApp).toEqual(clientAppFromAgent);
+    const { browser, os } = sampleUserAgentParsed;
+    expect(userAgentInfo).toEqual({ browser, os });
+  });
+
+  it('sets installStatus to INSTALLED when add-on is installed', () => {
+    signIn();
+    fetchAddon();
+    store.dispatch(setInstallState({
+      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
+    }));
+    const { installStatus } = _mapStateToProps();
+
+    expect(installStatus).toEqual(INSTALLED);
+  });
+
+  it('sets installStatus to UNKNOWN when add-on is not installed', () => {
+    signIn();
+    fetchAddon();
+    const { installStatus } = _mapStateToProps();
+
+    expect(installStatus).toEqual(UNKNOWN);
   });
 });

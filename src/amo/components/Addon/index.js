@@ -10,21 +10,24 @@ import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
-import 'amo/css/AddonDetail.scss';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
-import { ADDON_TYPE_THEME, ENABLED } from 'core/constants';
+import { ADDON_TYPE_THEME, ENABLED, UNKNOWN } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
   isAllowedOrigin,
   getClientCompatibility as _getClientCompatibility,
+  loadAddonIfNeeded,
   nl2br,
+  safeAsyncConnect,
   sanitizeHTML,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
+
+import './styles.scss';
 
 
 export const allowedDescriptionTags = [
@@ -43,7 +46,7 @@ export const allowedDescriptionTags = [
   'ul',
 ];
 
-export class AddonDetailBase extends React.Component {
+export class AddonBase extends React.Component {
   static propTypes = {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
@@ -55,7 +58,7 @@ export class AddonDetailBase extends React.Component {
     location: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
     themePreviewNode: PropTypes.element,
-    status: PropTypes.string.isRequired,
+    installStatus: PropTypes.string.isRequired,
     toggleThemePreview: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
   }
@@ -82,7 +85,7 @@ export class AddonDetailBase extends React.Component {
       getBrowserThemeData,
       i18n,
       isPreviewingTheme,
-      status,
+      installStatus,
     } = this.props;
     const { previewURL, type } = addon;
     const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
@@ -90,23 +93,23 @@ export class AddonDetailBase extends React.Component {
 
     if (type === ADDON_TYPE_THEME) {
       const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
-      const imageClassName = 'AddonDetail-theme-header-image';
+      const imageClassName = 'Addon-theme-header-image';
       const headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
 
       return (
         <div
-          className="AddonDetail-theme-header"
-          id="AddonDetail-theme-header"
+          className="Addon-theme-header"
+          id="Addon-theme-header"
           data-browsertheme={getBrowserThemeData()}
           ref={(el) => { this.wrapper = el; }}
           onClick={this.onClick}
         >
-          {status !== ENABLED ?
+          {installStatus !== ENABLED ?
             <button
               disabled={!compatible}
-              className="Button AddonDetail-theme-header-label"
-              htmlFor="AddonDetail-theme-header">
-              <Icon name="eye" className="AddonDetail-theme-preview-icon" />
+              className="Button Addon-theme-header-label"
+              htmlFor="Addon-theme-header">
+              <Icon name="eye" className="Addon-theme-preview-icon" />
               {label}
             </button> : null}
           {headerImage}
@@ -114,7 +117,7 @@ export class AddonDetailBase extends React.Component {
       );
     }
     return (
-      <div className="AddonDetail-icon">
+      <div className="Addon-icon">
         <img alt="" src={iconUrl} />
       </div>
     );
@@ -134,7 +137,7 @@ export class AddonDetailBase extends React.Component {
 
       footerPropName = 'footerLink';
       content = (
-        <Link className="AddonDetail-all-reviews-link"
+        <Link className="Addon-all-reviews-link"
           to={`/addon/${addon.slug}/reviews/`}>
           {linkText}
         </Link>
@@ -146,12 +149,12 @@ export class AddonDetailBase extends React.Component {
 
     const props = {
       [footerPropName]: (
-        <div className="AddonDetail-read-reviews-footer">{content}</div>),
+        <div className="Addon-read-reviews-footer">{content}</div>),
     };
     return (
       <Card
         header={i18n.gettext('Rate your experience')}
-        className="AddonDetail-overall-rating"
+        className="Addon-overall-rating"
         {...props}>
         <RatingManager
           addon={addon}
@@ -182,7 +185,7 @@ export class AddonDetailBase extends React.Component {
       i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
         addonName: addon.name,
         authorList: authorList.join(', '),
-        startSpan: '<span class="AddonDetail-author">',
+        startSpan: '<span class="Addon-author">',
         endSpan: '</span>',
       });
 
@@ -192,19 +195,19 @@ export class AddonDetailBase extends React.Component {
 
     // eslint-disable react/no-danger
     return (
-      <div className="AddonDetail">
-        <header className="AddonDetail-header">
+      <div className="Addon">
+        <header className="Addon-header">
           {this.headerImage({ compatible })}
-          <div className="AddonDetail-title">
+          <div className="Addon-title">
             <h1
               dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
-              className="AddonDetail-title-heading" />
+              className="Addon-title-heading" />
           </div>
-          <p className="AddonDetail-summary"
+          <p className="Addon-summary"
             dangerouslySetInnerHTML={summarySanitized} />
         </header>
 
-        <section className="AddonDetail-metadata">
+        <section className="Addon-metadata">
           <h2 className="visually-hidden">
             {i18n.gettext('Extension Metadata')}
           </h2>
@@ -218,7 +221,7 @@ export class AddonDetailBase extends React.Component {
 
         {addon.previews.length > 0
           ? (
-            <Card className="AddonDetail-screenshots">
+            <Card className="Addon-screenshots">
               <ScreenShots previews={addon.previews} />
             </Card>
           ) : null}
@@ -240,15 +243,25 @@ export class AddonDetailBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(state, ownProps) {
+  const { slug } = ownProps.params;
+  const addon = state.addons[slug];
+  const installation = state.installations[addon.guid];
+
   return {
+    addon,
+    installStatus: installation ? installation.status : UNKNOWN,
     clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };
 }
 
 export default compose(
+  safeAsyncConnect([{
+    key: 'Addon',
+    promise: loadAddonIfNeeded,
+  }]),
   translate({ withRef: true }),
   withInstallHelpers({ src: 'dp-btn-primary' }),
   connect(mapStateToProps),
-)(AddonDetailBase);
+)(AddonBase);

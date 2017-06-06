@@ -23,12 +23,26 @@ export type InstalledAddon = {
   guid: $PropertyType<AddonType, 'guid'>,
   isPreviewingTheme?: boolean,
   needsRestart?: boolean,
-  status?: $PropertyType<AddonType, 'status'>,
+  // TODO: merge with core/constants.validInstallStates
+  // once that file supports Flow.
+  status?:
+    | 'DISABLED'
+    | 'DISABLING'
+    | 'ENABLED'
+    | 'ENABLING'
+    | 'DOWNLOADING'
+    | 'ENABLED'
+    | 'ERROR'
+    | 'INSTALLED'
+    | 'INSTALLING'
+    | 'UNINSTALLED'
+    | 'UNINSTALLING'
+    | 'UNKNOWN',
   themePreviewNode?: Node,
   url?: $PropertyType<AddonType, 'url'>,
 };
 
-type InstallationAction = {|
+export type InstallationAction = {|
   payload: InstalledAddon,
   type: string,
 |};

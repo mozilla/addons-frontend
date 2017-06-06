@@ -1,4 +1,11 @@
-import { signedInApiState as coreSignedInApiState } from '../helpers';
+import createStore from 'amo/store';
+import {
+  setClientApp, setLang, setAuthToken, setUserAgent,
+} from 'core/actions';
+
+import {
+  userAuthToken, sampleUserAgent, signedInApiState as coreSignedInApiState,
+} from '../helpers';
 
 export const fakeAddon = Object.freeze({
   id: 1234,
@@ -58,3 +65,20 @@ export const signedInApiState = Object.freeze({
   ...coreSignedInApiState,
   clientApp: 'firefox',
 });
+
+export function dispatchSignInActions({
+  store = createStore().store,
+  clientApp = 'android',
+  authToken = userAuthToken(),
+  lang = 'en-US',
+  userAgent = sampleUserAgent,
+} = {}) {
+  store.dispatch(setAuthToken(authToken));
+  store.dispatch(setClientApp(clientApp));
+  store.dispatch(setLang(lang));
+  store.dispatch(setUserAgent(userAgent));
+  return {
+    store,
+    state: store.getState(),
+  };
+}

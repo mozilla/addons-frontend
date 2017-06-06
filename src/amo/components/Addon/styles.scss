@@ -5,21 +5,21 @@
 $page-margin: 20px 10px;
 
 // Put the margin on the immediate children so that the header can be full width and blue.
-.AddonDetail > * {
+.Addon > * {
   margin: $page-margin;
 }
 
-.AddonDetail-title {
+.Addon-title {
   margin-top: 10px;
 }
 
-.AddonDetail-title-heading {
+.Addon-title-heading {
   font-size: $font-size-l;
   margin-bottom: 10px;
   word-wrap: break-word;
 }
 
-.AddonDetail-author {
+.Addon-author {
   display: block;
   opacity: 0.75;
   word-wrap: break-word;
@@ -32,7 +32,7 @@ $page-margin: 20px 10px;
   }
 }
 
-.AddonDetail-summary {
+.Addon-summary {
   margin-bottom: 0;
   margin-top: 0;
 
@@ -42,7 +42,7 @@ $page-margin: 20px 10px;
   }
 }
 
-.AddonDetail-header {
+.Addon-header {
   background: $masthead-color;
   color: $header-font-color;
   margin: 0;
@@ -54,7 +54,7 @@ $page-margin: 20px 10px;
   }
 }
 
-.AddonDetail-metadata {
+.Addon-metadata {
   align-items: center;
   background-color: $masthead-light-color;
   color: #fff;
@@ -70,12 +70,12 @@ $page-margin: 20px 10px;
   }
 }
 
-.AddonDetail-theme-header {
+.Addon-theme-header {
   line-height: 0;
   position: relative;
 }
 
-.AddonDetail-theme-header-image {
+.Addon-theme-header-image {
   border-radius: 12px;
   object-fit: cover;
   object-position: top right;
@@ -84,7 +84,7 @@ $page-margin: 20px 10px;
   width: 100%;
 }
 
-.AddonDetail-theme-header-label {
+.Addon-theme-header-label {
   $label-margin: 12px;
 
   @include start($label-margin);
@@ -100,13 +100,13 @@ $page-margin: 20px 10px;
   user-select: none;
 }
 
-.AddonDetail-theme-preview-icon {
+.Addon-theme-preview-icon {
   @include margin-end(8px);
 
   vertical-align: top;
 }
 
-.AddonDetail-icon {
+.Addon-icon {
   align-items: center;
   display: flex;
   flex-direction: row;

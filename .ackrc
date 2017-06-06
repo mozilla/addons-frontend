@@ -2,6 +2,7 @@
 # that make searching the addons-frontend code a bit easier.
 
 --ignore-dir=coverage
+--ignore-dir=flow/logs
 --ignore-dir=dist
 --ignore-dir=locale
 --ignore-dir=node_modules

@@ -183,7 +183,16 @@ describe('App', () => {
     const _navigator = { userAgent: 'Firefox 10000000.0' };
     render({ _navigator, setUserAgent, userAgent: '' });
 
-    expect(setUserAgent.firstCall.args[0]).toEqual(_navigator.userAgent);
+    sinon.assert.calledWith(setUserAgent, _navigator.userAgent);
+  });
+
+  it('ignores a falsey navigator', () => {
+    const setUserAgent = sinon.stub();
+    render({ _navigator: null, setUserAgent, userAgent: '' });
+
+    // This simulates a server side scenario where we do not have a user
+    // agent and do not have a global navigator.
+    sinon.assert.notCalled(setUserAgent);
   });
 
   it('renders an error component on error', () => {
@@ -251,6 +260,20 @@ describe('App', () => {
       clock.tick((authTokenValidFor + fuzz) * 1000);
       expect(logOutUser.called).toBeTruthy();
       expect(logOutUser.calledOnce).toBeTruthy();
+    });
+
+    it('does not set a timer when receiving an empty auth token', () => {
+      const authTokenValidFor = 10; // seconds
+      const logOutUser = sinon.stub();
+
+      const root = render({ authTokenValidFor, logOutUser });
+      root.componentWillReceiveProps({ authToken: null });
+
+      const fuzz = 3; // account for the rounded offset calculation.
+      clock.tick((authTokenValidFor + fuzz) * 1000);
+      // Make sure log out was not called since the component
+      // does not have an auth token.
+      sinon.assert.notCalled(logOutUser);
     });
 
     it('does not log out until the token expires', () => {

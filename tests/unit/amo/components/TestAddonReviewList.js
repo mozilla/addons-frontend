@@ -4,7 +4,6 @@ import {
   renderIntoDocument,
   scryRenderedComponentsWithType,
 } from 'react-addons-test-utils';
-import { normalize } from 'normalizr';
 import { Provider } from 'react-redux';
 import { findDOMNode } from 'react-dom';
 
@@ -28,7 +27,7 @@ import I18nProvider from 'core/i18n/Provider';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 import {
-  apiResponsePage, getFakeI18nInst, unexpectedSuccess,
+  apiResponsePage, createFetchAddonResult, getFakeI18nInst, unexpectedSuccess,
 } from 'tests/unit/helpers';
 
 function getLoadedReviews({
@@ -37,12 +36,6 @@ function getLoadedReviews({
   const action = setAddonReviews({ addonSlug, reviewCount, reviews });
   // This is how reviews look after they have been loaded.
   return action.payload.reviews;
-}
-
-function createFetchAddonResult(addon) {
-  // Simulate how callApi() applies the add-on schema to
-  // the API server response.
-  return normalize(addon, coreApi.addon);
 }
 
 describe('amo/components/AddonReviewList', () => {
