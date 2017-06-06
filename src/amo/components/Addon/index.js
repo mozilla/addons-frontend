@@ -46,7 +46,7 @@ export const allowedDescriptionTags = [
   'ul',
 ];
 
-export class AddonDetailBase extends React.Component {
+export class AddonBase extends React.Component {
   static propTypes = {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
@@ -93,13 +93,13 @@ export class AddonDetailBase extends React.Component {
 
     if (type === ADDON_TYPE_THEME) {
       const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
-      const imageClassName = 'AddonDetail-theme-header-image';
+      const imageClassName = 'Addon-theme-header-image';
       const headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
 
       return (
         <div
-          className="AddonDetail-theme-header"
-          id="AddonDetail-theme-header"
+          className="Addon-theme-header"
+          id="Addon-theme-header"
           data-browsertheme={getBrowserThemeData()}
           ref={(el) => { this.wrapper = el; }}
           onClick={this.onClick}
@@ -107,9 +107,9 @@ export class AddonDetailBase extends React.Component {
           {status !== ENABLED ?
             <button
               disabled={!compatible}
-              className="Button AddonDetail-theme-header-label"
-              htmlFor="AddonDetail-theme-header">
-              <Icon name="eye" className="AddonDetail-theme-preview-icon" />
+              className="Button Addon-theme-header-label"
+              htmlFor="Addon-theme-header">
+              <Icon name="eye" className="Addon-theme-preview-icon" />
               {label}
             </button> : null}
           {headerImage}
@@ -117,7 +117,7 @@ export class AddonDetailBase extends React.Component {
       );
     }
     return (
-      <div className="AddonDetail-icon">
+      <div className="Addon-icon">
         <img alt="" src={iconUrl} />
       </div>
     );
@@ -137,7 +137,7 @@ export class AddonDetailBase extends React.Component {
 
       footerPropName = 'footerLink';
       content = (
-        <Link className="AddonDetail-all-reviews-link"
+        <Link className="Addon-all-reviews-link"
           to={`/addon/${addon.slug}/reviews/`}>
           {linkText}
         </Link>
@@ -149,12 +149,12 @@ export class AddonDetailBase extends React.Component {
 
     const props = {
       [footerPropName]: (
-        <div className="AddonDetail-read-reviews-footer">{content}</div>),
+        <div className="Addon-read-reviews-footer">{content}</div>),
     };
     return (
       <Card
         header={i18n.gettext('Rate your experience')}
-        className="AddonDetail-overall-rating"
+        className="Addon-overall-rating"
         {...props}>
         <RatingManager
           addon={addon}
@@ -185,7 +185,7 @@ export class AddonDetailBase extends React.Component {
       i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
         addonName: addon.name,
         authorList: authorList.join(', '),
-        startSpan: '<span class="AddonDetail-author">',
+        startSpan: '<span class="Addon-author">',
         endSpan: '</span>',
       });
 
@@ -195,19 +195,19 @@ export class AddonDetailBase extends React.Component {
 
     // eslint-disable react/no-danger
     return (
-      <div className="AddonDetail">
-        <header className="AddonDetail-header">
+      <div className="Addon">
+        <header className="Addon-header">
           {this.headerImage({ compatible })}
-          <div className="AddonDetail-title">
+          <div className="Addon-title">
             <h1
               dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
-              className="AddonDetail-title-heading" />
+              className="Addon-title-heading" />
           </div>
-          <p className="AddonDetail-summary"
+          <p className="Addon-summary"
             dangerouslySetInnerHTML={summarySanitized} />
         </header>
 
-        <section className="AddonDetail-metadata">
+        <section className="Addon-metadata">
           <h2 className="visually-hidden">
             {i18n.gettext('Extension Metadata')}
           </h2>
@@ -221,7 +221,7 @@ export class AddonDetailBase extends React.Component {
 
         {addon.previews.length > 0
           ? (
-            <Card className="AddonDetail-screenshots">
+            <Card className="Addon-screenshots">
               <ScreenShots previews={addon.previews} />
             </Card>
           ) : null}
@@ -258,10 +258,10 @@ export function mapStateToProps(state, ownProps) {
 
 export default compose(
   safeAsyncConnect([{
-    key: 'AddonDetail',
+    key: 'Addon',
     promise: loadAddonIfNeeded,
   }]),
   translate({ withRef: true }),
   withInstallHelpers({ src: 'dp-btn-primary' }),
   connect(mapStateToProps),
-)(AddonDetailBase);
+)(AddonBase);
