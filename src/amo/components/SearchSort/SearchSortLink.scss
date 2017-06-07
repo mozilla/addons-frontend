@@ -1,14 +1,21 @@
 @import '~core/css/inc/mixins';
 @import '~core/css/inc/vars';
+@import '~ui/css/vars';
 
 .SearchSortLink {
-  @include button($background: $base-color, $color: $link-color);
+  @include button(
+    $background: $light-base-color,
+    $background-active: $light-active-color,
+    $background-hover: $light-hover-color,
+    $color: $link-color
+  );
 
   border-radius: 0;
   font-size: $font-size-default;
   flex-grow: 1;
   padding: 6px 0;
   text-align: center;
+  text-shadow: none;
 
   &:focus {
     background: transparentize($link-color, 0.8);
