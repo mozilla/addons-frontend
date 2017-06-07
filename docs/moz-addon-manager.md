@@ -17,16 +17,21 @@ go to `about:config` in Firefox and set this property to `true`:
 extensions.webapi.testing
 ```
 
-Refresh the page and you should see `mozAddonManager` as a JavaScript global.
+Refresh the page, open the JavaScript console, and you should see a global `mozAddonManager` object.
 
 ## Developing on Android
 
 The presence of `mozAddonManager` on Firefox for Android will activate the
-add-on installation switch.
+add-on installation switch. Again, you will see this on
+https://addons.mozilla.org (production) but not on a development site.
 
-In addition to setting the preference up above,
-you also need to make sure your user agent looks like Firefox for Android.
-On desktop, you can
+Here's how to activate it on a development site.
+Make sure you set the preference up above. If you're testing this on an Android
+device then by now you should have access to `mozAddonManager`.
+
+If you're testing this on desktop Firefox, you need
+to make sure your user agent looks like Firefox for Android.
+You can
 [save a custom device](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode#Saving_custom_devices)
 in
 [Responsive Design Mode](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode)
