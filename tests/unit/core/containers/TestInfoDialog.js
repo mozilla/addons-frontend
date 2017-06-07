@@ -1,11 +1,15 @@
 /* global document */
-
+import { shallow } from 'enzyme';
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import ReactDOM, { findDOMNode } from 'react-dom';
 
-import { InfoDialogBase, ShowInfoDialog, mapStateToProps } from 'core/containers/InfoDialog';
-import { getFakeI18nInst, shallowRender } from 'tests/unit/helpers';
+import {
+  InfoDialogBase,
+  ShowInfoDialog,
+  mapStateToProps,
+} from 'core/containers/InfoDialog';
+import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 let closeAction;
@@ -36,13 +40,15 @@ describe('<InfoDialogBase />', () => {
   it('Should render a title', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
-    expect(root.querySelector('#show-info-title').textContent).toEqual('Your add-on is ready');
+    expect(root.querySelector('#show-info-title').textContent)
+      .toEqual('Your add-on is ready');
   });
 
   it('Should render a description containing the add-on name', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
-    expect(root.querySelector('#show-info-description').textContent).toContain('A Test Add-on');
+    expect(root.querySelector('#show-info-description').textContent)
+      .toContain('A Test Add-on');
   });
 
   it('should have an img element with a src', () => {
@@ -86,7 +92,10 @@ describe('Clicking outside <InfoDialogBase />', () => {
         return (
           <div>
             {getInfoDialog()}
-            <button id="outside-component" onClick={(e) => e.stopPropagation()} />
+            <button
+              id="outside-component"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         );
       }
@@ -102,18 +111,18 @@ describe('Clicking outside <InfoDialogBase />', () => {
 describe('<ShowInfoDialog />', () => {
   it('renders InfoDialogBase when it is told to', () => {
     const data = { some: 'data' };
-    const root = shallowRender(<ShowInfoDialog data={data} show />);
-    expect(root.type).toEqual(InfoDialogBase);
-    expect(root.props).toEqual(data);
+    const root = shallow(<ShowInfoDialog data={data} show />);
+    expect(root.type()).toEqual(InfoDialogBase);
+    expect(root.props()).toEqual(data);
   });
 
   it('does not render InfoDialogBase when not told to', () => {
-    const root = shallowRender(<ShowInfoDialog show={false} />);
-    expect(root).toEqual(null);
+    const root = shallow(<ShowInfoDialog show={false} />);
+    expect(root.type()).toEqual(null);
   });
 
   it('mapStateToProps pulls infoDialog state', () => {
     const infoDialog = { infoDialogState: 'you bet' };
-    expect(mapStateToProps({ addons: [], infoDialog })).toBe(infoDialog);
+    expect(mapStateToProps({ addons: [], infoDialog })).toEqual(infoDialog);
   });
 });

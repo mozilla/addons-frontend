@@ -3,6 +3,10 @@ import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import values from 'object.values';
 
+// Side-effects from imports are quite unfortunate but this is required
+// to get all of the cool jest + enzyme integration for calls like:
+// `expect(shallow(<Component />)).toIncludeText('Foo');`.
+// See: github.com/mozilla/addons-frontend/pull/2540#discussion_r120926107
 import 'jest-enzyme';
 
 

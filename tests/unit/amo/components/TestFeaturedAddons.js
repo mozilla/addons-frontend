@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 
 import * as featuredActions from 'amo/actions/featured';
@@ -8,7 +9,7 @@ import {
 import createStore from 'amo/store';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowRender } from 'tests/unit/helpers';
+import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<FeaturedAddons />', () => {
@@ -20,9 +21,7 @@ describe('<FeaturedAddons />', () => {
   });
 
   function render({ ...props }) {
-    return shallowRender(
-      <FeaturedAddonsBase i18n={getFakeI18nInst()} {...props} />
-    );
+    return shallow(<FeaturedAddonsBase i18n={getFakeI18nInst()} {...props} />);
   }
 
   it('renders a FeaturedAddons page with no add-ons set', () => {
@@ -30,7 +29,7 @@ describe('<FeaturedAddons />', () => {
       featuredActions.getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.props.children[0].props.children).toContain('More Featured Extensions');
+    expect(root.childAt(0)).toIncludeText('More Featured Extensions');
   });
 
   it('renders a FeaturedAddons page with themes HTML', () => {
@@ -38,7 +37,7 @@ describe('<FeaturedAddons />', () => {
       featuredActions.getFeatured({ addonType: ADDON_TYPE_THEME }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.props.children[0].props.children).toContain('More Featured Themes');
+    expect(root.childAt(0)).toIncludeText('More Featured Themes');
   });
 
   it('renders each add-on when set', () => {
@@ -58,7 +57,8 @@ describe('<FeaturedAddons />', () => {
     }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.props.children[1].props.results.map((result) => result.name)).toEqual(['Howdy', 'Howdy again']);
+    expect(root.childAt(1).prop('results').map((result) => result.name))
+      .toEqual(['Howdy', 'Howdy again']);
   });
 
   it('throws if add-on type is not supported', () => {
