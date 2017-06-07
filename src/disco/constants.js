@@ -42,4 +42,5 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'disable-cert-transparency@mozilla.org', // Disable TLS Certificate Transparency
   'disable-ocsp-stapling@mozilla.org', // Disable OCSP Stapling
   'onboarding@mozilla.org', // Photon onboarding
+  'followonsearch@mozilla.com', // Follow-on Search Telemetry
 ];
