@@ -253,11 +253,22 @@ export class AddonBase extends React.Component {
 export function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
   const addon = state.addons[slug];
-  const installation = state.installations[addon.guid];
+  const installedAddon = state.installations[addon.guid] || {};
 
   return {
     addon,
-    installStatus: installation ? installation.status : UNKNOWN,
+    // These spreads obscure a lot of hidden properties but they
+    // cannot be deleted until core/reducers/addons, core/installAddon,
+    // and maybe others get fixed up, who knows.
+    //
+    // The withInstallHelpers HOC needs to access properties like id and
+    // properties from addon.theme_data (which are spread onto addon) and
+    // maybe others.
+    ...addon,
+    // The withInstallHelpers HOC also needs to access some properties in
+    // here like guid and probably others.
+    ...installedAddon,
+    installStatus: installedAddon.status || UNKNOWN,
     clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
   };
@@ -269,6 +280,6 @@ export default compose(
     promise: loadAddonIfNeeded,
   }]),
   translate({ withRef: true }),
-  withInstallHelpers({ src: 'dp-btn-primary' }),
   connect(mapStateToProps),
+  withInstallHelpers({ src: 'dp-btn-primary' }),
 )(AddonBase);

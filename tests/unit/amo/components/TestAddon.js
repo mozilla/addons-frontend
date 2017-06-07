@@ -557,4 +557,26 @@ describe('mapStateToProps', () => {
 
     expect(installStatus).toEqual(UNKNOWN);
   });
+
+  it('sets random addon object properties', () => {
+    signIn();
+    const description = 'whatever';
+    fetchAddon({ addon: { ...fakeAddon, description } });
+    const props = _mapStateToProps();
+
+    // Make sure that top-level addon props get passed along.
+    expect(props.description).toEqual(description);
+  });
+
+  it('sets random install object properties', () => {
+    signIn();
+    fetchAddon();
+    store.dispatch(setInstallState({
+      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
+    }));
+    const { needsRestart } = _mapStateToProps();
+
+    // Make sure that installedAddon.needsRestart got set as a property.
+    expect(needsRestart).toEqual(false);
+  });
 });
