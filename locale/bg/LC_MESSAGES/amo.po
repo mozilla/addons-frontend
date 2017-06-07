@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-05-31 16:16+0000\n"
-"PO-Revision-Date: 2017-06-05 07:35+0000\n"
+"PO-Revision-Date: 2017-06-07 08:45+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -102,7 +102,7 @@ msgstr "Страница за поддръжка"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "More information"
-msgstr "Повече информация"
+msgstr "Допълнителна информация"
 
 #: src/amo/components/AddonMoreInfo.js:44
 msgid "Add-on Links"
@@ -278,7 +278,7 @@ msgstr "Инсталирайте мощни инструменти в помощ
 
 #: src/amo/components/LandingPage.js:148
 msgid "Browse by category"
-msgstr "Преглед по категория"
+msgstr "Преглед на категориите"
 
 #: src/amo/components/LandingPage.js:52
 msgid "Featured extensions"
@@ -294,7 +294,7 @@ msgstr "Най-известни разширения"
 
 #: src/amo/components/LandingPage.js:62
 msgid "More popular extensions"
-msgstr "Повече от известните разширения"
+msgstr "Повече известни разширения"
 
 #: src/amo/components/LandingPage.js:63
 msgid "Top rated extensions"
@@ -302,7 +302,7 @@ msgstr "Най-високо оценени разширения"
 
 #: src/amo/components/LandingPage.js:71
 msgid "More highly rated extensions"
-msgstr "Повече от високо оценените разширения"
+msgstr "Повече високо оценени разширения"
 
 #: src/amo/components/LandingPage.js:74
 msgid "Featured themes"
@@ -318,7 +318,7 @@ msgstr "Най-популярни теми"
 
 #: src/amo/components/LandingPage.js:84
 msgid "More popular themes"
-msgstr "Повече от популярните теми"
+msgstr "Повече популярни теми"
 
 #: src/amo/components/LandingPage.js:85
 msgid "Top rated themes"
@@ -326,7 +326,7 @@ msgstr "Най-високо оценени теми"
 
 #: src/amo/components/LandingPage.js:90
 msgid "More highly rated themes"
-msgstr "Повече от високо оценените теми"
+msgstr "Повече високо оценени теми"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -338,7 +338,7 @@ msgstr "Добавки за Firefox"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
-msgstr "За да оцените тази добавка се впишете"
+msgstr "За да оцените този речник се впишете"
 
 #: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
@@ -362,7 +362,7 @@ msgstr "За да оцените тази добавка се впишете"
 
 #: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "До каква степен ви харесва %(addonName)s?"
+msgstr "Колко удовлетворени се чувствате от %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:48 src/amo/components/SearchForm.js:57
 msgid "Search"
@@ -382,11 +382,11 @@ msgstr "Търсене…"
 
 #: src/amo/components/SearchResults.js:49
 msgid "No results were found for \"%(query)s\"."
-msgstr "Не бяха намерени резултати за „%(query)s“."
+msgstr "Няма резултати за „%(query)s“."
 
 #: src/amo/components/SearchResults.js:53
 msgid "No results were found."
-msgstr "Не бяха намерени резултати."
+msgstr "Няма резултати."
 
 #: src/amo/components/SearchResults.js:56
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -434,7 +434,7 @@ msgstr "Добавки за Firefox"
 
 #: src/amo/containers/Home.js:40
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr "Разширенията са специални функции, които може да добавяте към Firefox. С помощта на темите пък променяте облика на браузъра си."
+msgstr "Разширенията са специални възможности, които може да добавяте към Firefox. С помощта на темите пък променяте облика на своя четец."
 
 #: src/amo/containers/Home.js:53
 msgid "You can change how Firefox works…"
@@ -594,7 +594,7 @@ msgstr "Без оценка"
 
 #: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Отваряне</span> за повече информация"
+msgstr "<span class=\"visually-hidden\">Отваряне за </span>Повече информация"
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s от 5"
