@@ -3,6 +3,9 @@ import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import values from 'object.values';
 
+import 'jest-enzyme';
+
+
 if (!Object.values) {
   values.shim();
 }
