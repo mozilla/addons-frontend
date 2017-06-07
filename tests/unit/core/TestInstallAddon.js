@@ -3,7 +3,6 @@ import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 
 import createStore from 'amo/store';
-import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -19,6 +18,7 @@ import {
   INSTALL_CATEGORY,
   INSTALL_CANCELLED,
   INSTALL_FAILED,
+  INSTALL_STATE,
   INSTALLED,
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
@@ -110,10 +110,10 @@ describe('withInstallHelpers inner functions', () => {
         dispatch, { _addonManager: getFakeAddonManagerWrapper(), guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ENABLED, url: installURL }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ENABLED, url: installURL },
+          })).toBeTruthy();
         });
     });
 
@@ -134,10 +134,10 @@ describe('withInstallHelpers inner functions', () => {
       });
       return setCurrentStatus()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: DISABLED, url: installURL }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: DISABLED, url: installURL },
+          })).toBeTruthy();
         });
     });
 
@@ -158,10 +158,10 @@ describe('withInstallHelpers inner functions', () => {
       });
       return setCurrentStatus()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: DISABLED, url: installURL }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: DISABLED, url: installURL },
+          })).toBeTruthy();
         });
     });
 
@@ -176,10 +176,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ENABLED, url: installURL }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ENABLED, url: installURL },
+          })).toBeTruthy();
         });
     });
 
@@ -198,10 +198,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: DISABLED, url: installURL }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: DISABLED, url: installURL },
+          })).toBeTruthy();
         });
     });
 
@@ -220,10 +220,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: DISABLED, url: installURL }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: DISABLED, url: installURL },
+          })).toBeTruthy();
         });
     });
 
@@ -236,10 +236,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: UNINSTALLED, url: installURL }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: UNINSTALLED, url: installURL },
+          })).toBeTruthy();
         });
     });
 
@@ -253,10 +253,10 @@ describe('withInstallHelpers inner functions', () => {
         mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
       return setCurrentStatus()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ERROR, error: FATAL_ERROR }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_ERROR },
+          })).toBeTruthy();
         });
     });
   });
@@ -362,10 +362,10 @@ describe('withInstallHelpers inner functions', () => {
         { name, iconUrl, guid, _addonManager: fakeAddonManager });
       return enable()
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ERROR, error: FATAL_ERROR }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_ERROR },
+          })).toBeTruthy();
         });
     });
 
@@ -379,7 +379,10 @@ describe('withInstallHelpers inner functions', () => {
         { name, iconUrl, guid, _addonManager: fakeAddonManager });
       return enable()
         .then(() => {
-          sinon.assert.notCalled(dispatch);
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_ERROR },
+          })).toBeFalsy();
         });
     });
   });
@@ -508,12 +511,10 @@ describe('withInstallHelpers inner functions', () => {
 
       return install({ guid, installURL })
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid, status: ERROR, error: FATAL_INSTALL_ERROR,
-            }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_INSTALL_ERROR },
+          })).toBeTruthy();
         });
     });
   });
@@ -528,10 +529,13 @@ describe('withInstallHelpers inner functions', () => {
       const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL })
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: UNINSTALLING }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: {
+              guid,
+              status: UNINSTALLING,
+            },
+          })).toBeTruthy();
           expect(fakeAddonManager.uninstall.calledWith(guid)).toBeTruthy();
         });
     });
@@ -543,16 +547,17 @@ describe('withInstallHelpers inner functions', () => {
       const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
       return uninstall({ guid, installURL })
         .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: UNINSTALLING }),
-          );
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
-            }),
-          );
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: {
+              guid,
+              status: UNINSTALLING,
+            },
+          })).toBeTruthy();
+          expect(dispatch.calledWith({
+            type: INSTALL_STATE,
+            payload: { guid, status: ERROR, error: FATAL_UNINSTALL_ERROR },
+          })).toBeTruthy();
         });
     });
 

@@ -1,4 +1,3 @@
-import { setInstallState } from 'core/actions/installations';
 import {
   DISABLED,
   DOWNLOADING,
@@ -8,6 +7,7 @@ import {
   INSTALL_CANCELLED,
   INSTALL_COMPLETE,
   INSTALL_ERROR,
+  INSTALL_STATE,
   INSTALLED,
   INSTALLING,
   START_DOWNLOAD,
@@ -29,12 +29,15 @@ describe('installations reducer', () => {
     expect(installations(state, { type: 'whatever' })).toBe(state);
   });
 
-  it('adds an add-on to state', () => {
-    expect(installations(undefined, setInstallState({
-      guid: 'my-addon@me.com',
-      url: 'https://cdn.amo/download/my-addon.xpi',
-      status: UNINSTALLED,
-    }))).toEqual({
+  it('adds an add-on on INSTALL_STATE', () => {
+    expect(installations(undefined, {
+      type: INSTALL_STATE,
+      payload: {
+        guid: 'my-addon@me.com',
+        url: 'https://cdn.amo/download/my-addon.xpi',
+        status: UNINSTALLED,
+      },
+    })).toEqual({
       'my-addon@me.com': {
         downloadProgress: 0,
         error: undefined,
@@ -47,12 +50,15 @@ describe('installations reducer', () => {
   });
 
   it('passes down needsRestart=true', () => {
-    expect(installations(undefined, setInstallState({
-      guid: 'my-addon@me.com',
-      url: 'https://cdn.amo/download/my-addon.xpi',
-      status: UNINSTALLING,
-      needsRestart: true,
-    }))).toEqual({
+    expect(installations(undefined, {
+      type: INSTALL_STATE,
+      payload: {
+        guid: 'my-addon@me.com',
+        url: 'https://cdn.amo/download/my-addon.xpi',
+        status: UNINSTALLING,
+        needsRestart: true,
+      },
+    })).toEqual({
       'my-addon@me.com': {
         downloadProgress: 0,
         error: undefined,
@@ -64,11 +70,14 @@ describe('installations reducer', () => {
     });
   });
 
-  it('handles ENABLED add-ons', () => {
-    expect(installations(undefined, setInstallState({
-      guid: 'my-addon@me.com',
-      status: ENABLED,
-    }))).toEqual({
+  it('handles ENABLED status in INSTALL_STATE', () => {
+    expect(installations(undefined, {
+      type: 'INSTALL_STATE',
+      payload: {
+        guid: 'my-addon@me.com',
+        status: ENABLED,
+      },
+    })).toEqual({
       'my-addon@me.com': {
         downloadProgress: 0,
         error: undefined,
@@ -80,11 +89,14 @@ describe('installations reducer', () => {
     });
   });
 
-  it('handles DISABLED add-ons', () => {
-    expect(installations(undefined, setInstallState({
-      guid: 'my-addon@me.com',
-      status: DISABLED,
-    }))).toEqual({
+  it('handles DISABLED status in INSTALL_STATE', () => {
+    expect(installations(undefined, {
+      type: 'INSTALL_STATE',
+      payload: {
+        guid: 'my-addon@me.com',
+        status: DISABLED,
+      },
+    })).toEqual({
       'my-addon@me.com': {
         downloadProgress: 0,
         error: undefined,
@@ -97,11 +109,14 @@ describe('installations reducer', () => {
   });
 
   it('uses the add-ons status', () => {
-    expect(installations(undefined, setInstallState({
-      guid: 'an-addon@me.com',
-      url: 'https://cdn.amo/download/an-addon.xpi',
-      status: INSTALLED,
-    }))).toEqual({
+    expect(installations(undefined, {
+      type: INSTALL_STATE,
+      payload: {
+        guid: 'an-addon@me.com',
+        url: 'https://cdn.amo/download/an-addon.xpi',
+        status: INSTALLED,
+      },
+    })).toEqual({
       'an-addon@me.com': {
         downloadProgress: 0,
         error: undefined,
