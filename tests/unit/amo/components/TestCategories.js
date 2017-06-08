@@ -64,7 +64,8 @@ describe('Categories', () => {
       dispatch: fakeDispatch,
     });
 
-    expect(fakeDispatch.calledWith(setViewContext(ADDON_TYPE_EXTENSION))).toBeTruthy();
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
 
     // Make sure that we update the addonType when `componentDidUpdate()`
     // is called. This will happen when changing from one route that uses
@@ -73,8 +74,9 @@ describe('Categories', () => {
     // mounted again.
     // TODO: This feels naughty; can it be done better?
     root.componentDidUpdate();
-    expect(fakeDispatch.calledTwice).toBeTruthy();
-    expect(fakeDispatch.calledWith(setViewContext(ADDON_TYPE_EXTENSION))).toBeTruthy();
+    sinon.assert.calledTwice(fakeDispatch);
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
   });
 
   it('renders Categories', () => {

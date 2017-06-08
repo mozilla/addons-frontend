@@ -51,12 +51,15 @@ describe('<LandingPage />', () => {
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
-    expect(fakeDispatch.calledWith(setViewContext(ADDON_TYPE_EXTENSION))).toBeTruthy();
-    expect(fakeDispatch.calledOnce).toBeTruthy();
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(fakeDispatch);
 
     root.componentDidUpdate();
-    expect(fakeDispatch.calledTwice).toBeTruthy();
-    expect(fakeDispatch.alwaysCalledWith(setViewContext(ADDON_TYPE_EXTENSION))).toBeTruthy();
+    sinon.assert.calledTwice(fakeDispatch);
+
+    sinon.assert.alwaysCalledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
   });
 
   it('renders a LandingPage with no addons set', () => {
