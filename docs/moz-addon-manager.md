@@ -171,3 +171,34 @@ fancy installation switch. It worked!
 If it doesn't work, you may need to add some logging and re-build Firefox.
 Try setting `extensions.logging.enabled` to `true` in `about:config` to see
 logging output for the `AddonManager.jsm` code.
+
+### Updating your Firefox source code
+
+You will need to periodically update your Firefox source code and rebuild it
+with your patch.
+
+First, set aside your patch by reverting the changes or using something like the
+[shelve](https://www.mercurial-scm.org/wiki/ShelveExtension) command:
+
+```
+hg shelve
+```
+
+Pull in new updates:
+
+```
+hg pull -u
+```
+
+Re-apply your patch with `unshelve` (or by following the steps above):
+
+```
+hg unshelve
+```
+
+Now you are ready to build Firefox again. You can check the output of `hg diff`
+to make sure the patch is still there and then kick off a new build:
+
+```
+./mach build
+```
