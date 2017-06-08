@@ -7,7 +7,6 @@ import {
 import { Provider } from 'react-redux';
 
 import { HomeBase } from 'amo/containers/Home';
-import createStore from 'amo/store';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
