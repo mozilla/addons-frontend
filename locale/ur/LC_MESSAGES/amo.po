@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-31 16:16+0000\n"
+"POT-Creation-Date: 2017-06-08 14:01+0000\n"
 "PO-Revision-Date: 2017-05-06 11:19+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,6 +13,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/amo/components/Addon/index.js:137
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/amo/components/Addon/index.js:150
+msgid "No reviews yet"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:159
+msgid "Rate your experience"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:188
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:215
+msgid "Extension Metadata"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:237
+msgid "About this %(addonType)s"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Cancel preview"
+msgstr "پیش منظر کو منسوخ کریں"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -39,40 +73,6 @@ msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
-
-#: src/amo/components/AddonDetail.js:131
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/amo/components/AddonDetail.js:144
-msgid "No reviews yet"
-msgstr ""
-
-#: src/amo/components/AddonDetail.js:153
-msgid "Rate your experience"
-msgstr ""
-
-#: src/amo/components/AddonDetail.js:182
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
-
-#: src/amo/components/AddonDetail.js:209
-msgid "Extension Metadata"
-msgstr ""
-
-#: src/amo/components/AddonDetail.js:227
-msgid "About this %(addonType)s"
-msgstr ""
-
-#: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "پیش منظر کو منسوخ کریں"
-
-#: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
 
 #: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
@@ -192,6 +192,10 @@ msgstr ""
 msgid "All written reviews"
 msgstr "تمام تحریری جائزے"
 
+#: src/amo/components/App/index.js:202
+msgid "Add-ons for Firefox"
+msgstr ""
+
 #: src/amo/components/Categories.js:49
 msgid "Failed to load categories."
 msgstr "زمرہ جات لوڈ نہیں کر سکا۔"
@@ -284,6 +288,14 @@ msgstr "ایک گڑبڑ رپورٹ کریں"
 msgid "View desktop site"
 msgstr ""
 
+#: src/amo/components/Header/index.js:42
+msgid "Firefox Add-ons"
+msgstr ""
+
+#: src/amo/components/Header/index.js:57
+msgid "Developer Hub"
+msgstr ""
+
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
 msgid "Themes"
 msgstr "خیالیے"
@@ -304,7 +316,7 @@ msgid ""
 "your browser yours."
 msgstr ""
 
-#: src/amo/components/LandingPage.js:148
+#: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
 msgstr "زمرہ کے لحاظ سے براؤز کریں"
 
@@ -359,10 +371,6 @@ msgstr ""
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
 msgstr "آااپنی زبان میں براؤز کریں"
-
-#: src/amo/components/MastHead.js:32
-msgid "Firefox Add-ons"
-msgstr ""
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
@@ -456,10 +464,6 @@ msgstr "تمام خیالیے براؤز کریں"
 msgid "Add-ons Home Page"
 msgstr ""
 
-#: src/amo/containers/App.js:200
-msgid "Add-ons for Firefox"
-msgstr ""
-
 #: src/amo/containers/Home.js:40
 msgid ""
 "Extensions are special features you can add to Firefox. Themes let you "
@@ -545,8 +549,8 @@ msgstr ""
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:106
-#: src/core/components/InstallButton/index.js:122
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr ""
 
@@ -614,7 +618,7 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr "ایک غیرمتوقع نقص پیش آگیا"
 
-#: src/ui/components/ErrorList/index.js:58
+#: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
 msgstr "جاری رکھنے کے لیئے پھر لوڈ کریں"
 

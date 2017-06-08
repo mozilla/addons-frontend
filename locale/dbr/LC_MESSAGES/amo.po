@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-31 16:16+0000\n"
+"POT-Creation-Date: 2017-06-08 14:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -11,6 +11,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "MIME-Version: 1.0\n"
+
+#: src/amo/components/Addon/index.js:137
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "ʍǝıʌǝɹ %(count)s pɐǝᴚ"
+msgstr[1] "sʍǝıʌǝɹ %(count)s ʅʅɐ pɐǝᴚ"
+
+#: src/amo/components/Addon/index.js:150
+msgid "No reviews yet"
+msgstr "ʇǝʎ sʍǝıʌǝɹ oN"
+
+#: src/amo/components/Addon/index.js:159
+msgid "Rate your experience"
+msgstr "ǝɔuǝıɹǝdxǝ ɹnoʎ ǝʇɐᴚ"
+
+#: src/amo/components/Addon/index.js:188
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(startSpan)s%(authorList)s ʎq%(endSpan)s %(addonName)s"
+
+#: src/amo/components/Addon/index.js:215
+msgid "Extension Metadata"
+msgstr "ɐʇɐpɐʇǝW uoısuǝʇxƎ"
+
+#: src/amo/components/Addon/index.js:237
+msgid "About this %(addonType)s"
+msgstr "%(addonType)s sıɥʇ ʇnoq∀"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "ʍǝıʌǝɹd oʇ dɐ⊥"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Cancel preview"
+msgstr "ʍǝıʌǝɹd ʅǝɔuɐↃ"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -31,40 +65,6 @@ msgstr ".%(yourVersion)s xoɟǝɹıℲ ƃuısn ǝɹɐ no⅄ .(%(minVersion)s uo�
 #: src/amo/components/AddonCompatibilityError/index.js:79
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr ".uo-ppɐ sıɥʇ ʅʅɐʇsuı oʇ <a href=\"%(downloadUrl)s\">xoɟǝɹıℲ pɐoʅuʍop</a> uɐɔ no⅄ .suo-ppɐ ʇɹoddns ʇou sǝop ɹǝsʍoɹq ɹno⅄"
-
-#: src/amo/components/AddonDetail.js:131
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "ʍǝıʌǝɹ %(count)s pɐǝᴚ"
-msgstr[1] "sʍǝıʌǝɹ %(count)s ʅʅɐ pɐǝᴚ"
-
-#: src/amo/components/AddonDetail.js:144
-msgid "No reviews yet"
-msgstr "ʇǝʎ sʍǝıʌǝɹ oN"
-
-#: src/amo/components/AddonDetail.js:153
-msgid "Rate your experience"
-msgstr "ǝɔuǝıɹǝdxǝ ɹnoʎ ǝʇɐᴚ"
-
-#: src/amo/components/AddonDetail.js:182
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(startSpan)s%(authorList)s ʎq%(endSpan)s %(addonName)s"
-
-#: src/amo/components/AddonDetail.js:209
-msgid "Extension Metadata"
-msgstr "ɐʇɐpɐʇǝW uoısuǝʇxƎ"
-
-#: src/amo/components/AddonDetail.js:227
-msgid "About this %(addonType)s"
-msgstr "%(addonType)s sıɥʇ ʇnoq∀"
-
-#: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "ʍǝıʌǝɹd ʅǝɔuɐↃ"
-
-#: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "ʍǝıʌǝɹd oʇ dɐ⊥"
 
 #: src/amo/components/AddonMeta.js:24
 #: src/amo/components/SearchResult.js:60
@@ -183,6 +183,10 @@ msgstr "%(addonName)s ɹoɟ sʍǝıʌǝᴚ"
 msgid "All written reviews"
 msgstr "sʍǝıʌǝɹ uǝʇʇıɹʍ ʅʅ∀"
 
+#: src/amo/components/App/index.js:202
+msgid "Add-ons for Firefox"
+msgstr "xoɟǝɹıℲ ɹoɟ suo-pp∀"
+
 #: src/amo/components/Categories.js:49
 msgid "Failed to load categories."
 msgstr ".sǝıɹoƃǝʇɐɔ pɐoʅ oʇ pǝʅıɐℲ"
@@ -257,6 +261,15 @@ msgstr "ƃnq ɐ ʇɹodǝᴚ"
 msgid "View desktop site"
 msgstr "ǝʇıs doʇʞsǝp ʍǝıɅ"
 
+# "Firefox" should not be translated. :-)
+#: src/amo/components/Header/index.js:42
+msgid "Firefox Add-ons"
+msgstr "suo-pp∀ xoɟǝɹıℲ"
+
+#: src/amo/components/Header/index.js:57
+msgid "Developer Hub"
+msgstr "qnH ɹǝdoʅǝʌǝᗡ"
+
 #: src/amo/components/LandingPage.js:116
 #: src/amo/containers/Home.js:48
 msgid "Themes"
@@ -275,7 +288,7 @@ msgstr ".ʇuɐʍ noʎ ʞooʅ ǝɥʇ xoɟǝɹıℲ ǝʌıƃ oʇ sǝɯǝɥʇ ɟo s
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
 msgstr ".sɹnoʎ ɹǝsʍoɹq ɹnoʎ ǝʞɐɯ suo-ppɐ ´ɹǝɟɐs puɐ ɹǝʇsɐɟ ƃuısʍoɹq ǝʞɐɯ ʇɐɥʇ sʅooʇ ʅnɟɹǝʍod ʅʅɐʇsuI"
 
-#: src/amo/components/LandingPage.js:148
+#: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
 msgstr "ʎɹoƃǝʇɐɔ ʎq ǝsʍoɹԐ"
 
@@ -330,10 +343,6 @@ msgstr "sǝɯǝɥʇ pǝʇɐɹ ʎʅɥƃıɥ ǝɹoW"
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
 msgstr "ǝƃɐnƃuɐʅ ɹnoʎ uı ǝsʍoɹԐ"
-
-#: src/amo/components/MastHead.js:32
-msgid "Firefox Add-ons"
-msgstr "suo-pp∀ xoɟǝɹıℲ"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
@@ -430,10 +439,6 @@ msgstr "sǝɯǝɥʇ ʅʅɐ ǝsʍoɹԐ"
 msgid "Add-ons Home Page"
 msgstr "ǝƃɐԀ ǝɯoH suo-pp∀"
 
-#: src/amo/containers/App.js:200
-msgid "Add-ons for Firefox"
-msgstr "xoɟǝɹıℲ ɹoɟ suo-pp∀"
-
 #: src/amo/containers/Home.js:40
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr ".ǝɔuɐɹɐǝddɐ s,ɹǝsʍoɹq ɹnoʎ ǝƃuɐɥɔ noʎ ʇǝʅ sǝɯǝɥ⊥ .xoɟǝɹıℲ oʇ ppɐ uɐɔ noʎ sǝɹnʇɐǝɟ ʅɐıɔǝds ǝɹɐ suoısuǝʇxƎ"
@@ -515,8 +520,8 @@ msgstr ".%(status)s :ǝpoɔ ɹoɹɹƎ"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ".pǝɹǝʇuǝ noʎ ⅂ᴚ∩ ǝɥʇ ʇɐ ƃuıɥʇʎuɐ puıɟ ʇ,uɐɔ ǝʍ ʇnq ´ʎɹɹoS"
 
-#: src/core/components/InstallButton/index.js:106
-#: src/core/components/InstallButton/index.js:122
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "xoɟǝɹıℲ oʇ pp∀"
 
@@ -584,7 +589,7 @@ msgstr "pǝɹıdxǝ sɐɥ uoıssǝs ɹno⅄"
 msgid "An unexpected error occurred"
 msgstr "pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/ui/components/ErrorList/index.js:58
+#: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
 msgstr "ǝnuıʇuoↃ o⊥ pɐoʅǝᴚ"
 

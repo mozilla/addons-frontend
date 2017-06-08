@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-31 16:16+0000\n"
+"POT-Creation-Date: 2017-06-08 14:01+0000\n"
 "PO-Revision-Date: 2017-05-05 10:13+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,6 +13,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
+
+#: src/amo/components/Addon/index.js:137
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "Les %(count)s vurdering"
+msgstr[1] "Les alle %(count)s vurderinger"
+
+#: src/amo/components/Addon/index.js:150
+msgid "No reviews yet"
+msgstr "Ingen vurderinger ennå"
+
+#: src/amo/components/Addon/index.js:159
+msgid "Rate your experience"
+msgstr "Vurder din opplevelse"
+
+#: src/amo/components/Addon/index.js:188
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)sav %(authorList)s %(endSpan)s"
+
+#: src/amo/components/Addon/index.js:215
+msgid "Extension Metadata"
+msgstr "Metadata for utvidelser"
+
+#: src/amo/components/Addon/index.js:237
+msgid "About this %(addonType)s"
+msgstr "Om denne %(addonType)s"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "Trykk for en forhåndsvisning"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Cancel preview"
+msgstr "Avslutt forhåndsvisning"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -46,40 +80,6 @@ msgid ""
 msgstr ""
 "Nettleseren din støtter ikke utvidelser. Du kan <a href=\"%(downloadUrl)s"
 "\">laste ned firefox</a> for å installere denne utvidelsen."
-
-#: src/amo/components/AddonDetail.js:131
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Les %(count)s vurdering"
-msgstr[1] "Les alle %(count)s vurderinger"
-
-#: src/amo/components/AddonDetail.js:144
-msgid "No reviews yet"
-msgstr "Ingen vurderinger ennå"
-
-#: src/amo/components/AddonDetail.js:153
-msgid "Rate your experience"
-msgstr "Vurder din opplevelse"
-
-#: src/amo/components/AddonDetail.js:182
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)sav %(authorList)s %(endSpan)s"
-
-#: src/amo/components/AddonDetail.js:209
-msgid "Extension Metadata"
-msgstr "Metadata for utvidelser"
-
-#: src/amo/components/AddonDetail.js:227
-msgid "About this %(addonType)s"
-msgstr "Om denne %(addonType)s"
-
-#: src/amo/components/AddonDetail.js:92
-msgid "Cancel preview"
-msgstr "Avslutt forhåndsvisning"
-
-#: src/amo/components/AddonDetail.js:92
-msgid "Tap to preview"
-msgstr "Trykk for en forhåndsvisning"
 
 #: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
@@ -202,6 +202,10 @@ msgstr "Vurderinger for %(addonName)s"
 msgid "All written reviews"
 msgstr "Alle skrevne vurderinger"
 
+#: src/amo/components/App/index.js:202
+msgid "Add-ons for Firefox"
+msgstr "Utvidelser for Firefox"
+
 #: src/amo/components/Categories.js:49
 msgid "Failed to load categories."
 msgstr "Klarte ikke å laste kategorier."
@@ -311,6 +315,14 @@ msgstr "Rapporter en feil"
 msgid "View desktop site"
 msgstr "Vis desktop-siden"
 
+#: src/amo/components/Header/index.js:42
+msgid "Firefox Add-ons"
+msgstr "Firefox-utvidelser"
+
+#: src/amo/components/Header/index.js:57
+msgid "Developer Hub"
+msgstr ""
+
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
 msgid "Themes"
 msgstr "Tema"
@@ -335,7 +347,7 @@ msgstr ""
 "Installer kraftige verktøy som gjør nettleseren raskere og tryggere, "
 "utvidelser gjør nettleseren din."
 
-#: src/amo/components/LandingPage.js:148
+#: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
 msgstr "Bla gjennom etter kategori"
 
@@ -390,10 +402,6 @@ msgstr "Flere høyt vurderte tema"
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
 msgstr "Surf på ditt språk"
-
-#: src/amo/components/MastHead.js:32
-msgid "Firefox Add-ons"
-msgstr "Firefox-utvidelser"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
@@ -487,10 +495,6 @@ msgstr "Bla gjennom alle tema"
 msgid "Add-ons Home Page"
 msgstr "Hjemmeside for utvidelser"
 
-#: src/amo/containers/App.js:200
-msgid "Add-ons for Firefox"
-msgstr "Utvidelser for Firefox"
-
 #: src/amo/containers/Home.js:40
 msgid ""
 "Extensions are special features you can add to Firefox. Themes let you "
@@ -580,8 +584,8 @@ msgstr "Feilkode: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Beklager, men vi kunne ikke finne noe på adressen du skrev inn."
 
-#: src/core/components/InstallButton/index.js:106
-#: src/core/components/InstallButton/index.js:122
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -649,7 +653,7 @@ msgstr "Økten din har utløpt"
 msgid "An unexpected error occurred"
 msgstr "En uventet feil oppstod"
 
-#: src/ui/components/ErrorList/index.js:58
+#: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
 msgstr "Oppdater for å fortsette"
 
