@@ -25,9 +25,9 @@ The presence of `mozAddonManager` on Firefox for Android will activate the
 add-on installation switch. Again, you will see this on
 https://addons.mozilla.org (production) but not on a development site.
 
-Here's how to activate it on a development site.
-Make sure you set the preference up above. If you're testing this on an Android
-device then by now you should have access to `mozAddonManager`.
+To activate it on a development site, first
+make sure you set the preference up above. If you're testing this on an Android
+device then the preference is enough to access `mozAddonManager`.
 
 If you're testing this on desktop Firefox, you need
 to make sure your user agent looks like Firefox for Android.
@@ -38,20 +38,18 @@ in
 with a
 [Firefox for Android user agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox#Android_(version_41_and_above)).
 Make sure it is touch enabled.
-This will allow you to test out the fancy add-on installation switch.
+This will let you see the add-on installation switch on desktop.
 
-## Developing locally
+## Developing with a local server
 
-When you're running a server locally for development, you won't be able to set
-the pref above and see `mozAddonManager`. You need to allow your `localhost`
-domain for that.
+When you're running a server locally for development, you need to grant `mozAddonManager`
+access to your `localhost` domain in addition to setting the `extensions.webapi.testing` preference to `true`.
 
-You can do this by building a custom Firefox with an allowance for your `localhost` domain.
+You can do this by building a version of Firefox with a custom patch.
 
 Start by
 [setting up your machine to build Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions).
-That page gives you a link to a helpful bootstrapping script. You can run it
-like this:
+That page gives you a link to a helpful bootstrapping script. Run it like this:
 
 ```
 python bootstrap.py
