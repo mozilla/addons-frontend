@@ -241,6 +241,23 @@ module.exports = {
 };
 ```
 
+### Working on the documentation
+
+The documentation you are reading right now lives inside the source repository as
+[Github flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown).
+When you make changes to these files you can create a
+pull request to preview them or, better yet, you can use
+[grip](https://github.com/joeyespo/grip)
+to preview the changes locally.
+After installing `grip`, run it from the source directory like this:
+
+```
+grip .
+```
+
+Open its `localhost` URL and you will see the rendered `README.md` file.
+As you make edits, it will update automatically.
+
 ### Building and running services
 
 The following are scripts that are used in deployment - you generally won't
