@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-31 16:16+0000\n"
+"POT-Creation-Date: 2017-06-08 14:01+0000\n"
 "PO-Revision-Date: 2017-02-03 21:54+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,6 +14,45 @@ msgstr ""
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : "
 "4;\n"
 "X-Generator: Pontoon\n"
+
+#: src/amo/components/Addon/index.js:137
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#: src/amo/components/Addon/index.js:150
+msgid "No reviews yet"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:159
+msgid "Rate your experience"
+msgstr "Rátáil d'eispéireas"
+
+#: src/amo/components/Addon/index.js:188
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)sle %(authorList)s%(endSpan)s"
+
+#: src/amo/components/Addon/index.js:215
+msgid "Extension Metadata"
+msgstr "Meiteashonraí na hEisínteachta"
+
+#: src/amo/components/Addon/index.js:237
+msgid "About this %(addonType)s"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:96
+#, fuzzy
+msgid "Tap to preview"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/Addon/index.js:96
+#, fuzzy
+msgid "Cancel preview"
+msgstr "Scríobh léirmheas"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -40,45 +79,6 @@ msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
-
-#: src/amo/components/AddonDetail.js:131
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-
-#: src/amo/components/AddonDetail.js:144
-msgid "No reviews yet"
-msgstr ""
-
-#: src/amo/components/AddonDetail.js:153
-msgid "Rate your experience"
-msgstr "Rátáil d'eispéireas"
-
-#: src/amo/components/AddonDetail.js:182
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)sle %(authorList)s%(endSpan)s"
-
-#: src/amo/components/AddonDetail.js:209
-msgid "Extension Metadata"
-msgstr "Meiteashonraí na hEisínteachta"
-
-#: src/amo/components/AddonDetail.js:227
-msgid "About this %(addonType)s"
-msgstr ""
-
-#: src/amo/components/AddonDetail.js:92
-#, fuzzy
-msgid "Cancel preview"
-msgstr "Scríobh léirmheas"
-
-#: src/amo/components/AddonDetail.js:92
-#, fuzzy
-msgid "Tap to preview"
-msgstr "Scríobh léirmheas"
 
 #: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
 #, fuzzy
@@ -215,6 +215,10 @@ msgstr ""
 msgid "All written reviews"
 msgstr "Scríobh léirmheas"
 
+#: src/amo/components/App/index.js:202
+msgid "Add-ons for Firefox"
+msgstr "Breiseáin Firefox"
+
 #: src/amo/components/Categories.js:49
 msgid "Failed to load categories."
 msgstr ""
@@ -307,6 +311,14 @@ msgstr ""
 msgid "View desktop site"
 msgstr "Amharc suíomh an ríomhaire"
 
+#: src/amo/components/Header/index.js:42
+msgid "Firefox Add-ons"
+msgstr "Breiseáin Firefox"
+
+#: src/amo/components/Header/index.js:57
+msgid "Developer Hub"
+msgstr ""
+
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
 msgid "Themes"
 msgstr ""
@@ -328,7 +340,7 @@ msgid ""
 "your browser yours."
 msgstr ""
 
-#: src/amo/components/LandingPage.js:148
+#: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
 msgstr ""
 
@@ -392,10 +404,6 @@ msgstr ""
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
 msgstr "Brabhsáil i do theanga dhúchais"
-
-#: src/amo/components/MastHead.js:32
-msgid "Firefox Add-ons"
-msgstr "Breiseáin Firefox"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
@@ -495,10 +503,6 @@ msgstr "Brabhsáil na téamaí go léir"
 msgid "Add-ons Home Page"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/containers/App.js:200
-msgid "Add-ons for Firefox"
-msgstr "Breiseáin Firefox"
-
 #: src/amo/containers/Home.js:40
 msgid ""
 "Extensions are special features you can add to Firefox. Themes let you "
@@ -584,8 +588,8 @@ msgstr ""
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:106
-#: src/core/components/InstallButton/index.js:122
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 #, fuzzy
 msgid "Add to Firefox"
 msgstr "Breiseáin Firefox"
@@ -655,7 +659,7 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr ""
 
-#: src/ui/components/ErrorList/index.js:58
+#: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
 msgstr ""
 
