@@ -7,7 +7,6 @@ import {
   mapDispatchToProps,
   mapStateToProps,
 } from 'amo/components/SearchForm';
-import createStore from 'amo/store';
 import * as actions from 'core/actions';
 import * as coreApi from 'core/api';
 import {
@@ -15,7 +14,8 @@ import {
   ADDON_TYPE_THEME,
   VIEW_CONTEXT_HOMEPAGE,
 } from 'core/constants';
-import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<SearchForm />', () => {
@@ -142,10 +142,8 @@ describe('<SearchForm />', () => {
 
 describe('SearchForm mapStateToProps', () => {
   it('passes the api through', () => {
-    const { store } = createStore();
-    store.dispatch(actions.setAuthToken(userAuthToken()));
-    store.dispatch(actions.setClientApp('firefox'));
-    store.dispatch(actions.setLang('de'));
+    const { store } = dispatchSignInActions();
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
 
     const state = store.getState();
 
@@ -153,10 +151,8 @@ describe('SearchForm mapStateToProps', () => {
   });
 
   it('passes the context through', () => {
-    const { store } = createStore();
-    store.dispatch(actions.setAuthToken(userAuthToken()));
-    store.dispatch(actions.setClientApp('firefox'));
-    store.dispatch(actions.setLang('de'));
+    const { store } = dispatchSignInActions();
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
     store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
 
     const state = store.getState();
@@ -165,10 +161,7 @@ describe('SearchForm mapStateToProps', () => {
   });
 
   it('does not set addonType if context is not a validAddonType', () => {
-    const { store } = createStore();
-    store.dispatch(actions.setAuthToken(userAuthToken()));
-    store.dispatch(actions.setClientApp('firefox'));
-    store.dispatch(actions.setLang('de'));
+    const { store } = dispatchSignInActions();
     store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
 
     const state = store.getState();

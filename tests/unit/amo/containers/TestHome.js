@@ -8,15 +8,13 @@ import { Provider } from 'react-redux';
 
 import { HomeBase } from 'amo/containers/Home';
 import createStore from 'amo/store';
-import { setClientApp, setLang } from 'core/actions';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('Home', () => {
   it('renders a heading', () => {
-    const { store } = createStore();
-    store.dispatch(setClientApp('android'));
-    store.dispatch(setLang('en-GB'));
+    const { store } = dispatchSignInActions();
     const fakeDispatch = sinon.stub();
 
     const root = findRenderedComponentWithType(renderIntoDocument(

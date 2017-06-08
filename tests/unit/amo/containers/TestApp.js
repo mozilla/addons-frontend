@@ -15,8 +15,6 @@ import {
 import createStore from 'amo/store';
 import {
   logOutUser as logOutUserAction,
-  setClientApp,
-  setLang,
   setUserAgent as setUserAgentAction,
 } from 'core/actions';
 import { createApiError } from 'core/api';
