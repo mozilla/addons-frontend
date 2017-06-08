@@ -118,28 +118,6 @@ describe('App', () => {
     expect(fakeWindow.location.reload.called).toBeTruthy();
   });
 
-  it('sets isHomePage to true when on the root path', () => {
-    const location = { pathname: '/en-GB/android/' };
-    const root = render({ clientApp: 'android', lang: 'en-GB', location });
-
-    expect(root.header.props.isHomePage).toBe(true);
-  });
-
-  it('sets isHomePage to true when on the root path without a slash', () => {
-    const location = { pathname: '/en-GB/android' };
-    const root = render({ clientApp: 'android', lang: 'en-GB', location });
-
-    expect(root.header.props.isHomePage).toBe(true);
-  });
-
-  it('sets isHomePage to false when not on the root path', () => {
-    const location = { pathname: '/en-GB/android/404/' };
-    const root = render({
-      clientApp: 'android', lang: 'en-GB', location });
-
-    expect(root.header.props.isHomePage).toBe(false);
-  });
-
   it('sets up a callback for setting add-on status', () => {
     const dispatch = sinon.spy();
     const { handleGlobalEvent } = mapDispatchToProps(dispatch);
@@ -155,20 +133,6 @@ describe('App', () => {
 
     setUserAgent(userAgent);
     expect(dispatch.calledWith(setUserAgentAction(userAgent))).toBeTruthy();
-  });
-
-  it('sets the clientApp as props', () => {
-    const { store } = createStore();
-    store.dispatch(setClientApp('android'));
-    const { clientApp } = mapStateToProps(store.getState());
-    expect(clientApp).toEqual('android');
-  });
-
-  it('sets the lang as props', () => {
-    const { store } = createStore();
-    store.dispatch(setLang('de'));
-    const { lang } = mapStateToProps(store.getState());
-    expect(lang).toEqual('de');
   });
 
   it('sets the userAgent as props', () => {

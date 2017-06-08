@@ -7,7 +7,7 @@ import {
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { setCurrentView } from 'amo/actions/currentView';
+import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
 import createStore from 'amo/store';
@@ -44,23 +44,19 @@ describe('<LandingPage />', () => {
     return findDOMNode(render(props));
   }
 
-  it('dispatches setCurrentView on load and update', () => {
+  it('dispatches setViewContext on load and update', () => {
     const fakeDispatch = sinon.stub();
     const root = render({
       dispatch: fakeDispatch,
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
-    expect(fakeDispatch.calledWith(setCurrentView({
-      addonType: ADDON_TYPE_EXTENSION,
-    }))).toBeTruthy();
+    expect(fakeDispatch.calledWith(setViewContext(ADDON_TYPE_EXTENSION))).toBeTruthy();
     expect(fakeDispatch.calledOnce).toBeTruthy();
 
     root.componentDidUpdate();
     expect(fakeDispatch.calledTwice).toBeTruthy();
-    expect(fakeDispatch.alwaysCalledWith(setCurrentView({
-      addonType: ADDON_TYPE_EXTENSION,
-    }))).toBeTruthy();
+    expect(fakeDispatch.alwaysCalledWith(setViewContext(ADDON_TYPE_EXTENSION))).toBeTruthy();
   });
 
   it('renders a LandingPage with no addons set', () => {

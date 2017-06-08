@@ -6,10 +6,11 @@ import {
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { setCurrentView } from 'amo/actions/currentView';
+import { setViewContext } from 'amo/actions/viewContext';
 import createStore from 'amo/store';
 import { HeaderBase, mapStateToProps } from 'amo/components/Header';
 import { setClientApp, setLang } from 'core/actions';
+import { VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOMEPAGE } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
@@ -64,10 +65,10 @@ describe('Header', () => {
   describe('mapStateToProps', () => {
     it('gets isHomePage from store', () => {
       const { store } = createStore();
-      store.dispatch(setCurrentView({ isHomePage: false }));
+      store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
       expect(mapStateToProps(store.getState())).toEqual({ isHomePage: false });
 
-      store.dispatch(setCurrentView({ isExploring: true, isHomePage: true }));
+      store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
       expect(mapStateToProps(store.getState())).toEqual({ isHomePage: true });
     });
   });

@@ -6,7 +6,7 @@ import {
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 
-import { setCurrentView } from 'amo/actions/currentView';
+import { setViewContext } from 'amo/actions/viewContext';
 import createStore from 'amo/store';
 import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
 import { setClientApp, setLang } from 'core/actions';
@@ -57,16 +57,14 @@ describe('Categories', () => {
     return findDOMNode(render(props));
   }
 
-  it('dispatches setCurrentView with addonType', () => {
+  it('dispatches setViewContext with addonType', () => {
     const fakeDispatch = sinon.stub();
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
       dispatch: fakeDispatch,
     });
 
-    expect(fakeDispatch.calledWith(setCurrentView({
-      addonType: ADDON_TYPE_EXTENSION,
-    }))).toBeTruthy();
+    expect(fakeDispatch.calledWith(setViewContext(ADDON_TYPE_EXTENSION))).toBeTruthy();
 
     // Make sure that we update the addonType when `componentDidUpdate()`
     // is called. This will happen when changing from one route that uses
@@ -76,9 +74,7 @@ describe('Categories', () => {
     // TODO: This feels naughty; can it be done better?
     root.componentDidUpdate();
     expect(fakeDispatch.calledTwice).toBeTruthy();
-    expect(fakeDispatch.calledWith(setCurrentView({
-      addonType: ADDON_TYPE_EXTENSION,
-    }))).toBeTruthy();
+    expect(fakeDispatch.calledWith(setViewContext(ADDON_TYPE_EXTENSION))).toBeTruthy();
   });
 
   it('renders Categories', () => {

@@ -5,7 +5,11 @@ import { compose } from 'redux';
 
 import { loadEntities } from 'core/actions';
 import { fetchAddon } from 'core/api';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  validAddonTypes,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import SearchInput from 'ui/components/SearchInput';
 
@@ -74,7 +78,11 @@ export class SearchFormBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  return { addonType: state.currentView.addonType, api: state.api };
+  return {
+    addonType: validAddonTypes.includes(state.viewContext.context) ?
+      state.viewContext.context : null,
+    api: state.api,
+  };
 }
 
 export function mapDispatchToProps(dispatch) {

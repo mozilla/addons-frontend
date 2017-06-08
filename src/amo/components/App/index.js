@@ -14,12 +14,14 @@ import SearchForm from 'amo/components/SearchForm';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
+import type { ViewContextType } from 'amo/reducers/viewContext';
 import { addChangeListeners } from 'core/addonManager';
 import {
-  logOutUser as logOutUserAction, setUserAgent as setUserAgentAction,
+  logOutUser as logOutUserAction,
+  setUserAgent as setUserAgentAction,
 } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
-import { maximumSetTimeoutDelay } from 'core/constants';
+import { VIEW_CONTEXT_HOMEPAGE, maximumSetTimeoutDelay } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
@@ -47,10 +49,9 @@ type AppProps = {
   authToken?: string,
   authTokenValidFor?: number,
   children: any,
-  clientApp: string,
   handleGlobalEvent: () => void,
   i18n: Object,
-  lang: string,
+  isHomePage: boolean,
   location: ReactRouterLocation,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
@@ -187,14 +188,11 @@ export class AppBase extends React.Component {
       HeaderComponent,
       InfoDialogComponent,
       children,
-      clientApp,
       i18n,
-      lang,
+      isHomePage,
       location,
     } = this.props;
 
-    const isHomePage = Boolean(location.pathname && location.pathname.match(
-      new RegExp(`^\\/${lang}\\/${clientApp}\\/?$`)));
     const query = location.query ? location.query.q : null;
     return (
       <div className="amo">
@@ -220,10 +218,12 @@ export class AppBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state: { api: ApiStateType }) => ({
+export const mapStateToProps = (state: {
+  api: ApiStateType,
+  viewContext: ViewContextType,
+}) => ({
   authToken: state.api && state.api.token,
-  clientApp: state.api.clientApp,
-  lang: state.api.lang,
+  isHomePage: state.viewContext.context === VIEW_CONTEXT_HOMEPAGE,
   userAgent: state.api.userAgent,
 });
 

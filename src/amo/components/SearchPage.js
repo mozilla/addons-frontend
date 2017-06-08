@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { setCurrentView } from 'amo/actions/currentView';
+import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
+import { VIEW_CONTEXT_EXPLORE } from 'core/constants';
 import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -37,7 +38,11 @@ export default class SearchPage extends React.Component {
     const { dispatch, filters } = this.props;
 
     const { addonType } = filters;
-    dispatch(setCurrentView({ addonType, isExploring: !addonType }));
+    if (addonType) {
+      dispatch(setViewContext(addonType));
+    } else {
+      dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
+    }
   }
 
   render() {

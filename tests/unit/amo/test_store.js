@@ -8,7 +8,6 @@ describe('amo createStore', () => {
       'api',
       'auth',
       'categories',
-      'currentView',
       'errorPage',
       'errors',
       'featured',
@@ -19,6 +18,7 @@ describe('amo createStore', () => {
       'reduxAsyncConnect',
       'reviews',
       'search',
+      'viewContext',
     ]);
   });
 

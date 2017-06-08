@@ -84,6 +84,10 @@ export const TRACKING_TYPE_EXTENSION = 'addon';
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
+// View Contexts that aren't an addonType
+export const VIEW_CONTEXT_EXPLORE = 'VIEW_CONTEXT_EXPLORE';
+export const VIEW_CONTEXT_HOMEPAGE = 'VIEW_CONTEXT_HOMEPAGE';
+
 // Add-on Search Sort Values
 export const SEARCH_SORT_POPULAR = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
@@ -93,7 +97,6 @@ export const CATEGORIES_FETCH = 'CATEGORIES_FETCH';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CATEGORIES_FAIL = 'CATEGORIES_FAIL';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
-export const CURRENT_VIEW_SET = 'CURRENT_VIEW_SET';
 export const ENTITIES_LOADED = 'ENTITIES_LOADED';
 export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';
@@ -109,6 +112,7 @@ export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_LANG = 'SET_LANG';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
+export const VIEW_CONTEXT_SET = 'VIEW_CONTEXT_SET';
 
 // InfoDialog action types.
 export const CLOSE_INFO = 'CLOSE_INFO';

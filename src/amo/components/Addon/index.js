@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { setCurrentView } from 'amo/actions/currentView';
+import { setViewContext } from 'amo/actions/viewContext';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
@@ -74,7 +74,7 @@ export class AddonBase extends React.Component {
   componentWillMount() {
     const { addon, dispatch } = this.props;
 
-    dispatch(setCurrentView({ addonType: addon.type }));
+    dispatch(setViewContext(addon.type));
   }
 
   componentWillUnmount() {

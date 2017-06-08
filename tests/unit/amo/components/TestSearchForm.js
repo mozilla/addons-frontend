@@ -1,7 +1,7 @@
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
-import { setCurrentView } from 'amo/actions/currentView';
+import { setViewContext } from 'amo/actions/viewContext';
 import {
   SearchFormBase,
   mapDispatchToProps,
@@ -10,7 +10,11 @@ import {
 import createStore from 'amo/store';
 import * as actions from 'core/actions';
 import * as coreApi from 'core/api';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  VIEW_CONTEXT_HOMEPAGE,
+} from 'core/constants';
 import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
 
 
@@ -142,14 +146,34 @@ describe('SearchForm mapStateToProps', () => {
     store.dispatch(actions.setAuthToken(userAuthToken()));
     store.dispatch(actions.setClientApp('firefox'));
     store.dispatch(actions.setLang('de'));
-    store.dispatch(setCurrentView({ addonType: 'cool' }));
 
     const state = store.getState();
 
-    expect(mapStateToProps(state)).toEqual({
-      addonType: state.currentView.addonType,
-      api: state.api,
-    });
+    expect(mapStateToProps(state).api).toEqual(state.api);
+  });
+
+  it('passes the context through', () => {
+    const { store } = createStore();
+    store.dispatch(actions.setAuthToken(userAuthToken()));
+    store.dispatch(actions.setClientApp('firefox'));
+    store.dispatch(actions.setLang('de'));
+    store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
+
+    const state = store.getState();
+
+    expect(mapStateToProps(state).addonType).toEqual(ADDON_TYPE_EXTENSION);
+  });
+
+  it('does not set addonType if context is not a validAddonType', () => {
+    const { store } = createStore();
+    store.dispatch(actions.setAuthToken(userAuthToken()));
+    store.dispatch(actions.setClientApp('firefox'));
+    store.dispatch(actions.setLang('de'));
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
+
+    const state = store.getState();
+
+    expect(mapStateToProps(state).addonType).toEqual(null);
   });
 });
 

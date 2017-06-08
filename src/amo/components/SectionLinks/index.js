@@ -4,8 +4,14 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import Link from 'amo/components/Link';
-import type { currentViewTypes } from 'amo/reducers/currentView';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import type { ViewContextType } from 'amo/reducers/viewContext';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  VIEW_CONTEXT_EXPLORE,
+  VIEW_CONTEXT_HOMEPAGE,
+  validAddonTypes,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import type { AddonTypeType } from 'core/types/addons';
 import { visibleAddonType } from 'core/utils';
@@ -59,10 +65,14 @@ export class SectionLinksBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state: { currentView: currentViewTypes }) {
+export function mapStateToProps(state: { viewContext: ViewContextType }) {
   return {
-    addonType: state.currentView.addonType,
-    isExploring: state.currentView.isExploring,
+    addonType: validAddonTypes.includes(state.viewContext.context) ?
+      state.viewContext.context : null,
+    isExploring: [
+      VIEW_CONTEXT_EXPLORE,
+      VIEW_CONTEXT_HOMEPAGE,
+    ].includes(state.viewContext.context),
   };
 }
 

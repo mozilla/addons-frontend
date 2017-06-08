@@ -4,7 +4,9 @@ import React from 'react';
 import SearchPage from 'amo/components/SearchPage';
 import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
+import { setViewContext } from 'amo/actions/viewContext';
 import Paginate from 'core/components/Paginate';
+import { ADDON_TYPE_EXTENSION, VIEW_CONTEXT_EXPLORE } from 'core/constants';
 
 
 describe('<SearchPage />', () => {
@@ -93,5 +95,23 @@ describe('<SearchPage />', () => {
     const searchSort = root.find(SearchSort);
 
     expect(searchSort.length).toEqual(0);
+  });
+
+  it('sets the viewContext to the addonType if addonType exists', () => {
+    const fakeDispatch = sinon.stub();
+    const filters = { addonType: ADDON_TYPE_EXTENSION, query: 'test' };
+    const root = render({ count: 0, dispatch: fakeDispatch, filters });
+    expect(
+      fakeDispatch.calledWith(setViewContext(ADDON_TYPE_EXTENSION))
+    ).toBe(true);
+  });
+
+  it('sets the viewContext to exploring if no addonType found', () => {
+    const fakeDispatch = sinon.stub();
+    const filters = { query: 'test' };
+    const root = render({ count: 0, dispatch: fakeDispatch, filters });
+    expect(
+      fakeDispatch.calledWith(setViewContext(VIEW_CONTEXT_EXPLORE))
+    ).toBe(true);
   });
 });
