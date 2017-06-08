@@ -558,17 +558,18 @@ describe('mapStateToProps', () => {
     expect(installStatus).toEqual(UNKNOWN);
   });
 
-  it('sets random addon object properties', () => {
+  it('must convert all addon props to component props', () => {
     signIn();
     const description = 'whatever';
     fetchAddon({ addon: { ...fakeAddon, description } });
     const props = _mapStateToProps();
 
-    // Make sure that top-level addon props get passed along.
+    // Make sure a random addon prop gets passed as a component prop
+    // so that the withInstallHelpers HOC works.
     expect(props.description).toEqual(description);
   });
 
-  it('sets random install object properties', () => {
+  it('must convert all installed addon props to component props', () => {
     signIn();
     fetchAddon();
     store.dispatch(setInstallState({
@@ -576,7 +577,8 @@ describe('mapStateToProps', () => {
     }));
     const { needsRestart } = _mapStateToProps();
 
-    // Make sure that installedAddon.needsRestart got set as a property.
+    // Make sure a random installedAddon prop gets passed as a component prop
+    // so that the withInstallHelpers HOC works.
     expect(needsRestart).toEqual(false);
   });
 });

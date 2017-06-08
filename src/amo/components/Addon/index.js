@@ -257,6 +257,8 @@ export function mapStateToProps(state, ownProps) {
 
   return {
     addon,
+    // TODO: fix the spreads in https://github.com/mozilla/addons-frontend/issues/1416
+    //
     // These spreads obscure a lot of hidden properties but they
     // cannot be deleted until core/reducers/addons, core/installAddon,
     // and maybe others get fixed up, who knows.
