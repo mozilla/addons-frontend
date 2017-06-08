@@ -66,11 +66,11 @@ Do not choose the artifact build because unfortunately you have to compile c++ c
 It will prompt you to install some dependencies. Re-run it until you have
 everything installed and configured.
 
-You then need to check out a clone of [mozilla-central]().
+After you have everything, the bootstrap script prompts you to
+check out a clone of [mozilla-central](https://hg.mozilla.org/mozilla-central/).
 
 Change into the source directory and apply this patch to allow a local server
-at a URL like `localhost:3000` (notice that the port does not need to be
-defined):
+at a URL like `localhost:3000`.
 
 ```diff
 diff --git a/toolkit/mozapps/extensions/AddonManager.jsm b/toolkit/mozapps/extensions/AddonManager.jsm
@@ -140,11 +140,11 @@ diff --git a/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp b/toolkit/mozapps
 
 This patch will:
 1. allow you to use an HTTP connection
-2. grant access to `mozAddonManager` for any URL at `localhost` (on any port).
+2. allow any page at `localhost` (on any port) to access `mozAddonManager`.
 
-With this patch, you can build Firefox. Once again, make sure you aren't
-configured for an artifact build since that won't work (you'll need to build c++
-code). Build it!
+With this patch applied, you are ready to build Firefox. Once again, make sure
+you aren't configured for an artifact build since that won't work
+(you'll need to build c++ code). Build it!
 
 ```
 ./mach build
@@ -158,7 +158,7 @@ Here's how to run it with a named profile so you don't lose your settings:
 ```
 
 When Firefox starts up, go to `about:config` to make sure the development
-setting is set to `true`:
+preference is set to `true`:
 
 ```
 extensions.webapi.testing
@@ -166,4 +166,8 @@ extensions.webapi.testing
 
 If you go to an add-on detail page on `localhost:3000` with the proper Firefox
 for Android user agent string (as explained above) then you should see a
-fancy installation switch.
+fancy installation switch. It worked!
+
+If it doesn't work, you may need to add some logging and re-build Firefox.
+Try setting `extensions.logging.enabled` to `true` in `about:config` to see
+logging output for the `AddonManager.jsm` code.
