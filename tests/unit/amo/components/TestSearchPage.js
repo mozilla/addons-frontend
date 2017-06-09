@@ -103,9 +103,8 @@ describe('<SearchPage />', () => {
 
     render({ count: 0, dispatch: fakeDispatch, filters });
 
-    expect(
-      fakeDispatch.calledWith(setViewContext(ADDON_TYPE_EXTENSION))
-    ).toBe(true);
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
   });
 
   it('sets the viewContext to exploring if no addonType found', () => {
@@ -114,8 +113,7 @@ describe('<SearchPage />', () => {
 
     render({ count: 0, dispatch: fakeDispatch, filters });
 
-    expect(
-      fakeDispatch.calledWith(setViewContext(VIEW_CONTEXT_EXPLORE))
-    ).toBe(true);
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 });

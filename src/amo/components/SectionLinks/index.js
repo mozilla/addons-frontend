@@ -9,27 +9,29 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   VIEW_CONTEXT_EXPLORE,
-  VIEW_CONTEXT_HOMEPAGE,
+  VIEW_CONTEXT_HOME,
   validAddonTypes,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
-import type { AddonTypeType } from 'core/types/addons';
 import { visibleAddonType } from 'core/utils';
 
 import './styles.scss';
 
 
 type SectionLinksProps = {
-  addonType: AddonTypeType,
-  isExploring: boolean,
   i18n: Object,
+  viewContext: ViewContextType,
 }
 
 export class SectionLinksBase extends React.Component {
   props: SectionLinksProps;
 
   render() {
-    const { addonType, i18n, isExploring } = this.props;
+    const { i18n, viewContext } = this.props;
+    const addonType = validAddonTypes.includes(viewContext) ?
+      viewContext : null;
+    const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME]
+      .includes(viewContext);
 
     return (
       <ul className="SectionLinks">
@@ -66,14 +68,7 @@ export class SectionLinksBase extends React.Component {
 }
 
 export function mapStateToProps(state: { viewContext: ViewContextType }) {
-  return {
-    addonType: validAddonTypes.includes(state.viewContext.context) ?
-      state.viewContext.context : null,
-    isExploring: [
-      VIEW_CONTEXT_EXPLORE,
-      VIEW_CONTEXT_HOMEPAGE,
-    ].includes(state.viewContext.context),
-  };
+  return { viewContext: state.viewContext.context };
 }
 
 export default compose(

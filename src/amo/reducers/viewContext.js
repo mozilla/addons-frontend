@@ -3,14 +3,14 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   VIEW_CONTEXT_EXPLORE,
-  VIEW_CONTEXT_HOMEPAGE,
-  VIEW_CONTEXT_SET,
+  VIEW_CONTEXT_HOME,
+  SET_VIEW_CONTEXT,
 } from 'core/constants';
 
 
 export type ViewContextType = {|
   context: ADDON_TYPE_EXTENSION | ADDON_TYPE_THEME | VIEW_CONTEXT_EXPLORE |
-    VIEW_CONTEXT_HOMEPAGE,
+    VIEW_CONTEXT_HOME,
 |}
 
 export type ViewContextActionType = {|
@@ -23,10 +23,9 @@ export const initialState = { context: VIEW_CONTEXT_EXPLORE };
 export default function viewContext(
   state : ViewContextType = initialState, action : ViewContextActionType
 ) {
-  const { payload } = action;
   switch (action.type) {
-    case VIEW_CONTEXT_SET:
-      return { ...state, context: payload.context };
+    case SET_VIEW_CONTEXT:
+      return { ...state, context: action.payload.context };
     default:
       return state;
   }

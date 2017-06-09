@@ -6,7 +6,7 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
-import { VIEW_CONTEXT_HOMEPAGE } from 'core/constants';
+import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 
 import 'amo/css/Home.scss';
@@ -38,7 +38,7 @@ export class HomeBase extends React.Component {
   componentWillMount() {
     const { dispatch } = this.props;
 
-    dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
+    dispatch(setViewContext(VIEW_CONTEXT_HOME));
   }
 
   render() {

@@ -88,9 +88,7 @@ describe('Addon', () => {
     const fakeDispatch = sinon.stub();
     render({ dispatch: fakeDispatch });
 
-    expect(
-      fakeDispatch.calledWith(setViewContext(fakeAddon.type))
-    ).toBeTruthy();
+    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
   });
 
   it('renders a name', () => {

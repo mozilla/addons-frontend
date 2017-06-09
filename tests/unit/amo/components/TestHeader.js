@@ -10,7 +10,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import createStore from 'amo/store';
 import { HeaderBase, mapStateToProps } from 'amo/components/Header';
 import { setClientApp, setLang } from 'core/actions';
-import { VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOMEPAGE } from 'core/constants';
+import { VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
@@ -68,7 +68,7 @@ describe('Header', () => {
       store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
       expect(mapStateToProps(store.getState())).toEqual({ isHomePage: false });
 
-      store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
+      store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
       expect(mapStateToProps(store.getState())).toEqual({ isHomePage: true });
     });
   });

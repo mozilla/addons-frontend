@@ -86,7 +86,7 @@ export const TRACKING_TYPE_INVALID = 'invalid';
 
 // View Contexts that aren't an addonType
 export const VIEW_CONTEXT_EXPLORE = 'VIEW_CONTEXT_EXPLORE';
-export const VIEW_CONTEXT_HOMEPAGE = 'VIEW_CONTEXT_HOMEPAGE';
+export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
 
 // Add-on Search Sort Values
 export const SEARCH_SORT_POPULAR = 'hotness';
@@ -112,7 +112,7 @@ export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_LANG = 'SET_LANG';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
-export const VIEW_CONTEXT_SET = 'VIEW_CONTEXT_SET';
+export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 
 // InfoDialog action types.
 export const CLOSE_INFO = 'CLOSE_INFO';

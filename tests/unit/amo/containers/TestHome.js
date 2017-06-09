@@ -14,11 +14,10 @@ import { getFakeI18nInst } from 'tests/unit/helpers';
 describe('Home', () => {
   it('renders a heading', () => {
     const { store } = dispatchSignInActions();
-    const fakeDispatch = sinon.stub();
 
     const root = findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <HomeBase dispatch={fakeDispatch} i18n={getFakeI18nInst()} />
+        <HomeBase dispatch={store.dispatch} i18n={getFakeI18nInst()} />
       </Provider>
     ), HomeBase);
     const rootNode = findDOMNode(root);

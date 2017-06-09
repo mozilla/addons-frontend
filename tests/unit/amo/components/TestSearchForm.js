@@ -12,7 +12,7 @@ import * as coreApi from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  VIEW_CONTEXT_HOMEPAGE,
+  VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
@@ -85,10 +85,10 @@ describe('<SearchForm />', () => {
   });
 
   it('changes the URL on submit', () => {
-    expect(!router.push.called).toBeTruthy();
+    sinon.assert.notCalled(router.push);
     input.value = 'adblock';
     Simulate.submit(form);
-    expect(router.push.called).toBeTruthy();
+    sinon.assert.called(router.push);
   });
 
   it('blurs the form on submit', () => {
@@ -96,21 +96,21 @@ describe('<SearchForm />', () => {
     expect(!blurSpy.called).toBeTruthy();
     input.value = 'something';
     Simulate.submit(form);
-    expect(blurSpy.called).toBeTruthy();
+    sinon.assert.called(blurSpy);
   });
 
   it('does nothing on non-Enter keydowns', () => {
-    expect(!router.push.called).toBeTruthy();
+    sinon.assert.notCalled(router.push);
     input.value = 'adblock';
     Simulate.keyDown(input, { key: 'A', shiftKey: true });
-    expect(!router.push.called).toBeTruthy();
+    sinon.assert.notCalled(router.push);
   });
 
   it('updates the location on form submit', () => {
-    expect(!router.push.called).toBeTruthy();
+    sinon.assert.notCalled(router.push);
     input.value = 'adblock';
     Simulate.click(root.submitButton);
-    expect(router.push.called).toBeTruthy();
+    sinon.assert.called(router.push);
   });
 
   it('passes addonType when set', () => {
@@ -120,30 +120,29 @@ describe('<SearchForm />', () => {
     form = root.form;
     input = root.searchQuery.input;
 
-    expect(!router.push.called).toBeTruthy();
+    sinon.assert.notCalled(router.push);
     input.value = '& 26 %';
     Simulate.click(root.submitButton);
-    expect(router.push.calledWith({
+    sinon.assert.calledWith(router.push, {
       pathname: '/de/firefox/search/',
       query: { q: '& 26 %', type: ADDON_TYPE_EXTENSION },
-    })).toBeTruthy();
+    });
   });
 
   it('encodes the value of the search text', () => {
-    expect(!router.push.called).toBeTruthy();
+    sinon.assert.notCalled(router.push);
     input.value = '& 26 %';
     Simulate.click(root.submitButton);
-    expect(router.push.calledWith({
+    sinon.assert.calledWith(router.push, {
       pathname: '/de/firefox/search/',
       query: { q: '& 26 %', type: undefined },
-    })).toBeTruthy();
+    });
   });
 });
 
 describe('SearchForm mapStateToProps', () => {
   it('passes the api through', () => {
     const { store } = dispatchSignInActions();
-    store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
 
     const state = store.getState();
 
@@ -152,7 +151,6 @@ describe('SearchForm mapStateToProps', () => {
 
   it('passes the context through', () => {
     const { store } = dispatchSignInActions();
-    store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
     store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
 
     const state = store.getState();
@@ -162,7 +160,7 @@ describe('SearchForm mapStateToProps', () => {
 
   it('does not set addonType if context is not a validAddonType', () => {
     const { store } = dispatchSignInActions();
-    store.dispatch(setViewContext(VIEW_CONTEXT_HOMEPAGE));
+    store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
     const state = store.getState();
 
@@ -193,7 +191,7 @@ describe('SearchForm loadAddon', () => {
     const { loadAddon } = mapDispatchToProps(dispatch);
     return loadAddon({ api, query: slug })
       .then(() => {
-        expect(dispatch.calledWith(action)).toBeTruthy();
+        sinon.assert.calledWith(dispatch, action);
         mockApi.verify();
         mockActions.verify();
       });

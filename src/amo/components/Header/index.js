@@ -6,7 +6,7 @@ import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
 import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import { VIEW_CONTEXT_HOMEPAGE } from 'core/constants';
+import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
@@ -78,7 +78,7 @@ export class HeaderBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  return { isHomePage: state.viewContext.context === VIEW_CONTEXT_HOMEPAGE };
+  return { isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME };
 }
 
 export default compose(

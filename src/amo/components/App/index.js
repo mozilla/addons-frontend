@@ -21,7 +21,7 @@ import {
   setUserAgent as setUserAgentAction,
 } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
-import { VIEW_CONTEXT_HOMEPAGE, maximumSetTimeoutDelay } from 'core/constants';
+import { VIEW_CONTEXT_HOME, maximumSetTimeoutDelay } from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
@@ -223,7 +223,7 @@ export const mapStateToProps = (state: {
   viewContext: ViewContextType,
 }) => ({
   authToken: state.api && state.api.token,
-  isHomePage: state.viewContext.context === VIEW_CONTEXT_HOMEPAGE,
+  isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
   userAgent: state.api.userAgent,
 });
 

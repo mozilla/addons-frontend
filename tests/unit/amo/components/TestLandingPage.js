@@ -193,14 +193,14 @@ describe('<LandingPage />', () => {
     expect(() => {
       render({
         apiAddonType: () => { throw new Error('Ice cream'); },
-        params: { visibleAddonType: 'does not matter' },
+        params: { visibleAddonType: ADDON_TYPE_EXTENSION },
       });
     }).toThrowError('Ice cream');
 
     expect(() => {
       render({
         contentForType: () => { throw new Error('Cake!'); },
-        params: { visibleAddonType: 'does not matter' },
+        params: { visibleAddonType: ADDON_TYPE_EXTENSION },
       });
     }).toThrowError('Cake!');
   });
