@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-08 14:01+0000\n"
-"PO-Revision-Date: 2017-06-07 10:31+0000\n"
+"PO-Revision-Date: 2017-06-09 07:17+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -49,12 +49,8 @@ msgid "Cancel preview"
 msgstr "Отказ"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"За да инсталирате добавки трябва първо да <a href=\"%(downloadUrl)s"
-"\">изтеглите Firefox</a>."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "За да инсталирате добавки трябва първо да <a href=\"%(downloadUrl)s\">изтеглите Firefox</a>."
 
 #: src/amo/components/AddonCompatibilityError/index.js:59
 msgid "Your version of Firefox does not support search plugins."
@@ -65,20 +61,12 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox за iOS за момента не поддържа добавки."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Тази добавка изисква <a href=\"%(downloadUrl)s\">нова версия на Firefox</a> "
-"(най-малко версия %(minVersion)s). В използвате версия %(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Тази добавка изисква <a href=\"%(downloadUrl)s\">нова версия на Firefox</a> (най-малко версия %(minVersion)s). В използвате версия %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Вашият четец не поддържа добавки. За да инсталирате тази добавка може да <a "
-"href=\"%(downloadUrl)s\">изтеглите Firefox</a>."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Вашият четец не поддържа добавки. За да инсталирате тази добавка може да <a href=\"%(downloadUrl)s\">изтеглите Firefox</a>."
 
 #: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
@@ -161,8 +149,7 @@ msgid "Tell the world about this extension."
 msgstr "Разкажете на света за това разширение."
 
 #: src/amo/components/AddonReview.js:153
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
+msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr "Разкажете ни за своя опит с това разширение. Бъдете кратки и ясни."
 
 #: src/amo/components/AddonReview.js:161
@@ -214,75 +201,44 @@ msgid "Loading categories."
 msgstr "Зареждане на категории."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
-msgstr ""
-"Ако сте вписани и смятате, че това съобщение е грешка, моля, <a href="
-"\"%(url)s\">докладвайте за дефект</a>. Разкажете ни от къде дойдохте и какво "
-"опитвахте да отворите и ние ще оправим проблема."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr "Ако сте вписани и смятате, че това съобщение е грешка, моля, <a href=\"%(url)s\">докладвайте за дефект</a>. Разкажете ни от къде дойдохте и какво опитвахте да отворите и ние ще оправим проблема."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr "Неупълномощени"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Съжаляваме, но нямате права за достъп до тази страница. Ако не сте вписани "
-"се впишете от препратката горе на страницата."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Съжаляваме, но нямате права за достъп до тази страница. Ако не сте вписани се впишете от препратката горе на страницата."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Ако сте последвали препратка от някъде, моля, <a href=\"%(url)s"
-"\">докладвайте дефект</a>. Опишете ни от къде сте дошли и какво търсите и "
-"ние ще направим всичко възможно да отстраним проблема."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Ако сте последвали препратка от някъде, моля, <a href=\"%(url)s\">докладвайте дефект</a>. Опишете ни от къде сте дошли и какво търсите и ние ще направим всичко възможно да отстраним проблема."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Страницата не е намерена"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Съжаляваме, но не намираме нищо на този адрес. Ако сте последвали препратка "
-"към добавка е възможно тя да вече е премахната от автора ѝ."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Съжаляваме, но не намираме нищо на този адрес. Ако сте последвали препратка към добавка е възможно тя да вече е премахната от автора ѝ."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Ако разполагате с допълнителна информация, която би ни била от полза <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">докладвайте за "
-"дефект</a>. Опишете ни стъпките, които ви доведоха до грешката и ние ще "
-"направим всичко възможно да отстраним проблема."
+"Ако разполагате с допълнителна информация, която би ни била от полза <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">докладвайте за дефект</a>. Опишете ни стъпките, които ви "
+"доведоха до грешката и ние ще направим всичко възможно да отстраним проблема."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Грешка на сървъра"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:34
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Съжаляваме, но възникна грешка на сървъра и не завършихме вашата заявка. "
-"Грешката е записана при нас и ще я проверим."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Съжаляваме, но възникна грешка на сървъра и не завършихме вашата заявка. Грешката е записана при нас и ще я проверим."
 
 #: src/amo/components/FeaturedAddons/index.js:33
 msgid "More Featured Extensions"
@@ -314,7 +270,7 @@ msgstr "Добавки за Firefox"
 
 #: src/amo/components/Header/index.js:57
 msgid "Developer Hub"
-msgstr ""
+msgstr "Център за разработчици"
 
 #: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
 msgid "Themes"
@@ -325,20 +281,12 @@ msgid "Extensions"
 msgstr "Разширения"
 
 #: src/amo/components/LandingPage.js:120
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Променете облика на своя четец. Изберете от хилядите теми, за да направите "
-"Firefox по свой вкус."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Променете облика на своя четец. Изберете от хилядите теми, за да направите Firefox по свой вкус."
 
 #: src/amo/components/LandingPage.js:122
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Инсталирайте мощни инструменти в помощ на по-бързото и безопасно "
-"разглеждане, добавките правят четеца изцяло ваш."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Инсталирайте мощни инструменти в помощ на по-бързото и безопасно разглеждане, добавките правят четеца изцяло ваш."
 
 #: src/amo/components/LandingPage.js:147
 msgid "Browse by category"
@@ -489,12 +437,8 @@ msgid "Add-ons Home Page"
 msgstr "Сайт на добавката"
 
 #: src/amo/containers/Home.js:40
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
-msgstr ""
-"Разширенията са специални възможности, които може да добавяте към Firefox. С "
-"помощта на темите пък променяте облика на вашия четец."
+msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+msgstr "Разширенията са специални възможности, които може да добавяте към Firefox. С помощта на темите пък променяте облика на вашия четец."
 
 #: src/amo/containers/Home.js:53
 msgid "You can change how Firefox works…"
@@ -561,15 +505,10 @@ msgid "Log in/Sign up"
 msgstr "Вход/Регистрация"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Съжаляваме, но възникна грешка и не завършихме вашата заявка. Грешката е "
-"записана при нас и ще я проверим."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Съжаляваме, но възникна грешка и не завършихме вашата заявка. Грешката е записана при нас и ще я проверим."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Код на грешката: %(status)s."
 
@@ -577,8 +516,7 @@ msgstr "Код на грешката: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Съжаляваме, но на въведения от вас адрес не намираме нищо."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Добавяне към Firefox"
 
