@@ -3,7 +3,6 @@ import config from 'config';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
 import React from 'react';
-import { createRenderer } from 'react-addons-test-utils';
 import UAParser from 'ua-parser-js';
 
 import { getDjangoBase62 } from 'amo/utils';
@@ -38,22 +37,6 @@ export function userAuthToken(
   const sig = base64url.encode('pretend-this-is-a-signature');
 
   return `${encodedToken}:${timestamp}:${sig}`;
-}
-
-export function shallowRender(stuff) {
-  const renderer = createRenderer();
-  renderer.render(stuff);
-  return renderer.getRenderOutput();
-}
-
-export function findAllByTag(root, tag) {
-  return root.props.children.filter((child) => child.type === tag);
-}
-
-export function findByTag(root, tag) {
-  const matches = findAllByTag(root, tag);
-  expect(matches.length).toEqual(1);
-  return matches[0];
 }
 
 const enabledExtension = Promise.resolve({

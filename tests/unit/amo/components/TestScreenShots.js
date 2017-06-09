@@ -1,9 +1,9 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
 import ScreenShots, { thumbnailContent } from 'amo/components/ScreenShots';
-import { shallowRender } from 'tests/unit/helpers';
 
 describe('<ScreenShots />', () => {
   const previews = [
@@ -36,26 +36,30 @@ describe('<ScreenShots />', () => {
         w: 320,
       },
     ];
-    const root = shallowRender(<ScreenShots previews={previews} />);
-    const gallery = root.props.children.props.children;
-    expect(gallery.type).toEqual(PhotoSwipeGallery);
-    expect(gallery.props.items).toEqual(items);
-    expect(gallery.props.thumbnailContent).toEqual(thumbnailContent);
+    const root = shallow(<ScreenShots previews={previews} />);
+    const gallery = root.children().children();
+
+    expect(gallery.type()).toEqual(PhotoSwipeGallery);
+    expect(gallery.prop('items')).toEqual(items);
+    expect(gallery.prop('thumbnailContent')).toEqual(thumbnailContent);
   });
 
   it('renders custom thumbnail', () => {
     const item = { src: 'https://foo.com/img.png' };
-    const thumbnail = thumbnailContent(item);
-    expect(thumbnail.type).toEqual('img');
-    expect(thumbnail.props.src).toEqual('https://foo.com/img.png');
-    expect(thumbnail.props.height).toEqual(200);
-    expect(thumbnail.props.width).toEqual(320);
-    expect(thumbnail.props.alt).toEqual('');
+    const thumbnail = shallow(thumbnailContent(item));
+
+    expect(thumbnail.type()).toEqual('img');
+    expect(thumbnail.prop('src')).toEqual('https://foo.com/img.png');
+    expect(thumbnail.prop('height')).toEqual(200);
+    expect(thumbnail.prop('width')).toEqual(320);
+    expect(thumbnail.prop('alt')).toEqual('');
   });
 
   it('scrolls to the active item on close', () => {
     const onePixelImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
-    const newPreviews = previews.map((preview) => ({ ...preview, image_url: onePixelImage }));
+    const newPreviews = previews.map((preview) => (
+      { ...preview, image_url: onePixelImage }
+    ));
     const root = renderIntoDocument(<ScreenShots previews={newPreviews} />);
     const item = { getBoundingClientRect: () => ({ x: 500 }) };
     const list = {
