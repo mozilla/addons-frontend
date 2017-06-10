@@ -28,8 +28,6 @@ export class SectionLinksBase extends React.Component {
 
   render() {
     const { i18n, viewContext } = this.props;
-    const addonType = validAddonTypes.includes(viewContext) ?
-      viewContext : null;
     const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME]
       .includes(viewContext);
 
@@ -45,7 +43,7 @@ export class SectionLinksBase extends React.Component {
         <li>
           <Link
             className={classNames('SectionLinks-link', {
-              'SectionLinks-link--active': addonType === ADDON_TYPE_EXTENSION,
+              'SectionLinks-link--active': viewContext === ADDON_TYPE_EXTENSION,
             })}
             to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}
           >
@@ -55,7 +53,7 @@ export class SectionLinksBase extends React.Component {
         <li>
           <Link
             className={classNames('SectionLinks-link', {
-              'SectionLinks-link--active': addonType === ADDON_TYPE_THEME,
+              'SectionLinks-link--active': viewContext === ADDON_TYPE_THEME,
             })}
             to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
           >
