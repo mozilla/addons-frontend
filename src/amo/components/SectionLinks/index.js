@@ -10,7 +10,6 @@ import {
   ADDON_TYPE_THEME,
   VIEW_CONTEXT_EXPLORE,
   VIEW_CONTEXT_HOME,
-  validAddonTypes,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
