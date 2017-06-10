@@ -328,6 +328,16 @@ $default-arrow-margin: 3px;
   }
 }
 
+@mixin padding-start($val) {
+  [dir=ltr] & {
+    padding-left: $val;
+  }
+
+  [dir=rtl] & {
+    padding-right: $val;
+  }
+}
+
 @mixin padding-end($val) {
   [dir=ltr] & {
     padding-right: $val;
@@ -340,6 +350,6 @@ $default-arrow-margin: 3px;
 
 @mixin addonSection() {
   background: $base-color;
-  padding: 10px;
+  padding: 10px 20px;
   overflow: hidden;
 }

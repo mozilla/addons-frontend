@@ -2,10 +2,11 @@
 @import "~core/css/inc/lib";
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 
 html,
 body {
-  background: $masthead-color;
+  background: $footer-base-color;
   height: 100%;
 }
 
@@ -38,7 +39,7 @@ body {
 }
 
 .App-content {
-  background: $accent-color;
+  background: $background-grey;
   flex-grow: 1;
   padding: 0 0 $padding-page;
 }

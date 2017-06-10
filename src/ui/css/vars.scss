@@ -40,4 +40,14 @@ $background-gray: $background-grey;
 
 $type-black: $black;
 
-$header-accent-color: #0d96ff;
+$link-color: #0d96ff;
+
+$header-accent-color: $link-color;
+
+// Fonts
+$font-size-s: 12px;
+$font-size-search: 14px;
+$font-size-m: 18px;
+$font-size-l: 24px;
+$font-size-xl: 36px;
+$font-size-xxl: 42px;

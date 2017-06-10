@@ -121,7 +121,7 @@ export class AddonBase extends React.Component {
     }
     return (
       <div className="Addon-icon">
-        <img alt="" src={iconUrl} />
+        <img className="Addon-icon-image" alt="" src={iconUrl} />
       </div>
     );
   }
@@ -200,53 +200,64 @@ export class AddonBase extends React.Component {
     // eslint-disable react/no-danger
     return (
       <div className="Addon">
-        <header className="Addon-header">
-          {this.headerImage({ compatible })}
-          <div className="Addon-title">
-            <h1
-              dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
-              className="Addon-title-heading" />
-          </div>
-          <p className="Addon-summary"
-            dangerouslySetInnerHTML={summarySanitized} />
-        </header>
+        <Card className="" photonStyle>
+          <header className="Addon-header">
+            <section className="Addon-title-section">
+              <h1
+                className="Addon-title"
+                dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
+              />
 
-        <section className="Addon-metadata">
-          <h2 className="visually-hidden">
-            {i18n.gettext('Extension Metadata')}
-          </h2>
-          <AddonMeta addon={addon} />
-          <InstallButton
-            {...this.props}
-            className="Button--action Button--small"
-            disabled={!compatible}
-            ref={(ref) => { this.installButton = ref; }}
-            status={installStatus}
-          />
+              <p className="Addon-summary"
+                dangerouslySetInnerHTML={summarySanitized} />
+
+              <InstallButton
+                {...this.props}
+                className="Button--action Button--small"
+                disabled={!compatible}
+                ref={(ref) => { this.installButton = ref; }}
+                status={installStatus}
+              />
+            </section>
+
+            <section className="Addon-metadata">
+              {this.headerImage({ compatible })}
+
+              <h2 className="visually-hidden">
+                {i18n.gettext('Extension Metadata')}
+              </h2>
+              <AddonMeta addon={addon} />
+            </section>
+          </header>
+
           {!compatible ? (
             <AddonCompatibilityError maxVersion={maxVersion}
               minVersion={minVersion} reason={reason} />
           ) : null}
-        </section>
+        </Card>
 
-        {addon.previews.length > 0
-          ? (
-            <Card className="Addon-screenshots">
+        <div className="Addon-details">
+          {addon.previews.length > 0 ? (
+            <Card
+              className="Addon-screenshots"
+              header={i18n.gettext('Screenshots')}
+            >
               <ScreenShots previews={addon.previews} />
             </Card>
           ) : null}
 
-        <ShowMoreCard header={i18n.sprintf(
-          i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
-        )} className="AddonDescription">
-          <div className="AddonDescription-contents"
-            ref={(ref) => { this.addonDescription = ref; }}
-            dangerouslySetInnerHTML={descriptionSanitized} />
-        </ShowMoreCard>
+          <ShowMoreCard header={i18n.sprintf(
+            i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
+          )} className="AddonDescription">
+            <div className="AddonDescription-contents"
+              ref={(ref) => { this.addonDescription = ref; }}
+              dangerouslySetInnerHTML={descriptionSanitized} />
+          </ShowMoreCard>
 
-        {this.renderRatingsCard()}
+          {this.renderRatingsCard()}
 
-        <AddonMoreInfo addon={addon} />
+          <AddonMoreInfo addon={addon} />
+        </div>
       </div>
     );
     // eslint-enable react/no-danger
