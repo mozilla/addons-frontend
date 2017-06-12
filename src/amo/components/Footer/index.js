@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import LanguagePicker from 'amo/components/LanguagePicker';
@@ -14,12 +13,11 @@ export class FooterBase extends React.Component {
   static propTypes = {
     handleViewDesktop: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
   }
 
   render() {
-    const { handleViewDesktop, i18n, lang, location } = this.props;
+    const { handleViewDesktop, i18n, location } = this.props;
     const homepageText = i18n.gettext("Go to Mozilla's homepage");
 
     return (
@@ -29,19 +27,19 @@ export class FooterBase extends React.Component {
             ref={(ref) => { this.languagePicker = ref; }} />
           <ul className="Footer-links">
             <li>
-              <a href={`https://www.mozilla.org/${lang}/privacy/websites/`}
+              <a href="https://www.mozilla.org/privacy/websites/"
                 className="Footer-link Footer-privacy">
                 {i18n.gettext('Privacy policy')}
               </a>
             </li>
             <li>
-              <a href={`https://www.mozilla.org/${lang}/about/legal/`}
+              <a href="https://www.mozilla.org/about/legal/"
                 className="Footer-link Footer-legal">
                 {i18n.gettext('Legal notices')}
               </a>
             </li>
             <li>
-              <a href={'https://developer.mozilla.org/Add-ons/AMO/Policy/Contact'}
+              <a href="https://developer.mozilla.org/Add-ons/AMO/Policy/Contact"
                 className="Footer-link Footer-fileissue">
                 {i18n.gettext('Report a bug')}
               </a>
@@ -58,22 +56,20 @@ export class FooterBase extends React.Component {
 
         <a
           className="Footer-mozilla-link"
-          href={`https://mozilla.org/${lang}/`}
+          href="https://mozilla.org/"
           title={homepageText}
         >
-          <Icon className="Footer-mozilla-logo" name="mozilla" />
-          <span className="visually-hidden">{homepageText}</span>
+          <Icon
+            alt={homepageText}
+            className="Footer-mozilla-logo"
+            name="mozilla"
+          />
         </a>
       </footer>
     );
   }
 }
 
-export function mapStateToProps(state) {
-  return { lang: state.api.lang };
-}
-
 export default compose(
-  connect(mapStateToProps),
   translate({ withRef: true }),
 )(FooterBase);

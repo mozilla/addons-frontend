@@ -7,15 +7,14 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import Footer from 'amo/components/Footer';
-import createStore from 'amo/store';
-import { getFakeI18nInst } from 'tests/unit/helpers';
 import I18nProvider from 'core/i18n/Provider';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('Footer', () => {
   function renderFooter({ ...props }) {
-    const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
-    const { store } = createStore(initialState);
+    const { store } = dispatchSignInActions();
 
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
@@ -29,10 +28,14 @@ describe('Footer', () => {
   it('renders a footer', () => {
     const root = renderFooter();
 
+    // None of these links are localised because an unsupported locale will
+    // cause a 404 error.
+    // See:
+    // github.com/mozilla/addons-frontend/pull/2524#pullrequestreview-42911624
     expect(root.querySelector('.Footer-privacy').textContent).toEqual('Privacy policy');
-    expect(root.querySelector('.Footer-privacy').href).toEqual('https://www.mozilla.org/en-GB/privacy/websites/');
+    expect(root.querySelector('.Footer-privacy').href).toEqual('https://www.mozilla.org/privacy/websites/');
     expect(root.querySelector('.Footer-legal').textContent).toEqual('Legal notices');
-    expect(root.querySelector('.Footer-legal').href).toEqual('https://www.mozilla.org/en-GB/about/legal/');
+    expect(root.querySelector('.Footer-legal').href).toEqual('https://www.mozilla.org/about/legal/');
     // This link isn't localized because MDN will 404 on some
     // locales and not others.
     // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
