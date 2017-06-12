@@ -174,6 +174,7 @@ export class AddonBase extends React.Component {
       clientApp,
       getClientCompatibility,
       i18n,
+      installStatus,
       userAgentInfo,
     } = this.props;
 
@@ -219,6 +220,8 @@ export class AddonBase extends React.Component {
             {...this.props}
             className="Button--action Button--small"
             disabled={!compatible}
+            ref={(ref) => { this.installButton = ref; }}
+            status={installStatus}
           />
           {!compatible ? (
             <AddonCompatibilityError maxVersion={maxVersion}

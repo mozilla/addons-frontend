@@ -322,6 +322,18 @@ describe('Addon', () => {
     expect(rootNode.querySelector('.InstallButton-switch input').disabled).toBe(true);
   });
 
+  it('passes installStatus to installButton, not add-on status', () => {
+    const root = render({ addon: fakeAddon, installStatus: UNKNOWN });
+
+    expect(root.installButton.props.status).not.toEqual(fakeAddon.status);
+    expect(root.installButton.props.status).toEqual(UNKNOWN);
+  });
+
+  it('throws when unsupported type passed to installButton', () => {
+    expect(() => { render({ installStatus: 'public' }); })
+      .toThrow('Invalid add-on status public');
+  });
+
   it('enables a theme preview for non-enabled add-ons', () => {
     const rootNode = renderAsDOMNode({
       addon: {
