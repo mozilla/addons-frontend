@@ -21,16 +21,17 @@ Refresh the page, open the JavaScript console, and you should see a global `mozA
 
 ## Developing on Android
 
-The presence of `mozAddonManager` on Firefox for Android will activate the
-add-on installation switch. Again, you will see this on
+The presence of the `mozAddonManager` API on Firefox for Android will activate
+the add-on installation switch. Again, you will see this on
 https://addons.mozilla.org (production) but not on a development site.
 
-To activate it on a development site, first
-make sure you set the preference up above. If you're testing this on an Android
-device then the preference is enough to access `mozAddonManager`.
+To activate access to this API on a development site, first
+make sure you set the `extensions.webapi.testing` preference to `true`.
+If you're testing on an Android device then you can now
+access `mozAddonManager`.
 
-If you're testing this on desktop Firefox, you need
-to make sure your user agent looks like Firefox for Android.
+If you're testing on desktop Firefox to emulate Android (for development),
+you need to make sure your user agent looks like Firefox for Android.
 You can
 [save a custom device](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode#Saving_custom_devices)
 in
@@ -62,7 +63,7 @@ Choose:
 Firefox for Desktop
 ```
 
-Do not choose the artifact build because unfortunately you have to compile c++ code.
+Do not choose the artifact build because unfortunately you have to compile C++ code.
 It will prompt you to install some dependencies. Re-run it until you have
 everything installed and configured.
 
@@ -144,7 +145,7 @@ This patch will:
 
 With this patch applied, you are ready to build Firefox. Once again, make sure
 you aren't configured for an artifact build since that won't work
-(you'll need to build c++ code). Build it!
+(you'll need to build C++ code). Build it!
 
 ```
 ./mach build
