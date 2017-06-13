@@ -1,20 +1,20 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 
 import { CategoryPageBase, mapStateToProps } from 'amo/containers/CategoryPage';
 import createStore from 'amo/store';
 import { searchStart } from 'core/actions/search';
 import { ADDON_TYPE_THEME } from 'core/constants';
-import { shallowRender } from 'tests/unit/helpers';
 
 
 describe('CategoryPage', () => {
   function render(props = {}) {
-    return shallowRender(<CategoryPageBase {...props} />);
+    return shallow(<CategoryPageBase {...props} />);
   }
 
-  it('sets enableSearchSort to `false`', () => {
+  it('sets enableSearchSort to false', () => {
     const root = render();
-    expect(root.props.enableSearchSort).toEqual(false);
+    expect(root.prop('enableSearchSort')).toEqual(false);
   });
 });
 

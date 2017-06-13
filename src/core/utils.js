@@ -123,7 +123,9 @@ export function loadAddonIfNeeded(
   return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
 }
 
-export function isAllowedOrigin(urlString, { allowedOrigins = [config.get('amoCDN')] } = {}) {
+export function isAllowedOrigin(urlString, {
+  allowedOrigins = [config.get('amoCDN')],
+} = {}) {
   let parsedURL;
   try {
     parsedURL = url.parse(urlString);
@@ -131,6 +133,7 @@ export function isAllowedOrigin(urlString, { allowedOrigins = [config.get('amoCD
     log.error(`invalid urlString provided to isAllowedOrigin: ${urlString}`);
     return false;
   }
+
   return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
 

@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 import {
   renderIntoDocument,
@@ -18,7 +19,7 @@ import {
 import I18nProvider from 'core/i18n/Provider';
 import { visibleAddonType } from 'core/utils';
 import { fakeAddon } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowRender } from 'tests/unit/helpers';
+import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<LandingPage />', () => {
@@ -46,40 +47,40 @@ describe('<LandingPage />', () => {
   });
 
   it('sets the links in each footer for extensions', () => {
-    const root = shallowRender(
+    const root = shallow(
       <LandingPageBase i18n={getFakeI18nInst()} params={{
         visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
       }} />
     );
 
-    expect(root.props.children[1].props.footerLink).toEqual({
+    expect(root.childAt(1).prop('footerLink')).toEqual({
       pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
     });
-    expect(root.props.children[2].props.footerLink).toEqual({
+    expect(root.childAt(2).prop('footerLink')).toEqual({
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.props.children[3].props.footerLink).toEqual({
+    expect(root.childAt(3).prop('footerLink')).toEqual({
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
     });
   });
 
   it('sets the links in each footer for themes', () => {
-    const root = shallowRender(
+    const root = shallow(
       <LandingPageBase i18n={getFakeI18nInst()} params={{
         visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
       }} />
     );
 
-    expect(root.props.children[1].props.footerLink).toEqual({
+    expect(root.childAt(1).prop('footerLink')).toEqual({
       pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
     });
-    expect(root.props.children[2].props.footerLink).toEqual({
+    expect(root.childAt(2).prop('footerLink')).toEqual({
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.props.children[3].props.footerLink).toEqual({
+    expect(root.childAt(3).prop('footerLink')).toEqual({
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
     });

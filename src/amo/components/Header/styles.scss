@@ -51,9 +51,14 @@
 }
 
 .Header-developer-hub-link {
-  @include margin-end(10px);
+  display: none;
 
-  margin-top: 10px;
+  @include respond-to(large) {
+    @include margin-end(10px);
+
+    display: inline-block;
+    margin-top: 10px;
+  }
 }
 
 .Header-auth-button {

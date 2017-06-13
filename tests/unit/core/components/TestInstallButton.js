@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
@@ -13,7 +14,7 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import * as themePreview from 'core/themePreview';
-import { getFakeI18nInst, shallowRender } from 'tests/unit/helpers';
+import { getFakeI18nInst } from 'tests/unit/helpers';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
 
@@ -37,7 +38,7 @@ describe('<InstallButton />', () => {
   });
 
   const render = (props) =>
-    shallowRender(<InstallButtonBase {...renderProps(props)} />);
+    shallow(<InstallButtonBase {...renderProps(props)} />);
 
   const renderToDom = (props) => findDOMNode(
     renderIntoDocument(<InstallButtonBase {...renderProps(props)} />));
@@ -50,28 +51,35 @@ describe('<InstallButton />', () => {
       id: 'foo@personas.mozilla.org',
     };
     const root = render({ foo: 'foo', hasAddonManager: true, i18n, addon });
-    expect(root.type).toEqual('div');
-    expect(root.props.className).toEqual('InstallButton InstallButton--use-switch');
-    const switchComponent = root.props.children[0];
-    expect(switchComponent.type).toEqual(InstallSwitch);
+    expect(root.type()).toEqual('div');
+    expect(root).toHaveClassName('InstallButton');
+    expect(root).toHaveClassName('InstallButton--use-switch');
 
-    const props = switchComponent.props;
-    expect(props.addon).toEqual(addon);
-    expect(props.className).toEqual('InstallButton-switch');
-    expect(props.foo).toEqual('foo');
-    expect(props.hasAddonManager).toBe(true);
-    expect(props.i18n).toEqual(i18n);
+    const switchComponent = root.childAt(0);
+    expect(switchComponent.type()).toEqual(InstallSwitch);
+
+    expect(switchComponent).toHaveClassName('InstallButton-switch');
+    expect(switchComponent).toHaveProp('addon', addon);
+    expect(switchComponent).toHaveProp('foo', 'foo');
+    expect(switchComponent).toHaveProp('hasAddonManager', true);
+    expect(switchComponent).toHaveProp('i18n', i18n);
   });
 
   it('renders a theme button when mozAddonManager is not available', () => {
     const addon = { ...fakeAddon, type: ADDON_TYPE_THEME };
     const root = render({ hasAddonManager: false, addon });
-    expect(root.type).toEqual('div');
-    expect(root.props.className).toEqual('InstallButton InstallButton--use-button');
-    const buttonComponent = root.props.children[1];
-    expect(buttonComponent.type).toEqual(Button);
-    expect(buttonComponent.props.children).toEqual('Install Theme');
-    expect(buttonComponent.props['data-browsertheme']).toEqual(JSON.stringify(themePreview.getThemeData(addon)));
+
+    expect(root.type()).toEqual('div');
+    expect(root).toHaveClassName('InstallButton');
+    expect(root).toHaveClassName('InstallButton--use-button');
+
+    const button = root.childAt(1);
+
+    expect(button.type()).toEqual(Button);
+    expect(button.children()).toIncludeText('Install Theme');
+    expect(button).toHaveProp(
+      'data-browsertheme', JSON.stringify(themePreview.getThemeData(addon))
+    );
   });
 
   it('calls installTheme when clicked', () => {
@@ -80,14 +88,13 @@ describe('<InstallButton />', () => {
     const root = renderToDom({ addon, installTheme, status: UNKNOWN });
 
     const preventDefault = sinon.spy();
-    const buttonComponent = root.querySelector('.InstallButton-button');
-    Simulate.click(buttonComponent, { preventDefault });
+    const button = root.querySelector('.InstallButton-button');
+    Simulate.click(button, { preventDefault });
 
-    expect(preventDefault.called).toBeTruthy();
-    expect(installTheme.called).toBeTruthy();
-    expect(installTheme.firstCall.args).toEqual([
-      buttonComponent, { ...addon, status: UNKNOWN },
-    ]);
+    sinon.assert.called(preventDefault);
+    sinon.assert.called(installTheme);
+    sinon.assert.calledWith(installTheme,
+      button, { ...addon, status: UNKNOWN });
   });
 
   it('renders an add-on button when mozAddonManager is not available', () => {
@@ -101,17 +108,18 @@ describe('<InstallButton />', () => {
       hasAddonManager: false,
     });
 
-    expect(root.type).toEqual('div');
-    expect(root.props.className).toContain(
-      'InstallButton InstallButton--use-button');
-    const buttonComponent = root.props.children[1];
-    expect(buttonComponent.type).toEqual(Button);
+    expect(root.type()).toEqual('div');
+    expect(root).toHaveClassName('InstallButton');
+    expect(root).toHaveClassName('InstallButton--use-button');
 
-    const props = buttonComponent.props;
-    expect(props.children).toEqual('Add to Firefox');
-    expect(props.className).toContain('InstallButton-button');
-    expect(props.className).not.toContain('Button--small');
-    expect(props.href).toEqual(installURL);
+    const button = root.childAt(1);
+
+    expect(button.type()).toEqual(Button);
+
+    expect(button.children()).toIncludeText('Add to Firefox');
+    expect(button).toHaveClassName('InstallButton-button');
+    expect(button).not.toHaveClassName('Button--small');
+    expect(button).toHaveProp('href', installURL);
   });
 
   it('disables add-on install when client does not support addons', () => {
@@ -125,37 +133,40 @@ describe('<InstallButton />', () => {
       getClientCompatibility: getClientCompatibilityFalse,
     });
 
-    expect(root.type).toEqual('div');
-    const buttonComponent = root.props.children[1];
-    expect(buttonComponent.type).toEqual(Button);
-    expect(buttonComponent.props.className).toContain(
-      'InstallButton-button--disabled');
-    expect(buttonComponent.props.href).toBe(installURL);
+    expect(root.type()).toEqual('div');
 
-    expect(typeof buttonComponent.props.onClick).toBe('function');
+    const button = root.childAt(1);
+
+    expect(button.type()).toEqual(Button);
+    expect(button).toHaveClassName('InstallButton-button--disabled');
+    expect(button).toHaveProp('href', installURL);
+
+    const onClick = button.prop('onClick');
+
+    expect(typeof onClick).toEqual('function');
     const event = {
       preventDefault: sinon.stub(),
       stopPropagation: sinon.stub(),
     };
+
     // A return value of false will prevent the anchor tag from firing.
-    expect(buttonComponent.props.onClick(event)).toBe(false);
-    expect(event.preventDefault.called).toBeTruthy();
-    expect(event.stopPropagation.called).toBeTruthy();
+    expect(onClick(event)).toBe(false);
+    sinon.assert.called(event.preventDefault);
+    sinon.assert.called(event.stopPropagation);
   });
 
   it('disables theme install when client does not support addons', () => {
     const root = render({
-      addon: {
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      },
+      addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
       getClientCompatibility: getClientCompatibilityFalse,
     });
 
-    expect(root.type).toEqual('div');
-    const buttonComponent = root.props.children[1];
-    expect(buttonComponent.type).toEqual(Button);
-    expect(buttonComponent.props.disabled).toBe(true);
+    expect(root.type()).toEqual('div');
+
+    const button = root.childAt(1);
+
+    expect(button.type()).toEqual(Button);
+    expect(button).toHaveProp('disabled', true);
   });
 
   it('renders a button for OpenSearch regardless of mozAddonManager', () => {
@@ -167,12 +178,14 @@ describe('<InstallButton />', () => {
       },
     });
 
-    expect(root.type).toEqual('div');
-    const buttonComponent = root.props.children[1];
-    expect(buttonComponent.type).toEqual(Button);
-    expect(buttonComponent.props.className).toContain('Button--action');
-    expect(buttonComponent.props.className).toContain('InstallButton-button');
-    expect(buttonComponent.props.children).toEqual('Add to Firefox');
+    expect(root.type()).toEqual('div');
+
+    const button = root.childAt(1);
+
+    expect(button.type()).toEqual(Button);
+    expect(button).toHaveClassName('Button--action');
+    expect(button).toHaveClassName('InstallButton-button');
+    expect(button.children()).toIncludeText('Add to Firefox');
   });
 
   it('disables the OpenSearch button if not compatible', () => {
@@ -181,11 +194,13 @@ describe('<InstallButton />', () => {
       getClientCompatibility: getClientCompatibilityFalseOpenSearch,
     });
 
-    expect(root.type).toEqual('div');
-    const buttonComponent = root.props.children[1];
-    expect(buttonComponent.type).toEqual(Button);
-    expect(buttonComponent.props.className).toContain('InstallButton-button--disabled');
-    expect(buttonComponent.props.children).toEqual('Add to Firefox');
+    expect(root.type()).toEqual('div');
+
+    const button = root.childAt(1);
+
+    expect(button.type()).toEqual(Button);
+    expect(button).toHaveClassName('InstallButton-button--disabled');
+    expect(button.children()).toIncludeText('Add to Firefox');
   });
 
   it('disables install switch and uses button for OpenSearch plugins', () => {
@@ -201,7 +216,8 @@ describe('<InstallButton />', () => {
 
     Simulate.click(installButton);
 
-    expect(fakeLog.info.firstCall.args[0]).toEqual('Adding OpenSearch Provider');
-    expect(fakeWindow.external.AddSearchProvider.firstCall.args[0]).toEqual(fakeAddon.installURL);
+    sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');
+    sinon.assert.calledWith(
+      fakeWindow.external.AddSearchProvider, fakeAddon.installURL);
   });
 });

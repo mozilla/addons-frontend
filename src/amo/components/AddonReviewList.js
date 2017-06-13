@@ -7,9 +7,15 @@ import { compose } from 'redux';
 import Rating from 'ui/components/Rating';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { getReviews } from 'amo/api';
+import fallbackIcon from 'amo/img/icons/default-64.png';
 import Paginate from 'core/components/Paginate';
 import translate from 'core/i18n/translate';
-import { findAddon, loadAddonIfNeeded, safeAsyncConnect } from 'core/utils';
+import {
+  isAllowedOrigin,
+  findAddon,
+  loadAddonIfNeeded,
+  safeAsyncConnect,
+} from 'core/utils';
 import { parsePage } from 'core/searchUtils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
@@ -77,13 +83,15 @@ export class AddonReviewListBase extends React.Component {
     }
 
     const allReviews = reviews || [];
+    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
+      fallbackIcon;
 
     return (
       <div className="AddonReviewList">
         <div className="AddonReviewList-header">
           <div className="AddonReviewList-header-icon">
             <Link to={this.addonURL()}>
-              <img src={addon.icon_url} alt={i18n.gettext('Add-on icon')} />
+              <img src={iconUrl} alt={i18n.gettext('Add-on icon')} />
             </Link>
           </div>
           <div className="AddonReviewList-header-text">

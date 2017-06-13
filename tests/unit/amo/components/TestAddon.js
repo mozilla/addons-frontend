@@ -322,6 +322,18 @@ describe('Addon', () => {
     expect(rootNode.querySelector('.InstallButton-switch input').disabled).toBe(true);
   });
 
+  it('passes installStatus to installButton, not add-on status', () => {
+    const root = render({ addon: fakeAddon, installStatus: UNKNOWN });
+
+    expect(root.installButton.props.status).not.toEqual(fakeAddon.status);
+    expect(root.installButton.props.status).toEqual(UNKNOWN);
+  });
+
+  it('throws when unsupported type passed to installButton', () => {
+    expect(() => { render({ installStatus: 'public' }); })
+      .toThrow('Invalid add-on status public');
+  });
+
   it('enables a theme preview for non-enabled add-ons', () => {
     const rootNode = renderAsDOMNode({
       addon: {
@@ -556,5 +568,29 @@ describe('mapStateToProps', () => {
     const { installStatus } = _mapStateToProps();
 
     expect(installStatus).toEqual(UNKNOWN);
+  });
+
+  it('must convert all addon props to component props', () => {
+    signIn();
+    const description = 'whatever';
+    fetchAddon({ addon: { ...fakeAddon, description } });
+    const props = _mapStateToProps();
+
+    // Make sure a random addon prop gets passed as a component prop
+    // so that the withInstallHelpers HOC works.
+    expect(props.description).toEqual(description);
+  });
+
+  it('must convert all installed addon props to component props', () => {
+    signIn();
+    fetchAddon();
+    store.dispatch(setInstallState({
+      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
+    }));
+    const { needsRestart } = _mapStateToProps();
+
+    // Make sure a random installedAddon prop gets passed as a component prop
+    // so that the withInstallHelpers HOC works.
+    expect(needsRestart).toEqual(false);
   });
 });

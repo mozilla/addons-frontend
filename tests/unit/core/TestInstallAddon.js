@@ -1,4 +1,5 @@
 import config from 'config';
+import { shallow } from 'enzyme';
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 
@@ -32,9 +33,7 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import {
-  getFakeAddonManagerWrapper, shallowRender,
-} from 'tests/unit/helpers';
+import { getFakeAddonManagerWrapper } from 'tests/unit/helpers';
 import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
 
@@ -56,8 +55,8 @@ describe('withInstallHelpers', () => {
     const _makeMapDispatchToProps = sinon.spy();
     const Component = withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
     const { store } = createStore();
-    const root = shallowRender(<Component store={store} />);
-    expect(root.type).toEqual(WithInstallHelpers);
+    const root = shallow(<Component store={store} />);
+    expect(root.type()).toEqual(WithInstallHelpers);
   });
 
   it('throws without a src', () => {
