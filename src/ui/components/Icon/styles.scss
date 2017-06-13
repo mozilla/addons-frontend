@@ -33,6 +33,13 @@
   background-size: cover;
 }
 
+.Icon-mozilla {
+  background: url('./mozilla.svg') center no-repeat;
+  background-size: contain;
+  height: 32px;
+  width: 112px;
+}
+
 .Icon-user {
   background: url('./user.svg') center no-repeat;
   background-size: contain;
