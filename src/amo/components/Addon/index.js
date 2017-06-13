@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger */
+import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -107,7 +108,7 @@ export class AddonBase extends React.Component {
         >
           {installStatus !== ENABLED ? (
             <Button
-              className="Addon-theme-header-label Button--neutral"
+              className="Addon-theme-header-label Button--action"
               disabled={!compatible}
               htmlFor="Addon-theme-header"
             >
@@ -181,9 +182,10 @@ export class AddonBase extends React.Component {
     const authorList = addon.authors.map(
       (author) => `<a href="${author.url}">${author.name}</a>`);
     const description = addon.description ? addon.description : addon.summary;
-    const descriptionSanitized = sanitizeHTML(
-      nl2br(description), allowedDescriptionTags);
-    const summarySanitized = sanitizeHTML(addon.summary, ['a']);
+    // Themes lack a summary so we do the inverse :-/
+    // TODO: We should file an API bug about this...
+    const summary = addon.summary ? addon.summary : addon.description;
+
     const title = i18n.sprintf(
       // L10n: Example: The Add-On <span>by The Author</span>
       i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
@@ -199,35 +201,34 @@ export class AddonBase extends React.Component {
 
     // eslint-disable react/no-danger
     return (
-      <div className="Addon">
+      <div className={classNames('Addon', `Addon-${addon.type}`)}>
         <Card className="" photonStyle>
           <header className="Addon-header">
-            <section className="Addon-title-section">
-              <h1
-                className="Addon-title"
-                dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
-              />
+            <h1
+              className="Addon-title"
+              dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
+            />
 
-              <p className="Addon-summary"
-                dangerouslySetInnerHTML={summarySanitized} />
+            <p
+              className="Addon-summary"
+              dangerouslySetInnerHTML={sanitizeHTML(summary, ['a'])}
+            />
 
-              <InstallButton
-                {...this.props}
-                className="Button--action Button--small"
-                disabled={!compatible}
-                ref={(ref) => { this.installButton = ref; }}
-                status={installStatus}
-              />
-            </section>
+            <InstallButton
+              {...this.props}
+              className="Button--action Button--small"
+              disabled={!compatible}
+              ref={(ref) => { this.installButton = ref; }}
+              status={installStatus}
+            />
 
-            <section className="Addon-metadata">
-              {this.headerImage({ compatible })}
+            {this.headerImage({ compatible })}
 
-              <h2 className="visually-hidden">
-                {i18n.gettext('Extension Metadata')}
-              </h2>
-              <AddonMeta addon={addon} />
-            </section>
+            <h2 className="visually-hidden">
+              {i18n.gettext('Extension Metadata')}
+            </h2>
+
+            <AddonMeta addon={addon} />
           </header>
 
           {!compatible ? (
@@ -251,7 +252,10 @@ export class AddonBase extends React.Component {
           )} className="AddonDescription">
             <div className="AddonDescription-contents"
               ref={(ref) => { this.addonDescription = ref; }}
-              dangerouslySetInnerHTML={descriptionSanitized} />
+              dangerouslySetInnerHTML={
+                sanitizeHTML(nl2br(description), allowedDescriptionTags)
+              }
+            />
           </ShowMoreCard>
 
           {this.renderRatingsCard()}
