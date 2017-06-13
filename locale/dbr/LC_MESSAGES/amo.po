@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-08 14:01+0000\n"
+"POT-Creation-Date: 2017-06-13 20:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -26,25 +26,29 @@ msgstr "ʇǝʎ sʍǝıʌǝɹ oN"
 msgid "Rate your experience"
 msgstr "ǝɔuǝıɹǝdxǝ ɹnoʎ ǝʇɐᴚ"
 
-#: src/amo/components/Addon/index.js:188
+#: src/amo/components/Addon/index.js:189
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(startSpan)s%(authorList)s ʎq%(endSpan)s %(addonName)s"
 
-#: src/amo/components/Addon/index.js:215
+#: src/amo/components/Addon/index.js:227
 msgid "Extension Metadata"
 msgstr "ɐʇɐpɐʇǝW uoısuǝʇxƎ"
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:243
+msgid "Screenshots"
+msgstr "sʇoɥsuǝǝɹɔS"
+
+#: src/amo/components/Addon/index.js:250
 msgid "About this %(addonType)s"
 msgstr "%(addonType)s sıɥʇ ʇnoq∀"
 
 #: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "ʍǝıʌǝɹd oʇ dɐ⊥"
-
-#: src/amo/components/Addon/index.js:96
 msgid "Cancel preview"
 msgstr "ʍǝıʌǝɹd ʅǝɔuɐↃ"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "ʍǝıʌǝɹd oʇ dɐ⊥"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -163,25 +167,25 @@ msgstr "ʇxǝʇ ʍǝıʌǝᴚ"
 msgid "Submit review"
 msgstr "ʍǝıʌǝɹ ʇıɯqnS"
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:102
+msgid "All written reviews"
+msgstr "sʍǝıʌǝɹ uǝʇʇıɹʍ ʅʅ∀"
+
+#: src/amo/components/AddonReviewList.js:68
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(timestamp)s ´%(authorName)s ɯoɹɟ"
 
-#: src/amo/components/AddonReviewList.js:76
+#: src/amo/components/AddonReviewList.js:82
 msgid "Loading..."
 msgstr "...ƃuıpɐo⅂"
 
-#: src/amo/components/AddonReviewList.js:86
+#: src/amo/components/AddonReviewList.js:94
 msgid "Add-on icon"
 msgstr "uoɔı uo-pp∀"
 
-#: src/amo/components/AddonReviewList.js:91
+#: src/amo/components/AddonReviewList.js:99
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s ɹoɟ sʍǝıʌǝᴚ"
-
-#: src/amo/components/AddonReviewList.js:94
-msgid "All written reviews"
-msgstr "sʍǝıʌǝɹ uǝʇʇıɹʍ ʅʅ∀"
 
 #: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
@@ -245,21 +249,25 @@ msgstr "suoısuǝʇxƎ pǝɹnʇɐǝℲ ǝɹoW"
 msgid "More Featured Themes"
 msgstr "sǝɯǝɥ⊥ pǝɹnʇɐǝℲ ǝɹoW"
 
-#: src/amo/components/Footer.js:31
+#: src/amo/components/Footer/index.js:21
+msgid "Go to Mozilla's homepage"
+msgstr "ǝƃɐdǝɯoɥ s,ɐʅʅızoW oʇ o⅁"
+
+#: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
 msgstr "ʎɔıʅod ʎɔɐʌıɹԀ"
 
-#: src/amo/components/Footer.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Legal notices"
 msgstr "sǝɔıʇou ʅɐƃǝ⅂"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer/index.js:44
 msgid "Report a bug"
 msgstr "ƃnq ɐ ʇɹodǝᴚ"
 
-#: src/amo/components/Footer.js:50
-msgid "View desktop site"
-msgstr "ǝʇıs doʇʞsǝp ʍǝıɅ"
+#: src/amo/components/Footer/index.js:51
+msgid "View classic desktop site"
+msgstr "ǝʇıs doʇʞsǝp ɔıssɐʅɔ ʍǝıɅ"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:42

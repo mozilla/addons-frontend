@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-08 14:01+0000\n"
+"POT-Creation-Date: 2017-06-13 20:01+0000\n"
 "PO-Revision-Date: 2017-05-28 20:20+0000\n"
 "Last-Translator: Tomer Cohen <tomer.mozilla@tomercohen.com>\n"
 "Language-Team: none\n"
@@ -28,25 +28,29 @@ msgstr "אין עדיין סקירות"
 msgid "Rate your experience"
 msgstr "דירוג החוויה שלך"
 
-#: src/amo/components/Addon/index.js:188
+#: src/amo/components/Addon/index.js:189
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:215
+#: src/amo/components/Addon/index.js:227
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:243
+msgid "Screenshots"
+msgstr "צילומי מסך"
+
+#: src/amo/components/Addon/index.js:250
 msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "הקישו לתצוגה מקדימה"
-
-#: src/amo/components/Addon/index.js:96
 msgid "Cancel preview"
 msgstr "ביטול תצוגה מקדימה"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "הקישו לתצוגה מקדימה"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -172,25 +176,25 @@ msgstr "מלל סקירה"
 msgid "Submit review"
 msgstr "שליחת סקירה"
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:102
+msgid "All written reviews"
+msgstr "כל הסקירות הכתובות"
+
+#: src/amo/components/AddonReviewList.js:68
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "מאת %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:76
+#: src/amo/components/AddonReviewList.js:82
 msgid "Loading..."
 msgstr "בטעינה..."
 
-#: src/amo/components/AddonReviewList.js:86
+#: src/amo/components/AddonReviewList.js:94
 msgid "Add-on icon"
 msgstr "צלמית התוספת"
 
-#: src/amo/components/AddonReviewList.js:91
+#: src/amo/components/AddonReviewList.js:99
 msgid "Reviews for %(addonName)s"
 msgstr "סקירות עבור %(addonName)s"
-
-#: src/amo/components/AddonReviewList.js:94
-msgid "All written reviews"
-msgstr "כל הסקירות הכתובות"
 
 #: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
@@ -272,20 +276,25 @@ msgstr "הרחבות מומלצות נוספות"
 msgid "More Featured Themes"
 msgstr "ערכות נושא מומלצות נוספות"
 
-#: src/amo/components/Footer.js:31
+#: src/amo/components/Footer/index.js:21
+msgid "Go to Mozilla's homepage"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
 msgstr "מדיניות פרטיות"
 
-#: src/amo/components/Footer.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Legal notices"
 msgstr "מידע משפטי"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer/index.js:44
 msgid "Report a bug"
 msgstr "דיווח על תקלה"
 
-#: src/amo/components/Footer.js:50
-msgid "View desktop site"
+#: src/amo/components/Footer/index.js:51
+#, fuzzy
+msgid "View classic desktop site"
 msgstr "תצוגת אתר שולחני"
 
 #: src/amo/components/Header/index.js:42
@@ -641,9 +650,6 @@ msgstr ""
 
 #~ msgid "Fashionable"
 #~ msgstr "אפנתי"
-
-#~ msgid "Screenshots"
-#~ msgstr "צילומי מסך"
 
 #~ msgid "Category"
 #~ msgstr "קטגוריה"
