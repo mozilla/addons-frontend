@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-08 14:01+0000\n"
+"POT-Creation-Date: 2017-06-13 20:01+0000\n"
 "PO-Revision-Date: 2017-04-18 09:42+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -28,25 +28,29 @@ msgstr "Ende pa shqyrtime"
 msgid "Rate your experience"
 msgstr "Vlerësoni rastin tuaj"
 
-#: src/amo/components/Addon/index.js:188
+#: src/amo/components/Addon/index.js:189
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)snga %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:215
+#: src/amo/components/Addon/index.js:227
 msgid "Extension Metadata"
 msgstr "Tejtëdhëna Zgjerimi"
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:243
+msgid "Screenshots"
+msgstr "Foto ekrani"
+
+#: src/amo/components/Addon/index.js:250
 msgid "About this %(addonType)s"
 msgstr "Mbi këtë %(addonType)s"
 
 #: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "Prekeni për paraparje"
-
-#: src/amo/components/Addon/index.js:96
 msgid "Cancel preview"
 msgstr "Anulojeni paraparjen"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "Prekeni për paraparje"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -180,25 +184,25 @@ msgstr "Tekst shqyrtimi"
 msgid "Submit review"
 msgstr "Parashtroni shqyrtim"
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:102
+msgid "All written reviews"
+msgstr "Krejt shqyrtimet e shkruara"
+
+#: src/amo/components/AddonReviewList.js:68
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "nga %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:76
+#: src/amo/components/AddonReviewList.js:82
 msgid "Loading..."
 msgstr "Po ngarkohet…"
 
-#: src/amo/components/AddonReviewList.js:86
+#: src/amo/components/AddonReviewList.js:94
 msgid "Add-on icon"
 msgstr "Ikonë shtese"
 
-#: src/amo/components/AddonReviewList.js:91
+#: src/amo/components/AddonReviewList.js:99
 msgid "Reviews for %(addonName)s"
 msgstr "Shqyrtime për %(addonName)s"
-
-#: src/amo/components/AddonReviewList.js:94
-msgid "All written reviews"
-msgstr "Krejt shqyrtimet e shkruara"
 
 #: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
@@ -296,20 +300,25 @@ msgstr "Më Tepër Zgjerime të Zgjedhura"
 msgid "More Featured Themes"
 msgstr "Më Tepër Tema të Zgjedhura"
 
-#: src/amo/components/Footer.js:31
+#: src/amo/components/Footer/index.js:21
+msgid "Go to Mozilla's homepage"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
 msgstr "Rregulla privatësie"
 
-#: src/amo/components/Footer.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Legal notices"
 msgstr "Shënime ligjore"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer/index.js:44
 msgid "Report a bug"
 msgstr "Njoftoni një të metë"
 
-#: src/amo/components/Footer.js:50
-msgid "View desktop site"
+#: src/amo/components/Footer/index.js:51
+#, fuzzy
+msgid "View classic desktop site"
 msgstr "Shihni sajtin për desktop"
 
 #: src/amo/components/Header/index.js:42
@@ -682,9 +691,6 @@ msgstr "<span class=\"visually-hidden\">Zgjeroje te</span> Lexoni më tepër"
 
 #~ msgid "Website"
 #~ msgstr "Sajt"
-
-#~ msgid "Screenshots"
-#~ msgstr "Foto ekrani"
 
 #~ msgid "Category"
 #~ msgstr "Kategori"

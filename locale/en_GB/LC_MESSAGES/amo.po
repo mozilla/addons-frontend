@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-08 14:01+0000\n"
+"POT-Creation-Date: 2017-06-13 20:01+0000\n"
 "PO-Revision-Date: 2017-04-07 05:30+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
@@ -28,25 +28,29 @@ msgstr "No reviews yet"
 msgid "Rate your experience"
 msgstr "Rate your experience"
 
-#: src/amo/components/Addon/index.js:188
+#: src/amo/components/Addon/index.js:189
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:215
+#: src/amo/components/Addon/index.js:227
 msgid "Extension Metadata"
 msgstr "Extension Metadata"
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:243
+msgid "Screenshots"
+msgstr "Screenshots"
+
+#: src/amo/components/Addon/index.js:250
 msgid "About this %(addonType)s"
 msgstr "About this %(addonType)s"
 
 #: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "Tap to preview"
-
-#: src/amo/components/Addon/index.js:96
 msgid "Cancel preview"
 msgstr "Cancel preview"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "Tap to preview"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -179,25 +183,25 @@ msgstr "Review text"
 msgid "Submit review"
 msgstr "Submit review"
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:102
+msgid "All written reviews"
+msgstr "All written reviews"
+
+#: src/amo/components/AddonReviewList.js:68
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "from %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:76
+#: src/amo/components/AddonReviewList.js:82
 msgid "Loading..."
 msgstr "Loading..."
 
-#: src/amo/components/AddonReviewList.js:86
+#: src/amo/components/AddonReviewList.js:94
 msgid "Add-on icon"
 msgstr "Add-on icon"
 
-#: src/amo/components/AddonReviewList.js:91
+#: src/amo/components/AddonReviewList.js:99
 msgid "Reviews for %(addonName)s"
 msgstr "Reviews for %(addonName)s"
-
-#: src/amo/components/AddonReviewList.js:94
-msgid "All written reviews"
-msgstr "All written reviews"
 
 #: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
@@ -296,20 +300,25 @@ msgstr "More Featured Extensions"
 msgid "More Featured Themes"
 msgstr "More Featured Themes"
 
-#: src/amo/components/Footer.js:31
+#: src/amo/components/Footer/index.js:21
+msgid "Go to Mozilla's homepage"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
 msgstr "Privacy policy"
 
-#: src/amo/components/Footer.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Legal notices"
 msgstr "Legal notices"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer/index.js:44
 msgid "Report a bug"
 msgstr "Report a bug"
 
-#: src/amo/components/Footer.js:50
-msgid "View desktop site"
+#: src/amo/components/Footer/index.js:51
+#, fuzzy
+msgid "View classic desktop site"
 msgstr "View desktop site"
 
 #: src/amo/components/Header/index.js:42
@@ -678,9 +687,6 @@ msgstr "<span class=\"visually-hidden\">Expand to</span> Read more"
 
 #~ msgid "Fashionable"
 #~ msgstr "Fashionable"
-
-#~ msgid "Screenshots"
-#~ msgstr "Screenshots"
 
 #~ msgid "Category"
 #~ msgstr "Category"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-08 14:01+0000\n"
+"POT-Creation-Date: 2017-06-13 20:01+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -28,24 +28,28 @@ msgstr ""
 msgid "Rate your experience"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:188
+#: src/amo/components/Addon/index.js:189
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:215
+#: src/amo/components/Addon/index.js:227
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:243
+msgid "Screenshots"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:250
 msgid "About this %(addonType)s"
 msgstr ""
 
 #: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
+msgid "Cancel preview"
 msgstr ""
 
 #: src/amo/components/Addon/index.js:96
-msgid "Cancel preview"
+msgid "Tap to preview"
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
@@ -173,24 +177,24 @@ msgstr ""
 msgid "Submit review"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:102
+msgid "All written reviews"
+msgstr ""
+
+#: src/amo/components/AddonReviewList.js:68
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:76
+#: src/amo/components/AddonReviewList.js:82
 msgid "Loading..."
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:86
+#: src/amo/components/AddonReviewList.js:94
 msgid "Add-on icon"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:91
+#: src/amo/components/AddonReviewList.js:99
 msgid "Reviews for %(addonName)s"
-msgstr ""
-
-#: src/amo/components/AddonReviewList.js:94
-msgid "All written reviews"
 msgstr ""
 
 #: src/amo/components/App/index.js:202
@@ -272,20 +276,24 @@ msgstr ""
 msgid "More Featured Themes"
 msgstr ""
 
-#: src/amo/components/Footer.js:31
+#: src/amo/components/Footer/index.js:21
+msgid "Go to Mozilla's homepage"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
 msgstr ""
 
-#: src/amo/components/Footer.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Legal notices"
 msgstr ""
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer/index.js:44
 msgid "Report a bug"
 msgstr ""
 
-#: src/amo/components/Footer.js:50
-msgid "View desktop site"
+#: src/amo/components/Footer/index.js:51
+msgid "View classic desktop site"
 msgstr ""
 
 #: src/amo/components/Header/index.js:42

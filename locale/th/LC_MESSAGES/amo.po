@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-08 14:01+0000\n"
+"POT-Creation-Date: 2017-06-13 20:01+0000\n"
 "PO-Revision-Date: 2017-04-11 05:47+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,25 +27,29 @@ msgstr "ยังไม่มีบทวิจารณ์"
 msgid "Rate your experience"
 msgstr "ให้คะแนนประสบการณ์ของคุณ"
 
-#: src/amo/components/Addon/index.js:188
+#: src/amo/components/Addon/index.js:189
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:215
+#: src/amo/components/Addon/index.js:227
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:243
+msgid "Screenshots"
+msgstr "ภาพหน้าจอ"
+
+#: src/amo/components/Addon/index.js:250
 msgid "About this %(addonType)s"
 msgstr "เกี่ยวกับ %(addonType)s นี้"
 
 #: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "แตะเพื่อแสดงตัวอย่าง"
-
-#: src/amo/components/Addon/index.js:96
 msgid "Cancel preview"
 msgstr "ยกเลิกการแสดงตัวอย่าง"
+
+#: src/amo/components/Addon/index.js:96
+msgid "Tap to preview"
+msgstr "แตะเพื่อแสดงตัวอย่าง"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -173,26 +177,26 @@ msgstr ""
 msgid "Submit review"
 msgstr "ส่งบทวิจารณ์"
 
-#: src/amo/components/AddonReviewList.js:62
-msgid "from %(authorName)s, %(timestamp)s"
-msgstr "จาก %(authorName)s, %(timestamp)s"
-
-#: src/amo/components/AddonReviewList.js:76
-msgid "Loading..."
-msgstr "กำลังโหลด..."
-
-#: src/amo/components/AddonReviewList.js:86
-msgid "Add-on icon"
-msgstr "ไอคอนส่วนเสริม"
-
-#: src/amo/components/AddonReviewList.js:91
-msgid "Reviews for %(addonName)s"
-msgstr "บทวิจารณ์สำหรับ %(addonName)s"
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:102
 #, fuzzy
 msgid "All written reviews"
 msgstr "เขียนบทวิจารณ์"
+
+#: src/amo/components/AddonReviewList.js:68
+msgid "from %(authorName)s, %(timestamp)s"
+msgstr "จาก %(authorName)s, %(timestamp)s"
+
+#: src/amo/components/AddonReviewList.js:82
+msgid "Loading..."
+msgstr "กำลังโหลด..."
+
+#: src/amo/components/AddonReviewList.js:94
+msgid "Add-on icon"
+msgstr "ไอคอนส่วนเสริม"
+
+#: src/amo/components/AddonReviewList.js:99
+msgid "Reviews for %(addonName)s"
+msgstr "บทวิจารณ์สำหรับ %(addonName)s"
 
 #: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
@@ -275,20 +279,25 @@ msgstr "เรียกดูส่วนขยายทั้งหมด"
 msgid "More Featured Themes"
 msgstr ""
 
-#: src/amo/components/Footer.js:31
+#: src/amo/components/Footer/index.js:21
+msgid "Go to Mozilla's homepage"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
 msgstr "นโยบายความเป็นส่วนตัว"
 
-#: src/amo/components/Footer.js:37
+#: src/amo/components/Footer/index.js:38
 msgid "Legal notices"
 msgstr "ข้อกฎหมาย"
 
-#: src/amo/components/Footer.js:43
+#: src/amo/components/Footer/index.js:44
 msgid "Report a bug"
 msgstr "รายงานข้อบกพร่อง"
 
-#: src/amo/components/Footer.js:50
-msgid "View desktop site"
+#: src/amo/components/Footer/index.js:51
+#, fuzzy
+msgid "View classic desktop site"
 msgstr "ดูไซต์สำหรับเดสก์ท็อป"
 
 #: src/amo/components/Header/index.js:42
@@ -659,9 +668,6 @@ msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ�
 
 #~ msgid "Website"
 #~ msgstr "เว็บไซต์"
-
-#~ msgid "Screenshots"
-#~ msgstr "ภาพหน้าจอ"
 
 #~ msgid "Category"
 #~ msgstr "หมวดหมู่"
