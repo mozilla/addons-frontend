@@ -2,7 +2,7 @@
 import { validAddonTypes } from 'core/constants';
 
 // You have to just laugh at this line!
-export type AddonTypeType = validAddonTypes;
+type AddonTypeType = validAddonTypes;
 
 export type AddonVersionType = {|
   channel: string,
