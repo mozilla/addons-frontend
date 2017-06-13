@@ -17,6 +17,16 @@ describe('<Card />', () => {
     expect(root.cardContainer.className).toContain('TofuSection');
   });
 
+  it('does not use photon class by default', () => {
+    const root = render({ children: 'hello' });
+    expect(root.cardContainer.className).not.toContain('Card--photon');
+  });
+
+  it('uses photon class if marked', () => {
+    const root = render({ children: 'hello', photonStyle: true });
+    expect(root.cardContainer.className).toContain('Card--photon');
+  });
+
   it('shows header if supplied', () => {
     const root = render({ header: 'foo' });
     expect(root.header).toBeTruthy();
@@ -24,7 +34,7 @@ describe('<Card />', () => {
 
   it('hides header if none supplied', () => {
     const root = render({ children: 'hello' });
-    expect(!root.header).toBeTruthy();
+    expect(root.header).toBeFalsy();
     expect(root.cardContainer.className).toContain('Card--no-header');
   });
 
@@ -51,7 +61,7 @@ describe('<Card />', () => {
 
   it('hides footer if none supplied', () => {
     const root = render({ children: 'hello' });
-    expect(!root.footer).toBeTruthy();
+    expect(root.footer).toBeFalsy();
     expect(root.cardContainer.className).toContain('Card--no-footer');
   });
 
@@ -63,6 +73,6 @@ describe('<Card />', () => {
 
   it('omits the content div with no children', () => {
     const root = render();
-    expect(!root.contents).toBeTruthy();
+    expect(root.contents).toBeFalsy();
   });
 });

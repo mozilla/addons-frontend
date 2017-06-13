@@ -41,9 +41,9 @@ export class AddonMetaBase extends React.Component {
         <div className="AddonMeta-item AddonMeta-users">
           <h3 className="visually-hidden">{i18n.gettext('Used by')}</h3>
           <p className="AddonMeta-text">{userCount}</p>
-          <Rating className="AddonMeta-Rating" rating={averageRating} readOnly
-            styleName="small-monochrome" />
           <p className="AddonMeta-text AddonMeta-review-count">{reviewCount}</p>
+          <Rating className="AddonMeta-Rating" rating={averageRating} readOnly
+            styleName="small" />
         </div>
       </div>
     );

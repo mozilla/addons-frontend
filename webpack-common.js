@@ -144,7 +144,10 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
         options: {
           context: path.resolve(__dirname),
           postcss: [
-            autoprefixer({ browsers: ['last 2 versions'] }),
+            autoprefixer({
+              browsers: ['last 2 versions'],
+              grid: false,
+            }),
           ],
         },
       })
