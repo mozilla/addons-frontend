@@ -1,6 +1,7 @@
 # This sets some defaults for ack (https://beyondgrep.com/)
 # that make searching the addons-frontend code a bit easier.
 
+--ignore-dir=.tox
 --ignore-dir=coverage
 --ignore-dir=flow/logs
 --ignore-dir=dist
