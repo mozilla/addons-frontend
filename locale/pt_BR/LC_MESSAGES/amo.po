@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-06-13 21:57+0000\n"
+"PO-Revision-Date: 2017-06-14 09:57+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -269,9 +269,8 @@ msgid "Report a bug"
 msgstr "Relatar um bug"
 
 #: src/amo/components/Footer/index.js:51
-#, fuzzy
 msgid "View classic desktop site"
-msgstr "Ver site para computadores"
+msgstr "Ver site clássico para computadores"
 
 #: src/amo/components/Header/index.js:42
 msgid "Firefox Add-ons"
