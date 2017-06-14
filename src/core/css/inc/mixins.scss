@@ -219,8 +219,10 @@ $default-arrow-margin: 3px;
     font-weight: 400;
   }
 
-  &:hover {
-    background: $background-hover;
+  @media (pointer: fine) {
+    &:hover {
+      background: $background-hover;
+    }
   }
 
   &:active,
