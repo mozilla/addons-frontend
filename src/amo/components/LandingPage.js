@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import { loadLandingAddons } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
@@ -13,6 +14,8 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
+import { AddonTypeNotFound } from 'core/errors';
+import log from 'core/logger';
 import {
   apiAddonType as getApiAddonType,
   safeAsyncConnect,
@@ -55,8 +58,16 @@ export class LandingPageBase extends React.Component {
   setViewContextType() {
     const { apiAddonType, dispatch, params } = this.props;
 
-    const addonType = apiAddonType(params.visibleAddonType);
-    dispatch(setViewContext(addonType));
+    try {
+      const addonType = apiAddonType(params.visibleAddonType);
+      dispatch(setViewContext(addonType));
+    } catch (err) {
+      if (err instanceof AddonTypeNotFound) {
+        log.info('AddonTypeNotFound in setViewContextType()', err);
+      } else {
+        throw err;
+      }
+    }
   }
 
   contentForType = (visibleAddonType) => {
@@ -120,7 +131,19 @@ export class LandingPageBase extends React.Component {
     const { visibleAddonType } = this.props.params;
     const contentForType = this.props.contentForType || this.contentForType;
 
-    const { addonType, html } = contentForType(visibleAddonType);
+    let content;
+    try {
+      content = contentForType(visibleAddonType);
+    } catch (err) {
+      if (err instanceof AddonTypeNotFound) {
+        log.info('Rendering <NotFound /> for error:', err);
+        return <NotFound />;
+      }
+
+      throw err;
+    }
+
+    const { addonType, html } = content;
     const headingText = {
       [ADDON_TYPE_THEME]: i18n.gettext('Themes'),
       [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
