@@ -80,7 +80,13 @@
   order: 1;
 
   @include respond-to(medium) {
-    width: 90%;
+    flex-basis: 100%;
+    flex-grow: 1;
+
+    .Addon-persona & {
+      flex-basis: 75%;
+      flex-grow: 0;
+    }
   }
 }
 
@@ -107,19 +113,20 @@
 }
 
 .Addon-summary {
+  flex-basis: 100%;
+  flex-grow: 1;
   order: 2;
+
+  @include respond-to(medium) {
+    flex-grow: 0;
+    margin-bottom: 0;
+    max-width: 550px;
+  }
 }
 
 .Addon .InstallButton {
   margin-top: auto;
   order: 3;
-}
-
-.Addon-summary {
-  @include respond-to(medium) {
-    margin-bottom: 0;
-    max-width: 550px;
-  }
 }
 
 .Addon .InstallButton {
@@ -133,8 +140,6 @@
 // Details section with lots of grid stuff, on larger displays.
 @include respond-to(large) {
   .Addon-details {
-    @include margin-end(10px);
-
     display: grid;
     grid-auto-flow: column dense;
     grid-gap: 10px;
