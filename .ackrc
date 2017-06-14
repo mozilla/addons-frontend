@@ -3,6 +3,7 @@
 
 --ignore-file=match:.*\.log
 --ignore-file=is:webpack-assets.json
+--ignore-file=is:yarn.lock
 
 --ignore-dir=.tox
 --ignore-dir=coverage
