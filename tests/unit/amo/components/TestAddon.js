@@ -108,8 +108,13 @@ describe('Addon', () => {
   });
 
   it('renders without an add-on', () => {
+    const fakeDispatch = sinon.stub();
+
     // Simulate the case when an add-on has not been loaded into state yet.
-    const root = shallowRender({ addon: null });
+    const root = shallowRender({ addon: null, dispatch: fakeDispatch });
+
+    // Since there's no add-on, addon.type should not get dispatched.
+    sinon.assert.notCalled(fakeDispatch);
 
     // These should be empty:
     expect(root.find(InstallButton)).toHaveLength(0);

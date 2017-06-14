@@ -78,7 +78,9 @@ export class AddonBase extends React.Component {
   componentWillMount() {
     const { addon, dispatch } = this.props;
 
-    dispatch(setViewContext(addon.type));
+    if (addon) {
+      dispatch(setViewContext(addon.type));
+    }
   }
 
   componentWillUnmount() {
@@ -225,6 +227,7 @@ export class AddonBase extends React.Component {
       installStatus,
       userAgentInfo,
     } = this.props;
+    const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
     let authorList = [<LoadingText key="LoadingText" />];
     if (addon) {
@@ -273,7 +276,7 @@ export class AddonBase extends React.Component {
 
     // eslint-disable react/no-danger
     return (
-      <div className={classNames('Addon', `Addon-${addon.type}`)}>
+      <div className={classNames('Addon', `Addon-${addonType}`)}>
         <Card className="" photonStyle>
           <header className="Addon-header">
             <section className="Addon-title-section">
