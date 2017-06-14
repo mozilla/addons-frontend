@@ -6,21 +6,20 @@ import {
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
 
-import createStore from 'amo/store';
+import { HomeBase } from 'amo/containers/Home';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
-import Home from 'amo/containers/Home';
 
 
 describe('Home', () => {
   it('renders a heading', () => {
-    const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
-    const { store } = createStore(initialState);
+    const { store } = dispatchSignInActions();
 
     const root = findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <Home i18n={getFakeI18nInst()} />
+        <HomeBase dispatch={store.dispatch} i18n={getFakeI18nInst()} />
       </Provider>
-    ), Home).getWrappedInstance();
+    ), HomeBase);
     const rootNode = findDOMNode(root);
     const content = [
       'You can change how Firefox works…',

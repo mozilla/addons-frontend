@@ -18,6 +18,7 @@ describe('amo createStore', () => {
       'reduxAsyncConnect',
       'reviews',
       'search',
+      'viewContext',
     ]);
   });
 

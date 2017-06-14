@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { loadLandingAddons } from 'amo/utils';
@@ -30,6 +31,8 @@ import './LandingPage.scss';
 export class LandingPageBase extends React.Component {
   static propTypes = {
     apiAddonType: PropTypes.func.isRequired,
+    contentForType: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
     featuredAddons: PropTypes.array,
     highlyRatedAddons: PropTypes.array,
     popularAddons: PropTypes.array,
@@ -41,9 +44,38 @@ export class LandingPageBase extends React.Component {
 
   static defaultProps = {
     apiAddonType: getApiAddonType,
+    contentForType: null,
   }
 
-  contentForType(visibleAddonType) {
+  componentWillMount() {
+    this.setViewContextType();
+  }
+
+  componentDidUpdate() {
+    this.setViewContextType();
+  }
+
+  setViewContextType() {
+    const { apiAddonType, dispatch, params } = this.props;
+
+    // This error is handled properly in `render()`, so we just ignore it
+    // and log here. The reason for this is this component gets loaded for
+    // what should be a 404 (/not-a-page/) because of limitations in our
+    // current router. See:
+    // https://github.com/mozilla/addons-frontend/issues/2161
+    try {
+      const addonType = apiAddonType(params.visibleAddonType);
+      dispatch(setViewContext(addonType));
+    } catch (err) {
+      if (err instanceof AddonTypeNotFound) {
+        log.info('AddonTypeNotFound in setViewContextType()', err);
+      } else {
+        throw err;
+      }
+    }
+  }
+
+  contentForType = (visibleAddonType) => {
     const { apiAddonType, i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
 
@@ -95,13 +127,22 @@ export class LandingPageBase extends React.Component {
   }
 
   render() {
-    const { featuredAddons, highlyRatedAddons, popularAddons } = this.props;
+    const {
+      featuredAddons,
+      highlyRatedAddons,
+      popularAddons,
+      i18n,
+    } = this.props;
     const { visibleAddonType } = this.props.params;
-    const { i18n } = this.props;
+    const contentForType = this.props.contentForType || this.contentForType;
 
+    // TODO: Remove this code and throw a proper error once
+    // https://github.com/mozilla/addons-frontend/issues/2161 is fixed.
+    // This is only used because the router will pass any top-level URL
+    // through to this component because of limitations in our current router.
     let content;
     try {
-      content = this.contentForType(visibleAddonType);
+      content = contentForType(visibleAddonType);
     } catch (err) {
       if (err instanceof AddonTypeNotFound) {
         log.info('Rendering <NotFound /> for error:', err);

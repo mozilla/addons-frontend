@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import { categoriesFetch } from 'core/actions/categories';
 import { apiAddonType, visibleAddonType } from 'core/utils';
@@ -28,6 +29,13 @@ export class CategoriesBase extends React.Component {
     if (!Object.values(categories).length) {
       dispatch(categoriesFetch({ addonType, clientApp }));
     }
+    dispatch(setViewContext(addonType));
+  }
+
+  componentDidUpdate() {
+    const { addonType, dispatch } = this.props;
+
+    dispatch(setViewContext(addonType));
   }
 
   render() {

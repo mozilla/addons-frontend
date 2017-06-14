@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
+import { VIEW_CONTEXT_EXPLORE } from 'core/constants';
 import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -12,6 +14,7 @@ export default class SearchPage extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.node.isRequired,
     count: PropTypes.number,
+    dispatch: PropTypes.func.isRequired,
     enableSearchSort: PropTypes.bool,
     filters: PropTypes.object,
     hasSearchParams: PropTypes.bool.isRequired,
@@ -29,6 +32,17 @@ export default class SearchPage extends React.Component {
     filters: {},
     pathname: '/search/',
     results: [],
+  }
+
+  componentWillMount() {
+    const { dispatch, filters } = this.props;
+
+    const { addonType } = filters;
+    if (addonType) {
+      dispatch(setViewContext(addonType));
+    } else {
+      dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
+    }
   }
 
   render() {

@@ -7,6 +7,7 @@ import {
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
 import createStore from 'amo/store';
@@ -27,30 +28,60 @@ describe('<LandingPage />', () => {
 
   function render({ ...props }) {
     const { store } = createStore(initialState);
+    const fakeDispatch = sinon.stub();
 
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
+    return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
-          <LandingPageBase i18n={getFakeI18nInst()} {...props} />
+          <LandingPageBase dispatch={fakeDispatch} i18n={getFakeI18nInst()}
+            {...props} />
         </I18nProvider>
       </Provider>
-    ), LandingPageBase));
+    ), LandingPageBase);
   }
 
-  it('renders a LandingPage with no addons set', () => {
+  function renderNode(props) {
+    return findDOMNode(render(props));
+  }
+
+  it('dispatches setViewContext on load and update', () => {
+    const fakeDispatch = sinon.stub();
     const root = render({
+      dispatch: fakeDispatch,
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
-    expect(root.textContent).toContain('Featured extensions');
-    expect(root.textContent).toContain('More featured extensions');
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(fakeDispatch);
+
+    root.componentDidUpdate();
+    sinon.assert.calledTwice(fakeDispatch);
+
+    sinon.assert.alwaysCalledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+  });
+
+  it('renders a LandingPage with no addons set', () => {
+    const rootNode = renderNode({
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+    });
+
+    expect(rootNode.textContent).toContain('Featured extensions');
+    expect(rootNode.textContent).toContain('More featured extensions');
   });
 
   it('sets the links in each footer for extensions', () => {
+    const fakeDispatch = sinon.stub();
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+    };
     const root = shallow(
-      <LandingPageBase i18n={getFakeI18nInst()} params={{
-        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
-      }} />
+      <LandingPageBase
+        dispatch={fakeDispatch}
+        i18n={getFakeI18nInst()}
+        params={fakeParams}
+      />
     );
 
     expect(root.childAt(1).prop('footerLink')).toEqual({
@@ -67,10 +98,16 @@ describe('<LandingPage />', () => {
   });
 
   it('sets the links in each footer for themes', () => {
+    const fakeDispatch = sinon.stub();
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+    };
     const root = shallow(
-      <LandingPageBase i18n={getFakeI18nInst()} params={{
-        visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
-      }} />
+      <LandingPageBase
+        dispatch={fakeDispatch}
+        i18n={getFakeI18nInst()}
+        params={fakeParams}
+      />
     );
 
     expect(root.childAt(1).prop('footerLink')).toEqual({
@@ -87,12 +124,12 @@ describe('<LandingPage />', () => {
   });
 
   it('renders a LandingPage with themes HTML', () => {
-    const root = render({
+    const rootNode = renderNode({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(root.textContent).toContain('Featured themes');
-    expect(root.textContent).toContain('More featured themes');
+    expect(rootNode.textContent).toContain('Featured themes');
+    expect(rootNode.textContent).toContain('More featured themes');
   });
 
   it('renders each add-on when set', () => {
@@ -138,26 +175,33 @@ describe('<LandingPage />', () => {
         result: { count: 50, results: ['pop', 'pop-again'] },
       },
     }));
-    const root = render({
+    const rootNode = renderNode({
       ...mapStateToProps(store.getState()),
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(Object.values(root.querySelectorAll('.SearchResult-heading'))
+    expect(Object.values(rootNode.querySelectorAll('.SearchResult-heading'))
       .map((heading) => heading.textContent)).toEqual(['Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again']);
   });
 
   it('renders not found if add-on type is not supported', () => {
-    const root = render({ params: { visibleAddonType: 'XUL' } });
-    expect(root.textContent).toContain('Page not found');
+    const rootNode = renderNode({ params: { visibleAddonType: 'XUL' } });
+    expect(rootNode.textContent).toContain('Page not found');
   });
 
   it('throws for any error other than an unknown addonType', () => {
     expect(() => {
       render({
         apiAddonType: () => { throw new Error('Ice cream'); },
-        params: { visibleAddonType: 'doesnotmatter' },
+        params: { visibleAddonType: ADDON_TYPE_EXTENSION },
       });
     }).toThrowError('Ice cream');
+
+    expect(() => {
+      render({
+        contentForType: () => { throw new Error('Cake!'); },
+        params: { visibleAddonType: ADDON_TYPE_EXTENSION },
+      });
+    }).toThrowError('Cake!');
   });
 });

@@ -5,6 +5,11 @@ import { compose } from 'redux';
 
 import { loadEntities } from 'core/actions';
 import { fetchAddon } from 'core/api';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  validAddonTypes,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import SearchInput from 'ui/components/SearchInput';
 
@@ -14,6 +19,7 @@ import './SearchForm.scss';
 
 export class SearchFormBase extends React.Component {
   static propTypes = {
+    addonType: PropTypes.string,
     api: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     pathname: PropTypes.string.isRequired,
@@ -25,10 +31,10 @@ export class SearchFormBase extends React.Component {
   }
 
   goToSearch(query) {
-    const { api, pathname } = this.props;
+    const { addonType, api, pathname } = this.props;
     this.context.router.push({
       pathname: `/${api.lang}/${api.clientApp}${pathname}`,
-      query: { q: query },
+      query: { q: query, type: addonType },
     });
   }
 
@@ -39,7 +45,17 @@ export class SearchFormBase extends React.Component {
   }
 
   render() {
-    const { api, i18n, pathname, query } = this.props;
+    const { addonType, api, i18n, pathname, query } = this.props;
+
+    let placeholderText;
+    if (addonType === ADDON_TYPE_EXTENSION) {
+      placeholderText = i18n.gettext('Search extensions');
+    } else if (addonType === ADDON_TYPE_THEME) {
+      placeholderText = i18n.gettext('Search themes');
+    } else {
+      placeholderText = i18n.gettext('Search extensions and themes');
+    }
+
     return (
       <form method="GET" action={`/${api.lang}/${api.clientApp}${pathname}`}
         onSubmit={this.handleSearch} className="SearchForm-form"
@@ -49,7 +65,7 @@ export class SearchFormBase extends React.Component {
         </label>
         <SearchInput
           ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
-          placeholder={i18n.gettext('Search extensions and themes')}
+          placeholder={placeholderText}
           defaultValue={query} className="SearchForm-query" />
         <button className="visually-hidden" type="submit" title="Enter"
                 ref={(ref) => { this.submitButton = ref; }}
@@ -61,8 +77,12 @@ export class SearchFormBase extends React.Component {
   }
 }
 
-export function mapStateToProps({ api }) {
-  return { api };
+export function mapStateToProps(state) {
+  return {
+    addonType: validAddonTypes.includes(state.viewContext.context) ?
+      state.viewContext.context : null,
+    api: state.api,
+  };
 }
 
 export function mapDispatchToProps(dispatch) {

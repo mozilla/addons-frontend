@@ -1,14 +1,16 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import SearchForm from 'amo/components/SearchForm';
+import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton from 'core/components/AuthenticateButton';
+import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 
-import 'mozilla-tabzilla/css/_tabzilla.scss';
 import './styles.scss';
 
 
@@ -68,12 +70,18 @@ export class HeaderBase extends React.Component {
             ? <h1 className="Header-title-wrapper">{headerLink}</h1>
             : headerLink}
         </div>
+        <SectionLinks location={location} />
         <SearchFormComponent pathname="/search/" query={query} />
       </header>
     );
   }
 }
 
+export function mapStateToProps(state) {
+  return { isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME };
+}
+
 export default compose(
+  connect(mapStateToProps),
   translate({ withRef: true }),
 )(HeaderBase);
