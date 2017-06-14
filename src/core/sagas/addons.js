@@ -6,21 +6,16 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { loadEntities } from 'core/actions';
 import { fetchAddon as fetchAddonFromApi } from 'core/api';
 import { FETCH_ADDON } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import type { FetchAddonAction } from 'core/actions/addons';
 
-import { getApi } from './utils';
+import { createErrorHandler, getApi } from './utils';
 
 
 export function* fetchAddon(
   { payload: { errorHandlerId, slug } }: FetchAddonAction
 ): Generator<any, any, any> {
-  const errorHandler = new ErrorHandler({
-    id: errorHandlerId,
-    dispatch: () => log.error(
-      'ErrorHandler cannot dispatch from a saga'),
-  });
+  const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
   try {
     yield put(showLoading());
