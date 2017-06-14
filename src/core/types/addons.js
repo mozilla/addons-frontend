@@ -1,4 +1,9 @@
 /* @flow */
+import { validAddonTypes } from 'core/constants';
+
+// You have to just laugh at this line!
+type AddonTypeType = validAddonTypes;
+
 export type AddonVersionType = {|
   channel: string,
   edit_url: string,
@@ -64,7 +69,7 @@ export type AddonType = {|
   support_url?: string,
   tags: Array<string>,
   theme_data: Object,
-  type: string,
+  type: AddonTypeType,
   url: string,
   weekly_downloads: number,
 |};

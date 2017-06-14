@@ -6,12 +6,6 @@
   padding: 20px 10px;
 }
 
-.Addon-header {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-}
-
 .Addon-icon-image {
   height: 48px;
   width: 48px;
@@ -19,17 +13,6 @@
   @include respond-to(medium) {
     height: 64px;
     width: 64px;
-  }
-}
-
-.Addon-title-section {
-  display: flex;
-  flex: auto;
-  flex-flow: row wrap;
-  order: 2;
-
-  .InstallButton {
-    @include margin-start(auto);
   }
 }
 
@@ -63,22 +46,87 @@
   }
 }
 
-.Addon-summary {
+.Addon-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.Addon-theme-header {
+  border-radius: $border-radius-default;
+  max-height: 90px;
+  min-height: 45px;
+  overflow-y: hidden;
+  order: -1;
+  position: relative;
+  width: 100%;
+}
+
+.Addon-theme-header-label {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+}
+
+.Addon-theme-header-image {
+  display: block;
+  height: 100px;
+  object-fit: cover;
+  object-position: top right;
+  width: 100%;
+}
+
+.Addon-title {
+  order: 1;
+
   @include respond-to(medium) {
+    flex-basis: 100%;
+    flex-grow: 1;
+
+    .Addon-persona & {
+      flex-basis: 75%;
+      flex-grow: 0;
+    }
+  }
+}
+
+.Addon .AddonMeta {
+  order: 2;
+
+  @include respond-to(medium) {
+    @include margin-start(auto);
+
+    margin: 10px 0;
+    order: 0;
+    text-align: right;
+  }
+}
+
+.Addon-persona .AddonMeta {
+  @include respond-to(medium) {
+    order: 1;
+  }
+}
+
+.Addon .AddonMeta-item {
+  @include margin-start(auto);
+}
+
+.Addon-summary {
+  flex-basis: 100%;
+  flex-grow: 1;
+  order: 2;
+
+  @include respond-to(medium) {
+    flex-grow: 0;
     margin-bottom: 0;
     max-width: 550px;
   }
 }
 
-.Addon-metadata {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  order: 1;
-}
-
-.Addon .AddonMeta {
-  text-align: right;
+.Addon .InstallButton {
+  margin-top: auto;
+  order: 3;
 }
 
 .Addon .InstallButton {
@@ -89,15 +137,13 @@
   }
 }
 
-// Details section with lots of flexbox stuff, on all but mobile displays.
-@include respond-to(medium) {
+// Details section with lots of grid stuff, on larger displays.
+@include respond-to(large) {
   .Addon-details {
-    @include margin-end(10px);
-
     display: grid;
     grid-auto-flow: column dense;
     grid-gap: 10px;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: minmax(300px, 35%) auto;
 
     .AddonDescription {
       grid-column: 2;

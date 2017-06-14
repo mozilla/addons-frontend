@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import featured from 'amo/reducers/featured';
 import landing from 'amo/reducers/landing';
 import reviews from 'amo/reducers/reviews';
+import viewContext from 'amo/reducers/viewContext';
 import addons from 'core/reducers/addons';
 import api from 'core/reducers/api';
 import auth from 'core/reducers/authentication';
@@ -37,6 +38,7 @@ export default function createStore(initialState = {}) {
       reduxAsyncConnect,
       reviews,
       search,
+      viewContext,
     }),
     initialState,
     middleware({ sagaMiddleware }),

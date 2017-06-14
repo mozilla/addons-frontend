@@ -6,9 +6,11 @@ import {
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import createStore from 'amo/store';
-import { HeaderBase } from 'amo/components/Header';
+import { HeaderBase, mapStateToProps } from 'amo/components/Header';
 import { setClientApp, setLang } from 'core/actions';
+import { VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
@@ -58,5 +60,16 @@ describe('Header', () => {
     expect(h1Tag).toBeFalsy();
     expect(titleLink.textContent).toEqual('Firefox Add-ons');
     expect(titleLink.tagName).toEqual('A');
+  });
+
+  describe('mapStateToProps', () => {
+    it('gets isHomePage from store', () => {
+      const { store } = createStore();
+      store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
+      expect(mapStateToProps(store.getState())).toEqual({ isHomePage: false });
+
+      store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
+      expect(mapStateToProps(store.getState())).toEqual({ isHomePage: true });
+    });
   });
 });

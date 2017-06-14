@@ -4,7 +4,9 @@ import React from 'react';
 import SearchPage from 'amo/components/SearchPage';
 import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
+import { setViewContext } from 'amo/actions/viewContext';
 import Paginate from 'core/components/Paginate';
+import { ADDON_TYPE_EXTENSION, VIEW_CONTEXT_EXPLORE } from 'core/constants';
 
 
 describe('<SearchPage />', () => {
@@ -17,6 +19,7 @@ describe('<SearchPage />', () => {
   beforeEach(() => {
     props = {
       count: 80,
+      dispatch: sinon.stub(),
       filters: { query: 'foo' },
       hasSearchParams: true,
       page: 3,
@@ -92,5 +95,25 @@ describe('<SearchPage />', () => {
     const searchSort = root.find(SearchSort);
 
     expect(searchSort.length).toEqual(0);
+  });
+
+  it('sets the viewContext to the addonType if addonType exists', () => {
+    const fakeDispatch = sinon.stub();
+    const filters = { addonType: ADDON_TYPE_EXTENSION, query: 'test' };
+
+    render({ count: 0, dispatch: fakeDispatch, filters });
+
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+  });
+
+  it('sets the viewContext to exploring if no addonType found', () => {
+    const fakeDispatch = sinon.stub();
+    const filters = { query: 'test' };
+
+    render({ count: 0, dispatch: fakeDispatch, filters });
+
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 });

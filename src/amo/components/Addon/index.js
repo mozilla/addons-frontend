@@ -1,9 +1,11 @@
 /* eslint-disable react/no-danger */
+import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
@@ -55,6 +57,7 @@ export class AddonBase extends React.Component {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    dispatch: PropTypes.func.isRequired,
     getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -72,8 +75,19 @@ export class AddonBase extends React.Component {
     getClientCompatibility: _getClientCompatibility,
   }
 
+  componentWillMount() {
+    const { addon, dispatch } = this.props;
+
+    dispatch(setViewContext(addon.type));
+  }
+
   componentWillUnmount() {
-    const { isPreviewingTheme, resetThemePreview, themePreviewNode } = this.props;
+    const {
+      isPreviewingTheme,
+      resetThemePreview,
+      themePreviewNode,
+    } = this.props;
+
     if (isPreviewingTheme && themePreviewNode) {
       resetThemePreview(themePreviewNode);
     }
@@ -111,7 +125,7 @@ export class AddonBase extends React.Component {
         >
           {installStatus !== ENABLED ? (
             <Button
-              className="Addon-theme-header-label Button--neutral"
+              className="Addon-theme-header-label Button--action"
               disabled={!compatible}
               htmlFor="Addon-theme-header"
             >
@@ -221,7 +235,10 @@ export class AddonBase extends React.Component {
     const summaryProps = {};
     let summaryPlaceholder = null;
     if (addon) {
-      summaryProps.dangerouslySetInnerHTML = sanitizeHTML(addon.summary, ['a']);
+      // Themes lack a summary so we do the inverse :-/
+      // TODO: We should file an API bug about this...
+      const summary = addon.summary ? addon.summary : addon.description;
+      summaryProps.dangerouslySetInnerHTML = sanitizeHTML(summary, ['a']);
     } else {
       summaryPlaceholder = <LoadingText />;
     }
@@ -256,7 +273,7 @@ export class AddonBase extends React.Component {
 
     // eslint-disable react/no-danger
     return (
-      <div className="Addon">
+      <div className={classNames('Addon', `Addon-${addon.type}`)}>
         <Card className="" photonStyle>
           <header className="Addon-header">
             <section className="Addon-title-section">
