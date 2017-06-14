@@ -58,6 +58,11 @@ export class LandingPageBase extends React.Component {
   setViewContextType() {
     const { apiAddonType, dispatch, params } = this.props;
 
+    // This error is handled properly in `render()`, so we just ignore it
+    // and log here. The reason for this is this component gets loaded for
+    // what should be a 404 (/not-a-page/) because of limitations in our
+    // current router. See:
+    // https://github.com/mozilla/addons-frontend/issues/2161
     try {
       const addonType = apiAddonType(params.visibleAddonType);
       dispatch(setViewContext(addonType));
@@ -131,6 +136,10 @@ export class LandingPageBase extends React.Component {
     const { visibleAddonType } = this.props.params;
     const contentForType = this.props.contentForType || this.contentForType;
 
+    // TODO: Remove this code and throw a proper error once
+    // https://github.com/mozilla/addons-frontend/issues/2161 is fixed.
+    // This is only used because the router will pass any top-level URL
+    // through to this component because of limitations in our current router.
     let content;
     try {
       content = contentForType(visibleAddonType);
