@@ -184,24 +184,19 @@ describe('<LandingPage />', () => {
       .map((heading) => heading.textContent)).toEqual(['Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again']);
   });
 
-  it('renders not found if add-on type is not supported', () => {
-    const rootNode = renderNode({ params: { visibleAddonType: 'XUL' } });
-    expect(rootNode.textContent).toContain('Page not found');
+  it('throws an error if add-on type is not supported', () => {
+    expect(() => {
+      render({ params: { visibleAddonType: 'XUL' } });
+    }).toThrowError(
+      '"XUL" not found in API_ADDON_TYPES_MAPPING');
   });
 
   it('throws for any error other than an unknown addonType', () => {
     expect(() => {
       render({
         apiAddonType: () => { throw new Error('Ice cream'); },
-        params: { visibleAddonType: ADDON_TYPE_EXTENSION },
+        params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
       });
     }).toThrowError('Ice cream');
-
-    expect(() => {
-      render({
-        contentForType: () => { throw new Error('Cake!'); },
-        params: { visibleAddonType: ADDON_TYPE_EXTENSION },
-      });
-    }).toThrowError('Cake!');
   });
 });
