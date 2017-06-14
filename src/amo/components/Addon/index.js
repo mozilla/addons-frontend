@@ -12,7 +12,9 @@ import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import InstallButton from 'core/components/InstallButton';
-import { ADDON_TYPE_THEME, ENABLED, UNKNOWN } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, ENABLED, UNKNOWN,
+} from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
   isAllowedOrigin,
@@ -26,6 +28,7 @@ import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
 import './styles.scss';
@@ -88,8 +91,9 @@ export class AddonBase extends React.Component {
       isPreviewingTheme,
       installStatus,
     } = this.props;
-    const { previewURL, type } = addon;
-    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
+    const previewURL = addon ? addon.previewURL : null;
+    const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
+    const iconUrl = addon && isAllowedOrigin(addon.icon_url) ? addon.icon_url :
       fallbackIcon;
 
     if (type === ADDON_TYPE_THEME) {
@@ -131,7 +135,7 @@ export class AddonBase extends React.Component {
     let content;
     let footerPropName;
 
-    if (addon.ratings.count) {
+    if (addon && addon.ratings.count) {
       const count = addon.ratings.count;
       const linkText = i18n.sprintf(
         i18n.ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
@@ -159,12 +163,42 @@ export class AddonBase extends React.Component {
         header={i18n.gettext('Rate your experience')}
         className="Addon-overall-rating"
         {...props}>
-        <RatingManager
-          addon={addon}
-          location={location}
-          version={addon.current_version}
-        />
+        {addon ?
+          <RatingManager
+            addon={addon}
+            location={location}
+            version={addon.current_version}
+          /> : null
+        }
       </Card>
+    );
+  }
+
+  renderShowMoreCard() {
+    const { addon, i18n } = this.props;
+    const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
+
+    const descriptionProps = {};
+    let descriptionPlaceholder;
+    if (addon) {
+      const description =
+        addon.description ? addon.description : addon.summary;
+      descriptionProps.dangerouslySetInnerHTML = sanitizeHTML(
+        nl2br(description), allowedDescriptionTags);
+    } else {
+      descriptionPlaceholder = <LoadingText />;
+    }
+
+    return (
+      <ShowMoreCard header={i18n.sprintf(
+        i18n.gettext('About this %(addonType)s'), { addonType }
+      )} className="AddonDescription">
+        <div className="AddonDescription-contents"
+          ref={(ref) => { this.addonDescription = ref; }}
+          {...descriptionProps}>
+          {descriptionPlaceholder}
+        </div>
+      </ShowMoreCard>
     );
   }
 
@@ -178,24 +212,47 @@ export class AddonBase extends React.Component {
       userAgentInfo,
     } = this.props;
 
-    const authorList = addon.authors.map(
-      (author) => `<a href="${author.url}">${author.name}</a>`);
-    const description = addon.description ? addon.description : addon.summary;
-    const descriptionSanitized = sanitizeHTML(
-      nl2br(description), allowedDescriptionTags);
-    const summarySanitized = sanitizeHTML(addon.summary, ['a']);
-    const title = i18n.sprintf(
-      // L10n: Example: The Add-On <span>by The Author</span>
-      i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
-        addonName: addon.name,
-        authorList: authorList.join(', '),
-        startSpan: '<span class="Addon-author">',
-        endSpan: '</span>',
-      });
+    let authorList = [<LoadingText key="LoadingText" />];
+    if (addon) {
+      authorList = addon.authors.map(
+        (author) => `<a href="${author.url}">${author.name}</a>`);
+    }
 
-    const {
-      compatible, maxVersion, minVersion, reason,
-    } = getClientCompatibility({ addon, clientApp, userAgentInfo });
+    const summaryProps = {};
+    let summaryPlaceholder = null;
+    if (addon) {
+      summaryProps.dangerouslySetInnerHTML = sanitizeHTML(addon.summary, ['a']);
+    } else {
+      summaryPlaceholder = <LoadingText />;
+    }
+
+    const titleProps = {};
+    let titlePlaceholder = null;
+    if (addon) {
+      const title = i18n.sprintf(
+        // L10n: Example: The Add-On <span>by The Author</span>
+        i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
+          addonName: addon.name,
+          authorList: authorList.join(', '),
+          startSpan: '<span class="Addon-author">',
+          endSpan: '</span>',
+        }
+      );
+      titleProps.dangerouslySetInnerHTML = sanitizeHTML(title, ['a', 'span']);
+    } else {
+      titlePlaceholder = <LoadingText />;
+    }
+
+    const addonPreviews = addon ? addon.previews : [];
+
+    let isCompatible = false;
+    let compatibility;
+    if (addon) {
+      compatibility = getClientCompatibility({
+        addon, clientApp, userAgentInfo,
+      });
+      isCompatible = compatibility.compatible;
+    }
 
     // eslint-disable react/no-danger
     return (
@@ -203,60 +260,56 @@ export class AddonBase extends React.Component {
         <Card className="" photonStyle>
           <header className="Addon-header">
             <section className="Addon-title-section">
-              <h1
-                className="Addon-title"
-                dangerouslySetInnerHTML={sanitizeHTML(title, ['a', 'span'])}
-              />
-
-              <p className="Addon-summary"
-                dangerouslySetInnerHTML={summarySanitized} />
-
-              <InstallButton
-                {...this.props}
-                className="Button--action Button--small"
-                disabled={!compatible}
-                ref={(ref) => { this.installButton = ref; }}
-                status={installStatus}
-              />
+              <h1 className="Addon-title" {...titleProps}>
+                {titlePlaceholder}
+              </h1>
+              <p className="Addon-summary" {...summaryProps}>
+                {summaryPlaceholder}
+              </p>
+              {addon ?
+                <InstallButton
+                  {...this.props}
+                  className="Button--action Button--small"
+                  disabled={!isCompatible}
+                  ref={(ref) => { this.installButton = ref; }}
+                  status={installStatus}
+                /> : null
+              }
             </section>
 
             <section className="Addon-metadata">
-              {this.headerImage({ compatible })}
+              {this.headerImage({ compatible: isCompatible })}
 
               <h2 className="visually-hidden">
                 {i18n.gettext('Extension Metadata')}
               </h2>
-              <AddonMeta addon={addon} />
+              {addon ? <AddonMeta addon={addon} /> : <LoadingText />}
             </section>
           </header>
 
-          {!compatible ? (
-            <AddonCompatibilityError maxVersion={maxVersion}
-              minVersion={minVersion} reason={reason} />
+          {compatibility && !isCompatible ? (
+            <AddonCompatibilityError
+              maxVersion={compatibility.maxVersion}
+              minVersion={compatibility.minVersion}
+              reason={compatibility.reason}
+            />
           ) : null}
         </Card>
 
         <div className="Addon-details">
-          {addon.previews.length > 0 ? (
+          {addonPreviews.length > 0 ? (
             <Card
               className="Addon-screenshots"
               header={i18n.gettext('Screenshots')}
             >
-              <ScreenShots previews={addon.previews} />
+              <ScreenShots previews={addonPreviews} />
             </Card>
           ) : null}
 
-          <ShowMoreCard header={i18n.sprintf(
-            i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
-          )} className="AddonDescription">
-            <div className="AddonDescription-contents"
-              ref={(ref) => { this.addonDescription = ref; }}
-              dangerouslySetInnerHTML={descriptionSanitized} />
-          </ShowMoreCard>
-
+          {this.renderShowMoreCard()}
           {this.renderRatingsCard()}
 
-          <AddonMoreInfo addon={addon} />
+          {addon ? <AddonMoreInfo addon={addon} /> : null}
         </div>
       </div>
     );
@@ -265,9 +318,13 @@ export class AddonBase extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
+  // TODO: make this function handle a falsy addon
   const { slug } = ownProps.params;
   const addon = state.addons[slug];
-  const installedAddon = state.installations[addon.guid] || {};
+  let installedAddon = {};
+  if (addon) {
+    installedAddon = state.installations[addon.guid] || {};
+  }
 
   return {
     addon,

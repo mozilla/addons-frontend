@@ -1,4 +1,5 @@
 /* global window */
+import { shallow } from 'enzyme';
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
@@ -15,10 +16,14 @@ import {
   allowedDescriptionTags,
   mapStateToProps,
 } from 'amo/components/Addon';
+import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
+import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
-import { RatingManagerWithI18n } from 'amo/components/RatingManager';
+import RatingManager, {
+  RatingManagerWithI18n,
+} from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
@@ -37,13 +42,15 @@ import {
 import {
   createFetchAddonResult, getFakeI18nInst, sampleUserAgentParsed,
 } from 'tests/unit/helpers';
+import LoadingText from 'ui/components/LoadingText';
 
 
 function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
   const i18n = getFakeI18nInst();
+  const addonProps = addon || {};
   return {
     addon,
-    ...addon,
+    ...addonProps,
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
@@ -73,6 +80,10 @@ function renderAsDOMNode(...args) {
   return findDOMNode(root);
 }
 
+function shallowRender(...args) {
+  return shallow(<AddonBase {...renderProps(...args)} />);
+}
+
 describe('Addon', () => {
   const incompatibleClientResult = {
     compatible: false,
@@ -85,6 +96,24 @@ describe('Addon', () => {
   it('renders a name', () => {
     const rootNode = renderAsDOMNode();
     expect(rootNode.querySelector('h1').textContent).toContain('Chill Out');
+  });
+
+  it('renders without an add-on', () => {
+    // Simulate the case when an add-on has not been loaded into state yet.
+    const root = shallowRender({ addon: null });
+
+    // These should be empty:
+    expect(root.find(InstallButton)).toHaveLength(0);
+    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+    expect(root.find(AddonMoreInfo)).toHaveLength(0);
+    expect(root.find(RatingManager)).toHaveLength(0);
+
+    // These should show LoadingText
+    expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
+    expect(root.find('.Addon-title').find(LoadingText)).toHaveLength(1);
+    expect(root.find('.Addon-metadata').find(LoadingText)).toHaveLength(1);
+    expect(root.find('.AddonDescription-contents')
+      .find(LoadingText)).toHaveLength(1);
   });
 
   it('renders a single author', () => {
@@ -592,5 +621,12 @@ describe('mapStateToProps', () => {
     // Make sure a random installedAddon prop gets passed as a component prop
     // so that the withInstallHelpers HOC works.
     expect(needsRestart).toEqual(false);
+  });
+
+  it('handles a non-existant add-on', () => {
+    signIn();
+    const { addon } = _mapStateToProps();
+
+    expect(addon).toEqual(undefined);
   });
 });
