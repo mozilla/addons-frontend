@@ -66,10 +66,6 @@ export class AuthenticateButtonBase extends React.Component {
     // appearance will transition to the hover state onClick when using a
     // mobile browser. This is the cause of
     // https://github.com/mozilla/addons-frontend/issues/1904
-    //
-    // We tried to use https://css-tricks.com/annoying-mobile-double-tap-link-issue/#article-header-id-2
-    // and media queries to fix this but the `href` solution worked so I'm
-    // going with this.
     return (
       <Button onClick={this.onClick} href="#" {...otherProps}>
         {noIcon ? null : <Icon name="user-dark" />}

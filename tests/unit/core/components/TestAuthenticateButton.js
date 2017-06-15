@@ -14,7 +14,7 @@ import {
   mapStateToProps,
 } from 'core/components/AuthenticateButton';
 import {
-  dispatchAnonymousActions,
+  dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
@@ -114,7 +114,7 @@ describe('<AuthenticateButton />', () => {
   });
 
   it('pulls isAuthenticated from state', () => {
-    const { store } = dispatchAnonymousActions();
+    const { store } = dispatchClientMetadata();
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(false);
     store.dispatch(setAuthToken(userAuthToken({ user_id: 123 })));
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);
