@@ -219,8 +219,17 @@ $default-arrow-margin: 3px;
     font-weight: 400;
   }
 
-  &:hover {
-    background: $background-hover;
+  // This is required because a <button> element with a :hover effect
+  // that changes its appearance will transition to the hover state onClick
+  // when using a mobile browser.
+  // This is the cause of
+  // https://github.com/mozilla/addons-frontend/issues/1904
+  //
+  // For more info, see: https://css-tricks.com/annoying-mobile-double-tap-link-issue/#article-header-id-2
+  @media (pointer: fine) {
+    &:hover {
+      background: $background-hover;
+    }
   }
 
   &:active,
