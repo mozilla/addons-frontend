@@ -208,6 +208,18 @@ describe('Addon', () => {
     expect(rootNode.querySelector('.AddonDescription-contents').textContent).toEqual(addon.summary);
   });
 
+  it('hides the description if description and summary are null', () => {
+    const addon = { ...fakeAddon, description: null, summary: null };
+    const rootNode = renderAsDOMNode({ addon });
+    expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
+  });
+
+  it('hides the description if description and summary are blank', () => {
+    const addon = { ...fakeAddon, description: '', summary: '' };
+    const rootNode = renderAsDOMNode({ addon });
+    expect(rootNode.querySelector('.AddonDescription')).toEqual(null);
+  });
+
   it('converts new lines in the description to breaks', () => {
     const rootNode = renderAsDOMNode({
       addon: {

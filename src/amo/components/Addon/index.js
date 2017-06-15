@@ -260,16 +260,23 @@ export class AddonBase extends React.Component {
             </Card>
           ) : null}
 
-          <ShowMoreCard header={i18n.sprintf(
-            i18n.gettext('About this %(addonType)s'), { addonType: addon.type }
-          )} className="AddonDescription">
-            <div className="AddonDescription-contents"
-              ref={(ref) => { this.addonDescription = ref; }}
-              dangerouslySetInnerHTML={
-                sanitizeHTML(nl2br(description), allowedDescriptionTags)
-              }
-            />
-          </ShowMoreCard>
+          {description && description.length ? (
+            <ShowMoreCard
+              header={i18n.sprintf(
+                i18n.gettext('About this %(addonType)s'),
+                { addonType: addon.type }
+              )}
+              className="AddonDescription"
+            >
+              <div
+                className="AddonDescription-contents"
+                ref={(ref) => { this.addonDescription = ref; }}
+                dangerouslySetInnerHTML={
+                  sanitizeHTML(nl2br(description), allowedDescriptionTags)
+                }
+              />
+            </ShowMoreCard>
+          ) : null}
 
           {this.renderRatingsCard()}
 
