@@ -13,6 +13,7 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import fallbackIcon from 'amo/img/icons/default-64.png';
+import { fetchAddon } from 'core/actions/addons';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, ENABLED, UNKNOWN,
@@ -21,9 +22,7 @@ import { withInstallHelpers } from 'core/installAddon';
 import {
   isAllowedOrigin,
   getClientCompatibility as _getClientCompatibility,
-  loadAddonIfNeeded,
   nl2br,
-  safeAsyncConnect,
   sanitizeHTML,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -63,6 +62,7 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     isPreviewingTheme: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
+    params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
     themePreviewNode: PropTypes.element,
     installStatus: PropTypes.string.isRequired,
@@ -76,10 +76,12 @@ export class AddonBase extends React.Component {
   }
 
   componentWillMount() {
-    const { addon, dispatch } = this.props;
+    const { addon, dispatch, params } = this.props;
 
     if (addon) {
       dispatch(setViewContext(addon.type));
+    } else {
+      dispatch(fetchAddon({ slug: params.slug }));
     }
   }
 
@@ -368,10 +370,6 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
-  safeAsyncConnect([{
-    key: 'Addon',
-    promise: loadAddonIfNeeded,
-  }]),
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),

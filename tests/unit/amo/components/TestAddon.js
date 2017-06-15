@@ -27,6 +27,7 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
+import { fetchAddon as fetchAddonAction } from 'core/actions/addons';
 import { setInstallState } from 'core/actions/installations';
 import {
   ADDON_TYPE_THEME,
@@ -46,7 +47,12 @@ import {
 import LoadingText from 'ui/components/LoadingText';
 
 
-function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
+function renderProps({
+  addon = fakeAddon,
+  params,
+  setCurrentStatus = sinon.spy(),
+  ...customProps
+} = {}) {
   const i18n = getFakeI18nInst();
   const addonProps = addon || {};
   return {
@@ -57,6 +63,7 @@ function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...cus
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
+    params: params || { slug: addon.slug },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
@@ -108,13 +115,17 @@ describe('Addon', () => {
   });
 
   it('renders without an add-on', () => {
+    const slugParam = 'some-addon'; // as passed through the URL.
     const fakeDispatch = sinon.stub();
 
     // Simulate the case when an add-on has not been loaded into state yet.
-    const root = shallowRender({ addon: null, dispatch: fakeDispatch });
+    const root = shallowRender({
+      addon: null, dispatch: fakeDispatch, params: { slug: slugParam },
+    });
 
-    // Since there's no add-on, addon.type should not get dispatched.
-    sinon.assert.notCalled(fakeDispatch);
+    // Since there's no add-on, it should be fetched on load.
+    sinon.assert.calledWith(
+      fakeDispatch, fetchAddonAction({ slug: slugParam }));
 
     // These should be empty:
     expect(root.find(InstallButton)).toHaveLength(0);
