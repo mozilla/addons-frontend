@@ -4,7 +4,7 @@ import {
   Simulate, findRenderedComponentWithType, renderIntoDocument,
 } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
-import { combineReducers, createStore as _createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 import { setAuthToken } from 'core/actions';
 import * as api from 'core/api';
@@ -13,17 +13,24 @@ import {
   mapDispatchToProps,
   mapStateToProps,
 } from 'core/components/AuthenticateButton';
-import apiReducer from 'core/reducers/api';
+import {
+  dispatchAnonymousActions,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 
-function createStore() {
-  return { store: _createStore(combineReducers({ api: apiReducer })) };
-}
 
 describe('<AuthenticateButton />', () => {
-  const renderTree = (props) => renderIntoDocument(
-    <AuthenticateButtonBase i18n={getFakeI18nInst()} {...props} />);
+  function renderTree(props) {
+    const { store } = dispatchSignInActions();
+
+    return findRenderedComponentWithType(renderIntoDocument(
+      <Provider store={store}>
+        <AuthenticateButtonBase i18n={getFakeI18nInst()} {...props} />
+      </Provider>
+    ), AuthenticateButtonBase);
+  }
 
   const render = (props) => findDOMNode(renderTree(props));
 
@@ -93,7 +100,7 @@ describe('<AuthenticateButton />', () => {
     };
     sinon.stub(config, 'get', (key) => _config[key]);
 
-    const { store } = createStore();
+    const { store } = dispatchSignInActions();
     store.dispatch(setAuthToken(userAuthToken({ user_id: 99 })));
     const apiConfig = { token: store.getState().api.token };
     expect(apiConfig.token).toBeTruthy();
@@ -107,7 +114,7 @@ describe('<AuthenticateButton />', () => {
   });
 
   it('pulls isAuthenticated from state', () => {
-    const { store } = createStore(combineReducers({ api }));
+    const { store } = dispatchAnonymousActions();
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(false);
     store.dispatch(setAuthToken(userAuthToken({ user_id: 123 })));
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);
