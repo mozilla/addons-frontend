@@ -23,7 +23,7 @@
     "test": "bin/config-check.js && jest --watch",
     "test-coverage": "bin/config-check.js && jest --coverage --watch",
     "test-coverage-once": "bin/config-check.js && jest --coverage",
-    "test-once": "bin/config-check.js && jest",
+    "test-once": "bin/config-check.js && jest && npm run lint",
     "version-check": "node bin/version-check.js",
     "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
   },
