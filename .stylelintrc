@@ -16,7 +16,7 @@
       ],
     }],
     "max-nesting-depth": [3, {
-      "ignore": ["at-rules-without-declaration-blocks"],
+      "ignore": ["blockless-at-rules"],
     }],
     "function-url-quotes": ["always"],
   }
