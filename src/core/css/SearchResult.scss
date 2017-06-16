@@ -32,14 +32,14 @@
   font-size: $font-size-default;
   font-weight: bold;
   margin: 0;
+  min-width: 1%;
   padding: 0;
   text-decoration: none;
-  width: calc(100% - 40px);
   word-wrap: break-word;
 
   .SearchResult--theme & {
     float: left;
-    width: calc(100% - 85px);
+    max-width: 100%;
 
     [dir=rtl] & {
       text-align: left;
@@ -102,23 +102,27 @@
   display: flex;
 }
 
+.SearchResult-heading-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .SearchResult-icon {
-  display: inline-block;
-  float: right;
   height: 38px;
+  margin-left: 5px;
   width: 38px;
+
+  [dir=rtl] & {
+    margin: 0 5px 0 0;
+  }
 
   .SearchResult--theme & {
     display: block;
-    float: right;
     height: 64px;
+    margin: 0;
     object-fit: cover;
     object-position: top right;
     width: 100%;
-  }
-
-  [dir=rtl] & {
-    float: left;
   }
 }
 
@@ -127,6 +131,10 @@
     margin: -10px -10px 10px;
     min-height: 64px;
     overflow: hidden;
+  }
+
+  .SearchResult-heading-wrapper {
+    display: block;
   }
 
   .SearchResult-icon-wrapper--notheme {

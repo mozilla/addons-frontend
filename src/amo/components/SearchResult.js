@@ -43,12 +43,14 @@ export class SearchResultBase extends React.Component {
               className="SearchResult-link"
               ref={(el) => { this.name = el; }}>
           <section className="SearchResult-main">
-            <div className={iconWrapperClassnames}>
-              {imageURL ?
-                <img className="SearchResult-icon" src={imageURL} alt="" /> :
-                <p className="SearchResult-notheme">{i18n.gettext('No theme preview available')}</p>}
+            <div className="SearchResult-heading-wrapper">
+              <div className={iconWrapperClassnames}>
+                {imageURL ?
+                  <img className="SearchResult-icon" src={imageURL} alt="" /> :
+                  <p className="SearchResult-notheme">{i18n.gettext('No theme preview available')}</p>}
+              </div>
+              <h2 className="SearchResult-heading">{addon.name}</h2>
             </div>
-            <h2 className="SearchResult-heading">{addon.name}</h2>
             <div className="SearchResult-rating">
               <Rating rating={addon.ratings.average} readOnly
                 styleName="small" />
