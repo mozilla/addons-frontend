@@ -131,8 +131,10 @@ export function callApi({
 
       log.warn(oneLine`Response from API was not JSON (was Content-Type:
         ${contentType})`, response);
-      return response.text().then((textResponse) => {
-        return { jsonResponse: { text: textResponse }, response };
+      return response.text().then(() => {
+        // jsonResponse should be an empty object in this case.
+        // Otherwise, its keys could be treated as generic API errors.
+        return { jsonResponse: {}, response };
       });
     })
     .then(({ response, jsonResponse }) => {

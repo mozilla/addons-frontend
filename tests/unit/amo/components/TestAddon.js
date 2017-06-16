@@ -37,6 +37,7 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
+import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import {
   dispatchSignInActions, fakeAddon, signedInApiState,
@@ -44,6 +45,7 @@ import {
 import {
   createFetchAddonResult, getFakeI18nInst, sampleUserAgentParsed,
 } from 'tests/unit/helpers';
+import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 
 
@@ -59,6 +61,10 @@ function renderProps({
     addon,
     ...addonProps,
     dispatch: sinon.stub(),
+    errorHandler: new ErrorHandler({
+      id: 'some-id',
+      dispatch: sinon.stub(),
+    }),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
@@ -115,17 +121,24 @@ describe('Addon', () => {
   });
 
   it('renders without an add-on', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'no-addon-error-handler',
+      dispatch: sinon.stub(),
+    });
     const slugParam = 'some-addon'; // as passed through the URL.
     const fakeDispatch = sinon.stub();
 
     // Simulate the case when an add-on has not been loaded into state yet.
     const root = shallowRender({
-      addon: null, dispatch: fakeDispatch, params: { slug: slugParam },
+      addon: null,
+      errorHandler,
+      dispatch: fakeDispatch,
+      params: { slug: slugParam },
     });
 
     // Since there's no add-on, it should be fetched on load.
     sinon.assert.calledWith(
-      fakeDispatch, fetchAddonAction({ slug: slugParam }));
+      fakeDispatch, fetchAddonAction({ errorHandler, slug: slugParam }));
 
     // These should be empty:
     expect(root.find(InstallButton)).toHaveLength(0);
@@ -139,6 +152,17 @@ describe('Addon', () => {
     expect(root.find('.Addon-metadata').find(LoadingText)).toHaveLength(1);
     expect(root.find('.AddonDescription-contents')
       .find(LoadingText)).toHaveLength(1);
+  });
+
+  it('renders an error if there is one', () => {
+    const errorHandler = new ErrorHandler({
+      capturedError: new Error('some error'),
+      id: 'some-handler',
+      dispatch: sinon.stub(),
+    });
+
+    const root = shallowRender({ errorHandler });
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   it('renders a single author', () => {

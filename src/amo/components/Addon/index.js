@@ -14,6 +14,7 @@ import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import { fetchAddon } from 'core/actions/addons';
+import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, ENABLED, UNKNOWN,
@@ -57,6 +58,7 @@ export class AddonBase extends React.Component {
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
+    errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
@@ -76,12 +78,12 @@ export class AddonBase extends React.Component {
   }
 
   componentWillMount() {
-    const { addon, dispatch, params } = this.props;
+    const { addon, dispatch, errorHandler, params } = this.props;
 
     if (addon) {
       dispatch(setViewContext(addon.type));
     } else {
-      dispatch(fetchAddon({ slug: params.slug }));
+      dispatch(fetchAddon({ slug: params.slug, errorHandler }));
     }
   }
 
@@ -224,11 +226,13 @@ export class AddonBase extends React.Component {
     const {
       addon,
       clientApp,
+      errorHandler,
       getClientCompatibility,
       i18n,
       installStatus,
       userAgentInfo,
     } = this.props;
+
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
     let authorList = [<LoadingText key="LoadingText" />];
@@ -279,6 +283,7 @@ export class AddonBase extends React.Component {
     // eslint-disable react/no-danger
     return (
       <div className={classNames('Addon', `Addon-${addonType}`)}>
+        {errorHandler.hasError() ? errorHandler.renderError() : null}
         <Card className="" photonStyle>
           <header className="Addon-header">
             <section className="Addon-title-section">
@@ -373,4 +378,5 @@ export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),
+  withErrorHandler({ name: 'Addon' }),
 )(AddonBase);

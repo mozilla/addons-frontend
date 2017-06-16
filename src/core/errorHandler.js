@@ -25,8 +25,12 @@ export class ErrorHandler {
   }
 
   clear() {
-    log.debug('Clearing last error for ', this.id);
-    this.dispatch(clearError(this.id));
+    const action = this.createClearingAction();
+    this.dispatch(action);
+  }
+
+  createClearingAction() {
+    return clearError(this.id);
   }
 
   hasError() {
@@ -38,10 +42,14 @@ export class ErrorHandler {
     return <ErrorList messages={messages} code={code} />;
   }
 
-  handle(error) {
+  createErrorAction(error) {
     const info = { error, id: this.id };
-    log.debug('Dispatching error action', info);
-    this.dispatch(setError(info));
+    return setError(info);
+  }
+
+  handle(error) {
+    const action = this.createErrorAction(error);
+    this.dispatch(action);
   }
 }
 
