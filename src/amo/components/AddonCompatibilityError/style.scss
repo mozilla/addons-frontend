@@ -1,14 +1,16 @@
 @import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 
 .AddonCompatibilityError {
-  background: $error-background-color;
+  background: $report-base-color;
   border-radius: $border-radius-default;
-  color: $error-text-color;
-  padding: 5px;
+  margin-top: 10px;
+  padding: 10px;
   text-align: center;
 
+  &,
   a,
   a:link {
-    color: $error-text-color;
+    color: $white;
   }
 }
