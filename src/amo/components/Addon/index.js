@@ -197,12 +197,12 @@ export class AddonBase extends React.Component {
   renderShowMoreCard() {
     const { addon, i18n } = this.props;
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
+    let description;
 
     const descriptionProps = {};
     let descriptionPlaceholder;
     if (addon) {
-      const description =
-        addon.description ? addon.description : addon.summary;
+      description = addon.description ? addon.description : addon.summary;
       descriptionProps.dangerouslySetInnerHTML = sanitizeHTML(
         nl2br(description), allowedDescriptionTags);
     } else {

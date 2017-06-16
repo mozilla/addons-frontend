@@ -145,13 +145,12 @@ describe('Addon', () => {
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
     expect(root.find(AddonMoreInfo)).toHaveLength(0);
     expect(root.find(RatingManager)).toHaveLength(0);
+    expect(root.find('.AddonDescription-contents')).toHaveLength(0);
 
     // These should show LoadingText
     expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
     expect(root.find('.Addon-title').find(LoadingText)).toHaveLength(1);
     expect(root.find('.Addon-metadata').find(LoadingText)).toHaveLength(1);
-    expect(root.find('.AddonDescription-contents')
-      .find(LoadingText)).toHaveLength(1);
   });
 
   it('renders an error if there is one', () => {
