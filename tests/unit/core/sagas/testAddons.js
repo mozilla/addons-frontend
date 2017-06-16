@@ -1,18 +1,18 @@
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
-import addonsSaga from 'amo/sagas/addons';
 import { fetchAddon } from 'core/actions/addons';
 import * as api from 'core/api';
 import { ENTITIES_LOADED } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import addonsReducer from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
+import addonsSaga from 'core/sagas/addons';
 import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import { createFetchAddonResult } from 'tests/unit/helpers';
 
 
-describe('amo/sagas/addons', () => {
+describe('core/sagas/addons', () => {
   let apiState;
   let errorHandler;
   let mockApi;

@@ -1,6 +1,7 @@
 import { fork } from 'redux-saga/effects';
 
-import addons from './addons';
+import addons from 'core/sagas/addons';
+
 import categories from './categories';
 
 

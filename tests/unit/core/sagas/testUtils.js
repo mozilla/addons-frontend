@@ -2,10 +2,10 @@ import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
 import SagaTester from 'redux-saga-tester';
 
-import { getApi } from 'amo/sagas/utils';
 import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';
 import apiReducer from 'core/reducers/api';
+import { getApi } from 'core/sagas/utils';
 
 
 describe('Saga utils', () => {
