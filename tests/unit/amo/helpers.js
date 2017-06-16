@@ -66,17 +66,30 @@ export const signedInApiState = Object.freeze({
   clientApp: 'firefox',
 });
 
-export function dispatchSignInActions({
+export function dispatchClientMetadata({
   store = createStore().store,
   clientApp = 'android',
-  authToken = userAuthToken(),
   lang = 'en-US',
   userAgent = sampleUserAgent,
 } = {}) {
-  store.dispatch(setAuthToken(authToken));
   store.dispatch(setClientApp(clientApp));
   store.dispatch(setLang(lang));
   store.dispatch(setUserAgent(userAgent));
+
+  return {
+    store,
+    state: store.getState(),
+  };
+}
+
+export function dispatchSignInActions({
+  authToken = userAuthToken(),
+  ...otherArgs
+} = {}) {
+  const { store } = dispatchClientMetadata(otherArgs);
+
+  store.dispatch(setAuthToken(authToken));
+
   return {
     store,
     state: store.getState(),
