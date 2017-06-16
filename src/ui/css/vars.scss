@@ -43,6 +43,7 @@ $type-black: $black;
 $link-color: #0d96ff;
 
 $header-accent-color: $link-color;
+$header-text-not-active-color: transparentize($white, 0.5);
 
 // Fonts
 $font-size-s: 12px;
