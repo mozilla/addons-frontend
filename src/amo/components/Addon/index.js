@@ -209,6 +209,10 @@ export class AddonBase extends React.Component {
       descriptionPlaceholder = <LoadingText />;
     }
 
+    if (!description || !description.length) {
+      return null;
+    }
+
     return (
       <ShowMoreCard header={i18n.sprintf(
         i18n.gettext('About this %(addonType)s'), { addonType }
