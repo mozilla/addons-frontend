@@ -1,4 +1,5 @@
 @import "~core/css/inc/vars";
+@import "~core/css/inc/mixins";
 
 .SearchResult {
   background: $base-color;
@@ -108,13 +109,10 @@
 }
 
 .SearchResult-icon {
-  height: 38px;
-  margin-left: 5px;
-  width: 38px;
+  @include margin-start(5px);
 
-  [dir=rtl] & {
-    margin: 0 5px 0 0;
-  }
+  height: 38px;
+  width: 38px;
 
   .SearchResult--theme & {
     display: block;
