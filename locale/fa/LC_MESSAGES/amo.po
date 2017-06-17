@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-06-14 00:36+0000\n"
-"Last-Translator: Amin Mahmudian <amin.mahmudian@gmail.com>\n"
+"PO-Revision-Date: 2017-06-17 06:08+0000\n"
+"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -270,9 +270,8 @@ msgid "Report a bug"
 msgstr "گزارش خطا"
 
 #: src/amo/components/Footer/index.js:51
-#, fuzzy
 msgid "View classic desktop site"
-msgstr "نمایش میزکار وب‌سایت"
+msgstr "نمایش سایت رومیزیِ قبلی"
 
 #: src/amo/components/Header/index.js:42
 msgid "Firefox Add-ons"
