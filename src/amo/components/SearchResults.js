@@ -5,8 +5,6 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
 
-import './SearchResults.scss';
-
 
 class SearchResults extends React.Component {
   static propTypes = {
@@ -60,7 +58,10 @@ class SearchResults extends React.Component {
     return (
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
         {loadingMessage}
-        <AddonsCard addons={hasSearchParams ? results : null}>
+        <AddonsCard
+          addons={hasSearchParams ? results : null}
+          header={i18n.gettext('Search results')}
+        >
           {messageText ? (
             <p ref={(ref) => { this.message = ref; }}
               className="SearchResults-message">

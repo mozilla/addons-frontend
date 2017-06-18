@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import SearchResult from 'amo/components/SearchResult';
 import CardList from 'ui/components/CardList';
 
+import './styles.scss';
+
 
 export default class AddonsCard extends React.Component {
   static propTypes = {

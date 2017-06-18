@@ -10,7 +10,6 @@ import { Provider } from 'react-redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
-import createStore from 'amo/store';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -19,15 +18,13 @@ import {
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { visibleAddonType } from 'core/utils';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<LandingPage />', () => {
-  const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
-
   function render({ ...props }) {
-    const { store } = createStore(initialState);
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.stub();
 
     return findRenderedComponentWithType(renderIntoDocument(
@@ -133,7 +130,7 @@ describe('<LandingPage />', () => {
   });
 
   it('renders each add-on when set', () => {
-    const { store } = createStore(initialState);
+    const { store } = dispatchClientMetadata();
     store.dispatch(landingActions.loadLanding({
       featured: {
         entities: {
@@ -180,7 +177,7 @@ describe('<LandingPage />', () => {
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(Object.values(rootNode.querySelectorAll('.SearchResult-heading'))
+    expect(Object.values(rootNode.querySelectorAll('.SearchResult-name'))
       .map((heading) => heading.textContent)).toEqual(['Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again']);
   });
 
