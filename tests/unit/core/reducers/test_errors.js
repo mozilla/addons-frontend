@@ -36,6 +36,7 @@ describe('errors reducer', () => {
     expect(state[action.payload.id]).toEqual({
       code: ERROR_UNKNOWN,
       messages: [message],
+      responseStatusCode: 401,
     });
   });
 
@@ -86,6 +87,7 @@ describe('errors reducer', () => {
     expect(state[action.payload.id]).toEqual({
       code: ERROR_UNKNOWN,
       messages: [],
+      responseStatusCode: null,
     });
   });
 
@@ -124,7 +126,7 @@ describe('errors reducer', () => {
     // This API error has no messages (hopefully this won't ever happen).
     const action = setError({ id: 'some-id', error: createFakeApiError() });
     const state = errors(undefined, action);
-    expect(state[action.payload.id]).toEqual({
+    expect(state[action.payload.id]).toMatchObject({
       code: ERROR_UNKNOWN,
       messages: [],
     });

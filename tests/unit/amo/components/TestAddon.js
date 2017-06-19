@@ -20,6 +20,7 @@ import {
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
 import RatingManager, {
@@ -28,7 +29,9 @@ import RatingManager, {
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
 import { fetchAddon as fetchAddonAction } from 'core/actions/addons';
+import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
+import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_THEME,
   ENABLED,
@@ -162,6 +165,28 @@ describe('Addon', () => {
 
     const root = shallowRender({ errorHandler });
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('renders 404 page for missing add-on', () => {
+    const id = 'error-handler-id';
+    const store = createStore().store;
+
+    const error = createApiError({
+      response: { status: 404 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Not found' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    // Set up an error handler from state like withErrorHandler().
+    const errorHandler = new ErrorHandler({
+      id, dispatch: sinon.stub(), capturedError,
+    });
+
+    const root = shallowRender({ errorHandler });
+    expect(root.find(NotFound)).toHaveLength(1);
   });
 
   it('renders a single author', () => {

@@ -9,6 +9,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
@@ -27,6 +28,7 @@ import {
   sanitizeHTML,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
@@ -237,6 +239,16 @@ export class AddonBase extends React.Component {
       userAgentInfo,
     } = this.props;
 
+    let errorBanner = null;
+    if (errorHandler.hasError()) {
+      log.error('Captured API Error:', errorHandler.capturedError);
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFound />;
+      }
+      // Show a list of errors at the top of the add-on section.
+      errorBanner = errorHandler.renderError();
+    }
+
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
     let authorList = [<LoadingText key="LoadingText" />];
@@ -287,7 +299,7 @@ export class AddonBase extends React.Component {
     // eslint-disable react/no-danger
     return (
       <div className={classNames('Addon', `Addon-${addonType}`)}>
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorBanner}
         <Card className="" photonStyle>
           <header className="Addon-header">
             <section className="Addon-title-section">
