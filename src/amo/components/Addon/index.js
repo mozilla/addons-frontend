@@ -201,13 +201,12 @@ export class AddonBase extends React.Component {
     let description;
 
     const descriptionProps = {};
-    let descriptionPlaceholder;
     if (addon) {
       description = addon.description ? addon.description : addon.summary;
       descriptionProps.dangerouslySetInnerHTML = sanitizeHTML(
         nl2br(description), allowedDescriptionTags);
     } else {
-      descriptionPlaceholder = <LoadingText />;
+      descriptionProps.children = <LoadingText />;
     }
 
     if (!description || !description.length) {
@@ -220,9 +219,8 @@ export class AddonBase extends React.Component {
       )} className="AddonDescription">
         <div className="AddonDescription-contents"
           ref={(ref) => { this.addonDescription = ref; }}
-          {...descriptionProps}>
-          {descriptionPlaceholder}
-        </div>
+          {...descriptionProps}
+        />
       </ShowMoreCard>
     );
   }
@@ -250,25 +248,23 @@ export class AddonBase extends React.Component {
 
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
-    let authorList = [<LoadingText key="LoadingText" />];
+    let authorList = [<LoadingText key="author-placeholder" />];
     if (addon) {
       authorList = addon.authors.map(
         (author) => `<a href="${author.url}">${author.name}</a>`);
     }
 
     const summaryProps = {};
-    let summaryPlaceholder = null;
     if (addon) {
       // Themes lack a summary so we do the inverse :-/
       // TODO: We should file an API bug about this...
       const summary = addon.summary ? addon.summary : addon.description;
       summaryProps.dangerouslySetInnerHTML = sanitizeHTML(summary, ['a']);
     } else {
-      summaryPlaceholder = <LoadingText />;
+      summaryProps.children = <LoadingText />;
     }
 
     const titleProps = {};
-    let titlePlaceholder = null;
     if (addon) {
       const title = i18n.sprintf(
         // L10n: Example: The Add-On <span>by The Author</span>
@@ -281,7 +277,7 @@ export class AddonBase extends React.Component {
       );
       titleProps.dangerouslySetInnerHTML = sanitizeHTML(title, ['a', 'span']);
     } else {
-      titlePlaceholder = <LoadingText />;
+      titleProps.children = <LoadingText />;
     }
 
     const addonPreviews = addon ? addon.previews : [];
@@ -301,13 +297,8 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <Card className="" photonStyle>
           <header className="Addon-header">
-            <h1 className="Addon-title" {...titleProps}>
-              {titlePlaceholder}
-            </h1>
-
-            <p className="Addon-summary" {...summaryProps}>
-              {summaryPlaceholder}
-            </p>
+            <h1 className="Addon-title" {...titleProps} />
+            <p className="Addon-summary" {...summaryProps} />
 
             {addon ?
               <InstallButton
