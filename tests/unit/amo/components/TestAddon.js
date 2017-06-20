@@ -118,6 +118,25 @@ describe('Addon', () => {
     sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
   });
 
+  it('dispatches setViewContext on update', () => {
+    const fakeDispatch = sinon.stub();
+    const root = render({ dispatch: fakeDispatch });
+    root.componentWillReceiveProps({
+      addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
+    });
+
+    expect(fakeDispatch.lastCall.args[0])
+      .toEqual(setViewContext(ADDON_TYPE_THEME));
+  });
+
+  it('does not update view context unless there is an addon', () => {
+    const fakeDispatch = sinon.stub();
+    const root = render({ dispatch: fakeDispatch });
+    fakeDispatch.reset();
+    root.componentWillReceiveProps({});
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
   it('renders a name', () => {
     const rootNode = renderAsDOMNode();
     expect(rootNode.querySelector('h1').textContent).toContain('Chill Out');

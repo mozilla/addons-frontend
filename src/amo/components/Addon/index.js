@@ -89,6 +89,13 @@ export class AddonBase extends React.Component {
     }
   }
 
+  componentWillReceiveProps({ addon }) {
+    const { dispatch } = this.props;
+    if (addon) {
+      dispatch(setViewContext(addon.type));
+    }
+  }
+
   componentWillUnmount() {
     const {
       isPreviewingTheme,
