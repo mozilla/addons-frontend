@@ -345,7 +345,6 @@ export class AddonBase extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  // TODO: make this function handle a falsy addon
   const { slug } = ownProps.params;
   const addon = state.addons[slug];
   let installedAddon = {};

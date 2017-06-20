@@ -657,6 +657,12 @@ describe('mapStateToProps', () => {
     return mapStateToProps(state, ownProps);
   }
 
+  it('can handle a missing addon', () => {
+    signIn();
+    const { addon } = _mapStateToProps();
+    expect(addon).toBeFalsy();
+  });
+
   it('sets the clientApp and userAgent', () => {
     const clientAppFromAgent = 'firefox';
     signIn({ clientApp: clientAppFromAgent });

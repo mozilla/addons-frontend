@@ -26,8 +26,7 @@ export function* fetchAddon(
     yield put(showLoading());
     const api = yield select(getApi);
     const response = yield call(fetchAddonFromApi, { api, slug });
-    // TODO: put this back
-    // yield put(loadEntities(response.entities));
+    yield put(loadEntities(response.entities));
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
