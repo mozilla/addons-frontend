@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-04-11 05:47+0000\n"
+"PO-Revision-Date: 2017-06-20 11:13+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -52,35 +52,24 @@ msgid "Tap to preview"
 msgstr "แตะเพื่อแสดงตัวอย่าง"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"คุณจำเป็นต้อง <a href=\"%(downloadUrl)s\">ดาวน์โหลด Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "คุณจำเป็นต้อง <a href=\"%(downloadUrl)s\">ดาวน์โหลด Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
 
 #: src/amo/components/AddonCompatibilityError/index.js:59
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Firefox รุ่นของคุณไม่รองรับปลั๊กอินการค้นหา"
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox สำหรับ iOS ไม่รองรับส่วนเสริมในขณะนี้"
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"ส่วนเสริมนี้ต้องการ <a href=\"%(downloadUrl)s\">Firefox รุ่นใหม่กว่า</a> (ขั้นต่ำรุ่น "
-"%(minVersion)s) คุณกำลังใช้ Firefox %(yourVersion)s"
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "ส่วนเสริมนี้ต้องการ <a href=\"%(downloadUrl)s\">Firefox รุ่นใหม่กว่า</a> (ขั้นต่ำรุ่น %(minVersion)s) คุณกำลังใช้ Firefox %(yourVersion)s"
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"เบราว์เซอร์ของคุณไม่รองรับส่วนเสริม คุณสามารถ <a href=\"%(downloadUrl)s\">ดาวน์โหลด "
-"Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "เบราว์เซอร์ของคุณไม่รองรับส่วนเสริม คุณสามารถ <a href=\"%(downloadUrl)s\">ดาวน์โหลด Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
 
 #: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
@@ -142,7 +131,7 @@ msgstr "นโยบายความเป็นส่วนตัว"
 
 #: src/amo/components/AddonMoreInfo.js:89
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "อ่านนโยบายความเป็นส่วนตัวสำหรับส่วนเสริมนี้"
 
 #: src/amo/components/AddonMoreInfo.js:94
 msgid "End-User License Agreement"
@@ -161,8 +150,7 @@ msgid "Tell the world about this extension."
 msgstr "บอกให้โลกรู้เกี่ยวกับส่วนขยายนี้"
 
 #: src/amo/components/AddonReview.js:153
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
+msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 
 #: src/amo/components/AddonReview.js:161
@@ -216,10 +204,7 @@ msgid "Loading categories."
 msgstr "ไม่สามารถโหลดหมวดหมู่"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
@@ -227,47 +212,33 @@ msgid "Not Authorized"
 msgstr "ไม่ได้รับอนุญาต"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "ไม่พบหน้า"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
 msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "ข้อผิดพลาดเซิร์ฟเวอร์"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:34
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:33
@@ -281,7 +252,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "ไปยังหน้าแรกของ Mozilla"
 
 #: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
@@ -317,15 +288,11 @@ msgid "Extensions"
 msgstr "ส่วนขยาย"
 
 #: src/amo/components/LandingPage.js:120
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
 msgstr ""
 
 #: src/amo/components/LandingPage.js:122
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
 msgstr ""
 
 #: src/amo/components/LandingPage.js:147
@@ -468,7 +435,7 @@ msgstr "อันดับสูงสุด"
 
 #: src/amo/components/SearchSort/index.js:67
 msgid "Sort"
-msgstr ""
+msgstr "เรียง"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
@@ -487,9 +454,7 @@ msgid "Add-ons Home Page"
 msgstr "หน้าแรกส่วนเสริม"
 
 #: src/amo/containers/Home.js:40
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
+msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr ""
 
 #: src/amo/containers/Home.js:53
@@ -557,13 +522,10 @@ msgid "Log in/Sign up"
 msgstr "เข้าสู่ระบบ/ลงทะเบียน"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "รหัสข้อผิดพลาด: %(status)s"
 
@@ -571,8 +533,7 @@ msgstr "รหัสข้อผิดพลาด: %(status)s"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "เพิ่มไปยัง Firefox"
 
@@ -634,7 +595,7 @@ msgstr "ตกลง!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "วาระของคุณหมดอายุแล้ว"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
@@ -642,7 +603,7 @@ msgstr "เกิดข้อผิดพลาดที่ไม่คาดค
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "โหลดใหม่เพื่อดำเนินการต่อ"
 
 #: src/ui/components/Rating/index.js:94
 #, fuzzy

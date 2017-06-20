@@ -16,7 +16,7 @@
 
 .SectionLinks-link,
 .SectionLinks-link:link {
-  color: transparentize($white, 0.5);
+  color: $header-text-not-active-color;
   margin: 0 15px;
   padding: 0 0 2px;
   text-decoration: none;
@@ -25,7 +25,7 @@
 
   &:focus,
   &:hover {
-    border-bottom: 3px solid transparentize($white, 0.5);
+    border-bottom: 3px solid $header-text-not-active-color;
   }
 
   &:active {

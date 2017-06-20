@@ -1,5 +1,6 @@
 @import "~core/css/inc/mixins";
 @import "~ui/components/Icon/vars";
+@import "~ui/css/vars";
 
 $input-height: 48px;
 $icon-margin-start: 24px;
@@ -47,6 +48,7 @@ $icon-margin-end: 12px;
   // Include the start margin on the end so that icon and text is centred together.
   @include padding-end($icon-margin-start);
 
+  color: $header-text-not-active-color;
   display: inline-block;
   height: $input-height;
   line-height: $input-height;
