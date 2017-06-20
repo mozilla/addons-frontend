@@ -154,8 +154,9 @@ describe('Addon', () => {
       .toHaveLength(1);
     expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
     expect(root.find('.Addon-title').find(LoadingText)).toHaveLength(1);
-    // TODO: fix AddonMeta
-    // expect(root.find('.Addon-metadata').find(LoadingText)).toHaveLength(1);
+
+    // These should render with an empty addon.
+    expect(root.find(AddonMeta).prop('addon')).toEqual(null);
   });
 
   it('renders an error if there is one', () => {

@@ -273,7 +273,7 @@ export class AddonBase extends React.Component {
       );
       titleProps.dangerouslySetInnerHTML = sanitizeHTML(title, ['a', 'span']);
     } else {
-      titleProps.children = <LoadingText width={100} />;
+      titleProps.children = <LoadingText width={70} />;
     }
 
     const addonPreviews = addon ? addon.previews : [];
@@ -311,7 +311,7 @@ export class AddonBase extends React.Component {
               {i18n.gettext('Extension Metadata')}
             </h2>
 
-            {addon ? <AddonMeta addon={addon} /> : <LoadingText width={70} />}
+            <AddonMeta addon={addon} />
           </header>
 
           {compatibility && !isCompatible ? (

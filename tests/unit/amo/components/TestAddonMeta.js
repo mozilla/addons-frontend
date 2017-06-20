@@ -4,6 +4,8 @@ import React from 'react';
 import { AddonMetaBase } from 'amo/components/AddonMeta';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
+import LoadingText from 'ui/components/LoadingText';
+import Rating from 'ui/components/Rating';
 
 function render({ ...customProps } = {}) {
   const props = {
@@ -15,6 +17,15 @@ function render({ ...customProps } = {}) {
 }
 
 describe('<AddonMeta>', () => {
+  it('can render without an addon', () => {
+    const root = render({ addon: null });
+    expect(root.find('.AddonMeta-user-count').find(LoadingText))
+      .toHaveLength(1);
+    expect(root.find('.AddonMeta-review-count').text())
+      .toContain('No reviews');
+    expect(root.find(Rating).prop('rating')).toEqual(null);
+  });
+
   describe('average daily users', () => {
     function getUserCount(root) {
       return root.find('.AddonMeta-user-count').text();
