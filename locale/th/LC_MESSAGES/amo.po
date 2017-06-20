@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-06-20 11:06+0000\n"
+"PO-Revision-Date: 2017-06-20 11:13+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -57,11 +57,11 @@ msgstr "คุณจำเป็นต้อง <a href=\"%(downloadUrl)s\">ด�
 
 #: src/amo/components/AddonCompatibilityError/index.js:59
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Firefox รุ่นของคุณไม่รองรับปลั๊กอินการค้นหา"
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox สำหรับ iOS ไม่รองรับส่วนเสริมในขณะนี้"
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
