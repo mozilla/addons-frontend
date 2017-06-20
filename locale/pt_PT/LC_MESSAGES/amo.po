@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-20 22:08+0000\n"
-"PO-Revision-Date: 2017-06-20 23:10+0000\n"
+"PO-Revision-Date: 2017-06-20 23:11+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -381,14 +381,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Como está a desfrutar da sua experiência com %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:52
-#, fuzzy
 msgid "Search extensions"
-msgstr "Extensões em destaque"
+msgstr "Pesquisar extensões"
 
 #: src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search themes"
-msgstr "Temas em destaque"
+msgstr "Pesquisar temas"
 
 #: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
