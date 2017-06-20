@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-06-20 10:02+0000\n"
+"PO-Revision-Date: 2017-06-20 11:06+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -131,7 +131,7 @@ msgstr "นโยบายความเป็นส่วนตัว"
 
 #: src/amo/components/AddonMoreInfo.js:89
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "อ่านนโยบายความเป็นส่วนตัวสำหรับส่วนเสริมนี้"
 
 #: src/amo/components/AddonMoreInfo.js:94
 msgid "End-User License Agreement"
@@ -252,7 +252,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "ไปยังหน้าแรกของ Mozilla"
 
 #: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
