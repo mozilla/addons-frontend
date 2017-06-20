@@ -302,32 +302,31 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <Card className="" photonStyle>
           <header className="Addon-header">
-            <section className="Addon-title-section">
-              <h1 className="Addon-title" {...titleProps}>
-                {titlePlaceholder}
-              </h1>
-              <p className="Addon-summary" {...summaryProps}>
-                {summaryPlaceholder}
-              </p>
-              {addon ?
-                <InstallButton
-                  {...this.props}
-                  className="Button--action Button--small"
-                  disabled={!isCompatible}
-                  ref={(ref) => { this.installButton = ref; }}
-                  status={installStatus}
-                /> : null
-              }
-            </section>
+            <h1 className="Addon-title" {...titleProps}>
+              {titlePlaceholder}
+            </h1>
 
-            <section className="Addon-metadata">
-              {this.headerImage({ compatible: isCompatible })}
+            <p className="Addon-summary" {...summaryProps}>
+              {summaryPlaceholder}
+            </p>
 
-              <h2 className="visually-hidden">
-                {i18n.gettext('Extension Metadata')}
-              </h2>
-              {addon ? <AddonMeta addon={addon} /> : <LoadingText />}
-            </section>
+            {addon ?
+              <InstallButton
+                {...this.props}
+                className="Button--action Button--small"
+                disabled={!isCompatible}
+                ref={(ref) => { this.installButton = ref; }}
+                status={installStatus}
+              /> : null
+            }
+
+            {this.headerImage({ compatible: isCompatible })}
+
+            <h2 className="visually-hidden">
+              {i18n.gettext('Extension Metadata')}
+            </h2>
+
+            {addon ? <AddonMeta addon={addon} /> : <LoadingText />}
           </header>
 
           {compatibility && !isCompatible ? (
