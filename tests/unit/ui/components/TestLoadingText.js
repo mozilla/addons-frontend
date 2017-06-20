@@ -1,7 +1,5 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { renderIntoDocument } from 'react-addons-test-utils';
 
 import LoadingText from 'ui/components/LoadingText';
 

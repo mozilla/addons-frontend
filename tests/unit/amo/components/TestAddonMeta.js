@@ -1,12 +1,7 @@
+import { shallow } from 'enzyme';
 import React from 'react';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-} from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
 
-import AddonMeta from 'amo/components/AddonMeta';
-import I18nProvider from 'core/i18n/Provider';
+import { AddonMetaBase } from 'amo/components/AddonMeta';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
@@ -16,18 +11,13 @@ function render({ ...customProps } = {}) {
     i18n: getFakeI18nInst(),
     ...customProps,
   };
-  const root = findRenderedComponentWithType(renderIntoDocument(
-    <I18nProvider i18n={props.i18n}>
-      <AddonMeta {...props} />
-    </I18nProvider>
-  ), AddonMeta);
-  return findDOMNode(root);
+  return shallow(<AddonMetaBase {...props} />);
 }
 
 describe('<AddonMeta>', () => {
   describe('average daily users', () => {
     function getUserCount(root) {
-      return root.querySelector('.AddonMeta-users > p').textContent;
+      return root.find('.AddonMeta-user-count').text();
     }
 
     it('renders the user count', () => {
@@ -68,24 +58,9 @@ describe('<AddonMeta>', () => {
       });
     }
 
-    function getRating(root) {
-      return root.querySelector('.AddonMeta-Rating').textContent;
-    }
-
     function getReviewCount(root) {
-      return root.querySelector('.AddonMeta-review-count').textContent;
+      return root.find('.AddonMeta-review-count').text();
     }
-
-    it('renders the average rating', () => {
-      const root = renderRatings({ average: 3.5 });
-      expect(getRating(root)).toEqual('Rated 3.5 out of 5');
-    });
-
-    it('localizes average rating', () => {
-      const i18n = getFakeI18nInst({ lang: 'de' });
-      const root = renderRatings({ average: 3.5 }, { i18n });
-      expect(getRating(root)).toContain('3,5');
-    });
 
     it('renders a count of multiple ratings', () => {
       const root = renderRatings({ count: 5 });
@@ -101,11 +76,6 @@ describe('<AddonMeta>', () => {
       const i18n = getFakeI18nInst({ lang: 'de' });
       const root = renderRatings({ count: 1000 }, { i18n });
       expect(getReviewCount(root)).toContain('1.000');
-    });
-
-    it('renders empty ratings', () => {
-      const root = renderRatings({ average: null });
-      expect(getRating(root)).toEqual('No ratings');
     });
   });
 });

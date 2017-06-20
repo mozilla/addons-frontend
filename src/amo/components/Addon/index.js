@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -286,7 +287,6 @@ export class AddonBase extends React.Component {
       isCompatible = compatibility.compatible;
     }
 
-    // eslint-disable react/no-danger
     return (
       <div className={classNames('Addon', `Addon-${addonType}`)}>
         {errorBanner}
