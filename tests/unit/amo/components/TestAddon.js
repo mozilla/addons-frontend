@@ -121,12 +121,36 @@ describe('Addon', () => {
   it('dispatches setViewContext on update', () => {
     const fakeDispatch = sinon.stub();
     const root = render({ dispatch: fakeDispatch });
+    fakeDispatch.reset();
     root.componentWillReceiveProps({
       addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
     });
 
-    expect(fakeDispatch.lastCall.args[0])
-      .toEqual(setViewContext(ADDON_TYPE_THEME));
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_THEME));
+  });
+
+  it('dispatches setViewContext when updating with new addon', () => {
+    const fakeDispatch = sinon.stub();
+    // Start with a null addon
+    const root = render({
+      addon: null, dispatch: fakeDispatch, params: { slug: 'some-slug' },
+    });
+    fakeDispatch.reset();
+    // Update with a new addon
+    root.componentWillReceiveProps({ addon: fakeAddon });
+
+    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
+  });
+
+  it('only dispatches setViewContext for a new addon type', () => {
+    const fakeDispatch = sinon.stub();
+    const root = render({ addon: fakeAddon, dispatch: fakeDispatch });
+    fakeDispatch.reset();
+    // Update with the same addon (this apparently happens IRL).
+    root.componentWillReceiveProps({ addon: fakeAddon });
+    // The view context should not be dispatched.
+    sinon.assert.notCalled(fakeDispatch);
   });
 
   it('does not update view context unless there is an addon', () => {

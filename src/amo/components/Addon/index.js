@@ -90,8 +90,11 @@ export class AddonBase extends React.Component {
   }
 
   componentWillReceiveProps({ addon }) {
-    const { dispatch } = this.props;
-    if (addon) {
+    const { addon: oldAddon, dispatch } = this.props;
+    if (!addon) {
+      return;
+    }
+    if (!oldAddon || (addon.type !== oldAddon.type)) {
       dispatch(setViewContext(addon.type));
     }
   }
