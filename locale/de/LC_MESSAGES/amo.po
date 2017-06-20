@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-06-14 05:14+0000\n"
+"PO-Revision-Date: 2017-06-20 16:52+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -610,7 +610,7 @@ msgstr "Keine Bewertungen"
 
 #: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Ausklappen</span>, um mehr zu lesen"
+msgstr "<span class=\"visually-hidden\">Ausklappen</span> Mehr anzeigen"
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "Durchschnittliche Bewertung: %(averageRating)s von 5"
