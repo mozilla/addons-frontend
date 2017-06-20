@@ -203,14 +203,13 @@ export class AddonBase extends React.Component {
     const descriptionProps = {};
     if (addon) {
       description = addon.description ? addon.description : addon.summary;
+      if (!description || !description.length) {
+        return null;
+      }
       descriptionProps.dangerouslySetInnerHTML = sanitizeHTML(
         nl2br(description), allowedDescriptionTags);
     } else {
-      descriptionProps.children = <LoadingText />;
-    }
-
-    if (!description || !description.length) {
-      return null;
+      descriptionProps.children = <LoadingText width={100} />;
     }
 
     return (
@@ -248,12 +247,6 @@ export class AddonBase extends React.Component {
 
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
-    let authorList = [<LoadingText key="author-placeholder" />];
-    if (addon) {
-      authorList = addon.authors.map(
-        (author) => `<a href="${author.url}">${author.name}</a>`);
-    }
-
     const summaryProps = {};
     if (addon) {
       // Themes lack a summary so we do the inverse :-/
@@ -261,11 +254,13 @@ export class AddonBase extends React.Component {
       const summary = addon.summary ? addon.summary : addon.description;
       summaryProps.dangerouslySetInnerHTML = sanitizeHTML(summary, ['a']);
     } else {
-      summaryProps.children = <LoadingText />;
+      summaryProps.children = <LoadingText width={100} />;
     }
 
     const titleProps = {};
     if (addon) {
+      const authorList = addon.authors.map(
+        (author) => `<a href="${author.url}">${author.name}</a>`);
       const title = i18n.sprintf(
         // L10n: Example: The Add-On <span>by The Author</span>
         i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
@@ -277,7 +272,7 @@ export class AddonBase extends React.Component {
       );
       titleProps.dangerouslySetInnerHTML = sanitizeHTML(title, ['a', 'span']);
     } else {
-      titleProps.children = <LoadingText />;
+      titleProps.children = <LoadingText width={100} />;
     }
 
     const addonPreviews = addon ? addon.previews : [];
@@ -316,7 +311,7 @@ export class AddonBase extends React.Component {
               {i18n.gettext('Extension Metadata')}
             </h2>
 
-            {addon ? <AddonMeta addon={addon} /> : <LoadingText />}
+            {addon ? <AddonMeta addon={addon} /> : <LoadingText width={70} />}
           </header>
 
           {compatibility && !isCompatible ? (
