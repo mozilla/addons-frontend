@@ -191,7 +191,7 @@ describe('Addon', () => {
 
   it('renders 404 page for missing add-on', () => {
     const id = 'error-handler-id';
-    const store = createStore().store;
+    const { store } = createStore();
 
     const error = createApiError({
       response: { status: 404 },
