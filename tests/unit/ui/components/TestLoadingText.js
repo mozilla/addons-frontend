@@ -15,7 +15,7 @@ describe('<LoadingText />', () => {
   });
 
   it('lets you set a fixed width', () => {
-    const root = render({ fixedWidth: 55 });
+    const root = render({ width: 55 });
     expect(root.prop('style')).toMatchObject({ width: '55%' });
   });
 
