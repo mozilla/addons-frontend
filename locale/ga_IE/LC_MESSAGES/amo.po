@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-13 20:01+0000\n"
+"POT-Creation-Date: 2017-06-20 22:08+0000\n"
 "PO-Revision-Date: 2017-02-03 21:54+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,7 +15,17 @@ msgstr ""
 "4;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:110
+#, fuzzy
+msgid "Cancel preview"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/Addon/index.js:110
+#, fuzzy
+msgid "Tap to preview"
+msgstr "Scríobh léirmheas"
+
+#: src/amo/components/Addon/index.js:151
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
@@ -24,39 +34,29 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: src/amo/components/Addon/index.js:150
+#: src/amo/components/Addon/index.js:164
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:159
+#: src/amo/components/Addon/index.js:173
 msgid "Rate your experience"
 msgstr "Rátáil d'eispéireas"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:204
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sle %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:227
+#: src/amo/components/Addon/index.js:241
 msgid "Extension Metadata"
 msgstr "Meiteashonraí na hEisínteachta"
 
-#: src/amo/components/Addon/index.js:243
+#: src/amo/components/Addon/index.js:257
 msgid "Screenshots"
 msgstr "Seatanna den scáileán"
 
-#: src/amo/components/Addon/index.js:250
+#: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
 msgstr ""
-
-#: src/amo/components/Addon/index.js:96
-#, fuzzy
-msgid "Cancel preview"
-msgstr "Scríobh léirmheas"
-
-#: src/amo/components/Addon/index.js:96
-#, fuzzy
-msgid "Tap to preview"
-msgstr "Scríobh léirmheas"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -219,19 +219,19 @@ msgstr "Breiseáin Firefox"
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/components/App/index.js:202
+#: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/Categories.js:49
+#: src/amo/components/Categories.js:57
 msgid "Failed to load categories."
 msgstr ""
 
-#: src/amo/components/Categories.js:57
+#: src/amo/components/Categories.js:65
 msgid "No categories found."
 msgstr ""
 
-#: src/amo/components/Categories.js:66
+#: src/amo/components/Categories.js:74
 msgid "Loading categories."
 msgstr ""
 
@@ -320,95 +320,97 @@ msgstr ""
 msgid "View classic desktop site"
 msgstr "Amharc suíomh an ríomhaire"
 
-#: src/amo/components/Header/index.js:42
+#: src/amo/components/Header/index.js:44
 msgid "Firefox Add-ons"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/Header/index.js:57
+#: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
+#: src/amo/components/LandingPage.js:103
+#, fuzzy
+msgid "More highly rated extensions"
+msgstr "Brabhsáil na heisínteachtaí go léir"
+
+#: src/amo/components/LandingPage.js:106
+msgid "Featured themes"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:110
+msgid "More featured themes"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:111
+#, fuzzy
+msgid "Most popular themes"
+msgstr "Brabhsáil na téamaí go léir"
+
+#: src/amo/components/LandingPage.js:116
+#, fuzzy
+msgid "More popular themes"
+msgstr "Brabhsáil na téamaí go léir"
+
+#: src/amo/components/LandingPage.js:117
+#, fuzzy
+msgid "Top rated themes"
+msgstr "Brabhsáil na téamaí go léir"
+
+#: src/amo/components/LandingPage.js:122
+msgid "More highly rated themes"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:157
+#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
 msgid "Themes"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:117 src/amo/containers/Home.js:45
+#: src/amo/components/LandingPage.js:158
+#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
 #, fuzzy
 msgid "Extensions"
 msgstr "Meiteashonraí na hEisínteachta"
 
-#: src/amo/components/LandingPage.js:120
+#: src/amo/components/LandingPage.js:161
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
 
-#: src/amo/components/LandingPage.js:122
+#: src/amo/components/LandingPage.js:163
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
 msgstr ""
 
-#: src/amo/components/LandingPage.js:147
+#: src/amo/components/LandingPage.js:188
 msgid "Browse by category"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:52
+#: src/amo/components/LandingPage.js:84
 #, fuzzy
 msgid "Featured extensions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/LandingPage.js:56
+#: src/amo/components/LandingPage.js:88
 #, fuzzy
 msgid "More featured extensions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/LandingPage.js:57
+#: src/amo/components/LandingPage.js:89
 #, fuzzy
 msgid "Most popular extensions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/LandingPage.js:62
+#: src/amo/components/LandingPage.js:94
 #, fuzzy
 msgid "More popular extensions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/LandingPage.js:63
+#: src/amo/components/LandingPage.js:95
 #, fuzzy
 msgid "Top rated extensions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
-
-#: src/amo/components/LandingPage.js:71
-#, fuzzy
-msgid "More highly rated extensions"
-msgstr "Brabhsáil na heisínteachtaí go léir"
-
-#: src/amo/components/LandingPage.js:74
-msgid "Featured themes"
-msgstr ""
-
-#: src/amo/components/LandingPage.js:78
-msgid "More featured themes"
-msgstr ""
-
-#: src/amo/components/LandingPage.js:79
-#, fuzzy
-msgid "Most popular themes"
-msgstr "Brabhsáil na téamaí go léir"
-
-#: src/amo/components/LandingPage.js:84
-#, fuzzy
-msgid "More popular themes"
-msgstr "Brabhsáil na téamaí go léir"
-
-#: src/amo/components/LandingPage.js:85
-#, fuzzy
-msgid "Top rated themes"
-msgstr "Brabhsáil na téamaí go léir"
-
-#: src/amo/components/LandingPage.js:90
-msgid "More highly rated themes"
-msgstr ""
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -444,14 +446,24 @@ msgstr ""
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "An dtaitníonn %(addonName)s leat?"
 
-#: src/amo/components/SearchForm.js:48 src/amo/components/SearchForm.js:57
+#: src/amo/components/SearchForm.js:52
+#, fuzzy
+msgid "Search extensions"
+msgstr "Brabhsáil na heisínteachtaí go léir"
+
+#: src/amo/components/SearchForm.js:54
+#, fuzzy
+msgid "Search themes"
+msgstr "Ag cuardach..."
+
+#: src/amo/components/SearchForm.js:56
+msgid "Search extensions and themes"
+msgstr ""
+
+#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
 #, fuzzy
 msgid "Search"
 msgstr "Ag cuardach..."
-
-#: src/amo/components/SearchForm.js:52
-msgid "Search extensions and themes"
-msgstr ""
 
 #: src/amo/components/SearchResult.js:50
 msgid "No theme preview available"
@@ -495,15 +507,19 @@ msgstr ""
 msgid "Sort"
 msgstr ""
 
+#: src/amo/components/SectionLinks/index.js:39
+msgid "Explore"
+msgstr ""
+
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr ""
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:75
+#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
 msgid "Browse all extensions"
 msgstr "Brabhsáil na heisínteachtaí go léir"
 
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:88
+#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
 msgid "Browse all themes"
 msgstr "Brabhsáil na téamaí go léir"
 
@@ -512,65 +528,65 @@ msgstr "Brabhsáil na téamaí go léir"
 msgid "Add-ons Home Page"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/containers/Home.js:40
+#: src/amo/containers/Home.js:50
 msgid ""
 "Extensions are special features you can add to Firefox. Themes let you "
 "change your browser's appearance."
 msgstr ""
 
-#: src/amo/containers/Home.js:53
+#: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
 msgstr ""
 
-#: src/amo/containers/Home.js:56
+#: src/amo/containers/Home.js:66
 msgid "Block ads"
 msgstr "Cosc a chur ar fhógraí"
 
-#: src/amo/containers/Home.js:59
+#: src/amo/containers/Home.js:69
 msgid "Screenshot"
 msgstr "Seatanna den scáileán a thógáil"
 
-#: src/amo/containers/Home.js:62
+#: src/amo/containers/Home.js:72
 msgid "Find news"
 msgstr ""
 
-#: src/amo/containers/Home.js:65
+#: src/amo/containers/Home.js:75
 msgid "Shop online"
 msgstr "Siopadóireacht ar líne"
 
-#: src/amo/containers/Home.js:68
+#: src/amo/containers/Home.js:78
 msgid "Be social"
 msgstr "Ceangal le cairde"
 
-#: src/amo/containers/Home.js:71
+#: src/amo/containers/Home.js:81
 msgid "Play games"
 msgstr ""
 
-#: src/amo/containers/Home.js:78
+#: src/amo/containers/Home.js:88
 msgid "…or what it looks like"
 msgstr ""
 
-#: src/amo/containers/Home.js:80
+#: src/amo/containers/Home.js:90
 msgid "Wild"
 msgstr "Fiáin"
 
-#: src/amo/containers/Home.js:81
+#: src/amo/containers/Home.js:91
 msgid "Abstract"
 msgstr "Teibí"
 
-#: src/amo/containers/Home.js:82
+#: src/amo/containers/Home.js:92
 msgid "Holiday"
 msgstr ""
 
-#: src/amo/containers/Home.js:83
+#: src/amo/containers/Home.js:93
 msgid "Scenic"
 msgstr "Sciamhach"
 
-#: src/amo/containers/Home.js:84
+#: src/amo/containers/Home.js:94
 msgid "Sporty"
 msgstr "Spórtúil"
 
-#: src/amo/containers/Home.js:85
+#: src/amo/containers/Home.js:95
 msgid "Solid"
 msgstr ""
 

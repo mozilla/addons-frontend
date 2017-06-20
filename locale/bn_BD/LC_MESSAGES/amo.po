@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-13 20:01+0000\n"
+"POT-Creation-Date: 2017-06-20 22:08+0000\n"
 "PO-Revision-Date: 2017-05-07 12:00+0000\n"
 "Last-Translator: Belayet Hossain <bellayet@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,43 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:110
+msgid "Cancel preview"
+msgstr "পর্যালোচনা বাতিল করুন"
+
+#: src/amo/components/Addon/index.js:110
+msgid "Tap to preview"
+msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
+
+#: src/amo/components/Addon/index.js:151
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s রিভিউ সমূহ পড়ুন"
 msgstr[1] "সকল %(count)s রিভিউ সমূহ পড়ুন"
 
-#: src/amo/components/Addon/index.js:150
+#: src/amo/components/Addon/index.js:164
 msgid "No reviews yet"
 msgstr "এখনও কোন পর্যালোচনা করা হয়নি"
 
-#: src/amo/components/Addon/index.js:159
+#: src/amo/components/Addon/index.js:173
 msgid "Rate your experience"
 msgstr "আমাদের অভিজ্ঞতার মূল্যায়ন দিন"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:204
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s দ্বারা %(authorList)s %(endSpan)s"
 
-#: src/amo/components/Addon/index.js:227
+#: src/amo/components/Addon/index.js:241
 msgid "Extension Metadata"
 msgstr "এক্সটেনশন মেটাডাটা"
 
-#: src/amo/components/Addon/index.js:243
+#: src/amo/components/Addon/index.js:257
 msgid "Screenshots"
 msgstr "স্ক্রীনশট"
 
-#: src/amo/components/Addon/index.js:250
+#: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
 msgstr "%(addonType)s সম্বন্ধে"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Cancel preview"
-msgstr "পর্যালোচনা বাতিল করুন"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -203,19 +203,19 @@ msgstr "অ্যাড-অন আইকন"
 msgid "Reviews for %(addonName)s"
 msgstr "পর্যালোচনা %(addonName)s এর জন্যে"
 
-#: src/amo/components/App/index.js:202
+#: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "Firefox এর জন্য অ্যাড-অন"
 
-#: src/amo/components/Categories.js:49
+#: src/amo/components/Categories.js:57
 msgid "Failed to load categories."
 msgstr "বিভাগ লোড করতে ব্যর্থ।"
 
-#: src/amo/components/Categories.js:57
+#: src/amo/components/Categories.js:65
 msgid "No categories found."
 msgstr "কোন বিভাগ পাওয়া যায়নি।"
 
-#: src/amo/components/Categories.js:66
+#: src/amo/components/Categories.js:74
 #, fuzzy
 msgid "Loading categories."
 msgstr "বিভাগ লোড করতে ব্যর্থ।"
@@ -320,23 +320,53 @@ msgstr "একটি বাগ রিপোর্ট করুন"
 msgid "View classic desktop site"
 msgstr "ডেক্সটপ সাইট দেখুন"
 
-#: src/amo/components/Header/index.js:42
+#: src/amo/components/Header/index.js:44
 msgid "Firefox Add-ons"
 msgstr "Firefox অ্যাড-অনস"
 
-#: src/amo/components/Header/index.js:57
+#: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
+#: src/amo/components/LandingPage.js:103
+msgid "More highly rated extensions"
+msgstr "আরো বেশী রেট পাওয়া এক্সটেনশন"
+
+#: src/amo/components/LandingPage.js:106
+msgid "Featured themes"
+msgstr "বৈশিষ্ট্যপূর্ণ থিম"
+
+#: src/amo/components/LandingPage.js:110
+msgid "More featured themes"
+msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম"
+
+#: src/amo/components/LandingPage.js:111
+msgid "Most popular themes"
+msgstr "সবচে বেশি জনপ্রিয় থিমসমূহ"
+
+#: src/amo/components/LandingPage.js:116
+msgid "More popular themes"
+msgstr "আরও জনপ্রিয় থিমসমূহ"
+
+#: src/amo/components/LandingPage.js:117
+msgid "Top rated themes"
+msgstr "সর্বোচ্চ রেট পাওয়া থিম"
+
+#: src/amo/components/LandingPage.js:122
+msgid "More highly rated themes"
+msgstr "আরো বেশি রেট পাওয়া থিম"
+
+#: src/amo/components/LandingPage.js:157
+#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
 msgid "Themes"
 msgstr "থিম"
 
-#: src/amo/components/LandingPage.js:117 src/amo/containers/Home.js:45
+#: src/amo/components/LandingPage.js:158
+#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
 msgid "Extensions"
 msgstr "এক্সটেনশন সমূহ"
 
-#: src/amo/components/LandingPage.js:120
+#: src/amo/components/LandingPage.js:161
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -344,7 +374,7 @@ msgstr ""
 "আপনার ব্রাউজারের চেহারা পরিবর্তন করুন। আপনি Firefox কে যে রকম দেখতে চান তা "
 "হাজারও থিমের মাঝে থেকে পছন্দ করুন।"
 
-#: src/amo/components/LandingPage.js:122
+#: src/amo/components/LandingPage.js:163
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
@@ -352,57 +382,29 @@ msgstr ""
 "আপনার বাউজারকে আরো দ্রুত ও নিরাপদ করতে শক্তিশালী টুল ইনস্টল করুন, এড-অন আপনার "
 "ব্রাউজারকে আপনারই বানায়।"
 
-#: src/amo/components/LandingPage.js:147
+#: src/amo/components/LandingPage.js:188
 msgid "Browse by category"
 msgstr "শ্রেনী অনুসারে ব্রাউজ করুন"
 
-#: src/amo/components/LandingPage.js:52
+#: src/amo/components/LandingPage.js:84
 msgid "Featured extensions"
 msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
 
-#: src/amo/components/LandingPage.js:56
+#: src/amo/components/LandingPage.js:88
 msgid "More featured extensions"
 msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন সমূহ"
 
-#: src/amo/components/LandingPage.js:57
+#: src/amo/components/LandingPage.js:89
 msgid "Most popular extensions"
 msgstr "সবচে বেশী জনপ্রিয় এক্সটেনশন"
 
-#: src/amo/components/LandingPage.js:62
+#: src/amo/components/LandingPage.js:94
 msgid "More popular extensions"
 msgstr "জনপ্রিয় এক্সটেনসমূহ"
 
-#: src/amo/components/LandingPage.js:63
+#: src/amo/components/LandingPage.js:95
 msgid "Top rated extensions"
 msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন"
-
-#: src/amo/components/LandingPage.js:71
-msgid "More highly rated extensions"
-msgstr "আরো বেশী রেট পাওয়া এক্সটেনশন"
-
-#: src/amo/components/LandingPage.js:74
-msgid "Featured themes"
-msgstr "বৈশিষ্ট্যপূর্ণ থিম"
-
-#: src/amo/components/LandingPage.js:78
-msgid "More featured themes"
-msgstr "আরও বৈশিষ্ট্যপূর্ণ থিম"
-
-#: src/amo/components/LandingPage.js:79
-msgid "Most popular themes"
-msgstr "সবচে বেশি জনপ্রিয় থিমসমূহ"
-
-#: src/amo/components/LandingPage.js:84
-msgid "More popular themes"
-msgstr "আরও জনপ্রিয় থিমসমূহ"
-
-#: src/amo/components/LandingPage.js:85
-msgid "Top rated themes"
-msgstr "সর্বোচ্চ রেট পাওয়া থিম"
-
-#: src/amo/components/LandingPage.js:90
-msgid "More highly rated themes"
-msgstr "আরো বেশি রেট পাওয়া থিম"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -437,13 +439,23 @@ msgstr "এই অ্যাড-অন রেট দিতে লগইন কর
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s এর সাথে আপনার অভিজ্ঞতা কেমন?"
 
-#: src/amo/components/SearchForm.js:48 src/amo/components/SearchForm.js:57
-msgid "Search"
-msgstr "অনুসন্ধান"
-
 #: src/amo/components/SearchForm.js:52
+#, fuzzy
+msgid "Search extensions"
+msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
+
+#: src/amo/components/SearchForm.js:54
+#, fuzzy
+msgid "Search themes"
+msgstr "বৈশিষ্ট্যপূর্ণ থিম"
+
+#: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
 msgstr "থিম এবং এক্সটেনশন অনুসন্ধান করুন"
+
+#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+msgid "Search"
+msgstr "অনুসন্ধান"
 
 #: src/amo/components/SearchResult.js:50
 msgid "No theme preview available"
@@ -485,15 +497,19 @@ msgstr "শীর্ষ রেটকৃত"
 msgid "Sort"
 msgstr "সাজানো"
 
+#: src/amo/components/SectionLinks/index.js:39
+msgid "Explore"
+msgstr ""
+
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr "প্রস্তাবিত পেজ সমূহ"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:75
+#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
 msgid "Browse all extensions"
 msgstr "সব এক্সটেনশন ব্রাউজ করুন"
 
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:88
+#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
 msgid "Browse all themes"
 msgstr "সব থিম ব্রাউজ করুন"
 
@@ -501,7 +517,7 @@ msgstr "সব থিম ব্রাউজ করুন"
 msgid "Add-ons Home Page"
 msgstr "অ্যাড-অন হোমপেজ"
 
-#: src/amo/containers/Home.js:40
+#: src/amo/containers/Home.js:50
 msgid ""
 "Extensions are special features you can add to Firefox. Themes let you "
 "change your browser's appearance."
@@ -509,59 +525,59 @@ msgstr ""
 "এক্সটেনশনগুলো বিশেষ বৈশিষ্ট্য যা আপনি Firefox y যোগ করতে পারেন। থিম আপনার "
 "ব্রাউজারের চেহারা পরিবর্তন করতে সাহায্য করবে।"
 
-#: src/amo/containers/Home.js:53
+#: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
 msgstr "Firefox কিভাবে কাজ করবে তা আপনি পরিবর্তন করতে পারেন ..."
 
-#: src/amo/containers/Home.js:56
+#: src/amo/containers/Home.js:66
 msgid "Block ads"
 msgstr "বিজ্ঞাপন ব্লক করুন"
 
-#: src/amo/containers/Home.js:59
+#: src/amo/containers/Home.js:69
 msgid "Screenshot"
 msgstr "স্ক্রিনসট"
 
-#: src/amo/containers/Home.js:62
+#: src/amo/containers/Home.js:72
 msgid "Find news"
 msgstr "সংবাদ অনুসন্ধান করুন"
 
-#: src/amo/containers/Home.js:65
+#: src/amo/containers/Home.js:75
 msgid "Shop online"
 msgstr "অনলাইনে বাজার করুন"
 
-#: src/amo/containers/Home.js:68
+#: src/amo/containers/Home.js:78
 msgid "Be social"
 msgstr "সামাজিক হন"
 
-#: src/amo/containers/Home.js:71
+#: src/amo/containers/Home.js:81
 msgid "Play games"
 msgstr "গেমস খেলুন"
 
-#: src/amo/containers/Home.js:78
+#: src/amo/containers/Home.js:88
 msgid "…or what it looks like"
 msgstr "... অথবা কি এটা দেখে কি মনে হচ্ছে"
 
-#: src/amo/containers/Home.js:80
+#: src/amo/containers/Home.js:90
 msgid "Wild"
 msgstr "বন্য"
 
-#: src/amo/containers/Home.js:81
+#: src/amo/containers/Home.js:91
 msgid "Abstract"
 msgstr "নির্বস্তুক"
 
-#: src/amo/containers/Home.js:82
+#: src/amo/containers/Home.js:92
 msgid "Holiday"
 msgstr "ছুটির দিন"
 
-#: src/amo/containers/Home.js:83
+#: src/amo/containers/Home.js:93
 msgid "Scenic"
 msgstr "দৃশ্য সম্বন্ধীয়"
 
-#: src/amo/containers/Home.js:84
+#: src/amo/containers/Home.js:94
 msgid "Sporty"
 msgstr "খেলাধুলা সংক্রান্ত"
 
-#: src/amo/containers/Home.js:85
+#: src/amo/containers/Home.js:95
 msgid "Solid"
 msgstr "কঠিন"
 
