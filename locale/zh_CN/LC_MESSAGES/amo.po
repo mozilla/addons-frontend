@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-20 22:08+0000\n"
-"PO-Revision-Date: 2017-06-21 08:30+0000\n"
+"PO-Revision-Date: 2017-06-21 08:42+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -139,19 +139,19 @@ msgstr "最终用户许可协议"
 
 #: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr "告诉这世界为什么您觉得这个附加组件很棒！"
+msgstr "与世界分享这个附加组件很棒的理由吧！"
 
 #: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "告诉我们您怎么看这个扩展。还望具体而简明。"
+msgstr "告诉我们您怎么看这个扩展。请具体而简明。"
 
 #: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
-msgstr "告诉全世界，此扩展怎么样。"
+msgstr "与世界分享你对此扩展的评价。"
 
 #: src/amo/components/AddonReview.js:153
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "告诉我们您使用这个扩展的体验如何。应具体而简明。"
+msgstr "告诉我们您使用这个扩展的体验如何。/请具体而简明。"
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
@@ -203,7 +203,7 @@ msgstr "正在加载分类。"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr "如果您已登录并认为这个消息不正确，请<a href=\"%(url)s\">填报问题</a>。告诉我们您从何处来，试图访问哪里，我们会助你解决这个问题。"
+msgstr "若您已登录，认为这个提示有误，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
@@ -215,7 +215,7 @@ msgstr "很抱歉，但您无权访问此页面。如果您尚未登录，请使
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "如果您点击某个链接而来，请<a href=\"%(url)s\">填报问题</a>。告诉我们你从何处来，想要找到什么。我们会尽力帮助你解决它。"
+msgstr "如果您点击某个链接而来，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -223,13 +223,13 @@ msgstr "找不到页面"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "很抱歉，但我们无法用您输入的地址找到信息。如果您从一个链接而来、想要找到某个附加组件，那么该附加组件可能已被其作者删除。"
+msgstr "很抱歉，但您的网址所指向的内容似乎不存在。如果您是想打开某个附加组件的链接，可能是该附加组件已被作者下架或移除。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
-msgstr "如果您有更多有助于我们的信息，请<a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">填报问题</a>。在填报的问题中告诉我们如何重现该问题，我们将尽力解决它。"
+msgstr "如果您有其他能够帮助我们修正问题的信息，请<a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">填报问题</a>。在填报时中请告诉我们您做了哪些事情后发生了错误，我们将尽力修正。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
@@ -313,15 +313,15 @@ msgstr "扩展"
 
 #: src/amo/components/LandingPage.js:161
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "更改您的浏览器的外观。挑选成千上万的主题，使 Firefox 成为你最喜欢的样子。"
+msgstr "为浏览器换身装吧。您可以在成千上万的主题挑选主题，让 Firefox 有您想要的样子。"
 
 #: src/amo/components/LandingPage.js:163
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "安装强大的工具使浏览更便捷和安全，附加组件使您的浏览器更具威力。"
+msgstr "安装强大的工具，让浏览更便捷和安全，附加组件使您的浏览器更具个性。"
 
 #: src/amo/components/LandingPage.js:188
 msgid "Browse by category"
-msgstr "按分类浏览"
+msgstr "按类别浏览"
 
 #: src/amo/components/LandingPage.js:84
 msgid "Featured extensions"
