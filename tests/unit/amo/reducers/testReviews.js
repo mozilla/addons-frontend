@@ -1,4 +1,4 @@
-import { setAddonReviews, setReview } from 'amo/actions/reviews';
+import { setReviews, setReview } from 'amo/actions/reviews';
 import reviews, { initialState } from 'amo/reducers/reviews';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
@@ -159,11 +159,11 @@ describe('amo.reducers.reviews', () => {
     expect(state[userId][addonId][2].isLatest).toEqual(false);
   });
 
-  describe('setAddonReviews', () => {
+  describe('setReviews', () => {
     it('stores multiple user reviews for an add-on', () => {
       const review1 = fakeReview;
       const review2 = { ...fakeReview, id: 3 };
-      const action = setAddonReviews({
+      const action = setReviews({
         addonSlug: fakeAddon.slug, reviews: [review1, review2], reviewCount: 2,
       });
       const state = reviews(undefined, action);
@@ -181,10 +181,10 @@ describe('amo.reducers.reviews', () => {
       const review3 = { ...fakeReview, id: 4 };
 
       let state;
-      state = reviews(state, setAddonReviews({
+      state = reviews(state, setReviews({
         addonSlug: addon1.slug, reviews: [review1], reviewCount: 1,
       }));
-      state = reviews(state, setAddonReviews({
+      state = reviews(state, setReviews({
         addonSlug: addon2.slug, reviews: [review2, review3], reviewCount: 2,
       }));
 
@@ -194,10 +194,10 @@ describe('amo.reducers.reviews', () => {
     });
 
     it('stores review counts', () => {
-      const state = reviews(undefined, setAddonReviews({
+      const state = reviews(undefined, setReviews({
         addonSlug: 'slug1', reviews: [fakeReview], reviewCount: 1,
       }));
-      const newState = reviews(state, setAddonReviews({
+      const newState = reviews(state, setReviews({
         addonSlug: 'slug2', reviews: [fakeReview, fakeReview], reviewCount: 2,
       }));
 

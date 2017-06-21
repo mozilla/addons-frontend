@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Rating from 'ui/components/Rating';
-import { setAddonReviews } from 'amo/actions/reviews';
+import { setReviews } from 'amo/actions/reviews';
 import { getReviews } from 'amo/api';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import Paginate from 'core/components/Paginate';
@@ -119,7 +119,7 @@ export class ReviewListBase extends React.Component {
   }
 }
 
-export function loadAddonReviews(
+export function loadReviews(
   {
     addonId, addonSlug, dispatch, page = 1,
   }: {|
@@ -136,7 +136,7 @@ export function loadAddonReviews(
       // For example, the user selected a star rating but hasn't submitted
       // review text yet.
       const reviews = allReviews.filter((review) => Boolean(review.body));
-      dispatch(setAddonReviews({
+      dispatch(setReviews({
         addonSlug, reviews, reviewCount: response.count,
       }));
     });
@@ -162,7 +162,7 @@ export function loadInitialData(
   })
     .then(() => loadAddonIfNeeded({ store, params: { slug: addonSlug } }))
     .then(() => findAddon(store.getState(), addonSlug))
-    .then((addon) => loadAddonReviews({
+    .then((addon) => loadReviews({
       addonId: addon.id, addonSlug, dispatch: store.dispatch, page,
     }));
 }

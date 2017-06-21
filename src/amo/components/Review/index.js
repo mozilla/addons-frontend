@@ -22,9 +22,9 @@ import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { ElementEvent } from 'core/types/dom';
 import type { DispatchFunc } from 'core/types/redux';
 
-import 'amo/css/AddonReview.scss';
+import './styles.scss';
 
-type AddonReviewProps = {|
+type ReviewProps = {|
   apiState?: ApiStateType,
   createLocalState: typeof defaultLocalStateCreator,
   debounce: typeof defaultDebounce,
@@ -37,33 +37,38 @@ type AddonReviewProps = {|
   updateReviewText: (review: $Shape<SubmitReviewParams>) => Promise<void>,
 |};
 
-type AddonReviewState = {|
+type ReviewState = {|
   reviewBody: ?string,
 |};
 
-export class AddonReviewBase extends React.Component {
+// Changing this will invalidate any saved add-ons for users because it
+// changes the prefix we use in our offline storage key.
+const LOCALSTATE_PREFIX = 'AddonReview';
+
+export class ReviewBase extends React.Component {
   localState: LocalState;
-  props: AddonReviewProps;
+  props: ReviewProps;
   reviewForm: Node;
   reviewPrompt: Node;
   reviewTextarea: Node;
-  state: AddonReviewState;
+  state: ReviewState;
 
   static defaultProps = {
     createLocalState: defaultLocalStateCreator,
     debounce: defaultDebounce,
   };
 
-  constructor(props: AddonReviewProps) {
+  constructor(props: ReviewProps) {
     super(props);
     this.state = {
       reviewBody: props.review.body,
     };
-    this.localState = props.createLocalState(`AddonReview:${props.review.id}`);
+    this.localState = props.createLocalState(
+      `${LOCALSTATE_PREFIX}:${props.review.id}`);
     this.checkForStoredState();
   }
 
-  componentWillReceiveProps(nextProps: AddonReviewProps) {
+  componentWillReceiveProps(nextProps: ReviewProps) {
     const { review } = nextProps;
     if (review) {
       this.setState({ reviewBody: review.body });
@@ -74,7 +79,7 @@ export class AddonReviewBase extends React.Component {
     return this.localState.load()
       .then((storedState) => {
         if (storedState) {
-          log.debug(oneLine`Initializing AddonReview state from LocalState
+          log.debug(oneLine`Initializing Review state from LocalState
             ${this.localState.id}`, storedState);
           this.setState(storedState);
         }
@@ -157,19 +162,19 @@ export class AddonReviewBase extends React.Component {
     }
 
     return (
-      <OverlayCard visibleOnLoad className="AddonReview">
-        <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
+      <OverlayCard visibleOnLoad className="Review">
+        <h2 className="Review-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
-          <div className="AddonReview-form-input">
+          <div className="Review-form-input">
             {errorHandler.hasError() ? errorHandler.renderError() : null}
-            <label htmlFor="AddonReview-textarea" className="visually-hidden">
+            <label htmlFor="Review-textarea" className="visually-hidden">
               {i18n.gettext('Review text')}
             </label>
             <textarea
-              id="AddonReview-textarea"
+              id="Review-textarea"
               ref={(ref) => { this.reviewTextarea = ref; }}
-              className="AddonReview-textarea"
+              className="Review-textarea"
               onInput={this.onBodyInput}
               name="review"
               value={reviewBody}
@@ -177,7 +182,7 @@ export class AddonReviewBase extends React.Component {
             />
           </div>
           <input
-            className="AddonReview-submit"
+            className="Review-submit"
             type="submit" value={i18n.gettext('Submit review')}
           />
         </form>
@@ -206,7 +211,7 @@ export const mapDispatchToProps = (dispatch: DispatchFunc) => ({
 });
 
 export default compose(
-  withErrorHandler({ name: 'AddonReview' }),
+  withErrorHandler({ name: 'Review' }),
   connect(mapStateToProps, mapDispatchToProps),
   translate({ withRef: true }),
-)(AddonReviewBase);
+)(ReviewBase);

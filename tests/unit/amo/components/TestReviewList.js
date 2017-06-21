@@ -10,10 +10,10 @@ import { findDOMNode } from 'react-dom';
 import * as amoApi from 'amo/api';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import createStore from 'amo/store';
-import { setAddonReviews } from 'amo/actions/reviews';
+import { setReviews } from 'amo/actions/reviews';
 import {
   ReviewListBase,
-  loadAddonReviews,
+  loadReviews,
   loadInitialData,
   mapStateToProps,
 } from 'amo/components/ReviewList';
@@ -34,7 +34,7 @@ import {
 function getLoadedReviews({
   addonSlug = fakeAddon.slug, reviews = [fakeReview], reviewCount = 1 } = {},
 ) {
-  const action = setAddonReviews({ addonSlug, reviewCount, reviews });
+  const action = setReviews({ addonSlug, reviewCount, reviews });
   // This is how reviews look after they have been loaded.
   return action.payload.reviews;
 }
@@ -191,7 +191,7 @@ describe('amo/components/ReviewList', () => {
     });
   });
 
-  describe('loadAddonReviews', () => {
+  describe('loadReviews', () => {
     let mockAmoApi;
 
     beforeEach(() => {
@@ -210,14 +210,14 @@ describe('amo/components/ReviewList', () => {
         .withArgs({ addon: fakeAddon.id, page })
         .returns(apiResponsePage({ results: reviews }));
 
-      return loadAddonReviews({
+      return loadReviews({
         addonId: fakeAddon.id, addonSlug, dispatch, page,
       })
         .then(() => {
           mockAmoApi.verify();
 
           expect(dispatch.called).toBeTruthy();
-          const expectedAction = setAddonReviews({
+          const expectedAction = setReviews({
             addonSlug, reviewCount: reviews.length, reviews,
           });
           expect(dispatch.firstCall.args[0]).toEqual(expectedAction);
@@ -233,11 +233,11 @@ describe('amo/components/ReviewList', () => {
         .expects('getReviews')
         .returns(apiResponsePage({ results: reviews }));
 
-      return loadAddonReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
+      return loadReviews({ addonId: fakeAddon.id, addonSlug, dispatch })
         .then(() => {
           // Expect an action with a filtered review array.
           // However, the count will not take into account the filtering.
-          const expectedAction = setAddonReviews({
+          const expectedAction = setReviews({
             addonSlug, reviews: [fakeReview], reviewCount: 2,
           });
           expect(dispatch.called).toBeTruthy();
@@ -283,7 +283,7 @@ describe('amo/components/ReviewList', () => {
 
     it('loads all reviews from state', () => {
       const reviews = [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }];
-      const action = setAddonReviews({
+      const action = setReviews({
         addonSlug: fakeAddon.slug, reviews, reviewCount: reviews.length,
       });
       store.dispatch(action);
@@ -299,7 +299,7 @@ describe('amo/components/ReviewList', () => {
     });
 
     it('sets reviewCount prop from from state', () => {
-      store.dispatch(setAddonReviews({
+      store.dispatch(setReviews({
         addonSlug: fakeAddon.slug, reviews: [fakeReview], reviewCount: 1,
       }));
 

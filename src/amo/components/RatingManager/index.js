@@ -8,7 +8,7 @@ import { compose } from 'redux';
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
-import DefaultAddonReview from 'amo/components/AddonReview';
+import DefaultReview from 'amo/components/Review';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
 import {
   ADDON_TYPE_DICT,
@@ -41,7 +41,7 @@ type LoadSavedReviewFunc = ({|
 type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 
 type RatingManagerProps = {|
-  AddonReview: typeof DefaultAddonReview,
+  Review: typeof DefaultReview,
   AuthenticateButton: typeof DefaultAuthenticateButton,
   Rating: typeof DefaultRating,
   addon: AddonType,
@@ -62,7 +62,7 @@ export class RatingManagerBase extends React.Component {
   state: {| showTextEntry: boolean |};
 
   static defaultProps = {
-    AddonReview: DefaultAddonReview,
+    Review: DefaultReview,
     AuthenticateButton: DefaultAuthenticateButton,
     Rating: DefaultRating,
   }
@@ -154,7 +154,7 @@ export class RatingManagerBase extends React.Component {
   }
 
   render() {
-    const { AddonReview, Rating, i18n, addon, userId, userReview } = this.props;
+    const { Review, Rating, i18n, addon, userId, userReview } = this.props;
     const { showTextEntry } = this.state;
     const isLoggedIn = Boolean(userId);
 
@@ -169,7 +169,7 @@ export class RatingManagerBase extends React.Component {
     return (
       <div className="RatingManager">
         {showTextEntry && isLoggedIn ?
-          <AddonReview
+          <Review
             onReviewSubmitted={onReviewSubmitted}
             review={userReview}
           /> : null

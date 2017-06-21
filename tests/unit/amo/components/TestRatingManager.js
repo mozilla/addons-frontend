@@ -28,7 +28,7 @@ import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
 
 function render(customProps = {}) {
   const props = {
-    AddonReview: () => <div />,
+    Review: () => <div />,
     AuthenticateButton: () => <div />,
     addon: fakeAddon,
     apiState: signedInApiState,
@@ -159,39 +159,39 @@ describe('RatingManager', () => {
       });
   });
 
-  it('renders and configures AddonReview after submitting a rating', () => {
+  it('renders and configures Review after submitting a rating', () => {
     const userReview = setReview(fakeReview).payload;
-    const FakeAddonReview = sinon.spy(() => <div />);
-    const root = render({ AddonReview: FakeAddonReview, userReview });
+    const FakeReview = sinon.spy(() => <div />);
+    const root = render({ Review: FakeReview, userReview });
 
-    expect(FakeAddonReview.called).toEqual(false);
+    expect(FakeReview.called).toEqual(false);
 
     return root.onSelectRating(5)
       .then(() => {
-        expect(FakeAddonReview.called).toBeTruthy();
+        expect(FakeReview.called).toBeTruthy();
 
-        const props = FakeAddonReview.firstCall.args[0];
+        const props = FakeReview.firstCall.args[0];
         expect(props.review).toEqual(userReview);
 
         // Now make sure the callback is configured.
         expect(root.state.showTextEntry).toEqual(true);
-        // Trigger the callback just like AddonReview would after completion.
+        // Trigger the callback just like Review would after completion.
         props.onReviewSubmitted();
         expect(root.state.showTextEntry).toEqual(false);
       });
   });
 
-  it('does not render an AddonReview when logged out', () => {
+  it('does not render an Review when logged out', () => {
     const userReview = setReview(fakeReview).payload;
-    const FakeAddonReview = sinon.spy(() => <div />);
+    const FakeReview = sinon.spy(() => <div />);
     const userId = null; // logged out
-    const root = render({ AddonReview: FakeAddonReview, userReview, userId });
+    const root = render({ Review: FakeReview, userReview, userId });
 
-    expect(FakeAddonReview.called).toEqual(false);
+    expect(FakeReview.called).toEqual(false);
 
     return root.onSelectRating(5)
       .then(() => {
-        expect(FakeAddonReview.called).toBeFalsy();
+        expect(FakeReview.called).toBeFalsy();
       });
   });
 
