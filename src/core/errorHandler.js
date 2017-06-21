@@ -43,8 +43,7 @@ export class ErrorHandler {
   }
 
   createErrorAction(error) {
-    const info = { error, id: this.id };
-    return setError(info);
+    return setError({ error, id: this.id });
   }
 
   handle(error) {
