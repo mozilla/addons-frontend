@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-20 22:08+0000\n"
-"PO-Revision-Date: 2017-06-21 09:54+0000\n"
+"PO-Revision-Date: 2017-06-22 12:39+0000\n"
 "Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -386,14 +386,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Які ваші враження від роботи з %(addonName)s?"
 
 #: src/amo/components/SearchForm.js:52
-#, fuzzy
 msgid "Search extensions"
-msgstr "Відібрані розширення"
+msgstr "Пошук розширень"
 
 #: src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search themes"
-msgstr "Відібрані теми"
+msgstr "Пошук тем"
 
 #: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
@@ -445,7 +443,7 @@ msgstr "Впорядкувати"
 
 #: src/amo/components/SectionLinks/index.js:39
 msgid "Explore"
-msgstr ""
+msgstr "Дослідити"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
