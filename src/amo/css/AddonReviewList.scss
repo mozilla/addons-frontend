@@ -9,12 +9,16 @@
 }
 
 .AddonReviewList-header {
-  margin: 15px 0 25px;
+  margin: 15px 0;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
 
   .AddonReviewList-header-text {
-    padding: 5px 0;
-
     > h2,
     > h3 {
       font-size: 1.1em;
@@ -40,14 +44,8 @@
   }
 
   .AddonReviewList-header-icon {
+    padding-top: 6px;
     margin: 0 20px;
-    width: 54px;
-    height: 54px;
-  }
-
-  .AddonReviewList-header-icon img {
-    width: 54px;
-    height: auto;
   }
 }
 
