@@ -163,7 +163,7 @@ export class AddonBase extends React.Component {
   renderRatingsCard() {
     const { RatingManager, addon, i18n, location } = this.props;
     let content;
-    let footerPropName;
+    let footerPropName = 'footerText';
 
     if (addon && addon.ratings.count) {
       const count = addon.ratings.count;
@@ -179,8 +179,9 @@ export class AddonBase extends React.Component {
           {linkText}
         </Link>
       );
+    } else if (!addon) {
+      content = <LoadingText width={100} />;
     } else {
-      footerPropName = 'footerText';
       content = i18n.gettext('No reviews yet');
     }
 

@@ -197,6 +197,8 @@ describe('Addon', () => {
       .toHaveLength(1);
     expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
     expect(root.find('.Addon-title').find(LoadingText)).toHaveLength(1);
+    expect(root.find('.Addon-overall-rating').shallow().find(LoadingText))
+      .toHaveLength(1);
 
     // These should render with an empty addon.
     expect(root.find(AddonMeta).prop('addon')).toEqual(null);
