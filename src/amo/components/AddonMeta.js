@@ -32,7 +32,9 @@ export class AddonMetaBase extends React.Component {
     }
 
     let reviewCount;
-    if (addonRatingCount) {
+    if (!addon) {
+      reviewCount = <LoadingText />;
+    } else if (addonRatingCount) {
       reviewCount = i18n.sprintf(
         i18n.ngettext(
           '%(total)s review', '%(total)s reviews', addonRatingCount),

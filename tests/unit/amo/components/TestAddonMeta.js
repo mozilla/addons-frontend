@@ -21,8 +21,8 @@ describe('<AddonMeta>', () => {
     const root = render({ addon: null });
     expect(root.find('.AddonMeta-user-count').find(LoadingText))
       .toHaveLength(1);
-    expect(root.find('.AddonMeta-review-count').text())
-      .toContain('No reviews');
+    expect(root.find('.AddonMeta-review-count').find(LoadingText))
+      .toHaveLength(1);
     expect(root.find(Rating).prop('rating')).toEqual(null);
   });
 
