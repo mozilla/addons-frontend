@@ -28,7 +28,7 @@ export class AddonMetaBase extends React.Component {
         { total: i18n.formatNumber(averageDailyUsers) },
       );
     } else {
-      userCount = <LoadingText />;
+      userCount = <LoadingText width={100} />;
     }
 
     let reviewCount;
