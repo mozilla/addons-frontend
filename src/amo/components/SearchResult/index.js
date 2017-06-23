@@ -41,6 +41,10 @@ export class SearchResultBase extends React.Component {
       ),
     });
 
+    // Can be removed once we fix
+    // https://github.com/mozilla/addons-frontend/issues/2626
+    const summary = addon.summary ? addon.summary : addon.description;
+
     /* eslint-disable react/no-danger */
     return (
       <li className={resultClassnames}>
@@ -61,7 +65,7 @@ export class SearchResultBase extends React.Component {
             <h2 className="SearchResult-name">{addon.name}</h2>
             <p
               className="SearchResult-summary"
-              dangerouslySetInnerHTML={sanitizeHTML(addon.summary)}
+              dangerouslySetInnerHTML={sanitizeHTML(summary)}
             />
 
             <div className="SearchResult-metadata">

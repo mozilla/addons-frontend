@@ -118,4 +118,18 @@ describe('<SearchResult />', () => {
     expect(root.find('.SearchResult-notheme'))
       .toIncludeText('No theme preview available');
   });
+
+  it('uses the description if summary is not available', () => {
+    // This test can be removed once
+    // https://github.com/mozilla/addons-frontend/issues/2626 is fixed.
+    const addon = {
+      ...fakeAddon,
+      summary: null,
+      description: 'I describe things!',
+    };
+    const root = render({ addon });
+
+    expect(root.find('.SearchResult-summary'))
+      .toIncludeText('I describe things!');
+  });
 });
