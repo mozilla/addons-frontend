@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-06-14 15:35+0000\n"
+"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"PO-Revision-Date: 2017-06-21 16:39+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -14,7 +14,15 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:110
+msgid "Cancel preview"
+msgstr "Pśeglěd pśetergnuś"
+
+#: src/amo/components/Addon/index.js:110
+msgid "Tap to preview"
+msgstr "Pótusniśo, aby se pśeglěd woglědał"
+
+#: src/amo/components/Addon/index.js:151
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s pógódnośenje cytaś"
@@ -22,37 +30,29 @@ msgstr[1] "%(count)s pógódnośeni cytaś"
 msgstr[2] "%(count)s pógódnośenja cytaś"
 msgstr[3] "%(count)s pógódnośenjow cytaś"
 
-#: src/amo/components/Addon/index.js:150
+#: src/amo/components/Addon/index.js:164
 msgid "No reviews yet"
 msgstr "Hyšći žedne pógódnośenja"
 
-#: src/amo/components/Addon/index.js:159
+#: src/amo/components/Addon/index.js:173
 msgid "Rate your experience"
 msgstr "Pógódnośćo swóje dožywjenje"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:204
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)swót %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:227
+#: src/amo/components/Addon/index.js:241
 msgid "Extension Metadata"
 msgstr "Metadaty rozšyrjenja"
 
-#: src/amo/components/Addon/index.js:243
+#: src/amo/components/Addon/index.js:257
 msgid "Screenshots"
 msgstr "Fota wobrazowki"
 
-#: src/amo/components/Addon/index.js:250
+#: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
 msgstr "Wó toś tom %(addonType)s"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Cancel preview"
-msgstr "Pśeglěd pśetergnuś"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "Pótusniśo, aby se pśeglěd woglědał"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -194,19 +194,19 @@ msgstr "Dodankowy symbol"
 msgid "Reviews for %(addonName)s"
 msgstr "Pógódnośenja za %(addonName)s"
 
-#: src/amo/components/App/index.js:202
+#: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "Dodanki za Firefox"
 
-#: src/amo/components/Categories.js:49
+#: src/amo/components/Categories.js:57
 msgid "Failed to load categories."
 msgstr "Kategorije njejsu se dali zacytaś."
 
-#: src/amo/components/Categories.js:57
+#: src/amo/components/Categories.js:65
 msgid "No categories found."
 msgstr "Žedne kategorije namakane."
 
-#: src/amo/components/Categories.js:66
+#: src/amo/components/Categories.js:74
 msgid "Loading categories."
 msgstr "Kategorije se cytaju."
 
@@ -282,81 +282,81 @@ msgstr "Programowu zmólku k wěsći daś"
 msgid "View classic desktop site"
 msgstr "Klasiske desktopowe sedło pokazaś"
 
-#: src/amo/components/Header/index.js:42
+#: src/amo/components/Header/index.js:44
 msgid "Firefox Add-ons"
 msgstr "Dodanki za Firefox"
 
-#: src/amo/components/Header/index.js:57
+#: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
 msgstr "Wuwijarski rožk"
 
-#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
-msgid "Themes"
-msgstr "Drastwy"
-
-#: src/amo/components/LandingPage.js:117 src/amo/containers/Home.js:45
-msgid "Extensions"
-msgstr "Rozšyrjenja"
-
-#: src/amo/components/LandingPage.js:120
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Změńśo naglěd swójogo wobglědowaka. Wubjeŕśo z tysacow drastwow, aby Firefox naglěd dał, kótaryž cośo."
-
-#: src/amo/components/LandingPage.js:122
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "Instalěrujśo mócne rědy, kótarež pśeglědowanje maksnjejše a wěsćejše cynje, dodanki cynje waš wobglědowak k wašomu."
-
-#: src/amo/components/LandingPage.js:147
-msgid "Browse by category"
-msgstr "Pó kategoriji pśepytaś"
-
-#: src/amo/components/LandingPage.js:52
-msgid "Featured extensions"
-msgstr "Pśedstajone rozšyrjenja"
-
-#: src/amo/components/LandingPage.js:56
-msgid "More featured extensions"
-msgstr "Dalšne pśedstajone rozšyrjenja"
-
-#: src/amo/components/LandingPage.js:57
-msgid "Most popular extensions"
-msgstr "Nejwěcej woblubowane rozšyrjenja"
-
-#: src/amo/components/LandingPage.js:62
-msgid "More popular extensions"
-msgstr "Dalšne woblubowane rozšyrjenja"
-
-#: src/amo/components/LandingPage.js:63
-msgid "Top rated extensions"
-msgstr "Nejwušej pógódnośone rozšyrjenja"
-
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:103
 msgid "More highly rated extensions"
 msgstr "Dalšne wusoko pógódnośone rozšyrjenja"
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:106
 msgid "Featured themes"
 msgstr "Pśedstajone drastwy"
 
-#: src/amo/components/LandingPage.js:78
+#: src/amo/components/LandingPage.js:110
 msgid "More featured themes"
 msgstr "Dalšne pśedstajone drastwy"
 
-#: src/amo/components/LandingPage.js:79
+#: src/amo/components/LandingPage.js:111
 msgid "Most popular themes"
 msgstr "Nejwěcej woblubowane drastwy"
 
-#: src/amo/components/LandingPage.js:84
+#: src/amo/components/LandingPage.js:116
 msgid "More popular themes"
 msgstr "Dalšne woblubowane drastwy"
 
-#: src/amo/components/LandingPage.js:85
+#: src/amo/components/LandingPage.js:117
 msgid "Top rated themes"
 msgstr "Wusoko pógódnośone drastwy"
 
-#: src/amo/components/LandingPage.js:90
+#: src/amo/components/LandingPage.js:122
 msgid "More highly rated themes"
 msgstr "Dalšne wusoko pógódnośone drastwy"
+
+#: src/amo/components/LandingPage.js:157 src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
+msgid "Themes"
+msgstr "Drastwy"
+
+#: src/amo/components/LandingPage.js:158 src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
+msgid "Extensions"
+msgstr "Rozšyrjenja"
+
+#: src/amo/components/LandingPage.js:161
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Změńśo naglěd swójogo wobglědowaka. Wubjeŕśo z tysacow drastwow, aby Firefox naglěd dał, kótaryž cośo."
+
+#: src/amo/components/LandingPage.js:163
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Instalěrujśo mócne rědy, kótarež pśeglědowanje maksnjejše a wěsćejše cynje, dodanki cynje waš wobglědowak k wašomu."
+
+#: src/amo/components/LandingPage.js:188
+msgid "Browse by category"
+msgstr "Pó kategoriji pśepytaś"
+
+#: src/amo/components/LandingPage.js:84
+msgid "Featured extensions"
+msgstr "Pśedstajone rozšyrjenja"
+
+#: src/amo/components/LandingPage.js:88
+msgid "More featured extensions"
+msgstr "Dalšne pśedstajone rozšyrjenja"
+
+#: src/amo/components/LandingPage.js:89
+msgid "Most popular extensions"
+msgstr "Nejwěcej woblubowane rozšyrjenja"
+
+#: src/amo/components/LandingPage.js:94
+msgid "More popular extensions"
+msgstr "Dalšne woblubowane rozšyrjenja"
+
+#: src/amo/components/LandingPage.js:95
+msgid "Top rated extensions"
+msgstr "Nejwušej pógódnośone rozšyrjenja"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -390,13 +390,21 @@ msgstr "Pśizjawśo se, aby toś ten dodank pógódnośił"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Kak se wam %(addonName)s spódoba?"
 
-#: src/amo/components/SearchForm.js:48 src/amo/components/SearchForm.js:57
-msgid "Search"
-msgstr "Pytaś"
-
 #: src/amo/components/SearchForm.js:52
+msgid "Search extensions"
+msgstr "Rozšyrjenja pytaś"
+
+#: src/amo/components/SearchForm.js:54
+msgid "Search themes"
+msgstr "Drastwy pytaś"
+
+#: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
 msgstr "Rozšyrjenja a drastwy pytaś"
+
+#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+msgid "Search"
+msgstr "Pytaś"
 
 #: src/amo/components/SearchResult.js:50
 msgid "No theme preview available"
@@ -438,15 +446,19 @@ msgstr "Nejlěpjej pógódnośony"
 msgid "Sort"
 msgstr "Sortěrowaś"
 
+#: src/amo/components/SectionLinks/index.js:39
+msgid "Explore"
+msgstr "Wuslěźiś"
+
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr "Naraźone boki"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:75
+#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
 msgid "Browse all extensions"
 msgstr "Wšykne rozšyrjenja pśeglědowaś"
 
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:88
+#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
 msgid "Browse all themes"
 msgstr "Wšykne drastwy pśeglědowaś"
 
@@ -454,63 +466,63 @@ msgstr "Wšykne drastwy pśeglědowaś"
 msgid "Add-ons Home Page"
 msgstr "Startowy bok dodankow"
 
-#: src/amo/containers/Home.js:40
+#: src/amo/containers/Home.js:50
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr "Rozšyrjenja su wósebne funkcije, kótarež móžośo Firefox pśidaś. Drastwy wam zmóžnjaju, naglěd wašogo wobglědowaka změniś."
 
-#: src/amo/containers/Home.js:53
+#: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
 msgstr "Móžośo změniś, ako Firefox funkcioněrujo…"
 
-#: src/amo/containers/Home.js:56
+#: src/amo/containers/Home.js:66
 msgid "Block ads"
 msgstr "Wabjenje blokěrowaś"
 
-#: src/amo/containers/Home.js:59
+#: src/amo/containers/Home.js:69
 msgid "Screenshot"
 msgstr "Foto wobrazowki"
 
-#: src/amo/containers/Home.js:62
+#: src/amo/containers/Home.js:72
 msgid "Find news"
 msgstr "Nowosći namakaś"
 
-#: src/amo/containers/Home.js:65
+#: src/amo/containers/Home.js:75
 msgid "Shop online"
 msgstr "Online nakupowaś"
 
-#: src/amo/containers/Home.js:68
+#: src/amo/containers/Home.js:78
 msgid "Be social"
 msgstr "Socialny byś"
 
-#: src/amo/containers/Home.js:71
+#: src/amo/containers/Home.js:81
 msgid "Play games"
 msgstr "Graśa graś"
 
-#: src/amo/containers/Home.js:78
+#: src/amo/containers/Home.js:88
 msgid "…or what it looks like"
 msgstr "…abo jogo naglěd"
 
-#: src/amo/containers/Home.js:80
+#: src/amo/containers/Home.js:90
 msgid "Wild"
 msgstr "Źiwje"
 
-#: src/amo/containers/Home.js:81
+#: src/amo/containers/Home.js:91
 msgid "Abstract"
 msgstr "Abstraktnje"
 
-#: src/amo/containers/Home.js:82
+#: src/amo/containers/Home.js:92
 msgid "Holiday"
 msgstr "Swěty źeń"
 
-#: src/amo/containers/Home.js:83
+#: src/amo/containers/Home.js:93
 msgid "Scenic"
 msgstr "Rědnučce"
 
-#: src/amo/containers/Home.js:84
+#: src/amo/containers/Home.js:94
 msgid "Sporty"
 msgstr "Sportojsce"
 
-#: src/amo/containers/Home.js:85
+#: src/amo/containers/Home.js:95
 msgid "Solid"
 msgstr "Wupołnjony"
 

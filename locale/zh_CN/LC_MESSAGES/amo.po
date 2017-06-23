@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-06-13 22:06+0000\n"
-"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
+"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"PO-Revision-Date: 2017-06-21 08:42+0000\n"
+"Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:110
+msgid "Cancel preview"
+msgstr "取消预览"
+
+#: src/amo/components/Addon/index.js:110
+msgid "Tap to preview"
+msgstr "点按预览"
+
+#: src/amo/components/Addon/index.js:151
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "阅读全部 %(count)s 条评价"
 
-#: src/amo/components/Addon/index.js:150
+#: src/amo/components/Addon/index.js:164
 msgid "No reviews yet"
 msgstr "尚无评价"
 
-#: src/amo/components/Addon/index.js:159
+#: src/amo/components/Addon/index.js:173
 msgid "Rate your experience"
 msgstr "为您的体验打分"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:204
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)s，作者 %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)s（作者：%(authorList)s）%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:227
+#: src/amo/components/Addon/index.js:241
 msgid "Extension Metadata"
 msgstr "扩展元数据"
 
-#: src/amo/components/Addon/index.js:243
+#: src/amo/components/Addon/index.js:257
 msgid "Screenshots"
 msgstr "屏幕截图"
 
-#: src/amo/components/Addon/index.js:250
+#: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
 msgstr "关于此 %(addonType)s"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Cancel preview"
-msgstr "取消预览"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "点按预览"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -139,19 +139,19 @@ msgstr "最终用户许可协议"
 
 #: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr "告诉这世界为什么您觉得这个附加组件很棒！"
+msgstr "与世界分享这个附加组件很棒的理由吧！"
 
 #: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "告诉我们您怎么看这个扩展。还望具体而简明。"
+msgstr "告诉我们您怎么看这个扩展。请具体而简明。"
 
 #: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
-msgstr "告诉全世界，此扩展怎么样。"
+msgstr "与世界分享你对此扩展的评价。"
 
 #: src/amo/components/AddonReview.js:153
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "告诉我们您使用这个扩展的体验如何。应具体而简明。"
+msgstr "告诉我们您使用这个扩展的体验如何。/请具体而简明。"
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
@@ -185,25 +185,25 @@ msgstr "附加组件图标"
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s 的评价"
 
-#: src/amo/components/App/index.js:202
+#: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "Firefox 附加组件"
 
-#: src/amo/components/Categories.js:49
+#: src/amo/components/Categories.js:57
 msgid "Failed to load categories."
 msgstr "加载分类失败。"
 
-#: src/amo/components/Categories.js:57
+#: src/amo/components/Categories.js:65
 msgid "No categories found."
 msgstr "没有找到分类。"
 
-#: src/amo/components/Categories.js:66
+#: src/amo/components/Categories.js:74
 msgid "Loading categories."
 msgstr "正在加载分类。"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr "如果您已登录并认为这个消息不正确，请<a href=\"%(url)s\">填报问题</a>。告诉我们您从何处来，试图访问哪里，我们会助你解决这个问题。"
+msgstr "若您已登录，认为这个提示有误，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
@@ -215,7 +215,7 @@ msgstr "很抱歉，但您无权访问此页面。如果您尚未登录，请使
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "如果您点击某个链接而来，请<a href=\"%(url)s\">填报问题</a>。告诉我们你从何处来，想要找到什么。我们会尽力帮助你解决它。"
+msgstr "如果您点击某个链接而来，请<a href=\"%(url)s\">填报问题</a>。填报时请提及您是从哪个网址过来的、想访问什么内容，我们将修正此问题。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -223,13 +223,13 @@ msgstr "找不到页面"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "很抱歉，但我们无法用您输入的地址找到信息。如果您从一个链接而来、想要找到某个附加组件，那么该附加组件可能已被其作者删除。"
+msgstr "很抱歉，但您的网址所指向的内容似乎不存在。如果您是想打开某个附加组件的链接，可能是该附加组件已被作者下架或移除。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
-msgstr "如果您有更多有助于我们的信息，请<a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">填报问题</a>。在填报的问题中告诉我们如何重现该问题，我们将尽力解决它。"
+msgstr "如果您有其他能够帮助我们修正问题的信息，请<a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">填报问题</a>。在填报时中请告诉我们您做了哪些事情后发生了错误，我们将尽力修正。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
@@ -267,81 +267,81 @@ msgstr "报告缺陷"
 msgid "View classic desktop site"
 msgstr "查看经典版桌面网站"
 
-#: src/amo/components/Header/index.js:42
+#: src/amo/components/Header/index.js:44
 msgid "Firefox Add-ons"
 msgstr "Firefox 附加组件"
 
-#: src/amo/components/Header/index.js:57
+#: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
 msgstr "开发者中心"
 
-#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
-msgid "Themes"
-msgstr "主题"
-
-#: src/amo/components/LandingPage.js:117 src/amo/containers/Home.js:45
-msgid "Extensions"
-msgstr "扩展"
-
-#: src/amo/components/LandingPage.js:120
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "更改您的浏览器的外观。挑选成千上万的主题，使 Firefox 成为你最喜欢的样子。"
-
-#: src/amo/components/LandingPage.js:122
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "安装强大的工具使浏览更便捷和安全，附加组件使您的浏览器更具威力。"
-
-#: src/amo/components/LandingPage.js:147
-msgid "Browse by category"
-msgstr "按分类浏览"
-
-#: src/amo/components/LandingPage.js:52
-msgid "Featured extensions"
-msgstr "精选扩展"
-
-#: src/amo/components/LandingPage.js:56
-msgid "More featured extensions"
-msgstr "更多精选扩展"
-
-#: src/amo/components/LandingPage.js:57
-msgid "Most popular extensions"
-msgstr "最流行的扩展"
-
-#: src/amo/components/LandingPage.js:62
-msgid "More popular extensions"
-msgstr "最流行的扩展"
-
-#: src/amo/components/LandingPage.js:63
-msgid "Top rated extensions"
-msgstr "最受好评的扩展"
-
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:103
 msgid "More highly rated extensions"
 msgstr "更多高评分扩展"
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:106
 msgid "Featured themes"
 msgstr "精选主题"
 
-#: src/amo/components/LandingPage.js:78
+#: src/amo/components/LandingPage.js:110
 msgid "More featured themes"
 msgstr "更多精选主题"
 
-#: src/amo/components/LandingPage.js:79
+#: src/amo/components/LandingPage.js:111
 msgid "Most popular themes"
 msgstr "最流行的主题"
 
-#: src/amo/components/LandingPage.js:84
+#: src/amo/components/LandingPage.js:116
 msgid "More popular themes"
 msgstr "最流行的主题"
 
-#: src/amo/components/LandingPage.js:85
+#: src/amo/components/LandingPage.js:117
 msgid "Top rated themes"
 msgstr "最受好评的主题"
 
-#: src/amo/components/LandingPage.js:90
+#: src/amo/components/LandingPage.js:122
 msgid "More highly rated themes"
 msgstr "更多高评分主题"
+
+#: src/amo/components/LandingPage.js:157 src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
+msgid "Themes"
+msgstr "主题"
+
+#: src/amo/components/LandingPage.js:158 src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
+msgid "Extensions"
+msgstr "扩展"
+
+#: src/amo/components/LandingPage.js:161
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "为浏览器换身装吧。您可以在成千上万的主题挑选主题，让 Firefox 有您想要的样子。"
+
+#: src/amo/components/LandingPage.js:163
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "安装强大的工具，让浏览更便捷和安全，附加组件使您的浏览器更具个性。"
+
+#: src/amo/components/LandingPage.js:188
+msgid "Browse by category"
+msgstr "按类别浏览"
+
+#: src/amo/components/LandingPage.js:84
+msgid "Featured extensions"
+msgstr "精选扩展"
+
+#: src/amo/components/LandingPage.js:88
+msgid "More featured extensions"
+msgstr "更多精选扩展"
+
+#: src/amo/components/LandingPage.js:89
+msgid "Most popular extensions"
+msgstr "最流行的扩展"
+
+#: src/amo/components/LandingPage.js:94
+msgid "More popular extensions"
+msgstr "最流行的扩展"
+
+#: src/amo/components/LandingPage.js:95
+msgid "Top rated extensions"
+msgstr "最受好评的扩展"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -375,13 +375,21 @@ msgstr "登录以评价此附加组件"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "使用 %(addonName)s 的感觉如何？"
 
-#: src/amo/components/SearchForm.js:48 src/amo/components/SearchForm.js:57
-msgid "Search"
-msgstr "搜索"
-
 #: src/amo/components/SearchForm.js:52
+msgid "Search extensions"
+msgstr "搜索扩展"
+
+#: src/amo/components/SearchForm.js:54
+msgid "Search themes"
+msgstr "搜索主题"
+
+#: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
 msgstr "搜索扩展和主题"
+
+#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+msgid "Search"
+msgstr "搜索"
 
 #: src/amo/components/SearchResult.js:50
 msgid "No theme preview available"
@@ -423,15 +431,19 @@ msgstr "最高评分"
 msgid "Sort"
 msgstr "排序"
 
+#: src/amo/components/SectionLinks/index.js:39
+msgid "Explore"
+msgstr "探索"
+
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr "推荐页面"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:75
+#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
 msgid "Browse all extensions"
 msgstr "浏览所有扩展"
 
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:88
+#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
 msgid "Browse all themes"
 msgstr "浏览所有主题"
 
@@ -439,63 +451,63 @@ msgstr "浏览所有主题"
 msgid "Add-ons Home Page"
 msgstr "附加组件首页"
 
-#: src/amo/containers/Home.js:40
+#: src/amo/containers/Home.js:50
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr "扩展让您可以为 Firefox 增添功能。主题则可以让您改变浏览器的外观。"
 
-#: src/amo/containers/Home.js:53
+#: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
 msgstr "您可以改变 Firefox 的工作方式…"
 
-#: src/amo/containers/Home.js:56
+#: src/amo/containers/Home.js:66
 msgid "Block ads"
 msgstr "过滤广告"
 
-#: src/amo/containers/Home.js:59
+#: src/amo/containers/Home.js:69
 msgid "Screenshot"
 msgstr "屏幕截图"
 
-#: src/amo/containers/Home.js:62
+#: src/amo/containers/Home.js:72
 msgid "Find news"
 msgstr "查阅新闻"
 
-#: src/amo/containers/Home.js:65
+#: src/amo/containers/Home.js:75
 msgid "Shop online"
 msgstr "网上购物"
 
-#: src/amo/containers/Home.js:68
+#: src/amo/containers/Home.js:78
 msgid "Be social"
 msgstr "社交"
 
-#: src/amo/containers/Home.js:71
+#: src/amo/containers/Home.js:81
 msgid "Play games"
 msgstr "尽情游戏"
 
-#: src/amo/containers/Home.js:78
+#: src/amo/containers/Home.js:88
 msgid "…or what it looks like"
 msgstr "…或者改变外观"
 
-#: src/amo/containers/Home.js:80
+#: src/amo/containers/Home.js:90
 msgid "Wild"
 msgstr "狂野"
 
-#: src/amo/containers/Home.js:81
+#: src/amo/containers/Home.js:91
 msgid "Abstract"
 msgstr "抽象"
 
-#: src/amo/containers/Home.js:82
+#: src/amo/containers/Home.js:92
 msgid "Holiday"
 msgstr "假日"
 
-#: src/amo/containers/Home.js:83
+#: src/amo/containers/Home.js:93
 msgid "Scenic"
 msgstr "风景"
 
-#: src/amo/containers/Home.js:84
+#: src/amo/containers/Home.js:94
 msgid "Sporty"
 msgstr "运动"
 
-#: src/amo/containers/Home.js:85
+#: src/amo/containers/Home.js:95
 msgid "Solid"
 msgstr "纯色"
 

@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-05-28 20:20+0000\n"
-"Last-Translator: Tomer Cohen <tomer.mozilla@tomercohen.com>\n"
+"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"PO-Revision-Date: 2017-06-21 15:48+0000\n"
+"Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -14,43 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:110
+msgid "Cancel preview"
+msgstr "ביטול תצוגה מקדימה"
+
+#: src/amo/components/Addon/index.js:110
+msgid "Tap to preview"
+msgstr "הקישו לתצוגה מקדימה"
+
+#: src/amo/components/Addon/index.js:151
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "קריאת סקירה %(count)s"
 msgstr[1] "קריאת כל %(count)s הסקירות"
 
-#: src/amo/components/Addon/index.js:150
+#: src/amo/components/Addon/index.js:164
 msgid "No reviews yet"
 msgstr "אין עדיין סקירות"
 
-#: src/amo/components/Addon/index.js:159
+#: src/amo/components/Addon/index.js:173
 msgid "Rate your experience"
 msgstr "דירוג החוויה שלך"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:204
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:227
+#: src/amo/components/Addon/index.js:241
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:243
+#: src/amo/components/Addon/index.js:257
 msgid "Screenshots"
 msgstr "צילומי מסך"
 
-#: src/amo/components/Addon/index.js:250
+#: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
 msgstr ""
-
-#: src/amo/components/Addon/index.js:96
-msgid "Cancel preview"
-msgstr "ביטול תצוגה מקדימה"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "הקישו לתצוגה מקדימה"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -189,19 +189,19 @@ msgstr "צלמית התוספת"
 msgid "Reviews for %(addonName)s"
 msgstr "סקירות עבור %(addonName)s"
 
-#: src/amo/components/App/index.js:202
+#: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "תוספות עבור Firefox"
 
-#: src/amo/components/Categories.js:49
+#: src/amo/components/Categories.js:57
 msgid "Failed to load categories."
 msgstr "כשלון בטעינת קטגוריות."
 
-#: src/amo/components/Categories.js:57
+#: src/amo/components/Categories.js:65
 msgid "No categories found."
 msgstr "לא נמצאו קטגוריות."
 
-#: src/amo/components/Categories.js:66
+#: src/amo/components/Categories.js:74
 #, fuzzy
 msgid "Loading categories."
 msgstr "כשלון בטעינת קטגוריות."
@@ -272,81 +272,81 @@ msgstr "דיווח על תקלה"
 msgid "View classic desktop site"
 msgstr ""
 
-#: src/amo/components/Header/index.js:42
+#: src/amo/components/Header/index.js:44
 msgid "Firefox Add-ons"
 msgstr "תוספות של Firefox"
 
-#: src/amo/components/Header/index.js:57
+#: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
-msgid "Themes"
-msgstr "ערכות נושא"
-
-#: src/amo/components/LandingPage.js:117 src/amo/containers/Home.js:45
-msgid "Extensions"
-msgstr "הרחבות"
-
-#: src/amo/components/LandingPage.js:120
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
-
-#: src/amo/components/LandingPage.js:122
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr ""
-
-#: src/amo/components/LandingPage.js:147
-msgid "Browse by category"
-msgstr "עיון לפי קטגוריה"
-
-#: src/amo/components/LandingPage.js:52
-msgid "Featured extensions"
-msgstr "הרחבות מומלצות"
-
-#: src/amo/components/LandingPage.js:56
-msgid "More featured extensions"
-msgstr "הרחבות מומלצות נוספות"
-
-#: src/amo/components/LandingPage.js:57
-msgid "Most popular extensions"
-msgstr "ההרחבות הפופולריות ביותר"
-
-#: src/amo/components/LandingPage.js:62
-msgid "More popular extensions"
-msgstr "הרחבות פופולריות נוספות"
-
-#: src/amo/components/LandingPage.js:63
-msgid "Top rated extensions"
-msgstr "ההרחבות המדורגות ביותר"
-
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:103
 msgid "More highly rated extensions"
 msgstr "עיון בכל ההרחבות"
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:106
 msgid "Featured themes"
 msgstr "ערכות נושא מומלצות"
 
-#: src/amo/components/LandingPage.js:78
+#: src/amo/components/LandingPage.js:110
 msgid "More featured themes"
 msgstr "ערכות נושא מומלצות נוספות"
 
-#: src/amo/components/LandingPage.js:79
+#: src/amo/components/LandingPage.js:111
 msgid "Most popular themes"
 msgstr "ערכות הנושא הפופולריות ביותר"
 
-#: src/amo/components/LandingPage.js:84
+#: src/amo/components/LandingPage.js:116
 msgid "More popular themes"
 msgstr "ערכות נושא פופולריות נוספות"
 
-#: src/amo/components/LandingPage.js:85
+#: src/amo/components/LandingPage.js:117
 msgid "Top rated themes"
 msgstr "ערכות הנושא המדורגות ביותר"
 
-#: src/amo/components/LandingPage.js:90
+#: src/amo/components/LandingPage.js:122
 msgid "More highly rated themes"
 msgstr ""
+
+#: src/amo/components/LandingPage.js:157 src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
+msgid "Themes"
+msgstr "ערכות נושא"
+
+#: src/amo/components/LandingPage.js:158 src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
+msgid "Extensions"
+msgstr "הרחבות"
+
+#: src/amo/components/LandingPage.js:161
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:163
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr ""
+
+#: src/amo/components/LandingPage.js:188
+msgid "Browse by category"
+msgstr "עיון לפי קטגוריה"
+
+#: src/amo/components/LandingPage.js:84
+msgid "Featured extensions"
+msgstr "הרחבות מומלצות"
+
+#: src/amo/components/LandingPage.js:88
+msgid "More featured extensions"
+msgstr "הרחבות מומלצות נוספות"
+
+#: src/amo/components/LandingPage.js:89
+msgid "Most popular extensions"
+msgstr "ההרחבות הפופולריות ביותר"
+
+#: src/amo/components/LandingPage.js:94
+msgid "More popular extensions"
+msgstr "הרחבות פופולריות נוספות"
+
+#: src/amo/components/LandingPage.js:95
+msgid "Top rated extensions"
+msgstr "ההרחבות המדורגות ביותר"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -380,13 +380,21 @@ msgstr "יש להתחבר כדי לדרג תוספת זו"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr ""
 
-#: src/amo/components/SearchForm.js:48 src/amo/components/SearchForm.js:57
-msgid "Search"
-msgstr "חיפוש"
-
 #: src/amo/components/SearchForm.js:52
+msgid "Search extensions"
+msgstr "חיפוש הרחבות"
+
+#: src/amo/components/SearchForm.js:54
+msgid "Search themes"
+msgstr "חיפוש ערכות נושא"
+
+#: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
 msgstr "חיפוש הרחבות וערכות נושא"
+
+#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+msgid "Search"
+msgstr "חיפוש"
 
 #: src/amo/components/SearchResult.js:50
 msgid "No theme preview available"
@@ -428,15 +436,19 @@ msgstr "המדורגים ביותר"
 msgid "Sort"
 msgstr "מיון"
 
+#: src/amo/components/SectionLinks/index.js:39
+msgid "Explore"
+msgstr ""
+
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr "דפים מוצעים"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:75
+#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
 msgid "Browse all extensions"
 msgstr "עיון בכל ההרחבות"
 
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:88
+#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
 msgid "Browse all themes"
 msgstr "עיון בכל ערכות הנושא"
 
@@ -444,63 +456,63 @@ msgstr "עיון בכל ערכות הנושא"
 msgid "Add-ons Home Page"
 msgstr "דף הבית של התוספות"
 
-#: src/amo/containers/Home.js:40
+#: src/amo/containers/Home.js:50
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr "הרחבות הינן תכונות מיוחדות אותן ניתן להוסיף ל־Firefox. ערכות נושא מאפשרות לך לשנות את תצוגת הדפדפן שלך."
 
-#: src/amo/containers/Home.js:53
+#: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
 msgstr ""
 
-#: src/amo/containers/Home.js:56
+#: src/amo/containers/Home.js:66
 msgid "Block ads"
 msgstr "חסימת פרסומות"
 
-#: src/amo/containers/Home.js:59
+#: src/amo/containers/Home.js:69
 msgid "Screenshot"
 msgstr "צילומי מסך"
 
-#: src/amo/containers/Home.js:62
+#: src/amo/containers/Home.js:72
 msgid "Find news"
 msgstr "חיפוש חדשות"
 
-#: src/amo/containers/Home.js:65
+#: src/amo/containers/Home.js:75
 msgid "Shop online"
 msgstr "ביצוע רכישות מקוונות"
 
-#: src/amo/containers/Home.js:68
+#: src/amo/containers/Home.js:78
 msgid "Be social"
 msgstr ""
 
-#: src/amo/containers/Home.js:71
+#: src/amo/containers/Home.js:81
 msgid "Play games"
 msgstr "לשחק משחקים"
 
-#: src/amo/containers/Home.js:78
+#: src/amo/containers/Home.js:88
 msgid "…or what it looks like"
 msgstr ""
 
-#: src/amo/containers/Home.js:80
+#: src/amo/containers/Home.js:90
 msgid "Wild"
 msgstr "פראי"
 
-#: src/amo/containers/Home.js:81
+#: src/amo/containers/Home.js:91
 msgid "Abstract"
 msgstr "מופשט"
 
-#: src/amo/containers/Home.js:82
+#: src/amo/containers/Home.js:92
 msgid "Holiday"
 msgstr "חופשה"
 
-#: src/amo/containers/Home.js:83
+#: src/amo/containers/Home.js:93
 msgid "Scenic"
 msgstr "נופי"
 
-#: src/amo/containers/Home.js:84
+#: src/amo/containers/Home.js:94
 msgid "Sporty"
 msgstr "ספורטיבי"
 
-#: src/amo/containers/Home.js:85
+#: src/amo/containers/Home.js:95
 msgid "Solid"
 msgstr ""
 

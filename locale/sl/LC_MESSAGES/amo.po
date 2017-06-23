@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-13 20:01+0000\n"
-"PO-Revision-Date: 2017-06-14 07:16+0000\n"
+"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"PO-Revision-Date: 2017-06-21 06:49+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -14,7 +14,15 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:110
+msgid "Cancel preview"
+msgstr "Prekliči predogled"
+
+#: src/amo/components/Addon/index.js:110
+msgid "Tap to preview"
+msgstr "Tapnite za predogled"
+
+#: src/amo/components/Addon/index.js:151
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Preberi %(count)s oceno"
@@ -22,37 +30,29 @@ msgstr[1] "Preberi %(count)s oceni"
 msgstr[2] "Preberi vse %(count)s ocene"
 msgstr[3] "Preberi vseh %(count)s ocen"
 
-#: src/amo/components/Addon/index.js:150
+#: src/amo/components/Addon/index.js:164
 msgid "No reviews yet"
 msgstr "Še ni ocenjeno"
 
-#: src/amo/components/Addon/index.js:159
+#: src/amo/components/Addon/index.js:173
 msgid "Rate your experience"
 msgstr "Ocenite svojo izkušnjo"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:204
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s– %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:227
+#: src/amo/components/Addon/index.js:241
 msgid "Extension Metadata"
 msgstr "Metapodatki o razširitvi"
 
-#: src/amo/components/Addon/index.js:243
+#: src/amo/components/Addon/index.js:257
 msgid "Screenshots"
 msgstr "Posnetki zaslona"
 
-#: src/amo/components/Addon/index.js:250
+#: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
 msgstr "O tem %(addonType)s"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Cancel preview"
-msgstr "Prekliči predogled"
-
-#: src/amo/components/Addon/index.js:96
-msgid "Tap to preview"
-msgstr "Tapnite za predogled"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -194,19 +194,19 @@ msgstr "Ikona dodatka"
 msgid "Reviews for %(addonName)s"
 msgstr "Ocene za %(addonName)s"
 
-#: src/amo/components/App/index.js:202
+#: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "Dodatki za Firefox"
 
-#: src/amo/components/Categories.js:49
+#: src/amo/components/Categories.js:57
 msgid "Failed to load categories."
 msgstr "Napaka pri nalaganju kategorij."
 
-#: src/amo/components/Categories.js:57
+#: src/amo/components/Categories.js:65
 msgid "No categories found."
 msgstr "Ni najdenih kategorij."
 
-#: src/amo/components/Categories.js:66
+#: src/amo/components/Categories.js:74
 msgid "Loading categories."
 msgstr "Nalaganje kategorij."
 
@@ -280,81 +280,81 @@ msgstr "Prijavi hrošča"
 msgid "View classic desktop site"
 msgstr "Ogled strani za namizja"
 
-#: src/amo/components/Header/index.js:42
+#: src/amo/components/Header/index.js:44
 msgid "Firefox Add-ons"
 msgstr "Dodatki za Firefox"
 
-#: src/amo/components/Header/index.js:57
+#: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
 msgstr "Razvojni center"
 
-#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:48
-msgid "Themes"
-msgstr "Teme"
-
-#: src/amo/components/LandingPage.js:117 src/amo/containers/Home.js:45
-msgid "Extensions"
-msgstr "Razširitve"
-
-#: src/amo/components/LandingPage.js:120
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Spremenite videz svojega brskalnika. Izbirajte med tisoči tem in Firefoxu vdahnite svojo osebnost."
-
-#: src/amo/components/LandingPage.js:122
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "Namestite zmogljiva orodja, ki brskanje naredijo hitrejše in varnejše, brskalnik pa samo vaš."
-
-#: src/amo/components/LandingPage.js:147
-msgid "Browse by category"
-msgstr "Brskaj po kategorijah"
-
-#: src/amo/components/LandingPage.js:52
-msgid "Featured extensions"
-msgstr "Izbrane razširitve"
-
-#: src/amo/components/LandingPage.js:56
-msgid "More featured extensions"
-msgstr "Več izbranih razširitev"
-
-#: src/amo/components/LandingPage.js:57
-msgid "Most popular extensions"
-msgstr "Najbolj priljubljene razširitve"
-
-#: src/amo/components/LandingPage.js:62
-msgid "More popular extensions"
-msgstr "Več priljubljenih razširitev"
-
-#: src/amo/components/LandingPage.js:63
-msgid "Top rated extensions"
-msgstr "Najbolje ocenjene razširitve"
-
-#: src/amo/components/LandingPage.js:71
+#: src/amo/components/LandingPage.js:103
 msgid "More highly rated extensions"
 msgstr "Več visoko ocenjenih razširitev"
 
-#: src/amo/components/LandingPage.js:74
+#: src/amo/components/LandingPage.js:106
 msgid "Featured themes"
 msgstr "Izbrane teme"
 
-#: src/amo/components/LandingPage.js:78
+#: src/amo/components/LandingPage.js:110
 msgid "More featured themes"
 msgstr "Več izbranih tem"
 
-#: src/amo/components/LandingPage.js:79
+#: src/amo/components/LandingPage.js:111
 msgid "Most popular themes"
 msgstr "Najbolj priljubljene teme"
 
-#: src/amo/components/LandingPage.js:84
+#: src/amo/components/LandingPage.js:116
 msgid "More popular themes"
 msgstr "Več priljubljenih tem"
 
-#: src/amo/components/LandingPage.js:85
+#: src/amo/components/LandingPage.js:117
 msgid "Top rated themes"
 msgstr "Najbolje ocenjene teme"
 
-#: src/amo/components/LandingPage.js:90
+#: src/amo/components/LandingPage.js:122
 msgid "More highly rated themes"
 msgstr "Več visoko ocenjenih tem"
+
+#: src/amo/components/LandingPage.js:157 src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
+msgid "Themes"
+msgstr "Teme"
+
+#: src/amo/components/LandingPage.js:158 src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
+msgid "Extensions"
+msgstr "Razširitve"
+
+#: src/amo/components/LandingPage.js:161
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Spremenite videz svojega brskalnika. Izbirajte med tisoči tem in Firefoxu vdahnite svojo osebnost."
+
+#: src/amo/components/LandingPage.js:163
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Namestite zmogljiva orodja, ki brskanje naredijo hitrejše in varnejše, brskalnik pa samo vaš."
+
+#: src/amo/components/LandingPage.js:188
+msgid "Browse by category"
+msgstr "Brskaj po kategorijah"
+
+#: src/amo/components/LandingPage.js:84
+msgid "Featured extensions"
+msgstr "Izbrane razširitve"
+
+#: src/amo/components/LandingPage.js:88
+msgid "More featured extensions"
+msgstr "Več izbranih razširitev"
+
+#: src/amo/components/LandingPage.js:89
+msgid "Most popular extensions"
+msgstr "Najbolj priljubljene razširitve"
+
+#: src/amo/components/LandingPage.js:94
+msgid "More popular extensions"
+msgstr "Več priljubljenih razširitev"
+
+#: src/amo/components/LandingPage.js:95
+msgid "Top rated extensions"
+msgstr "Najbolje ocenjene razširitve"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -388,13 +388,21 @@ msgstr "Prijavite se, da ocenite ta dodatek"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Kako vam ugaja %(addonName)s?"
 
-#: src/amo/components/SearchForm.js:48 src/amo/components/SearchForm.js:57
-msgid "Search"
-msgstr "Išči"
-
 #: src/amo/components/SearchForm.js:52
+msgid "Search extensions"
+msgstr "Iskanje po razširitvah"
+
+#: src/amo/components/SearchForm.js:54
+msgid "Search themes"
+msgstr "Iskanje po temah"
+
+#: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
 msgstr "Išči razširitve in teme"
+
+#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+msgid "Search"
+msgstr "Išči"
 
 #: src/amo/components/SearchResult.js:50
 msgid "No theme preview available"
@@ -436,15 +444,19 @@ msgstr "Najbolje ocenjeni"
 msgid "Sort"
 msgstr "Razvrsti"
 
+#: src/amo/components/SectionLinks/index.js:39
+msgid "Explore"
+msgstr "Razišči"
+
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr "Predlagane strani"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:75
+#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
 msgid "Browse all extensions"
 msgstr "Prebrskaj vse razširitve"
 
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:88
+#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
 msgid "Browse all themes"
 msgstr "Prebrskaj vse teme"
 
@@ -452,63 +464,63 @@ msgstr "Prebrskaj vse teme"
 msgid "Add-ons Home Page"
 msgstr "Domača stran dodatkov"
 
-#: src/amo/containers/Home.js:40
+#: src/amo/containers/Home.js:50
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
 msgstr "Razširitve so posebne funkcije, ki jih lahko dodate v Firefox. Teme vam omogočajo spremeniti videz vašega brskalnika."
 
-#: src/amo/containers/Home.js:53
+#: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
 msgstr "Spremenite lahko, kako Firefox deluje …"
 
-#: src/amo/containers/Home.js:56
+#: src/amo/containers/Home.js:66
 msgid "Block ads"
 msgstr "Zavrača oglase"
 
-#: src/amo/containers/Home.js:59
+#: src/amo/containers/Home.js:69
 msgid "Screenshot"
 msgstr "Ustvarja posnetke zaslona"
 
-#: src/amo/containers/Home.js:62
+#: src/amo/containers/Home.js:72
 msgid "Find news"
 msgstr "Vas zalaga z novicami"
 
-#: src/amo/containers/Home.js:65
+#: src/amo/containers/Home.js:75
 msgid "Shop online"
 msgstr "Nakupuje na spletu"
 
-#: src/amo/containers/Home.js:68
+#: src/amo/containers/Home.js:78
 msgid "Be social"
 msgstr "Postane družaben"
 
-#: src/amo/containers/Home.js:71
+#: src/amo/containers/Home.js:81
 msgid "Play games"
 msgstr "Igra igre"
 
-#: src/amo/containers/Home.js:78
+#: src/amo/containers/Home.js:88
 msgid "…or what it looks like"
 msgstr "… ali kako je videti"
 
-#: src/amo/containers/Home.js:80
+#: src/amo/containers/Home.js:90
 msgid "Wild"
 msgstr "Divje"
 
-#: src/amo/containers/Home.js:81
+#: src/amo/containers/Home.js:91
 msgid "Abstract"
 msgstr "Abstraktno"
 
-#: src/amo/containers/Home.js:82
+#: src/amo/containers/Home.js:92
 msgid "Holiday"
 msgstr "Počitnice"
 
-#: src/amo/containers/Home.js:83
+#: src/amo/containers/Home.js:93
 msgid "Scenic"
 msgstr "Slikovito"
 
-#: src/amo/containers/Home.js:84
+#: src/amo/containers/Home.js:94
 msgid "Sporty"
 msgstr "Športno"
 
-#: src/amo/containers/Home.js:85
+#: src/amo/containers/Home.js:95
 msgid "Solid"
 msgstr "Enobarvno"
 
