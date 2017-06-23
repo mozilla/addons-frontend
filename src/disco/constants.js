@@ -43,4 +43,5 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'disable-ocsp-stapling@mozilla.org', // Disable OCSP Stapling
   'onboarding@mozilla.org', // Photon onboarding
   'followonsearch@mozilla.com', // Follow-on Search Telemetry
+  'clicktoplay-rollout@mozilla.org', // Click to Play Rollout
 ];
