@@ -147,7 +147,7 @@ describe('Addon', () => {
     const fakeDispatch = sinon.stub();
     const root = shallowRender({ addon: fakeAddon, dispatch: fakeDispatch });
     fakeDispatch.reset();
-    // Update with the same addon (this apparently happens IRL).
+    // Update with the same addon (this apparently happens in real usage).
     root.setProps({ addon: fakeAddon });
     // The view context should not be dispatched.
     sinon.assert.notCalled(fakeDispatch);
