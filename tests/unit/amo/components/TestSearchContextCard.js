@@ -5,19 +5,18 @@ import {
   SearchContextCardBase,
   mapStateToProps,
 } from 'amo/components/SearchContextCard';
-import { searchLoad, searchStart } from 'core/actions/search';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import { searchStart } from 'core/actions/search';
+import {
+  dispatchClientMetadata,
+  dispatchSearchResults,
+  fakeAddon,
+} from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('SearchContextCard', () => {
-  function render(props = {}) {
-    let { store } = props;
-
-    if (!store) {
-      store = dispatchClientMetadata().store;
-      store.dispatch(searchStart({ filters: { query: 'test' } }));
-    }
+  function render(props) {
+    const store = props.store || dispatchClientMetadata().store;
 
     return shallow(
       <SearchContextCardBase
@@ -29,7 +28,8 @@ describe('SearchContextCard', () => {
   }
 
   it('should render a card', () => {
-    const root = render();
+    const { store } = dispatchClientMetadata();
+    const root = render({ store });
 
     expect(root).toHaveClassName('SearchContextCard');
   });
@@ -37,7 +37,6 @@ describe('SearchContextCard', () => {
   it('should render "searching" while loading without query', () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(searchStart({ filters: {} }));
-
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))
@@ -47,7 +46,6 @@ describe('SearchContextCard', () => {
   it('should render during a search that is loading', () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(searchStart({ filters: { query: 'test' } }));
-
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))
@@ -55,22 +53,7 @@ describe('SearchContextCard', () => {
   });
 
   it('should render search results', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchStart({ filters: { query: 'test' } }));
-    store.dispatch(searchLoad({
-      entities: {
-        addons: {
-          [fakeAddon.slug]: fakeAddon,
-          'some-other-slug': { ...fakeAddon, slug: 'some-other-slug' },
-        },
-      },
-      filters: { query: 'test' },
-      result: {
-        count: 2,
-        results: [fakeAddon.slug, 'some-other-slug'],
-      },
-    }));
-
+    const { store } = dispatchSearchResults();
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))
@@ -78,22 +61,7 @@ describe('SearchContextCard', () => {
   });
 
   it('should render results that lack a query', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchStart({ filters: { query: 'test' } }));
-    store.dispatch(searchLoad({
-      entities: {
-        addons: {
-          [fakeAddon.slug]: fakeAddon,
-          'some-other-slug': { ...fakeAddon, slug: 'some-other-slug' },
-        },
-      },
-      filters: {},
-      result: {
-        count: 2,
-        results: [fakeAddon.slug, 'some-other-slug'],
-      },
-    }));
-
+    const { store } = dispatchSearchResults({ filters: {} });
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))
@@ -101,20 +69,9 @@ describe('SearchContextCard', () => {
   });
 
   it('should use singular form when only one result is found', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchLoad({
-      entities: {
-        addons: {
-          [fakeAddon.slug]: fakeAddon,
-        },
-      },
-      filters: { query: 'test' },
-      result: {
-        count: 1,
-        results: [fakeAddon.slug],
-      },
-    }));
-
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+    });
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))
@@ -122,20 +79,10 @@ describe('SearchContextCard', () => {
   });
 
   it('should use singular form without query when only one result', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchLoad({
-      entities: {
-        addons: {
-          [fakeAddon.slug]: fakeAddon,
-        },
-      },
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
       filters: {},
-      result: {
-        count: 1,
-        results: [fakeAddon.slug],
-      },
-    }));
-
+    });
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))
@@ -143,13 +90,7 @@ describe('SearchContextCard', () => {
   });
 
   it('should render empty results', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchLoad({
-      entities: { addons: {} },
-      filters: {},
-      result: { count: 0, results: [] },
-    }));
-
+    const { store } = dispatchSearchResults({ addons: [], filters: {} });
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))

@@ -41,7 +41,7 @@ export class SearchResultBase extends React.Component {
       ),
     });
 
-    // eslint-disable react-no-danger
+    /* eslint-disable react/no-danger */
     return (
       <li className={resultClassnames}>
         <Link to={`/addon/${addon.slug}/`}
@@ -92,7 +92,7 @@ export class SearchResultBase extends React.Component {
         </Link>
       </li>
     );
-    // eslint-enable react-no-danger
+    /* eslint-enable react/no-danger */
   }
 }
 
