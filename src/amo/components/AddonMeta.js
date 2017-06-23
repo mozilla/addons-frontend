@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
+import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
 import 'amo/css/AddonMeta.scss';
@@ -16,17 +17,24 @@ export class AddonMetaBase extends React.Component {
 
   render() {
     const { addon, i18n } = this.props;
-    const averageDailyUsers = addon.average_daily_users;
-    const averageRating = addon.ratings.average;
-    const addonRatingCount = addon.ratings.count;
+    const averageRating = addon ? addon.ratings.average : null;
+    const addonRatingCount = addon ? addon.ratings.count : null;
 
-    const userCount = i18n.sprintf(
-      i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
-      { total: i18n.formatNumber(averageDailyUsers) },
-    );
+    let userCount;
+    if (addon) {
+      const averageDailyUsers = addon.average_daily_users;
+      userCount = i18n.sprintf(
+        i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
+        { total: i18n.formatNumber(averageDailyUsers) },
+      );
+    } else {
+      userCount = <LoadingText width={100} />;
+    }
 
     let reviewCount;
-    if (addonRatingCount) {
+    if (!addon) {
+      reviewCount = <LoadingText />;
+    } else if (addonRatingCount) {
       reviewCount = i18n.sprintf(
         i18n.ngettext(
           '%(total)s review', '%(total)s reviews', addonRatingCount),
@@ -40,10 +48,14 @@ export class AddonMetaBase extends React.Component {
       <div className="AddonMeta">
         <div className="AddonMeta-item AddonMeta-users">
           <h3 className="visually-hidden">{i18n.gettext('Used by')}</h3>
-          <p className="AddonMeta-text">{userCount}</p>
-          <p className="AddonMeta-text AddonMeta-review-count">{reviewCount}</p>
-          <Rating className="AddonMeta-Rating" rating={averageRating} readOnly
-            styleName="small" />
+          <p className="AddonMeta-text AddonMeta-user-count">
+            {userCount}
+          </p>
+          <p className="AddonMeta-text AddonMeta-review-count">
+            {reviewCount}
+          </p>
+          <Rating className="AddonMeta-Rating" rating={averageRating}
+            readOnly styleName="small" />
         </div>
       </div>
     );

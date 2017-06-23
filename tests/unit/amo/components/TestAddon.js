@@ -1,8 +1,8 @@
 /* global window */
+import { shallow } from 'enzyme';
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
-  Simulate,
   scryRenderedComponentsWithType,
   findRenderedComponentWithType,
   renderIntoDocument,
@@ -16,13 +16,21 @@ import {
   allowedDescriptionTags,
   mapStateToProps,
 } from 'amo/components/Addon';
+import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
+import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
-import { RatingManagerWithI18n } from 'amo/components/RatingManager';
+import RatingManager, {
+  RatingManagerWithI18n,
+} from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
+import { fetchAddon as fetchAddonAction } from 'core/actions/addons';
+import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
+import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_THEME,
   ENABLED,
@@ -31,6 +39,7 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import InstallButton from 'core/components/InstallButton';
+import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import {
   dispatchSignInActions, fakeAddon, signedInApiState,
@@ -38,18 +47,31 @@ import {
 import {
   createFetchAddonResult, getFakeI18nInst, sampleUserAgentParsed,
 } from 'tests/unit/helpers';
+import ErrorList from 'ui/components/ErrorList';
+import LoadingText from 'ui/components/LoadingText';
 
 
-function renderProps({ addon = fakeAddon, setCurrentStatus = sinon.spy(), ...customProps } = {}) {
+function renderProps({
+  addon = fakeAddon,
+  params,
+  setCurrentStatus = sinon.spy(),
+  ...customProps
+} = {}) {
   const i18n = getFakeI18nInst();
+  const addonProps = addon || {};
   return {
     addon,
-    ...addon,
+    ...addonProps,
     dispatch: sinon.stub(),
+    errorHandler: new ErrorHandler({
+      id: 'some-id',
+      dispatch: sinon.stub(),
+    }),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
+    params: params || { slug: addon.slug },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
@@ -75,6 +97,11 @@ function renderAsDOMNode(...args) {
   return findDOMNode(root);
 }
 
+function shallowRender(...args) {
+  const props = renderProps(...args);
+  return shallow(<AddonBase {...props} />, { context: { i18n: props.i18n } });
+}
+
 describe('Addon', () => {
   const incompatibleClientResult = {
     compatible: false,
@@ -86,19 +113,131 @@ describe('Addon', () => {
 
   it('dispatches setViewContext with addonType', () => {
     const fakeDispatch = sinon.stub();
-    render({ dispatch: fakeDispatch });
+    shallowRender({ dispatch: fakeDispatch });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
   });
 
+  it('dispatches setViewContext on update', () => {
+    const fakeDispatch = sinon.stub();
+    const root = shallowRender({ dispatch: fakeDispatch });
+    fakeDispatch.reset();
+    root.setProps({
+      addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
+    });
+
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(ADDON_TYPE_THEME));
+  });
+
+  it('dispatches setViewContext when updating with new addon', () => {
+    const fakeDispatch = sinon.stub();
+    // Start with a null addon
+    const root = shallowRender({
+      addon: null, dispatch: fakeDispatch, params: { slug: 'some-slug' },
+    });
+    fakeDispatch.reset();
+    // Update with a new addon
+    root.setProps({ addon: fakeAddon });
+
+    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
+  });
+
+  it('only dispatches setViewContext for a new addon type', () => {
+    const fakeDispatch = sinon.stub();
+    const root = shallowRender({ addon: fakeAddon, dispatch: fakeDispatch });
+    fakeDispatch.reset();
+    // Update with the same addon (this apparently happens in real usage).
+    root.setProps({ addon: fakeAddon });
+    // The view context should not be dispatched.
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not update view context unless there is an addon', () => {
+    const fakeDispatch = sinon.stub();
+    const root = shallowRender({ dispatch: fakeDispatch });
+    fakeDispatch.reset();
+    root.setProps({});
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
   it('renders a name', () => {
-    const rootNode = renderAsDOMNode();
-    expect(rootNode.querySelector('h1').textContent).toContain('Chill Out');
+    const root = shallowRender();
+    expect(root.find('h1').html()).toContain('Chill Out');
+  });
+
+  it('renders without an add-on', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'no-addon-error-handler',
+      dispatch: sinon.stub(),
+    });
+    const slugParam = 'some-addon'; // as passed through the URL.
+    const fakeDispatch = sinon.stub();
+
+    // Simulate the case when an add-on has not been loaded into state yet.
+    const root = shallowRender({
+      addon: null,
+      errorHandler,
+      dispatch: fakeDispatch,
+      params: { slug: slugParam },
+    });
+
+    // Since there's no add-on, it should be fetched on load.
+    sinon.assert.calledWith(
+      fakeDispatch, fetchAddonAction({ errorHandler, slug: slugParam }));
+
+    // These should be empty:
+    expect(root.find(InstallButton)).toHaveLength(0);
+    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+    expect(root.find(AddonMoreInfo)).toHaveLength(0);
+    expect(root.find(RatingManager)).toHaveLength(0);
+
+    // These should show LoadingText
+    expect(root.find('.AddonDescription-contents').find(LoadingText))
+      .toHaveLength(1);
+    expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
+    expect(root.find('.Addon-title').find(LoadingText)).toHaveLength(1);
+
+    // These should render with an empty addon.
+    expect(root.find(AddonMeta).prop('addon')).toEqual(null);
+  });
+
+  it('renders an error if there is one', () => {
+    const errorHandler = new ErrorHandler({
+      capturedError: new Error('some error'),
+      id: 'some-handler',
+      dispatch: sinon.stub(),
+    });
+
+    const root = shallowRender({ errorHandler });
+    expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('renders 404 page for missing add-on', () => {
+    const id = 'error-handler-id';
+    const { store } = createStore();
+
+    const error = createApiError({
+      response: { status: 404 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Not found' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    // Set up an error handler from state like withErrorHandler().
+    const errorHandler = new ErrorHandler({
+      id, dispatch: sinon.stub(), capturedError,
+    });
+
+    const root = shallowRender({ errorHandler });
+    expect(root.find(NotFound)).toHaveLength(1);
   });
 
   it('renders a single author', () => {
     const authorUrl = 'http://olympia.dev/en-US/firefox/user/krupa/';
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         authors: [{
@@ -107,12 +246,12 @@ describe('Addon', () => {
         }],
       },
     });
-    expect(rootNode.querySelector('h1').textContent).toEqual('Chill Out by Krupa');
-    expect(rootNode.querySelector('h1 a').attributes.href.value).toEqual(authorUrl);
+    expect(root.find('.Addon-title').html()).toContain('Krupa');
+    expect(root.find('.Addon-title').html()).toContain(authorUrl);
   });
 
   it('renders multiple authors', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         authors: [{
@@ -124,48 +263,50 @@ describe('Addon', () => {
         }],
       },
     });
-    expect(rootNode.querySelector('h1').textContent).toEqual('Chill Out by Krupa, Fligtar');
+    expect(root.find('h1').html()).toContain('Krupa');
+    expect(root.find('h1').html()).toContain('Fligtar');
   });
 
   it('sanitizes a title', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         name: '<script>alert(document.cookie);</script>',
       },
     });
     // Make sure an actual script tag was not created.
-    expect(rootNode.querySelector('h1 script')).toEqual(null);
+    expect(root.find('h1 script')).toHaveLength(0);
     // Make sure the script removed.
-    expect(rootNode.querySelector('h1').innerHTML).not.toContain('<script>');
+    expect(root.find('h1').html()).not.toContain('<script>');
   });
 
   it('sanitizes a summary', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         summary: scriptHTML,
       },
     });
     // Make sure an actual script tag was not created.
-    expect(rootNode.querySelector('.Addon-summary script')).toEqual(null);
+    expect(root.find('.Addon-summary script')).toHaveLength(0);
     // Make sure the script has been removed.
-    expect(rootNode.querySelector('.Addon-summary').innerHTML).not.toContain('<script>');
+    expect(root.find('.Addon-summary').html()).not.toContain('<script>');
   });
 
   it('sanitizes bad description HTML', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
-    const rootNode = renderAsDOMNode({
+    const root = renderAsDOMNode({
       addon: {
         ...fakeAddon,
         description: scriptHTML,
       },
     });
     // Make sure an actual script tag was not created.
-    expect(rootNode.querySelector('.AddonDescription script')).toEqual(null);
+    expect(root.querySelector('.AddonDescription script')).toEqual(null);
     // Make sure the script has been removed.
-    expect(rootNode.querySelector('.AddonDescription').innerHTML).not.toContain('<script>');
+    expect(root.querySelector('.AddonDescription').innerHTML)
+      .not.toContain('<script>');
   });
 
   it('allows certain HTML tags in the title', () => {
@@ -186,20 +327,22 @@ describe('Addon', () => {
   });
 
   it('configures the install button', () => {
-    const root = findRenderedComponentWithType(render(), InstallButton);
-    expect(root.props.slug).toEqual(fakeAddon.slug);
+    const root = shallowRender().find(InstallButton);
+    expect(root.prop('slug')).toEqual(fakeAddon.slug);
   });
 
   it('sets the type in the header', () => {
-    const rootNode = renderAsDOMNode();
-    expect(rootNode.querySelector('.AddonDescription h2').textContent).toContain('About this extension');
+    const root = shallowRender();
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this extension');
   });
 
   it('uses the summary as the description if no description exists', () => {
     const addon = { ...fakeAddon, summary: 'short text' };
     delete addon.description;
     const rootNode = renderAsDOMNode({ addon });
-    expect(rootNode.querySelector('.AddonDescription-contents').textContent).toEqual(addon.summary);
+    expect(rootNode.querySelector('.AddonDescription-contents').textContent)
+      .toEqual(addon.summary);
   });
 
   it('uses the summary as the description if description is blank', () => {
@@ -263,15 +406,14 @@ describe('Addon', () => {
 
   it('configures the overall ratings section', () => {
     const location = { pathname: '/en-US/firefox/addon/some-slug/' };
-    const root = findRenderedComponentWithType(render({ location }),
-                                               RatingManagerWithI18n);
-    expect(root.props.addon).toEqual(fakeAddon);
-    expect(root.props.location).toEqual(location);
+    const root = shallowRender({ location }).find(RatingManagerWithI18n);
+    expect(root.prop('addon')).toEqual(fakeAddon);
+    expect(root.prop('location')).toEqual(location);
   });
 
   it('renders a summary', () => {
-    const rootNode = renderAsDOMNode();
-    expect(rootNode.querySelector('.Addon-summary').textContent).toContain(fakeAddon.summary);
+    const root = shallowRender();
+    expect(root.find('.Addon-summary').html()).toContain(fakeAddon.summary);
   });
 
   it('renders a summary with links', () => {
@@ -288,120 +430,105 @@ describe('Addon', () => {
 
   it('renders an amo CDN icon image', () => {
     const iconURL = 'https://addons.cdn.mozilla.net/foo.jpg';
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         icon_url: iconURL,
       },
     });
-    const src = rootNode.querySelector('.Addon-icon img').getAttribute('src');
+    const src = root.find('.Addon-icon img').prop('src');
     expect(src).toEqual(iconURL);
   });
 
   it('renders a fall-back asset', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         icon_url: 'http://foo.com/whatever.jpg',
       },
     });
-    const src = rootNode.querySelector('.Addon-icon img').getAttribute('src');
+    const src = root.find('.Addon-icon img').prop('src');
     expect(src).toEqual('default-64.png');
   });
 
   it('renders a theme preview as an img', () => {
-    const root = render({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
         previewURL: 'https://amo/preview.png',
       },
     });
-    const rootNode = findDOMNode(root);
-    const image = rootNode.querySelector('.Addon-theme-header-image');
-    expect(image.tagName).toEqual('IMG');
-    expect(image.classList.contains('Addon-theme-header-image')).toBeTruthy();
-    expect(image.src).toEqual('https://amo/preview.png');
-    expect(image.alt).toEqual('Tap to preview');
+    const image = root.find('.Addon-theme-header-image');
+    expect(image.type()).toEqual('img');
+    expect(image).toHaveClassName('Addon-theme-header-image');
+    expect(image.prop('src')).toEqual('https://amo/preview.png');
+    expect(image.prop('alt')).toEqual('Tap to preview');
   });
 
   it('enables a theme preview for supported clients', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
     });
-    const button = rootNode.querySelector('.Addon-theme-header-label');
-    expect(button.disabled).toEqual(false);
+    const button = root.find('.Addon-theme-header-label');
+    expect(button.prop('disabled')).toEqual(false);
   });
 
   it('disables install switch for unsupported clients', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       getClientCompatibility: getClientCompatibilityFalse,
     });
-    expect(rootNode.querySelector('.InstallButton-switch input').disabled).toBe(true);
+    expect(root.find(InstallButton).prop('disabled')).toBe(true);
   });
 
   it('passes installStatus to installButton, not add-on status', () => {
-    const root = render({ addon: fakeAddon, installStatus: UNKNOWN });
+    const root = shallowRender({ addon: fakeAddon, installStatus: UNKNOWN });
 
-    expect(root.installButton.props.status).not.toEqual(fakeAddon.status);
-    expect(root.installButton.props.status).toEqual(UNKNOWN);
-  });
-
-  it('throws when unsupported type passed to installButton', () => {
-    expect(() => { render({ installStatus: 'public' }); })
-      .toThrow('Invalid add-on status public');
+    const button = root.find(InstallButton);
+    expect(button.prop('status')).not.toEqual(fakeAddon.status);
+    expect(button.prop('status')).toEqual(UNKNOWN);
   });
 
   it('enables a theme preview for non-enabled add-ons', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
       installStatus: UNKNOWN,
     });
-    const button = rootNode.querySelector('.Addon-theme-header-label');
-    expect(button).toBeTruthy();
+    expect(root.find('.Addon-theme-header-label')).toHaveLength(1);
   });
 
   it('disables theme preview for enabled add-ons', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
       installStatus: ENABLED,
     });
-    const button = rootNode.querySelector('.Addon-theme-header-label');
-    expect(button).toEqual(null);
-  });
-
-  it('throws an error if compatibility props are missing', () => {
-    const compatibilityResult = { ...incompatibleClientResult };
-    delete compatibilityResult.minVersion;
-    expect(() => {
-      renderAsDOMNode({ getClientCompatibility: () => compatibilityResult });
-    }).toThrowError(/minVersion is required/);
+    expect(root.find('.Addon-theme-header-label')).toHaveLength(0);
   });
 
   it('disables a theme preview for unsupported clients', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
       getClientCompatibility: getClientCompatibilityFalse,
     });
-    const button = rootNode.querySelector('.Addon-theme-header-label');
-    expect(button.disabled).toEqual(true);
+    const button = root.find('.Addon-theme-header-label');
+    expect(button.prop('disabled')).toEqual(true);
   });
 
   it('unsets the theme preview on component unmount', () => {
     const resetThemePreview = sinon.spy();
-    const root = render({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
@@ -411,12 +538,12 @@ describe('Addon', () => {
         resetThemePreview,
       },
     });
-    root.componentWillUnmount();
+    root.unmount();
     expect(resetThemePreview.calledWith('theme-preview-node')).toBeTruthy();
   });
 
   it('sets the browsertheme data on the header', () => {
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
@@ -424,34 +551,33 @@ describe('Addon', () => {
       },
       getBrowserThemeData: () => '{"the":"themedata"}',
     });
-    const header = rootNode.querySelector('.Addon-theme-header');
-    expect(header.getAttribute('data-browsertheme')).toEqual('{"the":"themedata"}');
+    const header = root.find('.Addon-theme-header');
+    expect(header.prop('data-browsertheme')).toEqual('{"the":"themedata"}');
   });
 
   it('toggles a theme on click', () => {
     const toggleThemePreview = sinon.spy();
-    const rootNode = renderAsDOMNode({
+    const root = shallowRender({
       addon: {
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
       },
       toggleThemePreview,
     });
-    const header = rootNode.querySelector('.Addon-theme-header');
-    Simulate.click(header);
-    expect(toggleThemePreview.calledWith(header)).toBeTruthy();
+    const header = root.find('.Addon-theme-header');
+    const currentTarget = sinon.stub();
+    header.simulate('click', { currentTarget });
+    sinon.assert.calledWith(toggleThemePreview, currentTarget);
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {
-    const rootNode = renderAsDOMNode();
-
-    expect(rootNode.querySelector('.AddonMoreInfo-contents')).toBeTruthy();
+    const root = shallowRender({ addon: fakeAddon });
+    expect(root.find(AddonMoreInfo)).toHaveLength(1);
   });
 
   it('renders meta data for the add-on', () => {
-    const root = render({ addon: fakeAddon });
-    const metaData = findRenderedComponentWithType(root, AddonMeta);
-    expect(metaData.props.addon).toEqual(fakeAddon);
+    const root = shallowRender({ addon: fakeAddon });
+    expect(root.find(AddonMeta).prop('addon')).toEqual(fakeAddon);
   });
 
   describe('read reviews footer', () => {
@@ -561,6 +687,12 @@ describe('mapStateToProps', () => {
     return mapStateToProps(state, ownProps);
   }
 
+  it('can handle a missing addon', () => {
+    signIn();
+    const { addon } = _mapStateToProps();
+    expect(addon).toBeFalsy();
+  });
+
   it('sets the clientApp and userAgent', () => {
     const clientAppFromAgent = 'firefox';
     signIn({ clientApp: clientAppFromAgent });
@@ -613,5 +745,12 @@ describe('mapStateToProps', () => {
     // Make sure a random installedAddon prop gets passed as a component prop
     // so that the withInstallHelpers HOC works.
     expect(needsRestart).toEqual(false);
+  });
+
+  it('handles a non-existant add-on', () => {
+    signIn();
+    const { addon } = _mapStateToProps();
+
+    expect(addon).toEqual(undefined);
   });
 });
