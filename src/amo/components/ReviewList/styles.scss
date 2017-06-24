@@ -1,6 +1,6 @@
 @import "~amo/css/inc/vars";
 
-.AddonReviewList {
+.ReviewList {
   padding: 10px;
 
   .CardList {
@@ -8,11 +8,11 @@
   }
 }
 
-.AddonReviewList-header {
+.ReviewList-header {
   margin: 15px 0;
   display: flex;
 
-  .AddonReviewList-header-text {
+  .ReviewList-header-text {
     > h2,
     > h3 {
       font-size: 1.1em;
@@ -38,12 +38,12 @@
     }
   }
 
-  .AddonReviewList-header-icon {
+  .ReviewList-header-icon {
     margin: 0 20px;
   }
 }
 
-.AddonReviewList-li {
+.ReviewList-li {
   word-wrap: break-word;
 
   > h3 {
@@ -56,7 +56,7 @@
     font-size: $font-size-default;
   }
 
-  .AddonReviewList-by-line {
+  .ReviewList-by-line {
     display: flex;
     color: $sub-text-color;
     font-size: $font-size-s;

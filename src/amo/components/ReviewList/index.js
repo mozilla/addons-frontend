@@ -1,11 +1,10 @@
 /* @flow */
-/* eslint-disable react/no-unused-prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Rating from 'ui/components/Rating';
-import { setAddonReviews } from 'amo/actions/reviews';
+import { setReviews } from 'amo/actions/reviews';
 import { getReviews } from 'amo/api';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import Paginate from 'core/components/Paginate';
@@ -25,23 +24,24 @@ import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc, ReduxStore } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 
-import 'amo/css/AddonReviewList.scss';
+import './styles.scss';
 
-type AddonReviewListRouteParams = {|
+type ReviewListRouteParams = {|
+  // eslint-disable-next-line react/no-unused-prop-types
   addonSlug: string,
 |}
 
-type AddonReviewListProps = {|
+type ReviewListProps = {|
   i18n: Object,
   addon?: AddonType,
   location: ReactRouterLocation,
-  params: AddonReviewListRouteParams,
+  params: ReviewListRouteParams,
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
 |};
 
-export class AddonReviewListBase extends React.Component {
-  props: AddonReviewListProps;
+export class ReviewListBase extends React.Component {
+  props: ReviewListProps;
 
   addonURL() {
     const { addon } = this.props;
@@ -59,10 +59,10 @@ export class AddonReviewListBase extends React.Component {
     const { i18n } = this.props;
     const timestamp = i18n.moment(review.created).fromNow();
     return (
-      <li className="AddonReviewList-li">
+      <li className="ReviewList-li">
         <h3>{review.title}</h3>
         <p>{review.body}</p>
-        <div className="AddonReviewList-by-line">
+        <div className="ReviewList-by-line">
           <Rating styleName="small" rating={review.rating} readOnly />
           {/* L10n: Example: "from Jose, last week" */}
           {i18n.sprintf(i18n.gettext('from %(authorName)s, %(timestamp)s'),
@@ -87,14 +87,14 @@ export class AddonReviewListBase extends React.Component {
       fallbackIcon;
 
     return (
-      <div className="AddonReviewList">
-        <div className="AddonReviewList-header">
-          <div className="AddonReviewList-header-icon">
+      <div className="ReviewList">
+        <div className="ReviewList-header">
+          <div className="ReviewList-header-icon">
             <Link to={this.addonURL()}>
               <img src={iconUrl} alt={i18n.gettext('Add-on icon')} />
             </Link>
           </div>
-          <div className="AddonReviewList-header-text">
+          <div className="ReviewList-header-text">
             <h1 className="visually-hidden">
               {i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'),
                             { addonName: addon.name })}
@@ -119,7 +119,7 @@ export class AddonReviewListBase extends React.Component {
   }
 }
 
-export function loadAddonReviews(
+export function loadReviews(
   {
     addonId, addonSlug, dispatch, page = 1,
   }: {|
@@ -136,7 +136,7 @@ export function loadAddonReviews(
       // For example, the user selected a star rating but hasn't submitted
       // review text yet.
       const reviews = allReviews.filter((review) => Boolean(review.body));
-      dispatch(setAddonReviews({
+      dispatch(setReviews({
         addonSlug, reviews, reviewCount: response.count,
       }));
     });
@@ -147,7 +147,7 @@ export function loadInitialData(
     location, params, store,
   }: {|
     location: ReactRouterLocation,
-    params: AddonReviewListRouteParams,
+    params: ReviewListRouteParams,
     store: ReduxStore,
   |}
 ) {
@@ -162,13 +162,13 @@ export function loadInitialData(
   })
     .then(() => loadAddonIfNeeded({ store, params: { slug: addonSlug } }))
     .then(() => findAddon(store.getState(), addonSlug))
-    .then((addon) => loadAddonReviews({
+    .then((addon) => loadReviews({
       addonId: addon.id, addonSlug, dispatch: store.dispatch, page,
     }));
 }
 
 export function mapStateToProps(
-  state: {| reviews: ReviewState |}, ownProps: AddonReviewListProps,
+  state: {| reviews: ReviewState |}, ownProps: ReviewListProps,
 ) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey params.addonSlug parameter');
@@ -184,9 +184,9 @@ export function mapStateToProps(
 
 export default compose(
   safeAsyncConnect([{
-    key: 'AddonReviewList',
+    key: 'ReviewList',
     promise: loadInitialData,
   }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
-)(AddonReviewListBase);
+)(ReviewListBase);

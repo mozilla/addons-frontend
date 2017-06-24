@@ -1,24 +1,24 @@
 @import "~amo/css/inc/vars";
 
-.AddonReview .Card-contents {
+.Review .Card-contents {
   padding-left: 0;
   padding-right: 0;
 }
 
-.AddonReview-form-input {
+.Review-form-input {
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0 10px;
 }
 
-.AddonReview-header {
+.Review-header {
   font-size: $font-size-form-header;
   margin-bottom: 0.3em;
 }
 
-.AddonReview-textarea,
-.AddonReview-submit {
+.Review-textarea,
+.Review-submit {
   margin-bottom: 12px;
   text-align: left;
   width: 100%;
@@ -28,11 +28,11 @@
   box-shadow: none;
 }
 
-.AddonReview-textarea {
+.Review-textarea {
   min-height: 200px;
 }
 
-.AddonReview-submit {
+.Review-submit {
   font-size: $font-size-s;
   text-align: center;
   color: $link-color;

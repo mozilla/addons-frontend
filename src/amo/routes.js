@@ -10,7 +10,7 @@ import SimulateSyncError from
   'core/containers/error-simulation/SimulateSyncError';
 import HandleLogin from 'core/containers/HandleLogin';
 
-import AddonReviewList from './components/AddonReviewList';
+import ReviewList from './components/ReviewList';
 import App from './components/App';
 import Categories from './components/Categories';
 import CategoryPage from './containers/CategoryPage';
@@ -31,7 +31,7 @@ export default (
   <Route path="/:lang/:application" component={App}>
     <IndexRoute component={Home} />
     <Route path="addon/:slug/" component={Addon} />
-    <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
+    <Route path="addon/:addonSlug/reviews/" component={ReviewList} />
     <Route path=":visibleAddonType/categories/" component={Categories} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={CategoryPage} />

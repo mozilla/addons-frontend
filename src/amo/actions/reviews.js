@@ -56,7 +56,7 @@ export const setDenormalizedReview = (
   return { type: SET_REVIEW, payload: review };
 };
 
-export type SetAddonReviewsAction = {|
+export type SetReviewsAction = {|
   type: string,
   payload: {|
     addonSlug: string,
@@ -65,15 +65,15 @@ export type SetAddonReviewsAction = {|
   |},
 |};
 
-type SetAddonReviewsParams = {|
+type SetReviewsParams = {|
   addonSlug: string,
   reviewCount: number,
   reviews: Array<ApiReviewType>,
 |};
 
-export const setAddonReviews = (
-  { addonSlug, reviewCount, reviews }: SetAddonReviewsParams
-): SetAddonReviewsAction => {
+export const setReviews = (
+  { addonSlug, reviewCount, reviews }: SetReviewsParams
+): SetReviewsAction => {
   if (!addonSlug) {
     throw new Error('addonSlug cannot be empty');
   }

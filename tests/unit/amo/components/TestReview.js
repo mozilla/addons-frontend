@@ -11,8 +11,8 @@ import { setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
 import * as coreUtils from 'core/utils';
 import {
-  mapDispatchToProps, mapStateToProps, AddonReviewBase,
-} from 'amo/components/AddonReview';
+  mapDispatchToProps, mapStateToProps, ReviewBase,
+} from 'amo/components/Review';
 import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon, fakeReview, signedInApiState } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
@@ -46,15 +46,15 @@ function render({ ...customProps } = {}) {
     updateReviewText: () => Promise.resolve(),
     ...customProps,
   };
-  const AddonReview = translate({ withRef: true })(AddonReviewBase);
+  const Review = translate({ withRef: true })(ReviewBase);
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <AddonReview {...props} />
-  ), AddonReview);
+    <Review {...props} />
+  ), Review);
 
   return root.getWrappedInstance();
 }
 
-describe('AddonReview', () => {
+describe('Review', () => {
   it('can update a review', () => {
     const onReviewSubmitted = sinon.spy(() => {});
     const setDenormalizedReview = sinon.spy(() => {});
