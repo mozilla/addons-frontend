@@ -280,6 +280,14 @@ $default-arrow-margin: 3px;
   }
 }
 
+@mixin text-align-end() {
+  text-align: right;
+
+  [dir=rtl] & {
+    text-align: left;
+  }
+}
+
 @mixin start($pos) {
   left: $pos;
   right: auto;
