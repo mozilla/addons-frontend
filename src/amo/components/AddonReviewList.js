@@ -1,29 +1,29 @@
 /* @flow */
-/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/sort-comp, react/no-unused-prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Rating from 'ui/components/Rating';
-import { setAddonReviews } from 'amo/actions/reviews';
-import { getReviews } from 'amo/api';
+import { fetchReviews } from 'amo/actions/reviews';
+import { setViewContext } from 'amo/actions/viewContext';
 import fallbackIcon from 'amo/img/icons/default-64.png';
+import { fetchAddon } from 'core/actions/addons';
 import Paginate from 'core/components/Paginate';
+import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import {
-  isAllowedOrigin,
-  findAddon,
-  loadAddonIfNeeded,
-  safeAsyncConnect,
-} from 'core/utils';
+import { isAllowedOrigin, findAddon } from 'core/utils';
+import log from 'core/logger';
 import { parsePage } from 'core/searchUtils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { AddonType } from 'core/types/addons';
-import type { DispatchFunc, ReduxStore } from 'core/types/redux';
+import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
+import LoadingText from 'ui/components/LoadingText';
 
 import 'amo/css/AddonReviewList.scss';
 
@@ -34,14 +34,66 @@ type AddonReviewListRouteParams = {|
 type AddonReviewListProps = {|
   i18n: Object,
   addon?: AddonType,
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
   location: ReactRouterLocation,
   params: AddonReviewListRouteParams,
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
 |};
 
+type RenderReviewParams = {|
+  review?: UserReviewType,
+  key: string,
+|};
+
 export class AddonReviewListBase extends React.Component {
   props: AddonReviewListProps;
+
+  componentWillMount() {
+    this.loadDataIfNeeded();
+  }
+
+  componentWillReceiveProps(nextProps: AddonReviewListProps) {
+    this.loadDataIfNeeded(nextProps);
+  }
+
+  loadDataIfNeeded(nextProps?: AddonReviewListProps) {
+    const {
+      addon, dispatch, errorHandler, params, reviews,
+    } = {
+      ...this.props,
+      ...nextProps,
+    };
+
+    if (errorHandler.hasError()) {
+      log.warn('Not loading data because of an error');
+      return;
+    }
+
+    if (!addon) {
+      dispatch(fetchAddon({ slug: params.addonSlug, errorHandler }));
+    } else {
+      dispatch(setViewContext(addon.type));
+    }
+
+    let location = this.props.location;
+    let locationChanged = false;
+    if (nextProps && nextProps.location) {
+      if (nextProps.location !== location) {
+        locationChanged = true;
+      }
+      location = nextProps.location;
+    }
+
+    if (!reviews || locationChanged) {
+      dispatch(fetchReviews({
+        addonSlug: params.addonSlug,
+        errorHandlerId: errorHandler.id,
+        page: parsePage(location.query.page),
+      }));
+    }
+  }
 
   addonURL() {
     const { addon } = this.props;
@@ -55,116 +107,99 @@ export class AddonReviewListBase extends React.Component {
     return `${this.addonURL()}reviews/`;
   }
 
-  renderReview(review: UserReviewType) {
+  renderReview({ review, key }: RenderReviewParams) {
     const { i18n } = this.props;
-    const timestamp = i18n.moment(review.created).fromNow();
+
+    let byLine;
+    if (review) {
+      const timestamp = i18n.moment(review.created).fromNow();
+      // L10n: Example: "from Jose, last week"
+      byLine = i18n.sprintf(
+        i18n.gettext('from %(authorName)s, %(timestamp)s'),
+          { authorName: review.userName, timestamp });
+    } else {
+      byLine = <LoadingText />;
+    }
+
     return (
-      <li className="AddonReviewList-li">
-        <h3>{review.title}</h3>
-        <p>{review.body}</p>
+      <li className="AddonReviewList-li" key={key}>
+        <h3>{review ? review.title : <LoadingText />}</h3>
+        <p>{review ? review.body : <LoadingText />}</p>
         <div className="AddonReviewList-by-line">
-          <Rating styleName="small" rating={review.rating} readOnly />
-          {/* L10n: Example: "from Jose, last week" */}
-          {i18n.sprintf(i18n.gettext('from %(authorName)s, %(timestamp)s'),
-                        { authorName: review.userName, timestamp })}
+          {review ?
+            <Rating styleName="small" rating={review.rating} readOnly />
+            : null
+          }
+          {byLine}
         </div>
       </li>
     );
   }
 
   render() {
-    const { addon, location, params, i18n, reviewCount, reviews } = this.props;
+    const {
+      addon, errorHandler, location, params, i18n, reviewCount, reviews,
+    } = this.props;
     if (!params.addonSlug) {
       throw new Error('params.addonSlug cannot be falsey');
     }
-    if (!reviews || !addon) {
-      // TODO: add a spinner
-      return <div>{i18n.gettext('Loading...')}</div>;
+
+    // When reviews have not loaded yet, make a list of 4 empty reviews
+    // as a placeholder.
+    const allReviews = reviews || Array(4).fill(null);
+    const iconUrl = addon && isAllowedOrigin(addon.icon_url) ?
+      addon.icon_url : fallbackIcon;
+    const iconImage = (
+      <img src={iconUrl} alt={i18n.gettext('Add-on icon')} />
+    );
+
+    let header;
+    if (addon) {
+      header = i18n.sprintf(
+        i18n.gettext('Reviews for %(addonName)s'), { addonName: addon.name });
+    } else {
+      header = <LoadingText />;
     }
 
-    const allReviews = reviews || [];
-    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
-      fallbackIcon;
+    let addonName;
+    if (addon) {
+      addonName = <Link to={this.addonURL()}>{addon.name}</Link>;
+    } else {
+      addonName = <LoadingText />;
+    }
 
     return (
       <div className="AddonReviewList">
+        {errorHandler.hasError() ? errorHandler.renderError() : null}
         <div className="AddonReviewList-header">
           <div className="AddonReviewList-header-icon">
-            <Link to={this.addonURL()}>
-              <img src={iconUrl} alt={i18n.gettext('Add-on icon')} />
-            </Link>
+            {addon ? <Link to={this.addonURL()}>{iconImage}</Link> : iconImage}
           </div>
           <div className="AddonReviewList-header-text">
-            <h1 className="visually-hidden">
-              {i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'),
-                            { addonName: addon.name })}
-            </h1>
+            <h1 className="visually-hidden">{header}</h1>
             <h2>{i18n.gettext('All written reviews')}</h2>
-            <h3><Link to={this.addonURL()}>{addon.name}</Link></h3>
+            <h3>{addonName}</h3>
           </div>
         </div>
         <CardList>
           <ul>
-            {allReviews.map((review) => this.renderReview(review))}
+            {allReviews.map((review, index) => {
+              return this.renderReview({ review, key: String(index) });
+            })}
           </ul>
         </CardList>
-        <Paginate
-          LinkComponent={Link}
-          count={reviewCount}
-          currentPage={parsePage(location.query.page)}
-          pathname={this.url()}
-        />
+        {addon && reviewCount ?
+          <Paginate
+            LinkComponent={Link}
+            count={reviewCount}
+            currentPage={parsePage(location.query.page)}
+            pathname={this.url()}
+          />
+          : null
+        }
       </div>
     );
   }
-}
-
-export function loadAddonReviews(
-  {
-    addonId, addonSlug, dispatch, page = 1,
-  }: {|
-    addonId: number,
-    addonSlug: string,
-    dispatch: DispatchFunc,
-    page?: number,
-  |}
-) {
-  return getReviews({ addon: addonId, page })
-    .then((response) => {
-      const allReviews = response.results;
-      // Ignore reviews with null bodies as those are incomplete.
-      // For example, the user selected a star rating but hasn't submitted
-      // review text yet.
-      const reviews = allReviews.filter((review) => Boolean(review.body));
-      dispatch(setAddonReviews({
-        addonSlug, reviews, reviewCount: response.count,
-      }));
-    });
-}
-
-export function loadInitialData(
-  {
-    location, params, store,
-  }: {|
-    location: ReactRouterLocation,
-    params: AddonReviewListRouteParams,
-    store: ReduxStore,
-  |}
-) {
-  const { addonSlug } = params;
-  if (!addonSlug) {
-    return Promise.reject(new Error('missing URL param addonSlug'));
-  }
-  let page;
-  return new Promise((resolve) => {
-    page = parsePage(location.query.page);
-    return resolve();
-  })
-    .then(() => loadAddonIfNeeded({ store, params: { slug: addonSlug } }))
-    .then(() => findAddon(store.getState(), addonSlug))
-    .then((addon) => loadAddonReviews({
-      addonId: addon.id, addonSlug, dispatch: store.dispatch, page,
-    }));
 }
 
 export function mapStateToProps(
@@ -183,10 +218,7 @@ export function mapStateToProps(
 }
 
 export default compose(
-  safeAsyncConnect([{
-    key: 'AddonReviewList',
-    promise: loadInitialData,
-  }]),
   connect(mapStateToProps),
   translate({ withRef: true }),
+  withErrorHandler({ name: 'AddonReviewList' }),
 )(AddonReviewListBase);

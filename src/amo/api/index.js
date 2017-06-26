@@ -87,7 +87,8 @@ export function submitReview({
 }
 
 type GetReviewsParams = {|
-  addon?: number,
+  // This is the addon ID, slug, or guid.
+  addon?: number | string,
   apiState?: ApiStateType,
   filter?: string,
   page?: number,
