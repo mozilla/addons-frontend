@@ -305,7 +305,7 @@ describe('amo/components/AddonReviewList', () => {
       const root = render({ addon: fakeAddon });
       const h1 = root.find('.AddonReviewList-header h1');
       expect(h1).toHaveClassName('visually-hidden');
-      expect(h1.text()).toEqual(`Reviews for ${fakeAddon.name}`);
+      expect(h1).toHaveText(`Reviews for ${fakeAddon.name}`);
     });
 
     it('produces an addon URL', () => {
