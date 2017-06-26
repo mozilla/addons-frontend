@@ -265,10 +265,10 @@ describe('amo/components/AddonReviewList', () => {
       const ratings = tree.find(Rating);
       expect(ratings).toHaveLength(2);
 
-      expect(ratings.at(0).prop('rating')).toEqual(1);
-      expect(ratings.at(0).prop('readOnly')).toEqual(true);
-      expect(ratings.at(1).prop('rating')).toEqual(2);
-      expect(ratings.at(1).prop('readOnly')).toEqual(true);
+      expect(ratings.at(0)).toHaveProp('rating', 1);
+      expect(ratings.at(0)).toHaveProp('readOnly', true);
+      expect(ratings.at(1)).toHaveProp('rating', 2);
+      expect(ratings.at(1)).toHaveProp('readOnly', true);
     });
 
     it('renders a review', () => {
@@ -287,7 +287,7 @@ describe('amo/components/AddonReviewList', () => {
     it("renders the add-on's icon in the header", () => {
       const root = render({ addon: fakeAddon });
       const img = root.find('.AddonReviewList-header-icon img');
-      expect(img.prop('src')).toEqual(fakeAddon.icon_url);
+      expect(img).toHaveProp('src', fakeAddon.icon_url);
     });
 
     it('renders the fallback icon if the origin is not allowed', () => {
@@ -298,7 +298,7 @@ describe('amo/components/AddonReviewList', () => {
         },
       });
       const img = root.find('.AddonReviewList-header-icon img');
-      expect(img.prop('src')).toEqual(fallbackIcon);
+      expect(img).toHaveProp('src', fallbackIcon);
     });
 
     it('renders a hidden h1 for SEO', () => {
@@ -325,28 +325,28 @@ describe('amo/components/AddonReviewList', () => {
 
     it('configures a paginator with the right URL', () => {
       const root = render();
-      expect(root.find(Paginate).prop('pathname'))
-        .toEqual(root.instance().url());
+      expect(root.find(Paginate))
+        .toHaveProp('pathname', root.instance().url());
     });
 
     it('configures a paginator with the right Link', () => {
-      expect(render().find(Paginate).prop('LinkComponent')).toEqual(Link);
+      expect(render().find(Paginate)).toHaveProp('LinkComponent', Link);
     });
 
     it('configures a paginator with the right review count', () => {
       const root = render({ reviewCount: 500 });
-      expect(root.find(Paginate).prop('count')).toEqual(500);
+      expect(root.find(Paginate)).toHaveProp('count', 500);
     });
 
     it('sets the paginator to page 1 without a query', () => {
       // Render with an empty query string.
       const root = render({ location: { query: {} } });
-      expect(root.find(Paginate).prop('currentPage')).toEqual(1);
+      expect(root.find(Paginate)).toHaveProp('currentPage', 1);
     });
 
     it('sets the paginator to the query string page', () => {
       const root = render({ location: { query: { page: 3 } } });
-      expect(root.find(Paginate).prop('currentPage')).toEqual(3);
+      expect(root.find(Paginate)).toHaveProp('currentPage', 3);
     });
   });
 
