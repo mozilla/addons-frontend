@@ -6,6 +6,7 @@ import { compose } from 'redux';
 
 import Rating from 'ui/components/Rating';
 import { fetchReviews } from 'amo/actions/reviews';
+import { setViewContext } from 'amo/actions/viewContext';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import { fetchAddon } from 'core/actions/addons';
 import Paginate from 'core/components/Paginate';
@@ -71,9 +72,9 @@ export class AddonReviewListBase extends React.Component {
     }
 
     if (!addon) {
-      dispatch(fetchAddon({
-        slug: params.addonSlug, errorHandler,
-      }));
+      dispatch(fetchAddon({ slug: params.addonSlug, errorHandler }));
+    } else {
+      dispatch(setViewContext(addon.type));
     }
 
     let location = this.props.location;

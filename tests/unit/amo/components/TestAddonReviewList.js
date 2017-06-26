@@ -4,6 +4,7 @@ import React from 'react';
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import createStore from 'amo/store';
 import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
+import { setViewContext } from 'amo/actions/viewContext';
 import {
   AddonReviewListBase,
   mapStateToProps,
@@ -238,6 +239,14 @@ describe('amo/components/AddonReviewList', () => {
       });
 
       sinon.assert.notCalled(dispatch);
+    });
+
+    it('dispatches a view context for the add-on', () => {
+      const dispatch = sinon.stub();
+      render({ addon: fakeAddon, dispatch });
+
+      sinon.assert.calledWith(
+        dispatch, setViewContext(fakeAddon.type));
     });
 
     it('renders an error', () => {
