@@ -63,11 +63,12 @@ describe('amo/sagas/reviews', () => {
       await sagaTester.waitFor(SET_ADDON_REVIEWS);
       mockAmoApi.verify();
 
-      expect(sagaTester.getCalledActions()[1]).toEqual(showLoading());
-      expect(sagaTester.getCalledActions()[2]).toEqual(setAddonReviews({
+      const calledActions = sagaTester.getCalledActions();
+      expect(calledActions[1]).toEqual(showLoading());
+      expect(calledActions[2]).toEqual(setAddonReviews({
         addonSlug: fakeAddon.slug, reviews, reviewCount: 1,
       }));
-      expect(sagaTester.getCalledActions()[3]).toEqual(hideLoading());
+      expect(calledActions[3]).toEqual(hideLoading());
     });
 
     it('dispatches an error', async () => {
@@ -78,8 +79,9 @@ describe('amo/sagas/reviews', () => {
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
-      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
-      expect(sagaTester.getCalledActions()[3]).toEqual(hideLoading());
+      const calledActions = sagaTester.getCalledActions();
+      expect(calledActions[2]).toEqual(errorAction);
+      expect(calledActions[3]).toEqual(hideLoading());
     });
   });
 });
