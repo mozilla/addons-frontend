@@ -21,7 +21,7 @@ export function* fetchReviews(
     yield put(showLoading());
     const api = yield select(getApi);
     const response = yield call(getReviews, {
-      // Hide star ratings (reviews that do not have a body).
+      // Hide star-only ratings (reviews that do not have a body).
       api, addon: addonSlug, page, filter: 'without_empty_body',
     });
     yield put(setAddonReviews({
