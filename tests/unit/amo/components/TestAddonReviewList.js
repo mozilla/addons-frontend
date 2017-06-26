@@ -83,14 +83,10 @@ describe('amo/components/AddonReviewList', () => {
         .toHaveLength(1);
     });
 
-    it('waits for reviews to load', () => {
+    it('does not paginate before reviews have loaded', () => {
       const root = render({ addon: fakeAddon, reviews: null });
 
-      // Make sure Paginate is not rendered since it will throw an
-      // error about an empty reviewCount.
       expect(root.find(Paginate)).toHaveLength(0);
-
-      // The other placeholders are checked in the test above.
     });
 
     it('fetches an addon if needed', () => {
