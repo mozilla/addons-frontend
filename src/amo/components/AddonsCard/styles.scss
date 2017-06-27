@@ -1,0 +1,18 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+ul.AddonsCard-list {
+  @include respond-to(large) {
+    display: grid;
+    grid-auto-flow: column dense;
+    grid-template-columns: 50% 50%;
+  }
+
+  .SearchResult {
+    @include respond-to(large) {
+      background: $white;
+      grid-column: 1 / -1;
+    }
+  }
+}

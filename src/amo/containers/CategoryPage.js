@@ -3,13 +3,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import SearchPage from 'amo/components/SearchPage';
+import { SearchBase } from 'amo/components/Search';
 import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
 import { apiAddonType, safeAsyncConnect } from 'core/utils';
 
 
 export function CategoryPageBase(props) {
-  return <SearchPage enableSearchSort={false} {...props} />;
+  return <SearchBase enableSearchSort={false} {...props} />;
 }
 
 export function mapStateToProps(state, ownProps) {

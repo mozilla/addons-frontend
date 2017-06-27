@@ -20,7 +20,7 @@ import Home from './containers/Home';
 import Addon from './components/Addon';
 import NotAuthorized from './components/ErrorPage/NotAuthorized';
 import NotFound from './components/ErrorPage/NotFound';
-import SearchPage from './containers/SearchPage';
+import Search from './components/Search';
 import ServerError from './components/ErrorPage/ServerError';
 
 // If you add a new route here, check that the nginx rules maintained by ops
@@ -36,7 +36,7 @@ export default (
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={CategoryPage} />
     <Route path="/api/v3/accounts/authenticate/" component={HandleLogin} />
-    <Route path="search/" component={SearchPage} />
+    <Route path="search/" component={Search} />
     <Route path="401/"
       component={config.get('isDevelopment') ? NotAuthorized : NotFound} />
     <Route path="404/" component={NotFound} />

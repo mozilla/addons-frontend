@@ -1,0 +1,56 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+
+.Search {
+  @include respond-to(large) {
+    display: grid;
+    grid-auto-flow: column dense;
+    grid-gap: 10px;
+    grid-template-columns: minmax(300px, 35%) auto;
+    padding: $padding-page;
+  }
+
+  .Card {
+    margin: $padding-page;
+
+    @include respond-to(large) {
+      margin: 0;
+    }
+  }
+
+  .SearchSort {
+    margin: $padding-page;
+
+    @include respond-to(large) {
+      margin: 0;
+    }
+  }
+
+  .SearchContextCard {
+    @include respond-to(large) {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+  }
+
+  .SearchSort {
+    @include respond-to(large) {
+      grid-column: 1 / 2;
+      grid-row: 2;
+    }
+  }
+
+  .SearchResults {
+    @include respond-to(large) {
+      grid-column: 2;
+      grid-row: 2 / 4;
+    }
+  }
+
+  .Paginate {
+    @include respond-to(large) {
+      grid-column: 1 / -1;
+      grid-row: 4;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import createStore from 'amo/store';
 import {
   setClientApp, setLang, setAuthToken, setUserAgent,
 } from 'core/actions';
+import { searchLoad } from 'core/actions/search';
 
 import {
   userAuthToken, sampleUserAgent, signedInApiState as coreSignedInApiState,
@@ -94,4 +95,24 @@ export function dispatchSignInActions({
     store,
     state: store.getState(),
   };
+}
+
+export function dispatchSearchResults({
+  addons = {
+    [fakeAddon.slug]: fakeAddon,
+    'some-other-slug': { ...fakeAddon, slug: 'some-other-slug' },
+  },
+  filters = { query: 'test' },
+  store = dispatchClientMetadata().store,
+} = {}) {
+  store.dispatch(searchLoad({
+    entities: { addons },
+    filters,
+    result: {
+      count: Object.keys(addons).length,
+      results: Object.keys(addons),
+    },
+  }));
+
+  return { store };
 }

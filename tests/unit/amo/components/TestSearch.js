@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import SearchPage from 'amo/components/SearchPage';
+import { SearchBase } from 'amo/components/Search';
 import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -9,11 +9,11 @@ import Paginate from 'core/components/Paginate';
 import { ADDON_TYPE_EXTENSION, VIEW_CONTEXT_EXPLORE } from 'core/constants';
 
 
-describe('<SearchPage />', () => {
+describe('<Search />', () => {
   let props;
 
   function render(extra = {}) {
-    return shallow(<SearchPage {...{ ...props, ...extra }} />);
+    return shallow(<SearchBase {...{ ...props, ...extra }} />);
   }
 
   beforeEach(() => {

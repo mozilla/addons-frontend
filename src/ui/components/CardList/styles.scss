@@ -1,6 +1,9 @@
 @import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 
 .CardList {
+  margin: 10px 0;
+
   .Card-contents {
     background: none;
     padding: 0;
@@ -11,7 +14,7 @@
     padding: 0;
 
     > li {
-      background: transparentize($base-color, 0.25);
+      background: $white;
       padding: 10px $padding-page;
       margin-bottom: 1px;
 

@@ -6,6 +6,10 @@
   padding: 20px 10px;
 }
 
+.Addon .Card {
+  margin-bottom: 10px;
+}
+
 .Addon-icon-image {
   height: 48px;
   width: 48px;
@@ -144,6 +148,7 @@
     grid-auto-flow: column dense;
     grid-gap: 10px;
     grid-template-columns: minmax(300px, 35%) auto;
+    margin: 10px 0 0;
 
     .AddonDescription {
       grid-column: 2;
