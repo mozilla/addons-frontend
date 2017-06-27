@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"POT-Creation-Date: 2017-06-27 22:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -12,43 +12,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "MIME-Version: 1.0\n"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Cancel preview"
 msgstr "ʍǝıʌǝɹd ʅǝɔuɐↃ"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Tap to preview"
 msgstr "ʍǝıʌǝɹd oʇ dɐ⊥"
 
-#: src/amo/components/Addon/index.js:151
+#: src/amo/components/Addon/index.js:171
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "ʍǝıʌǝɹ %(count)s pɐǝᴚ"
 msgstr[1] "sʍǝıʌǝɹ %(count)s ʅʅɐ pɐǝᴚ"
 
-#: src/amo/components/Addon/index.js:164
+#: src/amo/components/Addon/index.js:185
 msgid "No reviews yet"
 msgstr "ʇǝʎ sʍǝıʌǝɹ oN"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:194
 msgid "Rate your experience"
 msgstr "ǝɔuǝıɹǝdxǝ ɹnoʎ ǝʇɐᴚ"
 
-#: src/amo/components/Addon/index.js:204
+#: src/amo/components/Addon/index.js:227
+msgid "About this %(addonType)s"
+msgstr "%(addonType)s sıɥʇ ʇnoq∀"
+
+#: src/amo/components/Addon/index.js:276
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(startSpan)s%(authorList)s ʎq%(endSpan)s %(addonName)s"
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:320
 msgid "Extension Metadata"
 msgstr "ɐʇɐpɐʇǝW uoısuǝʇxƎ"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:339
 msgid "Screenshots"
 msgstr "sʇoɥsuǝǝɹɔS"
-
-#: src/amo/components/Addon/index.js:266
-msgid "About this %(addonType)s"
-msgstr "%(addonType)s sıɥʇ ʇnoq∀"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -70,24 +70,24 @@ msgstr ".%(yourVersion)s xoɟǝɹıℲ ƃuısn ǝɹɐ no⅄ .(%(minVersion)s uo�
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr ".uo-ppɐ sıɥʇ ʅʅɐʇsuı oʇ <a href=\"%(downloadUrl)s\">xoɟǝɹıℲ pɐoʅuʍop</a> uɐɔ no⅄ .suo-ppɐ ʇɹoddns ʇou sǝop ɹǝsʍoɹq ɹno⅄"
 
-#: src/amo/components/AddonMeta.js:24
+#: src/amo/components/AddonMeta.js:27
 #: src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "ɹǝsn %(total)s"
 msgstr[1] "sɹǝsn %(total)s"
 
-#: src/amo/components/AddonMeta.js:31
+#: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "ʍǝıʌǝɹ %(total)s"
 msgstr[1] "sʍǝıʌǝɹ %(total)s"
 
-#: src/amo/components/AddonMeta.js:36
+#: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
 msgstr "sʍǝıʌǝɹ oN"
 
-#: src/amo/components/AddonMeta.js:42
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "ʎq pǝs∩"
 
@@ -167,25 +167,21 @@ msgstr "ʇxǝʇ ʍǝıʌǝᴚ"
 msgid "Submit review"
 msgstr "ʍǝıʌǝɹ ʇıɯqnS"
 
-#: src/amo/components/AddonReviewList.js:102
-msgid "All written reviews"
-msgstr "sʍǝıʌǝɹ uǝʇʇıɹʍ ʅʅ∀"
-
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(timestamp)s ´%(authorName)s ɯoɹɟ"
 
-#: src/amo/components/AddonReviewList.js:82
-msgid "Loading..."
-msgstr "...ƃuıpɐo⅂"
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "uoɔı uo-pp∀"
 
-#: src/amo/components/AddonReviewList.js:99
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s ɹoɟ sʍǝıʌǝᴚ"
+
+#: src/amo/components/AddonReviewList.js:180
+msgid "All written reviews"
+msgstr "sʍǝıʌǝɹ uǝʇʇıɹʍ ʅʅ∀"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"

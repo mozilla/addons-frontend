@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"POT-Creation-Date: 2017-06-27 22:15+0000\n"
 "PO-Revision-Date: 2017-06-21 15:48+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -14,46 +14,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Cancel preview"
 msgstr "ביטול תצוגה מקדימה"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Tap to preview"
 msgstr "הקישו לתצוגה מקדימה"
 
-#: src/amo/components/Addon/index.js:151
+#: src/amo/components/Addon/index.js:171
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "קריאת סקירה %(count)s"
 msgstr[1] "קריאת כל %(count)s הסקירות"
 
-#: src/amo/components/Addon/index.js:164
+#: src/amo/components/Addon/index.js:185
 msgid "No reviews yet"
 msgstr "אין עדיין סקירות"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:194
 msgid "Rate your experience"
 msgstr "דירוג החוויה שלך"
 
-#: src/amo/components/Addon/index.js:204
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:241
-msgid "Extension Metadata"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:257
-msgid "Screenshots"
-msgstr "צילומי מסך"
-
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:227
 msgid "About this %(addonType)s"
 msgstr ""
 
+#: src/amo/components/Addon/index.js:276
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:320
+msgid "Extension Metadata"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:339
+msgid "Screenshots"
+msgstr "צילומי מסך"
+
 #: src/amo/components/AddonCompatibilityError/index.js:55
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:59
@@ -65,30 +67,34 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "‏Firefox עבור iOS אינו תומך כרגע בתוספות."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
 msgstr ""
 
-#: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "משתמש %(total)s"
 msgstr[1] "%(total)s משתמשים"
 
-#: src/amo/components/AddonMeta.js:31
+#: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "סקירה %(total)s"
 msgstr[1] "%(total)s סקירות"
 
-#: src/amo/components/AddonMeta.js:36
+#: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
 msgstr "אין סקירות"
 
-#: src/amo/components/AddonMeta.js:42
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "בשימוש ע״י"
 
@@ -154,7 +160,8 @@ msgid "Tell the world about this extension."
 msgstr "ספרו לעולם על הרחבה זו."
 
 #: src/amo/components/AddonReview.js:153
-msgid "Tell us about your experience with this extension. Be specific and concise."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 
 #: src/amo/components/AddonReview.js:161
@@ -169,25 +176,21 @@ msgstr "מלל סקירה"
 msgid "Submit review"
 msgstr "שליחת סקירה"
 
-#: src/amo/components/AddonReviewList.js:102
-msgid "All written reviews"
-msgstr "כל הסקירות הכתובות"
-
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "מאת %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:82
-msgid "Loading..."
-msgstr "בטעינה..."
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "צלמית התוספת"
 
-#: src/amo/components/AddonReviewList.js:99
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "סקירות עבור %(addonName)s"
+
+#: src/amo/components/AddonReviewList.js:180
+msgid "All written reviews"
+msgstr "כל הסקירות הכתובות"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
@@ -207,7 +210,10 @@ msgid "Loading categories."
 msgstr "כשלון בטעינת קטגוריות."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
@@ -215,33 +221,47 @@ msgid "Not Authorized"
 msgstr "לא מורשה"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "הדף לא נמצא"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
 msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "שגיאת שרת"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:34
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
 msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:33
@@ -308,20 +328,26 @@ msgstr "ערכות הנושא המדורגות ביותר"
 msgid "More highly rated themes"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:157 src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
+#: src/amo/components/LandingPage.js:157
+#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
 msgid "Themes"
 msgstr "ערכות נושא"
 
-#: src/amo/components/LandingPage.js:158 src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
+#: src/amo/components/LandingPage.js:158
+#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
 msgid "Extensions"
 msgstr "הרחבות"
 
 #: src/amo/components/LandingPage.js:161
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
 msgstr ""
 
 #: src/amo/components/LandingPage.js:163
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
 msgstr ""
 
 #: src/amo/components/LandingPage.js:188
@@ -457,8 +483,12 @@ msgid "Add-ons Home Page"
 msgstr "דף הבית של התוספות"
 
 #: src/amo/containers/Home.js:50
-msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr "הרחבות הינן תכונות מיוחדות אותן ניתן להוסיף ל־Firefox. ערכות נושא מאפשרות לך לשנות את תצוגת הדפדפן שלך."
+msgid ""
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
+msgstr ""
+"הרחבות הינן תכונות מיוחדות אותן ניתן להוסיף ל־Firefox. ערכות נושא מאפשרות לך "
+"לשנות את תצוגת הדפדפן שלך."
 
 #: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
@@ -525,10 +555,13 @@ msgid "Log in/Sign up"
 msgstr "התחברות/הרשמה"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "קוד שגיאה: %(status)s."
 
@@ -536,7 +569,8 @@ msgstr "קוד שגיאה: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
@@ -619,6 +653,9 @@ msgstr "ללא דירוג"
 #: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
+
+#~ msgid "Loading..."
+#~ msgstr "בטעינה..."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "דירוג ממוצע: %(rating)s מתוך 5"

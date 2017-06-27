@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"POT-Creation-Date: 2017-06-27 22:15+0000\n"
 "PO-Revision-Date: 2017-06-14 07:37+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -14,43 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Cancel preview"
 msgstr "Отказ"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Tap to preview"
 msgstr "Докоснете за преглед"
 
-#: src/amo/components/Addon/index.js:151
+#: src/amo/components/Addon/index.js:171
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочетете %(count)s рецензия"
 msgstr[1] "Прочетете всички %(count)s рецензии"
 
-#: src/amo/components/Addon/index.js:164
+#: src/amo/components/Addon/index.js:185
 msgid "No reviews yet"
 msgstr "Няма рецензии"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:194
 msgid "Rate your experience"
 msgstr "Дайте оценка"
 
-#: src/amo/components/Addon/index.js:204
+#: src/amo/components/Addon/index.js:227
+msgid "About this %(addonType)s"
+msgstr "Относно тази %(addonType)s"
+
+#: src/amo/components/Addon/index.js:276
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sот %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:320
 msgid "Extension Metadata"
 msgstr "Метаданни за разширението"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:339
 msgid "Screenshots"
 msgstr "Снимки на екрана"
-
-#: src/amo/components/Addon/index.js:266
-msgid "About this %(addonType)s"
-msgstr "Относно тази %(addonType)s"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -84,23 +84,23 @@ msgstr ""
 "Вашият четец не поддържа добавки. За да инсталирате тази добавка може да <a "
 "href=\"%(downloadUrl)s\">изтеглите Firefox</a>."
 
-#: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s потребител"
 msgstr[1] "%(total)s потребителя"
 
-#: src/amo/components/AddonMeta.js:31
+#: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s рецензия"
 msgstr[1] "%(total)s рецензии"
 
-#: src/amo/components/AddonMeta.js:36
+#: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
 msgstr "Няма рецензии"
 
-#: src/amo/components/AddonMeta.js:42
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "Ползвател"
 
@@ -181,25 +181,21 @@ msgstr "Текст на рецензията"
 msgid "Submit review"
 msgstr "Писане на рецензия"
 
-#: src/amo/components/AddonReviewList.js:102
-msgid "All written reviews"
-msgstr "Всички рецензии"
-
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "от %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:82
-msgid "Loading..."
-msgstr "Зареждане…"
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "Пиктограма на добавката"
 
-#: src/amo/components/AddonReviewList.js:99
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "Рецензии за %(addonName)s"
+
+#: src/amo/components/AddonReviewList.js:180
+msgid "All written reviews"
+msgstr "Всички рецензии"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
@@ -685,6 +681,9 @@ msgstr "Без оценка"
 #: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Отваряне за </span>Повече информация"
+
+#~ msgid "Loading..."
+#~ msgstr "Зареждане…"
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s от 5"
