@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"POT-Creation-Date: 2017-06-27 22:15+0000\n"
 "PO-Revision-Date: 2017-04-27 01:45+0000\n"
 "Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Cancel preview"
 msgstr "Batalkan pratinjau"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Tap to preview"
 msgstr "Ketuk untuk pratinjau"
 
-#: src/amo/components/Addon/index.js:151
+#: src/amo/components/Addon/index.js:171
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Baca semua %(count)s ulasan"
 
-#: src/amo/components/Addon/index.js:164
+#: src/amo/components/Addon/index.js:185
 msgid "No reviews yet"
 msgstr "Belum ada ulasan"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:194
 msgid "Rate your experience"
 msgstr "Beri peringkat"
 
-#: src/amo/components/Addon/index.js:204
+#: src/amo/components/Addon/index.js:227
+msgid "About this %(addonType)s"
+msgstr "Tentang %(addonType)s ini"
+
+#: src/amo/components/Addon/index.js:276
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s oleh %(authorList)s %(endSpan)s"
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:320
 msgid "Extension Metadata"
 msgstr "Metadata Ekstensi"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:339
 msgid "Screenshots"
 msgstr "Tangkapan Layar"
-
-#: src/amo/components/Addon/index.js:266
-msgid "About this %(addonType)s"
-msgstr "Tentang %(addonType)s ini"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -84,21 +84,21 @@ msgstr ""
 "Peramban Anda tidak mendukung pengaya. Anda dapat <a href=\"%(downloadUrl)s"
 "\">unduh Firefox</a> untuk memasang pengaya ini."
 
-#: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s pengguna"
 
-#: src/amo/components/AddonMeta.js:31
+#: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ulasan"
 
-#: src/amo/components/AddonMeta.js:36
+#: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
 msgstr "Tidak ada ulasan"
 
-#: src/amo/components/AddonMeta.js:42
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "Digunakan oleh"
 
@@ -180,25 +180,21 @@ msgstr "Teks ulasan"
 msgid "Submit review"
 msgstr "Kirim ulasan"
 
-#: src/amo/components/AddonReviewList.js:102
-msgid "All written reviews"
-msgstr "Semua ulasan tertulis"
-
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "dari %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:82
-msgid "Loading..."
-msgstr "Memuat..."
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "Ikon pengaya"
 
-#: src/amo/components/AddonReviewList.js:99
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "Ulasan untuk %(addonName)s"
+
+#: src/amo/components/AddonReviewList.js:180
+msgid "All written reviews"
+msgstr "Semua ulasan tertulis"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
@@ -670,6 +666,9 @@ msgstr "Tidak ada peringkat"
 #: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
+
+#~ msgid "Loading..."
+#~ msgstr "Memuat..."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "Peringkat rata-rata: %(rating)s dari 5"

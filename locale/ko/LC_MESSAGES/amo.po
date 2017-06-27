@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"POT-Creation-Date: 2017-06-27 22:15+0000\n"
 "PO-Revision-Date: 2017-06-24 11:41+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,46 +14,50 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Cancel preview"
 msgstr "미리보기 취소"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:130
 msgid "Tap to preview"
 msgstr "탭하여 미리보기"
 
-#: src/amo/components/Addon/index.js:151
+#: src/amo/components/Addon/index.js:171
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s개의 리뷰 보기"
 
-#: src/amo/components/Addon/index.js:164
+#: src/amo/components/Addon/index.js:185
 msgid "No reviews yet"
 msgstr "작성된 리뷰 없음"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:194
 msgid "Rate your experience"
 msgstr "경험 평가하기"
 
-#: src/amo/components/Addon/index.js:204
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(startSpan)s%(authorList)s에 의해 제작된%(endSpan)s %(addonName)s"
-
-#: src/amo/components/Addon/index.js:241
-msgid "Extension Metadata"
-msgstr "확장 메타 데이터"
-
-#: src/amo/components/Addon/index.js:257
-msgid "Screenshots"
-msgstr "스크린샷"
-
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:227
 msgid "About this %(addonType)s"
 msgstr "%(addonType)s에 대한 정보"
 
+#: src/amo/components/Addon/index.js:276
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(startSpan)s%(authorList)s에 의해 제작된%(endSpan)s %(addonName)s"
+
+#: src/amo/components/Addon/index.js:320
+msgid "Extension Metadata"
+msgstr "확장 메타 데이터"
+
+#: src/amo/components/Addon/index.js:339
+msgid "Screenshots"
+msgstr "스크린샷"
+
 #: src/amo/components/AddonCompatibilityError/index.js:55
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "이 부가 기능을 설치 하려면 <a href=\"%(downloadUrl)s\">Firefox를 다운로드</a>해야 합니다."
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"이 부가 기능을 설치 하려면 <a href=\"%(downloadUrl)s\">Firefox를 다운로드</a>"
+"해야 합니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:59
 msgid "Your version of Firefox does not support search plugins."
@@ -64,30 +68,39 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS 용 Firefox는 현재 부가 기능을 지원하지 않습니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "이 부가 기능은 <a href=\"%(downloadUrl)s\">새로운 버전의 Firefox</a>가 필요합니다(최소 버전 %(minVersion)s). 현재 Firefox %(yourVersion)s 버전을 사용하고 계십니다."
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"이 부가 기능은 <a href=\"%(downloadUrl)s\">새로운 버전의 Firefox</a>가 필요합"
+"니다(최소 버전 %(minVersion)s). 현재 Firefox %(yourVersion)s 버전을 사용하고 "
+"계십니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "사용하는 브라우저는 부가 기능을 지원하지 않습니다. 이 부가 기능을 설치하시려면 <a href=\"%(downloadUrl)s\">Firefox를 다운로드</a>하십시오."
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"사용하는 브라우저는 부가 기능을 지원하지 않습니다. 이 부가 기능을 설치하시려"
+"면 <a href=\"%(downloadUrl)s\">Firefox를 다운로드</a>하십시오."
 
-#: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult.js:60
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(users)s명의 사용자"
 
-#: src/amo/components/AddonMeta.js:31
+#: src/amo/components/AddonMeta.js:39
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "평가 없음"
 
-#: src/amo/components/AddonMeta.js:36
+#: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
 msgstr "리뷰 없음"
 
-#: src/amo/components/AddonMeta.js:42
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "사용됨"
 
@@ -147,7 +160,8 @@ msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알�
 
 #: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
+msgstr ""
+"이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
 
 #: src/amo/components/AddonReview.js:152
 #, fuzzy
@@ -156,8 +170,10 @@ msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알�
 
 #: src/amo/components/AddonReview.js:153
 #, fuzzy
-msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+"이 부가 기능의 어디가 마음에 드시는지 알려주세요. 기왕이면 짧고 명확하게요!"
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
@@ -172,28 +188,23 @@ msgstr ""
 msgid "Submit review"
 msgstr "리뷰 작성"
 
-#: src/amo/components/AddonReviewList.js:102
-#, fuzzy
-msgid "All written reviews"
-msgstr "리뷰 작성"
-
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s로 부터, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:82
-#, fuzzy
-msgid "Loading..."
-msgstr "검색중..."
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:153
 #, fuzzy
 msgid "Add-on icon"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/AddonReviewList.js:99
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s에 대한 리뷰"
+
+#: src/amo/components/AddonReviewList.js:180
+#, fuzzy
+msgid "All written reviews"
+msgstr "리뷰 작성"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
@@ -213,7 +224,10 @@ msgid "Loading categories."
 msgstr "카테고리를 불러오는데 실패했습니다."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:34
@@ -221,34 +235,54 @@ msgid "Not Authorized"
 msgstr "인증되지 않음"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "죄송하지만, 이 페이지에 접근할 권한이 없습니다. 로그인 하지 않으셨다면, 페이지 상단의 링크를 통해 로그인하십시오."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"죄송하지만, 이 페이지에 접근할 권한이 없습니다. 로그인 하지 않으셨다면, 페이"
+"지 상단의 링크를 통해 로그인하십시오."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "페이지 찾을 수 없음"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:35
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "죄송합니다. 입력하신 주소를 찾지 못했습니다. 부가 기능을 링크하셨다면, 부가 기능이 개발자에 의해 삭제되었을 수 있습니다."
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"죄송합니다. 입력하신 주소를 찾지 못했습니다. 부가 기능을 링크하셨다면, 부가 "
+"기능이 개발자에 의해 삭제되었을 수 있습니다."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "서버 에러"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:34
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "죄송합니다. 서버에 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 빠르게 처리하겠습니다."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"죄송합니다. 서버에 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 "
+"오류는 빠르게 처리하겠습니다."
 
 #: src/amo/components/FeaturedAddons/index.js:33
 #, fuzzy
@@ -315,20 +349,26 @@ msgstr "가장 평점이 높은 테마"
 msgid "More highly rated themes"
 msgstr "평점이 높은 테마 더보기"
 
-#: src/amo/components/LandingPage.js:157 src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
+#: src/amo/components/LandingPage.js:157
+#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
 msgid "Themes"
 msgstr "테마"
 
-#: src/amo/components/LandingPage.js:158 src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
+#: src/amo/components/LandingPage.js:158
+#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
 msgid "Extensions"
 msgstr "확장 기능"
 
 #: src/amo/components/LandingPage.js:161
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
 msgstr ""
 
 #: src/amo/components/LandingPage.js:163
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
 msgstr ""
 
 #: src/amo/components/LandingPage.js:188
@@ -466,7 +506,9 @@ msgstr "부가 기능 홈 페이지"
 
 #: src/amo/containers/Home.js:50
 #, fuzzy
-msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+msgid ""
+"Extensions are special features you can add to Firefox. Themes let you "
+"change your browser's appearance."
 msgstr ""
 "확장 기능은 Firefox에 추가해 쓸 수 있는 특별한 기능입니다.\n"
 "테마는 브라우저의 모양을 바꿀 수 있습니다."
@@ -536,10 +578,15 @@ msgid "Log in/Sign up"
 msgstr "로그인/가입하기"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 빠르게 처리하겠습니다."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 "
+"빠르게 처리하겠습니다."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "오류 코드 : %(status)s."
 
@@ -547,7 +594,8 @@ msgstr "오류 코드 : %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "죄송합니다. 입력하신 URL을 찾을 수 없습니다."
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
@@ -631,6 +679,10 @@ msgstr "평가 없음"
 #: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
+
+#, fuzzy
+#~ msgid "Loading..."
+#~ msgstr "검색중..."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "평균 점수: 5 점 중 %(rating)s"
