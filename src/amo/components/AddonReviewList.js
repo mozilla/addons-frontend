@@ -11,7 +11,7 @@ import fallbackIcon from 'amo/img/icons/default-64.png';
 import Paginate from 'core/components/Paginate';
 import translate from 'core/i18n/translate';
 import {
-  isAllowedOrigin,
+  getIconUrl,
   findAddon,
   loadAddonIfNeeded,
   safeAsyncConnect,
@@ -83,8 +83,7 @@ export class AddonReviewListBase extends React.Component {
     }
 
     const allReviews = reviews || [];
-    const iconUrl = isAllowedOrigin(addon.icon_url) ? addon.icon_url :
-      fallbackIcon;
+    const iconUrl = getIconUrl(addon.icon_url);
 
     return (
       <div className="AddonReviewList">

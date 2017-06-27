@@ -8,7 +8,7 @@ import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import Rating from 'ui/components/Rating';
 import { ADDON_TYPE_THEME } from 'core/constants';
-import { isAllowedOrigin } from 'core/utils';
+import { getIconUrl, isAllowedOrigin } from 'core/utils';
 
 import 'core/css/SearchResult.scss';
 
@@ -28,7 +28,7 @@ export class SearchResultBase extends React.Component {
     });
 
     // Fall-back to default icon if invalid icon url.
-    const iconURL = isAllowedOrigin(addon.icon_url) ? addon.icon_url : fallbackIcon;
+    const iconURL = getIconUrl(addon.icon_url);
     const themeURL = (addon.theme_data && isAllowedOrigin(addon.theme_data.previewURL)) ?
       addon.theme_data.previewURL : null;
     const imageURL = isTheme ? themeURL : iconURL;

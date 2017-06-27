@@ -22,7 +22,7 @@ import {
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
-  isAllowedOrigin,
+  getIconUrl,
   getClientCompatibility as _getClientCompatibility,
   nl2br,
   sanitizeHTML,
@@ -123,8 +123,7 @@ export class AddonBase extends React.Component {
     } = this.props;
     const previewURL = addon ? addon.previewURL : null;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
-    const iconUrl = addon && isAllowedOrigin(addon.icon_url) ? addon.icon_url :
-      fallbackIcon;
+    const iconUrl = addon ? getIconUrl(addon.icon_url) : fallbackIcon;
 
     if (type === ADDON_TYPE_THEME) {
       const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
