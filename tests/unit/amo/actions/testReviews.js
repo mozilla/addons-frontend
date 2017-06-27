@@ -1,5 +1,6 @@
 import {
   denormalizeReview,
+  fetchReviews,
   setDenormalizedReview,
   setReview,
   setAddonReviews,
@@ -9,6 +10,34 @@ import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
 // See reducer tests for more coverage of review actions.
 describe('amo.actions.reviews', () => {
+  describe('fetchReviews', () => {
+    const defaultParams = Object.freeze({
+      addonSlug: fakeAddon.slug,
+      errorHandlerId: 'some-error-handler-id',
+      page: 1,
+    });
+
+    it('requires a truthy add-on slug', () => {
+      const params = { ...defaultParams };
+      delete params.addonSlug;
+      expect(() => fetchReviews(params))
+        .toThrowError(/addonSlug cannot be empty/);
+    });
+
+    it('requires a truthy error handler ID', () => {
+      const params = { ...defaultParams };
+      delete params.errorHandlerId;
+      expect(() => fetchReviews(params))
+        .toThrowError(/errorHandlerId cannot be empty/);
+    });
+
+    it('defaults to page 1', () => {
+      const params = { ...defaultParams };
+      delete params.page;
+      expect(fetchReviews(params)).toMatchObject({ payload: { page: 1 } });
+    });
+  });
+
   describe('setReview', () => {
     it('requires a truthy review', () => {
       expect(() => setReview()).toThrowError(/review cannot be empty/);

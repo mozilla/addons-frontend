@@ -123,7 +123,7 @@ export class AddonBase extends React.Component {
     } = this.props;
     const previewURL = addon ? addon.previewURL : null;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
-    const iconUrl = addon ? getIconUrl(addon.icon_url) : fallbackIcon;
+    const iconUrl = getIconUrl(addon, fallbackIcon);
 
     if (type === ADDON_TYPE_THEME) {
       const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
@@ -207,11 +207,11 @@ export class AddonBase extends React.Component {
   renderShowMoreCard() {
     const { addon, i18n } = this.props;
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
-    let description;
 
     const descriptionProps = {};
     if (addon) {
-      description = addon.description ? addon.description : addon.summary;
+      const description =
+        addon.description ? addon.description : addon.summary;
       if (!description || !description.length) {
         return null;
       }

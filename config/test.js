@@ -2,4 +2,5 @@
 module.exports = {
   apiHost: 'https://localhost',
   allowErrorSimulation: true,
+  enableClientConsole: true,
 };

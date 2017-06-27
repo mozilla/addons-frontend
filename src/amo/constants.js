@@ -1,4 +1,5 @@
 // Action types.
+export const FETCH_REVIEWS = 'FETCH_REVIEWS';
 export const SET_ADDON_REVIEWS = 'SET_ADDON_REVIEWS';
 export const SET_REVIEW = 'SET_REVIEW';
 

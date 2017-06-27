@@ -24,8 +24,6 @@ import {
 import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import purify from 'core/purify';
-import fallbackIcon from 'amo/img/icons/default-64.png';
-
 
 export function gettext(str) {
   return str;
@@ -138,8 +136,8 @@ export function isAllowedOrigin(urlString, {
   return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
 
-export function getIconUrl(icon_url){
-  return isAllowedOrigin(icon_url) ? icon_url : fallbackIcon;
+export function getIconUrl(addon, fallback) {
+  return (addon && isAllowedOrigin(addon.icon_url)) ? addon.icon_url : fallback;
 }
 
 export function addQueryParams(urlString, queryParams = {}) {

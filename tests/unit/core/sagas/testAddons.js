@@ -81,9 +81,7 @@ describe('core/sagas/addons', () => {
 
   it('dispatches an error', async () => {
     const error = new Error('some API error maybe');
-    mockApi
-      .expects('fetchAddon')
-      .returns(Promise.reject(error));
+    mockApi.expects('fetchAddon').returns(Promise.reject(error));
 
     _fetchAddon();
 

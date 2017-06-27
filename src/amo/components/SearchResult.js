@@ -28,7 +28,7 @@ export class SearchResultBase extends React.Component {
     });
 
     // Fall-back to default icon if invalid icon url.
-    const iconURL = getIconUrl(addon.icon_url);
+    const iconURL = getIconUrl(addon, fallbackIcon);
     const themeURL = (addon.theme_data && isAllowedOrigin(addon.theme_data.previewURL)) ?
       addon.theme_data.previewURL : null;
     const imageURL = isTheme ? themeURL : iconURL;
