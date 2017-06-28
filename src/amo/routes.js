@@ -16,7 +16,7 @@ import Categories from './components/Categories';
 import Category from './components/Category';
 import FeaturedAddons from './components/FeaturedAddons';
 import LandingPage from './components/LandingPage';
-import Home from './containers/Home';
+import Home from './components/Home';
 import Addon from './components/Addon';
 import NotAuthorized from './components/ErrorPage/NotAuthorized';
 import NotFound from './components/ErrorPage/NotFound';
