@@ -86,7 +86,7 @@ describe('<SearchResult />', () => {
   it('renders the star ratings', () => {
     const root = render();
 
-    expect(root.find('.SearchResult-rating').length).toEqual(1);
+    expect(root.find('.SearchResult-rating')).toHaveLength(1);
   });
 
   it('displays a placeholder if the icon is malformed', () => {
