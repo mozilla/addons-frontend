@@ -50,7 +50,11 @@ export const ADDON_TYPE_EXTENSION = 'extension';
 export const ADDON_TYPE_LANG = 'language';
 export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_THEME = 'persona';
+// TODO: Remove ADDON_TYPE_COMPLETE_THEME once we don't support complete
+// themes.
+export const ADDON_TYPE_COMPLETE_THEME = 'theme';
 export const validAddonTypes = [
+  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,

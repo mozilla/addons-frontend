@@ -1,4 +1,5 @@
 import {
+  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -175,6 +176,7 @@ describe('categories reducer', () => {
       // https://github.com/mozilla/addons-server/issues/4766 is fixed.
       expect(state.categories).toEqual({
         firefox: {
+          [ADDON_TYPE_COMPLETE_THEME]: {},
           [ADDON_TYPE_DICT]: {},
           [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
@@ -214,6 +216,7 @@ describe('categories reducer', () => {
           },
         },
         android: {
+          [ADDON_TYPE_COMPLETE_THEME]: {},
           [ADDON_TYPE_DICT]: {},
           [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
