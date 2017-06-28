@@ -136,7 +136,6 @@ export class AddonBase extends React.Component {
           className="Addon-theme-header"
           id="Addon-theme-header"
           data-browsertheme={getBrowserThemeData()}
-          ref={(el) => { this.wrapper = el; }}
           onClick={this.onClick}
         >
           {installStatus !== ENABLED ? (
