@@ -3,12 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
-import fallbackIcon from 'amo/img/icons/default-64.png';
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import Rating from 'ui/components/Rating';
 import { ADDON_TYPE_THEME } from 'core/constants';
-import { getIconUrl, isAllowedOrigin } from 'core/utils';
+import { isAllowedOrigin } from 'core/utils';
+import { getIconUrl } from 'core/imageUtils';
 
 import 'core/css/SearchResult.scss';
 
@@ -28,7 +28,7 @@ export class SearchResultBase extends React.Component {
     });
 
     // Fall-back to default icon if invalid icon url.
-    const iconURL = getIconUrl(addon, fallbackIcon);
+    const iconURL = getIconUrl(addon);
     const themeURL = (addon.theme_data && isAllowedOrigin(addon.theme_data.previewURL)) ?
       addon.theme_data.previewURL : null;
     const imageURL = isTheme ? themeURL : iconURL;

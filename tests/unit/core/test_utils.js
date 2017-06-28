@@ -42,11 +42,13 @@ import {
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
+import { getIconUrl } from 'core/imageUtils';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, unexpectedSuccess, userAgents }
   from 'tests/unit/helpers';
+import fallbackIcon from 'amo/img/icons/default-64.png';
 
 
 describe('apiAddonType', () => {
@@ -537,6 +539,17 @@ describe('isAllowedOrigin', () => {
     const allowedOrigins = ['http://foo.com', 'https://foo.com'];
     expect(isAllowedOrigin('http://foo.com', { allowedOrigins })).toEqual(true);
     expect(isAllowedOrigin('https://foo.com', { allowedOrigins })).toEqual(true);
+  });
+});
+
+describe('getIconUrl', () => {
+  const addon = {...fakeAddon};
+
+  it('return icon url as in fake addon', () => {  
+    expect(getIconUrl(addon)).toEqual('https://addons.cdn.mozilla.net/webdev-64.png');
+  });
+  it('return fallback icon in case of non allowed origin', () => {  
+    expect(getIconUrl({icon_url:'https://xyz.com/a.png'})).toEqual(fallbackIcon);
   });
 });
 
