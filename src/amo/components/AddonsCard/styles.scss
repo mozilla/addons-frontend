@@ -30,9 +30,10 @@
       grid-template-columns: repeat(4, 25%);
 
       .SearchResult {
+        @include padding-start(0);
+
         grid-column: auto;
         margin-bottom: 0;
-        padding-left: 0;
       }
 
       .SearchResult-link {
