@@ -24,8 +24,13 @@ export default class LandingAddonsCard extends React.Component {
     const footerLinkHtml = <Link to={linkSearchURL}>{footerText}</Link>;
 
     return (
-      <AddonsCard className={classNames('LandingAddonsCard', className)}
-        addons={addons} footerLink={footerLinkHtml} header={header} />
+      <AddonsCard
+        addons={addons}
+        className={classNames('LandingAddonsCard', className)}
+        footerLink={footerLinkHtml}
+        header={header}
+        type="horizontal"
+      />
     );
   }
 }

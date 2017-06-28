@@ -12,19 +12,27 @@ import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
 import * as actions from 'core/actions';
+import { categoriesLoad } from 'core/actions/categories';
 import * as api from 'core/api';
 import {
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
+  CATEGORY_COLORS,
+  CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
+  validAddonTypes,
 } from 'core/constants';
 import {
   addQueryParams,
   apiAddonType,
   convertBoolean,
   findAddon,
+  getCategoryColor,
+  getCategoryFromState,
   getClientApp,
   getClientCompatibility,
   getClientConfig,
@@ -42,13 +50,18 @@ import {
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
-import { getIconUrl } from 'core/imageUtils';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
-import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, unexpectedSuccess, userAgents }
-  from 'tests/unit/helpers';
-import fallbackIcon from 'amo/img/icons/default-64.png';
+import {
+  fakeAddon,
+  dispatchClientMetadata,
+  signedInApiState,
+} from 'tests/unit/amo/helpers';
+import {
+  getFakeI18nInst,
+  unexpectedSuccess,
+  userAgents,
+} from 'tests/unit/helpers';
 
 
 describe('apiAddonType', () => {
@@ -542,17 +555,6 @@ describe('isAllowedOrigin', () => {
   });
 });
 
-describe('getIconUrl', () => {
-  const addon = {...fakeAddon};
-
-  it('return icon url as in fake addon', () => {  
-    expect(getIconUrl(addon)).toEqual('https://addons.cdn.mozilla.net/webdev-64.png');
-  });
-  it('return fallback icon in case of non allowed origin', () => {  
-    expect(getIconUrl({icon_url:'https://xyz.com/a.png'})).toEqual(fallbackIcon);
-  });
-});
-
 describe('addQueryParams', () => {
   it('adds a query param to a plain url', () => {
     const output = addQueryParams('http://whatever.com/', { foo: 'bar' });
@@ -968,5 +970,108 @@ describe('getClientCompatibility', () => {
       minVersion: null,
       reason: null,
     });
+  });
+});
+
+describe('getCategoryColor', () => {
+  it('throws if category is false-y', () => {
+    expect(() => {
+      getCategoryColor(null);
+    }).toThrowError('category is required');
+  });
+
+  it('all valid addonTypes are in CATEGORY_COLORS', () => {
+    expect(() => {
+      validAddonTypes.forEach((addonType) => {
+        const category = { id: 2, type: addonType };
+
+        getCategoryColor(category);
+      });
+    }).not.toThrowError('not found in CATEGORY_COLORS');
+  });
+
+  it('throws on unrecognised addonType', () => {
+    expect(() => {
+      getCategoryColor({ id: 5, type: 'NOT_A_REAL_TYPE' });
+    }).toThrowError(
+      'addonType "NOT_A_REAL_TYPE" not found in CATEGORY_COLORS');
+  });
+
+  it('deals with high category IDs', () => {
+    for (let i = 750; i < 800; i++) {
+      const category = { id: i, type: ADDON_TYPE_THEME };
+      const categoryColor = getCategoryColor(category);
+
+      expect(categoryColor)
+        .toBeLessThanOrEqual(CATEGORY_COLORS[ADDON_TYPE_THEME]);
+      expect(categoryColor).toBeLessThanOrEqual(12);
+      expect(categoryColor).toBeGreaterThanOrEqual(1);
+    }
+  });
+
+  it('has a different number of colors for different addonTypes', () => {
+    const category = { id: 11, type: ADDON_TYPE_EXTENSION };
+    const categoryColor = getCategoryColor(category);
+
+    expect(categoryColor).toEqual(1);
+  });
+});
+
+describe('getCategoryFromState', () => {
+  it('handles missing category', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const categorySlug = 'foo';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { state } = dispatchClientMetadata();
+
+    const category = getCategoryFromState({
+      addonType, clientApp, categorySlug, state });
+
+    expect(category).toBeNull();
+  });
+
+  it('handles unknown clientApp', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const categorySlug = 'foo';
+    const clientApp = 'not a real thing';
+    const { state } = dispatchClientMetadata();
+
+    const category = getCategoryFromState({
+      addonType, clientApp, categorySlug, state });
+
+    expect(category).toBeNull();
+  });
+
+  it('handles unknown addonType', () => {
+    const addonType = 'not real';
+    const categorySlug = 'foo';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { state } = dispatchClientMetadata();
+
+    const category = getCategoryFromState({
+      addonType, clientApp, categorySlug, state });
+
+    expect(category).toBeNull();
+  });
+
+  it('returns a category', () => {
+    const addonType = ADDON_TYPE_THEME;
+    const fakeCategory = {
+      id: 5,
+      application: CLIENT_APP_FIREFOX,
+      description: 'I am a cool category for doing things',
+      name: 'Testing category',
+      slug: 'test',
+      type: ADDON_TYPE_THEME,
+    };
+    const categorySlug = 'test';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata();
+    store.dispatch(categoriesLoad({ result: [fakeCategory] }));
+
+    const category = getCategoryFromState({
+      addonType, clientApp, categorySlug, state: store.getState() });
+
+    expect(category).toMatchObject(fakeCategory);
   });
 });

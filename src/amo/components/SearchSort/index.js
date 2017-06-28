@@ -61,6 +61,7 @@ export class SearchSortBase extends React.Component {
       <div className={classNames('SearchSort', {
         'SearchSort--visible': sortVisible,
       })}>
+        <h3 className="SearchSort-header">{i18n.gettext('Sort')}</h3>
         <a className="SearchSort-toggle" href="#SearchSortOptions"
           onClick={this.onClick} onKeyPress={this.onKeyPress}
           ref={(ref) => { this.searchToggle = ref; }}>

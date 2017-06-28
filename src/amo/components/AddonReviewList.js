@@ -12,7 +12,7 @@ import Paginate from 'core/components/Paginate';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { findAddon } from 'core/utils';
-import { getIconUrl } from 'core/imageUtils';
+import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import { parsePage } from 'core/searchUtils';
 import Link from 'amo/components/Link';
@@ -147,7 +147,7 @@ export class AddonReviewListBase extends React.Component {
     // When reviews have not loaded yet, make a list of 4 empty reviews
     // as a placeholder.
     const allReviews = reviews || Array(4).fill(null);
-    const iconUrl = getIconUrl(addon);
+    const iconUrl = getAddonIconUrl(addon);
     const iconImage = (
       <img src={iconUrl} alt={i18n.gettext('Add-on icon')} />
     );

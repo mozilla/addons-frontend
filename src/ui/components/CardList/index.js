@@ -17,8 +17,11 @@ export default class CardList extends React.Component {
     const { children, className, ...cardProps } = this.props;
 
     return (
-      <Card {...cardProps}
-        className={classNames('CardList', className)}>
+      <Card
+        {...cardProps}
+        className={classNames('CardList', className)}
+        photonStyle
+      >
         {/* Children in this case is expected to be an unordered list, */}
         {/* which will be styled correctly. */}
         {children}

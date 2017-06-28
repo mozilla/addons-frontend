@@ -25,7 +25,7 @@ import {
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
-import { getIconUrl } from 'core/imageUtils';
+import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
@@ -122,7 +122,7 @@ export class AddonBase extends React.Component {
     } = this.props;
     const previewURL = addon ? addon.previewURL : null;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
-    const iconUrl = getIconUrl(addon);
+    const iconUrl = getAddonIconUrl(addon);
 
     if (type === ADDON_TYPE_THEME) {
       const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
@@ -134,7 +134,6 @@ export class AddonBase extends React.Component {
           className="Addon-theme-header"
           id="Addon-theme-header"
           data-browsertheme={getBrowserThemeData()}
-          ref={(el) => { this.wrapper = el; }}
           onClick={this.onClick}
         >
           {installStatus !== ENABLED ? (

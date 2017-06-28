@@ -1,13 +1,21 @@
+@import '~amo/css/inc/vars';
 @import '~core/css/inc/mixins';
-@import '~core/css/inc/vars';
 @import '~ui/css/vars';
 
 .SearchSort {
   background: $base-color;
   border-radius: $border-radius-default;
   border: 0;
-  margin: $padding-page ($padding-page * 2);
   overflow: hidden;
+}
+
+.SearchSort-header {
+  display: none;
+
+  @include respond-to(large) {
+    display: block;
+    text-align: center;
+  }
 }
 
 .SearchSort-toggle {
@@ -65,6 +73,10 @@
     background: transparentize($link-color, 0.8);
     box-shadow: none;
   }
+
+  @include respond-to(large) {
+    display: none;
+  }
 }
 
 .SearchSort-list {
@@ -76,6 +88,10 @@
   flex-wrap: wrap;
 
   .SearchSort--visible & {
+    display: flex;
+  }
+
+  @include respond-to(large) {
     display: flex;
   }
 }

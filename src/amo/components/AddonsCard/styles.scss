@@ -1,0 +1,90 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.AddonsCard--horizontal {
+  @include respond-to(large) {
+    position: relative;
+
+    .Card-contents {
+      background: $white;
+      border-bottom-left-radius: $border-radius-default;
+      border-bottom-right-radius: $border-radius-default;
+      padding: 0 20px;
+    }
+
+    .Card-footer,
+    .Card-footer-link {
+      @include end(20px);
+      @include text-align-end();
+
+      background: none;
+      border: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    ul.AddonsCard-list {
+      display: grid;
+      grid-auto-flow: column dense;
+      grid-template-columns: repeat(4, 25%);
+
+      .SearchResult {
+        @include padding-start(0);
+
+        grid-column: auto;
+        margin-bottom: 0;
+      }
+
+      .SearchResult-link {
+        display: grid;
+        grid-column-gap: 8px;
+        grid-template-columns: 32px auto;
+      }
+
+      .SearchResult-icon-wrapper {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+      }
+
+      .SearchResult-contents {
+        grid-column: 2 / 2;
+        grid-row: 1 / 2;
+        margin: 0;
+        width: auto;
+      }
+
+      .SearchResult-name {
+        font-size: $font-size-s;
+      }
+
+      .SearchResult-metadata,
+      .SearchResult-summary {
+        display: none;
+      }
+
+      .SearchResult-users {
+        @include margin-start(-3.5px);
+
+        grid-column: 2 / 2;
+        grid-row: 2 / 2;
+      }
+
+      .SearchResult--theme {
+        @include margin-end(25px);
+
+        padding: 10px 0;
+
+        // stylelint-disable max-nesting-depth
+        .SearchResult-link {
+          display: block;
+        }
+
+        .SearchResult-icon-wrapper {
+          margin: 0;
+        }
+        // stylelint-enable max-nesting-depth
+      }
+    }
+  }
+}

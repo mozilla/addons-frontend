@@ -1,0 +1,177 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.SearchResult {
+  list-style-type: none;
+  margin: 0 0 1px;
+}
+
+.SearchResult-link {
+  color: $text-color-default;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  width: 100%;
+}
+
+.SearchResult-icon-wrapper {
+  order: 1;
+
+  .SearchResult--theme & {
+    flex-grow: 1;
+    margin: -10px -10px 10px;
+    min-height: 64px;
+    overflow: hidden;
+    width: calc(100% + 20px);
+  }
+}
+
+.SearchResult-icon-wrapper--no-theme-image {
+  align-items: center;
+  background: #ccc;
+  color: $white;
+  display: flex;
+  font-size: 14px;
+  font-weight: normal;
+  justify-content: center;
+  text-align: center;
+  text-shadow: 0 0 1px $black;
+}
+
+.SearchResult-icon {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+
+  .SearchResult--theme & {
+    display: block;
+    height: 64px;
+    object-fit: cover;
+    object-position: top right;
+    width: 100%;
+  }
+}
+
+.SearchResult-contents {
+  display: flex;
+  flex-flow: row wrap;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin: 0 10px;
+  order: 1;
+  // `width: 0;` allows the users section to expand.
+  width: 0;
+
+  .SearchResult--theme & {
+    @include respond-to(medium) {
+      @include margin-start(0);
+
+      width: 50%;
+    }
+  }
+}
+
+.SearchResult-name {
+  color: $type-black;
+  flex-grow: 1;
+  font-size: $font-size-m;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  width: 100%;
+  word-wrap: break-word;
+
+  .SearchResult-link:focus &,
+  .SearchResult-link:hover & {
+    color: $link-color;
+    text-decoration: underline;
+  }
+}
+
+.SearchResult-summary {
+  display: none;
+
+  @include respond-to(medium) {
+    color: $type-black;
+    display: block;
+    flex-grow: 1;
+    font-size: $font-size-s;
+    font-weight: normal;
+    margin: 0;
+    max-width: 465px;
+    width: 100%;
+  }
+}
+
+.SearchResult-metadata {
+  display: flex;
+  flex-flow: row wrap;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.SearchResult-rating {
+  @include margin-start(-3px);
+  @include margin-end(10px);
+
+  display: inline-block;
+  width: auto;
+
+  .Rating {
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .SearchResult--theme & {
+    width: auto;
+  }
+}
+
+.SearchResult-author {
+  display: none;
+  word-wrap: break-word;
+
+  @include respond-to(medium) {
+    display: block;
+  }
+}
+
+.SearchResult-users-icon {
+  height: 10px;
+  margin-bottom: -1px;
+}
+
+.SearchResult-users {
+  @include margin-start(39.5px);
+
+  flex-grow: 1;
+  order: 3;
+  width: 100%;
+
+  @include respond-to(medium) {
+    @include margin-start(0);
+
+    flex-grow: 0;
+    order: 1;
+    width: auto;
+  }
+
+  .SearchResult--theme & {
+    @include margin-start(7.5px);
+
+    @include respond-to(medium) {
+      @include margin-start(-2.5px);
+    }
+  }
+}
+
+.SearchResult--meta-section {
+  color: $sub-text-color;
+  font-size: $font-size-s;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
