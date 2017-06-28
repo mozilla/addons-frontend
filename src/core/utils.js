@@ -15,6 +15,7 @@ import NotFound from 'core/components/ErrorPage/NotFound';
 import {
   ADDON_TYPE_OPENSEARCH,
   API_ADDON_TYPES_MAPPING,
+  CATEGORY_COLORS,
   VISIBLE_ADDON_TYPES_MAPPING,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
@@ -392,4 +393,44 @@ export function getClientCompatibility({
     addon, maxVersion, minVersion, userAgentInfo });
 
   return { compatible, maxVersion, minVersion, reason };
+}
+
+export function getCategoryColor(category) {
+  if (!category) {
+    throw new Error('category is required.');
+  }
+
+  const maxColors = CATEGORY_COLORS[category.type];
+
+  if (!maxColors) {
+    throw new Error(
+      `addonType "${category.type}" not found in CATEGORY_COLORS.`);
+  }
+
+  if (category.id > maxColors) {
+    const color = parseInt(category.id / maxColors, 10);
+
+    if (color > maxColors) {
+      return maxColors;
+    }
+
+    return color;
+  }
+
+  return category.id;
+}
+
+export function getCategoryFromState(
+  { addonType, clientApp, categorySlug, state } = {}
+) {
+  const categories = state.categories.categories;
+
+  if (
+    categories && categories[clientApp] && categories[clientApp][addonType] &&
+    categories[clientApp][addonType][categorySlug]
+  ) {
+    return categories[clientApp][addonType][categorySlug];
+  }
+
+  return null;
 }
