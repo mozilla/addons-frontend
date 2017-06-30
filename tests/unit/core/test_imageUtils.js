@@ -13,4 +13,8 @@ describe('getAddonIconUrl', () => {
   it('return fallback icon in case of non allowed origin', () => {
     expect(getAddonIconUrl({ ...fakeAddon, icon_url: 'https://xyz.com/a.png' })).toEqual(fallbackIcon);
   });
+
+  it('return fallback icon in case of null addon value', () => {
+    expect(getAddonIconUrl(null)).toEqual(fallbackIcon);
+  });
 });
