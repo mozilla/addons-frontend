@@ -68,6 +68,23 @@ describe('<LandingPage />', () => {
     expect(rootNode.textContent).toContain('More featured extensions');
   });
 
+  it('renders a link to all categories', () => {
+    const fakeDispatch = sinon.stub();
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+    };
+    const root = shallow(
+      <LandingPageBase
+        dispatch={fakeDispatch}
+        i18n={getFakeI18nInst()}
+        params={fakeParams}
+      />
+    );
+
+    expect(root.find('.LandingPage-button'))
+      .toHaveProp('children', 'Explore all categories');
+  });
+
   it('sets the links in each footer for extensions', () => {
     const fakeDispatch = sinon.stub();
     const fakeParams = {
@@ -81,14 +98,14 @@ describe('<LandingPage />', () => {
       />
     );
 
-    expect(root.childAt(1).prop('footerLink')).toEqual({
+    expect(root.childAt(3)).toHaveProp('footerLink', {
       pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
     });
-    expect(root.childAt(2).prop('footerLink')).toEqual({
+    expect(root.childAt(4)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.childAt(3).prop('footerLink')).toEqual({
+    expect(root.childAt(5)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
     });
@@ -107,14 +124,14 @@ describe('<LandingPage />', () => {
       />
     );
 
-    expect(root.childAt(1).prop('footerLink')).toEqual({
+    expect(root.childAt(3)).toHaveProp('footerLink', {
       pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
     });
-    expect(root.childAt(2).prop('footerLink')).toEqual({
+    expect(root.childAt(4)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.childAt(3).prop('footerLink')).toEqual({
+    expect(root.childAt(5)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
     });
