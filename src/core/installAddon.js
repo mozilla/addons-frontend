@@ -189,27 +189,6 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
           });
       },
 
-      enable({ _showInfo = showInfo } = {}) {
-        const { guid, iconUrl, name } = ownProps;
-        return _addonManager.enable(guid)
-          .then(() => {
-            if (!_addonManager.hasPermissionPromptsEnabled()) {
-              _showInfo({ name, iconUrl });
-            }
-          })
-          .catch((err) => {
-            if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
-              log.info(
-                `addon.setEnabled not available. Unable to enable ${guid}`);
-            } else {
-              log.error(err);
-              dispatch(setInstallState({
-                guid, status: ERROR, error: FATAL_ERROR,
-              }));
-            }
-          });
-      },
-
       install() {
         const { guid, iconUrl, installURL, name } = ownProps;
         dispatch({ type: START_DOWNLOAD, payload: { guid } });
@@ -260,8 +239,10 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
 export class WithInstallHelpers extends React.Component {
   static propTypes = {
     WrappedComponent: PropTypes.func.isRequired,
+    _addonManager: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
+    iconUrl: PropTypes.string,
     hasAddonManager: PropTypes.bool.isRequired,
     installTheme: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
@@ -298,6 +279,41 @@ export class WithInstallHelpers extends React.Component {
     }
   }
 
+  enable({ _showInfo = this.showInfo } = {}) {
+    const { _addonManager, dispatch, guid, iconUrl, name } = this.props;
+    return _addonManager.enable(guid)
+      .then(() => {
+        if (!_addonManager.hasPermissionPromptsEnabled()) {
+          _showInfo({ name, iconUrl });
+        }
+      })
+      .catch((err) => {
+        if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
+          log.info(
+            `addon.setEnabled not available. Unable to enable ${guid}`);
+        } else {
+          log.error(err);
+          dispatch(setInstallState({
+            guid, status: ERROR, error: FATAL_ERROR,
+          }));
+        }
+      });
+  }
+
+  showInfo({ name, iconUrl }) {
+    const { dispatch } = this.props;
+    dispatch({
+      type: SHOW_INFO,
+      payload: {
+        addonName: name,
+        imageURL: iconUrl,
+        closeAction: () => {
+          dispatch({ type: CLOSE_INFO });
+        },
+      },
+    });
+  }
+
   previewTheme(node, _themeAction = themeAction) {
     const guid = getGuid(this.props);
     _themeAction(node, THEME_PREVIEW);
@@ -326,6 +342,7 @@ export class WithInstallHelpers extends React.Component {
 
     // Wrapped components will receive these prop functions.
     const exposedPropHelpers = {
+      enable: (...args) => this.enable(...args),
       previewTheme: (...args) => this.previewTheme(...args),
       resetThemePreview: (...args) => this.resetThemePreview(...args),
     };

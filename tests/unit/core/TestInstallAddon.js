@@ -408,45 +408,64 @@ describe('withInstallHelpers inner functions', () => {
     const iconUrl = 'something.jpg';
 
     it('calls addonManager.enable() and content notification', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+
       const fakeAddonManager = getFakeAddonManagerWrapper({
         permissionPromptsEnabled: false,
       });
-      const dispatch = sinon.spy();
-      const { enable } = mapDispatchToProps(
-        dispatch,
-        { name, iconUrl, guid, _addonManager: fakeAddonManager });
+      const props = {
+        store, name, iconUrl, guid, _addonManager: fakeAddonManager,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const enable = root.prop('enable');
+
       const fakeShowInfo = sinon.stub();
       return enable({ _showInfo: fakeShowInfo })
         .then(() => {
-          expect(fakeAddonManager.enable.calledWith(guid)).toBeTruthy();
-          expect(fakeShowInfo.calledWith({ name, iconUrl })).toBeTruthy();
+          sinon.assert.calledWith(fakeAddonManager.enable, guid);
+          sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
         });
     });
 
     it('calls addonManager.enable() without content notification', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+
       const fakeAddonManager = getFakeAddonManagerWrapper({
         permissionPromptsEnabled: true,
       });
-      const dispatch = sinon.spy();
-      const { enable } = mapDispatchToProps(
-        dispatch,
-        { name, iconUrl, guid, _addonManager: fakeAddonManager });
+      const props = {
+        store, name, iconUrl, guid, _addonManager: fakeAddonManager,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const enable = root.prop('enable');
+
       const fakeShowInfo = sinon.stub();
       return enable({ _showInfo: fakeShowInfo })
         .then(() => {
-          expect(fakeAddonManager.enable.calledWith(guid)).toBeTruthy();
-          expect(fakeShowInfo.neverCalledWith({ name, iconUrl })).toBeTruthy();
+          sinon.assert.calledWith(fakeAddonManager.enable, guid);
+          sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
         });
     });
 
     it('dispatches a FATAL_ERROR', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const fakeAddonManager = {
         enable: sinon.stub().returns(Promise.reject(new Error('hai'))),
       };
-      const dispatch = sinon.spy();
-      const { enable } = mapDispatchToProps(
-        dispatch,
-        { name, iconUrl, guid, _addonManager: fakeAddonManager });
+      const props = {
+        store, name, iconUrl, guid, _addonManager: fakeAddonManager,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const enable = root.prop('enable');
+
       return enable()
         .then(() => {
           sinon.assert.calledWith(
@@ -457,13 +476,20 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const fakeAddonManager = {
         enable: sinon.stub().returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
       };
-      const dispatch = sinon.spy();
-      const { enable } = mapDispatchToProps(
-        dispatch,
-        { name, iconUrl, guid, _addonManager: fakeAddonManager });
+      const props = {
+        store, name, iconUrl, guid, _addonManager: fakeAddonManager,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const enable = root.prop('enable');
+
       return enable()
         .then(() => {
           sinon.assert.notCalled(dispatch);
