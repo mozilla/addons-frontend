@@ -162,16 +162,6 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
     return {
       WrappedComponent,
       dispatch,
-      resetThemePreview(node, _themeAction = themeAction) {
-        const guid = getGuid(ownProps);
-        _themeAction(node, THEME_RESET_PREVIEW);
-        dispatch({
-          type: THEME_RESET_PREVIEW,
-          payload: {
-            guid,
-          },
-        });
-      },
       setCurrentStatus(props = ownProps) {
         const { installURL } = props;
         const guid = getGuid(props);
@@ -320,12 +310,24 @@ export class WithInstallHelpers extends React.Component {
     });
   }
 
+  resetThemePreview(node, _themeAction = themeAction) {
+    const guid = getGuid(this.props);
+    _themeAction(node, THEME_RESET_PREVIEW);
+    this.props.dispatch({
+      type: THEME_RESET_PREVIEW,
+      payload: {
+        guid,
+      },
+    });
+  }
+
   render() {
     const { WrappedComponent, ...props } = this.props;
 
     // Wrapped components will receive these prop functions.
     const exposedPropHelpers = {
       previewTheme: (...args) => this.previewTheme(...args),
+      resetThemePreview: (...args) => this.resetThemePreview(...args),
     };
 
     return <WrappedComponent {...exposedPropHelpers} {...props} />;

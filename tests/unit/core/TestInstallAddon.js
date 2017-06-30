@@ -760,11 +760,19 @@ describe('withInstallHelpers inner functions', () => {
 
     describe('resetThemePreview', () => {
       it('calls theme action with THEME_RESET_PREVIEW', () => {
-        const dispatchSpy = sinon.spy();
-        const { resetThemePreview } = makeMapDispatchToProps({})(dispatchSpy, {
-          type: ADDON_TYPE_THEME,
+        const Component = componentWithInstallHelpers();
+        const { store } = createStore();
+        const dispatchSpy = sinon.stub(store, 'dispatch');
+
+        const props = {
           guid: 'fake-guid@whatever',
-        });
+          type: ADDON_TYPE_THEME,
+          store,
+        };
+        const root = shallow(<Component {...props} />)
+          .first().shallow(); // unwrap to BaseComponent
+        const resetThemePreview = root.prop('resetThemePreview');
+
         const themeAction = sinon.spy();
         const node = sinon.stub();
         resetThemePreview(node, themeAction);
