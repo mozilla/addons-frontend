@@ -13,6 +13,9 @@
   display: flex;
 
   .AddonReviewList-header-text {
+    min-width: 50%;
+    word-wrap: break-word;
+
     > h2,
     > h3 {
       font-size: 1.1em;
