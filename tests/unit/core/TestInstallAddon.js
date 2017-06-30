@@ -1,7 +1,8 @@
 import config from 'config';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
+import { compose } from 'redux';
 
 import createStore from 'amo/store';
 import { setInstallState } from 'core/actions/installations';
@@ -33,6 +34,7 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeAddonManagerWrapper } from 'tests/unit/helpers';
 import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
@@ -57,6 +59,78 @@ describe('withInstallHelpers', () => {
     const { store } = createStore();
     const root = shallow(<Component store={store} />);
     expect(root.type()).toEqual(WithInstallHelpers);
+  });
+
+  it('sets status when the component is mounted', () => {
+    const BaseComponent = () => <div />;
+    const Component = compose(
+      withInstallHelpers({ src: 'some-src' })
+    )(BaseComponent);
+
+    const setCurrentStatus = sinon.stub();
+
+    const props = {
+      addon: fakeAddon,
+      // Use a spread to simulate how Addon and other components
+      // do it in mapStateToProps().
+      ...fakeAddon,
+      hasAddonManager: true,
+      store: createStore().store,
+      setCurrentStatus,
+    };
+    mount(<Component {...props} />);
+
+    sinon.assert.calledWithMatch(setCurrentStatus, props);
+  });
+
+  it('sets status when getting updated', () => {
+    const BaseComponent = () => <div />;
+    const Component = compose(
+      withInstallHelpers({ src: 'some-src' })
+    )(BaseComponent);
+
+    const setCurrentStatus = sinon.stub();
+
+    const root = mount(
+      <Component
+        hasAddonManager
+        setCurrentStatus={setCurrentStatus}
+        store={createStore().store}
+      />
+    );
+
+    setCurrentStatus.reset();
+    // Use a spread to simulate how Addon and other components
+    // do it in mapStateToProps().
+    const props = { addon: fakeAddon, ...fakeAddon };
+    root.setProps(props);
+    sinon.assert.calledWithMatch(setCurrentStatus, props);
+  });
+
+  it('does not set status when an update is not necessary', () => {
+    const BaseComponent = () => <div />;
+    const Component = compose(
+      withInstallHelpers({ src: 'some-src' })
+    )(BaseComponent);
+
+    const setCurrentStatus = sinon.stub();
+
+    const props = {
+      addon: fakeAddon,
+      // Use a spread to simulate how Addon and other components
+      // do it in mapStateToProps().
+      ...fakeAddon,
+      hasAddonManager: true,
+      store: createStore().store,
+      setCurrentStatus,
+    };
+    const root = mount(<Component {...props} />);
+
+    setCurrentStatus.reset();
+    // Update the component with the same props (i.e. same add-on guid)
+    // and make sure the status is not set.
+    root.setProps(props);
+    sinon.assert.notCalled(setCurrentStatus);
   });
 
   it('throws without a src', () => {
@@ -108,6 +182,25 @@ describe('withInstallHelpers inner functions', () => {
       const { setCurrentStatus } = mapDispatchToProps(
         dispatch, { _addonManager: getFakeAddonManagerWrapper(), guid, installURL });
       return setCurrentStatus()
+        .then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({ guid, status: ENABLED, url: installURL }),
+          );
+        });
+    });
+
+    it('lets you pass custom props to setCurrentStatus', () => {
+      const dispatch = sinon.spy();
+      const guid = '@foo';
+      const installURL = 'http://the.url';
+      const { setCurrentStatus } = mapDispatchToProps(dispatch, {
+        _addonManager: getFakeAddonManagerWrapper(),
+      });
+
+      const props = { guid, installURL };
+      dispatch.reset();
+      return setCurrentStatus(props)
         .then(() => {
           sinon.assert.calledWith(
             dispatch,

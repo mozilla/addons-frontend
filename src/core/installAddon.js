@@ -182,9 +182,9 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
           },
         });
       },
-      setCurrentStatus() {
-        const { installURL } = ownProps;
-        const guid = getGuid(ownProps);
+      setCurrentStatus(props = ownProps) {
+        const { installURL } = props;
+        const guid = getGuid(props);
         const payload = { guid, url: installURL };
 
         return _addonManager.getAddon(guid)
@@ -193,9 +193,10 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
               ENABLED : DISABLED;
 
             dispatch(setInstallState({ ...payload, status }));
-          }, () => {
+          }, (error) => {
             log.info(
-              `Add-on "${guid}" not found so setting status to UNINSTALLED`);
+              oneLine`Add-on "${guid}" not found so setting status to
+              UNINSTALLED; exact error: ${error}`);
             dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
           })
           .catch((err) => {
@@ -279,6 +280,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
 export class WithInstallHelpers extends React.Component {
   static propTypes = {
     WrappedComponent: PropTypes.func.isRequired,
+    guid: PropTypes.string,
     hasAddonManager: PropTypes.bool.isRequired,
     installTheme: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
@@ -293,10 +295,23 @@ export class WithInstallHelpers extends React.Component {
   }
 
   componentDidMount() {
-    const { hasAddonManager, setCurrentStatus } = this.props;
+    this.setCurrentStatus(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { guid: oldGuid } = this.props;
+    const { guid: newGuid } = nextProps;
+    if (newGuid && newGuid !== oldGuid) {
+      log.info('Updating add-on status');
+      this.setCurrentStatus({ ...this.props, ...nextProps });
+    }
+  }
+
+  setCurrentStatus(props) {
+    const { hasAddonManager, setCurrentStatus } = props;
     if (hasAddonManager) {
       log.info('Setting add-on status');
-      setCurrentStatus();
+      setCurrentStatus(props);
     } else {
       log.info('No addon manager, cannot set add-on status');
     }
