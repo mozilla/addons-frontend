@@ -13,7 +13,6 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
-import fallbackIcon from 'amo/img/icons/default-64.png';
 import { fetchAddon } from 'core/actions/addons';
 import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
@@ -22,11 +21,11 @@ import {
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
-  isAllowedOrigin,
   getClientCompatibility as _getClientCompatibility,
   nl2br,
   sanitizeHTML,
 } from 'core/utils';
+import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import Button from 'ui/components/Button';
@@ -123,8 +122,7 @@ export class AddonBase extends React.Component {
     } = this.props;
     const previewURL = addon ? addon.previewURL : null;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
-    const iconUrl = addon && isAllowedOrigin(addon.icon_url) ? addon.icon_url :
-      fallbackIcon;
+    const iconUrl = getAddonIconUrl(addon);
 
     if (type === ADDON_TYPE_THEME) {
       const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
