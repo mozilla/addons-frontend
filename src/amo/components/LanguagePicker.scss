@@ -1,6 +1,5 @@
 @import "~amo/css/inc/vars";
-
-$selector-padding: 10px;
+@import "~ui/css/vars";
 
 .LanguagePicker-header {
   margin: 0 0 5px;
@@ -9,25 +8,26 @@ $selector-padding: 10px;
 .LanguagePicker-selector {
   appearance: none;
   background:
-    url('../img/icons/globe.svg') no-repeat #{$selector-padding} 50%,
-    $base-color url('../img/icons/triangle-down.svg')
-    no-repeat calc(100% - #{$selector-padding}) 50%;
-  background-size: 20px 20px, 15px 15px;
+    url('~ui/components/Icon/globe.svg') no-repeat 10px 50%,
+    $neutral-base-color url('~ui/components/Icon/triangle-down.svg')
+    no-repeat calc(100% - 10px) 50%;
+  background-size: 16px, 12px;
   border: 0;
   border-radius: $border-radius-default;
-  color: $link-color;
+  color: $white;
   display: block;
   font-size: $font-size-s;
   line-height: 1;
-  padding: $selector-padding $selector-padding #{$selector-padding - 1} #{$selector-padding * 3};
+  max-width: 220px;
+  padding: 5px 15px 3.5px 30px;
   width: 100%;
 
   [dir=rtl] & {
     background:
-      url('../img/icons/globe.svg') no-repeat calc(100% - #{$selector-padding}) 50%,
-      $base-color url('../img/icons/triangle-down.svg')
-      no-repeat #{$selector-padding} 50%;
-    background-size: 20px 20px, 15px 15px;
-    padding: $selector-padding #{$selector-padding * 3} #{$selector-padding - 1} $selector-padding;
+      url('~ui/components/Icon/globe.svg') no-repeat calc(100% - 10px) 50%,
+      $neutral-base-color url('~ui/components/Icon/triangle-down.svg')
+      no-repeat 10px 50%;
+    background-size: 16px, 12px;
+    padding: 5px 30px 3.5px 15px;
   }
 }

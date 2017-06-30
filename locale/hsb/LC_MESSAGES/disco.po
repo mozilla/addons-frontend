@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:43+0000\n"
+"POT-Creation-Date: 2017-06-06 20:17+0000\n"
 "PO-Revision-Date: 2017-03-17 17:17+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,11 +15,11 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serwerowy zmylk"
 
-#: src/core/components/ErrorPage/GenericError/index.js:27
+#: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
@@ -27,120 +27,120 @@ msgstr ""
 "Bphužel je zmylk wustupił a njemóžachmy waše naprašowanje dokónčić. Smy "
 "tutón zmylk protokolowali a budźemy jón přeslědźeć."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Zmylkowy kod: %(status)s."
 
-#: src/core/components/ErrorPage/NotFound/index.js:24
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Strona njeje so namakała"
 
-#: src/core/components/ErrorPage/NotFound/index.js:26
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Bohužel njemóžemy ničo na URL namakać, kotryž sće podał."
 
-#: src/core/components/InstallButton/index.js:105
-#: src/core/components/InstallButton/index.js:121
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
-#: src/core/components/InstallButton/index.js:84
+#: src/core/components/InstallButton/index.js:85
 msgid "Install Theme"
 msgstr "Drastu instalować"
 
-#: src/core/components/InstallSwitch/index.js:54
+#: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
 msgstr "%(name)s so sćahuje."
 
-#: src/core/components/InstallSwitch/index.js:57
+#: src/core/components/InstallSwitch/index.js:58
 msgid "Installing %(name)s."
 msgstr "%(name)s so instaluje."
 
-#: src/core/components/InstallSwitch/index.js:61
+#: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr ""
 "%(name)s je so instalował a zmóžnił. Klikńće, zo byšće jón wotinstalował."
 
-#: src/core/components/InstallSwitch/index.js:64
+#: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s je znjemóžnjeny. Klikńće na „Zmóžnić“."
 
-#: src/core/components/InstallSwitch/index.js:67
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s so wotinstaluje."
 
-#: src/core/components/InstallSwitch/index.js:70
+#: src/core/components/InstallSwitch/index.js:71
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s je wotinstalowany. Klikńće na „Instalować“."
 
-#: src/core/components/InstallSwitch/index.js:73
+#: src/core/components/InstallSwitch/index.js:74
 msgid "Install state for %(name)s is unknown."
 msgstr "Instalowanski status za %(name)s je njeznaty."
 
-#: src/core/containers/InfoDialog/index.js:31
+#: src/core/containers/InfoDialog/index.js:32
 msgid "Your add-on is ready"
 msgstr "Waš přidatk je hotowy"
 
-#: src/core/containers/InfoDialog/index.js:33
+#: src/core/containers/InfoDialog/index.js:34
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Nětko maće přistup na %(name)s ze symboloweje lajsty."
 
-#: src/core/containers/InfoDialog/index.js:38
+#: src/core/containers/InfoDialog/index.js:39
 msgid "OK!"
 msgstr "W porjadku!"
 
-#: src/disco/components/Addon.js:100
+#: src/disco/components/Addon.js:101
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s "
 "kliknyć"
 
-#: src/disco/components/Addon.js:113
+#: src/disco/components/Addon.js:114
 msgid "Hover over the image to preview"
 msgstr "Pohíbujće myšku nad wobraz za přehlad"
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:135
 msgid "Installation failed. Please try again."
 msgstr "Instalacija je so nimokuliła. Prošu spytajće hišće raz."
 
-#: src/disco/components/Addon.js:136
+#: src/disco/components/Addon.js:137
 msgid "Download failed. Please check your connection."
 msgstr "Sćehnjenje je so nimokuliło. Prošu přepruwujće swój zwisk."
 
-#: src/disco/components/Addon.js:138
+#: src/disco/components/Addon.js:139
 msgid "An unexpected error occurred during installation."
 msgstr "Njewočakowany zmylk je při instalowanju wustupił."
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:141
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Njewočakowany zmylk je při wotinstalowanju wustupił."
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:144
 msgid "An unexpected error occurred."
 msgstr "Njewočakowany zmylk je wustupił."
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:152
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tutón přidatk so wotinstaluje, po tym zo sće Firefox znowa startował."
 
-#: src/disco/components/Addon.js:153
+#: src/disco/components/Addon.js:154
 msgid "Please restart Firefox to use this add-on."
 msgstr "Prošu startujće Firefox znowa, zo byšće tutón přidatk wužiwał."
 
-#: src/disco/components/Addon.js:68
+#: src/disco/components/Addon.js:69
 msgid "Close"
 msgstr "Začinić"
 
-#: src/disco/containers/App.js:32
+#: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
 msgstr "Přidatki wotkryć"
 
-#: src/disco/containers/DiscoPane.js:103
+#: src/disco/containers/DiscoPane.js:104
 msgid "Personalize Your Firefox"
 msgstr "Přiměrće swój Firefox"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:105
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -154,19 +154,19 @@ msgstr ""
 "wěsćiše činja. Přidatki činja waš wobhladowak k wašemu. Za spočatk "
 "doporučamy wam někotre wukonliwe přidatki z wjele funkcijemi."
 
-#: src/disco/containers/DiscoPane.js:112
+#: src/disco/containers/DiscoPane.js:113
 msgid "Click to play"
 msgstr "Klikńće, zo byšće wothrał"
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:114
 msgid "to find out more about add-ons"
 msgstr "zo byšće wjace wo přidatkach zhonił"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:123
 msgid "Close video"
 msgstr "Widejo začinić"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:134
 msgid "See more add-ons!"
 msgstr "Wobhladajće sej dalše přidatki!"
 

@@ -1,3 +1,4 @@
+/* global Intl */
 /* @flow */
 import config from 'config';
 import Jed from 'jed';
@@ -234,17 +235,42 @@ type I18nConfig = {|
   _momentDefineLocale?: Function,
 |};
 
+type makeI18nOptions = {|
+  _Intl?: typeof Intl,
+|};
+
+
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.
-export function makeI18n(i18nData: I18nConfig, lang: string, _Jed: Jed = Jed) {
+export function makeI18n(
+  i18nData: I18nConfig,
+  lang: string,
+  _Jed: Jed = Jed,
+  // Checks required to guard against ReferenceError when Intl is not defined.
+  // $FLOW_FIXME
+  { _Intl = typeof Intl !== 'undefined' ? Intl : undefined }: makeI18nOptions = {}
+) {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
 
   // TODO: move all of this to an I18n class that extends Jed so that we
   // can type-check all the components that rely on the i18n object.
   // Note: the available locales for tests are controlled in tests/setup.js
-  // $FLOW_IGNORE
-  i18n.formatNumber = (number) => new Intl.NumberFormat(lang).format(number);
+  if (typeof _Intl === 'object' && Object.prototype.hasOwnProperty.call(_Intl, 'NumberFormat')) {
+    log.info('Intl.NumberFormat exists');
+    i18n.numberFormat = new _Intl.NumberFormat(lang);
+  } else {
+    log.info('Intl.NumberFormat does NOT exist');
+  }
+
+  i18n.formatNumber = (number) => {
+    if (typeof i18n.numberFormat !== 'undefined') {
+      return i18n.numberFormat.format(number);
+    }
+    // Intl is not yet supported on FF Android though it is expected to land in 54
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=1215247
+    return number.toLocaleString(lang);
+  };
 
   // This adds the correct moment locale for the active locale so we can get
   // localised dates, times, etc.

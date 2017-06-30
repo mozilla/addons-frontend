@@ -1,6 +1,7 @@
 /* global window */
 import classNames from 'classnames';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -26,7 +27,6 @@ export class InstallButtonBase extends React.Component {
     hasAddonManager: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     installTheme: PropTypes.func.isRequired,
-    size: PropTypes.string,
     status: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.string.isRequired,
     _log: PropTypes.object,
@@ -53,14 +53,13 @@ export class InstallButtonBase extends React.Component {
       getClientCompatibility,
       hasAddonManager,
       i18n,
-      size,
       userAgentInfo,
       _log,
       _window,
     } = this.props;
 
-    // OpenSearch plugins display their own prompt so using the "Add to Firefox"
-    // button regardless on mozAddonManager support is a better UX.
+    // OpenSearch plugins display their own prompt so using the "Add to
+    // Firefox" button regardless on mozAddonManager support is a better UX.
     const useButton = (hasAddonManager !== undefined && !hasAddonManager) ||
       addon.type === ADDON_TYPE_OPENSEARCH;
     let button;
@@ -69,18 +68,20 @@ export class InstallButtonBase extends React.Component {
       addon, clientApp, userAgentInfo });
 
     const buttonIsDisabled = !compatible;
-    const buttonClass = classNames('InstallButton-button', {
-      'InstallButton-button--disabled': buttonIsDisabled,
-    });
+    const buttonClass = classNames(
+      'InstallButton-button', 'Button--action', className, {
+        'InstallButton-button--disabled': buttonIsDisabled,
+      }
+    );
 
     if (addon.type === ADDON_TYPE_THEME) {
       button = (
         <Button
+          className={buttonClass}
           disabled={buttonIsDisabled}
           data-browsertheme={JSON.stringify(getThemeData(addon))}
           onClick={this.installTheme}
-          size={size}
-          className={buttonClass}>
+        >
           {i18n.gettext('Install Theme')}
         </Button>
       );
@@ -96,11 +97,12 @@ export class InstallButtonBase extends React.Component {
       };
       button = (
         <Button
-          className={classNames('Button', buttonClass)}
+          className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
-          size={size}
-          to={addon.installURL}
+          href={addon.installURL}
+          prependClientApp={false}
+          prependLang={false}
         >
           {i18n.gettext('Add to Firefox')}
         </Button>
@@ -113,17 +115,19 @@ export class InstallButtonBase extends React.Component {
       } : null;
       button = (
         <Button
+          className={buttonClass}
           disabled={buttonIsDisabled}
-          to={addon.installURL}
           onClick={onClick}
-          size={size}
-          className={buttonClass}>
+          href={addon.installURL}
+          prependClientApp={false}
+          prependLang={false}
+        >
           {i18n.gettext('Add to Firefox')}
         </Button>
       );
     }
     return (
-      <div className={classNames('InstallButton', className, {
+      <div className={classNames('InstallButton', {
         'InstallButton--use-button': useButton,
         'InstallButton--use-switch': !useButton,
       })}>

@@ -1,20 +1,53 @@
 @import '~core/css/inc/mixins';
-@import '~core/css/inc/vars';
+@import '~ui/css/vars';
 
-.Button,
-.Button:link {
-  @include button();
+.Button--neutral {
+  @include button(
+    $background: $neutral-base-color,
+    $background-active: $neutral-active-color,
+    $background-hover: $neutral-hover-color
+  );
 }
 
-.Button--light,
-.Button--light:link {
-  @include button(#fff, $link-color);
+.Button--light {
+  @include button(
+    $background: $light-base-color,
+    $background-active: $light-active-color,
+    $background-hover: $light-hover-color,
+    $color: $type-black
+  );
+
+  text-shadow: none;
 }
 
-.Button,
-.Button:link {
-  &.Button--small {
-    border-radius: $border-radius-s;
-    font-size: 13px;
-  }
+.Button--action {
+  @include button(
+    $background: $action-base-color,
+    $background-active: $action-active-color,
+    $background-hover: $action-hover-color
+  );
+}
+
+.Button--confirm {
+  @include button(
+    $background: $action-base-color,
+    $background-active: $action-active-color,
+    $background-hover: $action-hover-color
+  );
+}
+
+.Button--alert {
+  @include button(
+    $background: $action-base-color,
+    $background-active: $action-active-color,
+    $background-hover: $action-hover-color
+  );
+}
+
+.Button--report {
+  @include button(
+    $background: $action-base-color,
+    $background-active: $action-active-color,
+    $background-hover: $action-hover-color
+  );
 }

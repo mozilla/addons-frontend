@@ -1,0 +1,66 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.Header {
+  background: $header-base-color;
+  min-height: 100px;
+  position: relative;
+}
+
+.Header-content {
+  padding: 20px 0 10px;
+  text-align: center;
+
+  @include respond-to(large) {
+    padding: 10px 0;
+  }
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.Header-title {
+  align-items: center;
+  color: $header-font-color;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  line-height: 1.3;
+  padding: 0 20px;
+
+  &:link {
+    color: $header-font-color;
+    font-size: 24px;
+    text-decoration: none;
+  }
+
+  .Header-addons-icon {
+    @include margin-end(8px);
+
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.Header-top-row {
+  display: flex;
+  margin: 0 15px;
+  justify-content: flex-end;
+}
+
+.Header-developer-hub-link {
+  display: none;
+
+  @include respond-to(large) {
+    @include margin-end(10px);
+
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
+
+.Header-auth-button {
+  margin-top: 10px;
+}

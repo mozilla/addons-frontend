@@ -4,7 +4,6 @@ import {
   LOG_OUT_USER,
   SET_AUTH_TOKEN,
   SET_CLIENT_APP,
-  SET_CURRENT_USER,
   SET_LANG,
   SET_USER_AGENT,
 } from 'core/constants';
@@ -80,17 +79,5 @@ export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
   return {
     type: ENTITIES_LOADED,
     payload: { entities },
-  };
-}
-
-export type SetCurrentUserAction = {|
-  payload: {| username: string |},
-  type: string,
-|};
-
-export function setCurrentUser(username: string): SetCurrentUserAction {
-  return {
-    type: SET_CURRENT_USER,
-    payload: { username },
   };
 }

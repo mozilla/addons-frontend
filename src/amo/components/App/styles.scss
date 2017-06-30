@@ -1,0 +1,114 @@
+@import "~normalize.css";
+@import "~core/css/inc/lib";
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+html,
+body {
+  background: $footer-base-color;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include font-regular();
+
+  font-size: $font-size-default;
+  color: $body-font-color;
+  line-height: 19px;
+}
+
+#react-view {
+  height: 100%;
+}
+
+.amo {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.App-content {
+  background: $background-grey;
+  flex-grow: 1;
+  padding: 0 0 $padding-page;
+}
+
+h1,
+h2 {
+  @include font-bold();
+
+  color: $primary-font-color;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: $font-size-xl;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 12px;
+}
+
+h3 {
+  @include font-bold();
+
+  font-size: 14px;
+  line-height: 19px;
+}
+
+a:link {
+  @include font-medium();
+
+  font-size: 14px;
+  color: $link-color;
+}
+
+em {
+  @include font-regular-italic();
+}
+
+strong {
+  @include font-bold();
+}
+
+.caption {
+  font-size: 10px;
+  color: $primary-font-color;
+  line-height: 11px;
+}
+
+.date-time {
+  font-size: 14px;
+  color: #b1b1b1;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.App-loading-bar {
+  background: $loading-bar-color;
+  height: 2px;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+}

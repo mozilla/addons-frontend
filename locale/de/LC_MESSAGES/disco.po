@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 18:43+0000\n"
+"POT-Creation-Date: 2017-06-06 20:17+0000\n"
 "PO-Revision-Date: 2017-03-17 16:35+0000\n"
 "Last-Translator: Richard <richard.stanke@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serverfehler"
 
-#: src/core/components/ErrorPage/GenericError/index.js:27
+#: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
@@ -27,123 +27,123 @@ msgstr ""
 "nicht abgeschlossen werden. Der Fehler wurde protokolliert und wird "
 "untersucht."
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Fehlercode: %(status)s."
 
-#: src/core/components/ErrorPage/NotFound/index.js:24
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Seite nicht gefunden"
 
-#: src/core/components/ErrorPage/NotFound/index.js:26
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Entschuldigen Sie, aber wir konnten zu der eingegebenen URL nichts finden."
 
-#: src/core/components/InstallButton/index.js:105
-#: src/core/components/InstallButton/index.js:121
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Zu Firefox hinzufügen"
 
-#: src/core/components/InstallButton/index.js:84
+#: src/core/components/InstallButton/index.js:85
 msgid "Install Theme"
 msgstr "Theme installieren"
 
-#: src/core/components/InstallSwitch/index.js:54
+#: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
 msgstr "%(name)s wird heruntergeladen."
 
-#: src/core/components/InstallSwitch/index.js:57
+#: src/core/components/InstallSwitch/index.js:58
 msgid "Installing %(name)s."
 msgstr "%(name)s wird installiert."
 
-#: src/core/components/InstallSwitch/index.js:61
+#: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr ""
 "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu "
 "deinstallieren."
 
-#: src/core/components/InstallSwitch/index.js:64
+#: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s wurde deaktiviert. Klicken Sie, um es zu aktivieren."
 
-#: src/core/components/InstallSwitch/index.js:67
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s wird deinstalliert."
 
-#: src/core/components/InstallSwitch/index.js:70
+#: src/core/components/InstallSwitch/index.js:71
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s wurde deinstalliert. Klicken Sie, um es zu installieren."
 
-#: src/core/components/InstallSwitch/index.js:73
+#: src/core/components/InstallSwitch/index.js:74
 msgid "Install state for %(name)s is unknown."
 msgstr "Installationsstatus für %(name)s ist unbekannt."
 
-#: src/core/containers/InfoDialog/index.js:31
+#: src/core/containers/InfoDialog/index.js:32
 msgid "Your add-on is ready"
 msgstr "Ihr Add-on ist bereit."
 
-#: src/core/containers/InfoDialog/index.js:33
+#: src/core/containers/InfoDialog/index.js:34
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Sie können jetzt über die Symbolleiste auf %(name)s zugreifen."
 
-#: src/core/containers/InfoDialog/index.js:38
+#: src/core/containers/InfoDialog/index.js:39
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:100
+#: src/disco/components/Addon.js:101
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
-#: src/disco/components/Addon.js:113
+#: src/disco/components/Addon.js:114
 msgid "Hover over the image to preview"
 msgstr ""
 "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
 
-#: src/disco/components/Addon.js:134
+#: src/disco/components/Addon.js:135
 msgid "Installation failed. Please try again."
 msgstr "Installation fehlgeschlagen. Bitte versuchen Sie es erneut."
 
-#: src/disco/components/Addon.js:136
+#: src/disco/components/Addon.js:137
 msgid "Download failed. Please check your connection."
 msgstr "Download fehlgeschlagen. Bitte überprüfen Sie Ihre Verbindung."
 
-#: src/disco/components/Addon.js:138
+#: src/disco/components/Addon.js:139
 msgid "An unexpected error occurred during installation."
 msgstr "Bei der Installation ist ein unerwarteter Fehler aufgetreten."
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:141
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Bei der Deinstallation ist ein unerwarteter Fehler aufgetreten."
 
-#: src/disco/components/Addon.js:143
+#: src/disco/components/Addon.js:144
 msgid "An unexpected error occurred."
 msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:152
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ""
 "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
 
-#: src/disco/components/Addon.js:153
+#: src/disco/components/Addon.js:154
 msgid "Please restart Firefox to use this add-on."
 msgstr "Bitte starten Sie Firefox neu, um dieses Add-on zu verwenden."
 
-#: src/disco/components/Addon.js:68
+#: src/disco/components/Addon.js:69
 msgid "Close"
 msgstr "Schließen"
 
-#: src/disco/containers/App.js:32
+#: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
 msgstr "Add-ons entdecken"
 
-#: src/disco/containers/DiscoPane.js:103
+#: src/disco/containers/DiscoPane.js:104
 msgid "Personalize Your Firefox"
 msgstr "Passen Sie Ihren Firefox an."
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:105
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -157,19 +157,19 @@ msgstr ""
 "sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige "
 "besonders leistungsfähige und funktionsreiche Add-ons."
 
-#: src/disco/containers/DiscoPane.js:112
+#: src/disco/containers/DiscoPane.js:113
 msgid "Click to play"
 msgstr "Klicken Sie zum Abspielen"
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:114
 msgid "to find out more about add-ons"
 msgstr "um mehr über Add-ons zu erfahren"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:123
 msgid "Close video"
 msgstr "Video schließen"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:134
 msgid "See more add-ons!"
 msgstr "Sehen Sie sich weitere Add-ons an!"
 

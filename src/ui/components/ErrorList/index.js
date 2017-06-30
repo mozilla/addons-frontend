@@ -1,6 +1,7 @@
 /* global window */
 import classNames from 'classnames';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
@@ -53,7 +54,10 @@ class ErrorList extends React.Component {
 
     if (code === API_ERROR_SIGNATURE_EXPIRED) {
       items.push(
-        <Button onClick={() => _window.location.reload()}>
+        <Button
+          className="Button--action"
+          onClick={() => _window.location.reload()}
+        >
           {i18n.gettext('Reload To Continue')}
         </Button>
       );

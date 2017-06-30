@@ -19,16 +19,13 @@
 
     a:link {
       font-size: $font-size-s;
-      font-weight: 400;
+      font-weight: bold;
     }
   }
 }
 
 .AddonMoreInfo-contents-links-list {
+  list-style: none;
   margin: 0;
-  padding: 0 0 0 10px;
-
-  [dir=rtl] & {
-    padding: 0 10px 0 0;
-  }
+  padding: 0;
 }

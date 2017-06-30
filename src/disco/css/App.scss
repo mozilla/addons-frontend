@@ -37,7 +37,7 @@ img {
   padding: 10px 20px 20px;
 }
 
-@include respond-to('large') {
+@include respond-to(large) {
   .disco-pane {
     padding-top: 50px;
   }
@@ -68,7 +68,7 @@ header {
   }
 }
 
-@include respond-to('large') {
+@include respond-to(large) {
   header {
     background: inherit;
     border-bottom: 1px solid $header-border-color;
@@ -129,7 +129,7 @@ header {
   }
 }
 
-@include respond-to('large') {
+@include respond-to(large) {
   .disco-content {
     font-size: 14px;
     margin-right: 50px;
@@ -197,7 +197,7 @@ header {
   position: relative;
 }
 
-@include respond-to('large') {
+@include respond-to(large) {
   .video-wrapper {
     display: block;
   }
@@ -247,4 +247,8 @@ header {
       text-decoration: underline;
     }
   }
+}
+
+.InstallButton {
+  @include padding-end(20px);
 }

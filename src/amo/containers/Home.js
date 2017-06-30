@@ -1,8 +1,12 @@
 import classNames from 'classnames';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
+import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 
 import 'amo/css/Home.scss';
@@ -25,9 +29,16 @@ const ExtensionLink = (props) => <CategoryLink type="extensions" {...props} />;
 
 const ThemeLink = (props) => <CategoryLink type="themes" {...props} />;
 
-export class HomePageBase extends React.Component {
+export class HomeBase extends React.Component {
   static propTypes = {
+    dispatch: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+  }
+
+  componentWillMount() {
+    const { dispatch } = this.props;
+
+    dispatch(setViewContext(VIEW_CONTEXT_HOME));
   }
 
   render() {
@@ -92,5 +103,7 @@ export class HomePageBase extends React.Component {
 }
 
 export default compose(
+  // This allows us to dispatch from our component.
+  connect(),
   translate({ withRef: true }),
-)(HomePageBase);
+)(HomeBase);

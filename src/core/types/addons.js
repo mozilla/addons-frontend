@@ -1,4 +1,9 @@
 /* @flow */
+import { validAddonTypes } from 'core/constants';
+
+// You have to just laugh at this line!
+type AddonTypeType = validAddonTypes;
+
 export type AddonVersionType = {|
   channel: string,
   edit_url: string,
@@ -20,14 +25,15 @@ export type AddonType = {|
   average_daily_users: number,
   categories: Object,
   compatibility: Object,
+  current_beta_version?: AddonVersionType,
   current_version: AddonVersionType,
   default_locale: string,
-  description: string,
+  description?: string,
   edit_url: string,
   guid: string,
   has_eula: boolean,
   has_privacy_policy: boolean,
-  homepage: string,
+  homepage?: string,
   icon_url: string,
   id: number,
   is_disabled: boolean,
@@ -40,6 +46,7 @@ export type AddonType = {|
   public_stats: boolean,
   ratings: {|
     average: number,
+    bayesian_average: number,
     count: number,
   |},
   review_url: string,
@@ -57,12 +64,12 @@ export type AddonType = {|
     | 'unreviewed'
     | 'lite-nominated'
     | 'review-pending',
-  summary: string,
-  support_email: string,
-  support_url: string,
+  summary?: string,
+  support_email?: string,
+  support_url?: string,
   tags: Array<string>,
   theme_data: Object,
-  type: string,
+  type: AddonTypeType,
   url: string,
   weekly_downloads: number,
 |};

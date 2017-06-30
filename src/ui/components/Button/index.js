@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Link from 'amo/components/Link';
 
@@ -8,31 +9,32 @@ import './Button.scss';
 
 export default class Button extends React.Component {
   static propTypes = {
-    appearance: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
+    href: PropTypes.string,
     to: PropTypes.string,
-    size: PropTypes.string.isRequired,
   }
 
-  static defaultProps = {
-    appearance: undefined,
-    size: 'normal',
-  };
-
   render() {
-    const { appearance, children, className, to, size, ...rest } = this.props;
-    const props = {
-      className: classNames('Button', className, {
-        'Button--small': size === 'small',
-        'Button--light': appearance === 'light',
-      }),
-      ...rest,
-    };
+    const {
+      children,
+      className,
+      href,
+      to,
+      ...rest
+    } = this.props;
+    const props = { className: classNames('Button', className), ...rest };
 
-    if (to) {
-      return <Link {...props} to={to}>{children}</Link>;
+    if (href || to) {
+      if (href) {
+        props.href = href;
+      } else if (to) {
+        props.to = to;
+      }
+
+      return <Link {...props}>{children}</Link>;
     }
+
     return <button {...props}>{children}</button>;
   }
 }

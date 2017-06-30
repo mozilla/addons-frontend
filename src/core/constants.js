@@ -50,7 +50,11 @@ export const ADDON_TYPE_EXTENSION = 'extension';
 export const ADDON_TYPE_LANG = 'language';
 export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_THEME = 'persona';
+// TODO: Remove ADDON_TYPE_COMPLETE_THEME once we don't support complete
+// themes.
+export const ADDON_TYPE_COMPLETE_THEME = 'theme';
 export const validAddonTypes = [
+  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -84,11 +88,16 @@ export const TRACKING_TYPE_EXTENSION = 'addon';
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
+// View Contexts that aren't an addonType
+export const VIEW_CONTEXT_EXPLORE = 'VIEW_CONTEXT_EXPLORE';
+export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
+
 // Add-on Search Sort Values
 export const SEARCH_SORT_POPULAR = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
 
 // Action types.
+export const FETCH_ADDON = 'FETCH_ADDON';
 export const CATEGORIES_FETCH = 'CATEGORIES_FETCH';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CATEGORIES_FAIL = 'CATEGORIES_FAIL';
@@ -105,10 +114,10 @@ export const SEARCH_LOADED = 'SEARCH_LOADED';
 export const SEARCH_STARTED = 'SEARCH_STARTED';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const SET_CLIENT_APP = 'SET_CLIENT_APP';
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_LANG = 'SET_LANG';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
+export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 
 // InfoDialog action types.
 export const CLOSE_INFO = 'CLOSE_INFO';
@@ -183,3 +192,17 @@ export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
 // will be triggered immediately.
 // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Maximum_delay_value
 export const maximumSetTimeoutDelay = 2147483647;
+
+// Category Color Numbers
+// These are used to define the number of colors used to add accent color to a
+// category background header/link. Most have 12, but certain add-on types
+// can have their own color set with a different max number.
+export const CATEGORY_COLORS = {
+  // TODO: Remove when complete theme support is removed.
+  [ADDON_TYPE_COMPLETE_THEME]: 12,
+  [ADDON_TYPE_DICT]: 12,
+  [ADDON_TYPE_EXTENSION]: 10,
+  [ADDON_TYPE_LANG]: 12,
+  [ADDON_TYPE_OPENSEARCH]: 12,
+  [ADDON_TYPE_THEME]: 12,
+};

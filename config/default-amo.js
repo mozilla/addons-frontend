@@ -58,7 +58,6 @@ module.exports = {
   // because they are app-independant, like `/en-US/developers/`.
   validClientAppUrlExceptions: [
     'about',
-    'admin',
     'apps',
     'blocklist',
     'contribute.json',

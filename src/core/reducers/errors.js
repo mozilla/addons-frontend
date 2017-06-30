@@ -66,7 +66,12 @@ export default function errors(state = initialState, action) {
         getMessagesFromError(action.payload.error);
       return {
         ...state,
-        [action.payload.id]: { code, messages },
+        [action.payload.id]: {
+          code,
+          messages,
+          responseStatusCode: action.payload.error.response ?
+            action.payload.error.response.status : null,
+        },
       };
     }
     default:

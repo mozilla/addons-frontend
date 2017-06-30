@@ -30,6 +30,14 @@ export default function addon(state = initialState, action) {
         newState[key] = {
           ...thisAddon,
           ...thisAddon.theme_data,
+          // TODO: Remove this when
+          // https://github.com/mozilla/addons-frontend/issues/1416 is fixed.
+          // theme_data will contain `description: 'None'` when the description
+          // is actually `null` and we don't want to set that on the addon
+          // itself so we reset it in case it's been overwritten.
+          //
+          // See also https://github.com/mozilla/addons-server/issues/5650.
+          description: thisAddon.description,
           guid: getGuid(thisAddon),
           type: ADDON_TYPE_THEME,
         };

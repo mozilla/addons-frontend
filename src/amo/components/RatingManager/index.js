@@ -145,7 +145,7 @@ export class RatingManagerBase extends React.Component {
       <div className="RatingManager-log-in-to-rate">
         <AuthenticateButton
           noIcon
-          className="RatingManager-log-in-to-rate-button"
+          className="RatingManager-log-in-to-rate-button Button--action Button--small"
           location={location}
           logInText={this.getLogInPrompt({ addonType: addon.type })}
         />

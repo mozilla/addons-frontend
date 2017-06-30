@@ -23,68 +23,79 @@ Never submit security-related bugs through a Github Issue or by email.
 
 ## Requirements
 
-* Node 6.x LTS
+* You need [Node](https://nodejs.org/) 6.x which is the current
+  [LTS](https://github.com/nodejs/LTS) (long term support) release.
+* Install [yarn](https://yarnpkg.com/en/) to manage dependencies
+  and run scripts.
 
 The easiest way to manage multiple node versions in development is to use
 [nvm](https://github.com/creationix/nvm).
 
 ## Get started
 
-* npm install
-* npm run dev
+* type `yarn` to install all dependencies
+* type `yarn dev:amo` to start a dev server
 
-## NPM scripts for development
+## Development commands
 
-Generic scripts that don't need env vars. Use these for development:
+Here are some commands you can run:
 
-| Script                  | Description                                           |
-|-------------------------|-------------------------------------------------------|
-| npm run dev:admin       |  Starts the dev server (admin app)                    |
-| npm run dev:amo         |  Starts the dev server and proxy (amo)                |
-| npm run dev:amo:no-proxy|  Starts the dev server without proxy (amo)            |
-| npm run dev:disco       |  Starts the dev server (discovery pane)               |
-| npm run flow:check      |  Check for Flow errors and exit                       |
-| npm run flow:dev        |  Continuously check for Flow errors                   |
-| npm run eslint          |  Lints the JS                                         |
-| npm run stylelint       |  Lints the SCSS                                       |
-| npm run lint            |  Runs all the JS + SCSS linters                       |
-| npm run version-check   |  Checks you have the minimum node + npm versions      |
-| npm test                |  Runs the unittest, servertests + lint                |
-| npm run unittest        |  Runs just the unittests                              |
-| npm run unittest:dev    |  Runs the unittests and watches for changes           |
-| npm run unittest:server |  Starts a unittest server for use with `unittest:run` |
-| npm run unittest:run    |  Executes unittests (requires `unittest:server`)      |
-| npm run servertest      |  Runs the servertests                                 |
+| Command                   | Description |
+|---------------------------|-------------|
+| yarn dev:amo              | Start the dev server and proxy (amo) |
+| yarn dev:amo:no-proxy     | Start the dev server without proxy (amo) |
+| yarn dev:disco            | Start the dev server (discovery pane) |
+| yarn flow                 | Run Flow. By default this checks for errors and exits |
+| yarn flow:check           | Explicitly check for Flow errors and exit |
+| yarn flow:dev             | Continuously check for Flow errors |
+| yarn eslint               | Lint the JS |
+| yarn stylelint            | Lint the SCSS |
+| yarn lint                 | Run all the JS + SCSS linters |
+| yarn version-check        | Check you have the required dependencies |
+| yarn test                 | Run all tests (Enters [jest][] in `--watch` mode) |
+| yarn test-coverage        | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
+| yarn test-coverage-once   | Run all tests, generate code coverage report, then exit |
+| yarn test-once            | Run all tests, run all JS + SCSS linters, then exit |
+| yarn test-ci              | Run all continuous integration checks. This is only meant to run on TravisCI. |
 
 ### Running tests
 
-You can run the entire test suite with `npm test` but there are a few other ways
-to run tests.
+You can enter the interactive [jest][] mode by typing `yarn test`.
+This is the easiest way to develop new features.
 
-#### Run all unit tests in a loop
+Here are a few tips:
 
-You can use `npm run unittest:dev` to run all unit tests in a loop while you
-edit the source code.
+* When you start `yarn test`, you can switch to your code editor and begin
+  adding test files or changing existing code. As you save each file, [jest][]
+  will only run tests related to the code you change.
+* If you had typed `a` when you first started then [jest][] will continue to
+  run the full suite even when you change specific files. Type `o` to switch
+  back to the mode of only running tests related to the files you are changing.
+* If you see something like `Error watching file for changes: EMFILE` on Mac OS
+  then `brew install watchman` might fix it.
+  See https://github.com/facebook/jest/issues/1767
 
-#### Run a subset of the unit tests
+#### Run a subset of the tests
 
-If you don't want to run the entire unit test suite, first you have to start a
-unittest server:
+By default, `yarn test` will only run a subset of tests that relate to the code
+you are working on.
 
-    npm run unittest:server
+To explicitly run a subset of tests, you can type `t` or `p` which are explained
+in the [jest][] watch usage.
 
-When you see "Connected on socket," the server has fully started.
+Alternatively, you can start the test runner with a
+[specific file or regular expression](https://facebook.github.io/jest/docs/en/cli.html#jest-regexfortestfiles),
+like:
+```
+yarn test tests/unit/amo/components/TestAddon.js
+```
 
-Now you can execute a more specific [mocha](https://mochajs.org/) command,
-such as using `--grep` to run only a few tests. Here is an example:
+#### Run all tests
 
-    npm run unittest:run -- --grep=InfoDialog
-
-This would run all tests that either fall under the `InfoDialog` description grouping
-or have `InfoDialog` in their behavior text.
-
-Any option after the double dash (`--`) gets sent to `mocha`. Check out
-[mocha's usage](https://mochajs.org/#usage) for ideas.
+If you want to run all tests and exit, type:
+```
+yarn test-once
+```
 
 ### Flow
 
@@ -93,7 +104,7 @@ to check for problems in the source code.
 
 To check for Flow issues during development while you edit files, run:
 
-    npm run flow:dev
+    yarn flow:dev
 
 If you are new to working with Flow, here are some tips:
 * Check out the [getting started](https://flow.org/en/docs/getting-started/) guide.
@@ -122,7 +133,7 @@ Here is our Flow manifesto:
 * When a function like `getAllAddons` takes object arguments, call its
   type object `GetAllAddonsParams`. Example:
 
-````js
+```js
 type GetAllAddonsParams = {|
   categoryId: number,
 |};
@@ -130,7 +141,7 @@ type GetAllAddonsParams = {|
 function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   ...
 }
-````
+```
 
 * Use [Exact object types](https://flowtype.org/en/docs/types/objects/#toc-exact-object-types)
   via the pipe syntax (`{| key: ... |}`) when possible. Sometimes the
@@ -149,15 +160,24 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   the keyboard. If it's something you think is unfixable then use
   `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link
   to a GitHub issue if possible.
+* If you're stumped on why some Flow annotations aren't working, try using
+  the `yarn flow type-at-pos ...` command to trace which types are being applied
+  to the code. See `yarn flow -- --help type-at-pos` for details.
 
 ### Code coverage
 
-The `npm run unittest` command generates a report of how well the unit tests
-covered each line of source code.
-The continuous integration process will give you a link to view the report.
-To see this report while running tests locally, type:
+To see a report of code coverage, type:
+```
+yarn test-coverage-once
+```
 
-    open ./coverage/index.html
+This will print a table of files showing the percentage of code coverage.
+The uncovered lines will be shown in the right column but you can open
+the full report in a browser:
+
+```
+open coverage/lcov-report/index.html
+```
 
 ### Running AMO for local development
 
@@ -174,8 +194,8 @@ it will not work when logging in from an addons-server page. See
 information on fixing this.
 
 If you would like to use `https://addons-dev.allizom.org` for the API you should use the
-`npm run dev:amo:no-proxy` command with an `API_HOST` to start the server without the proxy. For
-example: `API_HOST=https://addons-dev.allizom.org npm run dev:amo:no-proxy`.
+`yarn dev:amo:no-proxy` command with an `API_HOST` to start the server without the proxy. For
+example: `API_HOST=https://addons-dev.allizom.org yarn dev:amo:no-proxy`.
 
 ### Configuring for local development
 
@@ -193,16 +213,16 @@ test suite.
 Here's what `local-development-disco.js` would look like when
 overriding the `apiHost` parameter so that it points to your docker container:
 
-````javascript
+```javascript
 module.exports = {
   apiHost: 'http://olympia.dev',
 };
-````
+```
 
-When you start up your front-end discover pane server, it will now apply
+When you start up your front-end Discovery Pane server, it will now apply
 overrides from your local configuration file:
 
-    npm run dev:disco
+    yarn dev:disco
 
 Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
@@ -215,11 +235,28 @@ URL will fail our Content Security Policy (CSP) and clutter your console
 with errors. You can turn off all CSP errors by settings CSP to `false`
 in any local config file, such as `local-development-amo.js`. Example:
 
-````javascript
+```javascript
 module.exports = {
   CSP: false,
 };
-````
+```
+
+### Working on the documentation
+
+The documentation you are reading right now lives inside the source repository as
+[Github flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown).
+When you make changes to these files you can create a
+pull request to preview them or, better yet, you can use
+[grip](https://github.com/joeyespo/grip)
+to preview the changes locally.
+After installing `grip`, run it from the source directory like this:
+
+```
+grip .
+```
+
+Open its `localhost` URL and you will see the rendered `README.md` file.
+As you make edits, it will update automatically.
 
 ### Building and running services
 
@@ -231,22 +268,22 @@ The env vars are:
 `NODE_APP_INSTANCE` this is the name of the app e.g. 'disco'
 `NODE_ENV` this is the node environment. e.g. production, dev, stage, development.
 
-| Script                 | Description                                         |
-|------------------------|-----------------------------------------------------|
-| npm run start          |  Starts the express server (requires env vars)      |
-| npm run build          |  Builds the libs (all apps) (requires env vars)     |
+| Script      | Description                                         |
+|-------------|-----------------------------------------------------|
+| yarn start  |  Starts the express server (requires env vars)      |
+| yarn build  |  Builds the libs (all apps) (requires env vars)     |
 
-Example: Building and running a production instance of the AMO app:
+**Example:** Building and running a production instance of the AMO app:
 
-````
-NODE_APP_INSTANCE=amo NODE_ENV=production npm run build
-NODE_APP_INSTANCE=amo NODE_ENV=production npm run start
-````
+```
+NODE_APP_INSTANCE=amo NODE_ENV=production yarn build
+NODE_APP_INSTANCE=amo NODE_ENV=production yarn start
+```
 
-To run the app locally in production mode you'll need to create a config file
-that looks something like this. Name it exactly as `config/local-production-amo.js`.
+**Note: To run the app locally in production mode you'll need to create a config file for local production builds.**
+It must be saved as `config/local-production-amo.js` and should look like:
 
-````js
+```js
 import { apiStageHost, amoStageCDN } from './lib/shared';
 
 module.exports = {
@@ -294,9 +331,9 @@ module.exports = {
   // Do not send client side errors to Sentry.
   publicSentryDsn: null,
 };
-````
+```
 
-After this, re-build and restart using `npm run build` and `npm run start`
+After this, re-build and restart using `yarn build` and `yarn start`
 as documented above.
 If you have used `localhost` before with a different configuration,
 be sure to clear your cookies.
@@ -308,7 +345,7 @@ be sure to clear your cookies.
 You can check to see what commit of `addons-frontend` is deployed by
 making a request like this:
 
-````
+```
 curl https://addons-dev.allizom.org/__frontend_version__
 {
    "build" : "https://circleci.com/gh/mozilla/addons-server/6550",
@@ -316,7 +353,7 @@ curl https://addons-dev.allizom.org/__frontend_version__
    "source" : "https://github.com/mozilla/addons-server",
    "version" : ""
 }
-````
+```
 
 This will return a 415 response if a `version.json` file doesn't exist
 in the root directory. This file is typically generated by the deploy process.
@@ -324,17 +361,16 @@ in the root directory. This file is typically generated by the deploy process.
 For consistency with monitoring scripts, the same data can be retrieved
 at this URL:
 
-````
+```
 curl https://addons-dev.allizom.org/__version__
-````
+```
 
 ## Overview and rationale
 
 This project will hold distinct front-ends e.g:
 
-* Editors' admin/search tool
 * Discovery Pane
-* and beyond...
+* AMO or `addons.mozilla.org`
 
 We've made a conscious decision to avoid "premature modularization" and
 keep this all in one repository. This will help us build out the necessary
@@ -350,3 +386,5 @@ still can.
 * Code written in ES2015+
 * Universal rendering via node
 * Unit tests with high coverage (aiming for 100%)
+
+[jest]: https://facebook.github.io/jest/docs/en/getting-started.html

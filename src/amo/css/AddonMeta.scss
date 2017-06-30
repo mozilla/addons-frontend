@@ -1,3 +1,7 @@
+@import '~core/css/inc/mixins';
+@import '~amo/css/inc/vars';
+@import '~ui/css/vars';
+
 .AddonMeta {
   display: flex;
 }
@@ -9,13 +13,18 @@
 
 .AddonMeta-text {
   display: inline-block;
-  line-height: 1.1;
+  font-size: $font-size-s;
+  font-weight: bold;
   margin: 0;
   padding: 0;
+
+  @include respond-to(medium) {
+    margin-bottom: 4px;
+  }
 }
 
 .AddonMeta-Rating {
   justify-content: flex-start;
-  margin: 2px 0 2px -2.5px;
+  margin: 0;
   padding: 0;
 }

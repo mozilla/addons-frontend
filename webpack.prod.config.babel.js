@@ -1,7 +1,6 @@
 /* eslint-disable max-len, import/no-extraneous-dependencies */
 import path from 'path';
 
-import autoprefixer from 'autoprefixer';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SriPlugin from 'webpack-subresource-integrity';
@@ -22,7 +21,7 @@ for (const app of appsBuildList) {
   entryPoints[app] = `${app}/client`;
 }
 
-const settings = {
+export default {
   devtool: 'source-map',
   context: path.resolve(__dirname),
   entry: entryPoints,
@@ -81,18 +80,3 @@ const settings = {
     extensions: ['.js', '.jsx'],
   },
 };
-
-if (config.get('enablePostCssLoader')) {
-  settings.plugins.push(
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        context: path.resolve(__dirname),
-        postcss: [
-          autoprefixer({ browsers: ['last 2 versions'] }),
-        ],
-      },
-    })
-  );
-}
-
-export default settings;

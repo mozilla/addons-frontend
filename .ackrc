@@ -1,0 +1,13 @@
+# This sets some defaults for ack (https://beyondgrep.com/)
+# that make searching the addons-frontend code a bit easier.
+
+--ignore-file=match:.*\.log
+--ignore-file=is:webpack-assets.json
+--ignore-file=is:yarn.lock
+
+--ignore-dir=.tox
+--ignore-dir=coverage
+--ignore-dir=flow/logs
+--ignore-dir=dist
+--ignore-dir=locale
+--ignore-dir=node_modules

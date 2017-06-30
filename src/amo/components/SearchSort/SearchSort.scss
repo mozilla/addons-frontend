@@ -1,16 +1,30 @@
+@import '~amo/css/inc/vars';
 @import '~core/css/inc/mixins';
-@import '~core/css/inc/vars';
+@import '~ui/css/vars';
 
 .SearchSort {
   background: $base-color;
   border-radius: $border-radius-default;
   border: 0;
-  margin: $padding-page ($padding-page * 2);
   overflow: hidden;
 }
 
+.SearchSort-header {
+  display: none;
+
+  @include respond-to(large) {
+    display: block;
+    text-align: center;
+  }
+}
+
 .SearchSort-toggle {
-  @include button($background: $base-color, $color: $link-color);
+  @include button(
+    $background: $light-base-color,
+    $background-active: $light-active-color,
+    $background-hover: $light-hover-color,
+    $color: $link-color
+  );
 
   // We do this so the button doesn't have weird edges on hover when the
   // sort options are expanded.
@@ -26,6 +40,7 @@
   min-width: 40%;
   position: relative;
   text-align: center;
+  text-shadow: none;
 
   &::before {
     background: url('~amo/img/icons/sort.svg') 50% 50% no-repeat;
@@ -58,6 +73,10 @@
     background: transparentize($link-color, 0.8);
     box-shadow: none;
   }
+
+  @include respond-to(large) {
+    display: none;
+  }
 }
 
 .SearchSort-list {
@@ -69,6 +88,10 @@
   flex-wrap: wrap;
 
   .SearchSort--visible & {
+    display: flex;
+  }
+
+  @include respond-to(large) {
     display: flex;
   }
 }

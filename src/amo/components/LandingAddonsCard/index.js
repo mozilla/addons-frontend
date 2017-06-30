@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
@@ -23,8 +24,13 @@ export default class LandingAddonsCard extends React.Component {
     const footerLinkHtml = <Link to={linkSearchURL}>{footerText}</Link>;
 
     return (
-      <AddonsCard className={classNames('LandingAddonsCard', className)}
-        addons={addons} footerLink={footerLinkHtml} header={header} />
+      <AddonsCard
+        addons={addons}
+        className={classNames('LandingAddonsCard', className)}
+        footerLink={footerLinkHtml}
+        header={header}
+        type="horizontal"
+      />
     );
   }
 }

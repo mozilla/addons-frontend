@@ -60,8 +60,14 @@ export class AuthenticateButtonBase extends React.Component {
     const buttonText = isAuthenticated ?
       logOutText || i18n.gettext('Log out') :
       logInText || i18n.gettext('Log in/Sign up');
+
+    // The `href` is required because a <button> element with a :hover effect
+    // and/or focus effect (that is not part of a form) that changes its
+    // appearance will transition to the hover state onClick when using a
+    // mobile browser. This is the cause of
+    // https://github.com/mozilla/addons-frontend/issues/1904
     return (
-      <Button onClick={this.onClick} {...otherProps}>
+      <Button onClick={this.onClick} href="#" {...otherProps}>
         {noIcon ? null : <Icon name="user-dark" />}
         {buttonText}
       </Button>

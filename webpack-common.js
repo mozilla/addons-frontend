@@ -1,4 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import path from 'path';
+
+import autoprefixer from 'autoprefixer';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
@@ -132,6 +135,22 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
         /locale$/,
         new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
       ),
+    );
+  }
+
+  if (config.get('enablePostCssLoader')) {
+    plugins.push(
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          context: path.resolve(__dirname),
+          postcss: [
+            autoprefixer({
+              browsers: ['last 2 versions'],
+              grid: false,
+            }),
+          ],
+        },
+      })
     );
   }
 

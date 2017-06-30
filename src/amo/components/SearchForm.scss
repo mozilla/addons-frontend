@@ -1,16 +1,15 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
-
-$icon-size: 26px;
+@import "~ui/css/vars";
 
 .SearchForm-form {
-  background: $masthead-light-color;
+  background: $header-search-color;
   border: 0;
 }
 
 .SearchInput-input,
 .SearchForm-form {
   color: $base-color;
-  font-size: $font-size-m;
+  font-size: $font-size-m-smaller;
   white-space: nowrap;
 }

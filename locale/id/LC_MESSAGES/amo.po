@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-23 22:18+0000\n"
+"POT-Creation-Date: 2017-06-27 22:15+0000\n"
 "PO-Revision-Date: 2017-04-27 01:45+0000\n"
 "Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
@@ -14,7 +14,44 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddonCompatibilityError/index.js:54
+#: src/amo/components/Addon/index.js:130
+msgid "Cancel preview"
+msgstr "Batalkan pratinjau"
+
+#: src/amo/components/Addon/index.js:130
+msgid "Tap to preview"
+msgstr "Ketuk untuk pratinjau"
+
+#: src/amo/components/Addon/index.js:171
+msgid "Read %(count)s review"
+msgid_plural "Read all %(count)s reviews"
+msgstr[0] "Baca semua %(count)s ulasan"
+
+#: src/amo/components/Addon/index.js:185
+msgid "No reviews yet"
+msgstr "Belum ada ulasan"
+
+#: src/amo/components/Addon/index.js:194
+msgid "Rate your experience"
+msgstr "Beri peringkat"
+
+#: src/amo/components/Addon/index.js:227
+msgid "About this %(addonType)s"
+msgstr "Tentang %(addonType)s ini"
+
+#: src/amo/components/Addon/index.js:276
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)s oleh %(authorList)s %(endSpan)s"
+
+#: src/amo/components/Addon/index.js:320
+msgid "Extension Metadata"
+msgstr "Metadata Ekstensi"
+
+#: src/amo/components/Addon/index.js:339
+msgid "Screenshots"
+msgstr "Tangkapan Layar"
+
+#: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -22,15 +59,15 @@ msgstr ""
 "Anda perlu <a href=\"%(downloadUrl)s\">mengunduh Firefox</a> untuk memasang "
 "pengaya ini."
 
-#: src/amo/components/AddonCompatibilityError/index.js:58
+#: src/amo/components/AddonCompatibilityError/index.js:59
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Versi Firefox Anda tidak mendukung plugin pencarian."
 
-#: src/amo/components/AddonCompatibilityError/index.js:61
+#: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Saat ini, Firefox untuk iOS belum mendukung pengaya."
 
-#: src/amo/components/AddonCompatibilityError/index.js:64
+#: src/amo/components/AddonCompatibilityError/index.js:65
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -39,7 +76,7 @@ msgstr ""
 "a> (setidaknya versi %(minVersion)s). Saat ini, Anda menggunakan Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:78
+#: src/amo/components/AddonCompatibilityError/index.js:79
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -47,96 +84,72 @@ msgstr ""
 "Peramban Anda tidak mendukung pengaya. Anda dapat <a href=\"%(downloadUrl)s"
 "\">unduh Firefox</a> untuk memasang pengaya ini."
 
-#: src/amo/components/AddonDetail.js:130
-msgid "Read %(count)s review"
-msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Baca semua %(count)s ulasan"
-
-#: src/amo/components/AddonDetail.js:143
-msgid "No reviews yet"
-msgstr "Belum ada ulasan"
-
-#: src/amo/components/AddonDetail.js:152
-msgid "Rate your experience"
-msgstr "Beri peringkat"
-
-#: src/amo/components/AddonDetail.js:182
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)s oleh %(authorList)s %(endSpan)s"
-
-#: src/amo/components/AddonDetail.js:209
-msgid "Extension Metadata"
-msgstr "Metadata Ekstensi"
-
-#: src/amo/components/AddonDetail.js:227
-msgid "About this %(addonType)s"
-msgstr "Tentang %(addonType)s ini"
-
-#: src/amo/components/AddonDetail.js:91
-msgid "Cancel preview"
-msgstr "Batalkan pratinjau"
-
-#: src/amo/components/AddonDetail.js:91
-msgid "Tap to preview"
-msgstr "Ketuk untuk pratinjau"
-
-#: src/amo/components/AddonMeta.js:23 src/amo/components/SearchResult.js:59
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult.js:60
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s pengguna"
 
-#: src/amo/components/AddonMeta.js:30
+#: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ulasan"
 
-#: src/amo/components/AddonMeta.js:35
+#: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
 msgstr "Tidak ada ulasan"
 
-#: src/amo/components/AddonMeta.js:41
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "Digunakan oleh"
 
-#: src/amo/components/AddonMoreInfo.js:24
+#: src/amo/components/AddonMoreInfo.js:100
+#, fuzzy
+msgid "Read the license agreement for this add-on"
+msgstr "Baca kebijakan privasi dari pengaya ini"
+
+#: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
 msgstr "Halaman depan"
 
-#: src/amo/components/AddonMoreInfo.js:32
+#: src/amo/components/AddonMoreInfo.js:34
 msgid "Support Site"
 msgstr "Situs Dukungan"
 
-#: src/amo/components/AddonMoreInfo.js:38
+#: src/amo/components/AddonMoreInfo.js:40
 msgid "More information"
 msgstr "Informasi lebih lanjut"
 
-#: src/amo/components/AddonMoreInfo.js:42
+#: src/amo/components/AddonMoreInfo.js:44
 msgid "Add-on Links"
 msgstr "Tautan Pengaya"
 
-#: src/amo/components/AddonMoreInfo.js:53
+#: src/amo/components/AddonMoreInfo.js:55
 msgid "Version"
 msgstr "Versi"
 
-#: src/amo/components/AddonMoreInfo.js:57
+#: src/amo/components/AddonMoreInfo.js:59
 msgid "Last updated"
 msgstr "Terakhir dimutakhirkan"
 
-#: src/amo/components/AddonMoreInfo.js:62
+#: src/amo/components/AddonMoreInfo.js:64
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo.js:70
+#: src/amo/components/AddonMoreInfo.js:72
 msgid "License"
 msgstr "Lisensi"
 
-#: src/amo/components/AddonMoreInfo.js:81
+#: src/amo/components/AddonMoreInfo.js:83
 msgid "Privacy Policy"
 msgstr "Kebijakan Privasi"
 
-#: src/amo/components/AddonMoreInfo.js:87
+#: src/amo/components/AddonMoreInfo.js:89
 msgid "Read the privacy policy for this add-on"
 msgstr "Baca kebijakan privasi dari pengaya ini"
+
+#: src/amo/components/AddonMoreInfo.js:94
+msgid "End-User License Agreement"
+msgstr ""
 
 #: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
@@ -167,71 +180,76 @@ msgstr "Teks ulasan"
 msgid "Submit review"
 msgstr "Kirim ulasan"
 
-#: src/amo/components/AddonReviewList.js:62
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "dari %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:76 src/amo/components/Categories.js:26
-msgid "Loading..."
-msgstr "Memuat..."
-
-#: src/amo/components/AddonReviewList.js:86
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "Ikon pengaya"
 
-#: src/amo/components/AddonReviewList.js:91
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "Ulasan untuk %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:180
 msgid "All written reviews"
 msgstr "Semua ulasan tertulis"
 
-#: src/amo/components/Categories.js:34
+#: src/amo/components/App/index.js:200
+msgid "Add-ons for Firefox"
+msgstr "Pengaya untuk Firefox"
+
+#: src/amo/components/Categories.js:57
 msgid "Failed to load categories."
 msgstr "Gagal memuat kategori."
 
-#: src/amo/components/Categories.js:42
+#: src/amo/components/Categories.js:65
 msgid "No categories found."
 msgstr "Tidak ada kategori ditemukan."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:21
+#: src/amo/components/Categories.js:74
+#, fuzzy
+msgid "Loading categories."
+msgstr "Gagal memuat kategori."
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
 "trying to access, and we'll fix the issue."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:33
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
 msgid "Not Authorized"
 msgstr "Tidak Terotorisasi"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:21
+#: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid ""
 "If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
 "issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll do our best to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:32
-#: src/core/components/ErrorPage/NotFound/index.js:24
+#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Laman tidak ditemukan"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
+#: src/amo/components/ErrorPage/NotFound/index.js:35
 msgid ""
 "Sorry, but we can't find anything at the address you entered. If you "
 "followed a link to an add-on, it's possible that add-on has been removed by "
 "its author."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:21
+#: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href="
 "\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
@@ -239,51 +257,94 @@ msgid ""
 "to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:31
-#: src/core/components/ErrorPage/GenericError/index.js:24
+#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Server Bermasalah"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
+#: src/amo/components/ErrorPage/ServerError/index.js:34
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/amo/components/FeaturedAddons/index.js:32
+#: src/amo/components/FeaturedAddons/index.js:33
 #, fuzzy
 msgid "More Featured Extensions"
 msgstr "Jelajahi semua ekstensi"
 
-#: src/amo/components/FeaturedAddons/index.js:34
+#: src/amo/components/FeaturedAddons/index.js:35
 msgid "More Featured Themes"
 msgstr "Tema Pilihan Lainnya"
 
-#: src/amo/components/Footer.js:30
+#: src/amo/components/Footer/index.js:21
+msgid "Go to Mozilla's homepage"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:32
 msgid "Privacy policy"
 msgstr "Kebijakan privasi"
 
-#: src/amo/components/Footer.js:36
+#: src/amo/components/Footer/index.js:38
 msgid "Legal notices"
 msgstr "Pernyataan hukum"
 
-#: src/amo/components/Footer.js:42
+#: src/amo/components/Footer/index.js:44
 msgid "Report a bug"
 msgstr "Laporkan kutu"
 
-#: src/amo/components/Footer.js:49
-msgid "View desktop site"
+#: src/amo/components/Footer/index.js:51
+#, fuzzy
+msgid "View classic desktop site"
 msgstr "Lihat situs desktop"
 
-#: src/amo/components/LandingPage.js:115 src/amo/containers/Home.js:47
+#: src/amo/components/Header/index.js:44
+msgid "Firefox Add-ons"
+msgstr "Pengaya Firefox"
+
+#: src/amo/components/Header/index.js:59
+msgid "Developer Hub"
+msgstr ""
+
+#: src/amo/components/LandingPage.js:103
+msgid "More highly rated extensions"
+msgstr "Ekstensi berperingkat tinggi lainnya"
+
+#: src/amo/components/LandingPage.js:106
+msgid "Featured themes"
+msgstr "Tema pilihan"
+
+#: src/amo/components/LandingPage.js:110
+msgid "More featured themes"
+msgstr "Tema pilihan lainnya"
+
+#: src/amo/components/LandingPage.js:111
+msgid "Most popular themes"
+msgstr "Tema terpopuler"
+
+#: src/amo/components/LandingPage.js:116
+msgid "More popular themes"
+msgstr "Tema populer lainnya"
+
+#: src/amo/components/LandingPage.js:117
+msgid "Top rated themes"
+msgstr "Tema peringkat teratas"
+
+#: src/amo/components/LandingPage.js:122
+msgid "More highly rated themes"
+msgstr "Tema berperingkat tinggi lainnya"
+
+#: src/amo/components/LandingPage.js:157
+#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
 msgid "Themes"
 msgstr "Tema"
 
-#: src/amo/components/LandingPage.js:116 src/amo/containers/Home.js:44
+#: src/amo/components/LandingPage.js:158
+#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
 msgid "Extensions"
 msgstr "Ekstensi"
 
-#: src/amo/components/LandingPage.js:119
+#: src/amo/components/LandingPage.js:161
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -291,7 +352,7 @@ msgstr ""
 "Ubah tampilan peramban Anda. Pilih dari ribuan tema untuk mengubah tampilan "
 "Firefox sesuai keinginan."
 
-#: src/amo/components/LandingPage.js:121
+#: src/amo/components/LandingPage.js:163
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
@@ -299,65 +360,33 @@ msgstr ""
 "Pasang alat tangguh yang membantu penjelajahan lebih cepat dan aman, pengaya "
 "menjadi peramban sepenuhnya milik Anda."
 
-#: src/amo/components/LandingPage.js:147
+#: src/amo/components/LandingPage.js:188
 msgid "Browse by category"
 msgstr "Telusuri berdasarkan kategori"
 
-#: src/amo/components/LandingPage.js:51
+#: src/amo/components/LandingPage.js:84
 msgid "Featured extensions"
 msgstr "Ekstensi pilihan"
 
-#: src/amo/components/LandingPage.js:55
+#: src/amo/components/LandingPage.js:88
 msgid "More featured extensions"
 msgstr "Ekstensi pilihan lainnya"
 
-#: src/amo/components/LandingPage.js:56
+#: src/amo/components/LandingPage.js:89
 msgid "Most popular extensions"
 msgstr "Ekstensi terpopuler"
 
-#: src/amo/components/LandingPage.js:61
+#: src/amo/components/LandingPage.js:94
 msgid "More popular extensions"
 msgstr "Extensi populer lainnya"
 
-#: src/amo/components/LandingPage.js:62
+#: src/amo/components/LandingPage.js:95
 msgid "Top rated extensions"
 msgstr "Ekstensi peringkat teratas"
 
-#: src/amo/components/LandingPage.js:70
-msgid "More highly rated extensions"
-msgstr "Ekstensi berperingkat tinggi lainnya"
-
-#: src/amo/components/LandingPage.js:73
-msgid "Featured themes"
-msgstr "Tema pilihan"
-
-#: src/amo/components/LandingPage.js:77
-msgid "More featured themes"
-msgstr "Tema pilihan lainnya"
-
-#: src/amo/components/LandingPage.js:78
-msgid "Most popular themes"
-msgstr "Tema terpopuler"
-
-#: src/amo/components/LandingPage.js:83
-msgid "More popular themes"
-msgstr "Tema populer lainnya"
-
-#: src/amo/components/LandingPage.js:84
-msgid "Top rated themes"
-msgstr "Tema peringkat teratas"
-
-#: src/amo/components/LandingPage.js:89
-msgid "More highly rated themes"
-msgstr "Tema berperingkat tinggi lainnya"
-
-#: src/amo/components/LanguagePicker.js:49
+#: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
 msgstr "Jelajahi dalam bahasa Anda"
-
-#: src/amo/components/MastHead.js:31
-msgid "Firefox Add-ons"
-msgstr "Pengaya Firefox"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
@@ -387,133 +416,143 @@ msgstr "Masuk untuk menilai pengaya ini"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Bagaimana pengalaman Anda menggunakan %(addonName)s?"
 
-#: src/amo/components/SearchForm.js:47 src/amo/components/SearchForm.js:56
-msgid "Search"
-msgstr "Cari"
+#: src/amo/components/SearchForm.js:52
+#, fuzzy
+msgid "Search extensions"
+msgstr "Ekstensi pilihan"
 
-#: src/amo/components/SearchForm.js:51
+#: src/amo/components/SearchForm.js:54
+#, fuzzy
+msgid "Search themes"
+msgstr "Tema pilihan"
+
+#: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
 msgstr "Cari pengaya dan tema"
 
-#: src/amo/components/SearchResult.js:49
+#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+msgid "Search"
+msgstr "Cari"
+
+#: src/amo/components/SearchResult.js:50
 msgid "No theme preview available"
 msgstr "Pratampil tema tak tersedia"
 
-#: src/amo/components/SearchResults.js:42
+#: src/amo/components/SearchResults.js:43
 msgid "Searching…"
 msgstr "Mencari…"
 
-#: src/amo/components/SearchResults.js:48
+#: src/amo/components/SearchResults.js:49
 msgid "No results were found for \"%(query)s\"."
 msgstr "Tidak ada hasil ditemukan untuk \"%(query)s\"."
 
-#: src/amo/components/SearchResults.js:52
+#: src/amo/components/SearchResults.js:53
 msgid "No results were found."
 msgstr "Tidak ada hasil ditemukan."
 
-#: src/amo/components/SearchResults.js:55
+#: src/amo/components/SearchResults.js:56
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Silakan masukkan kata pencarian untuk mencari Pengaya Firefox."
 
-#: src/amo/components/SearchSort/index.js:40
+#: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
 msgstr "Baru Dimutakhirkan"
 
-#: src/amo/components/SearchSort/index.js:41
+#: src/amo/components/SearchSort/index.js:42
 msgid "Relevance"
 msgstr "Kesesuaian"
 
-#: src/amo/components/SearchSort/index.js:42
+#: src/amo/components/SearchSort/index.js:43
 msgid "Most Users"
 msgstr ""
 
-#: src/amo/components/SearchSort/index.js:43
+#: src/amo/components/SearchSort/index.js:44
 msgid "Top Rated"
 msgstr "Peringkat Teratas"
 
-#: src/amo/components/SearchSort/index.js:66
+#: src/amo/components/SearchSort/index.js:67
 msgid "Sort"
 msgstr "Urut"
 
-#: src/amo/components/SuggestedPages/index.js:20
+#: src/amo/components/SectionLinks/index.js:39
+msgid "Explore"
+msgstr ""
+
+#: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr "Laman yang Disarankan"
 
-#: src/amo/components/SuggestedPages/index.js:25 src/amo/containers/Home.js:74
+#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
 msgid "Browse all extensions"
 msgstr "Jelajahi semua ekstensi"
 
-#: src/amo/components/SuggestedPages/index.js:30 src/amo/containers/Home.js:87
+#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
 msgid "Browse all themes"
 msgstr "Telusuri semua tema"
 
-#: src/amo/components/SuggestedPages/index.js:35
+#: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Beranda Pengaya"
 
-#: src/amo/containers/App.js:200
-msgid "Add-ons for Firefox"
-msgstr "Pengaya untuk Firefox"
-
-#: src/amo/containers/Home.js:39
+#: src/amo/containers/Home.js:50
 msgid ""
 "Extensions are special features you can add to Firefox. Themes let you "
 "change your browser's appearance."
 msgstr ""
 
-#: src/amo/containers/Home.js:52
+#: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
 msgstr "Anda dapat mengubah bagaimana Firefox bekerja…"
 
-#: src/amo/containers/Home.js:55
+#: src/amo/containers/Home.js:66
 msgid "Block ads"
 msgstr "Blokir iklan"
 
-#: src/amo/containers/Home.js:58
+#: src/amo/containers/Home.js:69
 msgid "Screenshot"
 msgstr "Tangkapan layar"
 
-#: src/amo/containers/Home.js:61
+#: src/amo/containers/Home.js:72
 msgid "Find news"
 msgstr "Cari berita"
 
-#: src/amo/containers/Home.js:64
+#: src/amo/containers/Home.js:75
 msgid "Shop online"
 msgstr "Belanja daring"
 
-#: src/amo/containers/Home.js:67
+#: src/amo/containers/Home.js:78
 msgid "Be social"
 msgstr "Sosial"
 
-#: src/amo/containers/Home.js:70
+#: src/amo/containers/Home.js:81
 msgid "Play games"
 msgstr "Mainkan permainan"
 
-#: src/amo/containers/Home.js:77
+#: src/amo/containers/Home.js:88
 msgid "…or what it looks like"
 msgstr ""
 
-#: src/amo/containers/Home.js:79
+#: src/amo/containers/Home.js:90
 msgid "Wild"
 msgstr "Alam liar"
 
-#: src/amo/containers/Home.js:80
+#: src/amo/containers/Home.js:91
 msgid "Abstract"
 msgstr "Abstrak"
 
-#: src/amo/containers/Home.js:81
+#: src/amo/containers/Home.js:92
 msgid "Holiday"
 msgstr "Liburan"
 
-#: src/amo/containers/Home.js:82
+#: src/amo/containers/Home.js:93
 msgid "Scenic"
 msgstr ""
 
-#: src/amo/containers/Home.js:83
+#: src/amo/containers/Home.js:94
 msgid "Sporty"
 msgstr ""
 
-#: src/amo/containers/Home.js:84
+#: src/amo/containers/Home.js:95
 msgid "Solid"
 msgstr ""
 
@@ -525,114 +564,114 @@ msgstr "Keluar"
 msgid "Log in/Sign up"
 msgstr "Masuk/Daftar"
 
-#: src/core/components/ErrorPage/GenericError/index.js:27
+#: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:30
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Kode galat: %(status)s."
 
-#: src/core/components/ErrorPage/NotFound/index.js:26
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:105
-#: src/core/components/InstallButton/index.js:121
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 #, fuzzy
 msgid "Add to Firefox"
 msgstr "Pengaya untuk Firefox"
 
-#: src/core/components/InstallButton/index.js:84
+#: src/core/components/InstallButton/index.js:85
 #, fuzzy
 msgid "Install Theme"
 msgstr "Memasang %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:54
+#: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
 msgstr "Mengunduh %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:57
+#: src/core/components/InstallSwitch/index.js:58
 msgid "Installing %(name)s."
 msgstr "Memasang %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:61
+#: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr ""
 
-#: src/core/components/InstallSwitch/index.js:64
+#: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is disabled. Click to enable."
 msgstr ""
 
-#: src/core/components/InstallSwitch/index.js:67
+#: src/core/components/InstallSwitch/index.js:68
 msgid "Uninstalling %(name)s."
 msgstr ""
 
-#: src/core/components/InstallSwitch/index.js:70
+#: src/core/components/InstallSwitch/index.js:71
 msgid "%(name)s is uninstalled. Click to install."
 msgstr ""
 
-#: src/core/components/InstallSwitch/index.js:73
+#: src/core/components/InstallSwitch/index.js:74
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
-#: src/core/components/Paginate/index.js:107
+#: src/core/components/Paginate/index.js:108
 msgid "Previous"
 msgstr ""
 
-#: src/core/components/Paginate/index.js:120
+#: src/core/components/Paginate/index.js:121
 msgid "Next"
 msgstr ""
 
-#: src/core/components/Paginate/index.js:98
+#: src/core/components/Paginate/index.js:99
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr ""
 
-#: src/core/containers/InfoDialog/index.js:31
+#: src/core/containers/InfoDialog/index.js:32
 msgid "Your add-on is ready"
 msgstr ""
 
-#: src/core/containers/InfoDialog/index.js:33
+#: src/core/containers/InfoDialog/index.js:34
 msgid "Now you can access %(name)s from the toolbar."
 msgstr ""
 
-#: src/core/containers/InfoDialog/index.js:38
+#: src/core/containers/InfoDialog/index.js:39
 msgid "OK!"
 msgstr ""
 
-#: src/ui/components/ErrorList/index.js:44
+#: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
 msgstr ""
 
-#: src/ui/components/ErrorList/index.js:51
+#: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
 msgstr ""
 
-#: src/ui/components/ErrorList/index.js:57
+#: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:93
+#: src/ui/components/Rating/index.js:94
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Peringkat rata-rata: %(rating)s dari 5"
 
-#: src/ui/components/Rating/index.js:96
+#: src/ui/components/Rating/index.js:97
 msgid "No ratings"
 msgstr "Tidak ada peringkat"
 
-#: src/ui/components/ShowMoreCard/index.js:58
+#: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
+#~ msgid "Loading..."
+#~ msgstr "Memuat..."
+
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "Peringkat rata-rata: %(rating)s dari 5"
-
-#~ msgid "Screenshots"
-#~ msgstr "Tangkapan Layar"
 
 #~ msgid "Category"
 #~ msgstr "Kategori"

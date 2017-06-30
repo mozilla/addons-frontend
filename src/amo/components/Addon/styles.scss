@@ -1,0 +1,178 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.Addon {
+  padding: 20px 10px;
+}
+
+.Addon .Card {
+  margin-bottom: 10px;
+}
+
+.Addon-icon-image {
+  height: 48px;
+  width: 48px;
+
+  @include respond-to(medium) {
+    height: 64px;
+    width: 64px;
+  }
+}
+
+.Addon-title {
+  color: $black;
+  font-size: $font-size-l;
+  margin: 10px 0;
+  width: 100%;
+  word-wrap: break-word;
+
+  @include respond-to(medium) {
+    font-size: $font-size-xl;
+  }
+}
+
+.Addon-author {
+  display: block;
+  word-wrap: break-word;
+
+  &,
+  a,
+  a:link {
+    color: $black;
+    font-size: $font-size-m;
+    font-weight: normal;
+    text-decoration: none;
+
+    @include respond-to(medium) {
+      font-size: $font-size-l;
+    }
+  }
+}
+
+.Addon-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.Addon-theme-header {
+  border-radius: $border-radius-default;
+  max-height: 90px;
+  min-height: 45px;
+  overflow-y: hidden;
+  order: -1;
+  position: relative;
+  width: 100%;
+}
+
+.Addon-theme-header-label {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+}
+
+.Addon-theme-header-image {
+  display: block;
+  height: 100px;
+  object-fit: cover;
+  object-position: top right;
+  width: 100%;
+}
+
+.Addon-title {
+  order: 1;
+
+  @include respond-to(medium) {
+    flex-basis: 100%;
+    flex-grow: 1;
+
+    .Addon-persona & {
+      flex-basis: 75%;
+      flex-grow: 0;
+    }
+  }
+}
+
+.Addon .AddonMeta {
+  order: 2;
+
+  @include respond-to(medium) {
+    @include margin-start(auto);
+
+    margin: 10px 0;
+    order: 0;
+    text-align: right;
+  }
+}
+
+.Addon-persona .AddonMeta {
+  @include respond-to(medium) {
+    order: 1;
+  }
+}
+
+.Addon .AddonMeta-item {
+  @include margin-start(auto);
+}
+
+.Addon-summary {
+  flex-basis: 100%;
+  flex-grow: 1;
+  order: 2;
+
+  @include respond-to(medium) {
+    flex-grow: 0;
+    margin-bottom: 0;
+    max-width: 550px;
+  }
+}
+
+.Addon .InstallButton {
+  margin-top: auto;
+  order: 3;
+}
+
+.Addon .InstallButton {
+  @include respond-to(medium) {
+    @include margin-start(auto);
+
+    align-self: flex-end;
+  }
+}
+
+// Details section with lots of grid stuff, on larger displays.
+@include respond-to(large) {
+  .Addon-details {
+    display: grid;
+    grid-auto-flow: column dense;
+    grid-gap: 10px;
+    grid-template-columns: minmax(300px, 35%) auto;
+    margin: 10px 0 0;
+
+    .AddonDescription {
+      grid-column: 2;
+      grid-row: 1 / 5;
+    }
+  }
+
+  .Addon-screenshots {
+    grid-column: 1 / 2;
+  }
+
+  .Addon-overall-rating {
+    grid-column: 1 / 2;
+  }
+
+  .AddonMoreInfo {
+    grid-column: 1 / 2;
+  }
+
+  // We hide this "Read reviews" link on larger displays as we actually show
+  // the first page of reviews on the page.
+  // TODO: Enable this once we load reviews on the addon page.
+  // See: https://github.com/mozilla/addons-frontend/issues/2552
+  // .Addon-overall-rating .Card-footer-link {
+  //   display: none;
+  // }
+}

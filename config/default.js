@@ -8,7 +8,6 @@ import { amoProdCDN, apiProdHost, sentryHost } from './lib/shared';
 
 const appName = process.env.NODE_APP_INSTANCE || null;
 const validAppNames = [
-  'admin',
   'amo',
   'disco',
 ];
