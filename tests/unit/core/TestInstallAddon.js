@@ -44,6 +44,14 @@ const {
   mapStateToProps, withInstallHelpers,
 } = installAddon;
 
+function componentWithInstallHelpers() {
+  // This simulates how a component would typically apply
+  // the withInstallHelpers() HOC wrapper.
+  const BaseComponent = () => <div />;
+  return compose(
+    withInstallHelpers({ src: 'some-src' })
+  )(BaseComponent);
+}
 
 describe('withInstallHelpers', () => {
   it('connects mapDispatchToProps for the component', () => {
@@ -62,11 +70,7 @@ describe('withInstallHelpers', () => {
   });
 
   it('sets status when the component is mounted', () => {
-    const BaseComponent = () => <div />;
-    const Component = compose(
-      withInstallHelpers({ src: 'some-src' })
-    )(BaseComponent);
-
+    const Component = componentWithInstallHelpers();
     const setCurrentStatus = sinon.stub();
 
     const props = {
@@ -84,11 +88,7 @@ describe('withInstallHelpers', () => {
   });
 
   it('sets status when getting updated', () => {
-    const BaseComponent = () => <div />;
-    const Component = compose(
-      withInstallHelpers({ src: 'some-src' })
-    )(BaseComponent);
-
+    const Component = componentWithInstallHelpers();
     const setCurrentStatus = sinon.stub();
 
     const root = mount(
@@ -108,11 +108,7 @@ describe('withInstallHelpers', () => {
   });
 
   it('does not set status when an update is not necessary', () => {
-    const BaseComponent = () => <div />;
-    const Component = compose(
-      withInstallHelpers({ src: 'some-src' })
-    )(BaseComponent);
-
+    const Component = componentWithInstallHelpers();
     const setCurrentStatus = sinon.stub();
 
     const props = {
@@ -735,11 +731,19 @@ describe('withInstallHelpers inner functions', () => {
 
     describe('previewTheme', () => {
       it('calls theme action with THEME_PREVIEW', () => {
-        const dispatchSpy = sinon.spy();
-        const { previewTheme } = makeMapDispatchToProps({})(dispatchSpy, {
-          type: ADDON_TYPE_THEME,
+        const Component = componentWithInstallHelpers();
+        const { store } = createStore();
+        const dispatchSpy = sinon.stub(store, 'dispatch');
+
+        const props = {
           guid: 'fake-guid@whatever',
-        });
+          type: ADDON_TYPE_THEME,
+          store,
+        };
+        const root = shallow(<Component {...props} />)
+          .first().shallow(); // unwrap to BaseComponent
+        const previewTheme = root.prop('previewTheme');
+
         const themeAction = sinon.spy();
         const node = sinon.stub();
         previewTheme(node, themeAction);
