@@ -198,9 +198,8 @@ describe('withInstallHelpers inner functions', () => {
         _addonManager: getFakeAddonManagerWrapper(),
       });
 
-      const props = { guid, installURL };
       dispatch.reset();
-      return setCurrentStatus(props)
+      return setCurrentStatus({ guid, installURL })
         .then(() => {
           sinon.assert.calledWith(
             dispatch,
