@@ -587,7 +587,6 @@ describe('withInstallHelpers inner functions', () => {
         sendEvent: sinon.spy(),
       };
       const { root } = renderWithInstallHelpers({
-        _addonManager: getFakeAddonManagerWrapper(),
         _tracking: fakeTracking,
         name,
       });
@@ -605,7 +604,7 @@ describe('withInstallHelpers inner functions', () => {
 
     it('should dispatch START_DOWNLOAD', () => {
       const { root, dispatch } = renderWithInstallHelpers({
-        _addonManager: getFakeAddonManagerWrapper(), guid,
+        guid,
       });
       const install = root.prop('install');
 
