@@ -130,7 +130,6 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
     dispatch,
     {
       _addonManager = addonManager,
-      _tracking = tracking,
       ...ownProps
     } = {},
   ) {
@@ -176,26 +175,6 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
             }));
           });
       },
-
-      uninstall({ guid, name, type }) {
-        dispatch(setInstallState({ guid, status: UNINSTALLING }));
-
-        const action = getAction(type);
-        return _addonManager.uninstall(guid)
-          .then(() => {
-            _tracking.sendEvent({
-              action,
-              category: UNINSTALL_CATEGORY,
-              label: name,
-            });
-          })
-          .catch((err) => {
-            log.error(err);
-            dispatch(setInstallState({
-              guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
-            }));
-          });
-      },
     };
   };
 }
@@ -219,6 +198,7 @@ export class WithInstallHelpers extends React.Component {
   }
 
   static defaultProps = {
+    _addonManager: addonManager,
     _tracking: tracking,
     hasAddonManager: addonManager.hasAddonManager(),
     installTheme,
@@ -340,6 +320,27 @@ export class WithInstallHelpers extends React.Component {
     });
   }
 
+  uninstall({ guid, name, type }) {
+    const { _addonManager, _tracking, dispatch } = this.props;
+    dispatch(setInstallState({ guid, status: UNINSTALLING }));
+
+    const action = getAction(type);
+    return _addonManager.uninstall(guid)
+      .then(() => {
+        _tracking.sendEvent({
+          action,
+          category: UNINSTALL_CATEGORY,
+          label: name,
+        });
+      })
+      .catch((err) => {
+        log.error(err);
+        dispatch(setInstallState({
+          guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
+        }));
+      });
+  }
+
   render() {
     const { WrappedComponent, ...props } = this.props;
 
@@ -349,6 +350,7 @@ export class WithInstallHelpers extends React.Component {
       install: (...args) => this.install(...args),
       previewTheme: (...args) => this.previewTheme(...args),
       resetThemePreview: (...args) => this.resetThemePreview(...args),
+      uninstall: (...args) => this.uninstall(...args),
     };
 
     return <WrappedComponent {...exposedPropHelpers} {...props} />;

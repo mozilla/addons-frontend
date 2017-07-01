@@ -679,24 +679,40 @@ describe('withInstallHelpers inner functions', () => {
     const installURL = 'https://mysite.com/download.xpi';
 
     it('calls addonManager.uninstall()', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const fakeAddonManager = getFakeAddonManagerWrapper();
-      const dispatch = sinon.spy();
-      const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
+
+      const props = { _addonManager: fakeAddonManager, store };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const uninstall = root.prop('uninstall');
+
       return uninstall({ guid, installURL })
         .then(() => {
           sinon.assert.calledWith(
             dispatch,
             setInstallState({ guid, status: UNINSTALLING }),
           );
-          expect(fakeAddonManager.uninstall.calledWith(guid)).toBeTruthy();
+          sinon.assert.calledWith(fakeAddonManager.uninstall, guid);
         });
     });
 
     it('dispatches error when addonManager.uninstall throws', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const fakeAddonManager = getFakeAddonManagerWrapper();
       fakeAddonManager.uninstall = sinon.stub().returns(Promise.reject());
-      const dispatch = sinon.spy();
-      const { uninstall } = mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager });
+
+      const props = { _addonManager: fakeAddonManager, store };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const uninstall = root.prop('uninstall');
+
       return uninstall({ guid, installURL })
         .then(() => {
           sinon.assert.calledWith(
@@ -713,61 +729,94 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('tracks an addon uninstall', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      sinon.stub(store, 'dispatch');
       const fakeAddonManager = getFakeAddonManagerWrapper();
-      const dispatch = sinon.spy();
-      const name = 'whatevs';
-      const type = 'extension';
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { uninstall } = mapDispatchToProps(dispatch,
-        { _tracking: fakeTracking, _addonManager: fakeAddonManager });
+
+      const props = {
+        _addonManager: fakeAddonManager,
+        _tracking: fakeTracking,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const uninstall = root.prop('uninstall');
+
+      const name = 'whatevs';
+      const type = ADDON_TYPE_EXTENSION;
+
       return uninstall({ guid, installURL, name, type })
         .then(() => {
-          expect(fakeTracking.sendEvent.calledWith({
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
             action: TRACKING_TYPE_EXTENSION,
             category: UNINSTALL_CATEGORY,
-            label: 'whatevs',
-          })).toBeTruthy();
+            label: name,
+          });
         });
     });
 
     it('tracks a theme uninstall', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      sinon.stub(store, 'dispatch');
       const fakeAddonManager = getFakeAddonManagerWrapper();
-      const dispatch = sinon.spy();
-      const name = 'whatevs';
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { uninstall } = mapDispatchToProps(dispatch,
-        { _tracking: fakeTracking, _addonManager: fakeAddonManager });
+
+      const props = {
+        _addonManager: fakeAddonManager,
+        _tracking: fakeTracking,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const uninstall = root.prop('uninstall');
+
+      const name = 'whatevs';
+
       return uninstall({ guid, installURL, name, type: ADDON_TYPE_THEME })
         .then(() => {
-          expect(fakeTracking.sendEvent.calledWith({
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
             action: TRACKING_TYPE_THEME,
             category: UNINSTALL_CATEGORY,
-            label: 'whatevs',
-          })).toBeTruthy();
+            label: name,
+          });
         });
     });
 
     it('tracks a unknown type uninstall', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      sinon.stub(store, 'dispatch');
       const fakeAddonManager = getFakeAddonManagerWrapper();
-      const dispatch = sinon.spy();
-      const name = 'whatevs';
-      const type = 'foo';
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-      const { uninstall } = mapDispatchToProps(dispatch,
-        { _tracking: fakeTracking, _addonManager: fakeAddonManager });
+
+      const props = {
+        _addonManager: fakeAddonManager,
+        _tracking: fakeTracking,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const uninstall = root.prop('uninstall');
+
+      const name = 'whatevs';
+      const type = 'foo';
+
       return uninstall({ guid, installURL, name, type })
         .then(() => {
-          expect(fakeTracking.sendEvent.calledWith({
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
             action: 'invalid',
             category: UNINSTALL_CATEGORY,
             label: 'whatevs',
-          })).toBeTruthy();
+          });
         });
     });
   });
