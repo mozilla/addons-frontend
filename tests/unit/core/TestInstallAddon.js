@@ -71,40 +71,53 @@ describe('withInstallHelpers', () => {
 
   it('sets status when the component is mounted', () => {
     const Component = componentWithInstallHelpers();
-    const setCurrentStatus = sinon.stub();
+    const _addonManager = getFakeAddonManagerWrapper({
+      getAddon: Promise.resolve({
+        isActive: true,
+        isEnabled: true,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+    });
 
     const props = {
+      _addonManager,
       addon: fakeAddon,
       // Use a spread to simulate how Addon and other components
       // do it in mapStateToProps().
       ...fakeAddon,
       hasAddonManager: true,
       store: createStore().store,
-      setCurrentStatus,
     };
     mount(<Component {...props} />);
 
-    sinon.assert.calledWithMatch(setCurrentStatus, props);
+    sinon.assert.calledWith(_addonManager.getAddon, fakeAddon.guid);
   });
 
   it('sets status when getting updated', () => {
     const Component = componentWithInstallHelpers();
-    const setCurrentStatus = sinon.stub();
+    const _addonManager = getFakeAddonManagerWrapper({
+      getAddon: Promise.resolve({
+        isActive: true,
+        isEnabled: true,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+    });
 
     const root = mount(
       <Component
         hasAddonManager
-        setCurrentStatus={setCurrentStatus}
+        _addonManager={_addonManager}
         store={createStore().store}
       />
     );
 
-    setCurrentStatus.reset();
+    const newAddon = { ...fakeAddon, guid: '@new-guid' };
     // Use a spread to simulate how Addon and other components
     // do it in mapStateToProps().
-    const props = { addon: fakeAddon, ...fakeAddon };
+    const props = { addon: newAddon, ...newAddon };
     root.setProps(props);
-    sinon.assert.calledWithMatch(setCurrentStatus, props);
+
+    sinon.assert.calledWith(_addonManager.getAddon, '@new-guid');
   });
 
   it('does not set status when an update is not necessary', () => {
@@ -136,11 +149,22 @@ describe('withInstallHelpers', () => {
   });
 
   it('sets the current status in componentDidMount with an addonManager', () => {
-    const setCurrentStatus = sinon.spy();
-    renderIntoDocument(
-      <WithInstallHelpers WrappedComponent={() => <div />} hasAddonManager
-      setCurrentStatus={setCurrentStatus} />);
-    expect(setCurrentStatus.called).toBeTruthy();
+    const _addonManager = getFakeAddonManagerWrapper({
+      getAddon: Promise.resolve({
+        isActive: true,
+        isEnabled: true,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+    });
+
+    mount(
+      <WithInstallHelpers
+        WrappedComponent={() => <div />}
+        hasAddonManager
+        _addonManager={_addonManager}
+      />
+    );
+    sinon.assert.called(_addonManager.getAddon);
   });
 
   it('does not set the current status in componentDidMount without an addonManager', () => {
@@ -172,11 +196,24 @@ describe('withInstallHelpers inner functions', () => {
 
   describe('setCurrentStatus', () => {
     it('sets the status to ENABLED when an enabled add-on found', () => {
-      const dispatch = sinon.spy();
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setCurrentStatus } = mapDispatchToProps(
-        dispatch, { _addonManager: getFakeAddonManagerWrapper(), guid, installURL });
+
+      const props = {
+        hasAddonManager: true,
+        _addonManager: getFakeAddonManagerWrapper(),
+        guid,
+        installURL,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       return setCurrentStatus()
         .then(() => {
           sinon.assert.calledWith(
@@ -187,12 +224,21 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('lets you pass custom props to setCurrentStatus', () => {
-      const dispatch = sinon.spy();
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      const props = {
+        hasAddonManager: true,
+        _addonManager: getFakeAddonManagerWrapper(),
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setCurrentStatus } = mapDispatchToProps(dispatch, {
-        _addonManager: getFakeAddonManagerWrapper(),
-      });
 
       dispatch.reset();
       return setCurrentStatus({ guid, installURL })
@@ -205,10 +251,15 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to DISABLED when a disabled add-on found', () => {
-      const dispatch = sinon.spy();
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setCurrentStatus } = mapDispatchToProps(dispatch, {
+
+      const props = {
+        hasAddonManager: true,
         _addonManager: getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
             isActive: false,
@@ -218,7 +269,12 @@ describe('withInstallHelpers inner functions', () => {
         }),
         guid,
         installURL,
-      });
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       return setCurrentStatus()
         .then(() => {
           sinon.assert.calledWith(
@@ -229,10 +285,15 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to DISABLED when an inactive add-on found', () => {
-      const dispatch = sinon.spy();
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setCurrentStatus } = mapDispatchToProps(dispatch, {
+
+      const props = {
+        hasAddonManager: true,
         _addonManager: getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
             isActive: false,
@@ -242,7 +303,12 @@ describe('withInstallHelpers inner functions', () => {
         }),
         guid,
         installURL,
-      });
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       return setCurrentStatus()
         .then(() => {
           sinon.assert.calledWith(
@@ -253,14 +319,27 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to ENABLED when an enabled theme is found', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.resolve({ type: ADDON_TYPE_THEME, isActive: true, isEnabled: true }),
       });
-      const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setCurrentStatus } =
-        mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
+
+      const props = {
+        hasAddonManager: true,
+        _addonManager: fakeAddonManager,
+        guid,
+        installURL,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       return setCurrentStatus()
         .then(() => {
           sinon.assert.calledWith(
@@ -271,6 +350,10 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to DISABLED when an inactive theme is found', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.resolve({
           isActive: false,
@@ -278,11 +361,20 @@ describe('withInstallHelpers inner functions', () => {
           type: ADDON_TYPE_THEME,
         }),
       });
-      const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setCurrentStatus } =
-        mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
+
+      const props = {
+        hasAddonManager: true,
+        _addonManager: fakeAddonManager,
+        guid,
+        installURL,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       return setCurrentStatus()
         .then(() => {
           sinon.assert.calledWith(
@@ -293,6 +385,10 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to DISABLED when a disabled theme is found', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.resolve({
           isActive: true,
@@ -300,11 +396,20 @@ describe('withInstallHelpers inner functions', () => {
           type: ADDON_TYPE_THEME,
         }),
       });
-      const dispatch = sinon.spy();
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setCurrentStatus } =
-        mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
+
+      const props = {
+        hasAddonManager: true,
+        _addonManager: fakeAddonManager,
+        guid,
+        installURL,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       return setCurrentStatus()
         .then(() => {
           sinon.assert.calledWith(
@@ -315,12 +420,27 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to UNINSTALLED when not found', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({ getAddon: Promise.reject() });
-      const dispatch = sinon.spy();
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      const fakeAddonManager = getFakeAddonManagerWrapper({
+        getAddon: Promise.reject(),
+      });
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const { setCurrentStatus } =
-        mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
+
+      const props = {
+        hasAddonManager: true,
+        _addonManager: fakeAddonManager,
+        guid,
+        installURL,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       return setCurrentStatus()
         .then(() => {
           sinon.assert.calledWith(
@@ -330,14 +450,29 @@ describe('withInstallHelpers inner functions', () => {
         });
     });
 
-    it('dispatches error when setCurrentStatus then() gets exception', () => {
-      const fakeAddonManager = getFakeAddonManagerWrapper({ getAddon: Promise.resolve() });
+    it('dispatches error when setCurrentStatus gets exception', () => {
+      const Component = componentWithInstallHelpers();
+      const { store } = createStore();
+      const dispatch = sinon.stub(store, 'dispatch');
+
+      const fakeAddonManager = getFakeAddonManagerWrapper({
+        // Resolve a null addon which will trigger an exception.
+        getAddon: Promise.resolve(null),
+      });
       const guid = '@foo';
       const installURL = 'http://the.url';
-      const dispatch = sinon.stub();
-      dispatch.onFirstCall().returns(Promise.reject());
-      const { setCurrentStatus } =
-        mapDispatchToProps(dispatch, { _addonManager: fakeAddonManager, guid, installURL });
+
+      const props = {
+        hasAddonManager: true,
+        _addonManager: fakeAddonManager,
+        guid,
+        installURL,
+        store,
+      };
+      const root = shallow(<Component {...props} />)
+        .first().shallow(); // unwrap to BaseComponent
+      const setCurrentStatus = root.prop('setCurrentStatus');
+
       return setCurrentStatus()
         .then(() => {
           sinon.assert.calledWith(

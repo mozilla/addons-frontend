@@ -126,13 +126,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function makeMapDispatchToProps({ WrappedComponent, src }) {
-  return function mapDispatchToProps(
-    dispatch,
-    {
-      _addonManager = addonManager,
-      ...ownProps
-    } = {},
-  ) {
+  return function mapDispatchToProps(dispatch, ownProps) {
     if (config.get('server')) {
       return { WrappedComponent };
     }
@@ -149,32 +143,6 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       WrappedComponent,
       dispatch,
       src,
-      setCurrentStatus(props = ownProps) {
-        const { installURL } = props;
-        const guid = getGuid(props);
-        const payload = { guid, url: installURL };
-
-        return _addonManager.getAddon(guid)
-          .then((addon) => {
-            const status = addon.isActive && addon.isEnabled ?
-              ENABLED : DISABLED;
-
-            dispatch(setInstallState({ ...payload, status }));
-          }, (error) => {
-            log.info(
-              oneLine`Add-on "${guid}" not found so setting status to
-              UNINSTALLED; exact error: ${error}`);
-            dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
-          })
-          .catch((err) => {
-            log.error(err);
-            // Dispatch a generic error should the success/error functions
-            // throw.
-            dispatch(setInstallState({
-              guid, status: ERROR, error: FATAL_ERROR,
-            }));
-          });
-      },
     };
   };
 }
@@ -191,7 +159,6 @@ export class WithInstallHelpers extends React.Component {
     installTheme: PropTypes.func.isRequired,
     installURL: PropTypes.string,
     name: PropTypes.string.isRequired,
-    setCurrentStatus: PropTypes.func.isRequired,
     src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
@@ -217,14 +184,38 @@ export class WithInstallHelpers extends React.Component {
     }
   }
 
-  setCurrentStatus(props) {
-    const { hasAddonManager, setCurrentStatus } = props;
-    if (hasAddonManager) {
-      log.info('Setting add-on status');
-      setCurrentStatus(props);
-    } else {
+  setCurrentStatus(newProps = this.props) {
+    const { _addonManager, dispatch, hasAddonManager } = this.props;
+    const { installURL } = newProps;
+    if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
+      return Promise.resolve();
     }
+
+    const guid = getGuid(newProps);
+    const payload = { guid, url: installURL };
+
+    log.info('Setting add-on status');
+    return _addonManager.getAddon(guid)
+      .then((addon) => {
+        const status = addon.isActive && addon.isEnabled ?
+          ENABLED : DISABLED;
+
+        dispatch(setInstallState({ ...payload, status }));
+      }, (error) => {
+        log.info(
+          oneLine`Add-on "${guid}" not found so setting status to
+          UNINSTALLED; exact error: ${error}`);
+        dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
+      })
+      .catch((error) => {
+        log.error(`Caught error from addonManager: ${error}`);
+        // Dispatch a generic error should the success/error functions
+        // throw.
+        dispatch(setInstallState({
+          guid, status: ERROR, error: FATAL_ERROR,
+        }));
+      });
   }
 
   enable({ _showInfo = this.showInfo } = {}) {
@@ -350,6 +341,7 @@ export class WithInstallHelpers extends React.Component {
       install: (...args) => this.install(...args),
       previewTheme: (...args) => this.previewTheme(...args),
       resetThemePreview: (...args) => this.resetThemePreview(...args),
+      setCurrentStatus: (...args) => this.setCurrentStatus(...args),
       uninstall: (...args) => this.uninstall(...args),
     };
 
