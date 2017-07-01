@@ -146,22 +146,10 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
         are set before withInstallHelpers is called`);
     }
 
-    function showInfo({ name, iconUrl }) {
-      dispatch({
-        type: SHOW_INFO,
-        payload: {
-          addonName: name,
-          imageURL: iconUrl,
-          closeAction: () => {
-            dispatch({ type: CLOSE_INFO });
-          },
-        },
-      });
-    }
-
     return {
       WrappedComponent,
       dispatch,
+      src,
       setCurrentStatus(props = ownProps) {
         const { installURL } = props;
         const guid = getGuid(props);
@@ -185,30 +173,6 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
             // throw.
             dispatch(setInstallState({
               guid, status: ERROR, error: FATAL_ERROR,
-            }));
-          });
-      },
-
-      install() {
-        const { guid, iconUrl, installURL, name } = ownProps;
-        dispatch({ type: START_DOWNLOAD, payload: { guid } });
-        return _addonManager.install(
-          installURL, makeProgressHandler(dispatch, guid), { src }
-        )
-          .then(() => {
-            _tracking.sendEvent({
-              action: TRACKING_TYPE_EXTENSION,
-              category: INSTALL_CATEGORY,
-              label: name,
-            });
-            if (!_addonManager.hasPermissionPromptsEnabled()) {
-              showInfo({ name, iconUrl });
-            }
-          })
-          .catch((err) => {
-            log.error(err);
-            dispatch(setInstallState({
-              guid, status: ERROR, error: FATAL_INSTALL_ERROR,
             }));
           });
       },
@@ -240,18 +204,22 @@ export class WithInstallHelpers extends React.Component {
   static propTypes = {
     WrappedComponent: PropTypes.func.isRequired,
     _addonManager: PropTypes.object,
+    _tracking: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
     iconUrl: PropTypes.string,
     hasAddonManager: PropTypes.bool.isRequired,
     installTheme: PropTypes.func.isRequired,
+    installURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
+    src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
+    _tracking: tracking,
     hasAddonManager: addonManager.hasAddonManager(),
     installTheme,
   }
@@ -300,6 +268,41 @@ export class WithInstallHelpers extends React.Component {
       });
   }
 
+  install() {
+    const {
+      _addonManager,
+      _tracking,
+      dispatch,
+      guid,
+      iconUrl,
+      installURL,
+      name,
+      src,
+    } = this.props;
+
+    dispatch({ type: START_DOWNLOAD, payload: { guid } });
+
+    return _addonManager.install(
+      installURL, makeProgressHandler(dispatch, guid), { src }
+    )
+      .then(() => {
+        _tracking.sendEvent({
+          action: TRACKING_TYPE_EXTENSION,
+          category: INSTALL_CATEGORY,
+          label: name,
+        });
+        if (!_addonManager.hasPermissionPromptsEnabled()) {
+          this.showInfo({ name, iconUrl });
+        }
+      })
+      .catch((error) => {
+        log.error(`Install error: ${error}`);
+        dispatch(setInstallState({
+          guid, status: ERROR, error: FATAL_INSTALL_ERROR,
+        }));
+      });
+  }
+
   showInfo({ name, iconUrl }) {
     const { dispatch } = this.props;
     dispatch({
@@ -343,6 +346,7 @@ export class WithInstallHelpers extends React.Component {
     // Wrapped components will receive these prop functions.
     const exposedPropHelpers = {
       enable: (...args) => this.enable(...args),
+      install: (...args) => this.install(...args),
       previewTheme: (...args) => this.previewTheme(...args),
       resetThemePreview: (...args) => this.resetThemePreview(...args),
     };
