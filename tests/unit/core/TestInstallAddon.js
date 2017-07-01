@@ -122,7 +122,13 @@ describe('withInstallHelpers', () => {
 
   it('does not set status when an update is not necessary', () => {
     const Component = componentWithInstallHelpers();
-    const setCurrentStatus = sinon.stub();
+    const _addonManager = getFakeAddonManagerWrapper({
+      getAddon: Promise.resolve({
+        isActive: true,
+        isEnabled: true,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+    });
 
     const props = {
       addon: fakeAddon,
@@ -130,16 +136,16 @@ describe('withInstallHelpers', () => {
       // do it in mapStateToProps().
       ...fakeAddon,
       hasAddonManager: true,
+      _addonManager,
       store: createStore().store,
-      setCurrentStatus,
     };
-    const root = mount(<Component {...props} />);
+    const root = shallow(<Component {...props} />)
+      .first().shallow(); // unwrap to BaseComponent
 
-    setCurrentStatus.reset();
     // Update the component with the same props (i.e. same add-on guid)
     // and make sure the status is not set.
     root.setProps(props);
-    sinon.assert.notCalled(setCurrentStatus);
+    sinon.assert.notCalled(_addonManager.getAddon);
   });
 
   it('throws without a src', () => {
