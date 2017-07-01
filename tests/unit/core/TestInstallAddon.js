@@ -53,6 +53,23 @@ function componentWithInstallHelpers({ src = 'some-src' } = {}) {
   )(BaseComponent);
 }
 
+function renderWithInstallHelpers({ src, ...customProps } = {}) {
+  const Component = componentWithInstallHelpers({ src });
+  const { store } = createStore();
+  const dispatch = sinon.stub(store, 'dispatch');
+
+  const props = {
+    hasAddonManager: true,
+    _addonManager: getFakeAddonManagerWrapper(),
+    store,
+    ...customProps,
+  };
+  // Render and unwrap to BaseComponent.
+  const root = shallow(<Component {...props} />).first().shallow();
+
+  return { root, dispatch };
+}
+
 describe('withInstallHelpers', () => {
   it('connects mapDispatchToProps for the component', () => {
     const _makeMapDispatchToProps = sinon.spy();
@@ -202,22 +219,13 @@ describe('withInstallHelpers inner functions', () => {
 
   describe('setCurrentStatus', () => {
     it('sets the status to ENABLED when an enabled add-on found', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const guid = '@foo';
       const installURL = 'http://the.url';
 
-      const props = {
-        hasAddonManager: true,
-        _addonManager: getFakeAddonManagerWrapper(),
+      const { root, dispatch } = renderWithInstallHelpers({
         guid,
         installURL,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       return setCurrentStatus()
@@ -230,17 +238,7 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('lets you pass custom props to setCurrentStatus', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
-      const props = {
-        hasAddonManager: true,
-        _addonManager: getFakeAddonManagerWrapper(),
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root, dispatch } = renderWithInstallHelpers();
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       const guid = '@foo';
@@ -257,15 +255,10 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to DISABLED when a disabled add-on found', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const guid = '@foo';
       const installURL = 'http://the.url';
 
-      const props = {
-        hasAddonManager: true,
+      const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
             isActive: false,
@@ -275,10 +268,7 @@ describe('withInstallHelpers inner functions', () => {
         }),
         guid,
         installURL,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       return setCurrentStatus()
@@ -291,15 +281,10 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to DISABLED when an inactive add-on found', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const guid = '@foo';
       const installURL = 'http://the.url';
 
-      const props = {
-        hasAddonManager: true,
+      const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
             isActive: false,
@@ -309,10 +294,7 @@ describe('withInstallHelpers inner functions', () => {
         }),
         guid,
         installURL,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       return setCurrentStatus()
@@ -325,25 +307,17 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to ENABLED when an enabled theme is found', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.resolve({ type: ADDON_TYPE_THEME, isActive: true, isEnabled: true }),
       });
       const guid = '@foo';
       const installURL = 'http://the.url';
 
-      const props = {
-        hasAddonManager: true,
+      const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
         guid,
         installURL,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       return setCurrentStatus()
@@ -356,10 +330,6 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to DISABLED when an inactive theme is found', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.resolve({
           isActive: false,
@@ -370,15 +340,11 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '@foo';
       const installURL = 'http://the.url';
 
-      const props = {
-        hasAddonManager: true,
+      const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
         guid,
         installURL,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       return setCurrentStatus()
@@ -391,10 +357,6 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to DISABLED when a disabled theme is found', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.resolve({
           isActive: true,
@@ -405,15 +367,11 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '@foo';
       const installURL = 'http://the.url';
 
-      const props = {
-        hasAddonManager: true,
+      const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
         guid,
         installURL,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       return setCurrentStatus()
@@ -426,25 +384,17 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('sets the status to UNINSTALLED when not found', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.reject(),
       });
       const guid = '@foo';
       const installURL = 'http://the.url';
 
-      const props = {
-        hasAddonManager: true,
+      const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
         guid,
         installURL,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       return setCurrentStatus()
@@ -457,10 +407,6 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('dispatches error when setCurrentStatus gets exception', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = getFakeAddonManagerWrapper({
         // Resolve a null addon which will trigger an exception.
         getAddon: Promise.resolve(null),
@@ -468,15 +414,11 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '@foo';
       const installURL = 'http://the.url';
 
-      const props = {
-        hasAddonManager: true,
+      const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
         guid,
         installURL,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const setCurrentStatus = root.prop('setCurrentStatus');
 
       return setCurrentStatus()
@@ -549,17 +491,12 @@ describe('withInstallHelpers inner functions', () => {
     const iconUrl = 'something.jpg';
 
     it('calls addonManager.enable() and content notification', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-
       const fakeAddonManager = getFakeAddonManagerWrapper({
         permissionPromptsEnabled: false,
       });
-      const props = {
-        store, name, iconUrl, guid, _addonManager: fakeAddonManager,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root } = renderWithInstallHelpers({
+        name, iconUrl, guid, _addonManager: fakeAddonManager,
+      });
       const enable = root.prop('enable');
 
       const fakeShowInfo = sinon.stub();
@@ -571,17 +508,12 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('calls addonManager.enable() without content notification', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-
       const fakeAddonManager = getFakeAddonManagerWrapper({
         permissionPromptsEnabled: true,
       });
-      const props = {
-        store, name, iconUrl, guid, _addonManager: fakeAddonManager,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root } = renderWithInstallHelpers({
+        name, iconUrl, guid, _addonManager: fakeAddonManager,
+      });
       const enable = root.prop('enable');
 
       const fakeShowInfo = sinon.stub();
@@ -593,18 +525,12 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('dispatches a FATAL_ERROR', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = {
         enable: sinon.stub().returns(Promise.reject(new Error('hai'))),
       };
-      const props = {
-        store, name, iconUrl, guid, _addonManager: fakeAddonManager,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { dispatch, root } = renderWithInstallHelpers({
+        name, iconUrl, guid, _addonManager: fakeAddonManager,
+      });
       const enable = root.prop('enable');
 
       return enable()
@@ -617,18 +543,12 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = {
         enable: sinon.stub().returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
       };
-      const props = {
-        store, name, iconUrl, guid, _addonManager: fakeAddonManager,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root, dispatch } = renderWithInstallHelpers({
+        name, iconUrl, guid, _addonManager: fakeAddonManager,
+      });
       const enable = root.prop('enable');
 
       return enable()
@@ -643,16 +563,10 @@ describe('withInstallHelpers inner functions', () => {
     const installURL = 'https://mysite.com/download.xpi';
 
     it('calls addonManager.install()', () => {
-      const Component = componentWithInstallHelpers({ src });
-      const { store } = createStore();
-      sinon.stub(store, 'dispatch');
       const fakeAddonManager = getFakeAddonManagerWrapper();
-
-      const props = {
-        _addonManager: fakeAddonManager, installURL, store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root } = renderWithInstallHelpers({
+        _addonManager: fakeAddonManager, installURL, src,
+      });
       const install = root.prop('install');
 
       return install({ guid, installURL })
@@ -667,23 +581,16 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('tracks an addon install', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      sinon.stub(store, 'dispatch');
       const name = 'hai-addon';
       const type = ADDON_TYPE_EXTENSION;
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-
-      const props = {
+      const { root } = renderWithInstallHelpers({
         _addonManager: getFakeAddonManagerWrapper(),
         _tracking: fakeTracking,
         name,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const install = root.prop('install');
 
       return install({ guid, installURL, name, type })
@@ -697,15 +604,9 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('should dispatch START_DOWNLOAD', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
-      const props = {
-        store, _addonManager: getFakeAddonManagerWrapper(), guid,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root, dispatch } = renderWithInstallHelpers({
+        _addonManager: getFakeAddonManagerWrapper(), guid,
+      });
       const install = root.prop('install');
 
       return install({ guid, installURL })
@@ -718,20 +619,14 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const props = {
-        store,
         _addonManager: getFakeAddonManagerWrapper({
           permissionPromptsEnabled: false,
         }),
         iconUrl: 'some-icon-url',
         name: 'test-addon',
       };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root, dispatch } = renderWithInstallHelpers(props);
       const install = root.prop('install');
 
       return install({ guid, installURL })
@@ -759,20 +654,14 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('should not dispatch SHOW_INFO if permissionPromptsEnabled is true', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const props = {
-        store,
         _addonManager: getFakeAddonManagerWrapper({
           permissionPromptsEnabled: true,
         }),
         iconUrl: 'some-icon-url',
         name: 'test-addon',
       };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root, dispatch } = renderWithInstallHelpers(props);
       const install = root.prop('install');
 
       return install({ guid, installURL })
@@ -789,18 +678,12 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('dispatches error when addonManager.install throws', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = getFakeAddonManagerWrapper();
       fakeAddonManager.install = sinon.stub().returns(Promise.reject());
 
-      const props = {
-        store, _addonManager: fakeAddonManager, guid,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root, dispatch } = renderWithInstallHelpers({
+        _addonManager: fakeAddonManager, guid,
+      });
       const install = root.prop('install');
 
       return install({ guid, installURL })
@@ -820,15 +703,10 @@ describe('withInstallHelpers inner functions', () => {
     const installURL = 'https://mysite.com/download.xpi';
 
     it('calls addonManager.uninstall()', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = getFakeAddonManagerWrapper();
-
-      const props = { _addonManager: fakeAddonManager, store };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root, dispatch } = renderWithInstallHelpers({
+        _addonManager: fakeAddonManager,
+      });
       const uninstall = root.prop('uninstall');
 
       return uninstall({ guid, installURL })
@@ -842,16 +720,11 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('dispatches error when addonManager.uninstall throws', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      const dispatch = sinon.stub(store, 'dispatch');
-
       const fakeAddonManager = getFakeAddonManagerWrapper();
       fakeAddonManager.uninstall = sinon.stub().returns(Promise.reject());
-
-      const props = { _addonManager: fakeAddonManager, store };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      const { root, dispatch } = renderWithInstallHelpers({
+        _addonManager: fakeAddonManager,
+      });
       const uninstall = root.prop('uninstall');
 
       return uninstall({ guid, installURL })
@@ -870,21 +743,14 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('tracks an addon uninstall', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      sinon.stub(store, 'dispatch');
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-
-      const props = {
+      const { root } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
         _tracking: fakeTracking,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const uninstall = root.prop('uninstall');
 
       const name = 'whatevs';
@@ -901,23 +767,15 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('tracks a theme uninstall', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      sinon.stub(store, 'dispatch');
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-
-      const props = {
+      const { root } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
         _tracking: fakeTracking,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const uninstall = root.prop('uninstall');
-
       const name = 'whatevs';
 
       return uninstall({ guid, installURL, name, type: ADDON_TYPE_THEME })
@@ -931,23 +789,15 @@ describe('withInstallHelpers inner functions', () => {
     });
 
     it('tracks a unknown type uninstall', () => {
-      const Component = componentWithInstallHelpers();
-      const { store } = createStore();
-      sinon.stub(store, 'dispatch');
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const fakeTracking = {
         sendEvent: sinon.spy(),
       };
-
-      const props = {
+      const { root } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
         _tracking: fakeTracking,
-        store,
-      };
-      const root = shallow(<Component {...props} />)
-        .first().shallow(); // unwrap to BaseComponent
+      });
       const uninstall = root.prop('uninstall');
-
       const name = 'whatevs';
       const type = 'foo';
 
@@ -990,58 +840,44 @@ describe('withInstallHelpers inner functions', () => {
 
     describe('previewTheme', () => {
       it('calls theme action with THEME_PREVIEW', () => {
-        const Component = componentWithInstallHelpers();
-        const { store } = createStore();
-        const dispatchSpy = sinon.stub(store, 'dispatch');
-
-        const props = {
+        const { root, dispatch } = renderWithInstallHelpers({
           guid: 'fake-guid@whatever',
           type: ADDON_TYPE_THEME,
-          store,
-        };
-        const root = shallow(<Component {...props} />)
-          .first().shallow(); // unwrap to BaseComponent
+        });
         const previewTheme = root.prop('previewTheme');
 
         const themeAction = sinon.spy();
         const node = sinon.stub();
         previewTheme(node, themeAction);
-        expect(themeAction.calledWith(node, THEME_PREVIEW)).toBeTruthy();
-        expect(dispatchSpy.calledWith({
+        sinon.assert.calledWith(themeAction, node, THEME_PREVIEW);
+        sinon.assert.calledWith(dispatch, {
           type: THEME_PREVIEW,
           payload: {
             guid: 'fake-guid@whatever',
             themePreviewNode: node,
           },
-        })).toBeTruthy();
+        });
       });
     });
 
     describe('resetThemePreview', () => {
       it('calls theme action with THEME_RESET_PREVIEW', () => {
-        const Component = componentWithInstallHelpers();
-        const { store } = createStore();
-        const dispatchSpy = sinon.stub(store, 'dispatch');
-
-        const props = {
+        const { root, dispatch } = renderWithInstallHelpers({
           guid: 'fake-guid@whatever',
           type: ADDON_TYPE_THEME,
-          store,
-        };
-        const root = shallow(<Component {...props} />)
-          .first().shallow(); // unwrap to BaseComponent
+        });
         const resetThemePreview = root.prop('resetThemePreview');
 
         const themeAction = sinon.spy();
         const node = sinon.stub();
         resetThemePreview(node, themeAction);
-        expect(themeAction.calledWith(node, THEME_RESET_PREVIEW)).toBeTruthy();
-        expect(dispatchSpy.calledWith({
+        sinon.assert.calledWith(themeAction, node, THEME_RESET_PREVIEW);
+        sinon.assert.calledWith(dispatch, {
           type: THEME_RESET_PREVIEW,
           payload: {
             guid: 'fake-guid@whatever',
           },
-        })).toBeTruthy();
+        });
       });
     });
   });
