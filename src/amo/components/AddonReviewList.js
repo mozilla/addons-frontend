@@ -107,6 +107,13 @@ export class AddonReviewListBase extends React.Component {
     return `${this.addonURL()}reviews/`;
   }
 
+  formatReviewBody(text) {
+    const formattedReview = text.split('\n').map((i) => {
+      return <div key={i}>{i}</div>;
+    });
+    return formattedReview;
+  }
+
   renderReview({ review, key }: RenderReviewParams) {
     const { i18n } = this.props;
 
@@ -124,7 +131,7 @@ export class AddonReviewListBase extends React.Component {
     return (
       <li className="AddonReviewList-li" key={key}>
         <h3>{review ? review.title : <LoadingText />}</h3>
-        <p>{review ? review.body : <LoadingText />}</p>
+        <p>{review ? this.formatReviewBody(review.body) : <LoadingText />}</p>
         <div className="AddonReviewList-by-line">
           {review ?
             <Rating styleName="small" rating={review.rating} readOnly />
