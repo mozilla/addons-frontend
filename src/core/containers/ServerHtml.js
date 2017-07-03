@@ -50,7 +50,7 @@ export default class ServerHtml extends Component {
             key={type + index}
             rel="stylesheet"
             type="text/css"
-                  />);
+          />);
         case 'js':
           return <script key={type + index} src={filePath} {...sriProps} />;
         default:
