@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { loadEntities } from 'core/actions';
-import { fetchAddon } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -85,19 +83,7 @@ export function mapStateToProps(state) {
   };
 }
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    loadAddon({ api, query }) {
-      return fetchAddon({ slug: query, api })
-        .then(({ entities, result }) => {
-          dispatch(loadEntities(entities));
-          return result;
-        });
-    },
-  };
-}
-
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps),
   translate({ withRef: true }),
 )(SearchFormBase);
