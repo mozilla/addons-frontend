@@ -50,7 +50,8 @@ export class FeaturedAddonsBase extends React.Component {
           count={results.length}
           hasSearchParams={hasSearchParams}
           loading={loading}
-          results={results} />
+          results={results}
+        />
       </div>
     );
   }

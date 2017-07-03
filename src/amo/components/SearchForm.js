@@ -57,13 +57,17 @@ export class SearchFormBase extends React.Component {
     }
 
     return (
-      <form method="GET"
+      <form
+        method="GET"
         action={`/${api.lang}/${api.clientApp}${pathname}`}
         onSubmit={this.handleSearch}
         className="SearchForm-form"
-        ref={(ref) => { this.form = ref; }}>
-        <label className="visually-hidden"
-          htmlFor="q">
+        ref={(ref) => { this.form = ref; }}
+      >
+        <label
+          className="visually-hidden"
+          htmlFor="q"
+        >
           {i18n.gettext('Search')}
         </label>
         <SearchInput
@@ -74,7 +78,8 @@ export class SearchFormBase extends React.Component {
           ref={(ref) => { this.searchQuery = ref; }}
           type="search"
         />
-        <button className="visually-hidden"
+        <button
+          className="visually-hidden"
           onClick={this.handleSearch}
           ref={(ref) => { this.submitButton = ref; }}
           title="Enter"

@@ -22,10 +22,12 @@ class InfoDialogRaw extends React.Component {
   render() {
     const { addonName, closeAction, i18n, imageURL } = this.props;
     return (
-      <div className="show-info"
-          role="dialog"
-          aria-labelledby="show-info-title"
-          aria-describedby="show-info-description">
+      <div
+        className="show-info"
+        role="dialog"
+        aria-labelledby="show-info-title"
+        aria-describedby="show-info-description"
+      >
         <div className="info">
           <div className="logo">
             <img src={imageURL} alt="" />
@@ -37,8 +39,10 @@ class InfoDialogRaw extends React.Component {
               { name: addonName })}</p>
           </div>
         </div>
-        <button ref={(button) => { if (button != null) { button.focus(); } }}
-          onClick={closeAction}>{i18n.gettext('OK!')}</button>
+        <button
+          ref={(button) => { if (button != null) { button.focus(); } }}
+          onClick={closeAction}
+        >{i18n.gettext('OK!')}</button>
       </div>
     );
   }

@@ -54,7 +54,8 @@ export class ShowMoreCardBase extends React.Component {
     const { expanded } = this.state;
 
     const readMoreLink = (
-      <a className="ShowMoreCard-expand-link"
+      <a
+        className="ShowMoreCard-expand-link"
         href="#show-more"
         onClick={this.onClick}
         dangerouslySetInnerHTML={sanitizeHTML(
@@ -64,16 +65,20 @@ export class ShowMoreCardBase extends React.Component {
             // non-screenreaders and must stay.
             '<span class="visually-hidden">Expand to</span> Read more'
           ), ['span']
-        )} />
+        )}
+      />
     );
 
     return (
-      <Card className={classNames('ShowMoreCard', className, { 'ShowMoreCard--expanded': expanded })}
+      <Card
+        className={classNames('ShowMoreCard', className, { 'ShowMoreCard--expanded': expanded })}
         header={header}
         footerLink={expanded ? null : readMoreLink}
       >
-        <div className="ShowMoreCard-contents"
-          ref={(ref) => { this.contents = ref; }}>
+        <div
+          className="ShowMoreCard-contents"
+          ref={(ref) => { this.contents = ref; }}
+        >
           {children}
         </div>
       </Card>

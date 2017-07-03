@@ -63,8 +63,10 @@ class SearchResults extends React.Component {
           header={i18n.gettext('Search results')}
         >
           {messageText ? (
-            <p ref={(ref) => { this.message = ref; }}
-              className="SearchResults-message">
+            <p
+              ref={(ref) => { this.message = ref; }}
+              className="SearchResults-message"
+            >
               {messageText}
             </p>
           ) : null}

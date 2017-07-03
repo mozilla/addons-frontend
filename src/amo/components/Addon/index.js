@@ -173,8 +173,10 @@ export class AddonBase extends React.Component {
 
       footerPropName = 'footerLink';
       content = (
-        <Link className="Addon-all-reviews-link"
-          to={`/addon/${addon.slug}/reviews/`}>
+        <Link
+          className="Addon-all-reviews-link"
+          to={`/addon/${addon.slug}/reviews/`}
+        >
           {linkText}
         </Link>
       );
@@ -192,7 +194,8 @@ export class AddonBase extends React.Component {
       <Card
         header={i18n.gettext('Rate your experience')}
         className="Addon-overall-rating"
-        {...props}>
+        {...props}
+      >
         {addon ?
           <RatingManager
             addon={addon}
@@ -224,8 +227,10 @@ export class AddonBase extends React.Component {
     return (
       <ShowMoreCard
         header={i18n.sprintf(i18n.gettext('About this %(addonType)s'), { addonType })}
-        className="AddonDescription">
-        <div className="AddonDescription-contents"
+        className="AddonDescription"
+      >
+        <div
+          className="AddonDescription-contents"
           ref={(ref) => { this.addonDescription = ref; }}
           {...descriptionProps}
         />

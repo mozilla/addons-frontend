@@ -116,7 +116,8 @@ export class DiscoPaneBase extends React.Component {
                 <span className="play-video-text">{i18n.gettext('Click to play')}</span>
                 <span className="visually-hidden">{i18n.gettext('to find out more about add-ons')}</span>
               </a>
-              <video poster={videoPoster}
+              <video
+                poster={videoPoster}
                 controls={showVideo}
                 width="512"
                 height="288"
@@ -136,10 +137,12 @@ export class DiscoPaneBase extends React.Component {
           <AddonComponent addon={item} {...camelCaseKeys(item)} key={item.guid} />
         ))}
         <div className="amo-link">
-          <a href="https://addons.mozilla.org/"
+          <a
+            href="https://addons.mozilla.org/"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={this.showMoreAddons}>
+            onClick={this.showMoreAddons}
+          >
             {i18n.gettext('See more add-ons!')}
           </a>
         </div>

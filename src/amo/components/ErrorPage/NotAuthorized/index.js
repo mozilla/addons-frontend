@@ -30,8 +30,10 @@ export class NotAuthorizedBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <NestedStatus code={401}>
-        <Card className="ErrorPage NotAuthorized"
-          header={i18n.gettext('Not Authorized')}>
+        <Card
+          className="ErrorPage NotAuthorized"
+          header={i18n.gettext('Not Authorized')}
+        >
           <p>
             {i18n.gettext(`
               Sorry, but you aren't authorized to access this page. If you

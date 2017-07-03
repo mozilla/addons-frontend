@@ -22,8 +22,10 @@ export default (
       component={DiscoPane}
     />
     <Route path="/:lang/firefox/404" component={NotFound} />
-    <Route path="/:lang/firefox/500"
-      component={config.get('isDevelopment') ? GenericError : NotFound} />
+    <Route
+      path="/:lang/firefox/500"
+      component={config.get('isDevelopment') ? GenericError : NotFound}
+    />
     <Route
       path="/:lang/:app/simulate-async-error/"
       component={SimulateAsyncError}

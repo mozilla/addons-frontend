@@ -30,9 +30,11 @@ describe('<LandingPage />', () => {
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
-          <LandingPageBase dispatch={fakeDispatch}
+          <LandingPageBase
+            dispatch={fakeDispatch}
             i18n={getFakeI18nInst()}
-            {...props} />
+            {...props}
+          />
         </I18nProvider>
       </Provider>
     ), LandingPageBase);

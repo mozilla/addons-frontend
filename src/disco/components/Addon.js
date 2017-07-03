@@ -91,15 +91,20 @@ export class AddonBase extends React.Component {
       return (
         <HoverIntent
           onHoverIntent={this.previewTheme}
-          onHoverIntentEnd={this.resetThemePreview}>
-          <a href="#"
+          onHoverIntentEnd={this.resetThemePreview}
+        >
+          <a
+            href="#"
             className="theme-image"
             data-browsertheme={getBrowserThemeData()}
             onBlur={this.resetThemePreview}
             onClick={this.installTheme}
-            onFocus={this.previewTheme}>
-            <img src={previewURL}
-              alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })} />
+            onFocus={this.previewTheme}
+          >
+            <img
+              src={previewURL}
+              alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })}
+            />
           </a>
         </HoverIntent>
       );
@@ -119,7 +124,8 @@ export class AddonBase extends React.Component {
       <div
         ref={(ref) => { this.editorialDescription = ref; }}
         className="editorial-description"
-        dangerouslySetInnerHTML={sanitizeHTML(description, ['blockquote', 'cite'])} />
+        dangerouslySetInnerHTML={sanitizeHTML(description, ['blockquote', 'cite'])}
+      />
     );
   }
 
@@ -214,7 +220,8 @@ export class AddonBase extends React.Component {
               onClick={this.clickHeadingLink}
               ref={(ref) => { this.heading = ref; }}
               className="heading"
-              dangerouslySetInnerHTML={sanitizeHTML(heading, ['a', 'span'])} />
+              dangerouslySetInnerHTML={sanitizeHTML(heading, ['a', 'span'])}
+            />
             {this.getDescription()}
           </div>
           <InstallButton className="Addon-install-button" size="small" {...this.props} />

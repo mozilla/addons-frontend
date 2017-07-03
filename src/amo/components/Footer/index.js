@@ -23,32 +23,42 @@ export class FooterBase extends React.Component {
     return (
       <footer className="Footer">
         <div className="Footer-language-and-links">
-          <LanguagePicker location={location}
-            ref={(ref) => { this.languagePicker = ref; }} />
+          <LanguagePicker
+            location={location}
+            ref={(ref) => { this.languagePicker = ref; }}
+          />
           <ul className="Footer-links">
             <li>
-              <a href="https://www.mozilla.org/privacy/websites/"
-                className="Footer-link Footer-privacy">
+              <a
+                href="https://www.mozilla.org/privacy/websites/"
+                className="Footer-link Footer-privacy"
+              >
                 {i18n.gettext('Privacy policy')}
               </a>
             </li>
             <li>
-              <a href="https://www.mozilla.org/about/legal/"
-                className="Footer-link Footer-legal">
+              <a
+                href="https://www.mozilla.org/about/legal/"
+                className="Footer-link Footer-legal"
+              >
                 {i18n.gettext('Legal notices')}
               </a>
             </li>
             <li>
-              <a href="https://developer.mozilla.org/Add-ons/AMO/Policy/Contact"
-                className="Footer-link Footer-fileissue">
+              <a
+                href="https://developer.mozilla.org/Add-ons/AMO/Policy/Contact"
+                className="Footer-link Footer-fileissue"
+              >
                 {i18n.gettext('Report a bug')}
               </a>
             </li>
             <li>
-              <a href="#desktop"
+              <a
+                href="#desktop"
                 className="Footer-link Footer-desktop"
                 onClick={handleViewDesktop}
-                ref={(ref) => { this.desktopLink = ref; }}>
+                ref={(ref) => { this.desktopLink = ref; }}
+              >
                 {i18n.gettext('View classic desktop site')}
               </a>
             </li>

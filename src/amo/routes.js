@@ -37,11 +37,15 @@ export default (
     <Route path=":visibleAddonType/:slug/" component={Category} />
     <Route path="/api/v3/accounts/authenticate/" component={HandleLogin} />
     <Route path="search/" component={Search} />
-    <Route path="401/"
-      component={config.get('isDevelopment') ? NotAuthorized : NotFound} />
+    <Route
+      path="401/"
+      component={config.get('isDevelopment') ? NotAuthorized : NotFound}
+    />
     <Route path="404/" component={NotFound} />
-    <Route path="500/"
-      component={config.get('isDevelopment') ? ServerError : NotFound} />
+    <Route
+      path="500/"
+      component={config.get('isDevelopment') ? ServerError : NotFound}
+    />
     <Route path="simulate-async-error/" component={SimulateAsyncError} />
     <Route path="simulate-sync-error/" component={SimulateSyncError} />
     <Route path="simulate-client-error/" component={SimulateClientError} />

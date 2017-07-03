@@ -44,9 +44,11 @@ export class SearchResultBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <li className={resultClassnames}>
-        <Link to={`/addon/${addon.slug}/`}
-              className="SearchResult-link"
-              ref={(el) => { this.name = el; }}>
+        <Link
+          to={`/addon/${addon.slug}/`}
+          className="SearchResult-link"
+          ref={(el) => { this.name = el; }}
+        >
           <div className={iconWrapperClassnames}>
             {imageURL ? (
               <img className="SearchResult-icon" src={imageURL} alt="" />

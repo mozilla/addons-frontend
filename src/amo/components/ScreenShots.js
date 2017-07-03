@@ -70,7 +70,8 @@ export default class ScreenShots extends React.Component {
             close={this.onClose}
             items={formatPreviews(previews)}
             options={PHOTO_SWIPE_OPTIONS}
-            thumbnailContent={thumbnailContent} />
+            thumbnailContent={thumbnailContent}
+          />
         </div>
       </div>
     );
