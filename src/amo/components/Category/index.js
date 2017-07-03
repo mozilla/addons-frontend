@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import CategoryHeader from 'amo/components/CategoryHeader';
-import Search from 'amo/components/Search';
+import { SearchBase } from 'amo/components/Search';
 import { categoriesFetch } from 'core/actions/categories';
 import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
 import {
@@ -35,7 +35,7 @@ export class CategoryBase extends React.Component {
     return (
       <div className="Category">
         <CategoryHeader category={category} />
-        <Search enableSearchSort={false} {...searchProps} />
+        <SearchBase enableSearchSort={false} hasSearchParams {...searchProps} />
       </div>
     );
   }
@@ -65,7 +65,6 @@ export function mapStateToProps(state, ownProps) {
     return {
       addonType: filters.addonType,
       category,
-      hasSearchParams: true,
       filters,
       pathname,
       queryParams,
@@ -76,7 +75,6 @@ export function mapStateToProps(state, ownProps) {
   return {
     addonType: filters.addonType,
     category,
-    hasSearchParams: true,
     pathname,
     queryParams,
   };
