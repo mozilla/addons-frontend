@@ -1,7 +1,6 @@
 import config from 'config';
 import { mount, shallow } from 'enzyme';
 import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
 import { compose } from 'redux';
 
 import createStore from 'amo/store';
@@ -191,14 +190,16 @@ describe('withInstallHelpers', () => {
   });
 
   it('does not set the current status in componentDidMount without an addonManager', () => {
-    const setCurrentStatus = sinon.spy();
-    renderIntoDocument(
+    const _addonManager = getFakeAddonManagerWrapper();
+
+    mount(
       <WithInstallHelpers
         WrappedComponent={() => <div />}
         hasAddonManager={false}
-        setCurrentStatus={setCurrentStatus}
-      />);
-    expect(setCurrentStatus.called).toBeFalsy();
+        _addonManager={_addonManager}
+      />
+    );
+    sinon.assert.notCalled(_addonManager.getAddon);
   });
 });
 
