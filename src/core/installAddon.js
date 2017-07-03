@@ -107,9 +107,11 @@ export function mapStateToProps(state, ownProps) {
       if (theme && theme.status !== ENABLED) {
         if (!theme.isPreviewingTheme) {
           _log.info(`Previewing theme: ${guid}`);
+          // Call WithInstallHelpers.previewTheme().
           this.previewTheme(node, _themeAction);
         } else {
           _log.info(`Resetting theme preview: ${guid}`);
+          // Call WithInstallHelpers.resetThemePreview().
           this.resetThemePreview(node, _themeAction);
         }
       }
