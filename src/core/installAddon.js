@@ -125,14 +125,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function makeMapDispatchToProps({ WrappedComponent, src }) {
-  return function mapDispatchToProps(
-    dispatch,
-    {
-      _addonManager = addonManager,
-      _tracking = tracking,
-      ...ownProps
-    } = {},
-  ) {
+  return function mapDispatchToProps(dispatch, ownProps) {
     if (config.get('server')) {
       return { WrappedComponent };
     }
@@ -145,132 +138,10 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
         are set before withInstallHelpers is called`);
     }
 
-    function showInfo({ name, iconUrl }) {
-      dispatch({
-        type: SHOW_INFO,
-        payload: {
-          addonName: name,
-          imageURL: iconUrl,
-          closeAction: () => {
-            dispatch({ type: CLOSE_INFO });
-          },
-        },
-      });
-    }
-
     return {
       WrappedComponent,
-      previewTheme(node, _themeAction = themeAction) {
-        const guid = getGuid(ownProps);
-        _themeAction(node, THEME_PREVIEW);
-        dispatch({
-          type: THEME_PREVIEW,
-          payload: {
-            guid,
-            themePreviewNode: node,
-          },
-        });
-      },
-      resetThemePreview(node, _themeAction = themeAction) {
-        const guid = getGuid(ownProps);
-        _themeAction(node, THEME_RESET_PREVIEW);
-        dispatch({
-          type: THEME_RESET_PREVIEW,
-          payload: {
-            guid,
-          },
-        });
-      },
-      setCurrentStatus() {
-        const { installURL } = ownProps;
-        const guid = getGuid(ownProps);
-        const payload = { guid, url: installURL };
-
-        return _addonManager.getAddon(guid)
-          .then((addon) => {
-            const status = addon.isActive && addon.isEnabled ?
-              ENABLED : DISABLED;
-
-            dispatch(setInstallState({ ...payload, status }));
-          }, () => {
-            log.info(
-              `Add-on "${guid}" not found so setting status to UNINSTALLED`);
-            dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
-          })
-          .catch((err) => {
-            log.error(err);
-            // Dispatch a generic error should the success/error functions
-            // throw.
-            dispatch(setInstallState({
-              guid, status: ERROR, error: FATAL_ERROR,
-            }));
-          });
-      },
-
-      enable({ _showInfo = showInfo } = {}) {
-        const { guid, iconUrl, name } = ownProps;
-        return _addonManager.enable(guid)
-          .then(() => {
-            if (!_addonManager.hasPermissionPromptsEnabled()) {
-              _showInfo({ name, iconUrl });
-            }
-          })
-          .catch((err) => {
-            if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
-              log.info(
-                `addon.setEnabled not available. Unable to enable ${guid}`);
-            } else {
-              log.error(err);
-              dispatch(setInstallState({
-                guid, status: ERROR, error: FATAL_ERROR,
-              }));
-            }
-          });
-      },
-
-      install() {
-        const { guid, iconUrl, installURL, name } = ownProps;
-        dispatch({ type: START_DOWNLOAD, payload: { guid } });
-        return _addonManager.install(
-          installURL, makeProgressHandler(dispatch, guid), { src }
-        )
-          .then(() => {
-            _tracking.sendEvent({
-              action: TRACKING_TYPE_EXTENSION,
-              category: INSTALL_CATEGORY,
-              label: name,
-            });
-            if (!_addonManager.hasPermissionPromptsEnabled()) {
-              showInfo({ name, iconUrl });
-            }
-          })
-          .catch((err) => {
-            log.error(err);
-            dispatch(setInstallState({
-              guid, status: ERROR, error: FATAL_INSTALL_ERROR,
-            }));
-          });
-      },
-
-      uninstall({ guid, name, type }) {
-        dispatch(setInstallState({ guid, status: UNINSTALLING }));
-
-        const action = getAction(type);
-        return _addonManager.uninstall(guid)
-          .then(() => {
-            _tracking.sendEvent({
-              action,
-              category: UNINSTALL_CATEGORY,
-              label: name,
-            });
-          })
-          .catch((err) => {
-            log.error(err);
-            dispatch(setInstallState({
-              guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
-            }));
-          });
-      },
+      dispatch,
+      src,
     };
   };
 }
@@ -278,32 +149,202 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
 export class WithInstallHelpers extends React.Component {
   static propTypes = {
     WrappedComponent: PropTypes.func.isRequired,
+    _addonManager: PropTypes.object,
+    _tracking: PropTypes.object,
+    dispatch: PropTypes.func.isRequired,
+    guid: PropTypes.string,
+    iconUrl: PropTypes.string,
     hasAddonManager: PropTypes.bool.isRequired,
     installTheme: PropTypes.func.isRequired,
+    installURL: PropTypes.string,
     name: PropTypes.string.isRequired,
-    setCurrentStatus: PropTypes.func.isRequired,
+    src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
+    _addonManager: addonManager,
+    _tracking: tracking,
     hasAddonManager: addonManager.hasAddonManager(),
     installTheme,
   }
 
   componentDidMount() {
-    const { hasAddonManager, setCurrentStatus } = this.props;
-    if (hasAddonManager) {
-      log.info('Setting add-on status');
-      setCurrentStatus();
-    } else {
-      log.info('No addon manager, cannot set add-on status');
+    this.setCurrentStatus(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { guid: oldGuid } = this.props;
+    const { guid: newGuid } = nextProps;
+    if (newGuid && newGuid !== oldGuid) {
+      log.info('Updating add-on status');
+      this.setCurrentStatus({ ...this.props, ...nextProps });
     }
+  }
+
+  setCurrentStatus(newProps = this.props) {
+    const { _addonManager, dispatch, hasAddonManager } = this.props;
+    const { installURL } = newProps;
+    if (!hasAddonManager) {
+      log.info('No addon manager, cannot set add-on status');
+      return Promise.resolve();
+    }
+
+    const guid = getGuid(newProps);
+    const payload = { guid, url: installURL };
+
+    log.info('Setting add-on status');
+    return _addonManager.getAddon(guid)
+      .then((addon) => {
+        const status = addon.isActive && addon.isEnabled ?
+          ENABLED : DISABLED;
+
+        dispatch(setInstallState({ ...payload, status }));
+      }, (error) => {
+        log.info(
+          oneLine`Add-on "${guid}" not found so setting status to
+          UNINSTALLED; exact error: ${error}`);
+        dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
+      })
+      .catch((error) => {
+        log.error(`Caught error from addonManager: ${error}`);
+        // Dispatch a generic error should the success/error functions
+        // throw.
+        dispatch(setInstallState({
+          guid, status: ERROR, error: FATAL_ERROR,
+        }));
+      });
+  }
+
+  enable({ _showInfo = this.showInfo } = {}) {
+    const { _addonManager, dispatch, guid, iconUrl, name } = this.props;
+    return _addonManager.enable(guid)
+      .then(() => {
+        if (!_addonManager.hasPermissionPromptsEnabled()) {
+          _showInfo({ name, iconUrl });
+        }
+      })
+      .catch((err) => {
+        if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
+          log.info(
+            `addon.setEnabled not available. Unable to enable ${guid}`);
+        } else {
+          log.error(err);
+          dispatch(setInstallState({
+            guid, status: ERROR, error: FATAL_ERROR,
+          }));
+        }
+      });
+  }
+
+  install() {
+    const {
+      _addonManager,
+      _tracking,
+      dispatch,
+      guid,
+      iconUrl,
+      installURL,
+      name,
+      src,
+    } = this.props;
+
+    dispatch({ type: START_DOWNLOAD, payload: { guid } });
+
+    return _addonManager.install(
+      installURL, makeProgressHandler(dispatch, guid), { src }
+    )
+      .then(() => {
+        _tracking.sendEvent({
+          action: TRACKING_TYPE_EXTENSION,
+          category: INSTALL_CATEGORY,
+          label: name,
+        });
+        if (!_addonManager.hasPermissionPromptsEnabled()) {
+          this.showInfo({ name, iconUrl });
+        }
+      })
+      .catch((error) => {
+        log.error(`Install error: ${error}`);
+        dispatch(setInstallState({
+          guid, status: ERROR, error: FATAL_INSTALL_ERROR,
+        }));
+      });
+  }
+
+  showInfo({ name, iconUrl }) {
+    const { dispatch } = this.props;
+    dispatch({
+      type: SHOW_INFO,
+      payload: {
+        addonName: name,
+        imageURL: iconUrl,
+        closeAction: () => {
+          dispatch({ type: CLOSE_INFO });
+        },
+      },
+    });
+  }
+
+  previewTheme(node, _themeAction = themeAction) {
+    const guid = getGuid(this.props);
+    _themeAction(node, THEME_PREVIEW);
+    this.props.dispatch({
+      type: THEME_PREVIEW,
+      payload: {
+        guid,
+        themePreviewNode: node,
+      },
+    });
+  }
+
+  resetThemePreview(node, _themeAction = themeAction) {
+    const guid = getGuid(this.props);
+    _themeAction(node, THEME_RESET_PREVIEW);
+    this.props.dispatch({
+      type: THEME_RESET_PREVIEW,
+      payload: {
+        guid,
+      },
+    });
+  }
+
+  uninstall({ guid, name, type }) {
+    const { _addonManager, _tracking, dispatch } = this.props;
+    dispatch(setInstallState({ guid, status: UNINSTALLING }));
+
+    const action = getAction(type);
+    return _addonManager.uninstall(guid)
+      .then(() => {
+        _tracking.sendEvent({
+          action,
+          category: UNINSTALL_CATEGORY,
+          label: name,
+        });
+      })
+      .catch((err) => {
+        log.error(err);
+        dispatch(setInstallState({
+          guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
+        }));
+      });
   }
 
   render() {
     const { WrappedComponent, ...props } = this.props;
-    return <WrappedComponent {...props} />;
+
+    // Wrapped components will receive these prop functions.
+    const exposedPropHelpers = {
+      enable: (...args) => this.enable(...args),
+      install: (...args) => this.install(...args),
+      previewTheme: (...args) => this.previewTheme(...args),
+      resetThemePreview: (...args) => this.resetThemePreview(...args),
+      setCurrentStatus: (...args) => this.setCurrentStatus(...args),
+      uninstall: (...args) => this.uninstall(...args),
+    };
+
+    return <WrappedComponent {...exposedPropHelpers} {...props} />;
   }
 }
 
