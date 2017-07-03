@@ -19,6 +19,21 @@ extensions.webapi.testing
 
 Refresh the page, open the JavaScript console, and you should see a global `mozAddonManager` object.
 
+## Install add-ons for development
+
+To fully install add-ons from a development site like
+https://addons-dev.allizom.org or https://addons.allizom.org
+you will need to tell Firefox to honor their signing certificates.
+Go to `about:config` in Firefox and set this property to `true`:
+
+```
+xpinstall.signatures.dev-root
+```
+
+You will need restart Firefox for this to take affect. This pref allows
+you to fully install add-on and theme files.
+
+
 ## Developing on Android
 
 The presence of the `mozAddonManager` API on Firefox for Android will activate
@@ -74,6 +89,27 @@ Change into the source directory and apply this patch to allow a local server
 at a URL like `localhost:3000`.
 
 ```diff
+diff --git a/browser/base/content/browser-addons.js b/browser/base/content/browser-addons.js
+--- a/browser/base/content/browser-addons.js
++++ b/browser/base/content/browser-addons.js
+@@ -711,16 +711,11 @@ var LightWeightThemeWebInstaller = {
+     let uri;
+     try {
+       uri = makeURI(srcURIString);
+     } catch (e) {
+       // makeURI fails if srcURIString is a nonsense URI
+       return false;
+     }
+
+-    if (!uri.schemeIs("https")) {
+-      return false;
+-    }
+-
+-    let pm = Services.perms;
+-    return pm.testPermission(uri, "install") == pm.ALLOW_ACTION;
++    return true;
+   }
+ };
 diff --git a/toolkit/mozapps/extensions/AddonManager.jsm b/toolkit/mozapps/extensions/AddonManager.jsm
 --- a/toolkit/mozapps/extensions/AddonManager.jsm
 +++ b/toolkit/mozapps/extensions/AddonManager.jsm
@@ -141,7 +177,8 @@ diff --git a/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp b/toolkit/mozapps
 
 This patch will:
 1. allow you to use an HTTP connection
-2. allow any page at `localhost` (on any port) to access `mozAddonManager`.
+2. allow any page at `localhost` (on any port) to access `mozAddonManager` and
+   perform some theme actions.
 
 With this patch applied, you are ready to build Firefox. Once again, make sure
 you aren't configured for an artifact build since that won't work
@@ -172,6 +209,11 @@ fancy installation switch. It worked!
 If it doesn't work, you may need to add some logging and re-build Firefox.
 Try setting `extensions.logging.enabled` to `true` in `about:config` to see
 logging output for the `AddonManager.jsm` code.
+
+When you click the switch, note that you can only install add-ons if your
+localhost is *proxying* https://addons-dev.allizom.org or https://addons.allizom.org .
+This is because Firefox needs to check the signing certs that are activated
+when you set `xpinstall.signatures.dev-root` to `true`.
 
 ### Updating your Firefox source code
 
