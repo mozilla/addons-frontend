@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-27 22:15+0000\n"
-"PO-Revision-Date: 2017-07-03 20:30+0000\n"
+"PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ga_IE\n"
@@ -302,69 +302,60 @@ msgid "More featured themes"
 msgstr "Tuilleadh téamaí mór-le-rá"
 
 #: src/amo/components/LandingPage.js:111
-#, fuzzy
 msgid "Most popular themes"
-msgstr "Brabhsáil na téamaí go léir"
+msgstr "Na téamaí is mó a bhfuil tóir orthu"
 
 #: src/amo/components/LandingPage.js:116
-#, fuzzy
 msgid "More popular themes"
-msgstr "Brabhsáil na téamaí go léir"
+msgstr "Tuilleadh téamaí a bhfuil tóir orthu"
 
 #: src/amo/components/LandingPage.js:117
-#, fuzzy
 msgid "Top rated themes"
-msgstr "Brabhsáil na téamaí go léir"
+msgstr "Téamaí leis na rátálacha is fearr"
 
 #: src/amo/components/LandingPage.js:122
 msgid "More highly rated themes"
-msgstr ""
+msgstr "Tuilleadh téamaí le rátáil mhaith"
 
 #: src/amo/components/LandingPage.js:157 src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
 msgid "Themes"
-msgstr ""
+msgstr "Téamaí"
 
 #: src/amo/components/LandingPage.js:158 src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
-#, fuzzy
 msgid "Extensions"
-msgstr "Meiteashonraí na hEisínteachta"
+msgstr "Eisínteachtaí"
 
 #: src/amo/components/LandingPage.js:161
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "Athraigh cuma do bhrabhsálaí. Tá na mílte téama ar fáil chun Firefox a chur in oiriúint duit féin."
 
 #: src/amo/components/LandingPage.js:163
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr ""
+msgstr "Suiteáil uirlisí cumhachtacha a chuireann dlús leis an mbrabhsálaí agus a chosnaíonn do phríobháideachas ar líne. Is leatsa an rogha."
 
 #: src/amo/components/LandingPage.js:188
 msgid "Browse by category"
-msgstr ""
+msgstr "Brabhsáil de réir catagóire"
 
 #: src/amo/components/LandingPage.js:84
-#, fuzzy
 msgid "Featured extensions"
-msgstr "Brabhsáil na heisínteachtaí go léir"
+msgstr "Eisínteachtaí mór-le-rá"
 
 #: src/amo/components/LandingPage.js:88
-#, fuzzy
 msgid "More featured extensions"
-msgstr "Brabhsáil na heisínteachtaí go léir"
+msgstr "Tuilleadh eisínteachtaí mór-le-rá"
 
 #: src/amo/components/LandingPage.js:89
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Brabhsáil na heisínteachtaí go léir"
+msgstr "Na heisínteachtaí is mó a bhfuil tóir orthu"
 
 #: src/amo/components/LandingPage.js:94
-#, fuzzy
 msgid "More popular extensions"
-msgstr "Brabhsáil na heisínteachtaí go léir"
+msgstr "Tuilleadh eisínteachtaí a bhfuil tóir orthu"
 
 #: src/amo/components/LandingPage.js:95
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "Brabhsáil na heisínteachtaí go léir"
+msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -372,102 +363,95 @@ msgstr "Brabhsáil i do theanga dhúchais"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Logáil isteach chun an foclóir seo a rátáil"
 
 #: src/amo/components/RatingManager/index.js:126
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Logáil isteach chun an pacáiste teanga seo a rátáil"
 
 #: src/amo/components/RatingManager/index.js:128
-#, fuzzy
 msgid "Log in to rate this search plugin"
-msgstr "Maidir leis an eisínteacht seo"
+msgstr "Logáil isteach chun an breiseán cuardaigh seo a rátáil"
 
 #: src/amo/components/RatingManager/index.js:130
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Logáil isteach chun an téama seo a rátáil"
 
 #: src/amo/components/RatingManager/index.js:132
-#, fuzzy
 msgid "Log in to rate this extension"
-msgstr "Maidir leis an eisínteacht seo"
+msgstr "Logáil isteach chun an eisínteacht seo a rátáil"
 
 #: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Logáil isteach chun an breiseán seo a rátáil"
 
 #: src/amo/components/RatingManager/index.js:162
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "An dtaitníonn %(addonName)s leat?"
 
 #: src/amo/components/SearchForm.js:52
-#, fuzzy
 msgid "Search extensions"
-msgstr "Brabhsáil na heisínteachtaí go léir"
+msgstr "Cuardaigh na heisínteachtaí"
 
 #: src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search themes"
-msgstr "Ag cuardach..."
+msgstr "Cuardaigh na téamaí"
 
 #: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Cuardaigh eisínteachtaí agus téamaí"
 
 #: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
-#, fuzzy
 msgid "Search"
-msgstr "Ag cuardach..."
+msgstr "Cuardaigh"
 
 #: src/amo/components/SearchResult.js:50
 msgid "No theme preview available"
-msgstr ""
+msgstr "Níl réamhamharc ar an téama seo le fáil"
 
 #: src/amo/components/SearchResults.js:43
-#, fuzzy
 msgid "Searching…"
-msgstr "Ag cuardach..."
+msgstr "Ag cuardach…"
 
 #: src/amo/components/SearchResults.js:49
 msgid "No results were found for \"%(query)s\"."
 msgstr "Gan torthaí ar \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:53
-#, fuzzy
 msgid "No results were found."
-msgstr "Gan torthaí ar \"%(query)s\"."
+msgstr "Gan torthaí ar bith."
 
 #: src/amo/components/SearchResults.js:56
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Cuir téarmaí cuardaigh isteach chun Breiseáin Firefox a chuardach."
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nuashonraithe Le Déanaí"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Relevance"
-msgstr ""
+msgstr "Bainteacht"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Most Users"
-msgstr ""
+msgstr "Líon is mó úsáideoirí"
 
 #: src/amo/components/SearchSort/index.js:44
 msgid "Top Rated"
-msgstr ""
+msgstr "Rátálacha is fearr"
 
 #: src/amo/components/SearchSort/index.js:67
 msgid "Sort"
-msgstr ""
+msgstr "Sórtáil"
 
 #: src/amo/components/SectionLinks/index.js:39
 msgid "Explore"
-msgstr ""
+msgstr "Taiscéal"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Leathanaigh Mholta"
 
 #: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
 msgid "Browse all extensions"
@@ -478,17 +462,16 @@ msgid "Browse all themes"
 msgstr "Brabhsáil na téamaí go léir"
 
 #: src/amo/components/SuggestedPages/index.js:36
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "Breiseáin Firefox"
+msgstr "Baile na mBreiseán"
 
 #: src/amo/containers/Home.js:50
 msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-msgstr ""
+msgstr "Úsáidtear eisínteachtaí chun gnéithe speisialta a chur le Firefox, agus úsáidtear téamaí chun cuma an bhrabhsálaí a athrú."
 
 #: src/amo/containers/Home.js:63
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "Is féidir leat an chaoi a bhfeidhmíonn Firefox a athrú…"
 
 #: src/amo/containers/Home.js:66
 msgid "Block ads"
@@ -500,7 +483,7 @@ msgstr "Seatanna den scáileán a thógáil"
 
 #: src/amo/containers/Home.js:72
 msgid "Find news"
-msgstr ""
+msgstr "Nuacht a aimsiú"
 
 #: src/amo/containers/Home.js:75
 msgid "Shop online"
@@ -512,11 +495,11 @@ msgstr "Ceangal le cairde"
 
 #: src/amo/containers/Home.js:81
 msgid "Play games"
-msgstr ""
+msgstr "Cluichí a imirt"
 
 #: src/amo/containers/Home.js:88
 msgid "…or what it looks like"
-msgstr ""
+msgstr "… nó cuma nua a chur air"
 
 #: src/amo/containers/Home.js:90
 msgid "Wild"
@@ -528,7 +511,7 @@ msgstr "Teibí"
 
 #: src/amo/containers/Home.js:92
 msgid "Holiday"
-msgstr ""
+msgstr "Saoire"
 
 #: src/amo/containers/Home.js:93
 msgid "Scenic"
@@ -540,7 +523,7 @@ msgstr "Spórtúil"
 
 #: src/amo/containers/Home.js:95
 msgid "Solid"
-msgstr ""
+msgstr "Soladach"
 
 #: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
@@ -552,25 +535,23 @@ msgstr "Logáil isteach/Cláraigh"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Ár leithscéal. Tharla earráid agus ní raibh muid in ann d'iarratas a chomhlíonadh. Sábháladh an earráid seo sa logchomhad agus fiosróimid an scéal."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Cód earráide: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Ár leithscéal, ach ní bhfuaireamar aon rud ag an URL a chuir tú isteach."
 
 #: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Breiseáin Firefox"
+msgstr "Cuir le Firefox é"
 
 #: src/core/components/InstallButton/index.js:85
-#, fuzzy
 msgid "Install Theme"
-msgstr "%(name)s á shuiteáil."
+msgstr "Suiteáil an Téama"
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
@@ -614,32 +595,31 @@ msgstr "Leathanach %(currentPage)s as %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:32
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Tá do bhreiseán réidh"
 
 #: src/core/containers/InfoDialog/index.js:34
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Anois is féidir leat teacht ar %(name)s ón bharra uirlisí."
 
 #: src/core/containers/InfoDialog/index.js:39
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "Seisiún imithe in éag"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Tharla earráid gan choinne"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Athlódáil le leanúint"
 
 #: src/ui/components/Rating/index.js:94
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Meánrátáil: %(rating)s as 5"
+msgstr "Rátáil: %(rating)s as 5"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
@@ -647,7 +627,7 @@ msgstr "Gan rátáil"
 
 #: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Leathnaigh</span> chun tuilleadh a léamhh"
 
 #~ msgid "Loading..."
 #~ msgstr "Ag cuardach..."
