@@ -193,8 +193,11 @@ describe('withInstallHelpers', () => {
   it('does not set the current status in componentDidMount without an addonManager', () => {
     const setCurrentStatus = sinon.spy();
     renderIntoDocument(
-      <WithInstallHelpers WrappedComponent={() => <div />} hasAddonManager={false}
-      setCurrentStatus={setCurrentStatus} />);
+      <WithInstallHelpers
+        WrappedComponent={() => <div />}
+        hasAddonManager={false}
+        setCurrentStatus={setCurrentStatus}
+      />);
     expect(setCurrentStatus.called).toBeFalsy();
   });
 });

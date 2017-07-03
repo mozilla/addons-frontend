@@ -74,8 +74,10 @@ export class AddonMoreInfoBase extends React.Component {
           ) : null}
           {addon.current_version.license ? (
             <dd>
-              <a href={addon.current_version.license.url}
-                ref={(ref) => { this.licenseLink = ref; }}>
+              <a
+                href={addon.current_version.license.url}
+                ref={(ref) => { this.licenseLink = ref; }}
+              >
                 {addon.current_version.license.name}</a>
             </dd>
           ) : null}
@@ -84,8 +86,10 @@ export class AddonMoreInfoBase extends React.Component {
           ) : null}
           {addon.has_privacy_policy ? (
             <dd>
-              <Link href={`/addon/${addon.slug}/privacy/`}
-                ref={(ref) => { this.privacyPolicyLink = ref; }}>
+              <Link
+                href={`/addon/${addon.slug}/privacy/`}
+                ref={(ref) => { this.privacyPolicyLink = ref; }}
+              >
                 {i18n.gettext('Read the privacy policy for this add-on')}
               </Link>
             </dd>
@@ -95,8 +99,10 @@ export class AddonMoreInfoBase extends React.Component {
           ) : null}
           {addon.has_eula ? (
             <dd>
-              <Link href={`/addon/${addon.slug}/eula/`}
-                ref={(ref) => { this.eulaLink = ref; }}>
+              <Link
+                href={`/addon/${addon.slug}/eula/`}
+                ref={(ref) => { this.eulaLink = ref; }}
+              >
                 {i18n.gettext('Read the license agreement for this add-on')}
               </Link>
             </dd>

@@ -1,4 +1,3 @@
-/* global CustomEvent, document, window */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';

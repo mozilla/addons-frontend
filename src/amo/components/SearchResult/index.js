@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { compose } from 'redux';
 
-import fallbackIcon from 'amo/img/icons/default-64.png';
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { isAllowedOrigin, sanitizeHTML } from 'core/utils';
+import { getAddonIconUrl } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import Rating from 'ui/components/Rating';
 
@@ -29,7 +29,7 @@ export class SearchResultBase extends React.Component {
     });
 
     // Fall-back to default icon if invalid icon url.
-    const iconURL = isAllowedOrigin(addon.icon_url) ? addon.icon_url : fallbackIcon;
+    const iconURL = getAddonIconUrl(addon);
     const themeURL = (addon.theme_data && isAllowedOrigin(addon.theme_data.previewURL)) ?
       addon.theme_data.previewURL : null;
     const imageURL = isTheme ? themeURL : iconURL;
@@ -44,9 +44,11 @@ export class SearchResultBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <li className={resultClassnames}>
-        <Link to={`/addon/${addon.slug}/`}
-              className="SearchResult-link"
-              ref={(el) => { this.name = el; }}>
+        <Link
+          to={`/addon/${addon.slug}/`}
+          className="SearchResult-link"
+          ref={(el) => { this.name = el; }}
+        >
           <div className={iconWrapperClassnames}>
             {imageURL ? (
               <img className="SearchResult-icon" src={imageURL} alt="" />

@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -177,10 +178,11 @@ export class LandingPageBase extends React.Component {
       [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
     };
     const contentText = {
-      [ADDON_TYPE_THEME]: i18n.gettext(
-        "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."),
-      [ADDON_TYPE_EXTENSION]: i18n.gettext(
-        'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.'),
+      [ADDON_TYPE_THEME]: i18n.gettext(oneLine`Change your browser's
+        appearance. Choose from thousands of themes to give Firefox the look
+        you want.`),
+      [ADDON_TYPE_EXTENSION]: i18n.gettext(oneLine`Install powerful tools that
+        make browsing faster and safer, add-ons make your browser yours.`),
     };
 
     return (
@@ -207,20 +209,27 @@ export class LandingPageBase extends React.Component {
           {i18n.gettext('Explore all categories')}
         </Button>
 
-        <LandingAddonsCard addons={featuredAddons}
-          className="FeaturedAddons" header={html.featuredHeader}
+        <LandingAddonsCard
+          addons={featuredAddons}
+          className="FeaturedAddons"
+          footerText={html.featuredFooterText}
           footerLink={html.featuredFooterLink}
-          footerText={html.featuredFooterText} />
-
-        <LandingAddonsCard addons={highlyRatedAddons}
-          className="HighlyRatedAddons" header={html.highlyRatedHeader}
+          header={html.featuredHeader}
+        />
+        <LandingAddonsCard
+          addons={highlyRatedAddons}
+          className="HighlyRatedAddons"
           footerLink={html.highlyRatedFooterLink}
-          footerText={html.highlyRatedFooterText} />
-
-        <LandingAddonsCard addons={popularAddons}
-          className="PopularAddons" header={html.popularHeader}
+          footerText={html.highlyRatedFooterText}
+          header={html.highlyRatedHeader}
+        />
+        <LandingAddonsCard
+          addons={popularAddons}
+          className="PopularAddons"
           footerLink={html.popularFooterLink}
-          footerText={html.popularFooterText} />
+          footerText={html.popularFooterText}
+          header={html.popularHeader}
+        />
       </div>
     );
   }

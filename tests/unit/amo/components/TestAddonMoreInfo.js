@@ -20,8 +20,11 @@ describe('<AddonMoreInfo />', () => {
   function render(props) {
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <AddonMoreInfoBase i18n={getFakeI18nInst()} addon={fakeAddon}
-          {...props} />
+        <AddonMoreInfoBase
+          i18n={getFakeI18nInst()}
+          addon={fakeAddon}
+          {...props}
+        />
       </Provider>
     ), AddonMoreInfoBase);
   }

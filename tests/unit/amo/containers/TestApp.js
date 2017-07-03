@@ -75,7 +75,8 @@ describe('App', () => {
             SearchFormComponent={FakeSearchFormComponent}
             ErrorPage={FakeErrorPageComponent}
             setUserAgent={sinon.stub()}
-            {...props}>
+            {...props}
+          >
             {children}
           </AppBase>
         </I18nProvider>

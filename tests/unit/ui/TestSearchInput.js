@@ -1,4 +1,4 @@
-/* global requestAnimationFrame, window, TransitionEvent */
+/* global window */
 import React from 'react';
 import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
 

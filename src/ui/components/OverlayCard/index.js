@@ -40,14 +40,17 @@ export default class OverlayCard extends React.Component {
     } = this.props;
 
     return (
-      <Overlay visibleOnLoad={visibleOnLoad}
-        ref={(ref) => { this.overlay = ref; }}>
+      <Overlay
+        visibleOnLoad={visibleOnLoad}
+        ref={(ref) => { this.overlay = ref; }}
+      >
         <Card
           className={classNames('OverlayCard', className)}
           header={header}
           footerLink={footerLink}
           footerText={footerText}
-          ref={(ref) => { this.overlayCard = ref; }}>
+          ref={(ref) => { this.overlayCard = ref; }}
+        >
           {children}
         </Card>
       </Overlay>
