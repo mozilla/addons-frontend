@@ -30,7 +30,7 @@ Go to `about:config` in Firefox and set this property to `true`:
 xpinstall.signatures.dev-root
 ```
 
-You will need restart Firefox for this to take affect. This pref allows
+Restart Firefox to put it into affect. This pref allows
 you to fully install add-on and theme files.
 
 
@@ -210,10 +210,11 @@ If it doesn't work, you may need to add some logging and re-build Firefox.
 Try setting `extensions.logging.enabled` to `true` in `about:config` to see
 logging output for the `AddonManager.jsm` code.
 
-When you click the switch, note that you can only install add-ons if your
+When you click the switch, it will only let you install add-ons if your
 localhost is *proxying* https://addons-dev.allizom.org or https://addons.allizom.org .
-This is because Firefox needs to check the signing certs that are activated
-when you set `xpinstall.signatures.dev-root` to `true`.
+This is because Firefox needs signing certificates and the certs are not configurable.
+You can set the `xpinstall.signatures.dev-root` preference to `true`
+(as documented above) to activate certificates for the development sites.
 
 ### Updating your Firefox source code
 
