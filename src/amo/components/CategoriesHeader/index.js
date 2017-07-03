@@ -36,6 +36,7 @@ export class CategoriesHeaderBase extends React.Component {
   props: CategoriesHeaderProps;
 
   render() {
+    /* eslint-disable react/no-array-index-key */
     const { addonType, error, loading, i18n } = this.props;
     const categories = this.props.categories[addonType] ?
       Object.values(this.props.categories[addonType]) : [];
@@ -76,11 +77,8 @@ export class CategoriesHeaderBase extends React.Component {
           </div>
         :
           <ul className="CategoriesHeader-list">
-            {categories.map((category, index) => (
-              <li
-                className="CategoriesHeader-item"
-                key={`category-${index}`}
-              >
+            {categories.map((category) => (
+              <li className="CategoriesHeader-item" key={category.name}>
                 <Button
                   className={`CategoriesHeader-link Button--action
                     Button--small

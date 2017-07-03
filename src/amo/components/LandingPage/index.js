@@ -209,20 +209,27 @@ export class LandingPageBase extends React.Component {
           {i18n.gettext('Explore all categories')}
         </Button>
 
-        <LandingAddonsCard addons={featuredAddons}
-          className="FeaturedAddons" header={html.featuredHeader}
+        <LandingAddonsCard
+          addons={featuredAddons}
+          className="FeaturedAddons"
+          footerText={html.featuredFooterText}
           footerLink={html.featuredFooterLink}
-          footerText={html.featuredFooterText} />
-
-        <LandingAddonsCard addons={highlyRatedAddons}
-          className="HighlyRatedAddons" header={html.highlyRatedHeader}
+          header={html.featuredHeader}
+        />
+        <LandingAddonsCard
+          addons={highlyRatedAddons}
+          className="HighlyRatedAddons"
           footerLink={html.highlyRatedFooterLink}
-          footerText={html.highlyRatedFooterText} />
-
-        <LandingAddonsCard addons={popularAddons}
-          className="PopularAddons" header={html.popularHeader}
+          footerText={html.highlyRatedFooterText}
+          header={html.highlyRatedHeader}
+        />
+        <LandingAddonsCard
+          addons={popularAddons}
+          className="PopularAddons"
           footerLink={html.popularFooterLink}
-          footerText={html.popularFooterText} />
+          footerText={html.popularFooterText}
+          header={html.popularHeader}
+        />
       </div>
     );
   }

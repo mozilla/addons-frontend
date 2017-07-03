@@ -127,12 +127,17 @@ export class InstallButtonBase extends React.Component {
       );
     }
     return (
-      <div className={classNames('InstallButton', {
-        'InstallButton--use-button': useButton,
-        'InstallButton--use-switch': !useButton,
-      })}>
-        <InstallSwitch {...this.props} className="InstallButton-switch"
-          disabled={buttonIsDisabled} />
+      <div
+        className={classNames('InstallButton', {
+          'InstallButton--use-button': useButton,
+          'InstallButton--use-switch': !useButton,
+        })}
+      >
+        <InstallSwitch
+          {...this.props}
+          className="InstallButton-switch"
+          disabled={buttonIsDisabled}
+        />
         {button}
       </div>
     );

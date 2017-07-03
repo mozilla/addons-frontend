@@ -1,4 +1,4 @@
-/* global navigator, window */
+/* global window */
 /* eslint-disable react/prop-types */
 import url from 'url';
 

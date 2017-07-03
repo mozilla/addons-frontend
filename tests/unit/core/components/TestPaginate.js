@@ -1,4 +1,4 @@
-/* global document, Node */
+/* global document */
 
 import React from 'react';
 import { render, findDOMNode } from 'react-dom';

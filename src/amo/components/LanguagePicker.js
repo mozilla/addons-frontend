@@ -49,10 +49,17 @@ export class LanguagePickerBase extends React.Component {
         <h3 className="LanguagePicker-header">
           {i18n.gettext('Browse in your language')}
         </h3>
-        <select className="LanguagePicker-selector" defaultValue={currentLocale}
-          ref={(ref) => { this.selector = ref; }} onChange={this.onChange}>
-          {Object.keys(languages).map((locale, index) => (
-            <option key={`${locale}-${index}`} value={locale}>{languages[locale].native}</option>
+        <select
+          className="LanguagePicker-selector"
+          defaultValue={currentLocale}
+          ref={(ref) => { this.selector = ref; }}
+          onChange={this.onChange}
+        >
+          {Object.keys(languages).map((locale) => (
+            <option
+              key={locale}
+              value={locale}
+            >{languages[locale].native}</option>
           ))}
         </select>
       </div>

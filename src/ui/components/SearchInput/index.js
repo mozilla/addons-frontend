@@ -1,4 +1,4 @@
-/* global document, window */
+/* global window */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -99,9 +99,17 @@ export default class SearchInput extends React.Component {
           {placeholder}
         </label>
         <input
-          {...props} className="SearchInput-input" placeholder={placeholder} id={id} name={name}
-          autoComplete="off" ref={(el) => { this.input = el; }} onInput={this.onInput}
-          onFocus={this.onFocus} onBlur={this.onBlur} />
+          {...props}
+          autoComplete="off"
+          className="SearchInput-input"
+          id={id}
+          name={name}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
+          onInput={this.onInput}
+          placeholder={placeholder}
+          ref={(el) => { this.input = el; }}
+        />
       </div>
     );
   }

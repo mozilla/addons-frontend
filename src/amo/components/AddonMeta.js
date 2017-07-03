@@ -54,8 +54,12 @@ export class AddonMetaBase extends React.Component {
           <p className="AddonMeta-text AddonMeta-review-count">
             {reviewCount}
           </p>
-          <Rating className="AddonMeta-Rating" rating={averageRating}
-            readOnly styleName="small" />
+          <Rating
+            className="AddonMeta-Rating"
+            rating={averageRating}
+            readOnly
+            styleName="small"
+          />
         </div>
       </div>
     );

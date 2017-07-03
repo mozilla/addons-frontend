@@ -38,9 +38,15 @@ describe('<SearchForm />', () => {
 
     render() {
       return (
-        <SearchFormBase pathname={pathname} api={api} query="foo"
-          loadAddon={loadAddon} ref={(ref) => { this.root = ref; }}
-          i18n={getFakeI18nInst()} {...this.props} />
+        <SearchFormBase
+          pathname={pathname}
+          api={api}
+          query="foo"
+          loadAddon={loadAddon}
+          ref={(ref) => { this.root = ref; }}
+          i18n={getFakeI18nInst()}
+          {...this.props}
+        />
       );
     }
   }

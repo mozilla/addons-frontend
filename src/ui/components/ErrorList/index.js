@@ -65,7 +65,8 @@ class ErrorList extends React.Component {
 
     return (
       <ul className={classNames('ErrorList', className)}>
-        {items.map((item, index) => <li className="ErrorList-item" key={`erroritem-${index}`}>{item}</li>)}
+        { // eslint-disable-next-line react/no-array-index-key
+        items.map((item, index) => <li className="ErrorList-item" key={`erroritem-${index}`}>{item}</li>)}
       </ul>
     );
   }
