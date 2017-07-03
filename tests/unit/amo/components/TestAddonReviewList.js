@@ -278,7 +278,7 @@ describe('amo/components/AddonReviewList', () => {
         .toHaveText(fakeReview.title);
 
       expect(root.find('.AddonReviewList-li p'))
-        .toHaveText(fakeReview.body);
+        .toHaveHTML(`<p>${fakeReview.body}</p>`);
 
       expect(root.find('.AddonReviewList-by-line'))
         .toIncludeText(fakeReview.user.name);

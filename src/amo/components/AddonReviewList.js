@@ -110,8 +110,8 @@ export class AddonReviewListBase extends React.Component {
   setReviewBody(review) {
     let reviewBody = <p><LoadingText /></p>;
     if (review) {
-      const content = sanitizeHTML(nl2br(review.body), ['br']);
-      reviewBody = <p dangerouslySetInnerHTML={content} />;
+      const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
+      reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
     }
     return reviewBody;
   }
