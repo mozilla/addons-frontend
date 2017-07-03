@@ -154,6 +154,10 @@
       grid-column: 2;
       grid-row: 1 / 5;
     }
+
+    .AddonDescription-contents {
+      max-width: 550px;
+    }
   }
 
   .Addon-screenshots {
