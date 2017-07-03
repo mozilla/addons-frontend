@@ -11,7 +11,7 @@ import { fetchAddon } from 'core/actions/addons';
 import Paginate from 'core/components/Paginate';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { findAddon } from 'core/utils';
+import { findAddon, nl2br, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import { parsePage } from 'core/searchUtils';
@@ -107,11 +107,13 @@ export class AddonReviewListBase extends React.Component {
     return `${this.addonURL()}reviews/`;
   }
 
-  formatReviewBody(text) {
-    const formattedReview = text.split('\n').map((i) => {
-      return <div key={i}>{i}</div>;
-    });
-    return formattedReview;
+  setReviewBody(review) {
+    let reviewBody = <p><LoadingText /></p>;
+    if (review) {
+      const content = sanitizeHTML(nl2br(review.body), ['br']);
+      reviewBody = <p dangerouslySetInnerHTML={content} />;
+    }
+    return reviewBody;
   }
 
   renderReview({ review, key }: RenderReviewParams) {
@@ -131,7 +133,7 @@ export class AddonReviewListBase extends React.Component {
     return (
       <li className="AddonReviewList-li" key={key}>
         <h3>{review ? review.title : <LoadingText />}</h3>
-        <p>{review ? this.formatReviewBody(review.body) : <LoadingText />}</p>
+        {this.setReviewBody(review)}
         <div className="AddonReviewList-by-line">
           {review ?
             <Rating styleName="small" rating={review.rating} readOnly />
