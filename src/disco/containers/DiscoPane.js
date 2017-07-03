@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-/* global navigator, window */
+/* global navigator */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { camelizeKeys as camelCaseKeys } from 'humps';
@@ -93,6 +93,9 @@ export class DiscoPaneBase extends React.Component {
   }
 
   render() {
+    // TODO: Add captions see https://github.com/mozilla/addons/issues/367
+    /* eslint-disable jsx-a11y/media-has-caption */
+
     const { AddonComponent, results, i18n } = this.props;
     const { showVideo } = this.state;
 
@@ -113,9 +116,13 @@ export class DiscoPaneBase extends React.Component {
                 <span className="play-video-text">{i18n.gettext('Click to play')}</span>
                 <span className="visually-hidden">{i18n.gettext('to find out more about add-ons')}</span>
               </a>
-              <video poster={videoPoster} controls={showVideo} width="512"
-                     height="288" className="disco-video"
-                     ref={(ref) => { this.video = ref; }}>
+              <video poster={videoPoster}
+                controls={showVideo}
+                width="512"
+                height="288"
+                className="disco-video"
+                ref={(ref) => { this.video = ref; }}
+              >
                 <source src={videoWebm} type="video/webm" />
                 <source src={videoMp4} type="video/mp4" />
               </video>
@@ -129,8 +136,10 @@ export class DiscoPaneBase extends React.Component {
           <AddonComponent addon={item} {...camelCaseKeys(item)} key={item.guid} />
         ))}
         <div className="amo-link">
-          <a href="https://addons.mozilla.org/" target="_blank"
-            rel="noopener noreferrer" onClick={this.showMoreAddons}>
+          <a href="https://addons.mozilla.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={this.showMoreAddons}>
             {i18n.gettext('See more add-ons!')}
           </a>
         </div>

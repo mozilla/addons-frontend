@@ -131,7 +131,8 @@ export class InstallButtonBase extends React.Component {
         'InstallButton--use-button': useButton,
         'InstallButton--use-switch': !useButton,
       })}>
-        <InstallSwitch {...this.props} className="InstallButton-switch"
+        <InstallSwitch {...this.props}
+          className="InstallButton-switch"
           disabled={buttonIsDisabled} />
         {button}
       </div>

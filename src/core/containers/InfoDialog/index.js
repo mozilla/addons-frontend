@@ -22,8 +22,10 @@ class InfoDialogRaw extends React.Component {
   render() {
     const { addonName, closeAction, i18n, imageURL } = this.props;
     return (
-      <div className="show-info" role="dialog"
-           aria-labelledby="show-info-title" aria-describedby="show-info-description">
+      <div className="show-info"
+          role="dialog"
+          aria-labelledby="show-info-title"
+          aria-describedby="show-info-description">
         <div className="info">
           <div className="logo">
             <img src={imageURL} alt="" />

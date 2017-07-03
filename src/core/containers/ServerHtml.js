@@ -44,9 +44,11 @@ export default class ServerHtml extends Component {
       }
       switch (type) {
         case 'css':
-          return (<link href={filePath} {...sriProps}
-                        key={type + index}
-                        rel="stylesheet" type="text/css" />);
+          return (<link href={filePath}
+            {...sriProps}
+            key={type + index}
+            rel="stylesheet"
+            type="text/css" />);
         case 'js':
           return <script key={type + index} src={filePath} {...sriProps} />;
         default:
@@ -99,7 +101,8 @@ export default class ServerHtml extends Component {
         <body>
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />
           <script dangerouslySetInnerHTML={{ __html: serialize(store.getState()) }}
-                  type="application/json" id="redux-store-state" />
+            type="application/json"
+            id="redux-store-state" />
           {this.getAnalytics()}
           {this.getScript()}
         </body>

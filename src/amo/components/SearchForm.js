@@ -57,19 +57,29 @@ export class SearchFormBase extends React.Component {
     }
 
     return (
-      <form method="GET" action={`/${api.lang}/${api.clientApp}${pathname}`}
-        onSubmit={this.handleSearch} className="SearchForm-form"
+      <form method="GET"
+        action={`/${api.lang}/${api.clientApp}${pathname}`}
+        onSubmit={this.handleSearch}
+        className="SearchForm-form"
         ref={(ref) => { this.form = ref; }}>
-        <label className="visually-hidden" htmlFor="q">
+        <label className="visually-hidden"
+          htmlFor="q">
           {i18n.gettext('Search')}
         </label>
         <SearchInput
-          ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
+          className="SearchForm-query"
+          defaultValue={query}
+          name="q"
           placeholder={placeholderText}
-          defaultValue={query} className="SearchForm-query" />
-        <button className="visually-hidden" type="submit" title="Enter"
-                ref={(ref) => { this.submitButton = ref; }}
-                onClick={this.handleSearch}>
+          ref={(ref) => { this.searchQuery = ref; }}
+          type="search"
+        />
+        <button className="visually-hidden"
+          onClick={this.handleSearch}
+          ref={(ref) => { this.submitButton = ref; }}
+          title="Enter"
+          type="submit"
+        >
           {i18n.gettext('Search')}
         </button>
       </form>

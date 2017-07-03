@@ -1,5 +1,5 @@
-/* global document, requestAnimationFrame, window
- * eslint-disable jsx-a11y/href-no-hash */
+/* global document, window */
+/* eslint-disable jsx-a11y/href-no-hash */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -66,8 +66,11 @@ export default class ScreenShots extends React.Component {
       <div className="ScreenShots">
         <div className="ScreenShots-viewport" ref={(el) => { this.viewport = el; }}>
           <PhotoSwipeGallery
-            className="ScreenShots-list" close={this.onClose} items={formatPreviews(previews)}
-            options={PHOTO_SWIPE_OPTIONS} thumbnailContent={thumbnailContent} />
+            className="ScreenShots-list"
+            close={this.onClose}
+            items={formatPreviews(previews)}
+            options={PHOTO_SWIPE_OPTIONS}
+            thumbnailContent={thumbnailContent} />
         </div>
       </div>
     );

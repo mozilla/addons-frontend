@@ -101,7 +101,8 @@ export class RatingBase extends React.Component {
       className, { 'Rating--editable': !readOnly });
 
     return (
-      <div className={allClassNames} ref={(ref) => { this.element = ref; }}
+      <div className={allClassNames}
+        ref={(ref) => { this.element = ref; }}
         title={description}>
         <span className="Rating-star-group">
           {this.renderRatings()}

@@ -47,13 +47,13 @@ export default class Overlay extends React.Component {
     const { children, className } = this.props;
 
     return (
-      <div className={classNames('Overlay', className, {
-        'Overlay--visible': this.state.visible,
-      })} ref={(ref) => { this.overlayContainer = ref; }}>
+      <div className={classNames('Overlay', className, { 'Overlay--visible': this.state.visible })}
+        ref={(ref) => { this.overlayContainer = ref; }}>
         <div
           onClick={this.onClickBackground}
           ref={(ref) => { this.overlayBackground = ref; }}
           className="Overlay-background"
+          role="presentation"
         />
         <div className="Overlay-contents"
           ref={(ref) => { this.overlayContents = ref; }}>

@@ -33,9 +33,9 @@ export class SectionLinksBase extends React.Component {
     return (
       <ul className="SectionLinks">
         <li>
-          <Link className={classNames('SectionLinks-link', {
-            'SectionLinks-link--active': isExploring,
-          })} to="/">
+          <Link
+            className={classNames('SectionLinks-link', { 'SectionLinks-link--active': isExploring })}
+            to="/">
             {i18n.gettext('Explore')}
           </Link>
         </li>

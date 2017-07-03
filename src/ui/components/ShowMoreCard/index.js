@@ -54,7 +54,9 @@ export class ShowMoreCardBase extends React.Component {
     const { expanded } = this.state;
 
     const readMoreLink = (
-      <a className="ShowMoreCard-expand-link" href="#show-more" onClick={this.onClick}
+      <a className="ShowMoreCard-expand-link"
+        href="#show-more"
+        onClick={this.onClick}
         dangerouslySetInnerHTML={sanitizeHTML(
           i18n.gettext(
             // l10n: The "Expand to" text is for screenreaders so the link
@@ -66,9 +68,10 @@ export class ShowMoreCardBase extends React.Component {
     );
 
     return (
-      <Card className={classNames('ShowMoreCard', className, {
-        'ShowMoreCard--expanded': expanded,
-      })} header={header} footerLink={expanded ? null : readMoreLink}>
+      <Card className={classNames('ShowMoreCard', className, { 'ShowMoreCard--expanded': expanded })}
+        header={header}
+        footerLink={expanded ? null : readMoreLink}
+      >
         <div className="ShowMoreCard-contents"
           ref={(ref) => { this.contents = ref; }}>
           {children}

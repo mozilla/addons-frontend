@@ -70,8 +70,11 @@ export class SearchBase extends React.Component {
     const queryParams = this.props.queryParams ||
       convertFiltersToQueryParams(filters);
     const paginator = count > 0 && hasSearchParams ? (
-      <Paginate LinkComponent={LinkComponent} count={count} currentPage={page}
-        pathname={pathname} queryParams={queryParams} />
+      <Paginate LinkComponent={LinkComponent}
+        currentPage={page}
+        count={count}
+        pathname={pathname}
+        queryParams={queryParams} />
     ) : [];
     const searchSort = enableSearchSort && hasSearchParams && results.length ? (
       <SearchSort filters={filters} pathname={pathname} />
@@ -81,8 +84,11 @@ export class SearchBase extends React.Component {
       <div className="Search">
         <SearchContextCard />
         {searchSort}
-        <SearchResults count={count} hasSearchParams={hasSearchParams}
-          filters={filters} loading={loading} pathname={pathname}
+        <SearchResults count={count}
+          filters={filters}
+          hasSearchParams={hasSearchParams}
+          loading={loading}
+          pathname={pathname}
           results={results} />
         {paginator}
       </div>

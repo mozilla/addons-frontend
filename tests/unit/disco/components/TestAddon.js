@@ -45,9 +45,12 @@ function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
   const { store } = createStore({ api: signedInApiState });
 
   return findRenderedComponentWithType(renderIntoDocument(
-    <MyAddon getBrowserThemeData={getBrowserThemeData} i18n={getFakeI18nInst()}
-      setCurrentStatus={setCurrentStatus} hasAddonManager
-      store={store} {...props} />
+    <MyAddon getBrowserThemeData={getBrowserThemeData}
+      hasAddonManager
+      i18n={getFakeI18nInst()}
+      setCurrentStatus={setCurrentStatus}
+      store={store}
+      {...props} />
   ), MyAddon).getWrappedInstance();
 }
 

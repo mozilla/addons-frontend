@@ -92,7 +92,8 @@ export class AddonBase extends React.Component {
         <HoverIntent
           onHoverIntent={this.previewTheme}
           onHoverIntentEnd={this.resetThemePreview}>
-          <a href="#" className="theme-image"
+          <a href="#"
+            className="theme-image"
             data-browsertheme={getBrowserThemeData()}
             onBlur={this.resetThemePreview}
             onClick={this.installTheme}
@@ -193,6 +194,9 @@ export class AddonBase extends React.Component {
     });
 
     return (
+      // Disabling this is fine since the onClick is just being used to delegate
+      // click events bubbling from the link within the header.
+      /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
       <div className={addonClasses}>
         {this.getThemeImage()}
         {this.getLogo()}

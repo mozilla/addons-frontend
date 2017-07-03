@@ -208,19 +208,23 @@ export class LandingPageBase extends React.Component {
         </Button>
 
         <LandingAddonsCard addons={featuredAddons}
-          className="FeaturedAddons" header={html.featuredHeader}
+          className="FeaturedAddons"
+          footerText={html.featuredFooterText}
           footerLink={html.featuredFooterLink}
-          footerText={html.featuredFooterText} />
-
+          header={html.featuredHeader}
+        />
         <LandingAddonsCard addons={highlyRatedAddons}
-          className="HighlyRatedAddons" header={html.highlyRatedHeader}
+          className="HighlyRatedAddons"
           footerLink={html.highlyRatedFooterLink}
-          footerText={html.highlyRatedFooterText} />
-
+          footerText={html.highlyRatedFooterText}
+          header={html.highlyRatedHeader}
+        />
         <LandingAddonsCard addons={popularAddons}
-          className="PopularAddons" header={html.popularHeader}
+          className="PopularAddons"
           footerLink={html.popularFooterLink}
-          footerText={html.popularFooterText} />
+          footerText={html.popularFooterText}
+          header={html.popularHeader}
+        />
       </div>
     );
   }

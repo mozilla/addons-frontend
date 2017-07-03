@@ -27,9 +27,8 @@ export default class SearchSortLink extends React.Component {
     const sortURL = `/${pathname}/${queryString({ ...filters, sort })}`;
 
     return (
-      <Link to={sortURL} className={classNames('SearchSortLink', {
-        'SearchSortLink--active': currentSort === sort,
-      })}>
+      <Link to={sortURL}
+        className={classNames('SearchSortLink', { 'SearchSortLink--active': currentSort === sort })}>
         {children}
       </Link>
     );

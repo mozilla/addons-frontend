@@ -51,7 +51,8 @@ export default class Card extends React.Component {
         'Card--photon': photonStyle,
         'Card--no-header': !header,
         'Card--no-footer': !footer,
-      })} ref={(ref) => { this.cardContainer = ref; }}>
+      })}
+      ref={(ref) => { this.cardContainer = ref; }}>
         {header ? (
           <h2 className="Card-header" ref={(ref) => { this.header = ref; }}>
             {header}

@@ -45,7 +45,8 @@ export class FooterBase extends React.Component {
               </a>
             </li>
             <li>
-              <a href="#desktop" className="Footer-link Footer-desktop"
+              <a href="#desktop"
+                className="Footer-link Footer-desktop"
                 onClick={handleViewDesktop}
                 ref={(ref) => { this.desktopLink = ref; }}>
                 {i18n.gettext('View classic desktop site')}
