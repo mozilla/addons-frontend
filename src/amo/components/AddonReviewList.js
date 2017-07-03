@@ -107,33 +107,29 @@ export class AddonReviewListBase extends React.Component {
     return `${this.addonURL()}reviews/`;
   }
 
-  setReviewBody(review) {
-    let reviewBody = <p><LoadingText /></p>;
-    if (review) {
-      const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
-      reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
-    }
-    return reviewBody;
-  }
-
   renderReview({ review, key }: RenderReviewParams) {
     const { i18n } = this.props;
 
     let byLine;
+    let reviewBody;
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
       // L10n: Example: "from Jose, last week"
       byLine = i18n.sprintf(
         i18n.gettext('from %(authorName)s, %(timestamp)s'),
           { authorName: review.userName, timestamp });
+
+      const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
+      reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
     } else {
       byLine = <LoadingText />;
+      reviewBody = <p><LoadingText /></p>;
     }
 
     return (
       <li className="AddonReviewList-li" key={key}>
         <h3>{review ? review.title : <LoadingText />}</h3>
-        {this.setReviewBody(review)}
+        {reviewBody}
         <div className="AddonReviewList-by-line">
           {review ?
             <Rating styleName="small" rating={review.rating} readOnly />
