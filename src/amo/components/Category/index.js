@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import CategoryHeader from 'amo/components/CategoryHeader';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import { SearchBase } from 'amo/components/Search';
 import { categoriesFetch } from 'core/actions/categories';
 import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
@@ -31,6 +32,10 @@ export class CategoryBase extends React.Component {
 
   render() {
     const { category, ...searchProps } = this.props;
+
+    if (!category) {
+      return <NotFound />;
+    }
 
     return (
       <div className="Category">
