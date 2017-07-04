@@ -30,7 +30,7 @@ Go to `about:config` in Firefox and set this property to `true`:
 xpinstall.signatures.dev-root
 ```
 
-Restart Firefox to put it into affect. This pref allows
+Restart Firefox to put it into effect. This pref allows
 you to fully install add-on and theme files.
 
 
