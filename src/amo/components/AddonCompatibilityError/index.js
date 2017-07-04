@@ -83,8 +83,10 @@ export class AddonCompatibilityErrorBase extends React.Component {
     }
 
     return (
-      <div className="AddonCompatibilityError"
-        dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])} />
+      <div
+        className="AddonCompatibilityError"
+        dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
+      />
     );
   }
 }

@@ -1,4 +1,3 @@
-/* global window */
 import { shallow } from 'enzyme';
 import React from 'react';
 import { findDOMNode } from 'react-dom';

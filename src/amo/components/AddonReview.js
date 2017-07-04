@@ -178,7 +178,8 @@ export class AddonReviewBase extends React.Component {
           </div>
           <input
             className="AddonReview-submit"
-            type="submit" value={i18n.gettext('Submit review')}
+            type="submit"
+            value={i18n.gettext('Submit review')}
           />
         </form>
       </OverlayCard>

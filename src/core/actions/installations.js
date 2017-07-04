@@ -1,5 +1,4 @@
 /* @flow */
-/* global Node */
 import { INSTALL_STATE } from 'core/constants';
 import type {
   InstalledAddon, InstallationAction,

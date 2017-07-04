@@ -67,6 +67,7 @@ export class AddonBase extends React.Component {
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
+    // eslint-disable-next-line react/require-default-props
     themePreviewNode: PropTypes.element,
     installStatus: PropTypes.string.isRequired,
     toggleThemePreview: PropTypes.func.isRequired,
@@ -135,6 +136,7 @@ export class AddonBase extends React.Component {
           id="Addon-theme-header"
           data-browsertheme={getBrowserThemeData()}
           onClick={this.onClick}
+          role="presentation"
         >
           {installStatus !== ENABLED ? (
             <Button
@@ -171,8 +173,10 @@ export class AddonBase extends React.Component {
 
       footerPropName = 'footerLink';
       content = (
-        <Link className="Addon-all-reviews-link"
-          to={`/addon/${addon.slug}/reviews/`}>
+        <Link
+          className="Addon-all-reviews-link"
+          to={`/addon/${addon.slug}/reviews/`}
+        >
           {linkText}
         </Link>
       );
@@ -190,7 +194,8 @@ export class AddonBase extends React.Component {
       <Card
         header={i18n.gettext('Rate your experience')}
         className="Addon-overall-rating"
-        {...props}>
+        {...props}
+      >
         {addon ?
           <RatingManager
             addon={addon}
@@ -220,10 +225,12 @@ export class AddonBase extends React.Component {
     }
 
     return (
-      <ShowMoreCard header={i18n.sprintf(
-        i18n.gettext('About this %(addonType)s'), { addonType }
-      )} className="AddonDescription">
-        <div className="AddonDescription-contents"
+      <ShowMoreCard
+        header={i18n.sprintf(i18n.gettext('About this %(addonType)s'), { addonType })}
+        className="AddonDescription"
+      >
+        <div
+          className="AddonDescription-contents"
           ref={(ref) => { this.addonDescription = ref; }}
           {...descriptionProps}
         />

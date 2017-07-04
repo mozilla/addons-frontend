@@ -29,8 +29,10 @@ export class NotFoundBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <NestedStatus code={404}>
-        <Card className="ErrorPage NotFound"
-          header={i18n.gettext('Page not found')}>
+        <Card
+          className="ErrorPage NotFound"
+          header={i18n.gettext('Page not found')}
+        >
           <p>
             {i18n.gettext(`
               Sorry, but we can't find anything at the address you entered.

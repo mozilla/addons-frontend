@@ -93,6 +93,7 @@ export class PaginateBase extends React.Component {
     };
 
     return (
+      /* eslint-disable react/no-array-index-key */
       <div className="Paginate">
         <div className="Paginate-page-number">
           {i18n.sprintf(
@@ -107,13 +108,13 @@ export class PaginateBase extends React.Component {
             page={currentPage - 1}
             text={i18n.gettext('Previous')}
           />
-          {this.visiblePages({ pageCount }).map((page, index) =>
+          {this.visiblePages({ pageCount }).map((page) => (
             <PaginatorLink
               {...linkParams}
-              key={`page-${index}`}
+              key={`page-${page}`}
               page={page}
             />
-          )}
+          ))}
           <PaginatorLink
             {...linkParams}
             className="Paginate-next"
