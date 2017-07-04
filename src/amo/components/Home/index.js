@@ -90,7 +90,7 @@ export class HomeBase extends React.Component {
           <ExtensionLink name="block-ads" slug="privacy-security">
             {i18n.gettext('Block ads')}
           </ExtensionLink>
-          <ExtensionLink name="screenshot" slug="photos-media">
+          <ExtensionLink name="screenshot" slug="photos-music-videos">
             {i18n.gettext('Screenshot')}
           </ExtensionLink>
           <ExtensionLink name="find-news" slug="feeds-news-blogging">
@@ -99,10 +99,10 @@ export class HomeBase extends React.Component {
           <ExtensionLink name="shop-online" slug="shopping">
             {i18n.gettext('Shop online')}
           </ExtensionLink>
-          <ExtensionLink name="be-social" slug="social-networking">
+          <ExtensionLink name="be-social" slug="social-communication">
             {i18n.gettext('Be social')}
           </ExtensionLink>
-          <ExtensionLink name="play-games" slug="sports-games">
+          <ExtensionLink name="play-games" slug="games-entertainment">
             {i18n.gettext('Play games')}
           </ExtensionLink>
         </ul>
