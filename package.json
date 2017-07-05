@@ -230,8 +230,12 @@
   },
   "bundlesize": [
     {
+      "path": "./dist/amo-i18n-*.js",
+      "threshold": "7 Kb"
+    },
+    {
       "path": "./dist/amo-*.js",
-      "threshold": "282 Kb"
+      "threshold": "300 Kb"
     }
   ]
 }
