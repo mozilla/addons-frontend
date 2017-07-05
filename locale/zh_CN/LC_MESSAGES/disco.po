@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-06 20:17+0000\n"
+"POT-Creation-Date: 2017-07-05 21:36+0000\n"
 "PO-Revision-Date: 2017-03-17 13:51+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "服务器错误"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "很抱歉，但目前遇到一个错误，我们无法完成您的请求。我们已记录该错误，并会进行调查。"
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"很抱歉，但目前遇到一个错误，我们无法完成您的请求。我们已记录该错误，并会进行"
+"调查。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "错误代码：%(status)s。"
 
@@ -34,7 +39,8 @@ msgstr "找不到页面"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "很抱歉，但我们无法用您输入的地址找到信息。"
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "添加到 Firefox"
 
@@ -70,51 +76,51 @@ msgstr "%(name)s 已被卸载。点击可重新安装。"
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s 的安装状态未知。"
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "您的附加组件已就绪"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "您现在可以在工具栏找到 %(name)s 了。"
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "知道了！"
 
-#: src/disco/components/Addon.js:101
+#: src/disco/components/Addon.js:106
 msgid "Hover to preview or click to install %(name)s"
 msgstr "鼠标悬停在上面即可预览，点击可安装 %(name)s"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:120
 msgid "Hover over the image to preview"
 msgstr "鼠标悬停在上面的图像上就能预览"
 
-#: src/disco/components/Addon.js:135
+#: src/disco/components/Addon.js:142
 msgid "Installation failed. Please try again."
 msgstr "安装失败。请重试。"
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:144
 msgid "Download failed. Please check your connection."
 msgstr "下载失败。请检查您的网络连接。"
 
-#: src/disco/components/Addon.js:139
+#: src/disco/components/Addon.js:146
 msgid "An unexpected error occurred during installation."
 msgstr "安装时发生意外错误。"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:148
 msgid "An unexpected error occurred during uninstallation."
 msgstr "卸载时发生意外错误。"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:151
 msgid "An unexpected error occurred."
 msgstr "发生意外错误。"
 
-#: src/disco/components/Addon.js:152
+#: src/disco/components/Addon.js:159
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "此附加组件将在您重启 Firefox 后被卸载。"
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Please restart Firefox to use this add-on."
 msgstr "重启 Firefox 后即可使用此附加组件。"
 
@@ -126,29 +132,36 @@ msgstr "关闭"
 msgid "Discover Add-ons"
 msgstr "探寻附加组件"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
 msgstr "让火狐有您的个性"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:108
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr "这里有成千上万完全免费的附加组件，由全球各地的开发者打造。您可以随心安装附加组件，让 Firefox 有您的个性。这里不但有养眼的主题，还有各式功能强大的工具，帮您更快更安全地上网冲浪。为了协助您上手，下面提供了一些我们力荐的轻巧好用的附加组件。"
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"这里有成千上万完全免费的附加组件，由全球各地的开发者打造。您可以随心安装附加"
+"组件，让 Firefox 有您的个性。这里不但有养眼的主题，还有各式功能强大的工具，帮"
+"您更快更安全地上网冲浪。为了协助您上手，下面提供了一些我们力荐的轻巧好用的附"
+"加组件。"
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
 msgstr "点击播放"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
 msgstr "进一步了解附加组件"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
 msgstr "关闭视频"
 
-#: src/disco/containers/DiscoPane.js:134
+#: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
 msgstr "看看更多附加组件！"
 

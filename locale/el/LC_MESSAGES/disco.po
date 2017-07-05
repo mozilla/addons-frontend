@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-06 20:17+0000\n"
+"POT-Creation-Date: 2017-07-05 21:36+0000\n"
 "PO-Revision-Date: 2017-03-29 18:50+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
@@ -78,53 +78,53 @@ msgstr "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ
 msgid "Install state for %(name)s is unknown."
 msgstr "Η κατάσταση εγκατάστασης για το %(name)s είναι άγνωστη."
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Το πρόσθετό σας είναι έτοιμο"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Έχετε πλέον πρόσβαση στο %(name)s από τη γραμμή εργαλείων."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "ΟΚ!"
 
-#: src/disco/components/Addon.js:101
+#: src/disco/components/Addon.js:106
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Περάστε από πάνω τον κέρσορα για προεπισκόπηση ή κάντε κλικ για εγκατάσταση "
 "του %(name)s"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:120
 msgid "Hover over the image to preview"
 msgstr "Μετακινήστε τον κέρσορα πάνω από την εικόνα για προεπισκόπηση"
 
-#: src/disco/components/Addon.js:135
+#: src/disco/components/Addon.js:142
 msgid "Installation failed. Please try again."
 msgstr "Αποτυχία εγκατάστασης. Παρακαλώ προσπαθήστε ξανά."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:144
 msgid "Download failed. Please check your connection."
 msgstr "Αποτυχία λήψης. Παρακαλώ ελέγξτε τη σύνδεσή σας."
 
-#: src/disco/components/Addon.js:139
+#: src/disco/components/Addon.js:146
 msgid "An unexpected error occurred during installation."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την εγκατάσταση."
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:148
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την απεγκατάσταση."
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:151
 msgid "An unexpected error occurred."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα."
 
-#: src/disco/components/Addon.js:152
+#: src/disco/components/Addon.js:159
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Αυτό το πρόσθετο θα απεγκατασταθεί αφού επανεκκινήσετε το Firefox."
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Please restart Firefox to use this add-on."
 msgstr "Παρακαλώ επανεκκινήστε το Firefox για χρήση του πρόσθετου."
 
@@ -136,11 +136,11 @@ msgstr "Κλείσιμο"
 msgid "Discover Add-ons"
 msgstr "Ανακάλυψη πρόσθετων"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
 msgstr "Εξατομίκευση Firefox"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:108
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -155,18 +155,18 @@ msgstr ""
 "σας μοναδικό. Για να σας βοηθήσουμε να ξεκινήσετε, ορίστε μερικά πρόσθετα "
 "που προτείνουμε για την ξεχωριστή απόδοση και λειτουργικότητά τους."
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
 msgstr "Κάντε κλικ για αναπαραγωγή"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
 msgstr "για να μάθετε περισσότερα σχετικά με τα πρόσθετα"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
 msgstr "Κλείσιμο βίντεο"
 
-#: src/disco/containers/DiscoPane.js:134
+#: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
 msgstr "Προβολή περισσότερων προσθέτων!"
