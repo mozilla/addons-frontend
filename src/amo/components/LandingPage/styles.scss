@@ -5,10 +5,6 @@
   padding: $padding-page;
 }
 
-.LandingPage-icon--persona {
-  @include margin-end(20px);
-}
-
 .LandingPage-header {
   align-items: center;
   display: flex;
@@ -30,6 +26,8 @@
 .LandingPage-icon {
   height: 89px;
   width: 225px;
+
+  @include margin-end(20px);
 
   @include respond-to(medium) {
     height: 178px;
