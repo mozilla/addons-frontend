@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-07-06 19:50+0000\n"
+"PO-Revision-Date: 2017-07-06 19:51+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -452,25 +452,21 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "使用 %(addonName)s 的感觉如何？"
 
 #: src/amo/components/SearchContextCard/index.js:32
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "搜索“%(query)s”没有找到结果。"
+msgstr[0] "找到“%(query)s”的 %(count)s 个结果"
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "搜索“%(query)s”没有找到结果。"
+msgstr "搜索“%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "正在加载分类。"
+msgstr "正在加载附加组件"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "没有找到分类。"
+msgstr "没有找到附加组件"
 
 #: src/amo/components/SearchContextCard/index.js:45
 msgid "%(count)s add-on found\""
@@ -514,9 +510,8 @@ msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "请输入搜索关键词以搜索 Firefox 附加组件。"
 
 #: src/amo/components/SearchResults.js:63
-#, fuzzy
 msgid "Search results"
-msgstr "搜索主题"
+msgstr "搜索结果"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
