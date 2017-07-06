@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-07-06 15:03+0000\n"
+"PO-Revision-Date: 2017-07-06 15:13+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -206,17 +206,15 @@ msgstr "Categorias"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Navegue todos os extras nesta categoria."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "Navegar todas as extensões"
+msgstr "Navegue todas as extensões nesta categoria."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "Navegar todos os temas"
+msgstr "Navegue todos os temas nesta categoria."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -429,7 +427,7 @@ msgstr "Extensões mais populares"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
-msgstr "Navegue no seu idioma"
+msgstr "Navegar no seu idioma"
 
 #: src/amo/components/RatingManager/index.js:124
 msgid "Log in to rate this dictionary"
