@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-07-06 17:11+0000\n"
+"PO-Revision-Date: 2017-07-06 17:14+0000\n"
 "Last-Translator: Belayet Hossain <bellayet@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -206,7 +206,7 @@ msgstr "বিষয়শ্রেণী"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "এই বিষয়শ্রেণীর সব অ্যাড-অন ব্রাউজ করুন।"
 
 #: src/amo/components/CategoryHeader/index.js:38
 msgid "Browse all extensions in this category."
@@ -465,35 +465,30 @@ msgstr[0] "\"%(query)s\" এর ফলাফল %(count)s"
 msgstr[1] "\"%(query)s\" এর ফলাফল %(count)s"
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "\"%(query)s\" এর জন্যে কোন ফলাফল পাওয়া যায়নি।"
+msgstr "\"{query}\" এর জন্য অনুসন্ধান"
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "বিভাগ লোড করতে ব্যর্থ।"
+msgstr "অ্যাড-অন লোড হচ্ছে"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "কোন বিভাগ পাওয়া যায়নি।"
+msgstr "কোন অ্যাড-অন পাওয়া যায়নি"
 
 #: src/amo/components/SearchContextCard/index.js:45
 msgid "%(count)s add-on found\""
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s অ্যাড-অন পাওয়া গেছে"
+msgstr[1] "%(count)s অ্যাড-অন পাওয়া গেছে"
 
 #: src/amo/components/SearchForm.js:52
-#, fuzzy
 msgid "Search extensions"
-msgstr "বৈশিষ্ট্যপূর্ণ এক্সটেনশনসমূহ"
+msgstr "এক্সটেনশন অনুসন্ধান"
 
 #: src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search themes"
-msgstr "বৈশিষ্ট্যপূর্ণ থিম"
+msgstr "থিম অনুসন্ধান"
 
 #: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
@@ -524,9 +519,8 @@ msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Firefox অ্যাড-অন খুঁজতে অনুগ্রহ করে একটি শব্দ লিখুন।"
 
 #: src/amo/components/SearchResults.js:63
-#, fuzzy
 msgid "Search results"
-msgstr "বৈশিষ্ট্যপূর্ণ থিম"
+msgstr "অনুসন্ধান ফলাফল"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
