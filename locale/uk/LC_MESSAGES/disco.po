@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-06 20:17+0000\n"
+"POT-Creation-Date: 2017-07-05 21:36+0000\n"
 "PO-Revision-Date: 2017-03-17 17:11+0000\n"
 "Last-Translator: Tymur Faradzhev <faradzhev.timur@gmail.com>\n"
 "Language-Team: none\n"
@@ -77,51 +77,51 @@ msgstr "%(name)s видалено. Натисніть для встановле�
 msgid "Install state for %(name)s is unknown."
 msgstr "Стан встановлення для %(name)s невідомий."
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Ваш додаток готовий"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Тепер ви можете отримати доступ до %(name)s з панелі інструментів."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "Гаразд!"
 
-#: src/disco/components/Addon.js:101
+#: src/disco/components/Addon.js:106
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Наведіть для перегляду, або натисніть для встановлення %(name)s"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:120
 msgid "Hover over the image to preview"
 msgstr "Наведіть курсор на зображення для перегляду"
 
-#: src/disco/components/Addon.js:135
+#: src/disco/components/Addon.js:142
 msgid "Installation failed. Please try again."
 msgstr "Не вдалося встановити. Повторіть спробу."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:144
 msgid "Download failed. Please check your connection."
 msgstr "Не вдалося завантажити. Будь ласка, перевірте підключення."
 
-#: src/disco/components/Addon.js:139
+#: src/disco/components/Addon.js:146
 msgid "An unexpected error occurred during installation."
 msgstr "Сталася неочікувана помилка під час встановлення."
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:148
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Сталася неочікувана помилка під час видалення."
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:151
 msgid "An unexpected error occurred."
 msgstr "Сталася неочікувана помилка."
 
-#: src/disco/components/Addon.js:152
+#: src/disco/components/Addon.js:159
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Цей додаток буде видалений після перезапуску Firefox."
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Please restart Firefox to use this add-on."
 msgstr "Перезапустіть Firefox для використання цього додатку."
 
@@ -133,11 +133,11 @@ msgstr "Закрити"
 msgid "Discover Add-ons"
 msgstr "Відкрийте для себе додатки"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
 msgstr "Персоналізуйте ваш Firefox"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:108
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -152,19 +152,19 @@ msgstr ""
 "Щоб допомогти вам розпочати, ось декілька додатків, рекомендованих нами за "
 "незрівнянну продуктивність та функціональність."
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
 msgstr "Натисніть для відтворення"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
 msgstr "щоб дізнатись більше про додатки"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
 msgstr "Закрити відео"
 
-#: src/disco/containers/DiscoPane.js:134
+#: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
 msgstr "Перегляньте інші додатки!"
 
