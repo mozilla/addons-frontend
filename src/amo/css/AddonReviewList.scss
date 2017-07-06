@@ -11,6 +11,7 @@
 .AddonReviewList-header {
   margin: 15px 0;
   display: flex;
+  align-items: center;
 
   .AddonReviewList-header-text {
     > h2,
@@ -19,7 +20,6 @@
     }
 
     > h2 {
-      padding-top: 10px;
       margin: 0 0 5px;
     }
 
@@ -39,6 +39,7 @@
   }
 
   .AddonReviewList-header-icon {
+    padding-top: 6px;
     margin: 0 20px;
   }
 }
