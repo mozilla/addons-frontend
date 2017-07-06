@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-07-06 15:13+0000\n"
+"PO-Revision-Date: 2017-07-06 15:54+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -409,9 +409,8 @@ msgid "Extensions"
 msgstr "Extensões"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "A carregar categorias."
+msgstr "Explorar todas as categorias"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
