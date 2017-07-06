@@ -4,7 +4,7 @@
   &::after {
     background: linear-gradient(transparent, $base-color);
     bottom: 0;
-    content: '';
+    content: "";
     height: 20px;
     left: 0;
     position: absolute;
@@ -12,8 +12,8 @@
   }
 
   max-height: 150px;
-  position: relative;
   overflow: hidden;
+  position: relative;
 
   .ShowMoreCard--expanded & {
     &::after {

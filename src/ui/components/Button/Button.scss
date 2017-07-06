@@ -1,53 +1,28 @@
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
 
 .Button--neutral {
-  @include button(
-    $background: $neutral-base-color,
-    $background-active: $neutral-active-color,
-    $background-hover: $neutral-hover-color
-  );
+  @include button($background: $neutral-base-color, $background-active: $neutral-active-color, $background-hover: $neutral-hover-color);
 }
 
 .Button--light {
-  @include button(
-    $background: $light-base-color,
-    $background-active: $light-active-color,
-    $background-hover: $light-hover-color,
-    $color: $type-black
-  );
+  @include button($background: $light-base-color, $background-active: $light-active-color, $background-hover: $light-hover-color, $color: $type-black);
 
   text-shadow: none;
 }
 
 .Button--action {
-  @include button(
-    $background: $action-base-color,
-    $background-active: $action-active-color,
-    $background-hover: $action-hover-color
-  );
+  @include button($background: $action-base-color, $background-active: $action-active-color, $background-hover: $action-hover-color);
 }
 
 .Button--confirm {
-  @include button(
-    $background: $action-base-color,
-    $background-active: $action-active-color,
-    $background-hover: $action-hover-color
-  );
+  @include button($background: $action-base-color, $background-active: $action-active-color, $background-hover: $action-hover-color);
 }
 
 .Button--alert {
-  @include button(
-    $background: $action-base-color,
-    $background-active: $action-active-color,
-    $background-hover: $action-hover-color
-  );
+  @include button($background: $action-base-color, $background-active: $action-active-color, $background-hover: $action-hover-color);
 }
 
 .Button--report {
-  @include button(
-    $background: $action-base-color,
-    $background-active: $action-active-color,
-    $background-hover: $action-hover-color
-  );
+  @include button($background: $action-base-color, $background-active: $action-active-color, $background-hover: $action-hover-color);
 }

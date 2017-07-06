@@ -1,6 +1,8 @@
 @import "~core/css/inc/mixins";
 @import "~core/css/inc/vars";
 
+$footer-padding: 10px;
+
 .Card-header {
   @include addonSection();
   @include text-align-start();
@@ -8,13 +10,14 @@
   border-top-left-radius: $border-radius-default;
   border-top-right-radius: $border-radius-default;
   font-size: $font-size-default;
-  margin-top: 0;
   margin-bottom: 1px;
+  margin-top: 0;
 }
 
 .Card-contents {
   @include addonSection();
 
+  font-size: $font-size-s;
   margin: 0;
 
   .Card--no-header & {
@@ -30,11 +33,7 @@
   .Card--photon & {
     padding: 20px 15px;
   }
-
-  font-size: $font-size-s;
 }
-
-$footer-padding: 10px;
 
 .Card-footer-link,
 .Card-footer-text {
@@ -42,20 +41,20 @@ $footer-padding: 10px;
 
   border-bottom-left-radius: $border-radius-default;
   border-bottom-right-radius: $border-radius-default;
+  font-variant: all-small-caps;
   margin-top: 1px;
   padding: 0;
   text-align: center;
-  font-variant: all-small-caps;
 
   a,
   a:active,
   a:hover,
   a:link,
   a:visited {
-    padding: $footer-padding;
     color: $link-color;
     display: block;
     font-weight: normal;
+    padding: $footer-padding;
     text-decoration: none;
   }
 }
