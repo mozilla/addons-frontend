@@ -273,15 +273,23 @@ describe('amo/components/AddonReviewList', () => {
 
     it('renders a review', () => {
       const root = render({ reviews: [fakeReview] });
+      const fakeReviewWithNewLine = {
+        ...fakeReview,
+        body: "It's awesome \n isn't it?",
+      };
+      const wrapper = render({ reviews: [fakeReviewWithNewLine] });
 
       expect(root.find('.AddonReviewList-li h3'))
         .toHaveText(fakeReview.title);
 
       expect(root.find('.AddonReviewList-li p'))
-        .toHaveText(fakeReview.body);
+        .toHaveHTML(`<p>${fakeReview.body}</p>`);
 
       expect(root.find('.AddonReviewList-by-line'))
         .toIncludeText(fakeReview.user.name);
+
+      expect(wrapper.find('.AddonReviewList-li p').render().find('br'))
+        .toHaveLength(1);
     });
 
     it("renders the add-on's icon in the header", () => {
