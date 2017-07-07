@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-07-06 15:18+0000\n"
+"PO-Revision-Date: 2017-05-31 18:53+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -93,9 +93,8 @@ msgid "Used by"
 msgstr "בשימוש ע״י"
 
 #: src/amo/components/AddonMoreInfo.js:106
-#, fuzzy
 msgid "Read the license agreement for this add-on"
-msgstr "קריאת מדיניות הפרטיות עבור תוספת זו"
+msgstr "קריאת הסכם הרישיון עבור תוספת זו"
 
 #: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
