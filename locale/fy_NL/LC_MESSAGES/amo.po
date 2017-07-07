@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-07-07 10:38+0000\n"
+"PO-Revision-Date: 2017-07-07 10:42+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -209,14 +209,12 @@ msgid "Browse all add-ons in this category."
 msgstr "Troch alle add-ons yn dizze kategory blêdzje."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "Alle útwreidingen besjen"
+msgstr "Troch alle útwreidingen yn dizze kategory blêdzje."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "Alle tema's besjen"
+msgstr "Troch alle tema's yn dizze kategory blêdzje."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -411,9 +409,8 @@ msgid "Extensions"
 msgstr "Utwreidingen"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "Kategoryen wurde laden."
+msgstr "Alle kategoryen ferkenne"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -460,26 +457,22 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hoe foldocht jo %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:32
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "Gjin resultaten fûn foar ‘%(query)s’."
-msgstr[1] "Gjin resultaten fûn foar ‘%(query)s’."
+msgstr[0] "%(count)s resultaat foar ‘%(query)s’"
+msgstr[1] "%(count)s resultaten foar ‘%(query)s’"
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "Gjin resultaten fûn foar ‘%(query)s’."
+msgstr "Sykje nei ‘%(query)s’"
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "Kategoryen wurde laden."
+msgstr "Add-ons wurde laden"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "Gjin kategoryen fûn."
+msgstr "Gjin add-ons fûn"
 
 #: src/amo/components/SearchContextCard/index.js:45
 msgid "%(count)s add-on found\""
@@ -524,9 +517,8 @@ msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Fier in sykterm yn om Firefox Add-ons troch te sykjen."
 
 #: src/amo/components/SearchResults.js:63
-#, fuzzy
 msgid "Search results"
-msgstr "Tema’s sykje"
+msgstr "Sykresultaten"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
