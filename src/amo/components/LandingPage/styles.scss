@@ -9,6 +9,7 @@
   @include margin-end(20px);
 }
 
+// In LTR, the spacing actually looks correct because of the icon itself has built-in margins in its design.
 .LandingPage-icon--extension {
   [dir=rtl] & {
     margin-left: 20px;
