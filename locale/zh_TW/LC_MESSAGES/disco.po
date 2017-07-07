@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-06 20:17+0000\n"
+"POT-Creation-Date: 2017-07-05 21:36+0000\n"
 "PO-Revision-Date: 2017-04-16 17:27+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -74,51 +74,51 @@ msgstr "已移除 %(name)s，點擊安裝。"
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s 的安裝狀態未知。"
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "您的附加元件已就緒"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "您現在可在工具列使用 %(name)s。"
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "好！"
 
-#: src/disco/components/Addon.js:101
+#: src/disco/components/Addon.js:106
 msgid "Hover to preview or click to install %(name)s"
 msgstr "滑動以預覽或點擊安裝 %(name)s"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:120
 msgid "Hover over the image to preview"
 msgstr "滑過圖片進行預覽"
 
-#: src/disco/components/Addon.js:135
+#: src/disco/components/Addon.js:142
 msgid "Installation failed. Please try again."
 msgstr "安裝失敗，請再試一次。"
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:144
 msgid "Download failed. Please check your connection."
 msgstr "下載失敗，請檢查網路連線。"
 
-#: src/disco/components/Addon.js:139
+#: src/disco/components/Addon.js:146
 msgid "An unexpected error occurred during installation."
 msgstr "安裝時發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:148
 msgid "An unexpected error occurred during uninstallation."
 msgstr "移除時發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:151
 msgid "An unexpected error occurred."
 msgstr "發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:152
+#: src/disco/components/Addon.js:159
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "您重新啟動 Firefox 後將移除此附加元件。"
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Please restart Firefox to use this add-on."
 msgstr "重新啟動 Firefox 後即可使用此附加元件。"
 
@@ -130,11 +130,11 @@ msgstr "關閉"
 msgid "Discover Add-ons"
 msgstr "探索附加元件"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
 msgstr "個人化您的 Firefox"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:108
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -146,19 +146,19 @@ msgstr ""
 "您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。"
 "為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
 msgstr "點擊播放"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
 msgstr "以了解附加元件的更多資訊"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
 msgstr "關閉影片"
 
-#: src/disco/containers/DiscoPane.js:134
+#: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
 msgstr "看看更多附加元件！"
 

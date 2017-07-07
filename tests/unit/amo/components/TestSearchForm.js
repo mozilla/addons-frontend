@@ -4,11 +4,8 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { setViewContext } from 'amo/actions/viewContext';
 import {
   SearchFormBase,
-  mapDispatchToProps,
   mapStateToProps,
 } from 'amo/components/SearchForm';
-import * as actions from 'core/actions';
-import * as coreApi from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -21,7 +18,6 @@ import { getFakeI18nInst } from 'tests/unit/helpers';
 describe('<SearchForm />', () => {
   const pathname = '/search/';
   const api = { clientApp: 'firefox', lang: 'de' };
-  let loadAddon;
   let router;
   let root;
   let form;
@@ -42,7 +38,6 @@ describe('<SearchForm />', () => {
           pathname={pathname}
           api={api}
           query="foo"
-          loadAddon={loadAddon}
           ref={(ref) => { this.root = ref; }}
           i18n={getFakeI18nInst()}
           {...this.props}
@@ -53,7 +48,6 @@ describe('<SearchForm />', () => {
 
   beforeEach(() => {
     router = { push: sinon.spy() };
-    loadAddon = sinon.stub();
     root = renderIntoDocument(<SearchFormWrapper />).root;
     form = root.form;
     input = root.searchQuery.input;
@@ -171,35 +165,5 @@ describe('SearchForm mapStateToProps', () => {
     const state = store.getState();
 
     expect(mapStateToProps(state).addonType).toEqual(null);
-  });
-});
-
-describe('SearchForm loadAddon', () => {
-  it('fetches the add-on', () => {
-    const slug = 'the-slug';
-    const api = { token: 'foo' };
-    const dispatch = sinon.stub();
-    const addon = sinon.stub();
-    const entities = { [slug]: addon };
-    const mockApi = sinon.mock(coreApi);
-    mockApi
-      .expects('fetchAddon')
-      .once()
-      .withArgs({ slug, api })
-      .returns(Promise.resolve({ entities }));
-    const action = sinon.stub();
-    const mockActions = sinon.mock(actions);
-    mockActions
-      .expects('loadEntities')
-      .once()
-      .withArgs(entities)
-      .returns(action);
-    const { loadAddon } = mapDispatchToProps(dispatch);
-    return loadAddon({ api, query: slug })
-      .then(() => {
-        sinon.assert.calledWith(dispatch, action);
-        mockApi.verify();
-        mockActions.verify();
-      });
   });
 });
