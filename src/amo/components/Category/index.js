@@ -31,9 +31,9 @@ export class CategoryBase extends React.Component {
   }
 
   render() {
-    const { category, ...searchProps } = this.props;
+    const { category, loading, ...searchProps } = this.props;
 
-    if (!category) {
+    if (loading === false && !category) {
       return <NotFound />;
     }
 
