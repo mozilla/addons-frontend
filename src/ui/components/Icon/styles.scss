@@ -70,6 +70,11 @@
   background-size: contain;
 }
 
+.Icon-user-fill {
+  background: url('./user-fill.svg') center no-repeat;
+  background-size: contain;
+}
+
 .Icon-browse {
   background: url('./bullet-list.svg') center no-repeat;
   background-size: cover;
@@ -91,4 +96,18 @@
   height: 44.7px;
   min-width: 46.3px;
   width: 46.3px;
+}
+
+.Icon-artistic-unicorn {
+  background: url('./artistic-unicorn.svg') center no-repeat;
+  background-size: contain;
+  height: 198.6px;
+  width: 394px;
+}
+
+.Icon-multitasking-octopus {
+  background: url('./multitasking-octopus.svg') center no-repeat;
+  background-size: contain;
+  height: 199.3px;
+  width: 366px;
 }

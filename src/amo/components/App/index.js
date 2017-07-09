@@ -211,8 +211,10 @@ export class AppBase extends React.Component {
             {children}
           </ErrorPage>
         </div>
-        <FooterComponent handleViewDesktop={this.onViewDesktop}
-          location={location} />
+        <FooterComponent
+          handleViewDesktop={this.onViewDesktop}
+          location={location}
+        />
       </div>
     );
   }

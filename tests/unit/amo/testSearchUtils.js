@@ -8,6 +8,7 @@ import {
 import * as api from 'core/api';
 import { signedInApiState } from 'tests/unit/amo/helpers';
 
+
 describe('Search.mapStateToProps()', () => {
   const state = {
     api: { lang: 'fr-CA' },

@@ -239,4 +239,21 @@ describe('ui/components/Rating', () => {
       expect(allDivs).toBeTruthy();
     });
   });
+
+  describe('rating counts', () => {
+    const getRating = (props = {}) => findDOMNode(render(props)).textContent;
+
+    it('renders the average rating', () => {
+      expect(getRating({ rating: 3.5 })).toEqual('Rated 3.5 out of 5');
+    });
+
+    it('localizes average rating', () => {
+      const i18n = getFakeI18nInst({ lang: 'de' });
+      expect(getRating({ rating: 3.5, i18n })).toContain('3,5');
+    });
+
+    it('renders empty ratings', () => {
+      expect(getRating({ rating: null })).toEqual('No ratings');
+    });
+  });
 });

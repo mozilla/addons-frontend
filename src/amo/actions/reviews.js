@@ -1,5 +1,7 @@
 /* @flow */
-import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
+import {
+  FETCH_REVIEWS, SET_ADDON_REVIEWS, SET_REVIEW,
+} from 'amo/constants';
 import type { ApiReviewType } from 'amo/api';
 
 export type UserReviewType = {|
@@ -46,6 +48,36 @@ export const setReview = (review: ApiReviewType): SetReviewAction => {
   }
   return { type: SET_REVIEW, payload: denormalizeReview(review) };
 };
+
+type FetchReviewsParams = {|
+  addonSlug: string,
+  errorHandlerId: string,
+  page?: number,
+|};
+
+export type FetchReviewsAction = {|
+  type: string,
+  payload: {|
+    addonSlug: string,
+    errorHandlerId: string,
+    page: number,
+  |},
+|};
+
+export function fetchReviews(
+  { addonSlug, errorHandlerId, page = 1 }: FetchReviewsParams
+): FetchReviewsAction {
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId cannot be empty');
+  }
+  if (!addonSlug) {
+    throw new Error('addonSlug cannot be empty');
+  }
+  return {
+    type: FETCH_REVIEWS,
+    payload: { addonSlug, errorHandlerId, page },
+  };
+}
 
 export const setDenormalizedReview = (
   review: UserReviewType

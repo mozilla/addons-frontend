@@ -10,7 +10,6 @@ import { Provider } from 'react-redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
-import createStore from 'amo/store';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -19,22 +18,23 @@ import {
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { visibleAddonType } from 'core/utils';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<LandingPage />', () => {
-  const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
-
   function render({ ...props }) {
-    const { store } = createStore(initialState);
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.stub();
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
-          <LandingPageBase dispatch={fakeDispatch} i18n={getFakeI18nInst()}
-            {...props} />
+          <LandingPageBase
+            dispatch={fakeDispatch}
+            i18n={getFakeI18nInst()}
+            {...props}
+          />
         </I18nProvider>
       </Provider>
     ), LandingPageBase);
@@ -71,6 +71,23 @@ describe('<LandingPage />', () => {
     expect(rootNode.textContent).toContain('More featured extensions');
   });
 
+  it('renders a link to all categories', () => {
+    const fakeDispatch = sinon.stub();
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+    };
+    const root = shallow(
+      <LandingPageBase
+        dispatch={fakeDispatch}
+        i18n={getFakeI18nInst()}
+        params={fakeParams}
+      />
+    );
+
+    expect(root.find('.LandingPage-button'))
+      .toHaveProp('children', 'Explore all categories');
+  });
+
   it('sets the links in each footer for extensions', () => {
     const fakeDispatch = sinon.stub();
     const fakeParams = {
@@ -84,14 +101,14 @@ describe('<LandingPage />', () => {
       />
     );
 
-    expect(root.childAt(1).prop('footerLink')).toEqual({
+    expect(root.childAt(3)).toHaveProp('footerLink', {
       pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
     });
-    expect(root.childAt(2).prop('footerLink')).toEqual({
+    expect(root.childAt(4)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.childAt(3).prop('footerLink')).toEqual({
+    expect(root.childAt(5)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
     });
@@ -110,14 +127,14 @@ describe('<LandingPage />', () => {
       />
     );
 
-    expect(root.childAt(1).prop('footerLink')).toEqual({
+    expect(root.childAt(3)).toHaveProp('footerLink', {
       pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
     });
-    expect(root.childAt(2).prop('footerLink')).toEqual({
+    expect(root.childAt(4)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.childAt(3).prop('footerLink')).toEqual({
+    expect(root.childAt(5)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
     });
@@ -133,7 +150,7 @@ describe('<LandingPage />', () => {
   });
 
   it('renders each add-on when set', () => {
-    const { store } = createStore(initialState);
+    const { store } = dispatchClientMetadata();
     store.dispatch(landingActions.loadLanding({
       featured: {
         entities: {
@@ -180,7 +197,7 @@ describe('<LandingPage />', () => {
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(Object.values(rootNode.querySelectorAll('.SearchResult-heading'))
+    expect(Object.values(rootNode.querySelectorAll('.SearchResult-name'))
       .map((heading) => heading.textContent)).toEqual(['Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again']);
   });
 

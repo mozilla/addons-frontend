@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 22:08+0000\n"
-"PO-Revision-Date: 2017-06-14 08:17+0000\n"
+"POT-Creation-Date: 2017-07-05 21:34+0000\n"
+"PO-Revision-Date: 2017-07-07 06:58+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -14,51 +14,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:129
 msgid "Cancel preview"
 msgstr "Voorbeeld annuleren"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:129
 msgid "Tap to preview"
 msgstr "Tik voor een voorbeeld"
 
-#: src/amo/components/Addon/index.js:151
+#: src/amo/components/Addon/index.js:170
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s beoordeling lezen"
 msgstr[1] "Alle %(count)s beoordelingen lezen"
 
-#: src/amo/components/Addon/index.js:164
+#: src/amo/components/Addon/index.js:186
 msgid "No reviews yet"
 msgstr "Nog geen beoordelingen"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:195
 msgid "Rate your experience"
 msgstr "Uw ervaring waarderen"
 
-#: src/amo/components/Addon/index.js:204
-msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr "%(addonName)s %(startSpan)s door %(authorList)s%(endSpan)s"
-
-#: src/amo/components/Addon/index.js:241
-msgid "Extension Metadata"
-msgstr "Metagegevens van extensie"
-
-#: src/amo/components/Addon/index.js:257
-msgid "Screenshots"
-msgstr "Schermafbeeldingen"
-
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:229
 msgid "About this %(addonType)s"
 msgstr "Over deze %(addonType)s"
 
+#: src/amo/components/Addon/index.js:280
+msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
+msgstr "%(addonName)s %(startSpan)s door %(authorList)s%(endSpan)s"
+
+#: src/amo/components/Addon/index.js:324
+msgid "Extension Metadata"
+msgstr "Metagegevens van extensie"
+
+#: src/amo/components/Addon/index.js:343
+msgid "Screenshots"
+msgstr "Schermafbeeldingen"
+
 #: src/amo/components/AddonCompatibilityError/index.js:55
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"U dient <a href=\"%(downloadUrl)s\">Firefox te downloaden</a> om deze add-on "
-"te installeren."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "U dient <a href=\"%(downloadUrl)s\">Firefox te downloaden</a> om deze add-on te installeren."
 
 #: src/amo/components/AddonCompatibilityError/index.js:59
 msgid "Your version of Firefox does not support search plugins."
@@ -69,43 +65,34 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox voor iOS ondersteunt momenteel geen add-ons."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Deze add-on vereist een <a href=\"%(downloadUrl)s\">nieuwere versie van "
-"Firefox</a> (minstens versie %(minVersion)s). U gebruikt Firefox "
-"%(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Deze add-on vereist een <a href=\"%(downloadUrl)s\">nieuwere versie van Firefox</a> (minstens versie %(minVersion)s). U gebruikt Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Uw browser ondersteunt geen add-ons. U kunt <a href=\"%(downloadUrl)s"
-"\">Firefox downloaden</a> om deze add-on te installeren."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Uw browser ondersteunt geen add-ons. U kunt <a href=\"%(downloadUrl)s\">Firefox downloaden</a> om deze add-on te installeren."
 
-#: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:88
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s gebruiker"
 msgstr[1] "%(total)s gebruikers"
 
-#: src/amo/components/AddonMeta.js:31
+#: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s beoordeling"
 msgstr[1] "%(total)s beoordelingen"
 
-#: src/amo/components/AddonMeta.js:36
+#: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
 msgstr "Geen beoordelingen"
 
-#: src/amo/components/AddonMeta.js:42
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "Gebruikt door"
 
-#: src/amo/components/AddonMoreInfo.js:100
+#: src/amo/components/AddonMoreInfo.js:106
 msgid "Read the license agreement for this add-on"
 msgstr "De licentieovereenkomst voor deze add-on lezen"
 
@@ -141,15 +128,15 @@ msgstr "%(timeFromNow)s (%(date)s)"
 msgid "License"
 msgstr "Licentie"
 
-#: src/amo/components/AddonMoreInfo.js:83
+#: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
 msgstr "Privacybeleid"
 
-#: src/amo/components/AddonMoreInfo.js:89
+#: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
 msgstr "Het privacybeleid voor deze add-on lezen"
 
-#: src/amo/components/AddonMoreInfo.js:94
+#: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
 msgstr "Eindgebruikerslicentieovereenkomst"
 
@@ -159,18 +146,15 @@ msgstr "Beschrijf waarom u deze extensie fantastisch vindt!"
 
 #: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Vertel ons wat u zo bevalt aan deze extensie. Wees concreet en beknopt."
+msgstr "Vertel ons wat u zo bevalt aan deze extensie. Wees concreet en beknopt."
 
 #: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "Geef een beschrijving over deze extensie."
 
 #: src/amo/components/AddonReview.js:153
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Vertel ons over uw ervaring met deze extensie. Wees concreet en beknopt."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Vertel ons over uw ervaring met deze extensie. Wees concreet en beknopt."
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
@@ -180,118 +164,98 @@ msgstr "Schrijf een beoordeling"
 msgid "Review text"
 msgstr "Tekst beoordelen"
 
-#: src/amo/components/AddonReview.js:181
+#: src/amo/components/AddonReview.js:182
 msgid "Submit review"
 msgstr "Beoordeling indienen"
 
-#: src/amo/components/AddonReviewList.js:102
-msgid "All written reviews"
-msgstr "Alle geschreven beoordelingen"
-
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "van %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:82
-msgid "Loading..."
-msgstr "Laden..."
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:152
 msgid "Add-on icon"
 msgstr "Add-onpictogram"
 
-#: src/amo/components/AddonReviewList.js:99
+#: src/amo/components/AddonReviewList.js:158
 msgid "Reviews for %(addonName)s"
 msgstr "Beoordelingen voor %(addonName)s"
+
+#: src/amo/components/AddonReviewList.js:179
+msgid "All written reviews"
+msgstr "Alle geschreven beoordelingen"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "Add-ons voor Firefox"
 
-#: src/amo/components/Categories.js:57
+#: src/amo/components/Categories.js:57 src/amo/components/CategoriesHeader/index.js:47
 msgid "Failed to load categories."
 msgstr "Laden van categorieën is mislukt."
 
-#: src/amo/components/Categories.js:65
+#: src/amo/components/Categories.js:65 src/amo/components/CategoriesHeader/index.js:55
 msgid "No categories found."
 msgstr "Geen categorieën gevonden."
 
-#: src/amo/components/Categories.js:74
+#: src/amo/components/Categories.js:74 src/amo/components/CategoriesHeader/index.js:65
 msgid "Loading categories."
 msgstr "Categorieën worden geladen."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
-msgstr ""
-"Als u bent aangemeld en denkt dat deze melding onterecht is, <a href="
-"\"%(url)s\">meld dan een probleem</a>. Vertel ons waar u vandaan kwam en wat "
-"u probeerde te openen, en we zullen het verhelpen."
+#: src/amo/components/CategoriesHeader/index.js:61
+msgid "Categories"
+msgstr "Categorieën"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
+#: src/amo/components/CategoryHeader/index.js:34
+msgid "Browse all add-ons in this category."
+msgstr "Door alle add-ons in deze categorie bladeren."
+
+#: src/amo/components/CategoryHeader/index.js:38
+msgid "Browse all extensions in this category."
+msgstr "Door alle extensies in deze categorie bladeren."
+
+#: src/amo/components/CategoryHeader/index.js:43
+msgid "Browse all themes in this category."
+msgstr "Door alle thema’s in deze categorie bladeren."
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:22
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr ""
+"Als u bent aangemeld en denkt dat deze melding onterecht is, <a href=\"%(url)s\">meld dan een probleem</a>. Vertel ons waar u vandaan kwam en wat u probeerde te openen, en we zullen het verhelpen."
+
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Niet geautoriseerd"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:36
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Sorry, maar u hebt geen toegang tot deze pagina. Als u niet bent aangemeld, "
-"probeer u dan aan te melden via de koppeling boven in de pagina."
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:38
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Sorry, maar u hebt geen toegang tot deze pagina. Als u niet bent aangemeld, probeer u dan aan te melden via de koppeling boven in de pagina."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Als u een koppeling ergens vandaan hebt gevolgd, <a href=\"%(url)s\">meld "
-"dan een probleem</a>. Vertel ons waar u vandaan kwam en waar u naar op zoek "
-"was, en we zullen proberen het op te lossen."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Als u een koppeling ergens vandaan hebt gevolgd, <a href=\"%(url)s\">meld dan een probleem</a>. Vertel ons waar u vandaan kwam en waar u naar op zoek was, en we zullen proberen het op te lossen."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Pagina niet gevonden"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:35
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Sorry, maar we kunnen niets op het ingevoerde adres vinden. Als u een "
-"koppeling naar een add-on hebt gevolgd, is het mogelijk dat de add-on door "
-"de schrijver is verwijderd."
+#: src/amo/components/ErrorPage/NotFound/index.js:37
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Sorry, maar we kunnen niets op het ingevoerde adres vinden. Als u een koppeling naar een add-on hebt gevolgd, is het mogelijk dat de add-on door de schrijver is verwijderd."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Als u aanvullende gegevens hebt die ons zouden kunnen helpen, kunt u <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">een probleem "
-"melden</a>. Vertel ons welke stappen u volgde die naar de fout leidden, en "
-"we zullen proberen het op te lossen."
+"Als u aanvullende gegevens hebt die ons zouden kunnen helpen, kunt u <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">een probleem melden</a>. Vertel ons welke stappen u volgde die"
+" naar de fout leidden, en we zullen proberen het op te lossen."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serverfout"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:34
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Sorry, maar er is een fout opgetreden met onze server, en we konden uw "
-"aanvraag niet voltooien. We hebben deze fout vastgelegd en zullen hem "
-"onderzoeken."
+#: src/amo/components/ErrorPage/ServerError/index.js:36
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Sorry, maar er is een fout opgetreden met onze server, en we konden uw aanvraag niet voltooien. We hebben deze fout vastgelegd en zullen hem onderzoeken."
 
 #: src/amo/components/FeaturedAddons/index.js:33
 msgid "More Featured Extensions"
@@ -305,19 +269,19 @@ msgstr "Meer aanbevolen thema’s"
 msgid "Go to Mozilla's homepage"
 msgstr "Naar Mozilla’s startpagina"
 
-#: src/amo/components/Footer/index.js:32
+#: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
 msgstr "Privacybeleid"
 
-#: src/amo/components/Footer/index.js:38
+#: src/amo/components/Footer/index.js:44
 msgid "Legal notices"
 msgstr "Juridische kennisgevingen"
 
-#: src/amo/components/Footer/index.js:44
+#: src/amo/components/Footer/index.js:52
 msgid "Report a bug"
 msgstr "Een bug melden"
 
-#: src/amo/components/Footer/index.js:51
+#: src/amo/components/Footer/index.js:62
 msgid "View classic desktop site"
 msgstr "Klassieke desktopwebsite weergeven"
 
@@ -329,83 +293,137 @@ msgstr "Add-ons voor Firefox"
 msgid "Developer Hub"
 msgstr "Ontwikkelaarshub"
 
-#: src/amo/components/LandingPage.js:103
-msgid "More highly rated extensions"
-msgstr "Meer hoog gewaardeerde extensies"
+#: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
+msgid "Shop online"
+msgstr "Online winkelen"
 
-#: src/amo/components/LandingPage.js:106
-msgid "Featured themes"
-msgstr "Aanbevolen thema’s"
+#: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
+msgid "Be social"
+msgstr "Sociaal zijn"
 
-#: src/amo/components/LandingPage.js:110
-msgid "More featured themes"
-msgstr "Meer aanbevolen thema’s"
+#: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
+msgid "Play games"
+msgstr "Spellen spelen"
 
-#: src/amo/components/LandingPage.js:111
-msgid "Most popular themes"
-msgstr "Populairste thema’s"
+#: src/amo/components/Home/index.js:120
+msgid "Wild"
+msgstr "Wild"
 
-#: src/amo/components/LandingPage.js:116
-msgid "More popular themes"
-msgstr "Meer populaire thema’s"
+#: src/amo/components/Home/index.js:121
+msgid "Abstract"
+msgstr "Abstract"
 
-#: src/amo/components/LandingPage.js:117
-msgid "Top rated themes"
-msgstr "Hoogst gewaardeerde thema’s"
+#: src/amo/components/Home/index.js:122
+msgid "Holiday"
+msgstr "Feestdagen"
 
-#: src/amo/components/LandingPage.js:122
-msgid "More highly rated themes"
-msgstr "Meer hoog gewaardeerde thema’s"
+#: src/amo/components/Home/index.js:123
+msgid "Scenic"
+msgstr "Schilderachtig"
 
-#: src/amo/components/LandingPage.js:157
-#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
-msgid "Themes"
-msgstr "Thema’s"
+#: src/amo/components/Home/index.js:124
+msgid "Sporty"
+msgstr "Sportief"
 
-#: src/amo/components/LandingPage.js:158
-#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
-msgid "Extensions"
-msgstr "Extensies"
+#: src/amo/components/Home/index.js:125
+msgid "Solid"
+msgstr "Dekkend"
 
-#: src/amo/components/LandingPage.js:161
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Wijzig de vormgeving van uw browser. Maak een keuze uit duizenden thema’s om "
-"Firefox het gewenste uiterlijk te geven."
+#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
+msgid "Browse all extensions"
+msgstr "Door alle extensies bladeren"
 
-#: src/amo/components/LandingPage.js:163
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Installeer krachtige hulpmiddelen die het surfen sneller en veiliger maken; "
-"add-ons maken uw browser persoonlijk."
+#: src/amo/components/Home/index.js:143
+msgid "You can change how Firefox works…"
+msgstr "U kunt wijzigen hoe Firefox werkt…"
 
-#: src/amo/components/LandingPage.js:188
-msgid "Browse by category"
-msgstr "Bladeren op categorie"
+#: src/amo/components/Home/index.js:146
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Installeer krachtige hulpmiddelen die het surfen sneller en veiliger maken; add-ons maken uw browser persoonlijk."
 
-#: src/amo/components/LandingPage.js:84
-msgid "Featured extensions"
-msgstr "Aanbevolen extensies"
+#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
+msgid "Browse all themes"
+msgstr "Door alle thema’s bladeren"
 
-#: src/amo/components/LandingPage.js:88
-msgid "More featured extensions"
-msgstr "Meer aanbevolen extensies"
+#: src/amo/components/Home/index.js:162
+msgid "…or what it looks like"
+msgstr "…of hoe het eruitziet"
 
-#: src/amo/components/LandingPage.js:89
-msgid "Most popular extensions"
-msgstr "Populairste extensies"
+#: src/amo/components/Home/index.js:165
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Wijzig de vormgeving van uw browser. Maak een keuze uit duizenden thema’s om Firefox het gewenste uiterlijk te geven."
 
-#: src/amo/components/LandingPage.js:94
+#: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
+msgid "Block ads"
+msgstr "Advertenties blokkeren"
+
+#: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
+msgid "Screenshot"
+msgstr "Schermafbeelding"
+
+#: src/amo/components/Home/index.js:72 src/amo/components/Home/index.js:97
+msgid "Find news"
+msgstr "Nieuws vinden"
+
+#: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
 msgstr "Meer populaire extensies"
 
-#: src/amo/components/LandingPage.js:95
+#: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
 msgstr "Hoogst gewaardeerde extensies"
+
+#: src/amo/components/LandingPage/index.js:111
+msgid "More highly rated extensions"
+msgstr "Meer hoog gewaardeerde extensies"
+
+#: src/amo/components/LandingPage/index.js:114
+msgid "Featured themes"
+msgstr "Aanbevolen thema’s"
+
+#: src/amo/components/LandingPage/index.js:118
+msgid "More featured themes"
+msgstr "Meer aanbevolen thema’s"
+
+#: src/amo/components/LandingPage/index.js:119
+msgid "Most popular themes"
+msgstr "Populairste thema’s"
+
+#: src/amo/components/LandingPage/index.js:124
+msgid "More popular themes"
+msgstr "Meer populaire thema’s"
+
+#: src/amo/components/LandingPage/index.js:125
+msgid "Top rated themes"
+msgstr "Hoogst gewaardeerde thema’s"
+
+#: src/amo/components/LandingPage/index.js:130
+msgid "More highly rated themes"
+msgstr "Meer hoog gewaardeerde thema’s"
+
+#: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
+msgid "Themes"
+msgstr "Thema’s"
+
+#: src/amo/components/LandingPage/index.js:178 src/amo/components/SectionLinks/index.js:50
+msgid "Extensions"
+msgstr "Extensies"
+
+#: src/amo/components/LandingPage/index.js:209
+msgid "Explore all categories"
+msgstr "Alle categorieën verkennen"
+
+#: src/amo/components/LandingPage/index.js:92
+msgid "Featured extensions"
+msgstr "Aanbevolen extensies"
+
+#: src/amo/components/LandingPage/index.js:96
+msgid "More featured extensions"
+msgstr "Meer aanbevolen extensies"
+
+#: src/amo/components/LandingPage/index.js:97
+msgid "Most popular extensions"
+msgstr "Populairste extensies"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -439,43 +457,69 @@ msgstr "Meld u aan om deze add-on te waarderen"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hoe beleeft u uw ervaring met %(addonName)s?"
 
+#: src/amo/components/SearchContextCard/index.js:32
+msgid "%(count)s result for \"%(query)s\""
+msgid_plural "%(count)s results for \"%(query)s\""
+msgstr[0] "%(count)s resultaat voor ‘%(query)s’"
+msgstr[1] "%(count)s resultaten voor ‘%(query)s’"
+
+#: src/amo/components/SearchContextCard/index.js:38
+msgid "Searching for \"%(query)s\""
+msgstr "Zoeken naar ‘%(query)s’"
+
+#: src/amo/components/SearchContextCard/index.js:41
+msgid "Loading add-ons"
+msgstr "Add-ons worden geladen"
+
+#: src/amo/components/SearchContextCard/index.js:43
+msgid "No add-ons found"
+msgstr "Geen add-ons gevonden"
+
+#: src/amo/components/SearchContextCard/index.js:45
+msgid "%(count)s add-on found\""
+msgid_plural "%(count)s add-ons found"
+msgstr[0] "%(count)s add-on gevonden”"
+msgstr[1] "%(count)s add-ons gevonden"
+
 #: src/amo/components/SearchForm.js:52
-#, fuzzy
 msgid "Search extensions"
-msgstr "Aanbevolen extensies"
+msgstr "Extensies zoeken"
 
 #: src/amo/components/SearchForm.js:54
-#, fuzzy
 msgid "Search themes"
-msgstr "Aanbevolen thema’s"
+msgstr "Thema’s zoeken"
 
 #: src/amo/components/SearchForm.js:56
 msgid "Search extensions and themes"
 msgstr "Extensies en thema’s zoeken"
 
-#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+#: src/amo/components/SearchForm.js:71 src/amo/components/SearchForm.js:88
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/amo/components/SearchResult.js:50
+#: src/amo/components/SearchResult/index.js:57
 msgid "No theme preview available"
 msgstr "Geen themavoorbeeld beschikbaar"
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:41
 msgid "Searching…"
 msgstr "Zoeken…"
 
-#: src/amo/components/SearchResults.js:49
+#: src/amo/components/SearchResults.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "Geen resultaten voor ‘%(query)s’ gevonden."
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:51
 msgid "No results were found."
 msgstr "Geen resultaten gevonden."
 
-#: src/amo/components/SearchResults.js:56
+#: src/amo/components/SearchResults.js:54
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Voer een zoekterm in om Firefox Add-ons te doorzoeken."
+
+#: src/amo/components/SearchResults.js:63
+msgid "Search results"
+msgstr "Zoekresultaten"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
@@ -493,93 +537,21 @@ msgstr "Meeste gebruikers"
 msgid "Top Rated"
 msgstr "Hoogst gewaardeerd"
 
-#: src/amo/components/SearchSort/index.js:67
+#: src/amo/components/SearchSort/index.js:66 src/amo/components/SearchSort/index.js:74
 msgid "Sort"
 msgstr "Sorteren"
 
-#: src/amo/components/SectionLinks/index.js:39
+#: src/amo/components/SectionLinks/index.js:40
 msgid "Explore"
-msgstr ""
+msgstr "Verkennen"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr "Voorgestelde pagina’s"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
-msgid "Browse all extensions"
-msgstr "Door alle extensies bladeren"
-
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
-msgid "Browse all themes"
-msgstr "Door alle thema’s bladeren"
-
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Add-ons-startpagina"
-
-#: src/amo/containers/Home.js:50
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
-msgstr ""
-"Extensies zijn speciale functies die u aan Firefox kunt toevoegen. Met "
-"thema’s kunt u de vormgeving van uw browser wijzigen."
-
-#: src/amo/containers/Home.js:63
-msgid "You can change how Firefox works…"
-msgstr "U kunt wijzigen hoe Firefox werkt…"
-
-#: src/amo/containers/Home.js:66
-msgid "Block ads"
-msgstr "Advertenties blokkeren"
-
-#: src/amo/containers/Home.js:69
-msgid "Screenshot"
-msgstr "Schermafbeelding"
-
-#: src/amo/containers/Home.js:72
-msgid "Find news"
-msgstr "Nieuws vinden"
-
-#: src/amo/containers/Home.js:75
-msgid "Shop online"
-msgstr "Online winkelen"
-
-#: src/amo/containers/Home.js:78
-msgid "Be social"
-msgstr "Sociaal zijn"
-
-#: src/amo/containers/Home.js:81
-msgid "Play games"
-msgstr "Spellen spelen"
-
-#: src/amo/containers/Home.js:88
-msgid "…or what it looks like"
-msgstr "…of hoe het eruitziet"
-
-#: src/amo/containers/Home.js:90
-msgid "Wild"
-msgstr "Wild"
-
-#: src/amo/containers/Home.js:91
-msgid "Abstract"
-msgstr "Abstract"
-
-#: src/amo/containers/Home.js:92
-msgid "Holiday"
-msgstr "Feestdagen"
-
-#: src/amo/containers/Home.js:93
-msgid "Scenic"
-msgstr "Schilderachtig"
-
-#: src/amo/containers/Home.js:94
-msgid "Sporty"
-msgstr "Sportief"
-
-#: src/amo/containers/Home.js:95
-msgid "Solid"
-msgstr "Dekkend"
 
 #: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
@@ -590,15 +562,10 @@ msgid "Log in/Sign up"
 msgstr "Aanmelden/Registreren"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Sorry, maar er is een fout opgetreden, en we konden uw aanvraag niet "
-"voltooien. We hebben deze fout vastgelegd en zullen hem onderzoeken."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Sorry, maar er is een fout opgetreden, en we konden uw aanvraag niet voltooien. We hebben deze fout vastgelegd en zullen hem onderzoeken."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Foutcode: %(status)s."
 
@@ -606,8 +573,7 @@ msgstr "Foutcode: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, maar we kunnen niets op de ingevoerde URL vinden."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Toevoegen aan Firefox"
 
@@ -643,27 +609,27 @@ msgstr "%(name)s is verwijderd. Klik om te installeren."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installatiestatus voor %(name)s is onbekend."
 
-#: src/core/components/Paginate/index.js:108
-msgid "Previous"
-msgstr "Vorige"
-
-#: src/core/components/Paginate/index.js:121
-msgid "Next"
-msgstr "Volgende"
-
-#: src/core/components/Paginate/index.js:99
+#: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Pagina %(currentPage)s van %(totalPages)s"
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/components/Paginate/index.js:109
+msgid "Previous"
+msgstr "Vorige"
+
+#: src/core/components/Paginate/index.js:122
+msgid "Next"
+msgstr "Volgende"
+
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Uw add-on is gereed"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "U kunt %(name)s nu benaderen vanaf de werkbalk."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "OK!"
 
@@ -687,9 +653,18 @@ msgstr "Waardering: %(rating)s van 5"
 msgid "No ratings"
 msgstr "Geen waarderingen"
 
-#: src/ui/components/ShowMoreCard/index.js:59
+#: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Vouw uit voor</span> Meer info"
+
+#~ msgid "Browse by category"
+#~ msgstr "Bladeren op categorie"
+
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Extensies zijn speciale functies die u aan Firefox kunt toevoegen. Met thema’s kunt u de vormgeving van uw browser wijzigen."
+
+#~ msgid "Loading..."
+#~ msgstr "Laden..."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s van 5"
@@ -705,9 +680,6 @@ msgstr "<span class=\"visually-hidden\">Vouw uit voor</span> Meer info"
 
 #~ msgid "Website"
 #~ msgstr "Website"
-
-#~ msgid "Category"
-#~ msgstr "Categorie"
 
 #~ msgid "Sentiment"
 #~ msgstr "Gevoel"
@@ -741,10 +713,8 @@ msgstr "<span class=\"visually-hidden\">Vouw uit voor</span> Meer info"
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaat opgeleverd."
-#~ msgstr[1] ""
-#~ "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaten opgeleverd."
+#~ msgstr[0] "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaat opgeleverd."
+#~ msgstr[1] "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaten opgeleverd."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Geef een geldige zoekopdracht op"

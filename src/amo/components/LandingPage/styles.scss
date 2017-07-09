@@ -1,0 +1,68 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+
+.LandingPage {
+  padding: $padding-page;
+}
+
+.LandingPage-icon--persona {
+  @include margin-end(20px);
+}
+
+// In LTR, the spacing actually looks correct because of the icon itself has built-in margins in its design.
+.LandingPage-icon--extension {
+  [dir=rtl] & {
+    margin-left: 20px;
+  }
+}
+
+.LandingPage-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: $font-size-default;
+  justify-content: center;
+  margin: $padding-page auto ($padding-page * 2);
+  max-width: 600px;
+}
+
+.LandingPage-button {
+  display: block;
+
+  @include respond-to(medium) {
+    display: none;
+  }
+}
+
+.LandingPage-icon {
+  height: 89px;
+  width: 225px;
+
+  @include respond-to(medium) {
+    height: 178px;
+    width: 450px;
+  }
+}
+
+.LandingPage-addonType-name {
+  font-size: $font-size-l;
+  margin: 0;
+
+  @include respond-to(medium) {
+    font-size: $font-size-xl;
+  }
+}
+
+.LandingPage-heading-content {
+  font-size: $font-size-s;
+  margin: 0;
+  max-width: 480px;
+}
+
+.LandingPage .CategoriesHeader {
+  display: none;
+
+  @include respond-to(medium) {
+    display: block;
+  }
+}

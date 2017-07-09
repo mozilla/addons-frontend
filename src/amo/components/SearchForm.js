@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { loadEntities } from 'core/actions';
-import { fetchAddon } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -57,19 +55,34 @@ export class SearchFormBase extends React.Component {
     }
 
     return (
-      <form method="GET" action={`/${api.lang}/${api.clientApp}${pathname}`}
-        onSubmit={this.handleSearch} className="SearchForm-form"
-        ref={(ref) => { this.form = ref; }}>
-        <label className="visually-hidden" htmlFor="q">
+      <form
+        method="GET"
+        action={`/${api.lang}/${api.clientApp}${pathname}`}
+        onSubmit={this.handleSearch}
+        className="SearchForm-form"
+        ref={(ref) => { this.form = ref; }}
+      >
+        <label
+          className="visually-hidden"
+          htmlFor="q"
+        >
           {i18n.gettext('Search')}
         </label>
         <SearchInput
-          ref={(ref) => { this.searchQuery = ref; }} type="search" name="q"
+          className="SearchForm-query"
+          defaultValue={query}
+          name="q"
           placeholder={placeholderText}
-          defaultValue={query} className="SearchForm-query" />
-        <button className="visually-hidden" type="submit" title="Enter"
-                ref={(ref) => { this.submitButton = ref; }}
-                onClick={this.handleSearch}>
+          ref={(ref) => { this.searchQuery = ref; }}
+          type="search"
+        />
+        <button
+          className="visually-hidden"
+          onClick={this.handleSearch}
+          ref={(ref) => { this.submitButton = ref; }}
+          title="Enter"
+          type="submit"
+        >
           {i18n.gettext('Search')}
         </button>
       </form>
@@ -85,19 +98,7 @@ export function mapStateToProps(state) {
   };
 }
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    loadAddon({ api, query }) {
-      return fetchAddon({ slug: query, api })
-        .then(({ entities, result }) => {
-          dispatch(loadEntities(entities));
-          return result;
-        });
-    },
-  };
-}
-
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps),
   translate({ withRef: true }),
 )(SearchFormBase);

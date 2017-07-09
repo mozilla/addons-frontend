@@ -50,7 +50,11 @@ export const ADDON_TYPE_EXTENSION = 'extension';
 export const ADDON_TYPE_LANG = 'language';
 export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_THEME = 'persona';
+// TODO: Remove ADDON_TYPE_COMPLETE_THEME once we don't support complete
+// themes.
+export const ADDON_TYPE_COMPLETE_THEME = 'theme';
 export const validAddonTypes = [
+  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
@@ -93,6 +97,7 @@ export const SEARCH_SORT_POPULAR = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
 
 // Action types.
+export const FETCH_ADDON = 'FETCH_ADDON';
 export const CATEGORIES_FETCH = 'CATEGORIES_FETCH';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CATEGORIES_FAIL = 'CATEGORIES_FAIL';
@@ -187,3 +192,17 @@ export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
 // will be triggered immediately.
 // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Maximum_delay_value
 export const maximumSetTimeoutDelay = 2147483647;
+
+// Category Color Numbers
+// These are used to define the number of colors used to add accent color to a
+// category background header/link. Most have 12, but certain add-on types
+// can have their own color set with a different max number.
+export const CATEGORY_COLORS = {
+  // TODO: Remove when complete theme support is removed.
+  [ADDON_TYPE_COMPLETE_THEME]: 12,
+  [ADDON_TYPE_DICT]: 12,
+  [ADDON_TYPE_EXTENSION]: 10,
+  [ADDON_TYPE_LANG]: 12,
+  [ADDON_TYPE_OPENSEARCH]: 12,
+  [ADDON_TYPE_THEME]: 12,
+};

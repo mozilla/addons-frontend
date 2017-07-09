@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"POT-Creation-Date: 2017-07-05 21:34+0000\n"
 "PO-Revision-Date: 2017-06-02 11:02+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,43 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:129
 msgid "Cancel preview"
 msgstr "Ön izlemeyi iptal et"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:129
 msgid "Tap to preview"
 msgstr "Ön izleme için dokunun"
 
-#: src/amo/components/Addon/index.js:151
+#: src/amo/components/Addon/index.js:170
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s incelemenin hepsini oku"
 
-#: src/amo/components/Addon/index.js:164
+#: src/amo/components/Addon/index.js:186
 msgid "No reviews yet"
 msgstr "Henüz inceleme yapılmamış"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:195
 msgid "Rate your experience"
 msgstr "Deneyiminize puan verin"
 
-#: src/amo/components/Addon/index.js:204
+#: src/amo/components/Addon/index.js:229
+msgid "About this %(addonType)s"
+msgstr "Bu %(addonType)s hakkında"
+
+#: src/amo/components/Addon/index.js:280
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sgeliştiren: %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:324
 msgid "Extension Metadata"
 msgstr "Uzantı meta verileri"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:343
 #, fuzzy
 msgid "Screenshots"
 msgstr "Ekran görüntüsü"
-
-#: src/amo/components/Addon/index.js:266
-msgid "About this %(addonType)s"
-msgstr "Bu %(addonType)s hakkında"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -85,27 +85,28 @@ msgstr ""
 "Tarayıcınız eklentileri desteklemiyor. Bu eklentiyi yüklemek için <a href="
 "\"%(downloadUrl)s\"> Firefox'u indirebilirsiniz </a>."
 
-#: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
+#: src/amo/components/AddonMeta.js:27
+#: src/amo/components/SearchResult/index.js:88
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s kullanıcı"
 
-#: src/amo/components/AddonMeta.js:31
+#: src/amo/components/AddonMeta.js:39
 #, fuzzy
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s puanlama"
 
-#: src/amo/components/AddonMeta.js:36
+#: src/amo/components/AddonMeta.js:44
 #, fuzzy
 msgid "No reviews"
 msgstr "Henüz inceleme yapılmamış"
 
-#: src/amo/components/AddonMeta.js:42
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "Kullanan"
 
-#: src/amo/components/AddonMoreInfo.js:100
+#: src/amo/components/AddonMoreInfo.js:106
 #, fuzzy
 msgid "Read the license agreement for this add-on"
 msgstr "Bu eklentinin gizlilik ilkelerini okuyun"
@@ -142,15 +143,15 @@ msgstr "%(timeFromNow)s (%(date)s)"
 msgid "License"
 msgstr "Lisans"
 
-#: src/amo/components/AddonMoreInfo.js:83
+#: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
 msgstr "Gizlilik İlkeleri"
 
-#: src/amo/components/AddonMoreInfo.js:89
+#: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
 msgstr "Bu eklentinin gizlilik ilkelerini okuyun"
 
-#: src/amo/components/AddonMoreInfo.js:94
+#: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
 msgstr "Son Kullanıcı Lisans Anlaşması"
 
@@ -182,46 +183,64 @@ msgstr "İnceleme yazın"
 msgid "Review text"
 msgstr "İnceleme metni"
 
-#: src/amo/components/AddonReview.js:181
+#: src/amo/components/AddonReview.js:182
 msgid "Submit review"
 msgstr "İncelemeyi gönder"
 
-#: src/amo/components/AddonReviewList.js:102
-msgid "All written reviews"
-msgstr "Tüm yazılı incelemeler"
-
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:82
-msgid "Loading..."
-msgstr "Yükleniyor..."
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:152
 msgid "Add-on icon"
 msgstr "Eklenti simgesi"
 
-#: src/amo/components/AddonReviewList.js:99
+#: src/amo/components/AddonReviewList.js:158
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s incelemeleri"
+
+#: src/amo/components/AddonReviewList.js:179
+msgid "All written reviews"
+msgstr "Tüm yazılı incelemeler"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "Firefox Eklentileri"
 
 #: src/amo/components/Categories.js:57
+#: src/amo/components/CategoriesHeader/index.js:47
 msgid "Failed to load categories."
 msgstr "Kategoriler yüklenemedi."
 
 #: src/amo/components/Categories.js:65
+#: src/amo/components/CategoriesHeader/index.js:55
 msgid "No categories found."
 msgstr "Kategori bulunamadı."
 
 #: src/amo/components/Categories.js:74
+#: src/amo/components/CategoriesHeader/index.js:65
 #, fuzzy
 msgid "Loading categories."
 msgstr "Kategoriler yüklenemedi."
+
+#: src/amo/components/CategoriesHeader/index.js:61
+#, fuzzy
+msgid "Categories"
+msgstr "Kategoriler yüklenemedi."
+
+#: src/amo/components/CategoryHeader/index.js:34
+msgid "Browse all add-ons in this category."
+msgstr ""
+
+#: src/amo/components/CategoryHeader/index.js:38
+#, fuzzy
+msgid "Browse all extensions in this category."
+msgstr "Tüm uzantılara göz atın"
+
+#: src/amo/components/CategoryHeader/index.js:43
+#, fuzzy
+msgid "Browse all themes in this category."
+msgstr "Tüm temalara göz atın"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
@@ -230,11 +249,11 @@ msgid ""
 "trying to access, and we'll fix the issue."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Yetkili değilsiniz"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:36
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:38
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -247,12 +266,12 @@ msgid ""
 "we'll do our best to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/amo/components/ErrorPage/NotFound/index.js:34
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Sayfa bulunamadı"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:35
+#: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid ""
 "Sorry, but we can't find anything at the address you entered. If you "
 "followed a link to an add-on, it's possible that add-on has been removed by "
@@ -269,12 +288,12 @@ msgid ""
 "to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/amo/components/ErrorPage/ServerError/index.js:33
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Sunucu Hatası"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:34
+#: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
@@ -294,19 +313,19 @@ msgstr "Daha fazla öne çıkan tema"
 msgid "Go to Mozilla's homepage"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:32
+#: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
 msgstr "Gizlilik ilkesi"
 
-#: src/amo/components/Footer/index.js:38
+#: src/amo/components/Footer/index.js:44
 msgid "Legal notices"
 msgstr "Yasal uyarılar"
 
-#: src/amo/components/Footer/index.js:44
+#: src/amo/components/Footer/index.js:52
 msgid "Report a bug"
 msgstr "Hata bildir"
 
-#: src/amo/components/Footer/index.js:51
+#: src/amo/components/Footer/index.js:62
 #, fuzzy
 msgid "View classic desktop site"
 msgstr "Masaüstü sitesini göster"
@@ -319,45 +338,68 @@ msgstr "Firefox Eklentileri"
 msgid "Developer Hub"
 msgstr ""
 
-#: src/amo/components/LandingPage.js:103
-msgid "More highly rated extensions"
-msgstr "Daha fazla yüksek puanlı uzantı"
+#: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
+msgid "Shop online"
+msgstr "Alışveriş yapın"
 
-#: src/amo/components/LandingPage.js:106
-msgid "Featured themes"
-msgstr "Öne çıkan temalar"
+#: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
+msgid "Be social"
+msgstr "Sosyalleşin"
 
-#: src/amo/components/LandingPage.js:110
-msgid "More featured themes"
-msgstr "Daha fazla öne çıkan tema"
+#: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
+msgid "Play games"
+msgstr "Oyun oynayın"
 
-#: src/amo/components/LandingPage.js:111
-msgid "Most popular themes"
-msgstr "En popüler temalar"
+#: src/amo/components/Home/index.js:120
+msgid "Wild"
+msgstr "Vahşi"
 
-#: src/amo/components/LandingPage.js:116
-msgid "More popular themes"
-msgstr "Daha fazla popüler tema"
+#: src/amo/components/Home/index.js:121
+msgid "Abstract"
+msgstr "Soyut"
 
-#: src/amo/components/LandingPage.js:117
-msgid "Top rated themes"
-msgstr "En yüksek puanlı temalar"
+#: src/amo/components/Home/index.js:122
+#, fuzzy
+msgid "Holiday"
+msgstr "Düz"
 
-#: src/amo/components/LandingPage.js:122
-msgid "More highly rated themes"
-msgstr "Daha fazla yüksek puanlı tema"
+#: src/amo/components/Home/index.js:123
+msgid "Scenic"
+msgstr "Manzara"
 
-#: src/amo/components/LandingPage.js:157
-#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
-msgid "Themes"
-msgstr "Temalar"
+#: src/amo/components/Home/index.js:124
+msgid "Sporty"
+msgstr "Spor"
 
-#: src/amo/components/LandingPage.js:158
-#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
-msgid "Extensions"
-msgstr "Uzantılar"
+#: src/amo/components/Home/index.js:125
+msgid "Solid"
+msgstr "Düz"
 
-#: src/amo/components/LandingPage.js:161
+#: src/amo/components/Home/index.js:138
+#: src/amo/components/SuggestedPages/index.js:26
+msgid "Browse all extensions"
+msgstr "Tüm uzantılara göz atın"
+
+#: src/amo/components/Home/index.js:143
+msgid "You can change how Firefox works…"
+msgstr "Firefox'un çalışma şeklini…"
+
+#: src/amo/components/Home/index.js:146
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+
+#: src/amo/components/Home/index.js:157
+#: src/amo/components/SuggestedPages/index.js:31
+msgid "Browse all themes"
+msgstr "Tüm temalara göz atın"
+
+#: src/amo/components/Home/index.js:162
+msgid "…or what it looks like"
+msgstr "…veya görünümünü değiştirebilirsiniz"
+
+#: src/amo/components/Home/index.js:165
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -365,35 +407,80 @@ msgstr ""
 "Tarayıcınızın görünümünü değiştirin. Binlerce temadan istediğiniz seçerek "
 "Firefox'unuzu giydirin."
 
-#: src/amo/components/LandingPage.js:163
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
+#: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
+msgid "Block ads"
+msgstr "Reklamları engelleyin"
 
-#: src/amo/components/LandingPage.js:188
-msgid "Browse by category"
-msgstr "Kategoriye göre göz at"
+#: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
+msgid "Screenshot"
+msgstr "Ekran görüntüsü"
 
-#: src/amo/components/LandingPage.js:84
-msgid "Featured extensions"
-msgstr "Öne çıkan uzantılar"
+#: src/amo/components/Home/index.js:72 src/amo/components/Home/index.js:97
+msgid "Find news"
+msgstr "Haberleri bulun"
 
-#: src/amo/components/LandingPage.js:88
-msgid "More featured extensions"
-msgstr "Daha fazla öne çıkan uzantı"
-
-#: src/amo/components/LandingPage.js:89
-msgid "Most popular extensions"
-msgstr "En popüler uzantılar"
-
-#: src/amo/components/LandingPage.js:94
+#: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
 msgstr "Daha fazla popüler uzantı"
 
-#: src/amo/components/LandingPage.js:95
+#: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
 msgstr "En yüksek puanlı uzantılar"
+
+#: src/amo/components/LandingPage/index.js:111
+msgid "More highly rated extensions"
+msgstr "Daha fazla yüksek puanlı uzantı"
+
+#: src/amo/components/LandingPage/index.js:114
+msgid "Featured themes"
+msgstr "Öne çıkan temalar"
+
+#: src/amo/components/LandingPage/index.js:118
+msgid "More featured themes"
+msgstr "Daha fazla öne çıkan tema"
+
+#: src/amo/components/LandingPage/index.js:119
+msgid "Most popular themes"
+msgstr "En popüler temalar"
+
+#: src/amo/components/LandingPage/index.js:124
+msgid "More popular themes"
+msgstr "Daha fazla popüler tema"
+
+#: src/amo/components/LandingPage/index.js:125
+msgid "Top rated themes"
+msgstr "En yüksek puanlı temalar"
+
+#: src/amo/components/LandingPage/index.js:130
+msgid "More highly rated themes"
+msgstr "Daha fazla yüksek puanlı tema"
+
+#: src/amo/components/LandingPage/index.js:177
+#: src/amo/components/SectionLinks/index.js:60
+msgid "Themes"
+msgstr "Temalar"
+
+#: src/amo/components/LandingPage/index.js:178
+#: src/amo/components/SectionLinks/index.js:50
+msgid "Extensions"
+msgstr "Uzantılar"
+
+#: src/amo/components/LandingPage/index.js:209
+#, fuzzy
+msgid "Explore all categories"
+msgstr "Kategoriler yüklenemedi."
+
+#: src/amo/components/LandingPage/index.js:92
+msgid "Featured extensions"
+msgstr "Öne çıkan uzantılar"
+
+#: src/amo/components/LandingPage/index.js:96
+msgid "More featured extensions"
+msgstr "Daha fazla öne çıkan uzantı"
+
+#: src/amo/components/LandingPage/index.js:97
+msgid "Most popular extensions"
+msgstr "En popüler uzantılar"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -429,6 +516,32 @@ msgstr "Bu eklentiyi derecelendirmek için giriş yapın"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s deneyiminizden ne kadar memnunsunuz?"
 
+#: src/amo/components/SearchContextCard/index.js:32
+#, fuzzy
+msgid "%(count)s result for \"%(query)s\""
+msgid_plural "%(count)s results for \"%(query)s\""
+msgstr[0] "\"%(query)s\" için sonuç bulunamadı."
+
+#: src/amo/components/SearchContextCard/index.js:38
+#, fuzzy
+msgid "Searching for \"%(query)s\""
+msgstr "\"%(query)s\" için sonuç bulunamadı."
+
+#: src/amo/components/SearchContextCard/index.js:41
+#, fuzzy
+msgid "Loading add-ons"
+msgstr "Kategoriler yüklenemedi."
+
+#: src/amo/components/SearchContextCard/index.js:43
+#, fuzzy
+msgid "No add-ons found"
+msgstr "Kategori bulunamadı."
+
+#: src/amo/components/SearchContextCard/index.js:45
+msgid "%(count)s add-on found\""
+msgid_plural "%(count)s add-ons found"
+msgstr[0] ""
+
 #: src/amo/components/SearchForm.js:52
 #, fuzzy
 msgid "Search extensions"
@@ -443,29 +556,34 @@ msgstr "Öne çıkan temalar"
 msgid "Search extensions and themes"
 msgstr "Uzantılarda ve temalarda ara"
 
-#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+#: src/amo/components/SearchForm.js:71 src/amo/components/SearchForm.js:88
 msgid "Search"
 msgstr "Ara"
 
-#: src/amo/components/SearchResult.js:50
+#: src/amo/components/SearchResult/index.js:57
 msgid "No theme preview available"
 msgstr "Tema ön izlemesi yok"
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:41
 msgid "Searching…"
 msgstr "Aranıyor…"
 
-#: src/amo/components/SearchResults.js:49
+#: src/amo/components/SearchResults.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "\"%(query)s\" için sonuç bulunamadı."
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:51
 msgid "No results were found."
 msgstr "Hiç sonuç bulunamadı."
 
-#: src/amo/components/SearchResults.js:56
+#: src/amo/components/SearchResults.js:54
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Firefox Eklentileri'nde aramak istediğiniz terimi yazın."
+
+#: src/amo/components/SearchResults.js:63
+#, fuzzy
+msgid "Search results"
+msgstr "Öne çıkan temalar"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
@@ -483,11 +601,12 @@ msgstr "En çok kullanıcı"
 msgid "Top Rated"
 msgstr "En yüksek puan"
 
-#: src/amo/components/SearchSort/index.js:67
+#: src/amo/components/SearchSort/index.js:66
+#: src/amo/components/SearchSort/index.js:74
 msgid "Sort"
 msgstr "Sıralama"
 
-#: src/amo/components/SectionLinks/index.js:39
+#: src/amo/components/SectionLinks/index.js:40
 msgid "Explore"
 msgstr ""
 
@@ -495,83 +614,9 @@ msgstr ""
 msgid "Suggested Pages"
 msgstr "Önerilen sayfalar"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
-msgid "Browse all extensions"
-msgstr "Tüm uzantılara göz atın"
-
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
-msgid "Browse all themes"
-msgstr "Tüm temalara göz atın"
-
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Eklentiler Ana Sayfası"
-
-#: src/amo/containers/Home.js:50
-#, fuzzy
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
-msgstr ""
-"Uzantılar Firefox'a ekleyebileceğiniz yeni özelliklerdir.\n"
-"Temalar tarayıcınızın görünümünü değiştirmenizi sağlar."
-
-#: src/amo/containers/Home.js:63
-msgid "You can change how Firefox works…"
-msgstr "Firefox'un çalışma şeklini…"
-
-#: src/amo/containers/Home.js:66
-msgid "Block ads"
-msgstr "Reklamları engelleyin"
-
-#: src/amo/containers/Home.js:69
-msgid "Screenshot"
-msgstr "Ekran görüntüsü"
-
-#: src/amo/containers/Home.js:72
-msgid "Find news"
-msgstr "Haberleri bulun"
-
-#: src/amo/containers/Home.js:75
-msgid "Shop online"
-msgstr "Alışveriş yapın"
-
-#: src/amo/containers/Home.js:78
-msgid "Be social"
-msgstr "Sosyalleşin"
-
-#: src/amo/containers/Home.js:81
-msgid "Play games"
-msgstr "Oyun oynayın"
-
-#: src/amo/containers/Home.js:88
-msgid "…or what it looks like"
-msgstr "…veya görünümünü değiştirebilirsiniz"
-
-#: src/amo/containers/Home.js:90
-msgid "Wild"
-msgstr "Vahşi"
-
-#: src/amo/containers/Home.js:91
-msgid "Abstract"
-msgstr "Soyut"
-
-#: src/amo/containers/Home.js:92
-#, fuzzy
-msgid "Holiday"
-msgstr "Düz"
-
-#: src/amo/containers/Home.js:93
-msgid "Scenic"
-msgstr "Manzara"
-
-#: src/amo/containers/Home.js:94
-msgid "Sporty"
-msgstr "Spor"
-
-#: src/amo/containers/Home.js:95
-msgid "Solid"
-msgstr "Düz"
 
 #: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
@@ -635,27 +680,27 @@ msgstr "%(name)s kaldırıldı. Yüklemek için tıklayın."
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s yükleme durumu bilinmiyor."
 
-#: src/core/components/Paginate/index.js:108
-msgid "Previous"
-msgstr "Önceki"
-
-#: src/core/components/Paginate/index.js:121
-msgid "Next"
-msgstr "Sonraki"
-
-#: src/core/components/Paginate/index.js:99
+#: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Sayfa %(currentPage)s / %(totalPages)s"
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/components/Paginate/index.js:109
+msgid "Previous"
+msgstr "Önceki"
+
+#: src/core/components/Paginate/index.js:122
+msgid "Next"
+msgstr "Sonraki"
+
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Eklentiniz hazır"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "%(name)s artık araç çubuğunuzda."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "Tamam!"
 
@@ -679,9 +724,23 @@ msgstr "5 üzerinden %(rating)s puan"
 msgid "No ratings"
 msgstr "Puan yok"
 
-#: src/ui/components/ShowMoreCard/index.js:59
+#: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "Devamını okumak için <span class=\"visually-hidden\">genişletin</span>"
+
+#~ msgid "Browse by category"
+#~ msgstr "Kategoriye göre göz at"
+
+#, fuzzy
+#~ msgid ""
+#~ "Extensions are special features you can add to Firefox. Themes let you "
+#~ "change your browser's appearance."
+#~ msgstr ""
+#~ "Uzantılar Firefox'a ekleyebileceğiniz yeni özelliklerdir.\n"
+#~ "Temalar tarayıcınızın görünümünü değiştirmenizi sağlar."
+
+#~ msgid "Loading..."
+#~ msgstr "Yükleniyor..."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "5 üzerinden %(averageRating)s"

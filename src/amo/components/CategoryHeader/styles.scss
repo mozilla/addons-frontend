@@ -1,0 +1,60 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.CategoryHeader {
+  border-radius: $border-radius-default;
+  padding: 10px 10px 0;
+  width: 100%;
+}
+
+.Card-contents {
+  @for $i from 1 through 12 {
+    .CategoryHeader--category-color-#{$i} & {
+      background: desaturate(nth($category-colors, $i), 20);
+    }
+  }
+
+  @for $i from 1 through 10 {
+    .CategoryHeader--type-extension.CategoryHeader--category-color-#{$i} & {
+      background: desaturate(nth($category-colors-extensions, $i), 20);
+    }
+  }
+}
+
+.CategoryHeader-wrapper {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.CategoryHeader-contents {
+  align-self: center;
+
+  .CategoryHeader--loading & {
+    width: 50%;
+  }
+}
+
+.CategoryHeader-name {
+  color: $white;
+  font-size: $font-size-l;
+  margin: 0;
+  text-shadow: 1px 1px 0 transparentize(invert($white), 0.5);
+}
+
+.CategoryHeader-description {
+  margin-top: 5px;
+  max-width: 320px;
+
+  .CategoryHeader--loading & {
+    @include text-align-start();
+  }
+}
+
+.CategoryHeader-paragraph {
+  color: $white;
+  font-size: $font-size-m;
+  margin: 0;
+  text-shadow: 1px 1px 0 transparentize(invert($white), 0.5);
+}

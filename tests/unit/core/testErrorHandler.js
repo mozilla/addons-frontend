@@ -236,10 +236,22 @@ describe('errorHandler', () => {
         .toEqual(setError({ id: errorHandler.id, error }));
     });
 
+    it('lets you create an error action', () => {
+      const error = new Error();
+      expect(errorHandler.createErrorAction(error))
+        .toEqual(setError({ id: errorHandler.id, error }));
+    });
+
     it('clears an error', () => {
       errorHandler.clear();
       expect(errorHandler.dispatch.called).toBeTruthy();
-      expect(errorHandler.dispatch.firstCall.args[0]).toEqual(clearError(errorHandler.id));
+      expect(errorHandler.dispatch.firstCall.args[0])
+        .toEqual(clearError(errorHandler.id));
+    });
+
+    it('lets you create an error clearing action', () => {
+      expect(errorHandler.createClearingAction())
+        .toEqual(clearError(errorHandler.id));
     });
 
     it('tells you if it has an error', () => {

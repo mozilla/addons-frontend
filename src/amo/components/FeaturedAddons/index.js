@@ -46,8 +46,12 @@ export class FeaturedAddonsBase extends React.Component {
         <h2 className="FeaturedAddons-header">
           {this.headerForAddonType(addonType)}
         </h2>
-        <SearchResults count={results.length} hasSearchParams={hasSearchParams}
-          loading={loading} results={results} />
+        <SearchResults
+          count={results.length}
+          hasSearchParams={hasSearchParams}
+          loading={loading}
+          results={results}
+        />
       </div>
     );
   }

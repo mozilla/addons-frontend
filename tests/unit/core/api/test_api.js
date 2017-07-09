@@ -128,8 +128,9 @@ describe('api', () => {
       }));
 
       return api.callApi({ endpoint: 'resource' })
-        .then(() => {
+        .then((responseData) => {
           mockWindow.verify();
+          expect(responseData).toEqual({});
         });
     });
 

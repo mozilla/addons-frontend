@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -7,6 +8,8 @@ import { connect } from 'react-redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import CategoriesHeader
+  from 'amo/components/CategoriesHeader';
 import { loadLandingAddons } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
@@ -22,11 +25,16 @@ import {
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
-import Button from 'ui/components/Button/index';
+import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon/index';
 
-import './LandingPage.scss';
+import './styles.scss';
 
+
+const ICON_MAP = {
+  [ADDON_TYPE_EXTENSION]: 'multitasking-octopus',
+  [ADDON_TYPE_THEME]: 'artistic-unicorn',
+};
 
 export class LandingPageBase extends React.Component {
   static propTypes = {
@@ -126,6 +134,18 @@ export class LandingPageBase extends React.Component {
     return { addonType, html: contentForTypes[addonType] };
   }
 
+  icon(addonType) {
+    return (
+      <Icon
+        className={classNames(
+          'LandingPage-icon',
+          `LandingPage-icon--${addonType}`,
+        )}
+        name={ICON_MAP[addonType]}
+      />
+    );
+  }
+
   render() {
     const {
       featuredAddons,
@@ -158,52 +178,58 @@ export class LandingPageBase extends React.Component {
       [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
     };
     const contentText = {
-      [ADDON_TYPE_THEME]: i18n.gettext(
-          "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."),
-      [ADDON_TYPE_EXTENSION]: i18n.gettext(
-          'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.'),
+      [ADDON_TYPE_THEME]: i18n.gettext(oneLine`Change your browser's
+        appearance. Choose from thousands of themes to give Firefox the look
+        you want.`),
+      [ADDON_TYPE_EXTENSION]: i18n.gettext(oneLine`Install powerful tools that
+        make browsing faster and safer, add-ons make your browser yours.`),
     };
 
     return (
-      <div className={classNames('LandingPage', `LandingPage-${addonType}`)}>
+      <div className={classNames('LandingPage', `LandingPage--${addonType}`)}>
         <div className="LandingPage-header">
-          <div className="LandingPage-header-top">
-            <Icon name={visibleAddonType} />
-            <div className="LandingPage-header-text">
-              <h1 className="LandingPage-heading">
-                {headingText[addonType]}
-              </h1>
-              <p className="LandingPage-heading-content">
-                {contentText[addonType]}
-              </p>
-            </div>
-          </div>
+          {this.icon(addonType)}
 
-          <div className="LandingPage-header-bottom">
-            <Button
-              className="LandingPage-browse-button Button--light"
-              to={`/${visibleAddonType}/categories/`}
-            >
-              <Icon name="browse" className="LandingPage-browse-icon" />
-              {i18n.gettext('Browse by category')}
-            </Button>
+          <div className="LandingPage-header-text">
+            <h1 className="LandingPage-addonType-name">
+              {headingText[addonType]}
+            </h1>
+            <p className="LandingPage-heading-content">
+              {contentText[addonType]}
+            </p>
           </div>
         </div>
 
-        <LandingAddonsCard addons={featuredAddons}
-          className="FeaturedAddons" header={html.featuredHeader}
+        <CategoriesHeader addonType={addonType} />
+
+        <Button
+          className="LandingPage-button Button--light"
+          to={`/${getVisibleAddonType(addonType)}/categories/`}
+        >
+          {i18n.gettext('Explore all categories')}
+        </Button>
+
+        <LandingAddonsCard
+          addons={featuredAddons}
+          className="FeaturedAddons"
+          footerText={html.featuredFooterText}
           footerLink={html.featuredFooterLink}
-          footerText={html.featuredFooterText} />
-
-        <LandingAddonsCard addons={highlyRatedAddons}
-          className="HighlyRatedAddons" header={html.highlyRatedHeader}
+          header={html.featuredHeader}
+        />
+        <LandingAddonsCard
+          addons={highlyRatedAddons}
+          className="HighlyRatedAddons"
           footerLink={html.highlyRatedFooterLink}
-          footerText={html.highlyRatedFooterText} />
-
-        <LandingAddonsCard addons={popularAddons}
-          className="PopularAddons" header={html.popularHeader}
+          footerText={html.highlyRatedFooterText}
+          header={html.highlyRatedHeader}
+        />
+        <LandingAddonsCard
+          addons={popularAddons}
+          className="PopularAddons"
           footerLink={html.popularFooterLink}
-          footerText={html.popularFooterText} />
+          footerText={html.popularFooterText}
+          header={html.popularHeader}
+        />
       </div>
     );
   }

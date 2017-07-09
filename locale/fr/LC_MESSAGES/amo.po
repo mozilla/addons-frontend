@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 22:08+0000\n"
+"POT-Creation-Date: 2017-07-05 21:34+0000\n"
 "PO-Revision-Date: 2017-06-14 06:27+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,43 +14,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:129
 msgid "Cancel preview"
 msgstr "Fermer l’aperçu"
 
-#: src/amo/components/Addon/index.js:110
+#: src/amo/components/Addon/index.js:129
 msgid "Tap to preview"
 msgstr "Appuyer pour afficher l’aperçu"
 
-#: src/amo/components/Addon/index.js:151
+#: src/amo/components/Addon/index.js:170
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lire %(count)s critique"
 msgstr[1] "Lire les %(count)s critiques"
 
-#: src/amo/components/Addon/index.js:164
+#: src/amo/components/Addon/index.js:186
 msgid "No reviews yet"
 msgstr "Aucune critique pour l’instant"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:195
 msgid "Rate your experience"
 msgstr "Évaluez votre expérience"
 
-#: src/amo/components/Addon/index.js:204
+#: src/amo/components/Addon/index.js:229
+msgid "About this %(addonType)s"
+msgstr "À propos de %(addonType)s"
+
+#: src/amo/components/Addon/index.js:280
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)spar %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:324
 msgid "Extension Metadata"
 msgstr "Métadonnées de l’extension"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:343
 msgid "Screenshots"
 msgstr "Captures d’écran"
-
-#: src/amo/components/Addon/index.js:266
-msgid "About this %(addonType)s"
-msgstr "À propos de %(addonType)s"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid ""
@@ -86,27 +86,28 @@ msgstr ""
 "Votre navigateur ne prend pas en charge les modules. Vous pouvez <a href="
 "\"%(downloadUrl)s\">télécharger Firefox</a> pour installer ce module."
 
-#: src/amo/components/AddonMeta.js:24 src/amo/components/SearchResult.js:60
+#: src/amo/components/AddonMeta.js:27
+#: src/amo/components/SearchResult/index.js:88
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s utilisateur"
 msgstr[1] "%(total)s utilisateurs"
 
-#: src/amo/components/AddonMeta.js:31
+#: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s note"
 msgstr[1] "%(total)s notes"
 
-#: src/amo/components/AddonMeta.js:36
+#: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
 msgstr "Aucune critique pour l’instant"
 
-#: src/amo/components/AddonMeta.js:42
+#: src/amo/components/AddonMeta.js:50
 msgid "Used by"
 msgstr "Utilisé par"
 
-#: src/amo/components/AddonMoreInfo.js:100
+#: src/amo/components/AddonMoreInfo.js:106
 msgid "Read the license agreement for this add-on"
 msgstr "Lire le contrat de licence de ce module"
 
@@ -142,15 +143,15 @@ msgstr "%(timeFromNow)s (%(date)s)"
 msgid "License"
 msgstr "Licence"
 
-#: src/amo/components/AddonMoreInfo.js:83
+#: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
 msgstr "Politique de confidentialité"
 
-#: src/amo/components/AddonMoreInfo.js:89
+#: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
 msgstr "Lire la politique de confidentialité de ce module"
 
-#: src/amo/components/AddonMoreInfo.js:94
+#: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
 msgstr "Contrat de licence d’utilisateur final"
 
@@ -182,45 +183,63 @@ msgstr "Rédigez un avis"
 msgid "Review text"
 msgstr "Mon avis"
 
-#: src/amo/components/AddonReview.js:181
+#: src/amo/components/AddonReview.js:182
 msgid "Submit review"
 msgstr "Envoyer l’avis"
 
-#: src/amo/components/AddonReviewList.js:102
-msgid "All written reviews"
-msgstr "Tous les avis rédigés"
-
-#: src/amo/components/AddonReviewList.js:68
+#: src/amo/components/AddonReviewList.js:118
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "par %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:82
-msgid "Loading..."
-msgstr "Chargement..."
-
-#: src/amo/components/AddonReviewList.js:94
+#: src/amo/components/AddonReviewList.js:152
 msgid "Add-on icon"
 msgstr "Icône du module"
 
-#: src/amo/components/AddonReviewList.js:99
+#: src/amo/components/AddonReviewList.js:158
 msgid "Reviews for %(addonName)s"
 msgstr "Critiques pour %(addonName)s"
+
+#: src/amo/components/AddonReviewList.js:179
+msgid "All written reviews"
+msgstr "Tous les avis rédigés"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
 msgstr "Modules pour Firefox"
 
 #: src/amo/components/Categories.js:57
+#: src/amo/components/CategoriesHeader/index.js:47
 msgid "Failed to load categories."
 msgstr "Échec du chargement des catégories."
 
 #: src/amo/components/Categories.js:65
+#: src/amo/components/CategoriesHeader/index.js:55
 msgid "No categories found."
 msgstr "Aucune catégorie trouvée."
 
 #: src/amo/components/Categories.js:74
+#: src/amo/components/CategoriesHeader/index.js:65
 msgid "Loading categories."
 msgstr "Chargement des catégories."
+
+#: src/amo/components/CategoriesHeader/index.js:61
+#, fuzzy
+msgid "Categories"
+msgstr "Catégorie"
+
+#: src/amo/components/CategoryHeader/index.js:34
+msgid "Browse all add-ons in this category."
+msgstr ""
+
+#: src/amo/components/CategoryHeader/index.js:38
+#, fuzzy
+msgid "Browse all extensions in this category."
+msgstr "Parcourir toutes les extensions"
+
+#: src/amo/components/CategoryHeader/index.js:43
+#, fuzzy
+msgid "Browse all themes in this category."
+msgstr "Parcourir tous les thèmes"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
@@ -232,11 +251,11 @@ msgstr ""
 "plaît <a href=\"%(url)s\">reportez un problème</a>. Dites nous d'où vous "
 "venez et ce à quoi vous tentiez d’accéder, nous allons corriger ce problème."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Accès interdit"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:36
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:38
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -255,12 +274,12 @@ msgstr ""
 "\"%(url)s\">nous signaler le problème</a>. Dites-nous d’où vous veniez, ce "
 "que vous cherchiez et nous ferons de notre mieux pour le corriger."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/amo/components/ErrorPage/NotFound/index.js:34
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Page introuvable"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:35
+#: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid ""
 "Sorry, but we can't find anything at the address you entered. If you "
 "followed a link to an add-on, it's possible that add-on has been removed by "
@@ -282,12 +301,12 @@ msgstr ""
 "\">signaler le problème</a>. Dites-nous quelles étapes vous avez effectuées "
 "avant d’arriver à l’erreur et nous ferons de notre mieux pour la résoudre."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/amo/components/ErrorPage/ServerError/index.js:33
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Erreur serveur"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:34
+#: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
@@ -308,19 +327,19 @@ msgstr "Plus de thèmes vedettes"
 msgid "Go to Mozilla's homepage"
 msgstr "Aller à la page d’accueil de Mozilla"
 
-#: src/amo/components/Footer/index.js:32
+#: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
 msgstr "Confidentialité"
 
-#: src/amo/components/Footer/index.js:38
+#: src/amo/components/Footer/index.js:44
 msgid "Legal notices"
 msgstr "Mentions légales"
 
-#: src/amo/components/Footer/index.js:44
+#: src/amo/components/Footer/index.js:52
 msgid "Report a bug"
 msgstr "Signaler un problème"
 
-#: src/amo/components/Footer/index.js:51
+#: src/amo/components/Footer/index.js:62
 msgid "View classic desktop site"
 msgstr "Afficher la version pour ordinateur"
 
@@ -332,53 +351,52 @@ msgstr "Modules Firefox"
 msgid "Developer Hub"
 msgstr "Pôle développeur"
 
-#: src/amo/components/LandingPage.js:103
-msgid "More highly rated extensions"
-msgstr "Plus d’extensions bien notées"
+#: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
+msgid "Shop online"
+msgstr "Effectuer des achats en ligne"
 
-#: src/amo/components/LandingPage.js:106
-msgid "Featured themes"
-msgstr "Thèmes vedettes"
+#: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
+msgid "Be social"
+msgstr "Communiquer"
 
-#: src/amo/components/LandingPage.js:110
-msgid "More featured themes"
-msgstr "Plus de thèmes vedettes"
+#: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
+msgid "Play games"
+msgstr "Jouer à des jeux"
 
-#: src/amo/components/LandingPage.js:111
-msgid "Most popular themes"
-msgstr "Thèmes les plus populaires"
+#: src/amo/components/Home/index.js:120
+msgid "Wild"
+msgstr "Sauvage"
 
-#: src/amo/components/LandingPage.js:116
-msgid "More popular themes"
-msgstr "Plus de thèmes populaires"
+#: src/amo/components/Home/index.js:121
+msgid "Abstract"
+msgstr "Abstraite"
 
-#: src/amo/components/LandingPage.js:117
-msgid "Top rated themes"
-msgstr "Thèmes les mieux notés"
+#: src/amo/components/Home/index.js:122
+msgid "Holiday"
+msgstr "Vacances et jours fériés"
 
-#: src/amo/components/LandingPage.js:122
-msgid "More highly rated themes"
-msgstr "Afficher plus de thèmes vedettes"
+#: src/amo/components/Home/index.js:123
+msgid "Scenic"
+msgstr "Pittoresque"
 
-#: src/amo/components/LandingPage.js:157
-#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
-msgid "Themes"
-msgstr "Thèmes"
+#: src/amo/components/Home/index.js:124
+msgid "Sporty"
+msgstr "Sportive"
 
-#: src/amo/components/LandingPage.js:158
-#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
-msgid "Extensions"
-msgstr "Extensions"
+#: src/amo/components/Home/index.js:125
+msgid "Solid"
+msgstr "Motifs"
 
-#: src/amo/components/LandingPage.js:161
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Modifiez l'apparence de votre navigateur. Personnalisez-le en choisissant un "
-"thème. Il y en a des milliers !"
+#: src/amo/components/Home/index.js:138
+#: src/amo/components/SuggestedPages/index.js:26
+msgid "Browse all extensions"
+msgstr "Parcourir toutes les extensions"
 
-#: src/amo/components/LandingPage.js:163
+#: src/amo/components/Home/index.js:143
+msgid "You can change how Firefox works…"
+msgstr "Vous pouvez modifier le comportement de Firefox..."
+
+#: src/amo/components/Home/index.js:146
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
@@ -387,29 +405,97 @@ msgstr ""
 "plus rapide. Les modules complémentaires vous permettent de personnaliser "
 "votre navigateur."
 
-#: src/amo/components/LandingPage.js:188
-msgid "Browse by category"
-msgstr "Parcourir par catégorie"
+#: src/amo/components/Home/index.js:157
+#: src/amo/components/SuggestedPages/index.js:31
+msgid "Browse all themes"
+msgstr "Parcourir tous les thèmes"
 
-#: src/amo/components/LandingPage.js:84
-msgid "Featured extensions"
-msgstr "Extensions vedettes"
+#: src/amo/components/Home/index.js:162
+msgid "…or what it looks like"
+msgstr "…ou son apparence"
 
-#: src/amo/components/LandingPage.js:88
-msgid "More featured extensions"
-msgstr "Plus d’extensions vedettes"
+#: src/amo/components/Home/index.js:165
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Modifiez l'apparence de votre navigateur. Personnalisez-le en choisissant un "
+"thème. Il y en a des milliers !"
 
-#: src/amo/components/LandingPage.js:89
-msgid "Most popular extensions"
-msgstr "Extensions les plus populaires"
+#: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
+msgid "Block ads"
+msgstr "Bloquer les publicités"
 
-#: src/amo/components/LandingPage.js:94
+#: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
+msgid "Screenshot"
+msgstr "Prendre des captures d’écran"
+
+#: src/amo/components/Home/index.js:72 src/amo/components/Home/index.js:97
+msgid "Find news"
+msgstr "Dernières actualités"
+
+#: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
 msgstr "Plus d’extensions populaires"
 
-#: src/amo/components/LandingPage.js:95
+#: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
 msgstr "Extensions les mieux notées"
+
+#: src/amo/components/LandingPage/index.js:111
+msgid "More highly rated extensions"
+msgstr "Plus d’extensions bien notées"
+
+#: src/amo/components/LandingPage/index.js:114
+msgid "Featured themes"
+msgstr "Thèmes vedettes"
+
+#: src/amo/components/LandingPage/index.js:118
+msgid "More featured themes"
+msgstr "Plus de thèmes vedettes"
+
+#: src/amo/components/LandingPage/index.js:119
+msgid "Most popular themes"
+msgstr "Thèmes les plus populaires"
+
+#: src/amo/components/LandingPage/index.js:124
+msgid "More popular themes"
+msgstr "Plus de thèmes populaires"
+
+#: src/amo/components/LandingPage/index.js:125
+msgid "Top rated themes"
+msgstr "Thèmes les mieux notés"
+
+#: src/amo/components/LandingPage/index.js:130
+msgid "More highly rated themes"
+msgstr "Afficher plus de thèmes vedettes"
+
+#: src/amo/components/LandingPage/index.js:177
+#: src/amo/components/SectionLinks/index.js:60
+msgid "Themes"
+msgstr "Thèmes"
+
+#: src/amo/components/LandingPage/index.js:178
+#: src/amo/components/SectionLinks/index.js:50
+msgid "Extensions"
+msgstr "Extensions"
+
+#: src/amo/components/LandingPage/index.js:209
+#, fuzzy
+msgid "Explore all categories"
+msgstr "Chargement des catégories."
+
+#: src/amo/components/LandingPage/index.js:92
+msgid "Featured extensions"
+msgstr "Extensions vedettes"
+
+#: src/amo/components/LandingPage/index.js:96
+msgid "More featured extensions"
+msgstr "Plus d’extensions vedettes"
+
+#: src/amo/components/LandingPage/index.js:97
+msgid "Most popular extensions"
+msgstr "Extensions les plus populaires"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -443,6 +529,34 @@ msgstr "Connectez-vous pour noter ce module complémentaire"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Avez-vous apprécié votre usage de %(addonName)s ?"
 
+#: src/amo/components/SearchContextCard/index.js:32
+#, fuzzy
+msgid "%(count)s result for \"%(query)s\""
+msgid_plural "%(count)s results for \"%(query)s\""
+msgstr[0] "Aucun résultat trouvé pour « %(query)s »."
+msgstr[1] "Aucun résultat trouvé pour « %(query)s »."
+
+#: src/amo/components/SearchContextCard/index.js:38
+#, fuzzy
+msgid "Searching for \"%(query)s\""
+msgstr "Aucun résultat trouvé pour « %(query)s »."
+
+#: src/amo/components/SearchContextCard/index.js:41
+#, fuzzy
+msgid "Loading add-ons"
+msgstr "Chargement des catégories."
+
+#: src/amo/components/SearchContextCard/index.js:43
+#, fuzzy
+msgid "No add-ons found"
+msgstr "Aucune catégorie trouvée."
+
+#: src/amo/components/SearchContextCard/index.js:45
+msgid "%(count)s add-on found\""
+msgid_plural "%(count)s add-ons found"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/amo/components/SearchForm.js:52
 #, fuzzy
 msgid "Search extensions"
@@ -457,31 +571,36 @@ msgstr "Thèmes vedettes"
 msgid "Search extensions and themes"
 msgstr "Rechercher des extensions et des thèmes"
 
-#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+#: src/amo/components/SearchForm.js:71 src/amo/components/SearchForm.js:88
 msgid "Search"
 msgstr "Rechercher"
 
-#: src/amo/components/SearchResult.js:50
+#: src/amo/components/SearchResult/index.js:57
 msgid "No theme preview available"
 msgstr "Aperçu du thème non disponible"
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:41
 msgid "Searching…"
 msgstr "Recherche…"
 
-#: src/amo/components/SearchResults.js:49
+#: src/amo/components/SearchResults.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "Aucun résultat trouvé pour « %(query)s »."
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:51
 msgid "No results were found."
 msgstr "Aucun résultat trouvé."
 
-#: src/amo/components/SearchResults.js:56
+#: src/amo/components/SearchResults.js:54
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 "Veuillez saisir un terme de recherche pour rechercher parmi les modules "
 "Firefox."
+
+#: src/amo/components/SearchResults.js:63
+#, fuzzy
+msgid "Search results"
+msgstr "Thèmes vedettes"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
@@ -499,11 +618,12 @@ msgstr "Avec le plus d’utilisateurs"
 msgid "Top Rated"
 msgstr "Les mieux notés"
 
-#: src/amo/components/SearchSort/index.js:67
+#: src/amo/components/SearchSort/index.js:66
+#: src/amo/components/SearchSort/index.js:74
 msgid "Sort"
 msgstr "Trier"
 
-#: src/amo/components/SectionLinks/index.js:39
+#: src/amo/components/SectionLinks/index.js:40
 msgid "Explore"
 msgstr ""
 
@@ -511,82 +631,9 @@ msgstr ""
 msgid "Suggested Pages"
 msgstr "Pages suggérées"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
-msgid "Browse all extensions"
-msgstr "Parcourir toutes les extensions"
-
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
-msgid "Browse all themes"
-msgstr "Parcourir tous les thèmes"
-
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Page d’accueil des modules"
-
-#: src/amo/containers/Home.js:50
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
-msgstr ""
-"Les modules sont des fonctionnalités additionnelles pouvant être ajoutées à "
-"Firefox.\n"
-"Les thèmes permettent de modifier l’apparence de votre navigateur."
-
-#: src/amo/containers/Home.js:63
-msgid "You can change how Firefox works…"
-msgstr "Vous pouvez modifier le comportement de Firefox..."
-
-#: src/amo/containers/Home.js:66
-msgid "Block ads"
-msgstr "Bloquer les publicités"
-
-#: src/amo/containers/Home.js:69
-msgid "Screenshot"
-msgstr "Prendre des captures d’écran"
-
-#: src/amo/containers/Home.js:72
-msgid "Find news"
-msgstr "Dernières actualités"
-
-#: src/amo/containers/Home.js:75
-msgid "Shop online"
-msgstr "Effectuer des achats en ligne"
-
-#: src/amo/containers/Home.js:78
-msgid "Be social"
-msgstr "Communiquer"
-
-#: src/amo/containers/Home.js:81
-msgid "Play games"
-msgstr "Jouer à des jeux"
-
-#: src/amo/containers/Home.js:88
-msgid "…or what it looks like"
-msgstr "…ou son apparence"
-
-#: src/amo/containers/Home.js:90
-msgid "Wild"
-msgstr "Sauvage"
-
-#: src/amo/containers/Home.js:91
-msgid "Abstract"
-msgstr "Abstraite"
-
-#: src/amo/containers/Home.js:92
-msgid "Holiday"
-msgstr "Vacances et jours fériés"
-
-#: src/amo/containers/Home.js:93
-msgid "Scenic"
-msgstr "Pittoresque"
-
-#: src/amo/containers/Home.js:94
-msgid "Sporty"
-msgstr "Sportive"
-
-#: src/amo/containers/Home.js:95
-msgid "Solid"
-msgstr "Motifs"
 
 #: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
@@ -650,27 +697,27 @@ msgstr "%(name)s est désinstallé. Cliquez pour l’installer."
 msgid "Install state for %(name)s is unknown."
 msgstr "L’état d’installation de %(name)s est inconnu."
 
-#: src/core/components/Paginate/index.js:108
-msgid "Previous"
-msgstr "Précédent"
-
-#: src/core/components/Paginate/index.js:121
-msgid "Next"
-msgstr "Suivant"
-
-#: src/core/components/Paginate/index.js:99
+#: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Page %(currentPage)s sur %(totalPages)s"
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/components/Paginate/index.js:109
+msgid "Previous"
+msgstr "Précédent"
+
+#: src/core/components/Paginate/index.js:122
+msgid "Next"
+msgstr "Suivant"
+
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Votre module est prêt"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Vous pouvez désormais accéder à %(name)s depuis la barre d’outils."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "OK"
 
@@ -694,11 +741,25 @@ msgstr "Noté %(rating)s sur 5"
 msgid "No ratings"
 msgstr "Aucune note"
 
-#: src/ui/components/ShowMoreCard/index.js:59
+#: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Développer</span> pour afficher plus "
 "d’informations"
+
+#~ msgid "Browse by category"
+#~ msgstr "Parcourir par catégorie"
+
+#~ msgid ""
+#~ "Extensions are special features you can add to Firefox. Themes let you "
+#~ "change your browser's appearance."
+#~ msgstr ""
+#~ "Les modules sont des fonctionnalités additionnelles pouvant être ajoutées "
+#~ "à Firefox.\n"
+#~ "Les thèmes permettent de modifier l’apparence de votre navigateur."
+
+#~ msgid "Loading..."
+#~ msgstr "Chargement..."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s sur 5"
@@ -714,9 +775,6 @@ msgstr ""
 
 #~ msgid "Website"
 #~ msgstr "Site web"
-
-#~ msgid "Category"
-#~ msgstr "Catégorie"
 
 #~ msgid "Sentiment"
 #~ msgstr "Impression"

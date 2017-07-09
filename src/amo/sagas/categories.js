@@ -8,8 +8,7 @@ import {
 import { categories as categoriesApi } from 'core/api';
 import { CATEGORIES_FETCH } from 'core/constants';
 import log from 'core/logger';
-
-import { getApi } from './utils';
+import { getApi } from 'core/sagas/utils';
 
 
 export function* fetchCategories() {

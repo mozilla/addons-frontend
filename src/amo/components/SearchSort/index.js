@@ -58,19 +58,30 @@ export class SearchSortBase extends React.Component {
     const currentSort = filters.sort || DEFAULT_SORT;
 
     return (
-      <div className={classNames('SearchSort', {
-        'SearchSort--visible': sortVisible,
-      })}>
-        <a className="SearchSort-toggle" href="#SearchSortOptions"
-          onClick={this.onClick} onKeyPress={this.onKeyPress}
-          ref={(ref) => { this.searchToggle = ref; }}>
+      <div
+        className={classNames('SearchSort', {
+          'SearchSort--visible': sortVisible,
+        })}
+      >
+        <h3 className="SearchSort-header">{i18n.gettext('Sort')}</h3>
+        <a
+          className="SearchSort-toggle"
+          href="#SearchSortOptions"
+          onClick={this.onClick}
+          onKeyPress={this.onKeyPress}
+          ref={(ref) => { this.searchToggle = ref; }}
+        >
           {i18n.gettext('Sort')}
         </a>
         <ul id="SearchSortOptions" className="SearchSort-list">
-          {this.sortOptions().map((option, index) => (
-            <li key={`sort-${index}`} className="SearchSort-list-item">
-              <SearchSortLink currentSort={currentSort} filters={filters}
-                pathname={pathname} sort={option.sort}>
+          {this.sortOptions().map((option) => (
+            <li key={option.text} className="SearchSort-list-item">
+              <SearchSortLink
+                currentSort={currentSort}
+                filters={filters}
+                pathname={pathname}
+                sort={option.sort}
+              >
                 {option.text}
               </SearchSortLink>
             </li>
