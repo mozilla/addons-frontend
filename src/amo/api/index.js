@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+
 import { callApi } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';

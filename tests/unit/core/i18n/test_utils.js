@@ -1,5 +1,6 @@
 import config from 'config';
 import moment from 'moment';
+import { oneLine } from 'common-tags';
 
 import * as utils from 'core/i18n/utils';
 
@@ -332,7 +333,7 @@ describe('i18n utils', () => {
     });
 
     it('should not match Finnish to Filipino (Philiippines)', () => {
-      const acceptLanguage = dedent`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
+      const acceptLanguage = oneLine`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
         q=0.89,en-gb;q=0.86,hu-HU;q=0.83,hu;q=0.8,en-AU;q=0.77,en-nl;
         q=0.74,nl-en;q=0.71,nl;q=0.69,en-HK;q=0.66,en-sg;q=0.63,en-th;
         q=0.6,pl-PL;q=0.57,pl;q=0.54,fr-FR;q=0.51,fr;q=0.49,en-AE;
@@ -345,7 +346,7 @@ describe('i18n utils', () => {
     });
 
     it('should support Filipino (Philippines)', () => {
-      const acceptLanguage = dedent`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
+      const acceptLanguage = oneLine`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
         q=0.89,en-gb;q=0.86,hu-HU;q=0.83,hu;q=0.8,en-AU;q=0.77,en-nl;
         q=0.74,nl-en;q=0.71,nl;q=0.69,en-HK;q=0.66,en-sg;q=0.63,en-th;
         q=0.6,pl-PL;q=0.57,pl;q=0.54,fr-FR;q=0.51,fr;q=0.49,en-AE;
@@ -358,7 +359,7 @@ describe('i18n utils', () => {
     });
 
     it('should support Filipino without region', () => {
-      const acceptLanguage = dedent`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
+      const acceptLanguage = oneLine`fil-PH,fil;q=0.97,en-US;q=0.94,en;q=0.91,en-ph;
         q=0.89,en-gb;q=0.86,hu-HU;q=0.83,hu;q=0.8,en-AU;q=0.77,en-nl;
         q=0.74,nl-en;q=0.71,nl;q=0.69,en-HK;q=0.66,en-sg;q=0.63,en-th;
         q=0.6,pl-PL;q=0.57,pl;q=0.54,fr-FR;q=0.51,fr;q=0.49,en-AE;

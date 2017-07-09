@@ -4,9 +4,9 @@ import Jed from 'jed';
 import { normalize } from 'normalizr';
 import React from 'react';
 import UAParser from 'ua-parser-js';
+import { oneLine } from 'common-tags';
 
 import { getDjangoBase62 } from 'amo/utils';
-import { oneLine } from 'common-tags';
 import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';

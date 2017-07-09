@@ -4,8 +4,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
 import { oneLine } from 'common-tags';
+
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
