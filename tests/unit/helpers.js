@@ -6,6 +6,7 @@ import React from 'react';
 import UAParser from 'ua-parser-js';
 
 import { getDjangoBase62 } from 'amo/utils';
+import { oneLine } from 'common-tags';
 import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
@@ -106,32 +107,32 @@ export const signedInApiState = Object.freeze({
 
 export const userAgents = {
   androidWebkit: [
-    dedent`Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K)
+    oneLine`Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K)
       AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`,
-    dedent`Mozilla/5.0 (Linux; U; Android 2.3.4; fr-fr; HTC Desire Build/GRJ22)
+    oneLine`Mozilla/5.0 (Linux; U; Android 2.3.4; fr-fr; HTC Desire Build/GRJ22)
       AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1`,
   ],
   chromeAndroid: [
-    dedent`Mozilla/5.0 (Linux; Android 4.1.1; Galaxy Nexus Build/JRO03C)
+    oneLine`Mozilla/5.0 (Linux; Android 4.1.1; Galaxy Nexus Build/JRO03C)
       AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile
       Safari/535.19`,
-    dedent`Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76K)
+    oneLine`Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76K)
       AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile
       Safari/535.19`,
-    dedent`Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MMB29P)
+    oneLine`Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MMB29P)
       AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile
       Safari/537.36`,
   ],
   chrome: [
-    dedent`Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
+    oneLine`Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/41.0.2228.0 Safari/537.36`,
-    dedent`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36
       (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36`,
   ],
   firefox: [
     'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0',
     'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1',
-    dedent`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101
       Firefox/33.0`,
     'Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0',
   ],
@@ -148,13 +149,13 @@ export const userAgents = {
     'Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0',
   ],
   firefoxIOS: [
-    dedent`Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X)
+    oneLine`Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X)
       AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
       Safari/600.1.4`,
-    dedent`Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X)
+    oneLine`Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X)
       AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
       Safari/600.1.4`,
-    dedent`Mozilla/5.0 (iPad; CPU iPhone OS 8_3 like Mac OS X)
+    oneLine`Mozilla/5.0 (iPad; CPU iPhone OS 8_3 like Mac OS X)
       AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
       Safari/600.1.4`,
   ],

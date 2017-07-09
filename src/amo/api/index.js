@@ -1,4 +1,5 @@
 /* @flow */
+import { oneLine } from 'common-tags';
 import { callApi } from 'core/api';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -142,7 +143,7 @@ export function getLatestUserReview(
       } else if (reviews.length === 0) {
         return null;
       }
-      throw new Error(dedent`Unexpectedly received multiple review objects:
+      throw new Error(oneLine`Unexpectedly received multiple review objects:
         ${JSON.stringify(reviews)}`);
     });
 }
