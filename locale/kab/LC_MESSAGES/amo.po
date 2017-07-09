@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-06-22 13:34+0000\n"
+"PO-Revision-Date: 2017-07-09 12:14+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -53,12 +53,8 @@ msgid "Screenshots"
 msgstr "Tuṭṭfiwin n wegdil"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Tesrid <a href=\"%(downloadUrl)s\">asider n Firefox</a> akken ad tesbeddeḍ "
-"azegrir-ik."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Tesrid <a href=\"%(downloadUrl)s\">asider n Firefox</a> akken ad tesbeddeḍ azegrir-ik."
 
 #: src/amo/components/AddonCompatibilityError/index.js:59
 msgid "Your version of Firefox does not support search plugins."
@@ -69,23 +65,14 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox i iOS ur isefrak-ara yakan azegrir-agi."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Azegrir-agi yesra <a href=\"%(downloadUrl)s\">lqem amaynut n Firefox</a> "
-"(xaṛsum lqem %(minVersion)s). Aql-ak tseqdaceḍ Firefox %(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Azegrir-agi yesra <a href=\"%(downloadUrl)s\">lqem amaynut n Firefox</a> (xaṛsum lqem %(minVersion)s). Aql-ak tseqdaceḍ Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Iminig-ik ur isefrak ara izegrar. Tzemreḍ <a href=\"%(downloadUrl)s\">ad "
-"tsidreḍ Firefox</a> akken ad tesbeddeḍ azerir-agi."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Iminig-ik ur isefrak ara izegrar. Tzemreḍ <a href=\"%(downloadUrl)s\">ad tsidreḍ Firefox</a> akken ad tesbeddeḍ azerir-agi."
 
-#: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:88
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s aseqdac"
@@ -166,8 +153,7 @@ msgid "Tell the world about this extension."
 msgstr "Meslay i yemdanen ɣef uzegrir-agi."
 
 #: src/amo/components/AddonReview.js:153
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
+msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr "Mmel-aɣ-d ɣef termit-ik akked usiɣzef-agi. Ilik d ufrin, frez awal-ik."
 
 #: src/amo/components/AddonReview.js:161
@@ -202,18 +188,15 @@ msgstr "Akk iceggiren yettwarun"
 msgid "Add-ons for Firefox"
 msgstr "Izegrar i Firefox"
 
-#: src/amo/components/Categories.js:57
-#: src/amo/components/CategoriesHeader/index.js:47
+#: src/amo/components/Categories.js:57 src/amo/components/CategoriesHeader/index.js:47
 msgid "Failed to load categories."
 msgstr "Ur yewwid ara ad d-isali taggayin."
 
-#: src/amo/components/Categories.js:65
-#: src/amo/components/CategoriesHeader/index.js:55
+#: src/amo/components/Categories.js:65 src/amo/components/CategoriesHeader/index.js:55
 msgid "No categories found."
 msgstr "Ulac taggayin yettwafen."
 
-#: src/amo/components/Categories.js:74
-#: src/amo/components/CategoriesHeader/index.js:65
+#: src/amo/components/Categories.js:74 src/amo/components/CategoriesHeader/index.js:65
 msgid "Loading categories."
 msgstr "Asali n taggayin."
 
@@ -224,7 +207,7 @@ msgstr "Taggayt"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Inig ɣer akk isiγzaf di teggayt-a."
 
 #: src/amo/components/CategoryHeader/index.js:38
 #, fuzzy
@@ -237,74 +220,44 @@ msgid "Browse all themes in this category."
 msgstr "Inig ɣer akk isental"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
-msgstr ""
-"Ma tkecmeḍ udiɣ tɣileḍ d akken izen-agi d tuccḍa, ma ulac aɣilif, <a href="
-"\"%(url)s\">azen-d ugur</a>. Ini-yaɣ-d ansa i d-kkiḍ udiɣ ayen tettaɛraḍeḍ "
-"ad twaliḍ, sakin ad nefru ugur."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr "Ma tkecmeḍ udiɣ tɣileḍ d akken izen-agi d tuccḍa, ma ulac aɣilif, <a href=\"%(url)s\">azen-d ugur</a>. Ini-yaɣ-d ansa i d-kkiḍ udiɣ ayen tettaɛraḍeḍ ad twaliḍ, sakin ad nefru ugur."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Ur ittwasireg ara"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Suref-aɣ, acku ur ɣur-k ara tasiregt akken ad tkecmeḍ ar usebter-agi. Ma "
-"yella ur teqqineḍ ara, ɛreḍ ad tesqedceḍ aseɣwen n tagara n usebter."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Suref-aɣ, acku ur ɣur-k ara tasiregt akken ad tkecmeḍ ar usebter-agi. Ma yella ur teqqineḍ ara, ɛreḍ ad tesqedceḍ aseɣwen n tagara n usebter."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Ma tḍefreḍ-d aseɣwen-agi seg allaɛḍ n imeḍqan, <a href=\"%(url)s\">azen-d "
-"ugur</a>. Iniyaɣ-d ansa i d-yekka akked wayen tettnadiḍ, sakin ad nwali ayen "
-"nezmer akken ad t-nseɣti."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Ma tḍefreḍ-d aseɣwen-agi seg allaɛḍ n imeḍqan, <a href=\"%(url)s\">azen-d ugur</a>. Iniyaɣ-d ansa i d-yekka akked wayen tettnadiḍ, sakin ad nwali ayen nezmer akken ad t-nseɣti."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Ulac asebter"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Suref-aɣ, ur nezmir ara ad naf tansa i d-muddeḍ. Ma tḍefṛeḍ-d aseɣwen ar "
-"uzegrir, ahat azegrir-agi yekkes-it umeskar-is."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Suref-aɣ, ur nezmir ara ad naf tansa i d-muddeḍ. Ma tḍefṛeḍ-d aseɣwen ar uzegrir, ahat azegrir-agi yekkes-it umeskar-is."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"MA ɣur-k ugar n telɣut izemren aɣ-d-yefk afus tzmred ad  <a href=\"https://"
-"github.com/mozilla/addons-frontend/issues/new/\">tazneḍ abug</a>. Ini-yaɣ-d "
-"amek twxedmeḍ imi d-ḍra tuccḍa-agi sakin ad nwali amek ad tt-nseɣti."
+"MA ɣur-k ugar n telɣut izemren aɣ-d-yefk afus tzmred ad  <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">tazneḍ abug</a>. Ini-yaɣ-d amek twxedmeḍ imi d-ḍra tuccḍa-agi sakin ad "
+"nwali amek ad tt-nseɣti."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Tuccḍa deg usenkez"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Suref-aɣ, teḍra-d tuccḍadeg uqeddac-nneɣ ihi ur nezmir ara ad d-nerr i "
-"usuter-ik. Nsekles tuccḍa-agi akken ad nnadi tifrat."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Suref-aɣ, teḍra-d tuccḍadeg uqeddac-nneɣ ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles tuccḍa-agi akken ad nnadi tifrat."
 
 #: src/amo/components/FeaturedAddons/index.js:33
 msgid "More Featured Extensions"
@@ -378,8 +331,7 @@ msgstr "Anaddal"
 msgid "Solid"
 msgstr "Ukmil"
 
-#: src/amo/components/Home/index.js:138
-#: src/amo/components/SuggestedPages/index.js:26
+#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
 msgstr "Inig akk isiɣzaf"
 
@@ -388,15 +340,10 @@ msgid "You can change how Firefox works…"
 msgstr "Tzemred ad tesnifleḍ amek ara yeddu Firefox…"
 
 #: src/amo/components/Home/index.js:146
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Sebded ifecka uzmiren ara yerren tunigin d taruraṭ, d taɣelsant, izegrar ad "
-"erren iminig-ik d ayla-k."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Sebded ifecka uzmiren ara yerren tunigin d taruraṭ, d taɣelsant, izegrar ad erren iminig-ik d ayla-k."
 
-#: src/amo/components/Home/index.js:157
-#: src/amo/components/SuggestedPages/index.js:31
+#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
 msgstr "Inig ɣer akk isental"
 
@@ -405,12 +352,8 @@ msgid "…or what it looks like"
 msgstr "…neɣ ayen icuban aya"
 
 #: src/amo/components/Home/index.js:165
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Snifel udem n iminig-ik. Fren seg agimen n isental akken ad tmudded udem "
-"tebɣiḍ i Firefox."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Snifel udem n iminig-ik. Fren seg agimen n isental akken ad tmudded udem tebɣiḍ i Firefox."
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
@@ -460,13 +403,11 @@ msgstr "Isental yettwaszemlen aṭas"
 msgid "More highly rated themes"
 msgstr "Isental yettwaszelen aṭas"
 
-#: src/amo/components/LandingPage/index.js:177
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
 msgstr "Isental"
 
-#: src/amo/components/LandingPage/index.js:178
-#: src/amo/components/SectionLinks/index.js:50
+#: src/amo/components/LandingPage/index.js:178 src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
 msgstr "Isiɣzaf"
 
@@ -544,8 +485,8 @@ msgstr "Ulac taggayin yettwafen."
 #: src/amo/components/SearchContextCard/index.js:45
 msgid "%(count)s add-on found\""
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s iseγzaf illan\""
+msgstr[1] "%(count)s iseγzaf illan"
 
 #: src/amo/components/SearchForm.js:52
 msgid "Search extensions"
@@ -604,8 +545,7 @@ msgstr "Yettwaseqdac aṭas"
 msgid "Top Rated"
 msgstr "Yettwasezmel aṭas"
 
-#: src/amo/components/SearchSort/index.js:66
-#: src/amo/components/SearchSort/index.js:74
+#: src/amo/components/SearchSort/index.js:66 src/amo/components/SearchSort/index.js:74
 msgid "Sort"
 msgstr "Smizzwer"
 
@@ -630,15 +570,10 @@ msgid "Log in/Sign up"
 msgstr "Kcem//Sign"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Suref-aɣ, teḍra-d tuccḍa ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles "
-"tuccḍa-agi akken ad nnadi tifrat."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Suref-aɣ, teḍra-d tuccḍa ihi ur nezmir ara ad d-nerr i usuter-ik. Nsekles tuccḍa-agi akken ad nnadi tifrat."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Tangalt n tuccḍa: %(status)s."
 
@@ -646,8 +581,7 @@ msgstr "Tangalt n tuccḍa: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Suref-aɣ, ur nezmir ara ad d-naf ayen tebɣiḍ di tensa URL i d-mudded."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Rnu ɣer Firefox"
 
@@ -734,12 +668,8 @@ msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
 #~ msgid "Browse by category"
 #~ msgstr "Snirem s taggayin"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ i Firefox. Isental ad k-"
-#~ "eǧǧen ad tesnifleḍ udem n iming-ik."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ i Firefox. Isental ad k-eǧǧen ad tesnifleḍ udem n iming-ik."
 
 #~ msgid "Loading..."
 #~ msgstr "Asali..."
