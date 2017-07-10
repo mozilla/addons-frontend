@@ -56,8 +56,10 @@ function shell(cmd, args) {
 
 function exec(cmd, argParts, { quiet = false } = {}) {
   const cmdString = `${cmd} ${argParts.join(' ')}`;
-  logDivider('BEGIN exec');
-  console.log(`Exec: ${cmdString}`);
+  if (!quiet) {
+    logDivider('BEGIN exec');
+    console.log(`Exec: ${cmdString}`);
+  }
   return new Promise((resolve, reject) => {
     childProcess.exec(cmdString, { cwd: root }, (error, stdout, stderr) => {
       let gotOutput = false;
