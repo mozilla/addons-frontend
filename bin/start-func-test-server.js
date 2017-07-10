@@ -102,8 +102,6 @@ function fileExistsSync(file) {
   }
 }
 
-let containerId;
-
 new Promise((resolve) => {
   if (fileExistsSync(containerIdFile)) {
     console.warn(`Removing existing container ID file: ${containerIdFile}`);
@@ -132,9 +130,9 @@ new Promise((resolve) => {
     return exec('docker', runArgs);
   })
   .then(() => {
-    containerId = fs.readFileSync(containerIdFile).toString();
+    return fs.readFileSync(containerIdFile).toString();
   })
-  .then(() => {
+  .then((containerId) => {
     // Wait for the server to start and build assets.
 
     // This is the subresource integrity file, one of several asset files
@@ -162,7 +160,7 @@ new Promise((resolve) => {
         )
           .then(() => {
             // The file exists, the server has finished building assets.
-            resolve();
+            resolve(containerId);
           })
           .catch(() => {
             // The file does not exist yet. Try again.
@@ -173,14 +171,15 @@ new Promise((resolve) => {
       waitForAssets();
     });
   })
-  // Since the asset we checked for isn't the absolute final asset built,
-  // wait just a bit before capturing the logs.
-  .then(() => new Promise((resolve) => setTimeout(resolve, 2000)))
-  .then(() => {
-    // TODO: move to shared helper
+  .then((containerId) => {
+    // Since the asset we just checked for isn't the final asset built,
+    // wait just a bit before capturing the logs.
+    return new Promise(
+      (resolve) => setTimeout(() => resolve(containerId), 2000));
+  })
+  .then((containerId) => {
     // Show all of the server logs.
-    return shell(
-      'docker', ['logs', '--tail=all', containerId]);
+    return shell('docker', ['logs', '--tail=all', containerId]);
   })
   .then(() => {
     console.log('The server is ready 🦄 ✨');
