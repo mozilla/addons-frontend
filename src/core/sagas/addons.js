@@ -1,7 +1,11 @@
 /* @flow */
 /* global Generator */
+// Disabled because of
+// https://github.com/benmosher/eslint-plugin-import/issues/793
+/* eslint-disable import/order */
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { call, put, select, takeEvery } from 'redux-saga/effects';
+/* eslint-enable import/order */
 
 import { loadEntities } from 'core/actions';
 import { fetchAddon as fetchAddonFromApi } from 'core/api';
