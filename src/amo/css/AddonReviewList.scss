@@ -37,7 +37,7 @@
     a:active {
       color: $primary-font-color;
       font-weight: normal;
-      overflow-wrap: break-word;
+      word-wrap: break-word;
       text-decoration: none;
     }
   }
@@ -49,7 +49,7 @@
 }
 
 .AddonReviewList-li {
-  overflow-wrap: break-word;
+  word-wrap: break-word;
 
   > h3 {
     padding: 0;
