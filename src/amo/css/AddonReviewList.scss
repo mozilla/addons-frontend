@@ -14,6 +14,7 @@
   align-items: center;
 
   .AddonReviewList-header-text {
+    //Flex implies min-width: auto, so the text overflows, to over come that change min-width.
     min-width: 1%;
 
     > h2,
