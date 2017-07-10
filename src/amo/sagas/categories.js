@@ -1,5 +1,9 @@
+// Disabled because of
+// https://github.com/benmosher/eslint-plugin-import/issues/793
+/* eslint-disable import/order */
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { call, put, select, takeEvery } from 'redux-saga/effects';
+/* eslint-enable import/order */
 
 import {
   categoriesFail,
