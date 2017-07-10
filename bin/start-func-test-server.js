@@ -52,7 +52,7 @@ function shell(cmd, args) {
   });
 }
 
-function exec(cmd, argParts) {
+function exec(cmd, argParts, { quiet = false } = {}) {
   const cmdString = `${cmd} ${argParts.join(' ')}`;
   console.log(`Exec: ${cmdString}`);
   return new Promise((resolve, reject) => {
@@ -60,22 +60,28 @@ function exec(cmd, argParts) {
       let gotOutput = false;
       if (stdout) {
         gotOutput = true;
-        logDivider('BEGIN stdout');
-        process.stdout.write(stdout.toString());
-        logDivider('END stdout');
+        if (!quiet) {
+          logDivider('BEGIN stdout');
+          process.stdout.write(stdout.toString());
+          logDivider('END stdout');
+        }
       }
       if (stderr) {
         gotOutput = true;
-        logDivider('BEGIN stderr');
-        process.stderr.write(stderr.toString());
-        logDivider('END stderr');
+        if (!quiet) {
+          logDivider('BEGIN stderr');
+          process.stderr.write(stderr.toString());
+          logDivider('END stderr');
+        }
       }
       if (error) {
         if (!gotOutput) {
           console.warn('The command did not return any output');
         }
-        // Don't log all of the error because it includes all of stderr.
-        console.error(`Snippet of exec error: ${error.toString().slice(0, 60)}...`);
+        if (!quiet) {
+          // Don't log all of the error because it includes all of stderr.
+          console.error(`Snippet of exec error: ${error.toString().slice(0, 60)}...`);
+        }
         reject(new Error(`exec command failed: ${cmd}`));
       }
       resolve(stdout.toString());
@@ -83,21 +89,27 @@ function exec(cmd, argParts) {
   });
 }
 
-new Promise((resolve) => {
-  let idStat;
+function fileExistsSync(file) {
   try {
-    idStat = fs.statSync(containerIdFile);
+    return Boolean(fs.statSync(file));
   } catch (error) {
-    idStat = false;
+    return false;
   }
-  if (idStat) {
+}
+
+let containerId;
+
+new Promise((resolve) => {
+  if (fileExistsSync(containerIdFile)) {
     console.warn(`Removing existing container ID file: ${containerIdFile}`);
     fs.unlinkSync(containerIdFile);
   }
   resolve();
 })
   .then(() => exec('docker', ['build', '-q', '.']))
-  .then((builtContainerId) => {
+  .then((imageIdOutput) => imageIdOutput.trim())
+  .then((imageId) => {
+    // Start the server.
     const runArgs = [
       'run',
       '-d',
@@ -109,22 +121,66 @@ new Promise((resolve) => {
       `--cidfile=${containerIdFile}`,
       // This will make sure we can read the logs.
       '--log-driver=json-file',
-      builtContainerId.trim(),
+      imageId,
       '/bin/sh -c "npm run build && npm run start"',
     ];
     return exec('docker', runArgs);
   })
   .then(() => {
-    // TODO: wait for webpack-assets
-    const runningContainerId = fs.readFileSync(containerIdFile);
-    return shell(
-      'docker', ['logs', '--tail=all', runningContainerId.toString()]);
+    containerId = fs.readFileSync(containerIdFile).toString();
   })
   .then(() => {
-    console.log('The server has started 🦄 ✨');
+    // Wait for the server to start and build assets.
+
+    // This is the subresource integrity file, one of several asset files
+    // built when the server starts.
+    const sampleAssetFile = '/srv/code/dist/sri.json';
+
+    return new Promise((resolve, reject) => {
+      // All time is in milleseconds.
+      const interval = 1000;
+      const timeOut = 1000 * 60 * 5; // 5 minutes
+      let timeElapsed = 0;
+      console.log(`Waiting for assets to build (looking for ${sampleAssetFile})`);
+
+      const waitForAssets = () => {
+        if (timeElapsed >= timeOut) {
+          return reject(new Error(
+            `Timed out waiting for assets file to appear at
+            ${sampleAssetFile}`));
+        }
+        timeElapsed += interval;
+
+        exec('docker',
+          ['exec', containerId, 'ls', sampleAssetFile], { quiet: true }
+        )
+          .then(() => {
+            // The file exists, the server has finished building assets.
+            resolve();
+          })
+          .catch(() => {
+            // The file does not exist yet. Try again.
+            setTimeout(waitForAssets, interval);
+          });
+      };
+
+      waitForAssets();
+    });
+  })
+  // Since the asset we checked for isn't the absolute final asset built,
+  // wait just a bit before capturing the logs.
+  .then(() => new Promise((resolve) => setTimeout(resolve, 2000)))
+  .then(() => {
+    // TODO: move to shared helper
+    // Show all of the server logs.
+    return shell(
+      'docker', ['logs', '--tail=all', containerId]);
+  })
+  .then(() => {
+    console.log('The server is ready 🦄 ✨');
   })
   .catch((error) => {
-    console.log(''); // blank line
+    console.log(''); // Pad with a blank line
     console.error(error.stack);
     process.exit(1);
   });
