@@ -34,10 +34,10 @@
     a:visited,
     a:hover,
     a:active {
-      text-decoration: none;
       color: $primary-font-color;
       font-weight: normal;
-      word-wrap: break-word;
+      overflow-wrap: break-word;
+      text-decoration: none;
     }
   }
 
@@ -48,7 +48,7 @@
 }
 
 .AddonReviewList-li {
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   > h3 {
     padding: 0;
