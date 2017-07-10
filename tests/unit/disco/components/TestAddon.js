@@ -1,18 +1,15 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
   Simulate,
 } from 'react-addons-test-utils';
-import {
-  findDOMNode,
-} from 'react-dom';
+import { findDOMNode } from 'react-dom';
+import { Provider } from 'react-redux';
 
-import translate from 'core/i18n/translate';
-import {
-  AddonBase,
-  mapStateToProps,
-} from 'disco/components/Addon';
+import I18nProvider from 'core/i18n/Provider';
+import Addon, { AddonBase, mapStateToProps } from 'disco/components/Addon';
 import HoverIntent from 'core/components/HoverIntent';
 import {
   ADDON_TYPE_EXTENSION,
@@ -40,20 +37,22 @@ const result = {
 };
 
 function renderAddon({ setCurrentStatus = sinon.stub(), ...props }) {
-  const MyAddon = translate({ withRef: true })(AddonBase);
   const getBrowserThemeData = () => '{"theme":"data"}';
   const { store } = createStore({ api: signedInApiState });
 
   return findRenderedComponentWithType(renderIntoDocument(
-    <MyAddon
-      getBrowserThemeData={getBrowserThemeData}
-      hasAddonManager
-      i18n={getFakeI18nInst()}
-      setCurrentStatus={setCurrentStatus}
-      store={store}
-      {...props}
-    />
-  ), MyAddon).getWrappedInstance();
+    <Provider store={store}>
+      <I18nProvider i18n={getFakeI18nInst()}>
+        <Addon
+          getBrowserThemeData={getBrowserThemeData}
+          getClientCompatibility={() => ({ compatible: true, reason: null })}
+          hasAddonManager
+          setCurrentStatus={setCurrentStatus}
+          {...props}
+        />
+      </I18nProvider>
+    </Provider>
+  ), Addon);
 }
 
 describe('<Addon />', () => {
@@ -143,22 +142,31 @@ describe('<Addon />', () => {
       const data = { ...result, needsRestart: true, status: UNINSTALLING };
       const root = renderAddon({ addon: data, ...data });
       const restart = findDOMNode(root).querySelector('.notification.restart');
-      expect(restart.querySelector('p').textContent).toEqual('This add-on will be uninstalled after you restart Firefox.');
+
+      expect(restart.querySelector('p').textContent).toEqual(
+        'This add-on will be uninstalled after you restart Firefox.');
     });
 
     it('does not normally render a restart notification', () => {
       const root = renderAddon({ addon: result, ...result });
-      expect(findDOMNode(root).querySelector('.notification.restart')).toBeFalsy();
+
+      expect(findDOMNode(root).querySelector('.notification.restart'))
+        .toBeFalsy();
     });
 
     it('renders the heading', () => {
       const root = renderAddon({ addon: result, ...result });
-      expect(root.heading.textContent).toContain('test-heading');
+
+      expect(findDOMNode(root).querySelector('.heading').textContent)
+        .toContain('test-heading');
     });
 
     it('renders the editorial description', () => {
       const root = renderAddon({ addon: result, ...result });
-      expect(root.editorialDescription.textContent).toEqual('test-editorial-description');
+
+      expect(
+        findDOMNode(root).querySelector('.editorial-description').textContent
+      ).toContain('test-editorial-description');
     });
 
     it('purifies the heading', () => {
@@ -167,7 +175,9 @@ describe('<Addon />', () => {
         heading: '<script>alert("hi")</script><em>Hey!</em> <i>This is <span>an add-on</span></i>',
       };
       const root = renderAddon({ addon: data, ...data });
-      expect(root.heading.innerHTML).toContain('Hey! This is <span>an add-on</span>');
+
+      expect(findDOMNode(root).querySelector('.heading').innerHTML)
+        .toContain('Hey! This is <span>an add-on</span>');
     });
 
     it('purifies the heading with a link and adds link attrs', () => {
@@ -176,7 +186,8 @@ describe('<Addon />', () => {
         heading: 'This is <span>an <a href="https://addons.mozilla.org">add-on</a>/span>',
       };
       const root = renderAddon({ addon: data, ...data });
-      const link = root.heading.querySelector('a');
+      const link = findDOMNode(root).querySelector('.heading a');
+
       expect(link.getAttribute('rel')).toEqual('noopener noreferrer');
       expect(link.getAttribute('target')).toEqual('_blank');
     });
@@ -187,7 +198,8 @@ describe('<Addon />', () => {
         heading: 'This is <span>an <a href="javascript:alert(1)">add-on</a>/span>',
       };
       const root = renderAddon({ addon: data, ...data });
-      const link = root.heading.querySelector('a');
+      const link = findDOMNode(root).querySelector('.heading a');
+
       expect(link.getAttribute('href')).toEqual(null);
     });
 
@@ -198,24 +210,31 @@ describe('<Addon />', () => {
                      '<i>Reviewed by <cite>a person</cite></i>',
       };
       const root = renderAddon({ addon: data, ...data });
-      expect(root.editorialDescription.innerHTML).toEqual(
+
+      expect(
+        findDOMNode(root).querySelector('.editorial-description').innerHTML
+      ).toEqual(
         '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>'
       );
     });
 
     it('does render a logo for an extension', () => {
       const root = renderAddon({ addon: result, ...result });
+
       expect(findDOMNode(root).querySelector('.logo')).toBeTruthy();
     });
 
     it("doesn't render a theme image for an extension", () => {
       const root = renderAddon({ addon: result, ...result });
+
       expect(findDOMNode(root).querySelector('.theme-image')).toEqual(null);
     });
 
     it('throws on invalid add-on type', () => {
       const root = renderAddon({ addon: result, ...result });
-      expect(root.heading.textContent).toContain('test-heading');
+      expect(findDOMNode(root).querySelector('.heading').textContent)
+        .toContain('test-heading');
+
       const data = { ...result, type: 'Whatever' };
       expect(() => {
         renderAddon({ addon: data, ...data });
@@ -238,11 +257,33 @@ describe('<Addon />', () => {
       // We click the heading providing the link nodeName to emulate
       // bubbling.
       Simulate.click(heading, { target: { nodeName: 'A' } });
+
       expect(fakeTracking.sendEvent.calledWith({
         action: TRACKING_TYPE_EXTENSION,
         category: CLICK_CATEGORY,
         label: 'foo',
       })).toBeTruthy();
+    });
+
+    it('disables incompatible add-ons', () => {
+      const { store } = createStore();
+      const root = renderAddon({
+        addon: {
+          ...result,
+          current_version: {},
+        },
+        ...result,
+        getClientCompatibility: () => ({
+          compatible: false,
+          maxVersion: '4000000.0',
+          minVersion: '400000.0',
+          reason: 'WHATEVER',
+        }),
+        store,
+      });
+      expect(
+        findDOMNode(root).querySelector('.AddonCompatibilityError').textContent
+      ).toEqual('This add-on does not support your browser.');
     });
   });
 
@@ -308,19 +349,28 @@ describe('<Addon />', () => {
 
     it('calls installTheme on click', () => {
       const installTheme = sinon.stub();
-      const data = {
-        ...result,
-        addon: sinon.stub(),
-        type: ADDON_TYPE_THEME,
-        status: UNINSTALLED,
+      const props = {
+        addon: result,
+        clientApp: signedInApiState.clientApp,
+        getBrowserThemeData: () => '{"theme":"data"}',
+        getClientCompatibility: () => ({ compatible: true, reason: null }),
+        hasAddonManager: true,
+        i18n: getFakeI18nInst(),
         installTheme,
+        setCurrentStatus: sinon.stub(),
+        status: UNINSTALLED,
+        type: ADDON_TYPE_THEME,
+        userAgentInfo: signedInApiState.userAgentInfo,
       };
-      root = renderAddon(data);
-      themeImage = findDOMNode(root).querySelector('.theme-image');
-      const preventDefault = sinon.spy();
-      Simulate.click(themeImage, { preventDefault });
-      expect(preventDefault.called).toBeTruthy();
-      expect(installTheme.calledWith(themeImage, data.addon)).toBeTruthy();
+      const shallowRoot = shallow(<AddonBase {...props} />);
+      themeImage = shallowRoot.find('.theme-image');
+
+      const preventDefault = sinon.stub();
+      const fakeEvent = { currentTarget: themeImage, preventDefault };
+      themeImage.simulate('click', fakeEvent);
+
+      sinon.assert.called(preventDefault);
+      sinon.assert.calledWith(installTheme, themeImage, props.addon);
     });
   });
 
@@ -331,6 +381,7 @@ describe('<Addon />', () => {
         downloadProgress: 75,
       };
       const props = mapStateToProps({
+        api: signedInApiState,
         installations: { foo: { some: 'data' }, 'foo@addon': addon },
         addons: { 'foo@addon': { addonProp: 'addonValue' } },
       }, { guid: 'foo@addon' });
@@ -341,15 +392,23 @@ describe('<Addon />', () => {
         guid: 'foo@addon',
         downloadProgress: 75,
         addonProp: 'addonValue',
+        clientApp: signedInApiState.clientApp,
+        userAgentInfo: signedInApiState.userAgentInfo,
       });
     });
 
     it('handles missing data', () => {
       const props = mapStateToProps({
+        api: signedInApiState,
         installations: {},
         addons: {},
       }, { guid: 'nope@addon' });
-      expect(props).toEqual({ addon: {} });
+
+      expect(props).toEqual({
+        addon: {},
+        clientApp: null,
+        userAgentInfo: signedInApiState.userAgentInfo,
+      });
     });
   });
 });
