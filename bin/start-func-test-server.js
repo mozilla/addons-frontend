@@ -1,4 +1,5 @@
 /* @flow */
+/* eslint-disable no-console */
 // This starts a docker server for functional tests to access.
 // The script waits for the server to start and prints some logs
 // to help with debugging.
@@ -18,13 +19,14 @@ const nodeEnv = 'uitests';
 
 function logDivider(heading) {
   console.log(`${'='.repeat(35)} ${heading} ${'='.repeat(35)}`);
-};
+}
 
 function shell(cmd, args) {
   // Execs a command as if it were part of the parent shell
   // (i.e. the output is unbuffered and is displayed in the console).
-  console.log(`Shell exec: ${cmd} ${args.join(' ')}`);
   logDivider('BEGIN shell');
+  const cmdString = `${cmd} ${args.join(' ')}`;
+  console.log(`Shell: ${cmdString}`);
   return new Promise((resolve, reject) => {
     const child = childProcess.spawn(cmd, args, {
       cwd: root,
@@ -45,7 +47,7 @@ function shell(cmd, args) {
       logDivider('END shell');
       if (exitCode !== 0) {
         reject(new Error(
-          `shell command failed: ${cmd} (exit: ${exitCode || '[empty]'})`));
+          `shell command failed: ${cmdString} (exit: ${exitCode || '[empty]'})`));
       }
       resolve();
     });
@@ -54,6 +56,7 @@ function shell(cmd, args) {
 
 function exec(cmd, argParts, { quiet = false } = {}) {
   const cmdString = `${cmd} ${argParts.join(' ')}`;
+  logDivider('BEGIN exec');
   console.log(`Exec: ${cmdString}`);
   return new Promise((resolve, reject) => {
     childProcess.exec(cmdString, { cwd: root }, (error, stdout, stderr) => {
@@ -82,7 +85,7 @@ function exec(cmd, argParts, { quiet = false } = {}) {
           // Don't log all of the error because it includes all of stderr.
           console.error(`Snippet of exec error: ${error.toString().slice(0, 60)}...`);
         }
-        reject(new Error(`exec command failed: ${cmd}`));
+        reject(new Error(`exec command failed: ${cmdString}`));
       }
       resolve(stdout.toString());
     });
@@ -145,9 +148,10 @@ new Promise((resolve) => {
 
       const waitForAssets = () => {
         if (timeElapsed >= timeOut) {
-          return reject(new Error(
+          reject(new Error(
             `Timed out waiting for assets file to appear at
             ${sampleAssetFile}`));
+          return;
         }
         timeElapsed += interval;
 
