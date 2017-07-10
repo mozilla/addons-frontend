@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-07-10 12:10+0000\n"
+"PO-Revision-Date: 2017-07-10 12:16+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -366,7 +366,7 @@ msgstr "خبریں تلاش کریں"
 
 #: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
-msgstr ""
+msgstr "زیادہ مقبول توسیعات"
 
 #: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
@@ -386,7 +386,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:119
 msgid "Most popular themes"
-msgstr ""
+msgstr "سب سے زیادہ مقبول خیالیے"
 
 #: src/amo/components/LandingPage/index.js:124
 msgid "More popular themes"
@@ -499,7 +499,7 @@ msgstr "تلاش"
 
 #: src/amo/components/SearchResult/index.js:57
 msgid "No theme preview available"
-msgstr ""
+msgstr "خیالیہ کا کوئی بھی پیش منظر دستیاب نہیں"
 
 #: src/amo/components/SearchResults.js:41
 msgid "Searching…"
