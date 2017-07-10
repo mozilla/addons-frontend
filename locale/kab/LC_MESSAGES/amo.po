@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-07-10 13:10+0000\n"
+"PO-Revision-Date: 2017-07-10 13:23+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -213,9 +213,8 @@ msgid "Browse all extensions in this category."
 msgstr "Inig γer akk isiɣzaf di taggayt-ag."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "Inig ɣer akk isental"
+msgstr "Inig ɣer akk isental di teggayt-a."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -410,9 +409,8 @@ msgid "Extensions"
 msgstr "Isiɣzaf"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "Asali n taggayin."
+msgstr "Wali akk taggayin"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -459,26 +457,22 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Amek tettwaliḍ aseqdec n %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:32
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "Ulac tiffin i \"%(query)s\"."
-msgstr[1] "Ulac tiffin i \"%(query)s\"."
+msgstr[0] "%(count)s tiffin i \"%(query)s\""
+msgstr[1] "%(count)s tiffin i \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "Ulac tiffin i \"%(query)s\"."
+msgstr "Anadi γef usuter \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "Asali n taggayin."
+msgstr "Asali n iseγzaf"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "Ulac taggayin yettwafen."
+msgstr "Ulac iseγzaf"
 
 #: src/amo/components/SearchContextCard/index.js:45
 msgid "%(count)s add-on found\""
