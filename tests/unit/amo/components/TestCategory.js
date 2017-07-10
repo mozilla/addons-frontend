@@ -1,11 +1,6 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
-import { findDOMNode } from 'react-dom';
 
 import { CategoryBase, mapStateToProps } from 'amo/components/Category';
 import { SearchBase } from 'amo/components/Search';
@@ -13,9 +8,9 @@ import createStore from 'amo/store';
 import { categoriesFetch } from 'core/actions/categories';
 import { searchStart } from 'core/actions/search';
 import { ADDON_TYPE_THEME } from 'core/constants';
-import { getFakeI18nInst } from 'tests/unit/helpers';
 import I18nProvider from 'core/i18n/Provider';
-
+import { getFakeI18nInst } from 'tests/unit/helpers';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 
 describe('Category', () => {
   let category;
@@ -43,21 +38,20 @@ describe('Category', () => {
     );
   }
 
-  function renderHTML({ ...props }) {
+  function mountRender(props = { loading: false }) {
     const { store } = createStore();
-
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
+    return mount(
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <CategoryBase
-            category={category}
+            category={null}
             dispatch={fakeDispatch}
             i18n={getFakeI18nInst()}
             {...props}
           />
         </I18nProvider>
       </Provider>
-    ), CategoryBase));
+    );
   }
 
   it('outputs a category page', () => {
@@ -72,9 +66,10 @@ describe('Category', () => {
     sinon.assert.calledWith(fakeDispatch, categoriesFetch());
   });
 
-  it('renders 404 page for missing/invalid category', () => {
-    const root = renderHTML({ category: null });
-    expect(root.textContent).toContain('Page not found');
+  it('return 404 if category is falsy', () => {
+    const root = mountRender();
+
+    expect(root.find(NotFound)).toHaveLength(1);
   });
 
   it('disables the sort component in Search', () => {

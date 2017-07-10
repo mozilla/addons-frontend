@@ -20,6 +20,7 @@ export class CategoryBase extends React.Component {
   static propTypes = {
     category: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
+    loading: PropTypes.boolean,
   }
 
   componentWillMount() {
