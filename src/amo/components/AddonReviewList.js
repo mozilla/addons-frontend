@@ -120,6 +120,7 @@ export class AddonReviewListBase extends React.Component {
           { authorName: review.userName, timestamp });
 
       const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
+      // eslint-disable-next-line react/no-danger
       reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
     } else {
       byLine = <LoadingText />;
