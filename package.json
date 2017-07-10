@@ -19,6 +19,7 @@
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
     "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
+    "start-func-test-server": "node bin/start-func-test-server.js",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && cat ./coverage/lcov.info | coveralls",
     "test": "bin/config-check.js && jest --watch",
     "test-coverage": "bin/config-check.js && jest --coverage --watch",
