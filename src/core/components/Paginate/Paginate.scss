@@ -18,7 +18,12 @@
 }
 
 .Paginate .Paginate-item {
-  @include button($background: $light-base-color, $background-active: $light-active-color, $background-hover: $light-hover-color, $color: $link-color);
+  @include button(
+    $background: $light-base-color,
+    $background-active: $light-active-color,
+    $background-hover: $light-hover-color,
+    $color: $link-color
+  );
 
   display: inline-block;
   font-size: $font-size-s;

@@ -25,7 +25,10 @@
 
 .SearchSortLink--active,
 .SearchSortLink--active:link {
-  @include button($background: $link-color, $color: $base-color);
+  @include button(
+    $background: $link-color,
+    $color: $base-color
+  );
 
   border-radius: 0;
   color: $base-color;
