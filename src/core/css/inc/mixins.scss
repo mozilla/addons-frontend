@@ -70,10 +70,6 @@
   cursor: not-allowed;
 }
 
-/*
-  stylelint-disable at-rule-empty-line-before,
-  media-feature-no-missing-punctuation
-*/
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media #{map-get($breakpoints, $breakpoint)} {
