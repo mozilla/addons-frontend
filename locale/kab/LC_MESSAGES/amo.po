@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-27 22:15+0000\n"
-"PO-Revision-Date: 2017-06-22 13:34+0000\n"
+"POT-Creation-Date: 2017-07-11 16:49+0000\n"
+"PO-Revision-Date: 2017-07-10 13:23+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -14,41 +14,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:130
+#: src/amo/components/Addon/index.js:129
 msgid "Cancel preview"
 msgstr "Sefsex taskant"
 
-#: src/amo/components/Addon/index.js:130
+#: src/amo/components/Addon/index.js:129
 msgid "Tap to preview"
 msgstr "Senned akken ad tsekned"
 
-#: src/amo/components/Addon/index.js:171
+#: src/amo/components/Addon/index.js:170
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ɣeṛ %(count)s n ucegger"
 msgstr[1] "Ɣeṛ akk %(count)s n iceggiren"
 
-#: src/amo/components/Addon/index.js:185
+#: src/amo/components/Addon/index.js:186
 msgid "No reviews yet"
 msgstr "Ulac iceggiren tura"
 
-#: src/amo/components/Addon/index.js:194
+#: src/amo/components/Addon/index.js:195
 msgid "Rate your experience"
 msgstr "Sezmel tarmit inek"
 
-#: src/amo/components/Addon/index.js:227
+#: src/amo/components/Addon/index.js:229
 msgid "About this %(addonType)s"
 msgstr "Ɣef %(addonType)s-agi"
 
-#: src/amo/components/Addon/index.js:276
+#: src/amo/components/Addon/index.js:280
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)ssɣuṛ %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:320
+#: src/amo/components/Addon/index.js:324
 msgid "Extension Metadata"
 msgstr "Asiɣzef aɣefisefka"
 
-#: src/amo/components/Addon/index.js:339
+#: src/amo/components/Addon/index.js:343
 msgid "Screenshots"
 msgstr "Tuṭṭfiwin n wegdil"
 
@@ -84,7 +84,8 @@ msgstr ""
 "Iminig-ik ur isefrak ara izegrar. Tzemreḍ <a href=\"%(downloadUrl)s\">ad "
 "tsidreḍ Firefox</a> akken ad tesbeddeḍ azerir-agi."
 
-#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult.js:60
+#: src/amo/components/AddonMeta.js:27
+#: src/amo/components/SearchResult/index.js:88
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s aseqdac"
@@ -104,7 +105,7 @@ msgstr "Ulac iceggiren"
 msgid "Used by"
 msgstr "Ittwaqdec sɣur"
 
-#: src/amo/components/AddonMoreInfo.js:100
+#: src/amo/components/AddonMoreInfo.js:106
 msgid "Read the license agreement for this add-on"
 msgstr "Γeṛ tasertit n tbaḍnit i uzegrir-agi"
 
@@ -140,15 +141,15 @@ msgstr "%(timeFromNow)s (%(date)s)"
 msgid "License"
 msgstr "Turagt"
 
-#: src/amo/components/AddonMoreInfo.js:83
+#: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
 msgstr "Tasertit n tbaḍnit"
 
-#: src/amo/components/AddonMoreInfo.js:89
+#: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
 msgstr "Ɣeṛ tasertit n tbaḍnit i uzegrir-agi"
 
-#: src/amo/components/AddonMoreInfo.js:94
+#: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
 msgstr "Amtawa n uselkin n useqdac aneggaru"
 
@@ -177,23 +178,23 @@ msgstr "Aru acegger"
 msgid "Review text"
 msgstr "Aḍris n ucegger"
 
-#: src/amo/components/AddonReview.js:181
+#: src/amo/components/AddonReview.js:182
 msgid "Submit review"
 msgstr "Azen acegger"
 
-#: src/amo/components/AddonReviewList.js:118
+#: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "si %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:153
+#: src/amo/components/AddonReviewList.js:158
 msgid "Add-on icon"
 msgstr "Tignit n uzegrir"
 
-#: src/amo/components/AddonReviewList.js:159
+#: src/amo/components/AddonReviewList.js:164
 msgid "Reviews for %(addonName)s"
 msgstr "Iceggiren i %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:180
+#: src/amo/components/AddonReviewList.js:185
 msgid "All written reviews"
 msgstr "Akk iceggiren yettwarun"
 
@@ -202,16 +203,35 @@ msgid "Add-ons for Firefox"
 msgstr "Izegrar i Firefox"
 
 #: src/amo/components/Categories.js:57
+#: src/amo/components/CategoriesHeader/index.js:47
 msgid "Failed to load categories."
 msgstr "Ur yewwid ara ad d-isali taggayin."
 
 #: src/amo/components/Categories.js:65
+#: src/amo/components/CategoriesHeader/index.js:55
 msgid "No categories found."
 msgstr "Ulac taggayin yettwafen."
 
 #: src/amo/components/Categories.js:74
+#: src/amo/components/CategoriesHeader/index.js:65
 msgid "Loading categories."
 msgstr "Asali n taggayin."
+
+#: src/amo/components/CategoriesHeader/index.js:61
+msgid "Categories"
+msgstr "Taggayin"
+
+#: src/amo/components/CategoryHeader/index.js:34
+msgid "Browse all add-ons in this category."
+msgstr "Inig ɣer akk isiγzaf di teggayt-a."
+
+#: src/amo/components/CategoryHeader/index.js:38
+msgid "Browse all extensions in this category."
+msgstr "Inig γer akk isiɣzaf di taggayt-ag."
+
+#: src/amo/components/CategoryHeader/index.js:43
+msgid "Browse all themes in this category."
+msgstr "Inig ɣer akk isental di teggayt-a."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
@@ -223,11 +243,11 @@ msgstr ""
 "\"%(url)s\">azen-d ugur</a>. Ini-yaɣ-d ansa i d-kkiḍ udiɣ ayen tettaɛraḍeḍ "
 "ad twaliḍ, sakin ad nefru ugur."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:34
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Ur ittwasireg ara"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:36
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:38
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -245,12 +265,12 @@ msgstr ""
 "ugur</a>. Iniyaɣ-d ansa i d-yekka akked wayen tettnadiḍ, sakin ad nwali ayen "
 "nezmer akken ad t-nseɣti."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:33
+#: src/amo/components/ErrorPage/NotFound/index.js:34
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Ulac asebter"
 
-#: src/amo/components/ErrorPage/NotFound/index.js:35
+#: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid ""
 "Sorry, but we can't find anything at the address you entered. If you "
 "followed a link to an add-on, it's possible that add-on has been removed by "
@@ -270,12 +290,12 @@ msgstr ""
 "github.com/mozilla/addons-frontend/issues/new/\">tazneḍ abug</a>. Ini-yaɣ-d "
 "amek twxedmeḍ imi d-ḍra tuccḍa-agi sakin ad nwali amek ad tt-nseɣti."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:32
+#: src/amo/components/ErrorPage/ServerError/index.js:33
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Tuccḍa deg usenkez"
 
-#: src/amo/components/ErrorPage/ServerError/index.js:34
+#: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
@@ -295,19 +315,19 @@ msgstr "Isental yettwasnen aṭas"
 msgid "Go to Mozilla's homepage"
 msgstr "Ddu γer usebter agejdan n Mozilla"
 
-#: src/amo/components/Footer/index.js:32
+#: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
 msgstr "Tasertit n tbaḍnit"
 
-#: src/amo/components/Footer/index.js:38
+#: src/amo/components/Footer/index.js:44
 msgid "Legal notices"
 msgstr "Tizmilin tusḍifin"
 
-#: src/amo/components/Footer/index.js:44
+#: src/amo/components/Footer/index.js:52
 msgid "Report a bug"
 msgstr "Azen-d abug"
 
-#: src/amo/components/Footer/index.js:51
+#: src/amo/components/Footer/index.js:62
 msgid "View classic desktop site"
 msgstr "Sken asmel n uselkim"
 
@@ -319,53 +339,52 @@ msgstr "Izegrar Firefox"
 msgid "Developer Hub"
 msgstr "Tarbaɛt n ineflayen"
 
-#: src/amo/components/LandingPage.js:103
-msgid "More highly rated extensions"
-msgstr "Isiɣzaf yettwaszemlen ugar"
+#: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
+msgid "Shop online"
+msgstr "Tiɣin s srid"
 
-#: src/amo/components/LandingPage.js:106
-msgid "Featured themes"
-msgstr "Isental itran"
+#: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
+msgid "Be social"
+msgstr "Mmeslay"
 
-#: src/amo/components/LandingPage.js:110
-msgid "More featured themes"
-msgstr "Isental yettwasnen aṭas"
+#: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
+msgid "Play games"
+msgstr "Urar uraren"
 
-#: src/amo/components/LandingPage.js:111
-msgid "Most popular themes"
-msgstr "Isental yettwasnen aṭas"
+#: src/amo/components/Home/index.js:120
+msgid "Wild"
+msgstr "Afeḥtelli"
 
-#: src/amo/components/LandingPage.js:116
-msgid "More popular themes"
-msgstr "Isental yettwasnen aṭas"
+#: src/amo/components/Home/index.js:121
+msgid "Abstract"
+msgstr "Amadwan"
 
-#: src/amo/components/LandingPage.js:117
-msgid "Top rated themes"
-msgstr "Isental yettwaszemlen aṭas"
+#: src/amo/components/Home/index.js:122
+msgid "Holiday"
+msgstr "Amras"
 
-#: src/amo/components/LandingPage.js:122
-msgid "More highly rated themes"
-msgstr "Isental yettwaszelen aṭas"
+#: src/amo/components/Home/index.js:123
+msgid "Scenic"
+msgstr "Scenic"
 
-#: src/amo/components/LandingPage.js:157
-#: src/amo/components/SectionLinks/index.js:59 src/amo/containers/Home.js:58
-msgid "Themes"
-msgstr "Isental"
+#: src/amo/components/Home/index.js:124
+msgid "Sporty"
+msgstr "Anaddal"
 
-#: src/amo/components/LandingPage.js:158
-#: src/amo/components/SectionLinks/index.js:49 src/amo/containers/Home.js:55
-msgid "Extensions"
-msgstr "Isiɣzaf"
+#: src/amo/components/Home/index.js:125
+msgid "Solid"
+msgstr "Ukmil"
 
-#: src/amo/components/LandingPage.js:161
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Snifel udem n iminig-ik. Fren seg agimen n isental akken ad tmudded udem "
-"tebɣiḍ i Firefox."
+#: src/amo/components/Home/index.js:138
+#: src/amo/components/SuggestedPages/index.js:26
+msgid "Browse all extensions"
+msgstr "Inig akk isiɣzaf"
 
-#: src/amo/components/LandingPage.js:163
+#: src/amo/components/Home/index.js:143
+msgid "You can change how Firefox works…"
+msgstr "Tzemred ad tesnifleḍ amek ara yeddu Firefox…"
+
+#: src/amo/components/Home/index.js:146
 msgid ""
 "Install powerful tools that make browsing faster and safer, add-ons make "
 "your browser yours."
@@ -373,97 +392,193 @@ msgstr ""
 "Sebded ifecka uzmiren ara yerren tunigin d taruraṭ, d taɣelsant, izegrar ad "
 "erren iminig-ik d ayla-k."
 
-#: src/amo/components/LandingPage.js:188
-msgid "Browse by category"
-msgstr "Snirem s taggayin"
+#: src/amo/components/Home/index.js:157
+#: src/amo/components/SuggestedPages/index.js:31
+msgid "Browse all themes"
+msgstr "Inig ɣer akk isental"
 
-#: src/amo/components/LandingPage.js:84
-msgid "Featured extensions"
-msgstr "Isiɣzaf yettwaszemlen"
+#: src/amo/components/Home/index.js:162
+msgid "…or what it looks like"
+msgstr "…neɣ ayen icuban aya"
 
-#: src/amo/components/LandingPage.js:88
-msgid "More featured extensions"
-msgstr "Isiɣzaf yettwaszemlen aṭas"
+#: src/amo/components/Home/index.js:165
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Snifel udem n iminig-ik. Fren seg agimen n isental akken ad tmudded udem "
+"tebɣiḍ i Firefox."
 
-#: src/amo/components/LandingPage.js:89
-msgid "Most popular extensions"
-msgstr "Isiɣzaf yettwasnen aṭas"
+#: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
+msgid "Block ads"
+msgstr "Sewḥel adellel"
 
-#: src/amo/components/LandingPage.js:94
+#: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
+msgid "Screenshot"
+msgstr "Tuṭṭfa n ugdil"
+
+#: src/amo/components/Home/index.js:72 src/amo/components/Home/index.js:97
+msgid "Find news"
+msgstr "Af-d isallen"
+
+#: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
 msgstr "Isiɣzaf yettwasnen aṭas"
 
-#: src/amo/components/LandingPage.js:95
+#: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
+
+#: src/amo/components/LandingPage/index.js:111
+msgid "More highly rated extensions"
+msgstr "Isiɣzaf yettwaszemlen ugar"
+
+#: src/amo/components/LandingPage/index.js:114
+msgid "Featured themes"
+msgstr "Isental itran"
+
+#: src/amo/components/LandingPage/index.js:118
+msgid "More featured themes"
+msgstr "Isental yettwasnen aṭas"
+
+#: src/amo/components/LandingPage/index.js:119
+msgid "Most popular themes"
+msgstr "Isental yettwasnen aṭas"
+
+#: src/amo/components/LandingPage/index.js:124
+msgid "More popular themes"
+msgstr "Isental yettwasnen aṭas"
+
+#: src/amo/components/LandingPage/index.js:125
+msgid "Top rated themes"
+msgstr "Isental yettwaszemlen aṭas"
+
+#: src/amo/components/LandingPage/index.js:130
+msgid "More highly rated themes"
+msgstr "Isental yettwaszelen aṭas"
+
+#: src/amo/components/LandingPage/index.js:177
+#: src/amo/components/SectionLinks/index.js:60
+msgid "Themes"
+msgstr "Isental"
+
+#: src/amo/components/LandingPage/index.js:178
+#: src/amo/components/SectionLinks/index.js:50
+msgid "Extensions"
+msgstr "Isiɣzaf"
+
+#: src/amo/components/LandingPage/index.js:209
+msgid "Explore all categories"
+msgstr "Wali akk taggayin"
+
+#: src/amo/components/LandingPage/index.js:92
+msgid "Featured extensions"
+msgstr "Isiɣzaf yettwaszemlen"
+
+#: src/amo/components/LandingPage/index.js:96
+msgid "More featured extensions"
+msgstr "Isiɣzaf yettwaszemlen aṭas"
+
+#: src/amo/components/LandingPage/index.js:97
+msgid "Most popular extensions"
+msgstr "Isiɣzaf yettwasnen aṭas"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
 msgstr "Inig s tutlayt-ik"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
 msgstr "Qqen akken ad ternud tazmilt i umawal-agi"
 
-#: src/amo/components/RatingManager/index.js:126
+#: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this language pack"
 msgstr "Qqen akken ad ternud tazmilt i ukemmus-agi utlayan"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this search plugin"
 msgstr "Qqen akken ad ternud tazmilt i uzegrir-agi n unadi"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this theme"
 msgstr "Qqen akken ad ternud tazmilt i usentel-agi"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this extension"
 msgstr "Qqen akken ad ternud tazmilt i usiɣzef-agi"
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this add-on"
 msgstr "Qqen akken ad ternud tazmilt i uzegrir-agi"
 
-#: src/amo/components/RatingManager/index.js:162
+#: src/amo/components/RatingManager/index.js:163
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Amek tettwaliḍ aseqdec n %(addonName)s?"
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchContextCard/index.js:32
+msgid "%(count)s result for \"%(query)s\""
+msgid_plural "%(count)s results for \"%(query)s\""
+msgstr[0] "%(count)s tiffin i \"%(query)s\""
+msgstr[1] "%(count)s tiffin i \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:38
+msgid "Searching for \"%(query)s\""
+msgstr "Anadi γef usuter \"%(query)s\""
+
+#: src/amo/components/SearchContextCard/index.js:41
+msgid "Loading add-ons"
+msgstr "Asali n iseγzaf"
+
+#: src/amo/components/SearchContextCard/index.js:43
+msgid "No add-ons found"
+msgstr "Ulac iseγzaf"
+
+#: src/amo/components/SearchContextCard/index.js:45
+#, fuzzy
+msgid "%(count)s add-on found"
+msgid_plural "%(count)s add-ons found"
+msgstr[0] "%(count)s iseγzaf illan\""
+msgstr[1] "%(count)s iseγzaf illan"
+
+#: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
 msgstr "Isiγzaf yettwaszemlen"
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:52
 msgid "Search themes"
 msgstr "Nadi isental"
 
-#: src/amo/components/SearchForm.js:56
+#: src/amo/components/SearchForm.js:54
 msgid "Search extensions and themes"
 msgstr "Nadi isiɣzaf akked isental"
 
-#: src/amo/components/SearchForm.js:64 src/amo/components/SearchForm.js:73
+#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
 msgid "Search"
 msgstr "Nadi"
 
-#: src/amo/components/SearchResult.js:50
+#: src/amo/components/SearchResult/index.js:57
 msgid "No theme preview available"
 msgstr "Ulac taskant n usentel"
 
-#: src/amo/components/SearchResults.js:43
+#: src/amo/components/SearchResults.js:41
 msgid "Searching…"
 msgstr "Anadi..."
 
-#: src/amo/components/SearchResults.js:49
+#: src/amo/components/SearchResults.js:47
 msgid "No results were found for \"%(query)s\"."
 msgstr "Ulac tiffin i \"%(query)s\"."
 
-#: src/amo/components/SearchResults.js:53
+#: src/amo/components/SearchResults.js:51
 msgid "No results were found."
 msgstr "Ulac igmad yettwafen."
 
-#: src/amo/components/SearchResults.js:56
+#: src/amo/components/SearchResults.js:54
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Ma ulac aɣilif, sekcem awal i unadi n izegrar Firefox."
+
+#: src/amo/components/SearchResults.js:63
+msgid "Search results"
+msgstr "Igmaḍ n unadi"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
@@ -481,11 +596,12 @@ msgstr "Yettwaseqdac aṭas"
 msgid "Top Rated"
 msgstr "Yettwasezmel aṭas"
 
-#: src/amo/components/SearchSort/index.js:67
+#: src/amo/components/SearchSort/index.js:66
+#: src/amo/components/SearchSort/index.js:74
 msgid "Sort"
 msgstr "Smizzwer"
 
-#: src/amo/components/SectionLinks/index.js:39
+#: src/amo/components/SectionLinks/index.js:40
 msgid "Explore"
 msgstr "Snirem"
 
@@ -493,81 +609,9 @@ msgstr "Snirem"
 msgid "Suggested Pages"
 msgstr "Isebtar yettsimren"
 
-#: src/amo/components/SuggestedPages/index.js:26 src/amo/containers/Home.js:85
-msgid "Browse all extensions"
-msgstr "Inig akk isiɣzaf"
-
-#: src/amo/components/SuggestedPages/index.js:31 src/amo/containers/Home.js:98
-msgid "Browse all themes"
-msgstr "Inig ɣer akk isental"
-
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Asebter agejdan n uzegrir"
-
-#: src/amo/containers/Home.js:50
-msgid ""
-"Extensions are special features you can add to Firefox. Themes let you "
-"change your browser's appearance."
-msgstr ""
-"Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ i Firefox. Isental ad k-eǧǧen "
-"ad tesnifleḍ udem n iming-ik."
-
-#: src/amo/containers/Home.js:63
-msgid "You can change how Firefox works…"
-msgstr "Tzemred ad tesnifleḍ amek ara yeddu Firefox…"
-
-#: src/amo/containers/Home.js:66
-msgid "Block ads"
-msgstr "Sewḥel adellel"
-
-#: src/amo/containers/Home.js:69
-msgid "Screenshot"
-msgstr "Tuṭṭfa n ugdil"
-
-#: src/amo/containers/Home.js:72
-msgid "Find news"
-msgstr "Af-d isallen"
-
-#: src/amo/containers/Home.js:75
-msgid "Shop online"
-msgstr "Tiɣin s srid"
-
-#: src/amo/containers/Home.js:78
-msgid "Be social"
-msgstr "Mmeslay"
-
-#: src/amo/containers/Home.js:81
-msgid "Play games"
-msgstr "Urar uraren"
-
-#: src/amo/containers/Home.js:88
-msgid "…or what it looks like"
-msgstr "…neɣ ayen icuban aya"
-
-#: src/amo/containers/Home.js:90
-msgid "Wild"
-msgstr "Afeḥtelli"
-
-#: src/amo/containers/Home.js:91
-msgid "Abstract"
-msgstr "Amadwan"
-
-#: src/amo/containers/Home.js:92
-msgid "Holiday"
-msgstr "Amras"
-
-#: src/amo/containers/Home.js:93
-msgid "Scenic"
-msgstr "Scenic"
-
-#: src/amo/containers/Home.js:94
-msgid "Sporty"
-msgstr "Anaddal"
-
-#: src/amo/containers/Home.js:95
-msgid "Solid"
-msgstr "Ukmil"
 
 #: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
@@ -631,27 +675,27 @@ msgstr "%(name)s ittwakkes. Senned i wakken ad tesbdeḍ-t"
 msgid "Install state for %(name)s is unknown."
 msgstr "Addad n usebdi n %(name)s d arussin."
 
-#: src/core/components/Paginate/index.js:108
-msgid "Previous"
-msgstr "Azewwar"
-
-#: src/core/components/Paginate/index.js:121
-msgid "Next"
-msgstr "Ddu ɣer zdat"
-
-#: src/core/components/Paginate/index.js:99
+#: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
 msgstr "Asebter %(currentPage)s seg %(totalPages)s"
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/components/Paginate/index.js:109
+msgid "Previous"
+msgstr "Azewwar"
+
+#: src/core/components/Paginate/index.js:122
+msgid "Next"
+msgstr "Ddu ɣer zdat"
+
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Azegrir inek ihegga"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Tzemreḍ tura ad tkecmeḍ %(name)s seg ufeggag n ifecka."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "IH!"
 
@@ -675,9 +719,19 @@ msgstr "Yettwasezmel %(rating)s ugar n 5"
 msgid "No ratings"
 msgstr "Ulac tazmilt"
 
-#: src/ui/components/ShowMoreCard/index.js:59
+#: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
+
+#~ msgid "Browse by category"
+#~ msgstr "Snirem s taggayin"
+
+#~ msgid ""
+#~ "Extensions are special features you can add to Firefox. Themes let you "
+#~ "change your browser's appearance."
+#~ msgstr ""
+#~ "Isiɣzaf d timahilin izaden i tzemreḍ ad ternuḍ i Firefox. Isental ad k-"
+#~ "eǧǧen ad tesnifleḍ udem n iming-ik."
 
 #~ msgid "Loading..."
 #~ msgstr "Asali..."
@@ -696,9 +750,6 @@ msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
 
 #~ msgid "Website"
 #~ msgstr "Asmel Web"
-
-#~ msgid "Category"
-#~ msgstr "Taggayt"
 
 #~ msgid "Sentiment"
 #~ msgstr "Aḥulfu"

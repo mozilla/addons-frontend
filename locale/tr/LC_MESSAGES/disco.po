@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-06 20:17+0000\n"
+"POT-Creation-Date: 2017-07-11 16:54+0000\n"
 "PO-Revision-Date: 2017-04-16 11:54+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,68 +76,81 @@ msgstr "%(name)s kaldırıldı. Yüklemek için tıklayın."
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s yükleme durumu bilinmiyor."
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Eklentiniz hazır"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "%(name)s artık araç çubuğunuzda."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "Tamam!"
 
-#: src/disco/components/Addon.js:101
+#: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 " %(name)s temasını ön izlemek için üzerine gidin veya yüklemek için tıklayın"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
 msgstr "Ön izlemesini görmek için resmin üzerine gidin"
 
-#: src/disco/components/Addon.js:135
+#: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
 msgstr "Yükleme başarısız oldu. Lütfen yeniden deneyin."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
 msgstr "İndirme başarısız oldu. Lütfen bağlantınızı kontrol edin."
 
-#: src/disco/components/Addon.js:139
+#: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
 msgstr "Yükleme sırasında beklenmeyen bir hata oluştu."
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Kaldırma sırasında beklenmeyen bir hata oluştu."
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
 msgstr "Beklenmeyen bir hata oluştu."
 
-#: src/disco/components/Addon.js:152
+#: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Firefox'u yeniden başlattığınızda bu eklenti kaldırılacak."
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
 msgstr "Bu eklentiyi kullanabilmek için lütfen Firefox'u yeniden başlatın."
 
-#: src/disco/components/Addon.js:69
+#: src/disco/components/Addon.js:78
 msgid "Close"
 msgstr "Kapat"
+
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+#, fuzzy
+msgid "This add-on does not support your version of Firefox."
+msgstr "Firefox'u yeniden başlattığınızda bu eklenti kaldırılacak."
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ""
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
 msgstr "Eklentileri Keşfedin"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
 msgstr "Firefox'unuzu kişiselleştirin"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:108
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -153,18 +166,18 @@ msgstr ""
 "atmanız için \n"
 "performansları ve işlevleriyle öne çıkan birkaç eklentiyi aşağıda sıraladık."
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
 msgstr "Oynatmak için tıkla"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
 msgstr "eklentiler hakkında daha fazla bilgi almak için"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
 msgstr "Videoyu kapat"
 
-#: src/disco/containers/DiscoPane.js:134
+#: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
 msgstr "Diğer eklentileri de görün!"

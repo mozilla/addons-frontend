@@ -1,6 +1,10 @@
+// Disabled because of
+// https://github.com/benmosher/eslint-plugin-import/issues/793
+/* eslint-disable import/order */
 import { takeEvery } from 'redux-saga';
-import { put, select } from 'redux-saga/effects';
 import SagaTester from 'redux-saga-tester';
+import { put, select } from 'redux-saga/effects';
+/* eslint-enable import/order */
 
 import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';

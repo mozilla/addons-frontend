@@ -1,4 +1,4 @@
-/* global navigator, window */
+/* global window */
 /* eslint-disable react/prop-types */
 import url from 'url';
 
@@ -242,7 +242,7 @@ export function safeAsyncConnect(
     if (!conf.promise) {
       // This is the only way we use asyncConnect() for now.
       throw new Error(
-        dedent`Expected safeAsyncConnect() config to define a promise:
+        oneLine`Expected safeAsyncConnect() config to define a promise:
         ${JSON.stringify(conf)}`);
     }
     return {

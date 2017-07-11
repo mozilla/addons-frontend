@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-06 20:17+0000\n"
-"PO-Revision-Date: 2017-02-03 22:13+0000\n"
+"POT-Creation-Date: 2017-07-11 16:54+0000\n"
+"PO-Revision-Date: 2017-07-03 20:00+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ga_IE\n"
@@ -17,26 +17,30 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Earráid ón Fhreastalaí"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
 "Sorry, but there was an error and we couldn't complete your request. We have "
 "logged this error and will investigate it."
 msgstr ""
+"Ár leithscéal. Tharla earráid agus ní raibh muid in ann d'iarratas a "
+"chomhlíonadh. Sábháladh an earráid seo sa logchomhad agus fiosróimid an "
+"scéal."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34
 #: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Cód earráide: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "Níl fáil ar an leathanach"
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
+"Ár leithscéal, ach ní bhfuaireamar aon rud ag an URL a chuir tú isteach."
 
 #: src/core/components/InstallButton/index.js:107
 #: src/core/components/InstallButton/index.js:125
@@ -75,70 +79,83 @@ msgstr "Díshuiteáladh %(name)s. Cliceáil chun é a shuiteáil arís."
 msgid "Install state for %(name)s is unknown."
 msgstr "Níl a fhios againn an bhfuil %(name)s suiteáilte nó nach bhfuil."
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Tá do bhreiseán réidh"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Anois is féidir leat teacht ar %(name)s ón bharra uirlisí."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:101
+#: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Cuir do luch os a chionn chun réamhamharc a fháil, nó cliceáil chun %(name)s "
 "a shuiteáil"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
 msgstr "Cuir do luch os cionn an phictiúir le réamhamharc a fháil"
 
-#: src/disco/components/Addon.js:135
+#: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
 msgstr "Theip ar an tsuiteáil. Bain triail eile as."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
 msgstr ""
 "Theip ar an íoslódáil. Déan cinnte go bhfuil tú ceangailte leis an líonra."
 
-#: src/disco/components/Addon.js:139
+#: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
 msgstr "Tharla earráid gan súil leis le linn suiteála."
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Tharla earráid gan súil leis le linn díshuiteála."
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
 msgstr "Tharla earráid gan súil leis."
 
-#: src/disco/components/Addon.js:152
+#: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Díshuiteálfar an breiseán seo tar éis duit Firefox a atosú."
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ní mór duit Firefox a atosú chun an breiseán seo a úsáid."
 
-#: src/disco/components/Addon.js:69
+#: src/disco/components/Addon.js:78
 msgid "Close"
 msgstr "Dún"
+
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+#, fuzzy
+msgid "This add-on does not support your version of Firefox."
+msgstr "Díshuiteálfar an breiseán seo tar éis duit Firefox a atosú."
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ""
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
 msgstr "Aimsigh Breiseáin"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
 msgstr "Cuir Firefox in oiriúint duitse féin"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:108
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -153,18 +170,18 @@ msgstr ""
 "I dtús báire, seo duit roinnt breiseán a mholaimid mar gheall ar "
 "fheidhmíocht agus gníomhaíocht thar barr."
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
 msgstr "Cliceáil le seinm"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
 msgstr "chun tuilleadh eolais faoi bhreiseáin a fháil"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
 msgstr "Dún an físeán"
 
-#: src/disco/containers/DiscoPane.js:134
+#: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
 msgstr "Tuilleadh breiseán!"

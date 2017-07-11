@@ -2,10 +2,6 @@
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
-.CategoriesHeader .Card-contents {
-  display: flex;
-}
-
 .CategoriesHeader-loadingText {
   @include margin-end(5px);
 }

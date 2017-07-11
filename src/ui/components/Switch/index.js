@@ -47,15 +47,21 @@ export default class Switch extends React.Component {
     });
 
     return (
-      <div className={classes} onClick={onClick}
-        data-progress={hasProgress ? this.getProgress() : 0}>
+      // TODO: fix this by updating to handle enter keypress and make role="button"
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+      <div
+        className={classes}
+        onClick={onClick}
+        data-progress={hasProgress ? this.getProgress() : 0}
+      >
         <input
           id={identifier}
           className="visually-hidden"
           checked={checked}
           disabled={disabled}
           onChange={onChange}
-          type="checkbox" />
+          type="checkbox"
+        />
         <label htmlFor={identifier}>
           {hasProgress ? <div className="Switch-progress-bar" /> : null}
           <span className="visually-hidden">{label}</span>

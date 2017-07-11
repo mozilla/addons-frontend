@@ -1,3 +1,4 @@
+import { oneLine } from 'common-tags';
 import config from 'config';
 
 import {
@@ -39,7 +40,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   let prependedOrMovedApplication = false;
 
   if (hasValidLocaleException) {
-    log.info(dedent`Second part of URL is a locale exception (${URLParts[1]});
+    log.info(oneLine`Second part of URL is a locale exception (${URLParts[1]});
       make sure the clientApp is valid`);
 
     // Normally we look for a clientApp in the second part of a URL, but URLs
@@ -86,7 +87,7 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     if (hasValidLang || hasValidLocaleException) {
       log.info('Exception in URL found; we fallback to addons-server.');
 
-      res.status(404).end(dedent`This page does not exist in addons-frontend.
+      res.status(404).end(oneLine`This page does not exist in addons-frontend.
         Returning 404; this error should trigger upstream (usually
         addons-server) to return a valid response.`);
       return next();

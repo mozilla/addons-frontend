@@ -11,7 +11,7 @@ import { fetchAddon } from 'core/actions/addons';
 import Paginate from 'core/components/Paginate';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { findAddon } from 'core/utils';
+import { findAddon, nl2br, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import { parsePage } from 'core/searchUtils';
@@ -111,20 +111,26 @@ export class AddonReviewListBase extends React.Component {
     const { i18n } = this.props;
 
     let byLine;
+    let reviewBody;
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
       // L10n: Example: "from Jose, last week"
       byLine = i18n.sprintf(
         i18n.gettext('from %(authorName)s, %(timestamp)s'),
           { authorName: review.userName, timestamp });
+
+      const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
+      // eslint-disable-next-line react/no-danger
+      reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
     } else {
       byLine = <LoadingText />;
+      reviewBody = <p><LoadingText /></p>;
     }
 
     return (
       <li className="AddonReviewList-li" key={key}>
         <h3>{review ? review.title : <LoadingText />}</h3>
-        <p>{review ? review.body : <LoadingText />}</p>
+        {reviewBody}
         <div className="AddonReviewList-by-line">
           {review ?
             <Rating styleName="small" rating={review.rating} readOnly />

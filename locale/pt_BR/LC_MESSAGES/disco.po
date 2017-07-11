@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-06 20:17+0000\n"
+"POT-Creation-Date: 2017-07-11 16:54+0000\n"
 "PO-Revision-Date: 2017-03-22 17:05+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
@@ -76,67 +76,80 @@ msgstr "%(name)s está desinstalado. Clique para instalar."
 msgid "Install state for %(name)s is unknown."
 msgstr "Estado da instalação de %(name)s é desconhecido."
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Sua extensão está pronta"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Agora pode acessar a %(name)s pela barra de ferramentas."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:101
+#: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Passe o mouse para visualizar ou clique para instalar %(name)s"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
 msgstr "Passe o mouse sobre a imagem para visualizar"
 
-#: src/disco/components/Addon.js:135
+#: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
 msgstr "A instalação falhou. Tente novamente."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
 msgstr "O download falhou. Por favor, verifique sua conexão."
 
-#: src/disco/components/Addon.js:139
+#: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
 msgstr "Ocorreu um erro inesperado durante a instalação."
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ocorreu um erro inesperado durante a desinstalação."
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
 msgstr "Ocorreu um erro inesperado."
 
-#: src/disco/components/Addon.js:152
+#: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Esta extensão será desinstalada depois de reiniciar o Firefox."
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
 msgstr "Por favor, reinicie o Firefox para usar esta extensão."
 
-#: src/disco/components/Addon.js:69
+#: src/disco/components/Addon.js:78
 msgid "Close"
 msgstr "Fechar"
+
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+#, fuzzy
+msgid "This add-on does not support your version of Firefox."
+msgstr "Esta extensão será desinstalada depois de reiniciar o Firefox."
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ""
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
 msgstr "Descobrir extensões"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
 msgstr "Personalize seu Firefox"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:108
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -152,19 +165,19 @@ msgstr ""
 "extensões fazem o seu navegador ser seu. Para o ajudar a começar, aqui estão "
 "algumas que recomendamos por suas funcionalidade e desempenho."
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
 msgstr "Clique para reproduzir"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
 msgstr "para saber mais sobre extensões"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
 msgstr "Fechar vídeo"
 
-#: src/disco/containers/DiscoPane.js:134
+#: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
 msgstr "Ver mais extensões!"
 

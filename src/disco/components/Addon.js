@@ -8,12 +8,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { sanitizeHTML } from 'core/utils';
-import translate from 'core/i18n/translate';
-import themeAction from 'core/themePreview';
-import tracking, { getAction } from 'core/tracking';
-import InstallButton from 'core/components/InstallButton';
+import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import HoverIntent from 'core/components/HoverIntent';
+import InstallButton from 'core/components/InstallButton';
 import {
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
@@ -28,17 +25,27 @@ import {
   validAddonTypes,
   validInstallStates,
 } from 'core/constants';
+import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
+import themeAction from 'core/themePreview';
+import tracking, { getAction } from 'core/tracking';
+import {
+  getClientCompatibility as _getClientCompatibility,
+  sanitizeHTML,
+} from 'core/utils';
 
 import 'disco/css/Addon.scss';
+
 
 export class AddonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
+    clientApp: PropTypes.string.isRequired,
     description: PropTypes.string,
     error: PropTypes.string,
     heading: PropTypes.string.isRequired,
     getBrowserThemeData: PropTypes.func.isRequired,
+    getClientCompatibility: PropTypes.func,
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
@@ -50,13 +57,15 @@ export class AddonBase extends React.Component {
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
     _tracking: PropTypes.object,
   }
 
   static defaultProps = {
+    getClientCompatibility: _getClientCompatibility,
+    needsRestart: false,
     // Defaults themeAction to the imported func.
     themeAction,
-    needsRestart: false,
     _tracking: tracking,
   }
 
@@ -91,14 +100,20 @@ export class AddonBase extends React.Component {
       return (
         <HoverIntent
           onHoverIntent={this.previewTheme}
-          onHoverIntentEnd={this.resetThemePreview}>
-          <a href="#" className="theme-image"
+          onHoverIntentEnd={this.resetThemePreview}
+        >
+          <a
+            href="#"
+            className="theme-image"
             data-browsertheme={getBrowserThemeData()}
             onBlur={this.resetThemePreview}
             onClick={this.installTheme}
-            onFocus={this.previewTheme}>
-            <img src={previewURL}
-              alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })} />
+            onFocus={this.previewTheme}
+          >
+            <img
+              src={previewURL}
+              alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })}
+            />
           </a>
         </HoverIntent>
       );
@@ -111,14 +126,18 @@ export class AddonBase extends React.Component {
     const { i18n, description, type } = this.props;
     if (type === ADDON_TYPE_THEME) {
       return (
-        <p className="editorial-description">{i18n.gettext('Hover over the image to preview')}</p>
+        <p className="editorial-description">
+          {i18n.gettext('Hover over the image to preview')}
+        </p>
       );
     }
     return (
       <div
-        ref={(ref) => { this.editorialDescription = ref; }}
         className="editorial-description"
-        dangerouslySetInnerHTML={sanitizeHTML(description, ['blockquote', 'cite'])} />
+        dangerouslySetInnerHTML={
+          sanitizeHTML(description, ['blockquote', 'cite'])
+        }
+      />
     );
   }
 
@@ -181,7 +200,14 @@ export class AddonBase extends React.Component {
   }
 
   render() {
-    const { heading, type } = this.props;
+    const {
+      addon,
+      clientApp,
+      getClientCompatibility,
+      heading,
+      type,
+      userAgentInfo,
+    } = this.props;
 
     if (!validAddonTypes.includes(type)) {
       throw new Error(`Invalid addon type "${type}"`);
@@ -192,7 +218,13 @@ export class AddonBase extends React.Component {
       extension: type === ADDON_TYPE_EXTENSION,
     });
 
+    const { compatible, minVersion, reason } = getClientCompatibility({
+      addon, clientApp, userAgentInfo });
+
     return (
+      // Disabling this is fine since the onClick is just being used to delegate
+      // click events bubbling from the link within the header.
+      /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
       <div className={addonClasses}>
         {this.getThemeImage()}
         {this.getLogo()}
@@ -208,13 +240,23 @@ export class AddonBase extends React.Component {
           <div className="copy">
             <h2
               onClick={this.clickHeadingLink}
-              ref={(ref) => { this.heading = ref; }}
               className="heading"
-              dangerouslySetInnerHTML={sanitizeHTML(heading, ['a', 'span'])} />
+              dangerouslySetInnerHTML={sanitizeHTML(heading, ['a', 'span'])}
+            />
             {this.getDescription()}
           </div>
-          <InstallButton className="Addon-install-button" size="small" {...this.props} />
+          <InstallButton
+            className="Addon-install-button"
+            size="small"
+            {...this.props}
+          />
         </div>
+        {!compatible ? (
+          <AddonCompatibilityError
+            minVersion={minVersion}
+            reason={reason}
+          />
+        ) : null}
       </div>
     );
   }
@@ -227,6 +269,8 @@ export function mapStateToProps(state, ownProps) {
     addon,
     ...addon,
     ...installation,
+    clientApp: state.api.clientApp,
+    userAgentInfo: state.api.userAgentInfo,
   };
 }
 

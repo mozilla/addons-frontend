@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { CategoryBase, mapStateToProps } from 'amo/components/Category';
-import Search from 'amo/components/Search';
+import { SearchBase } from 'amo/components/Search';
 import createStore from 'amo/store';
 import { categoriesFetch } from 'core/actions/categories';
 import { searchStart } from 'core/actions/search';
@@ -50,7 +50,16 @@ describe('Category', () => {
 
   it('disables the sort component in Search', () => {
     const root = render();
-    expect(root.find(Search)).toHaveProp('enableSearchSort', false);
+
+    expect(root.find(SearchBase)).toHaveProp('enableSearchSort', false);
+  });
+
+  it('forces hasSearchParams for the Search component', () => {
+    // This prevents search results not appearing because the search
+    // component doesn't recognise a valid search param.
+    const root = render();
+
+    expect(root.find(SearchBase)).toHaveProp('hasSearchParams', true);
   });
 });
 
@@ -84,7 +93,6 @@ describe('Category.mapStateToProps()', () => {
       category: null,
       count: 0,
       filters,
-      hasSearchParams: true,
       loading: true,
       page: undefined,
       pathname: '/themes/ad-block/',
@@ -103,7 +111,6 @@ describe('Category.mapStateToProps()', () => {
     expect(props).toEqual({
       addonType: ADDON_TYPE_THEME,
       category: null,
-      hasSearchParams: true,
       pathname: '/themes/ad-block/',
       queryParams: { page: 1 },
     });

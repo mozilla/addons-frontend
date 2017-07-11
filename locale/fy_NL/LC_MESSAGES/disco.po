@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-06 20:17+0000\n"
+"POT-Creation-Date: 2017-07-11 16:54+0000\n"
 "PO-Revision-Date: 2017-03-20 09:06+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,69 +77,82 @@ msgstr "%(name)s is fuortsmiten. Klik om de add-on te ynstallearjen."
 msgid "Install state for %(name)s is unknown."
 msgstr "Ynstallaasjesteat foar %(name)s is net bekend."
 
-#: src/core/containers/InfoDialog/index.js:32
+#: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
 msgstr "Jo add-on is ree"
 
-#: src/core/containers/InfoDialog/index.js:34
+#: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Jo kinne %(name)s no benaderje fan de arkbalke ôf."
 
-#: src/core/containers/InfoDialog/index.js:39
+#: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:101
+#: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Hâld de mûsoanwizer hjir foar in foarbyld of klik om %(name)s te "
 "ynstallearjen"
 
-#: src/disco/components/Addon.js:114
+#: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
 msgstr "Hâld de mûsoanwizer boppe de ôfbylding foar in foarbyld"
 
-#: src/disco/components/Addon.js:135
+#: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
 msgstr "Ynstallaasje mislearre. Probearje it opnij."
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
 msgstr "Downloaden mislearre. Kontrolearje jo ferbining."
 
-#: src/disco/components/Addon.js:139
+#: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
 msgstr "Der is in ûnferwachte flater bard wylst it ynstallearjen."
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Der is in ûnferwachte flater bard wylst it fuortsmiten."
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
 msgstr "Der is in ûnferwachte flater bard."
 
-#: src/disco/components/Addon.js:152
+#: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Dizze add-on sil de-ynstallearre wurde neidat jo Firefox opnij starte."
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
 msgstr "Start Firefox opnij om dizze add-on te brûken."
 
-#: src/disco/components/Addon.js:69
+#: src/disco/components/Addon.js:78
 msgid "Close"
 msgstr "Slute"
+
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+#, fuzzy
+msgid "This add-on does not support your version of Firefox."
+msgstr "Dizze add-on sil de-ynstallearre wurde neidat jo Firefox opnij starte."
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ""
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
 msgstr "Add-ons ûntdekke"
 
-#: src/disco/containers/DiscoPane.js:104
+#: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
 msgstr "Personalisearje jo Firefox"
 
-#: src/disco/containers/DiscoPane.js:105
+#: src/disco/containers/DiscoPane.js:108
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -157,18 +170,18 @@ msgstr ""
 "oanrekkomandearre fanwege harren bjusterbaarlike prestaasjes\n"
 "en funksjonaliteit."
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
 msgstr "Klik om de fideo ôf te spyljen"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
 msgstr "en mear oer add-ons te ûntdekken"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
 msgstr "Fideo slute"
 
-#: src/disco/containers/DiscoPane.js:134
+#: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
 msgstr "Besjoch mear add-ons!"

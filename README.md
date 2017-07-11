@@ -40,23 +40,24 @@ The easiest way to manage multiple node versions in development is to use
 
 Here are some commands you can run:
 
-| Command                   | Description |
-|---------------------------|-------------|
-| yarn dev:amo              | Start the dev server and proxy (amo) |
-| yarn dev:amo:no-proxy     | Start the dev server without proxy (amo) |
-| yarn dev:disco            | Start the dev server (discovery pane) |
-| yarn flow                 | Run Flow. By default this checks for errors and exits |
-| yarn flow:check           | Explicitly check for Flow errors and exit |
-| yarn flow:dev             | Continuously check for Flow errors |
-| yarn eslint               | Lint the JS |
-| yarn stylelint            | Lint the SCSS |
-| yarn lint                 | Run all the JS + SCSS linters |
-| yarn version-check        | Check you have the required dependencies |
-| yarn test                 | Run all tests (Enters [jest][] in `--watch` mode) |
-| yarn test-coverage        | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
-| yarn test-coverage-once   | Run all tests, generate code coverage report, then exit |
-| yarn test-once            | Run all tests, run all JS + SCSS linters, then exit |
-| yarn test-ci              | Run all continuous integration checks. This is only meant to run on TravisCI. |
+| Command                     | Description |
+|-----------------------------|-------------|
+| yarn dev:amo                | Start the dev server and proxy (amo) |
+| yarn dev:amo:no-proxy       | Start the dev server without proxy (amo) |
+| yarn dev:disco              | Start the dev server (discovery pane) |
+| yarn flow                   | Run Flow. By default this checks for errors and exits |
+| yarn flow:check             | Explicitly check for Flow errors and exit |
+| yarn flow:dev               | Continuously check for Flow errors |
+| yarn eslint                 | Lint the JS |
+| yarn start-func-test-server | Start a Docker container for functional tests |
+| yarn stylelint              | Lint the SCSS |
+| yarn lint                   | Run all the JS + SCSS linters |
+| yarn version-check          | Check you have the required dependencies |
+| yarn test                   | Run all tests (Enters [jest][] in `--watch` mode) |
+| yarn test-coverage          | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
+| yarn test-coverage-once     | Run all tests, generate code coverage report, then exit |
+| yarn test-once              | Run all tests, run all JS + SCSS linters, then exit |
+| yarn test-ci                | Run all continuous integration checks. This is only meant to run on TravisCI. |
 
 ### Running tests
 

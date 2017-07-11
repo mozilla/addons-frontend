@@ -138,9 +138,14 @@ export class InstallSwitchBase extends React.Component {
       <div data-browsertheme={browsertheme} ref={(el) => { this.themeData = el; }}>
         <Switch
           {...otherProps}
-          checked={isChecked} disabled={isDisabled} progress={this.getDownloadProgress()}
-          name={slug} success={isSuccess} label={this.getLabel()}
-          onChange={handleChange} onClick={this.handleClick}
+          checked={isChecked}
+          disabled={isDisabled}
+          label={this.getLabel()}
+          name={slug}
+          onChange={handleChange}
+          onClick={this.handleClick}
+          progress={this.getDownloadProgress()}
+          success={isSuccess}
           ref={(el) => { this.switchEl = el; }}
         />
       </div>

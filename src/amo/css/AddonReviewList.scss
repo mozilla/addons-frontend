@@ -11,15 +11,20 @@
 .AddonReviewList-header {
   margin: 15px 0;
   display: flex;
+  align-items: center;
 
   .AddonReviewList-header-text {
+    // Flex implicitly sets `min-width: auto`; to force the overflow fix
+    // for https://github.com/mozilla/addons-frontend/issues/2415
+    // we set a min-width.
+    min-width: 1%;
+
     > h2,
     > h3 {
       font-size: 1.1em;
     }
 
     > h2 {
-      padding-top: 10px;
       margin: 0 0 5px;
     }
 
@@ -32,13 +37,15 @@
     a:visited,
     a:hover,
     a:active {
-      text-decoration: none;
       color: $primary-font-color;
       font-weight: normal;
+      text-decoration: none;
+      word-wrap: break-word;
     }
   }
 
   .AddonReviewList-header-icon {
+    padding-top: 6px;
     margin: 0 20px;
   }
 }

@@ -78,15 +78,20 @@ export class CategoriesBase extends React.Component {
           className="Categories-list"
           ref={(ref) => { this.categories = ref; }}
         >
-          {categories.map((category, index) => (
-            <li className="Categories-list-item" key={`category-${index}`}>
+          {categories.map((category) => (
+            <li
+              className="Categories-list-item"
+              key={category.name}
+            >
               {loading ? (
                 <span className="Categories-link">
                   <LoadingText range={25} />
                 </span>
               ) : (
-                <Link className="Categories-link"
-                  to={`/${visibleAddonType(addonType)}/${category.slug}/`}>
+                <Link
+                  className="Categories-link"
+                  to={`/${visibleAddonType(addonType)}/${category.slug}/`}
+                >
                   {category.name}
                 </Link>
               )}

@@ -318,7 +318,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
   app.use((error, req, res, next) => {
     if (res.headersSent) {
-      log.warn(dedent`Ignoring error for ${req.url}
+      log.warn(oneLine`Ignoring error for ${req.url}
         because a response was already sent; error: ${error}`);
       return next(error);
     }
