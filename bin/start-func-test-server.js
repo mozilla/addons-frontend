@@ -62,9 +62,9 @@ function exec(cmd, argParts, { quiet = false } = {}) {
   }
   return new Promise((resolve, reject) => {
     childProcess.exec(cmdString, { cwd: root }, (error, stdout, stderr) => {
-      let gotOutput = false;
+      let hasOutput = false;
       if (stdout) {
-        gotOutput = true;
+        hasOutput = true;
         if (!quiet) {
           logDivider('BEGIN stdout');
           process.stdout.write(stdout.toString());
@@ -72,7 +72,7 @@ function exec(cmd, argParts, { quiet = false } = {}) {
         }
       }
       if (stderr) {
-        gotOutput = true;
+        hasOutput = true;
         if (!quiet) {
           logDivider('BEGIN stderr');
           process.stderr.write(stderr.toString());
@@ -80,7 +80,7 @@ function exec(cmd, argParts, { quiet = false } = {}) {
         }
       }
       if (error) {
-        if (!gotOutput) {
+        if (!hasOutput) {
           console.warn('The command did not return any output');
         }
         if (!quiet) {
