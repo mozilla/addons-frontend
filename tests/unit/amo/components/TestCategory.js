@@ -66,10 +66,16 @@ describe('Category', () => {
     sinon.assert.calledWith(fakeDispatch, categoriesFetch());
   });
 
-  it('return 404 if category is falsy', () => {
+  it('return 404 if category is falsy and loading is false', () => {
     const root = mountRender();
 
     expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('not return 404 if category is falsy and loading is true', () => {
+    const root = mountRender({ loading: true });
+
+    expect(root.find(NotFound)).toHaveLength(0);
   });
 
   it('disables the sort component in Search', () => {
