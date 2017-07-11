@@ -9,11 +9,14 @@
 
 .SearchResult-link {
   color: $text-color-default;
+  text-decoration: none;
+}
+
+.SearchResult-result {
   display: flex;
   flex-flow: row wrap;
   margin: 0;
   padding: 0;
-  text-decoration: none;
   width: 100%;
 }
 
