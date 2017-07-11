@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-03-17 21:10+0000\n"
+"PO-Revision-Date: 2017-07-11 18:08+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "サーバーエラー"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することが"
-"できませんでした。私達はこのエラーを記録しており、今後調査を行います。"
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することができませんでした。私達はこのエラーを記録しており、今後調査を行います。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "エラーコード: %(status)s"
 
@@ -39,8 +34,7 @@ msgstr "ページが見つかりませんでした"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "申し訳ありませんが、入力された URL には何も見つかりませんでした。"
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Firefox へ追加"
 
@@ -58,8 +52,7 @@ msgstr "%(name)s をインストールしています。"
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s はインストール、有効化されています。削除するにはここをクリック。"
+msgstr "%(name)s はインストール、有効化されています。削除するにはここをクリック。"
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is disabled. Click to enable."
@@ -91,8 +84,7 @@ msgstr "了解"
 
 #: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
+msgstr "%(name)s をプレビューするにはマウスオーバー、インストールするにはクリック"
 
 #: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
@@ -132,16 +124,15 @@ msgstr "閉じる"
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "iOS 版 Firefox は今のところアドオンに対応していません。"
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
-#, fuzzy
 msgid "This add-on does not support your version of Firefox."
-msgstr "このアドオンは Firefox の再起動後に削除されます。"
+msgstr "このアドオンはお使いのバージョンの Firefox に対応していません。"
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "このアドオンはお使いのブラウザーに対応していません。"
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
@@ -153,17 +144,9 @@ msgstr "Firefox をパーソナライズしよう"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
-msgstr ""
-"インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発"
-"者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジング"
-"をより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いの"
-"ブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れ"
-"ているおすすめのアドオンをいくつか紹介します。"
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr "インストールして Firefox をパーソナライズできる無料のアドオンが、世界中の開発者によって何千種類も作られています。楽しいデザインのテーマから、ブラウジングをより早くより安全にするパワフルなツールや機能まで、アドオンを使ってお使いのブラウザーを自分だけのものにしましょう。手始めに、パフォーマンスや機能が優れているおすすめのアドオンをいくつか紹介します。"
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"
