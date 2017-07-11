@@ -442,10 +442,10 @@ describe('withInstallHelpers inner functions', () => {
       const guid = 'foo@addon';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_DOWNLOADING', progress: 300, maxProgress: 990 });
-      expect(dispatch.calledWith({
+      sinon.assert.calledWith(dispatch, {
         type: DOWNLOAD_PROGRESS,
         payload: { downloadProgress: 30, guid },
-      })).toBeTruthy();
+      });
     });
 
     it('sets status to error on onDownloadFailed', () => {
@@ -453,10 +453,10 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadFailed' });
-      expect(dispatch.calledWith({
+      sinon.assert.calledWith(dispatch, {
         type: 'INSTALL_ERROR',
         payload: { guid, error: DOWNLOAD_FAILED },
-      })).toBeTruthy();
+      });
     });
 
     it('sets status to installing onDownloadEnded', () => {
@@ -474,7 +474,7 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallCancelled' });
-      expect(dispatch.firstCall.args[0]).toEqual({
+      sinon.assert.calledWith(dispatch, {
         type: INSTALL_CANCELLED,
         payload: { guid },
       });
@@ -485,7 +485,7 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onInstallFailed' });
-      expect(dispatch.firstCall.args[0]).toEqual({
+      sinon.assert.calledWith(dispatch, {
         type: 'INSTALL_ERROR',
         payload: { guid, error: INSTALL_FAILED },
       });
@@ -496,7 +496,7 @@ describe('withInstallHelpers inner functions', () => {
       const guid = 'foo@addon';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'WAT' }, { type: 'onNothingPerformed' });
-      expect(dispatch.called).toBeFalsy();
+      sinon.assert.notCalled(dispatch);
     });
   });
 
