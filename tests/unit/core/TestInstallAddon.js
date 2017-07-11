@@ -21,6 +21,7 @@ import {
   INSTALL_CANCELLED,
   INSTALL_FAILED,
   INSTALLED,
+  INSTALLING,
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
@@ -456,6 +457,16 @@ describe('withInstallHelpers inner functions', () => {
         type: 'INSTALL_ERROR',
         payload: { guid, error: DOWNLOAD_FAILED },
       })).toBeTruthy();
+    });
+
+    it('sets status to installing onDownloadEnded', () => {
+      const dispatch = sinon.spy();
+      const guid = '{my-addon}';
+      const handler = makeProgressHandler(dispatch, guid);
+      handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadEnded' });
+      sinon.assert.calledWith(dispatch, setInstallState({
+        guid, status: INSTALLING,
+      }));
     });
 
     it('resets status to uninstalled on onInstallCancelled', () => {

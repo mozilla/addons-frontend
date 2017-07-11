@@ -23,6 +23,7 @@ import {
   INSTALL_ERROR,
   INSTALL_CANCELLED,
   INSTALL_FAILED,
+  INSTALLING,
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
@@ -67,6 +68,8 @@ export function makeProgressHandler(dispatch, guid) {
         type: DOWNLOAD_PROGRESS,
         payload: { guid, downloadProgress },
       });
+    } else if (event.type === 'onDownloadEnded') {
+      dispatch(setInstallState({ guid, status: INSTALLING }));
     } else if (event.type === 'onDownloadFailed') {
       dispatch({
         type: INSTALL_ERROR,
