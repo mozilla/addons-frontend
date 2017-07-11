@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { oneLine } from 'common-tags';
 
 function getDisplayName(component) {
   return component.displayName || component.name || 'Component';
@@ -21,7 +21,7 @@ export default function translate(options = {}) {
 
       getWrappedInstance() {
         if (!withRef) {
-          throw new Error(dedent`To access the wrapped instance, you need to specify
+          throw new Error(oneLine`To access the wrapped instance, you need to specify
             { withRef: true } as the second argument of the translate() call.`);
         }
         return this.wrappedInstance;

@@ -14,6 +14,11 @@
   align-items: center;
 
   .AddonReviewList-header-text {
+    // Flex implicitly sets `min-width: auto`; to force the overflow fix
+    // for https://github.com/mozilla/addons-frontend/issues/2415
+    // we set a min-width.
+    min-width: 1%;
+
     > h2,
     > h3 {
       font-size: 1.1em;
@@ -32,9 +37,10 @@
     a:visited,
     a:hover,
     a:active {
-      text-decoration: none;
       color: $primary-font-color;
       font-weight: normal;
+      text-decoration: none;
+      word-wrap: break-word;
     }
   }
 

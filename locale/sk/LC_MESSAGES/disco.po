@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-05 21:36+0000\n"
+"POT-Creation-Date: 2017-07-11 16:54+0000\n"
 "PO-Revision-Date: 2017-03-17 20:27+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -89,46 +89,59 @@ msgstr "Teraz môžete pristupovať k %(name)s z panela nástrojov."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:106
+#: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
 
-#: src/disco/components/Addon.js:120
+#: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
 msgstr "Pre náhľad prejdite na obrázok myšou"
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
 msgstr "Inštalácia zlyhala. Skúste to prosím znova."
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
 msgstr "Prevzatie zlyhalo. Skontrolujte prosím vaše pripojenie."
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
 msgstr "Počas inštalácie nastala neočakávaná chyba."
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Počas odinštalovania nastala neočakávaná chyba."
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
 msgstr "Nastala neočakávaná chyba."
 
-#: src/disco/components/Addon.js:159
+#: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tento doplnok bude odinštalovaný po reštarte Firefoxu."
 
-#: src/disco/components/Addon.js:161
+#: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
 msgstr "Pre použitie tohto doplnku, prosím, reštartujte Firefox."
 
-#: src/disco/components/Addon.js:69
+#: src/disco/components/Addon.js:78
 msgid "Close"
 msgstr "Zavrieť"
+
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+#, fuzzy
+msgid "This add-on does not support your version of Firefox."
+msgstr "Tento doplnok bude odinštalovaný po reštarte Firefoxu."
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ""
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"

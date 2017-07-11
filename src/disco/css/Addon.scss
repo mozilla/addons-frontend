@@ -9,7 +9,7 @@ $addon-padding: 20px;
   border-radius: 3px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   line-height: 1.5;
   margin-top: 20px;
 
@@ -53,6 +53,11 @@ $addon-padding: 20px;
     }
   }
 
+  .InstallButton,
+  .InstallButton--disabled {
+    margin: 0 20px 10px;
+  }
+
   &:not(.theme) .Addon-install-button {
     > .switch {
       float: right;
@@ -68,6 +73,7 @@ $addon-padding: 20px;
     align-self: stretch;
     display: flex;
     padding: 0 10px;
+    width: 94px;
 
     img {
       display: block;
@@ -151,6 +157,7 @@ $addon-padding: 20px;
   &:not(.theme) .content {
     flex-direction: column;
     align-items: left;
+    width: calc(100% - 94px);
   }
 
   @include respond-to(large) {
