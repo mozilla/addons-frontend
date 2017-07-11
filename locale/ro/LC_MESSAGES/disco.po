@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-05 21:36+0000\n"
+"POT-Creation-Date: 2017-07-11 16:54+0000\n"
 "PO-Revision-Date: 2016-07-21 23:36+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -88,45 +88,57 @@ msgstr "Acum poți accesa %(name)s de pe bara de unelte."
 msgid "OK!"
 msgstr "Ok!"
 
-#: src/disco/components/Addon.js:106
+#: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon.js:120
+#: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
 msgstr ""
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
 msgstr "S-a produs o eroare neașteptată în timpul instalării."
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
 msgstr "S-a produs o eroare neașteptată în timpul dezinstalării."
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
 msgstr "S-a produs o eroare neașteptată."
 
-#: src/disco/components/Addon.js:159
+#: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ""
 
-#: src/disco/components/Addon.js:161
+#: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
 msgstr ""
 
-#: src/disco/components/Addon.js:69
+#: src/disco/components/Addon.js:78
 msgid "Close"
 msgstr "Închide"
+
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+msgid "This add-on does not support your version of Firefox."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ""
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"

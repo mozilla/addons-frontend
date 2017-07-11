@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-05 21:36+0000\n"
+"POT-Creation-Date: 2017-07-11 16:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -82,45 +82,57 @@ msgstr ".ɹɐqʅooʇ ǝɥʇ ɯoɹɟ %(name)s ssǝɔɔɐ uɐɔ noʎ ʍoN"
 msgid "OK!"
 msgstr "¡ӼO"
 
-#: src/disco/components/Addon.js:106
+#: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
 msgstr "%(name)s ʅʅɐʇsuı oʇ ʞɔıʅɔ ɹo ʍǝıʌǝɹd oʇ ɹǝʌoH"
 
-#: src/disco/components/Addon.js:120
+#: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
 msgstr "ʍǝıʌǝɹd oʇ ǝƃɐɯı ǝɥʇ ɹǝʌo ɹǝʌoH"
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
 msgstr ".uıɐƃɐ ʎɹʇ ǝsɐǝʅԀ .pǝʅıɐɟ uoıʇɐʅʅɐʇsuI"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
 msgstr ".uoıʇɔǝuuoɔ ɹnoʎ ʞɔǝɥɔ ǝsɐǝʅԀ .pǝʅıɐɟ pɐoʅuʍoᗡ"
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
 msgstr ".uoıʇɐʅʅɐʇsuı ƃuıɹnp pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
 msgstr ".uoıʇɐʅʅɐʇsuıun ƃuıɹnp pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
 msgstr ".pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/disco/components/Addon.js:159
+#: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ".xoɟǝɹıℲ ʇɹɐʇsǝɹ noʎ ɹǝʇɟɐ pǝʅʅɐʇsuıun ǝq ʅʅıʍ uo-ppɐ sıɥ⊥"
 
-#: src/disco/components/Addon.js:161
+#: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
 msgstr ".uo-ppɐ sıɥʇ ǝsn oʇ xoɟǝɹıℲ ʇɹɐʇsǝɹ ǝsɐǝʅԀ"
 
-#: src/disco/components/Addon.js:69
+#: src/disco/components/Addon.js:78
 msgid "Close"
 msgstr "ǝsoʅↃ"
+
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ".suo-ppɐ ʇɹoddns ʎʅʇuǝɹɹnɔ ʇou sǝop SOı ɹoɟ xoɟǝɹıℲ"
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+msgid "This add-on does not support your version of Firefox."
+msgstr ".xoɟǝɹıℲ ɟo uoısɹǝʌ ɹnoʎ ʇɹoddns ʇou sǝop uo-ppɐ sıɥ⊥"
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ".ɹǝsʍoɹq ɹnoʎ ʇɹoddns ʇou sǝop uo-ppɐ sıɥ⊥"
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
