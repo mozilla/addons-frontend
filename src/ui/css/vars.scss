@@ -48,45 +48,33 @@ $ink-90: #0f1126;
 // Desktop variables (from specs)
 $black: #343a40;
 $white: #fff;
-
 $header-base-color: #232442;
 $header-search-color: #36395b;
 $footer-base-color: #100f27;
-
 $action-base-color: #329af0;
 $action-hover-color: #72c3fc;
 $action-active-color: #1c7cd6;
-
 $confirm-base-color: #51cf66;
 $confirm-hover-color: #8ce99a;
 $confirm-active-color: #37b24d;
-
 $alert-base-color: #fcc419;
 $alert-hover-color: #ffe066;
 $alert-active-color: #f59f00;
-
 $report-base-color: #fa5252;
 $report-hover-color: #ff8787;
 $report-active-color: #e03131;
-
 $neutral-base-color: #adb5bd;
 $neutral-hover-color: #dee2e6;
 $neutral-active-color: #868e96;
-
 $light-base-color: $white;
 $light-hover-color: darken($white, 15%);
 $light-active-color: darken($white, 5%);
-
 $block-base-white-color: $white;
 $block-hover-white-color: #f8f9fa;
-
 $background-grey: #e9ecef;
 $background-gray: $background-grey;
-
 $type-black: $black;
-
 $link-color: #0d96ff;
-
 $header-accent-color: $link-color;
 $header-text-not-active-color: transparentize($white, 0.5);
 

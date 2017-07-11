@@ -1,11 +1,11 @@
-@import '~amo/css/inc/vars';
-@import '~core/css/inc/mixins';
-@import '~ui/css/vars';
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
 
 .SearchSort {
   background: $base-color;
-  border-radius: $border-radius-default;
   border: 0;
+  border-radius: $border-radius-default;
   overflow: hidden;
 }
 
@@ -43,9 +43,9 @@
   text-shadow: none;
 
   &::before {
-    background: url('~amo/img/icons/sort.svg') 50% 50% no-repeat;
+    background: url("~amo/img/icons/sort.svg") 50% 50% no-repeat;
     background-size: cover;
-    content: '';
+    content: "";
     display: inline-block;
     height: 16px;
     left: -8px;
@@ -80,12 +80,12 @@
 }
 
 .SearchSort-list {
-  display: none;
-  margin: 0;
-  padding: 0;
   align-items: center;
+  display: none;
   flex-flow: row;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 
   .SearchSort--visible & {
     display: flex;

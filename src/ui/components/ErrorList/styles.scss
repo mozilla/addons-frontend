@@ -2,13 +2,13 @@
 @import "~ui/css/vars";
 
 .ErrorList {
-  text-align: center;
-  border-radius: $border-radius-default;
   background-color: $report-base-color;
+  border-radius: $border-radius-default;
   color: $white;
-  padding: 10px;
   margin: 0;
   margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
 }
 
 .ErrorList-item {

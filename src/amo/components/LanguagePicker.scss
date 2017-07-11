@@ -7,10 +7,7 @@
 
 .LanguagePicker-selector {
   appearance: none;
-  background:
-    url('~ui/components/Icon/globe.svg') no-repeat 10px 50%,
-    $neutral-base-color url('~ui/components/Icon/triangle-down.svg')
-    no-repeat calc(100% - 10px) 50%;
+  background: url("~ui/components/Icon/globe.svg") no-repeat 10px 50%, $neutral-base-color url("~ui/components/Icon/triangle-down.svg") no-repeat calc(100% - 10px) 50%;
   background-size: 16px, 12px;
   border: 0;
   border-radius: $border-radius-default;
@@ -23,10 +20,7 @@
   width: 100%;
 
   [dir=rtl] & {
-    background:
-      url('~ui/components/Icon/globe.svg') no-repeat calc(100% - 10px) 50%,
-      $neutral-base-color url('~ui/components/Icon/triangle-down.svg')
-      no-repeat 10px 50%;
+    background: url("~ui/components/Icon/globe.svg") no-repeat calc(100% - 10px) 50%, $neutral-base-color url("~ui/components/Icon/triangle-down.svg") no-repeat 10px 50%;
     background-size: 16px, 12px;
     padding: 5px 30px 3.5px 15px;
   }
