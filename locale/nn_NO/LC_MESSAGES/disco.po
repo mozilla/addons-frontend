@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-07-11 19:46+0000\n"
+"PO-Revision-Date: 2017-07-11 19:57+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -127,9 +127,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS støttar for tida ikkje utvidingar."
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
-#, fuzzy
 msgid "This add-on does not support your version of Firefox."
-msgstr "Denne utvidinga vert avinstallert etter omstart av Firefox."
+msgstr "Denne utvidinga støttar ikkje din versjon av Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
