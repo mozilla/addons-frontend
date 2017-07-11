@@ -20,13 +20,15 @@ The tests must be run in Firefox 48 or later.
 1. Install [Tox]
 1. Download geckodriver [v0.14.0][geckodriver] and ensure it's executable and
    in your path
-1. Run `tox`
+1. Make sure you have [docker][] installed and start the server with
+   `yarn start-func-test-server`
+1. Run `PYTEST_BASE_URL=http://localhost:4000 tox`
 
-To run against a different environment, set the `PYTEST_BASE_URL` environment
+To run against a different environment, change the `PYTEST_BASE_URL` environment
 variable, like so:
 
 ```bash
-PYTEST_BASE_URL=https://discovery.addons.mozilla.org tox
+PYTEST_BASE_URL=https://discovery.addons.allizom.org tox
 ```
 
 The pytest plugin that we use for running tests has a number of advanced
@@ -34,6 +36,7 @@ command line options available. To see the options available, run
 `pytest --help`. The full documentation for the plugin can be found
 [here][pytest-selenium].
 
+[docker]: https://www.docker.com/
 [git-clone]: https://help.github.com/articles/cloning-a-repository/
 [git-fork]: https://help.github.com/articles/fork-a-repo/
 [geckodriver]: https://github.com/mozilla/geckodriver/releases/tag/v0.14.0
