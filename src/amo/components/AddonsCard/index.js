@@ -33,7 +33,7 @@ export default class AddonsCard extends React.Component {
         {addons && addons.length ? (
           <ul className="AddonsCard-list">
             {addons.map((addon) => (
-              <SearchResult addon={null} key={addon.slug} />
+              <SearchResult addon={addon} key={addon.slug} />
             ))}
           </ul>
         ) : null}
