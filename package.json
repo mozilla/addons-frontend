@@ -4,6 +4,9 @@
   "description": "Universal front-end projects to complement addons-server.",
   "main": "index.js",
   "private": true,
+  "engines": {
+    "node": "^6.11.1"
+  },
   "scripts": {
     "build": "bin/build-checks.js && better-npm-run build",
     "build-locales": "bin/build-locales",
