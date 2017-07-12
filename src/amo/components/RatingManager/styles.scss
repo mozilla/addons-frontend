@@ -1,23 +1,23 @@
 @import "~core/css/inc/vars";
 @import "~ui/components/Rating/vars";
 
-.RatingManager-log-in-to-rate {
-  position: relative;
-}
-
 $button-margin: 13px;
 $button-height:
   $rating-l-star-size + $rating-l-star-gutter - ($button-margin * 2);
 
+.RatingManager-log-in-to-rate {
+  position: relative;
+}
+
 .RatingManager-log-in-to-rate-button {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  position: absolute;
+  display: flex;
   font-size: $font-size-s;
-  text-transform: uppercase;
-  padding: 0;
-  margin-top: $rating-top-margin + $button-margin;
-  width: 100%;
   height: $button-height;
+  justify-content: center;
+  margin-top: $rating-top-margin + $button-margin;
+  padding: 0;
+  position: absolute;
+  text-transform: uppercase;
+  width: 100%;
 }

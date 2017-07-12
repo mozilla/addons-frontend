@@ -5,6 +5,8 @@ import { SearchResultBase } from 'amo/components/SearchResult';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import LoadingText from 'ui/components/LoadingText';
+import Rating from 'ui/components/Rating';
 
 
 describe('<SearchResult />', () => {
@@ -117,5 +119,24 @@ describe('<SearchResult />', () => {
 
     expect(root.find('.SearchResult-notheme'))
       .toIncludeText('No theme preview available');
+  });
+
+  it('renders placeholders without an addon', () => {
+    const root = render({ addon: null });
+
+    // Since there's no add-on, there shouldn't be a link.
+    expect(root.find('.SearchResult-link')).toHaveLength(0);
+
+    expect(root.find('.SearchResult-icon'))
+      .toHaveProp('src', 'default-64.png');
+    expect(root.find('.SearchResult-name').find(LoadingText))
+      .toHaveLength(1);
+    expect(root.find('.SearchResult-summary').find(LoadingText))
+      .toHaveLength(1);
+    expect(root.find(Rating)).toHaveProp('rating', 0);
+    expect(root.find('.SearchResult-author').find(LoadingText))
+      .toHaveLength(1);
+    expect(root.find('.SearchResult-users-text').find(LoadingText))
+      .toHaveLength(1);
   });
 });

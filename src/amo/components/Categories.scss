@@ -18,8 +18,8 @@
   text-decoration: none;
 
   &::before {
-    background: url('../img/icons/arrow.svg') 100% 50% no-repeat;
-    content: '';
+    background: url("../img/icons/arrow.svg") 100% 50% no-repeat;
+    content: "";
     float: right;
     height: 19px;
     width: 11px;

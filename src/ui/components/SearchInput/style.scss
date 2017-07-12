@@ -1,7 +1,6 @@
 @import "~core/css/inc/mixins";
 @import "~ui/components/Icon/vars";
 @import "~ui/css/vars";
-
 $input-height: 48px;
 $icon-margin-start: 24px;
 $icon-margin-end: 12px;
@@ -13,11 +12,7 @@ $icon-margin-end: 12px;
   width: 100%;
 
   .Icon-magnifying-glass {
-    @include margin(
-      ($input-height - $default-icon-size) / 2,
-      $icon-margin-end,
-      ($input-height - $default-icon-size) / 2,
-      $icon-margin-start);
+    @include margin(($input-height - $default-icon-size) / 2, $icon-margin-end, ($input-height - $default-icon-size) / 2, $icon-margin-start);
 
     vertical-align: top;
   }
@@ -45,7 +40,8 @@ $icon-margin-end: 12px;
 
 .SearchInput-label {
   @include font-regular();
-  // Include the start margin on the end so that icon and text is centred together.
+  // Include the start margin on the end so that icon and text is centred
+  // together.
   @include padding-end($icon-margin-start);
 
   color: $header-text-not-active-color;

@@ -9,9 +9,9 @@
 }
 
 .AddonReviewList-header {
-  margin: 15px 0;
-  display: flex;
   align-items: center;
+  display: flex;
+  margin: 15px 0;
 
   .AddonReviewList-header-text {
     // Flex implicitly sets `min-width: auto`; to force the overflow fix
@@ -26,6 +26,7 @@
 
     > h2 {
       margin: 0 0 5px;
+      padding-top: 10px;
     }
 
     > h3 {
@@ -45,8 +46,8 @@
   }
 
   .AddonReviewList-header-icon {
-    padding-top: 6px;
     margin: 0 20px;
+    padding-top: 6px;
   }
 }
 
@@ -54,18 +55,18 @@
   word-wrap: break-word;
 
   > h3 {
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
   > p {
-    margin: 0 0 5px;
     font-size: $font-size-default;
+    margin: 0 0 5px;
   }
 
   .AddonReviewList-by-line {
-    display: flex;
     color: $sub-text-color;
+    display: flex;
     font-size: $font-size-s;
   }
 
