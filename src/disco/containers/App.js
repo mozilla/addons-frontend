@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import classNames from 'classnames';
 
-import 'disco/css/App.scss';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import translate from 'core/i18n/translate';
+import Footer from 'disco/components/Footer';
+
+import 'disco/css/App.scss';
 
 
 export class AppBase extends React.Component {
@@ -36,6 +38,7 @@ export class AppBase extends React.Component {
         <ErrorPage>
           {children}
         </ErrorPage>
+        <Footer />
       </div>
     );
   }
