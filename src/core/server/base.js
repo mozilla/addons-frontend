@@ -79,7 +79,7 @@ export function getPageProps({ noScriptStyles = '', store, req, res }) {
     noScriptStyles,
     sriData,
     store,
-    trackingEnabled: convertBoolean(config.get('trackingEnabled')),
+    trackingEnabled: convertBoolean(config.get('trackingEnabled')) && convertBoolean(req.app.get('dnt')),
   };
 }
 
@@ -195,6 +195,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       // clear require() cache if in development mode
       webpackIsomorphicTools.refresh();
     }
+
+    app.set('dnt', req.headers.dnt);
 
     match({ location: req.url, routes }, (
       matchError, redirectLocation, renderProps
