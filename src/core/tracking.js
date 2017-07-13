@@ -39,15 +39,20 @@ export function isDoNotTrackEnabled({
 }
 
 export class Tracking {
-
-  constructor({ trackingId, trackingEnabled, trackingSendInitPageView, _log = log } = {}) {
+  constructor({
+    _isDoNotTrackEnabled = isDoNotTrackEnabled,
+    _log = log,
+    trackingEnabled,
+    trackingId,
+    trackingSendInitPageView,
+  } = {}) {
     if (typeof window === 'undefined') {
       /* istanbul ignore next */
       return;
     }
     this._log = _log;
     this.id = trackingId;
-    this.enabled = trackingEnabled && trackingId && !isDoNotTrackEnabled();
+    this.enabled = trackingEnabled && trackingId && !_isDoNotTrackEnabled();
     this.logPrefix = `[GA: ${this.enabled ? 'ON' : 'OFF'}]`;
     this.sendInitPageView = trackingSendInitPageView;
 
@@ -131,10 +136,7 @@ export function getAction(type) {
 }
 
 export default new Tracking({
-  trackingEnabled: (
-    convertBoolean(config.get('trackingEnabled')) &&
-    isDoNotTrackEnabled()
-  ),
+  trackingEnabled: convertBoolean(config.get('trackingEnabled')),
   trackingId: config.get('trackingId'),
   trackingSendInitPageView: config.get('trackingSendInitPageView'),
 });
