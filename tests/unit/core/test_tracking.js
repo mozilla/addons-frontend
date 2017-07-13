@@ -14,6 +14,7 @@ describe('Tracking', () => {
   function stubConfig(overrides = {}) {
     const config = {
       trackingEnabled: true,
+      trackingId: 'sample-tracking-id',
       ...overrides,
     };
     return { get: sinon.spy((key) => config[key]) };
@@ -24,7 +25,6 @@ describe('Tracking', () => {
       _isDoNotTrackEnabled: () => false,
       _config: stubConfig(),
       _log: { info: sinon.stub() },
-      trackingId: 'whatever',
       ...overrides,
     });
   }
@@ -54,8 +54,10 @@ describe('Tracking', () => {
   it('should disable GA due to missing id', () => {
     const tracking = createTracking({
       _isDoNotTrackEnabled: () => false,
-      _config: stubConfig({ trackingEnabled: true }),
-      trackingId: undefined,
+      _config: stubConfig({
+        trackingEnabled: true,
+        trackingId: null,
+      }),
     });
     sinon.assert.notCalled(window.ga);
   });
@@ -71,7 +73,6 @@ describe('Tracking', () => {
 
   it('should send initial page view when enabled', () => {
     const tracking = createTracking({
-      trackingId: 'whatever',
       trackingSendInitPageView: true,
     });
     sinon.assert.calledWith(window.ga, 'send', 'pageview');
@@ -79,7 +80,6 @@ describe('Tracking', () => {
 
   it('should not send initial page view when disabled', () => {
     const tracking = createTracking({
-      trackingId: 'whatever',
       trackingSendInitPageView: false,
     });
     // Make sure only 'create' was called, not 'send'
