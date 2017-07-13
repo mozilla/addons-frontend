@@ -29,8 +29,7 @@ export function isDoNotTrackEnabled({
   // any browsers built on these stacks (Chromium, Tor Browser, etc.).
   const dnt = _navigator.doNotTrack || _window.doNotTrack;
   if (dnt === '1') {
-    _log.log(oneLine`[TRACKING]: Do Not Track Enabled; Google Analytics not
-      loaded and tracking disabled.`);
+    _log.log('Do Not Track is enabled');
     return true;
   }
 
@@ -57,10 +56,11 @@ export class Tracking {
       this.log('Disabled because trackingId was empty')
       this.enabled = false;
     } else if (_isDoNotTrackEnabled()) {
-      this.log('Disabled because Do Not Track is enabled');
+      this.log(oneLine`Do Not Track Enabled; Google Analytics not
+        loaded and tracking disabled`);
       this.enabled = false;
     } else {
-      this.log('Analytics are enabled');
+      this.log('Google Analytics is enabled');
       this.enabled = true;
     }
 

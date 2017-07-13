@@ -202,9 +202,7 @@ describe('Do Not Track', () => {
       _window: {},
     });
 
-    sinon.assert.calledWith(fakeLog.log, oneLine`[TRACKING]: Do Not Track
-      Enabled; Google Analytics not loaded and tracking disabled.`);
-    sinon.assert.calledOnce(fakeLog.log);
+    sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
 
     // Check with `window.doNotTrack` as well, just for completeness.
     fakeLog.log.reset();
@@ -214,8 +212,6 @@ describe('Do Not Track', () => {
       _window: { doNotTrack: '1' },
     });
 
-    sinon.assert.calledWith(fakeLog.log, oneLine`[TRACKING]: Do Not Track
-      Enabled; Google Analytics not loaded and tracking disabled.`);
-    sinon.assert.calledOnce(fakeLog.log);
+    sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
   });
 });
