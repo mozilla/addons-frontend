@@ -44,13 +44,26 @@ export class Tracking {
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
   } = {}) {
     if (typeof window === 'undefined') {
-      /* istanbul ignore next */
       return;
     }
     this._log = log;
+    this.logPrefix = '[GA]'; // this gets updated below
     this.id = _config.get('trackingId');
-    this.enabled = convertBoolean(_config.get('trackingEnabled')) &&
-      this.id && !_isDoNotTrackEnabled();
+
+    if (!convertBoolean(_config.get('trackingEnabled'))) {
+      this.log('Disabled because trackingEnabled was false');
+      this.enabled = false;
+    } else if (!this.id) {
+      this.log('Disabled because trackingId was empty')
+      this.enabled = false;
+    } else if (_isDoNotTrackEnabled()) {
+      this.log('Disabled because Do Not Track is enabled');
+      this.enabled = false;
+    } else {
+      this.log('Analytics are enabled');
+      this.enabled = true;
+    }
+
     this.logPrefix = `[GA: ${this.enabled ? 'ON' : 'OFF'}]`;
 
     if (this.enabled) {
@@ -62,11 +75,6 @@ export class Tracking {
         ga('send', 'pageview');
       }
       /* eslint-enable */
-    }
-
-    this.log('Tracking init');
-    if (!this.id) {
-      this.log('Missing tracking id');
     }
   }
 
