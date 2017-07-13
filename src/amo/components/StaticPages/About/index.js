@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 import Link from 'amo/components/Link';
 
@@ -18,14 +17,6 @@ export class AboutBase extends React.Component {
   render() {
     const { i18n } = this.props;
 
-    const helpText = i18n.sprintf(i18n.gettext(`Help improve this website. It's open source, and you can file bugs and submit patches. <a href="%(url)s">GitHub</a> contains all of our current bugs, legacy bugs can still be found in Bugzilla.`),
-      { url: 'https://github.com/mozilla/olympia/issues' });
-    const blogText = i18n.sprintf(i18n.gettext(`Our <a href="%(url)s">Add-ons Blog</a> is regularly updated with information for both add-on enthusiasts and developers.`),
-      { url: 'http://blog.mozilla.com/addons/' });
-    const forumText = i18n.sprintf(i18n.gettext(`Our <a href="%(url)s">forums</a> are a good place to interact with the add-ons community and discuss upcoming changes to AMO.`),
-      { url: 'https://discourse.mozilla-community.org/c/add-ons' });
-
-    /* eslint-disable react/no-danger */
     return (
 
       <Card
@@ -35,7 +26,7 @@ export class AboutBase extends React.Component {
         <section>
           <h2>{i18n.gettext('What is this website?')}</h2>
           <p>
-            {i18n.gettext(`addons.mozilla.org, commonly known as "AMO", is Mozilla's official site for add-ons to Mozilla software, such as Firefox, Thunderbird, and SeaMonkey. Add-ons let you add new features and change the way your browser or application works. Take a look around and explore the thousands of ways to customize the way you do things online.`)}
+            {i18n.gettext('addons.mozilla.org, commonly known as "AMO", is Mozilla\'s official site for add-ons to Mozilla software, such as Firefox, Thunderbird, and SeaMonkey. Add-ons let you add new features and change the way your browser or application works. Take a look around and explore the thousands of ways to customize the way you do things online.')}
           </p>
         </section>
         <section>
@@ -50,20 +41,28 @@ export class AboutBase extends React.Component {
             {i18n.gettext('There are several ways to find out the latest news from the world of add-ons:')}
           </p>
           <ul>
-            <li dangerouslySetInnerHTML={sanitizeHTML(blogText, ['a'])} />
+            <li>
+              {i18n.gettext('Our')}&nbsp;
+              <a href={'http://blog.mozilla.com/addons/'}>{i18n.gettext('Add-ons Blog')}</a>&nbsp;
+              {i18n.gettext('is regularly updated with information for both add-on enthusiasts and developers.')}
+            </li>
             <li>
               {i18n.gettext('We often post news, tips, and tricks to our Twitter account,')}&nbsp;
               <a href={'http://twitter.com/mozamo'}>{i18n.gettext('mozamo')}</a>
             </li>
-            <li dangerouslySetInnerHTML={sanitizeHTML(forumText, ['a'])} />
+            <li>
+              {i18n.gettext('Our')}&nbsp;
+              <a href={'https://discourse.mozilla-community.org/c/add-ons'}>{i18n.gettext('forums')}</a>&nbsp;
+              {i18n.gettext('are a good place to interact with the add-ons community and discuss upcoming changes to AMO.')}
+            </li>
           </ul>
         </section>
         <section>
           <h2>{i18n.gettext('This sounds great! How can I get involved?')}</h2>
-          <p>{i18n.gettext(`There are plenty of ways to get involved. If you're on the technical side:`)}
+          <p>{i18n.gettext('There are plenty of ways to get involved. If you\'re on the technical side:')}
             <ul>
               <li>
-                <Link to={'/developers'}>{i18n.gettext('Make your own add-on')}</Link>.&nbsp;
+                <Link to={'/developers'}>{i18n.gettext('Make your own add-on')}</Link>&nbsp;
                 {i18n.gettext('We provide free hosting and update services and can help you reach a large audience of users.')}
               </li>
               <li>
@@ -71,12 +70,15 @@ export class AboutBase extends React.Component {
                 <a href="https://wiki.mozilla.org/Add-ons/Reviewers/Applying">{i18n.gettext('become an Add-on Reviewer')}</a>!&nbsp;
                 {i18n.gettext('Our reviewers are add-on fans with a technical background who review add-ons for code quality and stability.')}
               </li>
-              <li dangerouslySetInnerHTML={sanitizeHTML(helpText, ['a'])} />
+              <li>
+                {i18n.gettext('Help improve this website. It\'s open source, and you can file bugs and submit patches.')}&nbsp; <a href="https://github.com/mozilla/olympia/issues"> {i18n.gettext('GitHub')}</a>&nbsp;
+                {i18n.gettext('contains all of our current bugs, legacy bugs can still be found in Bugzilla.')}
+              </li>
             </ul>
           </p>
-          <p>{i18n.gettext(`If you're interested in add-ons but not quite as technical, there are still ways to help:`)}</p>
+          <p>{i18n.gettext('If you\'re interested in add-ons but not quite as technical, there are still ways to help:')}</p>
           <ul>
-            <li>{i18n.gettext('Tell your friends! Let people know which add-ons you use.')}</li>
+            <li>{i18n.gettext('Tell your friends! Let people know which add-ons you use.{% endtrans')}</li>
             <li>{i18n.gettext('Participate in our')}&nbsp;
               <a href="https://discourse.mozilla-community.org/c/add-ons">{i18n.gettext('forums')}</a>.
             </li>
@@ -89,7 +91,7 @@ export class AboutBase extends React.Component {
           <h2>{i18n.gettext('I have a question')}</h2>
           <p>{i18n.gettext('A good place to start is our')}&nbsp;
             <Link to="/faq"><abbr title="{i18n.gettext('Frequently Asked Questions')}">{i18n.gettext('FAQ')}</abbr></Link>.&nbsp;
-            {i18n.gettext(`If you don't find an answer there, you can`)}&nbsp;<a href="https://discourse.mozilla-community.org/c/add-ons">{i18n.gettext('ask on our forums')}</a>.
+            {i18n.gettext('If you don\'t find an answer there, you can')}&nbsp;<a href="https://discourse.mozilla-community.org/c/add-ons"> {i18n.gettext('ask on our forums')}</a>.
           </p>
           <p>{i18n.gettext('If you really need to contact someone from the Mozilla team, please see our')}&nbsp;
             <Link to="/developers/docs/policies/contact">{i18n.gettext('contact information')}</Link> {i18n.gettext('page.')}
@@ -97,8 +99,8 @@ export class AboutBase extends React.Component {
         </section>
         <section>
           <h2>{i18n.gettext('Who works on this website?')}</h2>
-          <p>{i18n.gettext('Over the years, many people have contributed to this website, including both volunteers from the community and a dedicated AMO team. A list of significant contributors can be found on our')}&nbsp;
-            <Link to="/pages/credits">{i18n.gettext('Site Credits')}</Link>&nbsp;{i18n.gettext('page')}.
+          <p>{i18n.gettext('Over the years, many people have contributed to this website, including both volunteers from the community and a dedicated AMO team. A list of significant contributors can be found on our ')}&nbsp;
+            <Link to="/pages/credits">{i18n.gettext('Site Credits')}</Link> &nbsp;{i18n.gettext('page')}.
           </p>
         </section>
       </Card>

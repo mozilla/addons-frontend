@@ -1,7 +1,8 @@
 @import "~amo/css/inc/vars";
 @import "~ui/css/vars";
 
-.AboutPage, .ReviewGuidePage {
+.AboutPage,
+.ReviewGuidePage {
   margin: $page-margin;
 }
 
@@ -16,4 +17,8 @@
   text-decoration: none;
   width: 100%;
   word-wrap: break-word;
+}
+
+.AboutPage {
+  margin: $page-margin;
 }
