@@ -48,6 +48,18 @@ describe('Tracking', () => {
     ).toBe(true);
   });
 
+  it('should log OFF when not enabled due to Do Not Track', () => {
+    tracking = new Tracking({
+      _isDoNotTrackEnabled: () => true,
+      _log: {
+        info: sinon.stub(),
+      },
+      trackingEnabled: true,
+      trackingId: 'whatever',
+    });
+    sinon.assert.calledWith(tracking._log.info, sinon.match(/OFF/));
+  });
+
   it('should send initial page view when enabled', () => {
     tracking = new Tracking({
       trackingId: 'whatever',
