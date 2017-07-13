@@ -127,9 +127,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS 目前暫不支援附加元件。"
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
-#, fuzzy
 msgid "This add-on does not support your version of Firefox."
-msgstr "您重新啟動 Firefox 後將移除此附加元件。"
+msgstr "此附加元件不支援您的 Firefox。"
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
