@@ -1,6 +1,7 @@
 /* global window */
+import { oneLine } from 'common-tags';
 
-import { Tracking, getAction } from 'core/tracking';
+import { Tracking, isDoNotTrackEnabled, getAction } from 'core/tracking';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -31,7 +32,7 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    expect(tracking._log.info.calledWith(sinon.match(/OFF/), 'Tracking init')).toBeTruthy();
+    expect(tracking._log.info.calledWith(sinon.match(/OFF/), 'Tracking init')).toBe(true);
   });
 
   it('should log OFF when not enabled due to missing id', () => {
@@ -44,7 +45,7 @@ describe('Tracking', () => {
     });
     expect(
       tracking._log.info.secondCall.calledWith(sinon.match(/OFF/), 'Missing tracking id')
-    ).toBeTruthy();
+    ).toBe(true);
   });
 
   it('should send initial page view when enabled', () => {
@@ -56,7 +57,7 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    expect(window.ga.calledWith('send', 'pageview')).toBeTruthy();
+    expect(window.ga.calledWith('send', 'pageview')).toBe(true);
   });
 
   it('should not send initial page view when disabled', () => {
@@ -68,7 +69,7 @@ describe('Tracking', () => {
         info: sinon.stub(),
       },
     });
-    expect(window.ga.calledWith('send', 'pageview')).toBeFalsy();
+    expect(window.ga.calledWith('send', 'pageview')).toBe(false);
   });
 
   it('should throw if page not set', () => {
@@ -79,7 +80,7 @@ describe('Tracking', () => {
 
   it('should call ga with setPage', () => {
     tracking.setPage('whatever');
-    expect(window.ga.called).toBeTruthy();
+    expect(window.ga.called).toBe(true);
   });
 
   it('should throw if category not set', () => {
@@ -101,7 +102,7 @@ describe('Tracking', () => {
       category: 'whatever',
       action: 'some-action',
     });
-    expect(window.ga.called).toBeTruthy();
+    expect(window.ga.called).toBe(true);
   });
 
   it('should call _ga when pageView is called', () => {
@@ -110,7 +111,7 @@ describe('Tracking', () => {
       dimension2: 'whatever2',
     };
     tracking.pageView(data);
-    expect(window.ga.calledWith('send', 'pageview', data)).toBeTruthy();
+    expect(window.ga.calledWith('send', 'pageview', data)).toBe(true);
   });
 });
 
@@ -125,5 +126,70 @@ describe('getAction', () => {
 
   it('returns invalid for unknown type', () => {
     expect(getAction('whatever')).toEqual('invalid');
+  });
+});
+
+describe('Do Not Track', () => {
+  it('should respect DNT when enabled', () => {
+    expect(isDoNotTrackEnabled({
+      _navigator: { doNotTrack: '1' },
+      _window: {},
+    })).toBe(true);
+    expect(isDoNotTrackEnabled({
+      _navigator: {},
+      _window: { doNotTrack: '1' },
+    })).toBe(true);
+  });
+
+  it('should respect not enabled DNT', () => {
+    expect(isDoNotTrackEnabled({
+      _navigator: { doNotTrack: '0' },
+      _window: {},
+    })).toBe(false);
+    expect(isDoNotTrackEnabled({
+      _navigator: {},
+      _window: { doNotTrack: '0' },
+    })).toBe(false);
+  });
+
+  it('should treat unknown values as no DNT', () => {
+    expect(isDoNotTrackEnabled({
+      _navigator: { doNotTrack: 'leave me alone' },
+      _window: {},
+    })).toBe(false);
+    expect(isDoNotTrackEnabled({
+      _navigator: {},
+      _window: { doNotTrack: 'leave me alone' },
+    })).toBe(false);
+  });
+
+  it('should handle missing navigator and window', () => {
+    expect(isDoNotTrackEnabled({ _navigator: null })).toBe(false);
+    expect(isDoNotTrackEnabled({ _window: null })).toBe(false);
+  });
+
+  it('should log that DNT disabled tracking', () => {
+    const fakeLog = { log: sinon.stub() };
+    isDoNotTrackEnabled({
+      _log: fakeLog,
+      _navigator: { doNotTrack: '1' },
+      _window: {},
+    });
+
+    sinon.assert.calledWith(fakeLog.log, oneLine`[TRACKING]: Do Not Track
+      Enabled; Google Analytics not loaded and tracking disabled.`);
+    sinon.assert.calledOnce(fakeLog.log);
+
+    // Check with `window.doNotTrack` as well, just for completeness.
+    fakeLog.log.reset();
+    isDoNotTrackEnabled({
+      _log: fakeLog,
+      _navigator: {},
+      _window: { doNotTrack: '1' },
+    });
+
+    sinon.assert.calledWith(fakeLog.log, oneLine`[TRACKING]: Do Not Track
+      Enabled; Google Analytics not loaded and tracking disabled.`);
+    sinon.assert.calledOnce(fakeLog.log);
   });
 });

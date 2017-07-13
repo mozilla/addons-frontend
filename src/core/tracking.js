@@ -1,5 +1,6 @@
-/* global window */
+/* global navigator, window */
 /* eslint-disable no-underscore-dangle */
+import { oneLine } from 'common-tags';
 import config from 'config';
 
 import { convertBoolean } from 'core/utils';
@@ -13,6 +14,30 @@ import {
 } from 'core/constants';
 
 
+export function isDoNotTrackEnabled({
+  _log = log,
+  _navigator = typeof navigator !== 'undefined' ? navigator : null,
+  _window = typeof window !== 'undefined' ? window : null,
+} = {}) {
+  if (!_navigator || !_window) {
+    return false;
+  }
+
+  // We ignore things like `msDoNotTrack` because they are for older,
+  // unsupported browsers and don't really respect the DNT spec. This
+  // covers new versions of IE/Edge, Firefox from 32+, Chrome, Safari, and
+  // any browsers built on these stacks (Chromium, Tor Browser, etc.).
+  const dnt = _navigator.doNotTrack || _window.doNotTrack;
+  if (dnt === '1') {
+    _log.log(oneLine`[TRACKING]: Do Not Track Enabled; Google Analytics not
+      loaded and tracking disabled.`);
+    return true;
+  }
+
+  // Known DNT values not set, so we will assume it's off.
+  return false;
+}
+
 export class Tracking {
 
   constructor({ trackingId, trackingEnabled, trackingSendInitPageView, _log = log } = {}) {
@@ -22,7 +47,7 @@ export class Tracking {
     }
     this._log = _log;
     this.id = trackingId;
-    this.enabled = trackingEnabled && trackingId;
+    this.enabled = trackingEnabled && trackingId && !isDoNotTrackEnabled();
     this.logPrefix = `[GA: ${this.enabled ? 'ON' : 'OFF'}]`;
     this.sendInitPageView = trackingSendInitPageView;
 
@@ -106,7 +131,10 @@ export function getAction(type) {
 }
 
 export default new Tracking({
-  trackingEnabled: convertBoolean(config.get('trackingEnabled')),
+  trackingEnabled: (
+    convertBoolean(config.get('trackingEnabled')) &&
+    isDoNotTrackEnabled()
+  ),
   trackingId: config.get('trackingId'),
   trackingSendInitPageView: config.get('trackingSendInitPageView'),
 });

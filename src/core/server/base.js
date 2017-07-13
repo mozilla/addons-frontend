@@ -79,7 +79,10 @@ export function getPageProps({ noScriptStyles = '', store, req, res }) {
     noScriptStyles,
     sriData,
     store,
-    trackingEnabled: convertBoolean(config.get('trackingEnabled')),
+    trackingEnabled: (
+      convertBoolean(config.get('trackingEnabled')) &&
+      req.header('dnt') !== '1' // A DNT header set to "1" means Do Not Track
+    ),
   };
 }
 
