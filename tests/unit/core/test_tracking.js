@@ -11,59 +11,67 @@ import {
 
 
 describe('Tracking', () => {
-  let tracking;
+  function stubConfig(overrides = {}) {
+    const config = {
+      trackingEnabled: true,
+      ...overrides,
+    };
+    return { get: sinon.spy((key) => config[key]) };
+  }
+
+  function createTracking(overrides = {}) {
+    return new Tracking({
+      _isDoNotTrackEnabled: () => false,
+      _config: stubConfig(),
+      _log: { info: sinon.stub() },
+      trackingId: 'whatever',
+      ...overrides,
+    });
+  }
 
   beforeEach(() => {
-    tracking = new Tracking({
-      trackingId: 'whatever',
-      trackingEnabled: true,
-      _log: {
-        info: sinon.stub(),
-      },
-    });
     window.ga = sinon.stub();
   });
 
-  it('should log OFF when not enabled', () => {
-    tracking = new Tracking({
-      trackingId: 'whatever',
-      trackingEnabled: false,
-      _log: {
-        info: sinon.stub(),
-      },
+  it('should not enable GA when configured off', () => {
+    const tracking = createTracking({
+      _config: stubConfig({ trackingEnabled: false }),
     });
-    expect(tracking._log.info.calledWith(sinon.match(/OFF/), 'Tracking init')).toBe(true);
+    sinon.assert.notCalled(window.ga);
   });
 
-  it('should log OFF when not enabled due to missing id', () => {
-    tracking = new Tracking({
+  it('should not send events when tracking is configured off', () => {
+    const tracking = createTracking({
+      _config: stubConfig({ trackingEnabled: false }),
+    });
+    tracking.sendEvent({
+      category: 'whatever',
+      action: 'some-action',
+    });
+    sinon.assert.notCalled(window.ga);
+  });
+
+  it('should disable GA due to missing id', () => {
+    const tracking = createTracking({
+      _isDoNotTrackEnabled: () => false,
+      _config: stubConfig({ trackingEnabled: true }),
       trackingId: undefined,
-      trackingEnabled: true,
-      _log: {
-        info: sinon.stub(),
-      },
     });
-    expect(
-      tracking._log.info.secondCall.calledWith(sinon.match(/OFF/), 'Missing tracking id')
-    ).toBe(true);
+    sinon.assert.notCalled(window.ga);
   });
 
-  it('should log OFF when not enabled due to Do Not Track', () => {
-    tracking = new Tracking({
+  it('should disable GA due to Do Not Track', () => {
+    const tracking = createTracking({
       _isDoNotTrackEnabled: () => true,
-      _log: {
-        info: sinon.stub(),
-      },
+      _config: stubConfig({ trackingEnabled: true }),
       trackingEnabled: true,
-      trackingId: 'whatever',
     });
-    sinon.assert.calledWith(tracking._log.info, sinon.match(/OFF/));
+    sinon.assert.notCalled(window.ga);
   });
 
   it('should send initial page view when enabled', () => {
-    tracking = new Tracking({
+    const tracking = createTracking({
       trackingId: 'whatever',
-      trackingEnabled: true,
       trackingSendInitPageView: true,
       _log: {
         info: sinon.stub(),
@@ -73,9 +81,8 @@ describe('Tracking', () => {
   });
 
   it('should not send initial page view when disabled', () => {
-    tracking = new Tracking({
+    const tracking = createTracking({
       trackingId: 'whatever',
-      trackingEnabled: true,
       trackingSendInitPageView: false,
       _log: {
         info: sinon.stub(),
@@ -85,23 +92,27 @@ describe('Tracking', () => {
   });
 
   it('should throw if page not set', () => {
+    const tracking = createTracking();
     expect(() => {
       tracking.setPage();
     }).toThrowError(/page is required/);
   });
 
   it('should call ga with setPage', () => {
+    const tracking = createTracking();
     tracking.setPage('whatever');
     expect(window.ga.called).toBe(true);
   });
 
   it('should throw if category not set', () => {
+    const tracking = createTracking();
     expect(() => {
       tracking.sendEvent();
     }).toThrowError(/category is required/);
   });
 
   it('should throw if action not set', () => {
+    const tracking = createTracking();
     expect(() => {
       tracking.sendEvent({
         category: 'whatever',
@@ -110,6 +121,7 @@ describe('Tracking', () => {
   });
 
   it('should call _ga with sendEvent', () => {
+    const tracking = createTracking();
     tracking.sendEvent({
       category: 'whatever',
       action: 'some-action',
@@ -118,6 +130,7 @@ describe('Tracking', () => {
   });
 
   it('should call _ga when pageView is called', () => {
+    const tracking = createTracking();
     const data = {
       dimension1: 'whatever',
       dimension2: 'whatever2',
