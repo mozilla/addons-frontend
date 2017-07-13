@@ -73,22 +73,18 @@ describe('Tracking', () => {
     const tracking = createTracking({
       trackingId: 'whatever',
       trackingSendInitPageView: true,
-      _log: {
-        info: sinon.stub(),
-      },
     });
-    expect(window.ga.calledWith('send', 'pageview')).toBe(true);
+    sinon.assert.calledWith(window.ga, 'send', 'pageview');
   });
 
   it('should not send initial page view when disabled', () => {
     const tracking = createTracking({
       trackingId: 'whatever',
       trackingSendInitPageView: false,
-      _log: {
-        info: sinon.stub(),
-      },
     });
-    expect(window.ga.calledWith('send', 'pageview')).toBe(false);
+    // Make sure only 'create' was called, not 'send'
+    sinon.assert.calledWith(window.ga, 'create');
+    sinon.assert.callCount(window.ga, 1);
   });
 
   it('should throw if page not set', () => {
@@ -100,8 +96,9 @@ describe('Tracking', () => {
 
   it('should call ga with setPage', () => {
     const tracking = createTracking();
-    tracking.setPage('whatever');
-    expect(window.ga.called).toBe(true);
+    const page = 'some/page/';
+    tracking.setPage(page);
+    sinon.assert.calledWith(window.ga, 'set', 'page', page);
   });
 
   it('should throw if category not set', () => {
@@ -122,11 +119,16 @@ describe('Tracking', () => {
 
   it('should call _ga with sendEvent', () => {
     const tracking = createTracking();
+    const category = 'some-category';
+    const action = 'some-action';
     tracking.sendEvent({
-      category: 'whatever',
-      action: 'some-action',
+      category,
+      action,
     });
-    expect(window.ga.called).toBe(true);
+    sinon.assert.calledWithMatch(window.ga, 'send', {
+      eventCategory: category,
+      eventAction: action,
+    });
   });
 
   it('should call _ga when pageView is called', () => {
@@ -136,7 +138,7 @@ describe('Tracking', () => {
       dimension2: 'whatever2',
     };
     tracking.pageView(data);
-    expect(window.ga.calledWith('send', 'pageview', data)).toBe(true);
+    sinon.assert.calledWith(window.ga, 'send', 'pageview', data);
   });
 });
 
