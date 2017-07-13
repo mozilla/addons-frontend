@@ -24,7 +24,6 @@ describe('Tracking', () => {
     return new Tracking({
       _isDoNotTrackEnabled: () => false,
       _config: stubConfig(),
-      _log: { info: sinon.stub() },
       ...overrides,
     });
   }
@@ -73,7 +72,7 @@ describe('Tracking', () => {
 
   it('should send initial page view when enabled', () => {
     const tracking = createTracking({
-      trackingSendInitPageView: true,
+      _config: stubConfig({ trackingSendInitPageView: true }),
     });
     sinon.assert.calledWith(window.ga, 'send', 'pageview');
   });

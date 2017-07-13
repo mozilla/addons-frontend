@@ -42,26 +42,23 @@ export class Tracking {
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
-    _log = log,
-    trackingSendInitPageView,
   } = {}) {
     if (typeof window === 'undefined') {
       /* istanbul ignore next */
       return;
     }
-    this._log = _log;
+    this._log = log;
     this.id = _config.get('trackingId');
     this.enabled = convertBoolean(_config.get('trackingEnabled')) &&
       this.id && !_isDoNotTrackEnabled();
     this.logPrefix = `[GA: ${this.enabled ? 'ON' : 'OFF'}]`;
-    this.sendInitPageView = trackingSendInitPageView;
 
     if (this.enabled) {
       /* eslint-disable */
       // Snippet from Google UA docs: http://bit.ly/1O6Dsdh
       window.ga = window.ga || function() {(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
       ga('create', this.id, 'auto');
-      if (this.sendInitPageView) {
+      if (convertBoolean(_config.get('trackingSendInitPageView'))) {
         ga('send', 'pageview');
       }
       /* eslint-enable */
@@ -135,6 +132,4 @@ export function getAction(type) {
   }[type] || TRACKING_TYPE_INVALID;
 }
 
-export default new Tracking({
-  trackingSendInitPageView: config.get('trackingSendInitPageView'),
-});
+export default new Tracking();
