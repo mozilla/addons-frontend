@@ -53,7 +53,7 @@ export class Tracking {
       this.log('Disabled because trackingEnabled was false');
       this.enabled = false;
     } else if (!this.id) {
-      this.log('Disabled because trackingId was empty')
+      this.log('Disabled because trackingId was empty');
       this.enabled = false;
     } else if (_isDoNotTrackEnabled()) {
       this.log(oneLine`Do Not Track Enabled; Google Analytics not

@@ -1,6 +1,4 @@
 /* global window */
-import { oneLine } from 'common-tags';
-
 import { Tracking, isDoNotTrackEnabled, getAction } from 'core/tracking';
 import {
   ADDON_TYPE_EXTENSION,
@@ -33,7 +31,7 @@ describe('Tracking', () => {
   });
 
   it('should not enable GA when configured off', () => {
-    const tracking = createTracking({
+    createTracking({
       _config: stubConfig({ trackingEnabled: false }),
     });
     sinon.assert.notCalled(window.ga);
@@ -51,7 +49,7 @@ describe('Tracking', () => {
   });
 
   it('should disable GA due to missing id', () => {
-    const tracking = createTracking({
+    createTracking({
       _isDoNotTrackEnabled: () => false,
       _config: stubConfig({
         trackingEnabled: true,
@@ -62,7 +60,7 @@ describe('Tracking', () => {
   });
 
   it('should disable GA due to Do Not Track', () => {
-    const tracking = createTracking({
+    createTracking({
       _isDoNotTrackEnabled: () => true,
       _config: stubConfig({ trackingEnabled: true }),
       trackingEnabled: true,
@@ -71,16 +69,14 @@ describe('Tracking', () => {
   });
 
   it('should send initial page view when enabled', () => {
-    const tracking = createTracking({
+    createTracking({
       _config: stubConfig({ trackingSendInitPageView: true }),
     });
     sinon.assert.calledWith(window.ga, 'send', 'pageview');
   });
 
   it('should not send initial page view when disabled', () => {
-    const tracking = createTracking({
-      trackingSendInitPageView: false,
-    });
+    createTracking({ trackingSendInitPageView: false });
     // Make sure only 'create' was called, not 'send'
     sinon.assert.calledWith(window.ga, 'create');
     sinon.assert.callCount(window.ga, 1);
