@@ -1,6 +1,4 @@
 /* global window */
-import { oneLine } from 'common-tags';
-
 import { Tracking, isDoNotTrackEnabled, getAction } from 'core/tracking';
 import {
   ADDON_TYPE_EXTENSION,
@@ -11,97 +9,102 @@ import {
 
 
 describe('Tracking', () => {
-  let tracking;
+  function stubConfig(overrides = {}) {
+    const config = {
+      trackingEnabled: true,
+      trackingId: 'sample-tracking-id',
+      ...overrides,
+    };
+    return { get: sinon.spy((key) => config[key]) };
+  }
+
+  function createTracking(overrides = {}) {
+    return new Tracking({
+      _isDoNotTrackEnabled: () => false,
+      _config: stubConfig(),
+      ...overrides,
+    });
+  }
 
   beforeEach(() => {
-    tracking = new Tracking({
-      trackingId: 'whatever',
-      trackingEnabled: true,
-      _log: {
-        info: sinon.stub(),
-      },
-    });
     window.ga = sinon.stub();
   });
 
-  it('should log OFF when not enabled', () => {
-    tracking = new Tracking({
-      trackingId: 'whatever',
-      trackingEnabled: false,
-      _log: {
-        info: sinon.stub(),
-      },
+  it('should not enable GA when configured off', () => {
+    createTracking({
+      _config: stubConfig({ trackingEnabled: false }),
     });
-    expect(tracking._log.info.calledWith(sinon.match(/OFF/), 'Tracking init')).toBe(true);
+    sinon.assert.notCalled(window.ga);
   });
 
-  it('should log OFF when not enabled due to missing id', () => {
-    tracking = new Tracking({
-      trackingId: undefined,
-      trackingEnabled: true,
-      _log: {
-        info: sinon.stub(),
-      },
+  it('should not send events when tracking is configured off', () => {
+    const tracking = createTracking({
+      _config: stubConfig({ trackingEnabled: false }),
     });
-    expect(
-      tracking._log.info.secondCall.calledWith(sinon.match(/OFF/), 'Missing tracking id')
-    ).toBe(true);
+    tracking.sendEvent({
+      category: 'whatever',
+      action: 'some-action',
+    });
+    sinon.assert.notCalled(window.ga);
   });
 
-  it('should log OFF when not enabled due to Do Not Track', () => {
-    tracking = new Tracking({
+  it('should disable GA due to missing id', () => {
+    createTracking({
+      _isDoNotTrackEnabled: () => false,
+      _config: stubConfig({
+        trackingEnabled: true,
+        trackingId: null,
+      }),
+    });
+    sinon.assert.notCalled(window.ga);
+  });
+
+  it('should disable GA due to Do Not Track', () => {
+    createTracking({
       _isDoNotTrackEnabled: () => true,
-      _log: {
-        info: sinon.stub(),
-      },
+      _config: stubConfig({ trackingEnabled: true }),
       trackingEnabled: true,
-      trackingId: 'whatever',
     });
-    sinon.assert.calledWith(tracking._log.info, sinon.match(/OFF/));
+    sinon.assert.notCalled(window.ga);
   });
 
   it('should send initial page view when enabled', () => {
-    tracking = new Tracking({
-      trackingId: 'whatever',
-      trackingEnabled: true,
-      trackingSendInitPageView: true,
-      _log: {
-        info: sinon.stub(),
-      },
+    createTracking({
+      _config: stubConfig({ trackingSendInitPageView: true }),
     });
-    expect(window.ga.calledWith('send', 'pageview')).toBe(true);
+    sinon.assert.calledWith(window.ga, 'send', 'pageview');
   });
 
   it('should not send initial page view when disabled', () => {
-    tracking = new Tracking({
-      trackingId: 'whatever',
-      trackingEnabled: true,
-      trackingSendInitPageView: false,
-      _log: {
-        info: sinon.stub(),
-      },
-    });
-    expect(window.ga.calledWith('send', 'pageview')).toBe(false);
+    createTracking({ trackingSendInitPageView: false });
+    // Make sure only 'create' was called, not 'send'
+    sinon.assert.calledWith(window.ga, 'create');
+    sinon.assert.callCount(window.ga, 1);
   });
 
   it('should throw if page not set', () => {
+    const tracking = createTracking();
     expect(() => {
       tracking.setPage();
     }).toThrowError(/page is required/);
   });
 
   it('should call ga with setPage', () => {
-    tracking.setPage('whatever');
-    expect(window.ga.called).toBe(true);
+    const tracking = createTracking();
+    const page = 'some/page/';
+    tracking.setPage(page);
+    sinon.assert.calledWith(window.ga, 'set', 'page', page);
   });
 
   it('should throw if category not set', () => {
+    const tracking = createTracking();
     expect(() => {
       tracking.sendEvent();
     }).toThrowError(/category is required/);
   });
 
   it('should throw if action not set', () => {
+    const tracking = createTracking();
     expect(() => {
       tracking.sendEvent({
         category: 'whatever',
@@ -110,20 +113,27 @@ describe('Tracking', () => {
   });
 
   it('should call _ga with sendEvent', () => {
+    const tracking = createTracking();
+    const category = 'some-category';
+    const action = 'some-action';
     tracking.sendEvent({
-      category: 'whatever',
-      action: 'some-action',
+      category,
+      action,
     });
-    expect(window.ga.called).toBe(true);
+    sinon.assert.calledWithMatch(window.ga, 'send', {
+      eventCategory: category,
+      eventAction: action,
+    });
   });
 
   it('should call _ga when pageView is called', () => {
+    const tracking = createTracking();
     const data = {
       dimension1: 'whatever',
       dimension2: 'whatever2',
     };
     tracking.pageView(data);
-    expect(window.ga.calledWith('send', 'pageview', data)).toBe(true);
+    sinon.assert.calledWith(window.ga, 'send', 'pageview', data);
   });
 });
 
@@ -188,9 +198,7 @@ describe('Do Not Track', () => {
       _window: {},
     });
 
-    sinon.assert.calledWith(fakeLog.log, oneLine`[TRACKING]: Do Not Track
-      Enabled; Google Analytics not loaded and tracking disabled.`);
-    sinon.assert.calledOnce(fakeLog.log);
+    sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
 
     // Check with `window.doNotTrack` as well, just for completeness.
     fakeLog.log.reset();
@@ -200,8 +208,6 @@ describe('Do Not Track', () => {
       _window: { doNotTrack: '1' },
     });
 
-    sinon.assert.calledWith(fakeLog.log, oneLine`[TRACKING]: Do Not Track
-      Enabled; Google Analytics not loaded and tracking disabled.`);
-    sinon.assert.calledOnce(fakeLog.log);
+    sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
   });
 });

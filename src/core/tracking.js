@@ -29,8 +29,7 @@ export function isDoNotTrackEnabled({
   // any browsers built on these stacks (Chromium, Tor Browser, etc.).
   const dnt = _navigator.doNotTrack || _window.doNotTrack;
   if (dnt === '1') {
-    _log.log(oneLine`[TRACKING]: Do Not Track Enabled; Google Analytics not
-      loaded and tracking disabled.`);
+    _log.log('Do Not Track is enabled');
     return true;
   }
 
@@ -40,36 +39,43 @@ export function isDoNotTrackEnabled({
 
 export class Tracking {
   constructor({
+    _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
-    _log = log,
-    trackingEnabled,
-    trackingId,
-    trackingSendInitPageView,
   } = {}) {
     if (typeof window === 'undefined') {
       /* istanbul ignore next */
       return;
     }
-    this._log = _log;
-    this.id = trackingId;
-    this.enabled = trackingEnabled && trackingId && !_isDoNotTrackEnabled();
+    this._log = log;
+    this.logPrefix = '[GA]'; // this gets updated below
+    this.id = _config.get('trackingId');
+
+    if (!convertBoolean(_config.get('trackingEnabled'))) {
+      this.log('Disabled because trackingEnabled was false');
+      this.enabled = false;
+    } else if (!this.id) {
+      this.log('Disabled because trackingId was empty');
+      this.enabled = false;
+    } else if (_isDoNotTrackEnabled()) {
+      this.log(oneLine`Do Not Track Enabled; Google Analytics not
+        loaded and tracking disabled`);
+      this.enabled = false;
+    } else {
+      this.log('Google Analytics is enabled');
+      this.enabled = true;
+    }
+
     this.logPrefix = `[GA: ${this.enabled ? 'ON' : 'OFF'}]`;
-    this.sendInitPageView = trackingSendInitPageView;
 
     if (this.enabled) {
       /* eslint-disable */
       // Snippet from Google UA docs: http://bit.ly/1O6Dsdh
       window.ga = window.ga || function() {(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', trackingId, 'auto');
-      if (this.sendInitPageView) {
+      ga('create', this.id, 'auto');
+      if (convertBoolean(_config.get('trackingSendInitPageView'))) {
         ga('send', 'pageview');
       }
       /* eslint-enable */
-    }
-
-    this.log('Tracking init');
-    if (!this.id) {
-      this.log('Missing tracking id');
     }
   }
 
@@ -135,8 +141,4 @@ export function getAction(type) {
   }[type] || TRACKING_TYPE_INVALID;
 }
 
-export default new Tracking({
-  trackingEnabled: convertBoolean(config.get('trackingEnabled')),
-  trackingId: config.get('trackingId'),
-  trackingSendInitPageView: config.get('trackingSendInitPageView'),
-});
+export default new Tracking();
