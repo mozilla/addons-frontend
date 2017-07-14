@@ -43,6 +43,7 @@ export class Tracking {
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
   } = {}) {
     if (typeof window === 'undefined') {
+      /* istanbul ignore next */
       return;
     }
     this._log = log;
