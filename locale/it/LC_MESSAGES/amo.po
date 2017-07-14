@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-11 16:49+0000\n"
-"PO-Revision-Date: 2017-07-08 09:57+0000\n"
-"Last-Translator: Sandro <gialloporpora@mozillaitalia.org>\n"
+"PO-Revision-Date: 2017-07-14 15:13+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -462,33 +462,28 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Come valuti la tua esperienza utente con %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:32
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "Nessun risultato per “%(query)s”."
-msgstr[1] "Nessun risultato per “%(query)s”."
+msgstr[0] "%(count)s risultato trovato per “%(query)s”"
+msgstr[1] "%(count)s risultati trovati per “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "Nessun risultato per “%(query)s”."
+msgstr "Ricerca di “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "Caricamento delle categorie in corso…"
+msgstr "Caricamento dei componenti aggiuntivi in corso…"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "Nessuna categoria trovata."
+msgstr "Nessun componente aggiuntivo trovato"
 
 #: src/amo/components/SearchContextCard/index.js:45
-#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] "Nessuna categoria trovata."
-msgstr[1] "Nessuna categoria trovata."
+msgstr[0] "%(count)s componente aggiuntivo trovato"
+msgstr[1] "%(count)s componenti aggiuntivi trovati"
 
 #: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
@@ -527,9 +522,8 @@ msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Inserisci almeno un termine per iniziare una ricerca tra i componenti aggiuntivi per Firefox."
 
 #: src/amo/components/SearchResults.js:63
-#, fuzzy
 msgid "Search results"
-msgstr "Cerca temi"
+msgstr "Risultati di ricerca"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
