@@ -199,6 +199,22 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
       webpackIsomorphicTools.refresh();
     }
 
+    const cacheAllResponsesFor = config.get('cacheAllResponsesFor');
+    if (cacheAllResponsesFor) {
+      if (!isDevelopment) {
+        throw new Error(oneLine`You cannot simulate the cache with
+          the cacheAllResponsesFor config value when isDevelopment is false.
+          In other words, we already do caching in hosted environments
+          (via nginx) so this would be confusing!`);
+      }
+      log.warn(oneLine`Sending a Cache-Control header so that the client caches
+        all requests for ${cacheAllResponsesFor} seconds`);
+      res.set('Cache-Control', `public, max-age=${cacheAllResponsesFor}`);
+    }
+
+    // Vary the cache on Do Not Track headers.
+    res.vary('DNT');
+
     match({ location: req.url, routes }, (
       matchError, redirectLocation, renderProps
     ) => {
