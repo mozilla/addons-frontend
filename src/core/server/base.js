@@ -201,8 +201,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
     const cacheAllResponsesFor = config.get('cacheAllResponsesFor');
     if (cacheAllResponsesFor) {
-      log.warn(oneLine`Sending Cache-Control header so that client caches all
-        requests for ${cacheAllResponsesFor} seconds`);
+      log.warn(oneLine`Sending a Cache-Control header so that the client caches
+        all requests for ${cacheAllResponsesFor} seconds`);
       res.append('Cache-Control', `public, max-age=${cacheAllResponsesFor}`);
     }
 
