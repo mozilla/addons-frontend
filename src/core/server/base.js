@@ -203,7 +203,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
     if (cacheAllResponsesFor) {
       log.warn(oneLine`Sending a Cache-Control header so that the client caches
         all requests for ${cacheAllResponsesFor} seconds`);
-      res.append('Cache-Control', `public, max-age=${cacheAllResponsesFor}`);
+      res.set('Cache-Control', `public, max-age=${cacheAllResponsesFor}`);
     }
 
     // Vary the cache on Do Not Track headers.
