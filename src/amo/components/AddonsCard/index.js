@@ -13,15 +13,45 @@ export default class AddonsCard extends React.Component {
     addons: PropTypes.array.isRequired,
     children: PropTypes.node,
     className: PropTypes.string,
+    loading: PropTypes.boolean,
+    // When loading, this is the number of placeholders
+    // that will be rendered.
+    placeholderTotal: PropTypes.number,
     type: PropTypes.string,
   }
 
   static defaultProps = {
+    loading: false,
+    placeholderTotal: 5,
     type: 'list',
   }
 
   render() {
-    const { addons, children, className, type, ...otherProps } = this.props;
+    const {
+      addons,
+      children,
+      className,
+      loading,
+      placeholderTotal,
+      type,
+      ...otherProps
+    } = this.props;
+
+    const searchResults = [];
+
+    if (addons && addons.length) {
+      addons.forEach((addon) => {
+        searchResults.push(
+          <SearchResult addon={addon} key={addon.slug} />
+        );
+      });
+    } else if (loading) {
+      for (let count = 0; count < placeholderTotal; count++) {
+        searchResults.push(
+          <SearchResult key={count} />
+        );
+      }
+    }
 
     return (
       <CardList
@@ -30,11 +60,9 @@ export default class AddonsCard extends React.Component {
         ref={(ref) => { this.cardContainer = ref; }}
       >
         {children}
-        {addons && addons.length ? (
+        {searchResults.length ? (
           <ul className="AddonsCard-list">
-            {addons.map((addon) => (
-              <SearchResult addon={addon} key={addon.slug} />
-            ))}
+            {searchResults}
           </ul>
         ) : null}
       </CardList>
