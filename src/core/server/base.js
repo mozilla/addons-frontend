@@ -205,9 +205,8 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
         requests for ${cacheAllResponsesFor} seconds`);
       res.append('Cache-Control', `public, max-age=${cacheAllResponsesFor}`);
     }
-    // TODO: also make sure the middleware uses res.vary()
 
-    // Vary the cache on a Do Not Track header.
+    // Vary the cache on Do Not Track headers.
     res.vary('DNT');
 
     match({ location: req.url, routes }, (
