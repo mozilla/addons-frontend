@@ -109,14 +109,12 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     // Collect vary headers to apply to the redirect
     // so we can make it cacheable.
     // TODO: Make the redirects cacheable by adding expires headers.
-    const varyHeaders = [];
     if (isLangFromHeader) {
-      varyHeaders.push('accept-language');
+      res.vary('accept-language');
     }
     if (isApplicationFromHeader) {
-      varyHeaders.push('user-agent');
+      res.vary('user-agent');
     }
-    res.set('vary', varyHeaders);
     return res.redirect(302, newURL);
   }
 
