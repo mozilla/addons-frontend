@@ -3,6 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import { CategoryBase, mapStateToProps } from 'amo/components/Category';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import { SearchBase } from 'amo/components/Search';
 import createStore from 'amo/store';
 import { categoriesFetch } from 'core/actions/categories';
@@ -10,7 +11,7 @@ import { searchStart } from 'core/actions/search';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe('Category', () => {
   let category;
@@ -39,7 +40,7 @@ describe('Category', () => {
   }
 
   function mountRender(props = { loading: false }) {
-    const { store } = createStore();
+    const { store } = dispatchClientMetadata();
     return mount(
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
@@ -66,13 +67,13 @@ describe('Category', () => {
     sinon.assert.calledWith(fakeDispatch, categoriesFetch());
   });
 
-  it('return 404 if category is falsy and loading is false', () => {
+  it('should return 404 if category is falsy and loading is false', () => {
     const root = mountRender();
 
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
-  it('not return 404 if category is falsy and loading is true', () => {
+  it('should not return 404 if category is falsy and loading is true', () => {
     const root = mountRender({ loading: true });
 
     expect(root.find(NotFound)).toHaveLength(0);
