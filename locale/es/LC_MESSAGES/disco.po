@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-03-17 21:25+0000\n"
+"PO-Revision-Date: 2017-07-11 22:09+0000\n"
 "Last-Translator: jlG <jlg.l10n.es@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "Error del servidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Lo sentimos, pero ha habido un error y no hemos podido completar tu "
-"petición. Hemos registrado este error y vamos a investigarlo."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Lo sentimos, pero ha habido un error y no hemos podido completar tu petición. Hemos registrado este error y vamos a investigarlo."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Código de error: %(status)s."
 
@@ -37,11 +32,9 @@ msgstr "Página no encontrada"
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
-"Lo sentimos, pero no hemos encontrado nada en la URL que has introducido."
+msgstr "Lo sentimos, pero no hemos encontrado nada en la URL que has introducido."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Agregar a Firefox"
 
@@ -131,16 +124,15 @@ msgstr "Cerrar"
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox para iOS no es compatible actualmente con complementos."
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
-#, fuzzy
 msgid "This add-on does not support your version of Firefox."
-msgstr "El complemento se desinstalará tras reiniciar Firefox."
+msgstr "Este complemento no es compatible con tu versión de Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Este complemento no es compatible con tu navegador."
 
 #: src/disco/containers/App.js:33
 msgid "Discover Add-ons"
@@ -152,20 +144,13 @@ msgstr "Personaliza tu Firefox"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Hay miles de complementos gratis, creados por desarrolladores de todo el "
-"mundo\n"
-"y que te ayudan a personalizar Firefox. Desde divertidos temas visuales a "
-"herramientas \n"
-"y funciones alucinantes para que navegues más rápido y seguro. Los "
-"complementos te\n"
-"ayudan a personalizar tu navegador. Para empezar, te recomendamos algunos "
-"por su\n"
+"Hay miles de complementos gratis, creados por desarrolladores de todo el mundo\n"
+"y que te ayudan a personalizar Firefox. Desde divertidos temas visuales a herramientas \n"
+"y funciones alucinantes para que navegues más rápido y seguro. Los complementos te\n"
+"ayudan a personalizar tu navegador. Para empezar, te recomendamos algunos por su\n"
 "rendimiento y funcionalidad."
 
 #: src/disco/containers/DiscoPane.js:116

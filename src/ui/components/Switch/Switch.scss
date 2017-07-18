@@ -1,28 +1,21 @@
 @import "~disco/css/inc/vars";
 @import "~core/css/inc/mixins";
-
 $size: 26px;
 $borderSize: 1px;
-
 $transition: 0.3s;
-
 $switchHandleActive: #fff;
 $switchHandleInactive: transparentize($switchHandleActive, 0.75);
 $switchHandleGap: 1px;
 $switchHandleDisabledOpacity: 0.25;
 $switchToBackgroundRatio: 2.7;
-
 $switchStrokeOff: #858585;
 $switchStrokeOn: #00a920;
 $switchStrokeWidth: 1px;
 $switchHandleActivePosition: round(($size * $switchToBackgroundRatio) - ($size + ($switchHandleGap * 2 + $switchStrokeWidth)));
-
 $switchBackgroundOn: #57bd35;
 $switchBackgroundOff: #b1b1b1;
-
 $uninstallStripeColor1: $switchBackgroundOff;
 $uninstallStripeColor2: #d4d4d4;
-
 $installStripeColor1: #00a920;
 $installStripeColor2: #00c42e;
 
@@ -32,12 +25,13 @@ $installStripeColor2: #00c42e;
   }
 
   to {
-    background-position: $size $size/2;
+    background-position: $size $size / 2;
   }
 }
 
 @mixin stripes($color1, $color2, $stripeBackgroundColor) {
   animation: stripes 0.5s linear infinite;
+  background-color: $stripeBackgroundColor;
   background-image:
     repeating-linear-gradient(
       45deg,
@@ -47,8 +41,7 @@ $installStripeColor2: #00c42e;
       $color2 50%,
       $color1 50%
     );
-  background-size: $size/2 $size/2;
-  background-color: $stripeBackgroundColor;
+  background-size: $size / 2 $size / 2;
 }
 
 .Switch {
@@ -61,15 +54,15 @@ $installStripeColor2: #00c42e;
 
   input + label {
     background: $switchBackgroundOff;
-    border-radius: $size;
     border: $switchStrokeWidth solid $switchStrokeOff;
+    border-radius: $size;
     cursor: pointer;
     display: block;
     height: $size + ($switchHandleGap * 2) + ($switchStrokeWidth * 2);
     overflow: hidden;
     position: relative;
-    width: round($size * $switchToBackgroundRatio);
     transition: border-color 0.1s;
+    width: round($size * $switchToBackgroundRatio);
 
     &::before,
     &::after {
@@ -94,11 +87,11 @@ $installStripeColor2: #00c42e;
       border-radius: 50%;
       bottom: $switchHandleGap;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-      transform: translateX($switchHandleGap);
+      height: $size;
       top: $switchHandleGap;
+      transform: translateX($switchHandleGap);
       transition: transform $transition, box-shadow $transition;
       width: $size;
-      height: $size;
       z-index: 3;
 
       [dir=rtl] & {
@@ -143,7 +136,7 @@ $installStripeColor2: #00c42e;
 
   &.Switch--success {
     input + label::before {
-      background: $switchBackgroundOn url('./tick.svg') no-repeat 35% 50%;
+      background: $switchBackgroundOn url("./tick.svg") no-repeat 35% 50%;
 
       [dir=rtl] & {
         background-position: 65% 50%;
@@ -154,10 +147,7 @@ $installStripeColor2: #00c42e;
 
 .Switch--indefinite-reverse {
   input + label::before {
-    @include stripes(
-      $uninstallStripeColor1,
-      $uninstallStripeColor2,
-      $switchBackgroundOff);
+    @include stripes($uninstallStripeColor1, $uninstallStripeColor2, $switchBackgroundOff);
     // Reverse the stripe direction without
     // impacting the animation speed.
     transform: scaleX(-1);
@@ -202,10 +192,7 @@ $installStripeColor2: #00c42e;
     border-color: $switchStrokeOn;
 
     &::before {
-      @include stripes(
-        $installStripeColor1,
-        $installStripeColor2,
-        $switchBackgroundOn);
+      @include stripes($installStripeColor1, $installStripeColor2, $switchBackgroundOn);
     }
 
     &::after {
@@ -229,9 +216,9 @@ $installStripeColor2: #00c42e;
   position: absolute;
   right: 0;
   top: 0;
-  width: 100%;
-  transition: transform $transition;
   transform: translateX(-100%);
+  transition: transform $transition;
+  width: 100%;
 
   [dir=rtl] & {
     transform: translateX(100%);
