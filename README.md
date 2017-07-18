@@ -43,7 +43,9 @@ Here are some commands you can run:
 | Command                     | Description |
 |-----------------------------|-------------|
 | yarn dev:amo                | Start the dev server and proxy (amo) |
+| yarn dev:amo:dev            | Start the dev server and proxy (amo) using data from the dev server (https://addons-dev.allizom.org/) |
 | yarn dev:amo:no-proxy       | Start the dev server without proxy (amo) |
+| yarn dev:amo:stage          | Start the dev server and proxy (amo) using data from the staging server (https://addons.allizom.org/) |
 | yarn dev:disco              | Start the dev server (discovery pane) |
 | yarn flow                   | Run Flow. By default this checks for errors and exits |
 | yarn flow:check             | Explicitly check for Flow errors and exit |

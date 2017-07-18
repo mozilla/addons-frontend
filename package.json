@@ -13,7 +13,9 @@
     "extract-locales": "better-npm-run extract-locales",
     "clean": "rimraf './dist/*!(.gitkeep)' './webpack-assets.json' './src/locale/**(!.gitkeep)'",
     "dev:amo": "better-npm-run dev:amo",
+    "dev:amo:dev": "better-npm-run dev:amo:dev",
     "dev:amo:no-proxy": "better-npm-run dev:amo:no-proxy",
+    "dev:amo:stage": "better-npm-run dev:amo:stage",
     "dev:disco": "better-npm-run dev:disco",
     "eslint": "eslint .",
     "flow": "flow",
@@ -44,11 +46,29 @@
         "NODE_APP_INSTANCE": "amo"
       }
     },
+    "dev:amo:dev": {
+      "command": "better-npm-run start-dev",
+      "env": {
+        "AMO_CDN": "https://addons-amo-dev-cdn.allizom.org",
+        "API_HOST": "https://addons-dev.allizom.org",
+        "CSP": false,
+        "NODE_APP_INSTANCE": "amo"
+      }
+    },
     "dev:amo:no-proxy": {
       "command": "better-npm-run start-dev",
       "env": {
         "NODE_APP_INSTANCE": "amo",
         "PROXY_ENABLED": "false"
+      }
+    },
+    "dev:amo:stage": {
+      "command": "better-npm-run start-dev",
+      "env": {
+        "AMO_CDN": "https://addons-stage-cdn.allizom.org",
+        "API_HOST": "https://addons.allizom.org",
+        "CSP": false,
+        "NODE_APP_INSTANCE": "amo"
       }
     },
     "dev:disco": {
