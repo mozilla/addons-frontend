@@ -1,13 +1,14 @@
+/* eslint-disable react/no-unused-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { getFeatured } from 'amo/actions/featured';
 import SearchResults from 'amo/components/SearchResults';
-import { loadFeaturedAddons } from 'amo/utils';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { safeAsyncConnect } from 'core/utils';
+import { apiAddonType } from 'core/utils';
 
 import './styles.scss';
 
@@ -15,9 +16,11 @@ import './styles.scss';
 export class FeaturedAddonsBase extends React.Component {
   static propTypes = {
     addonType: PropTypes.string.isRequired,
-    hasSearchParams: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    hasSearchParams: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
+    params: PropTypes.object.isRequired,
     results: PropTypes.array,
   }
 
@@ -25,8 +28,24 @@ export class FeaturedAddonsBase extends React.Component {
     hasSearchParams: true,
   }
 
+  constructor(props) {
+    super(props);
+    this.loadDataIfNeeded();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.loadDataIfNeeded(nextProps);
+  }
+
+  requestedAddonType() {
+    // Returns the addonType from the URL that made the request to
+    // render this component.
+    return apiAddonType(this.props.params.visibleAddonType);
+  }
+
   headerForAddonType() {
-    const { addonType, i18n } = this.props;
+    const { addonType: configuredAddonType, i18n } = this.props;
+    const addonType = configuredAddonType || this.requestedAddonType();
 
     switch (addonType) {
       case ADDON_TYPE_EXTENSION:
@@ -38,19 +57,33 @@ export class FeaturedAddonsBase extends React.Component {
     }
   }
 
+  loadDataIfNeeded(nextProps = {}) {
+    const { addonType: lastAddonType } = this.props;
+    const { dispatch, loading, results } = { ...this.props, ...nextProps };
+
+    const nextParams = nextProps && nextProps.params ?
+      nextProps.params : {};
+    const nextAddonType = nextParams.visibleAddonType ?
+      apiAddonType(nextParams.visibleAddonType) : this.requestedAddonType();
+
+    if ((!results || nextAddonType !== lastAddonType) && !loading) {
+      dispatch(getFeatured({ addonType: nextAddonType }));
+    }
+  }
+
   render() {
-    const { addonType, hasSearchParams, loading, results } = this.props;
+    const { hasSearchParams, loading, results } = this.props;
 
     return (
       <div className="FeaturedAddons">
         <h2 className="FeaturedAddons-header">
-          {this.headerForAddonType(addonType)}
+          {this.headerForAddonType()}
         </h2>
         <SearchResults
-          count={results.length}
+          count={results && results.length}
           hasSearchParams={hasSearchParams}
           loading={loading}
-          results={results}
+          results={loading ? null : results}
         />
       </div>
     );
@@ -66,7 +99,6 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
-  safeAsyncConnect([{ promise: loadFeaturedAddons }]),
   connect(mapStateToProps),
   translate(),
 )(FeaturedAddonsBase);

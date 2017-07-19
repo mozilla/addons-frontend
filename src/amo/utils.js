@@ -14,6 +14,7 @@ import { SEARCH_SORT_POPULAR, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import { apiAddonType } from 'core/utils';
 
 
+// TODO: remove this
 export function loadFeaturedAddons({ store: { dispatch, getState }, params }) {
   const state = getState();
   const addonType = apiAddonType(params.visibleAddonType);

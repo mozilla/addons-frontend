@@ -6,8 +6,11 @@ import {
   FeaturedAddonsBase,
   mapStateToProps,
 } from 'amo/components/FeaturedAddons';
+import SearchResults from 'amo/components/SearchResults';
 import createStore from 'amo/store';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, VISIBLE_ADDON_TYPES_MAPPING,
+} from 'core/constants';
 import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
@@ -20,45 +23,250 @@ describe('<FeaturedAddons />', () => {
     store = createStore(initialState).store;
   });
 
-  function render({ ...props }) {
-    return shallow(<FeaturedAddonsBase i18n={getFakeI18nInst()} {...props} />);
+  function _loadFeatured({
+    addonType = ADDON_TYPE_EXTENSION,
+    resultMap = { [fakeAddon.slug]: fakeAddon },
+  } = {}) {
+    return featuredActions.loadFeatured({
+      addonType,
+      entities: { addons: resultMap },
+      result: { results: Object.keys(resultMap) },
+    });
   }
 
-  it('renders a FeaturedAddons page with no add-ons set', () => {
+  function render(customProps = {}) {
+    const props = {
+      addonType: ADDON_TYPE_EXTENSION,
+      dispatch: sinon.stub(),
+      i18n: getFakeI18nInst(),
+      loading: false,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[ADDON_TYPE_EXTENSION],
+      },
+      ...customProps,
+    };
+    return shallow(<FeaturedAddonsBase {...props} />);
+  }
+
+  it('fetches featured add-ons when component is created', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const dispatch = sinon.stub();
+    render({
+      dispatch,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+      },
+      loading: false,
+      results: null,
+    });
+
+    sinon.assert.calledWith(dispatch,
+      featuredActions.getFeatured({ addonType }));
+  });
+
+  it('fetches featured add-ons when component is updated', () => {
+    const firstAddonType = ADDON_TYPE_EXTENSION;
+    const secondAddonType = ADDON_TYPE_THEME;
+    const dispatch = sinon.stub();
+
+    const root = render({
+      dispatch,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[firstAddonType],
+      },
+      loading: false,
+      results: null,
+    });
+
+    dispatch.reset();
+
+    root.setProps({
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[secondAddonType],
+      },
+    });
+
+    sinon.assert.calledWith(dispatch,
+      featuredActions.getFeatured({ addonType: secondAddonType }));
+  });
+
+  it('fetches featured add-ons when addonType changes', () => {
+    const firstAddonType = ADDON_TYPE_EXTENSION;
+    const secondAddonType = ADDON_TYPE_THEME;
+    const dispatch = sinon.stub();
+
+    store.dispatch(_loadFeatured({ addonType: firstAddonType }));
+    // Get the results props from the state mapper.
+    const mappedProps = mapStateToProps(store.getState());
+
+    const root = render({
+      dispatch,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[firstAddonType],
+      },
+      ...mappedProps,
+    });
+
+    dispatch.reset();
+
+    root.setProps({
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[secondAddonType],
+      },
+    });
+
+    sinon.assert.calledWith(dispatch,
+      featuredActions.getFeatured({ addonType: secondAddonType }));
+  });
+
+  it('does not fetch featured add-ons while component is loading', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const dispatch = sinon.stub();
+
+    const root = render({
+      dispatch,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+      },
+      loading: false,
+      results: null,
+    });
+
+    dispatch.reset();
+
+    root.setProps({
+      loading: true,
+      results: null,
+    });
+
+    sinon.assert.notCalled(dispatch);
+  });
+
+  it('does not fetch featured add-ons when results are loaded', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const dispatch = sinon.stub();
+
+    store.dispatch(_loadFeatured());
+    // Get the results props from the state mapper.
+    const mappedProps = mapStateToProps(store.getState());
+
+    const root = render({
+      dispatch,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+      },
+      ...mappedProps,
+      hasSearchParams: true,
+    });
+
+    dispatch.reset();
+
+    root.setProps({
+      // Update an unrelated parameter.
+      hasSearchParams: false,
+    });
+
+    sinon.assert.notCalled(dispatch);
+  });
+
+  it('does not fetch featured add-ons when results are loaded + empty', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const dispatch = sinon.stub();
+
+    store.dispatch(_loadFeatured({ resultMap: {} }));
+    // This will make props.results === []
+    const mappedProps = mapStateToProps(store.getState());
+
+    render({
+      dispatch,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+      },
+      ...mappedProps,
+      hasSearchParams: true,
+    });
+
+    sinon.assert.notCalled(dispatch);
+  });
+
+  it('renders a header without a configured addonType', () => {
+    const root = render({
+      addonType: null,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[ADDON_TYPE_EXTENSION],
+      },
+    });
+
+    expect(root.find('.FeaturedAddons-header'))
+      .toIncludeText('More Featured Extensions');
+  });
+
+  it('renders a header when fetching extensions', () => {
     store.dispatch(
       featuredActions.getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.childAt(0)).toIncludeText('More Featured Extensions');
+    expect(root.find('.FeaturedAddons-header'))
+      .toIncludeText('More Featured Extensions');
   });
 
-  it('renders a FeaturedAddons page with themes HTML', () => {
+  it('renders a header when fetching themes', () => {
     store.dispatch(
       featuredActions.getFeatured({ addonType: ADDON_TYPE_THEME }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.childAt(0)).toIncludeText('More Featured Themes');
+    expect(root.find('.FeaturedAddons-header'))
+      .toIncludeText('More Featured Themes');
+  });
+
+  it('renders a header for a configured addonType', () => {
+    const root = render({
+      addonType: ADDON_TYPE_THEME,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[ADDON_TYPE_EXTENSION],
+      },
+    });
+
+    expect(root.find('.FeaturedAddons-header'))
+      .toIncludeText('More Featured Themes');
+  });
+
+  it('renders result placeholders when fetching addons', () => {
+    store.dispatch(
+      featuredActions.getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
+    const root = render(mapStateToProps(store.getState()));
+
+    expect(root.find(SearchResults)).toHaveProp('loading', true);
+  });
+
+  it('does not render old results while loading', () => {
+    // Load results.
+    store.dispatch(_loadFeatured());
+    // Fetch some new results.
+    store.dispatch(
+      featuredActions.getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
+    const root = render(mapStateToProps(store.getState()));
+
+    expect(root.find(SearchResults)).toHaveProp('loading', true);
+    expect(root.find(SearchResults)).toHaveProp('results', null);
   });
 
   it('renders each add-on when set', () => {
-    store.dispatch(featuredActions.loadFeatured({
-      addonType: ADDON_TYPE_EXTENSION,
-      entities: {
-        addons: {
-          howdy: {
-            ...fakeAddon, name: 'Howdy', slug: 'howdy',
-          },
-          'howdy-again': {
-            ...fakeAddon, name: 'Howdy again', slug: 'howdy-again',
-          },
+    store.dispatch(_loadFeatured({
+      resultMap: {
+        howdy: {
+          ...fakeAddon, name: 'Howdy', slug: 'howdy',
+        },
+        'howdy-again': {
+          ...fakeAddon, name: 'Howdy again', slug: 'howdy-again',
         },
       },
-      result: { results: ['howdy', 'howdy-again'] },
     }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.childAt(1).prop('results').map((result) => result.name))
-      .toEqual(['Howdy', 'Howdy again']);
+    expect(
+      root.find(SearchResults).prop('results').map((result) => result.name)
+    ).toEqual(['Howdy', 'Howdy again']);
   });
 
   it('throws if add-on type is not supported', () => {
