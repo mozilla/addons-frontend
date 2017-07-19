@@ -4,14 +4,17 @@ import {
 } from 'core/constants';
 
 
-export function getFeatured({ addonType }) {
+export function getFeatured({ addonType, errorHandlerId }) {
   if (!addonType) {
     throw new Error('addonType must be set');
+  }
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId must be set');
   }
 
   return {
     type: FEATURED_GET,
-    payload: { addonType },
+    payload: { addonType, errorHandlerId },
   };
 }
 

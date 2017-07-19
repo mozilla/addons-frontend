@@ -11,17 +11,30 @@ import createStore from 'amo/store';
 import {
   ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
+import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<FeaturedAddons />', () => {
+  let errorHandler;
   let store;
 
   beforeEach(() => {
     const initialState = { api: signedInApiState };
     store = createStore(initialState).store;
+    errorHandler = new ErrorHandler({
+      id: 'some-error-handler',
+      dispatch: sinon.stub(),
+    });
   });
+
+  function _getFeatured(args = {}) {
+    return featuredActions.getFeatured({
+      errorHandlerId: errorHandler.id,
+      ...args,
+    });
+  }
 
   function _loadFeatured({
     addonType = ADDON_TYPE_EXTENSION,
@@ -38,6 +51,7 @@ describe('<FeaturedAddons />', () => {
     const props = {
       addonType: ADDON_TYPE_EXTENSION,
       dispatch: sinon.stub(),
+      errorHandler,
       i18n: getFakeI18nInst(),
       loading: false,
       params: {
@@ -51,8 +65,13 @@ describe('<FeaturedAddons />', () => {
   it('fetches featured add-ons when component is created', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const dispatch = sinon.stub();
+    const customErrorHandler = new ErrorHandler({
+      id: 'custom-error-handler',
+      dispatch: sinon.stub(),
+    });
     render({
       dispatch,
+      errorHandler: customErrorHandler,
       params: {
         visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
       },
@@ -60,8 +79,10 @@ describe('<FeaturedAddons />', () => {
       results: null,
     });
 
-    sinon.assert.calledWith(dispatch,
-      featuredActions.getFeatured({ addonType }));
+    sinon.assert.calledWith(dispatch, _getFeatured({
+      addonType,
+      errorHandlerId: customErrorHandler.id,
+    }));
   });
 
   it('fetches featured add-ons when component is updated', () => {
@@ -87,7 +108,7 @@ describe('<FeaturedAddons />', () => {
     });
 
     sinon.assert.calledWith(dispatch,
-      featuredActions.getFeatured({ addonType: secondAddonType }));
+      _getFeatured({ addonType: secondAddonType }));
   });
 
   it('fetches featured add-ons when addonType changes', () => {
@@ -116,7 +137,7 @@ describe('<FeaturedAddons />', () => {
     });
 
     sinon.assert.calledWith(dispatch,
-      featuredActions.getFeatured({ addonType: secondAddonType }));
+      _getFeatured({ addonType: secondAddonType }));
   });
 
   it('does not fetch featured add-ons while component is loading', () => {
@@ -202,8 +223,7 @@ describe('<FeaturedAddons />', () => {
   });
 
   it('renders a header when fetching extensions', () => {
-    store.dispatch(
-      featuredActions.getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
+    store.dispatch(_getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
     expect(root.find('.FeaturedAddons-header'))
@@ -211,8 +231,7 @@ describe('<FeaturedAddons />', () => {
   });
 
   it('renders a header when fetching themes', () => {
-    store.dispatch(
-      featuredActions.getFeatured({ addonType: ADDON_TYPE_THEME }));
+    store.dispatch(_getFeatured({ addonType: ADDON_TYPE_THEME }));
     const root = render(mapStateToProps(store.getState()));
 
     expect(root.find('.FeaturedAddons-header'))
@@ -232,8 +251,7 @@ describe('<FeaturedAddons />', () => {
   });
 
   it('renders result placeholders when fetching addons', () => {
-    store.dispatch(
-      featuredActions.getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
+    store.dispatch(_getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
     expect(root.find(SearchResults)).toHaveProp('loading', true);
@@ -243,8 +261,7 @@ describe('<FeaturedAddons />', () => {
     // Load results.
     store.dispatch(_loadFeatured());
     // Fetch some new results.
-    store.dispatch(
-      featuredActions.getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
+    store.dispatch(_getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
     expect(root.find(SearchResults)).toHaveProp('loading', true);
