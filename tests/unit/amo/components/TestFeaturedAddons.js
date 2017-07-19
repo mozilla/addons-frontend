@@ -63,7 +63,7 @@ describe('<FeaturedAddons />', () => {
     return shallow(<FeaturedAddonsBase {...props} />);
   }
 
-  it('fetches featured add-ons when component is created', () => {
+  it('fetches featured add-ons when component mounts', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const dispatch = sinon.stub();
     const customErrorHandler = new ErrorHandler({
