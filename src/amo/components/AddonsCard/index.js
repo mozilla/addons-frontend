@@ -22,7 +22,8 @@ export default class AddonsCard extends React.Component {
 
   static defaultProps = {
     loading: false,
-    placeholderTotal: 5,
+    // Set this to the default API page size.
+    placeholderTotal: 25,
     type: 'list',
   }
 

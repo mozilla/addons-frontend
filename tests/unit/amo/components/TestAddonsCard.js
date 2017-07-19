@@ -39,7 +39,7 @@ describe('<AddonsCard />', () => {
   it('renders placeholders when loading addons', () => {
     const root = render({ addons: null, loading: true });
     const results = root.find(SearchResult);
-    expect(results).toHaveLength(5);
+    expect(results).toHaveLength(25);
     // Do a quick check to make sure these are rendered as placeholders.
     expect(results.at(0)).not.toHaveProp('addon');
   });
