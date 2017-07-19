@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2017-07-15 16:21+0000\n"
+"PO-Revision-Date: 2017-07-19 20:39+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "Chyba servera"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe. "
-"Chybu sme zaznamenali a budeme sa jej venovať."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe. Chybu sme zaznamenali a budeme sa jej venovať."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Kód chyby: %(status)s."
 
@@ -39,8 +34,7 @@ msgstr "Stránka nebola nájdená"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Ospravedlňujeme sa, ale na zadanej adrese nemôžeme nič nájsť."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Pridať do Firefoxu"
 
@@ -58,8 +52,7 @@ msgstr "Inštalovanie doplnku %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is disabled. Click to enable."
@@ -91,8 +84,7 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
+msgstr "Prejdite myšou pre náhľad alebo kliknite pre inštaláciu doplnku %(name)s"
 
 #: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
@@ -144,7 +136,7 @@ msgstr "Tento doplnok nie je vo vašom prehliadači podporovaný."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Zásady ochrany súkromia"
 
 #: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
@@ -156,17 +148,12 @@ msgstr "Prispôsobte si svoj Firefox"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
 "Existujú tisíce doplnkov, ktoré vytvárajú tisíce vývojárov po celom svete.\n"
-"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od "
-"zábavných tém \n"
-"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a "
-"bezpečnejšie.\n"
+"Tieto doplnky vám umožnia Firefox vylepšiť podľa vlastnej potreby - od zábavných tém \n"
+"až po výkonné nástroje, ktoré spravia vaše prehliadanie rýchlejšie a bezpečnejšie.\n"
 "Tu je niekoľko velikánov, čo stoja za vyskúšanie."
 
 #: src/disco/containers/DiscoPane.js:116
