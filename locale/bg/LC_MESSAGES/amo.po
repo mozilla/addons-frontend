@@ -475,10 +475,11 @@ msgid "No add-ons found"
 msgstr "Не са намерени добавки"
 
 #: src/amo/components/SearchContextCard/index.js:45
+#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "намерена %(count)s добавка"
+msgstr[1] "намерени %(count)s добавки"
 
 #: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
