@@ -26,9 +26,3 @@
     background: desaturate(nth($category-colors, $i), 20);
   }
 }
-
-@for $i from 1 through 10 {
-  .CategoriesHeader--type-extension.CategoriesHeader--category-color-#{$i} {
-    background: desaturate(nth($category-colors-extensions, $i), 20);
-  }
-}

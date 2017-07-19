@@ -1,14 +1,17 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
+import { Provider } from 'react-redux';
 
 import { CategoryBase, mapStateToProps } from 'amo/components/Category';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import { SearchBase } from 'amo/components/Search';
 import createStore from 'amo/store';
 import { categoriesFetch } from 'core/actions/categories';
 import { searchStart } from 'core/actions/search';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
-
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 describe('Category', () => {
   let category;
@@ -36,6 +39,22 @@ describe('Category', () => {
     );
   }
 
+  function mountRender(props = { loading: false }) {
+    const { store } = dispatchClientMetadata();
+    return mount(
+      <Provider store={store}>
+        <I18nProvider i18n={getFakeI18nInst()}>
+          <CategoryBase
+            category={null}
+            dispatch={fakeDispatch}
+            i18n={getFakeI18nInst()}
+            {...props}
+          />
+        </I18nProvider>
+      </Provider>
+    );
+  }
+
   it('outputs a category page', () => {
     const root = render();
 
@@ -46,6 +65,18 @@ describe('Category', () => {
     render({ category: null });
 
     sinon.assert.calledWith(fakeDispatch, categoriesFetch());
+  });
+
+  it('should return 404 if category is falsy and loading is false', () => {
+    const root = mountRender();
+
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('should not return 404 if category is falsy and loading is true', () => {
+    const root = mountRender({ loading: true });
+
+    expect(root.find(NotFound)).toHaveLength(0);
   });
 
   it('disables the sort component in Search', () => {

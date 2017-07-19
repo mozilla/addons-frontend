@@ -34,7 +34,8 @@ The easiest way to manage multiple node versions in development is to use
 ## Get started
 
 * type `yarn` to install all dependencies
-* type `yarn dev:amo` to start a dev server
+* type `yarn amo:stage` to start a local server that connects to a
+  hosted staging server
 
 ## Development commands
 
@@ -42,9 +43,11 @@ Here are some commands you can run:
 
 | Command                     | Description |
 |-----------------------------|-------------|
-| yarn dev:amo                | Start the dev server and proxy (amo) |
-| yarn dev:amo:no-proxy       | Start the dev server without proxy (amo) |
-| yarn dev:disco              | Start the dev server (discovery pane) |
+| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker |
+| yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/) |
+| yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker |
+| yarn amo:stage              | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
+| yarn disco                  | Start the dev server (for Discovery Pane) using data from the dev server (https://addons-dev.allizom.org/) |
 | yarn flow                   | Run Flow. By default this checks for errors and exits |
 | yarn flow:check             | Explicitly check for Flow errors and exit |
 | yarn flow:dev               | Continuously check for Flow errors |
@@ -194,9 +197,9 @@ it will not work when logging in from an addons-server page. See
 [mozilla/addons-server#4684](https://github.com/mozilla/addons-server/issues/4684) for more
 information on fixing this.
 
-If you would like to use `https://addons-dev.allizom.org` for the API you should use the
-`yarn dev:amo:no-proxy` command with an `API_HOST` to start the server without the proxy. For
-example: `API_HOST=https://addons-dev.allizom.org yarn dev:amo:no-proxy`.
+If you would like to use `https://addons-dev.allizom.org` for data you should use the
+`yarn amo:dev` command. See the table of commands up above for similar
+hosted options.
 
 ### Configuring for local development
 
@@ -223,7 +226,7 @@ module.exports = {
 When you start up your front-end Discovery Pane server, it will now apply
 overrides from your local configuration file:
 
-    yarn dev:disco
+    yarn disco
 
 Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
