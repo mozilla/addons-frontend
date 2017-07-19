@@ -34,8 +34,8 @@ The easiest way to manage multiple node versions in development is to use
 ## Get started
 
 * type `yarn` to install all dependencies
-* type `yarn dev:amo:dev` to start a local dev server that connects to a
-  hosted development environment
+* type `yarn amo:stage` to start a local server that connects to a
+  hosted staging server
 
 ## Development commands
 
@@ -43,10 +43,10 @@ Here are some commands you can run:
 
 | Command                     | Description |
 |-----------------------------|-------------|
-| yarn dev:amo                | Start the dev server/proxy (for amo) using data from Docker |
-| yarn dev:amo:dev            | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/) |
-| yarn dev:amo:no-proxy       | Start the dev server without a proxy (for amo) using data from Docker |
-| yarn dev:amo:stage          | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
+| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker |
+| yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/) |
+| yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker |
+| yarn amo:stage              | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
 | yarn dev:disco              | Start the dev server (for Discovery Pane) using data from Docker |
 | yarn flow                   | Run Flow. By default this checks for errors and exits |
 | yarn flow:check             | Explicitly check for Flow errors and exit |
@@ -198,7 +198,7 @@ it will not work when logging in from an addons-server page. See
 information on fixing this.
 
 If you would like to use `https://addons-dev.allizom.org` for data you should use the
-`yarn dev:amo:dev` command. See the table of commands up above for similar
+`yarn amo:dev` command. See the table of commands up above for similar
 hosted options.
 
 ### Configuring for local development
