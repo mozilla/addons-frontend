@@ -19,9 +19,11 @@ export function* fetchFeaturedAddons(
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     yield put(showLoading());
+
     const api = yield select(getApi);
     const filters = { addonType, page_size: FEATURED_ADDONS_TO_LOAD };
     const response = yield call(featuredApi, { api, filters });
+
     yield put(loadFeatured({
       addonType,
       entities: response.entities,
@@ -30,6 +32,7 @@ export function* fetchFeaturedAddons(
   } catch (error) {
     log.warn(
       `Failed to fetch featured add-ons for addonType ${addonType}: ${error}`);
+
     yield put(errorHandler.createErrorAction(error));
   } finally {
     yield put(hideLoading());
