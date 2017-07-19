@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
-import { sanitizeHTML } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 import Link from 'amo/components/Link';
@@ -17,21 +16,6 @@ export class AboutBase extends React.Component {
 
   render() {
     const { i18n } = this.props;
-
-    const whatsHappening1 = i18n.sprintf(i18n.gettext('Our <a href="%(url)s"> Add-ons Blog</a> is regularly updated with information for both add-on enthusiasts and developers.'), { url: 'http://blog.mozilla.com/addons/' });
-    const whatsHappening2 = i18n.sprintf(i18n.gettext('We often post news, tips, and tricks to our Twitter account, <a href="%(url)s"> mozamo</a>'), { url: 'http://twitter.com/mozamo' });
-    const whatsHappening3 = i18n.sprintf(i18n.gettext('Our <a href="%(url)s">forums</a> are a good place to interact with the add-ons community and discuss upcoming changes to AMO.'), { url: 'https://discourse.mozilla-community.org/c/add-ons' });
-
-    const getInvolved1 = i18n.sprintf(i18n.gettext('<Link to="%(url)s">Make your own add-on</Link> We provide free hosting and update services and can help you reach a large audience of users.'), { url:'/developers' });
-    const getInvolved2 = i18n.sprintf(i18n.gettext('If you have add-on development experience, <a href="%(url)s">become an Add-on Reviewer</a>! Our reviewers are add-on fans with a technical background who review add-ons for code quality and stability.'), { url: 'https://wiki.mozilla.org/Add-ons/Reviewers/Applying' });
-    const getInvolved3 = i18n.sprintf(i18n.gettext('Help improve this website. It\'s open source, and you can file bugs and submit patches. <a href="%(url)s">GitHub</a> contains all of our current bugs, legacy bugs can still be found in Bugzilla.'), { url: 'https://github.com/mozilla/addons-server/issues'});
-    const getInvolved4 = i18n.sprintf(i18n.gettext('Participate in our <a href="%(url)s">forums</a>.'), { url: 'https://discourse.mozilla-community.org/c/add-ons'});
-
-    const question1 = i18n.sprintf(i18n.gettext('A good place to start is our <a href="%(urlFaq)s"><abbr title="%(titleText)s">FAQ</abbr></a>. If you don\'t find an answer there, you can <a href="%(urlForum)s">ask on our forums</a>.'), { urlFaq: 'faq', titleText: 'Frequently Asked Questions', urlForum: 'https://discourse.mozilla-community.org/c/add-ons' });
-
-    const question2 = i18n.sprintf(i18n.gettext('If you really need to contact someone from the Mozilla team, please see our <a href="%(url)s">contact information</a> page.'), { url: '/developers/docs/policies/contact'});
-
-    const whoWorks = i18n.sprintf(i18n.gettext('Over the years, many people have contributed to this website, including both volunteers from the community and a dedicated AMO team. A list of significant contributors can be found on our <a href="%(url)s">Site Credits</a> page.'), { url: 'pages/credits'});
 
     return (
 
@@ -57,24 +41,47 @@ export class AboutBase extends React.Component {
             {i18n.gettext('There are several ways to find out the latest news from the world of add-ons:')}
           </p>
           <ul>
-            <li dangerouslySetInnerHTML={sanitizeHTML(whatsHappening1, ['a'])} />
-            <li dangerouslySetInnerHTML={sanitizeHTML(whatsHappening2, ['a'])} />
-            <li dangerouslySetInnerHTML={sanitizeHTML(whatsHappening3, ['a'])} />
+            <li>
+              {i18n.gettext('Our')}&nbsp;
+              <a href={'http://blog.mozilla.com/addons/'}>{i18n.gettext('Add-ons Blog')}</a>&nbsp;
+              {i18n.gettext('is regularly updated with information for both add-on enthusiasts and developers.')}
+            </li>
+            <li>
+              {i18n.gettext('We often post news, tips, and tricks to our Twitter account,')}&nbsp;
+              <a href={'http://twitter.com/mozamo'}>{i18n.gettext('mozamo')}</a>
+            </li>
+            <li>
+              {i18n.gettext('Our')}&nbsp;
+              <a href={'https://discourse.mozilla-community.org/c/add-ons'}>{i18n.gettext('forums')}</a>&nbsp;
+              {i18n.gettext('are a good place to interact with the add-ons community and discuss upcoming changes to AMO.')}
+            </li>
           </ul>
         </section>
         <section>
           <h2>{i18n.gettext('This sounds great! How can I get involved?')}</h2>
           <p>{i18n.gettext('There are plenty of ways to get involved. If you\'re on the technical side:')}
             <ul>
-              <li dangerouslySetInnerHTML={sanitizeHTML(getInvolved1, ['Link'])} />
-              <li dangerouslySetInnerHTML={sanitizeHTML(getInvolved2, ['a'])} />
-              <li dangerouslySetInnerHTML={sanitizeHTML(getInvolved3, ['a'])} />
+              <li>
+                <Link to={'/developers'}>{i18n.gettext('Make your own add-on')}</Link>.&nbsp;
+                {i18n.gettext('We provide free hosting and update services and can help you reach a large audience of users.')}
+              </li>
+              <li>
+                {i18n.gettext('If you have add-on development experience,')}&nbsp;
+                <a href="https://wiki.mozilla.org/Add-ons/Reviewers/Applying">{i18n.gettext('become an Add-on Reviewer')}</a>!&nbsp;
+                {i18n.gettext('Our reviewers are add-on fans with a technical background who review add-ons for code quality and stability.')}
+              </li>
+              <li>
+                {i18n.gettext('Help improve this website. It\'s open source, and you can file bugs and submit patches.')}&nbsp; <a href="https://github.com/mozilla/olympia/issues"> {i18n.gettext('GitHub')}</a>&nbsp;
+                {i18n.gettext('contains all of our current bugs, legacy bugs can still be found in Bugzilla.')}
+              </li>
             </ul>
           </p>
           <p>{i18n.gettext('If you\'re interested in add-ons but not quite as technical, there are still ways to help:')}</p>
           <ul>
             <li>{i18n.gettext('Tell your friends! Let people know which add-ons you use.')}</li>
-            <li dangerouslySetInnerHTML={sanitizeHTML(getInvolved4, ['a'])} />
+            <li>{i18n.gettext('Participate in our')}&nbsp;
+              <a href="https://discourse.mozilla-community.org/c/add-ons">{i18n.gettext('forums')}</a>.
+            </li>
             <li>
               {i18n.gettext('Review add-ons on the site. Add-on authors are more likely to improve their add-ons and write new ones when they know people appreciate their work.')}
             </li>
@@ -82,12 +89,19 @@ export class AboutBase extends React.Component {
         </section>
         <section>
           <h2>{i18n.gettext('I have a question')}</h2>
-          <p dangerouslySetInnerHTML={sanitizeHTML(question1, ['a'])} />
-          <p dangerouslySetInnerHTML={sanitizeHTML(question2, ['a'])} />
+          <p>{i18n.gettext('A good place to start is our')}&nbsp;
+            <Link to="/faq"><abbr title="{i18n.gettext('Frequently Asked Questions')}">{i18n.gettext('FAQ')}</abbr></Link>.&nbsp;
+            {i18n.gettext('If you don\'t find an answer there, you can')}&nbsp;<a href="https://discourse.mozilla-community.org/c/add-ons">{i18n.gettext('ask on our forums')}</a>.
+          </p>
+          <p>{i18n.gettext('If you really need to contact someone from the Mozilla team, please see our')}&nbsp;
+            <Link to="/developers/docs/policies/contact">{i18n.gettext('contact information')}</Link> {i18n.gettext('page.')}
+          </p>
         </section>
         <section>
           <h2>{i18n.gettext('Who works on this website?')}</h2>
-          <p dangerouslySetInnerHTML={sanitizeHTML(whoWorks, ['a'])} />
+          <p>{i18n.gettext('Over the years, many people have contributed to this website, including both volunteers from the community and a dedicated AMO team. A list of significant contributors can be found on our')}&nbsp;
+            <Link to="/pages/credits">{i18n.gettext('Site Credits')}</Link>&nbsp;{i18n.gettext('page')}.
+          </p>
         </section>
       </Card>
     );
