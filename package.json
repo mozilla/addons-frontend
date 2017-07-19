@@ -16,7 +16,7 @@
     "amo:dev": "better-npm-run amo:dev",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
-    "dev:disco": "better-npm-run dev:disco",
+    "disco": "better-npm-run disco",
     "eslint": "eslint .",
     "flow": "flow",
     "flow:check": "flow check",
@@ -71,7 +71,7 @@
         "NODE_APP_INSTANCE": "amo"
       }
     },
-    "dev:disco": {
+    "disco": {
       "command": "better-npm-run start-dev",
       "env": {
         "NODE_APP_INSTANCE": "disco"

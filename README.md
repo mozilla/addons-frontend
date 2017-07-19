@@ -47,7 +47,7 @@ Here are some commands you can run:
 | yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/) |
 | yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker |
 | yarn amo:stage              | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
-| yarn dev:disco              | Start the dev server (for Discovery Pane) using data from Docker |
+| yarn disco                  | Start the dev server (for Discovery Pane) using data from the dev server (https://addons-dev.allizom.org/) |
 | yarn flow                   | Run Flow. By default this checks for errors and exits |
 | yarn flow:check             | Explicitly check for Flow errors and exit |
 | yarn flow:dev               | Continuously check for Flow errors |
@@ -226,7 +226,7 @@ module.exports = {
 When you start up your front-end Discovery Pane server, it will now apply
 overrides from your local configuration file:
 
-    yarn dev:disco
+    yarn disco
 
 Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
