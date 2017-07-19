@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -134,7 +134,11 @@ msgstr ".xoɟǝɹıℲ ɟo uoısɹǝʌ ɹnoʎ ʇɹoddns ʇou sǝop uo-ppɐ sıɥ
 msgid "This add-on does not support your browser."
 msgstr ".ɹǝsʍoɹq ɹnoʎ ʇɹoddns ʇou sǝop uo-ppɐ sıɥ⊥"
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "ʎɔıʅoԀ ʎɔɐʌıɹԀ"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "suo-pp∀ ɹǝʌoɔsıᗡ"
 

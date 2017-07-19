@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
 "PO-Revision-Date: 2017-07-11 18:05+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -19,10 +19,16 @@ msgid "Server Error"
 msgstr "Serverfehler"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Entschuldigen Sie, es ist ein Fehler aufgetreten und die Anfrage konnte nicht abgeschlossen werden. Der Fehler wurde protokolliert und wird untersucht."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Entschuldigen Sie, es ist ein Fehler aufgetreten und die Anfrage konnte "
+"nicht abgeschlossen werden. Der Fehler wurde protokolliert und wird "
+"untersucht."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Fehlercode: %(status)s."
 
@@ -32,9 +38,11 @@ msgstr "Seite nicht gefunden"
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr "Entschuldigen Sie, aber wir konnten zu der eingegebenen URL nichts finden."
+msgstr ""
+"Entschuldigen Sie, aber wir konnten zu der eingegebenen URL nichts finden."
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Zu Firefox hinzufügen"
 
@@ -52,7 +60,9 @@ msgstr "%(name)s wird installiert."
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu deinstallieren."
+msgstr ""
+"%(name)s wurde installiert und aktiviert. Klicken Sie, um es zu "
+"deinstallieren."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is disabled. Click to enable."
@@ -84,11 +94,13 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
+msgstr ""
+"Zur Vorschau Mauszeiger darüber halten, zum Installieren von %(name)s klicken"
 
 #: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
-msgstr "Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
+msgstr ""
+"Bewegen Sie den Mauszeiger über die Grafik, um eine Vorschau anzuzeigen."
 
 #: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
@@ -112,7 +124,8 @@ msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
 #: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr "Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
+msgstr ""
+"Dieses Add-on wird deinstalliert, nachdem Sie Firefox neu gestartet haben."
 
 #: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
@@ -134,7 +147,11 @@ msgstr "Dieses Add-on unterstützt Ihre Firefox-Version nicht."
 msgid "This add-on does not support your browser."
 msgstr "Dieses Add-on unterstützt Ihren Browser nicht."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr ""
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "Add-ons entdecken"
 
@@ -144,11 +161,17 @@ msgstr "Passen Sie Ihren Firefox an."
 
 #: src/disco/containers/DiscoPane.js:108
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von lustigen Themes zu mächtigen Werkzeugen, dank "
-"denen Sie schneller und sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige besonders leistungsfähige und funktionsreiche Add-ons."
+"Es gibt Tausende von kostenlosen Add-ons von Entwicklern auf der ganzen "
+"Welt, mit denen Sie Firefox an Ihre Bedürfnisse anpassen können – alles, von "
+"lustigen Themes zu mächtigen Werkzeugen, dank denen Sie schneller und "
+"sicherer surfen können. Für den Einstieg empfehlen wir Ihnen hier einige "
+"besonders leistungsfähige und funktionsreiche Add-ons."
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"

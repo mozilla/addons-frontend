@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
 "PO-Revision-Date: 2017-07-12 08:27+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "Грешка на сървъра"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Съжаляваме, но възникна грешка и не завършихме вашата заявка. Грешката е записана при нас и ще я проверим."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Съжаляваме, но възникна грешка и не завършихме вашата заявка. Грешката е "
+"записана при нас и ще я проверим."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Код на грешката: %(status)s."
 
@@ -34,7 +39,8 @@ msgstr "Страницата не е намерена"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Съжаляваме, но на въведения от вас адрес не намираме нищо."
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Добавяне към Firefox"
 
@@ -134,7 +140,11 @@ msgstr "Добавката не поддържа тази версия на ва
 msgid "This add-on does not support your browser."
 msgstr "Добавката не поддържа вашия четец."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr ""
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "Още добавки"
 
@@ -144,8 +154,11 @@ msgstr "Персонализирайте вашия Firefox"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
 "Има хиляди свободни добавки, създадени от разработчици цял\n"
 "свят, които можете да инсталирате, за да направите Firefox\n"
