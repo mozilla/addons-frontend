@@ -461,7 +461,7 @@ describe('i18n utils', () => {
       const i18n = utils.makeI18n({}, 'de', FakeJed, { _Intl: false });
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
       const number = 1234;
-      expect(i18n.formatNumber(number)).toEqual('1,234');
+      expect(i18n.formatNumber(number)).toEqual('1.234');
       sinon.assert.calledWith(toLocaleStringSpy, 'de');
       sinon.assert.notCalled(numberFormatSpy);
     });
@@ -471,7 +471,10 @@ describe('i18n utils', () => {
       const i18n = utils.makeI18n({}, 'fr', FakeJed, { _Intl: {} });
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
       const number = 12345;
-      expect(i18n.formatNumber(number)).toEqual('12,345');
+      // Note: There is a non-breaking space character in the string below,
+      // it isn't a regular space. This is what's output in `toLocaleString()`
+      // when the locale is FR.
+      expect(i18n.formatNumber(number)).toEqual('12 345');
       sinon.assert.calledWith(toLocaleStringSpy, 'fr');
       sinon.assert.notCalled(numberFormatSpy);
     });
