@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
 "PO-Revision-Date: 2017-07-09 19:11+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr ""
 "\"%(downloadUrl)s\"> Firefox'u indirebilirsiniz </a>."
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s kullanıcı"
@@ -561,7 +561,7 @@ msgstr "Uzantılarda ve temalarda ara"
 msgid "Search"
 msgstr "Ara"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "Tema ön izlemesi yok"
 

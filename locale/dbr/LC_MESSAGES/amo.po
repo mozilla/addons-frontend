@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -71,7 +71,7 @@ msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\
 msgstr ".uo-ppɐ sıɥʇ ʅʅɐʇsuı oʇ <a href=\"%(downloadUrl)s\">xoɟǝɹıℲ pɐoʅuʍop</a> uɐɔ no⅄ .suo-ppɐ ʇɹoddns ʇou sǝop ɹǝsʍoɹq ɹno⅄"
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "ɹǝsn %(total)s"
@@ -508,7 +508,7 @@ msgstr "sǝɯǝɥʇ puɐ suoısuǝʇxǝ ɥɔɹɐǝS"
 msgid "Search"
 msgstr "ɥɔɹɐǝS"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "ǝʅqɐʅıɐʌɐ ʍǝıʌǝɹd ǝɯǝɥʇ oN"
 
