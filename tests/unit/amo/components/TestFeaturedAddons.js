@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import * as featuredActions from 'amo/actions/featured';
+import { setViewContext } from 'amo/actions/viewContext';
 import {
   FeaturedAddonsBase,
   mapStateToProps,
@@ -207,7 +208,9 @@ describe('<FeaturedAddons />', () => {
       hasSearchParams: true,
     });
 
-    sinon.assert.notCalled(dispatch);
+    // Make sure only the view context was dispatched, not getFeatured()
+    sinon.assert.calledWith(dispatch, setViewContext(addonType));
+    sinon.assert.callCount(dispatch, 1);
   });
 
   it('renders a header without a configured addonType', () => {
@@ -290,5 +293,19 @@ describe('<FeaturedAddons />', () => {
     expect(() => {
       render({ addonType: 'XUL' });
     }).toThrowError('Invalid addonType: "XUL"');
+  });
+
+  it('sets the viewContext to the addonType', () => {
+    const dispatch = sinon.stub();
+    const addonType = ADDON_TYPE_THEME;
+
+    render({
+      dispatch,
+      params: {
+        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+      },
+    });
+
+    sinon.assert.calledWith(dispatch, setViewContext(addonType));
   });
 });

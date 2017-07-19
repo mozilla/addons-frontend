@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { getFeatured } from 'amo/actions/featured';
+import { setViewContext } from 'amo/actions/viewContext';
 import SearchResults from 'amo/components/SearchResults';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -30,8 +31,8 @@ export class FeaturedAddonsBase extends React.Component {
     hasSearchParams: true,
   }
 
-  constructor(props) {
-    super(props);
+  componentWillMount() {
+    this.props.dispatch(setViewContext(this.requestedAddonType()));
     this.loadDataIfNeeded();
   }
 
