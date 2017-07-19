@@ -13,7 +13,9 @@ import {
   ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { fakeAddon, signedInApiState } from 'tests/unit/amo/helpers';
+import {
+  createFeaturedApiResult, fakeAddon, signedInApiState,
+} from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
@@ -39,12 +41,11 @@ describe('<FeaturedAddons />', () => {
 
   function _loadFeatured({
     addonType = ADDON_TYPE_EXTENSION,
-    resultMap = { [fakeAddon.slug]: fakeAddon },
+    results = [fakeAddon],
   } = {}) {
+    const { entities, result } = createFeaturedApiResult(results);
     return featuredActions.loadFeatured({
-      addonType,
-      entities: { addons: resultMap },
-      result: { results: Object.keys(resultMap) },
+      addonType, entities, result,
     });
   }
 
@@ -195,7 +196,7 @@ describe('<FeaturedAddons />', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const dispatch = sinon.stub();
 
-    store.dispatch(_loadFeatured({ resultMap: {} }));
+    store.dispatch(_loadFeatured({ results: [] }));
     // This will make props.results === []
     const mappedProps = mapStateToProps(store.getState());
 
@@ -273,14 +274,10 @@ describe('<FeaturedAddons />', () => {
 
   it('renders each add-on when set', () => {
     store.dispatch(_loadFeatured({
-      resultMap: {
-        howdy: {
-          ...fakeAddon, name: 'Howdy', slug: 'howdy',
-        },
-        'howdy-again': {
-          ...fakeAddon, name: 'Howdy again', slug: 'howdy-again',
-        },
-      },
+      results: [
+        { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+      ],
     }));
     const root = render(mapStateToProps(store.getState()));
 

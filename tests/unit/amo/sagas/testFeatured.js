@@ -1,4 +1,3 @@
-import { normalize } from 'normalizr';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
@@ -10,7 +9,9 @@ import featuredSaga from 'amo/sagas/featured';
 import { ErrorHandler } from 'core/errorHandler';
 import apiReducer from 'core/reducers/api';
 import { ADDON_TYPE_EXTENSION, FEATURED_LOADED } from 'core/constants';
-import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
+import {
+  createFeaturedApiResult, dispatchSignInActions, fakeAddon,
+} from 'tests/unit/amo/helpers';
 
 describe('amo/sagas/featured', () => {
   describe('fetchFeaturedAddons', () => {
@@ -40,11 +41,6 @@ describe('amo/sagas/featured', () => {
       sagaTester.dispatch(getFeatured({
         addonType, errorHandlerId: errorHandler.id,
       }));
-    }
-
-    function createFeaturedApiResult(results) {
-      // Return a normalized result just like core.api.featured() does.
-      return normalize({ results }, { results: [api.addon] });
     }
 
     it('fetches featured addons from the API', async () => {
