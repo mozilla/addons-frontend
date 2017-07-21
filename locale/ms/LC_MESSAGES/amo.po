@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-21 03:01+0000\n"
+"PO-Revision-Date: 2017-07-21 03:13+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -308,27 +308,27 @@ msgstr "Main permainan"
 
 #: src/amo/components/Home/index.js:120
 msgid "Wild"
-msgstr ""
+msgstr "Ganas"
 
 #: src/amo/components/Home/index.js:121
 msgid "Abstract"
-msgstr ""
+msgstr "Abstrak"
 
 #: src/amo/components/Home/index.js:122
 msgid "Holiday"
-msgstr ""
+msgstr "Percutian"
 
 #: src/amo/components/Home/index.js:123
 msgid "Scenic"
-msgstr ""
+msgstr "Pemandangan"
 
 #: src/amo/components/Home/index.js:124
 msgid "Sporty"
-msgstr ""
+msgstr "Sukan"
 
 #: src/amo/components/Home/index.js:125
 msgid "Solid"
-msgstr ""
+msgstr "Padu"
 
 #: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -650,7 +650,7 @@ msgstr "Berkadar %(rating)s daripada 5"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
-msgstr ""
+msgstr "Tiada kadar"
 
 #: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
