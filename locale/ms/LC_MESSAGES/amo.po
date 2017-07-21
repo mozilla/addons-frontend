@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-21 00:00+0000\n"
+"PO-Revision-Date: 2017-07-21 00:12+0000\n"
 "Last-Translator: Norman Haikal <normanh876@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -45,7 +45,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:324
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metadata Ekstensi"
 
 #: src/amo/components/Addon/index.js:343
 msgid "Screenshots"
@@ -87,35 +87,35 @@ msgstr ""
 
 #: src/amo/components/AddonMeta.js:50
 msgid "Used by"
-msgstr ""
+msgstr "Digunakan oleh"
 
 #: src/amo/components/AddonMoreInfo.js:106
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Baca perjanjian lesen untuk add-on ini"
 
 #: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
-msgstr ""
+msgstr "Halaman utama"
 
 #: src/amo/components/AddonMoreInfo.js:34
 msgid "Support Site"
-msgstr ""
+msgstr "Laman web Sokongan"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "More information"
-msgstr ""
+msgstr "Maklumat lanjut"
 
 #: src/amo/components/AddonMoreInfo.js:44
 msgid "Add-on Links"
-msgstr ""
+msgstr "Pautan Add-on"
 
 #: src/amo/components/AddonMoreInfo.js:55
 msgid "Version"
-msgstr ""
+msgstr "Versi"
 
 #: src/amo/components/AddonMoreInfo.js:59
 msgid "Last updated"
-msgstr ""
+msgstr "Kemaskini terakhir"
 
 #: src/amo/components/AddonMoreInfo.js:64
 msgid "%(timeFromNow)s (%(date)s)"
@@ -123,11 +123,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:72
 msgid "License"
-msgstr ""
+msgstr "Lesen"
 
 #: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Dasar Privasi"
 
 #: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
@@ -171,7 +171,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewList.js:158
 msgid "Add-on icon"
-msgstr ""
+msgstr "Ikon add-on"
 
 #: src/amo/components/AddonReviewList.js:164
 msgid "Reviews for %(addonName)s"
@@ -187,7 +187,7 @@ msgstr ""
 
 #: src/amo/components/Categories.js:57 src/amo/components/CategoriesHeader/index.js:47
 msgid "Failed to load categories."
-msgstr ""
+msgstr "Gagal memuat kategori."
 
 #: src/amo/components/Categories.js:65 src/amo/components/CategoriesHeader/index.js:55
 msgid "No categories found."
@@ -195,7 +195,7 @@ msgstr "Tiada kategori ditemui."
 
 #: src/amo/components/Categories.js:74 src/amo/components/CategoriesHeader/index.js:65
 msgid "Loading categories."
-msgstr ""
+msgstr "Memuat kategori."
 
 #: src/amo/components/CategoriesHeader/index.js:61
 msgid "Categories"
@@ -219,7 +219,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
-msgstr ""
+msgstr "Tidak Dibenarkan"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
@@ -245,7 +245,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Ralat Pelayan"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -261,7 +261,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Pergi ke halaman utama Mozilla"
 
 #: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
@@ -350,7 +350,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
-msgstr ""
+msgstr "Sekat iklan"
 
 #: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
 msgid "Screenshot"
@@ -362,7 +362,7 @@ msgstr "Cari berita"
 
 #: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
-msgstr ""
+msgstr "Lebih ekstensi popular"
 
 #: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
@@ -406,7 +406,7 @@ msgstr "Ekstensi"
 
 #: src/amo/components/LandingPage/index.js:209
 msgid "Explore all categories"
-msgstr ""
+msgstr "Teroka semua kategori"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -516,7 +516,7 @@ msgstr "Hasil carian"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
-msgstr ""
+msgstr "Terkini Dikemaskini"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Relevance"
@@ -632,11 +632,11 @@ msgstr "Sesi anda telah tamat tempoh"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Ada ralat yang tidak dijangka"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Muat semula untuk Meneruskan"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
@@ -648,4 +648,4 @@ msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Luaskan untuk</span> Baca lebih lanjut"
