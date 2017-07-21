@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-21 00:12+0000\n"
+"PO-Revision-Date: 2017-07-21 00:25+0000\n"
 "Last-Translator: Norman Haikal <normanh876@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -20,16 +20,16 @@ msgstr "Batal previu"
 
 #: src/amo/components/Addon/index.js:129
 msgid "Tap to preview"
-msgstr ""
+msgstr "Tap untuk previu"
 
 #: src/amo/components/Addon/index.js:170
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
+msgstr[0] "Baca semua %(count)s ulasan"
 
 #: src/amo/components/Addon/index.js:186
 msgid "No reviews yet"
-msgstr ""
+msgstr "Belum ada ulasan"
 
 #: src/amo/components/Addon/index.js:195
 msgid "Rate your experience"
@@ -37,11 +37,11 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:229
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "Perihal %(addonType)s"
 
 #: src/amo/components/Addon/index.js:280
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)soleh %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:324
 msgid "Extension Metadata"
@@ -53,37 +53,37 @@ msgstr "Skrinsyot"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Anda perlu <a href=\"%(downloadUrl)s\">memuat turun Firefox</a> untuk memasang add-on ini."
 
 #: src/amo/components/AddonCompatibilityError/index.js:59
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Versi Firefox anda tida menyokong plugin carian."
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox untuk iOS tidak mempunyai sokongan add-on."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Add-on ini memerlukan <a href=\"%(downloadUrl)s\">versi terbaru Firefox</a> (Sekurang-kurangnya versi %(minVersion)s). Anda menggunakan Firefox versi %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Pelayar anda tidak menyokong add-on. Anda boleh <a href=\"%(downloadUrl)s\">memuat turun Firefox</a> untuk memasang add-on ini."
 
 #: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
+msgstr[0] "%(total)s pengguna"
 
 #: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] ""
+msgstr[0] "%(total)s ulasan"
 
 #: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
-msgstr ""
+msgstr "Tiada ulasan"
 
 #: src/amo/components/AddonMeta.js:50
 msgid "Used by"
@@ -119,7 +119,7 @@ msgstr "Kemaskini terakhir"
 
 #: src/amo/components/AddonMoreInfo.js:64
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:72
 msgid "License"
@@ -131,11 +131,11 @@ msgstr "Dasar Privasi"
 
 #: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Baca dasar privasi untuk add-on ini"
 
 #: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "Perjanjian Lesen Pengguna Akhir"
 
 #: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
-msgstr ""
+msgstr "Tulis ulasan"
 
 #: src/amo/components/AddonReview.js:167
 msgid "Review text"
@@ -167,7 +167,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "dari %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:158
 msgid "Add-on icon"
@@ -175,15 +175,15 @@ msgstr "Ikon add-on"
 
 #: src/amo/components/AddonReviewList.js:164
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Ulasan untuk %(addonName)s"
 
 #: src/amo/components/AddonReviewList.js:185
 msgid "All written reviews"
-msgstr ""
+msgstr "Semua ulasan"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Add-on untuk Firefox"
 
 #: src/amo/components/Categories.js:57 src/amo/components/CategoriesHeader/index.js:47
 msgid "Failed to load categories."
@@ -203,15 +203,15 @@ msgstr "Kategori"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Cari semua add-on dalam kategori ini."
 
 #: src/amo/components/CategoryHeader/index.js:38
 msgid "Browse all extensions in this category."
-msgstr ""
+msgstr "Cari semua ekstensi dalam kategori ini."
 
 #: src/amo/components/CategoryHeader/index.js:43
 msgid "Browse all themes in this category."
-msgstr ""
+msgstr "Cari semua tema dalam kategori ini."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -253,11 +253,11 @@ msgstr ""
 
 #: src/amo/components/FeaturedAddons/index.js:33
 msgid "More Featured Extensions"
-msgstr ""
+msgstr "Lagi Ekstensi Terpilih"
 
 #: src/amo/components/FeaturedAddons/index.js:35
 msgid "More Featured Themes"
-msgstr ""
+msgstr "Lagi Tema Terpilih"
 
 #: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
@@ -338,7 +338,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
-msgstr ""
+msgstr "Lihat semua tema"
 
 #: src/amo/components/Home/index.js:162
 msgid "…or what it looks like"
@@ -374,19 +374,19 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:114
 msgid "Featured themes"
-msgstr ""
+msgstr "Tema terpilih"
 
 #: src/amo/components/LandingPage/index.js:118
 msgid "More featured themes"
-msgstr ""
+msgstr "Lagi tema terpilih"
 
 #: src/amo/components/LandingPage/index.js:119
 msgid "Most popular themes"
-msgstr ""
+msgstr "Tema paling popular"
 
 #: src/amo/components/LandingPage/index.js:124
 msgid "More popular themes"
-msgstr ""
+msgstr "Lagi tema popular"
 
 #: src/amo/components/LandingPage/index.js:125
 msgid "Top rated themes"
@@ -410,15 +410,15 @@ msgstr "Teroka semua kategori"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
-msgstr ""
+msgstr "Ekstensi terpilih"
 
 #: src/amo/components/LandingPage/index.js:96
 msgid "More featured extensions"
-msgstr ""
+msgstr "Lagi ekstensi terpilih"
 
 #: src/amo/components/LandingPage/index.js:97
 msgid "Most popular extensions"
-msgstr ""
+msgstr "Ekstensi paling popular"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -508,7 +508,7 @@ msgstr "Tiada hasil ditemukan."
 
 #: src/amo/components/SearchResults.js:54
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Sila masukkan istilah carian untuk cari Add-on Firefox."
 
 #: src/amo/components/SearchResults.js:63
 msgid "Search results"

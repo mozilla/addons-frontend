@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2017-07-21 00:08+0000\n"
+"PO-Revision-Date: 2017-07-21 00:28+0000\n"
 "Last-Translator: Norman Haikal <normanh876@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -84,11 +84,11 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Apungkan untuk previu atau klik untuk pasang %(name)s"
 
 #: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Apung di atas imej untuk previu"
 
 #: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
@@ -132,7 +132,7 @@ msgstr ""
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Add-on ini tidak disokong oleh pelayar anda."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
@@ -166,4 +166,4 @@ msgstr "Tutup video"
 
 #: src/disco/containers/DiscoPane.js:146
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Lihat lagi add-on!"
