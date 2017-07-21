@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2017-07-21 00:28+0000\n"
-"Last-Translator: Norman Haikal <normanh876@gmail.com>\n"
+"PO-Revision-Date: 2017-07-21 03:04+0000\n"
+"Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "Ada ralat tidak dijangka semasa pemasangan."
 
 #: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Ada ralat tidak dijangka semasa nyahpasang."
 
 #: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
@@ -128,7 +128,7 @@ msgstr "Firefox untuk iOS tidak mempunyai sokongan add-on."
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "Add-on ini tidak disokong dalam versi Firefox anda."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-21 02:50+0000\n"
+"PO-Revision-Date: 2017-07-21 03:01+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -300,7 +300,7 @@ msgstr "Beli-belah atas talian"
 
 #: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
 msgid "Be social"
-msgstr ""
+msgstr "Bersosial"
 
 #: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
 msgid "Play games"
@@ -372,11 +372,11 @@ msgstr "Lebih ekstensi popular"
 
 #: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
-msgstr "Ekstensi pemeringkatan teratas"
+msgstr "Ekstensi kadar teratas"
 
 #: src/amo/components/LandingPage/index.js:111
 msgid "More highly rated extensions"
-msgstr "Ekstensi pemeringkatan tinggi lain"
+msgstr "Ekstensi kadar tinggi lain"
 
 #: src/amo/components/LandingPage/index.js:114
 msgid "Featured themes"
@@ -396,7 +396,7 @@ msgstr "Lagi tema popular"
 
 #: src/amo/components/LandingPage/index.js:125
 msgid "Top rated themes"
-msgstr "Tema pemeringkatan teratas"
+msgstr "Tema kadar teratas"
 
 #: src/amo/components/LandingPage/index.js:130
 msgid "More highly rated themes"
@@ -456,7 +456,7 @@ msgstr "Log masuk untuk menilaikan add-on ini"
 
 #: src/amo/components/RatingManager/index.js:163
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Bagaimana anda menikmati pengalaman anda dengan %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:32
 msgid "%(count)s result for \"%(query)s\""
@@ -530,11 +530,11 @@ msgstr "Kaitan"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Most Users"
-msgstr ""
+msgstr "Sebilangan besar Pengguna"
 
 #: src/amo/components/SearchSort/index.js:44
 msgid "Top Rated"
-msgstr ""
+msgstr "Kadar Teratas"
 
 #: src/amo/components/SearchSort/index.js:66 src/amo/components/SearchSort/index.js:74
 msgid "Sort"
@@ -646,7 +646,7 @@ msgstr "Muat semula untuk Meneruskan"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Berkadar %(rating)s daripada 5"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
