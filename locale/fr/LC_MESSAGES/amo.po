@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-22 22:51+0000\n"
+"PO-Revision-Date: 2017-07-22 22:54+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -201,23 +201,20 @@ msgid "Loading categories."
 msgstr "Chargement des catégories."
 
 #: src/amo/components/CategoriesHeader/index.js:61
-#, fuzzy
 msgid "Categories"
-msgstr "Catégorie"
+msgstr "Catégories"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Parcourir tous les modules dans cette catégorie."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "Parcourir toutes les extensions"
+msgstr "Parcourir toutes les extensions dans cette catégorie."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "Parcourir tous les thèmes"
+msgstr "Parcourir tous les thèmes dans cette catégorie."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -416,9 +413,8 @@ msgid "Extensions"
 msgstr "Extensions"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "Chargement des catégories."
+msgstr "Explorer toutes les catégories"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -465,38 +461,32 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Avez-vous apprécié votre usage de %(addonName)s ?"
 
 #: src/amo/components/SearchContextCard/index.js:32
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "Aucun résultat trouvé pour « %(query)s »."
-msgstr[1] "Aucun résultat trouvé pour « %(query)s »."
+msgstr[0] "%(count)s résultat pour « %(query)s »"
+msgstr[1] "%(count)s résultats pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "Aucun résultat trouvé pour « %(query)s »."
+msgstr "Recherche de « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "Chargement des catégories."
+msgstr "Chargement des modules"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "Aucune catégorie trouvée."
+msgstr "Aucun module trouvé"
 
 #: src/amo/components/SearchContextCard/index.js:45
-#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] "Aucune catégorie trouvée."
-msgstr[1] "Aucune catégorie trouvée."
+msgstr[0] "%(count)s module trouvé"
+msgstr[1] "%(count)s modules trouvés"
 
 #: src/amo/components/SearchForm.js:50
-#, fuzzy
 msgid "Search extensions"
-msgstr "Extensions vedettes"
+msgstr "Rechercher des extensions"
 
 #: src/amo/components/SearchForm.js:52
 msgid "Search themes"

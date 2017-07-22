@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2017-07-19 17:17+0000\n"
+"PO-Revision-Date: 2017-07-22 22:54+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -124,16 +124,15 @@ msgstr "Fermer"
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox pour iOS ne prend pas en charge les modules pour le moment."
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
-#, fuzzy
 msgid "This add-on does not support your version of Firefox."
-msgstr "Ce module sera désinstallé au prochain démarrage de Firefox."
+msgstr "Ce module ne prend pas en charge votre version de Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Ce module ne prend pas en charge votre navigateur."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
