@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-21 03:13+0000\n"
+"PO-Revision-Date: 2017-07-23 01:13+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -159,11 +159,11 @@ msgstr "Tulis ulasan"
 
 #: src/amo/components/AddonReview.js:167
 msgid "Review text"
-msgstr "Semak teks"
+msgstr "Teks ulasan"
 
 #: src/amo/components/AddonReview.js:182
 msgid "Submit review"
-msgstr "Hantar semakan"
+msgstr "Hantar ulasan"
 
 #: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
