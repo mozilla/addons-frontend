@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-24 01:30+0000\n"
+"PO-Revision-Date: 2017-07-24 02:45+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -372,11 +372,11 @@ msgstr "Lebih ekstensi popular"
 
 #: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
-msgstr "Ekstensi kadar teratas"
+msgstr "Ekstensi bertaraf tinggi"
 
 #: src/amo/components/LandingPage/index.js:111
 msgid "More highly rated extensions"
-msgstr "Ekstensi kadar tinggi lain"
+msgstr "Lanjutan ekstensi bertaraf tinggi"
 
 #: src/amo/components/LandingPage/index.js:114
 msgid "Featured themes"
@@ -396,11 +396,11 @@ msgstr "Lagi tema popular"
 
 #: src/amo/components/LandingPage/index.js:125
 msgid "Top rated themes"
-msgstr "Tema kadar teratas"
+msgstr "Tema bertaraf tinggi"
 
 #: src/amo/components/LandingPage/index.js:130
 msgid "More highly rated themes"
-msgstr "Tema pemeringkatan tinggi lain"
+msgstr "Lanjutan tema bertaraf tinggi"
 
 #: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
