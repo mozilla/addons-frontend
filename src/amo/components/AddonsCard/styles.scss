@@ -54,10 +54,6 @@
         width: auto;
       }
 
-      .SearchResult-name {
-        font-size: $font-size-s;
-      }
-
       .SearchResult-metadata,
       .SearchResult-summary {
         display: none;
@@ -81,7 +77,7 @@
         }
 
         .SearchResult-icon-wrapper {
-          margin: 0;
+          margin: 0 0 5px;
         }
         // stylelint-enable max-nesting-depth
       }

@@ -80,7 +80,9 @@
 .SearchResult-name {
   color: $type-black;
   flex-grow: 1;
-  font-size: $font-size-m;
+  font-size: $font-size-m-smaller;
+  font-weight: 400;
+  line-height: 1.2;
   margin: 0;
   padding: 0;
   text-decoration: none;
