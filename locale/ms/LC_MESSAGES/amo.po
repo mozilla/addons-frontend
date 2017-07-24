@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-23 01:13+0000\n"
+"PO-Revision-Date: 2017-07-24 01:30+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -259,11 +259,11 @@ msgstr "Maaf, tetapi ada ralat dengan pelayan kami dan kami tidak dapat melengka
 
 #: src/amo/components/FeaturedAddons/index.js:33
 msgid "More Featured Extensions"
-msgstr "Lagi Ekstensi Terpilih"
+msgstr "Lanjutan Ekstensi Sorotan"
 
 #: src/amo/components/FeaturedAddons/index.js:35
 msgid "More Featured Themes"
-msgstr "Lagi Tema Terpilih"
+msgstr "Lanjutan Tema Sorotan"
 
 #: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
@@ -380,11 +380,11 @@ msgstr "Ekstensi kadar tinggi lain"
 
 #: src/amo/components/LandingPage/index.js:114
 msgid "Featured themes"
-msgstr "Tema terpilih"
+msgstr "Tema sorotan"
 
 #: src/amo/components/LandingPage/index.js:118
 msgid "More featured themes"
-msgstr "Lagi tema terpilih"
+msgstr "Lanjutan tema sorotan"
 
 #: src/amo/components/LandingPage/index.js:119
 msgid "Most popular themes"
@@ -416,11 +416,11 @@ msgstr "Teroka semua kategori"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
-msgstr "Ekstensi terpilih"
+msgstr "Ekstensi sorotan"
 
 #: src/amo/components/LandingPage/index.js:96
 msgid "More featured extensions"
-msgstr "Lagi ekstensi terpilih"
+msgstr "Lanjutan ekstensi sorotan"
 
 #: src/amo/components/LandingPage/index.js:97
 msgid "Most popular extensions"
