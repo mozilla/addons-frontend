@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-24 02:45+0000\n"
+"PO-Revision-Date: 2017-07-24 03:17+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -372,11 +372,11 @@ msgstr "Lebih ekstensi popular"
 
 #: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
-msgstr "Ekstensi bertaraf tinggi"
+msgstr "Ekstensi tahap tinggi"
 
 #: src/amo/components/LandingPage/index.js:111
 msgid "More highly rated extensions"
-msgstr "Lanjutan ekstensi bertaraf tinggi"
+msgstr "Lanjutan ekstensi tahap tinggi"
 
 #: src/amo/components/LandingPage/index.js:114
 msgid "Featured themes"
@@ -396,11 +396,11 @@ msgstr "Lagi tema popular"
 
 #: src/amo/components/LandingPage/index.js:125
 msgid "Top rated themes"
-msgstr "Tema bertaraf tinggi"
+msgstr "Tema tahap tinggi"
 
 #: src/amo/components/LandingPage/index.js:130
 msgid "More highly rated themes"
-msgstr "Lanjutan tema bertaraf tinggi"
+msgstr "Lanjutan tema tahap tinggi"
 
 #: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
@@ -534,7 +534,7 @@ msgstr "Sebilangan besar Pengguna"
 
 #: src/amo/components/SearchSort/index.js:44
 msgid "Top Rated"
-msgstr "Kadar Teratas"
+msgstr "Tahap Tinggi"
 
 #: src/amo/components/SearchSort/index.js:66 src/amo/components/SearchSort/index.js:74
 msgid "Sort"
@@ -646,7 +646,7 @@ msgstr "Muat semula untuk Meneruskan"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr "Berkadar %(rating)s daripada 5"
+msgstr "Tahap %(rating)s daripada 5"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
