@@ -1,0 +1,14 @@
+@import "~amo/css/inc/vars";
+
+.CategoriesPage {
+  margin: $padding-page;
+
+  .Categories-item {
+    display: block;
+  }
+
+  .Categories-loading-text {
+    display: block;
+    margin: 0 0 5px;
+  }
+}
