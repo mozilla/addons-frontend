@@ -36,3 +36,8 @@
     }
   }
 }
+
+.AddonMeta .Rating-star-group {
+  @include margin-end(-2.5px);
+  @include margin-start(-2.5px);
+}
