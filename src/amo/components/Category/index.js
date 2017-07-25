@@ -67,23 +67,28 @@ export function mapStateToProps(state, ownProps) {
     { ...state.search.filters, page: parsePage(state.search.page) },
     { ...filters, page: queryParams.page },
   );
-  if (filtersMatchState) {
-    return {
-      addonType: filters.addonType,
-      category,
-      filters,
-      pathname,
-      queryParams,
-      ...state.search,
-    };
-  }
 
-  return {
+  const loading = state.categories.loading || state.search.loading;
+
+  const props = {
     addonType: filters.addonType,
     category,
+    loading,
     pathname,
     queryParams,
   };
+
+  if (filtersMatchState) {
+    return {
+      ...props,
+      filters,
+      count: state.search.count,
+      page: state.search.page,
+      results: state.search.results,
+    };
+  }
+
+  return props;
 }
 
 export default compose(
