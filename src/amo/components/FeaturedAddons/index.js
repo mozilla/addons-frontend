@@ -68,10 +68,14 @@ export class FeaturedAddonsBase extends React.Component {
 
     const nextParams = nextProps && nextProps.params ?
       nextProps.params : {};
+    // Find out the next requested add-on type, i.e. one passed via
+    // URL params.
     const nextAddonType = nextParams.visibleAddonType ?
       apiAddonType(nextParams.visibleAddonType) : this.requestedAddonType();
 
     if ((!results || nextAddonType !== lastAddonType) && !loading) {
+      // Fetch featured add-ons from the API if we don't yet have results
+      // or if the add-on type of the component has changed.
       dispatch(getFeatured({
         addonType: nextAddonType,
         errorHandlerId: errorHandler.id,
