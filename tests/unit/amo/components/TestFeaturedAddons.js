@@ -10,9 +10,10 @@ import {
 import SearchResults from 'amo/components/SearchResults';
 import createStore from 'amo/store';
 import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, VISIBLE_ADDON_TYPES_MAPPING,
+  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
+import { visibleAddonType } from 'core/utils';
 import {
   createFeaturedApiResult, fakeAddon, signedInApiState,
 } from 'tests/unit/amo/helpers';
@@ -57,7 +58,7 @@ describe('<FeaturedAddons />', () => {
       i18n: getFakeI18nInst(),
       loading: false,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[ADDON_TYPE_EXTENSION],
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
       },
       ...customProps,
     };
@@ -75,7 +76,7 @@ describe('<FeaturedAddons />', () => {
       dispatch,
       errorHandler: customErrorHandler,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+        visibleAddonType: visibleAddonType(addonType),
       },
       loading: false,
       results: null,
@@ -95,7 +96,7 @@ describe('<FeaturedAddons />', () => {
     const root = render({
       dispatch,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[firstAddonType],
+        visibleAddonType: visibleAddonType(firstAddonType),
       },
       loading: false,
       results: null,
@@ -105,7 +106,7 @@ describe('<FeaturedAddons />', () => {
 
     root.setProps({
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[secondAddonType],
+        visibleAddonType: visibleAddonType(secondAddonType),
       },
     });
 
@@ -125,7 +126,7 @@ describe('<FeaturedAddons />', () => {
     const root = render({
       dispatch,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[firstAddonType],
+        visibleAddonType: visibleAddonType(firstAddonType),
       },
       ...mappedProps,
     });
@@ -134,7 +135,7 @@ describe('<FeaturedAddons />', () => {
 
     root.setProps({
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[secondAddonType],
+        visibleAddonType: visibleAddonType(secondAddonType),
       },
     });
 
@@ -149,7 +150,7 @@ describe('<FeaturedAddons />', () => {
     const root = render({
       dispatch,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+        visibleAddonType: visibleAddonType(addonType),
       },
       loading: false,
       results: null,
@@ -176,7 +177,7 @@ describe('<FeaturedAddons />', () => {
     const root = render({
       dispatch,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+        visibleAddonType: visibleAddonType(addonType),
       },
       ...mappedProps,
       hasSearchParams: true,
@@ -203,7 +204,7 @@ describe('<FeaturedAddons />', () => {
     render({
       dispatch,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+        visibleAddonType: visibleAddonType(addonType),
       },
       ...mappedProps,
       hasSearchParams: true,
@@ -218,7 +219,7 @@ describe('<FeaturedAddons />', () => {
     const root = render({
       addonType: null,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[ADDON_TYPE_EXTENSION],
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
       },
     });
 
@@ -246,7 +247,7 @@ describe('<FeaturedAddons />', () => {
     const root = render({
       addonType: ADDON_TYPE_THEME,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[ADDON_TYPE_EXTENSION],
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
       },
     });
 
@@ -299,7 +300,7 @@ describe('<FeaturedAddons />', () => {
     render({
       dispatch,
       params: {
-        visibleAddonType: VISIBLE_ADDON_TYPES_MAPPING[addonType],
+        visibleAddonType: visibleAddonType(addonType),
       },
     });
 
