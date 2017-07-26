@@ -5,10 +5,14 @@ import config from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
-import { signedInApiState, unexpectedSuccess, userAuthToken }
-  from 'tests/unit/helpers';
+import { parsePage } from 'core/utils';
+import {
+  signedInApiState,
+  unexpectedSuccess,
+  userAuthToken,
+} from 'tests/unit/helpers';
 
 
 export function generateHeaders(
@@ -226,14 +230,13 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?app=android&q=foo&page=3&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=android&page=3&q=foo&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.search({
         api: { clientApp: 'android', lang: 'en-US' },
         auth: true,
-        filters: { query: 'foo' },
-        page: 3,
+        filters: { page: parsePage(3), query: 'foo' },
       })
         .then(() => mockWindow.verify());
     });
@@ -254,7 +257,7 @@ describe('api', () => {
     });
 
     it('surfaces status and apiURL on Error instance', () => {
-      const url = `${apiHost}/api/v3/addons/search/?q=foo&page=3&lang=en-US`;
+      const url = `${apiHost}/api/v3/addons/search/?page=3&q=foo&lang=en-US`;
       mockWindow.expects('fetch')
         .withArgs(url)
         .once()
@@ -263,8 +266,7 @@ describe('api', () => {
       return api.search({
         api: { lang: 'en-US' },
         auth: true,
-        filters: { query: 'foo' },
-        page: 3,
+        filters: { page: parsePage(3), query: 'foo' },
       })
         .then(unexpectedSuccess, (err) => {
           expect(err.response.status).toEqual(401);
@@ -287,13 +289,12 @@ describe('api', () => {
     it('sets the lang, limit, page and query', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&q=foo&page=3&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.search({
         api: { clientApp: 'firefox', lang: 'en-US' },
-        filters: { query: 'foo' },
-        page: 3,
+        filters: { query: 'foo', page: parsePage(3) },
       })
         .then(() => mockWindow.verify());
     });
@@ -301,13 +302,16 @@ describe('api', () => {
     it('changes theme requests for android to firefox results', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&type=persona&page=3&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&type=persona&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.search({
         api: { clientApp: 'android', lang: 'en-US' },
-        filters: { addonType: ADDON_TYPE_THEME, clientApp: 'android' },
-        page: 3,
+        filters: {
+          addonType: ADDON_TYPE_THEME,
+          clientApp: CLIENT_APP_ANDROID,
+          page: parsePage(3),
+        },
       })
         .then(() => mockWindow.verify());
     });
@@ -315,13 +319,12 @@ describe('api', () => {
     it('allows overrides to clientApp', () => {
       // FIXME: This shouldn't fail if the args are in a different order.
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&q=foo&page=3&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`)
         .once()
         .returns(mockResponse());
       return api.search({
         api: { clientApp: 'android', lang: 'en-US' },
-        filters: { clientApp: 'firefox', query: 'foo' },
-        page: 3,
+        filters: { clientApp: 'firefox', page: parsePage(3), query: 'foo' },
       })
         .then(() => mockWindow.verify());
     });

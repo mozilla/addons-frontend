@@ -33,8 +33,6 @@ describe('Search Saga', () => {
   function _searchStart(params) {
     sagaTester.dispatch(searchStart({
       errorHandlerId: 'some-search-handler',
-      page: 1,
-      results: [],
       ...params,
     }));
   }
@@ -43,11 +41,38 @@ describe('Search Saga', () => {
     const entities = sinon.stub();
     const result = sinon.stub();
 
+    const filters = { page: 2, query: 'test' };
+
+    mockApi
+      .expects('search')
+      .once()
+      .returns(Promise.resolve({ entities, result }));
+
+    _searchStart({ filters });
+
+    // The saga should respond by dispatching the search loaded action.
+    await sagaTester.waitFor(SEARCH_LOADED);
+    mockApi.verify();
+  });
+
+  it('handles missing page filter for search', async () => {
+    const entities = sinon.stub();
+    const result = sinon.stub();
+    const state = sagaTester.getState();
+
     const filters = { query: 'test' };
 
     mockApi
       .expects('search')
       .once()
+      .withArgs({
+        api: state.api,
+        auth: state.auth,
+        filters,
+        // The search saga will set `page` to `parsePage(filters.page)`, so
+        // in the case of a missing `page` param it should be `1`.
+        page: 1,
+      })
       .returns(Promise.resolve({ entities, result }));
 
     _searchStart({ filters });

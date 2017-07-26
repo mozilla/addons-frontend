@@ -20,15 +20,10 @@ export class FeaturedAddonsBase extends React.Component {
     addonType: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    hasSearchParams: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
     params: PropTypes.object.isRequired,
     results: PropTypes.array,
-  }
-
-  static defaultProps = {
-    hasSearchParams: true,
   }
 
   componentWillMount() {
@@ -84,7 +79,7 @@ export class FeaturedAddonsBase extends React.Component {
   }
 
   render() {
-    const { errorHandler, hasSearchParams, loading, results } = this.props;
+    const { errorHandler, loading, results } = this.props;
 
     return (
       <div className="FeaturedAddons">
@@ -94,7 +89,6 @@ export class FeaturedAddonsBase extends React.Component {
         </h2>
         <SearchResults
           count={results && results.length}
-          hasSearchParams={hasSearchParams}
           loading={loading}
           results={loading ? null : results}
         />

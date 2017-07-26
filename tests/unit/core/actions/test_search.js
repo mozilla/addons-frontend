@@ -4,9 +4,7 @@ describe('SEARCH_STARTED', () => {
   function _searchStart(props = {}) {
     return actions.searchStart({
       errorHandlerId: 'Search',
-      filters: { query: 'foo' },
-      page: 1,
-      results: [],
+      filters: { page: 1, query: 'foø' },
       ...props,
     });
   }
@@ -20,9 +18,7 @@ describe('SEARCH_STARTED', () => {
   it('sets the query and existing results', () => {
     expect(action.payload).toEqual({
       errorHandlerId: 'Search',
-      filters: { query: 'foo' },
-      page: 1,
-      results: [],
+      filters: { page: 1, query: 'foø' },
     });
   });
 
@@ -37,42 +33,30 @@ describe('SEARCH_STARTED', () => {
       _searchStart({ filters: undefined });
     }).toThrowError('filters are required');
   });
-
-  it('throws an error if page is empty', () => {
-    expect(() => {
-      _searchStart({ page: undefined });
-    }).toThrowError('page is required');
-  });
-
-  it('throws an error if results are empty', () => {
-    expect(() => {
-      _searchStart({ results: undefined });
-    }).toThrowError('results are required');
-  });
 });
 
 describe('SEARCH_LOADED', () => {
   const entities = sinon.stub();
   const result = sinon.stub();
-  const action = actions.searchLoad({ filters: { query: 'foø' }, entities, result });
+  const action = actions.searchLoad({ entities, result });
 
   it('sets the type', () => {
     expect(action.type).toEqual('SEARCH_LOADED');
   });
 
   it('sets the payload', () => {
-    expect(action.payload).toEqual({ filters: { query: 'foø' }, entities, result });
-  });
-});
-
-describe('SEARCH_FAILED', () => {
-  const action = actions.searchFail({ filters: { query: 'foo' }, page: 25 });
-
-  it('sets the type', () => {
-    expect(action.type).toEqual('SEARCH_FAILED');
+    expect(action.payload).toEqual({ entities, result });
   });
 
-  it('sets the payload', () => {
-    expect(action.payload).toEqual({ page: 25, filters: { query: 'foo' } });
+  it('throws an error if entities are empty', () => {
+    expect(() => {
+      actions.searchLoad({ result });
+    }).toThrowError('entities are required');
+  });
+
+  it('throws an error if result is empty', () => {
+    expect(() => {
+      actions.searchLoad({ entities });
+    }).toThrowError('result is required');
   });
 });

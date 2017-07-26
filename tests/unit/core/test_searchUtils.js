@@ -1,100 +1,40 @@
-import createStore from 'amo/store';
-import * as searchActions from 'core/actions/search';
-import * as api from 'core/api';
-import { initialApiState } from 'core/reducers/api';
 import { ADDON_TYPE_THEME } from 'core/constants';
-import { loadByCategoryIfNeeded, mapStateToProps } from 'core/searchUtils';
+import {
+  convertFiltersToQueryParams,
+  convertQueryParamsToFilters,
+} from 'core/searchUtils';
 
 
-describe('searchUtils mapStateToProps()', () => {
-  const state = {
-    api: { lang: 'fr-CA' },
-    search: {
-      filters: { clientApp: 'firefox', query: 'foo' },
-      hasSearchParams: true,
-    },
-  };
+describe(__filename, () => {
+  describe('convertFiltersToQueryParams', () => {
+    it('converts filters', () => {
+      const queryParams = convertFiltersToQueryParams({
+        addonType: ADDON_TYPE_THEME,
+        page: 4,
+        query: 'Cool things',
+      });
 
-  it('does not search if only clientApp is supplied', () => {
-    // clientApp is always supplied and it's not enough to search on, so we
-    // don't allow searches on it.
-    const props = mapStateToProps(state, { location: { query: { } } });
-    expect(props).toEqual({ filters: {}, hasSearchParams: false });
-  });
-});
-
-describe('searchUtils loadByCategoryIfNeeded()', () => {
-  let filters;
-  let ownProps;
-
-  beforeAll(() => {
-    filters = {
-      addonType: ADDON_TYPE_THEME,
-      category: 'anime',
-      clientApp: 'firefox',
-    };
-    ownProps = {
-      location: { query: {} },
-      params: {
-        application: 'firefox',
-        visibleAddonType: 'themes',
-        slug: 'anime',
-      },
-    };
-  });
-
-  it('returns right away when loaded', () => {
-    const { store } = createStore();
-    store.dispatch(searchActions.searchStart({
-      errorHandlerId: 'error',
-      filters,
-      page: 1,
-      results: [],
-    }));
-    const mockApi = sinon.mock(api);
-    const entities = sinon.stub();
-    const result = sinon.stub();
-
-    mockApi
-      .expects('search')
-      .once()
-      .withArgs({ page: 1, filters, api: { ...initialApiState }, auth: {} })
-      .returns(Promise.resolve({ entities, result }));
-    return loadByCategoryIfNeeded({
-      store,
-      location: ownProps.location,
-      params: ownProps.params,
-    }).then(() => {
-      expect(loadByCategoryIfNeeded({
-        store,
-        location: ownProps.location,
-        params: ownProps.params,
-      })).toBe(true);
+      expect(queryParams).toEqual({
+        page: 4,
+        q: 'Cool things',
+        type: ADDON_TYPE_THEME,
+      });
     });
   });
 
-  it('sets the page', () => {
-    const { store } = createStore();
-    store.dispatch(searchActions.searchStart({
-      errorHandlerId: 'Search',
-      filters,
-      page: 1,
-      results: [],
-    }));
-    const mockApi = sinon.mock(api);
-    const entities = sinon.stub();
-    const result = sinon.stub();
+  describe('convertQueryParamsToFilters', () => {
+    it('converts query params', () => {
+      const filters = convertQueryParamsToFilters({
+        page: 4,
+        q: 'Cool things',
+        type: ADDON_TYPE_THEME,
+      });
 
-    mockApi
-      .expects('search')
-      .once()
-      .withArgs({ page: 1, filters, api: { ...initialApiState }, auth: {} })
-      .returns(Promise.resolve({ entities, result }));
-    return loadByCategoryIfNeeded({
-      store,
-      location: ownProps.location,
-      params: ownProps.params,
-    })
-      .then(() => mockApi.verify());
+      expect(filters).toEqual({
+        addonType: ADDON_TYPE_THEME,
+        page: 4,
+        query: 'Cool things',
+      });
+    });
   });
 });
