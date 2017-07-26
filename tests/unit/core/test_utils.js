@@ -235,7 +235,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefox.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
         addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
-          .toEqual({ compatible: true, reason: null });
+        .toEqual({ compatible: true, reason: null });
     });
   });
 
@@ -243,7 +243,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefoxAndroid.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
         addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
-          .toEqual({ compatible: true, reason: null });
+        .toEqual({ compatible: true, reason: null });
     });
   });
 
@@ -251,7 +251,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefoxOS.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
         addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
-          .toEqual({ compatible: true, reason: null });
+        .toEqual({ compatible: true, reason: null });
     });
   });
 
@@ -259,20 +259,20 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefoxIOS.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
         addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
-          .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
+        .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
     });
   });
 
   it(oneLine`should use a Firefox for iOS reason code even if minVersion is
     also not met`, () => {
-    const userAgentInfo = {
-      browser: { name: 'Firefox', version: '8.0' },
-      os: { name: 'iOS' },
-    };
-    expect(isCompatibleWithUserAgent({
-      addon: fakeAddon, minVersion: '9.0', userAgentInfo }))
+      const userAgentInfo = {
+        browser: { name: 'Firefox', version: '8.0' },
+        os: { name: 'iOS' },
+      };
+      expect(isCompatibleWithUserAgent({
+        addon: fakeAddon, minVersion: '9.0', userAgentInfo }))
         .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
-  });
+    });
 
   it('should mark Firefox without window.external as incompatible', () => {
     const userAgentInfo = {
@@ -284,7 +284,7 @@ describe('isCompatibleWithUserAgent', () => {
 
     expect(isCompatibleWithUserAgent({
       _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }))
-        .toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
+      .toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
   });
 
   it('should mark Firefox without OpenSearch support as incompatible', () => {
@@ -297,7 +297,7 @@ describe('isCompatibleWithUserAgent', () => {
 
     expect(isCompatibleWithUserAgent({
       _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }))
-        .toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
+      .toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
   });
 
   it('should mark Firefox with OpenSearch support as compatible', () => {
@@ -310,7 +310,7 @@ describe('isCompatibleWithUserAgent', () => {
 
     expect(isCompatibleWithUserAgent({
       _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }))
-        .toEqual({ compatible: true, reason: null });
+      .toEqual({ compatible: true, reason: null });
   });
 
   it('should mark non-Firefox UAs as incompatible', () => {
@@ -326,7 +326,7 @@ describe('isCompatibleWithUserAgent', () => {
     };
     expect(isCompatibleWithUserAgent({
       addon: fakeAddon, minVersion: '10.1', userAgentInfo }))
-        .toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
+      .toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
   });
 
   it('should mark Firefox 24 as compatible with a maxVersion of 8', () => {
@@ -593,7 +593,7 @@ describe('addQueryParams', () => {
 describe('ngettext', () => {
   function fileCount(count) {
     return sprintf(ngettext('%(count)s file', '%(count)s files', count),
-                   { count });
+      { count });
   }
 
   it('outputs singular when count is one', () => {

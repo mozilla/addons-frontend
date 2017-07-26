@@ -9,7 +9,7 @@ import config from 'config';
  */
 
 export function bindConsoleMethod(consoleMethodName, { _consoleObj = window.console,
-                                  _function = Function, _noop = () => {}, _config = config } = {}) {
+  _function = Function, _noop = () => {}, _config = config } = {}) {
   if (typeof _consoleObj[consoleMethodName] === 'undefined') {
     throw new Error(`console method "${consoleMethodName}" does not exist`);
   }

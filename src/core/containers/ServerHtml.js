@@ -7,7 +7,6 @@ import Helmet from 'react-helmet';
 
 
 export default class ServerHtml extends Component {
-
   static propTypes = {
     appName: PropTypes.string.isRequired,
     assets: PropTypes.object.isRequired,

@@ -115,7 +115,7 @@ export class RatingManagerBase extends React.Component {
     { addonType }: {| addonType: string |},
     {
       validAddonTypes = defaultValidAddonTypes,
-    }: {|
+      }: {|
       validAddonTypes: typeof defaultValidAddonTypes,
     |} = {}
   ) {
@@ -213,7 +213,7 @@ export const mapStateToProps = (
     if (latestId) {
       userReview = addonReviews[latestId];
       log.info('Found the latest review in state for this component',
-               userReview);
+        userReview);
     }
   }
 
