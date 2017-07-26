@@ -16,14 +16,14 @@ export default class AddonsCard extends React.Component {
     loading: PropTypes.boolean,
     // When loading, this is the number of placeholders
     // that will be rendered.
-    placeholderTotal: PropTypes.number,
+    placeholderCount: PropTypes.number,
     type: PropTypes.string,
   }
 
   static defaultProps = {
     loading: false,
     // Set this to the default API page size.
-    placeholderTotal: 25,
+    placeholderCount: 25,
     type: 'list',
   }
 
@@ -33,7 +33,7 @@ export default class AddonsCard extends React.Component {
       children,
       className,
       loading,
-      placeholderTotal,
+      placeholderCount,
       type,
       ...otherProps
     } = this.props;
@@ -47,7 +47,7 @@ export default class AddonsCard extends React.Component {
         );
       });
     } else if (loading) {
-      for (let count = 0; count < placeholderTotal; count++) {
+      for (let count = 0; count < placeholderCount; count++) {
         searchResults.push(
           <SearchResult key={count} />
         );

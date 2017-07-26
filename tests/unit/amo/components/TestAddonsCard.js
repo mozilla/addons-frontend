@@ -51,7 +51,7 @@ describe('<AddonsCard />', () => {
 
   it('allows you configure the number of placeholders', () => {
     const root = render({
-      addons: null, loading: true, placeholderTotal: 2,
+      addons: null, loading: true, placeholderCount: 2,
     });
     expect(root.find(SearchResult)).toHaveLength(2);
   });
