@@ -27,7 +27,7 @@ export class CategoryBase extends React.Component {
     const { category, dispatch } = this.props;
 
     if (!category) {
-      dispatch(categoriesFetch());
+      dispatch(categoriesFetch({ errorHandlerId: 'TODO' }));
     }
   }
 

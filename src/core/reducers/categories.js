@@ -34,7 +34,7 @@ export default function categories(state = initialState, action) {
 
   switch (action.type) {
     case CATEGORIES_FETCH:
-      return { ...state, ...payload, loading: true };
+      return { ...state, loading: true };
     case CATEGORIES_LOAD:
       {
         const categoryList = emptyCategoryList();

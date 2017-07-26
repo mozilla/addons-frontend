@@ -31,7 +31,7 @@ export class CategoriesBase extends React.Component {
     const categories = this.props.categories[addonType] || {};
 
     if (!Object.values(categories).length) {
-      dispatch(categoriesFetch());
+      dispatch(categoriesFetch({ errorHandlerId: 'TODO' }));
     }
 
     dispatch(setViewContext(addonType));

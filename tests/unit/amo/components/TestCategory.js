@@ -6,9 +6,8 @@ import { CategoryBase, mapStateToProps } from 'amo/components/Category';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { SearchBase } from 'amo/components/Search';
 import createStore from 'amo/store';
-import { categoriesFetch } from 'core/actions/categories';
 import { searchStart } from 'core/actions/search';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, CATEGORIES_FETCH } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
@@ -61,10 +60,10 @@ describe('Category', () => {
     expect(root).toHaveClassName('Category');
   });
 
-  it('dispatches categoriesFetch if category is falsy', () => {
+  it('dispatches CATEGORIES_FETCH if category is falsy', () => {
     render({ category: null });
 
-    sinon.assert.calledWith(fakeDispatch, categoriesFetch());
+    sinon.assert.calledWithMatch(fakeDispatch, { type: CATEGORIES_FETCH });
   });
 
   it('should return 404 if category is falsy and loading is false', () => {

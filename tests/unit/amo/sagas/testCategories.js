@@ -37,6 +37,10 @@ describe('categoriesSaga', () => {
     sagaTester.start(categoriesSaga);
   });
 
+  function _categoriesFetch({ errorHandlerId = 'some-handler' } = {}) {
+    return actions.categoriesFetch({ errorHandlerId });
+  }
+
   it('should get Api from state then make API request to categories', async () => {
     const mockApi = sinon.mock(api);
     const entities = sinon.stub();
@@ -52,7 +56,7 @@ describe('categoriesSaga', () => {
 
     expect(sagaTester.getState()).toEqual(initialState);
 
-    sagaTester.dispatch(actions.categoriesFetch());
+    sagaTester.dispatch(_categoriesFetch());
 
     expect(sagaTester.getState()).toEqual({
       ...initialState,
@@ -64,7 +68,7 @@ describe('categoriesSaga', () => {
     const calledActions = sagaTester.getCalledActions();
 
     // First action is CATEGORIES_FETCH.
-    expect(calledActions[0]).toEqual(actions.categoriesFetch());
+    expect(calledActions[0]).toEqual(_categoriesFetch());
 
     // Next action is showing the loading bar.
     expect(calledActions[1]).toEqual(showLoading());
@@ -86,14 +90,14 @@ describe('categoriesSaga', () => {
 
     expect(sagaTester.getState()).toEqual(initialState);
 
-    sagaTester.dispatch(actions.categoriesFetch());
+    sagaTester.dispatch(_categoriesFetch());
 
     await sagaTester.waitFor(CATEGORIES_FAIL);
 
     const calledActions = sagaTester.getCalledActions();
 
     // First action is CATEGORIES_FETCH.
-    expect(calledActions[0]).toEqual(actions.categoriesFetch());
+    expect(calledActions[0]).toEqual(_categoriesFetch());
 
     // Next action is showing the loading bar.
     expect(calledActions[1]).toEqual(showLoading());
@@ -118,10 +122,10 @@ describe('categoriesSaga', () => {
       })
       .returns(Promise.resolve({ entities, result }));
 
-    sagaTester.dispatch(actions.categoriesFetch());
+    sagaTester.dispatch(_categoriesFetch());
     // Dispatch the fetch action again to ensure takeEvery() is respected
     // and both actions are responded to.
-    sagaTester.dispatch(actions.categoriesFetch());
+    sagaTester.dispatch(_categoriesFetch());
 
     await sagaTester.waitFor(CATEGORIES_LOAD);
 

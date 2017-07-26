@@ -2,10 +2,22 @@ import * as actions from 'core/actions/categories';
 
 
 describe('CATEGORIES_FETCH', () => {
-  const action = actions.categoriesFetch();
+  function _categoriesFetch({ errorHandlerId = 'some-handler-id' } = {}) {
+    return actions.categoriesFetch({ errorHandlerId });
+  }
 
   it('sets the type', () => {
-    expect(action.type).toEqual('CATEGORIES_FETCH');
+    expect(_categoriesFetch().type).toEqual('CATEGORIES_FETCH');
+  });
+
+  it('requires an error handler ID', () => {
+    expect(() => actions.categoriesFetch()).toThrow(/errorHandlerId is required/);
+  });
+
+  it('puts the error handler ID in the payload', () => {
+    const errorHandlerId = 'some-custom-id';
+    expect(_categoriesFetch({ errorHandlerId }).payload.errorHandlerId)
+      .toEqual(errorHandlerId);
   });
 });
 

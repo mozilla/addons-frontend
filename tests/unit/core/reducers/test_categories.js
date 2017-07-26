@@ -32,7 +32,8 @@ describe('categories reducer', () => {
 
   describe('CATEGORIES_FETCH', () => {
     it('sets loading', () => {
-      const state = categories(initialState, categoriesFetch());
+      const state = categories(initialState,
+        categoriesFetch({ errorHandlerId: 'some-handler' }));
       expect(state.categories).toEqual(emptyCategoryList());
       expect(state.error).toEqual(false);
       expect(state.loading).toEqual(true);

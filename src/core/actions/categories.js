@@ -4,10 +4,13 @@ import {
   CATEGORIES_FAIL,
 } from 'core/constants';
 
-export function categoriesFetch() {
+export function categoriesFetch({ errorHandlerId } = {}) {
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId is required');
+  }
   return {
     type: CATEGORIES_FETCH,
-    payload: {},
+    payload: { errorHandlerId },
   };
 }
 
