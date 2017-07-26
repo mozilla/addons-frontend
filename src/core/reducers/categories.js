@@ -25,6 +25,7 @@ export function emptyCategoryList() {
 
 const initialState = {
   categories: emptyCategoryList(),
+  // TODO: this can probably be removed
   error: false,
   loading: false,
 };
