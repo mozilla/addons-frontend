@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-07-11 22:09+0000\n"
-"Last-Translator: jlG <jlg.l10n.es@gmail.com>\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-07-21 09:46+0000\n"
+"Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -134,7 +134,11 @@ msgstr "Este complemento no es compatible con tu versión de Firefox."
 msgid "This add-on does not support your browser."
 msgstr "Este complemento no es compatible con tu navegador."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "Aviso de privacidad"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "Descubrir complementos"
 

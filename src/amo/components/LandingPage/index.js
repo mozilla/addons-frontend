@@ -8,8 +8,7 @@ import { connect } from 'react-redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import CategoriesHeader
-  from 'amo/components/CategoriesHeader';
+import Categories from 'amo/components/Categories';
 import { loadLandingAddons } from 'amo/utils';
 import {
   ADDON_TYPE_EXTENSION,
@@ -200,7 +199,7 @@ export class LandingPageBase extends React.Component {
           </div>
         </div>
 
-        <CategoriesHeader addonType={addonType} />
+        <Categories addonType={addonType} />
 
         <Button
           className="LandingPage-button Button--light"

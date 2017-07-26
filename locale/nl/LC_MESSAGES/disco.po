@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-07-11 19:14+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-07-19 20:31+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -134,7 +134,11 @@ msgstr "Deze add-on ondersteunt uw versie van Firefox niet."
 msgid "This add-on does not support your browser."
 msgstr "Deze add-on ondersteunt uw browser niet."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "Privacybeleid"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "Add-ons ontdekken"
 

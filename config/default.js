@@ -167,6 +167,7 @@ module.exports = {
     'ko',
     'mk',
     'mn',
+    'ms',
     'nl',
     'nb-NO',
     'nn-NO',

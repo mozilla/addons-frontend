@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-07-14 16:22+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-07-20 00:42+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -134,7 +134,11 @@ msgstr "Denne utvidelsen støtter ikke din versjon av Firefox."
 msgid "This add-on does not support your browser."
 msgstr "Denne utvidelsen støtter ikke nettleseren din."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "Personvernbestemmelser"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "Oppdag utvidelser"
 

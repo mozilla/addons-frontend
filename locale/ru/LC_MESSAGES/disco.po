@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-07-15 20:14+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-07-22 18:25+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -134,7 +134,11 @@ msgstr "Это дополнение не поддерживает вашу ве�
 msgid "This add-on does not support your browser."
 msgstr "Это дополнение не поддерживает ваш браузер."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "Политика приватности"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "Откройте для себя дополнения"
 

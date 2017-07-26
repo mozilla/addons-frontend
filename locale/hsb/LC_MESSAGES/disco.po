@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-07-11 17:59+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-07-19 18:48+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hsb\n"
@@ -134,7 +134,11 @@ msgstr "Tutón přidatk wašu wersiju wobhladowaka njepodpěruje."
 msgid "This add-on does not support your browser."
 msgstr "Tutón přidatk waš wobhladowak njepodpěruje."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "Prawidła priwatnosće"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "Přidatki wotkryć"
 

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
-"PO-Revision-Date: 2017-07-11 17:11+0000\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-25 21:21+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -71,7 +71,7 @@ msgstr "このアドオンは <a href=\"%(downloadUrl)s\">より新しいバー�
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr "お使いのブラウザーはアドオンに対応していません。<a href=\"%(downloadUrl)s\">Firefox をダウンロード</a> すればこのアドオンをインストールできます。"
 
-#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:88
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 人のユーザー"
@@ -227,7 +227,7 @@ msgstr "申し訳ありませんが、あなたにはこのページへアクセ
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "もしあなたがどこからかリンクを辿ってきた場合は、<a href=\"%(url)s\">問題を報告</a> してください。参照元のページと何を探していたかを教えてもらえれば、私達は問題の修正に最善を尽くします。"
+msgstr "もしあなたがどこからかリンクを辿ってきた場合は、<a href=\"%(url)s\">問題を報告</a> してください。参照元のページと何を探していたかを教えてもらえれば、私たちは問題の修正に最善を尽くします。"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -241,7 +241,7 @@ msgstr "申し訳ありませんが、入力されたアドレスには何も見
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
-msgstr "もし何か役に立つ詳しい情報をお持ちの場合は <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">問題を報告</a> してください。エラーにつながるまでの手順を教えてもらえれば、私達は問題の修正に最善を尽くします。"
+msgstr "もし何か役に立つ詳しい情報をお持ちの場合は <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">問題を報告</a> してください。エラーにつながるまでの手順を教えてもらえれば、私たちは問題の修正に最善を尽くします。"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
@@ -249,7 +249,7 @@ msgstr "サーバーエラー"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "申し訳ありませんが、サーバー上でエラーが発生したため、あなたのリクエストを完了することができませんでした。私達はこのエラーを記録しており、今後調査を行います。"
+msgstr "申し訳ありませんが、サーバー上でエラーが発生したため、あなたのリクエストを完了することができませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
 
 #: src/amo/components/FeaturedAddons/index.js:33
 msgid "More Featured Extensions"
@@ -489,7 +489,7 @@ msgstr "拡張機能とテーマを検索"
 msgid "Search"
 msgstr "検索"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "テーマのプレビューがありません"
 
@@ -555,7 +555,7 @@ msgstr "ログイン・登録"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することができませんでした。私達はこのエラーを記録しており、今後調査を行います。"
+msgstr "申し訳ありませんが、エラーが発生したため、あなたのリクエストを完了することができませんでした。私たちはこのエラーを記録しており、今後調査を行います。"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
