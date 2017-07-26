@@ -1,0 +1,37 @@
+// Disabled because of
+// https://github.com/benmosher/eslint-plugin-import/issues/793
+/* eslint-disable import/order */
+import { call, put, select, takeEvery } from 'redux-saga/effects';
+/* eslint-enable import/order */
+
+import { searchLoad } from 'core/actions/search';
+import { search as searchApi } from 'core/api';
+import { SEARCH_STARTED } from 'core/constants';
+import log from 'core/logger';
+import { createErrorHandler, getApi, getAuth } from 'core/sagas/utils';
+
+
+export function* fetchSearchResults({ payload }) {
+  const { errorHandlerId } = payload;
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const { filters, page } = payload;
+
+    const api = yield select(getApi);
+    const auth = yield select(getAuth);
+
+    const response = yield call(searchApi, { api, auth, filters, page });
+
+    yield put(searchLoad({ page, filters, ...response }));
+  } catch (error) {
+    log.warn(`Search results failed to load: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
+export default function* searchSaga() {
+  yield takeEvery(SEARCH_STARTED, fetchSearchResults);
+}
