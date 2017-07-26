@@ -5,6 +5,8 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import { categoriesFetch } from 'core/actions/categories';
+import { withErrorHandler } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import type { DispatchFunc } from 'core/types/redux';
 import { getCategoryColor, visibleAddonType } from 'core/utils';
@@ -15,10 +17,12 @@ import LoadingText from 'ui/components/LoadingText';
 import './styles.scss';
 
 
+// TODO: turn on flow for this file.
 type CategoriesProps = {
   addonType: string,
   className: string,
   dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
   categories: Object,
   error: boolean | null,
   loading: boolean,
@@ -27,11 +31,11 @@ type CategoriesProps = {
 
 export class CategoriesBase extends React.Component {
   componentWillMount() {
-    const { addonType, dispatch } = this.props;
+    const { addonType, dispatch, errorHandler } = this.props;
     const categories = this.props.categories[addonType] || {};
 
     if (!Object.values(categories).length) {
-      dispatch(categoriesFetch({ errorHandlerId: 'TODO' }));
+      dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
     }
 
     dispatch(setViewContext(addonType));
@@ -48,7 +52,9 @@ export class CategoriesBase extends React.Component {
 
   render() {
     /* eslint-disable react/no-array-index-key */
-    const { addonType, className, error, loading, i18n } = this.props;
+    const {
+      addonType, className, error, errorHandler, loading, i18n,
+    } = this.props;
     const categories = this.props.categories[addonType] ?
       Object.values(this.props.categories[addonType]) : [];
     const classNameProp = classnames('Categories', className);
@@ -75,6 +81,7 @@ export class CategoriesBase extends React.Component {
 
     return (
       <Card className={classNameProp} header={i18n.gettext('Categories')}>
+        {errorHandler.hasError() ? errorHandler.renderError() : null}
         {loading ?
           <div className="Categories-loading">
             <span className="Categories-loading-info visually-hidden">
@@ -118,12 +125,13 @@ export function mapStateToProps(state) {
 
   return {
     categories,
-    error: state.categories.error,
+    // error: state.categories.error,
     loading: state.categories.loading,
   };
 }
 
 export default compose(
+  withErrorHandler({ name: 'Categories' }),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(CategoriesBase);
