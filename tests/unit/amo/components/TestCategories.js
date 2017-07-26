@@ -70,14 +70,14 @@ describe('<Categories />', () => {
       result: [
         {
           application: 'android',
-          name: 'Games',
-          slug: 'Games',
+          name: 'Travel',
+          slug: 'travel',
           type: ADDON_TYPE_EXTENSION,
         },
         {
           application: 'android',
-          name: 'Travel',
-          slug: 'travel',
+          name: 'Games',
+          slug: 'Games',
           type: ADDON_TYPE_EXTENSION,
         },
       ],

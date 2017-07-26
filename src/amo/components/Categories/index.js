@@ -51,12 +51,6 @@ export class CategoriesBase extends React.Component {
     const { addonType, className, error, loading, i18n } = this.props;
     const categories = this.props.categories[addonType] ?
       Object.values(this.props.categories[addonType]) : [];
-    categories.sort(function(a,b){
-          let x = a.name.toLowerCase();
-          let y = b.name.toLowerCase();
-       return x < y ? -1 : x > y ? 1 : 0;
-
-     });  
     const classNameProp = classnames('Categories', className);
 
     if (error) {
