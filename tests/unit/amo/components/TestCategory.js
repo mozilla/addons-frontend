@@ -8,10 +8,11 @@ import { SearchBase } from 'amo/components/Search';
 import createStore from 'amo/store';
 import { categoriesFetch } from 'core/actions/categories';
 import { searchStart } from 'core/actions/search';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+
 
 describe('Category', () => {
   let category;
@@ -67,8 +68,11 @@ describe('Category', () => {
     sinon.assert.calledWith(fakeDispatch, categoriesFetch());
   });
 
-  it('should return 404 if category is falsy and loading is false', () => {
-    const root = mountRender();
+  it('should return 404 if no category was found and loading is false', () => {
+    const root = mountRender({
+      category: null,
+      loading: false,
+    });
 
     expect(root.find(NotFound)).toHaveLength(1);
   });
@@ -95,6 +99,7 @@ describe('Category', () => {
 });
 
 describe('Category.mapStateToProps()', () => {
+  let store;
   let filters;
   let ownProps;
 
@@ -102,7 +107,7 @@ describe('Category.mapStateToProps()', () => {
     filters = {
       addonType: ADDON_TYPE_THEME,
       category: 'ad-block',
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
     };
     ownProps = {
       location: { query: {} },
@@ -114,8 +119,11 @@ describe('Category.mapStateToProps()', () => {
     };
   });
 
+  beforeEach(() => {
+    store = createStore().store;
+  });
+
   it('passes the search state if the filters and state matches', () => {
-    const { store } = createStore();
     store.dispatch(searchStart({ filters, results: [] }));
     const props = mapStateToProps(store.getState(), ownProps);
 
@@ -133,17 +141,45 @@ describe('Category.mapStateToProps()', () => {
   });
 
   it('does not pass search state if the filters and state do not match', () => {
-    const { store } = createStore();
     store.dispatch(searchStart({ filters }));
     const mismatchedState = store.getState();
     mismatchedState.search.filters.clientApp = 'nothing';
     const props = mapStateToProps(mismatchedState, ownProps);
 
-    expect(props).toEqual({
+    expect(props).toMatchObject({
       addonType: ADDON_TYPE_THEME,
       category: null,
+      loading: true,
       pathname: '/themes/ad-block/',
       queryParams: { page: 1 },
     });
+  });
+
+  it('sets loading to true if categories and search are loading', () => {
+    store.dispatch(categoriesFetch());
+    store.dispatch(searchStart({ filters }));
+    const props = mapStateToProps(store.getState(), ownProps);
+
+    expect(props).toMatchObject({ loading: true });
+  });
+
+  it('sets loading to true if only categories are loading', () => {
+    store.dispatch(categoriesFetch());
+    const props = mapStateToProps(store.getState(), ownProps);
+
+    expect(props).toMatchObject({ loading: true });
+  });
+
+  it('sets loading to true if only search is loading', () => {
+    store.dispatch(searchStart({ filters }));
+    const props = mapStateToProps(store.getState(), ownProps);
+
+    expect(props).toMatchObject({ loading: true });
+  });
+
+  it('sets loading to false if nothing is loading', () => {
+    const props = mapStateToProps(store.getState(), ownProps);
+
+    expect(props).toMatchObject({ loading: false });
   });
 });
