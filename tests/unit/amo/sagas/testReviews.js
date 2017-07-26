@@ -22,7 +22,7 @@ describe('amo/sagas/reviews', () => {
 
     beforeEach(() => {
       errorHandler = new ErrorHandler({
-        id: 'some-addon-handler',
+        id: 'some-error-handler',
         dispatch: sinon.stub(),
       });
       mockAmoApi = sinon.mock(amoApi);

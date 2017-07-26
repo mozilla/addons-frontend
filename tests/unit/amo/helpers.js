@@ -1,7 +1,10 @@
+import { normalize } from 'normalizr';
+
 import createStore from 'amo/store';
 import {
   setClientApp, setLang, setAuthToken, setUserAgent,
 } from 'core/actions';
+import { addon as addonSchema } from 'core/api';
 import { searchLoad } from 'core/actions/search';
 
 import {
@@ -115,4 +118,9 @@ export function dispatchSearchResults({
   }));
 
   return { store };
+}
+
+export function createFeaturedApiResult(results) {
+  // Return a normalized result just like core.api.featured() does.
+  return normalize({ results }, { results: [addonSchema] });
 }

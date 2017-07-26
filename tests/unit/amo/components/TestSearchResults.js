@@ -6,6 +6,7 @@ import {
 import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
+import AddonsCard from 'amo/components/AddonsCard';
 import SearchResults from 'amo/components/SearchResults';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/unit/amo/helpers';
@@ -71,5 +72,17 @@ describe('<SearchResults />', () => {
       loading: true,
     });
     expect(root.loadingText.textContent).toEqual('Searching…');
+  });
+
+  it('renders search result placeholders while loading', () => {
+    const root = renderResults({
+      filters: { query: 'test' },
+      hasSearchParams: true,
+      loading: true,
+    });
+    const addonsCard = findRenderedComponentWithType(root, AddonsCard);
+    // Make sure it just renders AddonsCard in a loading state.
+    expect(addonsCard.props.loading).toEqual(true);
+    expect(addonsCard.props.addons).toEqual([]);
   });
 });

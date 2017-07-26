@@ -2,19 +2,16 @@ import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import createStore from 'amo/store';
-import * as featuredActions from 'amo/actions/featured';
 import * as landingActions from 'amo/actions/landing';
 import * as api from 'core/api';
 import { initialApiState } from 'core/reducers/api';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import {
   getErrorComponent,
-  loadFeaturedAddons,
   loadLandingAddons,
 } from 'amo/utils';
 import { unexpectedSuccess } from 'tests/unit/helpers';
@@ -27,30 +24,6 @@ describe('amo/utils', () => {
       visibleAddonType: 'extensions',
     },
   };
-
-  describe('loadFeaturedAddons()', () => {
-    it('requests a large page of featured add-ons', () => {
-      const addonType = ADDON_TYPE_EXTENSION;
-      const { store } = createStore({ application: 'android' });
-      store.dispatch(featuredActions.getFeatured({ addonType }));
-      const mockApi = sinon.mock(api);
-      const entities = sinon.stub();
-      const result = { results: [] };
-
-      mockApi
-        .expects('featured')
-        .once()
-        .withArgs({
-          api: { ...initialApiState }, filters: { addonType, page_size: 25 },
-        })
-        .returns(Promise.resolve({ entities, result }));
-
-      return loadFeaturedAddons({ store, params: ownProps.params })
-        .then(() => {
-          mockApi.verify();
-        });
-    });
-  });
 
   describe('loadLandingAddons()', () => {
     it('calls featured and search APIs to collect results', () => {
