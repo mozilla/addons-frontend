@@ -16,23 +16,6 @@ import ErrorList from 'ui/components/ErrorList';
 
 
 describe('<Categories />', () => {
-  const categoriesResponse = {
-    result: [
-      {
-        application: 'android',
-        name: 'Games',
-        slug: 'Games',
-        type: ADDON_TYPE_EXTENSION,
-      },
-      {
-        application: 'android',
-        name: 'Travel',
-        slug: 'travel',
-        type: ADDON_TYPE_EXTENSION,
-      },
-    ],
-  };
-
   function render({ ...props }) {
     const fakeDispatch = sinon.stub();
     const errorHandler = new ErrorHandler({
@@ -94,6 +77,23 @@ describe('<Categories />', () => {
   });
 
   it('renders categories if they exist', () => {
+    const categoriesResponse = {
+      result: [
+        {
+          application: 'android',
+          name: 'Games',
+          slug: 'Games',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          application: 'android',
+          name: 'Travel',
+          slug: 'travel',
+          type: ADDON_TYPE_EXTENSION,
+        },
+      ],
+    };
+
     const { store } = dispatchClientMetadata();
     store.dispatch(categoriesLoad(categoriesResponse));
     const { categories } = mapStateToProps(store.getState());
