@@ -36,16 +36,3 @@ describe('CATEGORIES_LOAD', () => {
     expect(action.payload.result).toEqual(['foo', 'bar']);
   });
 });
-
-describe('CATEGORIES_FAIL', () => {
-  const error = new Error('I am an error');
-  const action = actions.categoriesFail(error);
-
-  it('sets the type', () => {
-    expect(action.type).toEqual('CATEGORIES_FAIL');
-  });
-
-  it('sets the payload', () => {
-    expect(action.payload.error).toEqual(error);
-  });
-});
