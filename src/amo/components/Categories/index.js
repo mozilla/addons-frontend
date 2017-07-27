@@ -1,3 +1,4 @@
+/* @flow */
 import classnames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -7,6 +8,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { categoriesFetch } from 'core/actions/categories';
 import { withErrorHandler } from 'core/errorHandler';
 import type { ErrorHandlerType } from 'core/errorHandler';
+import type { ApiStateType } from 'core/reducers/api';
 import translate from 'core/i18n/translate';
 import type { DispatchFunc } from 'core/types/redux';
 import { getCategoryColor, visibleAddonType } from 'core/utils';
@@ -16,16 +18,34 @@ import LoadingText from 'ui/components/LoadingText';
 
 import './styles.scss';
 
+type CategoryType = {
+  application: string,
+  description?: string,
+  id: number,
+  misc: boolean,
+  name: string,
+  slug: string,
+  type: string,
+  weight: number,
+};
 
-// TODO: turn on flow for this file.
+type CategoriesByAddonType = {
+  [addonType: string]: void | { [categorySlug: string]: CategoryType },
+};
+
+type CategoriesStateType = {|
+  categories: { [clientApp: string]: CategoriesByAddonType },
+  loading: boolean,
+|};
+
 type CategoriesProps = {
   addonType: string,
   className: string,
+  categories: CategoriesByAddonType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  categories: Object,
-  loading: boolean,
   i18n: Object,
+  loading: boolean,
 }
 
 export class CategoriesBase extends React.Component {
@@ -40,7 +60,7 @@ export class CategoriesBase extends React.Component {
     dispatch(setViewContext(addonType));
   }
 
-  componentWillReceiveProps({ addonType: newAddonType }) {
+  componentWillReceiveProps({ addonType: newAddonType }: CategoriesProps) {
     const { addonType: oldAddonType, dispatch } = this.props;
     if (oldAddonType !== newAddonType) {
       dispatch(setViewContext(newAddonType));
@@ -89,18 +109,28 @@ export class CategoriesBase extends React.Component {
           </div>
         :
           <ul className="Categories-list">
-            {categories.map((category) => (
-              <li className="Categories-item" key={category.name}>
-                <Button
-                  className={`Categories-link Button--action
-                    Button--small
-                    Categories--category-color-${getCategoryColor(category)}`}
-                  to={`/${visibleAddonType(addonType)}/${category.slug}/`}
-                >
-                  {category.name}
-                </Button>
-              </li>
-            ))}
+            {categories.map((category) => {
+              // Flow cannot figure out CategoryType in this case.
+              // See https://github.com/facebook/flow/issues/2174
+              // and https://github.com/facebook/flow/issues/2221
+              // $FLOW_IGNORE
+              const name = category ? category.name : '';
+              // $FLOW_IGNORE
+              const slug = category ? category.slug : '';
+
+              return (
+                <li className="Categories-item" key={name}>
+                  <Button
+                    className={`Categories-link Button--action
+                      Button--small
+                      Categories--category-color-${getCategoryColor(category)}`}
+                    to={`/${visibleAddonType(addonType)}/${slug}/`}
+                  >
+                    {name}
+                  </Button>
+                </li>
+              );
+            })}
           </ul>
         }
       </Card>
@@ -108,9 +138,11 @@ export class CategoriesBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(
+  state: {| api: ApiStateType, categories: CategoriesStateType |}
+) {
   const clientApp = state.api.clientApp;
-  const categories = state.categories.categories[clientApp];
+  const categories = state.categories.categories[clientApp || ''];
 
   return {
     categories,
