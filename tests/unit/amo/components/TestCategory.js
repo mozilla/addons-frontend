@@ -6,11 +6,14 @@ import { CategoryBase, mapStateToProps } from 'amo/components/Category';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { SearchBase } from 'amo/components/Search';
 import createStore from 'amo/store';
+import { categoriesFetch } from 'core/actions/categories';
 import { searchStart } from 'core/actions/search';
-import { ADDON_TYPE_THEME, CATEGORIES_FETCH } from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
+import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import ErrorList from 'ui/components/ErrorList';
 
 describe('Category', () => {
   let category;
@@ -27,15 +30,22 @@ describe('Category', () => {
     };
   });
 
+  function renderProps(customProps = {}) {
+    const errorHandler = new ErrorHandler({
+      id: 'some-handler-id',
+      dispatch: fakeDispatch,
+    });
+    return {
+      category,
+      dispatch: fakeDispatch,
+      errorHandler,
+      i18n: getFakeI18nInst(),
+      ...customProps,
+    };
+  }
+
   function render(props = {}) {
-    return shallow(
-      <CategoryBase
-        category={category}
-        dispatch={fakeDispatch}
-        i18n={getFakeI18nInst()}
-        {...props}
-      />
-    );
+    return shallow(<CategoryBase {...renderProps(props)} />);
   }
 
   function mountRender(props = { loading: false }) {
@@ -44,10 +54,7 @@ describe('Category', () => {
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
           <CategoryBase
-            category={null}
-            dispatch={fakeDispatch}
-            i18n={getFakeI18nInst()}
-            {...props}
+            {...renderProps({ category: null, ...props })}
           />
         </I18nProvider>
       </Provider>
@@ -60,10 +67,16 @@ describe('Category', () => {
     expect(root).toHaveClassName('Category');
   });
 
-  it('dispatches CATEGORIES_FETCH if category is falsy', () => {
-    render({ category: null });
+  it('fetches categories when needed', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: fakeDispatch,
+    });
+    render({ category: null, errorHandler });
 
-    sinon.assert.calledWithMatch(fakeDispatch, { type: CATEGORIES_FETCH });
+    sinon.assert.calledWithMatch(fakeDispatch, categoriesFetch({
+      errorHandlerId: 'some-id',
+    }));
   });
 
   it('should return 404 if category is falsy and loading is false', () => {
@@ -76,6 +89,28 @@ describe('Category', () => {
     const root = mountRender({ loading: true });
 
     expect(root.find(NotFound)).toHaveLength(0);
+  });
+
+  it('should render an error', () => {
+    const errorHandler = new ErrorHandler({
+      capturedError: new Error('example of an error'),
+      id: 'some-id',
+      dispatch: fakeDispatch,
+    });
+    const root = render({ errorHandler });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('should render an error without a category too', () => {
+    const errorHandler = new ErrorHandler({
+      capturedError: new Error('example of an error'),
+      id: 'some-id',
+      dispatch: fakeDispatch,
+    });
+    const root = render({ errorHandler, category: null, loading: false });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   it('disables the sort component in Search', () => {

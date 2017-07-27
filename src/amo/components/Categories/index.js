@@ -69,7 +69,7 @@ export class CategoriesBase extends React.Component {
       );
     }
 
-    if (!loading && !categories.length) {
+    if (!errorHandler.hasError() && !loading && !categories.length) {
       return (
         <Card className={classNameProp}>
           <p className="Categories-none-loaded-message">
@@ -92,8 +92,8 @@ export class CategoriesBase extends React.Component {
                 <LoadingText
                   className="Categories-loading-text"
                   key={`Categories-loading-text-${index}`}
-                  maxWidth={20}
-                  range={3}
+                  minWidth={85}
+                  range={15}
                 />
               );
             })}

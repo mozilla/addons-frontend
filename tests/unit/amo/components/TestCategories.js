@@ -12,9 +12,27 @@ import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
+import ErrorList from 'ui/components/ErrorList';
 
 
 describe('<Categories />', () => {
+  const categoriesResponse = {
+    result: [
+      {
+        application: 'android',
+        name: 'Games',
+        slug: 'Games',
+        type: ADDON_TYPE_EXTENSION,
+      },
+      {
+        application: 'android',
+        name: 'Travel',
+        slug: 'travel',
+        type: ADDON_TYPE_EXTENSION,
+      },
+    ],
+  };
+
   function render({ ...props }) {
     const fakeDispatch = sinon.stub();
     const errorHandler = new ErrorHandler({
@@ -38,7 +56,7 @@ describe('<Categories />', () => {
       id: 'custom-error-handler',
       dispatch,
     });
-    const root = render({
+    render({
       addonType: ADDON_TYPE_EXTENSION, categories: {}, dispatch, errorHandler,
     });
 
@@ -87,23 +105,6 @@ describe('<Categories />', () => {
   });
 
   it('renders categories if they exist', () => {
-    const categoriesResponse = {
-      result: [
-        {
-          application: 'android',
-          name: 'Games',
-          slug: 'Games',
-          type: ADDON_TYPE_EXTENSION,
-        },
-        {
-          application: 'android',
-          name: 'Travel',
-          slug: 'travel',
-          type: ADDON_TYPE_EXTENSION,
-        },
-      ],
-    };
-
     const { store } = dispatchClientMetadata();
     store.dispatch(categoriesLoad(categoriesResponse));
     const { categories } = mapStateToProps(store.getState());
@@ -117,5 +118,16 @@ describe('<Categories />', () => {
       .toHaveProp('children', 'Games');
     expect(root.find('.Categories-list').childAt(1).find(Button))
       .toHaveProp('children', 'Travel');
+  });
+
+  it('reports errors', () => {
+    const errorHandler = new ErrorHandler({
+      capturedError: new Error('example of an error'),
+      id: 'some-id',
+      dispatch: sinon.stub(),
+    });
+    const root = render({ categories: {}, errorHandler });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 });
