@@ -6,10 +6,7 @@ import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';
 import * as actions from 'core/actions/categories';
 import * as api from 'core/api';
-import {
-  CATEGORIES_FAIL,
-  CATEGORIES_LOAD,
-} from 'core/constants';
+import { CATEGORIES_LOAD } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import apiReducer from 'core/reducers/api';
 import categoriesReducer from 'core/reducers/categories';
