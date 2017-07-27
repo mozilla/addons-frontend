@@ -81,8 +81,8 @@ export class CategoriesBase extends React.Component {
                 <LoadingText
                   className="Categories-loading-text"
                   key={`Categories-loading-text-${index}`}
-                  minWidth={85}
-                  range={15}
+                  minWidth={20}
+                  range={3}
                 />
               );
             })}
