@@ -8,12 +8,12 @@ import translate from 'core/i18n/translate';
 
 import './styles.scss';
 
-type CategoriesPageParams = {|
+type CategoriesPageProps = {|
   params: {| visibleAddonType: string |},
 |};
 
 export class CategoriesPageBase extends React.Component {
-  props: CategoriesPageParams;
+  props: CategoriesPageProps;
 
   render() {
     const addonType = apiAddonType(this.props.params.visibleAddonType);
