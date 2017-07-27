@@ -162,6 +162,9 @@
 
   .Addon-screenshots {
     grid-column: 1 / 2;
+    // overflow required to fix content overlap in Safari.
+    // See https://github.com/mozilla/addons-frontend/issues/2847
+    overflow-x: hidden;
   }
 
   .Addon-overall-rating {
