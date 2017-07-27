@@ -5,10 +5,7 @@ import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import {
-  categoriesFail,
-  categoriesLoad,
-} from 'core/actions/categories';
+import { categoriesLoad } from 'core/actions/categories';
 import { categories as categoriesApi } from 'core/api';
 import { CATEGORIES_FETCH } from 'core/constants';
 import log from 'core/logger';
