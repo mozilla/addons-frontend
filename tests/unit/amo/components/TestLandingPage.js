@@ -1,12 +1,8 @@
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
@@ -23,25 +19,27 @@ import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<LandingPage />', () => {
-  function render({ ...props }) {
-    const { store } = dispatchClientMetadata();
-    const fakeDispatch = sinon.stub();
-
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <LandingPageBase
-            dispatch={fakeDispatch}
-            i18n={getFakeI18nInst()}
-            {...props}
-          />
-        </I18nProvider>
-      </Provider>
-    ), LandingPageBase);
+  function renderProps(props = {}) {
+    return {
+      dispatch: sinon.stub(),
+      i18n: getFakeI18nInst(),
+      ...props,
+    };
   }
 
-  function renderNode(props) {
-    return findDOMNode(render(props));
+  function render(props = {}) {
+    return shallow(<LandingPageBase {...renderProps(props)} />);
+  }
+
+  function renderAndMount(props = {}) {
+    const { store } = dispatchClientMetadata();
+    return mount(
+      <Provider store={store}>
+        <I18nProvider i18n={getFakeI18nInst()}>
+          <LandingPageBase {...renderProps(props)} />
+        </I18nProvider>
+      </Provider>
+    );
   }
 
   it('dispatches setViewContext on load and update', () => {
@@ -53,53 +51,39 @@ describe('<LandingPage />', () => {
 
     sinon.assert.calledWith(
       fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.calledOnce(fakeDispatch);
+    fakeDispatch.reset();
 
-    root.componentDidUpdate();
-    sinon.assert.calledTwice(fakeDispatch);
+    // Trigger componentDidUpdate()
+    root.setState();
 
-    sinon.assert.alwaysCalledWith(
+    sinon.assert.calledWith(
       fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
   });
 
   it('renders a LandingPage with no addons set', () => {
-    const rootNode = renderNode({
+    const root = renderAndMount({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
-    expect(rootNode.textContent).toContain('Featured extensions');
-    expect(rootNode.textContent).toContain('More featured extensions');
+    expect(root).toIncludeText('Featured extensions');
+    expect(root).toIncludeText('More featured extensions');
   });
 
   it('renders a link to all categories', () => {
-    const fakeDispatch = sinon.stub();
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
     };
-    const root = shallow(
-      <LandingPageBase
-        dispatch={fakeDispatch}
-        i18n={getFakeI18nInst()}
-        params={fakeParams}
-      />
-    );
+    const root = render({ params: fakeParams });
 
     expect(root.find('.LandingPage-button'))
       .toHaveProp('children', 'Explore all categories');
   });
 
   it('sets the links in each footer for extensions', () => {
-    const fakeDispatch = sinon.stub();
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
     };
-    const root = shallow(
-      <LandingPageBase
-        dispatch={fakeDispatch}
-        i18n={getFakeI18nInst()}
-        params={fakeParams}
-      />
-    );
+    const root = render({ params: fakeParams });
 
     expect(root.childAt(3)).toHaveProp('footerLink', {
       pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
@@ -115,17 +99,10 @@ describe('<LandingPage />', () => {
   });
 
   it('sets the links in each footer for themes', () => {
-    const fakeDispatch = sinon.stub();
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
-    const root = shallow(
-      <LandingPageBase
-        dispatch={fakeDispatch}
-        i18n={getFakeI18nInst()}
-        params={fakeParams}
-      />
-    );
+    const root = render({ params: fakeParams });
 
     expect(root.childAt(3)).toHaveProp('footerLink', {
       pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
@@ -141,12 +118,12 @@ describe('<LandingPage />', () => {
   });
 
   it('renders a LandingPage with themes HTML', () => {
-    const rootNode = renderNode({
+    const root = renderAndMount({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(rootNode.textContent).toContain('Featured themes');
-    expect(rootNode.textContent).toContain('More featured themes');
+    expect(root).toIncludeText('Featured themes');
+    expect(root).toIncludeText('More featured themes');
   });
 
   it('renders each add-on when set', () => {
@@ -192,28 +169,34 @@ describe('<LandingPage />', () => {
         result: { count: 50, results: ['pop', 'pop-again'] },
       },
     }));
-    const rootNode = renderNode({
+    const root = renderAndMount({
       ...mapStateToProps(store.getState()),
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(Object.values(rootNode.querySelectorAll('.SearchResult-name'))
-      .map((heading) => heading.textContent)).toEqual(['Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again']);
+    expect(
+      root.find('.SearchResult-name')
+        .map((heading) => heading.text()))
+        .toEqual([
+          'Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again',
+        ]);
   });
 
   it('renders not found if add-on type is not supported', () => {
-    const rootNode = renderNode({ params: { visibleAddonType: 'XUL' } });
-    expect(rootNode.textContent).toContain('Page not found');
+    const root = render({ params: { visibleAddonType: 'XUL' } });
+    expect(root.find(NotFound)).toHaveLength(1);
   });
 
-  it('throws for any error other than an unknown addonType', () => {
+  it('does not catch all apiAddonType() errors', () => {
     expect(() => {
       render({
         apiAddonType: () => { throw new Error('Ice cream'); },
         params: { visibleAddonType: ADDON_TYPE_EXTENSION },
       });
     }).toThrowError('Ice cream');
+  });
 
+  it('does not catch all contentForType() errors', () => {
     expect(() => {
       render({
         contentForType: () => { throw new Error('Cake!'); },
