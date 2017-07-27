@@ -93,17 +93,6 @@ describe('<Categories />', () => {
       .toHaveLength(8);
   });
 
-  it('renders an error message if there was an error', () => {
-    const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
-      categories: {},
-      error: true,
-    });
-
-    expect(root.find('.Categories p'))
-      .toIncludeText('Failed to load categories');
-  });
-
   it('renders categories if they exist', () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(categoriesLoad(categoriesResponse));

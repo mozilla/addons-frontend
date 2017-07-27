@@ -24,7 +24,6 @@ type CategoriesProps = {
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   categories: Object,
-  error: boolean | null,
   loading: boolean,
   i18n: Object,
 }
@@ -53,21 +52,11 @@ export class CategoriesBase extends React.Component {
   render() {
     /* eslint-disable react/no-array-index-key */
     const {
-      addonType, className, error, errorHandler, loading, i18n,
+      addonType, className, errorHandler, loading, i18n,
     } = this.props;
     const categories = this.props.categories[addonType] ?
       Object.values(this.props.categories[addonType]) : [];
     const classNameProp = classnames('Categories', className);
-
-    if (error) {
-      return (
-        <Card className={classNameProp}>
-          <p className="Categories-none-loaded-message">
-            {i18n.gettext('Failed to load categories.')}
-          </p>
-        </Card>
-      );
-    }
 
     if (!errorHandler.hasError() && !loading && !categories.length) {
       return (
@@ -125,7 +114,6 @@ export function mapStateToProps(state) {
 
   return {
     categories,
-    // error: state.categories.error,
     loading: state.categories.loading,
   };
 }
