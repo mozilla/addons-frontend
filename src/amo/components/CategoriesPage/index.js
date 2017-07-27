@@ -8,7 +8,7 @@ import translate from 'core/i18n/translate';
 import './styles.scss';
 
 
-class CategoriesPageBase extends React.Component {
+export class CategoriesPageBase extends React.Component {
   render() {
     const addonType = apiAddonType(this.props.params.visibleAddonType);
     return <Categories addonType={addonType} className="CategoriesPage" />;
