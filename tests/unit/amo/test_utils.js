@@ -29,7 +29,9 @@ describe('amo/utils', () => {
     it('calls featured and search APIs to collect results', () => {
       const addonType = ADDON_TYPE_THEME;
       const { store } = createStore({ application: 'android' });
-      store.dispatch(landingActions.getLanding({ addonType }));
+      store.dispatch(landingActions.getLanding({
+        addonType, errorHandlerId: 'some-error-handler',
+      }));
       const mockApi = sinon.mock(api);
       const entities = sinon.stub();
       const result = sinon.stub();

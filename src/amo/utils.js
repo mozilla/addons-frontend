@@ -14,7 +14,7 @@ import { apiAddonType } from 'core/utils';
 
 // TODO: remove this when we have a saga
 export function fetchLandingAddons({ addonType, api, dispatch }) {
-  dispatch(getLanding({ addonType }));
+  dispatch(getLanding({ addonType, errorHandlerId: 'TODO: delete this' }));
 
   const filters = { addonType, page_size: LANDING_PAGE_ADDON_COUNT };
   const landingRequests = [

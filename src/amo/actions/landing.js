@@ -5,14 +5,17 @@ import {
 } from 'core/constants';
 
 
-export function getLanding({ addonType }) {
+export function getLanding({ addonType, errorHandlerId }) {
   if (!addonType) {
     throw new Error('addonType must be set');
+  }
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId must be set');
   }
 
   return {
     type: LANDING_GET,
-    payload: { addonType },
+    payload: { addonType, errorHandlerId },
   };
 }
 

@@ -50,7 +50,10 @@ describe('landing reducer', () => {
       };
       const {
         addonType, featured, highlyRated, loading, popular,
-      } = landing(initialState, getLanding({ addonType: ADDON_TYPE_THEME }));
+      } = landing(initialState, getLanding({
+        addonType: ADDON_TYPE_THEME,
+        errorHandlerId: 'some-error-handler',
+      }));
 
       expect(addonType).toEqual(ADDON_TYPE_THEME);
       expect(loading).toEqual(true);
