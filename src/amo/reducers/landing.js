@@ -34,6 +34,7 @@ export default function landing(state = initialState, action) {
 
       return newState;
     }
+    // TODO: remove this when we have an error handler
     case LANDING_FAILED:
       return { ...state, loading: false };
     default:
