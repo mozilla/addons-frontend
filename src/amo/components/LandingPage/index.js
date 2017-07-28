@@ -239,6 +239,7 @@ export function mapStateToProps(state) {
     featuredAddons: state.landing.featured.results,
     highlyRatedAddons: state.landing.highlyRated.results,
     popularAddons: state.landing.popular.results,
+    // TODO: add state.landing.loading
   };
 }
 

@@ -12,6 +12,7 @@ import { SEARCH_SORT_POPULAR, SEARCH_SORT_TOP_RATED } from 'core/constants';
 import { apiAddonType } from 'core/utils';
 
 
+// TODO: remove this when we have a saga
 export function fetchLandingAddons({ addonType, api, dispatch }) {
   dispatch(getLanding({ addonType }));
 
@@ -33,6 +34,7 @@ export function fetchLandingAddons({ addonType, api, dispatch }) {
     .catch(() => dispatch(failLanding({ addonType })));
 }
 
+// TODO: remove this when we have a saga
 export function loadLandingAddons({ store: { dispatch, getState }, params }) {
   const state = getState();
   try {
