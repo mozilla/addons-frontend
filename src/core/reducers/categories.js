@@ -68,12 +68,10 @@ export default function categories(state = initialState, action) {
           Object.keys(categoryList[appName]).forEach((addonType) => {
             categoryList[appName][addonType] = categoryList[appName][addonType]
               .sort((a, b) => {
-                const x = a.slug;
-                const y = b.slug;
-                if (x < y) {
+                if (a.name.toLowerCase() < b.name.toLowerCase()) {
                   return -1;
                 }
-                if (x > y) {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
                   return 1;
                 }
                 return 0;
