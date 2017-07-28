@@ -13,6 +13,7 @@ import {
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
+import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
@@ -22,6 +23,10 @@ describe('<LandingPage />', () => {
   function renderProps(props = {}) {
     return {
       dispatch: sinon.stub(),
+      errorHandler: new ErrorHandler({
+        id: 'some-handler',
+        dispatch: sinon.stub(),
+      }),
       i18n: getFakeI18nInst(),
       ...props,
     };
@@ -59,6 +64,18 @@ describe('<LandingPage />', () => {
     sinon.assert.calledWith(
       fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
   });
+
+  // TODO: add tests for:
+  // - get addons when result set is empty
+  // - get addons only when not loading
+  // - do not get addons if there is an error
+  // - get addons again when changing visibleAddonType
+  // - error handler rendering
+  //
+  // it('fetches addons from the API when they are falsey', () => {
+  //   const dispatch = sinon.stub();
+  //   render({ dispatch, featuredAddons: null });
+  // });
 
   it('renders a LandingPage with no addons set', () => {
     const root = renderAndMount({
@@ -185,23 +202,5 @@ describe('<LandingPage />', () => {
   it('renders not found if add-on type is not supported', () => {
     const root = render({ params: { visibleAddonType: 'XUL' } });
     expect(root.find(NotFound)).toHaveLength(1);
-  });
-
-  it('does not catch all apiAddonType() errors', () => {
-    expect(() => {
-      render({
-        apiAddonType: () => { throw new Error('Ice cream'); },
-        params: { visibleAddonType: ADDON_TYPE_EXTENSION },
-      });
-    }).toThrowError('Ice cream');
-  });
-
-  it('does not catch all contentForType() errors', () => {
-    expect(() => {
-      render({
-        contentForType: () => { throw new Error('Cake!'); },
-        params: { visibleAddonType: ADDON_TYPE_EXTENSION },
-      });
-    }).toThrowError('Cake!');
   });
 });
