@@ -1,8 +1,6 @@
 import base62 from 'base62';
 
-import {
-  LANDING_PAGE_ADDON_COUNT,
-} from 'amo/constants';
+import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import { getLanding, loadLanding, failLanding } from 'amo/actions/landing';
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';

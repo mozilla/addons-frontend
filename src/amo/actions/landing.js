@@ -20,6 +20,7 @@ export function getLanding({ addonType, errorHandlerId }) {
 }
 
 export function loadLanding({ addonType, featured, highlyRated, popular }) {
+  // TODO: throw error for missing params
   return {
     type: LANDING_LOADED,
     payload: { addonType, featured, highlyRated, popular },
