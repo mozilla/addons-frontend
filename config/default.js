@@ -180,6 +180,7 @@ module.exports = {
     'sl',
     'sq',
     'sv-SE',
+    'te',
     'th',
     'tr',
     'uk',
