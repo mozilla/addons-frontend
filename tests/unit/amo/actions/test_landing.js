@@ -1,4 +1,4 @@
-import { getLanding, loadLanding, failLanding } from 'amo/actions/landing';
+import { getLanding, loadLanding } from 'amo/actions/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
 
 
@@ -48,17 +48,5 @@ describe('LANDING_LOADED', () => {
 
   it('sets the payload', () => {
     expect(action.payload).toEqual({ addonType: ADDON_TYPE_THEME, ...response });
-  });
-});
-
-describe('LANDING_FAILED', () => {
-  const action = failLanding({ addonType: 'extension' });
-
-  it('sets the type', () => {
-    expect(action.type).toEqual('LANDING_FAILED');
-  });
-
-  it('sets the payload', () => {
-    expect(action.payload).toEqual({ addonType: 'extension' });
   });
 });

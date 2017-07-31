@@ -109,15 +109,4 @@ describe('landing reducer', () => {
       expect(highlyRated).toEqual('hello');
     });
   });
-
-  describe('LANDING_FAILED', () => {
-    it('sets loading to false on failure', () => {
-      const startingState = landing(initialState,
-        { type: 'LANDING_GET', payload: { addonType: ADDON_TYPE_THEME } });
-      const state = landing(startingState,
-        { type: 'LANDING_FAILED', payload: { page: 2, addonType: ADDON_TYPE_THEME } });
-
-      expect(state).toMatchObject({ loading: false });
-    });
-  });
 });
