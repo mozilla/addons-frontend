@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-17 15:00+0000\n"
+"PO-Revision-Date: 2017-07-31 06:33+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -25,12 +25,12 @@ msgstr ""
 #: src/amo/components/Addon/index.js:170
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s సమీక్షను చదవండి"
+msgstr[1] "అన్ని%(count)s సమీక్షలను చదవండి"
 
 #: src/amo/components/Addon/index.js:186
 msgid "No reviews yet"
-msgstr ""
+msgstr "సమీక్షలు ఇంకా లేవు"
 
 #: src/amo/components/Addon/index.js:195
 msgid "Rate your experience"
@@ -38,11 +38,11 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:229
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "%(addonType)s దీని గురించి"
 
 #: src/amo/components/Addon/index.js:280
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(authorList)s%(endSpan)s చేత %(addonName)s %(startSpan)s"
 
 #: src/amo/components/Addon/index.js:324
 msgid "Extension Metadata"
@@ -50,7 +50,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:343
 msgid "Screenshots"
-msgstr ""
+msgstr "స్క్రీన్‌షాట్‌లు"
 
 #: src/amo/components/AddonCompatibilityError/index.js:55
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -75,22 +75,22 @@ msgstr ""
 #: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s వాడుకరి"
+msgstr[1] "%(total)s వాడుకరులు"
 
 #: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s సమీక్ష"
+msgstr[1] "%(total)s సమీక్షలు"
 
 #: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
-msgstr ""
+msgstr "సమీక్షలు లేవు"
 
 #: src/amo/components/AddonMeta.js:50
 msgid "Used by"
-msgstr ""
+msgstr "వాడినది"
 
 #: src/amo/components/AddonMoreInfo.js:106
 msgid "Read the license agreement for this add-on"
@@ -114,23 +114,23 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:55
 msgid "Version"
-msgstr ""
+msgstr "వెర్షన్"
 
 #: src/amo/components/AddonMoreInfo.js:59
 msgid "Last updated"
-msgstr ""
+msgstr "చివరిగా నవీకరించినది"
 
 #: src/amo/components/AddonMoreInfo.js:64
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:72
 msgid "License"
-msgstr ""
+msgstr "లైసెన్స్"
 
 #: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
-msgstr ""
+msgstr "గోప్యతా విధానం"
 
 #: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
@@ -234,7 +234,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "పేజీ కనుగొనబడలేదు"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
@@ -268,19 +268,19 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
-msgstr ""
+msgstr "గోప్య విధానం"
 
 #: src/amo/components/Footer/index.js:44
 msgid "Legal notices"
-msgstr ""
+msgstr "చట్టపరమైన గమనికలు"
 
 #: src/amo/components/Footer/index.js:52
 msgid "Report a bug"
-msgstr ""
+msgstr "బగ్ తెలియజేయి"
 
 #: src/amo/components/Footer/index.js:62
 msgid "View classic desktop site"
-msgstr ""
+msgstr "క్లాసిక్ డెస్క్టాప్ సైట్ను వీక్షించండి"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:44
@@ -313,15 +313,15 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:122
 msgid "Holiday"
-msgstr ""
+msgstr "సెలవు"
 
 #: src/amo/components/Home/index.js:123
 msgid "Scenic"
-msgstr ""
+msgstr "సీనిక్"
 
 #: src/amo/components/Home/index.js:124
 msgid "Sporty"
-msgstr ""
+msgstr "స్పోర్టి"
 
 #: src/amo/components/Home/index.js:125
 msgid "Solid"
@@ -357,11 +357,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
 msgid "Screenshot"
-msgstr ""
+msgstr "స్క్రీన్‌షాట్"
 
 #: src/amo/components/Home/index.js:72 src/amo/components/Home/index.js:97
 msgid "Find news"
-msgstr ""
+msgstr "వార్తలను కనుగొనండి"
 
 #: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
@@ -405,7 +405,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:178 src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
-msgstr ""
+msgstr "పొడిగింతలు"
 
 #: src/amo/components/LandingPage/index.js:209
 msgid "Explore all categories"
@@ -493,7 +493,7 @@ msgstr ""
 
 #: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
 msgid "Search"
-msgstr ""
+msgstr "వెతుకు"
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
