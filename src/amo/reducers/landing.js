@@ -10,7 +10,6 @@ export const initialState = {
   highlyRated: { count: 0, results: [] },
   loading: false,
   popular: { count: 0, results: [] },
-  // TODO: hmm, I think we also need to know the addonType
   resultsLoaded: false,
 };
 
