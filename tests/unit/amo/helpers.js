@@ -125,7 +125,3 @@ export function createAddonsApiResult(results) {
   // For example: core.api.featured(), core.api.search()...
   return normalize({ results }, { results: [addonSchema] });
 }
-
-// TODO: just rename everything that uses this.
-export const createFeaturedApiResult =
-  (...args) => createAddonsApiResult(...args);
