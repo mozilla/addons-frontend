@@ -35,7 +35,9 @@ describe('<LandingPage />', () => {
   }
 
   function render(props = {}) {
-    return shallow(<LandingPageBase {...renderProps(props)} />);
+    return shallow(<LandingPageBase {...renderProps(props)} />, {
+      lifecycleExperimental: true,
+    });
   }
 
   function renderAndMount(props = {}) {
@@ -60,11 +62,11 @@ describe('<LandingPage />', () => {
       fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
     fakeDispatch.reset();
 
-    // Trigger componentDidUpdate()
-    root.setState();
+    root.setProps({
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+    });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_THEME));
   });
 
   it('dispatches getLanding when results are not loaded', () => {
@@ -121,8 +123,6 @@ describe('<LandingPage />', () => {
     root.setProps({
       params: { visibleAddonType: visibleAddonType(secondAddonType) },
     });
-    // Trigger componentDidUpdate()
-    root.setState();
 
     sinon.assert.calledWith(dispatch,
       landingActions.getLanding({

@@ -92,7 +92,6 @@ export class LandingPageBase extends React.Component {
 
     const requestedAddonType = apiAddonType(params.visibleAddonType);
 
-    // TODO: also do this when the visibleAddonType changes.
     if (!loading && !errorHandler.hasError() &&
         (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
       dispatch(getLanding({
