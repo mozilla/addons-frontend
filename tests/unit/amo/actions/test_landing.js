@@ -35,18 +35,46 @@ describe('LANDING_GET', () => {
 });
 
 describe('LANDING_LOADED', () => {
-  const response = {
-    featured: sinon.stub(),
-    highlyRated: sinon.stub(),
-    popular: sinon.stub(),
-  };
-  const action = loadLanding({ addonType: ADDON_TYPE_THEME, ...response });
+  function defaultParams() {
+    return {
+      addonType: ADDON_TYPE_THEME,
+      featured: { count: 0, results: [] },
+      highlyRated: { count: 0, results: [] },
+      popular: { count: 0, results: [] },
+    };
+  }
 
   it('sets the type', () => {
-    expect(action.type).toEqual('LANDING_LOADED');
+    expect(loadLanding(defaultParams()).type).toEqual('LANDING_LOADED');
   });
 
   it('sets the payload', () => {
-    expect(action.payload).toEqual({ addonType: ADDON_TYPE_THEME, ...response });
+    const action = loadLanding(defaultParams());
+    const expectedPayload = defaultParams();
+    expect(action.payload).toEqual(expectedPayload);
+  });
+
+  it('throws an error if addonType is empty', () => {
+    const params = defaultParams();
+    delete params.addonType;
+    expect(() => loadLanding(params)).toThrow(/addonType cannot be empty/);
+  });
+
+  it('throws an error if featured is empty', () => {
+    const params = defaultParams();
+    delete params.featured;
+    expect(() => loadLanding(params)).toThrow(/featured cannot be empty/);
+  });
+
+  it('throws an error if highlyRated is empty', () => {
+    const params = defaultParams();
+    delete params.highlyRated;
+    expect(() => loadLanding(params)).toThrow(/highlyRated cannot be empty/);
+  });
+
+  it('throws an error if popular is empty', () => {
+    const params = defaultParams();
+    delete params.popular;
+    expect(() => loadLanding(params)).toThrow(/popular cannot be empty/);
   });
 });

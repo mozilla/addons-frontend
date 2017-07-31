@@ -146,6 +146,7 @@ describe('<LandingPage />', () => {
   it('renders each add-on when set', () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
       featured: {
         entities: {
           addons: {
