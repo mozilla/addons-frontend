@@ -92,12 +92,14 @@ export class LandingPageBase extends React.Component {
     const { i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
 
+    const featuredFooterLink = {
+      pathname: `/${getVisibleAddonType(addonType)}/featured/`,
+    };
+
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
         featuredHeader: i18n.gettext('Featured extensions'),
-        featuredFooterLink: {
-          pathname: `/${getVisibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
-        },
+        featuredFooterLink,
         featuredFooterText: i18n.gettext('More featured extensions'),
         popularHeader: i18n.gettext('Most popular extensions'),
         popularFooterLink: {
@@ -117,9 +119,7 @@ export class LandingPageBase extends React.Component {
       },
       [ADDON_TYPE_THEME]: {
         featuredHeader: i18n.gettext('Featured themes'),
-        featuredFooterLink: {
-          pathname: `/${getVisibleAddonType(ADDON_TYPE_THEME)}/featured/`,
-        },
+        featuredFooterLink,
         featuredFooterText: i18n.gettext('More featured themes'),
         popularHeader: i18n.gettext('Most popular themes'),
         popularFooterLink: {
