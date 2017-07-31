@@ -28,6 +28,8 @@ describe('<LandingPage />', () => {
         dispatch: sinon.stub(),
       }),
       i18n: getFakeI18nInst(),
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
+      resultsLoaded: false,
       ...props,
     };
   }
@@ -65,17 +67,104 @@ describe('<LandingPage />', () => {
       fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
   });
 
+  it('dispatches getLanding when results are not loaded', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const dispatch = sinon.stub();
+    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+    render({
+      dispatch,
+      errorHandler,
+      params: { visibleAddonType: visibleAddonType(addonType) },
+      resultsLoaded: false,
+    });
+
+    sinon.assert.calledWith(dispatch,
+      landingActions.getLanding({ addonType, errorHandlerId: errorHandler.id })
+    );
+  });
+
+  it('dispatches getLanding when addonType changes', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const addonTypeOfResults = ADDON_TYPE_THEME;
+    const dispatch = sinon.stub();
+    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+    render({
+      addonTypeOfResults,
+      dispatch,
+      errorHandler,
+      params: { visibleAddonType: visibleAddonType(addonType) },
+      resultsLoaded: true,
+      loading: false,
+    });
+
+    sinon.assert.calledWith(dispatch,
+      landingActions.getLanding({ addonType, errorHandlerId: errorHandler.id })
+    );
+  });
+
+  it('dispatches getLanding when visibleAddonType changes', () => {
+    const firstAddonType = ADDON_TYPE_EXTENSION;
+    const dispatch = sinon.stub();
+    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+    const root = render({
+      addonTypeOfResults: firstAddonType,
+      dispatch,
+      errorHandler,
+      params: { visibleAddonType: visibleAddonType(firstAddonType) },
+      resultsLoaded: true,
+      loading: false,
+    });
+
+    dispatch.reset();
+
+    const secondAddonType = ADDON_TYPE_THEME;
+    root.setProps({
+      params: { visibleAddonType: visibleAddonType(secondAddonType) },
+    });
+    // Trigger componentDidUpdate()
+    root.setState();
+
+    sinon.assert.calledWith(dispatch,
+      landingActions.getLanding({
+        addonType: secondAddonType, errorHandlerId: errorHandler.id,
+      })
+    );
+  });
+
+  it('does not dispatch getLanding while loading', () => {
+    const dispatch = sinon.stub();
+    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+    render({
+      dispatch,
+      errorHandler,
+      resultsLoaded: false,
+      loading: true,
+    });
+
+    // Make sure only setViewContext is dispatched, not getLanding
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.callCount(dispatch, 1);
+  });
+
+  it('does not dispatch getLanding when there is an error', () => {
+    const dispatch = sinon.stub();
+    const errorHandler = new ErrorHandler({
+      id: 'some-id', dispatch, capturedError: new Error('some error'),
+    });
+    render({
+      dispatch,
+      errorHandler,
+      loading: false,
+      resultsLoaded: false,
+    });
+
+    // Make sure only setViewContext is dispatched, not getLanding
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.callCount(dispatch, 1);
+  });
+
   // TODO: add tests for:
-  // - get addons when result set is empty
-  // - get addons only when not loading
-  // - do not get addons if there is an error
-  // - get addons again when changing visibleAddonType
   // - error handler rendering
-  //
-  // it('fetches addons from the API when they are falsey', () => {
-  //   const dispatch = sinon.stub();
-  //   render({ dispatch, featuredAddons: null });
-  // });
 
   it('renders a LandingPage with no addons set', () => {
     const root = renderAndMount({

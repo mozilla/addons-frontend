@@ -37,6 +37,7 @@ const ICON_MAP = {
 
 export class LandingPageBase extends React.Component {
   static propTypes = {
+    addonTypeOfResults: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     featuredAddons: PropTypes.array,
@@ -47,28 +48,23 @@ export class LandingPageBase extends React.Component {
     params: PropTypes.objectOf({
       visibleAddonType: PropTypes.string.isRequired,
     }).isRequired,
+    resultsLoaded: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
     loading: false,
+    resultsLoaded: false,
   }
 
   componentWillMount() {
-    const {
-      dispatch, errorHandler, featuredAddons, loading, params,
-    } = this.props;
-
+    const { params } = this.props;
     if (!apiAddonTypeIsValid(params.visibleAddonType)) {
       log.warn(oneLine`Skipping componentWillMount() because visibleAddonType
         is invalid: ${params.visibleAddonType}`);
       return;
     }
 
-    // TODO: also do this when the visibleAddonType changes.
-    if (featuredAddons && featuredAddons.length === 0 && !loading) {
-      const addonType = apiAddonType(params.visibleAddonType);
-      dispatch(getLanding({ addonType, errorHandlerId: errorHandler.id }));
-    }
+    this.getLandingDataIfNeeded();
     this.setViewContextType();
   }
 
@@ -79,7 +75,31 @@ export class LandingPageBase extends React.Component {
         is invalid: ${params.visibleAddonType}`);
       return;
     }
+
+    this.getLandingDataIfNeeded();
     this.setViewContextType();
+  }
+
+  getLandingDataIfNeeded() {
+    const {
+      addonTypeOfResults,
+      dispatch,
+      errorHandler,
+      loading,
+      params,
+      resultsLoaded,
+    } = this.props;
+
+    const requestedAddonType = apiAddonType(params.visibleAddonType);
+
+    // TODO: also do this when the visibleAddonType changes.
+    if (!loading && !errorHandler.hasError() &&
+        (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
+      dispatch(getLanding({
+        addonType: requestedAddonType,
+        errorHandlerId: errorHandler.id,
+      }));
+    }
   }
 
   setViewContextType() {
@@ -239,10 +259,12 @@ export class LandingPageBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
+    addonTypeOfResults: state.landing.addonType,
     featuredAddons: state.landing.featured.results,
     highlyRatedAddons: state.landing.highlyRated.results,
     loading: state.landing.loading,
     popularAddons: state.landing.popular.results,
+    resultsLoaded: state.landing.resultsLoaded,
   };
 }
 
