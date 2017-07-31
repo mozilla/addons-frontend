@@ -17,6 +17,7 @@ import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
+import ErrorList from 'ui/components/ErrorList';
 
 
 describe('<LandingPage />', () => {
@@ -163,8 +164,16 @@ describe('<LandingPage />', () => {
     sinon.assert.callCount(dispatch, 1);
   });
 
-  // TODO: add tests for:
-  // - error handler rendering
+  it('renders an error', () => {
+    const errorHandler = new ErrorHandler({
+      dispatch: sinon.stub(),
+      id: 'some-id',
+      capturedError: new Error('some error'),
+    });
+    const root = render({ errorHandler });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
+  });
 
   it('renders a LandingPage with no addons set', () => {
     const root = renderAndMount({
