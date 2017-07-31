@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-30 10:00+0000\n"
+"PO-Revision-Date: 2017-07-31 14:08+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -167,7 +167,7 @@ msgstr "Hantar ulasan"
 
 #: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr "dari %(authorName)s, %(timestamp)s"
+msgstr "oleh %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:158
 msgid "Add-on icon"
@@ -392,7 +392,7 @@ msgstr "Tema paling popular"
 
 #: src/amo/components/LandingPage/index.js:124
 msgid "More popular themes"
-msgstr "Lagi tema popular"
+msgstr "Lanjutan tema popular"
 
 #: src/amo/components/LandingPage/index.js:125
 msgid "Top rated themes"
