@@ -10,7 +10,7 @@ import { ErrorHandler } from 'core/errorHandler';
 import apiReducer from 'core/reducers/api';
 import { ADDON_TYPE_EXTENSION, FEATURED_LOADED } from 'core/constants';
 import {
-  createFeaturedApiResult, dispatchSignInActions, fakeAddon,
+  createAddonsApiResult, dispatchSignInActions, fakeAddon,
 } from 'tests/unit/amo/helpers';
 
 describe('amo/sagas/featured', () => {
@@ -45,7 +45,7 @@ describe('amo/sagas/featured', () => {
 
     it('fetches featured addons from the API', async () => {
       const addonType = ADDON_TYPE_EXTENSION;
-      const { entities, result } = createFeaturedApiResult([fakeAddon]);
+      const { entities, result } = createAddonsApiResult([fakeAddon]);
       mockApi
         .expects('featured')
         .once()

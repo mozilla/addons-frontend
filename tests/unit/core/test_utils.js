@@ -27,6 +27,7 @@ import {
   validAddonTypes,
 } from 'core/constants';
 import {
+  apiAddonTypeIsValid,
   addQueryParams,
   apiAddonType,
   convertBoolean,
@@ -83,6 +84,16 @@ describe('apiAddonType', () => {
     expect(() => {
       apiAddonType('hasOwnProperty');
     }).toThrowError('"hasOwnProperty" not found in API_ADDON_TYPES_MAPPING');
+  });
+});
+
+describe('addonTypeIsValid', () => {
+  it('returns true for a valid addonType', () => {
+    expect(apiAddonTypeIsValid('extensions')).toEqual(true);
+  });
+
+  it('returns false for an invalid addonType', () => {
+    expect(apiAddonTypeIsValid('xul')).toEqual(false);
   });
 });
 
