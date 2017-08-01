@@ -20,16 +20,16 @@ export function getLanding({ addonType, errorHandlerId }) {
 
 export function loadLanding({ addonType, featured, highlyRated, popular }) {
   if (!addonType) {
-    throw new Error('addonType cannot be empty');
+    throw new Error('addonType parameter cannot be empty');
   }
   if (!featured) {
-    throw new Error('featured cannot be empty');
+    throw new Error('featured parameter cannot be empty');
   }
   if (!highlyRated) {
-    throw new Error('highlyRated cannot be empty');
+    throw new Error('highlyRated parameter cannot be empty');
   }
   if (!popular) {
-    throw new Error('popular cannot be empty');
+    throw new Error('popular parameter cannot be empty');
   }
   return {
     type: LANDING_LOADED,

@@ -57,24 +57,28 @@ describe('LANDING_LOADED', () => {
   it('throws an error if addonType is empty', () => {
     const params = defaultParams();
     delete params.addonType;
-    expect(() => loadLanding(params)).toThrow(/addonType cannot be empty/);
+    expect(() => loadLanding(params))
+      .toThrow(/addonType parameter cannot be empty/);
   });
 
   it('throws an error if featured is empty', () => {
     const params = defaultParams();
     delete params.featured;
-    expect(() => loadLanding(params)).toThrow(/featured cannot be empty/);
+    expect(() => loadLanding(params))
+      .toThrow(/featured parameter cannot be empty/);
   });
 
   it('throws an error if highlyRated is empty', () => {
     const params = defaultParams();
     delete params.highlyRated;
-    expect(() => loadLanding(params)).toThrow(/highlyRated cannot be empty/);
+    expect(() => loadLanding(params))
+      .toThrow(/highlyRated parameter cannot be empty/);
   });
 
   it('throws an error if popular is empty', () => {
     const params = defaultParams();
     delete params.popular;
-    expect(() => loadLanding(params)).toThrow(/popular cannot be empty/);
+    expect(() => loadLanding(params))
+      .toThrow(/popular parameter cannot be empty/);
   });
 });
