@@ -16,6 +16,46 @@ describe('SEARCH_STARTED', () => {
   it('sets the query and existing results', () => {
     expect(action.payload).toEqual(payload);
   });
+
+  it('throws an error if errorHandlerId is empty', () => {
+    expect(() => {
+      actions.searchStart({
+        filters: {},
+        page: 1,
+        results: [],
+      });
+    }).toThrowError('errorHandlerId is required');
+  });
+
+  it('throws an error if filters are empty', () => {
+    expect(() => {
+      actions.searchStart({
+        errorHandlerId: 'Search',
+        page: 1,
+        results: [],
+      });
+    }).toThrowError('filters are required');
+  });
+
+  it('throws an error if page is empty', () => {
+    expect(() => {
+      actions.searchStart({
+        errorHandlerId: 'Search',
+        filters: {},
+        results: [],
+      });
+    }).toThrowError('page is required');
+  });
+
+  it('throws an error if results are empty', () => {
+    expect(() => {
+      actions.searchStart({
+        errorHandlerId: 'Search',
+        filters: {},
+        page: 1,
+      });
+    }).toThrowError('results are required');
+  });
 });
 
 describe('SEARCH_LOADED', () => {
