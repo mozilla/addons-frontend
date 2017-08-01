@@ -306,7 +306,7 @@ describe('<LandingPage />', () => {
   it('renders not found if updated add-on type is not supported', () => {
     const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
-     });
+    });
     root.setProps({ params: { visibleAddonType: 'XUL' } });
     expect(root.find(NotFound)).toHaveLength(1);
   });
