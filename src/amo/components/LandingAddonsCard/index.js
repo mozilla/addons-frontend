@@ -13,11 +13,7 @@ export default class LandingAddonsCard extends React.Component {
     footerLink: PropTypes.object.isRequired,
     footerText: PropTypes.string.isRequired,
     header: PropTypes.node.isRequired,
-    loading: PropTypes.boolean,
-  }
-
-  static defaultProps = {
-    loading: false,
+    loading: PropTypes.bool.isRequired,
   }
 
   render() {

@@ -16,6 +16,7 @@ describe('amo/components/LandingAddonsCard', () => {
       },
       footerText: 'some text',
       header: 'Some Header',
+      loading: false,
       ...customProps,
     };
     return shallow(<LandingAddonsCard {...props} />);
