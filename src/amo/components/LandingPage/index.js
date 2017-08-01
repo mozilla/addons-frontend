@@ -42,18 +42,13 @@ export class LandingPageBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     featuredAddons: PropTypes.array,
     highlyRatedAddons: PropTypes.array,
-    loading: PropTypes.boolean,
+    loading: PropTypes.bool.isRequired,
     popularAddons: PropTypes.array,
     i18n: PropTypes.object.isRequired,
     params: PropTypes.objectOf({
       visibleAddonType: PropTypes.string.isRequired,
     }).isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-  }
-
-  static defaultProps = {
-    loading: false,
-    resultsLoaded: false,
   }
 
   componentWillMount() {
