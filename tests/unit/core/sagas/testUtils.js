@@ -6,9 +6,8 @@ import SagaTester from 'redux-saga-tester';
 import { put, select } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import apiReducer from 'core/reducers/api';
-import authReducer from 'core/reducers/authentication';
-import { createErrorHandler, getApi, getAuth } from 'core/sagas/utils';
+import { AMO_REDUCERS } from 'amo/store';
+import { createErrorHandler, getState } from 'core/sagas/utils';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
 
@@ -23,11 +22,11 @@ describe('Saga utils', () => {
       'ErrorHandler cannot dispatch from a saga');
   });
 
-  it('should return API state', async () => {
+  it('should return entire state', async () => {
     function* testGetApiSaga() {
       yield takeEvery('TEST_GET_API', function* selectGetApiTest() {
-        const apiState = yield select(getApi);
-        yield put({ type: 'TEST_GOT_API', payload: apiState });
+        const state = yield select(getState);
+        yield put({ type: 'TEST_GOT_API', payload: state });
       });
     }
 
@@ -35,8 +34,8 @@ describe('Saga utils', () => {
     const state = store.getState();
 
     const sagaTester = new SagaTester({
-      initialState: { api: state.api },
-      reducers: { api: apiReducer },
+      initialState: state,
+      reducers: AMO_REDUCERS,
     });
     sagaTester.start(testGetApiSaga);
 
@@ -46,35 +45,7 @@ describe('Saga utils', () => {
 
     expect(sagaTester.getLatestCalledAction()).toEqual({
       type: 'TEST_GOT_API',
-      payload: state.api,
-    });
-  });
-
-  it('should return Auth state', async () => {
-    function* testGetAuthSaga() {
-      yield takeEvery('TEST_GET_AUTH', function* selectGetApiTest() {
-        const authState = yield select(getAuth);
-        yield put({ type: 'TEST_GOT_AUTH', payload: authState });
-      });
-    }
-
-    const { store } = dispatchSignInActions();
-
-    const state = store.getState();
-
-    const sagaTester = new SagaTester({
-      initialState: { api: state.api, auth: state.auth },
-      reducers: { api: apiReducer, auth: authReducer },
-    });
-    sagaTester.start(testGetAuthSaga);
-
-    sagaTester.dispatch({ type: 'TEST_GET_AUTH' });
-
-    await sagaTester.waitFor('TEST_GOT_AUTH');
-
-    expect(sagaTester.getLatestCalledAction()).toEqual({
-      type: 'TEST_GOT_AUTH',
-      payload: state.auth,
+      payload: state,
     });
   });
 });

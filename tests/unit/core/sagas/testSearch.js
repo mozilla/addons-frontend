@@ -93,7 +93,11 @@ describe('Search Saga', () => {
       .expects('search')
       .returns(Promise.reject(error));
 
-    _searchStart();
+    _searchStart({
+      filters: {},
+      page: 1,
+      results: [],
+    });
 
     const errorAction = errorHandler.createErrorAction(error);
     await sagaTester.waitFor(errorAction.type);

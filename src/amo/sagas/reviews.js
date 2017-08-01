@@ -11,7 +11,7 @@ import { getReviews } from 'amo/api';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { FETCH_REVIEWS } from 'amo/constants';
 import log from 'core/logger';
-import { createErrorHandler, getApi } from 'core/sagas/utils';
+import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { FetchReviewsAction } from 'amo/actions/reviews';
 
 
@@ -23,10 +23,10 @@ export function* fetchReviews(
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     yield put(showLoading());
-    const api = yield select(getApi);
+    const state = yield select(getState);
     const response = yield call(getReviews, {
       // Hide star-only ratings (reviews that do not have a body).
-      api, addon: addonSlug, page, filter: 'without_empty_body',
+      api: state.api, addon: addonSlug, page, filter: 'without_empty_body',
     });
     yield put(setAddonReviews({
       addonSlug, reviews: response.results, reviewCount: response.count,

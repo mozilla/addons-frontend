@@ -1,15 +1,20 @@
 import * as actions from 'core/actions/search';
 
 describe('SEARCH_STARTED', () => {
-  const action = actions.searchStart(
-    { filters: { query: 'foo' }, page: 5, results: [] });
+  const payload = {
+    errorHandlerId: 'Search',
+    filters: { query: 'foo' },
+    page: 5,
+    results: [],
+  };
+  const action = actions.searchStart(payload);
 
   it('sets the type', () => {
     expect(action.type).toEqual('SEARCH_STARTED');
   });
 
   it('sets the query and existing results', () => {
-    expect(action.payload).toEqual({ filters: { query: 'foo' }, page: 5, results: [] });
+    expect(action.payload).toEqual(payload);
   });
 });
 

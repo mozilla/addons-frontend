@@ -8,7 +8,7 @@ import { searchLoad } from 'core/actions/search';
 import { search as searchApi } from 'core/api';
 import { SEARCH_STARTED } from 'core/constants';
 import log from 'core/logger';
-import { createErrorHandler, getApi, getAuth } from 'core/sagas/utils';
+import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
 export function* fetchSearchResults({ payload }) {
@@ -20,10 +20,14 @@ export function* fetchSearchResults({ payload }) {
   try {
     const { filters, page } = payload;
 
-    const api = yield select(getApi);
-    const auth = yield select(getAuth);
+    const state = yield select(getState);
 
-    const response = yield call(searchApi, { api, auth, filters, page });
+    const response = yield call(searchApi, {
+      api: state.api,
+      auth: state.auth,
+      filters,
+      page,
+    });
 
     yield put(searchLoad({ page, filters, ...response }));
   } catch (error) {

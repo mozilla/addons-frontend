@@ -19,27 +19,29 @@ import search from 'core/reducers/search';
 import { middleware } from 'core/store';
 
 
+export const AMO_REDUCERS = {
+  addons,
+  api,
+  auth,
+  categories,
+  errors,
+  errorPage,
+  featured,
+  infoDialog,
+  installations,
+  landing,
+  loadingBar: loadingBarReducer,
+  reduxAsyncConnect,
+  reviews,
+  search,
+  viewContext,
+};
+
 export default function createStore(initialState = {}) {
   const sagaMiddleware = createSagaMiddleware();
 
   const store = _createStore(
-    combineReducers({
-      addons,
-      api,
-      auth,
-      categories,
-      errors,
-      errorPage,
-      featured,
-      infoDialog,
-      installations,
-      landing,
-      loadingBar: loadingBarReducer,
-      reduxAsyncConnect,
-      reviews,
-      search,
-      viewContext,
-    }),
+    combineReducers(AMO_REDUCERS),
     initialState,
     middleware({ sagaMiddleware }),
   );

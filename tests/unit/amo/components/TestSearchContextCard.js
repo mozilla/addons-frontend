@@ -36,7 +36,12 @@ describe('SearchContextCard', () => {
 
   it('should render "searching" while loading without query', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(searchStart({ filters: {} }));
+    store.dispatch(searchStart({
+      errorHandlerId: 'Search',
+      filters: {},
+      page: 1,
+      results: [],
+    }));
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))
@@ -45,7 +50,12 @@ describe('SearchContextCard', () => {
 
   it('should render during a search that is loading', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(searchStart({ filters: { query: 'test' } }));
+    store.dispatch(searchStart({
+      errorHandlerId: 'Search',
+      filters: { query: 'test' },
+      page: 1,
+      results: [],
+    }));
     const root = render({ store });
 
     expect(root.find('.SearchContextCard-header'))
