@@ -3,7 +3,7 @@ import { oneLine } from 'common-tags';
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { all, call, put, select, takeEvery } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import { loadLanding } from 'amo/actions/landing';
@@ -54,5 +54,5 @@ export function* fetchLandingAddons(
 }
 
 export default function* landingSaga() {
-  yield takeEvery(LANDING_GET, fetchLandingAddons);
+  yield takeLatest(LANDING_GET, fetchLandingAddons);
 }
