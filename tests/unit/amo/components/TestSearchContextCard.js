@@ -15,8 +15,10 @@ import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('SearchContextCard', () => {
-  function render(props) {
-    const store = props.store || dispatchClientMetadata().store;
+  let _store;
+
+  function render(props = {}) {
+    const store = props.store || _store;
 
     return shallow(
       <SearchContextCardBase
@@ -27,36 +29,36 @@ describe('SearchContextCard', () => {
     );
   }
 
+  function _searchStart(props = {}) {
+    _store.dispatch(searchStart({
+      errorHandlerId: 'Search',
+      page: 1,
+      results: [],
+      ...props,
+    }));
+  }
+
+  beforeEach(() => {
+    _store = dispatchClientMetadata().store;
+  });
+
   it('should render a card', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
+    const root = render();
 
     expect(root).toHaveClassName('SearchContextCard');
   });
 
   it('should render "searching" while loading without query', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchStart({
-      errorHandlerId: 'Search',
-      filters: {},
-      page: 1,
-      results: [],
-    }));
-    const root = render({ store });
+    _searchStart({ filters: {} });
+    const root = render();
 
     expect(root.find('.SearchContextCard-header'))
       .toIncludeText('Loading add-ons');
   });
 
   it('should render during a search that is loading', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchStart({
-      errorHandlerId: 'Search',
-      filters: { query: 'test' },
-      page: 1,
-      results: [],
-    }));
-    const root = render({ store });
+    _searchStart({ filters: { query: 'test' } });
+    const root = render();
 
     expect(root.find('.SearchContextCard-header'))
       .toIncludeText('Searching for "test"');

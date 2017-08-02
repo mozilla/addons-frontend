@@ -4,9 +4,12 @@ import defaultLog from 'core/logger';
 import type { ApiStateType } from 'core/reducers/api';
 
 
+type CreateErrorHandlerType = {| log: typeof defaultLog |};
+type StateType = {| api: ApiStateType, auth: Object |};
+
 export function createErrorHandler(
   id: string,
-  { log = defaultLog }: {| log: typeof defaultLog |} = {}
+  { log = defaultLog }: CreateErrorHandlerType = {}
 ): typeof ErrorHandler {
   return new ErrorHandler({
     id,
@@ -17,8 +20,6 @@ export function createErrorHandler(
 }
 
 // Convenience function to extract state info.
-export function getState(
-  state: {| api: ApiStateType, auth: Object |}
-): Object {
+export function getState(state: StateType): StateType {
   return state;
 }

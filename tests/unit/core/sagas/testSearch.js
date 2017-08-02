@@ -63,18 +63,7 @@ describe('Search Saga', () => {
   });
 
   it('clears the error handler', async() => {
-    const entities = sinon.stub();
-    const result = sinon.stub();
-
-    const filters = { query: 'test' };
-
-    mockApi
-      .expects('search')
-      .once()
-      .withArgs({ api: apiState, auth: authState, filters, page: 1 })
-      .returns(Promise.resolve({ entities, result }));
-
-    _searchStart({ filters });
+    _searchStart({ filters: { query: 'foo' } });
 
     await sagaTester.waitFor(CLEAR_ERROR);
     expect(sagaTester.getCalledActions()[1])
