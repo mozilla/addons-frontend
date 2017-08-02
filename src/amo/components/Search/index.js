@@ -85,7 +85,9 @@ export class SearchBase extends React.Component {
     return (
       <div className="Search">
         <SearchContextCard />
+
         {searchSort}
+
         <SearchResults
           count={count}
           filters={filters}

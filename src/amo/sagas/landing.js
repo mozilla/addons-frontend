@@ -13,7 +13,7 @@ import {
   LANDING_GET, SEARCH_SORT_POPULAR, SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import log from 'core/logger';
-import { createErrorHandler, getApi } from 'core/sagas/utils';
+import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
 export function* fetchLandingAddons(
@@ -23,7 +23,8 @@ export function* fetchLandingAddons(
   try {
     yield put(showLoading());
 
-    const api = yield select(getApi);
+    const state = yield select(getState);
+    const { api } = state;
     const filters = { addonType, page_size: LANDING_PAGE_ADDON_COUNT };
 
     const [featured, highlyRated, popular] = yield all([

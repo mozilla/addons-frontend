@@ -10,7 +10,7 @@ import { FEATURED_ADDONS_TO_LOAD } from 'amo/constants';
 import { featured as featuredApi } from 'core/api';
 import { FEATURED_GET } from 'core/constants';
 import log from 'core/logger';
-import { createErrorHandler, getApi } from 'core/sagas/utils';
+import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
 export function* fetchFeaturedAddons(
@@ -20,9 +20,9 @@ export function* fetchFeaturedAddons(
   try {
     yield put(showLoading());
 
-    const api = yield select(getApi);
+    const state = yield select(getState);
     const filters = { addonType, page_size: FEATURED_ADDONS_TO_LOAD };
-    const response = yield call(featuredApi, { api, filters });
+    const response = yield call(featuredApi, { api: state.api, filters });
 
     yield put(loadFeatured({
       addonType,

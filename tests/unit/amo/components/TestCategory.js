@@ -123,8 +123,17 @@ describe('Category.mapStateToProps()', () => {
     store = createStore().store;
   });
 
+  function _searchStart(props = {}) {
+    store.dispatch(searchStart({
+      errorHandlerId: 'Search',
+      page: 1,
+      results: [],
+      ...props,
+    }));
+  }
+
   it('passes the search state if the filters and state matches', () => {
-    store.dispatch(searchStart({ filters, results: [] }));
+    _searchStart({ filters });
     const props = mapStateToProps(store.getState(), ownProps);
 
     expect(props).toEqual({
@@ -133,7 +142,7 @@ describe('Category.mapStateToProps()', () => {
       count: 0,
       filters,
       loading: true,
-      page: undefined,
+      page: 1,
       pathname: '/themes/ad-block/',
       queryParams: { page: 1 },
       results: [],
@@ -141,7 +150,7 @@ describe('Category.mapStateToProps()', () => {
   });
 
   it('does not pass search state if the filters and state do not match', () => {
-    store.dispatch(searchStart({ filters }));
+    _searchStart({ filters });
     const mismatchedState = store.getState();
     mismatchedState.search.filters.clientApp = 'nothing';
     const props = mapStateToProps(mismatchedState, ownProps);
@@ -157,7 +166,7 @@ describe('Category.mapStateToProps()', () => {
 
   it('sets loading to true if categories and search are loading', () => {
     store.dispatch(categoriesFetch());
-    store.dispatch(searchStart({ filters }));
+    _searchStart({ filters });
     const props = mapStateToProps(store.getState(), ownProps);
 
     expect(props).toMatchObject({ loading: true });
@@ -171,7 +180,7 @@ describe('Category.mapStateToProps()', () => {
   });
 
   it('sets loading to true if only search is loading', () => {
-    store.dispatch(searchStart({ filters }));
+    _searchStart({ filters });
     const props = mapStateToProps(store.getState(), ownProps);
 
     expect(props).toMatchObject({ loading: true });

@@ -45,7 +45,12 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
 
   it('returns right away when loaded', () => {
     const { store } = createStore();
-    store.dispatch(searchActions.searchStart({ filters }));
+    store.dispatch(searchActions.searchStart({
+      errorHandlerId: 'error',
+      filters,
+      page: 1,
+      results: [],
+    }));
     const mockApi = sinon.mock(api);
     const entities = sinon.stub();
     const result = sinon.stub();
@@ -70,7 +75,12 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
 
   it('sets the page', () => {
     const { store } = createStore();
-    store.dispatch(searchActions.searchStart({ filters }));
+    store.dispatch(searchActions.searchStart({
+      errorHandlerId: 'Search',
+      filters,
+      page: 1,
+      results: [],
+    }));
     const mockApi = sinon.mock(api);
     const entities = sinon.stub();
     const result = sinon.stub();
