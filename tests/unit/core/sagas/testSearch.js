@@ -12,8 +12,6 @@ import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
 
 describe('Search Saga', () => {
-  let apiState;
-  let authState;
   let errorHandler;
   let mockApi;
   let sagaTester;
@@ -25,8 +23,6 @@ describe('Search Saga', () => {
     });
     mockApi = sinon.mock(api);
     const initialState = dispatchSignInActions().state;
-    apiState = initialState.api;
-    authState = initialState.auth;
     sagaTester = new SagaTester({
       initialState,
       reducers: { api: apiReducer, auth: authReducer, search: searchReducer },
