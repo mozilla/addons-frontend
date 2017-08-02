@@ -52,7 +52,6 @@ describe('Search Saga', () => {
     mockApi
       .expects('search')
       .once()
-      .withArgs({ api: apiState, auth: authState, filters, page: 1 })
       .returns(Promise.resolve({ entities, result }));
 
     _searchStart({ filters });

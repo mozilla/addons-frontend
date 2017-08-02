@@ -28,8 +28,9 @@ export function* fetchSearchResults({ payload }) {
       filters,
       page,
     });
+    const { entities, result } = response;
 
-    yield put(searchLoad({ page, filters, ...response }));
+    yield put(searchLoad({ filters, entities, result }));
   } catch (error) {
     log.warn(`Search results failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
