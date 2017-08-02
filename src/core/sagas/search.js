@@ -1,7 +1,7 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { call, put, select, takeEvery } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import { searchLoad } from 'core/actions/search';
@@ -37,5 +37,5 @@ export function* fetchSearchResults({ payload }) {
 }
 
 export default function* searchSaga() {
-  yield takeEvery(SEARCH_STARTED, fetchSearchResults);
+  yield takeLatest(SEARCH_STARTED, fetchSearchResults);
 }

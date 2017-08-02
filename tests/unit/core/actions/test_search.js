@@ -1,59 +1,52 @@
 import * as actions from 'core/actions/search';
 
 describe('SEARCH_STARTED', () => {
-  const payload = {
-    errorHandlerId: 'Search',
-    filters: { query: 'foo' },
-    page: 5,
-    results: [],
-  };
-  const action = actions.searchStart(payload);
+  function _searchStart(props = {}) {
+    return actions.searchStart({
+      errorHandlerId: 'Search',
+      filters: { query: 'foo' },
+      page: 1,
+      results: [],
+      ...props,
+    });
+  }
+
+  const action = _searchStart();
 
   it('sets the type', () => {
     expect(action.type).toEqual('SEARCH_STARTED');
   });
 
   it('sets the query and existing results', () => {
-    expect(action.payload).toEqual(payload);
+    expect(action.payload).toEqual({
+      errorHandlerId: 'Search',
+      filters: { query: 'foo' },
+      page: 1,
+      results: [],
+    });
   });
 
   it('throws an error if errorHandlerId is empty', () => {
     expect(() => {
-      actions.searchStart({
-        filters: {},
-        page: 1,
-        results: [],
-      });
+      _searchStart({ errorHandlerId: undefined });
     }).toThrowError('errorHandlerId is required');
   });
 
   it('throws an error if filters are empty', () => {
     expect(() => {
-      actions.searchStart({
-        errorHandlerId: 'Search',
-        page: 1,
-        results: [],
-      });
+      _searchStart({ filters: undefined });
     }).toThrowError('filters are required');
   });
 
   it('throws an error if page is empty', () => {
     expect(() => {
-      actions.searchStart({
-        errorHandlerId: 'Search',
-        filters: {},
-        results: [],
-      });
+      _searchStart({ page: undefined });
     }).toThrowError('page is required');
   });
 
   it('throws an error if results are empty', () => {
     expect(() => {
-      actions.searchStart({
-        errorHandlerId: 'Search',
-        filters: {},
-        page: 1,
-      });
+      _searchStart({ results: undefined });
     }).toThrowError('results are required');
   });
 });

@@ -37,6 +37,8 @@ describe('Search Saga', () => {
   function _searchStart(params) {
     sagaTester.dispatch(searchStart({
       errorHandlerId: 'some-search-handler',
+      page: 1,
+      results: [],
       ...params,
     }));
   }
@@ -53,11 +55,7 @@ describe('Search Saga', () => {
       .withArgs({ api: apiState, auth: authState, filters, page: 1 })
       .returns(Promise.resolve({ entities, result }));
 
-    _searchStart({
-      filters,
-      page: 1,
-      results: [],
-    });
+    _searchStart({ filters });
 
     // The saga should respond by dispatching the search loaded action.
     await sagaTester.waitFor(SEARCH_LOADED);
@@ -76,11 +74,7 @@ describe('Search Saga', () => {
       .withArgs({ api: apiState, auth: authState, filters, page: 1 })
       .returns(Promise.resolve({ entities, result }));
 
-    _searchStart({
-      filters,
-      page: 1,
-      results: [],
-    });
+    _searchStart({ filters });
 
     await sagaTester.waitFor(CLEAR_ERROR);
     expect(sagaTester.getCalledActions()[1])
@@ -93,11 +87,7 @@ describe('Search Saga', () => {
       .expects('search')
       .returns(Promise.reject(error));
 
-    _searchStart({
-      filters: {},
-      page: 1,
-      results: [],
-    });
+    _searchStart({ filters: {} });
 
     const errorAction = errorHandler.createErrorAction(error);
     await sagaTester.waitFor(errorAction.type);
