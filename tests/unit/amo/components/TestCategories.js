@@ -96,17 +96,28 @@ describe('<Categories />', () => {
 
     const { store } = dispatchClientMetadata();
     store.dispatch(categoriesLoad(categoriesResponse));
-    const { categories } = mapStateToProps(store.getState());
+    const props = mapStateToProps(store.getState());
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      categories,
+      ...props,
     });
 
     expect(root.find('.Categories-list').childAt(0).find(Button))
       .toHaveProp('children', 'Games');
     expect(root.find('.Categories-list').childAt(1).find(Button))
       .toHaveProp('children', 'Travel');
+  });
+
+  it('renders a no categories found message', () => {
+    const categoriesResponse = { result: [] };
+    const { store } = dispatchClientMetadata();
+    store.dispatch(categoriesLoad(categoriesResponse));
+    const props = mapStateToProps(store.getState());
+    const root = render(props);
+
+    expect(root.find('.Categories-none-loaded-message'))
+      .toIncludeText('No categories found.');
   });
 
   it('reports errors', () => {
