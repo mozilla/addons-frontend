@@ -9,15 +9,15 @@ import { categoriesLoad } from 'core/actions/categories';
 import { categories as categoriesApi } from 'core/api';
 import { CATEGORIES_FETCH } from 'core/constants';
 import log from 'core/logger';
-import { createErrorHandler, getApi } from 'core/sagas/utils';
+import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
 export function* fetchCategories({ payload: { errorHandlerId } }) {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     yield put(showLoading());
-    const api = yield select(getApi);
-    const response = yield call(categoriesApi, { api });
+    const state = yield select(getState);
+    const response = yield call(categoriesApi, { api: state.api });
     yield put(categoriesLoad(response));
   } catch (error) {
     log.warn('Categories failed to load:', error);

@@ -120,7 +120,8 @@ export function dispatchSearchResults({
   return { store };
 }
 
-export function createFeaturedApiResult(results) {
-  // Return a normalized result just like core.api.featured() does.
+export function createAddonsApiResult(results) {
+  // Return a normalized add-ons response just like many utility functions do.
+  // For example: core.api.featured(), core.api.search()...
   return normalize({ results }, { results: [addonSchema] });
 }

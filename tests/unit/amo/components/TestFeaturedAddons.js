@@ -15,7 +15,7 @@ import {
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import {
-  createFeaturedApiResult, fakeAddon, signedInApiState,
+  createAddonsApiResult, fakeAddon, signedInApiState,
 } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
@@ -44,7 +44,7 @@ describe('<FeaturedAddons />', () => {
     addonType = ADDON_TYPE_EXTENSION,
     results = [fakeAddon],
   } = {}) {
-    const { entities, result } = createFeaturedApiResult(results);
+    const { entities, result } = createAddonsApiResult(results);
     return featuredActions.loadFeatured({
       addonType, entities, result,
     });

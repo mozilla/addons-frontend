@@ -1,48 +1,84 @@
-import { getLanding, loadLanding, failLanding } from 'amo/actions/landing';
+import { getLanding, loadLanding } from 'amo/actions/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
 
 
 describe('LANDING_GET', () => {
-  const action = getLanding({ addonType: ADDON_TYPE_THEME });
+  const getActionParams = () => ({
+    addonType: ADDON_TYPE_THEME,
+    errorHandlerId: 'some-error-handler',
+  });
+  const action = getLanding(getActionParams());
 
   it('sets the type', () => {
     expect(action.type).toEqual('LANDING_GET');
   });
 
   it('sets the filters', () => {
-    expect(action.payload).toEqual({ addonType: ADDON_TYPE_THEME });
+    expect(action.payload).toEqual({
+      addonType: ADDON_TYPE_THEME,
+      errorHandlerId: 'some-error-handler',
+    });
   });
 
   it('throws if no addonType is set', () => {
-    expect(() => getLanding({})).toThrowError('addonType must be set');
+    const params = getActionParams();
+    delete params.addonType;
+    expect(() => getLanding(params)).toThrowError('addonType must be set');
+  });
+
+  it('throws if no errorHandlerId is set', () => {
+    const params = getActionParams();
+    delete params.errorHandlerId;
+    expect(() => getLanding(params))
+      .toThrowError('errorHandlerId must be set');
   });
 });
 
 describe('LANDING_LOADED', () => {
-  const response = {
-    featured: sinon.stub(),
-    highlyRated: sinon.stub(),
-    popular: sinon.stub(),
-  };
-  const action = loadLanding({ addonType: ADDON_TYPE_THEME, ...response });
+  function defaultParams() {
+    return {
+      addonType: ADDON_TYPE_THEME,
+      featured: { count: 0, results: [] },
+      highlyRated: { count: 0, results: [] },
+      popular: { count: 0, results: [] },
+    };
+  }
 
   it('sets the type', () => {
-    expect(action.type).toEqual('LANDING_LOADED');
+    expect(loadLanding(defaultParams()).type).toEqual('LANDING_LOADED');
   });
 
   it('sets the payload', () => {
-    expect(action.payload).toEqual({ addonType: ADDON_TYPE_THEME, ...response });
-  });
-});
-
-describe('LANDING_FAILED', () => {
-  const action = failLanding({ addonType: 'extension' });
-
-  it('sets the type', () => {
-    expect(action.type).toEqual('LANDING_FAILED');
+    const action = loadLanding(defaultParams());
+    const expectedPayload = defaultParams();
+    expect(action.payload).toEqual(expectedPayload);
   });
 
-  it('sets the payload', () => {
-    expect(action.payload).toEqual({ addonType: 'extension' });
+  it('throws an error if addonType is empty', () => {
+    const params = defaultParams();
+    delete params.addonType;
+    expect(() => loadLanding(params))
+      .toThrow(/addonType parameter cannot be empty/);
+  });
+
+  it('throws an error if featured is empty', () => {
+    const params = defaultParams();
+    delete params.featured;
+    expect(() => loadLanding(params))
+      .toThrow(/featured parameter cannot be empty/);
+  });
+
+  it('throws an error if highlyRated is empty', () => {
+    const params = defaultParams();
+    delete params.highlyRated;
+    expect(() => loadLanding(params))
+      .toThrow(/highlyRated parameter cannot be empty/);
+  });
+
+  it('throws an error if popular is empty', () => {
+    const params = defaultParams();
+    delete params.popular;
+    expect(() => loadLanding(params))
+      .toThrow(/popular parameter cannot be empty/);
   });
 });

@@ -158,10 +158,14 @@ export function browserBase64Decode(str) {
   }).join(''));
 }
 
-export function apiAddonType(addonType) {
-  if (!Object.prototype.hasOwnProperty.call(
+export function apiAddonTypeIsValid(addonType) {
+  return Object.prototype.hasOwnProperty.call(
     API_ADDON_TYPES_MAPPING, addonType
-  )) {
+  );
+}
+
+export function apiAddonType(addonType) {
+  if (!apiAddonTypeIsValid(addonType)) {
     throw new AddonTypeNotFound(
       `"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
   }
