@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
-"PO-Revision-Date: 2017-06-24 11:41+0000\n"
-"Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-12 12:27+0000\n"
+"Last-Translator: SeulGi Choi (Chase) <cs09gi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr ""
 "면 <a href=\"%(downloadUrl)s\">Firefox를 다운로드</a>하십시오."
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
@@ -228,23 +228,20 @@ msgid "Loading categories."
 msgstr "카테고리를 불러오는데 실패했습니다."
 
 #: src/amo/components/CategoriesHeader/index.js:61
-#, fuzzy
 msgid "Categories"
 msgstr "카테고리"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "이 카테고리의 모든 부가 기능 탐색하기."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "모든 확장 기능 탐색하기"
+msgstr "이 카테고리의 모든 확장 기능 탐색하기."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "모든 테마 탐색하기"
+msgstr "이 카테고리의 모든 테마 탐색하기."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
@@ -561,7 +558,7 @@ msgstr "확장 기능과 테마 검색"
 msgid "Search"
 msgstr "검색"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "테마 미리보기가 없습니다"
 
@@ -730,7 +727,6 @@ msgstr "평가 없음"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
 
-#, fuzzy
 #~ msgid ""
 #~ "Extensions are special features you can add to Firefox. Themes let you "
 #~ "change your browser's appearance."
@@ -738,7 +734,6 @@ msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
 #~ "확장 기능은 Firefox에 추가해 쓸 수 있는 특별한 기능입니다.\n"
 #~ "테마는 브라우저의 모양을 바꿀 수 있습니다."
 
-#, fuzzy
 #~ msgid "Loading..."
 #~ msgstr "검색중..."
 

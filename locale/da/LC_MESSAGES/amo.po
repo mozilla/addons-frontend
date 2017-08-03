@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
-"PO-Revision-Date: 2017-07-07 17:32+0000\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-11 17:11+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -86,7 +86,7 @@ msgstr ""
 "\">hente Firefox</a> for at installere denne tilføjelse."
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s bruger"
@@ -539,7 +539,6 @@ msgid "No add-ons found"
 msgstr "Ingen tilføjelser fundet"
 
 #: src/amo/components/SearchContextCard/index.js:45
-#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s tilføjelse fundet"
@@ -561,7 +560,7 @@ msgstr "Søg efter udvidelser og temaer"
 msgid "Search"
 msgstr "Søg"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "Det er ikke muligt, at forhåndsvise tema"
 

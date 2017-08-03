@@ -2,18 +2,18 @@
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
-.CategoriesHeader-loadingText {
+.Categories-loadingText {
   @include margin-end(5px);
 }
 
-.CategoriesHeader-list {
+.Categories-list {
   display: block;
   list-style: none;
   margin: 0 auto;
   padding: 0;
 }
 
-.CategoriesHeader-item {
+.Categories-item {
   @include margin-end(5px);
 
   display: inline-block;
@@ -22,13 +22,7 @@
 }
 
 @for $i from 1 through 12 {
-  .CategoriesHeader--category-color-#{$i} {
+  .Categories--category-color-#{$i} {
     background: desaturate(nth($category-colors, $i), 20);
-  }
-}
-
-@for $i from 1 through 10 {
-  .CategoriesHeader--type-extension.CategoriesHeader--category-color-#{$i} {
-    background: desaturate(nth($category-colors-extensions, $i), 20);
   }
 }

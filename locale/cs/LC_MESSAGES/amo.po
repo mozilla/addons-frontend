@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
-"PO-Revision-Date: 2017-06-22 19:33+0000\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-14 00:22+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -86,7 +86,7 @@ msgstr ""
 "href=\"%(downloadUrl)s\">stáhnout Firefox</a>."
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s uživatel"
@@ -223,23 +223,20 @@ msgid "Loading categories."
 msgstr "Načítání kategorií."
 
 #: src/amo/components/CategoriesHeader/index.js:61
-#, fuzzy
 msgid "Categories"
 msgstr "Kategorie"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Procházet všechny doplňky v této kategorii."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "Procházet všechna rozšíření"
+msgstr "Procházet všechna rozšíření v této kategorii."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "Procházet všechny motivy"
+msgstr "Procházet všechny motivy v této kategorii."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
@@ -478,9 +475,8 @@ msgid "Extensions"
 msgstr "Rozšíření"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "Načítání kategorií."
+msgstr "Procházet všechny kategorie"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -527,35 +523,30 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Jak si užíváte používání doplňku %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:32
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "Na dotaz \"%(query)s\" nebyly nalezeny žádné výsledky."
-msgstr[1] "Na dotaz \"%(query)s\" nebyly nalezeny žádné výsledky."
-msgstr[2] "Na dotaz \"%(query)s\" nebyly nalezeny žádné výsledky."
+msgstr[0] "%(count)s výsledek pro \"%(query)s\""
+msgstr[1] "%(count)s výsledky pro dotaz \"%(query)s\""
+msgstr[2] "%(count)s výsledků pro dotaz \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "Na dotaz \"%(query)s\" nebyly nalezeny žádné výsledky."
+msgstr "Hledání \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "Načítání kategorií."
+msgstr "Načítání doplňků"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "Žádné kategorie nebyly nalezeny."
+msgstr "Nebyly nalezeny žádné doplňky"
 
 #: src/amo/components/SearchContextCard/index.js:45
-#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] "Žádné kategorie nebyly nalezeny."
-msgstr[1] "Žádné kategorie nebyly nalezeny."
-msgstr[2] "Žádné kategorie nebyly nalezeny."
+msgstr[0] "Nalezen %(count)s doplněk"
+msgstr[1] "Nalezeny %(count)s doplňky"
+msgstr[2] "Nalezeno %(count)s doplňků"
 
 #: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
@@ -573,7 +564,7 @@ msgstr "Prohledávejte rozšíření a motivy"
 msgid "Search"
 msgstr "Hledat"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "Náhled motivu není dostupný"
 
@@ -595,9 +586,8 @@ msgstr ""
 "Vložte prosím vyhledávací dotaz pro hledání na serveru Doplňky pro Firefox."
 
 #: src/amo/components/SearchResults.js:63
-#, fuzzy
 msgid "Search results"
-msgstr "Hledat motivy"
+msgstr "Výsledky vyhledávání"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"

@@ -1,5 +1,6 @@
 import * as actions from 'amo/actions/featured';
 import featured, { initialState } from 'amo/reducers/featured';
+import { ADDON_TYPE_THEME } from 'core/constants';
 
 describe('featured reducer', () => {
   it('defaults to not loading', () => {
@@ -20,9 +21,11 @@ describe('featured reducer', () => {
   describe('FEATURED_GET', () => {
     it('sets the initialState', () => {
       const { addonType, loading, results } = featured(
-        initialState, actions.getFeatured({ addonType: 'theme' }));
+        initialState, actions.getFeatured({
+          addonType: ADDON_TYPE_THEME, errorHandlerId: 'some-error-handler',
+        }));
 
-      expect(addonType).toEqual('theme');
+      expect(addonType).toEqual(ADDON_TYPE_THEME);
       expect(loading).toEqual(true);
       expect(results).toEqual([]);
     });

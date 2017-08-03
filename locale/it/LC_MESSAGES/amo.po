@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
-"PO-Revision-Date: 2017-06-21 05:57+0000\n"
-"Last-Translator: Sandro Della Giustina <gialloporpora@mozillaitalia.org>\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-14 15:13+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgstr ""
 "Firefox</a>."
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s utente"
@@ -226,23 +226,20 @@ msgid "Loading categories."
 msgstr "Caricamento delle categorie in corso…"
 
 #: src/amo/components/CategoriesHeader/index.js:61
-#, fuzzy
 msgid "Categories"
-msgstr "Categoria"
+msgstr "Categorie"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Esplora tutti i componenti aggiuntivi in questa categoria."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "Esplora tutte le estensioni"
+msgstr "Esplora tutte le estensioni in questa categoria."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "Esplora tutti i temi"
+msgstr "Esplora tutti i temi in questa categoria."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
@@ -485,9 +482,8 @@ msgid "Extensions"
 msgstr "Estensioni"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "Caricamento delle categorie in corso…"
+msgstr "Esplora tutte le categorie"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -534,33 +530,28 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Come valuti la tua esperienza utente con %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:32
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "Nessun risultato per “%(query)s”."
-msgstr[1] "Nessun risultato per “%(query)s”."
+msgstr[0] "%(count)s risultato trovato per “%(query)s”"
+msgstr[1] "%(count)s risultati trovati per “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "Nessun risultato per “%(query)s”."
+msgstr "Ricerca di “%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "Caricamento delle categorie in corso…"
+msgstr "Caricamento dei componenti aggiuntivi in corso…"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "Nessuna categoria trovata."
+msgstr "Nessun componente aggiuntivo trovato"
 
 #: src/amo/components/SearchContextCard/index.js:45
-#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] "Nessuna categoria trovata."
-msgstr[1] "Nessuna categoria trovata."
+msgstr[0] "%(count)s componente aggiuntivo trovato"
+msgstr[1] "%(count)s componenti aggiuntivi trovati"
 
 #: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
@@ -578,7 +569,7 @@ msgstr "Ricerca estensioni e temi"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "Anteprima del tema non disponibile"
 
@@ -601,9 +592,8 @@ msgstr ""
 "aggiuntivi per Firefox."
 
 #: src/amo/components/SearchResults.js:63
-#, fuzzy
 msgid "Search results"
-msgstr "Cerca temi"
+msgstr "Risultati di ricerca"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"

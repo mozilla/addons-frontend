@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-07-11 18:07+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-07-19 18:39+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -134,7 +134,11 @@ msgstr "תוספת זו אינה נתמכת ע״י גרסת ה־Firefox שלך."
 msgid "This add-on does not support your browser."
 msgstr "תוספת זו אינה נתמכת ע״י הדפדפן שלך."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "מדיניות פרטיות"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "גילוי תוספות"
 

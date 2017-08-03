@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
-"PO-Revision-Date: 2017-07-12 10:50+0000\n"
-"Last-Translator: Amin Mahmudian <amin.mahmudian@gmail.com>\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-28 19:12+0000\n"
+"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr "این افزونه نیازمند یک <a href=\"%(downloadUrl)s\">نس
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr "مرورگر شما از افزونه‌ها پشتیبانی نمی‌کند. شما می‌توانید <a href=\"%(downloadUrl)s\"> را دریافت کرده </a> تا بتوانید این افزونه را نصب کنید."
 
-#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:88
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s کاربر"
@@ -203,17 +203,15 @@ msgstr "دسته‌بندی‌ها"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "تمام افزونه‌های این دسته را مرور کنید."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "مرور تمام ضمیمه‌ها"
+msgstr "تمام ضمیمه‌های این دسته را مرور کنید."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "مرور تمام تم‌ها"
+msgstr "تمام زمینه‌های این دسته را مرور کنید."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -412,9 +410,8 @@ msgid "Extensions"
 msgstr "افزونه‌ها"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "در حال بارگذاری دسته‌ها."
+msgstr "بررسی تمام بسته‌بندی‌ها"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -498,7 +495,7 @@ msgstr "جستجوی افزونه‌ها و پوسته‌ها"
 msgid "Search"
 msgstr "جستجو"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "پوسته‌ای برای پیش‌نمایش وجود ندارد"
 

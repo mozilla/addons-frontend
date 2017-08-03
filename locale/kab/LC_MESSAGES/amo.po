@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:49+0000\n"
-"PO-Revision-Date: 2017-07-10 13:23+0000\n"
-"Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-12 20:39+0000\n"
+"Last-Translator: Moḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr ""
 "tsidreḍ Firefox</a> akken ad tesbeddeḍ azerir-agi."
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s aseqdac"
@@ -534,11 +534,10 @@ msgid "No add-ons found"
 msgstr "Ulac iseγzaf"
 
 #: src/amo/components/SearchContextCard/index.js:45
-#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] "%(count)s iseγzaf illan\""
-msgstr[1] "%(count)s iseγzaf illan"
+msgstr[0] "%(count)s n usiɣzef yellan"
+msgstr[1] "%(count)s n isiγzaf yellan"
 
 #: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
@@ -556,7 +555,7 @@ msgstr "Nadi isiɣzaf akked isental"
 msgid "Search"
 msgstr "Nadi"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "Ulac taskant n usentel"
 

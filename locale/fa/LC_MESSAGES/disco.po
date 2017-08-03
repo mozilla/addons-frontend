@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-07-12 10:51+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-07-19 17:58+0000\n"
 "Last-Translator: Amin Mahmudian <amin.mahmudian@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -134,7 +134,11 @@ msgstr "این افزونه از نسخه فایرفاکس شما پشتیبان
 msgid "This add-on does not support your browser."
 msgstr "این اقزونه از مرورگر شما پشتیبانی نمی‌کند."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "سیاست‌های حریم‌خصوصی"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "افزونه کشف کنید"
 

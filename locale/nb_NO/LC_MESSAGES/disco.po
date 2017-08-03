@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
-"PO-Revision-Date: 2017-04-15 13:13+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-07-20 00:42+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "Serverfeil"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Beklager, men det var en feil og vi kunne ikke fullføre forespørselen din. "
-"Vi har logget denne feilen og kommer til å undersøke den."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Beklager, men det var en feil og vi kunne ikke fullføre forespørselen din. Vi har logget denne feilen og kommer til å undersøke den."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Feilkode: %(status)s."
 
@@ -39,8 +34,7 @@ msgstr "Fant ikke siden"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Beklager, men vi kan ikke finne noe på nettadressen du skrev inn."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -90,9 +84,7 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
-"Hold musepekeren over for å forhåndsvise eller klikk for å installere "
-"%(name)s"
+msgstr "Hold musepekeren over for å forhåndsvise eller klikk for å installere %(name)s"
 
 #: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
@@ -132,18 +124,21 @@ msgstr "Lukk"
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox for iOS støtter ikke utvidelser for øyeblikket."
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
-#, fuzzy
 msgid "This add-on does not support your version of Firefox."
-msgstr "Denne utvidelsen vil bli avinstallert etter omstart av Firefox."
+msgstr "Denne utvidelsen støtter ikke din versjon av Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Denne utvidelsen støtter ikke nettleseren din."
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "Personvernbestemmelser"
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "Oppdag utvidelser"
 
@@ -153,17 +148,11 @@ msgstr "Tilpass Firefox"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Det finnes tusenvis av gratis utvidelser, laget av utviklere over hele "
-"verden, som du kan installere for å personalisere Firefox. Fra morsome "
-"visuelle temaer til kraftfulle verktøy som gjør surfing raskere og tryggere, "
-"utvidelser gjør nettleseren din til din egen. For å hjelpe deg med å starte "
-"så har vi noen vi anbefaler for deres enestående ytelse og funksjonalitet."
+"Det finnes tusenvis av gratis utvidelser, laget av utviklere over hele verden, som du kan installere for å personalisere Firefox. Fra morsome visuelle temaer til kraftfulle verktøy som gjør surfing "
+"raskere og tryggere, utvidelser gjør nettleseren din til din egen. For å hjelpe deg med å starte så har vi noen vi anbefaler for deres enestående ytelse og funksjonalitet."
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"

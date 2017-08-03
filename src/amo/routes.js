@@ -12,7 +12,7 @@ import HandleLogin from 'core/containers/HandleLogin';
 
 import AddonReviewList from './components/AddonReviewList';
 import App from './components/App';
-import Categories from './components/Categories';
+import CategoriesPage from './components/CategoriesPage';
 import Category from './components/Category';
 import FeaturedAddons from './components/FeaturedAddons';
 import LandingPage from './components/LandingPage';
@@ -34,7 +34,7 @@ export default (
     <Route path="about" component={About} />
     <Route path="addon/:slug/" component={Addon} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
-    <Route path=":visibleAddonType/categories/" component={Categories} />
+    <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={Category} />
     <Route path="/api/v3/accounts/authenticate/" component={HandleLogin} />
