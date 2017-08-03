@@ -1,4 +1,5 @@
 import * as actions from 'core/actions/categories';
+import { CATEGORIES_FETCH, CATEGORIES_LOAD } from 'core/constants';
 
 
 describe('CATEGORIES_FETCH', () => {
@@ -7,7 +8,7 @@ describe('CATEGORIES_FETCH', () => {
   }
 
   it('sets the type', () => {
-    expect(_categoriesFetch().type).toEqual('CATEGORIES_FETCH');
+    expect(_categoriesFetch().type).toEqual(CATEGORIES_FETCH);
   });
 
   it('requires an error handler ID', () => {
@@ -29,7 +30,7 @@ describe('CATEGORIES_LOAD', () => {
   const action = actions.categoriesLoad(response);
 
   it('sets the type', () => {
-    expect(action.type).toEqual('CATEGORIES_LOAD');
+    expect(action.type).toEqual(CATEGORIES_LOAD);
   });
 
   it('sets the payload', () => {
