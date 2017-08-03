@@ -153,7 +153,12 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const filters = { query: 'no ads' };
     const state = {
       api: signedInApiState,
-      search: { loading: false, page, filters: { query: 'old query' } },
+      search: {
+        loading: false,
+        page,
+        filters: { query: 'old query' },
+        results: [],
+      },
     };
     const dispatch = sinon.spy();
     const store = { dispatch, getState: () => state };
@@ -169,9 +174,18 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       expect(dispatch.firstCall.calledWith(
-        searchActions.searchStart({ filters, page }))).toBeTruthy();
+        searchActions.searchStart({
+          errorHandlerId: 'Search',
+          filters,
+          page,
+          results: [],
+        }))).toBeTruthy();
       expect(dispatch.secondCall.calledWith(
-        searchActions.searchLoad({ filters, entities, result }))).toBeTruthy();
+        searchActions.searchLoad({
+          filters,
+          entities,
+          result,
+        }))).toBeTruthy();
     });
   });
 
@@ -180,7 +194,9 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     const filters = { query: 'no ads' };
     const state = {
       api: {},
-      search: { loading: false, page, filters: { query: 'old query' } },
+      search: {
+        loading: false, page, filters: { query: 'old query' }, results: [],
+      },
     };
     const dispatch = sinon.spy();
     const store = { dispatch, getState: () => state };
@@ -194,7 +210,12 @@ describe('CurrentSearchPage.loadSearchResultsIfNeeded()', () => {
     return loadSearchResultsIfNeeded({ store, location }).then(() => {
       mockApi.verify();
       expect(dispatch.firstCall.calledWith(
-        searchActions.searchStart({ filters, page }))).toBeTruthy();
+        searchActions.searchStart({
+          errorHandlerId: 'Search',
+          filters,
+          page,
+          results: [],
+        }))).toBeTruthy();
       expect(dispatch.secondCall.calledWith(
         searchActions.searchFail({ page, filters }))).toBeTruthy();
     });

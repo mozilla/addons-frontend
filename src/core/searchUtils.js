@@ -67,7 +67,8 @@ export function performSearch(
     return Promise.resolve();
   }
 
-  dispatch(searchStart({ filters, page, results }));
+  dispatch(searchStart({
+    errorHandlerId: 'Search', filters, page, results }));
   return search({ page, api, auth, filters })
     .then((response) => dispatch(searchLoad({ page, filters, ...response })))
     .catch(() => dispatch(searchFail({ page, filters })));
@@ -120,6 +121,7 @@ export function loadByCategoryIfNeeded(
       dispatch,
       filters,
       page,
+      results: [],
     });
   }
   return true;
