@@ -34,7 +34,7 @@ type CategoriesByAddonType = {
 };
 
 type CategoriesStateType = {|
-  categories: { [clientApp: string]: CategoriesByAddonType },
+  categories: { [clientApp: ?string]: CategoriesByAddonType },
   loading: boolean,
 |};
 
@@ -142,7 +142,7 @@ export function mapStateToProps(
   state: {| api: ApiStateType, categories: CategoriesStateType |}
 ) {
   const clientApp = state.api.clientApp;
-  const categories = state.categories.categories[clientApp || ''];
+  const categories = state.categories.categories[clientApp];
 
   return {
     categories,
