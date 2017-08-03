@@ -1,9 +1,11 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import { findDOMNode } from 'react-dom';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
 } from 'react-addons-test-utils';
+import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
@@ -20,14 +22,19 @@ class MyComponent extends React.Component {
   }
 }
 
-function renderApp(extraProps = {}, store = createStore().store) {
-  const props = {
+function renderProps(customProps = {}) {
+  return {
     browserVersion: '50',
     i18n: getFakeI18nInst(),
-    ...extraProps,
+    store: createStore().store,
+    ...customProps,
   };
+}
+
+function renderApp(customProps = {}) {
+  const props = renderProps(customProps);
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <Provider store={store}>
+    <Provider store={props.store}>
       <I18nProvider i18n={props.i18n}>
         <AppBase {...props}>
           <MyComponent />
@@ -69,6 +76,11 @@ describe('App', () => {
     const rootNode = renderApp({ browserVersion: '52.0a1' });
     expect(rootNode.className).not.toContain('padding-compensation');
   });
+
+  it('renders a response with a 200 status', () => {
+    const root = shallow(<AppBase {...renderProps()} />);
+    expect(root.find(NestedStatus)).toHaveProp('code', 200);
+  });
 });
 
 describe('App errors', () => {
@@ -80,7 +92,7 @@ describe('App errors', () => {
     });
     store.dispatch(loadFail('ReduxKey', error));
 
-    const rootNode = renderApp({}, store);
+    const rootNode = renderApp({ store });
     expect(rootNode.textContent).not.toContain('The component');
     expect(rootNode.textContent).toContain('Page not found');
   });
@@ -93,7 +105,7 @@ describe('App errors', () => {
     });
     store.dispatch(loadFail('ReduxKey', error));
 
-    const rootNode = renderApp({}, store);
+    const rootNode = renderApp({ store });
     expect(rootNode.textContent).not.toContain('The component');
     expect(rootNode.textContent).toContain('Server Error');
   });
