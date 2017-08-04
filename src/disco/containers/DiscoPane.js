@@ -156,6 +156,7 @@ function loadedAddons(state) {
   return state.discoResults.map((result) => ({ ...result, ...state.addons[result.addon] }));
 }
 
+// TODO: remove this
 export function loadDataIfNeeded({ store: { dispatch, getState } }) {
   const state = getState();
   const addons = loadedAddons(state);
