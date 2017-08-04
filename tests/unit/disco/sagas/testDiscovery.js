@@ -1,4 +1,3 @@
-import { normalize } from 'normalizr';
 import SagaTester from 'redux-saga-tester';
 
 import { loadEntities } from 'core/actions';
@@ -11,11 +10,8 @@ import { DISCO_RESULTS } from 'disco/constants';
 import discoResultsReducer from 'disco/reducers/discoResults';
 import discoverySaga from 'disco/sagas/discovery';
 import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
+import { createFetchDiscoveryResult } from 'tests/unit/disco/helpers';
 
-export function createFetchDiscoveryResult(results) {
-  // Simulate how getDiscoveryAddons() applies its schema.
-  return normalize({ results }, { results: [api.discoResult] });
-}
 
 describe('disco/sagas/discovery', () => {
   describe('fetchDiscoveryAddons', () => {

@@ -9,8 +9,9 @@ import {
   GLOBAL_EVENTS,
   INSTALL_STATE,
 } from 'core/constants';
+import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { discoResults } from 'disco/actions';
+import { getDiscoResults, discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
 import {
@@ -18,7 +19,10 @@ import {
   VIDEO_CATEGORY,
 } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, MockedSubComponent } from 'tests/unit/helpers';
+import { createFetchDiscoveryResult } from 'tests/unit/disco/helpers';
+import ErrorList from 'ui/components/ErrorList';
 
 
 // Use DiscoPane that isn't wrapped in asyncConnect.
@@ -44,6 +48,10 @@ describe('AddonPage', () => {
 
     return {
       AddonComponent: MockedSubComponent,
+      errorHandler: new ErrorHandler({
+        id: 'some-id', dispatch: sinon.stub(),
+      }),
+      dispatch: sinon.stub(),
       i18n,
       results,
       _tracking: fakeTracking,
@@ -57,6 +65,7 @@ describe('AddonPage', () => {
   }
 
   function renderAndMount(customProps = {}) {
+    // TODO: fix this to use real dispatches.
     const { store } = createStore({
       addons: { foo: { type: ADDON_TYPE_EXTENSION } },
       discoResults: [{ addon: 'foo' }],
@@ -187,6 +196,46 @@ describe('AddonPage', () => {
     });
   });
 
+  describe('constructor', () => {
+    it('gets discovery results when results are 0 length', () => {
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+      const { store } = createStore();
+      const props = helpers.mapStateToProps(store.getState());
+
+      render({ errorHandler, dispatch, ...props });
+
+      sinon.assert.calledWith(dispatch, getDiscoResults({
+        errorHandlerId: errorHandler.id,
+      }));
+    });
+
+    it('does not get discovery results when results are loaded', () => {
+      const dispatch = sinon.stub();
+      const { store } = createStore();
+
+      const addon = {
+        heading: 'Discovery Addon 1',
+        description: 'informative text',
+        addon: {
+          ...fakeAddon,
+          guid: '@guid1',
+          slug: 'discovery-addon-1',
+        },
+      };
+      const { entities, result } = createFetchDiscoveryResult([addon]);
+      store.dispatch(loadEntities({ entities, result }));
+      store.dispatch(discoResults(
+        result.results.map((r) => entities.discoResults[r])
+      ));
+      const props = helpers.mapStateToProps(store.getState());
+
+      render({ dispatch, ...props });
+
+      sinon.assert.notCalled(dispatch);
+    });
+  });
+
   describe('componentDidMount', () => {
     it('sets events', () => {
       const fakeMozAddonManager = {
@@ -194,6 +243,19 @@ describe('AddonPage', () => {
       };
       renderAndMount({ mozAddonManager: fakeMozAddonManager });
       expect(fakeMozAddonManager.addEventListener.callCount).toEqual(GLOBAL_EVENTS.length);
+    });
+  });
+
+  describe('errors', () => {
+    it('renders errors', () => {
+      const errorHandler = new ErrorHandler({
+        id: 'some-handler',
+        dispatch: sinon.stub(),
+        capturedError: new Error('some error'),
+      });
+      const root = render({ errorHandler });
+
+      expect(root.find(ErrorList)).toHaveLength(1);
     });
   });
 

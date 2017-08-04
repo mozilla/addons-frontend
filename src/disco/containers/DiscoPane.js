@@ -8,6 +8,7 @@ import { compose } from 'redux';
 import config from 'config';
 
 import { loadEntities } from 'core/actions';
+import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
@@ -19,7 +20,7 @@ import {
   VIDEO_CATEGORY,
 } from 'disco/constants';
 import { getDiscoveryAddons } from 'disco/api';
-import { discoResults } from 'disco/actions';
+import { getDiscoResults, discoResults } from 'disco/actions';
 import Addon from 'disco/components/Addon';
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
@@ -29,6 +30,8 @@ import videoWebm from 'disco/video/AddOns.webm';
 export class DiscoPaneBase extends React.Component {
   static propTypes = {
     AddonComponent: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
+    errorHandler: PropTypes.object.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
@@ -46,14 +49,20 @@ export class DiscoPaneBase extends React.Component {
     _video: null,
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { showVideo: false };
+
+    const { dispatch, errorHandler, results } = props;
+    if (!results.length) {
+      dispatch(getDiscoResults({ errorHandlerId: errorHandler.id }));
+    }
   }
 
   componentDidMount() {
     const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
     // Use addonManager.addChangeListener to setup and filter events.
+    // TODO: maybe prevent this from happening repeatedly
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
 
@@ -96,11 +105,12 @@ export class DiscoPaneBase extends React.Component {
     // TODO: Add captions see https://github.com/mozilla/addons/issues/367
     /* eslint-disable jsx-a11y/media-has-caption */
 
-    const { AddonComponent, results, i18n } = this.props;
+    const { AddonComponent, errorHandler, results, i18n } = this.props;
     const { showVideo } = this.state;
 
     return (
       <div id="app-view" ref={(ref) => { this.container = ref; }}>
+        {errorHandler.hasError() ? errorHandler.renderError() : null}
         <header className={showVideo ? 'show-video' : ''}>
           <div className="disco-header">
             <div className="disco-content">
@@ -177,10 +187,12 @@ export function mapStateToProps(state) {
 }
 
 export function mapDispatchToProps(dispatch, { _config = config } = {}) {
+  const props = { dispatch };
   if (_config.get('server')) {
-    return {};
+    return props;
   }
   return {
+    ...props,
     handleGlobalEvent(payload) {
       dispatch({ type: INSTALL_STATE, payload });
     },
@@ -188,11 +200,7 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
 }
 
 export default compose(
-  // TODO: remove this
-  safeAsyncConnect([{
-    key: 'DiscoPane',
-    promise: loadDataIfNeeded,
-  }]),
+  withErrorHandler({ name: 'DiscoPane', }),
   connect(mapStateToProps, mapDispatchToProps),
   translate(),
 )(DiscoPaneBase);
