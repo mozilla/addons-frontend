@@ -187,6 +187,7 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
 }
 
 export default compose(
+  // TODO: remove this
   safeAsyncConnect([{
     key: 'DiscoPane',
     promise: loadDataIfNeeded,
