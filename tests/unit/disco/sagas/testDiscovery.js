@@ -10,9 +10,7 @@ import { getDiscoResults, discoResults } from 'disco/actions';
 import { DISCO_RESULTS } from 'disco/constants';
 import discoResultsReducer from 'disco/reducers/discoResults';
 import discoverySaga from 'disco/sagas/discovery';
-import {
-  createAddonsApiResult, dispatchSignInActions, fakeAddon,
-} from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 
 export function createFetchDiscoveryResult(results) {
   // Simulate how getDiscoveryAddons() applies its schema.

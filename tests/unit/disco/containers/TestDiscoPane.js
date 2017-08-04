@@ -1,7 +1,7 @@
+import { mount, shallow } from 'enzyme';
 import config from 'config';
 import React from 'react';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
+import { Provider } from 'react-redux';
 
 import { loadEntities } from 'core/actions';
 import {
@@ -9,7 +9,7 @@ import {
   GLOBAL_EVENTS,
   INSTALL_STATE,
 } from 'core/constants';
-import * as InfoDialog from 'core/containers/InfoDialog';
+import I18nProvider from 'core/i18n/Provider';
 import { discoResults } from 'disco/actions';
 import * as discoApi from 'disco/api';
 import createStore from 'disco/store';
@@ -24,6 +24,10 @@ import { getFakeI18nInst, MockedSubComponent } from 'tests/unit/helpers';
 // Use DiscoPane that isn't wrapped in asyncConnect.
 const { DiscoPaneBase } = helpers;
 
+const fakeEvent = {
+  preventDefault: sinon.stub(),
+};
+
 
 describe('AddonPage', () => {
   let fakeVideo;
@@ -34,62 +38,71 @@ describe('AddonPage', () => {
     fakeVideo = { play: sinon.stub(), pause: sinon.stub() };
   });
 
-  function render(props) {
-    // Stub InfoDialog since it uses the store and is irrelevant.
-    sinon.stub(InfoDialog, 'default', () => <p>InfoDialog</p>);
+  function renderProps(customProps = {}) {
+    const results = [{ addon: 'foo', type: ADDON_TYPE_EXTENSION }];
+    const i18n = getFakeI18nInst();
+
+    return {
+      AddonComponent: MockedSubComponent,
+      i18n,
+      results,
+      _tracking: fakeTracking,
+      _video: fakeVideo,
+      ...customProps,
+    };
+  }
+
+  function render(props = {}) {
+    return shallow(<DiscoPaneBase {...renderProps(props)} />);
+  }
+
+  function renderAndMount(customProps = {}) {
     const { store } = createStore({
       addons: { foo: { type: ADDON_TYPE_EXTENSION } },
       discoResults: [{ addon: 'foo' }],
     });
-    const results = [{ addon: 'foo', type: ADDON_TYPE_EXTENSION }];
-    const i18n = getFakeI18nInst();
-
-    // We need providers because InstallButton will pull data from the store.
-    return findDOMNode(renderIntoDocument(
-      <DiscoPaneBase
-        AddonComponent={MockedSubComponent}
-        i18n={i18n}
-        results={results}
-        store={store}
-        _tracking={fakeTracking}
-        _video={fakeVideo}
-        {...props}
-      />
-    ));
+    const props = renderProps(customProps);
+    return mount(
+      <Provider store={store}>
+        <I18nProvider i18n={props.i18n}>
+          <DiscoPaneBase {...props} />
+        </I18nProvider>
+      </Provider>
+    );
   }
 
   describe('video', () => {
     it('is small by default', () => {
       const root = render();
-      expect(root.querySelector('.show-video')).toBeFalsy();
+      expect(root.find('.show-video')).toHaveLength(0);
     });
 
     it('gets bigger and smaller when clicked', () => {
       const root = render();
-      Simulate.click(root.querySelector('.play-video'));
-      expect(root.querySelector('.show-video')).toBeTruthy();
-      Simulate.click(root.querySelector('.close-video a'));
-      expect(root.querySelector('.show-video')).toBeFalsy();
+      root.find('.play-video').simulate('click', fakeEvent);
+      expect(root.find('.show-video')).toHaveLength(1);
+      root.find('.close-video a').simulate('click', fakeEvent);
+      expect(root.find('.show-video')).toHaveLength(0);
     });
 
     it('tracks video being played', () => {
       const root = render();
-      Simulate.click(root.querySelector('.play-video'));
-      expect(fakeTracking.sendEvent.calledWith({
+      root.find('.play-video').simulate('click', fakeEvent);
+      sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: VIDEO_CATEGORY,
         action: 'play',
-      })).toBeTruthy();
-      expect(fakeVideo.play.calledOnce).toBeTruthy();
+      });
+      sinon.assert.calledOnce(fakeVideo.play);
     });
 
     it('tracks video being closed', () => {
       const root = render();
-      Simulate.click(root.querySelector('.close-video a'));
-      expect(fakeTracking.sendEvent.calledWith({
+      root.find('.close-video a').simulate('click', fakeEvent);
+      sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: VIDEO_CATEGORY,
         action: 'close',
-      })).toBeTruthy();
-      expect(fakeVideo.pause.calledOnce).toBeTruthy();
+      });
+      sinon.assert.calledOnce(fakeVideo.pause);
     });
   });
 
@@ -179,7 +192,7 @@ describe('AddonPage', () => {
       const fakeMozAddonManager = {
         addEventListener: sinon.stub(),
       };
-      render({ mozAddonManager: fakeMozAddonManager });
+      renderAndMount({ mozAddonManager: fakeMozAddonManager });
       expect(fakeMozAddonManager.addEventListener.callCount).toEqual(GLOBAL_EVENTS.length);
     });
   });
@@ -187,12 +200,12 @@ describe('AddonPage', () => {
   describe('See more add-ons link', () => {
     it('tracks see more addons link being clicked', () => {
       const root = render();
-      Simulate.click(root.querySelector('.amo-link a'));
-      expect(fakeTracking.sendEvent.calledWith({
+      root.find('.amo-link a').simulate('click');
+      sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: NAVIGATION_CATEGORY,
         action: 'click',
         label: 'See More Add-ons',
-      })).toBeTruthy();
+      });
     });
   });
 });
