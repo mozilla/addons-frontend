@@ -20,7 +20,12 @@ export class AboutBase extends React.Component {
 
     const helpText = i18n.sprintf(i18n.gettext(`Help improve this website. It's open source, and you can file bugs and submit patches. <a href="%(url)s">GitHub</a> contains all of our current bugs, legacy bugs can still be found in Bugzilla.`),
       { url: 'https://github.com/mozilla/olympia/issues' });
+    const blogText = i18n.sprintf(i18n.gettext(`Our <a href="%(url)s">Add-ons Blog</a> is regularly updated with information for both add-on enthusiasts and developers.`),
+      { url: 'http://blog.mozilla.com/addons/' });
+    const forumText = i18n.sprintf(i18n.gettext(`Our <a href="%(url)s">forums</a> are a good place to interact with the add-ons community and discuss upcoming changes to AMO.`),
+      { url: 'https://discourse.mozilla-community.org/c/add-ons' });
 
+    /* eslint-disable react/no-danger */
     return (
 
       <Card
@@ -45,20 +50,12 @@ export class AboutBase extends React.Component {
             {i18n.gettext('There are several ways to find out the latest news from the world of add-ons:')}
           </p>
           <ul>
-            <li>
-              {i18n.gettext('Our')}&nbsp;
-              <a href={'http://blog.mozilla.com/addons/'}>{i18n.gettext('Add-ons Blog')}</a>&nbsp;
-              {i18n.gettext('is regularly updated with information for both add-on enthusiasts and developers.')}
-            </li>
+            <li dangerouslySetInnerHTML={sanitizeHTML(blogText, ['a'])} />
             <li>
               {i18n.gettext('We often post news, tips, and tricks to our Twitter account,')}&nbsp;
               <a href={'http://twitter.com/mozamo'}>{i18n.gettext('mozamo')}</a>
             </li>
-            <li>
-              {i18n.gettext('Our')}&nbsp;
-              <a href={'https://discourse.mozilla-community.org/c/add-ons'}>{i18n.gettext('forums')}</a>&nbsp;
-              {i18n.gettext('are a good place to interact with the add-ons community and discuss upcoming changes to AMO.')}
-            </li>
+            <li dangerouslySetInnerHTML={sanitizeHTML(forumText, ['a'])} />
           </ul>
         </section>
         <section>
