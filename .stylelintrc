@@ -30,10 +30,12 @@
       "ignore": ["blockless-at-rules"],
     }],
     "rule-empty-line-before": ["always", {
-      "ignore": [
-        "after-comment",
-        "inside-block",
+      "except": [
+        "first-nested"
       ],
+      "ignore": [
+        "after-comment"
+      ]
     }],
   }
 }

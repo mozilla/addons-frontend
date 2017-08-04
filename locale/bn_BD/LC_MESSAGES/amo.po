@@ -525,7 +525,7 @@ msgstr[1] "\"%(query)s\" এর ফলাফল %(count)s"
 
 #: src/amo/components/SearchContextCard/index.js:38
 msgid "Searching for \"%(query)s\""
-msgstr "\"{query}\" এর জন্য অনুসন্ধান"
+msgstr "\"%(query)s\" এর জন্য অনুসন্ধান"
 
 #: src/amo/components/SearchContextCard/index.js:41
 msgid "Loading add-ons"
