@@ -9,18 +9,19 @@ import SimulateClientError from
 import SimulateSyncError from
   'core/containers/error-simulation/SimulateSyncError';
 
+import About from './components/StaticPages/About';
+import Addon from './components/Addon';
 import AddonReviewList from './components/AddonReviewList';
 import App from './components/App';
 import CategoriesPage from './components/CategoriesPage';
 import Category from './components/Category';
 import FeaturedAddons from './components/FeaturedAddons';
-import LandingPage from './components/LandingPage';
 import Home from './components/Home';
-import Addon from './components/Addon';
+import LandingPage from './components/LandingPage';
 import NotAuthorized from './components/ErrorPage/NotAuthorized';
 import NotFound from './components/ErrorPage/NotFound';
+import ReviewGuide from './components/StaticPages/ReviewGuide';
 import SearchPage from './components/SearchPage';
-import About from './components/StaticPages/About';
 import ServerError from './components/ErrorPage/ServerError';
 import Collection from './components/Collection';
 
@@ -32,6 +33,7 @@ export default (
   <Route path="/:lang/:application" component={App}>
     <IndexRoute component={Home} />
     <Route path="about" component={About} />
+    <Route path="review_guide" component={ReviewGuide} />
     <Route path="addon/:slug/" component={Addon} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
     <Route path="collections/:user/:slug/" component={Collection} />
