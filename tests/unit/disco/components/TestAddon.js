@@ -30,8 +30,8 @@ const result = {
   description: 'test-editorial-description',
 };
 
-function renderProps(customProps = {}) {
-  return {
+function renderAddon(customProps = {}) {
+  const props = {
     setCurrentStatus: sinon.stub(),
     getBrowserThemeData: () => '{"theme":"data"}',
     getClientCompatibility: () => ({ compatible: true, reason: null }),
@@ -39,10 +39,7 @@ function renderProps(customProps = {}) {
     i18n: getFakeI18nInst(),
     ...customProps,
   };
-}
-
-function renderAddon(customProps = {}) {
-  return shallow(<AddonBase {...renderProps(customProps)} />);
+  return shallow(<AddonBase {...props} />);
 }
 
 describe('<Addon />', () => {
@@ -50,6 +47,18 @@ describe('<Addon />', () => {
 
   beforeEach(() => {
     fakeEvent = createFakeEvent();
+  });
+
+  it('renders okay without data', () => {
+    // For now, just make sure this doesn't throw an error.
+    renderAddon({
+      addon: undefined,
+      description: undefined,
+      heading: undefined,
+      id: undefined,
+      slug: undefined,
+      type: undefined,
+    });
   });
 
   describe('<Addon type="extension"/>', () => {
