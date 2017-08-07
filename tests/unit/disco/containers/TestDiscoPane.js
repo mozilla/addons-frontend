@@ -190,8 +190,8 @@ describe('AddonPage', () => {
 
     it('does not pass handleGlobalEvent when on the server', () => {
       const dispatch = sinon.stub();
-      const config = { server: true };
-      const configStub = { get: (key) => config[key] };
+      const configSource = { server: true };
+      const configStub = { get: (key) => configSource[key] };
       expect(helpers.mapDispatchToProps(dispatch, { _config: configStub }))
         .toEqual({ dispatch });
     });
