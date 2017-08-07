@@ -200,6 +200,10 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
 }
 
 export default compose(
+  // safeAsyncConnect([{
+  //   key: 'DiscoPane',
+  //   promise: loadDataIfNeeded,
+  // }]),
   withErrorHandler({ name: 'DiscoPane', }),
   connect(mapStateToProps, mapDispatchToProps),
   translate(),
