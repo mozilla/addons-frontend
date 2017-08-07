@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-31 06:33+0000\n"
+"PO-Revision-Date: 2017-08-07 07:20+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -102,15 +102,15 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:34
 msgid "Support Site"
-msgstr ""
+msgstr "మద్దతు సైటు"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "More information"
-msgstr ""
+msgstr "మరింత సమాచారం"
 
 #: src/amo/components/AddonMoreInfo.js:44
 msgid "Add-on Links"
-msgstr ""
+msgstr "పొడిగింత లంకెలు"
 
 #: src/amo/components/AddonMoreInfo.js:55
 msgid "Version"
@@ -134,7 +134,7 @@ msgstr "గోప్యతా విధానం"
 
 #: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "ఈ పొడిగింత కోసం ఈ గోప్యతా విధానం చదవండి"
 
 #: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
