@@ -5,7 +5,6 @@ import {
   ADDON_TYPE_THEME,
   CATEGORIES_FETCH,
   CATEGORIES_LOAD,
-  CATEGORIES_FAIL,
   validAddonTypes,
 } from 'core/constants';
 import log from 'core/logger';
@@ -25,7 +24,6 @@ export function emptyCategoryList() {
 
 const initialState = {
   categories: emptyCategoryList(),
-  error: false,
   loading: false,
 };
 
@@ -34,7 +32,7 @@ export default function categories(state = initialState, action) {
 
   switch (action.type) {
     case CATEGORIES_FETCH:
-      return { ...state, ...payload, loading: true };
+      return { ...state, loading: true };
     case CATEGORIES_LOAD:
       {
         const categoryList = emptyCategoryList();
@@ -93,13 +91,6 @@ export default function categories(state = initialState, action) {
           categories: categoryList,
         };
       }
-    case CATEGORIES_FAIL:
-      return {
-        ...initialState,
-        ...payload,
-        loading: false,
-        error: payload.error,
-      };
     default:
       return state;
   }
