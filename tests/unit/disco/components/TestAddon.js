@@ -20,14 +20,7 @@ import {
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import createStore from 'disco/store';
 import { getFakeI18nInst, signedInApiState } from 'tests/unit/helpers';
-
-// TODO: import from a helper like TestDiscoPane
-function createFakeEvent() {
-  return {
-    currentTarget: sinon.stub(),
-    preventDefault: sinon.stub(),
-  };
-}
+import { createFakeEvent } from 'tests/unit/disco/helpers';
 
 const result = {
   id: 'test-id',

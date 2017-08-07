@@ -21,23 +21,23 @@ import {
 import * as helpers from 'disco/containers/DiscoPane';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, MockedSubComponent } from 'tests/unit/helpers';
-import { createFetchDiscoveryResult } from 'tests/unit/disco/helpers';
+import {
+  createFakeEvent, createFetchDiscoveryResult,
+} from 'tests/unit/disco/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 
 // Use DiscoPane that isn't wrapped in asyncConnect.
 const { DiscoPaneBase } = helpers;
 
-const fakeEvent = {
-  preventDefault: sinon.stub(),
-};
-
 
 describe('AddonPage', () => {
+  let fakeEvent;
   let fakeVideo;
   let fakeTracking;
 
   beforeEach(() => {
+    fakeEvent = createFakeEvent();
     fakeTracking = { sendEvent: sinon.stub() };
     fakeVideo = { play: sinon.stub(), pause: sinon.stub() };
   });
@@ -185,14 +185,15 @@ describe('AddonPage', () => {
       const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
       const payload = { id: 'whatever' };
       handleGlobalEvent(payload);
-      expect(dispatch.calledWith({ type: INSTALL_STATE, payload })).toBeTruthy();
+      sinon.assert.calledWith(dispatch, { type: INSTALL_STATE, payload });
     });
 
-    it('is empty when there is no navigator', () => {
-      const configStub = {
-        get: sinon.stub().returns(true),
-      };
-      expect(helpers.mapDispatchToProps(sinon.spy(), { _config: configStub })).toEqual({});
+    it('does not pass handleGlobalEvent when on the server', () => {
+      const dispatch = sinon.stub();
+      const config = { server: true };
+      const configStub = { get: (key) => config[key] };
+      expect(helpers.mapDispatchToProps(dispatch, { _config: configStub }))
+        .toEqual({ dispatch });
     });
   });
 
