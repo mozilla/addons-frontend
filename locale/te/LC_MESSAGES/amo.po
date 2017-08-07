@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-07 07:32+0000\n"
+"PO-Revision-Date: 2017-08-07 10:24+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -46,7 +46,7 @@ msgstr "%(authorList)s%(endSpan)s చేత %(addonName)s %(startSpan)s"
 
 #: src/amo/components/Addon/index.js:324
 msgid "Extension Metadata"
-msgstr ""
+msgstr "పొడిగింత మెటాడేటా"
 
 #: src/amo/components/Addon/index.js:343
 msgid "Screenshots"
@@ -297,19 +297,19 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
 msgid "Be social"
-msgstr ""
+msgstr "సామాజికంగా ఉండండి"
 
 #: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
 msgid "Play games"
-msgstr ""
+msgstr "ఆటలాడు"
 
 #: src/amo/components/Home/index.js:120
 msgid "Wild"
-msgstr ""
+msgstr "వైల్డ్"
 
 #: src/amo/components/Home/index.js:121
 msgid "Abstract"
-msgstr ""
+msgstr "సంక్షిప్తము"
 
 #: src/amo/components/Home/index.js:122
 msgid "Holiday"
@@ -325,15 +325,15 @@ msgstr "స్పోర్టి"
 
 #: src/amo/components/Home/index.js:125
 msgid "Solid"
-msgstr ""
+msgstr "ముదురు"
 
 #: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
-msgstr ""
+msgstr "అన్ని పొడగింతలను అన్వేషించు"
 
 #: src/amo/components/Home/index.js:143
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "మీరు Firefox పనిచేసి విధానమును మార్చవచ్చు…"
 
 #: src/amo/components/Home/index.js:146
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
@@ -401,7 +401,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
-msgstr ""
+msgstr "థీములు"
 
 #: src/amo/components/LandingPage/index.js:178 src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
@@ -471,17 +471,17 @@ msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:43
 msgid "No add-ons found"
-msgstr ""
+msgstr "ఏ పొడిగింతలు దొరకలేదు"
 
 #: src/amo/components/SearchContextCard/index.js:45
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s పొడిగింత దొరికింది"
+msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
 
 #: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
-msgstr ""
+msgstr "పొడిగింతలను శోధించు"
 
 #: src/amo/components/SearchForm.js:52
 msgid "Search themes"
