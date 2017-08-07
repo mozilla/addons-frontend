@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-07 10:50+0000\n"
+"PO-Revision-Date: 2017-08-07 10:55+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -385,11 +385,11 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:119
 msgid "Most popular themes"
-msgstr ""
+msgstr "అత్యంత ప్రజాదరణ పొందిన అలంకారాలు"
 
 #: src/amo/components/LandingPage/index.js:124
 msgid "More popular themes"
-msgstr ""
+msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
 
 #: src/amo/components/LandingPage/index.js:125
 msgid "Top rated themes"
@@ -409,7 +409,7 @@ msgstr "పొడిగింతలు"
 
 #: src/amo/components/LandingPage/index.js:209
 msgid "Explore all categories"
-msgstr ""
+msgstr "అన్ని వర్గాలను అన్వేషించండి"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -463,7 +463,7 @@ msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:38
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "\"%(query)s\" కోసం శోధిస్తున్నారు"
 
 #: src/amo/components/SearchContextCard/index.js:41
 msgid "Loading add-ons"
@@ -581,7 +581,7 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s దిగుమతి చేస్తోంది."
 
 #: src/core/components/InstallSwitch/index.js:58
 msgid "Installing %(name)s."
@@ -641,7 +641,7 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "కొనసాగటానికి రీలోడ్ చేయండి"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
