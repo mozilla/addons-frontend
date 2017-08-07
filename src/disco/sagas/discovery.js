@@ -20,7 +20,7 @@ export function* fetchDiscoveryAddons({ payload: { errorHandlerId } }) {
       api: state.api,
     });
 
-    yield put(loadEntities({ entities, result }));
+    yield put(loadEntities(entities));
     yield put(discoResults(
       result.results.map((r) => entities.discoResults[r])
     ));

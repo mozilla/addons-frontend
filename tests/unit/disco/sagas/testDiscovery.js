@@ -80,8 +80,8 @@ describe('disco/sagas/discovery', () => {
 
       const calledActions = sagaTester.getCalledActions();
 
-      const { entities, result } = addonResponse;
-      expect(calledActions[1]).toEqual(loadEntities({ entities, result }));
+      const { entities } = addonResponse;
+      expect(calledActions[1]).toEqual(loadEntities(entities));
       expect(calledActions[2]).toEqual(discoResults([
         {
           addon: addon1.addon.guid,
