@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-07 10:24+0000\n"
+"PO-Revision-Date: 2017-08-07 10:50+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -345,7 +345,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:162
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…లేదా అది ఎలా కనిపిస్తుంది"
 
 #: src/amo/components/Home/index.js:165
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -353,7 +353,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
-msgstr ""
+msgstr "ప్రకటనలను నిషేధించండి"
 
 #: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
 msgid "Screenshot"
@@ -365,7 +365,7 @@ msgstr "వార్తలను కనుగొనండి"
 
 #: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
-msgstr ""
+msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
 #: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
@@ -501,7 +501,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:41
 msgid "Searching…"
-msgstr ""
+msgstr "వెతుకుతోంది…"
 
 #: src/amo/components/SearchResults.js:47
 msgid "No results were found for \"%(query)s\"."
@@ -573,7 +573,7 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Firefoxకు జోడించండి"
 
 #: src/core/components/InstallButton/index.js:85
 msgid "Install Theme"

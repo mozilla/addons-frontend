@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2017-08-07 07:31+0000\n"
+"PO-Revision-Date: 2017-08-07 10:48+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -72,7 +72,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "మీ పొడిగింత సిద్ధంగా ఉంది"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
@@ -116,7 +116,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "దయచేసి ఈ పొడిగింతను ఉపయోగించడానికి Firefoxను పునఃప్రారంభించండి."
 
 #: src/disco/components/Addon.js:78
 msgid "Close"
@@ -140,11 +140,11 @@ msgstr "గోప్యతా విధానం"
 
 #: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "పొడిగింతలను కనుగొనండి"
 
 #: src/disco/containers/DiscoPane.js:107
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "మీ Firefox ని వ్యక్తిగతీకరించండి"
 
 #: src/disco/containers/DiscoPane.js:108
 msgid ""
@@ -158,7 +158,7 @@ msgstr ""
 
 #: src/disco/containers/DiscoPane.js:117
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "పొడిగింతల గురించి మరింత తెలుసుకోవడానికి"
 
 #: src/disco/containers/DiscoPane.js:131
 msgid "Close video"
