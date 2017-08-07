@@ -6,6 +6,7 @@ import tracking from 'core/tracking';
 import getInstallData from 'disco/tracking';
 
 import routes from './routes';
+import sagas from './sagas';
 import createStore from './store';
 
 // Having disabled the initial page view beacon in config
@@ -18,4 +19,4 @@ if (config.get('trackingSendInitPageView') === false) {
   });
 }
 
-makeClient(routes, createStore);
+makeClient(routes, createStore, { sagas });

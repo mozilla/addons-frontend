@@ -293,12 +293,12 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
           const props = { component: InitialComponent };
 
+          // TODO: totally remove this
           // TODO: Remove the try/catch block once all apps are using
           // redux-saga.
           let sagas;
           try {
             // eslint-disable-next-line global-require, import/no-dynamic-require
-            // TODO: figure out why this isn't working client side.
             sagas = require(`${appName}/sagas`).default;
           } catch (err) {
             log.warn(
