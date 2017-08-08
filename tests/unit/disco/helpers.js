@@ -2,7 +2,7 @@ import { normalize } from 'normalizr';
 
 import { loadEntities } from 'core/actions';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
-import { discoResults } from 'disco/actions';
+import { loadDiscoResults } from 'disco/actions';
 import { discoResult } from 'disco/api';
 import createStore from 'disco/store';
 
@@ -35,7 +35,7 @@ export function loadDiscoResultsIntoState(addonResults) {
   const { entities, result } = createFetchDiscoveryResult(addonResults);
   const { store } = createStore();
   store.dispatch(loadEntities(entities));
-  store.dispatch(discoResults(
+  store.dispatch(loadDiscoResults(
     result.results.map((r) => entities.discoResults[r])
   ));
   return store.getState();

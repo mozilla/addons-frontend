@@ -1,9 +1,8 @@
-import { GET_DISCO_RESULTS, DISCO_RESULTS } from 'disco/constants';
+import { GET_DISCO_RESULTS, LOAD_DISCO_RESULTS } from 'disco/constants';
 
-export function discoResults(results) {
+export function loadDiscoResults(results) {
   return {
-    // TODO: maybe rename this to GOT_DISO_RESULTS
-    type: DISCO_RESULTS,
+    type: LOAD_DISCO_RESULTS,
     payload: {
       results,
     },

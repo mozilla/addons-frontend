@@ -5,8 +5,7 @@ import { ErrorHandler } from 'core/errorHandler';
 import addonsReducer from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import * as api from 'disco/api';
-import { getDiscoResults, discoResults } from 'disco/actions';
-import { DISCO_RESULTS } from 'disco/constants';
+import { getDiscoResults, loadDiscoResults } from 'disco/actions';
 import discoResultsReducer from 'disco/reducers/discoResults';
 import discoverySaga from 'disco/sagas/discovery';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
@@ -75,16 +74,7 @@ describe('disco/sagas/discovery', () => {
         .withArgs({ api: apiState })
         .returns(Promise.resolve(addonResponse));
 
-      _getDiscoResults();
-
-      await sagaTester.waitFor(DISCO_RESULTS);
-      mockApi.verify();
-
-      const calledActions = sagaTester.getCalledActions();
-
-      const { entities } = addonResponse;
-      expect(calledActions[1]).toEqual(loadEntities(entities));
-      expect(calledActions[2]).toEqual(discoResults([
+      const expectedLoadAction = loadDiscoResults([
         {
           addon: addon1.addon.guid,
           description: addon1.description,
@@ -95,7 +85,18 @@ describe('disco/sagas/discovery', () => {
           description: addon2.description,
           heading: addon2.heading,
         },
-      ]));
+      ]);
+
+      _getDiscoResults();
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+
+      const { entities } = addonResponse;
+      expect(calledActions[1]).toEqual(loadEntities(entities));
+      expect(calledActions[2]).toEqual(expectedLoadAction);
     });
 
     it('dispatches an error', async () => {

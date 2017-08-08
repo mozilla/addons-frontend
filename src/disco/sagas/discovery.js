@@ -7,7 +7,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { loadEntities } from 'core/actions';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import { discoResults } from 'disco/actions';
+import { loadDiscoResults } from 'disco/actions';
 import { GET_DISCO_RESULTS } from 'disco/constants';
 import { getDiscoveryAddons } from 'disco/api';
 
@@ -21,7 +21,7 @@ export function* fetchDiscoveryAddons({ payload: { errorHandlerId } }) {
     });
 
     yield put(loadEntities(entities));
-    yield put(discoResults(
+    yield put(loadDiscoResults(
       result.results.map((r) => entities.discoResults[r])
     ));
   } catch (error) {

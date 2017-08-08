@@ -1,3 +1,4 @@
+import { LOAD_DISCO_RESULTS } from 'disco/constants';
 import discoResults from 'disco/reducers/discoResults';
 
 describe('discoResults reducer', () => {
@@ -6,7 +7,8 @@ describe('discoResults reducer', () => {
   });
 
   it('sets the state to the results', () => {
+    // TODO: use realistic results
     const results = ['foo', 'bar'];
-    expect(discoResults(['baz'], { type: 'DISCO_RESULTS', payload: { results } })).toBe(results);
+    expect(discoResults(['baz'], { type: LOAD_DISCO_RESULTS, payload: { results } })).toBe(results);
   });
 });
