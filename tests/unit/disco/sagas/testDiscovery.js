@@ -9,8 +9,10 @@ import { getDiscoResults, discoResults } from 'disco/actions';
 import { DISCO_RESULTS } from 'disco/constants';
 import discoResultsReducer from 'disco/reducers/discoResults';
 import discoverySaga from 'disco/sagas/discovery';
-import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
-import { createFetchDiscoveryResult } from 'tests/unit/disco/helpers';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import {
+  createFetchDiscoveryResult, fakeDiscoAddon,
+} from 'tests/unit/disco/helpers';
 
 
 describe('disco/sagas/discovery', () => {
@@ -53,7 +55,7 @@ describe('disco/sagas/discovery', () => {
         heading: 'Discovery Addon 1',
         description: 'informative text',
         addon: {
-          ...fakeAddon,
+          ...fakeDiscoAddon,
           guid: '@guid1',
           slug: 'discovery-addon-1',
         },
@@ -62,7 +64,7 @@ describe('disco/sagas/discovery', () => {
         heading: 'Discovery Addon 1',
         description: 'informative text',
         addon: {
-          ...fakeAddon,
+          ...fakeDiscoAddon,
           guid: '@guid2',
           slug: 'discovery-addon-2',
         },

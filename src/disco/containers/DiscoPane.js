@@ -62,7 +62,6 @@ export class DiscoPaneBase extends React.Component {
   componentDidMount() {
     const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
     // Use addonManager.addChangeListener to setup and filter events.
-    // TODO: maybe prevent this from happening repeatedly
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
 
@@ -144,7 +143,11 @@ export class DiscoPaneBase extends React.Component {
           </div>
         </header>
         {results.map((item) => (
-          <AddonComponent addon={item} {...camelCaseKeys(item)} key={item.guid} />
+          <AddonComponent
+            addon={item}
+            {...camelCaseKeys(item)}
+            key={item.guid}
+          />
         ))}
         <div className="amo-link">
           <a
@@ -162,8 +165,10 @@ export class DiscoPaneBase extends React.Component {
   }
 }
 
-function loadedAddons(state) {
-  return state.discoResults.map((result) => ({ ...result, ...state.addons[result.addon] }));
+export function loadedAddons(state) {
+  return state.discoResults.map(
+    (result) => ({ ...result, ...state.addons[result.addon] })
+  );
 }
 
 // TODO: remove this
@@ -200,11 +205,7 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
 }
 
 export default compose(
-  // safeAsyncConnect([{
-  //   key: 'DiscoPane',
-  //   promise: loadDataIfNeeded,
-  // }]),
-  withErrorHandler({ name: 'DiscoPane', }),
+  withErrorHandler({ name: 'DiscoPane' }),
   connect(mapStateToProps, mapDispatchToProps),
   translate(),
 )(DiscoPaneBase);

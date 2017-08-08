@@ -18,17 +18,12 @@ import {
   UNINSTALLING,
 } from 'core/constants';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
+import { loadedAddons } from 'disco/containers/DiscoPane';
 import createStore from 'disco/store';
 import { getFakeI18nInst, signedInApiState } from 'tests/unit/helpers';
-import { createFakeEvent } from 'tests/unit/disco/helpers';
-
-const result = {
-  id: 'test-id',
-  type: 'extension',
-  heading: 'test-heading',
-  slug: 'test-slug',
-  description: 'test-editorial-description',
-};
+import {
+  createFakeEvent, fakeDiscoAddon, loadDiscoResultsIntoState,
+} from 'tests/unit/disco/helpers';
 
 function renderAddon(customProps = {}) {
   const props = {
@@ -44,6 +39,17 @@ function renderAddon(customProps = {}) {
 
 describe('<Addon />', () => {
   let fakeEvent;
+  const _state = loadDiscoResultsIntoState([{
+    heading: 'test-heading',
+    description: 'test-editorial-description',
+    addon: {
+      ...fakeDiscoAddon,
+      id: 'test-id',
+      type: ADDON_TYPE_EXTENSION,
+      slug: 'test-slug',
+    },
+  }]);
+  const result = loadedAddons(_state)[0];
 
   beforeEach(() => {
     fakeEvent = createFakeEvent();
