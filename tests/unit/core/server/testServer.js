@@ -1,8 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Router, Route } from 'react-router';
-import { createStore, combineReducers } from 'redux';
+import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { reducer as reduxAsyncConnect } from 'redux-connect';
+import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
 
@@ -31,14 +32,22 @@ describe('core/server/base', () => {
 
   function testClient({ stubRoutes = defaultStubRoutes } = {}) {
     function createStoreAndSagas() {
+      const sagaMiddleware = createSagaMiddleware();
       return {
-        store: createStore(combineReducers({ reduxAsyncConnect })),
-        sagaMiddleware: { run: () => ({ done: Promise.resolve() }) },
+        store: createStore(
+          combineReducers({ reduxAsyncConnect }),
+          undefined,
+          applyMiddleware(sagaMiddleware),
+        ),
+        sagaMiddleware,
       };
     }
 
+    // eslint-disable-next-line no-empty-function
+    function* fakeSaga() {}
+
     const app = baseServer(stubRoutes, createStoreAndSagas, {
-      appSagas: sinon.stub(),
+      appSagas: fakeSaga,
       appInstanceName: 'testapp',
     });
     return supertest(app);
