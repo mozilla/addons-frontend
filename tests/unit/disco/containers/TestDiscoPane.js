@@ -218,6 +218,20 @@ describe('AddonPage', () => {
 
       sinon.assert.notCalled(dispatch);
     });
+
+    it('does not get results if there was an error', () => {
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({
+        id: 'some-id',
+        dispatch,
+        capturedError: new Error('some API error'),
+      });
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
+
+      render({ errorHandler, dispatch, ...props });
+
+      sinon.assert.notCalled(dispatch);
+    });
   });
 
   describe('componentDidMount', () => {

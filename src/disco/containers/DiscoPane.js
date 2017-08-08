@@ -51,7 +51,7 @@ export class DiscoPaneBase extends React.Component {
     this.state = { showVideo: false };
 
     const { dispatch, errorHandler, results } = props;
-    if (!results.length) {
+    if (!errorHandler.hasError() && !results.length) {
       dispatch(getDiscoResults({ errorHandlerId: errorHandler.id }));
     }
   }
