@@ -74,18 +74,8 @@ describe('disco/sagas/discovery', () => {
         .withArgs({ api: apiState })
         .returns(Promise.resolve(addonResponse));
 
-      const expectedLoadAction = loadDiscoResults([
-        {
-          addon: addon1.addon.guid,
-          description: addon1.description,
-          heading: addon1.heading,
-        },
-        {
-          addon: addon2.addon.guid,
-          description: addon2.description,
-          heading: addon2.heading,
-        },
-      ]);
+      const { entities, result } = addonResponse;
+      const expectedLoadAction = loadDiscoResults({ entities, result });
 
       _getDiscoResults();
 
@@ -94,7 +84,6 @@ describe('disco/sagas/discovery', () => {
 
       const calledActions = sagaTester.getCalledActions();
 
-      const { entities } = addonResponse;
       expect(calledActions[1]).toEqual(loadEntities(entities));
       expect(calledActions[2]).toEqual(expectedLoadAction);
     });

@@ -1,11 +1,10 @@
 import { GET_DISCO_RESULTS, LOAD_DISCO_RESULTS } from 'disco/constants';
 
-export function loadDiscoResults(results) {
+export function loadDiscoResults({ entities, result }) {
+  // TODO: throw errors for missing params.
   return {
     type: LOAD_DISCO_RESULTS,
-    payload: {
-      results,
-    },
+    payload: { entities, result },
   };
 }
 

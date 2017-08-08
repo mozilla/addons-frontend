@@ -35,9 +35,7 @@ export function loadDiscoResultsIntoState(addonResults) {
   const { entities, result } = createFetchDiscoveryResult(addonResults);
   const { store } = createStore();
   store.dispatch(loadEntities(entities));
-  store.dispatch(loadDiscoResults(
-    result.results.map((r) => entities.discoResults[r])
-  ));
+  store.dispatch(loadDiscoResults({ entities, result }));
   return store.getState();
 }
 

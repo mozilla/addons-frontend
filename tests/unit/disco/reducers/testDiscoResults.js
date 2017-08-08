@@ -28,9 +28,9 @@ describe('discoResults reducer', () => {
     };
     const { entities, result } = createFetchDiscoveryResult([addon1, addon2]);
 
-    const state = discoResults(undefined, loadDiscoResults(
-      result.results.map((r) => entities.discoResults[r])
-    ));
+    const state = discoResults(undefined,
+      loadDiscoResults({ entities, result })
+    );
 
     expect(state).toEqual([
       {

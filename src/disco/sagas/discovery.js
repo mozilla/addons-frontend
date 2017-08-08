@@ -21,9 +21,7 @@ export function* fetchDiscoveryAddons({ payload: { errorHandlerId } }) {
     });
 
     yield put(loadEntities(entities));
-    yield put(loadDiscoResults(
-      result.results.map((r) => entities.discoResults[r])
-    ));
+    yield put(loadDiscoResults({ entities, result }));
   } catch (error) {
     log.warn(`Failed to fetch discovery add-ons: ${error}`);
 
