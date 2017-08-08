@@ -1,5 +1,8 @@
-import { LOAD_DISCO_RESULTS } from 'disco/constants';
+import { loadDiscoResults } from 'disco/actions';
 import discoResults from 'disco/reducers/discoResults';
+import {
+  createFetchDiscoveryResult, fakeDiscoAddon,
+} from 'tests/unit/disco/helpers';
 
 describe('discoResults reducer', () => {
   it('defaults to an empty array', () => {
@@ -7,8 +10,39 @@ describe('discoResults reducer', () => {
   });
 
   it('sets the state to the results', () => {
-    // TODO: use realistic results
-    const results = ['foo', 'bar'];
-    expect(discoResults(['baz'], { type: LOAD_DISCO_RESULTS, payload: { results } })).toBe(results);
+    const addon1 = {
+      heading: 'Discovery Addon 1',
+      description: 'editorial text',
+      addon: {
+        ...fakeDiscoAddon,
+        guid: '@guid1',
+      },
+    };
+    const addon2 = {
+      heading: 'Discovery Addon 1',
+      description: 'editorial text',
+      addon: {
+        ...fakeDiscoAddon,
+        guid: '@guid2',
+      },
+    };
+    const { entities, result } = createFetchDiscoveryResult([addon1, addon2]);
+
+    const state = discoResults(undefined, loadDiscoResults(
+      result.results.map((r) => entities.discoResults[r])
+    ));
+
+    expect(state).toEqual([
+      {
+        heading: addon1.heading,
+        description: addon1.description,
+        addon: addon1.addon.guid,
+      },
+      {
+        heading: addon2.heading,
+        description: addon2.description,
+        addon: addon2.addon.guid,
+      },
+    ]);
   });
 });
