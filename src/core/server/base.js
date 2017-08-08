@@ -293,22 +293,12 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
           const props = { component: InitialComponent };
 
-          // TODO: totally remove this
-          // TODO: Remove the try/catch block once all apps are using
-          // redux-saga.
-          let sagas;
-          try {
-            // eslint-disable-next-line global-require, import/no-dynamic-require
-            sagas = require(`${appName}/sagas`).default;
-          } catch (err) {
-            log.warn(
-              `sagas not found for this app (src/${appName}/sagas)`, err);
-          }
-
-          if (!sagas || !sagaMiddleware) {
+          if (!sagaMiddleware) {
             return hydrateOnClient({ props, pageProps, res });
           }
 
+          // eslint-disable-next-line global-require, import/no-dynamic-require
+          const sagas = require(`${appName}/sagas`).default;
           const runningSagas = sagaMiddleware.run(sagas);
           // We need to render once because it will force components
           // with sagas to call the sagas and load their data.
