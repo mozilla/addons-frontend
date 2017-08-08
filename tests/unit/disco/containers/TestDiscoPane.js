@@ -3,7 +3,6 @@ import config from 'config';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { loadEntities } from 'core/actions';
 import {
   ADDON_TYPE_THEME,
   GLOBAL_EVENTS,
@@ -11,8 +10,7 @@ import {
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { getDiscoResults, discoResults } from 'disco/actions';
-import * as discoApi from 'disco/api';
+import { getDiscoResults } from 'disco/actions';
 import createStore from 'disco/store';
 import {
   NAVIGATION_CATEGORY,
@@ -120,51 +118,6 @@ describe('AddonPage', () => {
         action: 'close',
       });
       sinon.assert.calledOnce(fakeVideo.pause);
-    });
-  });
-
-  describe('loadDataIfNeeded', () => {
-    it('does nothing if there are loaded results', () => {
-      const store = {
-        getState() {
-          return { addons: { foo: {} }, discoResults: [{ addon: 'foo' }] };
-        },
-      };
-      const getAddons = sinon.stub(discoApi, 'getDiscoveryAddons');
-      return helpers.loadDataIfNeeded({ store })
-        .then(() => expect(getAddons.called).toBeFalsy());
-    });
-
-    it('loads the addons if there are none', () => {
-      const api = { the: 'config' };
-      const dispatch = sinon.spy();
-      const store = {
-        dispatch,
-        getState() {
-          return { addons: {}, api, discoResults: [] };
-        },
-      };
-      const entities = {
-        addons: {
-          foo: {
-            slug: 'foo',
-          },
-        },
-        discoResults: {
-          foo: {
-            addon: 'foo',
-          },
-        },
-      };
-      const result = { results: ['foo'] };
-      const getAddons = sinon.stub(discoApi, 'getDiscoveryAddons')
-        .returns(Promise.resolve({ entities, result }));
-      return helpers.loadDataIfNeeded({ store })
-        .then(() => {
-          expect(getAddons.calledWith({ api })).toBeTruthy();
-          expect(dispatch.calledWith(loadEntities(entities))).toBeTruthy();
-          expect(dispatch.calledWith(discoResults([{ addon: 'foo' }]))).toBeTruthy();
-        });
     });
   });
 

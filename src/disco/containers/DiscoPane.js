@@ -7,20 +7,17 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import config from 'config';
 
-import { loadEntities } from 'core/actions';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
-import { safeAsyncConnect } from 'core/utils';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
 } from 'disco/constants';
-import { getDiscoveryAddons } from 'disco/api';
-import { getDiscoResults, discoResults } from 'disco/actions';
+import { getDiscoResults } from 'disco/actions';
 import Addon from 'disco/components/Addon';
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
@@ -169,20 +166,6 @@ export function loadedAddons(state) {
   return state.discoResults.map(
     (result) => ({ ...result, ...state.addons[result.addon] })
   );
-}
-
-// TODO: remove this
-export function loadDataIfNeeded({ store: { dispatch, getState } }) {
-  const state = getState();
-  const addons = loadedAddons(state);
-  if (addons.length > 0) {
-    return Promise.resolve();
-  }
-  return getDiscoveryAddons({ api: state.api })
-    .then(({ entities, result }) => {
-      dispatch(loadEntities(entities));
-      dispatch(discoResults(result.results.map((r) => entities.discoResults[r])));
-    });
 }
 
 export function mapStateToProps(state) {
