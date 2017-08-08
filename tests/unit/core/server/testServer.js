@@ -33,11 +33,12 @@ describe('core/server/base', () => {
     function createStoreAndSagas() {
       return {
         store: createStore(combineReducers({ reduxAsyncConnect })),
-        sagaMiddleware: null,
+        sagaMiddleware: { run: () => ({ done: Promise.resolve() }) },
       };
     }
 
     const app = baseServer(stubRoutes, createStoreAndSagas, {
+      appSagas: sinon.stub(),
       appInstanceName: 'testapp',
     });
     return supertest(app);

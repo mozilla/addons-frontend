@@ -116,7 +116,7 @@ function hydrateOnClient({ res, props = {}, pageProps }) {
     .end();
 }
 
-function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
+function baseServer(routes, createStore, { appSagas, appInstanceName = appName } = {}) {
   const app = new Express();
   app.disable('x-powered-by');
 
@@ -292,13 +292,11 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           }
 
           const props = { component: InitialComponent };
-
-          if (!sagaMiddleware) {
-            return hydrateOnClient({ props, pageProps, res });
+          let sagas = appSagas;
+          if (!sagas) {
+            // eslint-disable-next-line global-require, import/no-dynamic-require
+            sagas = require(`${appName}/sagas`).default;
           }
-
-          // eslint-disable-next-line global-require, import/no-dynamic-require
-          const sagas = require(`${appName}/sagas`).default;
           const runningSagas = sagaMiddleware.run(sagas);
           // We need to render once because it will force components
           // with sagas to call the sagas and load their data.
