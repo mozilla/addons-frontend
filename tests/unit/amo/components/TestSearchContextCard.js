@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import {
+import SearchContextCard, {
   SearchContextCardBase,
   mapStateToProps,
 } from 'amo/components/SearchContextCard';
@@ -11,22 +11,23 @@ import {
   dispatchSearchResults,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { getFakeI18nInst, unwrapComponent } from 'tests/unit/helpers';
 
 
 describe('SearchContextCard', () => {
   let _store;
 
   function render(props = {}) {
-    const store = props.store || _store;
+    if (!props.store) {
+      props.store = _store;
+    }
 
-    return shallow(
-      <SearchContextCardBase
-        {...mapStateToProps(store.getState())}
+    return unwrapComponent(shallow(
+      <SearchContextCard
         i18n={getFakeI18nInst()}
         {...props}
       />
-    );
+    ), SearchContextCardBase).shallow();
   }
 
   function _searchStart(props = {}) {
