@@ -197,12 +197,12 @@ export function unwrapComponent(componentInstance, ComponentBase, {
   if (!ComponentBase) {
     throw new Error('ComponentBase parameter is required');
   }
-  let root = componentInstance;
-
-  if (!(root instanceof ShallowWrapper)) {
+  if (!(componentInstance instanceof ShallowWrapper)) {
     throw new Error(
       'componentInstance must be the result of enzyme.shallow()');
   }
+
+  let root = componentInstance;
 
   if (typeof root.type() === 'string') {
     // If type() is a string then it's a DOM Node.
