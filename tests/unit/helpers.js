@@ -1,5 +1,6 @@
 import base64url from 'base64url';
 import config from 'config';
+import { ShallowWrapper } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
 import React from 'react';
@@ -177,4 +178,56 @@ export function createFetchAddonResult(addon) {
   // Simulate how callApi() applies the add-on schema to
   // the API server response.
   return normalize(addon, coreApi.addon);
+}
+
+/*
+ * Unwraps a component to get the one you care about.
+ *
+ * The `componentInstance` parameter must be the result of enzyme.shallow().
+ *
+ * The `ComponentBase` parameter is the React class (or function) that
+ * you want to retrieve from the shallow render tree.
+ */
+export function unwrapComponent(componentInstance, ComponentBase, {
+  maxTries = 10,
+} = {}) {
+  if (!componentInstance) {
+    throw new Error('componentInstance parameter is required');
+  }
+  if (!ComponentBase) {
+    throw new Error('ComponentBase parameter is required');
+  }
+  let root = componentInstance;
+
+  if (!(root instanceof ShallowWrapper)) {
+    throw new Error(
+      'componentInstance must be the result of enzyme.shallow()');
+  }
+
+  if (typeof root.type() === 'string') {
+    // If type() is a string then it's a DOM Node.
+    // If it were wrapped, it would be a component.
+    throw new Error(
+      'Cannot unwrap this component because it is not wrapped');
+  }
+
+  let tries = 0;
+  const notFoundError = () => (
+    oneLine`Could not find ${ComponentBase} in rendered
+    instance: ${componentInstance.debug()}`
+  );
+
+  while (root) {
+    tries++;
+    if (tries > maxTries) {
+      throw new Error(`${notFoundError()} (gave up after ${maxTries} tries)`);
+    }
+    if (root.is(ComponentBase)) {
+      return root;
+    }
+    // Unwrap the next component in the hierarchy.
+    root = root.first().shallow();
+  }
+
+  throw new Error(notFoundError());
 }
