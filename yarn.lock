@@ -1273,7 +1273,7 @@ bundle-loader@^0.5.5:
   dependencies:
     loader-utils "^1.0.2"
 
-bundlesize@0.6.1:
+bundlesize@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/bundlesize/-/bundlesize-0.6.1.tgz#21bc2cd6facd008962456fd120fa238b9269b506"
   dependencies:
