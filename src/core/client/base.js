@@ -1,6 +1,7 @@
 /* global document */
 
 import 'babel-polyfill';
+import { oneLine } from 'common-tags';
 import config from 'config';
 import FastClick from 'fastclick';
 import RavenJs from 'raven-js';
@@ -90,7 +91,7 @@ export default function makeClient(
       renderApp({});
     }
   } catch (e) {
-    log.info(dedent`Locale not found or required for locale: "${locale}".
+    log.info(oneLine`Locale not found or required for locale: "${locale}".
       Falling back to default lang: "${config.get('defaultLang')}"`);
     renderApp({});
   }

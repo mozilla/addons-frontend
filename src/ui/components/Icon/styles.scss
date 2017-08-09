@@ -1,20 +1,20 @@
 @import "./vars";
-@import '~core/css/inc/mixins';
+@import "~core/css/inc/mixins";
 
 .Icon {
-  content: '';
+  content: "";
   display: inline-block;
   height: $default-icon-size;
   width: $default-icon-size;
 }
 
 .Icon-magnifying-glass {
-  background: url('~amo/img/icons/magnifying-glass.svg') center no-repeat;
+  background: url("~amo/img/icons/magnifying-glass.svg") center no-repeat;
   background-size: cover;
 }
 
 .Icon-eye {
-  background: url('./eye.svg') center no-repeat;
+  background: url("./eye.svg") center no-repeat;
   background-size: cover;
 
   &,
@@ -24,66 +24,66 @@
 }
 
 .Icon-fox {
-  background: url('./fox.svg') center no-repeat;
+  background: url("./fox.svg") center no-repeat;
   background-size: cover;
 }
 
 .Icon-fox-light {
-  background: url('./fox-light.svg') center no-repeat;
+  background: url("./fox-light.svg") center no-repeat;
   background-size: contain;
 }
 
 .Icon-mozilla {
-  background: url('./mozilla.svg') center no-repeat;
+  background: url("./mozilla.svg") center no-repeat;
   background-size: contain;
   height: 32px;
   width: 112px;
 }
 
 .Icon-user {
-  background: url('./user.svg') center no-repeat;
+  background: url("./user.svg") center no-repeat;
   background-size: contain;
 }
 
 .Icon-star {
-  background: url('./star.svg') center no-repeat;
+  background: url("./star.svg") center no-repeat;
   background-size: contain;
 }
 
 .Icon-star-empty {
-  background: url('./star-empty.svg') center no-repeat;
+  background: url("./star-empty.svg") center no-repeat;
   background-size: contain;
 }
 
 .Icon-star-full {
-  background: url('./star-full.svg') center no-repeat;
+  background: url("./star-full.svg") center no-repeat;
   background-size: contain;
 }
 
 .Icon-star-half {
-  background: url('./star-half.svg') center no-repeat;
+  background: url("./star-half.svg") center no-repeat;
   background-size: contain;
 }
 
 .Icon-user-dark {
-  background: url('./user-dark.svg') center no-repeat;
+  background: url("./user-dark.svg") center no-repeat;
   background-size: contain;
 }
 
 .Icon-user-fill {
-  background: url('./user-fill.svg') center no-repeat;
+  background: url("./user-fill.svg") center no-repeat;
   background-size: contain;
 }
 
 .Icon-browse {
-  background: url('./bullet-list.svg') center no-repeat;
+  background: url("./bullet-list.svg") center no-repeat;
   background-size: cover;
   height: 20px;
   width: 20px;
 }
 
 .Icon-themes {
-  background: url('./themes.svg') center no-repeat;
+  background: url("./themes.svg") center no-repeat;
   background-size: cover;
   height: 45px;
   min-width: 37.3px;
@@ -91,7 +91,7 @@
 }
 
 .Icon-extensions {
-  background: url('./extensions.svg') center no-repeat;
+  background: url("./extensions.svg") center no-repeat;
   background-size: cover;
   height: 44.7px;
   min-width: 46.3px;
@@ -99,14 +99,14 @@
 }
 
 .Icon-artistic-unicorn {
-  background: url('./artistic-unicorn.svg') center no-repeat;
+  background: url("./artistic-unicorn.svg") center no-repeat;
   background-size: contain;
   height: 198.6px;
   width: 394px;
 }
 
 .Icon-multitasking-octopus {
-  background: url('./multitasking-octopus.svg') center no-repeat;
+  background: url("./multitasking-octopus.svg") center no-repeat;
   background-size: contain;
   height: 199.3px;
   width: 366px;

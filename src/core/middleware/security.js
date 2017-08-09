@@ -7,6 +7,7 @@ import config from 'config';
 
 import log from 'core/logger';
 
+
 export function frameguard({ _config = config } = {}) {
   return helmet.frameguard(_config.get('frameGuard'));
 }
@@ -26,13 +27,16 @@ export function getNoScriptStyles(appName, { _config = config, _log = log } = {}
 }
 
 export function csp({ _config = config, noScriptStyles, _log = log } = {}) {
-  const cspConfig = _config.get('CSP');
+  const cspConfig = _config.get('CSP') !== 'false' ? _config.get('CSP') : false;
 
   if (cspConfig) {
     if (noScriptStyles) {
       const hash = crypto.createHash('sha256').update(noScriptStyles).digest('base64');
       const cspValue = `'sha256-${hash}'`;
-      if (!cspConfig.directives.styleSrc.includes(cspValue)) {
+      if (
+        cspConfig.directives &&
+        !cspConfig.directives.styleSrc.includes(cspValue)
+      ) {
         cspConfig.directives.styleSrc.push(cspValue);
       }
     }

@@ -8,6 +8,7 @@ import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading-bar';
+import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
 import SearchForm from 'amo/components/SearchForm';
@@ -195,27 +196,29 @@ export class AppBase extends React.Component {
 
     const query = location.query ? location.query.q : null;
     return (
-      <div className="amo">
-        <LoadingBar className="App-loading-bar" />
-        <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
-        <InfoDialogComponent />
-        <HeaderComponent
-          SearchFormComponent={SearchForm}
-          isHomePage={isHomePage}
-          location={location}
-          query={query}
-          ref={(ref) => { this.header = ref; }}
-        />
-        <div className="App-content">
-          <ErrorPage getErrorComponent={getErrorComponent}>
-            {children}
-          </ErrorPage>
+      <NestedStatus code={200}>
+        <div className="amo">
+          <LoadingBar className="App-loading-bar" />
+          <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
+          <InfoDialogComponent />
+          <HeaderComponent
+            SearchFormComponent={SearchForm}
+            isHomePage={isHomePage}
+            location={location}
+            query={query}
+            ref={(ref) => { this.header = ref; }}
+          />
+          <div className="App-content">
+            <ErrorPage getErrorComponent={getErrorComponent}>
+              {children}
+            </ErrorPage>
+          </div>
+          <FooterComponent
+            handleViewDesktop={this.onViewDesktop}
+            location={location}
+          />
         </div>
-        <FooterComponent
-          handleViewDesktop={this.onViewDesktop}
-          location={location}
-        />
-      </div>
+      </NestedStatus>
     );
   }
 }

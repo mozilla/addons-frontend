@@ -5,23 +5,22 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { getLanding } from 'amo/actions/landing';
 import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import CategoriesHeader
-  from 'amo/components/CategoriesHeader';
-import { loadLandingAddons } from 'amo/utils';
+import Categories from 'amo/components/Categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
-import { AddonTypeNotFound } from 'core/errors';
+import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import {
-  apiAddonType as getApiAddonType,
-  safeAsyncConnect,
+  apiAddonType,
+  apiAddonTypeIsValid,
   visibleAddonType as getVisibleAddonType,
 } from 'core/utils';
 import translate from 'core/i18n/translate';
@@ -38,61 +37,83 @@ const ICON_MAP = {
 
 export class LandingPageBase extends React.Component {
   static propTypes = {
-    apiAddonType: PropTypes.func.isRequired,
-    contentForType: PropTypes.func,
+    addonTypeOfResults: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
+    errorHandler: PropTypes.object.isRequired,
     featuredAddons: PropTypes.array,
     highlyRatedAddons: PropTypes.array,
+    loading: PropTypes.bool.isRequired,
     popularAddons: PropTypes.array,
     i18n: PropTypes.object.isRequired,
     params: PropTypes.objectOf({
       visibleAddonType: PropTypes.string.isRequired,
     }).isRequired,
-  }
-
-  static defaultProps = {
-    apiAddonType: getApiAddonType,
-    contentForType: null,
+    resultsLoaded: PropTypes.bool.isRequired,
   }
 
   componentWillMount() {
+    const { params } = this.props;
+    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
+      log.warn(oneLine`Skipping componentWillMount() because visibleAddonType
+        is invalid: ${params.visibleAddonType}`);
+      return;
+    }
+
+    this.getLandingDataIfNeeded();
     this.setViewContextType();
   }
 
   componentDidUpdate() {
+    const { params } = this.props;
+    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
+      log.warn(oneLine`Skipping componentDidUpdate() because visibleAddonType
+        is invalid: ${params.visibleAddonType}`);
+      return;
+    }
+
+    this.getLandingDataIfNeeded();
     this.setViewContextType();
   }
 
-  setViewContextType() {
-    const { apiAddonType, dispatch, params } = this.props;
+  getLandingDataIfNeeded() {
+    const {
+      addonTypeOfResults,
+      dispatch,
+      errorHandler,
+      loading,
+      params,
+      resultsLoaded,
+    } = this.props;
 
-    // This error is handled properly in `render()`, so we just ignore it
-    // and log here. The reason for this is this component gets loaded for
-    // what should be a 404 (/not-a-page/) because of limitations in our
-    // current router. See:
-    // https://github.com/mozilla/addons-frontend/issues/2161
-    try {
-      const addonType = apiAddonType(params.visibleAddonType);
-      dispatch(setViewContext(addonType));
-    } catch (err) {
-      if (err instanceof AddonTypeNotFound) {
-        log.info('AddonTypeNotFound in setViewContextType()', err);
-      } else {
-        throw err;
-      }
+    const requestedAddonType = apiAddonType(params.visibleAddonType);
+
+    if (!loading && !errorHandler.hasError() &&
+        (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
+      dispatch(getLanding({
+        addonType: requestedAddonType,
+        errorHandlerId: errorHandler.id,
+      }));
     }
   }
 
+  setViewContextType() {
+    const { dispatch, params } = this.props;
+    const addonType = apiAddonType(params.visibleAddonType);
+    dispatch(setViewContext(addonType));
+  }
+
   contentForType = (visibleAddonType) => {
-    const { apiAddonType, i18n } = this.props;
+    const { i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
+
+    const featuredFooterLink = {
+      pathname: `/${getVisibleAddonType(addonType)}/featured/`,
+    };
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
         featuredHeader: i18n.gettext('Featured extensions'),
-        featuredFooterLink: {
-          pathname: `/${getVisibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
-        },
+        featuredFooterLink,
         featuredFooterText: i18n.gettext('More featured extensions'),
         popularHeader: i18n.gettext('Most popular extensions'),
         popularFooterLink: {
@@ -112,9 +133,7 @@ export class LandingPageBase extends React.Component {
       },
       [ADDON_TYPE_THEME]: {
         featuredHeader: i18n.gettext('Featured themes'),
-        featuredFooterLink: {
-          pathname: `/${getVisibleAddonType(ADDON_TYPE_THEME)}/featured/`,
-        },
+        featuredFooterLink,
         featuredFooterText: i18n.gettext('More featured themes'),
         popularHeader: i18n.gettext('Most popular themes'),
         popularFooterLink: {
@@ -148,29 +167,22 @@ export class LandingPageBase extends React.Component {
 
   render() {
     const {
+      errorHandler,
       featuredAddons,
       highlyRatedAddons,
+      loading,
       popularAddons,
       i18n,
     } = this.props;
     const { visibleAddonType } = this.props.params;
-    const contentForType = this.props.contentForType || this.contentForType;
 
-    // TODO: Remove this code and throw a proper error once
-    // https://github.com/mozilla/addons-frontend/issues/2161 is fixed.
-    // This is only used because the router will pass any top-level URL
-    // through to this component because of limitations in our current router.
-    let content;
-    try {
-      content = contentForType(visibleAddonType);
-    } catch (err) {
-      if (err instanceof AddonTypeNotFound) {
-        log.info('Rendering <NotFound /> for error:', err);
-        return <NotFound />;
-      }
-
-      throw err;
+    if (!apiAddonTypeIsValid(visibleAddonType)) {
+      log.warn(oneLine`Rendering 404 because visibleAddonType
+        is invalid: ${visibleAddonType}`);
+      return <NotFound />;
     }
+
+    const content = this.contentForType(visibleAddonType);
 
     const { addonType, html } = content;
     const headingText = {
@@ -187,6 +199,7 @@ export class LandingPageBase extends React.Component {
 
     return (
       <div className={classNames('LandingPage', `LandingPage--${addonType}`)}>
+        {errorHandler.hasError() ? errorHandler.renderError() : null}
         <div className="LandingPage-header">
           {this.icon(addonType)}
 
@@ -200,7 +213,7 @@ export class LandingPageBase extends React.Component {
           </div>
         </div>
 
-        <CategoriesHeader addonType={addonType} />
+        <Categories addonType={addonType} />
 
         <Button
           className="LandingPage-button Button--light"
@@ -215,6 +228,7 @@ export class LandingPageBase extends React.Component {
           footerText={html.featuredFooterText}
           footerLink={html.featuredFooterLink}
           header={html.featuredHeader}
+          loading={loading}
         />
         <LandingAddonsCard
           addons={highlyRatedAddons}
@@ -222,6 +236,7 @@ export class LandingPageBase extends React.Component {
           footerLink={html.highlyRatedFooterLink}
           footerText={html.highlyRatedFooterText}
           header={html.highlyRatedHeader}
+          loading={loading}
         />
         <LandingAddonsCard
           addons={popularAddons}
@@ -229,6 +244,7 @@ export class LandingPageBase extends React.Component {
           footerLink={html.popularFooterLink}
           footerText={html.popularFooterText}
           header={html.popularHeader}
+          loading={loading}
         />
       </div>
     );
@@ -237,14 +253,17 @@ export class LandingPageBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
+    addonTypeOfResults: state.landing.addonType,
     featuredAddons: state.landing.featured.results,
     highlyRatedAddons: state.landing.highlyRated.results,
+    loading: state.landing.loading,
     popularAddons: state.landing.popular.results,
+    resultsLoaded: state.landing.resultsLoaded,
   };
 }
 
 export default compose(
-  safeAsyncConnect([{ promise: loadLandingAddons }]),
+  withErrorHandler({ name: 'LandingPage' }),
   connect(mapStateToProps),
   translate({ withRef: true }),
 )(LandingPageBase);

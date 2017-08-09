@@ -2,9 +2,12 @@
 
 .ShowMoreCard-contents {
   &::after {
-    background: linear-gradient(transparent, $base-color);
+    // rgba(255, 255, 255, 0) instead of transparent prevents
+    // grey line in Safari.
+    // See: https://github.com/mozilla/addons-frontend/issues/2865
+    background: linear-gradient(rgba(255, 255, 255, 0), $base-color);
     bottom: 0;
-    content: '';
+    content: "";
     height: 20px;
     left: 0;
     position: absolute;
@@ -12,8 +15,8 @@
   }
 
   max-height: 150px;
-  position: relative;
   overflow: hidden;
+  position: relative;
 
   .ShowMoreCard--expanded & {
     &::after {

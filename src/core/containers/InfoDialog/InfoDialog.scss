@@ -3,16 +3,16 @@
 
 .show-info {
   background: #fff;
-  border-radius: 5px;
-  overflow: hidden;
   border: 1px solid #ccc;
+  border-radius: 5px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   left: 10px;
+  overflow: hidden;
+  position: fixed;
   right: 10px;
   top: 10px;
-  position: fixed;
   z-index: 20;
 
   @include respond-to(medium) {
@@ -64,11 +64,11 @@
 
   button {
     align-self: stretch;
-    flex-direction: column;
     background: #2ea3ff;
-    padding: 0.8em;
     border: none;
     color: #fff;
+    flex-direction: column;
+    padding: 0.8em;
     transition: background 200ms;
 
     &:focus,

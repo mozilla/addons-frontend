@@ -158,10 +158,14 @@ export function browserBase64Decode(str) {
   }).join(''));
 }
 
-export function apiAddonType(addonType) {
-  if (!Object.prototype.hasOwnProperty.call(
+export function apiAddonTypeIsValid(addonType) {
+  return Object.prototype.hasOwnProperty.call(
     API_ADDON_TYPES_MAPPING, addonType
-  )) {
+  );
+}
+
+export function apiAddonType(addonType) {
+  if (!apiAddonTypeIsValid(addonType)) {
     throw new AddonTypeNotFound(
       `"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
   }
@@ -242,7 +246,7 @@ export function safeAsyncConnect(
     if (!conf.promise) {
       // This is the only way we use asyncConnect() for now.
       throw new Error(
-        dedent`Expected safeAsyncConnect() config to define a promise:
+        oneLine`Expected safeAsyncConnect() config to define a promise:
         ${JSON.stringify(conf)}`);
     }
     return {

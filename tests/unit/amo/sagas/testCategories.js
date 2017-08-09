@@ -6,20 +6,23 @@ import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';
 import * as actions from 'core/actions/categories';
 import * as api from 'core/api';
-import {
-  CATEGORIES_FAIL,
-  CATEGORIES_LOAD,
-} from 'core/constants';
+import { CATEGORIES_LOAD } from 'core/constants';
+import { ErrorHandler } from 'core/errorHandler';
 import apiReducer from 'core/reducers/api';
 import categoriesReducer from 'core/reducers/categories';
 
 
 describe('categoriesSaga', () => {
+  let errorHandler;
   let initialState;
   let sagaTester;
   let store;
 
   beforeEach(() => {
+    errorHandler = new ErrorHandler({
+      id: 'some-error-handler',
+      dispatch: sinon.stub(),
+    });
     store = createStore().store;
     store.dispatch(setClientApp('firefox'));
     store.dispatch(setLang('en-US'));
@@ -37,6 +40,12 @@ describe('categoriesSaga', () => {
     sagaTester.start(categoriesSaga);
   });
 
+  function _categoriesFetch(overrides = {}) {
+    return actions.categoriesFetch({
+      errorHandlerId: errorHandler.id, ...overrides,
+    });
+  }
+
   it('should get Api from state then make API request to categories', async () => {
     const mockApi = sinon.mock(api);
     const entities = sinon.stub();
@@ -52,7 +61,7 @@ describe('categoriesSaga', () => {
 
     expect(sagaTester.getState()).toEqual(initialState);
 
-    sagaTester.dispatch(actions.categoriesFetch());
+    sagaTester.dispatch(_categoriesFetch());
 
     expect(sagaTester.getState()).toEqual({
       ...initialState,
@@ -64,7 +73,7 @@ describe('categoriesSaga', () => {
     const calledActions = sagaTester.getCalledActions();
 
     // First action is CATEGORIES_FETCH.
-    expect(calledActions[0]).toEqual(actions.categoriesFetch());
+    expect(calledActions[0]).toEqual(_categoriesFetch());
 
     // Next action is showing the loading bar.
     expect(calledActions[1]).toEqual(showLoading());
@@ -78,30 +87,20 @@ describe('categoriesSaga', () => {
     mockApi.verify();
   });
 
-  it('should dispatch fail if API request fails', async () => {
+  it('should handle API errors', async () => {
     const mockApi = sinon.mock(api);
     const error = new Error('I have failed!');
-
     mockApi.expects('categories').throws(error);
 
     expect(sagaTester.getState()).toEqual(initialState);
 
-    sagaTester.dispatch(actions.categoriesFetch());
+    sagaTester.dispatch(_categoriesFetch());
 
-    await sagaTester.waitFor(CATEGORIES_FAIL);
+    const errorAction = errorHandler.createErrorAction(error);
+    await sagaTester.waitFor(errorAction.type);
 
     const calledActions = sagaTester.getCalledActions();
-
-    // First action is CATEGORIES_FETCH.
-    expect(calledActions[0]).toEqual(actions.categoriesFetch());
-
-    // Next action is showing the loading bar.
-    expect(calledActions[1]).toEqual(showLoading());
-
-    // Next action is failure because the API request failed.
-    expect(calledActions[2]).toEqual(actions.categoriesFail(error));
-
-    // Last action is to hide the loading bar.
+    expect(calledActions[2]).toEqual(errorAction);
     expect(calledActions[3]).toEqual(hideLoading());
   });
 
@@ -118,10 +117,10 @@ describe('categoriesSaga', () => {
       })
       .returns(Promise.resolve({ entities, result }));
 
-    sagaTester.dispatch(actions.categoriesFetch());
+    sagaTester.dispatch(_categoriesFetch());
     // Dispatch the fetch action again to ensure takeEvery() is respected
     // and both actions are responded to.
-    sagaTester.dispatch(actions.categoriesFetch());
+    sagaTester.dispatch(_categoriesFetch());
 
     await sagaTester.waitFor(CATEGORIES_LOAD);
 

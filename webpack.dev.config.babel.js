@@ -12,6 +12,7 @@ import webpackConfig from './webpack.prod.config.babel';
 import webpackIsomorphicToolsConfig
   from './src/core/server/webpack-isomorphic-tools-config';
 
+
 const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
 
 const webpackIsomorphicToolsPlugin =
@@ -70,6 +71,16 @@ export default Object.assign({}, webpackConfig, {
   },
   plugins: [
     ...getPlugins(),
+    // Load unminified React and Redux in development to get better
+    // error messages, because they use
+    // [Invariant](https://github.com/zertosh/invariant) which
+    // hides error messages in the production build.
+    new webpack.NormalModuleReplacementPlugin(
+      /^react$/, 'react/dist/react.js'),
+    new webpack.NormalModuleReplacementPlugin(
+      /^react-dom$/, 'react-dom/dist/react-dom.js'),
+    new webpack.NormalModuleReplacementPlugin(
+      /^redux$/, 'redux/dist/redux.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),

@@ -43,7 +43,7 @@ export class SearchContextCardBase extends React.Component {
       searchText = i18n.gettext('No add-ons found');
     } else {
       searchText = i18n.sprintf(i18n.ngettext(
-        '%(count)s add-on found"',
+        '%(count)s add-on found',
         '%(count)s add-ons found',
         count), { count: i18n.formatNumber(count) }
       );

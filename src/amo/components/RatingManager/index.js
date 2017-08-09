@@ -4,6 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { oneLine } from 'common-tags';
 
 import { withErrorHandling } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
@@ -201,7 +202,7 @@ export const mapStateToProps = (
 
   // Look for the latest saved review by this user for this add-on.
   if (userId && state.reviews && ownProps.addon) {
-    log.info(dedent`Checking state for review by user ${userId},
+    log.info(oneLine`Checking state for review by user ${userId},
       addonId ${ownProps.addon.id}, versionId ${ownProps.version.id}`);
 
     const allUserReviews = state.reviews[userId] || {};

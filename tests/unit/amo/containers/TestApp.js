@@ -1,9 +1,11 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import { findDOMNode } from 'react-dom';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
 } from 'react-addons-test-utils';
+import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
@@ -56,8 +58,8 @@ describe('App', () => {
 
   const FakeInfoDialogComponent = () => <div />;
 
-  function render({ children = [], ...customProps } = {}) {
-    const props = {
+  function renderProps(customProps = {}) {
+    return {
       i18n: getFakeI18nInst(),
       logOutUser: sinon.stub(),
       location: sinon.stub(),
@@ -65,6 +67,10 @@ describe('App', () => {
       store: createStore().store,
       ...customProps,
     };
+  }
+
+  function render({ children = [], ...customProps } = {}) {
+    const props = renderProps(customProps);
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={props.store}>
         <I18nProvider i18n={props.i18n}>
@@ -177,6 +183,11 @@ describe('App', () => {
     const rootNode = findDOMNode(root);
 
     expect(rootNode.textContent).toContain('Page not found');
+  });
+
+  it('renders a response with a 200 status', () => {
+    const root = shallow(<AppBase {...renderProps()} />);
+    expect(root.find(NestedStatus)).toHaveProp('code', 200);
   });
 
   describe('handling expired auth tokens', () => {

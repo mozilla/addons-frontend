@@ -1,6 +1,6 @@
-@import '~core/css/inc/mixins';
-@import '~amo/css/inc/vars';
-@import '~ui/css/vars';
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 
 .AddonMeta {
   display: flex;
@@ -27,4 +27,17 @@
   justify-content: flex-start;
   margin: 0;
   padding: 0;
+
+  @include respond-to(medium) {
+    justify-content: flex-end;
+
+    [dir=rtl] & {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.AddonMeta .Rating-star-group {
+  @include margin-end(-2.5px);
+  @include margin-start(-2.5px);
 }

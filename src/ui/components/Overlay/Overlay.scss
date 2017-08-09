@@ -9,11 +9,11 @@
 }
 
 .Overlay-background {
-  background: transparentize($link-color, 0.1);
   // This only works in WebKit right now, but it will look nice.
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1178765
   // http://caniuse.com/#feat=css-backdrop-filter
   backdrop-filter: blur(2px);
+  background: transparentize($link-color, 0.1);
   height: 100%;
   left: 0;
   position: fixed;
