@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import {
+import AddonCompatibilityError, {
   AddonCompatibilityErrorBase,
   mapStateToProps,
 } from 'disco/components/AddonCompatibilityError';
@@ -11,21 +11,21 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { getFakeI18nInst, unwrapComponent } from 'tests/unit/helpers';
 
 
 describe('AddonCompatibilityError', () => {
   function render({ ...props }) {
     const { store } = dispatchClientMetadata();
 
-    return shallow(
-      <AddonCompatibilityErrorBase
+    return unwrapComponent(shallow(
+      <AddonCompatibilityError
         i18n={getFakeI18nInst()}
+        store={store}
         minVersion={null}
-        {...mapStateToProps(store.getState())}
         {...props}
       />
-    );
+    ), AddonCompatibilityErrorBase);
   }
 
   it('renders a notice for old versions of Firefox', () => {
