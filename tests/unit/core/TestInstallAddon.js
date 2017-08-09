@@ -45,11 +45,11 @@ const {
   WithInstallHelpers, installTheme, makeProgressHandler, makeMapDispatchToProps,
   mapStateToProps, withInstallHelpers,
 } = installAddon;
+const BaseComponent = () => <div />;
 
 function componentWithInstallHelpers({ src = 'some-src' } = {}) {
   // This simulates how a component would typically apply
   // the withInstallHelpers() HOC wrapper.
-  const BaseComponent = () => <div />;
   return compose(
     withInstallHelpers({ src })
   )(BaseComponent);
@@ -159,7 +159,9 @@ describe('withInstallHelpers', () => {
       _addonManager,
       store: createStore().store,
     };
-    const root = unwrapComponent(<Component {...props} />, BaseComponent);
+    const root = unwrapComponent(
+      shallow(<Component {...props} />), BaseComponent
+    );
 
     // Update the component with the same props (i.e. same add-on guid)
     // and make sure the status is not set.
