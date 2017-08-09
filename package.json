@@ -16,6 +16,7 @@
     "amo:dev": "better-npm-run amo:dev",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
+    "bundlesize": "bundlesize",
     "disco": "better-npm-run disco",
     "eslint": "eslint .",
     "flow": "flow",
@@ -197,7 +198,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "bundle-loader": "^0.5.5",
-    "bundlesize": "^0.6.1",
+    "bundlesize": "^0.13.2",
     "chalk": "^2.0.1",
     "chokidar-cli": "^1.2.0",
     "concurrently": "^3.4.0",
@@ -256,11 +257,7 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/amo-i18n-*.js",
-      "threshold": "7 Kb"
-    },
-    {
-      "path": "./dist/amo-*.js",
+      "path": "./dist/*.js",
       "threshold": "300 Kb"
     }
   ]
