@@ -95,5 +95,32 @@ describe('helpers', () => {
         });
       }).toThrow(/Could not find .*gave up after 2 tries/);
     });
+
+    it('lets you pass options to shallow()', () => {
+      const componentDidUpdate = sinon.stub();
+
+      class LifecyleExample extends Component {
+        componentDidUpdate() {
+          componentDidUpdate();
+        }
+
+        render() {
+          return <div>example of using lifecycle methods</div>;
+        }
+      }
+
+      const Example = compose(
+        wrapper(),
+      )(LifecyleExample);
+
+      const root = unwrapComponent(shallow(<Example />), LifecyleExample, {
+        shallowOptions: {
+          lifecycleExperimental: true,
+        },
+      });
+      root.setProps({ something: 'else' });
+
+      sinon.assert.called(componentDidUpdate);
+    });
   });
 });

@@ -190,6 +190,7 @@ export function createFetchAddonResult(addon) {
  */
 export function unwrapComponent(componentInstance, ComponentBase, {
   maxTries = 10,
+  shallowOptions,
 } = {}) {
   if (!componentInstance) {
     throw new Error('componentInstance parameter is required');
@@ -224,7 +225,7 @@ export function unwrapComponent(componentInstance, ComponentBase, {
     }
     if (root.is(ComponentBase)) {
       // Now that we found the target component, render it.
-      return root.shallow();
+      return root.shallow(shallowOptions);
     }
     // Unwrap the next component in the hierarchy.
     root = root.first().shallow();
