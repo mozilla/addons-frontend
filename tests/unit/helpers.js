@@ -223,7 +223,8 @@ export function unwrapComponent(componentInstance, ComponentBase, {
       throw new Error(`${notFoundError()} (gave up after ${maxTries} tries)`);
     }
     if (root.is(ComponentBase)) {
-      return root;
+      // Now that we found the target component, render it.
+      return root.shallow();
     }
     // Unwrap the next component in the hierarchy.
     root = root.first().shallow();

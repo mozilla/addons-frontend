@@ -3,7 +3,6 @@ import React from 'react';
 
 import SearchContextCard, {
   SearchContextCardBase,
-  mapStateToProps,
 } from 'amo/components/SearchContextCard';
 import { searchStart } from 'core/actions/search';
 import {
@@ -17,17 +16,18 @@ import { getFakeI18nInst, unwrapComponent } from 'tests/unit/helpers';
 describe('SearchContextCard', () => {
   let _store;
 
-  function render(props = {}) {
-    if (!props.store) {
-      props.store = _store;
-    }
+  function render(customProps = {}) {
+    const props = {
+      store: _store,
+      ...customProps,
+    };
 
     return unwrapComponent(shallow(
       <SearchContextCard
         i18n={getFakeI18nInst()}
         {...props}
       />
-    ), SearchContextCardBase).shallow();
+    ), SearchContextCardBase);
   }
 
   function _searchStart(props = {}) {

@@ -235,7 +235,7 @@ describe('withInstallHelpers inner functions', () => {
         guid,
         installURL,
       });
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
         .then(() => {
@@ -248,7 +248,7 @@ describe('withInstallHelpers inner functions', () => {
 
     it('lets you pass custom props to setCurrentStatus', () => {
       const { root, dispatch } = renderWithInstallHelpers();
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       const guid = '@foo';
       const installURL = 'http://the.url';
@@ -278,7 +278,7 @@ describe('withInstallHelpers inner functions', () => {
         guid,
         installURL,
       });
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
         .then(() => {
@@ -304,7 +304,7 @@ describe('withInstallHelpers inner functions', () => {
         guid,
         installURL,
       });
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
         .then(() => {
@@ -327,7 +327,7 @@ describe('withInstallHelpers inner functions', () => {
         guid,
         installURL,
       });
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
         .then(() => {
@@ -354,7 +354,7 @@ describe('withInstallHelpers inner functions', () => {
         guid,
         installURL,
       });
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
         .then(() => {
@@ -381,7 +381,7 @@ describe('withInstallHelpers inner functions', () => {
         guid,
         installURL,
       });
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
         .then(() => {
@@ -404,7 +404,7 @@ describe('withInstallHelpers inner functions', () => {
         guid,
         installURL,
       });
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
         .then(() => {
@@ -428,7 +428,7 @@ describe('withInstallHelpers inner functions', () => {
         guid,
         installURL,
       });
-      const setCurrentStatus = root.prop('setCurrentStatus');
+      const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
         .then(() => {
@@ -516,7 +516,7 @@ describe('withInstallHelpers inner functions', () => {
       const { root } = renderWithInstallHelpers({
         name, iconUrl, guid, _addonManager: fakeAddonManager,
       });
-      const enable = root.prop('enable');
+      const { enable } = root.instance().props;
 
       const fakeShowInfo = sinon.stub();
       return enable({ _showInfo: fakeShowInfo })
@@ -533,7 +533,7 @@ describe('withInstallHelpers inner functions', () => {
       const { root } = renderWithInstallHelpers({
         name, iconUrl, guid, _addonManager: fakeAddonManager,
       });
-      const enable = root.prop('enable');
+      const { enable } = root.instance().props;
 
       const fakeShowInfo = sinon.stub();
       return enable({ _showInfo: fakeShowInfo })
@@ -550,7 +550,7 @@ describe('withInstallHelpers inner functions', () => {
       const { dispatch, root } = renderWithInstallHelpers({
         name, iconUrl, guid, _addonManager: fakeAddonManager,
       });
-      const enable = root.prop('enable');
+      const { enable } = root.instance().props;
 
       return enable()
         .then(() => {
@@ -568,7 +568,7 @@ describe('withInstallHelpers inner functions', () => {
       const { root, dispatch } = renderWithInstallHelpers({
         name, iconUrl, guid, _addonManager: fakeAddonManager,
       });
-      const enable = root.prop('enable');
+      const { enable } = root.instance().props;
 
       return enable()
         .then(() => {
@@ -586,7 +586,7 @@ describe('withInstallHelpers inner functions', () => {
       const { root } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager, installURL, src,
       });
-      const install = root.prop('install');
+      const { install } = root.instance().props;
 
       return install({ guid, installURL })
         .then(() => {
@@ -609,7 +609,7 @@ describe('withInstallHelpers inner functions', () => {
         _tracking: fakeTracking,
         name,
       });
-      const install = root.prop('install');
+      const { install } = root.instance().props;
 
       return install({ guid, installURL, name, type })
         .then(() => {
@@ -625,7 +625,7 @@ describe('withInstallHelpers inner functions', () => {
       const { root, dispatch } = renderWithInstallHelpers({
         guid,
       });
-      const install = root.prop('install');
+      const { install } = root.instance().props;
 
       return install({ guid, installURL })
         .then(() => {
@@ -645,7 +645,7 @@ describe('withInstallHelpers inner functions', () => {
         name: 'test-addon',
       };
       const { root, dispatch } = renderWithInstallHelpers(props);
-      const install = root.prop('install');
+      const { install } = root.instance().props;
 
       return install({ guid, installURL })
         .then(() => {
@@ -680,7 +680,7 @@ describe('withInstallHelpers inner functions', () => {
         name: 'test-addon',
       };
       const { root, dispatch } = renderWithInstallHelpers(props);
-      const install = root.prop('install');
+      const { install } = root.instance().props;
 
       return install({ guid, installURL })
         .then(() => {
@@ -702,7 +702,7 @@ describe('withInstallHelpers inner functions', () => {
       const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager, guid,
       });
-      const install = root.prop('install');
+      const { install } = root.instance().props;
 
       return install({ guid, installURL })
         .then(() => {
@@ -725,7 +725,7 @@ describe('withInstallHelpers inner functions', () => {
       const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
       });
-      const uninstall = root.prop('uninstall');
+      const { uninstall } = root.instance().props;
 
       return uninstall({ guid, installURL })
         .then(() => {
@@ -743,7 +743,7 @@ describe('withInstallHelpers inner functions', () => {
       const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
       });
-      const uninstall = root.prop('uninstall');
+      const { uninstall } = root.instance().props;
 
       return uninstall({ guid, installURL })
         .then(() => {
@@ -769,7 +769,7 @@ describe('withInstallHelpers inner functions', () => {
         _addonManager: fakeAddonManager,
         _tracking: fakeTracking,
       });
-      const uninstall = root.prop('uninstall');
+      const { uninstall } = root.instance().props;
 
       const name = 'whatevs';
       const type = ADDON_TYPE_EXTENSION;
@@ -793,7 +793,7 @@ describe('withInstallHelpers inner functions', () => {
         _addonManager: fakeAddonManager,
         _tracking: fakeTracking,
       });
-      const uninstall = root.prop('uninstall');
+      const { uninstall } = root.instance().props;
       const name = 'whatevs';
 
       return uninstall({ guid, installURL, name, type: ADDON_TYPE_THEME })
@@ -815,7 +815,7 @@ describe('withInstallHelpers inner functions', () => {
         _addonManager: fakeAddonManager,
         _tracking: fakeTracking,
       });
-      const uninstall = root.prop('uninstall');
+      const { uninstall } = root.instance().props;
       const name = 'whatevs';
       const type = 'foo';
 
@@ -862,7 +862,7 @@ describe('withInstallHelpers inner functions', () => {
           guid: 'fake-guid@whatever',
           type: ADDON_TYPE_THEME,
         });
-        const previewTheme = root.prop('previewTheme');
+        const { previewTheme } = root.instance().props;
 
         const themeAction = sinon.spy();
         const node = sinon.stub();
@@ -884,7 +884,7 @@ describe('withInstallHelpers inner functions', () => {
           guid: 'fake-guid@whatever',
           type: ADDON_TYPE_THEME,
         });
-        const resetThemePreview = root.prop('resetThemePreview');
+        const { resetThemePreview } = root.instance().props;
 
         const themeAction = sinon.spy();
         const node = sinon.stub();

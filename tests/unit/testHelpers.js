@@ -48,7 +48,7 @@ describe('helpers', () => {
       )(ExampleBase);
 
       const root = unwrapComponent(shallow(<Example />), ExampleBase);
-      expect(root.type()).toEqual(ExampleBase);
+      expect(root.text()).toEqual('Example component');
     });
 
     it('lets you unwrap a component two levels', () => {
@@ -58,7 +58,7 @@ describe('helpers', () => {
       )(ExampleBase);
 
       const root = unwrapComponent(shallow(<Example />), ExampleBase);
-      expect(root.type()).toEqual(ExampleBase);
+      expect(root.text()).toEqual('Example component');
     });
 
     it('lets you unwrap a React class based component', () => {
@@ -73,7 +73,7 @@ describe('helpers', () => {
       )(ReactExampleBase);
 
       const root = unwrapComponent(shallow(<Example />), ReactExampleBase);
-      expect(root.type()).toEqual(ReactExampleBase);
+      expect(root.instance()).toBeInstanceOf(ReactExampleBase);
     });
 
     it('does not let you unwrap a component that is not wrapped', () => {
