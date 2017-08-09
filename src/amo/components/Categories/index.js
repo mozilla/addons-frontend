@@ -107,7 +107,7 @@ export class CategoriesBase extends React.Component {
               );
             })}
           </div>
-        :
+          :
           <ul className="Categories-list">
             {categories.map((category) => {
               // Flow cannot figure out CategoryType in this case.

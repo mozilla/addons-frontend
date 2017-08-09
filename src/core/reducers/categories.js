@@ -65,7 +65,7 @@ export default function categories(state = initialState, action) {
         Object.keys(categoryList).forEach((appName) => {
           Object.keys(categoryList[appName]).forEach((addonType) => {
             categoryList[appName][addonType] = categoryList[appName][addonType]
-              .sort((a, b) => a.name >= b.name)
+              .sort((a, b) => a.name.localeCompare(b.name))
               .reduce((object, value) => (
                 { ...object, [value.slug]: value }
               ), {});

@@ -88,7 +88,52 @@ describe('<Categories />', () => {
         {
           application: 'android',
           name: 'Travel',
+          slug: 'Travel',
+          type: ADDON_TYPE_EXTENSION,
+        },
+      ],
+    };
+
+    const { store } = dispatchClientMetadata();
+    store.dispatch(categoriesLoad(categoriesResponse));
+    const { categories } = mapStateToProps(store.getState());
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      categories,
+    });
+
+    expect(root.find('.Categories-list').childAt(0).find(Button))
+      .toHaveProp('children', 'Games');
+    expect(root.find('.Categories-list').childAt(1).find(Button))
+      .toHaveProp('children', 'Travel');
+  });
+
+  it('sorts and renders the sorted categories', () => {
+    const categoriesResponse = {
+      result: [
+        {
+          application: 'android',
+          name: 'Travel',
           slug: 'travel',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          application: 'android',
+          name: 'Music',
+          slug: 'music',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          application: 'android',
+          name: 'Nature',
+          slug: 'nature',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          application: 'android',
+          name: 'Games',
+          slug: 'Games',
           type: ADDON_TYPE_EXTENSION,
         },
       ],
@@ -106,6 +151,10 @@ describe('<Categories />', () => {
     expect(root.find('.Categories-list').childAt(0).find(Button))
       .toHaveProp('children', 'Games');
     expect(root.find('.Categories-list').childAt(1).find(Button))
+      .toHaveProp('children', 'Music');
+    expect(root.find('.Categories-list').childAt(2).find(Button))
+      .toHaveProp('children', 'Nature');
+    expect(root.find('.Categories-list').childAt(3).find(Button))
       .toHaveProp('children', 'Travel');
   });
 

@@ -106,7 +106,7 @@ describe('categories reducer', () => {
       });
     });
 
-    it('sets the categories', () => {
+    it('sets the categories in a sorted order', () => {
       const result = [
         {
           application: 'android',
