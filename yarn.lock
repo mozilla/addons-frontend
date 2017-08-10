@@ -2547,9 +2547,9 @@ eslint-config-amo@^0.0.1:
     eslint-plugin-jsx-a11y "^5.0.3"
     eslint-plugin-react "^7.0.1"
 
-eslint-config-amo@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-0.1.0.tgz#cfd6747d01dd7add4a423e7037daab74e79dab4b"
+eslint-config-amo@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-0.1.1.tgz#337e296c788017f2f11b6e5d846c11d0dcb3c4ba"
   dependencies:
     eslint-config-airbnb "15.1.0"
     eslint-plugin-import "2.7.0"
