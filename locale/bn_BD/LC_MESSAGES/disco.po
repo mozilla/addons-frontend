@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-05 21:36+0000\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
 "PO-Revision-Date: 2017-03-18 16:53+0000\n"
 "Last-Translator: Mahay Alam Khan <mahayalamkhan@gmail.com>\n"
 "Language-Team: none\n"
@@ -88,47 +88,64 @@ msgstr "আপনি এখন টুলবার থেকে %(name)s এ প�
 msgid "OK!"
 msgstr "ওকে!"
 
-#: src/disco/components/Addon.js:106
+#: src/disco/components/Addon.js:115
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"
 
-#: src/disco/components/Addon.js:120
+#: src/disco/components/Addon.js:130
 msgid "Hover over the image to preview"
 msgstr "ছবির উপর মাউস ঘুরান প্রিভিউ দেখতে"
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:154
 msgid "Installation failed. Please try again."
 msgstr "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
 
-#: src/disco/components/Addon.js:144
+#: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
 msgstr "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
 
-#: src/disco/components/Addon.js:148
+#: src/disco/components/Addon.js:160
 msgid "An unexpected error occurred during uninstallation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
 
-#: src/disco/components/Addon.js:151
+#: src/disco/components/Addon.js:163
 msgid "An unexpected error occurred."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
 
-#: src/disco/components/Addon.js:159
+#: src/disco/components/Addon.js:171
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
 
-#: src/disco/components/Addon.js:161
+#: src/disco/components/Addon.js:173
 msgid "Please restart Firefox to use this add-on."
 msgstr "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
 
-#: src/disco/components/Addon.js:69
+#: src/disco/components/Addon.js:78
 msgid "Close"
 msgstr "বন্ধ"
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+#, fuzzy
+msgid "This add-on does not support your version of Firefox."
+msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ""
+
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr ""
+
+#: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
 msgstr "আরো এড-অন আবিষ্কার করুন"
 

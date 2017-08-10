@@ -116,6 +116,29 @@ describe('CSP Middleware', () => {
     expect(nextSpy.calledOnce).toEqual(true);
   });
 
+  it('converts false string to false boolean', () => {
+    // This is so we can have environment config vars (`CSP=false`) for
+    // `better-npm-run` that allow us to disable CSP when using dev/stage
+    // data on a local dev server.
+    const warnStub = sinon.stub();
+    const middleware = csp({
+      _config: {
+        get: sinon.stub().withArgs('CSP').returns('false'),
+      },
+      _log: {
+        warn: warnStub,
+      },
+    });
+    const nextSpy = sinon.stub();
+    const req = new MockExpressRequest();
+    const res = new MockExpressResponse();
+    middleware(req, res, nextSpy);
+    expect(
+      warnStub.calledWith('CSP has been disabled from the config')
+    ).toBe(true);
+    expect(nextSpy.calledOnce).toEqual(true);
+  });
+
   it('logs if the csp config is false', () => {
     const warnStub = sinon.stub();
     const middleware = csp({

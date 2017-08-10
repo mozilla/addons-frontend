@@ -1,6 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import path from 'path';
-
 import autoprefixer from 'autoprefixer';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
@@ -15,6 +13,14 @@ const urlLoaderOptions = {
   limit: 10000,
 };
 
+const postCssPlugins = [];
+if (config.get('enablePostCssLoader')) {
+  postCssPlugins.push(autoprefixer({
+    browsers: ['last 2 versions'],
+    grid: false,
+  }));
+}
+
 export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
   let styleRules;
 
@@ -26,14 +32,25 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader', options: { importLoaders: 2 } },
-          { loader: 'postcss-loader', options: { outputStyle: 'expanded' } },
+          {
+            loader: 'postcss-loader',
+            options: {
+              outputStyle: 'expanded',
+              plugins: () => postCssPlugins,
+            },
+          },
         ],
       }, {
         test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader', options: { importLoaders: 2 } },
-          { loader: 'postcss-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => postCssPlugins,
+            },
+          },
           { loader: 'sass-loader', options: { outputStyle: 'expanded' } },
         ],
       },
@@ -56,6 +73,7 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
               loader: 'postcss-loader',
               options: {
                 outputStyle: 'expanded',
+                plugins: () => postCssPlugins,
                 sourceMap: true,
                 sourceMapContents: true,
               },
@@ -71,7 +89,10 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
               loader: 'css-loader',
               options: { importLoaders: 2, sourceMap: true },
             },
-            { loader: 'postcss-loader' },
+            {
+              loader: 'postcss-loader',
+              options: { plugins: () => postCssPlugins },
+            },
             {
               loader: 'sass-loader',
               options: {
@@ -135,22 +156,6 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
         /locale$/,
         new RegExp(`^\\.\\/.*?\\/${appName}\\.js$`)
       ),
-    );
-  }
-
-  if (config.get('enablePostCssLoader')) {
-    plugins.push(
-      new webpack.LoaderOptionsPlugin({
-        options: {
-          context: path.resolve(__dirname),
-          postcss: [
-            autoprefixer({
-              browsers: ['last 2 versions'],
-              grid: false,
-            }),
-          ],
-        },
-      })
     );
   }
 

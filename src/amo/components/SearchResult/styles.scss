@@ -9,11 +9,14 @@
 
 .SearchResult-link {
   color: $text-color-default;
+  text-decoration: none;
+}
+
+.SearchResult-result {
   display: flex;
   flex-flow: row wrap;
   margin: 0;
   padding: 0;
-  text-decoration: none;
   width: 100%;
 }
 
@@ -77,7 +80,9 @@
 .SearchResult-name {
   color: $type-black;
   flex-grow: 1;
-  font-size: $font-size-m;
+  font-size: $font-size-m-smaller;
+  font-weight: 400;
+  line-height: 1.2;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -88,6 +93,10 @@
   .SearchResult-link:hover & {
     color: $link-color;
     text-decoration: underline;
+  }
+
+  .LoadingText {
+    margin-bottom: 5px;
   }
 }
 

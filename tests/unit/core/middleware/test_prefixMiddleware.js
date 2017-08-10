@@ -13,6 +13,7 @@ describe('Prefix Middleware', () => {
       redirect: sinon.stub(),
       set: sinon.stub(),
       status: () => ({ end: sinon.stub() }),
+      vary: sinon.stub(),
     };
     fakeConfig = new Map();
     fakeConfig.set('validClientApplications', ['firefox', 'android']);
@@ -27,8 +28,8 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/en-US/firefox']);
-    expect(fakeNext.called).toBeFalsy();
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox');
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('should call res.redirect if handed a locale insted of a lang', () => {
@@ -37,8 +38,8 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/en-US/firefox']);
-    expect(fakeNext.called).toBeFalsy();
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox');
+    sinon.assert.notCalled(fakeNext);
   });
 
   it('should add an application when missing', () => {
@@ -47,7 +48,7 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/en-US/firefox/whatever/']);
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever/');
   });
 
   it('should prepend a lang when missing but leave a valid app intact', () => {
@@ -56,8 +57,8 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/en-US/firefox/whatever']);
-    expect(fakeRes.set.firstCall.args).toEqual(['vary', []]);
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/firefox/whatever');
+    sinon.assert.notCalled(fakeRes.vary);
   });
 
   it('should prepend lang when missing but keep clientAppUrlException', () => {
@@ -66,8 +67,8 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/en-US/validprefix/whatever']);
-    expect(fakeRes.set.firstCall.args).toEqual(['vary', []]);
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/validprefix/whatever');
+    sinon.assert.notCalled(fakeRes.vary);
   });
 
   it('should render 404 when a localeURL exception exists', () => {
@@ -77,7 +78,7 @@ describe('Prefix Middleware', () => {
     };
     const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(statusSpy.firstCall.args).toEqual([404]);
+    sinon.assert.calledWith(statusSpy, 404);
   });
 
   it('should redirect a locale exception at the root', () => {
@@ -87,9 +88,9 @@ describe('Prefix Middleware', () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
 
-    expect(fakeRes.redirect.firstCall.args).toEqual([302,
-      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi']);
-    expect(fakeRes.set.firstCall.args).toEqual(['vary', ['user-agent']]);
+    sinon.assert.calledWith(fakeRes.redirect, 302,
+      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi');
+    sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
   it('should redirect a locale exception nested in a valid locale', () => {
@@ -99,9 +100,9 @@ describe('Prefix Middleware', () => {
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
 
-    expect(fakeRes.redirect.firstCall.args).toEqual([302,
-      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi']);
-    expect(fakeRes.set.firstCall.args).toEqual(['vary', ['user-agent']]);
+    sinon.assert.calledWith(fakeRes.redirect, 302,
+      '/firefox/downloads/file/224748/my-addon-4.9.21-fx%2Bsm.xpi');
+    sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
   it('should render a 404 when a clientApp URL exception is found', () => {
@@ -111,7 +112,7 @@ describe('Prefix Middleware', () => {
     };
     const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(statusSpy.firstCall.args).toEqual([404]);
+    sinon.assert.calledWith(statusSpy, 404);
   });
 
   it('should set lang when invalid, preserving clientApp URL exception', () => {
@@ -120,8 +121,8 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/en-US/developers/']);
-    expect(fakeRes.set.firstCall.args).toEqual(['vary', []]);
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/developers/');
+    sinon.assert.notCalled(fakeRes.vary);
   });
 
   it('should render a 404 with clientApp exception', () => {
@@ -131,7 +132,7 @@ describe('Prefix Middleware', () => {
     };
     const statusSpy = sinon.spy(fakeRes, 'status');
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(statusSpy.firstCall.args).toEqual([404]);
+    sinon.assert.calledWith(statusSpy, 404);
   });
 
   it('should fallback to and vary on accept-language headers', () => {
@@ -142,8 +143,8 @@ describe('Prefix Middleware', () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/pt-BR/firefox/whatever']);
-    expect(fakeRes.set.firstCall.args[1]).toEqual(['accept-language']);
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.vary, 'accept-language');
   });
 
   it('should map aliased langs', () => {
@@ -152,7 +153,7 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/pt-PT/firefox/whatever']);
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-PT/firefox/whatever');
   });
 
   it('should vary on accept-language and user-agent', () => {
@@ -163,8 +164,9 @@ describe('Prefix Middleware', () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/pt-BR/firefox/whatever']);
-    expect(fakeRes.set.firstCall.args[1]).toEqual(['accept-language', 'user-agent']);
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/pt-BR/firefox/whatever');
+    sinon.assert.calledWith(fakeRes.vary, 'accept-language');
+    sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
   it('should find the app based on ua string', () => {
@@ -175,8 +177,8 @@ describe('Prefix Middleware', () => {
       },
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/en-US/android/whatever']);
-    expect(fakeRes.set.firstCall.args[1]).toEqual(['user-agent']);
+    sinon.assert.calledWith(fakeRes.redirect, 302, '/en-US/android/whatever');
+    sinon.assert.calledWith(fakeRes.vary, 'user-agent');
   });
 
   it('should populate res.locals for a valid request', () => {
@@ -187,7 +189,7 @@ describe('Prefix Middleware', () => {
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     expect(fakeRes.locals.lang).toEqual('en-US');
     expect(fakeRes.locals.clientApp).toEqual('firefox');
-    expect(fakeRes.redirect.called).toBeFalsy();
+    sinon.assert.notCalled(fakeRes.redirect);
   });
 
   it('should not populate res.locals for a redirection', () => {
@@ -198,7 +200,7 @@ describe('Prefix Middleware', () => {
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
     expect(fakeRes.locals.lang).toEqual(undefined);
     expect(fakeRes.locals.clientApp).toEqual(undefined);
-    expect(fakeRes.redirect.called).toBeTruthy();
+    sinon.assert.called(fakeRes.redirect);
   });
 
   it('should not mangle a query string for a redirect', () => {
@@ -207,6 +209,7 @@ describe('Prefix Middleware', () => {
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([302, '/en-US/firefox/foo/bar?test=1&bar=2']);
+    sinon.assert.calledWith(fakeRes.redirect, 302,
+      '/en-US/firefox/foo/bar?test=1&bar=2');
   });
 });

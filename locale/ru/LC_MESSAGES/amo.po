@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-06-21 13:21+0000\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-15 20:11+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -88,7 +88,7 @@ msgstr ""
 "\">загрузить Firefox</a>, чтобы установить это дополнение."
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s пользователь"
@@ -193,19 +193,19 @@ msgstr "Текст отзыва"
 msgid "Submit review"
 msgstr "Отправить отзыв"
 
-#: src/amo/components/AddonReviewList.js:118
+#: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "от %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:152
+#: src/amo/components/AddonReviewList.js:158
 msgid "Add-on icon"
 msgstr "Значок дополнения"
 
-#: src/amo/components/AddonReviewList.js:158
+#: src/amo/components/AddonReviewList.js:164
 msgid "Reviews for %(addonName)s"
 msgstr "Отзывы на %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:179
+#: src/amo/components/AddonReviewList.js:185
 msgid "All written reviews"
 msgstr "Все написанные отзывы"
 
@@ -229,23 +229,20 @@ msgid "Loading categories."
 msgstr "Загрузка категорий."
 
 #: src/amo/components/CategoriesHeader/index.js:61
-#, fuzzy
 msgid "Categories"
-msgstr "Категория"
+msgstr "Категории"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Просмотреть все дополнения в этой категории."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "Просмотреть все расширения"
+msgstr "Просмотреть все расширения в этой категории."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "Просмотреть все темы"
+msgstr "Просмотреть все темы в этой категории."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
@@ -484,9 +481,8 @@ msgid "Extensions"
 msgstr "Расширения"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "Загрузка категорий."
+msgstr "Посмотреть все категории"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -504,81 +500,77 @@ msgstr "Самые популярные расширения"
 msgid "Browse in your language"
 msgstr "Открыть на моём языке"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
 msgstr "Войдите, чтобы оценить этот словарь"
 
-#: src/amo/components/RatingManager/index.js:126
+#: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this language pack"
 msgstr "Войдите, чтобы оценить этот языковой пакет"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this search plugin"
 msgstr "Войдите, чтобы оценить этот поисковый плагин"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this theme"
 msgstr "Войдите, чтобы оценить эту тему"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this extension"
 msgstr "Войдите, чтобы оценить это расширение"
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this add-on"
 msgstr "Войдите, чтобы оценить это дополнение"
 
-#: src/amo/components/RatingManager/index.js:162
+#: src/amo/components/RatingManager/index.js:163
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Как вы оцениваете ваш опыт работы с %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:32
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "Результатов для \"%(query)s\" не найдено."
-msgstr[1] "Результатов для \"%(query)s\" не найдено."
-msgstr[2] "Результатов для \"%(query)s\" не найдено."
+msgstr[0] "%(count)s результат для \"%(query)s\""
+msgstr[1] "%(count)s результата для \"%(query)s\""
+msgstr[2] "%(count)s результатов для \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:38
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "Результатов для \"%(query)s\" не найдено."
+msgstr "Результаты поиска для \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:41
-#, fuzzy
 msgid "Loading add-ons"
-msgstr "Загрузка категорий."
+msgstr "Загрузка дополнений"
 
 #: src/amo/components/SearchContextCard/index.js:43
-#, fuzzy
 msgid "No add-ons found"
-msgstr "Категорий не найдено."
+msgstr "Дополнений не найдено"
 
 #: src/amo/components/SearchContextCard/index.js:45
-msgid "%(count)s add-on found\""
+msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "найдено %(count)s дополнение"
+msgstr[1] "найдено %(count)s дополнения"
+msgstr[2] "найдено %(count)s дополнений"
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
 msgstr "Поиск расширений"
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:52
 msgid "Search themes"
 msgstr "Поиск тем"
 
-#: src/amo/components/SearchForm.js:56
+#: src/amo/components/SearchForm.js:54
 msgid "Search extensions and themes"
 msgstr "Поиск расширений и тем"
 
-#: src/amo/components/SearchForm.js:71 src/amo/components/SearchForm.js:88
+#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
 msgid "Search"
 msgstr "Поиск"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr "Предпросмотр тем недоступен"
 
@@ -601,9 +593,8 @@ msgstr ""
 "Firefox."
 
 #: src/amo/components/SearchResults.js:63
-#, fuzzy
 msgid "Search results"
-msgstr "Поиск тем"
+msgstr "Результаты поиска"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-05 21:34+0000\n"
-"PO-Revision-Date: 2017-06-20 11:13+0000\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"PO-Revision-Date: 2017-07-12 06:54+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -83,7 +83,7 @@ msgstr ""
 "Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s ผู้ใช้"
@@ -178,19 +178,19 @@ msgstr ""
 msgid "Submit review"
 msgstr "ส่งบทวิจารณ์"
 
-#: src/amo/components/AddonReviewList.js:118
+#: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "จาก %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:152
+#: src/amo/components/AddonReviewList.js:158
 msgid "Add-on icon"
 msgstr "ไอคอนส่วนเสริม"
 
-#: src/amo/components/AddonReviewList.js:158
+#: src/amo/components/AddonReviewList.js:164
 msgid "Reviews for %(addonName)s"
 msgstr "บทวิจารณ์สำหรับ %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:179
+#: src/amo/components/AddonReviewList.js:185
 #, fuzzy
 msgid "All written reviews"
 msgstr "เขียนบทวิจารณ์"
@@ -222,7 +222,7 @@ msgstr "หมวดหมู่"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "เรียกดูส่วนเสริมทั้งหมดในหมวดหมู่นี้"
 
 #: src/amo/components/CategoryHeader/index.js:38
 #, fuzzy
@@ -481,32 +481,32 @@ msgstr "เรียกดูส่วนขยายทั้งหมด"
 msgid "Browse in your language"
 msgstr "เรียกดูในภาษาของคุณ"
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนพจนานุกรมนี้"
 
-#: src/amo/components/RatingManager/index.js:126
+#: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this language pack"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดภาษานี้"
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 #, fuzzy
 msgid "Log in to rate this search plugin"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนเครื่องมือค้นหานี้"
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this theme"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดตกแต่งนี้"
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this extension"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนขยายนี้"
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this add-on"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
 
-#: src/amo/components/RatingManager/index.js:162
+#: src/amo/components/RatingManager/index.js:163
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "คุณเพลิดเพลินกับประสบการณ์ของคุณกับ %(addonName)s แค่ไหน?"
 
@@ -532,29 +532,30 @@ msgid "No add-ons found"
 msgstr "ไม่พบหมวดหมู่"
 
 #: src/amo/components/SearchContextCard/index.js:45
-msgid "%(count)s add-on found\""
+#, fuzzy
+msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
+msgstr[0] "ไม่พบหมวดหมู่"
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchForm.js:50
 #, fuzzy
 msgid "Search extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:52
 #, fuzzy
 msgid "Search themes"
 msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/SearchForm.js:56
+#: src/amo/components/SearchForm.js:54
 msgid "Search extensions and themes"
 msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/SearchForm.js:71 src/amo/components/SearchForm.js:88
+#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
 msgid "Search"
 msgstr "ค้นหา"
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr ""
 
@@ -602,7 +603,7 @@ msgstr "เรียง"
 
 #: src/amo/components/SectionLinks/index.js:40
 msgid "Explore"
-msgstr ""
+msgstr "สำรวจ"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"

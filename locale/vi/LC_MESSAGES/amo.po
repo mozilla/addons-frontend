@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-05 21:34+0000\n"
+"POT-Creation-Date: 2017-07-19 16:47+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -76,7 +76,7 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:88
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] ""
@@ -171,19 +171,19 @@ msgstr ""
 msgid "Submit review"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:118
+#: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:152
+#: src/amo/components/AddonReviewList.js:158
 msgid "Add-on icon"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:158
+#: src/amo/components/AddonReviewList.js:164
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList.js:179
+#: src/amo/components/AddonReviewList.js:185
 msgid "All written reviews"
 msgstr ""
 
@@ -457,31 +457,31 @@ msgstr ""
 msgid "Browse in your language"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:124
+#: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:126
+#: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this language pack"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:128
+#: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this search plugin"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:130
+#: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this theme"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this extension"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this add-on"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:162
+#: src/amo/components/RatingManager/index.js:163
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr ""
 
@@ -503,27 +503,27 @@ msgid "No add-ons found"
 msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:45
-msgid "%(count)s add-on found\""
+msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] ""
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
 msgstr ""
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:52
 msgid "Search themes"
 msgstr ""
 
-#: src/amo/components/SearchForm.js:56
+#: src/amo/components/SearchForm.js:54
 msgid "Search extensions and themes"
 msgstr ""
 
-#: src/amo/components/SearchForm.js:71 src/amo/components/SearchForm.js:88
+#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
 msgid "Search"
 msgstr ""
 
-#: src/amo/components/SearchResult/index.js:57
+#: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
 msgstr ""
 

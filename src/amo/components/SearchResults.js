@@ -61,6 +61,7 @@ class SearchResults extends React.Component {
         <AddonsCard
           addons={hasSearchParams ? results : null}
           header={i18n.gettext('Search results')}
+          loading={loading}
         >
           {messageText ? (
             <p

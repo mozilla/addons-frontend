@@ -2,8 +2,8 @@
   "extends": "amo",
   "globals": {
     "CLIENT_CONFIG": true,
-    "dedent": true,
     "webpackIsomorphicTools": true,
+    "ga": true,
   },
   "parser": "babel-eslint",
   "plugins": [

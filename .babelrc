@@ -5,7 +5,6 @@
     "react"
   ],
   "plugins": [
-    "babel-plugin-dedent",
     "transform-class-properties",
     "transform-es2015-modules-commonjs",
     "transform-flow-strip-types"

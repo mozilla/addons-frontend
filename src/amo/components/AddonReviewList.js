@@ -27,17 +27,13 @@ import LoadingText from 'ui/components/LoadingText';
 
 import 'amo/css/AddonReviewList.scss';
 
-type AddonReviewListRouteParams = {|
-  addonSlug: string,
-|}
-
 type AddonReviewListProps = {|
   i18n: Object,
   addon?: AddonType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   location: ReactRouterLocation,
-  params: AddonReviewListRouteParams,
+  params: {| addonSlug: string |},
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
 |};
@@ -120,6 +116,7 @@ export class AddonReviewListBase extends React.Component {
           { authorName: review.userName, timestamp });
 
       const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
+      // eslint-disable-next-line react/no-danger
       reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
     } else {
       byLine = <LoadingText />;

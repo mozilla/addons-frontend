@@ -189,7 +189,7 @@ export function search(
   if (
     _filters.clientApp === 'android' && _filters.addonType === ADDON_TYPE_THEME
   ) {
-    log.info(dedent`addonType: ${_filters.addonType}/clientApp:
+    log.info(oneLine`addonType: ${_filters.addonType}/clientApp:
       ${_filters.clientApp} is not supported. Changing clientApp to "firefox"`);
     _filters.clientApp = 'firefox';
   }

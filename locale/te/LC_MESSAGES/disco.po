@@ -1,0 +1,169 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: disco\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"PO-Revision-Date: 2017-08-10 06:35+0000\n"
+"Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
+
+#: src/core/components/ErrorPage/GenericError/index.js:25
+msgid "Server Error"
+msgstr "సర్వర్ దోషం"
+
+#: src/core/components/ErrorPage/GenericError/index.js:28
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr ""
+
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+msgid "Error code: %(status)s."
+msgstr "కోడ్ లోపం: %(status)s."
+
+#: src/core/components/ErrorPage/NotFound/index.js:25
+msgid "Page not found"
+msgstr "పేజీ కనుగొనబడలేదు"
+
+#: src/core/components/ErrorPage/NotFound/index.js:27
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "క్షమించండి, కానీ మీరు ఎంటర్ చేసిన URL లో దేన్నీ కనుగొనలేకపోయాము."
+
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+msgid "Add to Firefox"
+msgstr "Firefoxకు జోడించండి"
+
+#: src/core/components/InstallButton/index.js:85
+msgid "Install Theme"
+msgstr "అలంకారాన్ని స్థాపించు"
+
+#: src/core/components/InstallSwitch/index.js:55
+msgid "Downloading %(name)s."
+msgstr "%(name)s దింపుకుంటోంది."
+
+#: src/core/components/InstallSwitch/index.js:58
+msgid "Installing %(name)s."
+msgstr "%(name)s సంస్థాపిస్తోంది."
+
+#: src/core/components/InstallSwitch/index.js:62
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:65
+msgid "%(name)s is disabled. Click to enable."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:68
+msgid "Uninstalling %(name)s."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:71
+msgid "%(name)s is uninstalled. Click to install."
+msgstr ""
+
+#: src/core/components/InstallSwitch/index.js:74
+msgid "Install state for %(name)s is unknown."
+msgstr ""
+
+#: src/core/containers/InfoDialog/index.js:36
+msgid "Your add-on is ready"
+msgstr "మీ పొడిగింత సిద్ధంగా ఉంది"
+
+#: src/core/containers/InfoDialog/index.js:38
+msgid "Now you can access %(name)s from the toolbar."
+msgstr ""
+
+#: src/core/containers/InfoDialog/index.js:45
+msgid "OK!"
+msgstr "సరే!"
+
+#: src/disco/components/Addon.js:115
+msgid "Hover to preview or click to install %(name)s"
+msgstr ""
+
+#: src/disco/components/Addon.js:130
+msgid "Hover over the image to preview"
+msgstr ""
+
+#: src/disco/components/Addon.js:154
+msgid "Installation failed. Please try again."
+msgstr "స్థాపన విఫలమైంది. మళ్ళి ప్రయత్నించండి."
+
+#: src/disco/components/Addon.js:156
+msgid "Download failed. Please check your connection."
+msgstr "దింపుకోలు విఫలమైంది. దయచేసి మీ అనుసంధానానీ తనిఖీ చేయండి."
+
+#: src/disco/components/Addon.js:158
+msgid "An unexpected error occurred during installation."
+msgstr ""
+
+#: src/disco/components/Addon.js:160
+msgid "An unexpected error occurred during uninstallation."
+msgstr ""
+
+#: src/disco/components/Addon.js:163
+msgid "An unexpected error occurred."
+msgstr "అనుకోని లోపం సంభవించింది."
+
+#: src/disco/components/Addon.js:171
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr ""
+
+#: src/disco/components/Addon.js:173
+msgid "Please restart Firefox to use this add-on."
+msgstr "దయచేసి ఈ పొడిగింతను ఉపయోగించడానికి Firefoxను పునఃప్రారంభించండి."
+
+#: src/disco/components/Addon.js:78
+msgid "Close"
+msgstr "మూసివేయి"
+
+#: src/disco/components/AddonCompatibilityError/index.js:41
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:44
+msgid "This add-on does not support your version of Firefox."
+msgstr ""
+
+#: src/disco/components/AddonCompatibilityError/index.js:49
+msgid "This add-on does not support your browser."
+msgstr ""
+
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "గోప్యతా విధానం"
+
+#: src/disco/containers/App.js:35
+msgid "Discover Add-ons"
+msgstr "పొడిగింతలను కనుగొనండి"
+
+#: src/disco/containers/DiscoPane.js:107
+msgid "Personalize Your Firefox"
+msgstr "మీ Firefox ని వ్యక్తిగతీకరించండి"
+
+#: src/disco/containers/DiscoPane.js:108
+msgid ""
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:116
+msgid "Click to play"
+msgstr ""
+
+#: src/disco/containers/DiscoPane.js:117
+msgid "to find out more about add-ons"
+msgstr "పొడిగింతల గురించి మరింత తెలుసుకోవడానికి"
+
+#: src/disco/containers/DiscoPane.js:131
+msgid "Close video"
+msgstr "వీడియోని మూసివేయి"
+
+#: src/disco/containers/DiscoPane.js:146
+msgid "See more add-ons!"
+msgstr "మరిన్ని పొడిగింతలను చూడండి!"

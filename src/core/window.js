@@ -1,8 +1,12 @@
-import { jsdom } from 'jsdom';
+import { JSDOM } from 'jsdom';
 
-export default jsdom('', {
+const jsDomDocument = new JSDOM('', {
   features: {
-    FetchExternalResources: false, // disables resource loading over HTTP / filesystem
-    ProcessExternalResources: false, // do not execute JS within script blocks
+    // disables resource loading over HTTP / filesystem
+    FetchExternalResources: false,
+    // do not execute JS within script blocks
+    ProcessExternalResources: false,
   },
-}).defaultView;
+});
+
+export default jsDomDocument.window;
