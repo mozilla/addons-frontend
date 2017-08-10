@@ -1,21 +1,31 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import { SectionLinksBase, mapStateToProps } from 'amo/components/SectionLinks';
+import SectionLinks, { SectionLinksBase } from 'amo/components/SectionLinks';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   VIEW_CONTEXT_EXPLORE,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { getFakeI18nInst, shallowToTarget } from 'tests/unit/helpers';
 
 
 describe('SectionLinks Component', () => {
-  function render(props) {
-    return shallow(<SectionLinksBase i18n={getFakeI18nInst()} {...props} />);
+  let _store;
+
+  beforeEach(() => {
+    _store = dispatchClientMetadata().store;
+  });
+
+  function render(customProps = {}) {
+    const props = {
+      store: _store,
+      i18n: getFakeI18nInst(),
+      ...customProps,
+    };
+    return shallowToTarget(<SectionLinks {...props} />, SectionLinksBase);
   }
 
   it('renders three sections', () => {
@@ -24,14 +34,9 @@ describe('SectionLinks Component', () => {
     expect(root.find('.SectionLinks-link').length).toEqual(3);
   });
 
-  it('renders no active links without context', () => {
-    const root = render({ viewContext: null });
-
-    expect(root.find('.SectionLinks-link--active').length).toEqual(0);
-  });
-
   it('renders Explore active on homepage', () => {
-    const root = render({ viewContext: VIEW_CONTEXT_EXPLORE });
+    _store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
+    const root = render();
 
     expect(root.find('.SectionLinks-link--active').children())
       .toIncludeText('Explore');
@@ -45,27 +50,18 @@ describe('SectionLinks Component', () => {
   });
 
   it('renders Extensions active when addonType is extensions', () => {
-    const root = render({ viewContext: ADDON_TYPE_EXTENSION });
+    _store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
+    const root = render();
 
     expect(root.find('.SectionLinks-link--active').children())
       .toIncludeText('Extensions');
   });
 
   it('renders Themes active when addonType is themes', () => {
-    const root = render({ viewContext: ADDON_TYPE_THEME });
+    _store.dispatch(setViewContext(ADDON_TYPE_THEME));
+    const root = render();
 
     expect(root.find('.SectionLinks-link--active').children())
       .toIncludeText('Themes');
-  });
-
-  describe('mapStateToProps', () => {
-    it('maps viewContext', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
-
-      const state = store.getState();
-
-      expect(mapStateToProps(state).viewContext).toEqual(ADDON_TYPE_EXTENSION);
-    });
   });
 });
