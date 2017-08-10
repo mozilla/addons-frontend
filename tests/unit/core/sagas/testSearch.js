@@ -39,7 +39,7 @@ describe('Search Saga', () => {
     }));
   }
 
-  it('searches the API for add-ons', async() => {
+  it('searches the API for add-ons', async () => {
     const entities = sinon.stub();
     const result = sinon.stub();
 
@@ -57,7 +57,7 @@ describe('Search Saga', () => {
     mockApi.verify();
   });
 
-  it('clears the error handler', async() => {
+  it('clears the error handler', async () => {
     _searchStart({ filters: { query: 'foo' } });
 
     await sagaTester.waitFor(CLEAR_ERROR);
@@ -65,7 +65,7 @@ describe('Search Saga', () => {
       .toEqual(errorHandler.createClearingAction());
   });
 
-  it('dispatches an error', async() => {
+  it('dispatches an error', async () => {
     const error = new Error('some API error maybe');
     mockApi
       .expects('search')
