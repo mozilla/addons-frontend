@@ -33,7 +33,7 @@ export default (
   <Route path="/:lang/:application" component={App}>
     <IndexRoute component={Home} />
     <Route path="about" component={About} />
-    <Route path="review_guide" component={ReviewGuide} />
+    <Route path="review-guide" component={ReviewGuide} />
     <Route path="addon/:slug/" component={Addon} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
     <Route path=":visibleAddonType/categories/" component={CategoriesPage} />

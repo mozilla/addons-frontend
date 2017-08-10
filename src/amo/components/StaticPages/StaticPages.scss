@@ -1,7 +1,11 @@
 @import "~amo/css/inc/vars";
 @import "~ui/css/vars";
 
-.AboutPage, .ReviewGuidePage {
+.AboutPage {
+  margin: $page-margin;
+}
+
+.ReviewGuidePage {
   margin: $page-margin;
 }
 
