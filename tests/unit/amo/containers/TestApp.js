@@ -22,7 +22,7 @@ import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst, shallowToTarget, userAuthToken } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowUntilTarget, userAuthToken } from 'tests/unit/helpers';
 
 
 describe('App', () => {
@@ -185,7 +185,7 @@ describe('App', () => {
   });
 
   it('renders a response with a 200 status', () => {
-    const root = shallowToTarget(<App {...renderProps()} />, AppBase);
+    const root = shallowUntilTarget(<App {...renderProps()} />, AppBase);
     expect(root.find(NestedStatus)).toHaveProp('code', 200);
   });
 

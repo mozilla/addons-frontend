@@ -9,7 +9,7 @@ import {
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowToTarget } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe('SectionLinks Component', () => {
@@ -25,7 +25,7 @@ describe('SectionLinks Component', () => {
       i18n: getFakeI18nInst(),
       ...customProps,
     };
-    return shallowToTarget(<SectionLinks {...props} />, SectionLinksBase);
+    return shallowUntilTarget(<SectionLinks {...props} />, SectionLinksBase);
   }
 
   it('renders three sections', () => {

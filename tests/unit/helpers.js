@@ -193,7 +193,7 @@ export function createFetchAddonResult(addon) {
  * The `TargetComponent` parameter is the React class (or function) that
  * you want to retrieve from the component tree.
  */
-export function shallowToTarget(componentInstance, TargetComponent, {
+export function shallowUntilTarget(componentInstance, TargetComponent, {
   maxTries = 10,
   shallowOptions,
   _shallow = shallow,

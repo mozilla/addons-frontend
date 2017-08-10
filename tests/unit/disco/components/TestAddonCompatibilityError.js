@@ -9,14 +9,14 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowToTarget } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe('AddonCompatibilityError', () => {
   function render({ ...props }) {
     const { store } = dispatchClientMetadata();
 
-    return shallowToTarget(
+    return shallowUntilTarget(
       <AddonCompatibilityError
         i18n={getFakeI18nInst()}
         store={store}

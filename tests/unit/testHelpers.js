@@ -3,10 +3,10 @@ import { shallow } from 'enzyme';
 import React, { Component } from 'react';
 import { compose } from 'redux';
 
-import { shallowToTarget } from 'tests/unit/helpers';
+import { shallowUntilTarget } from 'tests/unit/helpers';
 
 describe('helpers', () => {
-  describe('shallowToTarget', () => {
+  describe('shallowUntilTarget', () => {
     function ExampleBase() {
       return <div>Example component</div>;
     }
@@ -20,13 +20,13 @@ describe('helpers', () => {
     }
 
     it('requires a componentInstance', () => {
-      expect(() => shallowToTarget(undefined, ExampleBase))
+      expect(() => shallowUntilTarget(undefined, ExampleBase))
         .toThrow('componentInstance parameter is required');
     });
 
     it('requires a valid component instance', () => {
       expect(() => {
-        shallowToTarget({ notAComponent: true }, ExampleBase);
+        shallowUntilTarget({ notAComponent: true }, ExampleBase);
       }).toThrow(/Invalid component element/);
     });
 
@@ -35,7 +35,7 @@ describe('helpers', () => {
         wrapper(),
       )(ExampleBase);
 
-      expect(() => shallowToTarget(<Example />, undefined))
+      expect(() => shallowUntilTarget(<Example />, undefined))
         .toThrow('TargetComponent parameter is required');
     });
 
@@ -44,7 +44,7 @@ describe('helpers', () => {
         wrapper(),
       )(ExampleBase);
 
-      const root = shallowToTarget(<Example />, ExampleBase);
+      const root = shallowUntilTarget(<Example />, ExampleBase);
       expect(root.text()).toEqual('Example component');
     });
 
@@ -54,7 +54,7 @@ describe('helpers', () => {
         wrapper(),
       )(ExampleBase);
 
-      const root = shallowToTarget(<Example />, ExampleBase);
+      const root = shallowUntilTarget(<Example />, ExampleBase);
       expect(root.text()).toEqual('Example component');
     });
 
@@ -69,13 +69,13 @@ describe('helpers', () => {
         wrapper(),
       )(ReactExampleBase);
 
-      const root = shallowToTarget(<Example />, ReactExampleBase);
+      const root = shallowUntilTarget(<Example />, ReactExampleBase);
       expect(root.instance()).toBeInstanceOf(ReactExampleBase);
     });
 
     it('does not let you unwrap a component that is not wrapped', () => {
       expect(() => {
-        shallowToTarget(<ExampleBase />, ExampleBase);
+        shallowUntilTarget(<ExampleBase />, ExampleBase);
       }).toThrow(/Cannot unwrap this component because it is not wrapped/);
     });
 
@@ -87,7 +87,7 @@ describe('helpers', () => {
       )(ExampleBase);
 
       expect(() => {
-        shallowToTarget(<Example />, ExampleBase, {
+        shallowUntilTarget(<Example />, ExampleBase, {
           maxTries: 2,
         });
       }).toThrow(/Could not find .*gave up after 2 tries/);
@@ -104,7 +104,7 @@ describe('helpers', () => {
         lifecycleExperimental: true,
       };
       const instance = <Example />;
-      shallowToTarget(instance, ExampleBase, {
+      shallowUntilTarget(instance, ExampleBase, {
         shallowOptions, _shallow: shallowStub,
       });
 
@@ -128,7 +128,7 @@ describe('helpers', () => {
         wrapper(),
       )(LifecyleExample);
 
-      const root = shallowToTarget(<Example />, LifecyleExample, {
+      const root = shallowUntilTarget(<Example />, LifecyleExample, {
         shallowOptions: {
           lifecycleExperimental: true,
         },

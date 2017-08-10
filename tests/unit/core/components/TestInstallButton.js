@@ -14,7 +14,7 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import * as themePreview from 'core/themePreview';
-import { getFakeI18nInst, shallowToTarget } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
 
@@ -38,7 +38,7 @@ describe('<InstallButton />', () => {
     ...customProps,
   });
 
-  const render = (props) => shallowToTarget(
+  const render = (props) => shallowUntilTarget(
     <InstallButton {...renderProps(props)} />, InstallButtonBase
   );
 
