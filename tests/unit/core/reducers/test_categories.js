@@ -12,7 +12,7 @@ import categories, { emptyCategoryList } from 'core/reducers/categories';
 
 describe('categories reducer', () => {
   const initialState = {
-    categories: emptyCategoryList(), error: false, loading: true,
+    categories: emptyCategoryList(), loading: true,
   };
 
   it('defaults to an empty set of categories', () => {
@@ -25,16 +25,11 @@ describe('categories reducer', () => {
     expect(loading).toEqual(false);
   });
 
-  it('defaults to not error', () => {
-    const { error } = categories(undefined, { type: 'unrelated' });
-    expect(error).toEqual(false);
-  });
-
   describe('CATEGORIES_FETCH', () => {
     it('sets loading', () => {
-      const state = categories(initialState, categoriesFetch());
+      const state = categories(initialState,
+        categoriesFetch({ errorHandlerId: 'some-handler' }));
       expect(state.categories).toEqual(emptyCategoryList());
-      expect(state.error).toEqual(false);
       expect(state.loading).toEqual(true);
     });
   });
@@ -111,7 +106,7 @@ describe('categories reducer', () => {
       });
     });
 
-    it('sets the categories', () => {
+    it('sets the categories in a sorted order', () => {
       const result = [
         {
           application: 'android',
@@ -267,25 +262,6 @@ describe('categories reducer', () => {
     it('sets loading', () => {
       const { loading } = state;
       expect(loading).toBe(false);
-    });
-
-    it('sets no error', () => {
-      const { error } = state;
-      expect(error).toEqual(false);
-    });
-  });
-
-  describe('CATEGORIES_FAIL', () => {
-    it('sets error to be true', () => {
-      const error = true;
-      const loading = false;
-
-      const state = categories(initialState, {
-        type: 'CATEGORIES_FAIL', payload: { error, loading },
-      });
-      expect(state).toEqual({
-        categories: emptyCategoryList(), error, loading,
-      });
     });
   });
 });

@@ -3,6 +3,7 @@
   "globals": {
     "CLIENT_CONFIG": true,
     "webpackIsomorphicTools": true,
+    "ga": true,
   },
   "parser": "babel-eslint",
   "plugins": [

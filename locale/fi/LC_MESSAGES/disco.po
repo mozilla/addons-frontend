@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2016-08-01 20:02+0000\n"
-"Last-Translator: Jarmo <jarmo@juslin.me>\n"
+"PO-Revision-Date: 2017-08-07 11:32+0000\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -16,18 +16,15 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Palvelinvirhe"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Virhekoodi: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -37,15 +34,13 @@ msgstr ""
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Lisää Firefoxiin"
 
 #: src/core/components/InstallButton/index.js:85
-#, fuzzy
 msgid "Install Theme"
-msgstr "Asenna"
+msgstr "Asenna teema"
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
@@ -129,20 +124,19 @@ msgstr "Sulje"
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox iOS:lle ei tällä hetkellä tue lisäosia."
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
-#, fuzzy
 msgid "This add-on does not support your version of Firefox."
-msgstr "Tämä lisäosa poistetaan, kun käynnistät Firefoxin uudestaan."
+msgstr "Tämä lisäosa ei tue käyttämääsi Firefoxin versiota."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Tämä lisäosa ei tue selaintasi."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Tietosuojakäytäntö"
 
 #: src/disco/containers/App.js:35
 msgid "Discover Add-ons"
@@ -155,15 +149,9 @@ msgstr "Mukauta Firefoxiasi"
 #: src/disco/containers/DiscoPane.js:108
 #, fuzzy
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
-msgstr ""
-"Firefoxille on tuhansia lisäosia, joilla teet siitä omanlaisesi – kaikkea "
-"hauskoista teemoista tehokkaisiin työkaluihin ja ominaisuuksiin. Tässä on "
-"muutamia hyviä lisäosia katsottavaksi."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr "Firefoxille on tuhansia lisäosia, joilla teet siitä omanlaisesi – kaikkea hauskoista teemoista tehokkaisiin työkaluihin ja ominaisuuksiin. Tässä on muutamia hyviä lisäosia katsottavaksi."
 
 #: src/disco/containers/DiscoPane.js:116
 msgid "Click to play"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-31 06:33+0000\n"
+"PO-Revision-Date: 2017-08-10 06:34+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -46,7 +46,7 @@ msgstr "%(authorList)s%(endSpan)s చేత %(addonName)s %(startSpan)s"
 
 #: src/amo/components/Addon/index.js:324
 msgid "Extension Metadata"
-msgstr ""
+msgstr "పొడిగింత మెటాడేటా"
 
 #: src/amo/components/Addon/index.js:343
 msgid "Screenshots"
@@ -98,19 +98,19 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
-msgstr ""
+msgstr "నివాసపేజీ"
 
 #: src/amo/components/AddonMoreInfo.js:34
 msgid "Support Site"
-msgstr ""
+msgstr "మద్దతు సైటు"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "More information"
-msgstr ""
+msgstr "మరింత సమాచారం"
 
 #: src/amo/components/AddonMoreInfo.js:44
 msgid "Add-on Links"
-msgstr ""
+msgstr "పొడిగింత లంకెలు"
 
 #: src/amo/components/AddonMoreInfo.js:55
 msgid "Version"
@@ -134,31 +134,31 @@ msgstr "గోప్యతా విధానం"
 
 #: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "ఈ పొడిగింత కోసం ఈ గోప్యతా విధానం చదవండి"
 
 #: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "అంతిమ-వాడుకరి లైసెన్సు ఒప్పందపత్రం"
 
 #: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "ఈ పొడిగింత అద్భుతమని ఎందుకు అనుకుంటున్నారో ప్రపంచానికి చెప్పండి!"
 
 #: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "ఈ పొడిగింతను మీరు ఎందుకు ఇష్టపడుతున్నారో మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను చెప్పండి."
 
 #: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
-msgstr ""
+msgstr "ఈ పొడిగింత గురించి ప్రపంచానికి చెప్పండి."
 
 #: src/amo/components/AddonReview.js:153
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "ఈ పొడిగింతతో మీ అనుభవాన్ని మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను చెప్పండి."
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
-msgstr ""
+msgstr "సమీక్షను వ్రాయండి"
 
 #: src/amo/components/AddonReview.js:167
 msgid "Review text"
@@ -166,43 +166,43 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:182
 msgid "Submit review"
-msgstr ""
+msgstr "సమీక్షను సమర్పించండి"
 
 #: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "%(authorName)s నుండి, %(timestamp)s"
 
 #: src/amo/components/AddonReviewList.js:158
 msgid "Add-on icon"
-msgstr ""
+msgstr "పొడిగింత చిహ్నం"
 
 #: src/amo/components/AddonReviewList.js:164
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s కోసం సమీక్షలు"
 
 #: src/amo/components/AddonReviewList.js:185
 msgid "All written reviews"
-msgstr ""
+msgstr "అన్ని వ్రాసిన సమీక్షలు"
 
 #: src/amo/components/App/index.js:200
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Firefox యొక్క పొడిగింతలు"
 
 #: src/amo/components/Categories.js:57 src/amo/components/CategoriesHeader/index.js:47
 msgid "Failed to load categories."
-msgstr ""
+msgstr "వర్గాలను లోడ్ చేయడంలో విఫలమైంది."
 
 #: src/amo/components/Categories.js:65 src/amo/components/CategoriesHeader/index.js:55
 msgid "No categories found."
-msgstr ""
+msgstr "వర్గాలు కనుగొనబడలేదు."
 
 #: src/amo/components/Categories.js:74 src/amo/components/CategoriesHeader/index.js:65
 msgid "Loading categories."
-msgstr ""
+msgstr "వర్గాలను లోడ్ చేస్తోంది."
 
 #: src/amo/components/CategoriesHeader/index.js:61
 msgid "Categories"
-msgstr ""
+msgstr "వర్గాలు"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
@@ -222,7 +222,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
-msgstr ""
+msgstr "ప్రామాణీకరించబడలేదు"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
@@ -248,7 +248,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "సర్వర్ దోషం"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -264,7 +264,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:21
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Mozilla యొక్క నివాసపేజీకి వెళ్ళండి"
 
 #: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
@@ -285,7 +285,7 @@ msgstr "క్లాసిక్ డెస్క్టాప్ సైట్�
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:44
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox పొడిగింతలు"
 
 #: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
@@ -297,19 +297,19 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
 msgid "Be social"
-msgstr ""
+msgstr "సామాజికంగా ఉండండి"
 
 #: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
 msgid "Play games"
-msgstr ""
+msgstr "ఆటలాడు"
 
 #: src/amo/components/Home/index.js:120
 msgid "Wild"
-msgstr ""
+msgstr "వైల్డ్"
 
 #: src/amo/components/Home/index.js:121
 msgid "Abstract"
-msgstr ""
+msgstr "సంక్షిప్తము"
 
 #: src/amo/components/Home/index.js:122
 msgid "Holiday"
@@ -325,15 +325,15 @@ msgstr "స్పోర్టి"
 
 #: src/amo/components/Home/index.js:125
 msgid "Solid"
-msgstr ""
+msgstr "ముదురు"
 
 #: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
-msgstr ""
+msgstr "అన్ని పొడగింతలను అన్వేషించు"
 
 #: src/amo/components/Home/index.js:143
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "మీరు Firefox పనిచేసి విధానమును మార్చవచ్చు…"
 
 #: src/amo/components/Home/index.js:146
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
@@ -345,7 +345,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:162
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…లేదా అది ఎలా కనిపిస్తుంది"
 
 #: src/amo/components/Home/index.js:165
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -353,7 +353,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
-msgstr ""
+msgstr "ప్రకటనలను నిషేధించండి"
 
 #: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
 msgid "Screenshot"
@@ -365,7 +365,7 @@ msgstr "వార్తలను కనుగొనండి"
 
 #: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
-msgstr ""
+msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
 #: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
@@ -385,11 +385,11 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:119
 msgid "Most popular themes"
-msgstr ""
+msgstr "అత్యంత ప్రజాదరణ పొందిన అలంకారాలు"
 
 #: src/amo/components/LandingPage/index.js:124
 msgid "More popular themes"
-msgstr ""
+msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
 
 #: src/amo/components/LandingPage/index.js:125
 msgid "Top rated themes"
@@ -401,7 +401,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
-msgstr ""
+msgstr "థీములు"
 
 #: src/amo/components/LandingPage/index.js:178 src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
@@ -409,7 +409,7 @@ msgstr "పొడిగింతలు"
 
 #: src/amo/components/LandingPage/index.js:209
 msgid "Explore all categories"
-msgstr ""
+msgstr "అన్ని వర్గాలను అన్వేషించండి"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -463,7 +463,7 @@ msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:38
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "\"%(query)s\" కోసం శోధిస్తున్నారు"
 
 #: src/amo/components/SearchContextCard/index.js:41
 msgid "Loading add-ons"
@@ -471,17 +471,17 @@ msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:43
 msgid "No add-ons found"
-msgstr ""
+msgstr "ఏ పొడిగింతలు దొరకలేదు"
 
 #: src/amo/components/SearchContextCard/index.js:45
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s పొడిగింత దొరికింది"
+msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
 
 #: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
-msgstr ""
+msgstr "పొడిగింతలను శోధించు"
 
 #: src/amo/components/SearchForm.js:52
 msgid "Search themes"
@@ -501,7 +501,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:41
 msgid "Searching…"
-msgstr ""
+msgstr "వెతుకుతోంది…"
 
 #: src/amo/components/SearchResults.js:47
 msgid "No results were found for \"%(query)s\"."
@@ -509,7 +509,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:51
 msgid "No results were found."
-msgstr ""
+msgstr "ఫలితాలు కనుగొనబడలేదు."
 
 #: src/amo/components/SearchResults.js:54
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -517,15 +517,15 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:63
 msgid "Search results"
-msgstr ""
+msgstr "ఫలితాల శోధన"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
-msgstr ""
+msgstr "ఇటీవలి నవీకరణలు"
 
 #: src/amo/components/SearchSort/index.js:42
 msgid "Relevance"
-msgstr ""
+msgstr "ఔచిత్యం"
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Most Users"
@@ -537,23 +537,23 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:66 src/amo/components/SearchSort/index.js:74
 msgid "Sort"
-msgstr ""
+msgstr "క్రమపరచు"
 
 #: src/amo/components/SectionLinks/index.js:40
 msgid "Explore"
-msgstr ""
+msgstr "అన్వేషణ"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
-msgstr ""
+msgstr "సూచించిన పేజీలు"
 
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "పొడిగింతల హోమ్ పేజీ"
 
 #: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
-msgstr ""
+msgstr "లాగ్ అవుట్"
 
 #: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
@@ -565,7 +565,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "కోడ్ లోపం: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -573,7 +573,7 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Firefoxకు జోడించండి"
 
 #: src/core/components/InstallButton/index.js:85
 msgid "Install Theme"
@@ -581,11 +581,11 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s దింపుకుంటోంది."
 
 #: src/core/components/InstallSwitch/index.js:58
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s సంస్థాపిస్తోంది."
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
@@ -613,15 +613,15 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
-msgstr ""
+msgstr "మునుపటి"
 
 #: src/core/components/Paginate/index.js:122
 msgid "Next"
-msgstr ""
+msgstr "తదుపరి"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "మీ పొడిగింత సిద్ధంగా ఉంది"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
@@ -629,11 +629,11 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
-msgstr ""
+msgstr "సరే!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "మీ సెషన్ గడువు ముగిసింది"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
@@ -641,7 +641,7 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "కొనసాగటానికి రీలోడ్ చేయండి"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
