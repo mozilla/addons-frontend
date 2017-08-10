@@ -71,11 +71,14 @@ export class Tracking {
       /* eslint-disable */
       // Snippet from Google UA docs: http://bit.ly/1O6Dsdh
       window.ga = window.ga || function() {(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      /* eslint-enable */
       ga('create', this.id, 'auto');
       if (convertBoolean(_config.get('trackingSendInitPageView'))) {
         ga('send', 'pageview');
       }
-      /* eslint-enable */
+      // Set a custom dimension; this allows us to tell which front-end
+      // (addons-frontend vs addons-server) is being used in analytics.
+      ga('set', 'dimension3', 'addons-frontend');
     }
   }
 

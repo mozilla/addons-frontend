@@ -16,6 +16,7 @@
     "amo:dev": "better-npm-run amo:dev",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
+    "bundlesize": "bundlesize",
     "disco": "better-npm-run disco",
     "eslint": "eslint .",
     "flow": "flow",
@@ -131,11 +132,11 @@
     "base62": "1.2.0",
     "base64url": "2.0.0",
     "better-npm-run": "0.1.0",
-    "bunyan": "1.8.10",
+    "bunyan": "1.8.12",
     "classnames": "2.2.5",
     "common-tags": "1.4.0",
     "config": "1.26.1",
-    "deep-eql": "2.0.2",
+    "deep-eql": "3.0.0",
     "dompurify": "0.9.0",
     "es6-error": "4.0.2",
     "express": "4.15.2",
@@ -197,6 +198,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "bundle-loader": "^0.5.5",
+    "bundlesize": "^0.13.2",
     "chalk": "^2.0.1",
     "chokidar-cli": "^1.2.0",
     "concurrently": "^3.4.0",
@@ -252,5 +254,11 @@
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/*.js",
+      "threshold": "300 Kb"
+    }
+  ]
 }

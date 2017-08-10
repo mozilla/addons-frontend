@@ -8,6 +8,7 @@ import CategoryHeader from 'amo/components/CategoryHeader';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { SearchBase } from 'amo/components/Search';
 import { categoriesFetch } from 'core/actions/categories';
+import { withErrorHandler } from 'core/errorHandler';
 import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
 import {
   apiAddonType,
@@ -15,31 +16,35 @@ import {
   safeAsyncConnect,
 } from 'core/utils';
 
+import './styles.scss';
+
 
 export class CategoryBase extends React.Component {
   static propTypes = {
     category: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
+    errorHandler: PropTypes.object.isRequired,
     loading: PropTypes.boolean,
   }
 
   componentWillMount() {
-    const { category, dispatch } = this.props;
+    const { category, dispatch, errorHandler } = this.props;
 
     if (!category) {
-      dispatch(categoriesFetch());
+      dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
     }
   }
 
   render() {
-    const { category, loading, ...searchProps } = this.props;
+    const { category, errorHandler, loading, ...searchProps } = this.props;
 
-    if (loading === false && !category) {
+    if (!errorHandler.hasError() && loading === false && !category) {
       return <NotFound />;
     }
 
     return (
       <div className="Category">
+        {errorHandler.hasError() ? errorHandler.renderError() : null}
         <CategoryHeader category={category} />
         <SearchBase enableSearchSort={false} hasSearchParams {...searchProps} />
       </div>
@@ -92,6 +97,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
+  withErrorHandler({ name: 'Category' }),
   safeAsyncConnect([{ promise: loadByCategoryIfNeeded }]),
   connect(mapStateToProps),
 )(CategoryBase);

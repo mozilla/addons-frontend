@@ -27,17 +27,13 @@ import LoadingText from 'ui/components/LoadingText';
 
 import 'amo/css/AddonReviewList.scss';
 
-type AddonReviewListRouteParams = {|
-  addonSlug: string,
-|}
-
 type AddonReviewListProps = {|
   i18n: Object,
   addon?: AddonType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   location: ReactRouterLocation,
-  params: AddonReviewListRouteParams,
+  params: {| addonSlug: string |},
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
 |};

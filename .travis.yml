@@ -8,6 +8,9 @@ node_js:
 - '6'
 env:
   matrix:
+  # This is currently failing on master only.
+  # See https://github.com/mozilla/addons-frontend/issues/2691
+  # - TASK=build CHECK_BUNDLESIZE=1 ADDONS_FRONTEND_BUILD_ALL=1
   - TASK=build ADDONS_FRONTEND_BUILD_ALL=1
   - TASK=lint
   - TASK=test-ci
@@ -31,3 +34,4 @@ script:
   fi
 - if [ $TOXENV ]; then tox; fi
 - if [ $TASK ]; then yarn $TASK; fi
+- if [ $CHECK_BUNDLESIZE ]; then yarn bundlesize; fi

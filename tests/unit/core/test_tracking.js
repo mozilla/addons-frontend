@@ -75,11 +75,17 @@ describe('Tracking', () => {
     sinon.assert.calledWith(window.ga, 'send', 'pageview');
   });
 
+  it('should set dimension3', () => {
+    createTracking();
+    sinon.assert.calledWith(window.ga, 'set', 'dimension3', 'addons-frontend');
+  });
+
   it('should not send initial page view when disabled', () => {
     createTracking({ trackingSendInitPageView: false });
-    // Make sure only 'create' was called, not 'send'
+    // Make sure only 'create' and 'set' were called, not 'send'.
     sinon.assert.calledWith(window.ga, 'create');
-    sinon.assert.callCount(window.ga, 1);
+    sinon.assert.calledWith(window.ga, 'set', 'dimension3', 'addons-frontend');
+    sinon.assert.callCount(window.ga, 2);
   });
 
   it('should throw if page not set', () => {
