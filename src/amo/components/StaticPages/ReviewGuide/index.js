@@ -17,8 +17,8 @@ export class ReviewGuideBase extends React.Component {
   render() {
     const { i18n } = this.props;
 
-    const forumText = i18n.sprintf(i18n.gettext(`Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our <a href="%(url)s">forum</a> to engage in additional discussion or follow-up.`),
-      { url: 'https://discourse.mozilla-community.org/c/add-ons/add-on-support' });
+    const forumText = i18n.sprintf(i18n.gettext(`Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(url)s to engage in additional discussion or follow-up.`),
+      { url: '<a href="https://discourse.mozilla-community.org/c/add-ons/add-on-support">forum</a>' });
 
     /* eslint-disable react/no-danger */
     return (
@@ -32,7 +32,7 @@ export class ReviewGuideBase extends React.Component {
             {i18n.gettext(`Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply with these guidelines.`)}
           </p>
           <h2>{i18n.gettext('Some tips for writing a great review')}</h2>
-          <p className="staticSubHeading">{i18n.gettext('Do:')}</p>
+          <dl className="staticSubHeading">{i18n.gettext('Do:')}</dl>
           <ul>
             <li>{i18n.gettext('Write like you are telling a friend about your experience with the add-on.')}</li>
             <li>{i18n.gettext('Keep reviews concise and easy to understand.')}</li>
@@ -47,7 +47,7 @@ export class ReviewGuideBase extends React.Component {
             </li>
             <li>{i18n.gettext('Take a moment to read your review before submitting it to minimize typos.')}</li>
           </ul>
-          <p className="staticSubHeading">{i18n.gettext(`Don't:`)}</p>
+          <dl className="staticSubHeading">{i18n.gettext(`Don't:`)}</dl>
           <ul>
             <li>{i18n.gettext('Submit one-word reviews such as "Great!", "wonderful," or "bad." ')}</li>
             <li>{i18n.gettext('Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the side column next to the About this Add-on section.')}</li>
@@ -62,11 +62,11 @@ export class ReviewGuideBase extends React.Component {
         </section>
         <section>
           <h2>{i18n.gettext('Frequently Asked Questions about Reviews')}</h2>
-          <p className="staticSubHeading">{i18n.gettext('How can I report a problematic review?')}</p>
+          <dl className="staticSubHeading">{i18n.gettext('How can I report a problematic review?')}</dl>
           <p>{i18n.gettext('Please report or flag any questionable reviews by clicking the "Report this review" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to evaluate whether or not to delete the review or restore it back to the site.')}</p>
-          <p className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}</p>
+          <dl className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}</dl>
           <p dangerouslySetInnerHTML={sanitizeHTML(forumText, ['a'])} />
-          <p className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I delete unfavorable reviews or ratings?`)}</p>
+          <dl className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I delete unfavorable reviews or ratings?`)}</dl>
           <p>{i18n.gettext('In general, no. But if the review did not meet the review guidelines outlined above, you can click "Report this review" and have it moderated. If a review included a complaint that is no longer valid due to a new release of your add-on, we may consider deleting the review.')}</p>
         </section>
       </Card>

@@ -9,9 +9,7 @@ import { getFakeI18nInst } from 'tests/unit/helpers';
 describe('About', () => {
   function render() {
     return shallow(
-      <AboutBase
-        i18n={getFakeI18nInst()}
-      />
+      <AboutBase i18n={getFakeI18nInst()} />
     );
   }
 
@@ -25,9 +23,7 @@ describe('About', () => {
 describe('ReviewGuide', () => {
   function render() {
     return shallow(
-      <ReviewGuideBase
-        i18n={getFakeI18nInst()}
-      />
+      <ReviewGuideBase i18n={getFakeI18nInst()} />
     );
   }
 
