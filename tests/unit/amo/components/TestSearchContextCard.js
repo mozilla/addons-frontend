@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import React from 'react';
 
 import SearchContextCard, {
@@ -10,7 +9,7 @@ import {
   dispatchSearchResults,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, unwrapComponent } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowToTarget } from 'tests/unit/helpers';
 
 
 describe('SearchContextCard', () => {
@@ -22,12 +21,13 @@ describe('SearchContextCard', () => {
       ...customProps,
     };
 
-    return unwrapComponent(shallow(
+    return shallowToTarget(
       <SearchContextCard
         i18n={getFakeI18nInst()}
         {...props}
-      />
-    ), SearchContextCardBase);
+      />,
+      SearchContextCardBase
+    );
   }
 
   function _searchStart(props = {}) {

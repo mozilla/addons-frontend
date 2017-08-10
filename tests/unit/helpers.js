@@ -1,6 +1,6 @@
 import base64url from 'base64url';
 import config from 'config';
-import { ShallowWrapper } from 'enzyme';
+import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
 import React from 'react';
@@ -181,29 +181,31 @@ export function createFetchAddonResult(addon) {
 }
 
 /*
- * Unwraps a component to get the one you care about.
+ * Repeatedly render a component tree using enzyme.shallow() until
+ * finding and rendering TargetComponent.
  *
- * The `componentInstance` parameter must be the result of enzyme.shallow().
+ * This is useful for testing a component wrapped in one or more
+ * HOCs (higher order components).
  *
- * The `ComponentBase` parameter is the React class (or function) that
- * you want to retrieve from the shallow render tree.
+ * The `componentInstance` parameter is a React component instance.
+ * Example: <MyComponent {...props} />
+ *
+ * The `TargetComponent` parameter is the React class (or function) that
+ * you want to retrieve from the component tree.
  */
-export function unwrapComponent(componentInstance, ComponentBase, {
+export function shallowToTarget(componentInstance, TargetComponent, {
   maxTries = 10,
   shallowOptions,
+  _shallow = shallow,
 } = {}) {
   if (!componentInstance) {
     throw new Error('componentInstance parameter is required');
   }
-  if (!ComponentBase) {
-    throw new Error('ComponentBase parameter is required');
-  }
-  if (!(componentInstance instanceof ShallowWrapper)) {
-    throw new Error(
-      'componentInstance must be the result of enzyme.shallow()');
+  if (!TargetComponent) {
+    throw new Error('TargetComponent parameter is required');
   }
 
-  let root = componentInstance;
+  let root = _shallow(componentInstance, shallowOptions);
 
   if (typeof root.type() === 'string') {
     // If type() is a string then it's a DOM Node.
@@ -214,8 +216,8 @@ export function unwrapComponent(componentInstance, ComponentBase, {
 
   let tries = 0;
   const notFoundError = () => (
-    oneLine`Could not find ${ComponentBase} in rendered
-    instance: ${componentInstance.debug()}`
+    oneLine`Could not find ${TargetComponent} in rendered
+    instance: ${componentInstance}`
   );
 
   while (root) {
@@ -223,12 +225,12 @@ export function unwrapComponent(componentInstance, ComponentBase, {
     if (tries > maxTries) {
       throw new Error(`${notFoundError()} (gave up after ${maxTries} tries)`);
     }
-    if (root.is(ComponentBase)) {
+    if (root.is(TargetComponent)) {
       // Now that we found the target component, render it.
       return root.shallow(shallowOptions);
     }
     // Unwrap the next component in the hierarchy.
-    root = root.first().shallow();
+    root = root.first().shallow(shallowOptions);
   }
 
   throw new Error(notFoundError());

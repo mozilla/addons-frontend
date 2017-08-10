@@ -1,11 +1,12 @@
+/* eslint-disable react/no-multi-comp */
+import { shallow } from 'enzyme';
 import React, { Component } from 'react';
-import { mount, shallow } from 'enzyme';
 import { compose } from 'redux';
 
-import { unwrapComponent } from 'tests/unit/helpers';
+import { shallowToTarget } from 'tests/unit/helpers';
 
 describe('helpers', () => {
-  describe('unwrapComponent', () => {
+  describe('shallowToTarget', () => {
     function ExampleBase() {
       return <div>Example component</div>;
     }
@@ -19,27 +20,23 @@ describe('helpers', () => {
     }
 
     it('requires a componentInstance', () => {
-      expect(() => unwrapComponent(undefined, ExampleBase))
+      expect(() => shallowToTarget(undefined, ExampleBase))
         .toThrow('componentInstance parameter is required');
     });
 
-    it('requires a ShallowWrapper', () => {
-      const Example = compose(
-        wrapper(),
-      )(ExampleBase);
-
+    it('requires a valid component instance', () => {
       expect(() => {
-        unwrapComponent(mount(<Example />), ExampleBase);
-      }).toThrow(/componentInstance must be the result of enzyme\.shallow/);
+        shallowToTarget({ notAComponent: true }, ExampleBase);
+      }).toThrow(/Invalid component element/);
     });
 
-    it('requires a ComponentBase', () => {
+    it('requires a TargetComponent', () => {
       const Example = compose(
         wrapper(),
       )(ExampleBase);
 
-      expect(() => unwrapComponent(shallow(<Example />), undefined))
-        .toThrow('ComponentBase parameter is required');
+      expect(() => shallowToTarget(<Example />, undefined))
+        .toThrow('TargetComponent parameter is required');
     });
 
     it('lets you unwrap a component one level', () => {
@@ -47,7 +44,7 @@ describe('helpers', () => {
         wrapper(),
       )(ExampleBase);
 
-      const root = unwrapComponent(shallow(<Example />), ExampleBase);
+      const root = shallowToTarget(<Example />, ExampleBase);
       expect(root.text()).toEqual('Example component');
     });
 
@@ -57,7 +54,7 @@ describe('helpers', () => {
         wrapper(),
       )(ExampleBase);
 
-      const root = unwrapComponent(shallow(<Example />), ExampleBase);
+      const root = shallowToTarget(<Example />, ExampleBase);
       expect(root.text()).toEqual('Example component');
     });
 
@@ -72,13 +69,13 @@ describe('helpers', () => {
         wrapper(),
       )(ReactExampleBase);
 
-      const root = unwrapComponent(shallow(<Example />), ReactExampleBase);
+      const root = shallowToTarget(<Example />, ReactExampleBase);
       expect(root.instance()).toBeInstanceOf(ReactExampleBase);
     });
 
     it('does not let you unwrap a component that is not wrapped', () => {
       expect(() => {
-        unwrapComponent(shallow(<ExampleBase />), ExampleBase);
+        shallowToTarget(<ExampleBase />, ExampleBase);
       }).toThrow(/Cannot unwrap this component because it is not wrapped/);
     });
 
@@ -90,13 +87,31 @@ describe('helpers', () => {
       )(ExampleBase);
 
       expect(() => {
-        unwrapComponent(shallow(<Example />), ExampleBase, {
+        shallowToTarget(<Example />, ExampleBase, {
           maxTries: 2,
         });
       }).toThrow(/Could not find .*gave up after 2 tries/);
     });
 
     it('lets you pass options to shallow()', () => {
+      const shallowStub = sinon.spy(shallow);
+
+      const Example = compose(
+        wrapper(),
+      )(ExampleBase);
+
+      const shallowOptions = {
+        lifecycleExperimental: true,
+      };
+      const instance = <Example />;
+      shallowToTarget(instance, ExampleBase, {
+        shallowOptions, _shallow: shallowStub,
+      });
+
+      sinon.assert.calledWith(shallowStub, instance, shallowOptions);
+    });
+
+    it('lets you pass options to the final shallow()', () => {
       const componentDidUpdate = sinon.stub();
 
       class LifecyleExample extends Component {
@@ -113,7 +128,7 @@ describe('helpers', () => {
         wrapper(),
       )(LifecyleExample);
 
-      const root = unwrapComponent(shallow(<Example />), LifecyleExample, {
+      const root = shallowToTarget(<Example />, LifecyleExample, {
         shallowOptions: {
           lifecycleExperimental: true,
         },

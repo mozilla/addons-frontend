@@ -36,7 +36,7 @@ import {
 } from 'core/constants';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import {
-  getFakeAddonManagerWrapper, unwrapComponent,
+  getFakeAddonManagerWrapper, shallowToTarget,
 } from 'tests/unit/helpers';
 import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
@@ -66,9 +66,7 @@ function renderWithInstallHelpers({ src, ...customProps } = {}) {
     store,
     ...customProps,
   };
-  const root = unwrapComponent(
-    shallow(<Component {...props} />), BaseComponent
-  );
+  const root = shallowToTarget(<Component {...props} />, BaseComponent);
 
   return { root, dispatch };
 }
@@ -159,9 +157,7 @@ describe('withInstallHelpers', () => {
       _addonManager,
       store: createStore().store,
     };
-    const root = unwrapComponent(
-      shallow(<Component {...props} />), BaseComponent
-    );
+    const root = shallowToTarget(<Component {...props} />, BaseComponent);
 
     // Update the component with the same props (i.e. same add-on guid)
     // and make sure the status is not set.
