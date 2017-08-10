@@ -98,7 +98,7 @@ describe('<AuthenticateButton />', () => {
       cookieName: 'authcookie',
       apiHost: 'http://localhost:9876',
     };
-    sinon.stub(config, 'get', (key) => _config[key]);
+    sinon.stub(config, 'get').callsFake((key) => _config[key]);
 
     const { store } = dispatchSignInActions();
     store.dispatch(setAuthToken(userAuthToken({ user_id: 99 })));
