@@ -191,7 +191,7 @@ describe('AddonPage', () => {
   });
 
   describe('constructor', () => {
-    it('gets discovery results when results are 0 length', () => {
+    it('gets discovery results when results are empty', () => {
       const dispatch = sinon.stub();
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
       const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
