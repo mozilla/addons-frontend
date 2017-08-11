@@ -89,15 +89,15 @@ describe('AddonPage', () => {
   describe('video', () => {
     it('is small by default', () => {
       const root = render();
-      expect(root.find('.show-video')).toHaveLength(0);
+      expect(root.find('header')).not.toHaveClassName('.show-video');
     });
 
     it('gets bigger and smaller when clicked', () => {
       const root = render();
       root.find('.play-video').simulate('click', fakeEvent);
-      expect(root.find('.show-video')).toHaveLength(1);
+      expect(root.find('header')).toHaveClassName('.show-video');
       root.find('.close-video a').simulate('click', fakeEvent);
-      expect(root.find('.show-video')).toHaveLength(0);
+      expect(root.find('header')).not.toHaveClassName('.show-video');
     });
 
     it('tracks video being played', () => {
