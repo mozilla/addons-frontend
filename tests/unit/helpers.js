@@ -178,3 +178,11 @@ export function createFetchAddonResult(addon) {
   // the API server response.
   return normalize(addon, coreApi.addon);
 }
+
+export function createFakeEvent(extraProps = {}) {
+  return {
+    currentTarget: sinon.stub(),
+    preventDefault: sinon.stub(),
+    ...extraProps,
+  };
+}

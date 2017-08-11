@@ -11,13 +11,6 @@ export function createFetchDiscoveryResult(results) {
   return normalize({ results }, { results: [discoResult] });
 }
 
-export function createFakeEvent() {
-  return {
-    currentTarget: sinon.stub(),
-    preventDefault: sinon.stub(),
-  };
-}
-
 /*
  * This takes addonResults (as if returned from the API)
  * and loads them into state the same way the real app does.

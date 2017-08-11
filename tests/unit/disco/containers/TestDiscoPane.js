@@ -17,9 +17,10 @@ import {
   VIDEO_CATEGORY,
 } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
-import { getFakeI18nInst, MockedSubComponent } from 'tests/unit/helpers';
 import {
-  createFakeEvent,
+  createFakeEvent, getFakeI18nInst, MockedSubComponent,
+} from 'tests/unit/helpers';
+import {
   fakeDiscoAddon,
   loadDiscoResultsIntoState,
 } from 'tests/unit/disco/helpers';

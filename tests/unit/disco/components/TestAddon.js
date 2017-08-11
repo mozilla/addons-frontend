@@ -20,9 +20,11 @@ import {
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import { loadedAddons } from 'disco/containers/DiscoPane';
 import createStore from 'disco/store';
-import { getFakeI18nInst, signedInApiState } from 'tests/unit/helpers';
 import {
-  createFakeEvent, fakeDiscoAddon, loadDiscoResultsIntoState,
+  createFakeEvent, getFakeI18nInst, signedInApiState,
+} from 'tests/unit/helpers';
+import {
+  fakeDiscoAddon, loadDiscoResultsIntoState,
 } from 'tests/unit/disco/helpers';
 
 function renderAddon(customProps = {}) {
@@ -271,10 +273,9 @@ describe('<Addon />', () => {
       const heading = root.find('.heading');
       // We click the heading providing the link nodeName to emulate
       // bubbling.
-      heading.simulate('click', {
-        ...fakeEvent,
+      heading.simulate('click', createFakeEvent({
         target: { nodeName: 'A' },
-      });
+      }));
 
       sinon.assert.calledWith(fakeTracking.sendEvent, {
         action: TRACKING_TYPE_EXTENSION,
