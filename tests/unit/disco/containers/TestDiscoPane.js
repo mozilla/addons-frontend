@@ -156,7 +156,7 @@ describe('AddonPage', () => {
       // This is removed by the reducer.
       delete addon.theme_data;
 
-      // This is a magical theme guid created by the reducer for some reason.
+      // Adjust the theme guid to match how Firefox code does it internally.
       const guid = '1234@personas.mozilla.org';
 
       expect(props.results).toEqual([{
