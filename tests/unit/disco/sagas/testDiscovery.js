@@ -14,7 +14,7 @@ import {
 } from 'tests/unit/disco/helpers';
 
 
-describe('disco/sagas/discovery', () => {
+describe(__filename, () => {
   describe('fetchDiscoveryAddons', () => {
     let apiState;
     let errorHandler;
