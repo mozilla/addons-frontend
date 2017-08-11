@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-07 10:55+0000\n"
+"PO-Revision-Date: 2017-08-10 06:34+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -581,7 +581,7 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
-msgstr "%(name)s దిగుమతి చేస్తోంది."
+msgstr "%(name)s దింపుకుంటోంది."
 
 #: src/core/components/InstallSwitch/index.js:58
 msgid "Installing %(name)s."
