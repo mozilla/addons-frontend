@@ -16,6 +16,7 @@
     "amo:dev": "better-npm-run amo:dev",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
+    "bundlesize": "bundlesize",
     "disco": "better-npm-run disco",
     "eslint": "eslint .",
     "flow": "flow",
@@ -131,7 +132,7 @@
     "base62": "1.2.0",
     "base64url": "2.0.0",
     "better-npm-run": "0.1.0",
-    "bunyan": "1.8.10",
+    "bunyan": "1.8.12",
     "classnames": "2.2.5",
     "common-tags": "1.4.0",
     "config": "1.26.1",
@@ -197,6 +198,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "bundle-loader": "^0.5.5",
+    "bundlesize": "^0.13.2",
     "chalk": "^2.0.1",
     "chokidar-cli": "^1.2.0",
     "concurrently": "^3.4.0",
@@ -207,7 +209,7 @@
     "deepcopy": "^0.6.3",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
-    "eslint-config-amo": "^0.1.0",
+    "eslint-config-amo": "^0.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "fetch-mock": "^5.10.0",
     "file-loader": "^0.11.1",
@@ -238,7 +240,7 @@
     "sass-loader": "^6.0.3",
     "semver": "^5.3.0",
     "shelljs": "^0.7.7",
-    "sinon": "^2.2.0",
+    "sinon": "^3.1.0",
     "style-loader": "^0.18.1",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
@@ -252,5 +254,11 @@
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/*.js",
+      "threshold": "300 Kb"
+    }
+  ]
 }

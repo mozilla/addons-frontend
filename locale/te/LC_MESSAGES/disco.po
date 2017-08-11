@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2017-08-07 10:58+0000\n"
+"PO-Revision-Date: 2017-08-10 06:35+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -44,7 +44,7 @@ msgstr "అలంకారాన్ని స్థాపించు"
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
-msgstr "దిగుమతి చేస్తోంది %(name)s."
+msgstr "%(name)s దింపుకుంటోంది."
 
 #: src/core/components/InstallSwitch/index.js:58
 msgid "Installing %(name)s."
@@ -96,7 +96,7 @@ msgstr "స్థాపన విఫలమైంది. మళ్ళి ప్�
 
 #: src/disco/components/Addon.js:156
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "దింపుకోలు విఫలమైంది. దయచేసి మీ అనుసంధానానీ తనిఖీ చేయండి."
 
 #: src/disco/components/Addon.js:158
 msgid "An unexpected error occurred during installation."
