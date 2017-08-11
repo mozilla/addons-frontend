@@ -7,7 +7,7 @@ import apiReducer from 'core/reducers/api';
 import * as api from 'disco/api';
 import { getDiscoResults, loadDiscoResults } from 'disco/actions';
 import discoResultsReducer from 'disco/reducers/discoResults';
-import discoverySaga from 'disco/sagas/discovery';
+import discoSaga from 'disco/sagas/disco';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import {
   createFetchDiscoveryResult, fakeDiscoAddon,
@@ -39,7 +39,7 @@ describe(__filename, () => {
         },
       });
 
-      sagaTester.start(discoverySaga);
+      sagaTester.start(discoSaga);
     });
 
     function _getDiscoResults(overrides = {}) {

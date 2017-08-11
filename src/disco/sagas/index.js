@@ -4,11 +4,11 @@
 import { all, fork } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import discovery from 'disco/sagas/discovery';
+import disco from 'disco/sagas/disco';
 
 
 export default function* rootSaga() {
   yield all([
-    fork(discovery),
+    fork(disco),
   ]);
 }
