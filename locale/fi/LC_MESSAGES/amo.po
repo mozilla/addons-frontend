@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-07 11:31+0000\n"
+"PO-Revision-Date: 2017-08-11 17:31+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -328,7 +328,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Selaa kaikkia laajennuksia"
 
 #: src/amo/components/Home/index.js:143
 msgid "You can change how Firefox works…"
@@ -340,7 +340,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
-msgstr ""
+msgstr "Selaa kaikkia teemoja"
 
 #: src/amo/components/Home/index.js:162
 msgid "…or what it looks like"
@@ -400,11 +400,11 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
-msgstr ""
+msgstr "Teemat"
 
 #: src/amo/components/LandingPage/index.js:178 src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
-msgstr ""
+msgstr "Laajennukset"
 
 #: src/amo/components/LandingPage/index.js:209
 msgid "Explore all categories"

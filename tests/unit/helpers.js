@@ -227,3 +227,11 @@ export function shallowUntilTarget(componentInstance, TargetComponent, {
     instance: ${componentInstance}; gave up after ${maxTries} tries`
   );
 }
+
+export function createFakeEvent(extraProps = {}) {
+  return {
+    currentTarget: sinon.stub(),
+    preventDefault: sinon.stub(),
+    ...extraProps,
+  };
+}

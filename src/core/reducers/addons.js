@@ -4,6 +4,8 @@ const initialState = {};
 
 export function getGuid(result) {
   if (result.type === ADDON_TYPE_THEME) {
+    // This mimics how Firefox appends @personas.mozilla.org internally.
+    // It's needed to look up themes in mozAddonManager.
     return `${result.id}@personas.mozilla.org`;
   }
   return result.guid;
