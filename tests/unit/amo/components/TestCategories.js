@@ -25,6 +25,7 @@ describe('<Categories />', () => {
 
     return shallow(
       <CategoriesBase
+        addonType={ADDON_TYPE_EXTENSION}
         dispatch={fakeDispatch}
         errorHandler={errorHandler}
         i18n={getFakeI18nInst()}

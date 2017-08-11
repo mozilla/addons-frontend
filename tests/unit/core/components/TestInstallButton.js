@@ -1,9 +1,9 @@
-import { shallow } from 'enzyme';
 import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
-import { InstallButtonBase } from 'core/components/InstallButton';
+import createStore from 'amo/store';
+import InstallButton, { InstallButtonBase } from 'core/components/InstallButton';
 import InstallSwitch from 'core/components/InstallSwitch';
 import {
   ADDON_TYPE_EXTENSION,
@@ -14,7 +14,7 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import * as themePreview from 'core/themePreview';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
 
@@ -34,11 +34,13 @@ describe('<InstallButton />', () => {
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: getFakeI18nInst(),
+    store: createStore().store,
     ...customProps,
   });
 
-  const render = (props) =>
-    shallow(<InstallButtonBase {...renderProps(props)} />);
+  const render = (props) => shallowUntilTarget(
+    <InstallButton {...renderProps(props)} />, InstallButtonBase
+  );
 
   const renderToDom = (props) => findDOMNode(
     renderIntoDocument(<InstallButtonBase {...renderProps(props)} />));
