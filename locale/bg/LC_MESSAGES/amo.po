@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-11 18:27+0000\n"
+"PO-Revision-Date: 2017-08-11 18:47+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -94,7 +94,7 @@ msgstr "Ползвател"
 
 #: src/amo/components/AddonMoreInfo.js:106
 msgid "Read the license agreement for this add-on"
-msgstr "Прочетете лицензното споразумение на тази добавка"
+msgstr "Прочетете лицензното споразумение на добавката"
 
 #: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
@@ -130,11 +130,11 @@ msgstr "Лиценз"
 
 #: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
-msgstr "Политика за личните данни"
+msgstr "Политика на поверителност"
 
 #: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
-msgstr "Прочетете декларацията за поверителност за тази добавка"
+msgstr "Прочетете декларацията за поверителност на добавката"
 
 #: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
