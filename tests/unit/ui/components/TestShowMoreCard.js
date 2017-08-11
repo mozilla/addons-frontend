@@ -1,5 +1,5 @@
 import React from 'react';
-import { findDOMNode } from 'react-dom';
+import ReactDOM, { findDOMNode } from 'react-dom';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
 import { ShowMoreCardBase } from 'ui/components/ShowMoreCard';
@@ -56,5 +56,13 @@ describe('<ShowMoreCard />', () => {
     const root = render({ children: 'Hello I am description' });
     const rootNode = findDOMNode(root);
     expect(rootNode.textContent).toContain('Hello I am description');
+  });
+
+  it('executes truncateToMaxHeight when it recieves props', () => {
+    let node = document.createElement('div');
+    let instance = ReactDOM.render(<ShowMoreCardBase i18n={getFakeI18nInst()} />, node);
+    spyOn(instance, 'truncateToMaxHeight');
+    ReactDOM.render(<ShowMoreCardBase i18n={getFakeI18nInst()} />, node);
+    expect(instance.truncateToMaxHeight).toHaveBeenCalled();
   });
 });
