@@ -36,6 +36,7 @@ describe('core/server/base', () => {
       return {
         store: createStore(
           combineReducers({ reduxAsyncConnect }),
+          // Do not define an initial state.
           undefined,
           applyMiddleware(sagaMiddleware),
         ),
