@@ -29,6 +29,6 @@ export function* fetchDiscoveryAddons({ payload: { errorHandlerId } }) {
   }
 }
 
-export default function* discoverySaga() {
+export default function* discoSaga() {
   yield takeLatest(GET_DISCO_RESULTS, fetchDiscoveryAddons);
 }
