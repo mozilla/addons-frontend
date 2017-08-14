@@ -9,6 +9,7 @@ import featured from 'amo/sagas/featured';
 import landing from 'amo/sagas/landing';
 import reviews from 'amo/sagas/reviews';
 import addons from 'core/sagas/addons';
+import search from 'core/sagas/search';
 
 
 // Export all sagas for this app so runSaga can consume them.
@@ -19,5 +20,6 @@ export default function* rootSaga() {
     fork(featured),
     fork(landing),
     fork(reviews),
+    fork(search),
   ]);
 }

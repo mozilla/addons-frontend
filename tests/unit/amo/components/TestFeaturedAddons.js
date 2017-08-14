@@ -180,15 +180,11 @@ describe('<FeaturedAddons />', () => {
         visibleAddonType: visibleAddonType(addonType),
       },
       ...mappedProps,
-      hasSearchParams: true,
     });
 
     dispatch.reset();
 
-    root.setProps({
-      // Update an unrelated parameter.
-      hasSearchParams: false,
-    });
+    root.setProps();
 
     sinon.assert.notCalled(dispatch);
   });
@@ -207,7 +203,6 @@ describe('<FeaturedAddons />', () => {
         visibleAddonType: visibleAddonType(addonType),
       },
       ...mappedProps,
-      hasSearchParams: true,
     });
 
     // Make sure only the view context was dispatched, not getFeatured()

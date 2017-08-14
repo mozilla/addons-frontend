@@ -31,12 +31,7 @@ describe('SearchContextCard', () => {
   }
 
   function _searchStart(props = {}) {
-    _store.dispatch(searchStart({
-      errorHandlerId: 'Search',
-      page: 1,
-      results: [],
-      ...props,
-    }));
+    _store.dispatch(searchStart({ errorHandlerId: 'Search', ...props }));
   }
 
   beforeEach(() => {

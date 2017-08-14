@@ -1,15 +1,22 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { SearchBase } from 'amo/components/Search';
+import { SearchBase, mapStateToProps } from 'amo/components/Search';
 import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import { setViewContext } from 'amo/actions/viewContext';
+import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
 import { ADDON_TYPE_EXTENSION, VIEW_CONTEXT_EXPLORE } from 'core/constants';
+import { ErrorHandler } from 'core/errorHandler';
+import ErrorList from 'ui/components/ErrorList';
+import {
+  dispatchClientMetadata,
+  dispatchSearchResults,
+} from 'tests/unit/amo/helpers';
 
 
-describe('<Search />', () => {
+describe('Search', () => {
   let props;
 
   function render(extra = {}) {
@@ -20,9 +27,11 @@ describe('<Search />', () => {
     props = {
       count: 80,
       dispatch: sinon.stub(),
-      filters: { query: 'foo' },
-      hasSearchParams: true,
-      page: 3,
+      errorHandler: new ErrorHandler({
+        id: 'Search-testing-123',
+        dispatch: sinon.stub(),
+      }),
+      filters: { page: 3, query: 'foo' },
       pathname: '/search/',
       handleSearch: sinon.spy(),
       loading: false,
@@ -34,15 +43,13 @@ describe('<Search />', () => {
     const root = render();
     const results = root.find(SearchResults);
     expect(results.prop('count')).toEqual(props.count);
-    expect(results.prop('results')).toEqual(props.results);
-    expect(results.prop('hasSearchParams')).toEqual(props.hasSearchParams);
     expect(results.prop('filters')).toEqual(props.filters);
     expect(results.prop('loading')).toEqual(props.loading);
     expect(results.prop('pathname')).toEqual(props.pathname);
+    expect(results.prop('results')).toEqual(props.results);
     expect(Object.keys(results.props()).sort()).toEqual([
       'count',
       'filters',
-      'hasSearchParams',
       'loading',
       'pathname',
       'results',
@@ -55,11 +62,15 @@ describe('<Search />', () => {
     expect(paginator.prop('count')).toEqual(80);
     expect(paginator.prop('currentPage')).toEqual(3);
     expect(paginator.prop('pathname')).toEqual('/search/');
-    expect(paginator.prop('queryParams')).toEqual({ q: 'foo' });
+    expect(paginator.prop('queryParams')).toEqual({ page: 3, q: 'foo' });
   });
 
   it('does not render a Paginate when there is no search term', () => {
-    const root = render({ filters: { query: null }, count: 0 });
+    const { store } = dispatchSearchResults({
+      addons: {},
+      filters: { query: null },
+    });
+    const root = render(mapStateToProps(store.getState()));
     const paginators = root.find(Paginate);
 
     expect(paginators.length).toEqual(0);
@@ -73,28 +84,48 @@ describe('<Search />', () => {
     expect(sort.prop('pathname')).toEqual(props.pathname);
   });
 
-  it('does not render a SearchSort when there are no filters', () => {
-    const root = render({ hasSearchParams: false, results: [] });
-    const searchSort = root.find(SearchSort);
-
-    expect(searchSort.length).toEqual(0);
-  });
-
   it('does not render a SearchSort when there are no results', () => {
-    const root = render({ hasSearchParams: true, results: [] });
-    const searchSort = root.find(SearchSort);
+    const { store } = dispatchSearchResults({ addons: {} });
+    const root = render(mapStateToProps(store.getState()));
 
-    expect(searchSort.length).toEqual(0);
+    expect(root.find(SearchSort)).toHaveLength(0);
   });
 
   it('does not render SearchSort when enableSearchSort is false', () => {
-    const root = render({
-      enableSearchSort: false,
-      hasSearchParams: true,
-    });
+    const root = render({ enableSearchSort: false });
     const searchSort = root.find(SearchSort);
 
     expect(searchSort.length).toEqual(0);
+  });
+
+  it('dispatches the search on mount', () => {
+    render();
+
+    sinon.assert.calledWith(props.dispatch, searchStart({
+      errorHandlerId: props.errorHandler.id,
+      filters: props.filters,
+    }));
+  });
+
+  it('does not dispatch on mount if filters/results are loaded', () => {
+    render({ filtersUsedForResults: props.filters });
+
+    sinon.assert.neverCalledWith(props.dispatch, searchStart({
+      errorHandlerId: props.errorHandler.id,
+      filters: props.filters,
+    }));
+  });
+
+  it('dispatches the search on props change', () => {
+    const root = render();
+
+    const newFilters = { query: 'I am a new query', page: 1 };
+    root.setProps({ filters: newFilters });
+
+    sinon.assert.calledWith(props.dispatch, searchStart({
+      errorHandlerId: props.errorHandler.id,
+      filters: newFilters,
+    }));
   });
 
   it('sets the viewContext to the addonType if addonType exists', () => {
@@ -115,5 +146,29 @@ describe('<Search />', () => {
 
     sinon.assert.calledWith(
       fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+  });
+
+  it('should render an error', () => {
+    const errorHandler = new ErrorHandler({
+      capturedError: new Error('example of an error'),
+      id: 'some-id',
+      dispatch: sinon.stub(),
+    });
+    const root = render({ errorHandler });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  describe('mapStateToProps()', () => {
+    const { state } = dispatchClientMetadata();
+
+    it('returns count, loading, and results', () => {
+      expect(mapStateToProps(state)).toEqual({
+        count: state.search.count,
+        filtersUsedForResults: state.search.filters,
+        loading: state.search.loading,
+        results: state.search.results,
+      });
+    });
   });
 });
