@@ -8,6 +8,7 @@ import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import _log from 'core/logger';
@@ -53,8 +54,12 @@ export class AddonCompatibilityErrorBase extends React.Component {
 
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
       message = i18n.sprintf(i18n.gettext(`You need to
-        <a href="%(downloadUrl)s">download Firefox</a> to install this add-on.`
+        <a href="%(downloadUrl)s">download Firefox</a> to install this
+        add-on.`
       ), { downloadUrl });
+    } else if (reason === INCOMPATIBLE_OVER_MAX_VERSION) {
+      message = i18n.gettext(`This add-on is not compatible with your
+        version of Firefox.`);
     } else if (reason === INCOMPATIBLE_NO_OPENSEARCH) {
       message = i18n.gettext(
         'Your version of Firefox does not support search plugins.');

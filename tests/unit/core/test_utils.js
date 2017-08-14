@@ -21,6 +21,7 @@ import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   validAddonTypes,
 } from 'core/constants';
@@ -336,7 +337,16 @@ describe('isCompatibleWithUserAgent', () => {
       os: { name: 'Windows' },
     };
     expect(isCompatibleWithUserAgent({
-      addon: fakeAddon, maxVersion: '8', userAgentInfo })).toEqual({ compatible: true, reason: null });
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          is_strict_compatibility_enabled: false,
+        },
+      },
+      maxVersion: '8',
+      userAgentInfo,
+    })).toEqual({ compatible: true, reason: null });
   });
 
   it('should mark Firefox as compatible when no min or max version', () => {
@@ -977,6 +987,59 @@ describe('getClientCompatibility', () => {
       maxVersion: null,
       minVersion: null,
       reason: null,
+    });
+  });
+
+  it('returns compatible if strict compatibility is off', () => {
+    const { browser, os } = UAParser(userAgents.firefox[4]);
+    const userAgentInfo = { browser, os };
+
+    expect(getClientCompatibility({
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          compatibility: {
+            ...fakeAddon.current_version.compatibility,
+            [CLIENT_APP_FIREFOX]: {
+              max: '56.*',
+              min: '24.0',
+            },
+          },
+          files: [{ is_webextension: true }],
+          is_strict_compatibility_enabled: false,
+        },
+      },
+      clientApp: 'firefox',
+      userAgentInfo,
+    })).toMatchObject({ compatible: true });
+  });
+
+  it('returns incompatible if strict compatibility enabled', () => {
+    const { browser, os } = UAParser(userAgents.firefox[4]);
+    const userAgentInfo = { browser, os };
+
+    expect(getClientCompatibility({
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          compatibility: {
+            ...fakeAddon.current_version.compatibility,
+            [CLIENT_APP_FIREFOX]: {
+              max: '56.*',
+              min: '24.0',
+            },
+          },
+          files: [{ is_webextension: false }],
+          is_strict_compatibility_enabled: true,
+        },
+      },
+      clientApp: 'firefox',
+      userAgentInfo,
+    })).toMatchObject({
+      compatible: false,
+      reason: INCOMPATIBLE_OVER_MAX_VERSION,
     });
   });
 });
