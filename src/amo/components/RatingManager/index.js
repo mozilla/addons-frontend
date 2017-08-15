@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
-import { withErrorHandling } from 'core/errorHandler';
+import { withRenderedErrorHandler } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
@@ -257,6 +257,6 @@ export const RatingManagerWithI18n = compose(
 )(RatingManagerBase);
 
 export default compose(
-  withErrorHandling({ name: 'RatingManager' }),
+  withRenderedErrorHandler({ name: 'RatingManager' }),
   connect(mapStateToProps, mapDispatchToProps),
 )(RatingManagerWithI18n);
