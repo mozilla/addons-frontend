@@ -6,9 +6,9 @@ import utf8 from 'utf8';
 
 import * as api from 'core/api';
 import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
 import { parsePage } from 'core/utils';
 import {
+  createStubErrorHandler,
   signedInApiState,
   unexpectedSuccess,
   userAuthToken,
@@ -46,10 +46,6 @@ describe('api', () => {
   });
 
   describe('core.callApi', () => {
-    function newErrorHandler() {
-      return new ErrorHandler({ id: '123', dispatch: sinon.stub() });
-    }
-
     it('does not use remote host for api calls', () => {
       expect(apiHost).toEqual('https://localhost');
     });
@@ -79,7 +75,7 @@ describe('api', () => {
     it('clears an error handler before making a request', () => {
       mockWindow.expects('fetch').returns(createApiResponse());
 
-      const errorHandler = newErrorHandler();
+      const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'clear');
 
       return api.callApi({ endpoint: 'resource', errorHandler })
@@ -95,7 +91,7 @@ describe('api', () => {
         jsonData: { non_field_errors: nonFieldErrors },
       }));
 
-      const errorHandler = newErrorHandler();
+      const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource', errorHandler })
@@ -114,7 +110,7 @@ describe('api', () => {
         },
       }));
 
-      const errorHandler = newErrorHandler();
+      const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource' })
@@ -143,7 +139,7 @@ describe('api', () => {
         'this could be any error'
       )));
 
-      const errorHandler = newErrorHandler();
+      const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
       return api.callApi({ endpoint: 'resource', errorHandler })

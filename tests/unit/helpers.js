@@ -12,6 +12,7 @@ import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
+import { ErrorHandler } from 'core/errorHandler';
 
 export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
@@ -234,4 +235,12 @@ export function createFakeEvent(extraProps = {}) {
     preventDefault: sinon.stub(),
     ...extraProps,
   };
+}
+
+export function createStubErrorHandler(capturedError = null) {
+  return new ErrorHandler({
+    id: 'create-stub-error-handler-id',
+    dispatch: sinon.stub(),
+    capturedError,
+  });
 }

@@ -1,14 +1,11 @@
 import { getFeatured, loadFeatured } from 'amo/actions/featured';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
+import { createStubErrorHandler } from 'tests/unit/helpers';
 
 
 describe('amo/actions/featured/getFeatured', () => {
   function getActionArgs(args = {}) {
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler();
     return {
       addonType: ADDON_TYPE_EXTENSION,
       errorHandlerId: errorHandler.id,

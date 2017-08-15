@@ -18,7 +18,10 @@ import {
 } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import {
-  createFakeEvent, getFakeI18nInst, MockedSubComponent,
+  createFakeEvent,
+  createStubErrorHandler,
+  getFakeI18nInst,
+  MockedSubComponent,
 } from 'tests/unit/helpers';
 import {
   fakeDiscoAddon,
@@ -59,9 +62,7 @@ describe('AddonPage', () => {
 
     return {
       AddonComponent: MockedSubComponent,
-      errorHandler: new ErrorHandler({
-        id: 'some-id', dispatch: sinon.stub(),
-      }),
+      errorHandler: createStubErrorHandler(),
       dispatch: sinon.stub(),
       i18n,
       results,
@@ -247,11 +248,7 @@ describe('AddonPage', () => {
 
   describe('errors', () => {
     it('renders errors', () => {
-      const errorHandler = new ErrorHandler({
-        id: 'some-handler',
-        dispatch: sinon.stub(),
-        capturedError: new Error('some error'),
-      });
+      const errorHandler = createStubErrorHandler(new Error('some error'));
       const root = render({ errorHandler });
 
       expect(root.find(ErrorList)).toHaveLength(1);

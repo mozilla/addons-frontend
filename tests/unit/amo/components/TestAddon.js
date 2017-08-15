@@ -44,7 +44,10 @@ import {
   dispatchSignInActions, fakeAddon, signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
-  createFetchAddonResult, getFakeI18nInst, sampleUserAgentParsed,
+  createFetchAddonResult,
+  createStubErrorHandler,
+  getFakeI18nInst,
+  sampleUserAgentParsed,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
@@ -62,10 +65,7 @@ function renderProps({
     addon,
     ...addonProps,
     dispatch: sinon.stub(),
-    errorHandler: new ErrorHandler({
-      id: 'some-id',
-      dispatch: sinon.stub(),
-    }),
+    errorHandler: createStubErrorHandler(),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
@@ -166,10 +166,7 @@ describe('Addon', () => {
   });
 
   it('renders without an add-on', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'no-addon-error-handler',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler();
     const slugParam = 'some-addon'; // as passed through the URL.
     const fakeDispatch = sinon.stub();
 
@@ -204,11 +201,7 @@ describe('Addon', () => {
   });
 
   it('renders an error if there is one', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('some error'),
-      id: 'some-handler',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler(new Error('some error'));
 
     const root = shallowRender({ errorHandler });
     expect(root.find(ErrorList)).toHaveLength(1);

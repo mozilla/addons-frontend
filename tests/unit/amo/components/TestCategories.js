@@ -9,17 +9,14 @@ import { ErrorHandler } from 'core/errorHandler';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 
 describe('<Categories />', () => {
   function render({ ...props }) {
     const fakeDispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler();
 
     return shallow(
       <CategoriesBase
@@ -200,11 +197,9 @@ describe('<Categories />', () => {
   });
 
   it('reports errors', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('example of an error'),
-      id: 'some-id',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler(
+      new Error('example of an error')
+    );
     const root = render({ categories: {}, errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
