@@ -40,9 +40,7 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import {
-  dispatchSignInActions, fakeAddon, signedInApiState,
-} from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
@@ -74,7 +72,7 @@ function renderProps({
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
-    store: createStore({ api: signedInApiState }).store,
+    store: dispatchSignInActions().store,
     ...customProps,
   };
 }

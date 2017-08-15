@@ -8,15 +8,14 @@ import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
 import ErrorPage, { mapStateToProps } from 'core/components/ErrorPage';
-import createStore from 'amo/store';
 import { createApiError } from 'core/api';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 import I18nProvider from 'core/i18n/Provider';
-import { signedInApiState } from 'tests/unit/amo/helpers';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
 
 describe('<ErrorPage />', () => {
-  function render({ ...props }, store = createStore({ api: signedInApiState }).store) {
+  function render({ ...props }, store = dispatchSignInActions().store) {
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
@@ -33,7 +32,7 @@ describe('<ErrorPage />', () => {
   });
 
   it('renders an error page on error', () => {
-    const { store } = createStore({ api: signedInApiState });
+    const { store } = dispatchSignInActions();
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },

@@ -8,16 +8,15 @@ import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import createStore from 'amo/store';
 import { createApiError } from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
-import { signedInApiState } from 'tests/unit/amo/helpers';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<NotFound />', () => {
   function render({ ...props }) {
-    const { store } = createStore({ api: signedInApiState });
+    const { store } = dispatchSignInActions();
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },
