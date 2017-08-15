@@ -8,14 +8,15 @@ import {
   mapStateToProps,
 } from 'amo/components/FeaturedAddons';
 import SearchResults from 'amo/components/SearchResults';
-import createStore from 'amo/store';
 import {
   ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import {
-  createAddonsApiResult, fakeAddon, signedInApiState,
+  createAddonsApiResult,
+  dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 
@@ -25,8 +26,7 @@ describe('<FeaturedAddons />', () => {
   let store;
 
   beforeEach(() => {
-    const initialState = { api: signedInApiState };
-    store = createStore(initialState).store;
+    store = dispatchSignInActions().store;
     errorHandler = createStubErrorHandler();
   });
 
