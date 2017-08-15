@@ -17,7 +17,7 @@ import { getFakeI18nInst } from 'tests/unit/helpers';
 
 describe('<NotFound />', () => {
   function render({ ...props }) {
-    const { store } = createStore(signedInApiState);
+    const { store } = createStore({ api: signedInApiState });
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },

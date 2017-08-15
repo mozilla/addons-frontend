@@ -16,7 +16,7 @@ import { signedInApiState } from 'tests/unit/amo/helpers';
 
 
 describe('<ErrorPage />', () => {
-  function render({ ...props }, store = createStore(signedInApiState).store) {
+  function render({ ...props }, store = createStore({ api: signedInApiState }).store) {
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
         <I18nProvider i18n={getFakeI18nInst()}>
@@ -33,7 +33,7 @@ describe('<ErrorPage />', () => {
   });
 
   it('renders an error page on error', () => {
-    const { store } = createStore(signedInApiState);
+    const { store } = createStore({ api: signedInApiState });
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },
