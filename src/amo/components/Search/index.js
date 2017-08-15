@@ -122,7 +122,7 @@ export class SearchBase extends React.Component {
 
     return (
       <div className="Search">
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
 
         <SearchContextCard />
 

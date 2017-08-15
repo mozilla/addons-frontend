@@ -170,7 +170,7 @@ export class AddonReviewListBase extends React.Component {
 
     return (
       <div className="AddonReviewList">
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         <div className="AddonReviewList-header">
           <div className="AddonReviewList-header-icon">
             {addon ? <Link to={this.addonURL()}>{iconImage}</Link> : iconImage}

@@ -162,7 +162,7 @@ export class AddonReviewBase extends React.Component {
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <div className="AddonReview-form-input">
-            {errorHandler.hasError() ? errorHandler.renderError() : null}
+            {errorHandler.renderErrorIfPresent()}
             <label htmlFor="AddonReview-textarea" className="visually-hidden">
               {i18n.gettext('Review text')}
             </label>

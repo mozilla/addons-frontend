@@ -83,7 +83,7 @@ export class FeaturedAddonsBase extends React.Component {
 
     return (
       <div className="FeaturedAddons">
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         <h2 className="FeaturedAddons-header">
           {this.headerForAddonType()}
         </h2>

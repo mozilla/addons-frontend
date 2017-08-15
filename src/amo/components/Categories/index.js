@@ -90,7 +90,7 @@ export class CategoriesBase extends React.Component {
 
     return (
       <Card className={classNameProp} header={i18n.gettext('Categories')}>
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         {loading ?
           <div className="Categories-loading">
             <span className="Categories-loading-info visually-hidden">

@@ -48,7 +48,7 @@ export class CategoryBase extends React.Component {
 
     return (
       <div className="Category">
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         <CategoryHeader category={category} />
         <Search
           enableSearchSort={false}
