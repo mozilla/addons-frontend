@@ -17,7 +17,7 @@ import { visibleAddonType } from 'core/utils';
 import {
   createAddonsApiResult, fakeAddon, signedInApiState,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<FeaturedAddons />', () => {
@@ -27,10 +27,7 @@ describe('<FeaturedAddons />', () => {
   beforeEach(() => {
     const initialState = { api: signedInApiState };
     store = createStore(initialState).store;
-    errorHandler = new ErrorHandler({
-      id: 'some-error-handler',
-      dispatch: sinon.stub(),
-    });
+    errorHandler = createStubErrorHandler();
   });
 
   function _getFeatured(args = {}) {

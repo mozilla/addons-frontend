@@ -11,7 +11,7 @@ import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { visibleAddonType } from 'core/utils';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
@@ -103,22 +103,18 @@ describe('Category', () => {
   });
 
   it('should render an error', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('example of an error'),
-      id: 'some-id',
-      dispatch: fakeDispatch,
-    });
+    const errorHandler = createStubErrorHandler(
+      new Error('example of an error')
+    );
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   it('should render an error without a category too', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('example of an error'),
-      id: 'some-id',
-      dispatch: fakeDispatch,
-    });
+    const errorHandler = createStubErrorHandler(
+      new Error('example of an error')
+    );
     const root = render({ errorHandler, category: null, loading: false });
 
     expect(root.find(ErrorList)).toHaveLength(1);

@@ -8,13 +8,12 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
 import { ADDON_TYPE_EXTENSION, VIEW_CONTEXT_EXPLORE } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
   dispatchSearchResults,
 } from 'tests/unit/amo/helpers';
-
+import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe('Search', () => {
   let props;
@@ -27,10 +26,7 @@ describe('Search', () => {
     props = {
       count: 80,
       dispatch: sinon.stub(),
-      errorHandler: new ErrorHandler({
-        id: 'Search-testing-123',
-        dispatch: sinon.stub(),
-      }),
+      errorHandler: createStubErrorHandler(),
       filters: { page: 3, query: 'foo' },
       pathname: '/search/',
       handleSearch: sinon.spy(),
@@ -149,11 +145,9 @@ describe('Search', () => {
   });
 
   it('should render an error', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('example of an error'),
-      id: 'some-id',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler(
+      new Error('example of an error')
+    );
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);

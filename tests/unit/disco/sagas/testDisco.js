@@ -1,7 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
 import { loadEntities } from 'core/actions';
-import { ErrorHandler } from 'core/errorHandler';
 import addonsReducer from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import * as api from 'disco/api';
@@ -12,7 +11,7 @@ import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import {
   createFetchDiscoveryResult, fakeDiscoAddon,
 } from 'tests/unit/disco/helpers';
-
+import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   describe('fetchDiscoveryAddons', () => {
@@ -22,10 +21,7 @@ describe(__filename, () => {
     let sagaTester;
 
     beforeEach(() => {
-      errorHandler = new ErrorHandler({
-        id: 'some-error-handler',
-        dispatch: sinon.stub(),
-      });
+      errorHandler = createStubErrorHandler();
       mockApi = sinon.mock(api);
 
       const { state } = dispatchSignInActions();

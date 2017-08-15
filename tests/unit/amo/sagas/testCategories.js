@@ -7,9 +7,9 @@ import { setClientApp, setLang } from 'core/actions';
 import * as actions from 'core/actions/categories';
 import * as api from 'core/api';
 import { CATEGORIES_LOAD } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
 import apiReducer from 'core/reducers/api';
 import categoriesReducer from 'core/reducers/categories';
+import { createStubErrorHandler } from 'tests/unit/helpers';
 
 
 describe('categoriesSaga', () => {
@@ -19,10 +19,7 @@ describe('categoriesSaga', () => {
   let store;
 
   beforeEach(() => {
-    errorHandler = new ErrorHandler({
-      id: 'some-error-handler',
-      dispatch: sinon.stub(),
-    });
+    errorHandler = createStubErrorHandler();
     store = createStore().store;
     store.dispatch(setClientApp('firefox'));
     store.dispatch(setLang('en-US'));
