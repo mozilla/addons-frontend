@@ -106,7 +106,7 @@ export class DiscoPaneBase extends React.Component {
 
     return (
       <div id="app-view" ref={(ref) => { this.container = ref; }}>
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         <header className={showVideo ? 'show-video' : ''}>
           <div className="disco-header">
             <div className="disco-content">

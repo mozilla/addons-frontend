@@ -42,6 +42,10 @@ export class ErrorHandler {
     return <ErrorList messages={messages} code={code} />;
   }
 
+  renderErrorIfPresent() {
+    return this.hasError() ? this.renderError() : null;
+  }
+
   createErrorAction(error) {
     return setError({ error, id: this.id });
   }

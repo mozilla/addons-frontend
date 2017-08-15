@@ -4,6 +4,7 @@ import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
 import { createStore, combineReducers } from 'redux';
+import { shallow } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
 import { createApiError } from 'core/api/index';
@@ -262,6 +263,18 @@ describe('errorHandler', () => {
     it('tells you if it does not have an error', () => {
       const handler = new ErrorHandler();
       expect(handler.hasError()).toBe(false);
+    });
+
+    it('returns no component if it does not have an error', () => {
+      const handler = new ErrorHandler();
+      expect(handler.renderErrorIfPresent()).toBe(null);
+    });
+
+    it('returns a component if it has an error', () => {
+      const handler = new ErrorHandler({ capturedError: new Error('error message') });
+      const wrapper = shallow(<div>{handler.renderErrorIfPresent()}</div>);
+      expect(handler.renderErrorIfPresent()).not.toBe(null);
+      expect(wrapper.find(ErrorList)).toHaveLength(1);
     });
   });
 });
