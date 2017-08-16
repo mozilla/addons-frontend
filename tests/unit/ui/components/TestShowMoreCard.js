@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import React from 'react';
 import ReactDOM, { findDOMNode } from 'react-dom';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
@@ -59,10 +60,17 @@ describe('<ShowMoreCard />', () => {
   });
 
   it('executes truncateToMaxHeight when it recieves props', () => {
-    let node = document.createElement('div');
-    let instance = ReactDOM.render(<ShowMoreCardBase i18n={getFakeI18nInst()} />, node);
-    spyOn(instance, 'truncateToMaxHeight');
-    ReactDOM.render(<ShowMoreCardBase i18n={getFakeI18nInst()} />, node);
-    expect(instance.truncateToMaxHeight).toHaveBeenCalled();
+    const node = document.createElement('div');
+    let ref;
+    ReactDOM.render(<ShowMoreCardBase i18n={getFakeI18nInst()} ref={(e) => { ref = e; }} />, node,
+      () => {
+        jest.spyOn(ref, 'truncateToMaxHeight');
+        ReactDOM.render(<ShowMoreCardBase
+          i18n={getFakeI18nInst()}
+          ref={(e) => { ref = e; }}
+        />, node);
+        expect(ref.truncateToMaxHeight).toHaveBeenCalled();
+      }
+    );
   });
 });
