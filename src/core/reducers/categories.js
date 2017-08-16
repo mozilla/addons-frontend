@@ -22,8 +22,9 @@ export function emptyCategoryList() {
     }, {});
 }
 
-const initialState = {
-  categories: emptyCategoryList(),
+export const initialState = {
+  // TODO: fix Categories component.
+  categories: null,
   loading: false,
 };
 
@@ -32,7 +33,7 @@ export default function categories(state = initialState, action) {
 
   switch (action.type) {
     case CATEGORIES_FETCH:
-      return { ...state, loading: true };
+      return { ...initialState, loading: true };
     case CATEGORIES_LOAD:
       {
         const categoryList = emptyCategoryList();
