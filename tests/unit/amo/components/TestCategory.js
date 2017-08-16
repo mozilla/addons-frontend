@@ -18,18 +18,9 @@ import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { visibleAddonType } from 'core/utils';
 import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
-
-const fakeCategory = {
-  id: 5,
-  application: CLIENT_APP_FIREFOX,
-  description: 'I am a cool category for doing things',
-  name: 'Testing category',
-  slug: 'test',
-  type: ADDON_TYPE_THEME,
-};
 
 describe('Category', () => {
   let category;

@@ -29,19 +29,20 @@ type CategoryType = {
   weight: number,
 };
 
-type CategoriesByAddonType = {
-  [addonType: string]: void | { [categorySlug: string]: CategoryType },
-};
-
 type CategoriesStateType = {|
-  categories: { [clientApp: ?string]: CategoriesByAddonType },
+  categories: {
+    [clientApp: string]: void | {
+      [addonType: string]: void | { [categorySlug: string]: CategoryType },
+    },
+  },
   loading: boolean,
 |};
 
 type CategoriesProps = {
   addonType: string,
   className: string,
-  categories: CategoriesByAddonType,
+  clientApp: string,
+  categories?: $PropertyType<CategoriesStateType, 'categories'>,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: Object,
@@ -50,10 +51,9 @@ type CategoriesProps = {
 
 export class CategoriesBase extends React.Component {
   componentWillMount() {
-    const { addonType, dispatch, errorHandler } = this.props;
-    const categories = this.props.categories[addonType] || {};
+    const { addonType, categories, dispatch, errorHandler } = this.props;
 
-    if (!Object.values(categories).length) {
+    if (!categories) {
       dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
     }
 
@@ -72,10 +72,23 @@ export class CategoriesBase extends React.Component {
   render() {
     /* eslint-disable react/no-array-index-key */
     const {
-      addonType, className, errorHandler, loading, i18n,
+      addonType,
+      categories: categoriesState,
+      className,
+      clientApp,
+      errorHandler,
+      i18n,
+      loading,
     } = this.props;
-    const categories = this.props.categories[addonType] ?
-      Object.values(this.props.categories[addonType]) : [];
+
+    let categories = [];
+    if (
+      categoriesState &&
+      categoriesState[clientApp] &&
+      categoriesState[clientApp][addonType]
+    ) {
+      categories = Object.values(categoriesState[clientApp][addonType]);
+    };
     const classNameProp = classnames('Categories', className);
 
     if (!errorHandler.hasError() && !loading && !categories.length) {
@@ -141,11 +154,9 @@ export class CategoriesBase extends React.Component {
 export function mapStateToProps(
   state: {| api: ApiStateType, categories: CategoriesStateType |}
 ) {
-  const clientApp = state.api.clientApp;
-  const categories = state.categories.categories[clientApp];
-
   return {
-    categories,
+    categories: state.categories.categories,
+    clientApp: state.api.clientApp,
     loading: state.categories.loading,
   };
 }
