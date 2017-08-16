@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-07 11:31+0000\n"
+"PO-Revision-Date: 2017-08-11 17:45+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -16,25 +16,25 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:129
 msgid "Cancel preview"
-msgstr ""
+msgstr "Peruuta esikatselu"
 
 #: src/amo/components/Addon/index.js:129
 msgid "Tap to preview"
-msgstr ""
+msgstr "Esikatsele koskettamalla"
 
 #: src/amo/components/Addon/index.js:170
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lue %(count)s arvio"
+msgstr[1] "Lue kaikki %(count)s arviota"
 
 #: src/amo/components/Addon/index.js:186
 msgid "No reviews yet"
-msgstr ""
+msgstr "Ei arvioita"
 
 #: src/amo/components/Addon/index.js:195
 msgid "Rate your experience"
-msgstr ""
+msgstr "Arvioi kokemuksesi"
 
 #: src/amo/components/Addon/index.js:229
 msgid "About this %(addonType)s"
@@ -75,18 +75,18 @@ msgstr ""
 #: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s käyttäjä"
+msgstr[1] "%(total)s käyttäjää"
 
 #: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s arvio"
+msgstr[1] "%(total)s arviota"
 
 #: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
-msgstr ""
+msgstr "Ei arvioita"
 
 #: src/amo/components/AddonMeta.js:50
 msgid "Used by"
@@ -98,27 +98,27 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
-msgstr ""
+msgstr "Kotisivu"
 
 #: src/amo/components/AddonMoreInfo.js:34
 msgid "Support Site"
-msgstr ""
+msgstr "Tukisivusto"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "More information"
-msgstr ""
+msgstr "Lisätietoja"
 
 #: src/amo/components/AddonMoreInfo.js:44
 msgid "Add-on Links"
-msgstr ""
+msgstr "Lisäosan linkit"
 
 #: src/amo/components/AddonMoreInfo.js:55
 msgid "Version"
-msgstr ""
+msgstr "Versio"
 
 #: src/amo/components/AddonMoreInfo.js:59
 msgid "Last updated"
-msgstr ""
+msgstr "Viimeksi päivitetty"
 
 #: src/amo/components/AddonMoreInfo.js:64
 msgid "%(timeFromNow)s (%(date)s)"
@@ -126,7 +126,7 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo.js:72
 msgid "License"
-msgstr ""
+msgstr "Lisenssi"
 
 #: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
@@ -158,7 +158,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
-msgstr ""
+msgstr "Kirjoita arvio"
 
 #: src/amo/components/AddonReview.js:167
 msgid "Review text"
@@ -166,7 +166,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview.js:182
 msgid "Submit review"
-msgstr ""
+msgstr "Lähetä arvio"
 
 #: src/amo/components/AddonReviewList.js:119
 msgid "from %(authorName)s, %(timestamp)s"
@@ -248,7 +248,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Palvelinvirhe"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -280,11 +280,11 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:62
 msgid "View classic desktop site"
-msgstr ""
+msgstr "Näytä perinteinen työpöytäsivusto"
 
 #: src/amo/components/Header/index.js:44
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefoxin lisäosat"
 
 #: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
@@ -328,7 +328,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
-msgstr ""
+msgstr "Selaa kaikkia laajennuksia"
 
 #: src/amo/components/Home/index.js:143
 msgid "You can change how Firefox works…"
@@ -340,7 +340,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
-msgstr ""
+msgstr "Selaa kaikkia teemoja"
 
 #: src/amo/components/Home/index.js:162
 msgid "…or what it looks like"
@@ -400,11 +400,11 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
-msgstr ""
+msgstr "Teemat"
 
 #: src/amo/components/LandingPage/index.js:178 src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
-msgstr ""
+msgstr "Laajennukset"
 
 #: src/amo/components/LandingPage/index.js:209
 msgid "Explore all categories"
@@ -424,7 +424,7 @@ msgstr ""
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
-msgstr ""
+msgstr "Selaa omalla kielelläsi"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
@@ -480,15 +480,15 @@ msgstr[1] ""
 
 #: src/amo/components/SearchForm.js:50
 msgid "Search extensions"
-msgstr ""
+msgstr "Etsi laajennuksista"
 
 #: src/amo/components/SearchForm.js:52
 msgid "Search themes"
-msgstr ""
+msgstr "Etsi teemoista"
 
 #: src/amo/components/SearchForm.js:54
 msgid "Search extensions and themes"
-msgstr ""
+msgstr "Etsi laajennuksista ja teemoista"
 
 #: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
 msgid "Search"
@@ -516,7 +516,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:63
 msgid "Search results"
-msgstr ""
+msgstr "Hakutulokset"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
@@ -528,7 +528,7 @@ msgstr ""
 
 #: src/amo/components/SearchSort/index.js:43
 msgid "Most Users"
-msgstr ""
+msgstr "Eniten käyttäjiä"
 
 #: src/amo/components/SearchSort/index.js:44
 msgid "Top Rated"
@@ -552,11 +552,11 @@ msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:61
 msgid "Log out"
-msgstr ""
+msgstr "Kirjaudu ulos"
 
 #: src/core/components/AuthenticateButton/index.js:62
 msgid "Log in/Sign up"
-msgstr ""
+msgstr "Kirjaudu/rekisteröidy"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -620,7 +620,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Lisäosasi on valmis"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
@@ -652,4 +652,4 @@ msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "Lue lisää <span class=\"visually-hidden\">laajentamalla</span>"

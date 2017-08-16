@@ -9,6 +9,7 @@ import {
   validAddonTypes,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 import SearchInput from 'ui/components/SearchInput';
 
 import 'core/css/inc/lib.scss';
@@ -30,9 +31,15 @@ export class SearchFormBase extends React.Component {
 
   goToSearch(query) {
     const { addonType, api, pathname } = this.props;
+    const filters = { query };
+
+    if (addonType) {
+      filters.addonType = addonType;
+    }
+
     this.context.router.push({
       pathname: `/${api.lang}/${api.clientApp}${pathname}`,
-      query: { q: query, type: addonType },
+      query: convertFiltersToQueryParams(filters),
     });
   }
 

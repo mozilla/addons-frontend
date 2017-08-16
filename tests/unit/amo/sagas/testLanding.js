@@ -12,11 +12,11 @@ import {
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
 import apiReducer from 'core/reducers/api';
 import {
   createAddonsApiResult, dispatchSignInActions, fakeAddon,
 } from 'tests/unit/amo/helpers';
+import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe('amo/sagas/landing', () => {
   describe('fetchLandingAddons', () => {
@@ -26,10 +26,7 @@ describe('amo/sagas/landing', () => {
     let sagaTester;
 
     beforeEach(() => {
-      errorHandler = new ErrorHandler({
-        id: 'some-error-handler',
-        dispatch: sinon.stub(),
-      });
+      errorHandler = createStubErrorHandler();
       mockApi = sinon.mock(api);
 
       const { state } = dispatchSignInActions();

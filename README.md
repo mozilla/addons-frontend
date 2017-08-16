@@ -55,6 +55,7 @@ Here are some commands you can run:
 | yarn start-func-test-server | Start a Docker container for functional tests |
 | yarn stylelint              | Lint the SCSS |
 | yarn lint                   | Run all the JS + SCSS linters |
+| yarn nsp-check              | Run [nsp][] to detect dependencies with known vulnerabilities |
 | yarn version-check          | Check you have the required dependencies |
 | yarn test                   | Run all tests (Enters [jest][] in `--watch` mode) |
 | yarn test-coverage          | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
@@ -392,3 +393,4 @@ still can.
 * Unit tests with high coverage (aiming for 100%)
 
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
+[nsp]: https://github.com/nodesecurity/nsp
