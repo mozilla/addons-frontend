@@ -7,7 +7,6 @@ import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, CLIENT_APP_ANDROID,
 } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
@@ -40,10 +39,7 @@ describe('<Categories />', () => {
 
   it('fetches categories if needed', () => {
     const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({
-      id: 'custom-error-handler',
-      dispatch,
-    });
+    const errorHandler = createStubErrorHandler();
     render({
       addonType: ADDON_TYPE_EXTENSION, dispatch, errorHandler,
     });
@@ -51,6 +47,18 @@ describe('<Categories />', () => {
     sinon.assert.calledWith(dispatch, categoriesFetch({
       errorHandlerId: errorHandler.id,
     }));
+  });
+
+  it('does not fetch categories if already loading them', () => {
+    store.dispatch(categoriesFetch({
+      errorHandlerId: createStubErrorHandler().id,
+    }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
   });
 
   it('changes viewContext if addonType changes', () => {

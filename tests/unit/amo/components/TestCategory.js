@@ -6,7 +6,6 @@ import CategoryHeader from 'amo/components/CategoryHeader';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Search from 'amo/components/Search';
 import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
-import { searchStart } from 'core/actions/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,

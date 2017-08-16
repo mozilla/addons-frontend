@@ -52,9 +52,11 @@ type CategoriesProps = {
 
 export class CategoriesBase extends React.Component {
   componentWillMount() {
-    const { addonType, categories, dispatch, errorHandler } = this.props;
+    const {
+      addonType, categories, dispatch, errorHandler, loading,
+    } = this.props;
 
-    if (!categories) {
+    if (!loading && !categories) {
       dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
     }
 
