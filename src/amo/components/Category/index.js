@@ -9,7 +9,7 @@ import Search from 'amo/components/Search';
 import { categoriesFetch } from 'core/actions/categories';
 import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
-import { apiAddonType, getCategoryFromState, parsePage } from 'core/utils';
+import { apiAddonType, parsePage } from 'core/utils';
 
 import './styles.scss';
 
