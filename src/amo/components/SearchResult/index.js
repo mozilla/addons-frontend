@@ -103,7 +103,7 @@ export class SearchResultBase extends React.Component {
             {addon ? i18n.sprintf(i18n.ngettext(
               '%(total)s user', '%(total)s users', averageDailyUsers),
               { total: i18n.formatNumber(averageDailyUsers) },
-            ) : <LoadingText width={100} />}
+            ) : <LoadingText width={90} />}
           </span>
         </h3>
       </div>
