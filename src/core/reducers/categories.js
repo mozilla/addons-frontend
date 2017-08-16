@@ -23,7 +23,6 @@ export function emptyCategoryList() {
 }
 
 export const initialState = {
-  // TODO: fix Categories component.
   categories: null,
   loading: false,
 };

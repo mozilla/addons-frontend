@@ -50,9 +50,9 @@ describe('Category', () => {
     }
     const state = store.getState();
 
+    // TODO: move to shallowUntilTarget
     return {
       ...mapStateToProps(state),
-      // TODO: remove when switching to shallowUntil
       dispatch: store.dispatch,
       errorHandler,
       i18n: getFakeI18nInst(),
