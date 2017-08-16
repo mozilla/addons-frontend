@@ -87,12 +87,10 @@ export class CategoryBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  const loading = state.categories.loading || state.search.loading;
-
   return {
     categories: state.categories.categories,
     clientApp: state.api.clientApp,
-    loading,
+    loading: state.categories.loading,
   };
 }
 

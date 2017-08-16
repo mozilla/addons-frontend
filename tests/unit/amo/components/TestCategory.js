@@ -166,6 +166,19 @@ describe('Category', () => {
     expect(root.find(CategoryHeader)).toHaveProp('category', fakeCategory);
   });
 
+  it('sets loading to true if categories are loading', () => {
+    _categoriesFetch();
+    const root = render({}, { autoDispatchCategories: false });
+
+    expect(root.instance().props.loading).toEqual(true);
+  });
+
+  it('sets loading to false if nothing is loading', () => {
+    const root = render({}, { autoDispatchCategories: false });
+
+    expect(root.instance().props.loading).toEqual(false);
+  });
+
   describe('category lookup', () => {
     const decoyCategory = {
       ...fakeCategory,
@@ -283,8 +296,9 @@ describe('Category', () => {
     });
 
     it('does not render missing category 404 while loading', () => {
-      _searchStart();
+      _categoriesFetch();
       const root = _render({}, {
+        autoDispatchCategories: false,
         paramOverrides: { slug: 'unknown-category' },
       });
 
@@ -300,36 +314,6 @@ describe('Category', () => {
       });
 
       expect(root.find(NotFound)).toHaveLength(0);
-    });
-  });
-
-  describe('loading', () => {
-    it('sets loading to true if categories and search are loading', () => {
-      _categoriesFetch();
-      _searchStart();
-      const root = render({}, { autoDispatchCategories: false });
-
-      expect(root.instance().props.loading).toEqual(true);
-    });
-
-    it('sets loading to true if only categories are loading', () => {
-      _categoriesFetch();
-      const root = render({}, { autoDispatchCategories: false });
-
-      expect(root.instance().props.loading).toEqual(true);
-    });
-
-    it('sets loading to true if only search is loading', () => {
-      _searchStart();
-      const root = render({}, { autoDispatchCategories: false });
-
-      expect(root.instance().props.loading).toEqual(true);
-    });
-
-    it('sets loading to false if nothing is loading', () => {
-      const root = render({}, { autoDispatchCategories: false });
-
-      expect(root.instance().props.loading).toEqual(false);
     });
   });
 });
