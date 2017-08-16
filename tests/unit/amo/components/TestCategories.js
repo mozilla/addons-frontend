@@ -24,7 +24,6 @@ describe('<Categories />', () => {
   function render({ ...props }) {
     const errorHandler = createStubErrorHandler();
 
-    // TODO: move to shallowUntilTarget
     return shallow(
       <CategoriesBase
         addonType={ADDON_TYPE_EXTENSION}

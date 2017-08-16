@@ -49,7 +49,6 @@ describe('Category', () => {
     }
     const state = store.getState();
 
-    // TODO: move to shallowUntilTarget
     return {
       ...mapStateToProps(state),
       dispatch: store.dispatch,
