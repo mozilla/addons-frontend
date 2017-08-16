@@ -77,14 +77,6 @@ describe('Category', () => {
     }));
   }
 
-  function _searchStart(overrides = {}) {
-    store.dispatch(searchStart({
-      errorHandlerId: errorHandler.id,
-      filters: { addonType: ADDON_TYPE_EXTENSION },
-      ...overrides,
-    }));
-  }
-
   it('outputs a category page', () => {
     const root = render();
 
