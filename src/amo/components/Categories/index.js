@@ -1,4 +1,5 @@
 /* @flow */
+/* global $PropertyType */
 import classnames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -88,7 +89,7 @@ export class CategoriesBase extends React.Component {
       categoriesState[clientApp][addonType]
     ) {
       categories = Object.values(categoriesState[clientApp][addonType]);
-    };
+    }
     const classNameProp = classnames('Categories', className);
 
     if (!errorHandler.hasError() && !loading && !categories.length) {

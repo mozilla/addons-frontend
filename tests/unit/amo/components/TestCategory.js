@@ -1,6 +1,5 @@
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
-import { Provider } from 'react-redux';
 
 import { CategoryBase, mapStateToProps } from 'amo/components/Category';
 import CategoryHeader from 'amo/components/CategoryHeader';
@@ -14,8 +13,6 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
-import I18nProvider from 'core/i18n/Provider';
 import { visibleAddonType } from 'core/utils';
 import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
@@ -23,7 +20,6 @@ import ErrorList from 'ui/components/ErrorList';
 
 
 describe('Category', () => {
-  let category;
   let errorHandler;
   let store;
 
@@ -33,13 +29,6 @@ describe('Category', () => {
     });
     errorHandler = createStubErrorHandler();
     store = clientData.store;
-    category = {
-      id: 5,
-      description: 'I am a cool category for doing things',
-      name: 'Testing category',
-      slug: 'test',
-      type: ADDON_TYPE_THEME,
-    };
   });
 
   function _categoriesLoad(actionParams = {}) {
@@ -96,19 +85,6 @@ describe('Category', () => {
     }));
   }
 
-  function mountRender(props = { loading: false }) {
-    const { store } = dispatchClientMetadata();
-    return mount(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <CategoryBase
-            {...renderProps({ category: null, ...props })}
-          />
-        </I18nProvider>
-      </Provider>
-    );
-  }
-
   it('outputs a category page', () => {
     const root = render();
 
@@ -116,10 +92,12 @@ describe('Category', () => {
   });
 
   it('should render an error', () => {
-    const errorHandler = createStubErrorHandler(
-      new Error('example of an error')
-    );
-    const root = render({ errorHandler });
+    const root = render();
+    root.setProps({
+      errorHandler: createStubErrorHandler(
+        new Error('example of an error')
+      ),
+    });
 
     expect(root.find(ErrorList)).toHaveLength(1);
   });

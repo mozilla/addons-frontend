@@ -86,7 +86,7 @@ export class CategoryBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state) {
   const loading = state.categories.loading || state.search.loading;
 
   return {

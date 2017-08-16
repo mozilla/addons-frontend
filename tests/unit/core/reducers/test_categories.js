@@ -9,9 +9,7 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
-import categories, {
-  initialState, emptyCategoryList,
-} from 'core/reducers/categories';
+import categories, { initialState } from 'core/reducers/categories';
 import { fakeCategory } from 'tests/unit/amo/helpers';
 
 

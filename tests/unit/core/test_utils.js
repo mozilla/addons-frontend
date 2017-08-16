@@ -12,14 +12,12 @@ import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
 import * as actions from 'core/actions';
-import { categoriesLoad } from 'core/actions/categories';
 import * as api from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CATEGORY_COLORS,
-  CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -55,7 +53,6 @@ import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
 import {
   fakeAddon,
-  dispatchClientMetadata,
   signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
