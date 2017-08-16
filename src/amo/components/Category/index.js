@@ -19,7 +19,7 @@ export class CategoryBase extends React.Component {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     filters: PropTypes.object,
-    loading: PropTypes.boolean,
+    loading: PropTypes.bool,
     paginationQueryParams: PropTypes.object,
     pathname: PropTypes.string,
   }
