@@ -1,4 +1,6 @@
-import search from 'core/reducers/search';
+import { searchLoad, searchStart } from 'core/actions/search';
+import search, { initialState } from 'core/reducers/search';
+
 
 describe('search reducer', () => {
   it('defaults to an set of filters', () => {
@@ -18,25 +20,22 @@ describe('search reducer', () => {
 
   describe('SEARCH_STARTED', () => {
     it('sets the filters and loading', () => {
-      const state = search(
-        {
-          filters: { query: 'bar' },
-          loading: false,
-          results: [{ slug: 'bar' }],
-        },
-        { type: 'SEARCH_STARTED', payload: { filters: { query: 'foo' } } });
+      const state = search(initialState, searchStart({
+        errorHandlerId: 'foo',
+        filters: { query: 'foo' },
+      }));
       expect(state.filters).toEqual({ query: 'foo' });
       expect(state.loading).toBe(true);
-      expect(state.results).toEqual([{ slug: 'bar' }]);
+      expect(state.results).toEqual([]);
     });
   });
 
   describe('SEARCH_LOADED', () => {
-    let initialState;
+    let initialLoadedState;
     let response;
 
     beforeEach(() => {
-      initialState = {
+      initialLoadedState = {
         filters: { query: 'foo' },
         loading: false,
         results: [],
@@ -54,19 +53,11 @@ describe('search reducer', () => {
     });
 
     function getNextState() {
-      return search(initialState, {
-        type: 'SEARCH_LOADED',
-        payload: {
-          filters: { query: 'foo' },
-          ...response,
-        },
-      });
+      return search(initialLoadedState, searchLoad({
+        entities: response.entities,
+        result: response.result,
+      }));
     }
-
-    it('sets the filters', () => {
-      const { filters } = getNextState();
-      expect(filters).toEqual({ query: 'foo' });
-    });
 
     it('sets loading', () => {
       const { loading } = getNextState();
@@ -82,21 +73,6 @@ describe('search reducer', () => {
       response.result.results = ['food', 'foo'];
       const { results } = getNextState();
       expect(results).toEqual([{ slug: 'food' }, { slug: 'foo' }]);
-    });
-  });
-
-  describe('SEARCH_FAILED', () => {
-    it('overrides the initialState with page and filters', () => {
-      const page = 5;
-      const filters = { query: 'add-ons' };
-      const initialState = {
-        foo: 'bar',
-        filters: { query: 'nothing' },
-        page: 100,
-        results: [1, 2, 3],
-      };
-      const state = search(initialState, { type: 'SEARCH_FAILED', payload: { page, filters } });
-      expect(state).toEqual({ count: 0, loading: false, page, filters, results: [] });
     });
   });
 });

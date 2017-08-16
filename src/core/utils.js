@@ -438,3 +438,8 @@ export function getCategoryFromState(
 
   return null;
 }
+
+export function parsePage(page) {
+  const parsed = parseInt(page, 10);
+  return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
+}

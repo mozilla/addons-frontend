@@ -35,7 +35,7 @@ export default class LoadingText extends React.Component {
     }
 
     return (
-      <div
+      <span
         className={classNames(
           'LoadingText',
           `LoadingText--delay-${delayStart}`,

@@ -5,7 +5,7 @@ import {
   setClientApp, setLang, setAuthToken, setUserAgent,
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
-import { searchLoad } from 'core/actions/search';
+import { searchLoad, searchStart } from 'core/actions/search';
 
 import {
   userAuthToken, sampleUserAgent, signedInApiState as coreSignedInApiState,
@@ -108,9 +108,9 @@ export function dispatchSearchResults({
   filters = { query: 'test' },
   store = dispatchClientMetadata().store,
 } = {}) {
+  store.dispatch(searchStart({ errorHandlerId: 'some-error', filters }));
   store.dispatch(searchLoad({
     entities: { addons },
-    filters,
     result: {
       count: Object.keys(addons).length,
       results: Object.keys(addons),

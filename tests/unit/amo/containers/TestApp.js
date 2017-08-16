@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { findDOMNode } from 'react-dom';
 import {
   renderIntoDocument,
@@ -9,7 +8,7 @@ import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
-import {
+import App, {
   AppBase,
   mapDispatchToProps,
   mapStateToProps,
@@ -23,7 +22,7 @@ import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowUntilTarget, userAuthToken } from 'tests/unit/helpers';
 
 
 describe('App', () => {
@@ -186,7 +185,7 @@ describe('App', () => {
   });
 
   it('renders a response with a 200 status', () => {
-    const root = shallow(<AppBase {...renderProps()} />);
+    const root = shallowUntilTarget(<App {...renderProps()} />, AppBase);
     expect(root.find(NestedStatus)).toHaveProp('code', 200);
   });
 
