@@ -7,6 +7,10 @@
 
 .ReviewGuidePage {
   margin: $page-margin;
+
+  dd {
+    margin: 0;
+  }
 }
 
 .staticSubHeading {

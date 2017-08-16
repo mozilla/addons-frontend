@@ -199,7 +199,7 @@ export class LandingPageBase extends React.Component {
 
     return (
       <div className={classNames('LandingPage', `LandingPage--${addonType}`)}>
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         <div className="LandingPage-header">
           {this.icon(addonType)}
 

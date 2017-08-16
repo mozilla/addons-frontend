@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 
 import { CategoryBase, mapStateToProps } from 'amo/components/Category';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import { SearchBase } from 'amo/components/Search';
-import createStore from 'amo/store';
-import { categoriesFetch } from 'core/actions/categories';
+import Search from 'amo/components/Search';
+import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import { searchStart } from 'core/actions/search';
 import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { visibleAddonType } from 'core/utils';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
@@ -103,22 +103,18 @@ describe('Category', () => {
   });
 
   it('should render an error', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('example of an error'),
-      id: 'some-id',
-      dispatch: fakeDispatch,
-    });
+    const errorHandler = createStubErrorHandler(
+      new Error('example of an error')
+    );
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   it('should render an error without a category too', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('example of an error'),
-      id: 'some-id',
-      dispatch: fakeDispatch,
-    });
+    const errorHandler = createStubErrorHandler(
+      new Error('example of an error')
+    );
     const root = render({ errorHandler, category: null, loading: false });
 
     expect(root.find(ErrorList)).toHaveLength(1);
@@ -127,81 +123,87 @@ describe('Category', () => {
   it('disables the sort component in Search', () => {
     const root = render();
 
-    expect(root.find(SearchBase)).toHaveProp('enableSearchSort', false);
-  });
-
-  it('forces hasSearchParams for the Search component', () => {
-    // This prevents search results not appearing because the search
-    // component doesn't recognise a valid search param.
-    const root = render();
-
-    expect(root.find(SearchBase)).toHaveProp('hasSearchParams', true);
+    expect(root.find(Search)).toHaveProp('enableSearchSort', false);
   });
 });
 
 describe('Category.mapStateToProps()', () => {
-  let store;
+  const fakeCategory = {
+    id: 5,
+    application: CLIENT_APP_FIREFOX,
+    description: 'I am a cool category for doing things',
+    name: 'Testing category',
+    slug: 'test',
+    type: ADDON_TYPE_THEME,
+  };
   let filters;
   let ownProps;
+  let store;
 
   beforeAll(() => {
     filters = {
       addonType: ADDON_TYPE_THEME,
       category: 'ad-block',
-      clientApp: CLIENT_APP_FIREFOX,
     };
     ownProps = {
       location: { query: {} },
       params: {
-        application: 'firefox',
-        visibleAddonType: 'themes',
+        application: CLIENT_APP_FIREFOX,
+        visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
         slug: 'ad-block',
       },
     };
   });
 
   beforeEach(() => {
-    store = createStore().store;
+    store = dispatchClientMetadata().store;
+    store.dispatch(categoriesLoad({ result: [fakeCategory] }));
   });
 
   function _searchStart(props = {}) {
     store.dispatch(searchStart({
       errorHandlerId: 'Search',
-      page: 1,
-      results: [],
       ...props,
     }));
   }
 
-  it('passes the search state if the filters and state matches', () => {
+  it('passes category filters', () => {
     _searchStart({ filters });
     const props = mapStateToProps(store.getState(), ownProps);
 
     expect(props).toEqual({
       addonType: ADDON_TYPE_THEME,
       category: null,
-      count: 0,
-      filters,
+      filters: { ...filters, page: 1 },
       loading: true,
-      page: 1,
       pathname: '/themes/ad-block/',
-      queryParams: { page: 1 },
-      results: [],
+      paginationQueryParams: { page: 1 },
     });
   });
 
-  it('does not pass search state if the filters and state do not match', () => {
-    _searchStart({ filters });
-    const mismatchedState = store.getState();
-    mismatchedState.search.filters.clientApp = 'nothing';
-    const props = mapStateToProps(mismatchedState, ownProps);
+  it('gets category from filters/state/etc.', () => {
+    const filtersWithSlug = {
+      ...filters,
+      category: 'test',
+    };
+    const ownPropsWithSlug = {
+      location: { query: {} },
+      params: {
+        application: CLIENT_APP_FIREFOX,
+        visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+        slug: 'test',
+      },
+    };
+    _searchStart({ filters: filtersWithSlug });
+    const props = mapStateToProps(store.getState(), ownPropsWithSlug);
 
-    expect(props).toMatchObject({
+    expect(props).toEqual({
       addonType: ADDON_TYPE_THEME,
-      category: null,
+      category: fakeCategory,
+      filters: { ...filtersWithSlug, page: 1 },
       loading: true,
-      pathname: '/themes/ad-block/',
-      queryParams: { page: 1 },
+      pathname: '/themes/test/',
+      paginationQueryParams: { page: 1 },
     });
   });
 

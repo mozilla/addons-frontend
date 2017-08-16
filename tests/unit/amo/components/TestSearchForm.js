@@ -129,13 +129,23 @@ describe('<SearchForm />', () => {
     });
   });
 
+  it('does not set type when it is not defined', () => {
+    sinon.assert.notCalled(router.push);
+    input.value = 'searching';
+    Simulate.click(root.submitButton);
+    sinon.assert.calledWith(router.push, {
+      pathname: '/de/firefox/search/',
+      query: { q: 'searching' },
+    });
+  });
+
   it('encodes the value of the search text', () => {
     sinon.assert.notCalled(router.push);
     input.value = '& 26 %';
     Simulate.click(root.submitButton);
     sinon.assert.calledWith(router.push, {
       pathname: '/de/firefox/search/',
-      query: { q: '& 26 %', type: undefined },
+      query: { q: '& 26 %' },
     });
   });
 });

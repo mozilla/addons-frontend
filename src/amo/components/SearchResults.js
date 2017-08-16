@@ -4,13 +4,13 @@ import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
+import { hasSearchFilters } from 'core/searchUtils';
 
 
 class SearchResults extends React.Component {
   static propTypes = {
     count: PropTypes.number,
     filters: PropTypes.object,
-    hasSearchParams: PropTypes.bool,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
     results: PropTypes.arrayOf(PropTypes.object),
@@ -19,14 +19,11 @@ class SearchResults extends React.Component {
   static defaultProps = {
     count: 0,
     filters: {},
-    hasSearchParams: false,
     results: [],
   }
 
   render() {
-    const {
-      count, hasSearchParams, filters, i18n, loading, results,
-    } = this.props;
+    const { count, filters, i18n, loading, results } = this.props;
     const { query } = filters;
 
     let loadingMessage;
@@ -41,7 +38,7 @@ class SearchResults extends React.Component {
           {i18n.gettext('Searching…')}
         </div>
       );
-    } else if (count === 0 && hasSearchParams) {
+    } else if (count === 0 && hasSearchFilters(filters)) {
       if (query) {
         messageText = i18n.sprintf(
           i18n.gettext('No results were found for "%(query)s".'), { query });
@@ -50,7 +47,7 @@ class SearchResults extends React.Component {
         // "no extensions" found that match your search or something.
         messageText = i18n.gettext('No results were found.');
       }
-    } else if (!hasSearchParams) {
+    } else if (!hasSearchFilters(filters)) {
       messageText = i18n.gettext(
         'Please enter a search term to search Firefox Add-ons.');
     }
@@ -59,7 +56,7 @@ class SearchResults extends React.Component {
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
         {loadingMessage}
         <AddonsCard
-          addons={hasSearchParams ? results : null}
+          addons={hasSearchFilters(filters) ? results : null}
           header={i18n.gettext('Search results')}
           loading={loading}
         >

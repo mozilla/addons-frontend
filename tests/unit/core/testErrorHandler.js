@@ -4,13 +4,14 @@ import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
   from 'react-addons-test-utils';
 import { createStore, combineReducers } from 'redux';
+import { shallow } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
 import { createApiError } from 'core/api/index';
 import { ERROR_UNKNOWN } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
-import { ErrorHandler, withErrorHandler, withErrorHandling }
+import { ErrorHandler, withErrorHandler, withRenderedErrorHandler }
   from 'core/errorHandler';
 import errors from 'core/reducers/errors';
 import { getFakeI18nInst } from 'tests/unit/helpers';
@@ -104,7 +105,7 @@ describe('errorHandler', () => {
     });
   });
 
-  describe('withErrorHandling', () => {
+  describe('withRenderedErrorHandler', () => {
     it('renders a generic error above component content', () => {
       const id = 'some-handler-id';
 
@@ -112,7 +113,7 @@ describe('errorHandler', () => {
       store.dispatch(setError({ id, error: new Error() }));
 
       const { dom, tree } = createWrappedComponent({
-        store, id, decorator: withErrorHandling,
+        store, id, decorator: withRenderedErrorHandler,
       });
       const errorList = findRenderedComponentWithType(tree, ErrorList);
       expect(errorList.props.code).toEqual(ERROR_UNKNOWN);
@@ -137,7 +138,7 @@ describe('errorHandler', () => {
       store.dispatch(setError({ id, error }));
 
       const { tree } = createWrappedComponent({
-        store, id, decorator: withErrorHandling,
+        store, id, decorator: withRenderedErrorHandler,
       });
       const errorList = findRenderedComponentWithType(tree, ErrorList);
       expect(errorList.props.messages).toEqual([nestedMessage]);
@@ -145,7 +146,7 @@ describe('errorHandler', () => {
 
     it('renders component content when there is no error', () => {
       const { dom, tree } = createWrappedComponent({
-        decorator: withErrorHandling,
+        decorator: withRenderedErrorHandler,
       });
       expect(() => findRenderedComponentWithType(tree, ErrorList))
         .toThrowError(/Did not find exactly one match/);
@@ -162,7 +163,7 @@ describe('errorHandler', () => {
       store.dispatch(setError({ id, error }));
 
       const { tree } = createWrappedComponent({
-        store, id, decorator: withErrorHandling,
+        store, id, decorator: withRenderedErrorHandler,
       });
 
       const errorList = findRenderedComponentWithType(tree, ErrorList);
@@ -177,7 +178,7 @@ describe('errorHandler', () => {
       store.dispatch(clearError(id));
 
       const { tree } = createWrappedComponent({
-        store, id, decorator: withErrorHandling,
+        store, id, decorator: withRenderedErrorHandler,
       });
       expect(() => findRenderedComponentWithType(tree, ErrorList))
         .toThrowError(/Did not find exactly one match/);
@@ -190,7 +191,7 @@ describe('errorHandler', () => {
       }));
 
       const { tree } = createWrappedComponent({
-        store, id: 'this-handler-id', decorator: withErrorHandling,
+        store, id: 'this-handler-id', decorator: withRenderedErrorHandler,
       });
       expect(() => findRenderedComponentWithType(tree, ErrorList))
         .toThrowError(/Did not find exactly one match/);
@@ -198,7 +199,7 @@ describe('errorHandler', () => {
 
     it('passes through wrapped component properties without an error', () => {
       const { component } = createWrappedComponent({
-        decorator: withErrorHandling,
+        decorator: withRenderedErrorHandler,
         customProps: { color: 'red' },
       });
       expect(component.props.color).toEqual('red');
@@ -212,7 +213,7 @@ describe('errorHandler', () => {
       const { component } = createWrappedComponent({
         id,
         store,
-        decorator: withErrorHandling,
+        decorator: withRenderedErrorHandler,
         customProps: { color: 'red' },
       });
       expect(component.props.color).toEqual('red');
@@ -262,6 +263,18 @@ describe('errorHandler', () => {
     it('tells you if it does not have an error', () => {
       const handler = new ErrorHandler();
       expect(handler.hasError()).toBe(false);
+    });
+
+    it('returns no component if it does not have an error', () => {
+      const handler = new ErrorHandler();
+      expect(handler.renderErrorIfPresent()).toBe(null);
+    });
+
+    it('returns a component if it has an error', () => {
+      const handler = new ErrorHandler({ capturedError: new Error('error message') });
+      const wrapper = shallow(<div>{handler.renderErrorIfPresent()}</div>);
+      expect(handler.renderErrorIfPresent()).not.toBe(null);
+      expect(wrapper.find(ErrorList)).toHaveLength(1);
     });
   });
 });

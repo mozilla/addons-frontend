@@ -23,6 +23,9 @@ export class AboutBase extends React.Component {
       %(github)s contains all of our current bugs,
       legacy bugs can still be found in Bugzilla.`),
       { github: '<a href="https://github.com/mozilla/olympia/issues">GitHub</a>' });
+    const mozAmoText = i18n.sprintf(i18n.gettext(`We often post news, tips, 
+      and tricks to our Twitter account, %(start_link)smozamo%(end_link)s`),
+      { start_link: '<a href="http://twitter.com/mozamo">', end_link: '</a>' });
     const blogText = i18n.sprintf(i18n.gettext(`Our %(start_link)sAdd-ons Blog%(end_link)s
       is regularly updated with information for both add-on enthusiasts and developers.`),
       { start_link: '<a href="http://blog.mozilla.com/addons/">', end_link: '</a>' });
@@ -34,6 +37,10 @@ export class AboutBase extends React.Component {
       { start_link: '<a href="https://developer.mozilla.org/en-US/Add-ons#Contact_us">', end_link: '</a>' });
     const participateText = i18n.sprintf(i18n.gettext(`Participate in our %(forumsLink)s.`),
       { forumsLink: '<a href="https://discourse.mozilla-community.org/c/add-ons">forums</a>' });
+    const reviewerText = i18n.sprintf(i18n.gettext(`If you have add-on development experience, 
+      %(start_link)sbecome an Add-on Reviewer%(end_link)s ! Our reviewers are add-on fans 
+      with a technical background who review add-ons for code quality and stability.`),
+      { start_link: '<a href="https://wiki.mozilla.org/Add-ons/Reviewers/Applying">', end_link: '</a>' });
 
     /* eslint-disable react/no-danger */
     return (
@@ -61,10 +68,7 @@ export class AboutBase extends React.Component {
           </p>
           <ul>
             <li dangerouslySetInnerHTML={sanitizeHTML(blogText, ['a'])} />
-            <li>
-              {i18n.gettext('We often post news, tips, and tricks to our Twitter account, ')}&nbsp;
-              <a href={'http://twitter.com/mozamo'}>mozamo</a>
-            </li>
+            <li dangerouslySetInnerHTML={sanitizeHTML(mozAmoText, ['a'])} />
             <li dangerouslySetInnerHTML={sanitizeHTML(forumText, ['a'])} />
           </ul>
         </section>
@@ -76,11 +80,7 @@ export class AboutBase extends React.Component {
                 <Link to={'/developers'}>{i18n.gettext('Make your own add-on')}</Link>
                 {i18n.gettext('. We provide free hosting and update services and can help you reach a large audience of users.')}
               </li>
-              <li>
-                {i18n.gettext('If you have add-on development experience, ')}&nbsp;
-                <a href="https://wiki.mozilla.org/Add-ons/Reviewers/Applying">{i18n.gettext('become an Add-on Reviewer')}</a>
-                {i18n.gettext('! Our reviewers are add-on fans with a technical background who review add-ons for code quality and stability.')}
-              </li>
+              <li dangerouslySetInnerHTML={sanitizeHTML(reviewerText, ['a'])} />
               <li dangerouslySetInnerHTML={sanitizeHTML(helpText, ['a'])} />
             </ul>
           </p>

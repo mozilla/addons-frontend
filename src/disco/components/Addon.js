@@ -209,7 +209,7 @@ export class AddonBase extends React.Component {
       userAgentInfo,
     } = this.props;
 
-    if (!validAddonTypes.includes(type)) {
+    if (typeof type !== 'undefined' && !validAddonTypes.includes(type)) {
       throw new Error(`Invalid addon type "${type}"`);
     }
 

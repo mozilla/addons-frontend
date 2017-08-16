@@ -1,8 +1,14 @@
-import { DISCO_RESULTS } from 'disco/constants';
+import { LOAD_DISCO_RESULTS } from 'disco/constants';
 
 export default function discoResults(state = [], { type, payload }) {
-  if (type === DISCO_RESULTS) {
-    return payload.results;
+  switch (type) {
+    case LOAD_DISCO_RESULTS: {
+      const { entities, result } = payload;
+      // The API schema that complicates result.results can be found
+      // in disco/api.js
+      return result.results.map((guid) => entities.discoResults[guid]);
+    }
+    default:
+      return state;
   }
-  return state;
 }
