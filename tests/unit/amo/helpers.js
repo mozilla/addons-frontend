@@ -63,7 +63,7 @@ export const fakeReview = Object.freeze({
   title: 'Review Title',
 });
 
-const fakeCategory = {
+export const fakeCategory = Object.freeze({
   application: CLIENT_APP_FIREFOX,
   description: 'I am a cool category for doing things',
   id: 5,
@@ -72,7 +72,7 @@ const fakeCategory = {
   slug: 'test',
   type: ADDON_TYPE_THEME,
   weight: 1,
-};
+});
 
 /*
  * Redux store state for when a user has signed in.
