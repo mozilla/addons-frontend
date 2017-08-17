@@ -12,14 +12,12 @@ import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
 import * as actions from 'core/actions';
-import { categoriesLoad } from 'core/actions/categories';
 import * as api from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CATEGORY_COLORS,
-  CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -33,7 +31,6 @@ import {
   convertBoolean,
   findAddon,
   getCategoryColor,
-  getCategoryFromState,
   getClientApp,
   getClientCompatibility,
   getClientConfig,
@@ -56,7 +53,6 @@ import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
 import {
   fakeAddon,
-  dispatchClientMetadata,
   signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
@@ -1026,65 +1022,6 @@ describe('getCategoryColor', () => {
     const categoryColor = getCategoryColor(category);
 
     expect(categoryColor).toEqual(1);
-  });
-});
-
-describe('getCategoryFromState', () => {
-  it('handles missing category', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const categorySlug = 'foo';
-    const clientApp = CLIENT_APP_FIREFOX;
-    const { state } = dispatchClientMetadata();
-
-    const category = getCategoryFromState({
-      addonType, clientApp, categorySlug, state });
-
-    expect(category).toBeNull();
-  });
-
-  it('handles unknown clientApp', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const categorySlug = 'foo';
-    const clientApp = 'not a real thing';
-    const { state } = dispatchClientMetadata();
-
-    const category = getCategoryFromState({
-      addonType, clientApp, categorySlug, state });
-
-    expect(category).toBeNull();
-  });
-
-  it('handles unknown addonType', () => {
-    const addonType = 'not real';
-    const categorySlug = 'foo';
-    const clientApp = CLIENT_APP_FIREFOX;
-    const { state } = dispatchClientMetadata();
-
-    const category = getCategoryFromState({
-      addonType, clientApp, categorySlug, state });
-
-    expect(category).toBeNull();
-  });
-
-  it('returns a category', () => {
-    const addonType = ADDON_TYPE_THEME;
-    const fakeCategory = {
-      id: 5,
-      application: CLIENT_APP_FIREFOX,
-      description: 'I am a cool category for doing things',
-      name: 'Testing category',
-      slug: 'test',
-      type: ADDON_TYPE_THEME,
-    };
-    const categorySlug = 'test';
-    const clientApp = CLIENT_APP_FIREFOX;
-    const { store } = dispatchClientMetadata();
-    store.dispatch(categoriesLoad({ result: [fakeCategory] }));
-
-    const category = getCategoryFromState({
-      addonType, clientApp, categorySlug, state: store.getState() });
-
-    expect(category).toMatchObject(fakeCategory);
   });
 });
 

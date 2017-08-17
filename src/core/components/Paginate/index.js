@@ -18,7 +18,7 @@ function makePageNumbers({ start, end }) {
 
 export class PaginateBase extends React.Component {
   static propTypes = {
-    LinkComponent: PropTypes.object,
+    LinkComponent: PropTypes.func,
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
     i18n: PropTypes.object.isRequired,
