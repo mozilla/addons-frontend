@@ -5,6 +5,7 @@ import {
   setClientApp, setLang, setAuthToken, setUserAgent,
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
+import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
 
 import {
@@ -60,6 +61,17 @@ export const fakeReview = Object.freeze({
   is_latest: false,
   body: 'It is Okay',
   title: 'Review Title',
+});
+
+export const fakeCategory = Object.freeze({
+  application: CLIENT_APP_FIREFOX,
+  description: 'I am a cool category for doing things',
+  id: 5,
+  misc: false,
+  name: 'Testing category',
+  slug: 'test',
+  type: ADDON_TYPE_THEME,
+  weight: 1,
 });
 
 /*

@@ -17,7 +17,7 @@ export class RatingBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     onSelectRating: PropTypes.func,
     rating: PropTypes.number,
-    readOnly: PropTypes.boolean,
+    readOnly: PropTypes.bool,
     styleName: PropTypes.oneOf(RATING_STYLES),
   }
 

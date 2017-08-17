@@ -13,7 +13,7 @@ export default class AddonsCard extends React.Component {
     addons: PropTypes.array.isRequired,
     children: PropTypes.node,
     className: PropTypes.string,
-    loading: PropTypes.boolean,
+    loading: PropTypes.bool,
     // When loading, this is the number of placeholders
     // that will be rendered.
     placeholderCount: PropTypes.number,
