@@ -116,7 +116,7 @@ function hydrateOnClient({ res, props = {}, pageProps }) {
     .end();
 }
 
-function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
+function baseServer(routes, createStore, { appSagas, appInstanceName = appName } = {}) {
   const app = new Express();
   app.disable('x-powered-by');
 
@@ -292,25 +292,16 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
           }
 
           const props = { component: InitialComponent };
-
-          // TODO: Remove the try/catch block once all apps are using
-          // redux-saga.
-          let sagas;
-          try {
+          let sagas = appSagas;
+          if (!sagas) {
             // eslint-disable-next-line global-require, import/no-dynamic-require
             sagas = require(`${appName}/sagas`).default;
-          } catch (err) {
-            log.warn(
-              `sagas not found for this app (src/${appName}/sagas)`, err);
           }
-
-          if (!sagas || !sagaMiddleware) {
-            return hydrateOnClient({ props, pageProps, res });
-          }
-
           const runningSagas = sagaMiddleware.run(sagas);
-          // We need to render once because it will force components
-          // with sagas to call the sagas and load their data.
+
+          // We need to render once because it will force components to
+          // dispatch data loading actions which get processed by sagas.
+          log.info('First component render to dispatch loading actions');
           ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
 
           // Send the redux-saga END action to stop sagas from running
@@ -319,6 +310,7 @@ function baseServer(routes, createStore, { appInstanceName = appName } = {}) {
 
           // Once all sagas have completed, we load the page.
           return runningSagas.done.then(() => {
+            log.info('Second component render after sagas have finished');
             return hydrateOnClient({ props, pageProps, res });
           });
         })

@@ -56,9 +56,7 @@ export default class Card extends React.Component {
         ref={(ref) => { this.cardContainer = ref; }}
       >
         {header ? (
-          <h2 className="Card-header" ref={(ref) => { this.header = ref; }}>
-            {header}
-          </h2>
+          <h2 className="Card-header" ref={(ref) => { this.header = ref; }}>{header}</h2>
         ) : null}
 
         {children ? (

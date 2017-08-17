@@ -6,12 +6,12 @@ import { getFeatured, loadFeatured } from 'amo/actions/featured';
 import { FEATURED_ADDONS_TO_LOAD } from 'amo/constants';
 import featuredReducer from 'amo/reducers/featured';
 import featuredSaga from 'amo/sagas/featured';
-import { ErrorHandler } from 'core/errorHandler';
 import apiReducer from 'core/reducers/api';
 import { ADDON_TYPE_EXTENSION, FEATURED_LOADED } from 'core/constants';
 import {
   createAddonsApiResult, dispatchSignInActions, fakeAddon,
 } from 'tests/unit/amo/helpers';
+import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe('amo/sagas/featured', () => {
   describe('fetchFeaturedAddons', () => {
@@ -21,10 +21,7 @@ describe('amo/sagas/featured', () => {
     let sagaTester;
 
     beforeEach(() => {
-      errorHandler = new ErrorHandler({
-        id: 'some-error-handler',
-        dispatch: sinon.stub(),
-      });
+      errorHandler = createStubErrorHandler();
       mockApi = sinon.mock(api);
 
       const { state } = dispatchSignInActions();

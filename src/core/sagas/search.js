@@ -9,6 +9,7 @@ import { search as searchApi } from 'core/api';
 import { SEARCH_STARTED } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import { parsePage } from 'core/utils';
 
 
 export function* fetchSearchResults({ payload }) {
@@ -18,7 +19,8 @@ export function* fetchSearchResults({ payload }) {
   yield put(errorHandler.createClearingAction());
 
   try {
-    const { filters, page } = payload;
+    const { filters } = payload;
+    const page = parsePage(filters.page);
 
     const state = yield select(getState);
 
@@ -30,7 +32,7 @@ export function* fetchSearchResults({ payload }) {
     });
     const { entities, result } = response;
 
-    yield put(searchLoad({ filters, entities, result }));
+    yield put(searchLoad({ entities, result }));
   } catch (error) {
     log.warn(`Search results failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));

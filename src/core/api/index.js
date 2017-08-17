@@ -10,7 +10,7 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 
 import { initialApiState } from 'core/reducers/api';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
 import log from 'core/logger';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -86,7 +86,7 @@ export function callApi({
   body,
   credentials,
   errorHandler,
-}: CallApiParams): Promise<any> {
+  }: CallApiParams): Promise<any> {
   if (errorHandler) {
     errorHandler.clear();
   }
@@ -165,12 +165,21 @@ export function callApi({
 type SearchParams = {|
   api: ApiStateType,
   auth: boolean,
-  filters: Object,
-  page: number,
+  // TODO: Make a "searchFilters" type because these are the same args
+  // for convertFiltersToQueryParams.
+  filters: {|
+    addonType?: string,
+    clientApp?: string,
+    category?: string,
+    page?: number,
+    page_size?: number,
+    query?: string,
+    sort?: string,
+  |},
 |};
 
 export function search(
-  { api, page, auth = false, filters = {} }: SearchParams
+  { api, auth = false, filters = {} }: SearchParams
 ) {
   const _filters = { ...filters };
   if (!_filters.clientApp && api.clientApp) {
@@ -187,7 +196,8 @@ export function search(
   // Obviously we need to fix this on the API end so our requests aren't
   // overridden, but for now this will work.
   if (
-    _filters.clientApp === 'android' && _filters.addonType === ADDON_TYPE_THEME
+    _filters.clientApp === CLIENT_APP_ANDROID &&
+    _filters.addonType === ADDON_TYPE_THEME
   ) {
     log.info(oneLine`addonType: ${_filters.addonType}/clientApp:
       ${_filters.clientApp} is not supported. Changing clientApp to "firefox"`);
@@ -196,10 +206,7 @@ export function search(
   return callApi({
     endpoint: 'addons/search',
     schema: { results: [addon] },
-    params: {
-      ...convertFiltersToQueryParams(_filters),
-      page,
-    },
+    params: convertFiltersToQueryParams(_filters),
     state: api,
     auth,
   });

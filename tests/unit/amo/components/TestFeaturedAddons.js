@@ -8,16 +8,17 @@ import {
   mapStateToProps,
 } from 'amo/components/FeaturedAddons';
 import SearchResults from 'amo/components/SearchResults';
-import createStore from 'amo/store';
 import {
   ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import {
-  createAddonsApiResult, fakeAddon, signedInApiState,
+  createAddonsApiResult,
+  dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 
 
 describe('<FeaturedAddons />', () => {
@@ -25,12 +26,8 @@ describe('<FeaturedAddons />', () => {
   let store;
 
   beforeEach(() => {
-    const initialState = { api: signedInApiState };
-    store = createStore(initialState).store;
-    errorHandler = new ErrorHandler({
-      id: 'some-error-handler',
-      dispatch: sinon.stub(),
-    });
+    store = dispatchSignInActions().store;
+    errorHandler = createStubErrorHandler();
   });
 
   function _getFeatured(args = {}) {
@@ -180,15 +177,11 @@ describe('<FeaturedAddons />', () => {
         visibleAddonType: visibleAddonType(addonType),
       },
       ...mappedProps,
-      hasSearchParams: true,
     });
 
     dispatch.reset();
 
-    root.setProps({
-      // Update an unrelated parameter.
-      hasSearchParams: false,
-    });
+    root.setProps();
 
     sinon.assert.notCalled(dispatch);
   });
@@ -207,7 +200,6 @@ describe('<FeaturedAddons />', () => {
         visibleAddonType: visibleAddonType(addonType),
       },
       ...mappedProps,
-      hasSearchParams: true,
     });
 
     // Make sure only the view context was dispatched, not getFeatured()

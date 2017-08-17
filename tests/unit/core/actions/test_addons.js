@@ -1,14 +1,11 @@
 import { fetchAddon } from 'core/actions/addons';
-import { ErrorHandler } from 'core/errorHandler';
+import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe('core.actions.addons', () => {
   describe('fetchAddon', () => {
     const defaultParams = Object.freeze({
       slug: 'addon-slug',
-      errorHandler: new ErrorHandler({
-        id: 'some-handler',
-        dispatch: sinon.stub(),
-      }),
+      errorHandler: createStubErrorHandler(),
     });
 
     it('requires an error handler', () => {

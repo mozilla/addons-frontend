@@ -1,5 +1,6 @@
 import base64url from 'base64url';
 import config from 'config';
+import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
 import React from 'react';
@@ -11,6 +12,7 @@ import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
+import { ErrorHandler } from 'core/errorHandler';
 
 export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
@@ -177,4 +179,68 @@ export function createFetchAddonResult(addon) {
   // Simulate how callApi() applies the add-on schema to
   // the API server response.
   return normalize(addon, coreApi.addon);
+}
+
+/*
+ * Repeatedly render a component tree using enzyme.shallow() until
+ * finding and rendering TargetComponent.
+ *
+ * This is useful for testing a component wrapped in one or more
+ * HOCs (higher order components).
+ *
+ * The `componentInstance` parameter is a React component instance.
+ * Example: <MyComponent {...props} />
+ *
+ * The `TargetComponent` parameter is the React class (or function) that
+ * you want to retrieve from the component tree.
+ */
+export function shallowUntilTarget(componentInstance, TargetComponent, {
+  maxTries = 10,
+  shallowOptions,
+  _shallow = shallow,
+} = {}) {
+  if (!componentInstance) {
+    throw new Error('componentInstance parameter is required');
+  }
+  if (!TargetComponent) {
+    throw new Error('TargetComponent parameter is required');
+  }
+
+  let root = _shallow(componentInstance, shallowOptions);
+
+  if (typeof root.type() === 'string') {
+    // If type() is a string then it's a DOM Node.
+    // If it were wrapped, it would be a React component.
+    throw new Error(
+      'Cannot unwrap this component because it is not wrapped');
+  }
+
+  for (let tries = 1; tries <= maxTries; tries++) {
+    if (root.is(TargetComponent)) {
+      // Now that we found the target component, render it.
+      return root.shallow(shallowOptions);
+    }
+    // Unwrap the next component in the hierarchy.
+    root = root.first().shallow(shallowOptions);
+  }
+
+  throw new Error(oneLine`Could not find ${TargetComponent} in rendered
+    instance: ${componentInstance}; gave up after ${maxTries} tries`
+  );
+}
+
+export function createFakeEvent(extraProps = {}) {
+  return {
+    currentTarget: sinon.stub(),
+    preventDefault: sinon.stub(),
+    ...extraProps,
+  };
+}
+
+export function createStubErrorHandler(capturedError = null) {
+  return new ErrorHandler({
+    id: 'create-stub-error-handler-id',
+    dispatch: sinon.stub(),
+    capturedError,
+  });
 }

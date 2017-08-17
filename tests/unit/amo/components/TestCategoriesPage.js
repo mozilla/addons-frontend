@@ -1,10 +1,11 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import Categories from 'amo/components/Categories';
 import { CategoriesPageBase } from 'amo/components/CategoriesPage';
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { visibleAddonType } from 'core/utils';
+
 
 describe('amo/components/CategoriesPage', () => {
   it('renders Categories', () => {

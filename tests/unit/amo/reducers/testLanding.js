@@ -1,6 +1,7 @@
 import { getLanding } from 'amo/actions/landing';
 import landing, { initialState } from 'amo/reducers/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
 describe('landing reducer', () => {
@@ -52,6 +53,30 @@ describe('landing reducer', () => {
       }));
 
       expect(state.resultsLoaded).toEqual(false);
+    });
+
+    it('resets each set of add-ons', () => {
+      const entities = {
+        addons: {
+          bar: { ...fakeAddon, slug: 'bar' },
+          foo: { ...fakeAddon, slug: 'foo' },
+          food: { ...fakeAddon, slug: 'food' },
+        },
+      };
+      const state = landing({
+        ...initialState,
+        featured: {
+          entities,
+          result: { count: 2, results: ['foo', 'food'] },
+        },
+      }, getLanding({
+        addonType: ADDON_TYPE_THEME,
+        errorHandlerId: 'some-error-handler',
+      }));
+
+      expect(state.featured).toEqual(initialState.featured);
+      expect(state.highlyRated).toEqual(initialState.highlyRated);
+      expect(state.popular).toEqual(initialState.popular);
     });
   });
 

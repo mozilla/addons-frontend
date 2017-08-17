@@ -54,15 +54,15 @@ export default function api(
     case SET_CLIENT_APP:
       return { ...state, clientApp: action.payload.clientApp };
     case SET_USER_AGENT:
-      {
-        const { browser, os } = UAParser(action.payload.userAgent);
+    {
+      const { browser, os } = UAParser(action.payload.userAgent);
 
-        return {
-          ...state,
-          userAgent: action.payload.userAgent,
-          userAgentInfo: { browser, os },
-        };
-      }
+      return {
+        ...state,
+        userAgent: action.payload.userAgent,
+        userAgentInfo: { browser, os },
+      };
+    }
     case LOG_OUT_USER:
       return { ...state, token: null };
     default:

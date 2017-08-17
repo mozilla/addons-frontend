@@ -11,10 +11,9 @@ import { fetchAddon } from 'core/actions/addons';
 import Paginate from 'core/components/Paginate';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { findAddon, nl2br, sanitizeHTML } from 'core/utils';
+import { findAddon, nl2br, parsePage, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
-import { parsePage } from 'core/searchUtils';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -113,7 +112,7 @@ export class AddonReviewListBase extends React.Component {
       // L10n: Example: "from Jose, last week"
       byLine = i18n.sprintf(
         i18n.gettext('from %(authorName)s, %(timestamp)s'),
-          { authorName: review.userName, timestamp });
+        { authorName: review.userName, timestamp });
 
       const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
       // eslint-disable-next-line react/no-danger
@@ -171,7 +170,7 @@ export class AddonReviewListBase extends React.Component {
 
     return (
       <div className="AddonReviewList">
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         <div className="AddonReviewList-header">
           <div className="AddonReviewList-header-icon">
             {addon ? <Link to={this.addonURL()}>{iconImage}</Link> : iconImage}

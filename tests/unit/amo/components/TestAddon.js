@@ -40,11 +40,12 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
+import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
-  dispatchSignInActions, fakeAddon, signedInApiState,
-} from 'tests/unit/amo/helpers';
-import {
-  createFetchAddonResult, getFakeI18nInst, sampleUserAgentParsed,
+  createFetchAddonResult,
+  createStubErrorHandler,
+  getFakeI18nInst,
+  sampleUserAgentParsed,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
@@ -62,10 +63,7 @@ function renderProps({
     addon,
     ...addonProps,
     dispatch: sinon.stub(),
-    errorHandler: new ErrorHandler({
-      id: 'some-id',
-      dispatch: sinon.stub(),
-    }),
+    errorHandler: createStubErrorHandler(),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
@@ -74,7 +72,7 @@ function renderProps({
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
-    store: createStore({ api: signedInApiState }).store,
+    store: dispatchSignInActions().store,
     ...customProps,
   };
 }
@@ -166,10 +164,7 @@ describe('Addon', () => {
   });
 
   it('renders without an add-on', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'no-addon-error-handler',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler();
     const slugParam = 'some-addon'; // as passed through the URL.
     const fakeDispatch = sinon.stub();
 
@@ -204,11 +199,7 @@ describe('Addon', () => {
   });
 
   it('renders an error if there is one', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('some error'),
-      id: 'some-handler',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler(new Error('some error'));
 
     const root = shallowRender({ errorHandler });
     expect(root.find(ErrorList)).toHaveLength(1);

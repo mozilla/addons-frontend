@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 export default class PaginatorLink extends React.Component {
   static propTypes = {
-    LinkComponent: PropTypes.object,
+    LinkComponent: PropTypes.func,
     className: PropTypes.string,
     currentPage: PropTypes.number.isRequired,
     pathname: PropTypes.string.isRequired,

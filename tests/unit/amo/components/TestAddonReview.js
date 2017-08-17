@@ -13,9 +13,8 @@ import * as coreUtils from 'core/utils';
 import {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
 } from 'amo/components/AddonReview';
-import { ErrorHandler } from 'core/errorHandler';
 import { fakeAddon, fakeReview, signedInApiState } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 
 const defaultReview = {
   id: 3321, addonId: fakeAddon.id, addonSlug: fakeAddon.slug, rating: 5,
@@ -33,10 +32,7 @@ function fakeLocalState(overrides = {}) {
 function render({ ...customProps } = {}) {
   const props = {
     createLocalState: () => fakeLocalState(),
-    errorHandler: new ErrorHandler({
-      id: 'some-id',
-      dispatch: sinon.stub(),
-    }),
+    errorHandler: createStubErrorHandler(),
     i18n: getFakeI18nInst(),
     apiState: signedInApiState,
     onReviewSubmitted: () => {},
@@ -60,10 +56,7 @@ describe('AddonReview', () => {
     const setDenormalizedReview = sinon.spy(() => {});
     const refreshAddon = sinon.spy(() => Promise.resolve());
     const updateReviewText = sinon.spy(() => Promise.resolve());
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler();
     const root = render({
       onReviewSubmitted,
       setDenormalizedReview,

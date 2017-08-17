@@ -1,4 +1,3 @@
-import deepEqual from 'deep-eql';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -6,98 +5,96 @@ import { compose } from 'redux';
 
 import CategoryHeader from 'amo/components/CategoryHeader';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import { SearchBase } from 'amo/components/Search';
+import Search from 'amo/components/Search';
 import { categoriesFetch } from 'core/actions/categories';
 import { withErrorHandler } from 'core/errorHandler';
-import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
-import {
-  apiAddonType,
-  getCategoryFromState,
-  safeAsyncConnect,
-} from 'core/utils';
+import log from 'core/logger';
+import { apiAddonType, parsePage } from 'core/utils';
 
 import './styles.scss';
 
 
 export class CategoryBase extends React.Component {
   static propTypes = {
-    category: PropTypes.object,
+    categories: PropTypes.object,
+    clientApp: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    loading: PropTypes.boolean,
+    loading: PropTypes.bool,
+    location: PropTypes.object.isRequired,
+    params: PropTypes.object.isRequired,
   }
 
   componentWillMount() {
-    const { category, dispatch, errorHandler } = this.props;
+    const { categories, dispatch, errorHandler, loading } = this.props;
 
-    if (!category) {
+    if (!loading && !categories) {
       dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
     }
   }
 
   render() {
-    const { category, errorHandler, loading, ...searchProps } = this.props;
+    const {
+      categories,
+      clientApp,
+      errorHandler,
+      loading,
+      location,
+      params,
+    } = this.props;
 
-    if (!errorHandler.hasError() && loading === false && !category) {
+    let addonType;
+    try {
+      addonType = apiAddonType(params.visibleAddonType);
+    } catch (error) {
+      log.info(
+        `addonType ${params.visibleAddonType} threw an error: ${error}`);
       return <NotFound />;
+    }
+    const categorySlug = params.slug;
+    const filters = {
+      addonType,
+      category: categorySlug,
+      page: parsePage(location.query.page),
+    };
+    const pathname = `/${params.visibleAddonType}/${categorySlug}/`;
+    const paginationQueryParams = { page: filters.page };
+
+    let category;
+    if (categories) {
+      if (categories[clientApp] && categories[clientApp][addonType]) {
+        category = categories[clientApp][addonType][categorySlug];
+      }
+
+      if (!errorHandler.hasError() && !loading && !category) {
+        return <NotFound />;
+      }
     }
 
     return (
       <div className="Category">
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         <CategoryHeader category={category} />
-        <SearchBase enableSearchSort={false} hasSearchParams {...searchProps} />
+        <Search
+          enableSearchSort={false}
+          filters={filters}
+          paginationQueryParams={paginationQueryParams}
+          pathname={pathname}
+        />
       </div>
     );
   }
 }
 
-export function mapStateToProps(state, ownProps) {
-  const filters = {
-    addonType: apiAddonType(ownProps.params.visibleAddonType),
-    category: ownProps.params.slug,
-    clientApp: ownProps.params.application,
+export function mapStateToProps(state) {
+  return {
+    categories: state.categories.categories,
+    clientApp: state.api.clientApp,
+    loading: state.categories.loading,
   };
-  const pathname = `/${ownProps.params.visibleAddonType}/${filters.category}/`;
-  const queryParams = { page: parsePage(ownProps.location.query.page) };
-
-  const category = getCategoryFromState({
-    addonType: filters.addonType,
-    categorySlug: filters.category,
-    clientApp: filters.clientApp,
-    state,
-  });
-
-  const filtersMatchState = deepEqual(
-    { ...state.search.filters, page: parsePage(state.search.page) },
-    { ...filters, page: queryParams.page },
-  );
-
-  const loading = state.categories.loading || state.search.loading;
-
-  const props = {
-    addonType: filters.addonType,
-    category,
-    loading,
-    pathname,
-    queryParams,
-  };
-
-  if (filtersMatchState) {
-    return {
-      ...props,
-      filters,
-      count: state.search.count,
-      page: state.search.page,
-      results: state.search.results,
-    };
-  }
-
-  return props;
 }
 
 export default compose(
   withErrorHandler({ name: 'Category' }),
-  safeAsyncConnect([{ promise: loadByCategoryIfNeeded }]),
   connect(mapStateToProps),
 )(CategoryBase);

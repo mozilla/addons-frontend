@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-10 06:34+0000\n"
-"Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
+"PO-Revision-Date: 2017-08-16 11:09+0000\n"
+"Last-Translator: Dinesh <dineshmv38@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr "సమీక్షను రద్దుచేయి"
 
 #: src/amo/components/Addon/index.js:129
 msgid "Tap to preview"
-msgstr ""
+msgstr "పరిదృశ్యం చూడడానికి తాకండి"
 
 #: src/amo/components/Addon/index.js:170
 msgid "Read %(count)s review"
@@ -276,7 +276,7 @@ msgstr "చట్టపరమైన గమనికలు"
 
 #: src/amo/components/Footer/index.js:52
 msgid "Report a bug"
-msgstr "బగ్ తెలియజేయి"
+msgstr ""
 
 #: src/amo/components/Footer/index.js:62
 msgid "View classic desktop site"
@@ -289,7 +289,7 @@ msgstr "Firefox పొడిగింతలు"
 
 #: src/amo/components/Header/index.js:59
 msgid "Developer Hub"
-msgstr ""
+msgstr "డెవలపర్ కేంద్రం"
 
 #: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
 msgid "Shop online"
@@ -305,7 +305,7 @@ msgstr "ఆటలాడు"
 
 #: src/amo/components/Home/index.js:120
 msgid "Wild"
-msgstr "వైల్డ్"
+msgstr "Wild"
 
 #: src/amo/components/Home/index.js:121
 msgid "Abstract"
@@ -341,7 +341,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
-msgstr ""
+msgstr "అన్ని అలంకారాలను విహరించు"
 
 #: src/amo/components/Home/index.js:162
 msgid "…or what it looks like"

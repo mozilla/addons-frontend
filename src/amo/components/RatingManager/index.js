@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { oneLine } from 'common-tags';
 
-import { withErrorHandling } from 'core/errorHandler';
+import { withRenderedErrorHandler } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
@@ -115,7 +115,7 @@ export class RatingManagerBase extends React.Component {
     { addonType }: {| addonType: string |},
     {
       validAddonTypes = defaultValidAddonTypes,
-    }: {|
+      }: {|
       validAddonTypes: typeof defaultValidAddonTypes,
     |} = {}
   ) {
@@ -213,7 +213,7 @@ export const mapStateToProps = (
     if (latestId) {
       userReview = addonReviews[latestId];
       log.info('Found the latest review in state for this component',
-               userReview);
+        userReview);
     }
   }
 
@@ -257,6 +257,6 @@ export const RatingManagerWithI18n = compose(
 )(RatingManagerBase);
 
 export default compose(
-  withErrorHandling({ name: 'RatingManager' }),
+  withRenderedErrorHandler({ name: 'RatingManager' }),
   connect(mapStateToProps, mapDispatchToProps),
 )(RatingManagerWithI18n);

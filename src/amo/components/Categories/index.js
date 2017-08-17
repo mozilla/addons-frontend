@@ -1,4 +1,5 @@
 /* @flow */
+/* global $PropertyType */
 import classnames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -29,19 +30,20 @@ type CategoryType = {
   weight: number,
 };
 
-type CategoriesByAddonType = {
-  [addonType: string]: void | { [categorySlug: string]: CategoryType },
-};
-
 type CategoriesStateType = {|
-  categories: { [clientApp: ?string]: CategoriesByAddonType },
+  categories: {
+    [clientApp: string]: void | {
+      [addonType: string]: void | { [categorySlug: string]: CategoryType },
+    },
+  },
   loading: boolean,
 |};
 
 type CategoriesProps = {
   addonType: string,
   className: string,
-  categories: CategoriesByAddonType,
+  clientApp: string,
+  categoriesState?: $PropertyType<CategoriesStateType, 'categories'>,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: Object,
@@ -50,10 +52,11 @@ type CategoriesProps = {
 
 export class CategoriesBase extends React.Component {
   componentWillMount() {
-    const { addonType, dispatch, errorHandler } = this.props;
-    const categories = this.props.categories[addonType] || {};
+    const {
+      addonType, categoriesState, dispatch, errorHandler, loading,
+    } = this.props;
 
-    if (!Object.values(categories).length) {
+    if (!loading && !categoriesState) {
       dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
     }
 
@@ -72,10 +75,23 @@ export class CategoriesBase extends React.Component {
   render() {
     /* eslint-disable react/no-array-index-key */
     const {
-      addonType, className, errorHandler, loading, i18n,
+      addonType,
+      categoriesState,
+      className,
+      clientApp,
+      errorHandler,
+      i18n,
+      loading,
     } = this.props;
-    const categories = this.props.categories[addonType] ?
-      Object.values(this.props.categories[addonType]) : [];
+
+    let categories = [];
+    if (
+      categoriesState &&
+      categoriesState[clientApp] &&
+      categoriesState[clientApp][addonType]
+    ) {
+      categories = Object.values(categoriesState[clientApp][addonType]);
+    }
     const classNameProp = classnames('Categories', className);
 
     if (!errorHandler.hasError() && !loading && !categories.length) {
@@ -90,7 +106,7 @@ export class CategoriesBase extends React.Component {
 
     return (
       <Card className={classNameProp} header={i18n.gettext('Categories')}>
-        {errorHandler.hasError() ? errorHandler.renderError() : null}
+        {errorHandler.renderErrorIfPresent()}
         {loading ?
           <div className="Categories-loading">
             <span className="Categories-loading-info visually-hidden">
@@ -141,11 +157,9 @@ export class CategoriesBase extends React.Component {
 export function mapStateToProps(
   state: {| api: ApiStateType, categories: CategoriesStateType |}
 ) {
-  const clientApp = state.api.clientApp;
-  const categories = state.categories.categories[clientApp];
-
   return {
-    categories,
+    categoriesState: state.categories.categories,
+    clientApp: state.api.clientApp,
     loading: state.categories.loading,
   };
 }

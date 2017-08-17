@@ -16,7 +16,7 @@ import I18nProvider from 'core/i18n/Provider';
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 
@@ -24,10 +24,7 @@ describe('<LandingPage />', () => {
   function renderProps(props = {}) {
     return {
       dispatch: sinon.stub(),
-      errorHandler: new ErrorHandler({
-        id: 'some-handler',
-        dispatch: sinon.stub(),
-      }),
+      errorHandler: createStubErrorHandler(),
       i18n: getFakeI18nInst(),
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
       resultsLoaded: false,
@@ -165,11 +162,7 @@ describe('<LandingPage />', () => {
   });
 
   it('renders an error', () => {
-    const errorHandler = new ErrorHandler({
-      dispatch: sinon.stub(),
-      id: 'some-id',
-      capturedError: new Error('some error'),
-    });
+    const errorHandler = createStubErrorHandler(new Error('some error'));
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
@@ -293,9 +286,9 @@ describe('<LandingPage />', () => {
     expect(
       root.find('.SearchResult-name')
         .map((heading) => heading.text()))
-        .toEqual([
-          'Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again',
-        ]);
+      .toEqual([
+        'Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again',
+      ]);
   });
 
   it('renders not found if add-on type is not supported', () => {
