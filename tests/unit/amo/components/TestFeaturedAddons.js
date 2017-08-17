@@ -7,7 +7,7 @@ import {
   FeaturedAddonsBase,
   mapStateToProps,
 } from 'amo/components/FeaturedAddons';
-import SearchResults from 'amo/components/SearchResults';
+import AddonsCard from 'amo/components/AddonsCard';
 import {
   ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME,
 } from 'core/constants';
@@ -251,7 +251,7 @@ describe('<FeaturedAddons />', () => {
     store.dispatch(_getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.find(SearchResults)).toHaveProp('loading', true);
+    expect(root.find(AddonsCard)).toHaveProp('loading', true);
   });
 
   it('does not render old results while loading', () => {
@@ -261,8 +261,8 @@ describe('<FeaturedAddons />', () => {
     store.dispatch(_getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.find(SearchResults)).toHaveProp('loading', true);
-    expect(root.find(SearchResults)).toHaveProp('results', null);
+    expect(root.find(AddonsCard)).toHaveProp('loading', true);
+    expect(root.find(AddonsCard)).toHaveProp('addons', null);
   });
 
   it('renders each add-on when set', () => {
@@ -275,7 +275,7 @@ describe('<FeaturedAddons />', () => {
     const root = render(mapStateToProps(store.getState()));
 
     expect(
-      root.find(SearchResults).prop('results').map((result) => result.name)
+      root.find(AddonsCard).prop('addons').map((result) => result.name)
     ).toEqual(['Howdy', 'Howdy again']);
   });
 
