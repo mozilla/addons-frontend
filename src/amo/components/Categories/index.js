@@ -43,7 +43,7 @@ type CategoriesProps = {
   addonType: string,
   className: string,
   clientApp: string,
-  categories?: $PropertyType<CategoriesStateType, 'categories'>,
+  categoriesState?: $PropertyType<CategoriesStateType, 'categories'>,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: Object,
@@ -53,10 +53,10 @@ type CategoriesProps = {
 export class CategoriesBase extends React.Component {
   componentWillMount() {
     const {
-      addonType, categories, dispatch, errorHandler, loading,
+      addonType, categoriesState, dispatch, errorHandler, loading,
     } = this.props;
 
-    if (!loading && !categories) {
+    if (!loading && !categoriesState) {
       dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
     }
 
@@ -76,7 +76,7 @@ export class CategoriesBase extends React.Component {
     /* eslint-disable react/no-array-index-key */
     const {
       addonType,
-      categories: categoriesState,
+      categoriesState,
       className,
       clientApp,
       errorHandler,
@@ -158,7 +158,7 @@ export function mapStateToProps(
   state: {| api: ApiStateType, categories: CategoriesStateType |}
 ) {
   return {
-    categories: state.categories.categories,
+    categoriesState: state.categories.categories,
     clientApp: state.api.clientApp,
     loading: state.categories.loading,
   };
