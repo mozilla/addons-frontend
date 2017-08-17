@@ -142,6 +142,14 @@ describe('Category', () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
+  it('does not fetch categories when an empty set was loaded', () => {
+    _categoriesLoad({ result: [] });
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({}, { autoDispatchCategories: false });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
   it('does not fetch categories while already loading them', () => {
     _categoriesFetch();
     const fakeDispatch = sinon.stub(store, 'dispatch');

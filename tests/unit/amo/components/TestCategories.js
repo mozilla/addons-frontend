@@ -60,6 +60,26 @@ describe('<Categories />', () => {
     sinon.assert.calledOnce(dispatch);
   });
 
+  it('does not fetch categories if already loaded', () => {
+    store.dispatch(categoriesLoad({ result: [fakeCategory] }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
+  });
+
+  it('does not fetch categories if an empty set was loaded', () => {
+    store.dispatch(categoriesLoad({ result: [] }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
+  });
+
   it('changes viewContext if addonType changes', () => {
     const dispatch = sinon.stub();
     const root = render({
