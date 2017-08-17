@@ -286,9 +286,9 @@ describe('<LandingPage />', () => {
     expect(
       root.find('.SearchResult-name')
         .map((heading) => heading.text()))
-        .toEqual([
-          'Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again',
-        ]);
+      .toEqual([
+        'Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again',
+      ]);
   });
 
   it('renders not found if add-on type is not supported', () => {

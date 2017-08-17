@@ -73,9 +73,16 @@ export class AddonBase extends React.Component {
     const { error, i18n, status } = this.props;
     return status === ERROR ? (<div className="notification error" key="error-overlay">
       <p className="message">{this.errorMessage()}</p>
-      {error && !error.startsWith('FATAL') ?
+      {error && !error.startsWith('FATAL') ? (
         // eslint-disable-next-line jsx-a11y/href-no-hash
-        <a className="close" href="#" onClick={this.closeError}>{i18n.gettext('Close')}</a> : null}
+        <a
+          className="close"
+          href="#"
+          onClick={this.closeError}
+        >
+          {i18n.gettext('Close')}
+        </a>
+      ) : null}
     </div>) : null;
   }
 

@@ -102,7 +102,7 @@ export class SearchResultBase extends React.Component {
           <span className="SearchResult-users-text">
             {addon ? i18n.sprintf(i18n.ngettext(
               '%(total)s user', '%(total)s users', averageDailyUsers),
-              { total: i18n.formatNumber(averageDailyUsers) },
+            { total: i18n.formatNumber(averageDailyUsers) },
             ) : <LoadingText width={90} />}
           </span>
         </h3>

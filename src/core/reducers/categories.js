@@ -34,63 +34,63 @@ export default function categories(state = initialState, action) {
     case CATEGORIES_FETCH:
       return { ...initialState, loading: true };
     case CATEGORIES_LOAD:
-      {
-        const categoryList = emptyCategoryList();
-        Object.values(payload.result).forEach((category) => {
-          // This category has no data, so skip it.
-          if (!category || !category.application) {
-            log.warn(
-              'category or category.application was false-y.', category);
-            return;
-          }
+    {
+      const categoryList = emptyCategoryList();
+      Object.values(payload.result).forEach((category) => {
+        // This category has no data, so skip it.
+        if (!category || !category.application) {
+          log.warn(
+            'category or category.application was false-y.', category);
+          return;
+        }
 
-          // If the API returns data for an application we don't support,
-          // we'll ignore it for now.
-          if (!categoryList[category.application]) {
-            log.warn(oneLine`Category data for unknown clientApp
+        // If the API returns data for an application we don't support,
+        // we'll ignore it for now.
+        if (!categoryList[category.application]) {
+          log.warn(oneLine`Category data for unknown clientApp
               "${category.application}" received from API.`);
-            return;
-          }
+          return;
+        }
 
-          if (!categoryList[category.application][category.type]) {
-            log.warn(oneLine`add-on category for unknown add-on type
+        if (!categoryList[category.application][category.type]) {
+          log.warn(oneLine`add-on category for unknown add-on type
               "${category.type}" for clientApp "${category.type}" received
               from API.`);
-            return;
-          }
+          return;
+        }
 
-          categoryList[category.application][category.type].push(category);
+        categoryList[category.application][category.type].push(category);
+      });
+
+      Object.keys(categoryList).forEach((appName) => {
+        Object.keys(categoryList[appName]).forEach((addonType) => {
+          categoryList[appName][addonType] = categoryList[appName][addonType]
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .reduce((object, value) => (
+              { ...object, [value.slug]: value }
+            ), {});
         });
+      });
 
-        Object.keys(categoryList).forEach((appName) => {
-          Object.keys(categoryList[appName]).forEach((addonType) => {
-            categoryList[appName][addonType] = categoryList[appName][addonType]
-              .sort((a, b) => a.name.localeCompare(b.name))
-              .reduce((object, value) => (
-                { ...object, [value.slug]: value }
-              ), {});
-          });
-        });
-
-        // Android doesn't have any theme categories but because all lightweight
-        // themes (personas) are installable on Firefox Desktop and Android
-        // we share categories and themes across clientApps.
-        // See: https://github.com/mozilla/addons-frontend/issues/2170
-        //
-        // TODO: Remove this code once
-        // https://github.com/mozilla/addons-server/issues/4766 is fixed.
-        log.info(oneLine`Replacing Android persona data with Firefox data until
+      // Android doesn't have any theme categories but because all lightweight
+      // themes (personas) are installable on Firefox Desktop and Android
+      // we share categories and themes across clientApps.
+      // See: https://github.com/mozilla/addons-frontend/issues/2170
+      //
+      // TODO: Remove this code once
+      // https://github.com/mozilla/addons-server/issues/4766 is fixed.
+      log.info(oneLine`Replacing Android persona data with Firefox data until
           https://github.com/mozilla/addons-server/issues/4766 is fixed.`);
-        categoryList.android[ADDON_TYPE_THEME] = categoryList
-          .firefox[ADDON_TYPE_THEME];
+      categoryList.android[ADDON_TYPE_THEME] = categoryList
+        .firefox[ADDON_TYPE_THEME];
 
-        return {
-          ...state,
-          ...payload,
-          loading: false,
-          categories: categoryList,
-        };
-      }
+      return {
+        ...state,
+        ...payload,
+        loading: false,
+        categories: categoryList,
+      };
+    }
     default:
       return state;
   }

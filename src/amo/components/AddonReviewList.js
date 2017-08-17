@@ -112,7 +112,7 @@ export class AddonReviewListBase extends React.Component {
       // L10n: Example: "from Jose, last week"
       byLine = i18n.sprintf(
         i18n.gettext('from %(authorName)s, %(timestamp)s'),
-          { authorName: review.userName, timestamp });
+        { authorName: review.userName, timestamp });
 
       const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
       // eslint-disable-next-line react/no-danger

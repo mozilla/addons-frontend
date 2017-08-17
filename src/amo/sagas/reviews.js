@@ -18,7 +18,7 @@ import type { FetchReviewsAction } from 'amo/actions/reviews';
 export function* fetchReviews(
   {
     payload: { errorHandlerId, addonSlug, page },
-  }: FetchReviewsAction
+    }: FetchReviewsAction
 ): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
