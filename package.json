@@ -25,9 +25,8 @@
     "flow:dev": "flow stop; flow start; chokidar .flowconfig flow/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
-    "node": "NODE_PATH='./:./src' NODE_ICU_DATA='./node_modules/full-icu' node",
-    "start": "npm run version-check && npm run node bin/server.js",
-    "start-func-test-server": "npm run node bin/start-func-test-server.js",
+    "start": "npm run version-check && better-npm-run node bin/server.js",
+    "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && cat ./coverage/lcov.info | coveralls",
     "test": "bin/config-check.js && better-npm-run jest --watch",
     "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
@@ -106,6 +105,13 @@
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
         "SERVER_PORT": "3333"
+      }
+    },
+    "node": {
+      "command": "node",
+      "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu",
+        "NODE_PATH": "./:./src"
       }
     },
     "jest": {
