@@ -6,7 +6,7 @@ import { compose } from 'redux';
 
 import { getFeatured } from 'amo/actions/featured';
 import { setViewContext } from 'amo/actions/viewContext';
-import SearchResults from 'amo/components/SearchResults';
+import AddonsCard from 'amo/components/AddonsCard';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -87,10 +87,9 @@ export class FeaturedAddonsBase extends React.Component {
         <h2 className="FeaturedAddons-header">
           {this.headerForAddonType()}
         </h2>
-        <SearchResults
-          count={results && results.length}
+        <AddonsCard
+          addons={loading ? null : results}
           loading={loading}
-          results={loading ? null : results}
         />
       </div>
     );
