@@ -1,6 +1,6 @@
-/* eslint-env browser */
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
+import { mount } from 'enzyme';
+import { findDOMNode } from 'react-dom';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
 import { ShowMoreCardBase } from 'ui/components/ShowMoreCard';
@@ -60,17 +60,13 @@ describe('<ShowMoreCard />', () => {
   });
 
   it('executes truncateToMaxHeight when it recieves props', () => {
-    const node = document.createElement('div');
-    let ref;
-    ReactDOM.render(<ShowMoreCardBase i18n={getFakeI18nInst()} ref={(e) => { ref = e; }} />, node,
-      () => {
-        jest.spyOn(ref, 'truncateToMaxHeight');
-        ReactDOM.render(<ShowMoreCardBase
-          i18n={getFakeI18nInst()}
-          ref={(e) => { ref = e; }}
-        />, node);
-        expect(ref.truncateToMaxHeight).toHaveBeenCalled();
-      }
-    );
+    const root = mount(<ShowMoreCardBase i18n={getFakeI18nInst()} />);
+    const component = root.instance();
+
+    const contentNode = findDOMNode(component.contents);
+    const truncateToMaxHeight = sinon.spy(component, 'truncateToMaxHeight');
+    root.setProps(); // simulate any kind of update to properties
+
+    sinon.assert.calledWith(truncateToMaxHeight, contentNode);
   });
 });
