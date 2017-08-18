@@ -1,12 +1,15 @@
-/* global Response, window */
+/* global window */
 import querystring from 'querystring';
 
 import config from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
-import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
-import { parsePage } from 'core/utils';
+import { ADDON_TYPE_THEME } from 'core/constants';
+import {
+  createApiResponse,
+  generateHeaders,
+} from 'tests/unit/core/api/helpers';
 import {
   createStubErrorHandler,
   signedInApiState,
@@ -16,29 +19,7 @@ import {
 import { createFakeAutocompleteResult } from 'tests/unit/amo/helpers';
 
 
-export function generateHeaders(
-  headerData = { 'Content-Type': 'application/json' }
-) {
-  const response = new Response();
-  Object.keys(headerData).forEach((key) => (
-    response.headers.append(key, headerData[key])
-  ));
-  return response.headers;
-}
-
-function createApiResponse({
-  ok = true, jsonData = {}, ...responseProps
-} = {}) {
-  const response = {
-    ok,
-    headers: generateHeaders(),
-    json: () => Promise.resolve(jsonData),
-    ...responseProps,
-  };
-  return Promise.resolve(response);
-}
-
-describe('api', () => {
+describe(__filename, () => {
   let mockWindow;
   const apiHost = config.get('apiHost');
 
@@ -207,141 +188,6 @@ describe('api', () => {
     it('handles true values', () => {
       const query = api.makeQueryString({ some_flag: true });
       expect(query).toEqual('?some_flag=true');
-    });
-  });
-
-  describe('core/api.search()', () => {
-    function mockResponse(responseProps = {}) {
-      return createApiResponse({
-        jsonData: {
-          results: [
-            { slug: 'foo' },
-            { slug: 'food' },
-            { slug: 'football' },
-          ],
-        },
-        ...responseProps,
-      });
-    }
-
-    it('sets the lang, limit, page and query', () => {
-      // FIXME: This shouldn't fail if the args are in a different order.
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?app=android&page=3&q=foo&lang=en-US`)
-        .once()
-        .returns(mockResponse());
-      return api.search({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-        auth: true,
-        filters: { page: parsePage(3), query: 'foo' },
-      })
-        .then(() => mockWindow.verify());
-    });
-
-    it('normalizes the response', () => {
-      mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.search({ api: {}, auth: true, filters: { query: 'foo' } })
-        .then((results) => {
-          expect(results.result.results).toEqual(['foo', 'food', 'football']);
-          expect(results.entities).toEqual({
-            addons: {
-              foo: { slug: 'foo' },
-              food: { slug: 'food' },
-              football: { slug: 'football' },
-            },
-          });
-        });
-    });
-
-    it('surfaces status and apiURL on Error instance', () => {
-      const url = `${apiHost}/api/v3/addons/search/?page=3&q=foo&lang=en-US`;
-      mockWindow.expects('fetch')
-        .withArgs(url)
-        .once()
-        .returns(mockResponse({ ok: false, status: 401 }));
-
-      return api.search({
-        api: { lang: 'en-US' },
-        auth: true,
-        filters: { page: parsePage(3), query: 'foo' },
-      })
-        .then(unexpectedSuccess, (err) => {
-          expect(err.response.status).toEqual(401);
-          expect(err.response.apiURL).toEqual(url);
-        });
-    });
-  });
-
-  describe('search api', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: {
-        results: [
-          { slug: 'foo' },
-          { slug: 'food' },
-          { slug: 'football' },
-        ],
-      },
-    });
-
-    it('sets the lang, limit, page and query', () => {
-      // FIXME: This shouldn't fail if the args are in a different order.
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`)
-        .once()
-        .returns(mockResponse());
-      return api.search({
-        api: { clientApp: 'firefox', lang: 'en-US' },
-        filters: { query: 'foo', page: parsePage(3) },
-      })
-        .then(() => mockWindow.verify());
-    });
-
-    it('changes theme requests for android to firefox results', () => {
-      // FIXME: This shouldn't fail if the args are in a different order.
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&type=persona&lang=en-US`)
-        .once()
-        .returns(mockResponse());
-      return api.search({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-        filters: {
-          addonType: ADDON_TYPE_THEME,
-          clientApp: CLIENT_APP_ANDROID,
-          page: parsePage(3),
-        },
-      })
-        .then(() => mockWindow.verify());
-    });
-
-    it('allows overrides to clientApp', () => {
-      // FIXME: This shouldn't fail if the args are in a different order.
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`)
-        .once()
-        .returns(mockResponse());
-      return api.search({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-        filters: { clientApp: 'firefox', page: parsePage(3), query: 'foo' },
-      })
-        .then(() => mockWindow.verify());
-    });
-
-    it('normalizes the response', () => {
-      mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.search({
-        api: { clientApp: 'firefox', lang: 'en-US' },
-        filters: { query: 'foo' },
-      })
-        .then((results) => {
-          expect(results.result.results).toEqual(['foo', 'food', 'football']);
-          expect(results.entities).toEqual({
-            addons: {
-              foo: { slug: 'foo' },
-              food: { slug: 'food' },
-              football: { slug: 'football' },
-            },
-          });
-        });
     });
   });
 
