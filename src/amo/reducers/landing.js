@@ -18,7 +18,7 @@ export default function landing(state = initialState, action) {
   switch (action.type) {
     case LANDING_GET:
       return {
-        ...state,
+        ...initialState,
         addonType: payload.addonType,
         loading: true,
         resultsLoaded: false,

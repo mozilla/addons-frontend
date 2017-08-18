@@ -171,7 +171,7 @@ export class AppBase extends React.Component {
     event: Event,
     {
       _window = window, _cookie = cookie,
-    }: {|
+      }: {|
       _window: typeof window, _cookie: typeof cookie,
     |} = {}
   ) => {

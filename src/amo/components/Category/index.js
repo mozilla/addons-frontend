@@ -8,42 +8,67 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import Search from 'amo/components/Search';
 import { categoriesFetch } from 'core/actions/categories';
 import { withErrorHandler } from 'core/errorHandler';
-import { apiAddonType, getCategoryFromState, parsePage } from 'core/utils';
+import log from 'core/logger';
+import { apiAddonType, parsePage } from 'core/utils';
 
 import './styles.scss';
 
 
 export class CategoryBase extends React.Component {
   static propTypes = {
-    category: PropTypes.object,
+    categories: PropTypes.object,
+    clientApp: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    filters: PropTypes.object,
-    loading: PropTypes.boolean,
-    paginationQueryParams: PropTypes.object,
-    pathname: PropTypes.string,
+    loading: PropTypes.bool,
+    location: PropTypes.object.isRequired,
+    params: PropTypes.object.isRequired,
   }
 
   componentWillMount() {
-    const { category, dispatch, errorHandler } = this.props;
+    const { categories, dispatch, errorHandler, loading } = this.props;
 
-    if (!category) {
+    if (!loading && !categories) {
       dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
     }
   }
 
   render() {
     const {
-      category,
+      categories,
+      clientApp,
       errorHandler,
-      filters,
       loading,
-      paginationQueryParams,
-      pathname,
+      location,
+      params,
     } = this.props;
 
-    if (!errorHandler.hasError() && loading === false && !category) {
+    let addonType;
+    try {
+      addonType = apiAddonType(params.visibleAddonType);
+    } catch (error) {
+      log.info(
+        `addonType ${params.visibleAddonType} threw an error: ${error}`);
       return <NotFound />;
+    }
+    const categorySlug = params.slug;
+    const filters = {
+      addonType,
+      category: categorySlug,
+      page: parsePage(location.query.page),
+    };
+    const pathname = `/${params.visibleAddonType}/${categorySlug}/`;
+    const paginationQueryParams = { page: filters.page };
+
+    let category;
+    if (categories) {
+      if (categories[clientApp] && categories[clientApp][addonType]) {
+        category = categories[clientApp][addonType][categorySlug];
+      }
+
+      if (!errorHandler.hasError() && !loading && !category) {
+        return <NotFound />;
+      }
     }
 
     return (
@@ -61,31 +86,11 @@ export class CategoryBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
-  const filters = {
-    addonType: apiAddonType(ownProps.params.visibleAddonType),
-    category: ownProps.params.slug,
-    page: parsePage(ownProps.location.query.page),
-  };
-  const pathname = `/${ownProps.params.visibleAddonType}/${filters.category}/`;
-  const paginationQueryParams = { page: filters.page };
-
-  const category = getCategoryFromState({
-    addonType: filters.addonType,
-    categorySlug: filters.category,
-    clientApp: state.api.clientApp,
-    state,
-  });
-
-  const loading = state.categories.loading || state.search.loading;
-
+export function mapStateToProps(state) {
   return {
-    addonType: filters.addonType,
-    category,
-    filters,
-    loading,
-    pathname,
-    paginationQueryParams,
+    categories: state.categories.categories,
+    clientApp: state.api.clientApp,
+    loading: state.categories.loading,
   };
 }
 

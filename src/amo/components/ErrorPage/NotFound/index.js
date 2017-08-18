@@ -23,7 +23,7 @@ export class NotFoundBase extends React.Component {
       If you followed a link from somewhere, please
       <a href="%(url)s">file an issue</a>. Tell us where you came from and
       what you were looking for, and we'll do our best to fix it.`),
-      { url: 'https://github.com/mozilla/addons-frontend/issues/new/' });
+    { url: 'https://github.com/mozilla/addons-frontend/issues/new/' });
 
 
     /* eslint-disable react/no-danger */

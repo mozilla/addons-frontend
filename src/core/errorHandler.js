@@ -59,6 +59,11 @@ export class ErrorHandler {
 export type ErrorHandlerType = typeof ErrorHandler;
 
 /*
+ * This is a decorator that gives a component the ability to handle errors.
+ *
+ * The decorator will assign an ErrorHandler instance to the errorHandler
+ * property.
+ *
  * For convenience, you can use `withRenderedErrorHandler()` which renders the
  * error automatically at the beginning of the component's output.
  *

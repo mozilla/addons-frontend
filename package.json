@@ -25,20 +25,21 @@
     "flow:dev": "flow stop; flow start; chokidar .flowconfig flow/ src/ tests/ -i flow/logs/flow.log -c 'flow status' --initial",
     "stylelint": "stylelint --syntax scss **/*.scss",
     "lint": "npm run eslint && npm run stylelint",
-    "start": "npm run version-check && NODE_PATH='./:./src' node bin/server.js",
-    "start-func-test-server": "node bin/start-func-test-server.js",
+    "start": "npm run version-check && better-npm-run node bin/server.js",
+    "start-func-test-server": "better-npm-run node bin/start-func-test-server.js",
     "test-ci": "bin/config-check.js && better-npm-run test-ci && cat ./coverage/lcov.info | coveralls",
-    "test": "bin/config-check.js && jest --watch",
-    "test-coverage": "bin/config-check.js && jest --coverage --watch",
-    "test-coverage-once": "bin/config-check.js && jest --coverage",
-    "test-once": "bin/config-check.js && jest && npm run lint",
-    "version-check": "node bin/version-check.js",
+    "test": "bin/config-check.js && better-npm-run jest --watch",
+    "test-coverage": "bin/config-check.js && better-npm-run jest --coverage --watch",
+    "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
+    "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
+    "version-check": "bin/version-check.js",
     "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
   },
   "betterScripts": {
     "build": {
       "command": "npm run clean && npm run version-check && npm run build-locales && webpack --bail --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
       "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     },
@@ -82,8 +83,9 @@
     "extract-locales": {
       "command": "webpack --verbose --bail --display-error-details --progress --colors --config webpack.l10n.config.babel.js",
       "env": {
-        "NODE_PATH": "./:./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "NODE_ICU_DATA": "./node_modules/full-icu",
+        "NODE_PATH": "./:./src"
       }
     },
     "start-dev": {
@@ -91,6 +93,7 @@
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
+        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     },
@@ -99,13 +102,28 @@
       "env": {
         "ENABLE_PIPING": "true",
         "NODE_ENV": "development",
+        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
         "SERVER_PORT": "3333"
+      }
+    },
+    "node": {
+      "command": "node",
+      "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu",
+        "NODE_PATH": "./:./src"
+      }
+    },
+    "jest": {
+      "command": "jest",
+      "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu"
       }
     },
     "test-ci": {
       "command": "npm run version-check && npm run flow:check && npm run test-coverage-once",
       "env": {
+        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
         "NODE_ENV": "test"
       }
@@ -114,6 +132,7 @@
       "command": "node bin/webpack-dev-server.js",
       "env": {
         "NODE_ENV": "development",
+        "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
       }
     }
@@ -129,7 +148,7 @@
   },
   "homepage": "https://github.com/mozillla/addons-frontend#readme",
   "dependencies": {
-    "babel-polyfill": "6.20.0",
+    "babel-polyfill": "6.26.0",
     "base62": "1.2.0",
     "base64url": "2.0.0",
     "better-npm-run": "0.1.0",
@@ -143,6 +162,7 @@
     "express": "4.15.2",
     "extract-text-webpack-plugin": "3.0.0",
     "fastclick": "1.0.6",
+    "full-icu": "1.2.0",
     "helmet": "3.8.1",
     "humps": "2.0.1",
     "isomorphic-fetch": "2.2.1",
@@ -209,7 +229,7 @@
     "css-loader": "^0.28.3",
     "deepcopy": "^0.6.3",
     "enzyme": "^2.8.2",
-    "eslint": "^3.19.0",
+    "eslint": "^4.3.0",
     "eslint-config-amo": "^0.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "fetch-mock": "^5.10.0",
@@ -249,7 +269,7 @@
     "stylelint-config-suitcss": "^10.0.0",
     "supertest": "^3.0.0",
     "svg-url-loader": "^2.0.2",
-    "tmp": "^0.0.31",
+    "tmp": "^0.0.33",
     "tosource": "^1.0.0",
     "webpack": "^3.1.0",
     "webpack-dev-middleware": "^1.10.2",

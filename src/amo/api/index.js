@@ -52,40 +52,39 @@ export function submitReview({
   body,
   reviewId,
   ...apiCallParams
-}: SubmitReviewParams): Promise<ApiReviewType> {
-  return new Promise(
-    (resolve) => {
-      const review = {
-        addon: undefined,
-        rating,
-        version: versionId,
-        body,
-        title,
-      };
-      let method = 'POST';
-      let endpoint = 'reviews/review';
+  }: SubmitReviewParams): Promise<ApiReviewType> {
+  return new Promise((resolve) => {
+    const review = {
+      addon: undefined,
+      rating,
+      version: versionId,
+      body,
+      title,
+    };
+    let method = 'POST';
+    let endpoint = 'reviews/review';
 
-      if (reviewId) {
-        endpoint = `${endpoint}/${reviewId}`;
-        method = 'PATCH';
-        // You cannot update the version of an existing review.
-        review.version = undefined;
-      } else {
-        if (!addonId) {
-          throw new Error('addonId is required when posting a new review');
-        }
-        review.addon = addonId;
+    if (reviewId) {
+      endpoint = `${endpoint}/${reviewId}`;
+      method = 'PATCH';
+      // You cannot update the version of an existing review.
+      review.version = undefined;
+    } else {
+      if (!addonId) {
+        throw new Error('addonId is required when posting a new review');
       }
+      review.addon = addonId;
+    }
 
-      resolve(callApi({
-        endpoint,
-        body: review,
-        method,
-        auth: true,
-        state: apiState,
-        ...apiCallParams,
-      }));
-    });
+    resolve(callApi({
+      endpoint,
+      body: review,
+      method,
+      auth: true,
+      state: apiState,
+      ...apiCallParams,
+    }));
+  });
 }
 
 type GetReviewsParams = {|
