@@ -11,6 +11,7 @@ import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
+import Card from 'ui/components/Card';
 import { VIEW_CONTEXT_EXPLORE } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import {
@@ -120,10 +121,19 @@ export class SearchBase extends React.Component {
       <SearchSort filters={filters} pathname={pathname} />
     ) : null;
 
+    if (!queryParams.q) {
+      return (
+        <div className="Search">
+          <Card className="SearchContextCard">
+            <h1 className="SearchContextCard-header">Enter a search term and try again.</h1>
+          </Card>
+        </div>
+      );
+    }
+
     return (
       <div className="Search">
         {errorHandler.renderErrorIfPresent()}
-
         <SearchContextCard />
 
         {searchSort}
