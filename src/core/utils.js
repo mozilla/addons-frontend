@@ -424,21 +424,6 @@ export function getCategoryColor(category) {
   return category.id;
 }
 
-export function getCategoryFromState(
-  { addonType, clientApp, categorySlug, state } = {}
-) {
-  const categories = state.categories.categories;
-
-  if (
-    categories && categories[clientApp] && categories[clientApp][addonType] &&
-    categories[clientApp][addonType][categorySlug]
-  ) {
-    return categories[clientApp][addonType][categorySlug];
-  }
-
-  return null;
-}
-
 export function parsePage(page) {
   const parsed = parseInt(page, 10);
   return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;

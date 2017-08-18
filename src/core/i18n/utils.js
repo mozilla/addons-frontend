@@ -284,7 +284,7 @@ export function makeI18n(
   i18n._dcnpgettext = i18n.dcnpgettext;
   i18n.dcnpgettext = function dcnpgettext(domain, context, singularKey, pluralKey, val) {
     return i18n._dcnpgettext(domain, context, oneLineTranslationString(singularKey),
-                             oneLineTranslationString(pluralKey), val);
+      oneLineTranslationString(pluralKey), val);
   };
 
   // We add a translated "moment" property to our `i18n` object

@@ -6,7 +6,7 @@ import log from 'core/logger';
 export function configureLocalForage(
   {
     localForage = defaultLocalForage,
-  }: {|
+    }: {|
     localForage: typeof defaultLocalForage,
   |} = {}
 ) {

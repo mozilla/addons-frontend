@@ -4,26 +4,33 @@ import React from 'react';
 import { setViewContext } from 'amo/actions/viewContext';
 import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
 import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
+import {
+  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, CLIENT_APP_ANDROID,
+} from 'core/constants';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 
 describe('<Categories />', () => {
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
   function render({ ...props }) {
-    const fakeDispatch = sinon.stub();
     const errorHandler = createStubErrorHandler();
 
     return shallow(
       <CategoriesBase
         addonType={ADDON_TYPE_EXTENSION}
-        dispatch={fakeDispatch}
+        dispatch={store.dispatch}
         errorHandler={errorHandler}
         i18n={getFakeI18nInst()}
+        {...mapStateToProps(store.getState())}
         {...props}
       />
     );
@@ -31,12 +38,9 @@ describe('<Categories />', () => {
 
   it('fetches categories if needed', () => {
     const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({
-      id: 'custom-error-handler',
-      dispatch,
-    });
+    const errorHandler = createStubErrorHandler();
     render({
-      addonType: ADDON_TYPE_EXTENSION, categories: {}, dispatch, errorHandler,
+      addonType: ADDON_TYPE_EXTENSION, dispatch, errorHandler,
     });
 
     sinon.assert.calledWith(dispatch, categoriesFetch({
@@ -44,11 +48,42 @@ describe('<Categories />', () => {
     }));
   });
 
+  it('does not fetch categories if already loading them', () => {
+    store.dispatch(categoriesFetch({
+      errorHandlerId: createStubErrorHandler().id,
+    }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
+  });
+
+  it('does not fetch categories if already loaded', () => {
+    store.dispatch(categoriesLoad({ result: [fakeCategory] }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
+  });
+
+  it('does not fetch categories if an empty set was loaded', () => {
+    store.dispatch(categoriesLoad({ result: [] }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
+  });
+
   it('changes viewContext if addonType changes', () => {
     const dispatch = sinon.stub();
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      categories: {},
       dispatch,
     });
 
@@ -61,7 +96,6 @@ describe('<Categories />', () => {
     const dispatch = sinon.stub();
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      categories: {},
       dispatch,
     });
 
@@ -76,7 +110,7 @@ describe('<Categories />', () => {
   });
 
   it('renders Categories', () => {
-    const root = render({ addonType: ADDON_TYPE_EXTENSION, categories: {} });
+    const root = render({ addonType: ADDON_TYPE_EXTENSION });
 
     expect(root).toHaveClassName('Categories');
   });
@@ -84,7 +118,6 @@ describe('<Categories />', () => {
   it('renders loading text when loading', () => {
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      categories: {},
       loading: true,
     });
 
@@ -95,7 +128,6 @@ describe('<Categories />', () => {
   it('renders LoadingText components when loading', () => {
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      categories: {},
       loading: true,
     });
 
@@ -107,13 +139,15 @@ describe('<Categories />', () => {
     const categoriesResponse = {
       result: [
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Games',
           slug: 'Games',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Travel',
           slug: 'Travel',
           type: ADDON_TYPE_EXTENSION,
@@ -121,13 +155,10 @@ describe('<Categories />', () => {
       ],
     };
 
-    const { store } = dispatchClientMetadata();
     store.dispatch(categoriesLoad(categoriesResponse));
-    const { categories } = mapStateToProps(store.getState());
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      categories,
     });
 
     expect(root.find('.Categories-list').childAt(0).find(Button))
@@ -140,25 +171,29 @@ describe('<Categories />', () => {
     const categoriesResponse = {
       result: [
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Travel',
           slug: 'travel',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Music',
           slug: 'music',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Nature',
           slug: 'nature',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Games',
           slug: 'Games',
           type: ADDON_TYPE_EXTENSION,
@@ -166,13 +201,10 @@ describe('<Categories />', () => {
       ],
     };
 
-    const { store } = dispatchClientMetadata();
     store.dispatch(categoriesLoad(categoriesResponse));
-    const props = mapStateToProps(store.getState());
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      ...props,
     });
 
     expect(root.find('.Categories-list').childAt(0).find(Button))
@@ -187,10 +219,8 @@ describe('<Categories />', () => {
 
   it('renders a no categories found message', () => {
     const categoriesResponse = { result: [] };
-    const { store } = dispatchClientMetadata();
     store.dispatch(categoriesLoad(categoriesResponse));
-    const props = mapStateToProps(store.getState());
-    const root = render(props);
+    const root = render();
 
     expect(root.find('.Categories-none-loaded-message'))
       .toIncludeText('No categories found.');
@@ -200,7 +230,7 @@ describe('<Categories />', () => {
     const errorHandler = createStubErrorHandler(
       new Error('example of an error')
     );
-    const root = render({ categories: {}, errorHandler });
+    const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
   });

@@ -86,7 +86,7 @@ export function callApi({
   body,
   credentials,
   errorHandler,
-}: CallApiParams): Promise<any> {
+  }: CallApiParams): Promise<any> {
   if (errorHandler) {
     errorHandler.clear();
   }
