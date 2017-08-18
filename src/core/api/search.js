@@ -12,7 +12,7 @@ import type { ApiStateType } from 'core/reducers/api';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 
-type SearchParams = {|
+export type SearchParams = {|
   api: ApiStateType,
   auth: boolean,
   // TODO: Make a "searchFilters" type because these are the same args
@@ -22,6 +22,7 @@ type SearchParams = {|
     clientApp?: string,
     category?: string,
     compatibleWithVersion?: number|string,
+    operatingSystem?: string,
     page?: number,
     page_size?: number,
     query?: string,
@@ -54,6 +55,14 @@ export default function search(
     log.info(oneLine`addonType: ${_filters.addonType}/clientApp:
       ${_filters.clientApp} is not supported. Changing clientApp to "firefox"`);
     _filters.clientApp = 'firefox';
+  }
+
+  // Themes are cross-platform and searching for them with an operatingSystem
+  // filter will result in no results, so we delete it for now.
+  // Can be deleted once https://github.com/mozilla/addons-server/issues/6206
+  // is fixed.
+  if (_filters.addonType === ADDON_TYPE_THEME) {
+    delete _filters.operatingSystem;
   }
 
   // If the browser is Firefox or Firefox for Android and we're searching for

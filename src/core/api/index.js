@@ -1,6 +1,5 @@
 /* @flow */
 /* global fetch */
-
 import url from 'url';
 
 import utf8 from 'utf8';
