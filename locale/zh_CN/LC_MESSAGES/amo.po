@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-08-18 09:07+0000\n"
+"PO-Revision-Date: 2017-08-19 03:49+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -361,7 +361,7 @@ msgstr "查阅新闻"
 
 #: src/amo/components/LandingPage/index.js:102
 msgid "More popular extensions"
-msgstr "最流行的扩展"
+msgstr "更多流行扩展"
 
 #: src/amo/components/LandingPage/index.js:103
 msgid "Top rated extensions"
@@ -385,7 +385,7 @@ msgstr "最流行的主题"
 
 #: src/amo/components/LandingPage/index.js:124
 msgid "More popular themes"
-msgstr "最流行的主题"
+msgstr "更多流行主题"
 
 #: src/amo/components/LandingPage/index.js:125
 msgid "Top rated themes"
@@ -647,7 +647,7 @@ msgstr "无评价"
 
 #: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">展开</span>以了解更多"
+msgstr "<span class=\"visually-hidden\">展开</span>以详细了解"
 
 #~ msgid "Browse by category"
 #~ msgstr "按类别浏览"
