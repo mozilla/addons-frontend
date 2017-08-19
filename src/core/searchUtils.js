@@ -1,5 +1,6 @@
 export const paramsToFilter = {
   app: 'clientApp',
+  appversion: 'compatibleWithVersion',
   category: 'category',
   page: 'page',
   page_size: 'page_size',

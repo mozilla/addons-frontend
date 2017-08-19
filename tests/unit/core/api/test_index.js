@@ -5,13 +5,11 @@ import config from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
 import {
   createApiResponse,
-  generateHeaders,
-} from 'tests/unit/core/api/helpers';
-import {
   createStubErrorHandler,
+  generateHeaders,
   signedInApiState,
   unexpectedSuccess,
   userAuthToken,

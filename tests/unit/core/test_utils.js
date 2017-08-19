@@ -1025,7 +1025,7 @@ describe('getClientCompatibility', () => {
   });
 
   it('returns incompatible if strict compatibility enabled', () => {
-    const { browser, os } = UAParser(userAgents.firefox[4]);
+    const { browser, os } = UAParser(userAgents.firefox[5]);
     const userAgentInfo = { browser, os };
 
     expect(getClientCompatibility({

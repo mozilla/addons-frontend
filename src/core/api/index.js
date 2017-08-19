@@ -259,4 +259,23 @@ export function logOutFromServer({ api }: {| api: ApiStateType |}) {
   });
 }
 
+type AutocompleteParams = {|
+  api: ApiStateType,
+  filters: {|
+    query: string,
+    addonType?: string,
+  |},
+|};
+
+export function autocomplete({ api, filters }: AutocompleteParams) {
+  return callApi({
+    endpoint: 'addons/autocomplete',
+    params: {
+      app: api.clientApp,
+      ...convertFiltersToQueryParams(filters),
+    },
+    state: api,
+  });
+}
+
 export const search = searchApi;

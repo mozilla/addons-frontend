@@ -1,7 +1,12 @@
+/* @flow */
 import { oneLine } from 'common-tags';
 
 import { addon, callApi } from 'core/api';
-import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+} from 'core/constants';
 import log from 'core/logger';
 import type { ApiStateType } from 'core/reducers/api';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
@@ -16,6 +21,7 @@ type SearchParams = {|
     addonType?: string,
     clientApp?: string,
     category?: string,
+    compatibleWithVersion?: number|string,
     page?: number,
     page_size?: number,
     query?: string,
@@ -33,7 +39,8 @@ export default function search(
     _filters.clientApp = api.clientApp;
   }
   // TODO: This loads Firefox personas (lightweight themes) for Android
-  // until github.com/mozilla/addons-frontend/issues/1723#issuecomment-278793546
+  // until
+  // https:// github.com/mozilla/addons-frontend/issues/1723#issuecomment-278793546
   // and https://github.com/mozilla/addons-server/issues/4766 are addressed.
   // Essentially: right now there are no categories for the combo
   // of "Android" + "Themes" but Firefox lightweight themes will work fine
@@ -48,6 +55,32 @@ export default function search(
       ${_filters.clientApp} is not supported. Changing clientApp to "firefox"`);
     _filters.clientApp = 'firefox';
   }
+
+  // If the browser is Firefox or Firefox for Android and we're searching for
+  // extensions, send the appversion param to get extensions marked as
+  // compatible with this version.
+  if (
+    api.userAgentInfo.browser.name === 'Firefox' &&
+    api.userAgentInfo.os.name !== 'iOS' &&
+    // TODO: Remove this check once
+    // https://github.com/mozilla/addons-server/issues/6206 is fixed.
+    // Right now sending the `appversion` param to search will result
+    // in no themes being returned.
+    (!_filters.addonType || _filters.addonType === ADDON_TYPE_EXTENSION)
+  ) {
+    const browserVersion = parseInt(api.userAgentInfo.browser.version, 10);
+
+    // We are only setting the `compatibleWithVersion` filter for browsers
+    // with a version of at least 57, at least for now. Find the explanation
+    // here: https://github.com/mozilla/addons-frontend/pull/2969#issuecomment-323551742
+    if (browserVersion >= 57) {
+      log.debug(oneLine`Setting appVersion to current application version
+        (Firefox ${browserVersion}) so only relevant extensions are
+        displayed.`);
+      _filters.compatibleWithVersion = api.userAgentInfo.browser.version;
+    }
+  }
+
   return callApi({
     endpoint: 'addons/search',
     schema: { results: [addon] },
