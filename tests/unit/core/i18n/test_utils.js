@@ -3,6 +3,14 @@ import moment from 'moment';
 import { oneLine } from 'common-tags';
 
 import * as utils from 'core/i18n/utils';
+import {
+  ADDON_TYPE_COMPLETE_THEME,
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
 
 
 const defaultLang = config.get('defaultLang');
@@ -394,7 +402,10 @@ describe('i18n utils', () => {
   describe('makeI18n', () => {
     class FakeJed {
       constructor(i18nData) {
-        return i18nData;
+        return {
+          ...i18nData,
+          gettext: (key) => key,
+        };
       }
     }
 
@@ -474,6 +485,25 @@ describe('i18n utils', () => {
       expect(i18n.formatNumber(number)).toEqual('12 345');
       sinon.assert.calledWith(toLocaleStringSpy, 'fr');
       sinon.assert.notCalled(numberFormatSpy);
+    });
+
+    describe('addonType()', () => {
+      it('translates internal addon types', () => {
+        const i18n = utils.makeI18n({}, 'en', FakeJed);
+        expect(i18n.addonType(ADDON_TYPE_COMPLETE_THEME)).toEqual('theme');
+        expect(i18n.addonType(ADDON_TYPE_DICT)).toEqual('dictionary');
+        expect(i18n.addonType(ADDON_TYPE_EXTENSION)).toEqual('extension');
+        expect(i18n.addonType(ADDON_TYPE_LANG)).toEqual('language pack');
+        expect(i18n.addonType(ADDON_TYPE_OPENSEARCH)).toEqual('search plugin');
+        expect(i18n.addonType(ADDON_TYPE_THEME)).toEqual('theme');
+      });
+
+      it('throws an error if the given type is not valid', () => {
+        const i18n = utils.makeI18n({}, 'en', FakeJed);
+        expect(() => {
+          i18n.addonType('unknown-type');
+        }).toThrowError(/Unknown extension type/);
+      });
     });
   });
 });

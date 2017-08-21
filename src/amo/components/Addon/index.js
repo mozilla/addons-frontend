@@ -226,7 +226,7 @@ export class AddonBase extends React.Component {
 
     return (
       <ShowMoreCard
-        header={i18n.sprintf(i18n.gettext('About this %(addonType)s'), { addonType })}
+        header={i18n.sprintf(i18n.gettext('About this %(addonType)s'), { addonType: i18n.addonType(addonType) })}
         className="AddonDescription"
       >
         <div
