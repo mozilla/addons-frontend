@@ -5,6 +5,15 @@ import Jed from 'jed';
 import moment from 'moment';
 
 import log from 'core/logger';
+import {
+  ADDON_TYPE_COMPLETE_THEME,
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
+  validAddonTypes,
+} from 'core/constants';
 
 const defaultLang = config.get('defaultLang');
 const langs = config.get('langs');
@@ -285,6 +294,30 @@ export function makeI18n(
   i18n.dcnpgettext = function dcnpgettext(domain, context, singularKey, pluralKey, val) {
     return i18n._dcnpgettext(domain, context, oneLineTranslationString(singularKey),
       oneLineTranslationString(pluralKey), val);
+  };
+
+  // The `addonType` we use internally is not translated, so we use this helper
+  // to return translated add-on type names.
+  i18n.addonType = function addonType(type) {
+    switch (type) {
+      case ADDON_TYPE_DICT:
+        return i18n.gettext('dictionary');
+      case ADDON_TYPE_LANG:
+        return i18n.gettext('language pack');
+      case ADDON_TYPE_OPENSEARCH:
+        return i18n.gettext('search plugin');
+      case ADDON_TYPE_THEME:
+      case ADDON_TYPE_COMPLETE_THEME:
+        return i18n.gettext('theme');
+      case ADDON_TYPE_EXTENSION:
+        return i18n.gettext('extension');
+      default:
+        if (!validAddonTypes.includes(type)) {
+          throw new Error(`Unknown extension type: ${type}`);
+        }
+        log.warn(`Using generic prompt for add-on type: ${type}`);
+        return i18n.gettext('add-on');
+    }
   };
 
   // We add a translated "moment" property to our `i18n` object
