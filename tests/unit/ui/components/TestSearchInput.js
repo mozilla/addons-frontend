@@ -1,6 +1,7 @@
 /* global window */
 import React from 'react';
 import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
+import { shallow } from 'enzyme';
 
 import { assertHasClass, assertNotHasClass } from 'tests/unit/helpers';
 import SearchInput from 'ui/components/SearchInput';
@@ -34,15 +35,15 @@ describe('<SearchInput />', () => {
     expect(removeEventListener.calledWith('resize', root.setIconPosition)).toBeTruthy();
   });
 
-  it('starts with the --text class with a defaultValue', () => {
-    const root = renderIntoDocument(<SearchInput name="foo" defaultValue="wat" />);
+  it('starts with the --text class with a value', () => {
+    const root = renderIntoDocument(<SearchInput name="foo" value="wat" />);
     assertHasClass(root.root, 'SearchInput--text');
   });
 
-  it('sets the value in state on input', () => {
+  it('sets the value in state on change', () => {
     const root = renderIntoDocument(<SearchInput name="foo" />);
-    expect(root.state.value).toEqual(undefined);
-    Simulate.input(root.input, { target: { value: 'test' } });
+    expect(root.state.value).toEqual('');
+    Simulate.change(root.input, { target: { value: 'test' } });
     expect(root.state.value).toEqual('test');
   });
 
@@ -56,7 +57,7 @@ describe('<SearchInput />', () => {
   });
 
   it('keeps the --text class on blur when it has text', () => {
-    const root = renderIntoDocument(<SearchInput name="foo" defaultValue="Hello" />);
+    const root = renderIntoDocument(<SearchInput name="foo" value="Hello" />);
     assertHasClass(root.root, 'SearchInput--text');
     Simulate.blur(root.input);
     assertHasClass(root.root, 'SearchInput--text');
@@ -87,7 +88,6 @@ describe('<SearchInput />', () => {
 
   it('only adds the --text class on focus with a value', () => {
     const root = renderIntoDocument(<SearchInput name="foo" value="hey" />);
-    assertNotHasClass(root.root, 'SearchInput--text');
     assertNotHasClass(root.root, 'SearchInput--animating');
     Simulate.focus(root.input);
     assertHasClass(root.root, 'SearchInput--text');
@@ -112,7 +112,42 @@ describe('<SearchInput />', () => {
   });
 
   it('exposes the value of the input', () => {
-    const root = renderIntoDocument(<SearchInput name="foo" defaultValue="yo" />);
+    const root = renderIntoDocument(<SearchInput name="foo" value="yo" />);
     expect(root.value).toEqual('yo');
+  });
+
+  it('forwards the onFocus event', () => {
+    const spy = sinon.spy();
+    const root = renderIntoDocument(<SearchInput name="foo" onFocus={spy} />);
+    Simulate.focus(root.input);
+    expect(spy.calledOnce).toBe(true);
+  });
+
+  it('forwards the onBlur event', () => {
+    const spy = sinon.spy();
+    const root = renderIntoDocument(<SearchInput name="foo" onBlur={spy} />);
+    Simulate.blur(root.input);
+    expect(spy.calledOnce).toBe(true);
+  });
+
+  it('gives the input element to the inputRef prop', () => {
+    const spy = sinon.spy();
+    const root = renderIntoDocument(<SearchInput name="foo" inputRef={spy} />);
+    expect(spy.calledOnce).toBe(true);
+    expect(spy.calledWith(root.input)).toBe(true);
+  });
+
+  it('forwards the onChange event', () => {
+    const spy = sinon.spy();
+    const root = renderIntoDocument(<SearchInput name="foo" onChange={spy} />);
+    Simulate.change(root.input);
+    expect(spy.calledOnce).toBe(true);
+  });
+
+  it('updates state when it receives new props', () => {
+    const root = shallow(<SearchInput name="foo" />);
+    expect(root.state().value).toBe('');
+    root.setProps({ value: 'new-value' });
+    expect(root.state().value).toBe('new-value');
   });
 });

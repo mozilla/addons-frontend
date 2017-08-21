@@ -40,6 +40,8 @@ describe('<SearchForm />', () => {
           query="foo"
           ref={(ref) => { this.root = ref; }}
           i18n={getFakeI18nInst()}
+          loadingSuggestions={false}
+          suggestions={[]}
           {...this.props}
         />
       );
@@ -50,7 +52,7 @@ describe('<SearchForm />', () => {
     router = { push: sinon.spy() };
     root = renderIntoDocument(<SearchFormWrapper />).root;
     form = root.form;
-    input = root.searchQuery.input;
+    input = root.searchInput;
   });
 
   it('renders a form', () => {
@@ -65,7 +67,7 @@ describe('<SearchForm />', () => {
   it('renders Extensions placeholder', () => {
     root = renderIntoDocument(
       <SearchFormWrapper addonType={ADDON_TYPE_EXTENSION} />).root;
-    input = root.searchQuery.input;
+    input = root.searchInput;
 
     expect(input.placeholder).toEqual('Search extensions');
     expect(input.type).toEqual('search');
@@ -74,7 +76,7 @@ describe('<SearchForm />', () => {
   it('renders Themes placeholder', () => {
     root = renderIntoDocument(
       <SearchFormWrapper addonType={ADDON_TYPE_THEME} />).root;
-    input = root.searchQuery.input;
+    input = root.searchInput;
 
     expect(input.placeholder).toEqual('Search themes');
     expect(input.type).toEqual('search');
@@ -118,7 +120,7 @@ describe('<SearchForm />', () => {
       <SearchFormWrapper addonType={ADDON_TYPE_EXTENSION} />
     ).root;
     form = root.form;
-    input = root.searchQuery.input;
+    input = root.searchInput;
 
     sinon.assert.notCalled(router.push);
     input.value = '& 26 %';

@@ -53,10 +53,14 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: false,
         suggestions: payload.results
-        // TODO: Remove this when `null` names are not returned. See:
-        // https://github.com/mozilla/addons-server/issues/6189
+          // TODO: Remove this when `null` names are not returned. See:
+          // https://github.com/mozilla/addons-server/issues/6189
           .filter((result) => result.name !== null)
-          .map((result) => result.name),
+          .map((result) => ({
+            name: result.name,
+            url: result.url,
+            iconUrl: result.icon_url,
+          })),
       };
     default:
       return state;

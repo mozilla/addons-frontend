@@ -1,0 +1,76 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+$item-padding-horizontal: 23px;
+$item-padding: 5px $item-padding-horizontal;
+$arrow-width: 18px;
+
+.SearchForm-form {
+  background: $header-search-color;
+  border: 0;
+}
+
+.SearchInput-input,
+.SearchForm-form {
+  color: $base-color;
+  font-size: $font-size-m-smaller;
+  white-space: nowrap;
+}
+
+.SearchForm-suggestions-list {
+  background-color: $white;
+  color: $black;
+  margin: 0;
+  padding: 0;
+}
+
+.SearchForm-suggestions-item {
+  @include text-align-start();
+
+  cursor: pointer;
+  outline: none;
+  padding: $item-padding;
+  width: 100%;
+}
+
+.SearchForm-suggestions-item:hover,
+.SearchForm-suggestions-item:active,
+.SearchForm-suggestions-item:focus,
+.SearchForm-suggestions-item--highlighted {
+  color: $link-color;
+  white-space: normal;
+
+  .Suggestion::after {
+    @include arrow-big-blue();
+
+    float: right;
+
+    [dir=rtl] & {
+      float: left;
+    }
+  }
+}
+
+.Suggestion {
+  height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.Suggestion-name {
+  display: inline-block;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: calc(100% - #{$item-padding-horizontal + $arrow-width});
+}
+
+.Suggestion-icon {
+  @include margin-end(12px);
+
+  display: inline-block;
+  height: 16px;
+  margin-bottom: 2px;
+  width: 16px;
+}
