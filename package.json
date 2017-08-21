@@ -50,10 +50,11 @@
       }
     },
     "amo:dev": {
-      "command": "better-npm-run start-dev",
+      "command": "better-npm-run start-dev-proxy",
       "env": {
         "AMO_CDN": "https://addons-amo-dev-cdn.allizom.org",
-        "API_HOST": "https://addons-dev.allizom.org",
+        "PROXY_API_HOST": "https://addons-dev.allizom.org",
+        "FXA_CONFIG": "local",
         "CSP": false,
         "NODE_APP_INSTANCE": "amo"
       }
@@ -66,10 +67,11 @@
       }
     },
     "amo:stage": {
-      "command": "better-npm-run start-dev",
+      "command": "better-npm-run start-dev-proxy",
       "env": {
         "AMO_CDN": "https://addons-stage-cdn.allizom.org",
-        "API_HOST": "https://addons.allizom.org",
+        "PROXY_API_HOST": "https://addons.allizom.org",
+        "FXA_CONFIG": "local",
         "CSP": false,
         "NODE_APP_INSTANCE": "amo"
       }
