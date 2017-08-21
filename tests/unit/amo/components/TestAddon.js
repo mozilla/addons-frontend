@@ -32,6 +32,7 @@ import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_THEME,
+  ADDON_TYPE_OPENSEARCH,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALLED,
@@ -49,6 +50,7 @@ import {
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
+import Badge from 'ui/components/Badge';
 
 
 function renderProps({
@@ -744,5 +746,36 @@ describe('mapStateToProps', () => {
     const { addon } = _mapStateToProps();
 
     expect(addon).toEqual(undefined);
+  });
+
+  it('displays a badge when the addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
+  });
+
+  it('adds a different badge label when a "theme" addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_THEME };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
+  });
+
+  it('adds a different badge label when an addon of a different type is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Add-on');
+  });
+
+  it('does not display the featured badge when addon is not featured', () => {
+    const addon = { ...fakeAddon, is_featured: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
   });
 });

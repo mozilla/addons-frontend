@@ -38,6 +38,7 @@ export type AddonType = {|
   id: number,
   is_disabled: boolean,
   is_experimental: boolean,
+  is_featured: boolean,
   is_source_public: boolean,
   last_updated: Date,
   latest_unlisted_version: ?AddonVersionType,
