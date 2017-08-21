@@ -14,7 +14,7 @@ import {
   dispatchClientMetadata,
   dispatchSearchResults,
 } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler } from 'tests/unit/helpers';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 
 describe('Search', () => {
   let props;
@@ -35,6 +35,7 @@ describe('Search', () => {
       filters: { page: 3, query: 'foo' },
       pathname: '/search/',
       handleSearch: sinon.spy(),
+      i18n: getFakeI18nInst(),
       loading: false,
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
     };
