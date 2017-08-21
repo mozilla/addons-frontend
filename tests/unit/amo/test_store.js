@@ -7,6 +7,7 @@ describe('amo createStore', () => {
       'addons',
       'api',
       'auth',
+      'autocomplete',
       'categories',
       'errorPage',
       'errors',
