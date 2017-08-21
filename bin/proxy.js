@@ -42,7 +42,7 @@ function unsecureCookie(req, res, proxyRes) {
 
 function getHost(req) {
   const useDesktop = req.headers.cookie && cookie.parse(req.headers.cookie).mamo === 'off';
-  if (useDesktop || req.url.startsWith('/api/') || req.url.startsWith('/fxa-authenticate')) {
+  if (useDesktop || req.url.startsWith('/api/')) {
     return apiHost;
   }
   return frontendHost;
@@ -50,16 +50,8 @@ function getHost(req) {
 
 const server = http.createServer((req, res) => {
   const host = getHost(req);
-  let target = host;
-  if (req.url.startsWith('/fxa-authenticate')) {
-    // This is just a temporary hack to try and see if changing the
-    // Redirect URI in the FxA client https://oauth-stable.dev.lcip.org/console/client/063dd7f1edaf1507
-    // will do what I want.
-    target = host + '/api/v3/accounts/authenticate/?' +
-      req.url.split('?')[1] + '&config=local';
-  }
   return proxy.web(req, res, {
-    target: target,
+    target: host,
     changeOrigin: true,
     autoRewrite: true,
     protocolRewrite: 'http',
