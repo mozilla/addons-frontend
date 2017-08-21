@@ -11,14 +11,6 @@ import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
-import {
-  ADDON_TYPE_DICT,
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_LANG,
-  ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_THEME,
-  validAddonTypes as defaultValidAddonTypes,
-} from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
@@ -111,33 +103,13 @@ export class RatingManagerBase extends React.Component {
       });
   }
 
-  getLogInPrompt(
-    { addonType }: {| addonType: string |},
-    {
-      validAddonTypes = defaultValidAddonTypes,
-      }: {|
-      validAddonTypes: typeof defaultValidAddonTypes,
-    |} = {}
-  ) {
+  getLogInPrompt({ addonType }: {| addonType: string |}) {
     const { i18n } = this.props;
-    switch (addonType) {
-      case ADDON_TYPE_DICT:
-        return i18n.gettext('Log in to rate this dictionary');
-      case ADDON_TYPE_LANG:
-        return i18n.gettext('Log in to rate this language pack');
-      case ADDON_TYPE_OPENSEARCH:
-        return i18n.gettext('Log in to rate this search plugin');
-      case ADDON_TYPE_THEME:
-        return i18n.gettext('Log in to rate this theme');
-      case ADDON_TYPE_EXTENSION:
-        return i18n.gettext('Log in to rate this extension');
-      default:
-        if (!validAddonTypes.includes(addonType)) {
-          throw new Error(`Unknown extension type: ${addonType}`);
-        }
-        log.warn(`Using generic prompt for add-on type: ${addonType}`);
-        return i18n.gettext('Log in to rate this add-on');
-    }
+
+    return i18n.sprintf(
+      i18n.gettext('Log in to rate this %(addonType)s'),
+      { addonType: i18n.addonType(addonType) }
+    );
   }
 
   renderLogInToRate() {
