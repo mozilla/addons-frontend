@@ -2,8 +2,6 @@ import reducer, {
   autocompleteCancel,
   autocompleteLoad,
   autocompleteStart,
-  AUTOCOMPLETE_STARTED,
-  AUTOCOMPLETE_LOADED,
 } from 'core/reducers/autocomplete';
 import { createFakeAutocompleteResult } from 'tests/unit/amo/helpers';
 
@@ -15,6 +13,12 @@ describe(__filename, () => {
       expect(suggestions).toEqual([]);
     });
 
+    it('ignore unrelated actions', () => {
+      const state = { loading: false, suggestions: ['foo'] };
+      const newState = reducer(state, { type: 'UNRELATED' });
+      expect(newState).toEqual(state);
+    });
+
     it('handles AUTOCOMPLETE_CANCELLED', () => {
       const { loading, suggestions } = reducer(undefined, autocompleteCancel());
       expect(loading).toBe(false);
@@ -22,41 +26,34 @@ describe(__filename, () => {
     });
 
     it('handles AUTOCOMPLETE_STARTED', () => {
-      const { loading, suggestions } = reducer(undefined, { type: AUTOCOMPLETE_STARTED });
+      const { loading, suggestions } = reducer(undefined, autocompleteStart({
+        errorHandlerId: 'any-error-handler-id',
+        filters: { q: 'search string' },
+      }));
       expect(loading).toBe(true);
       expect(suggestions).toEqual([]);
     });
 
     it('handles AUTOCOMPLETE_LOADED', () => {
-      const payload = {
-        results: [
-          createFakeAutocompleteResult({ name: 'foo' }),
-          createFakeAutocompleteResult({ name: 'bar' }),
-          createFakeAutocompleteResult({ name: 'baz' }),
-        ],
-      };
+      const results = [
+        createFakeAutocompleteResult({ name: 'foo' }),
+        createFakeAutocompleteResult({ name: 'bar' }),
+        createFakeAutocompleteResult({ name: 'baz' }),
+      ];
 
-      const { loading, suggestions } = reducer(undefined, {
-        type: AUTOCOMPLETE_LOADED,
-        payload,
-      });
+      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
       expect(loading).toBe(false);
       expect(suggestions).toEqual(['foo', 'bar', 'baz']);
     });
 
     it('excludes AUTOCOMPLETE_LOADED results with null names', () => {
-      const payload = {
-        results: [
-          createFakeAutocompleteResult({ name: 'foo' }),
-          createFakeAutocompleteResult({ name: null }),
-          createFakeAutocompleteResult({ name: 'baz' }),
-        ],
-      };
+      const results = [
+        createFakeAutocompleteResult({ name: 'foo' }),
+        createFakeAutocompleteResult({ name: null }),
+        createFakeAutocompleteResult({ name: 'baz' }),
+      ];
 
-      const { loading, suggestions } = reducer(undefined, {
-        type: AUTOCOMPLETE_LOADED,
-        payload,
-      });
+      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
       expect(loading).toBe(false);
       expect(suggestions).toEqual(['foo', 'baz']);
     });
@@ -70,17 +67,6 @@ describe(__filename, () => {
       expect(() => {
         autocompleteStart({ errorHandlerId: 'id' });
       }).toThrow(/filters are required/);
-    });
-
-    it('constructs the AUTOCOMPLETE_STARTED action', () => {
-      const payload = {
-        errorHandlerId: 'id',
-        filters: {},
-      };
-      expect(autocompleteStart(payload)).toEqual({
-        type: AUTOCOMPLETE_STARTED,
-        payload,
-      });
     });
   });
 

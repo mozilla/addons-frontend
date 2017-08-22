@@ -1,6 +1,6 @@
-export const AUTOCOMPLETE_LOADED = 'core/autocomplete/AUTOCOMPLETE_LOADED';
-export const AUTOCOMPLETE_STARTED = 'core/autocomplete/AUTOCOMPLETE_STARTED';
-export const AUTOCOMPLETE_CANCELLED = 'core/autocomplete/AUTOCOMPLETE_CANCELLED';
+export const AUTOCOMPLETE_LOADED = 'AUTOCOMPLETE_LOADED';
+export const AUTOCOMPLETE_STARTED = 'AUTOCOMPLETE_STARTED';
+export const AUTOCOMPLETE_CANCELLED = 'AUTOCOMPLETE_CANCELLED';
 
 const initialState = {
   loading: false,
@@ -42,16 +42,11 @@ export default function reducer(state = initialState, action = {}) {
 
   switch (action.type) {
     case AUTOCOMPLETE_CANCELLED:
-      return {
-        ...state,
-        loading: false,
-        suggestions: [],
-      };
+      return initialState;
     case AUTOCOMPLETE_STARTED:
       return {
-        ...state,
+        ...initialState,
         loading: true,
-        suggestions: [],
       };
     case AUTOCOMPLETE_LOADED:
       return {

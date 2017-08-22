@@ -2,14 +2,16 @@ import SagaTester from 'redux-saga-tester';
 
 import autocompleteReducer, {
   autocompleteStart,
-  AUTOCOMPLETE_LOADED,
+  autocompleteLoad,
 } from 'core/reducers/autocomplete';
 import { CLEAR_ERROR } from 'core/constants';
 import * as api from 'core/api';
 import apiReducer from 'core/reducers/api';
-import authReducer from 'core/reducers/authentication';
 import autocompleteSaga from 'core/sagas/autocomplete';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import {
+  createFakeAutocompleteResult,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
 
@@ -26,7 +28,6 @@ describe(__filename, () => {
       initialState,
       reducers: {
         api: apiReducer,
-        auth: authReducer,
         autocomplete: autocompleteReducer,
       },
     });
@@ -41,7 +42,7 @@ describe(__filename, () => {
   }
 
   it('calls the API for suggestions', async () => {
-    const results = sinon.stub();
+    const results = [createFakeAutocompleteResult()];
     const filters = { query: 'test' };
 
     mockApi
@@ -51,9 +52,13 @@ describe(__filename, () => {
 
     _autocompleteStart({ filters });
 
-    // The saga should respond by dispatching the autocomplete loaded action.
-    await sagaTester.waitFor(AUTOCOMPLETE_LOADED);
+    const expectedLoadAction = autocompleteLoad({ results });
+
+    await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();
+
+    const loadAction = sagaTester.getCalledActions()[2];
+    expect(loadAction).toEqual(expectedLoadAction);
   });
 
   it('clears the error handler', async () => {

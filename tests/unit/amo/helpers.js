@@ -138,11 +138,11 @@ export function createAddonsApiResult(results) {
   return normalize({ results }, { results: [addonSchema] });
 }
 
-export function createFakeAutocompleteResult({ name, lang = null }) {
+export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
   return {
     id: Date.now(),
     icon_url: `https://example.org/${name}.png`,
-    name: lang ? { [lang]: name } : name,
-    url: `https://example.org/${lang}/firefox/addons/${name}/`,
+    name,
+    url: `https://example.org/en-US/firefox/addons/${name}/`,
   };
 }

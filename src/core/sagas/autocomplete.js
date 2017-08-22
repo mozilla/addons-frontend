@@ -23,7 +23,6 @@ export function* fetchAutocompleteResults({ payload }) {
 
     const response = yield call(autocompleteApi, {
       api: state.api,
-      auth: state.auth,
       filters,
     });
     const { results } = response;
