@@ -38,7 +38,7 @@ describe('<SearchResults />', () => {
     expect(root.message.textContent).toContain('No results were found.');
   });
 
-  it('renders error when no search params exist', () => {
+  it('renders no results when there are no search filters', () => {
     const root = renderResults({ filters: {} });
     const addonsCard = findRenderedComponentWithType(root, AddonsCard);
 
