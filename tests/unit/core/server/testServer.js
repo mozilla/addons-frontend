@@ -6,12 +6,22 @@ import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
+import defaultConfig, { util as configUtil } from 'config';
+import cheerio from 'cheerio';
 
 import baseServer from 'core/server/base';
+import apiReducer from 'core/reducers/api';
+import userReducer from 'core/reducers/user';
+import userSaga from 'core/sagas/user';
+import * as userApi from 'core/api/user';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
+import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
 
-describe('core/server/base', () => {
-  const _helmentCanUseDOM = Helmet.canUseDOM;
+
+describe(__filename, () => {
+  let mockUserApi;
+
+  const _helmetCanUseDOM = Helmet.canUseDOM;
   const defaultStubRoutes = (
     <Router>
       <Route path="*" component={FakeApp} />
@@ -23,33 +33,50 @@ describe('core/server/base', () => {
     global.webpackIsomorphicTools = {
       assets: () => fakeAssets,
     };
+    mockUserApi = sinon.mock(userApi);
   });
 
   afterEach(() => {
-    Helmet.canUseDOM = _helmentCanUseDOM;
+    Helmet.canUseDOM = _helmetCanUseDOM;
     delete global.webpackIsomorphicTools;
   });
 
-  function testClient({ stubRoutes = defaultStubRoutes } = {}) {
-    function createStoreAndSagas() {
-      const sagaMiddleware = createSagaMiddleware();
-      return {
-        store: createStore(
-          combineReducers({ reduxAsyncConnect }),
-          // Do not define an initial state.
-          undefined,
-          applyMiddleware(sagaMiddleware),
-        ),
-        sagaMiddleware,
-      };
+  function createStoreAndSagas({
+    reducers = { reduxAsyncConnect, api: apiReducer, user: userReducer },
+  } = {}) {
+    const sagaMiddleware = createSagaMiddleware();
+    const store = createStore(
+      combineReducers(reducers),
+      // Do not define an initial state.
+      undefined,
+      applyMiddleware(sagaMiddleware),
+    );
+
+    return { store, sagaMiddleware };
+  }
+
+  function testClient({
+    stubRoutes = defaultStubRoutes,
+    store = null,
+    sagaMiddleware = null,
+    appSagas = null,
+    config = defaultConfig,
+  } = {}) {
+    function _createStoreAndSagas() {
+      if (store === null) {
+        return createStoreAndSagas();
+      }
+
+      return { store, sagaMiddleware };
     }
 
     // eslint-disable-next-line no-empty-function
     function* fakeSaga() {}
 
-    const app = baseServer(stubRoutes, createStoreAndSagas, {
-      appSagas: fakeSaga,
+    const app = baseServer(stubRoutes, _createStoreAndSagas, {
+      appSagas: appSagas || fakeSaga,
       appInstanceName: 'testapp',
+      config,
     });
     return supertest(app);
   }
@@ -83,9 +110,151 @@ describe('core/server/base', () => {
       );
 
       const response = await testClient({ stubRoutes })
-        .get('/en-US/firefox/simulation-of-a-non-existent-page').end();
+        .get('/en-US/firefox/simulation-of-a-non-existent-page')
+        .end();
 
       expect(response.statusCode).toEqual(404);
+    });
+
+    it('does not dispatch setAuthToken() if cookie is not found', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const response = await testClient({ store, sagaMiddleware })
+        .get('/en-US/firefox/')
+        .end();
+
+      const { api } = store.getState();
+
+      expect(response.statusCode).toEqual(200);
+      expect(api.token).toBe(null);
+    });
+
+    it('dispatches setAuthToken() if cookie is present', async () => {
+      const token = userAuthToken();
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const response = await testClient({ store, sagaMiddleware })
+        .get('/en-US/firefox/')
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
+        .end();
+
+      const { api } = store.getState();
+
+      expect(response.statusCode).toEqual(200);
+      expect(api.token).toEqual(token);
+    });
+
+    it('fetches the user profile when given a token', async () => {
+      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+
+      mockUserApi
+        .expects('userProfile')
+        .once()
+        .returns(Promise.resolve(profile));
+
+      const token = userAuthToken();
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const response = await testClient({ store, sagaMiddleware, appSagas: userSaga })
+        .get('/en-US/firefox/')
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
+        .end();
+
+      const { api, user } = store.getState();
+
+      expect(response.statusCode).toEqual(200);
+      expect(api.token).toEqual(token);
+      expect(user.id).toEqual(42);
+      expect(user.username).toEqual('babar');
+      mockUserApi.verify();
+    });
+
+    it('returns a 500 error page when retrieving the user profile fails', async () => {
+      mockUserApi
+        .expects('userProfile')
+        .once()
+        .returns(Promise.reject(new Error('example of an API error')));
+
+      const token = userAuthToken();
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      const response = await testClient({ store, sagaMiddleware, appSagas: userSaga })
+        .get('/en-US/firefox/')
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
+        .end();
+
+      expect(response.statusCode).toEqual(500);
+    });
+
+    it('fetches the user profile even when SSR is disabled', async () => {
+      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+
+      mockUserApi
+        .expects('userProfile')
+        .once()
+        .returns(Promise.resolve(profile));
+
+      const token = userAuthToken();
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      // We use `cloneDeep()` to allow modifications on the `config` object,
+      // since a call to `get()` makes it immutable. This is the case in the
+      // previous test cases (on `defaultConfig`).
+      const config = configUtil.cloneDeep(defaultConfig);
+      config.disableSSR = true;
+
+      const client = testClient({
+        store,
+        sagaMiddleware,
+        appSagas: userSaga,
+        config,
+      });
+
+      const response = await client
+        .get('/en-US/firefox/')
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
+        .end();
+
+      const { api, user } = store.getState();
+
+      expect(response.statusCode).toEqual(200);
+      expect(api.token).toEqual(token);
+      expect(user.id).toEqual(42);
+      expect(user.username).toEqual('babar');
+      mockUserApi.verify();
+    });
+
+    it('it serializes the redux state in html', async () => {
+      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+
+      mockUserApi
+        .expects('userProfile')
+        .once()
+        .returns(Promise.resolve(profile));
+
+      const token = userAuthToken();
+      const { store, sagaMiddleware } = createStoreAndSagas();
+      // We use `cloneDeep()` to allow modifications on the `config` object,
+      // since a call to `get()` makes it immutable. This is the case in the
+      // previous test cases (on `defaultConfig`).
+      const config = configUtil.cloneDeep(defaultConfig);
+      config.disableSSR = true;
+
+      const client = testClient({
+        store,
+        sagaMiddleware,
+        appSagas: userSaga,
+        config,
+      });
+
+      const response = await client
+        .get('/en-US/firefox/')
+        .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
+        .end();
+
+      const { api, user } = store.getState();
+
+      // Parse the HTML response to retrieve the serialized redux state.
+      const $ = cheerio.load(response.res.text);
+      const reduxStoreState = JSON.parse($('#redux-store-state').html());
+
+      expect(reduxStoreState.api).toEqual(api);
+      expect(reduxStoreState.user).toEqual(user);
     });
   });
 });
