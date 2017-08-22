@@ -157,7 +157,7 @@ describe('Search', () => {
   it('should render an error message on empty search', () => {
     const root = render({ filters: { query: null } });
 
-    expect(root.find('h1.SearchContextCard-header')).toHaveText('Enter a search term and try again.');
+    expect(root.find('.SearchContextCard-header')).toHaveText('Enter a search term and try again.');
   });
 
   describe('mapStateToProps()', () => {
