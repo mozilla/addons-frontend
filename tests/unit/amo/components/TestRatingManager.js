@@ -404,7 +404,7 @@ describe('RatingManager', () => {
     });
 
     it('sets an empty userId when not signed in', () => {
-      expect(getMappedProps().userId).toEqual(undefined);
+      expect(getMappedProps().userId).toEqual(null);
     });
 
     it('sets the userId property from the state', () => {

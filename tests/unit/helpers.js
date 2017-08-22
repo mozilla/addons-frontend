@@ -105,6 +105,7 @@ export const signedInApiState = Object.freeze({
   token: 'secret-token',
   userAgent: sampleUserAgent,
   userAgentInfo: { browser, os },
+  userId: 102345,
 });
 
 export const userAgents = {
