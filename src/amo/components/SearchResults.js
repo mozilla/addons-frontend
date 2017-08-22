@@ -4,8 +4,6 @@ import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
-import { hasSearchFilters } from 'core/searchUtils';
-
 
 class SearchResults extends React.Component {
   static propTypes = {
@@ -38,7 +36,7 @@ class SearchResults extends React.Component {
           {i18n.gettext('Searching…')}
         </div>
       );
-    } else if (count === 0 && hasSearchFilters(filters)) {
+    } else if (count === 0) {
       if (query) {
         messageText = i18n.sprintf(
           i18n.gettext('No results were found for "%(query)s".'), { query });
@@ -47,16 +45,13 @@ class SearchResults extends React.Component {
         // "no extensions" found that match your search or something.
         messageText = i18n.gettext('No results were found.');
       }
-    } else if (!hasSearchFilters(filters)) {
-      messageText = i18n.gettext(
-        'Please enter a search term to search Firefox Add-ons.');
     }
 
     return (
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
         {loadingMessage}
         <AddonsCard
-          addons={hasSearchFilters(filters) ? results : null}
+          addons={results}
           header={i18n.gettext('Search results')}
           loading={loading}
         >

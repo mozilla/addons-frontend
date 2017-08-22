@@ -124,11 +124,13 @@ export class SearchBase extends React.Component {
       <SearchSort filters={filters} pathname={pathname} />
     ) : null;
 
-    if (!queryParams.q) {
+    if (!filters.query || filters.query.length === 0) {
       return (
         <div className="Search">
           <Card className="SearchContextCard">
-            <h1 className="SearchContextCard-header">{i18n.gettext('Enter a search term and try again.')}</h1>
+            <h1 className="SearchContextCard-header">
+              {i18n.gettext('Enter a search term and try again.')}
+            </h1>
           </Card>
         </div>
       );
@@ -137,6 +139,7 @@ export class SearchBase extends React.Component {
     return (
       <div className="Search">
         {errorHandler.renderErrorIfPresent()}
+
         <SearchContextCard />
 
         {searchSort}
@@ -165,7 +168,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
-  translate({ withRef: true }),
+  translate(),
   withErrorHandler({ name: 'Search' }),
   connect(mapStateToProps),
 )(SearchBase);

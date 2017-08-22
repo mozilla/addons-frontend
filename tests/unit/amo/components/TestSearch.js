@@ -1,4 +1,4 @@
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
 
 import { SearchBase, mapStateToProps } from 'amo/components/Search';
@@ -7,7 +7,6 @@ import SearchSort from 'amo/components/SearchSort';
 import { setViewContext } from 'amo/actions/viewContext';
 import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
-import Card from 'ui/components/Card';
 import { ADDON_TYPE_EXTENSION, VIEW_CONTEXT_EXPLORE } from 'core/constants';
 import ErrorList from 'ui/components/ErrorList';
 import {
@@ -21,10 +20,6 @@ describe('Search', () => {
 
   function render(extra = {}) {
     return shallow(<SearchBase {...{ ...props, ...extra }} />);
-  }
-
-  function mountRender(extra = {}) {
-    return mount(<SearchBase {...{ ...props, ...extra }} />);
   }
 
   beforeEach(() => {
@@ -159,10 +154,10 @@ describe('Search', () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('should render "Enter a search term and try again." msg if no search term', () => {
-    const root = mountRender({ filters: { query: null } });
+  it('should render an error message on empty search', () => {
+    const root = render({ filters: { query: null } });
 
-    expect(root.find(Card)).toHaveText('Enter a search term and try again.');
+    expect(root.find('h1.SearchContextCard-header')).toHaveText('Enter a search term and try again.');
   });
 
   describe('mapStateToProps()', () => {
