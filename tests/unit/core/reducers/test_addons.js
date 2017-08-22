@@ -33,7 +33,7 @@ describe('addon reducer', () => {
     });
   });
 
-  it('pulls down the install URL from the file', () => {
+  it('reads the install URL from the file', () => {
     const addon = {
       ...fakeAddon,
       slug: 'installable',
@@ -53,7 +53,7 @@ describe('addon reducer', () => {
     });
   });
 
-  it('sets the icon_url as iconUrl', () => {
+  it('sets the icon_url as iconUrl and adds is_restart_required', () => {
     const addon = {
       ...fakeAddon,
       slug: 'installable',
@@ -66,6 +66,7 @@ describe('addon reducer', () => {
       installable: {
         ...addon,
         iconUrl: addon.icon_url,
+        is_restart_required: false,
       },
     });
   });
@@ -103,6 +104,26 @@ describe('addon reducer', () => {
 
     expect(state).toMatchObject({
       baz: { description: null },
+    });
+  });
+
+  it('reads "is_restart_required" attribute from the file', () => {
+    const addon = {
+      ...fakeAddon,
+      slug: 'installable',
+      current_version: {
+        ...fakeAddon.current_version,
+        files: [{ is_restart_required: true }, { file: 'data' }],
+      },
+    };
+
+    expect(
+      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
+    ).toEqual({
+      installable: denormalizeAddon({
+        ...addon,
+        is_restart_required: true,
+      }),
     });
   });
 });

@@ -17,6 +17,7 @@ export function denormalizeAddon(apiAddon) {
       ...apiAddon,
       // Set iconUrl to be consistent between disco and amo.
       iconUrl: apiAddon.icon_url,
+      is_restart_required: apiAddon.is_restart_required || false,
     };
   }
   return apiAddon;
@@ -48,6 +49,7 @@ export default function addon(state = initialState, action) {
         newState[key] = {
           ...thisAddon,
           installURL: thisAddon.current_version.files[0].url,
+          is_restart_required: thisAddon.current_version.files[0].is_restart_required,
         };
       } else {
         newState[key] = thisAddon;

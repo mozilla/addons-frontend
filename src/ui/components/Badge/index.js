@@ -7,11 +7,11 @@ import './styles.scss';
 
 type Props = {|
   label: string,
-  type?: 'featured',
+  type?: 'featured' | 'restart-required',
 |};
 
 const Badge = ({ label, type }: Props) => {
-  if (type && !['featured'].includes(type)) {
+  if (type && !['featured', 'restart-required'].includes(type)) {
     throw new Error(`Invalid badge type given: "${type}"`);
   }
 
