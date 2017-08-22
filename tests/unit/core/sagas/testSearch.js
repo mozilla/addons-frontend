@@ -5,7 +5,6 @@ import * as api from 'core/api';
 import { CLEAR_ERROR, SEARCH_LOADED } from 'core/constants';
 import searchReducer from 'core/reducers/search';
 import apiReducer from 'core/reducers/api';
-import authReducer from 'core/reducers/authentication';
 import searchSaga from 'core/sagas/search';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -22,7 +21,7 @@ describe('Search Saga', () => {
     const initialState = dispatchSignInActions().state;
     sagaTester = new SagaTester({
       initialState,
-      reducers: { api: apiReducer, auth: authReducer, search: searchReducer },
+      reducers: { api: apiReducer, search: searchReducer },
     });
     sagaTester.start(searchSaga);
   });
@@ -64,7 +63,7 @@ describe('Search Saga', () => {
       .once()
       .withArgs({
         api: state.api,
-        auth: state.auth,
+        auth: true,
         filters,
         // The search saga will set `page` to `parsePage(filters.page)`, so
         // in the case of a missing `page` param it should be `1`.
