@@ -134,10 +134,13 @@ export const userAgents = {
   ],
   firefox: [
     'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0',
-    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1',
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101
-      Firefox/33.0`,
+    oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101
+      Firefox/40.1`,
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0)
+      Gecko/20100101 Firefox/33.0`,
     'Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0',
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
+      Gecko/20100101 Firefox/57.0`,
   ],
   firefoxOS: [
     'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',

@@ -27,7 +27,10 @@ export const fakeAddon = Object.freeze({
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
-    files: [],
+    files: [{
+      is_webextension: true,
+    }],
+    is_strict_compatibility_enabled: false,
   },
   previews: [],
   ratings: {
