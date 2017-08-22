@@ -137,3 +137,12 @@ export function createAddonsApiResult(results) {
   // For example: core.api.featured(), core.api.search()...
   return normalize({ results }, { results: [addonSchema] });
 }
+
+export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
+  return {
+    id: Date.now(),
+    icon_url: `https://example.org/${name}.png`,
+    name,
+    url: `https://example.org/en-US/firefox/addons/${name}/`,
+  };
+}

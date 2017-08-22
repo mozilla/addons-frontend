@@ -9,6 +9,7 @@ import reviews from 'amo/reducers/reviews';
 import viewContext from 'amo/reducers/viewContext';
 import addons from 'core/reducers/addons';
 import api from 'core/reducers/api';
+import autocomplete from 'core/reducers/autocomplete';
 import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
 import errorPage from 'core/reducers/errorPage';
@@ -25,6 +26,7 @@ export default function createStore(initialState = {}) {
     combineReducers({
       addons,
       api,
+      autocomplete,
       categories,
       errors,
       errorPage,

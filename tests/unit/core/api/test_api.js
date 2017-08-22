@@ -13,6 +13,7 @@ import {
   unexpectedSuccess,
   userAuthToken,
 } from 'tests/unit/helpers';
+import { createFakeAutocompleteResult } from 'tests/unit/amo/helpers';
 
 
 export function generateHeaders(
@@ -230,7 +231,7 @@ describe('api', () => {
         .once()
         .returns(mockResponse());
       return api.search({
-        api: { clientApp: 'android', lang: 'en-US' },
+        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
         auth: true,
         filters: { page: parsePage(3), query: 'foo' },
       })
@@ -302,7 +303,7 @@ describe('api', () => {
         .once()
         .returns(mockResponse());
       return api.search({
-        api: { clientApp: 'android', lang: 'en-US' },
+        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
         filters: {
           addonType: ADDON_TYPE_THEME,
           clientApp: CLIENT_APP_ANDROID,
@@ -319,7 +320,7 @@ describe('api', () => {
         .once()
         .returns(mockResponse());
       return api.search({
-        api: { clientApp: 'android', lang: 'en-US' },
+        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
         filters: { clientApp: 'firefox', page: parsePage(3), query: 'foo' },
       })
         .then(() => mockWindow.verify());
@@ -361,7 +362,7 @@ describe('api', () => {
         .once()
         .returns(mockResponse());
       return api.featured({
-        api: { clientApp: 'android', lang: 'en-US' },
+        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
         filters: { addonType: ADDON_TYPE_THEME },
       })
         .then((response) => {
@@ -582,7 +583,7 @@ describe('api', () => {
         .once()
         .returns(mockResponse());
       return api.categories({
-        api: { clientApp: 'android', lang: 'en-US' },
+        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
       })
         .then(() => mockWindow.verify());
     });
@@ -601,6 +602,47 @@ describe('api', () => {
         .once()
         .returns(mockResponse);
       return api.logOutFromServer({ api: signedInApiState })
+        .then(() => mockWindow.verify());
+    });
+  });
+
+  describe('autocomplete api', () => {
+    const mockResponse = () => createApiResponse({
+      jsonData: {
+        results: [
+          createFakeAutocompleteResult({ name: 'foo' }),
+          createFakeAutocompleteResult({ name: 'food' }),
+          createFakeAutocompleteResult({ name: 'football' }),
+        ],
+      },
+    });
+
+    it('sets the app, lang, and query', () => {
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.autocomplete({
+        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+        filters: {
+          query: 'foo',
+        },
+      })
+        .then(() => mockWindow.verify());
+    });
+
+    it('optionally takes addon type as filter', () => {
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&type=persona&lang=en-US`)
+        .once()
+        .returns(mockResponse());
+      return api.autocomplete({
+        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+        filters: {
+          query: 'foo',
+          addonType: ADDON_TYPE_THEME,
+        },
+      })
         .then(() => mockWindow.verify());
     });
   });

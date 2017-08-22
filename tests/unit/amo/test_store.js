@@ -6,6 +6,7 @@ describe('amo createStore', () => {
     expect(Object.keys(store.getState()).sort()).toEqual([
       'addons',
       'api',
+      'autocomplete',
       'categories',
       'errorPage',
       'errors',
