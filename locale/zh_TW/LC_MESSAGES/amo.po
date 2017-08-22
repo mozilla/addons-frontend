@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"POT-Creation-Date: 2017-08-22 21:33+0000\n"
 "PO-Revision-Date: 2017-07-11 17:11+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -51,22 +51,26 @@ msgstr "擴充套件後設資料"
 msgid "Screenshots"
 msgstr "畫面擷圖"
 
-#: src/amo/components/AddonCompatibilityError/index.js:55
+#: src/amo/components/AddonCompatibilityError/index.js:56
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
 msgstr ""
 "您需要 <a href=\"%(downloadUrl)s\">下載 Firefox</a> 才能安裝這套附加元件。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:59
+#: src/amo/components/AddonCompatibilityError/index.js:61
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid "Your version of Firefox does not support search plugins."
 msgstr "您的 Firefox 版本不支援搜尋引擎外掛。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS 目前不支援附加元件功能。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -74,7 +78,7 @@ msgstr ""
 "此附加元件需要 <a href=\"%(downloadUrl)s\">新版的 Firefox</a>（至少要 "
 "%(minVersion)s）才可安裝。您目前使用的是 %(yourVersion)s。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:79
+#: src/amo/components/AddonCompatibilityError/index.js:84
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -178,44 +182,37 @@ msgstr "評論文字"
 msgid "Submit review"
 msgstr "送出評論"
 
-#: src/amo/components/AddonReviewList.js:119
+#: src/amo/components/AddonReviewList.js:114
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(timestamp)s，來自 %(authorName)s"
 
-#: src/amo/components/AddonReviewList.js:158
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "附加元件圖示"
 
-#: src/amo/components/AddonReviewList.js:164
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s 的評論"
 
-#: src/amo/components/AddonReviewList.js:185
+#: src/amo/components/AddonReviewList.js:180
 msgid "All written reviews"
 msgstr "所有撰寫過的評論"
 
-#: src/amo/components/App/index.js:200
+#: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
 msgstr "Firefox 的附加元件"
 
-#: src/amo/components/Categories.js:57
-#: src/amo/components/CategoriesHeader/index.js:47
-msgid "Failed to load categories."
-msgstr "分類載入失敗。"
-
-#: src/amo/components/Categories.js:65
-#: src/amo/components/CategoriesHeader/index.js:55
+#: src/amo/components/Categories/index.js:101
 msgid "No categories found."
 msgstr "找不到分類。"
 
-#: src/amo/components/Categories.js:74
-#: src/amo/components/CategoriesHeader/index.js:65
-msgid "Loading categories."
-msgstr "正在載入分類。"
-
-#: src/amo/components/CategoriesHeader/index.js:61
+#: src/amo/components/Categories/index.js:108
 msgid "Categories"
 msgstr "分類"
+
+#: src/amo/components/Categories/index.js:113
+msgid "Loading categories."
+msgstr "正在載入分類。"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
@@ -296,11 +293,11 @@ msgstr ""
 "抱歉，我們的伺服器上有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修"
 "復。"
 
-#: src/amo/components/FeaturedAddons/index.js:33
+#: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
 msgstr "更多精選擴充套件"
 
-#: src/amo/components/FeaturedAddons/index.js:35
+#: src/amo/components/FeaturedAddons/index.js:52
 msgid "More Featured Themes"
 msgstr "更多精選佈景主題"
 
@@ -414,67 +411,67 @@ msgstr "畫面擷圖"
 msgid "Find news"
 msgstr "看新聞"
 
-#: src/amo/components/LandingPage/index.js:102
+#: src/amo/components/LandingPage/index.js:115
+msgid "Featured extensions"
+msgstr "精選擴充套件"
+
+#: src/amo/components/LandingPage/index.js:117
+msgid "More featured extensions"
+msgstr "更多精選擴充套件"
+
+#: src/amo/components/LandingPage/index.js:118
+msgid "Most popular extensions"
+msgstr "最熱門的擴充套件"
+
+#: src/amo/components/LandingPage/index.js:123
 msgid "More popular extensions"
 msgstr "更多知名擴充套件"
 
-#: src/amo/components/LandingPage/index.js:103
+#: src/amo/components/LandingPage/index.js:124
 msgid "Top rated extensions"
 msgstr "分數最高的擴充套件"
 
-#: src/amo/components/LandingPage/index.js:111
+#: src/amo/components/LandingPage/index.js:132
 msgid "More highly rated extensions"
 msgstr "更多高分的擴充套件"
 
-#: src/amo/components/LandingPage/index.js:114
+#: src/amo/components/LandingPage/index.js:135
 msgid "Featured themes"
 msgstr "精選佈景主題"
 
-#: src/amo/components/LandingPage/index.js:118
+#: src/amo/components/LandingPage/index.js:137
 msgid "More featured themes"
 msgstr "更多精選佈景主題"
 
-#: src/amo/components/LandingPage/index.js:119
+#: src/amo/components/LandingPage/index.js:138
 msgid "Most popular themes"
 msgstr "最熱門的佈景主題"
 
-#: src/amo/components/LandingPage/index.js:124
+#: src/amo/components/LandingPage/index.js:143
 msgid "More popular themes"
 msgstr "更多熱門佈景主題"
 
-#: src/amo/components/LandingPage/index.js:125
+#: src/amo/components/LandingPage/index.js:144
 msgid "Top rated themes"
 msgstr "分數最高的佈景主題"
 
-#: src/amo/components/LandingPage/index.js:130
+#: src/amo/components/LandingPage/index.js:149
 msgid "More highly rated themes"
 msgstr "更多高分的佈景主題"
 
-#: src/amo/components/LandingPage/index.js:177
+#: src/amo/components/LandingPage/index.js:189
 #: src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
 msgstr "佈景主題"
 
-#: src/amo/components/LandingPage/index.js:178
+#: src/amo/components/LandingPage/index.js:190
 #: src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
 msgstr "擴充套件"
 
-#: src/amo/components/LandingPage/index.js:209
+#: src/amo/components/LandingPage/index.js:222
 msgid "Explore all categories"
 msgstr "瀏覽所有分類。"
-
-#: src/amo/components/LandingPage/index.js:92
-msgid "Featured extensions"
-msgstr "精選擴充套件"
-
-#: src/amo/components/LandingPage/index.js:96
-msgid "More featured extensions"
-msgstr "更多精選擴充套件"
-
-#: src/amo/components/LandingPage/index.js:97
-msgid "Most popular extensions"
-msgstr "最熱門的擴充套件"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -530,19 +527,19 @@ msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "找到 %(count)s 套附加元件"
 
-#: src/amo/components/SearchForm.js:50
+#: src/amo/components/SearchForm.js:57
 msgid "Search extensions"
 msgstr "搜尋擴充套件"
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchForm.js:59
 msgid "Search themes"
 msgstr "搜尋佈景主題"
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:61
 msgid "Search extensions and themes"
 msgstr "搜尋擴充套件與佈景主題"
 
-#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
+#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
 msgid "Search"
 msgstr "搜尋"
 
@@ -550,23 +547,23 @@ msgstr "搜尋"
 msgid "No theme preview available"
 msgstr "沒有佈景主題預覽可以使用"
 
-#: src/amo/components/SearchResults.js:41
+#: src/amo/components/SearchResults.js:38
 msgid "Searching…"
 msgstr "搜尋中…"
 
-#: src/amo/components/SearchResults.js:47
+#: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
 msgstr "沒有找到「%(query)s」的相關結果。"
 
-#: src/amo/components/SearchResults.js:51
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found."
 msgstr "沒有找到結果。"
 
-#: src/amo/components/SearchResults.js:54
+#: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "請輸入詞彙，搜尋 Firefox 附加元件。"
 
-#: src/amo/components/SearchResults.js:63
+#: src/amo/components/SearchResults.js:60
 msgid "Search results"
 msgstr "搜尋結果"
 
@@ -710,6 +707,9 @@ msgstr "無評價"
 #: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">展開後</span> 閱讀更多"
+
+#~ msgid "Failed to load categories."
+#~ msgstr "分類載入失敗。"
 
 #~ msgid "Browse by category"
 #~ msgstr "依照分類瀏覽"

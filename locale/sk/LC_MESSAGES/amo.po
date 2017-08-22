@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"POT-Creation-Date: 2017-08-22 21:33+0000\n"
 "PO-Revision-Date: 2017-07-11 17:12+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -53,7 +53,7 @@ msgstr "Metadáta rozšírenia"
 msgid "Screenshots"
 msgstr "Snímky obrazovky"
 
-#: src/amo/components/AddonCompatibilityError/index.js:55
+#: src/amo/components/AddonCompatibilityError/index.js:56
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -61,15 +61,19 @@ msgstr ""
 "Na inštaláciu tohoto doplnku si musíte <a href=\"%(downloadUrl)s\">prevziať "
 "Firefox</a>."
 
-#: src/amo/components/AddonCompatibilityError/index.js:59
+#: src/amo/components/AddonCompatibilityError/index.js:61
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Vaša verzia Firefoxu nepodporuje vyhľadávacie moduly."
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox pre iOS v súčasnosti nepodporuje doplnky."
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -77,7 +81,7 @@ msgstr ""
 "Tento doplnok vyžaduje <a href=\"%(downloadUrl)s\">novšiu verziu Firefoxu</"
 "a> (aspoň verziu %(minVersion)s). Vy používate Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:79
+#: src/amo/components/AddonCompatibilityError/index.js:84
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -187,44 +191,37 @@ msgstr "Text recenzie"
 msgid "Submit review"
 msgstr "Odoslať recenziu"
 
-#: src/amo/components/AddonReviewList.js:119
+#: src/amo/components/AddonReviewList.js:114
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "od %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:158
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "Ikona doplnku"
 
-#: src/amo/components/AddonReviewList.js:164
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "Recenzie doplnku %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:185
+#: src/amo/components/AddonReviewList.js:180
 msgid "All written reviews"
 msgstr "Všetky napísané recenzie"
 
-#: src/amo/components/App/index.js:200
+#: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
 msgstr "Doplnky pre Firefox"
 
-#: src/amo/components/Categories.js:57
-#: src/amo/components/CategoriesHeader/index.js:47
-msgid "Failed to load categories."
-msgstr "Načítavanie kategórií zlyhalo."
-
-#: src/amo/components/Categories.js:65
-#: src/amo/components/CategoriesHeader/index.js:55
+#: src/amo/components/Categories/index.js:101
 msgid "No categories found."
 msgstr "Neboli nájdené žiadne kategórie."
 
-#: src/amo/components/Categories.js:74
-#: src/amo/components/CategoriesHeader/index.js:65
-msgid "Loading categories."
-msgstr "Načítavanie kategórií."
-
-#: src/amo/components/CategoriesHeader/index.js:61
+#: src/amo/components/Categories/index.js:108
 msgid "Categories"
 msgstr "Kategórie"
+
+#: src/amo/components/Categories/index.js:113
+msgid "Loading categories."
+msgstr "Načítavanie kategórií."
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
@@ -311,11 +308,11 @@ msgstr ""
 "Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe "
 "servera. Chybu sme zaznamenali a budeme sa jej venovať."
 
-#: src/amo/components/FeaturedAddons/index.js:33
+#: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
 msgstr "Ďalšie odporúčané rozšírenia"
 
-#: src/amo/components/FeaturedAddons/index.js:35
+#: src/amo/components/FeaturedAddons/index.js:52
 msgid "More Featured Themes"
 msgstr "Ďalšie odporúčané témy vzhľadu"
 
@@ -429,67 +426,67 @@ msgstr "Vytvárať snímky obrazovky"
 msgid "Find news"
 msgstr "Nájsť správy"
 
-#: src/amo/components/LandingPage/index.js:102
+#: src/amo/components/LandingPage/index.js:115
+msgid "Featured extensions"
+msgstr "Odporúčané rozšírenia"
+
+#: src/amo/components/LandingPage/index.js:117
+msgid "More featured extensions"
+msgstr "Ďalšie odporúčané rozšírenia"
+
+#: src/amo/components/LandingPage/index.js:118
+msgid "Most popular extensions"
+msgstr "Najpopulárnejšie rozšírenia"
+
+#: src/amo/components/LandingPage/index.js:123
 msgid "More popular extensions"
 msgstr "Ďalšie populárne rozšírenia"
 
-#: src/amo/components/LandingPage/index.js:103
+#: src/amo/components/LandingPage/index.js:124
 msgid "Top rated extensions"
 msgstr "Najlepšie hodnotené rozšírenia"
 
-#: src/amo/components/LandingPage/index.js:111
+#: src/amo/components/LandingPage/index.js:132
 msgid "More highly rated extensions"
 msgstr "Ďalšie rozšírenia s vysokým hodnotením"
 
-#: src/amo/components/LandingPage/index.js:114
+#: src/amo/components/LandingPage/index.js:135
 msgid "Featured themes"
 msgstr "Odporúčané témy vzhľadu"
 
-#: src/amo/components/LandingPage/index.js:118
+#: src/amo/components/LandingPage/index.js:137
 msgid "More featured themes"
 msgstr "Ďalšie odporúčané témy vzhľadu"
 
-#: src/amo/components/LandingPage/index.js:119
+#: src/amo/components/LandingPage/index.js:138
 msgid "Most popular themes"
 msgstr "Najpopulárnejšie témy vzhľadu"
 
-#: src/amo/components/LandingPage/index.js:124
+#: src/amo/components/LandingPage/index.js:143
 msgid "More popular themes"
 msgstr "Ďalšie populárne témy vzhľadu"
 
-#: src/amo/components/LandingPage/index.js:125
+#: src/amo/components/LandingPage/index.js:144
 msgid "Top rated themes"
 msgstr "Najlepšie hodnotené témy vzhľadu"
 
-#: src/amo/components/LandingPage/index.js:130
+#: src/amo/components/LandingPage/index.js:149
 msgid "More highly rated themes"
 msgstr "Ďalšie témy vzhľadu s vysokým hodnotením"
 
-#: src/amo/components/LandingPage/index.js:177
+#: src/amo/components/LandingPage/index.js:189
 #: src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
 msgstr "Témy vzhľadu"
 
-#: src/amo/components/LandingPage/index.js:178
+#: src/amo/components/LandingPage/index.js:190
 #: src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
 msgstr "Rozšírenia"
 
-#: src/amo/components/LandingPage/index.js:209
+#: src/amo/components/LandingPage/index.js:222
 msgid "Explore all categories"
 msgstr "Preskúmajte všetky kategórie"
-
-#: src/amo/components/LandingPage/index.js:92
-msgid "Featured extensions"
-msgstr "Odporúčané rozšírenia"
-
-#: src/amo/components/LandingPage/index.js:96
-msgid "More featured extensions"
-msgstr "Ďalšie odporúčané rozšírenia"
-
-#: src/amo/components/LandingPage/index.js:97
-msgid "Most popular extensions"
-msgstr "Najpopulárnejšie rozšírenia"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -550,19 +547,19 @@ msgstr[0] "Bol nájdený %(count)s doplnok"
 msgstr[1] "Boli nájdené %(count)s doplnky"
 msgstr[2] "Bolo nájdených %(count)s doplnkov"
 
-#: src/amo/components/SearchForm.js:50
+#: src/amo/components/SearchForm.js:57
 msgid "Search extensions"
 msgstr "Hľadať v rozšíreniach"
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchForm.js:59
 msgid "Search themes"
 msgstr "Hľadať v témach vzhľadu"
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:61
 msgid "Search extensions and themes"
 msgstr "Hľadať v rozšíreniach a témach vzhľadu"
 
-#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
+#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
 msgid "Search"
 msgstr "Hľadať"
 
@@ -570,23 +567,23 @@ msgstr "Hľadať"
 msgid "No theme preview available"
 msgstr "Žiadna ukážka témy vzhľadu nie je dostupná"
 
-#: src/amo/components/SearchResults.js:41
+#: src/amo/components/SearchResults.js:38
 msgid "Searching…"
 msgstr "Vyhľadáva sa…"
 
-#: src/amo/components/SearchResults.js:47
+#: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
 msgstr "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok."
 
-#: src/amo/components/SearchResults.js:51
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found."
 msgstr "Neboli nájdené žiadne výsledky."
 
-#: src/amo/components/SearchResults.js:54
+#: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Zadajte, prosím, vyhľadávaný výraz."
 
-#: src/amo/components/SearchResults.js:63
+#: src/amo/components/SearchResults.js:60
 msgid "Search results"
 msgstr "Výsledky vyhľadávania"
 
@@ -734,6 +731,9 @@ msgstr "Žiadne hodnotenie"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "Viac si môžete prečítať po <span class=\"visually-hidden\">rozbalení</span>"
+
+#~ msgid "Failed to load categories."
+#~ msgstr "Načítavanie kategórií zlyhalo."
 
 #~ msgid "Browse by category"
 #~ msgstr "Prehliadať podľa kategórie"

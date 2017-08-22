@@ -1,15 +1,15 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"POT-Creation-Date: 2017-08-22 21:33+0000\n"
 "PO-Revision-Date: 2017-08-16 11:09+0000\n"
 "Last-Translator: Dinesh <dineshmv38@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
@@ -52,27 +52,38 @@ msgstr "పొడిగింత మెటాడేటా"
 msgid "Screenshots"
 msgstr "స్క్రీన్‌షాట్‌లు"
 
-#: src/amo/components/AddonCompatibilityError/index.js:55
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+#: src/amo/components/AddonCompatibilityError/index.js:56
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:59
+#: src/amo/components/AddonCompatibilityError/index.js:61
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid "Your version of Firefox does not support search plugins."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+#: src/amo/components/AddonCompatibilityError/index.js:70
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:79
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+#: src/amo/components/AddonCompatibilityError/index.js:84
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
 msgstr ""
 
-#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:103
+#: src/amo/components/AddonMeta.js:27
+#: src/amo/components/SearchResult/index.js:103
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s వాడుకరి"
@@ -146,14 +157,17 @@ msgstr "ఈ పొడిగింత అద్భుతమని ఎందుక
 
 #: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "ఈ పొడిగింతను మీరు ఎందుకు ఇష్టపడుతున్నారో మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను చెప్పండి."
+msgstr ""
+"ఈ పొడిగింతను మీరు ఎందుకు ఇష్టపడుతున్నారో మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను "
+"చెప్పండి."
 
 #: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "ఈ పొడిగింత గురించి ప్రపంచానికి చెప్పండి."
 
 #: src/amo/components/AddonReview.js:153
-msgid "Tell us about your experience with this extension. Be specific and concise."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
 msgstr "ఈ పొడిగింతతో మీ అనుభవాన్ని మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను చెప్పండి."
 
 #: src/amo/components/AddonReview.js:161
@@ -168,41 +182,37 @@ msgstr ""
 msgid "Submit review"
 msgstr "సమీక్షను సమర్పించండి"
 
-#: src/amo/components/AddonReviewList.js:119
+#: src/amo/components/AddonReviewList.js:114
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "%(authorName)s నుండి, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:158
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "పొడిగింత చిహ్నం"
 
-#: src/amo/components/AddonReviewList.js:164
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s కోసం సమీక్షలు"
 
-#: src/amo/components/AddonReviewList.js:185
+#: src/amo/components/AddonReviewList.js:180
 msgid "All written reviews"
 msgstr "అన్ని వ్రాసిన సమీక్షలు"
 
-#: src/amo/components/App/index.js:200
+#: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
 msgstr "Firefox యొక్క పొడిగింతలు"
 
-#: src/amo/components/Categories.js:57 src/amo/components/CategoriesHeader/index.js:47
-msgid "Failed to load categories."
-msgstr "వర్గాలను లోడ్ చేయడంలో విఫలమైంది."
-
-#: src/amo/components/Categories.js:65 src/amo/components/CategoriesHeader/index.js:55
+#: src/amo/components/Categories/index.js:101
 msgid "No categories found."
 msgstr "వర్గాలు కనుగొనబడలేదు."
 
-#: src/amo/components/Categories.js:74 src/amo/components/CategoriesHeader/index.js:65
-msgid "Loading categories."
-msgstr "వర్గాలను లోడ్ చేస్తోంది."
-
-#: src/amo/components/CategoriesHeader/index.js:61
+#: src/amo/components/Categories/index.js:108
 msgid "Categories"
 msgstr "వర్గాలు"
+
+#: src/amo/components/Categories/index.js:113
+msgid "Loading categories."
+msgstr "వర్గాలను లోడ్ చేస్తోంది."
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
@@ -217,7 +227,10 @@ msgid "Browse all themes in this category."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
@@ -225,40 +238,54 @@ msgid "Not Authorized"
 msgstr "ప్రామాణీకరించబడలేదు"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "పేజీ కనుగొనబడలేదు"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
 msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "సర్వర్ దోషం"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/amo/components/FeaturedAddons/index.js:33
+#: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
 msgstr ""
 
-#: src/amo/components/FeaturedAddons/index.js:35
+#: src/amo/components/FeaturedAddons/index.js:52
 msgid "More Featured Themes"
 msgstr ""
 
@@ -327,7 +354,8 @@ msgstr "స్పోర్టి"
 msgid "Solid"
 msgstr "ముదురు"
 
-#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
+#: src/amo/components/Home/index.js:138
+#: src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
 msgstr "అన్ని పొడగింతలను అన్వేషించు"
 
@@ -336,10 +364,13 @@ msgid "You can change how Firefox works…"
 msgstr "మీరు Firefox పనిచేసి విధానమును మార్చవచ్చు…"
 
 #: src/amo/components/Home/index.js:146
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
 msgstr ""
 
-#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
+#: src/amo/components/Home/index.js:157
+#: src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
 msgstr "అన్ని అలంకారాలను విహరించు"
 
@@ -348,7 +379,9 @@ msgid "…or what it looks like"
 msgstr "…లేదా అది ఎలా కనిపిస్తుంది"
 
 #: src/amo/components/Home/index.js:165
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
 msgstr ""
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
@@ -363,65 +396,67 @@ msgstr "స్క్రీన్‌షాట్"
 msgid "Find news"
 msgstr "వార్తలను కనుగొనండి"
 
-#: src/amo/components/LandingPage/index.js:102
-msgid "More popular extensions"
-msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
-
-#: src/amo/components/LandingPage/index.js:103
-msgid "Top rated extensions"
-msgstr ""
-
-#: src/amo/components/LandingPage/index.js:111
-msgid "More highly rated extensions"
-msgstr ""
-
-#: src/amo/components/LandingPage/index.js:114
-msgid "Featured themes"
-msgstr ""
-
-#: src/amo/components/LandingPage/index.js:118
-msgid "More featured themes"
-msgstr ""
-
-#: src/amo/components/LandingPage/index.js:119
-msgid "Most popular themes"
-msgstr "అత్యంత ప్రజాదరణ పొందిన అలంకారాలు"
-
-#: src/amo/components/LandingPage/index.js:124
-msgid "More popular themes"
-msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
-
-#: src/amo/components/LandingPage/index.js:125
-msgid "Top rated themes"
-msgstr ""
-
-#: src/amo/components/LandingPage/index.js:130
-msgid "More highly rated themes"
-msgstr ""
-
-#: src/amo/components/LandingPage/index.js:177 src/amo/components/SectionLinks/index.js:60
-msgid "Themes"
-msgstr "థీములు"
-
-#: src/amo/components/LandingPage/index.js:178 src/amo/components/SectionLinks/index.js:50
-msgid "Extensions"
-msgstr "పొడిగింతలు"
-
-#: src/amo/components/LandingPage/index.js:209
-msgid "Explore all categories"
-msgstr "అన్ని వర్గాలను అన్వేషించండి"
-
-#: src/amo/components/LandingPage/index.js:92
+#: src/amo/components/LandingPage/index.js:115
 msgid "Featured extensions"
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:96
+#: src/amo/components/LandingPage/index.js:117
 msgid "More featured extensions"
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:97
+#: src/amo/components/LandingPage/index.js:118
 msgid "Most popular extensions"
 msgstr ""
+
+#: src/amo/components/LandingPage/index.js:123
+msgid "More popular extensions"
+msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
+
+#: src/amo/components/LandingPage/index.js:124
+msgid "Top rated extensions"
+msgstr ""
+
+#: src/amo/components/LandingPage/index.js:132
+msgid "More highly rated extensions"
+msgstr ""
+
+#: src/amo/components/LandingPage/index.js:135
+msgid "Featured themes"
+msgstr ""
+
+#: src/amo/components/LandingPage/index.js:137
+msgid "More featured themes"
+msgstr ""
+
+#: src/amo/components/LandingPage/index.js:138
+msgid "Most popular themes"
+msgstr "అత్యంత ప్రజాదరణ పొందిన అలంకారాలు"
+
+#: src/amo/components/LandingPage/index.js:143
+msgid "More popular themes"
+msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
+
+#: src/amo/components/LandingPage/index.js:144
+msgid "Top rated themes"
+msgstr ""
+
+#: src/amo/components/LandingPage/index.js:149
+msgid "More highly rated themes"
+msgstr ""
+
+#: src/amo/components/LandingPage/index.js:189
+#: src/amo/components/SectionLinks/index.js:60
+msgid "Themes"
+msgstr "థీములు"
+
+#: src/amo/components/LandingPage/index.js:190
+#: src/amo/components/SectionLinks/index.js:50
+msgid "Extensions"
+msgstr "పొడిగింతలు"
+
+#: src/amo/components/LandingPage/index.js:222
+msgid "Explore all categories"
+msgstr "అన్ని వర్గాలను అన్వేషించండి"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -479,19 +514,19 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s పొడిగింత దొరికింది"
 msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
 
-#: src/amo/components/SearchForm.js:50
+#: src/amo/components/SearchForm.js:57
 msgid "Search extensions"
 msgstr "పొడిగింతలను శోధించు"
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchForm.js:59
 msgid "Search themes"
 msgstr ""
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:61
 msgid "Search extensions and themes"
 msgstr ""
 
-#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
+#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
 msgid "Search"
 msgstr "వెతుకు"
 
@@ -499,23 +534,23 @@ msgstr "వెతుకు"
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResults.js:41
+#: src/amo/components/SearchResults.js:38
 msgid "Searching…"
 msgstr "వెతుకుతోంది…"
 
-#: src/amo/components/SearchResults.js:47
+#: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
 msgstr ""
 
-#: src/amo/components/SearchResults.js:51
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found."
 msgstr "ఫలితాలు కనుగొనబడలేదు."
 
-#: src/amo/components/SearchResults.js:54
+#: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 
-#: src/amo/components/SearchResults.js:63
+#: src/amo/components/SearchResults.js:60
 msgid "Search results"
 msgstr "ఫలితాల శోధన"
 
@@ -535,7 +570,8 @@ msgstr ""
 msgid "Top Rated"
 msgstr ""
 
-#: src/amo/components/SearchSort/index.js:66 src/amo/components/SearchSort/index.js:74
+#: src/amo/components/SearchSort/index.js:66
+#: src/amo/components/SearchSort/index.js:74
 msgid "Sort"
 msgstr "క్రమపరచు"
 
@@ -560,10 +596,13 @@ msgid "Log in/Sign up"
 msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "కోడ్ లోపం: %(status)s."
 
@@ -571,7 +610,8 @@ msgstr "కోడ్ లోపం: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Firefoxకు జోడించండి"
 
@@ -654,3 +694,6 @@ msgstr ""
 #: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
+
+#~ msgid "Failed to load categories."
+#~ msgstr "వర్గాలను లోడ్ చేయడంలో విఫలమైంది."

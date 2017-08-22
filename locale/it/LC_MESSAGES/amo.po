@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"POT-Creation-Date: 2017-08-22 21:33+0000\n"
 "PO-Revision-Date: 2017-07-14 15:13+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -52,7 +52,7 @@ msgstr "Metadati estensione"
 msgid "Screenshots"
 msgstr "Screenshot"
 
-#: src/amo/components/AddonCompatibilityError/index.js:55
+#: src/amo/components/AddonCompatibilityError/index.js:56
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -60,17 +60,21 @@ msgstr ""
 "Per installare il componente aggiuntivo è necessario <a href="
 "\"%(downloadUrl)s\">scaricare Firefox</a>."
 
-#: src/amo/components/AddonCompatibilityError/index.js:59
+#: src/amo/components/AddonCompatibilityError/index.js:61
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid "Your version of Firefox does not support search plugins."
 msgstr "La versione di Firefox un uso non supporta i plugin di ricerca."
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr ""
 "Al momento non è possibile installare componenti aggiuntivi su Firefox per "
 "iOS."
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -79,7 +83,7 @@ msgstr ""
 "più recente di Firefox</a> (versione %(minVersion)s o superiori). La "
 "versione attualmente in uso è Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:79
+#: src/amo/components/AddonCompatibilityError/index.js:84
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -190,44 +194,37 @@ msgstr "Testo recensione"
 msgid "Submit review"
 msgstr "Invia recensione"
 
-#: src/amo/components/AddonReviewList.js:119
+#: src/amo/components/AddonReviewList.js:114
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "di %(authorName)s, il %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:158
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "Icona componente aggiuntivo"
 
-#: src/amo/components/AddonReviewList.js:164
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "Recensioni per %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:185
+#: src/amo/components/AddonReviewList.js:180
 msgid "All written reviews"
 msgstr "Scrivi una recensione"
 
-#: src/amo/components/App/index.js:200
+#: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
 msgstr "Componenti aggiuntivi per Firefox"
 
-#: src/amo/components/Categories.js:57
-#: src/amo/components/CategoriesHeader/index.js:47
-msgid "Failed to load categories."
-msgstr "Impossibile caricare le categorie."
-
-#: src/amo/components/Categories.js:65
-#: src/amo/components/CategoriesHeader/index.js:55
+#: src/amo/components/Categories/index.js:101
 msgid "No categories found."
 msgstr "Nessuna categoria trovata."
 
-#: src/amo/components/Categories.js:74
-#: src/amo/components/CategoriesHeader/index.js:65
-msgid "Loading categories."
-msgstr "Caricamento delle categorie in corso…"
-
-#: src/amo/components/CategoriesHeader/index.js:61
+#: src/amo/components/Categories/index.js:108
 msgid "Categories"
 msgstr "Categorie"
+
+#: src/amo/components/Categories/index.js:113
+msgid "Loading categories."
+msgstr "Caricamento delle categorie in corso…"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
@@ -316,11 +313,11 @@ msgstr ""
 "Attenzione: la richiesta non è stata elaborata a causa di un errore del "
 "server. L’errore è stato registrato per essere analizzato."
 
-#: src/amo/components/FeaturedAddons/index.js:33
+#: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
 msgstr "Altre estensioni consigliate"
 
-#: src/amo/components/FeaturedAddons/index.js:35
+#: src/amo/components/FeaturedAddons/index.js:52
 msgid "More Featured Themes"
 msgstr "Altri temi consigliati"
 
@@ -435,67 +432,67 @@ msgstr "Istantanee schermo"
 msgid "Find news"
 msgstr "Scopri le ultime news"
 
-#: src/amo/components/LandingPage/index.js:102
+#: src/amo/components/LandingPage/index.js:115
+msgid "Featured extensions"
+msgstr "Estensioni consigliate"
+
+#: src/amo/components/LandingPage/index.js:117
+msgid "More featured extensions"
+msgstr "Altre estensioni consigliate"
+
+#: src/amo/components/LandingPage/index.js:118
+msgid "Most popular extensions"
+msgstr "Estensioni più popolari"
+
+#: src/amo/components/LandingPage/index.js:123
 msgid "More popular extensions"
 msgstr "Altre estensioni popolari"
 
-#: src/amo/components/LandingPage/index.js:103
+#: src/amo/components/LandingPage/index.js:124
 msgid "Top rated extensions"
 msgstr "Estensioni più votate"
 
-#: src/amo/components/LandingPage/index.js:111
+#: src/amo/components/LandingPage/index.js:132
 msgid "More highly rated extensions"
 msgstr "Estensioni con le valutazioni migliori"
 
-#: src/amo/components/LandingPage/index.js:114
+#: src/amo/components/LandingPage/index.js:135
 msgid "Featured themes"
 msgstr "Temi consigliati"
 
-#: src/amo/components/LandingPage/index.js:118
+#: src/amo/components/LandingPage/index.js:137
 msgid "More featured themes"
 msgstr "Altri temi consigliati"
 
-#: src/amo/components/LandingPage/index.js:119
+#: src/amo/components/LandingPage/index.js:138
 msgid "Most popular themes"
 msgstr "Temi più popolari"
 
-#: src/amo/components/LandingPage/index.js:124
+#: src/amo/components/LandingPage/index.js:143
 msgid "More popular themes"
 msgstr "Altri temi popolari"
 
-#: src/amo/components/LandingPage/index.js:125
+#: src/amo/components/LandingPage/index.js:144
 msgid "Top rated themes"
 msgstr "Temi più votati"
 
-#: src/amo/components/LandingPage/index.js:130
+#: src/amo/components/LandingPage/index.js:149
 msgid "More highly rated themes"
 msgstr "Altri temi con ottime valutazioni"
 
-#: src/amo/components/LandingPage/index.js:177
+#: src/amo/components/LandingPage/index.js:189
 #: src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
 msgstr "Temi"
 
-#: src/amo/components/LandingPage/index.js:178
+#: src/amo/components/LandingPage/index.js:190
 #: src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
 msgstr "Estensioni"
 
-#: src/amo/components/LandingPage/index.js:209
+#: src/amo/components/LandingPage/index.js:222
 msgid "Explore all categories"
 msgstr "Esplora tutte le categorie"
-
-#: src/amo/components/LandingPage/index.js:92
-msgid "Featured extensions"
-msgstr "Estensioni consigliate"
-
-#: src/amo/components/LandingPage/index.js:96
-msgid "More featured extensions"
-msgstr "Altre estensioni consigliate"
-
-#: src/amo/components/LandingPage/index.js:97
-msgid "Most popular extensions"
-msgstr "Estensioni più popolari"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -553,19 +550,19 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s componente aggiuntivo trovato"
 msgstr[1] "%(count)s componenti aggiuntivi trovati"
 
-#: src/amo/components/SearchForm.js:50
+#: src/amo/components/SearchForm.js:57
 msgid "Search extensions"
 msgstr "Cerca estensioni"
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchForm.js:59
 msgid "Search themes"
 msgstr "Cerca temi"
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:61
 msgid "Search extensions and themes"
 msgstr "Ricerca estensioni e temi"
 
-#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
+#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
 msgid "Search"
 msgstr "Cerca"
 
@@ -573,25 +570,25 @@ msgstr "Cerca"
 msgid "No theme preview available"
 msgstr "Anteprima del tema non disponibile"
 
-#: src/amo/components/SearchResults.js:41
+#: src/amo/components/SearchResults.js:38
 msgid "Searching…"
 msgstr "Ricerca in corso…"
 
-#: src/amo/components/SearchResults.js:47
+#: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
 msgstr "Nessun risultato per “%(query)s”."
 
-#: src/amo/components/SearchResults.js:51
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found."
 msgstr "Nessun risultato trovato."
 
-#: src/amo/components/SearchResults.js:54
+#: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 "Inserisci almeno un termine per iniziare una ricerca tra i componenti "
 "aggiuntivi per Firefox."
 
-#: src/amo/components/SearchResults.js:63
+#: src/amo/components/SearchResults.js:60
 msgid "Search results"
 msgstr "Risultati di ricerca"
 
@@ -739,6 +736,9 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Espandi per visualizzare</span> Ulteriori "
 "informazioni"
+
+#~ msgid "Failed to load categories."
+#~ msgstr "Impossibile caricare le categorie."
 
 #~ msgid "Browse by category"
 #~ msgstr "Esplora per categoria"

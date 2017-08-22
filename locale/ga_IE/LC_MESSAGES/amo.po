@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:47+0000\n"
+"POT-Creation-Date: 2017-08-22 21:33+0000\n"
 "PO-Revision-Date: 2017-07-03 20:50+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -56,7 +56,7 @@ msgstr "Meiteashonraí na hEisínteachta"
 msgid "Screenshots"
 msgstr "Seatanna den scáileán"
 
-#: src/amo/components/AddonCompatibilityError/index.js:55
+#: src/amo/components/AddonCompatibilityError/index.js:56
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -64,15 +64,19 @@ msgstr ""
 "Caithfidh tú <a href=\"%(downloadUrl)s\">Firefox a íoslódáil</a> chun an "
 "breiseán seo a shuiteáil."
 
-#: src/amo/components/AddonCompatibilityError/index.js:59
+#: src/amo/components/AddonCompatibilityError/index.js:61
+msgid "This add-on is not compatible with your version of Firefox."
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:64
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Ní thacaíonn an leagan de Firefox atá agat le breiseáin chuardaigh."
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Ní thacaíonn Firefox ar iOS le breiseáin faoi láthair."
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -81,7 +85,7 @@ msgstr ""
 "shuiteáil chun an breiseán seo a úsáid (leagan %(minVersion)s ar a laghad). "
 "Tá Firefox %(yourVersion)s agat faoi láthair."
 
-#: src/amo/components/AddonCompatibilityError/index.js:79
+#: src/amo/components/AddonCompatibilityError/index.js:84
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -198,45 +202,38 @@ msgstr "Téacs an léirmheasa"
 msgid "Submit review"
 msgstr "Seol an léirmheas"
 
-#: src/amo/components/AddonReviewList.js:119
+#: src/amo/components/AddonReviewList.js:114
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "ó %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:158
+#: src/amo/components/AddonReviewList.js:153
 msgid "Add-on icon"
 msgstr "Deilbhín an bhreiseáin"
 
-#: src/amo/components/AddonReviewList.js:164
+#: src/amo/components/AddonReviewList.js:159
 msgid "Reviews for %(addonName)s"
 msgstr "Léirmheasanna ar %(addonName)s"
 
-#: src/amo/components/AddonReviewList.js:185
+#: src/amo/components/AddonReviewList.js:180
 msgid "All written reviews"
 msgstr "Gach léirmheas scríofa"
 
-#: src/amo/components/App/index.js:200
+#: src/amo/components/App/index.js:202
 msgid "Add-ons for Firefox"
 msgstr "Breiseáin Firefox"
 
-#: src/amo/components/Categories.js:57
-#: src/amo/components/CategoriesHeader/index.js:47
-msgid "Failed to load categories."
-msgstr "Níorbh fhéidir na catagóirí a lódáil."
-
-#: src/amo/components/Categories.js:65
-#: src/amo/components/CategoriesHeader/index.js:55
+#: src/amo/components/Categories/index.js:101
 msgid "No categories found."
 msgstr "Níor aimsíodh aon chatagóirí."
 
-#: src/amo/components/Categories.js:74
-#: src/amo/components/CategoriesHeader/index.js:65
-msgid "Loading categories."
-msgstr "Catagóirí á lódáil."
-
-#: src/amo/components/CategoriesHeader/index.js:61
+#: src/amo/components/Categories/index.js:108
 #, fuzzy
 msgid "Categories"
 msgstr "Catagóir"
+
+#: src/amo/components/Categories/index.js:113
+msgid "Loading categories."
+msgstr "Catagóirí á lódáil."
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
@@ -325,11 +322,11 @@ msgstr ""
 "d'iarratas a chomhlíonadh. Sábháladh an earráid seo sa logchomhad agus "
 "fiosróimid an scéal."
 
-#: src/amo/components/FeaturedAddons/index.js:33
+#: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
 msgstr "Tuilleadh Eisínteachtaí Mór-Le-Rá"
 
-#: src/amo/components/FeaturedAddons/index.js:35
+#: src/amo/components/FeaturedAddons/index.js:52
 msgid "More Featured Themes"
 msgstr "Tuilleadh Téamaí Mór-Le-Rá"
 
@@ -443,68 +440,68 @@ msgstr "Seatanna den scáileán a thógáil"
 msgid "Find news"
 msgstr "Nuacht a aimsiú"
 
-#: src/amo/components/LandingPage/index.js:102
+#: src/amo/components/LandingPage/index.js:115
+msgid "Featured extensions"
+msgstr "Eisínteachtaí mór-le-rá"
+
+#: src/amo/components/LandingPage/index.js:117
+msgid "More featured extensions"
+msgstr "Tuilleadh eisínteachtaí mór-le-rá"
+
+#: src/amo/components/LandingPage/index.js:118
+msgid "Most popular extensions"
+msgstr "Na heisínteachtaí is mó a bhfuil tóir orthu"
+
+#: src/amo/components/LandingPage/index.js:123
 msgid "More popular extensions"
 msgstr "Tuilleadh eisínteachtaí a bhfuil tóir orthu"
 
-#: src/amo/components/LandingPage/index.js:103
+#: src/amo/components/LandingPage/index.js:124
 msgid "Top rated extensions"
 msgstr "Eisínteachtaí leis na rátálacha is fearr"
 
-#: src/amo/components/LandingPage/index.js:111
+#: src/amo/components/LandingPage/index.js:132
 msgid "More highly rated extensions"
 msgstr "Tuilleadh eisínteachtaí le rátáil mhaith"
 
-#: src/amo/components/LandingPage/index.js:114
+#: src/amo/components/LandingPage/index.js:135
 msgid "Featured themes"
 msgstr "Téamaí mór-le-rá"
 
-#: src/amo/components/LandingPage/index.js:118
+#: src/amo/components/LandingPage/index.js:137
 msgid "More featured themes"
 msgstr "Tuilleadh téamaí mór-le-rá"
 
-#: src/amo/components/LandingPage/index.js:119
+#: src/amo/components/LandingPage/index.js:138
 msgid "Most popular themes"
 msgstr "Na téamaí is mó a bhfuil tóir orthu"
 
-#: src/amo/components/LandingPage/index.js:124
+#: src/amo/components/LandingPage/index.js:143
 msgid "More popular themes"
 msgstr "Tuilleadh téamaí a bhfuil tóir orthu"
 
-#: src/amo/components/LandingPage/index.js:125
+#: src/amo/components/LandingPage/index.js:144
 msgid "Top rated themes"
 msgstr "Téamaí leis na rátálacha is fearr"
 
-#: src/amo/components/LandingPage/index.js:130
+#: src/amo/components/LandingPage/index.js:149
 msgid "More highly rated themes"
 msgstr "Tuilleadh téamaí le rátáil mhaith"
 
-#: src/amo/components/LandingPage/index.js:177
+#: src/amo/components/LandingPage/index.js:189
 #: src/amo/components/SectionLinks/index.js:60
 msgid "Themes"
 msgstr "Téamaí"
 
-#: src/amo/components/LandingPage/index.js:178
+#: src/amo/components/LandingPage/index.js:190
 #: src/amo/components/SectionLinks/index.js:50
 msgid "Extensions"
 msgstr "Eisínteachtaí"
 
-#: src/amo/components/LandingPage/index.js:209
+#: src/amo/components/LandingPage/index.js:222
 #, fuzzy
 msgid "Explore all categories"
 msgstr "Catagóirí á lódáil."
-
-#: src/amo/components/LandingPage/index.js:92
-msgid "Featured extensions"
-msgstr "Eisínteachtaí mór-le-rá"
-
-#: src/amo/components/LandingPage/index.js:96
-msgid "More featured extensions"
-msgstr "Tuilleadh eisínteachtaí mór-le-rá"
-
-#: src/amo/components/LandingPage/index.js:97
-msgid "Most popular extensions"
-msgstr "Na heisínteachtaí is mó a bhfuil tóir orthu"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Browse in your language"
@@ -573,19 +570,19 @@ msgstr[2] "Níor aimsíodh aon chatagóirí."
 msgstr[3] "Níor aimsíodh aon chatagóirí."
 msgstr[4] "Níor aimsíodh aon chatagóirí."
 
-#: src/amo/components/SearchForm.js:50
+#: src/amo/components/SearchForm.js:57
 msgid "Search extensions"
 msgstr "Cuardaigh na heisínteachtaí"
 
-#: src/amo/components/SearchForm.js:52
+#: src/amo/components/SearchForm.js:59
 msgid "Search themes"
 msgstr "Cuardaigh na téamaí"
 
-#: src/amo/components/SearchForm.js:54
+#: src/amo/components/SearchForm.js:61
 msgid "Search extensions and themes"
 msgstr "Cuardaigh eisínteachtaí agus téamaí"
 
-#: src/amo/components/SearchForm.js:69 src/amo/components/SearchForm.js:86
+#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
 msgid "Search"
 msgstr "Cuardaigh"
 
@@ -593,23 +590,23 @@ msgstr "Cuardaigh"
 msgid "No theme preview available"
 msgstr "Níl réamhamharc ar an téama seo le fáil"
 
-#: src/amo/components/SearchResults.js:41
+#: src/amo/components/SearchResults.js:38
 msgid "Searching…"
 msgstr "Ag cuardach…"
 
-#: src/amo/components/SearchResults.js:47
+#: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
 msgstr "Gan torthaí ar \"%(query)s\"."
 
-#: src/amo/components/SearchResults.js:51
+#: src/amo/components/SearchResults.js:48
 msgid "No results were found."
 msgstr "Gan torthaí ar bith."
 
-#: src/amo/components/SearchResults.js:54
+#: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Cuir téarmaí cuardaigh isteach chun Breiseáin Firefox a chuardach."
 
-#: src/amo/components/SearchResults.js:63
+#: src/amo/components/SearchResults.js:60
 #, fuzzy
 msgid "Search results"
 msgstr "Cuardaigh na téamaí"
@@ -759,6 +756,9 @@ msgstr "Gan rátáil"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Leathnaigh</span> chun tuilleadh a léamhh"
+
+#~ msgid "Failed to load categories."
+#~ msgstr "Níorbh fhéidir na catagóirí a lódáil."
 
 #~ msgid "Browse by category"
 #~ msgstr "Brabhsáil de réir catagóire"
