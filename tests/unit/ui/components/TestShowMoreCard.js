@@ -1,4 +1,5 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import { findDOMNode } from 'react-dom';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
@@ -56,5 +57,16 @@ describe('<ShowMoreCard />', () => {
     const root = render({ children: 'Hello I am description' });
     const rootNode = findDOMNode(root);
     expect(rootNode.textContent).toContain('Hello I am description');
+  });
+
+  it('executes truncateToMaxHeight when it recieves props', () => {
+    const root = mount(<ShowMoreCardBase i18n={getFakeI18nInst()} />);
+    const component = root.instance();
+
+    const contentNode = findDOMNode(component.contents);
+    const truncateToMaxHeight = sinon.spy(component, 'truncateToMaxHeight');
+    root.setProps(); // simulate any kind of update to properties
+
+    sinon.assert.calledWith(truncateToMaxHeight, contentNode);
   });
 });

@@ -28,7 +28,7 @@ export class ShowMoreCardBase extends React.Component {
     this.state = { expanded: true };
   }
 
-  componentDidMount() {
+  componentWillReceiveProps() {
     this.truncateToMaxHeight(ReactDOM.findDOMNode(this.contents));
   }
 

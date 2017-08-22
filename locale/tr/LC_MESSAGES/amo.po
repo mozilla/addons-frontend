@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-07-19 16:47+0000\n"
-"PO-Revision-Date: 2017-07-08 13:37+0000\n"
-"Last-Translator: erdem cobanoglu <erdemarley@gmail.com>\n"
+"PO-Revision-Date: 2017-08-18 11:30+0000\n"
+"Last-Translator: asteko <aserkant@protonmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -90,9 +90,8 @@ msgid "Used by"
 msgstr "Kullanan"
 
 #: src/amo/components/AddonMoreInfo.js:106
-#, fuzzy
 msgid "Read the license agreement for this add-on"
-msgstr "Bu eklentinin gizlilik ilkelerini okuyun"
+msgstr "Bu eklentinin lisans anlaşmasını okuyun"
 
 #: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
@@ -151,9 +150,8 @@ msgid "Tell the world about this extension."
 msgstr "Arkadaşlarınıza bu uzantıdan bahsedin."
 
 #: src/amo/components/AddonReview.js:153
-#, fuzzy
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "Bize bu uzantının nesini sevdiğinizi anlatın. Mümkün olduğunca detay verin."
+msgstr "Bize bu eklentiyle tecrübenizden bahsedin. Az ama öz yazın."
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
@@ -200,23 +198,20 @@ msgid "Loading categories."
 msgstr "Kategoriler yükleniyor."
 
 #: src/amo/components/CategoriesHeader/index.js:61
-#, fuzzy
 msgid "Categories"
-msgstr "Kategoriler yüklenemedi."
+msgstr "Kategoriler"
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
 msgstr "Bu kategorideki tüm eklentilere göz atın."
 
 #: src/amo/components/CategoryHeader/index.js:38
-#, fuzzy
 msgid "Browse all extensions in this category."
-msgstr "Tüm uzantılara göz atın"
+msgstr "Bu kategorideki tüm eklentilere bak."
 
 #: src/amo/components/CategoryHeader/index.js:43
-#, fuzzy
 msgid "Browse all themes in this category."
-msgstr "Tüm temalara göz atın"
+msgstr "Bu kategorideki tüm temalara bak."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -281,7 +276,6 @@ msgid "Report a bug"
 msgstr "Hata bildir"
 
 #: src/amo/components/Footer/index.js:62
-#, fuzzy
 msgid "View classic desktop site"
 msgstr "Masaüstü sitesini göster"
 
@@ -314,9 +308,8 @@ msgid "Abstract"
 msgstr "Soyut"
 
 #: src/amo/components/Home/index.js:122
-#, fuzzy
 msgid "Holiday"
-msgstr "Düz"
+msgstr "Tatil"
 
 #: src/amo/components/Home/index.js:123
 msgid "Scenic"
@@ -411,9 +404,8 @@ msgid "Extensions"
 msgstr "Uzantılar"
 
 #: src/amo/components/LandingPage/index.js:209
-#, fuzzy
 msgid "Explore all categories"
-msgstr "Kategoriler yüklenemedi."
+msgstr "Tüm kategorileri keşfet"
 
 #: src/amo/components/LandingPage/index.js:92
 msgid "Featured extensions"
@@ -477,7 +469,6 @@ msgid "No add-ons found"
 msgstr "Eklenti bulunamadı"
 
 #: src/amo/components/SearchContextCard/index.js:45
-#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s eklenti bulundu"
