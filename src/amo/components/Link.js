@@ -10,6 +10,7 @@ import Icon from 'ui/components/Icon';
 
 export class LinkBase extends React.Component {
   static propTypes = {
+    className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
     children: PropTypes.node,
     external: PropTypes.bool,
@@ -18,6 +19,7 @@ export class LinkBase extends React.Component {
     prependClientApp: PropTypes.bool,
     prependLang: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    dispatch: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -48,6 +50,7 @@ export class LinkBase extends React.Component {
       clientApp,
       children,
       external,
+      dispatch,
       href,
       lang,
       prependClientApp,

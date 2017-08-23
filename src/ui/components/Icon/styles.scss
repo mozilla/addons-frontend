@@ -144,3 +144,7 @@
 .Icon-restart {
   @include icon($name: "restart");
 }
+
+.Icon-inverted-caret {
+  @include icon($name: "inverted-caret");
+}

@@ -21,13 +21,13 @@ type HandleLogInFunc = (
   location: ReactRouterLocation, options?: {| _window: typeof window |}
 ) => void;
 
-type HandleLogOutFunc = ({| api: ApiStateType |}) => Promise<void>;
+type HandleLogOutFunction = ({| api: ApiStateType |}) => Promise<void>;
 
 type AuthenticateButtonProps = {|
   api: ApiStateType,
   className?: string,
   handleLogIn: HandleLogInFunc,
-  handleLogOut: HandleLogOutFunc,
+  handleLogOut: HandleLogOutFunction,
   i18n: Object,
   isAuthenticated: boolean,
   location: ReactRouterLocation,
@@ -58,7 +58,7 @@ export class AuthenticateButtonBase extends React.Component {
 
   render() {
     const {
-      i18n, isAuthenticated, logInText, logOutText, noIcon, ...otherProps
+      i18n, isAuthenticated, logInText, logOutText, noIcon, className,
     } = this.props;
     const buttonText = isAuthenticated ?
       logOutText || i18n.gettext('Log out') :
@@ -70,7 +70,11 @@ export class AuthenticateButtonBase extends React.Component {
     // mobile browser. This is the cause of
     // https://github.com/mozilla/addons-frontend/issues/1904
     return (
-      <Button onClick={this.onClick} href="#" {...otherProps}>
+      <Button
+        href={`#log-${isAuthenticated ? 'out' : 'in'}`}
+        className={className}
+        onClick={this.onClick}
+      >
         {noIcon ? null : <Icon name="user-dark" />}
         {buttonText}
       </Button>
@@ -99,16 +103,21 @@ export const mapStateToProps = (
 });
 
 type DispatchMappedProps = {|
-  handleLogOut: HandleLogOutFunc,
+  handleLogOut: HandleLogOutFunction,
 |};
+
+export const createHandleLogOutFunction = (
+  dispatch: DispatchFunc
+): HandleLogOutFunction => {
+  return ({ api }) => {
+    return logOutFromServer({ api }).then(() => dispatch(logOutUser()));
+  };
+};
 
 export const mapDispatchToProps = (
   dispatch: DispatchFunc
 ): DispatchMappedProps => ({
-  handleLogOut({ api }) {
-    return logOutFromServer({ api })
-      .then(() => dispatch(logOutUser()));
-  },
+  handleLogOut: createHandleLogOutFunction(dispatch),
 });
 
 export default compose(

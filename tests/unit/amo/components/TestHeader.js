@@ -3,9 +3,20 @@ import React from 'react';
 import { setViewContext } from 'amo/actions/viewContext';
 import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
+import AuthenticateButton from 'core/components/AuthenticateButton';
+import DropdownMenu from 'ui/components/DropdownMenu';
+import DropdownMenuItem from 'ui/components/DropdownMenuItem';
+import * as api from 'core/api';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
+import {
+  createFakeEvent,
+  getFakeI18nInst,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
@@ -13,8 +24,16 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store,
     ...props
   } = {}) {
+    const fakeI18n = getFakeI18nInst();
+    const allProps = {
+      i18n: fakeI18n,
+      location: {},
+      query: '',
+      ...props,
+    };
+
     return shallowUntilTarget(
-      <Header i18n={getFakeI18nInst()} store={store} {...props} />,
+      <Header store={store} {...allProps} />,
       HeaderBase,
     );
   }
@@ -39,5 +58,36 @@ describe(__filename, () => {
     expect(root.find('.Header-title').type()).toEqual(Link);
     expect(root.find('.Header-title').prop('children'))
       .toContain('Firefox Add-ons');
+  });
+
+  it('displays `login` text when user is not connected', () => {
+    const wrapper = renderHeader();
+
+    expect(wrapper.find(AuthenticateButton)).toHaveLength(1);
+    expect(wrapper.find(DropdownMenu)).toHaveLength(0);
+  });
+
+  it('displays a menu and the username when user is logged in', () => {
+    const { store } = dispatchSignInActions({ username: 'babar' });
+    const wrapper = renderHeader({ store });
+
+    expect(wrapper.find(DropdownMenu)).toHaveLength(1);
+    expect(wrapper.find(DropdownMenu)).toHaveProp('text', 'babar');
+  });
+
+  it('allows to log out a logged user', () => {
+    const { store } = dispatchSignInActions({ username: 'babar' });
+    const wrapper = renderHeader({ store });
+    const mockApi = sinon.mock(api);
+
+    mockApi
+      .expects('logOutFromServer')
+      .once()
+      .returns(Promise.resolve());
+
+    const onClick = wrapper.find(DropdownMenuItem).last().prop('onClick');
+    onClick(createFakeEvent());
+
+    mockApi.verify();
   });
 });

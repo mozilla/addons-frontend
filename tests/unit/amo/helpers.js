@@ -21,6 +21,7 @@ import {
   signedInApiState as coreSignedInApiState,
 } from '../helpers';
 
+
 export const fakeAddon = Object.freeze({
   authors: [{
     name: 'Krupa',
@@ -167,13 +168,14 @@ export function dispatchClientMetadata({
 export function dispatchSignInActions({
   authToken = userAuthToken(),
   userId = 12345,
+  username = 'user-1234',
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
   store.dispatch(loadUserProfile({
-    profile: createUserProfileResponse({ id: userId }),
+    profile: createUserProfileResponse({ id: userId, username }),
   }));
 
   return {

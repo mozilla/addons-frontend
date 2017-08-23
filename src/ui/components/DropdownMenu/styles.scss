@@ -1,0 +1,88 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.DropdownMenu {
+  @include text-align-start();
+
+  display: inline-block;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  position: relative;
+}
+
+.DropdownMenu-text {
+  @include font-regular();
+
+  color: $white;
+  cursor: pointer;
+  font-size: $font-size-s;
+  font-weight: normal;
+  text-decoration: none;
+
+  .Icon-inverted-caret {
+    @include margin-start(5px);
+
+    height: 10px;
+    opacity: 0.6;
+    width: 9px;
+  }
+}
+
+.DropdownMenu--active {
+  .DropdownMenu-items {
+    display: block;
+  }
+
+  .Icon-inverted-caret {
+    opacity: 1;
+  }
+}
+
+// This is needed because `:hover` on mobile prevents the main button to close
+// the dropdown menu. On mobile, `.DropdownMenu--active` controls the
+// visibility of the menu. On "large" devices (and above), `:hover` also opens
+// the menu.
+@include respond-to(large) {
+  .DropdownMenu:hover {
+    .DropdownMenu-items {
+      display: block;
+    }
+
+    .Icon-inverted-caret {
+      opacity: 1;
+    }
+  }
+}
+
+.DropdownMenu-items {
+  @include font-regular();
+  @include end(0);
+
+  background: $white;
+  border: 0;
+  border-radius: $border-radius-default;
+  box-shadow: 0 0 2px transparentize($black, 0.5);
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 4px 24px 20px;
+  position: absolute;
+  top: 30px;
+  white-space: nowrap;
+  width: auto;
+  z-index: 10;
+
+  &::after {
+    @include end(36px);
+
+    background-color: $white;
+    content: "";
+    display: block;
+    height: 8px;
+    position: absolute;
+    top: -4px;
+    transform: rotate(45deg);
+    width: 8px;
+  }
+}

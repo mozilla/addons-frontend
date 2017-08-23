@@ -4,6 +4,8 @@
     "CLIENT_CONFIG": true,
     "webpackIsomorphicTools": true,
     "ga": true,
+    // See: https://github.com/facebook/flow/issues/1609
+    "SyntheticEvent": true,
   },
   "parser": "babel-eslint",
   "plugins": [
