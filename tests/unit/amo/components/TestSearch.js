@@ -154,6 +154,12 @@ describe('Search', () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
+  it('should render category results', () => {
+    const root = render({ pathname: '/extensions/some-category/', filters: { query: null, category: 'some-category' } });
+
+    expect(root.find(SearchResults)).toHaveLength(1);
+  });
+
   it('should render an error message on empty search', () => {
     const root = render({ filters: { query: null } });
 

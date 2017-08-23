@@ -124,7 +124,7 @@ export class SearchBase extends React.Component {
       <SearchSort filters={filters} pathname={pathname} />
     ) : null;
 
-    if (!filters.query || filters.query.length === 0) {
+    if (pathname === '/search/' && (!filters.query || filters.query.length === 0)) {
       return (
         <div className="Search">
           <Card className="SearchContextCard">
