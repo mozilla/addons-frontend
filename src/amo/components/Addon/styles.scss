@@ -128,9 +128,16 @@
   }
 }
 
+.Addon-badges {
+  flex-basis: 100%;
+  flex-grow: 1;
+  margin: 10px 0;
+  order: 3;
+}
+
 .Addon .InstallButton {
   margin-top: auto;
-  order: 3;
+  order: 4;
 }
 
 .Addon .InstallButton {
