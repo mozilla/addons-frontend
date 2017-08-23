@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Suggestion from 'amo/components/SearchForm/Suggestion';
+import Icon from 'ui/components/Icon';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
@@ -21,5 +22,14 @@ describe(__filename, () => {
     const root = shallowComponent(props);
 
     expect(root.find('.Suggestion')).toHaveLength(1);
+    expect(root.find(Icon)).toHaveLength(1);
+  });
+
+  it('can pass a alt text to the arrow icon', () => {
+    const props = { arrowAlt: 'go to add-on' };
+    const root = shallowComponent(props);
+
+    expect(root.find(Icon)).toHaveLength(1);
+    expect(root.find(Icon)).toHaveProp('alt', props.arrowAlt);
   });
 });

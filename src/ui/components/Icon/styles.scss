@@ -119,3 +119,14 @@
 .Icon-restart {
   @include icon($name: "restart");
 }
+
+.Icon-arrow-big-blue {
+  @include icon($name: "arrow-big-blue");
+
+  width: 18px;
+
+  [dir=rtl] & {
+    right: auto;
+    transform: rotate(180deg);
+  }
+}

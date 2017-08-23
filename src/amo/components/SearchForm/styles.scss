@@ -5,6 +5,7 @@
 $item-padding-horizontal: 23px;
 $item-padding: 5px $item-padding-horizontal;
 $arrow-width: 18px;
+$addon-icon-margin-end: 12px;
 
 .SearchForm-form {
   background: $header-search-color;
@@ -32,6 +33,15 @@ $arrow-width: 18px;
   outline: none;
   padding: $item-padding;
   width: 100%;
+
+  .Icon-arrow-big-blue {
+    display: none;
+    float: right;
+
+    [dir=rtl] & {
+      float: left;
+    }
+  }
 }
 
 .SearchForm-suggestions-item:hover,
@@ -41,14 +51,8 @@ $arrow-width: 18px;
   color: $link-color;
   white-space: normal;
 
-  .Suggestion::after {
-    @include arrow-big-blue();
-
-    float: right;
-
-    [dir=rtl] & {
-      float: left;
-    }
+  .Icon-arrow-big-blue {
+    display: inline-block;
   }
 }
 
@@ -63,11 +67,11 @@ $arrow-width: 18px;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: calc(100% - #{$item-padding-horizontal + $arrow-width});
+  width: calc(100% - #{$item-padding-horizontal + $addon-icon-margin-end + $arrow-width});
 }
 
 .Suggestion-icon {
-  @include margin-end(12px);
+  @include margin-end($addon-icon-margin-end);
 
   display: inline-block;
   height: 16px;

@@ -162,27 +162,6 @@ $default-arrow-margin: 3px;
   }
 }
 
-@mixin arrow-big-blue($margin: $default-arrow-margin) {
-  background: url("~amo/img/icons/arrow-big-blue.svg") 50% 50% no-repeat;
-  border-radius: $border-radius-m;
-  content: "";
-  display: inline-block;
-  height: 16px;
-  margin-right: -$margin * 2;
-  position: relative;
-  right: -$margin;
-  top: 2px;
-  width: 18px;
-
-  [dir=rtl] & {
-    left: -$margin;
-    margin-left: -$margin * 2;
-    margin-right: 0;
-    right: auto;
-    transform: rotate(180deg);
-  }
-}
-
 /* Button */
 @mixin button(
   $background,
