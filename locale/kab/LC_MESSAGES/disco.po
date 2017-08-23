@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-22 21:36+0000\n"
-"PO-Revision-Date: 2017-08-23 07:37+0000\n"
+"PO-Revision-Date: 2017-08-23 07:54+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: kab\n"
@@ -175,9 +175,8 @@ msgid "Your session has expired"
 msgstr "Tiɣimit-ik tfuk"
 
 #: src/ui/components/ErrorList/index.js:52
-#, fuzzy
 msgid "An unexpected error occurred"
-msgstr "Teḍra-d tuccḍa tarussint."
+msgstr "Teḍra-d tuccḍa tarussint"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
