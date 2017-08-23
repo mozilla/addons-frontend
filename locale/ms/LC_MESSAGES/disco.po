@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-22 21:36+0000\n"
-"PO-Revision-Date: 2017-07-23 13:56+0000\n"
+"PO-Revision-Date: 2017-08-23 00:42+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "Ralat Pelayan"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Maaf, kami tidak dapat menyiapkan permintaan anda disebabkan ralat. Kami "
-"telah logkan ralat ini dan akan siasatnya."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Maaf, kami tidak dapat menyiapkan permintaan anda disebabkan ralat. Kami telah logkan ralat ini dan akan siasatnya."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Kod ralat: %(status)s."
 
@@ -39,8 +34,7 @@ msgstr "Halaman tidak ditemui"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Maaf, kami tidak dapat mencari apa-apa pada URL yang anda masukkan."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Tambah ke Firefox"
 
@@ -154,18 +148,12 @@ msgstr "Peribadikan Firefox Anda"
 
 #: src/disco/containers/DiscoPane.js:114
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Ada beribu-ribu add-ons percuma, dicipta oleh pembangun dari seluruh dunia "
-"yang anda boleh pasang untuk memperibadikan Firefox anda. Daripada tema "
-"visual keseronokan hinggal ke alatan berkuasa yang membuat pelayaran lebih "
-"cepat dan lebih selamat, add-ons menjadikan pelayar anda milik anda. Untuk "
-"membantu anda memulakan, di sini ada beberapa add-ons yang kami syorkan "
-"kerana prestasi dan fungsinya yang luar biasa."
+"Ada beribu-ribu add-ons percuma, dicipta oleh pembangun dari seluruh dunia yang anda boleh pasang untuk memperibadikan Firefox anda. Daripada tema visual keseronokan hinggal ke alatan berkuasa yang "
+"membuat pelayaran lebih cepat dan lebih selamat, add-ons menjadikan pelayar anda milik anda. Untuk membantu anda memulakan, di sini ada beberapa add-ons yang kami syorkan kerana prestasi dan "
+"fungsinya yang luar biasa."
 
 #: src/disco/containers/DiscoPane.js:122
 msgid "Click to play"
@@ -185,13 +173,12 @@ msgstr "Lihat lebih banyak add-ons!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "Sesi anda telah tamat tempoh"
 
 #: src/ui/components/ErrorList/index.js:52
-#, fuzzy
 msgid "An unexpected error occurred"
-msgstr "Ada ralat tidak dijangka."
+msgstr "Ada ralat tidak dijangka"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Muat semula untuk Meneruskan"
