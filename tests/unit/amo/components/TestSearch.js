@@ -13,7 +13,7 @@ import {
   dispatchClientMetadata,
   dispatchSearchResults,
 } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler } from 'tests/unit/helpers';
 
 describe('Search', () => {
   let props;
@@ -30,7 +30,6 @@ describe('Search', () => {
       filters: { page: 3, query: 'foo' },
       pathname: '/search/',
       handleSearch: sinon.spy(),
-      i18n: getFakeI18nInst(),
       loading: false,
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
     };
@@ -155,15 +154,9 @@ describe('Search', () => {
   });
 
   it('should render category results', () => {
-    const root = render({ pathname: '/extensions/some-category/', filters: { query: null, category: 'some-category' } });
+    const root = render({ filters: { query: null, category: 'some-category' } });
 
     expect(root.find(SearchResults)).toHaveLength(1);
-  });
-
-  it('should render an error message on empty search', () => {
-    const root = render({ filters: { query: null } });
-
-    expect(root.find('.SearchContextCard-header')).toHaveText('Enter a search term and try again.');
   });
 
   describe('mapStateToProps()', () => {

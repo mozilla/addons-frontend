@@ -11,8 +11,6 @@ import SearchResults from 'amo/components/SearchResults';
 import SearchSort from 'amo/components/SearchSort';
 import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
-import Card from 'ui/components/Card';
-import translate from 'core/i18n/translate';
 import { VIEW_CONTEXT_EXPLORE } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import {
@@ -37,7 +35,6 @@ export class SearchBase extends React.Component {
     paginationQueryParams: PropTypes.object,
     pathname: PropTypes.string,
     results: PropTypes.array,
-    i18n: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -93,7 +90,6 @@ export class SearchBase extends React.Component {
       loading,
       paginationQueryParams,
       pathname,
-      i18n,
       results,
     } = this.props;
 
@@ -123,18 +119,6 @@ export class SearchBase extends React.Component {
     const searchSort = enableSearchSort && count > 0 ? (
       <SearchSort filters={filters} pathname={pathname} />
     ) : null;
-
-    if (pathname === '/search/' && (!filters.query || filters.query.length === 0)) {
-      return (
-        <div className="Search">
-          <Card className="SearchContextCard">
-            <h1 className="SearchContextCard-header">
-              {i18n.gettext('Enter a search term and try again.')}
-            </h1>
-          </Card>
-        </div>
-      );
-    }
 
     return (
       <div className="Search">
@@ -168,7 +152,6 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
-  translate(),
   withErrorHandler({ name: 'Search' }),
   connect(mapStateToProps),
 )(SearchBase);
