@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Autosuggest from 'react-autosuggest';
 import { withRouter } from 'react-router';
+import defaultDebounce from 'simple-debounce';
 
 import {
   ADDON_TYPE_EXTENSION,
@@ -42,7 +43,12 @@ export class SearchFormBase extends React.Component {
     })).isRequired,
     loadingSuggestions: PropTypes.bool.isRequired,
     router: PropTypes.object.isRequired,
+    debounce: PropTypes.func.isRequired,
   }
+
+  static defaultProps = {
+    debounce: defaultDebounce,
+  };
 
   constructor(props: Object) {
     super(props);
@@ -50,6 +56,11 @@ export class SearchFormBase extends React.Component {
     this.state = {
       searchValue: props.query || '',
     };
+
+    this.handleSuggestionsFetchRequested = props.debounce(
+      this.handleSuggestionsFetchRequested.bind(this),
+      200
+    );
   }
 
   componentWillReceiveProps(nextProps) {
@@ -93,7 +104,7 @@ export class SearchFormBase extends React.Component {
     this.setState({ searchValue: e.target.value });
   }
 
-  handleSuggestionsFetchRequested = ({ value }) => {
+  handleSuggestionsFetchRequested({ value }) {
     if (!value) {
       log.debug(`Ignoring suggestions fetch requested because value is not supplied: ${value}`);
       return;

@@ -44,6 +44,7 @@ describe(__filename, () => {
           errorHandler={{ id: 'error-handler-id' }}
           dispatch={() => {}}
           router={router}
+          debounce={(callback) => (...args) => callback(...args)}
           {...this.props}
         />
       );
