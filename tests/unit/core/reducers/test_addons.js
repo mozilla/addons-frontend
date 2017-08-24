@@ -2,7 +2,7 @@ import { loadEntities } from 'core/actions';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import addons, { denormalizeAddon } from 'core/reducers/addons';
 import { createFetchAddonResult } from 'tests/unit/helpers';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 
 
 describe('addon reducer', () => {
@@ -29,7 +29,11 @@ describe('addon reducer', () => {
       loadEntities(createFetchAddonResult(anotherFakeAddon).entities));
     expect(newAddonsState).toEqual({
       ...addonsState,
-      [anotherFakeAddon.slug]: denormalizeAddon(anotherFakeAddon),
+      [anotherFakeAddon.slug]: denormalizeAddon({
+        ...anotherFakeAddon,
+        installURL: '',
+        isRestartRequired: false,
+      }),
     });
   });
 
@@ -49,11 +53,12 @@ describe('addon reducer', () => {
       installable: denormalizeAddon({
         ...addon,
         installURL: 'https://a.m.o/download.xpi',
+        isRestartRequired: false,
       }),
     });
   });
 
-  it('sets the icon_url as iconUrl and adds is_restart_required', () => {
+  it('sets the icon_url as iconUrl', () => {
     const addon = {
       ...fakeAddon,
       slug: 'installable',
@@ -66,7 +71,8 @@ describe('addon reducer', () => {
       installable: {
         ...addon,
         iconUrl: addon.icon_url,
-        is_restart_required: false,
+        installURL: '',
+        isRestartRequired: false,
       },
     });
   });
@@ -107,22 +113,16 @@ describe('addon reducer', () => {
     });
   });
 
-  it('reads "is_restart_required" attribute from the file', () => {
-    const addon = {
-      ...fakeAddon,
-      slug: 'installable',
-      current_version: {
-        ...fakeAddon.current_version,
-        files: [{ is_restart_required: true }, { file: 'data' }],
-      },
-    };
+  it('exposes "isRestartRequired" attribute from current version files', () => {
+    const addon = createFakeAddon({ extraFileProps: { is_restart_required: true } });
 
     expect(
       addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
     ).toEqual({
-      installable: denormalizeAddon({
+      [addon.slug]: denormalizeAddon({
         ...addon,
-        is_restart_required: true,
+        installURL: '',
+        isRestartRequired: true,
       }),
     });
   });

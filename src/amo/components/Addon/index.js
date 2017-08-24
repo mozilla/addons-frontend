@@ -315,7 +315,7 @@ export class AddonBase extends React.Component {
       });
       isCompatible = compatibility.compatible;
       isFeatured = addon.is_featured;
-      isRestartRequired = addon.is_restart_required;
+      isRestartRequired = addon.isRestartRequired;
     }
 
     return (

@@ -149,3 +149,16 @@ export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}
     url: `https://example.org/en-US/firefox/addons/${name}/`,
   };
 }
+
+export function createFakeAddon({ extraFileProps = {} } = {}) {
+  return {
+    ...fakeAddon,
+    current_version: {
+      ...fakeAddon.current_version,
+      files: [{
+        ...fakeAddon.current_version.files[0],
+        ...extraFileProps,
+      }],
+    },
+  };
+}
