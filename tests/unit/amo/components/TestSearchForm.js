@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
 import { setViewContext } from 'amo/actions/viewContext';
@@ -19,8 +19,11 @@ import {
   dispatchAutocompleteResults,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
-import { autocompleteStart } from 'core/reducers/autocomplete';
+import { createFakeChangeEvent, getFakeI18nInst } from 'tests/unit/helpers';
+import {
+  autocompleteCancel,
+  autocompleteStart,
+} from 'core/reducers/autocomplete';
 
 
 describe(__filename, () => {
@@ -31,31 +34,28 @@ describe(__filename, () => {
   let form;
   let input;
 
-  class SearchFormWrapper extends React.Component {
-    render() {
-      return (
-        <SearchFormBase
-          pathname={pathname}
-          api={api}
-          query="foo"
-          ref={(ref) => { this.root = ref; }}
-          i18n={getFakeI18nInst()}
-          loadingSuggestions={false}
-          suggestions={[]}
-          errorHandler={{ id: 'error-handler-id' }}
-          dispatch={() => {}}
-          router={router}
-          debounce={(callback) => (...args) => callback(...args)}
-          {...this.props}
-        />
-      );
-    }
+  const getComponentUnderTest = (props = {}) => {
+    return (
+      <SearchFormBase
+        pathname={pathname}
+        api={api}
+        query="foo"
+        i18n={getFakeI18nInst()}
+        loadingSuggestions={false}
+        suggestions={[]}
+        errorHandler={{ id: 'error-handler-id' }}
+        dispatch={() => {}}
+        router={router}
+        debounce={(callback) => (...args) => callback(...args)}
+        {...props}
+      />
+    );
   }
 
   describe('render/UI', () => {
     beforeEach(() => {
       router = { push: sinon.spy() };
-      root = renderIntoDocument(<SearchFormWrapper />).root;
+      root = renderIntoDocument(getComponentUnderTest());
       form = root.form;
       input = root.searchInput;
     });
@@ -70,8 +70,9 @@ describe(__filename, () => {
     });
 
     it('renders Extensions placeholder', () => {
-      root = renderIntoDocument(
-        <SearchFormWrapper addonType={ADDON_TYPE_EXTENSION} />).root;
+      root = renderIntoDocument(getComponentUnderTest({
+        addonType: ADDON_TYPE_EXTENSION,
+      }));
       input = root.searchInput;
 
       expect(input.placeholder).toEqual('Search extensions');
@@ -79,8 +80,9 @@ describe(__filename, () => {
     });
 
     it('renders Themes placeholder', () => {
-      root = renderIntoDocument(
-        <SearchFormWrapper addonType={ADDON_TYPE_THEME} />).root;
+      root = renderIntoDocument(getComponentUnderTest({
+        addonType: ADDON_TYPE_THEME,
+      }));
       input = root.searchInput;
 
       expect(input.placeholder).toEqual('Search themes');
@@ -121,9 +123,9 @@ describe(__filename, () => {
     });
 
     it('passes addonType when set', () => {
-      root = renderIntoDocument(
-        <SearchFormWrapper addonType={ADDON_TYPE_EXTENSION} />
-      ).root;
+      root = renderIntoDocument(getComponentUnderTest({
+        addonType: ADDON_TYPE_EXTENSION,
+      }));
       form = root.form;
       input = root.searchInput;
 
@@ -155,9 +157,49 @@ describe(__filename, () => {
         query: { q: '& 26 %' },
       });
     });
-  });
 
-  describe('autocomplete', () => {
+    it('updates the state when props update', () => {
+      const wrapper = mount(getComponentUnderTest({ query: '' }));
+      expect(wrapper.state('searchValue')).toEqual('');
+
+      wrapper.setProps({ query: 'foo' });
+      expect(wrapper.state('searchValue')).toEqual('foo');
+    });
+
+    it('updates the state when user is typing', () => {
+      const wrapper = mount(getComponentUnderTest({ query: '' }));
+      expect(wrapper.state('searchValue')).toEqual('');
+
+      wrapper.find('input').simulate('change', createFakeChangeEvent('foo'));
+      expect(wrapper.state('searchValue')).toEqual('foo');
+    });
+
+    it('fetches suggestions on focus', () => {
+      const dispatch = sinon.spy();
+      const wrapper = mount(getComponentUnderTest({
+        query: 'foo',
+        dispatch,
+      }));
+      // no call to handleSuggestionsFetchRequested() until the input has focus,
+      // even if there is already a `searchValue`
+      expect(dispatch.calledOnce).toBe(false);
+      // this is needed to trigger handleSuggestionsFetchRequested()
+      wrapper.find('input').simulate('focus');
+      expect(dispatch.calledOnce).toBe(true);
+    });
+
+    it('clears suggestions when input is cleared', () => {
+      const dispatch = sinon.spy();
+      const wrapper = mount(getComponentUnderTest({
+        query: 'foo',
+        dispatch,
+      }));
+      // clearing the input calls handleSuggestionsClearRequested()
+      wrapper.find('input').simulate('change', createFakeChangeEvent());
+      expect(dispatch.calledOnce).toBe(true);
+      expect(dispatch.calledWith(autocompleteCancel())).toBe(true);
+    });
+
     it('displays suggestions when user is typing', () => {
       const { store } = dispatchAutocompleteResults({ results: [
         createFakeAutocompleteResult(),
@@ -166,12 +208,11 @@ describe(__filename, () => {
       const { autocomplete: autocompleteState } = store.getState();
 
       // it works because the `query` prop is set to `foo` in the
-      // SearchFormWrapper, and this prop sets `searchValue` state (input).
-      const wrapper = mount(
-        <SearchFormWrapper
-          suggestions={autocompleteState.suggestions}
-        />
-      );
+      // getComponentUnderTest(), and this prop sets `searchValue` state
+      // (input).
+      const wrapper = mount(getComponentUnderTest({
+        suggestions: autocompleteState.suggestions,
+      }));
       expect(wrapper.find(Suggestion)).toHaveLength(0);
       // this triggers Autosuggest
       wrapper.find('input').simulate('focus');
@@ -187,36 +228,46 @@ describe(__filename, () => {
       const { autocomplete: autocompleteState } = store.getState();
 
       // setting the `query` prop to empty also sets the input state to empty.
-      const wrapper = mount(
-        <SearchFormWrapper
-          query=""
-          suggestions={autocompleteState.suggestions}
-        />
-      );
+      const wrapper = mount(getComponentUnderTest({
+        query: '',
+        suggestions: autocompleteState.suggestions,
+      }));
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
     });
 
     it('does not display suggestions when there is no suggestion', () => {
-      const wrapper = mount(
-        <SearchFormWrapper
-          suggestions={[]}
-        />
-      );
+      const wrapper = mount(getComponentUnderTest({ suggestions: [] }));
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
       expect(wrapper.find(LoadingText)).toHaveLength(0);
     });
 
     it('displays 10 loading bars when suggestions are loading', () => {
-      const wrapper = mount(
-        <SearchFormWrapper
-          suggestions={[]}
-          loadingSuggestions
-        />
-      );
+      const wrapper = mount(getComponentUnderTest({
+        suggestions: [],
+        loadingSuggestions: true,
+      }));
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(LoadingText)).toHaveLength(10);
+    });
+
+    it('updates the state and push a new route when a suggestion is selected', () => {
+      const result = createFakeAutocompleteResult();
+      const { store } = dispatchAutocompleteResults({ results: [result] });
+      const { autocomplete: autocompleteState } = store.getState();
+
+      const wrapper = mount(getComponentUnderTest({
+        query: 'foo',
+        suggestions: autocompleteState.suggestions,
+      }));
+      expect(wrapper.state('searchValue')).toBe('foo');
+
+      wrapper.find('input').simulate('focus');
+      wrapper.find(Suggestion).simulate('click');
+      expect(wrapper.state('searchValue')).toBe('');
+      expect(router.push.calledOnce).toBe(true);
+      expect(router.push.calledWith(result.url)).toBe(true);
     });
   });
 
