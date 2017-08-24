@@ -17,7 +17,8 @@ import type {
 } from 'core/actions/index';
 import type { Exact } from 'core/types/util';
 
-type UserAgentInfoType = {|
+
+export type UserAgentInfoType = {|
   browser: {
     major?: string,
     name?: string,

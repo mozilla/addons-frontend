@@ -4,6 +4,8 @@ import React from 'react';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 
+import './Suggestion.scss';
+
 
 type Props = {|
   name: string,

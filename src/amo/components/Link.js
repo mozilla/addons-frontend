@@ -5,11 +5,14 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
+import Icon from 'ui/components/Icon';
+
 
 export class LinkBase extends React.Component {
   static propTypes = {
     clientApp: PropTypes.string.isRequired,
     children: PropTypes.node,
+    external: PropTypes.bool,
     href: PropTypes.string,
     lang: PropTypes.string.isRequired,
     prependClientApp: PropTypes.bool,
@@ -18,6 +21,9 @@ export class LinkBase extends React.Component {
   }
 
   static defaultProps = {
+    // TODO: Make this default to `true` and force internal links to label
+    // themselves as not external?
+    external: false,
     prependClientApp: true,
     prependLang: true,
   }
@@ -43,6 +49,7 @@ export class LinkBase extends React.Component {
     const {
       clientApp,
       children,
+      external,
       href,
       lang,
       prependClientApp,
@@ -70,7 +77,12 @@ export class LinkBase extends React.Component {
 
     if (typeof href === 'string') {
       const linkHref = urlPrefix ? joinUrl.pathname(urlPrefix, href) : href;
-      return <a {...customProps} href={linkHref}>{children}</a>;
+      return (
+        <a {...customProps} href={linkHref}>
+          {children}
+          {external ? <Icon name="external" /> : null}
+        </a>
+      );
     }
 
     let linkTo = to;
@@ -84,7 +96,12 @@ export class LinkBase extends React.Component {
       };
     }
 
-    return <Link {...customProps} to={linkTo}>{children}</Link>;
+    return (
+      <Link {...customProps} to={linkTo}>
+        {children}
+        {external ? <Icon name="external" /> : null}
+      </Link>
+    );
   }
 }
 

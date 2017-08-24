@@ -7,6 +7,7 @@ export const AUTOCOMPLETE_CANCELLED = 'AUTOCOMPLETE_CANCELLED';
 
 const initialState = {
   loading: false,
+  isOpen: false,
   suggestions: [],
 };
 
@@ -50,21 +51,27 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...initialState,
         loading: true,
+        isOpen: true,
       };
     case AUTOCOMPLETE_LOADED:
+    {
+      const suggestions = payload.results
+        // TODO: Remove this when `null` names are not returned. See:
+        // https://github.com/mozilla/addons-server/issues/6189
+        .filter((result) => result.name !== null)
+        .map((result) => ({
+          name: result.name,
+          url: result.url,
+          iconUrl: getAddonIconUrl(result),
+        }));
+
       return {
         ...state,
         loading: false,
-        suggestions: payload.results
-          // TODO: Remove this when `null` names are not returned. See:
-          // https://github.com/mozilla/addons-server/issues/6189
-          .filter((result) => result.name !== null)
-          .map((result) => ({
-            name: result.name,
-            url: result.url,
-            iconUrl: getAddonIconUrl(result),
-          })),
+        isOpen: suggestions.length > 0,
+        suggestions,
       };
+    }
     default:
       return state;
   }

@@ -5,7 +5,8 @@ import classNames from 'classnames';
 
 import Icon from 'ui/components/Icon';
 
-import './style.scss';
+import './styles.scss';
+
 
 export default class SearchInput extends React.Component {
   static propTypes = {

@@ -71,7 +71,7 @@ describe('<AuthenticateButton />', () => {
     const location = sinon.stub();
     const root = render({ isAuthenticated: false, handleLogIn, location });
 
-    expect(root.textContent).toEqual('Log in/Sign up');
+    expect(root.textContent).toEqual('Register or Log in');
     Simulate.click(root);
     sinon.assert.calledWith(handleLogIn, location);
   });

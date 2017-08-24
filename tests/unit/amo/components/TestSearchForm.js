@@ -1,5 +1,5 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import {
@@ -9,13 +9,16 @@ import {
 import Suggestion from 'amo/components/SearchForm/Suggestion';
 import LoadingText from 'ui/components/LoadingText';
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_THEME,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import {
   createFakeAutocompleteResult,
   dispatchAutocompleteResults,
+  dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import {
@@ -35,19 +38,22 @@ describe(__filename, () => {
   let errorHandler;
   let router;
 
-  const mountComponent = (props = {}) => {
+  const mountComponent = ({
+    store = dispatchClientMetadata().store,
+    ...props
+  } = {}) => {
     return mount(
       <SearchFormBase
-        pathname={pathname}
         api={api}
-        query="foo"
+        debounce={(callback) => (...args) => callback(...args)}
+        dispatch={() => {}}
+        errorHandler={errorHandler}
         i18n={getFakeI18nInst()}
         loadingSuggestions={false}
+        pathname={pathname}
+        store={store}
         suggestions={[]}
-        errorHandler={errorHandler}
-        dispatch={() => {}}
         router={router}
-        debounce={(callback) => (...args) => callback(...args)}
         {...props}
       />
     );
@@ -61,21 +67,31 @@ describe(__filename, () => {
 
   describe('render/UI', () => {
     beforeEach(() => {
-      router = { push: sinon.spy() };
       errorHandler = createStubErrorHandler();
+      router = { push: sinon.spy() };
     });
 
     it('renders a form', () => {
       const wrapper = mountComponent();
 
-      expect(wrapper.find('.SearchForm-form')).toHaveLength(1);
+      expect(wrapper.find('.SearchForm')).toHaveLength(1);
     });
 
     it('renders a search input with Explore placeholder', () => {
       const wrapper = mountComponent();
       const input = wrapper.find('input');
 
-      expect(input).toHaveProp('placeholder', 'Search extensions and themes');
+      expect(input).toHaveProp('placeholder', 'Find add-ons');
+      expect(input).toHaveProp('type', 'search');
+    });
+
+    it('renders Dictionary placeholder', () => {
+      const wrapper = mountComponent({
+        addonType: ADDON_TYPE_DICT,
+      });
+      const input = wrapper.find('input');
+
+      expect(input).toHaveProp('placeholder', 'Find dictionary');
       expect(input).toHaveProp('type', 'search');
     });
 
@@ -85,7 +101,17 @@ describe(__filename, () => {
       });
       const input = wrapper.find('input');
 
-      expect(input).toHaveProp('placeholder', 'Search extensions');
+      expect(input).toHaveProp('placeholder', 'Find extensions');
+      expect(input).toHaveProp('type', 'search');
+    });
+
+    it('renders Language Pack placeholder', () => {
+      const wrapper = mountComponent({
+        addonType: ADDON_TYPE_LANG,
+      });
+      const input = wrapper.find('input');
+
+      expect(input).toHaveProp('placeholder', 'Find language pack');
       expect(input).toHaveProp('type', 'search');
     });
 
@@ -95,31 +121,34 @@ describe(__filename, () => {
       });
       const input = wrapper.find('input');
 
-      expect(input).toHaveProp('placeholder', 'Search themes');
+      expect(input).toHaveProp('placeholder', 'Find themes');
       expect(input).toHaveProp('type', 'search');
     });
 
     it('renders the query', () => {
-      const wrapper = mountComponent();
+      const wrapper = mountComponent({ query: 'foo' });
 
-      expect(wrapper.find('input').prop('value')).toEqual('foo');
+      expect(wrapper.find('.SearchForm-query').prop('value')).toEqual('foo');
     });
 
     it('changes the URL on submit', () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('adblock'));
+      wrapper.find('.SearchForm-query').simulate(
+        'change', createFakeChangeEvent('adblock'));
       wrapper.find('form').simulate('submit');
       sinon.assert.called(router.push);
     });
 
     it('blurs the form on submit', () => {
       const wrapper = mountComponent();
-      const blurSpy = sinon.stub(wrapper.instance().searchInput, 'blur');
+      const blurSpy = sinon.spy(
+        wrapper.instance().autocomplete.input, 'blur');
 
       sinon.assert.notCalled(blurSpy);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('something'));
+      wrapper.find('input').simulate(
+        'change', createFakeChangeEvent('something'));
       wrapper.find('form').simulate('submit');
       sinon.assert.called(blurSpy);
     });
@@ -137,7 +166,8 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('adblock'));
+      wrapper.find('input').simulate(
+        'change', createFakeChangeEvent('adblock'));
       wrapper.find('button').simulate('click');
       sinon.assert.called(router.push);
     });
@@ -148,7 +178,8 @@ describe(__filename, () => {
       });
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('& 26 %'));
+      wrapper.find('input').simulate(
+        'change', createFakeChangeEvent('& 26 %'));
       wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
@@ -160,7 +191,8 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('searching'));
+      wrapper.find('input').simulate(
+        'change', createFakeChangeEvent('searching'));
       wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
@@ -172,7 +204,8 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('& 26 %'));
+      wrapper.find('input').simulate(
+        'change', createFakeChangeEvent('& 26 %'));
       wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
@@ -195,7 +228,8 @@ describe(__filename, () => {
       wrapper.find('input').simulate('change', createFakeChangeEvent('foo'));
       expect(wrapper.state('searchValue')).toEqual('foo');
 
-      wrapper.find('input').simulate('change', createFakeChangeEvent(undefined));
+      wrapper.find('input').simulate(
+        'change', createFakeChangeEvent(undefined));
       expect(wrapper.state('searchValue')).toEqual('');
     });
 
@@ -281,7 +315,10 @@ describe(__filename, () => {
         filters: { query: 'test' },
       }));
 
-      const wrapper = mountComponent(mapStateToProps(store.getState()));
+      const wrapper = mountComponent({
+        ...mapStateToProps(store.getState()),
+        query: 'test',
+      });
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(LoadingText)).toHaveLength(10);
     });

@@ -4,10 +4,9 @@
 
 .SectionLinks {
   display: flex;
-  justify-content: center;
   list-style: none;
   margin: 0;
-  padding: 0 0 4.5px;
+  padding: 0 0 4px;
 }
 
 .SectionLinks-item {
@@ -16,8 +15,9 @@
 
 .SectionLinks-link,
 .SectionLinks-link:link {
-  color: $header-text-not-active-color;
-  margin: 0 15px;
+  color: $grey-50;
+  font-weight: 400;
+  margin: 0 12px;
   padding: 0 0 2px;
   text-decoration: none;
   transition-duration: $transition-short;
@@ -25,12 +25,17 @@
 
   &:focus,
   &:hover {
-    border-bottom: 3px solid $header-text-not-active-color;
+    border-bottom: 3px solid $grey-50;
   }
 
   &:active {
     border-bottom: 3px solid $white;
   }
+
+  // @include respond-to(large) {
+  //   @include margin-end(24px);
+  //   @include margin-end(0);
+  // }
 }
 
 .SectionLinks-link--active,

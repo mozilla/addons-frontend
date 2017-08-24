@@ -1,0 +1,25 @@
+@import "~core/css/inc/mixins";
+
+$addon-icon-margin-end: 12px;
+
+.Suggestion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.Suggestion-name {
+  flex: 1;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Suggestion-icon {
+  @include margin-end($addon-icon-margin-end);
+
+  height: 16px;
+  width: 16px;
+}

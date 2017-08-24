@@ -3,34 +3,81 @@
 @import "~ui/css/vars";
 
 $item-padding-horizontal: 23px;
-$item-padding: 5px $item-padding-horizontal;
+$item-padding: 5px 6;
 $arrow-width: 18px;
-$addon-icon-margin-end: 12px;
 
-.SearchForm-form {
-  background: $header-search-color;
-  border: 0;
+.SearchForm {
+  position: relative;
 }
 
-.SearchInput-input,
-.SearchForm-form {
-  color: $base-color;
-  font-size: $font-size-m-smaller;
+.SearchForm-icon-magnifying-glass {
+  @include start(6px);
+
+  position: absolute;
+  top: 5px;
+}
+
+.SearchForm-query {
+  @include padding-end(6px);
+  @include padding-start(28px);
+
+  border: 0;
+  border-radius: $border-radius-s;
+  color: $black;
+  height: 28px;
+  outline: 0;
+  padding-bottom: 5px;
+  padding-top: 5px;
   white-space: nowrap;
+  width: 100%;
+
+  @include respond-to(medium) {
+    @include padding-end(28px);
+  }
+
+  .SearchForm--autocompleteIsOpen & {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.SearchForm-submit-button {
+  display: none;
+
+  @include respond-to(medium) {
+    @include end(0);
+
+    display: block;
+    position: absolute;
+    top: 5px;
+  }
+}
+
+// This rotates the -> arrow icon around for RTL users.
+[dir=rtl] .SearchForm-icon-arrow {
+  transform: rotateY(180deg);
 }
 
 .SearchForm-suggestions-list {
+  @include end(0);
+
   background-color: $white;
+  border-bottom-left-radius: $border-radius-s;
+  border-bottom-right-radius: $border-radius-s;
+  box-shadow: 1px 4px 3px transparentize($black, 0.5);
   color: $black;
   margin: 0;
   padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
 }
 
 .SearchForm-suggestions-item {
   cursor: pointer;
   display: block;
   outline: none;
-  padding: $item-padding;
+  padding: 5px 6px;
   width: 100%;
 
   .Icon-arrow-big-blue {
@@ -38,6 +85,10 @@ $addon-icon-margin-end: 12px;
     height: 16px;
     margin-top: 1px;
     width: $arrow-width;
+
+    [dir=rtl] & {
+      transform: rotateY(180deg);
+    }
   }
 }
 
@@ -51,26 +102,4 @@ $addon-icon-margin-end: 12px;
   .Icon-arrow-big-blue {
     display: block;
   }
-}
-
-.Suggestion {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-}
-
-.Suggestion-name {
-  flex: 1;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.Suggestion-icon {
-  @include margin-end($addon-icon-margin-end);
-
-  height: 16px;
-  width: 16px;
 }

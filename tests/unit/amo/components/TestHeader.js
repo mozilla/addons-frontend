@@ -25,7 +25,7 @@ describe(__filename, () => {
     const root = renderHeader({ store });
 
     expect(root.find('.Header-title-wrapper')).toHaveTagName('h1');
-    expect(root.find(Link)).toHaveLength(1);
+    expect(root.find('.Header-title').type()).toEqual(Link);
     expect(root.find('.Header-title').prop('children'))
       .toContain('Firefox Add-ons');
   });
@@ -36,7 +36,7 @@ describe(__filename, () => {
     // There shouldn't be an H1 in the header on pages that aren't the
     // homepage; other routes will render their own, more relevant, H1 tags.
     expect(root.find('h1')).toHaveLength(0);
-    expect(root.find(Link)).toHaveLength(1);
+    expect(root.find('.Header-title').type()).toEqual(Link);
     expect(root.find('.Header-title').prop('children'))
       .toContain('Firefox Add-ons');
   });

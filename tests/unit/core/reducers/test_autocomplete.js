@@ -41,12 +41,25 @@ describe(__filename, () => {
         createFakeAutocompleteResult({ name: 'baz' }),
       ];
 
-      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
+      const {
+        loading,
+        isOpen,
+        suggestions,
+      } = reducer(undefined, autocompleteLoad({ results }));
+
       expect(loading).toBe(false);
+      expect(isOpen).toEqual(true);
       expect(suggestions).toHaveLength(3);
       expect(suggestions[0]).toHaveProperty('name', 'foo');
       expect(suggestions[1]).toHaveProperty('name', 'bar');
       expect(suggestions[2]).toHaveProperty('name', 'baz');
+    });
+
+    it('sets isOpen to false if no suggestions are found', () => {
+      const results = [];
+      const { isOpen } = reducer(undefined, autocompleteLoad({ results }));
+
+      expect(isOpen).toEqual(false);
     });
 
     it('sets the icon_url as iconUrl', () => {

@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -6,24 +8,25 @@ import Autosuggest from 'react-autosuggest';
 import { withRouter } from 'react-router';
 import defaultDebounce from 'simple-debounce';
 
+import Suggestion from 'amo/components/SearchForm/Suggestion';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_THEME,
   validAddonTypes,
 } from 'core/constants';
-import log from 'core/logger';
-import translate from 'core/i18n/translate';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
-import SearchInput from 'ui/components/SearchInput';
 import { withErrorHandler } from 'core/errorHandler';
+import translate from 'core/i18n/translate';
 import { getAddonIconUrl } from 'core/imageUtils';
+import log from 'core/logger';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
   autocompleteCancel,
   autocompleteStart,
 } from 'core/reducers/autocomplete';
-import Suggestion from 'amo/components/SearchForm/Suggestion';
+import Icon from 'ui/components/Icon';
 
-import 'core/css/inc/lib.scss';
 import './styles.scss';
 
 
@@ -31,19 +34,21 @@ export class SearchFormBase extends React.Component {
   static propTypes = {
     addonType: PropTypes.string,
     api: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
-    pathname: PropTypes.string.isRequired,
-    query: PropTypes.string.isRequired,
+    autocompleteIsOpen: PropTypes.bool.isRequired,
+    className: PropTypes.string,
+    debounce: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
+    i18n: PropTypes.object.isRequired,
+    loadingSuggestions: PropTypes.bool.isRequired,
+    pathname: PropTypes.string.isRequired,
+    query: PropTypes.string.isRequired,
+    router: PropTypes.object.isRequired,
     suggestions: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
       iconUrl: PropTypes.string.isRequired,
     })).isRequired,
-    loadingSuggestions: PropTypes.bool.isRequired,
-    router: PropTypes.object.isRequired,
-    debounce: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -96,19 +101,21 @@ export class SearchFormBase extends React.Component {
     });
   }
 
-  handleSearch = (e) => {
-    e.preventDefault();
-    this.searchInput.blur();
-    this.goToSearch(this.searchInput.value);
+  handleSearch = (event) => {
+    event.preventDefault();
+
+    this.autocomplete.input.blur();
+    this.goToSearch(this.autocomplete.input.value);
   }
 
-  handleSearchChange = (e) => {
-    this.setState({ searchValue: e.target.value });
+  handleSearchChange = (event) => {
+    this.setState({ searchValue: event.target.value });
   }
 
   handleSuggestionsFetchRequested = this.props.debounce(({ value }) => {
     if (!value) {
-      log.debug(`Ignoring suggestions fetch requested because value is not supplied: ${value}`);
+      log.debug(oneLine`Ignoring suggestions fetch requested because value
+        is not supplied: ${value}`);
       return;
     }
 
@@ -156,33 +163,46 @@ export class SearchFormBase extends React.Component {
   }
 
   render() {
-    const { addonType, api, i18n, pathname } = this.props;
+    const {
+      addonType,
+      api,
+      autocompleteIsOpen,
+      className,
+      i18n,
+      pathname,
+      query,
+    } = this.props;
 
     let placeholderText;
     if (addonType === ADDON_TYPE_EXTENSION) {
-      placeholderText = i18n.gettext('Search extensions');
+      placeholderText = i18n.gettext('Find extensions');
+    } else if (addonType === ADDON_TYPE_DICT) {
+      placeholderText = i18n.gettext('Find dictionary');
+    } else if (addonType === ADDON_TYPE_LANG) {
+      placeholderText = i18n.gettext('Find language pack');
     } else if (addonType === ADDON_TYPE_THEME) {
-      placeholderText = i18n.gettext('Search themes');
+      placeholderText = i18n.gettext('Find themes');
     } else {
-      placeholderText = i18n.gettext('Search extensions and themes');
+      placeholderText = i18n.gettext('Find add-ons');
     }
 
     const inputProps = {
-      value: this.state.searchValue,
-      onChange: this.handleSearchChange,
-      placeholder: placeholderText,
       className: 'SearchForm-query',
       name: 'q',
+      onChange: this.handleSearchChange,
+      placeholder: placeholderText,
       type: 'search',
-      inputRef: (ref) => { this.searchInput = ref; },
+      value: query && query.length ? query : this.state.searchValue,
     };
 
     return (
       <form
-        method="GET"
         action={`/${api.lang}/${api.clientApp}${pathname}`}
+        className={classNames('SearchForm', className, {
+          'SearchForm--autocompleteIsOpen': autocompleteIsOpen,
+        })}
+        method="GET"
         onSubmit={this.handleSearch}
-        className="SearchForm-form"
         ref={(ref) => { this.form = ref; }}
       >
         <label
@@ -191,6 +211,10 @@ export class SearchFormBase extends React.Component {
         >
           {i18n.gettext('Search')}
         </label>
+        <Icon
+          className="SearchForm-icon-magnifying-glass"
+          name="magnifying-glass"
+        />
         <Autosuggest
           className="SearchForm-suggestions"
           focusInputOnSuggestionClick={false}
@@ -199,8 +223,8 @@ export class SearchFormBase extends React.Component {
           onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
           onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
           onSuggestionSelected={this.handleSuggestionSelected}
+          ref={(ref) => { this.autocomplete = ref; }}
           renderSuggestion={this.renderSuggestion}
-          renderInputComponent={(props) => <SearchInput {...props} />}
           suggestions={this.getSuggestions()}
           theme={{
             suggestionContainer: 'SearchForm-suggestions',
@@ -210,12 +234,16 @@ export class SearchFormBase extends React.Component {
           }}
         />
         <button
-          className="visually-hidden"
+          className="SearchForm-submit-button"
           onClick={this.handleSearch}
           ref={(ref) => { this.submitButton = ref; }}
           type="submit"
         >
-          {i18n.gettext('Search')}
+          <span className="visually-hidden">{i18n.gettext('Search')}</span>
+          <Icon
+            className="SearchForm-icon-arrow"
+            name="arrow"
+          />
         </button>
       </form>
     );
@@ -227,6 +255,7 @@ export function mapStateToProps(state) {
     addonType: validAddonTypes.includes(state.viewContext.context) ?
       state.viewContext.context : null,
     api: state.api,
+    autocompleteIsOpen: state.autocomplete.isOpen,
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
   };
@@ -236,5 +265,5 @@ export default compose(
   withRouter,
   withErrorHandler({ name: 'SearchForm' }),
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate(),
 )(SearchFormBase);
