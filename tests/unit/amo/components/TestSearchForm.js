@@ -172,6 +172,9 @@ describe(__filename, () => {
 
       wrapper.find('input').simulate('change', createFakeChangeEvent('foo'));
       expect(wrapper.state('searchValue')).toEqual('foo');
+
+      wrapper.find('input').simulate('change', createFakeChangeEvent(undefined));
+      expect(wrapper.state('searchValue')).toEqual('');
     });
 
     it('fetches suggestions on focus', () => {
