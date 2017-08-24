@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
 import { setViewContext } from 'amo/actions/viewContext';
@@ -50,7 +50,7 @@ describe(__filename, () => {
         {...props}
       />
     );
-  }
+  };
 
   describe('render/UI', () => {
     beforeEach(() => {
