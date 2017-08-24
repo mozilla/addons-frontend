@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-22 21:36+0000\n"
-"PO-Revision-Date: 2017-08-23 22:33+0000\n"
+"PO-Revision-Date: 2017-08-24 13:24+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -178,9 +178,8 @@ msgid "Your session has expired"
 msgstr "Oturumunuzun süresi doldu"
 
 #: src/ui/components/ErrorList/index.js:52
-#, fuzzy
 msgid "An unexpected error occurred"
-msgstr "Beklenmeyen bir hata oluştu."
+msgstr "Beklenmeyen bir hata oluştu"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
