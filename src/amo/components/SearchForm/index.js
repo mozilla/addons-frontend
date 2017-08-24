@@ -15,8 +15,8 @@ import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import SearchInput from 'ui/components/SearchInput';
-import LoadingText from 'ui/components/LoadingText';
 import { withErrorHandler } from 'core/errorHandler';
+import { getAddonIconUrl } from 'core/imageUtils';
 import {
   autocompleteCancel,
   autocompleteStart,
@@ -56,11 +56,6 @@ export class SearchFormBase extends React.Component {
     this.state = {
       searchValue: props.query || '',
     };
-
-    this.handleSuggestionsFetchRequested = props.debounce(
-      this.handleSuggestionsFetchRequested.bind(this),
-      200
-    );
   }
 
   componentWillReceiveProps(nextProps) {
@@ -74,10 +69,17 @@ export class SearchFormBase extends React.Component {
   getSuggestions() {
     if (this.props.loadingSuggestions) {
       // 10 is the maximum number of results returned by the API
-      return Array(10).fill({ component: <LoadingText width={60} /> });
+      return Array(10).fill({
+        name: 'loading-text',
+        iconUrl: getAddonIconUrl(),
+        loading: true,
+      });
     }
 
-    return this.props.suggestions;
+    return this.props.suggestions.map((suggestion) => ({
+      ...suggestion,
+      loading: false,
+    }));
   }
 
   goToSearch(query) {
@@ -104,7 +106,7 @@ export class SearchFormBase extends React.Component {
     this.setState({ searchValue: e.target.value });
   }
 
-  handleSuggestionsFetchRequested({ value }) {
+  handleSuggestionsFetchRequested = this.props.debounce(({ value }) => {
     if (!value) {
       log.debug(`Ignoring suggestions fetch requested because value is not supplied: ${value}`);
       return;
@@ -121,7 +123,7 @@ export class SearchFormBase extends React.Component {
       errorHandlerId: errorHandler.id,
       filters,
     }));
-  }
+  }, 200)
 
   handleSuggestionsClearRequested = () => {
     this.props.dispatch(autocompleteCancel());
@@ -129,22 +131,25 @@ export class SearchFormBase extends React.Component {
 
   handleSuggestionSelected = (e, { suggestion }) => {
     e.preventDefault();
+
+    if (suggestion.loading) {
+      log.debug('Ignoring loading suggestion selected');
+      return;
+    }
+
     this.setState({ searchValue: '' }, () => {
       this.props.router.push(suggestion.url);
     });
   }
 
   renderSuggestion = (suggestion) => {
-    if (this.props.loadingSuggestions) {
-      return suggestion.component;
-    }
-
-    const { name, iconUrl } = suggestion;
+    const { name, iconUrl, loading } = suggestion;
 
     return (
       <Suggestion
         name={name}
         iconUrl={iconUrl}
+        loading={loading}
         arrowAlt={this.props.i18n.gettext('Go to the add-on page')}
       />
     );

@@ -20,6 +20,7 @@ import {
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
+import { autocompleteStart } from 'core/reducers/autocomplete';
 
 
 describe(__filename, () => {
@@ -175,6 +176,7 @@ describe(__filename, () => {
       // this triggers Autosuggest
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(2);
+      expect(wrapper.find(LoadingText)).toHaveLength(0);
     });
 
     it('does not display suggestions when search is empty', () => {
@@ -203,6 +205,7 @@ describe(__filename, () => {
       );
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
+      expect(wrapper.find(LoadingText)).toHaveLength(0);
     });
 
     it('displays 10 loading bars when suggestions are loading', () => {
@@ -213,7 +216,6 @@ describe(__filename, () => {
         />
       );
       wrapper.find('input').simulate('focus');
-      expect(wrapper.find(Suggestion)).toHaveLength(0);
       expect(wrapper.find(LoadingText)).toHaveLength(10);
     });
   });
@@ -259,6 +261,19 @@ describe(__filename, () => {
         },
       ]);
       expect(mapStateToProps(state).loadingSuggestions).toBe(false);
+    });
+
+    it('passes the loading suggestions boolean through', () => {
+      const { store } = dispatchSignInActions();
+
+      store.dispatch(autocompleteStart({
+        errorHandlerId: 'some-error',
+        filters: { query: 'test' },
+      }));
+
+      const state = store.getState();
+
+      expect(mapStateToProps(state).loadingSuggestions).toBe(true);
     });
   });
 });

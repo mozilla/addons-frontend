@@ -7,7 +7,7 @@ import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
-  const shallowComponent = (props) => {
+  const shallowComponent = (props = {}) => {
     const allProps = {
       name: fakeAddon.name,
       iconUrl: fakeAddon.icon_url,
@@ -18,8 +18,7 @@ describe(__filename, () => {
   };
 
   it('renders itself', () => {
-    const props = {};
-    const root = shallowComponent(props);
+    const root = shallowComponent();
 
     expect(root.find('.Suggestion')).toHaveLength(1);
     expect(root.find(Icon)).toHaveLength(1);
