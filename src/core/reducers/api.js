@@ -20,8 +20,14 @@ import type {
 import type { Exact } from 'core/types/util';
 
 type UserAgentInfoType = {|
-  browser: string,
-  os: string,
+  browser: {
+    major?: string,
+    name?: string,
+    version?: string,
+  },
+  os: {
+    name?: string,
+  },
 |};
 
 export type ApiStateType = {
@@ -29,7 +35,7 @@ export type ApiStateType = {
   lang: ?string,
   token: ?string,
   userAgent: ?string,
-  userAgentInfo: ?UserAgentInfoType,
+  userAgentInfo: UserAgentInfoType,
   userId: ?number,
 };
 
@@ -38,7 +44,7 @@ export const initialApiState: ApiStateType = {
   lang: null,
   token: null,
   userAgent: null,
-  userAgentInfo: null,
+  userAgentInfo: { browser: {}, os: {} },
   userId: null,
 };
 
