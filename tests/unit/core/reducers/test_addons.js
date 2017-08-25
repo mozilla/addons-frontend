@@ -114,7 +114,61 @@ describe('addon reducer', () => {
   });
 
   it('exposes "isRestartRequired" attribute from current version files', () => {
-    const addon = createFakeAddon({ extraFileProps: { is_restart_required: true } });
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_restart_required: true },
+      ],
+    });
+
+    expect(
+      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
+    ).toEqual({
+      [addon.slug]: denormalizeAddon({
+        ...addon,
+        installURL: '',
+        isRestartRequired: true,
+      }),
+    });
+  });
+
+  it('sets "isRestartRequired" to "false" when addon does not need restart', () => {
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_restart_required: false },
+      ],
+    });
+
+    expect(
+      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
+    ).toEqual({
+      [addon.slug]: denormalizeAddon({
+        ...addon,
+        installURL: '',
+        isRestartRequired: false,
+      }),
+    });
+  });
+
+  it('sets "isRestartRequired" to "false" when addon does not have any files', () => {
+    const addon = createFakeAddon({ files: [] });
+
+    expect(
+      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
+    ).toEqual({
+      [addon.slug]: denormalizeAddon({
+        ...addon,
+        isRestartRequired: false,
+      }),
+    });
+  });
+
+  it('sets "isRestartRequired" to "true" when at least one of the files declares it', () => {
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_restart_required: false },
+        { ...fakeAddon.current_version.files[0], is_restart_required: true },
+      ],
+    });
 
     expect(
       addons(undefined, loadEntities(createFetchAddonResult(addon).entities))

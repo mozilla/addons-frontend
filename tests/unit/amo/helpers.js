@@ -150,15 +150,12 @@ export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}
   };
 }
 
-export function createFakeAddon({ extraFileProps = {} } = {}) {
+export function createFakeAddon({ files = {} } = {}) {
   return {
     ...fakeAddon,
     current_version: {
       ...fakeAddon.current_version,
-      files: [{
-        ...fakeAddon.current_version.files[0],
-        ...extraFileProps,
-      }],
+      files,
     },
   };
 }
