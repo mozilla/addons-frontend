@@ -54,7 +54,9 @@ export function createApiError(
     // Strip query string params since lang will vary quite a lot.
     urlId = urlId.split('?')[0];
   }
-  const apiError = new Error(`Error calling: ${urlId}`);
+  const apiError = new Error(
+    `Error calling: ${urlId} (status: ${response.status})`
+  );
   // $FLOW_FIXME: turn Error into a custom ApiError class.
   apiError.response = {
     apiURL,
