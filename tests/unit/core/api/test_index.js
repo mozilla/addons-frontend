@@ -276,7 +276,8 @@ describe(__filename, () => {
       return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
         .then(unexpectedSuccess,
           (error) => {
-            expect(error.message).toEqual('Error calling: /api/v3/addons/addon/foo/');
+            expect(error.message)
+              .toMatch(new RegExp('Error calling: /api/v3/addons/addon/foo/'));
           });
     });
 
@@ -313,19 +314,31 @@ describe(__filename, () => {
       const error = _createApiError({
         apiURL: `${config.get('apiHost')}/api/v3/addons/addon/123/`,
       });
-      expect(error.message).toEqual('Error calling: /api/v3/addons/addon/123/');
+      expect(error.message)
+        .toMatch(new RegExp('Error calling: /api/v3/addons/addon/123/'));
     });
 
     it('strips query params from the abbreviated URL', () => {
       const error = _createApiError({
         apiURL: `${config.get('apiHost')}/api/resource/?lang=en-US`,
       });
-      expect(error.message).toEqual('Error calling: /api/resource/');
+      // Add a space at the end of the URL to make sure the query string
+      // isn't there.
+      expect(error.message).toMatch(new RegExp('/api/resource/ '));
     });
 
     it('copes with a missing API URL', () => {
       const error = _createApiError();
-      expect(error.message).toEqual('Error calling: [unknown URL]');
+      expect(error.message).toMatch(/Error calling: \[unknown URL\]/);
+    });
+
+    it('includes response status in the error message', () => {
+      const error = _createApiError({
+        apiURL: `${config.get('apiHost')}/api/resource/`,
+        response: { status: 422 },
+      });
+      expect(error.message)
+        .toEqual('Error calling: /api/resource/ (status: 422)');
     });
   });
 
