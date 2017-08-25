@@ -247,12 +247,6 @@ export function createFakeEvent(extraProps = {}) {
   };
 }
 
-export function createFakeChangeEvent(value = '') {
-  return createFakeEvent({
-    target: { value },
-  });
-}
-
 export function createStubErrorHandler(capturedError = null) {
   return new ErrorHandler({
     id: 'create-stub-error-handler-id',

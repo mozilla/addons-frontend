@@ -70,7 +70,7 @@ export class SearchFormBase extends React.Component {
     if (this.props.loadingSuggestions) {
       // 10 is the maximum number of results returned by the API
       return Array(10).fill({
-        name: 'loading-text',
+        name: this.props.i18n.gettext('Loading'),
         iconUrl: getAddonIconUrl(),
         loading: true,
       });

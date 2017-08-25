@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import {
@@ -19,7 +18,7 @@ import {
   dispatchAutocompleteResults,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
-import { createFakeChangeEvent, getFakeI18nInst } from 'tests/unit/helpers';
+import { createFakeEvent, getFakeI18nInst } from 'tests/unit/helpers';
 import {
   autocompleteCancel,
   autocompleteStart,
@@ -30,12 +29,12 @@ describe(__filename, () => {
   const pathname = '/search/';
   const api = { clientApp: 'firefox', lang: 'de' };
   let router;
-  let root;
+  let wrapper;
   let form;
   let input;
 
-  const getComponentUnderTest = (props = {}) => {
-    return (
+  const mountComponent = (props = {}) => {
+    return mount(
       <SearchFormBase
         pathname={pathname}
         api={api}
@@ -52,86 +51,90 @@ describe(__filename, () => {
     );
   };
 
+  const createFakeChangeEvent = (value = '') => {
+    return createFakeEvent({
+      target: { value },
+    });
+  };
+
   describe('render/UI', () => {
     beforeEach(() => {
       router = { push: sinon.spy() };
-      root = renderIntoDocument(getComponentUnderTest());
-      form = root.form;
-      input = root.searchInput;
+      wrapper = mountComponent();
+      form = wrapper.find('form');
+      input = wrapper.find('input');
     });
 
     it('renders a form', () => {
-      expect(form.classList.contains('SearchForm-form')).toBeTruthy();
+      expect(form.find('.SearchForm-form')).toHaveLength(1);
     });
 
     it('renders a search input with Explore placeholder', () => {
-      expect(input.placeholder).toEqual('Search extensions and themes');
-      expect(input.type).toEqual('search');
+      expect(input).toHaveProp('placeholder', 'Search extensions and themes');
+      expect(input).toHaveProp('type', 'search');
     });
 
     it('renders Extensions placeholder', () => {
-      root = renderIntoDocument(getComponentUnderTest({
+      wrapper = mountComponent({
         addonType: ADDON_TYPE_EXTENSION,
-      }));
-      input = root.searchInput;
+      });
+      input = wrapper.find('input');
 
-      expect(input.placeholder).toEqual('Search extensions');
-      expect(input.type).toEqual('search');
+      expect(input).toHaveProp('placeholder', 'Search extensions');
+      expect(input).toHaveProp('type', 'search');
     });
 
     it('renders Themes placeholder', () => {
-      root = renderIntoDocument(getComponentUnderTest({
+      wrapper = mountComponent({
         addonType: ADDON_TYPE_THEME,
-      }));
-      input = root.searchInput;
+      });
+      input = wrapper.find('input');
 
-      expect(input.placeholder).toEqual('Search themes');
-      expect(input.type).toEqual('search');
+      expect(input).toHaveProp('placeholder', 'Search themes');
+      expect(input).toHaveProp('type', 'search');
     });
 
     it('renders the query', () => {
-      expect(input.value).toEqual('foo');
+      expect(input.prop('value')).toEqual('foo');
     });
 
     it('changes the URL on submit', () => {
       sinon.assert.notCalled(router.push);
-      input.value = 'adblock';
-      Simulate.submit(form);
+      input.simulate('change', createFakeChangeEvent('adblock'));
+      form.simulate('submit');
       sinon.assert.called(router.push);
     });
 
     it('blurs the form on submit', () => {
-      const blurSpy = sinon.stub(input, 'blur');
-      expect(!blurSpy.called).toBeTruthy();
-      input.value = 'something';
-      Simulate.submit(form);
+      const blurSpy = sinon.stub(wrapper.instance().searchInput, 'blur');
+      expect(blurSpy.called).not.toBeTruthy();
+      input.simulate('change', createFakeChangeEvent('something'));
+      form.simulate('submit');
       sinon.assert.called(blurSpy);
     });
 
     it('does nothing on non-Enter keydowns', () => {
       sinon.assert.notCalled(router.push);
-      input.value = 'adblock';
-      Simulate.keyDown(input, { key: 'A', shiftKey: true });
+      input.simulate('change', createFakeChangeEvent('adblock'));
+      input.simulate('keydown', { key: 'A', shiftKey: true });
       sinon.assert.notCalled(router.push);
     });
 
     it('updates the location on form submit', () => {
       sinon.assert.notCalled(router.push);
-      input.value = 'adblock';
-      Simulate.click(root.submitButton);
+      input.simulate('change', createFakeChangeEvent('adblock'));
+      wrapper.find('button').simulate('click');
       sinon.assert.called(router.push);
     });
 
     it('passes addonType when set', () => {
-      root = renderIntoDocument(getComponentUnderTest({
+      wrapper = mountComponent({
         addonType: ADDON_TYPE_EXTENSION,
-      }));
-      form = root.form;
-      input = root.searchInput;
+      });
 
       sinon.assert.notCalled(router.push);
-      input.value = '& 26 %';
-      Simulate.click(root.submitButton);
+      wrapper.find('input').simulate('change', createFakeChangeEvent('& 26 %'));
+      wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
         query: { q: '& 26 %', type: ADDON_TYPE_EXTENSION },
@@ -140,8 +143,8 @@ describe(__filename, () => {
 
     it('does not set type when it is not defined', () => {
       sinon.assert.notCalled(router.push);
-      input.value = 'searching';
-      Simulate.click(root.submitButton);
+      input.simulate('change', createFakeChangeEvent('searching'));
+      wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
         query: { q: 'searching' },
@@ -150,8 +153,8 @@ describe(__filename, () => {
 
     it('encodes the value of the search text', () => {
       sinon.assert.notCalled(router.push);
-      input.value = '& 26 %';
-      Simulate.click(root.submitButton);
+      input.simulate('change', createFakeChangeEvent('& 26 %'));
+      wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
         query: { q: '& 26 %' },
@@ -159,7 +162,7 @@ describe(__filename, () => {
     });
 
     it('updates the state when props update', () => {
-      const wrapper = mount(getComponentUnderTest({ query: '' }));
+      wrapper = mountComponent({ query: '' });
       expect(wrapper.state('searchValue')).toEqual('');
 
       wrapper.setProps({ query: 'foo' });
@@ -167,7 +170,7 @@ describe(__filename, () => {
     });
 
     it('updates the state when user is typing', () => {
-      const wrapper = mount(getComponentUnderTest({ query: '' }));
+      wrapper = mountComponent({ query: '' });
       expect(wrapper.state('searchValue')).toEqual('');
 
       wrapper.find('input').simulate('change', createFakeChangeEvent('foo'));
@@ -179,24 +182,30 @@ describe(__filename, () => {
 
     it('fetches suggestions on focus', () => {
       const dispatch = sinon.spy();
-      const wrapper = mount(getComponentUnderTest({
+      wrapper = mountComponent({
         query: 'foo',
         dispatch,
-      }));
+      });
       // no call to handleSuggestionsFetchRequested() until the input has focus,
       // even if there is already a `searchValue`
       expect(dispatch.calledOnce).toBe(false);
       // this is needed to trigger handleSuggestionsFetchRequested()
       wrapper.find('input').simulate('focus');
       expect(dispatch.calledOnce).toBe(true);
+      expect(dispatch.calledWith(autocompleteStart({
+        errorHandlerId: 'error-handler-id',
+        filters: {
+          query: 'foo',
+        },
+      }))).toBe(true);
     });
 
     it('clears suggestions when input is cleared', () => {
       const dispatch = sinon.spy();
-      const wrapper = mount(getComponentUnderTest({
+      wrapper = mountComponent({
         query: 'foo',
         dispatch,
-      }));
+      });
       // clearing the input calls handleSuggestionsClearRequested()
       wrapper.find('input').simulate('change', createFakeChangeEvent());
       expect(dispatch.calledOnce).toBe(true);
@@ -210,12 +219,10 @@ describe(__filename, () => {
       ] });
       const { autocomplete: autocompleteState } = store.getState();
 
-      // it works because the `query` prop is set to `foo` in the
-      // getComponentUnderTest(), and this prop sets `searchValue` state
-      // (input).
-      const wrapper = mount(getComponentUnderTest({
+      wrapper = mountComponent({
+        query: 'foo',
         suggestions: autocompleteState.suggestions,
-      }));
+      });
       expect(wrapper.find(Suggestion)).toHaveLength(0);
       // this triggers Autosuggest
       wrapper.find('input').simulate('focus');
@@ -231,26 +238,26 @@ describe(__filename, () => {
       const { autocomplete: autocompleteState } = store.getState();
 
       // setting the `query` prop to empty also sets the input state to empty.
-      const wrapper = mount(getComponentUnderTest({
+      wrapper = mountComponent({
         query: '',
         suggestions: autocompleteState.suggestions,
-      }));
+      });
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
     });
 
     it('does not display suggestions when there is no suggestion', () => {
-      const wrapper = mount(getComponentUnderTest({ suggestions: [] }));
+      wrapper = mountComponent({ suggestions: [] });
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
       expect(wrapper.find(LoadingText)).toHaveLength(0);
     });
 
     it('displays 10 loading bars when suggestions are loading', () => {
-      const wrapper = mount(getComponentUnderTest({
+      wrapper = mountComponent({
         suggestions: [],
         loadingSuggestions: true,
-      }));
+      });
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(LoadingText)).toHaveLength(10);
     });
@@ -260,10 +267,10 @@ describe(__filename, () => {
       const { store } = dispatchAutocompleteResults({ results: [result] });
       const { autocomplete: autocompleteState } = store.getState();
 
-      const wrapper = mount(getComponentUnderTest({
+      wrapper = mountComponent({
         query: 'foo',
         suggestions: autocompleteState.suggestions,
-      }));
+      });
       expect(wrapper.state('searchValue')).toBe('foo');
 
       wrapper.find('input').simulate('focus');
@@ -271,6 +278,52 @@ describe(__filename, () => {
       expect(wrapper.state('searchValue')).toBe('');
       expect(router.push.calledOnce).toBe(true);
       expect(router.push.calledWith(result.url)).toBe(true);
+    });
+
+    it('ignores loading suggestions that are selected', () => {
+      const result = createFakeAutocompleteResult();
+      const { store } = dispatchAutocompleteResults({ results: [result] });
+      const { autocomplete: autocompleteState } = store.getState();
+
+      wrapper = mountComponent({ query: 'baz' });
+      expect(wrapper.state('searchValue')).toEqual('baz');
+
+      wrapper.instance().handleSuggestionSelected(createFakeEvent(), {
+        suggestion: {
+          ...autocompleteState.suggestions[0],
+          loading: true,
+        },
+      });
+      expect(wrapper.state('searchValue')).toEqual('baz');
+      expect(router.push.called).toBe(false);
+    });
+
+    it('does not fetches suggestions when there is not value', () => {
+      const dispatch = sinon.spy();
+      wrapper = mountComponent({ dispatch });
+
+      wrapper.instance().handleSuggestionsFetchRequested({});
+      expect(dispatch.called).toBe(false);
+    });
+
+    it('adds addonType to the filters used to fetch suggestions', () => {
+      const dispatch = sinon.spy();
+      wrapper = mountComponent({
+        query: 'ad',
+        addonType: ADDON_TYPE_EXTENSION,
+        dispatch,
+      });
+
+      wrapper.find('input').simulate('focus');
+
+      expect(dispatch.calledOnce).toBe(true);
+      expect(dispatch.calledWith(autocompleteStart({
+        errorHandlerId: 'error-handler-id',
+        filters: {
+          query: 'ad',
+          addonType: ADDON_TYPE_EXTENSION,
+        },
+      }))).toBe(true);
     });
   });
 
