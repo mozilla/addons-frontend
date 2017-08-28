@@ -1,0 +1,68 @@
+# Testing
+
+We want to maintain a project with a high coverage (aiming for 100%). Our main [coverage criterion](https://en.wikipedia.org/wiki/Code_coverage#Coverage_criteria) is **branch coverage**, that is making sure all possible code branches are covered by test. [Coveralls](https://coveralls.io/github/mozilla/addons-frontend) helps us monitor the status of our test suite coverage and it is a good idea to double-check its output when you are opening a Pull Request. You can also [generate a coverage report locally](https://github.com/mozilla/addons-frontend/#code-coverage).
+
+## General guidelines
+
+- Imports should be alphabetized, even in test file.
+- Comments should be full sentences to ease readability.
+- There are a lot of helpers in the `tests/unit/helpers` and `tests/unit/amo/helpers` modules.
+- Use the action creators instead of hard coding props. This applies to both UI components and reducers/sagas.
+- Try to use constants (likely from `core/constants`) as much as you can. Corollary: avoid hard coded values.
+
+## Jest
+
+[Jest](https://facebook.github.io/jest/docs/en/getting-started.html) is our main testing framework. Please refer to the [`README` section about running the test suite](https://github.com/mozilla/addons-frontend#running-tests) to know how to run the tests. Below are a few rules regarding Jest:
+
+- Prefer `toEqual()` over `toBe()`.
+- Do not use `expect.assertions(N)`, this is hard to maintain. Instead, add a `catch()` branch to detect unexpected errors.
+
+When creating a new test file, start with a `describe()` block that takes the current file name as first argument. This makes easy to find/edit a failing test case as Jest will display the test file in its output:
+
+``` js
+describe(__filename, () => {
+});
+```
+
+## Spies/Stubs/Mocks and Sinon.JS
+
+We use [sinon](http://sinonjs.org/) for spies, stubs and mocks. In addition, we use [sinon assertions](http://sinonjs.org/releases/v3.2.1/assertions/) over Jest expectations because failure messages are more descriptive.
+
+No need to import `sinon`, it is already done globally in the test suite configuration.
+
+## Testing reducers and sagas
+
+For sagas/reducers, there are two useful helpers: `dispatchClientMetadata()` and `dispatchSignInActions()` (`tests/unit/amo/helpers`) that should be used to initialize state in a realistic manner. The former is used to obtain a non-authenticated state while the latter returns an authenticated state.
+
+When you need a `errorHandler` or a `errorHandlerId`, use the `createStubErrorHandler()` helper from `tests/unit/helpers`.
+
+When asserting for exceptions/errors, do not omit parentheses with an arrow function expression. It explicits what is expected to throw an error:
+
+``` js
+expect(() => {
+  methodThatThrowsAnError();
+}).toThrow(/expected error message/);
+```
+
+When testing sagas, use an action creator to construct the expected actions that should be called by the saga under test:
+
+``` js
+const expectedLoadAction = autocompleteLoad(results);
+
+await sagaTester.waitFor(expectedLoadAction.type);
+mockApi.verify();
+
+const loadAction = sagaTester.getCalledActions()[2];
+expect(loadAction).toEqual(expectedLoadAction);
+```
+
+## Testing UI components
+
+We use [Enzyme](http://airbnb.io/enzyme/docs/api/index.html) for testing UI components (React components). You should test the final component ideally. Below are a few rules regarding Enzyme:
+
+- Prefer `shallow()` over `mount()` when it makes sense.
+- Assert components on public properties (props), _e.g._:
+
+    ``` js
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    ```
