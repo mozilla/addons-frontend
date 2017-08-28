@@ -347,7 +347,11 @@ describe('amo/components/AddonReviewList', () => {
     it('loads addon from state', () => {
       store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps();
-      expect(props.addon).toEqual(denormalizeAddon(fakeAddon));
+      expect(props.addon).toEqual(denormalizeAddon({
+        ...fakeAddon,
+        installURL: '',
+        isRestartRequired: false,
+      }));
     });
 
     it('ignores other add-ons', () => {

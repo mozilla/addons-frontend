@@ -778,4 +778,25 @@ describe('mapStateToProps', () => {
 
     expect(root.find(Badge)).toHaveLength(0);
   });
+
+  it('displays a badge when the addon needs restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'restart-required');
+    expect(root.find(Badge)).toHaveProp('label', 'Restart Required');
+  });
+
+  it('does not display the "restart required" badge when addon does not need restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('does not display the "restart required" badge when isRestartRequired is not true', () => {
+    const root = shallowRender({ addon: fakeAddon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
 });

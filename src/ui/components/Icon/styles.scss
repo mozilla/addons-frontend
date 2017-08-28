@@ -115,3 +115,7 @@
 .Icon-featured {
   @include icon($name: "featured");
 }
+
+.Icon-restart {
+  @include icon($name: "restart");
+}

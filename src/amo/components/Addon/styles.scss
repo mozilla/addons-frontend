@@ -128,16 +128,9 @@
   }
 }
 
-.Addon-badges {
-  flex-basis: 100%;
-  flex-grow: 1;
-  margin: 10px 0;
-  order: 3;
-}
-
 .Addon .InstallButton {
   margin-top: auto;
-  order: 4;
+  order: 3;
 }
 
 .Addon .InstallButton {
@@ -146,6 +139,13 @@
 
     align-self: flex-end;
   }
+}
+
+.Addon-badges {
+  flex-basis: 100%;
+  flex-grow: 1;
+  margin-bottom: 10px;
+  order: 4;
 }
 
 // Details section with lots of grid stuff, on larger displays.

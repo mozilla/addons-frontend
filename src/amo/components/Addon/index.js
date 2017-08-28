@@ -307,6 +307,7 @@ export class AddonBase extends React.Component {
 
     let isCompatible = false;
     let isFeatured = false;
+    let isRestartRequired = false;
     let compatibility;
     if (addon) {
       compatibility = getClientCompatibility({
@@ -314,6 +315,7 @@ export class AddonBase extends React.Component {
       });
       isCompatible = compatibility.compatible;
       isFeatured = addon.is_featured;
+      isRestartRequired = addon.isRestartRequired;
     }
 
     return (
@@ -329,6 +331,12 @@ export class AddonBase extends React.Component {
                 <Badge
                   type="featured"
                   label={this.getFeaturedText(addonType)}
+                />
+              ) : null}
+              {isRestartRequired ? (
+                <Badge
+                  type="restart-required"
+                  label={i18n.gettext('Restart Required')}
                 />
               ) : null}
             </div>

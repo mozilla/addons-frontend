@@ -2,7 +2,7 @@ import { loadEntities } from 'core/actions';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import addons, { denormalizeAddon } from 'core/reducers/addons';
 import { createFetchAddonResult } from 'tests/unit/helpers';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 
 
 describe('addon reducer', () => {
@@ -29,11 +29,15 @@ describe('addon reducer', () => {
       loadEntities(createFetchAddonResult(anotherFakeAddon).entities));
     expect(newAddonsState).toEqual({
       ...addonsState,
-      [anotherFakeAddon.slug]: denormalizeAddon(anotherFakeAddon),
+      [anotherFakeAddon.slug]: denormalizeAddon({
+        ...anotherFakeAddon,
+        installURL: '',
+        isRestartRequired: false,
+      }),
     });
   });
 
-  it('pulls down the install URL from the file', () => {
+  it('reads the install URL from the file', () => {
     const addon = {
       ...fakeAddon,
       slug: 'installable',
@@ -49,6 +53,7 @@ describe('addon reducer', () => {
       installable: denormalizeAddon({
         ...addon,
         installURL: 'https://a.m.o/download.xpi',
+        isRestartRequired: false,
       }),
     });
   });
@@ -66,6 +71,8 @@ describe('addon reducer', () => {
       installable: {
         ...addon,
         iconUrl: addon.icon_url,
+        installURL: '',
+        isRestartRequired: false,
       },
     });
   });
@@ -103,6 +110,74 @@ describe('addon reducer', () => {
 
     expect(state).toMatchObject({
       baz: { description: null },
+    });
+  });
+
+  it('exposes `isRestartRequired` attribute from current version files', () => {
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_restart_required: true },
+      ],
+    });
+
+    expect(
+      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
+    ).toEqual({
+      [addon.slug]: denormalizeAddon({
+        ...addon,
+        installURL: '',
+        isRestartRequired: true,
+      }),
+    });
+  });
+
+  it('sets `isRestartRequired` to `false` when addon does not need restart', () => {
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_restart_required: false },
+      ],
+    });
+
+    expect(
+      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
+    ).toEqual({
+      [addon.slug]: denormalizeAddon({
+        ...addon,
+        installURL: '',
+        isRestartRequired: false,
+      }),
+    });
+  });
+
+  it('sets `isRestartRequired` to `false` when addon does not have any files', () => {
+    const addon = createFakeAddon({ files: [] });
+
+    expect(
+      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
+    ).toEqual({
+      [addon.slug]: denormalizeAddon({
+        ...addon,
+        isRestartRequired: false,
+      }),
+    });
+  });
+
+  it('sets `isRestartRequired` to `true` when at least one of the files declares it', () => {
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_restart_required: false },
+        { ...fakeAddon.current_version.files[0], is_restart_required: true },
+      ],
+    });
+
+    expect(
+      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
+    ).toEqual({
+      [addon.slug]: denormalizeAddon({
+        ...addon,
+        installURL: '',
+        isRestartRequired: true,
+      }),
     });
   });
 });
