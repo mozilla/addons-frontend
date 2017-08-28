@@ -1301,9 +1301,9 @@ bundle-loader@^0.5.5:
   dependencies:
     loader-utils "^1.0.2"
 
-bundlesize@^0.13.2:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/bundlesize/-/bundlesize-0.13.2.tgz#3a8aa61aa9f6d54f63321e2dfc7aa7716f91e73f"
+bundlesize@^0.14.0:
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/bundlesize/-/bundlesize-0.14.1.tgz#732ac6c107079fa64e1d5df2d12be8bf3f39e089"
   dependencies:
     axios "^0.16.1"
     bytes "^2.5.0"
