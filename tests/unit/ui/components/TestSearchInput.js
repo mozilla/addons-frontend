@@ -30,9 +30,9 @@ describe('<SearchInput />', () => {
     const removeEventListener = sinon.stub(window, 'removeEventListener');
     const root = renderIntoDocument(<SearchInput name="foo" />);
     expect(addEventListener.calledWith('resize', root.setIconPosition)).toBeTruthy();
-    expect(removeEventListener.called).toBeFalsy();
+    sinon.assert.notCalled(removeEventListener);
     root.componentWillUnmount();
-    expect(removeEventListener.calledWith('resize', root.setIconPosition)).toBeTruthy();
+    sinon.assert.calledWith(removeEventListener, 'resize', root.setIconPosition);
   });
 
   it('starts with the --text class with a value', () => {
@@ -120,28 +120,28 @@ describe('<SearchInput />', () => {
     const spy = sinon.spy();
     const root = renderIntoDocument(<SearchInput name="foo" onFocus={spy} />);
     Simulate.focus(root.input);
-    expect(spy.calledOnce).toBe(true);
+    sinon.assert.callCount(spy, 1);
   });
 
   it('forwards the onBlur event', () => {
     const spy = sinon.spy();
     const root = renderIntoDocument(<SearchInput name="foo" onBlur={spy} />);
     Simulate.blur(root.input);
-    expect(spy.calledOnce).toBe(true);
+    sinon.assert.callCount(spy, 1);
   });
 
   it('gives the input element to the inputRef prop', () => {
     const spy = sinon.spy();
     const root = renderIntoDocument(<SearchInput name="foo" inputRef={spy} />);
-    expect(spy.calledOnce).toBe(true);
-    expect(spy.calledWith(root.input)).toBe(true);
+    sinon.assert.callCount(spy, 1);
+    sinon.assert.calledWith(spy, root.input);
   });
 
   it('forwards the onChange event', () => {
     const spy = sinon.spy();
     const root = renderIntoDocument(<SearchInput name="foo" onChange={spy} />);
     Simulate.change(root.input);
-    expect(spy.calledOnce).toBe(true);
+    sinon.assert.callCount(spy, 1);
   });
 
   it('updates state when it receives new props', () => {

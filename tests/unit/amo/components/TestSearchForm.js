@@ -18,7 +18,11 @@ import {
   dispatchAutocompleteResults,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
-import { createFakeEvent, getFakeI18nInst } from 'tests/unit/helpers';
+import {
+  createFakeEvent,
+  createStubErrorHandler,
+  getFakeI18nInst,
+} from 'tests/unit/helpers';
 import {
   autocompleteCancel,
   autocompleteStart,
@@ -42,7 +46,7 @@ describe(__filename, () => {
         i18n={getFakeI18nInst()}
         loadingSuggestions={false}
         suggestions={[]}
-        errorHandler={{ id: 'error-handler-id' }}
+        errorHandler={createStubErrorHandler()}
         dispatch={() => {}}
         router={router}
         debounce={(callback) => (...args) => callback(...args)}
@@ -107,7 +111,7 @@ describe(__filename, () => {
 
     it('blurs the form on submit', () => {
       const blurSpy = sinon.stub(wrapper.instance().searchInput, 'blur');
-      expect(blurSpy.called).not.toBeTruthy();
+      sinon.assert.notCalled(blurSpy);
       input.simulate('change', createFakeChangeEvent('something'));
       form.simulate('submit');
       sinon.assert.called(blurSpy);
@@ -186,18 +190,18 @@ describe(__filename, () => {
         query: 'foo',
         dispatch,
       });
-      // no call to handleSuggestionsFetchRequested() until the input has focus,
-      // even if there is already a `searchValue`
-      expect(dispatch.calledOnce).toBe(false);
-      // this is needed to trigger handleSuggestionsFetchRequested()
+      // Expect no call to to handleSuggestionsFetchRequested() until the input
+      // has focus, even if there is already a `searchValue`
+      sinon.assert.notCalled(dispatch);
+      // This is needed to trigger handleSuggestionsFetchRequested()
       wrapper.find('input').simulate('focus');
-      expect(dispatch.calledOnce).toBe(true);
-      expect(dispatch.calledWith(autocompleteStart({
-        errorHandlerId: 'error-handler-id',
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: createStubErrorHandler().id,
         filters: {
           query: 'foo',
         },
-      }))).toBe(true);
+      }));
     });
 
     it('clears suggestions when input is cleared', () => {
@@ -208,8 +212,8 @@ describe(__filename, () => {
       });
       // clearing the input calls handleSuggestionsClearRequested()
       wrapper.find('input').simulate('change', createFakeChangeEvent());
-      expect(dispatch.calledOnce).toBe(true);
-      expect(dispatch.calledWith(autocompleteCancel())).toBe(true);
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteCancel());
     });
 
     it('displays suggestions when user is typing', () => {
@@ -254,10 +258,14 @@ describe(__filename, () => {
     });
 
     it('displays 10 loading bars when suggestions are loading', () => {
-      wrapper = mountComponent({
-        suggestions: [],
-        loadingSuggestions: true,
-      });
+      const { store } = dispatchSignInActions();
+
+      store.dispatch(autocompleteStart({
+        errorHandlerId: createStubErrorHandler().id,
+        filters: { query: 'test' },
+      }));
+
+      wrapper = mountComponent(mapStateToProps(store.getState()));
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(LoadingText)).toHaveLength(10);
     });
@@ -271,13 +279,13 @@ describe(__filename, () => {
         query: 'foo',
         suggestions: autocompleteState.suggestions,
       });
-      expect(wrapper.state('searchValue')).toBe('foo');
+      expect(wrapper.state('searchValue')).toEqual('foo');
 
       wrapper.find('input').simulate('focus');
       wrapper.find(Suggestion).simulate('click');
-      expect(wrapper.state('searchValue')).toBe('');
-      expect(router.push.calledOnce).toBe(true);
-      expect(router.push.calledWith(result.url)).toBe(true);
+      expect(wrapper.state('searchValue')).toEqual('');
+      sinon.assert.callCount(router.push, 1);
+      sinon.assert.calledWith(router.push, result.url);
     });
 
     it('ignores loading suggestions that are selected', () => {
@@ -295,7 +303,7 @@ describe(__filename, () => {
         },
       });
       expect(wrapper.state('searchValue')).toEqual('baz');
-      expect(router.push.called).toBe(false);
+      sinon.assert.notCalled(router.push);
     });
 
     it('does not fetches suggestions when there is not value', () => {
@@ -303,7 +311,7 @@ describe(__filename, () => {
       wrapper = mountComponent({ dispatch });
 
       wrapper.instance().handleSuggestionsFetchRequested({});
-      expect(dispatch.called).toBe(false);
+      sinon.assert.notCalled(dispatch);
     });
 
     it('adds addonType to the filters used to fetch suggestions', () => {
@@ -316,14 +324,14 @@ describe(__filename, () => {
 
       wrapper.find('input').simulate('focus');
 
-      expect(dispatch.calledOnce).toBe(true);
-      expect(dispatch.calledWith(autocompleteStart({
-        errorHandlerId: 'error-handler-id',
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: createStubErrorHandler().id,
         filters: {
           query: 'ad',
           addonType: ADDON_TYPE_EXTENSION,
         },
-      }))).toBe(true);
+      }));
     });
   });
 
@@ -367,20 +375,20 @@ describe(__filename, () => {
           url: result.url,
         },
       ]);
-      expect(mapStateToProps(state).loadingSuggestions).toBe(false);
+      expect(mapStateToProps(state).loadingSuggestions).toEqual(false);
     });
 
     it('passes the loading suggestions boolean through', () => {
       const { store } = dispatchSignInActions();
 
       store.dispatch(autocompleteStart({
-        errorHandlerId: 'some-error',
+        errorHandlerId: createStubErrorHandler().id,
         filters: { query: 'test' },
       }));
 
       const state = store.getState();
 
-      expect(mapStateToProps(state).loadingSuggestions).toBe(true);
+      expect(mapStateToProps(state).loadingSuggestions).toEqual(true);
     });
   });
 });
