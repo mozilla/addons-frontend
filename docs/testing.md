@@ -1,6 +1,6 @@
 # Testing
 
-We want to maintain a project with a high coverage (aiming for 100%). Our main [coverage criterion](https://en.wikipedia.org/wiki/Code_coverage#Coverage_criteria) is **branch coverage**, that is making sure all possible code branches are covered by test. [Coveralls](https://coveralls.io/github/mozilla/addons-frontend) monitors our test coverage for every Pull Request. You can make sure you haven't decreased coverage by checking the Pull Request on GitHub. You can also [generate a coverage report locally](https://github.com/mozilla/addons-frontend/#code-coverage).
+We want to maintain a project with a high coverage (aiming for 100%). Our main [coverage criterion](https://en.wikipedia.org/wiki/Code_coverage#Coverage_criteria) is **branch coverage**, that is making sure all possible code branches are covered by test. At an absolute bare minimum, we require 100% line coverage. [Coveralls](https://coveralls.io/github/mozilla/addons-frontend) monitors our test coverage for every Pull Request. You can make sure you haven't decreased coverage by checking the Pull Request on GitHub. You can also [generate a coverage report locally](https://github.com/mozilla/addons-frontend/#code-coverage).
 
 ## General guidelines
 
@@ -49,7 +49,7 @@ For sagas/reducers, there are two useful helpers: `dispatchClientMetadata()` and
 
 When you need a `errorHandler` or a `errorHandlerId`, use the `createStubErrorHandler()` helper from `tests/unit/helpers`.
 
-When asserting for exceptions/errors, do not use ES6 shorthand functions/implicit return functions. It explicits what is expected to throw an error:
+When asserting for exceptions/errors, do not use ES6 shorthand functions/implicit return functions. Instead, you should make visible the method/function that should thrown an exception:
 
 ```js
 expect(() => {
@@ -79,3 +79,5 @@ We use [Enzyme](http://airbnb.io/enzyme/docs/api/index.html) for testing UI comp
     ```js
     expect(root.find(Badge)).toHaveProp('type', 'featured');
     ```
+
+- You can use `shallowUntilTarget()` (`tests/unit/helpers`) for testing a component wrapped in one or more HOCs (higher order components). See `tests/unit/core/components/TestInstallButton.js` for an example of a test case with this helper.
