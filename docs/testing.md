@@ -1,14 +1,15 @@
 # Testing
 
-We want to maintain a project with a high coverage (aiming for 100%). Our main [coverage criterion](https://en.wikipedia.org/wiki/Code_coverage#Coverage_criteria) is **branch coverage**, that is making sure all possible code branches are covered by test. [Coveralls](https://coveralls.io/github/mozilla/addons-frontend) helps us monitor the status of our test suite coverage and it is a good idea to double-check its output when you are opening a Pull Request. You can also [generate a coverage report locally](https://github.com/mozilla/addons-frontend/#code-coverage).
+We want to maintain a project with a high coverage (aiming for 100%). Our main [coverage criterion](https://en.wikipedia.org/wiki/Code_coverage#Coverage_criteria) is **branch coverage**, that is making sure all possible code branches are covered by test. [Coveralls](https://coveralls.io/github/mozilla/addons-frontend) monitors our test coverage for every Pull Request. You can make sure you haven't decreased coverage by checking the Pull Request on GitHub. You can also [generate a coverage report locally](https://github.com/mozilla/addons-frontend/#code-coverage).
 
 ## General guidelines
 
-- Imports should be alphabetized, even in test file.
+- Imports should be alphabetized, even in test files.
 - Comments should be full sentences to ease readability.
-- There are a lot of helpers in the `tests/unit/helpers` and `tests/unit/amo/helpers` modules.
-- Use the action creators instead of hard coding props. This applies to both UI components and reducers/sagas.
-- Try to use constants (likely from `core/constants`) as much as you can. Corollary: avoid hard coded values.
+- There are a lot of helpers in the `tests/unit/helpers` and `tests/unit/amo/helpers` modules–please use them.
+- Use action creators in `amo/actions/` and `core/actions/` instead of hard-coding `dispatch()` arguments or state data for tests. This applies to both UI components and reducers/sagas.
+- Use constants (see `core/constants`) when using the same value across files. This avoids hard-coding values and [magic constants](https://en.wikipedia.org/wiki/Magic_constant).
+
 
 ## Jest
 
@@ -19,7 +20,7 @@ We want to maintain a project with a high coverage (aiming for 100%). Our main [
 
 When creating a new test file, start with a `describe()` block that takes the current file name as first argument. This makes easy to find/edit a failing test case as Jest will display the test file in its output:
 
-``` js
+```js
 describe(__filename, () => {
 });
 ```
@@ -28,7 +29,19 @@ describe(__filename, () => {
 
 We use [sinon](http://sinonjs.org/) for spies, stubs and mocks. In addition, we use [sinon assertions](http://sinonjs.org/releases/v3.2.1/assertions/) over Jest expectations because failure messages are more descriptive.
 
-No need to import `sinon`, it is already done globally in the test suite configuration.
+```js
+const spy = sinon.spy();
+// ...
+
+// NOT GOOD
+expect(spy.called).toEqual(true);
+
+// GOOD
+sinon.assert.called(spy);
+```
+
+There is no need to import sinon, it is already in the global scope for all test files.
+
 
 ## Testing reducers and sagas
 
@@ -36,9 +49,9 @@ For sagas/reducers, there are two useful helpers: `dispatchClientMetadata()` and
 
 When you need a `errorHandler` or a `errorHandlerId`, use the `createStubErrorHandler()` helper from `tests/unit/helpers`.
 
-When asserting for exceptions/errors, do not omit parentheses with an arrow function expression. It explicits what is expected to throw an error:
+When asserting for exceptions/errors, do not use ES6 shorthand functions/implicit return functions. It explicits what is expected to throw an error:
 
-``` js
+```js
 expect(() => {
   methodThatThrowsAnError();
 }).toThrow(/expected error message/);
@@ -46,7 +59,7 @@ expect(() => {
 
 When testing sagas, use an action creator to construct the expected actions that should be called by the saga under test:
 
-``` js
+```js
 const expectedLoadAction = autocompleteLoad(results);
 
 await sagaTester.waitFor(expectedLoadAction.type);
@@ -63,6 +76,6 @@ We use [Enzyme](http://airbnb.io/enzyme/docs/api/index.html) for testing UI comp
 - Prefer `shallow()` over `mount()` when it makes sense.
 - Assert components on public properties (props), _e.g._:
 
-    ``` js
+    ```js
     expect(root.find(Badge)).toHaveProp('type', 'featured');
     ```
