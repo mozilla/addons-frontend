@@ -43,7 +43,25 @@ describe(__filename, () => {
 
       const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
       expect(loading).toBe(false);
-      expect(suggestions).toEqual(['foo', 'bar', 'baz']);
+      expect(suggestions).toHaveLength(3);
+      expect(suggestions[0]).toHaveProperty('name', 'foo');
+      expect(suggestions[1]).toHaveProperty('name', 'bar');
+      expect(suggestions[2]).toHaveProperty('name', 'baz');
+    });
+
+    it('sets the icon_url as iconUrl', () => {
+      const result = createFakeAutocompleteResult({ name: 'baz' });
+      const results = [result];
+
+      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
+      expect(loading).toBe(false);
+      expect(suggestions).toEqual([
+        {
+          name: result.name,
+          url: result.url,
+          iconUrl: result.icon_url,
+        },
+      ]);
     });
 
     it('excludes AUTOCOMPLETE_LOADED results with null names', () => {
@@ -55,7 +73,7 @@ describe(__filename, () => {
 
       const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
       expect(loading).toBe(false);
-      expect(suggestions).toEqual(['foo', 'baz']);
+      expect(suggestions).toHaveLength(2);
     });
   });
 

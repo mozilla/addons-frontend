@@ -1,4 +1,5 @@
 import { normalize } from 'normalizr';
+import config from 'config';
 
 import createStore from 'amo/store';
 import {
@@ -7,9 +8,13 @@ import {
 import { addon as addonSchema } from 'core/api';
 import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
+import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
 
 import {
-  userAuthToken, sampleUserAgent, signedInApiState as coreSignedInApiState,
+  createStubErrorHandler,
+  userAuthToken,
+  sampleUserAgent,
+  signedInApiState as coreSignedInApiState,
 } from '../helpers';
 
 export const fakeAddon = Object.freeze({
@@ -123,7 +128,10 @@ export function dispatchSearchResults({
   filters = { query: 'test' },
   store = dispatchClientMetadata().store,
 } = {}) {
-  store.dispatch(searchStart({ errorHandlerId: 'some-error', filters }));
+  store.dispatch(searchStart({
+    errorHandlerId: createStubErrorHandler().id,
+    filters,
+  }));
   store.dispatch(searchLoad({
     entities: { addons },
     result: {
@@ -144,7 +152,7 @@ export function createAddonsApiResult(results) {
 export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
   return {
     id: Date.now(),
-    icon_url: `https://example.org/${name}.png`,
+    icon_url: `${config.get('amoCDN')}/${name}.png`,
     name,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
   };
@@ -158,4 +166,18 @@ export function createFakeAddon({ files = {} } = {}) {
       files,
     },
   };
+}
+
+export function dispatchAutocompleteResults({
+  filters = { query: 'test' },
+  store = dispatchClientMetadata().store,
+  results = [],
+} = {}) {
+  store.dispatch(autocompleteStart({
+    errorHandlerId: createStubErrorHandler().id,
+    filters,
+  }));
+  store.dispatch(autocompleteLoad({ results }));
+
+  return { store };
 }

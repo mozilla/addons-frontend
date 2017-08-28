@@ -1,0 +1,76 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+$item-padding-horizontal: 23px;
+$item-padding: 5px $item-padding-horizontal;
+$arrow-width: 18px;
+$addon-icon-margin-end: 12px;
+
+.SearchForm-form {
+  background: $header-search-color;
+  border: 0;
+}
+
+.SearchInput-input,
+.SearchForm-form {
+  color: $base-color;
+  font-size: $font-size-m-smaller;
+  white-space: nowrap;
+}
+
+.SearchForm-suggestions-list {
+  background-color: $white;
+  color: $black;
+  margin: 0;
+  padding: 0;
+}
+
+.SearchForm-suggestions-item {
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: $item-padding;
+  width: 100%;
+
+  .Icon-arrow-big-blue {
+    display: none;
+    height: 16px;
+    margin-top: 1px;
+    width: $arrow-width;
+  }
+}
+
+.SearchForm-suggestions-item:hover,
+.SearchForm-suggestions-item:active,
+.SearchForm-suggestions-item:focus,
+.SearchForm-suggestions-item--highlighted {
+  color: $link-color;
+  white-space: normal;
+
+  .Icon-arrow-big-blue {
+    display: block;
+  }
+}
+
+.Suggestion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.Suggestion-name {
+  flex: 1;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Suggestion-icon {
+  @include margin-end($addon-icon-margin-end);
+
+  height: 16px;
+  width: 16px;
+}

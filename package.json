@@ -52,7 +52,7 @@
     "amo:dev": {
       "command": "better-npm-run start-dev-proxy",
       "env": {
-        "AMO_CDN": "https://addons-amo-dev-cdn.allizom.org",
+        "AMO_CDN": "https://addons-dev-cdn.allizom.org",
         "PROXY_API_HOST": "https://addons-dev.allizom.org",
         "FXA_CONFIG": "local",
         "CSP": false,
@@ -181,6 +181,7 @@
     "raven-js": "3.17.0",
     "react": "15.6.1",
     "react-addons-css-transition-group": "15.6.0",
+    "react-autosuggest": "9.3.2",
     "react-cookie": "1.0.5",
     "react-dom": "15.6.1",
     "react-helmet": "5.1.3",
