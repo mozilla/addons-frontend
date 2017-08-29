@@ -1,8 +1,43 @@
+/* @flow */
 import { ADDON_TYPE_THEME } from 'core/constants';
+import type { ErrorHandlerType } from 'core/errorHandler';
+import type { AddonType } from 'core/types/addons';
+
+
+export const FETCH_ADDON = 'FETCH_ADDON';
 
 const initialState = {};
 
-export function getGuid(result) {
+type Action = Object;
+type AddonState = Object;
+
+type FetchAddonParams = {|
+  errorHandler: ErrorHandlerType,
+  slug: string,
+|};
+
+export type FetchAddonAction = {|
+  type: string,
+  payload: {|
+    errorHandlerId: string,
+    slug: string,
+  |},
+|};
+
+export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddonAction {
+  if (!errorHandler) {
+    throw new Error('errorHandler cannot be empty');
+  }
+  if (!slug) {
+    throw new Error('slug cannot be empty');
+  }
+  return {
+    type: FETCH_ADDON,
+    payload: { errorHandlerId: errorHandler.id, slug },
+  };
+}
+
+export function getGuid(result: AddonType) {
   if (result.type === ADDON_TYPE_THEME) {
     // This mimics how Firefox appends @personas.mozilla.org internally.
     // It's needed to look up themes in mozAddonManager.
@@ -11,7 +46,7 @@ export function getGuid(result) {
   return result.guid;
 }
 
-export function denormalizeAddon(apiAddon) {
+export function denormalizeAddon(apiAddon: AddonType) {
   if (apiAddon.icon_url) {
     return {
       ...apiAddon,
@@ -22,8 +57,12 @@ export function denormalizeAddon(apiAddon) {
   return apiAddon;
 }
 
-export default function addon(state = initialState, action) {
+export default function addon(
+  state: AddonState = initialState,
+  action: Action = {}
+) {
   const { payload } = action;
+
   if (payload && payload.entities && payload.entities.addons) {
     const newState = { ...state };
     Object.keys(payload.entities.addons).forEach((key) => {

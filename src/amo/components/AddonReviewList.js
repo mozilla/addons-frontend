@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import Rating from 'ui/components/Rating';
 import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
-import { fetchAddon } from 'core/actions/addons';
+import { fetchAddon } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
