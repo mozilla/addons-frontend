@@ -163,6 +163,7 @@ module.exports = {
     'id',
     'it',
     'ja',
+    'ka',
     'kab',
     'ko',
     'mk',
