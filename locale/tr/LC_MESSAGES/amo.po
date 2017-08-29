@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-22 21:33+0000\n"
+"POT-Creation-Date: 2017-08-29 19:04+0000\n"
 "PO-Revision-Date: 2017-08-18 11:30+0000\n"
 "Last-Translator: asteko <aserkant@protonmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,40 +14,59 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
+#: src/amo/components/Addon/index.js:127
+#, fuzzy
+msgid "Featured Extension"
+msgstr "Öne çıkan uzantılar"
+
 #: src/amo/components/Addon/index.js:129
+#, fuzzy
+msgid "Featured Theme"
+msgstr "Öne çıkan temalar"
+
+#: src/amo/components/Addon/index.js:131
+#, fuzzy
+msgid "Featured Add-on"
+msgstr "Firefox Eklentileri"
+
+#: src/amo/components/Addon/index.js:148
 msgid "Cancel preview"
 msgstr "Ön izlemeyi iptal et"
 
-#: src/amo/components/Addon/index.js:129
+#: src/amo/components/Addon/index.js:148
 msgid "Tap to preview"
 msgstr "Ön izleme için dokunun"
 
-#: src/amo/components/Addon/index.js:170
+#: src/amo/components/Addon/index.js:189
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s incelemenin hepsini oku"
 
-#: src/amo/components/Addon/index.js:186
+#: src/amo/components/Addon/index.js:205
 msgid "No reviews yet"
 msgstr "Henüz inceleme yapılmamış"
 
-#: src/amo/components/Addon/index.js:195
+#: src/amo/components/Addon/index.js:214
 msgid "Rate your experience"
 msgstr "Deneyiminize puan verin"
 
-#: src/amo/components/Addon/index.js:229
+#: src/amo/components/Addon/index.js:248
 msgid "About this %(addonType)s"
 msgstr "Bu %(addonType)s hakkında"
 
-#: src/amo/components/Addon/index.js:280
+#: src/amo/components/Addon/index.js:299
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sgeliştiren: %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:344
+msgid "Restart Required"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:362
 msgid "Extension Metadata"
 msgstr "Uzantı meta verileri"
 
-#: src/amo/components/Addon/index.js:343
+#: src/amo/components/Addon/index.js:381
 msgid "Screenshots"
 msgstr "Ekran görüntüleri"
 
@@ -522,21 +541,35 @@ msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s eklenti bulundu"
 
-#: src/amo/components/SearchForm.js:57
+#: src/amo/components/SearchForm/index.js:153
+msgid "Go to the add-on page"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:163
 msgid "Search extensions"
 msgstr "Eklentilerde ara"
 
-#: src/amo/components/SearchForm.js:59
+#: src/amo/components/SearchForm/index.js:165
 msgid "Search themes"
 msgstr "Temalarda ara"
 
-#: src/amo/components/SearchForm.js:61
+#: src/amo/components/SearchForm/index.js:167
 msgid "Search extensions and themes"
 msgstr "Uzantılarda ve temalarda ara"
 
-#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
+#: src/amo/components/SearchForm/index.js:192
+#: src/amo/components/SearchForm/index.js:219
 msgid "Search"
 msgstr "Ara"
+
+#: src/amo/components/SearchForm/index.js:216
+msgid "Enter"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:73
+#, fuzzy
+msgid "Loading"
+msgstr "Yükleniyor..."
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
@@ -717,9 +750,6 @@ msgstr "Devamını okumak için <span class=\"visually-hidden\">genişletin</spa
 #~ msgstr ""
 #~ "Uzantılar Firefox'a ekleyebileceğiniz yeni özelliklerdir.\n"
 #~ "Temalar tarayıcınızın görünümünü değiştirmenizi sağlar."
-
-#~ msgid "Loading..."
-#~ msgstr "Yükleniyor..."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "5 üzerinden %(averageRating)s"

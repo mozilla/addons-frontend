@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-22 21:33+0000\n"
+"POT-Creation-Date: 2017-08-29 19:04+0000\n"
 "PO-Revision-Date: 2017-04-18 09:42+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -14,41 +14,60 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
+#: src/amo/components/Addon/index.js:127
+#, fuzzy
+msgid "Featured Extension"
+msgstr "Zgjerime të zgjedhura"
+
 #: src/amo/components/Addon/index.js:129
+#, fuzzy
+msgid "Featured Theme"
+msgstr "Tema të zgjedhura"
+
+#: src/amo/components/Addon/index.js:131
+#, fuzzy
+msgid "Featured Add-on"
+msgstr "Shtesa Firefox-i"
+
+#: src/amo/components/Addon/index.js:148
 msgid "Cancel preview"
 msgstr "Anulojeni paraparjen"
 
-#: src/amo/components/Addon/index.js:129
+#: src/amo/components/Addon/index.js:148
 msgid "Tap to preview"
 msgstr "Prekeni për paraparje"
 
-#: src/amo/components/Addon/index.js:170
+#: src/amo/components/Addon/index.js:189
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lexoni %(count)s shqyrtim"
 msgstr[1] "Lexoni krejt %(count)s shqyrtimet"
 
-#: src/amo/components/Addon/index.js:186
+#: src/amo/components/Addon/index.js:205
 msgid "No reviews yet"
 msgstr "Ende pa shqyrtime"
 
-#: src/amo/components/Addon/index.js:195
+#: src/amo/components/Addon/index.js:214
 msgid "Rate your experience"
 msgstr "Vlerësoni rastin tuaj"
 
-#: src/amo/components/Addon/index.js:229
+#: src/amo/components/Addon/index.js:248
 msgid "About this %(addonType)s"
 msgstr "Mbi këtë %(addonType)s"
 
-#: src/amo/components/Addon/index.js:280
+#: src/amo/components/Addon/index.js:299
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)snga %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:344
+msgid "Restart Required"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:362
 msgid "Extension Metadata"
 msgstr "Tejtëdhëna Zgjerimi"
 
-#: src/amo/components/Addon/index.js:343
+#: src/amo/components/Addon/index.js:381
 msgid "Screenshots"
 msgstr "Foto ekrani"
 
@@ -552,23 +571,37 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "S’gjetën kategori."
 msgstr[1] "S’gjetën kategori."
 
-#: src/amo/components/SearchForm.js:57
+#: src/amo/components/SearchForm/index.js:153
+msgid "Go to the add-on page"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:163
 #, fuzzy
 msgid "Search extensions"
 msgstr "Zgjerime të zgjedhura"
 
-#: src/amo/components/SearchForm.js:59
+#: src/amo/components/SearchForm/index.js:165
 #, fuzzy
 msgid "Search themes"
 msgstr "Tema të zgjedhura"
 
-#: src/amo/components/SearchForm.js:61
+#: src/amo/components/SearchForm/index.js:167
 msgid "Search extensions and themes"
 msgstr "Kërkoni për zgjerime dhe tema"
 
-#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
+#: src/amo/components/SearchForm/index.js:192
+#: src/amo/components/SearchForm/index.js:219
 msgid "Search"
 msgstr "Kërko"
+
+#: src/amo/components/SearchForm/index.js:216
+msgid "Enter"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:73
+#, fuzzy
+msgid "Loading"
+msgstr "Po ngarkohet…"
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
@@ -751,9 +784,6 @@ msgstr "<span class=\"visually-hidden\">Zgjeroje te</span> Lexoni më tepër"
 #~ msgstr ""
 #~ "Zgjerimet janë veçori speciale që mund t’ia shtoni Firefox-it. Temat ju "
 #~ "lejojnë të ndryshoni pamjen e shfletuesit."
-
-#~ msgid "Loading..."
-#~ msgstr "Po ngarkohet…"
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "Vlerësuar me %(averageRating)s yje nga 5 të mundshëm"
