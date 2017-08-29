@@ -33,5 +33,11 @@ describe(__filename, () => {
       return userProfile({ api: state.api })
         .then(() => mockApi.verify());
     });
+
+    it('throws an error if api state is missing', () => {
+      expect(() => {
+        userProfile({});
+      }).toThrowError(/api state is required/);
+    });
   });
 });
