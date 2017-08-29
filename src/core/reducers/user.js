@@ -26,6 +26,10 @@ export const userProfileLoaded = ({ profile }: Object) => {
   };
 };
 
+export const isAuthenticated = (state: { user: UserStateType }) => {
+  return !!state.user.id;
+};
+
 export default function reducer(
   state: UserStateType = initialState,
   action: Action = {}

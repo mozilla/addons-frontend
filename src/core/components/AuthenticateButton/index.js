@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import { logOutUser } from 'core/actions';
 import { logOutFromServer, startLoginUrl } from 'core/api';
+import { isAuthenticated as isUserAuthenticated } from 'core/reducers/user';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
@@ -14,6 +15,7 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { UserStateType } from 'core/reducers/user';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
+
 
 type HandleLogInFunc = (
   location: ReactRouterLocation, options?: {| _window: typeof window |}
@@ -89,7 +91,7 @@ export const mapStateToProps = (
   |}
 ): StateMappedProps => ({
   api: state.api,
-  isAuthenticated: !!state.user.id,
+  isAuthenticated: isUserAuthenticated(state),
   handleLogIn(location, { _window = window } = {}) {
     // eslint-disable-next-line no-param-reassign
     _window.location = startLoginUrl({ location });

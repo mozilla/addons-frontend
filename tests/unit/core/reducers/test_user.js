@@ -1,6 +1,14 @@
 import { logOutUser } from 'core/actions';
-import reducer, { userProfileLoaded } from 'core/reducers/user';
+import reducer, {
+  isAuthenticated,
+  userProfileLoaded,
+} from 'core/reducers/user';
 import { createUserProfileResponse } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
+
 
 describe(__filename, () => {
   describe('reducer', () => {
@@ -39,6 +47,20 @@ describe(__filename, () => {
       const { id, username } = reducer(state, logOutUser());
       expect(id).toEqual(null);
       expect(username).toEqual(null);
+    });
+  });
+
+  describe('isAuthenticated selector', () => {
+    it('returns true when user is authenticated', () => {
+      const { state } = dispatchSignInActions();
+
+      expect(isAuthenticated(state)).toEqual(true);
+    });
+
+    it('returns false when user is not authenticated', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(isAuthenticated(state)).toEqual(false);
     });
   });
 });
