@@ -11,6 +11,7 @@ import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { ApiStateType } from 'core/reducers/api';
+import type { UserStateType } from 'core/reducers/user';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 
@@ -82,10 +83,13 @@ type StateMappedProps = {|
 |};
 
 export const mapStateToProps = (
-  state: {| api: ApiStateType |}
+  state: {|
+    api: ApiStateType,
+    user: UserStateType,
+  |}
 ): StateMappedProps => ({
   api: state.api,
-  isAuthenticated: !!state.api.token,
+  isAuthenticated: !!state.user.id,
   handleLogIn(location, { _window = window } = {}) {
     // eslint-disable-next-line no-param-reassign
     _window.location = startLoginUrl({ location });

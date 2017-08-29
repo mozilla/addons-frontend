@@ -9,9 +9,11 @@ import { addon as addonSchema } from 'core/api';
 import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
 import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
+import { userProfileLoaded } from 'core/reducers/user';
 
 import {
   createStubErrorHandler,
+  createUserProfileResponse,
   userAuthToken,
   sampleUserAgent,
   signedInApiState as coreSignedInApiState,
@@ -108,11 +110,15 @@ export function dispatchClientMetadata({
 
 export function dispatchSignInActions({
   authToken = userAuthToken(),
+  userId = 12345,
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
+  store.dispatch(userProfileLoaded({
+    profile: createUserProfileResponse({ id: userId }),
+  }));
 
   return {
     store,

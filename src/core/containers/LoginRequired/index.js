@@ -7,7 +7,7 @@ import LoginPage from 'core/components/LoginPage';
 
 export function mapStateToProps(state) {
   return {
-    authenticated: !!state.api.token,
+    authenticated: !!state.user.id,
   };
 }
 
