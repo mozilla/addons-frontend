@@ -200,6 +200,32 @@ describe('Addon', () => {
     expect(root.find(AddonMeta).prop('addon')).toEqual(null);
   });
 
+  it('does not dispatch fetchAddon action when slug is the same', () => {
+    const fakeDispatch = sinon.stub();
+    const errorHandler = createStubErrorHandler();
+    const addon = fakeAddon;
+    const root = shallowRender({ addon, errorHandler, dispatch: fakeDispatch });
+
+    fakeDispatch.reset();
+    // Update with the same slug.
+    root.setProps({ params: { slug: addon.slug } });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('dispatches fetchAddon action when updating with a new slug', () => {
+    const fakeDispatch = sinon.stub();
+    const errorHandler = createStubErrorHandler();
+    const root = shallowRender({ errorHandler, dispatch: fakeDispatch });
+    const slug = 'some-new-slug';
+
+    fakeDispatch.reset();
+    // Update with a new slug.
+    root.setProps({ params: { slug } });
+
+    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({ errorHandler, slug }));
+  });
+
   it('renders an error if there is one', () => {
     const errorHandler = createStubErrorHandler(new Error('some error'));
 
