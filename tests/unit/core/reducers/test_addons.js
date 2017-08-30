@@ -1,11 +1,14 @@
 import { loadEntities } from 'core/actions';
 import { ADDON_TYPE_THEME } from 'core/constants';
-import addons, { denormalizeAddon } from 'core/reducers/addons';
-import { createFetchAddonResult } from 'tests/unit/helpers';
+import addons, { denormalizeAddon, fetchAddon } from 'core/reducers/addons';
+import {
+  createFetchAddonResult,
+  createStubErrorHandler,
+} from 'tests/unit/helpers';
 import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 
 
-describe('addon reducer', () => {
+describe(__filename, () => {
   let addonsState;
 
   beforeEach(() => {
@@ -178,6 +181,27 @@ describe('addon reducer', () => {
         installURL: '',
         isRestartRequired: true,
       }),
+    });
+  });
+
+  describe('fetchAddon', () => {
+    const defaultParams = Object.freeze({
+      slug: 'addon-slug',
+      errorHandler: createStubErrorHandler(),
+    });
+
+    it('requires an error handler', () => {
+      const params = { ...defaultParams };
+      delete params.errorHandler;
+      expect(() => fetchAddon(params))
+        .toThrowError(/errorHandler cannot be empty/);
+    });
+
+    it('requires a slug', () => {
+      const params = { ...defaultParams };
+      delete params.slug;
+      expect(() => fetchAddon(params))
+        .toThrowError(/slug cannot be empty/);
     });
   });
 });

@@ -26,7 +26,7 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
-import { fetchAddon as fetchAddonAction } from 'core/actions/addons';
+import { fetchAddon as fetchAddonAction } from 'core/reducers/addons';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';

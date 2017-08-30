@@ -98,7 +98,6 @@ export const SEARCH_SORT_POPULAR = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
 
 // Action types.
-export const FETCH_ADDON = 'FETCH_ADDON';
 export const CATEGORIES_FETCH = 'CATEGORIES_FETCH';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
