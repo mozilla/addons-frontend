@@ -7,12 +7,20 @@ WORKDIR /srv/node
 
 RUN buildDeps=' \
     git \
+    yarn \
     ' && \
+    # `apt-transport-https` is required to use https deb repositories
+    apt-get update -y && \
+    apt-get install -y --no-install-recommends apt-transport-https && \
+    # configure Yarn repository, see: https://yarnpkg.com/en/docs/install#linux-tab
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg|apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list && \
+    # the base image installs yarn, let's be sure we use ours
+    rm -f /usr/local/bin/yarn /usr/local/bin/yarnpkg && \
     # install deps
     apt-get update -y && \
     apt-get install -y --no-install-recommends $buildDeps && \
-	npm update -g npm@3 && \
-	npm install && npm cache clean && \
+    yarn install && \
     # cleanup
     # apt-get purge -y $buildDeps && \
     rm -rf /var/lib/apt/lists/*
@@ -31,4 +39,4 @@ RUN ln -s /srv/node/node_modules
 ENV SERVER_HOST 0.0.0.0
 ENV SERVER_PORT 4000
 
-CMD npm start
+CMD yarn start
