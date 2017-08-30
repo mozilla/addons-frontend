@@ -11,7 +11,7 @@ import { langToLocale, localeToLang } from 'core/i18n/utils';
 const langs = config.get('langs');
 const basePath = config.get('basePath');
 
-describe('Locale Config', () => {
+describe(__filename, () => {
   // eslint-disable-next-line no-restricted-syntax
   for (const lang of langs) {
     // eslint-disable no-loop-func
@@ -28,7 +28,7 @@ describe('Locale Config', () => {
       continue;
     }
     // eslint-disable no-loop-func
-    it(`should have a corresponding ${lang} entry the locale dir in the config`, () =>
+    it(`should have a "${lang}" entry for locale dir in config.langs`, () =>
       expect(langs).toContain(lang));
   }
 });

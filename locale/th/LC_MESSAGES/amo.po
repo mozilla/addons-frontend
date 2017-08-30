@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-22 21:33+0000\n"
+"POT-Creation-Date: 2017-08-29 19:04+0000\n"
 "PO-Revision-Date: 2017-07-12 06:54+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,40 +14,59 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
+#: src/amo/components/Addon/index.js:127
+#, fuzzy
+msgid "Featured Extension"
+msgstr "เรียกดูส่วนขยายทั้งหมด"
+
 #: src/amo/components/Addon/index.js:129
+#, fuzzy
+msgid "Featured Theme"
+msgstr "เรียกดูส่วนขยายทั้งหมด"
+
+#: src/amo/components/Addon/index.js:131
+#, fuzzy
+msgid "Featured Add-on"
+msgstr "ส่วนเสริม Firefox"
+
+#: src/amo/components/Addon/index.js:148
 msgid "Cancel preview"
 msgstr "ยกเลิกการแสดงตัวอย่าง"
 
-#: src/amo/components/Addon/index.js:129
+#: src/amo/components/Addon/index.js:148
 msgid "Tap to preview"
 msgstr "แตะเพื่อแสดงตัวอย่าง"
 
-#: src/amo/components/Addon/index.js:170
+#: src/amo/components/Addon/index.js:189
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
 
-#: src/amo/components/Addon/index.js:186
+#: src/amo/components/Addon/index.js:205
 msgid "No reviews yet"
 msgstr "ยังไม่มีบทวิจารณ์"
 
-#: src/amo/components/Addon/index.js:195
+#: src/amo/components/Addon/index.js:214
 msgid "Rate your experience"
 msgstr "ให้คะแนนประสบการณ์ของคุณ"
 
-#: src/amo/components/Addon/index.js:229
+#: src/amo/components/Addon/index.js:248
 msgid "About this %(addonType)s"
 msgstr "เกี่ยวกับ %(addonType)s นี้"
 
-#: src/amo/components/Addon/index.js:280
+#: src/amo/components/Addon/index.js:299
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:344
+msgid "Restart Required"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:362
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/components/Addon/index.js:343
+#: src/amo/components/Addon/index.js:381
 msgid "Screenshots"
 msgstr "ภาพหน้าจอ"
 
@@ -534,23 +553,37 @@ msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "ไม่พบหมวดหมู่"
 
-#: src/amo/components/SearchForm.js:57
+#: src/amo/components/SearchForm/index.js:153
+msgid "Go to the add-on page"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:163
 #, fuzzy
 msgid "Search extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/SearchForm.js:59
+#: src/amo/components/SearchForm/index.js:165
 #, fuzzy
 msgid "Search themes"
 msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/SearchForm.js:61
+#: src/amo/components/SearchForm/index.js:167
 msgid "Search extensions and themes"
 msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
+#: src/amo/components/SearchForm/index.js:192
+#: src/amo/components/SearchForm/index.js:219
 msgid "Search"
 msgstr "ค้นหา"
+
+#: src/amo/components/SearchForm/index.js:216
+msgid "Enter"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:73
+#, fuzzy
+msgid "Loading"
+msgstr "กำลังโหลด..."
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
@@ -724,9 +757,6 @@ msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ�
 
 #~ msgid "Browse by category"
 #~ msgstr "เรียกดูตามหมวดหมู่"
-
-#~ msgid "Loading..."
-#~ msgstr "กำลังโหลด..."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s จาก 5"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-22 21:33+0000\n"
+"POT-Creation-Date: 2017-08-29 19:04+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -12,43 +12,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/amo/components/Addon/index.js:127
+#, fuzzy
+msgid "Featured Extension"
+msgstr "Browse all extensions"
+
 #: src/amo/components/Addon/index.js:129
+#, fuzzy
+msgid "Featured Theme"
+msgstr "Browse all extensions"
+
+#: src/amo/components/Addon/index.js:131
+#, fuzzy
+msgid "Featured Add-on"
+msgstr "Firefox Add-ons"
+
+#: src/amo/components/Addon/index.js:148
 #, fuzzy
 msgid "Cancel preview"
 msgstr "Write a review"
 
-#: src/amo/components/Addon/index.js:129
+#: src/amo/components/Addon/index.js:148
 #, fuzzy
 msgid "Tap to preview"
 msgstr "Write a review"
 
-#: src/amo/components/Addon/index.js:170
+#: src/amo/components/Addon/index.js:189
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/Addon/index.js:186
+#: src/amo/components/Addon/index.js:205
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:195
+#: src/amo/components/Addon/index.js:214
 msgid "Rate your experience"
 msgstr "Rate your experience"
 
-#: src/amo/components/Addon/index.js:229
+#: src/amo/components/Addon/index.js:248
 msgid "About this %(addonType)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:280
+#: src/amo/components/Addon/index.js:299
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:344
+msgid "Restart Required"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:362
 msgid "Extension Metadata"
 msgstr "Extension Metadata"
 
-#: src/amo/components/Addon/index.js:343
+#: src/amo/components/Addon/index.js:381
 msgid "Screenshots"
 msgstr "Screenshots"
 
@@ -539,23 +558,37 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/SearchForm.js:57
+#: src/amo/components/SearchForm/index.js:153
+msgid "Go to the add-on page"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:163
 #, fuzzy
 msgid "Search extensions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/SearchForm.js:59
+#: src/amo/components/SearchForm/index.js:165
 #, fuzzy
 msgid "Search themes"
 msgstr "Searching..."
 
-#: src/amo/components/SearchForm.js:61
+#: src/amo/components/SearchForm/index.js:167
 msgid "Search extensions and themes"
 msgstr ""
 
-#: src/amo/components/SearchForm.js:76 src/amo/components/SearchForm.js:93
+#: src/amo/components/SearchForm/index.js:192
+#: src/amo/components/SearchForm/index.js:219
 #, fuzzy
 msgid "Search"
+msgstr "Searching..."
+
+#: src/amo/components/SearchForm/index.js:216
+msgid "Enter"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:73
+#, fuzzy
+msgid "Loading"
 msgstr "Searching..."
 
 #: src/amo/components/SearchResult/index.js:74
@@ -729,10 +762,6 @@ msgstr "No ratings"
 #: src/ui/components/ShowMoreCard/index.js:62
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Loading..."
-#~ msgstr "Searching..."
 
 #, fuzzy
 #~ msgid "%(averageRating)s out of 5"
