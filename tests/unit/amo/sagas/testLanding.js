@@ -2,6 +2,7 @@ import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api';
+import * as searchApi from 'core/api/search';
 import { getLanding, loadLanding } from 'amo/actions/landing';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import landingReducer from 'amo/reducers/landing';
@@ -23,11 +24,13 @@ describe('amo/sagas/landing', () => {
     let apiState;
     let errorHandler;
     let mockApi;
+    let mockSearchApi;
     let sagaTester;
 
     beforeEach(() => {
       errorHandler = createStubErrorHandler();
       mockApi = sinon.mock(api);
+      mockSearchApi = sinon.mock(searchApi);
 
       const { state } = dispatchSignInActions();
       apiState = state.api;
@@ -65,7 +68,7 @@ describe('amo/sagas/landing', () => {
       const highlyRated = createAddonsApiResult([{
         ...fakeAddon, slug: 'highly-rated-addon',
       }]);
-      mockApi
+      mockSearchApi
         .expects('search')
         .withArgs({
           ...baseArgs,
@@ -79,7 +82,7 @@ describe('amo/sagas/landing', () => {
       const popular = createAddonsApiResult([{
         ...fakeAddon, slug: 'popular-addon',
       }]);
-      mockApi
+      mockSearchApi
         .expects('search')
         .withArgs({
           ...baseArgs,

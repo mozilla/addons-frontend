@@ -8,7 +8,8 @@ import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { loadLanding } from 'amo/actions/landing';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
-import { featured as featuredApi, search as searchApi } from 'core/api';
+import { featured as featuredApi } from 'core/api';
+import { search as searchApi } from 'core/api/search';
 import {
   LANDING_GET, SEARCH_SORT_POPULAR, SEARCH_SORT_TOP_RATED,
 } from 'core/constants';

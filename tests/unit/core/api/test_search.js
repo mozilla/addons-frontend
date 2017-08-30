@@ -1,7 +1,7 @@
 /* global window */
 import config from 'config';
 
-import search from 'core/api/search';
+import { search } from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
