@@ -213,7 +213,6 @@ export class SearchFormBase extends React.Component {
           className="visually-hidden"
           onClick={this.handleSearch}
           ref={(ref) => { this.submitButton = ref; }}
-          title={i18n.gettext('Enter')}
           type="submit"
         >
           {i18n.gettext('Search')}
