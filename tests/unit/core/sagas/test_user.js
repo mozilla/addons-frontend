@@ -1,7 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import userSaga from 'core/sagas/user';
-import userReducer, { userProfileLoaded } from 'core/reducers/user';
+import userReducer, { loadUserProfile } from 'core/reducers/user';
 import * as api from 'core/api/user';
 import apiReducer from 'core/reducers/api';
 import { setAuthToken } from 'core/actions';
@@ -37,7 +37,7 @@ describe(__filename, () => {
 
     sagaTester.dispatch(setAuthToken(userAuthToken()));
 
-    const expectedCalledAction = userProfileLoaded({ profile });
+    const expectedCalledAction = loadUserProfile({ profile });
 
     await sagaTester.waitFor(expectedCalledAction.type);
     mockApi.verify();

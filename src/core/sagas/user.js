@@ -6,7 +6,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { SET_AUTH_TOKEN } from 'core/constants';
 import { getState } from 'core/sagas/utils';
-import { userProfileLoaded } from 'core/reducers/user';
+import { loadUserProfile } from 'core/reducers/user';
 import { userProfile as userProfileApi } from 'core/api/user';
 
 // This saga is not triggered by the UI but on the server side, hence do not
@@ -24,7 +24,7 @@ export function* fetchUserProfile({ payload }) {
     },
   });
 
-  yield put(userProfileLoaded({ profile: response }));
+  yield put(loadUserProfile({ profile: response }));
 }
 
 export default function* userSaga() {

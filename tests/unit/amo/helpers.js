@@ -9,7 +9,7 @@ import { addon as addonSchema } from 'core/api';
 import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
 import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
-import { userProfileLoaded } from 'core/reducers/user';
+import { loadUserProfile } from 'core/reducers/user';
 
 import {
   createStubErrorHandler,
@@ -116,7 +116,7 @@ export function dispatchSignInActions({
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
-  store.dispatch(userProfileLoaded({
+  store.dispatch(loadUserProfile({
     profile: createUserProfileResponse({ id: userId }),
   }));
 

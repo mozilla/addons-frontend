@@ -7,7 +7,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { setAuthToken } from 'core/actions';
-import { userProfileLoaded } from 'core/reducers/user';
+import { loadUserProfile } from 'core/reducers/user';
 import * as api from 'core/api';
 import {
   AuthenticateButtonBase,
@@ -125,7 +125,7 @@ describe('<AuthenticateButton />', () => {
 
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(false);
     store.dispatch(setAuthToken(userAuthToken()));
-    store.dispatch(userProfileLoaded({
+    store.dispatch(loadUserProfile({
       profile: createUserProfileResponse(),
     }));
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);

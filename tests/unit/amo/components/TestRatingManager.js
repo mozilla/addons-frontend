@@ -6,7 +6,7 @@ import {
 
 import translate from 'core/i18n/translate';
 import { setAuthToken } from 'core/actions';
-import { userProfileLoaded } from 'core/reducers/user';
+import { loadUserProfile } from 'core/reducers/user';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -391,7 +391,7 @@ describe('RatingManager', () => {
 
     function signIn({ userId = 98765 } = {}) {
       store.dispatch(setAuthToken(userAuthToken()));
-      store.dispatch(userProfileLoaded({
+      store.dispatch(loadUserProfile({
         profile: createUserProfileResponse({ id: userId }),
       }));
     }

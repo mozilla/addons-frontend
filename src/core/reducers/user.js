@@ -2,7 +2,7 @@
 import { LOG_OUT_USER } from 'core/constants';
 
 
-const USER_PROFILE_LOADED = 'USER_PROFILE_LOADED';
+const LOAD_USER_PROFILE = 'LOAD_USER_PROFILE';
 
 type Action = Object;
 export type UserStateType = {
@@ -15,13 +15,13 @@ export const initialState: UserStateType = {
   username: null,
 };
 
-export const userProfileLoaded = ({ profile }: Object) => {
+export const loadUserProfile = ({ profile }: Object) => {
   if (!profile) {
     throw new Error('The profile parameter is required.');
   }
 
   return {
-    type: USER_PROFILE_LOADED,
+    type: LOAD_USER_PROFILE,
     payload: { profile },
   };
 };
@@ -37,7 +37,7 @@ export default function reducer(
   const { payload } = action;
 
   switch (action.type) {
-    case USER_PROFILE_LOADED:
+    case LOAD_USER_PROFILE:
       return {
         ...state,
         id: payload.profile.id,

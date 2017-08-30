@@ -1,7 +1,7 @@
 import { logOutUser } from 'core/actions';
 import reducer, {
   isAuthenticated,
-  userProfileLoaded,
+  loadUserProfile,
 } from 'core/reducers/user';
 import { createUserProfileResponse } from 'tests/unit/helpers';
 import {
@@ -19,29 +19,29 @@ describe(__filename, () => {
     });
 
     it('ignores unrelated actions', () => {
-      const state = reducer(undefined, userProfileLoaded({
+      const state = reducer(undefined, loadUserProfile({
         profile: createUserProfileResponse({ id: 12345, username: 'john' }),
       }));
       const newState = reducer(state, { type: 'UNRELATED' });
       expect(newState).toEqual(state);
     });
 
-    it('handles USER_PROFILE_LOADED', () => {
-      const { id, username } = reducer(undefined, userProfileLoaded({
+    it('handles LOAD_USER_PROFILE', () => {
+      const { id, username } = reducer(undefined, loadUserProfile({
         profile: createUserProfileResponse({ id: 1234, username: 'user-test' }),
       }));
       expect(id).toEqual(1234);
       expect(username).toEqual('user-test');
     });
 
-    it('throws an error when no profile is passed to USER_PROFILE_LOADED', () => {
+    it('throws an error when no profile is passed to LOAD_USER_PROFILE', () => {
       expect(() => {
-        reducer(undefined, userProfileLoaded({}));
+        reducer(undefined, loadUserProfile({}));
       }).toThrowError('The profile parameter is required.');
     });
 
     it('handles LOG_OUT_USER', () => {
-      const state = reducer(undefined, userProfileLoaded({
+      const state = reducer(undefined, loadUserProfile({
         profile: createUserProfileResponse({ id: 12345, username: 'john' }),
       }));
       const { id, username } = reducer(state, logOutUser());
