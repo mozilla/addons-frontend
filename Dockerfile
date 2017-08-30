@@ -11,8 +11,7 @@ RUN buildDeps=' \
     # install deps
     apt-get update -y && \
     apt-get install -y --no-install-recommends $buildDeps && \
-	npm update -g npm@3 && \
-	npm install && npm cache clean && \
+    yarn install && \
     # cleanup
     # apt-get purge -y $buildDeps && \
     rm -rf /var/lib/apt/lists/*
@@ -31,4 +30,4 @@ RUN ln -s /srv/node/node_modules
 ENV SERVER_HOST 0.0.0.0
 ENV SERVER_PORT 4000
 
-CMD npm start
+CMD yarn start
