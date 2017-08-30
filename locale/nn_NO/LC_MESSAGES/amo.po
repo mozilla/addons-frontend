@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-29 19:04+0000\n"
-"PO-Revision-Date: 2017-08-30 15:31+0000\n"
+"PO-Revision-Date: 2017-08-30 15:35+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -23,9 +23,8 @@ msgid "Featured Theme"
 msgstr "Framheva tema"
 
 #: src/amo/components/Addon/index.js:131
-#, fuzzy
 msgid "Featured Add-on"
-msgstr "Firefox-utvidingar"
+msgstr "Framheva utviding"
 
 #: src/amo/components/Addon/index.js:148
 msgid "Cancel preview"
@@ -521,12 +520,11 @@ msgstr "Søk"
 
 #: src/amo/components/SearchForm/index.js:216
 msgid "Enter"
-msgstr ""
+msgstr "Enter"
 
 #: src/amo/components/SearchForm/index.js:73
-#, fuzzy
 msgid "Loading"
-msgstr "Lastar…"
+msgstr "Lastar"
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
