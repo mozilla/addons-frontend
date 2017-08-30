@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-29 19:04+0000\n"
-"PO-Revision-Date: 2017-08-30 04:31+0000\n"
+"PO-Revision-Date: 2017-08-30 04:32+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -23,9 +23,8 @@ msgid "Featured Theme"
 msgstr "おすすめのテーマ"
 
 #: src/amo/components/Addon/index.js:131
-#, fuzzy
 msgid "Featured Add-on"
-msgstr "Firefox Add-ons"
+msgstr "おすすめのアドオン"
 
 #: src/amo/components/Addon/index.js:148
 msgid "Cancel preview"
@@ -58,7 +57,7 @@ msgstr "%(addonName)s %(startSpan)s(作者: %(authorList)s)%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:344
 msgid "Restart Required"
-msgstr ""
+msgstr "要再起動"
 
 #: src/amo/components/Addon/index.js:362
 msgid "Extension Metadata"
@@ -492,7 +491,7 @@ msgstr[0] "%(count)s 個のアドオンが見つかりました"
 
 #: src/amo/components/SearchForm/index.js:153
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "アドオンのページへ"
 
 #: src/amo/components/SearchForm/index.js:163
 msgid "Search extensions"
@@ -512,12 +511,11 @@ msgstr "検索"
 
 #: src/amo/components/SearchForm/index.js:216
 msgid "Enter"
-msgstr ""
+msgstr "入力"
 
 #: src/amo/components/SearchForm/index.js:73
-#, fuzzy
 msgid "Loading"
-msgstr "読み込み中..."
+msgstr "読み込み中"
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
