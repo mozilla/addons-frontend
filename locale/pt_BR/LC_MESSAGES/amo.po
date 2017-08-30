@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-29 19:04+0000\n"
-"PO-Revision-Date: 2017-08-30 04:46+0000\n"
-"Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
+"PO-Revision-Date: 2017-08-30 20:55+0000\n"
+"Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -15,19 +15,16 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/Addon/index.js:127
-#, fuzzy
 msgid "Featured Extension"
-msgstr "Extensões em destaque"
+msgstr "Extensão em destaque"
 
 #: src/amo/components/Addon/index.js:129
-#, fuzzy
 msgid "Featured Theme"
-msgstr "Temas em destaque"
+msgstr "Tema em destaque"
 
 #: src/amo/components/Addon/index.js:131
-#, fuzzy
 msgid "Featured Add-on"
-msgstr "Extensões do Firefox"
+msgstr "Extensão em destaque"
 
 #: src/amo/components/Addon/index.js:148
 msgid "Cancel preview"
@@ -524,9 +521,8 @@ msgid "Enter"
 msgstr ""
 
 #: src/amo/components/SearchForm/index.js:73
-#, fuzzy
 msgid "Loading"
-msgstr "Carregando..."
+msgstr "Carregando"
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
