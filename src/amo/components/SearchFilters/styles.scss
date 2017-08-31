@@ -1,5 +1,6 @@
 @import "~photon-colors/colors";
 
+@import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
 .SearchFilters-label {
@@ -8,6 +9,9 @@
 }
 
 .SearchFilters-select {
+  @include padding-end(10px);
+  @include padding-start(5px);
+
   appearance: none;
   background: $grey-30 url("~ui/components/Icon/triangle-down-black.svg") no-repeat calc(100% - 10px) 50%;
   background-size: 12px;
@@ -16,6 +20,11 @@
   display: block;
   line-height: 1.2;
   margin: 0 0 5px;
-  padding: 10px 10px 10px 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   width: 100%;
+
+  [dir=rtl] & {
+    background-position: 10px 50%;
+  }
 }
