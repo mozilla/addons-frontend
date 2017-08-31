@@ -1,6 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import autocompleteReducer, {
+  autocompleteCancel,
   autocompleteStart,
   autocompleteLoad,
 } from 'core/reducers/autocomplete';
@@ -80,5 +81,66 @@ describe(__filename, () => {
     const errorAction = errorHandler.createErrorAction(error);
     await sagaTester.waitFor(errorAction.type);
     expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+  });
+
+  it('cancels the fetch saga when receiving AUTOCOMPLETE_CANCELLED', async () => {
+    mockApi
+      .expects('autocomplete')
+      .once()
+      // Add a delay to the API call so that it slows down the fetch saga,
+      // allowing the `autocompleteCancel()` to be handled. The delay does not
+      // really matter since cancellation is expected as soon as
+      // AUTOCOMPLETE_CANCELLED is fired.
+      .returns(new Promise((resolve) => setTimeout(resolve, 500)));
+
+    _autocompleteStart({ filters: {} });
+    sagaTester.dispatch(autocompleteCancel());
+
+    const expectedCancelAction = autocompleteCancel();
+
+    await sagaTester.waitFor(expectedCancelAction.type);
+    mockApi.verify();
+
+    const cancelAction = sagaTester.getCalledActions()[2];
+    expect(cancelAction).toEqual(expectedCancelAction);
+  });
+
+  it('can call the API for suggestions even after a cancellation', async () => {
+    const results = [createFakeAutocompleteResult()];
+    const filters = { query: 'test' };
+
+    const autocompleteApi = mockApi.expects('autocomplete').twice();
+
+    // This configures the API for the first autocomplete start.
+    autocompleteApi.onCall(0)
+      // Add a delay to the API call so that it slows down the fetch saga,
+      // allowing the `autocompleteCancel()` to be handled. The delay does not
+      // really matter since cancellation is expected as soon as
+      // AUTOCOMPLETE_CANCELLED is fired.
+      .returns(new Promise((resolve) => setTimeout(resolve, 500)));
+
+    // This configures the API for the second autocomplete start.
+    autocompleteApi.onCall(1).returns(Promise.resolve({ results }));
+
+    // We start autocompletion, but then cancel it.
+    _autocompleteStart({ filters });
+    sagaTester.dispatch(autocompleteCancel());
+
+    const expectedCancelAction = autocompleteCancel();
+    await sagaTester.waitFor(expectedCancelAction.type);
+    const cancelAction = sagaTester.getCalledActions()[2];
+    expect(cancelAction).toEqual(expectedCancelAction);
+
+    sagaTester.reset(true);
+
+    // We start autocompletion and let it finish.
+    _autocompleteStart({ filters });
+
+    const expectedLoadAction = autocompleteLoad({ results });
+    await sagaTester.waitFor(expectedLoadAction.type);
+    const loadAction = sagaTester.getCalledActions()[2];
+    expect(loadAction).toEqual(expectedLoadAction);
+
+    mockApi.verify();
   });
 });
