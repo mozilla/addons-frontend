@@ -42,7 +42,7 @@ export const DownloadFirefoxButtonBase = ({
 };
 
 type StateType = {|
-  userAgentInfo: UserAgentInfoType
+  api: { userAgentInfo: UserAgentInfoType },
 |};
 
 export function mapStateToProps(state: StateType) {
