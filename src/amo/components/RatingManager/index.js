@@ -115,7 +115,7 @@ export class RatingManagerBase extends React.Component {
     { addonType }: {| addonType: string |},
     {
       validAddonTypes = defaultValidAddonTypes,
-      }: {|
+    }: {|
       validAddonTypes: typeof defaultValidAddonTypes,
     |} = {}
   ) {

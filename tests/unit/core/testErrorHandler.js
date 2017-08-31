@@ -20,6 +20,7 @@ import ErrorList from 'ui/components/ErrorList';
 
 class SomeComponentBase extends React.Component {
   static propTypes = {
+    // eslint-disable-next-line react/no-unused-prop-types
     errorHandler: PropTypes.object,
   }
   render() {
