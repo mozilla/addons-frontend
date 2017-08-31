@@ -2,7 +2,7 @@
 
 $addon-icon-margin-end: 12px;
 
-.Suggestion {
+.SearchSuggestion {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -10,14 +10,14 @@ $addon-icon-margin-end: 12px;
   padding: 0;
 }
 
-.Suggestion-name {
+.SearchSuggestion-name {
   flex: 1;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.Suggestion-icon {
+.SearchSuggestion-icon {
   @include margin-end($addon-icon-margin-end);
 
   height: 16px;

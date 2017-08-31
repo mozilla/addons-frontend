@@ -2,7 +2,6 @@ import React from 'react';
 
 import DownloadFirefoxButton, {
   DownloadFirefoxButtonBase,
-  mapStateToProps,
 } from 'amo/components/DownloadFirefoxButton';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
@@ -13,11 +12,8 @@ import {
 
 
 describe(__filename, () => {
-  function render({
-    userAgent = userAgents.firefox[0],
-    ...props
-  } = {}) {
-    const { store } = dispatchClientMetadata({ userAgent });
+  function render(props = {}) {
+    const { store } = dispatchClientMetadata();
 
     return shallowUntilTarget(
       <DownloadFirefoxButton
@@ -30,39 +26,38 @@ describe(__filename, () => {
   }
 
   it('renders nothing if the browser is Firefox Desktop', () => {
-    const root = render();
+    const { store } = dispatchClientMetadata({
+      userAgent: userAgents.firefoxAndroid[0],
+    });
+    const root = render({ store });
 
     expect(root.find('.DownloadFirefoxButton')).toHaveLength(0);
   });
 
   it('renders nothing if the browser is Firefox for Android', () => {
-    const root = render({ userAgent: userAgents.firefoxAndroid[0] });
+    const { store } = dispatchClientMetadata({
+      userAgent: userAgents.firefoxAndroid[0],
+    });
+    const root = render({ store });
 
     expect(root.find('.DownloadFirefoxButton')).toHaveLength(0);
   });
 
   it('renders nothing if the browser is Firefox for iOS', () => {
-    const root = render({ userAgent: userAgents.firefoxIOS[0] });
+    const { store } = dispatchClientMetadata({
+      userAgent: userAgents.firefoxIOS[0],
+    });
+    const root = render({ store });
 
     expect(root.find('.DownloadFirefoxButton')).toHaveLength(0);
   });
 
   it('renders a DownloadFirefoxButton if the browser is not Firefox', () => {
-    const root = render({ userAgent: userAgents.chrome[0] });
+    const { store } = dispatchClientMetadata({
+      userAgent: userAgents.chrome[0],
+    });
+    const root = render({ store });
 
     expect(root).toHaveClassName('DownloadFirefoxButton');
-  });
-
-  describe('mapStateToProps', () => {
-    it('returns the userAgentInfo', () => {
-      const { store } = dispatchClientMetadata({
-        userAgent: userAgents.firefoxIOS[1],
-      });
-
-      expect(mapStateToProps(store.getState()).userAgentInfo).toMatchObject({
-        browser: { name: 'Firefox' },
-        os: { name: 'iOS' },
-      });
-    });
   });
 });

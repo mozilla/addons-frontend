@@ -6,8 +6,7 @@ import {
   SearchFormBase,
   mapStateToProps,
 } from 'amo/components/SearchForm';
-import Suggestion from 'amo/components/SearchForm/Suggestion';
-import LoadingText from 'ui/components/LoadingText';
+import Suggestion from 'amo/components/SearchSuggestion';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -15,6 +14,7 @@ import {
   ADDON_TYPE_THEME,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
+import LoadingText from 'ui/components/LoadingText';
 import {
   createFakeAutocompleteResult,
   dispatchAutocompleteResults,
@@ -147,8 +147,7 @@ describe(__filename, () => {
         wrapper.instance().autocomplete.input, 'blur');
 
       sinon.assert.notCalled(blurSpy);
-      wrapper.find('input').simulate(
-        'change', createFakeChangeEvent('something'));
+      wrapper.find('input').simulate('change', createFakeChangeEvent('something'));
       wrapper.find('form').simulate('submit');
       sinon.assert.called(blurSpy);
     });
@@ -166,8 +165,7 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate(
-        'change', createFakeChangeEvent('adblock'));
+      wrapper.find('input').simulate('change', createFakeChangeEvent('adblock'));
       wrapper.find('button').simulate('click');
       sinon.assert.called(router.push);
     });
@@ -178,8 +176,7 @@ describe(__filename, () => {
       });
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate(
-        'change', createFakeChangeEvent('& 26 %'));
+      wrapper.find('input').simulate('change', createFakeChangeEvent('& 26 %'));
       wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
@@ -191,8 +188,7 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate(
-        'change', createFakeChangeEvent('searching'));
+      wrapper.find('input').simulate('change', createFakeChangeEvent('searching'));
       wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
@@ -204,8 +200,7 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate(
-        'change', createFakeChangeEvent('& 26 %'));
+      wrapper.find('input').simulate('change', createFakeChangeEvent('& 26 %'));
       wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
@@ -228,8 +223,7 @@ describe(__filename, () => {
       wrapper.find('input').simulate('change', createFakeChangeEvent('foo'));
       expect(wrapper.state('searchValue')).toEqual('foo');
 
-      wrapper.find('input').simulate(
-        'change', createFakeChangeEvent(undefined));
+      wrapper.find('input').simulate('change', createFakeChangeEvent(undefined));
       expect(wrapper.state('searchValue')).toEqual('');
     });
 

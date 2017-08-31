@@ -4,7 +4,7 @@ import React from 'react';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 
-import './Suggestion.scss';
+import './styles.scss';
 
 
 type Props = {|
@@ -14,11 +14,11 @@ type Props = {|
   arrowAlt?: string,
 |};
 
-const Suggestion = ({ name, iconUrl, arrowAlt, loading }: Props) => {
+const SearchSuggestion = ({ name, iconUrl, arrowAlt, loading }: Props) => {
   return (
-    <p className="Suggestion">
-      <img alt={name} className="Suggestion-icon" src={iconUrl} />
-      <span className="Suggestion-name">
+    <p className="SearchSuggestion">
+      <img alt={name} className="SearchSuggestion-icon" src={iconUrl} />
+      <span className="SearchSuggestion-name">
         {loading ? <LoadingText minWidth={20} range={12} /> : name}
       </span>
       <Icon name="arrow-big-blue" alt={arrowAlt} />
@@ -26,4 +26,4 @@ const Suggestion = ({ name, iconUrl, arrowAlt, loading }: Props) => {
   );
 };
 
-export default Suggestion;
+export default SearchSuggestion;

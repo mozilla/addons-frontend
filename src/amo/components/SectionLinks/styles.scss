@@ -31,11 +31,6 @@
   &:active {
     border-bottom: 3px solid $white;
   }
-
-  // @include respond-to(large) {
-  //   @include margin-end(24px);
-  //   @include margin-end(0);
-  // }
 }
 
 .SectionLinks-link--active,

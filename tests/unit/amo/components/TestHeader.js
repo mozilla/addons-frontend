@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import Header, { HeaderBase, mapStateToProps } from 'amo/components/Header';
+import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
-import { VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME } from 'core/constants';
+import { VIEW_CONTEXT_HOME } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 
@@ -39,18 +39,5 @@ describe(__filename, () => {
     expect(root.find('.Header-title').type()).toEqual(Link);
     expect(root.find('.Header-title').prop('children'))
       .toContain('Firefox Add-ons');
-  });
-
-  describe('mapStateToProps', () => {
-    it('gets isHomePage from store', () => {
-      const { store } = dispatchClientMetadata();
-      store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
-
-      expect(mapStateToProps(store.getState())).toEqual({ isHomePage: false });
-
-      store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
-
-      expect(mapStateToProps(store.getState())).toEqual({ isHomePage: true });
-    });
   });
 });

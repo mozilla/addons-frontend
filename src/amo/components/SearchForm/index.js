@@ -8,7 +8,7 @@ import Autosuggest from 'react-autosuggest';
 import { withRouter } from 'react-router';
 import defaultDebounce from 'simple-debounce';
 
-import Suggestion from 'amo/components/SearchForm/Suggestion';
+import Suggestion from 'amo/components/SearchSuggestion';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,

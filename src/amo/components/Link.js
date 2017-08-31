@@ -21,8 +21,6 @@ export class LinkBase extends React.Component {
   }
 
   static defaultProps = {
-    // TODO: Make this default to `true` and force internal links to label
-    // themselves as not external?
     external: false,
     prependClientApp: true,
     prependLang: true,
