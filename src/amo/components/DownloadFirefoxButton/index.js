@@ -19,6 +19,7 @@ export const DownloadFirefoxButtonBase = ({
   className,
   i18n,
   userAgentInfo,
+// eslint-disable-next-line indent
 }: PropTypes = {}) => {
   if (userAgentInfo.browser.name === 'Firefox') {
     return null;
