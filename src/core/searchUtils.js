@@ -3,7 +3,9 @@ export const paramsToFilter = {
   appversion: 'compatibleWithVersion',
   category: 'category',
   page: 'page',
+  // TODO: Change our filter to `pageSize`, for consistency.
   page_size: 'page_size',
+  platform: 'operatingSystem',
   q: 'query',
   sort: 'sort',
   type: 'addonType',

@@ -44,6 +44,14 @@
   width: 112px;
 }
 
+.Icon-triangle-down {
+  @include icon($name: "triangle-down");
+}
+
+.Icon-triangle-down-black {
+  @include icon($name: "triangle-down-black");
+}
+
 .Icon-user {
   @include icon($name: "user");
 }

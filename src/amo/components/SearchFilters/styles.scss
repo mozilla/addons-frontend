@@ -1,0 +1,21 @@
+@import "~photon-colors/colors";
+
+@import "~ui/css/vars";
+
+.SearchFilters-label {
+  color: $grey-50;
+  display: block;
+}
+
+.SearchFilters-select {
+  appearance: none;
+  background: $grey-30 url("~ui/components/Icon/triangle-down-black.svg") no-repeat calc(100% - 10px) 50%;
+  background-size: 12px;
+  border: 0;
+  border-radius: $border-radius-s;
+  display: block;
+  line-height: 1.2;
+  margin: 0 0 5px;
+  padding: 10px 10px 10px 5px;
+  width: 100%;
+}
