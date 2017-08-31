@@ -22,8 +22,8 @@ import {
 import { withInstallHelpers } from 'core/installAddon';
 import {
   getClientCompatibility as _getClientCompatibility,
-  nl2br,
   sanitizeHTML,
+  sanitizeUserHTML,
 } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
@@ -37,22 +37,6 @@ import Badge from 'ui/components/Badge';
 
 import './styles.scss';
 
-
-export const allowedDescriptionTags = [
-  'a',
-  'abbr',
-  'acronym',
-  'b',
-  'blockquote',
-  'br',
-  'code',
-  'em',
-  'i',
-  'li',
-  'ol',
-  'strong',
-  'ul',
-];
 
 export class AddonBase extends React.Component {
   static propTypes = {
@@ -237,8 +221,7 @@ export class AddonBase extends React.Component {
       if (!description || !description.length) {
         return null;
       }
-      descriptionProps.dangerouslySetInnerHTML = sanitizeHTML(
-        nl2br(description), allowedDescriptionTags);
+      descriptionProps.dangerouslySetInnerHTML = sanitizeUserHTML(description);
     } else {
       descriptionProps.children = <LoadingText width={100} />;
     }
@@ -255,6 +238,32 @@ export class AddonBase extends React.Component {
         />
       </ShowMoreCard>
     );
+  }
+
+  renderVersionReleaseNotes() {
+    const { addon, i18n } = this.props;
+    if (!addon) {
+      return null;
+    }
+
+    const currentVersion = addon.current_version;
+    if (!currentVersion || !currentVersion.release_notes) {
+      return null;
+    }
+
+    const header = i18n.sprintf(
+      i18n.gettext('Release notes for %(addonVersion)s'),
+      { addonVersion: currentVersion.version }
+    );
+    const releaseNotes = sanitizeUserHTML(currentVersion.release_notes);
+
+    /* eslint-disable react/no-danger */
+    return (
+      <Card className="AddonDescription-version-notes" header={header}>
+        <p dangerouslySetInnerHTML={releaseNotes} />
+      </Card>
+    );
+    /* eslint-enable react/no-danger */
   }
 
   render() {
@@ -295,7 +304,7 @@ export class AddonBase extends React.Component {
       const authorList = addon.authors.map(
         (author) => `<a href="${author.url}">${author.name}</a>`);
       const title = i18n.sprintf(
-        // L10n: Example: The Add-On <span>by The Author</span>
+        // translators: Example: The Add-On <span>by The Author</span>
         i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
           addonName: addon.name,
           authorList: authorList.join(', '),
@@ -388,6 +397,7 @@ export class AddonBase extends React.Component {
           {this.renderRatingsCard()}
 
           {addon ? <AddonMoreInfo addon={addon} /> : null}
+          {this.renderVersionReleaseNotes()}
         </div>
       </div>
     );

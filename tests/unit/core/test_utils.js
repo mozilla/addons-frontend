@@ -49,6 +49,7 @@ import {
   render404IfConfigKeyIsFalse,
   safeAsyncConnect,
   safePromise,
+  sanitizeUserHTML,
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
@@ -1128,5 +1129,29 @@ describe('parsePage', () => {
 
   it('treats undefined as 1', () => {
     expect(parsePage(undefined)).toBe(1);
+  });
+});
+
+describe('sanitizeUserHTML', () => {
+  const sanitize = (...args) => sanitizeUserHTML(...args).__html;
+
+  it('converts new lines to breaks', () => {
+    expect(sanitize(`
+      first
+      second
+    `).trim()).toEqual('<br>      first<br>      second<br>');
+  });
+
+  it('allows some tags', () => {
+    const customHtml =
+      '<b>check</b> <i>out</i> <a href="http://mysite">my site</a>';
+    expect(sanitize(customHtml)).toMatch(new RegExp(
+      '<b>check</b> <i>out</i> <a href="http://mysite" .*>my site</a>'
+    ));
+  });
+
+  it('does not allow certain tags', () => {
+    expect(sanitize('<b>my add-on</b> <script>alert("does XSS")</script>'))
+      .toEqual('<b>my add-on</b> ');
   });
 });
