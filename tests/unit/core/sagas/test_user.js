@@ -47,10 +47,10 @@ describe(__filename, () => {
   });
 
   it('lets exceptions to be thrown', () => {
-    const error = new Error('some API error maybe');
+    const expectedError = new Error('some API error maybe');
     mockApi
       .expects('userProfile')
-      .returns(Promise.reject(error));
+      .returns(Promise.reject(expectedError));
 
     sagaTester.dispatch(setAuthToken(userAuthToken()));
 
@@ -58,9 +58,9 @@ describe(__filename, () => {
       .then(() => {
         throw new Error('unexpected success');
       })
-      .catch((expectedError) => {
+      .catch((error) => {
         mockApi.verify();
-        expect(expectedError).toBe(error);
+        expect(error).toBe(expectedError);
       });
   });
 });

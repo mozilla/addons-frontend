@@ -217,6 +217,16 @@ describe(__filename, () => {
       expect(user.id).toEqual(42);
       expect(user.username).toEqual('babar');
       mockUserApi.verify();
+
+      // Parse the HTML response to retrieve the serialized redux state.
+      // We do this here to make sure the sagas are actually run, because the
+      // API token is retrieved from the cookie on the server, therefore the
+      // user profile too.
+      const $ = cheerio.load(response.res.text);
+      const reduxStoreState = JSON.parse($('#redux-store-state').html());
+
+      expect(reduxStoreState.api).toEqual(api);
+      expect(reduxStoreState.user).toEqual(user);
     });
 
     it('it serializes the redux state in html', async () => {
@@ -229,17 +239,11 @@ describe(__filename, () => {
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      // We use `cloneDeep()` to allow modifications on the `config` object,
-      // since a call to `get()` makes it immutable. This is the case in the
-      // previous test cases (on `defaultConfig`).
-      const config = configUtil.cloneDeep(defaultConfig);
-      config.disableSSR = true;
 
       const client = testClient({
         store,
         sagaMiddleware,
         appSagas: userSaga,
-        config,
       });
 
       const response = await client

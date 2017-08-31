@@ -46,7 +46,7 @@ describe(__filename, () => {
       expect(mapStateToProps(store.getState())).toEqual({ authenticated: true });
     });
 
-    it('it sets authenticated to false', () => {
+    it('sets authenticated to false', () => {
       store.dispatch(logOutUser());
       expect(mapStateToProps(store.getState())).toEqual({ authenticated: false });
     });
