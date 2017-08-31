@@ -2715,7 +2715,7 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@4.5.0:
+eslint@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.5.0.tgz#bb75d3b8bde97fb5e13efcd539744677feb019c3"
   dependencies:
@@ -6209,7 +6209,7 @@ postcss@^6.0.2, postcss@^6.0.3, postcss@^6.0.6:
     source-map "^0.5.6"
     supports-color "^4.1.0"
 
-potools@0.1.0:
+potools@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/potools/-/potools-0.1.0.tgz#3d401107646c61235e00741444c9887b85979355"
   dependencies:
