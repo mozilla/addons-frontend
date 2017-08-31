@@ -1,14 +1,11 @@
-import deepEqual from 'deep-eql';
-
-import { search } from 'core/api';
-import { searchStart, searchLoad, searchFail } from 'core/actions/search';
-import { apiAddonType } from 'core/utils';
-
-
 export const paramsToFilter = {
   app: 'clientApp',
+  appversion: 'compatibleWithVersion',
   category: 'category',
+  page: 'page',
+  // TODO: Change our filter to `pageSize`, for consistency.
   page_size: 'page_size',
+  platform: 'operatingSystem',
   q: 'query',
   sort: 'sort',
   type: 'addonType',
@@ -38,89 +35,11 @@ export function convertQueryParamsToFilters(params) {
   }, {});
 }
 
-export function parsePage(page) {
-  const parsed = parseInt(page, 10);
-  return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
-}
-
-export function mapStateToProps(state, ownProps) {
-  const { location } = ownProps;
-
-  const filters = convertQueryParamsToFilters({
-    ...location.query,
-    clientApp: state.api.clientApp,
-  });
-
-  // We don't count ALL filters here (eg clientApp) because it's not enough
-  // to search on and it's in every request on AMO.
-  const hasSearchParams = Object.values(location.query).some((param) => (
-    param && param.length
-  ));
-
-  return { ...state.search, filters, hasSearchParams };
-}
-
-export function performSearch(
-  { api, auth = false, dispatch, filters, page, results }
-) {
-  if (!filters || !Object.values(filters).length) {
-    return Promise.resolve();
-  }
-
-  dispatch(searchStart({ filters, page, results }));
-  return search({ page, api, auth, filters })
-    .then((response) => dispatch(searchLoad({ page, filters, ...response })))
-    .catch(() => dispatch(searchFail({ page, filters })));
-}
-
-export function isLoaded({ page, state, filters }) {
-  return deepEqual(
-    { ...filters, page }, { ...state.filters, page: state.page }
-  ) && !state.loading;
-}
-
-export function loadSearchResultsIfNeeded(
-  { store: { dispatch, getState }, location }
-) {
-  const page = parsePage(location.query.page);
-  const state = getState();
-  const filters = convertQueryParamsToFilters({
-    ...location.query,
-    clientApp: state.api.clientApp,
-  });
-
-  if (!isLoaded({ filters, page, state: state.search })) {
-    return performSearch({
-      api: state.api,
-      auth: state.auth,
-      dispatch,
-      filters,
-      page,
-      results: state.search.results,
-    });
-  }
-  return true;
-}
-
-export function loadByCategoryIfNeeded(
-  { store: { dispatch, getState }, location, params }
-) {
-  const state = getState();
-  const filters = {
-    addonType: apiAddonType(params.visibleAddonType),
-    category: params.slug,
-    clientApp: params.application,
-  };
-  const page = parsePage(location.query.page);
-
-  if (!isLoaded({ state: state.search, page, filters })) {
-    return performSearch({
-      api: state.api,
-      auth: state.auth,
-      dispatch,
-      filters,
-      page,
-    });
-  }
-  return true;
+export function hasSearchFilters(filters) {
+  const filtersSubset = { ...filters };
+  delete filtersSubset.clientApp;
+  delete filtersSubset.lang;
+  delete filtersSubset.page;
+  delete filtersSubset.page_size;
+  return filtersSubset && !!Object.keys(filtersSubset).length;
 }

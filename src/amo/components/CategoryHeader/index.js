@@ -14,7 +14,7 @@ import './styles.scss';
 
 export class CategoryHeaderBase extends React.Component {
   static propTypes = {
-    category: PropTypes.object.isRequired,
+    category: PropTypes.object,
     i18n: PropTypes.object.isRequired,
   }
 

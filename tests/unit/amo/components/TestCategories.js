@@ -1,160 +1,237 @@
+import { shallow } from 'enzyme';
 import React from 'react';
-import { findDOMNode } from 'react-dom';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
-import { Provider } from 'react-redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import createStore from 'amo/store';
 import { CategoriesBase, mapStateToProps } from 'amo/components/Categories';
-import { setClientApp, setLang } from 'core/actions';
-import { categoriesLoad } from 'core/actions/categories';
-import { ADDON_TYPE_EXTENSION, CLIENT_APP_ANDROID } from 'core/constants';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
+import {
+  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, CLIENT_APP_ANDROID,
+} from 'core/constants';
+import Button from 'ui/components/Button';
+import LoadingText from 'ui/components/LoadingText';
+import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
+import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
+import ErrorList from 'ui/components/ErrorList';
 
 
-const categoriesResponse = {
-  result: [
-    {
-      application: 'android',
-      name: 'Games',
-      slug: 'Games',
-      type: ADDON_TYPE_EXTENSION,
-    },
-    {
-      application: 'android',
-      name: 'Travel',
-      slug: 'travel',
-      type: ADDON_TYPE_EXTENSION,
-    },
-  ],
-};
+describe('<Categories />', () => {
+  let store;
 
-describe('Categories', () => {
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
   function render({ ...props }) {
-    const { store } = createStore();
-    store.dispatch(setClientApp('android'));
-    store.dispatch(setLang('fr'));
-    store.dispatch(categoriesLoad(categoriesResponse));
+    const errorHandler = createStubErrorHandler();
 
-    const { categories } = store.getState().categories;
-    const baseProps = {
-      clientApp: store.getState().api.clientApp,
-      categories: categories[CLIENT_APP_ANDROID][ADDON_TYPE_EXTENSION],
-      dispatch: sinon.stub(),
-    };
-
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <CategoriesBase i18n={getFakeI18nInst()} {...baseProps} {...props} />
-      </Provider>
-    ), CategoriesBase);
+    return shallow(
+      <CategoriesBase
+        addonType={ADDON_TYPE_EXTENSION}
+        dispatch={store.dispatch}
+        errorHandler={errorHandler}
+        i18n={getFakeI18nInst()}
+        {...mapStateToProps(store.getState())}
+        {...props}
+      />
+    );
   }
 
-  function renderDomNode(props) {
-    return findDOMNode(render(props));
-  }
-
-  it('dispatches setViewContext with addonType', () => {
-    const fakeDispatch = sinon.stub();
-    const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
-      dispatch: fakeDispatch,
+  it('fetches categories if needed', () => {
+    const dispatch = sinon.stub();
+    const errorHandler = createStubErrorHandler();
+    render({
+      addonType: ADDON_TYPE_EXTENSION, dispatch, errorHandler,
     });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledWith(dispatch, categoriesFetch({
+      errorHandlerId: errorHandler.id,
+    }));
+  });
 
-    // Make sure that we update the addonType when `componentDidUpdate()`
-    // is called. This will happen when changing from one route that uses
-    // this component to another–the props will be updated so
-    // `componentDidUpdate()` is called without the component being
-    // mounted again.
-    // TODO: This feels naughty; can it be done better?
-    root.componentDidUpdate();
-    sinon.assert.calledTwice(fakeDispatch);
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+  it('does not fetch categories if already loading them', () => {
+    store.dispatch(categoriesFetch({
+      errorHandlerId: createStubErrorHandler().id,
+    }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
+  });
+
+  it('does not fetch categories if already loaded', () => {
+    store.dispatch(categoriesLoad({ result: [fakeCategory] }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
+  });
+
+  it('does not fetch categories if an empty set was loaded', () => {
+    store.dispatch(categoriesLoad({ result: [] }));
+    const dispatch = sinon.stub();
+    render({ addonType: ADDON_TYPE_EXTENSION, dispatch });
+
+    // Make sure only the viewContext was dispatched, not a fetch action.
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledOnce(dispatch);
+  });
+
+  it('changes viewContext if addonType changes', () => {
+    const dispatch = sinon.stub();
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      dispatch,
+    });
+
+    root.setProps({ addonType: ADDON_TYPE_THEME });
+
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_THEME));
+  });
+
+  it('does not dispatch setViewContext if addonType does not change', () => {
+    const dispatch = sinon.stub();
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      dispatch,
+    });
+
+    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledTwice(dispatch);
+
+    dispatch.reset();
+    root.setProps();
+
+    // Dispatch should not be called again because no new props were set.
+    sinon.assert.notCalled(dispatch);
   });
 
   it('renders Categories', () => {
-    const root = renderDomNode({
-      addonType: ADDON_TYPE_EXTENSION,
-      error: false,
-      loading: false,
-    });
+    const root = render({ addonType: ADDON_TYPE_EXTENSION });
 
-    expect(
-      root.querySelector('.Categories-list').textContent
-    ).toEqual('GamesTravel');
+    expect(root).toHaveClassName('Categories');
   });
 
-  it('renders loading when loading', () => {
-    const root = renderDomNode({
+  it('renders loading text when loading', () => {
+    const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      categories: [],
-      error: false,
       loading: true,
     });
 
-    expect(root.textContent).toContain('Loading');
+    expect(root.find('.Categories-loading-info'))
+      .toIncludeText('Loading categories.');
   });
 
-  it('renders a message when there are no categories', () => {
-    const root = renderDomNode({
+  it('renders LoadingText components when loading', () => {
+    const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      categories: [],
-      error: false,
-      loading: false,
+      loading: true,
     });
 
-    expect(root.textContent).toEqual('No categories found.');
+    expect(root.find('.Categories-loading-text').find(LoadingText))
+      .toHaveLength(8);
   });
 
-  it('renders an error', () => {
-    const root = renderDomNode({
-      addonType: ADDON_TYPE_EXTENSION,
-      categories: [],
-      error: true,
-      loading: false,
-    });
-
-    expect(root.textContent).toEqual('Failed to load categories.');
-  });
-});
-
-describe('mapStateToProps', () => {
-  it('maps state to props', () => {
-    const { store } = createStore();
-    store.dispatch(setClientApp('android'));
-    store.dispatch(setLang('fr'));
-    store.dispatch(categoriesLoad(categoriesResponse));
-
-    const props = mapStateToProps(store.getState(), {
-      params: { visibleAddonType: 'extensions' },
-    });
-
-    expect(props).toEqual({
-      addonType: ADDON_TYPE_EXTENSION,
-      categories: {
-        Games: {
-          application: 'android',
+  it('renders categories if they exist', () => {
+    const categoriesResponse = {
+      result: [
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Games',
           slug: 'Games',
           type: ADDON_TYPE_EXTENSION,
         },
-        travel: {
-          application: 'android',
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          name: 'Travel',
+          slug: 'Travel',
+          type: ADDON_TYPE_EXTENSION,
+        },
+      ],
+    };
+
+    store.dispatch(categoriesLoad(categoriesResponse));
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+    });
+
+    expect(root.find('.Categories-list').childAt(0).find(Button))
+      .toHaveProp('children', 'Games');
+    expect(root.find('.Categories-list').childAt(1).find(Button))
+      .toHaveProp('children', 'Travel');
+  });
+
+  it('sorts and renders the sorted categories', () => {
+    const categoriesResponse = {
+      result: [
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Travel',
           slug: 'travel',
           type: ADDON_TYPE_EXTENSION,
         },
-      },
-      clientApp: 'android',
-      error: false,
-      loading: false,
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          name: 'Music',
+          slug: 'music',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          name: 'Nature',
+          slug: 'nature',
+          type: ADDON_TYPE_EXTENSION,
+        },
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
+          name: 'Games',
+          slug: 'Games',
+          type: ADDON_TYPE_EXTENSION,
+        },
+      ],
+    };
+
+    store.dispatch(categoriesLoad(categoriesResponse));
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
     });
+
+    expect(root.find('.Categories-list').childAt(0).find(Button))
+      .toHaveProp('children', 'Games');
+    expect(root.find('.Categories-list').childAt(1).find(Button))
+      .toHaveProp('children', 'Music');
+    expect(root.find('.Categories-list').childAt(2).find(Button))
+      .toHaveProp('children', 'Nature');
+    expect(root.find('.Categories-list').childAt(3).find(Button))
+      .toHaveProp('children', 'Travel');
+  });
+
+  it('renders a no categories found message', () => {
+    const categoriesResponse = { result: [] };
+    store.dispatch(categoriesLoad(categoriesResponse));
+    const root = render();
+
+    expect(root.find('.Categories-none-loaded-message'))
+      .toIncludeText('No categories found.');
+  });
+
+  it('reports errors', () => {
+    const errorHandler = createStubErrorHandler(
+      new Error('example of an error')
+    );
+    const root = render({ errorHandler });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 });

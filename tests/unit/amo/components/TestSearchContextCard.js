@@ -1,9 +1,7 @@
-import { shallow } from 'enzyme';
 import React from 'react';
 
-import {
+import SearchContextCard, {
   SearchContextCardBase,
-  mapStateToProps,
 } from 'amo/components/SearchContextCard';
 import { searchStart } from 'core/actions/search';
 import {
@@ -11,42 +9,52 @@ import {
   dispatchSearchResults,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe('SearchContextCard', () => {
-  function render(props) {
-    const store = props.store || dispatchClientMetadata().store;
+  let _store;
 
-    return shallow(
-      <SearchContextCardBase
-        {...mapStateToProps(store.getState())}
+  function render(customProps = {}) {
+    const props = {
+      store: _store,
+      ...customProps,
+    };
+
+    return shallowUntilTarget(
+      <SearchContextCard
         i18n={getFakeI18nInst()}
         {...props}
-      />
+      />,
+      SearchContextCardBase
     );
   }
 
+  function _searchStart(props = {}) {
+    _store.dispatch(searchStart({ errorHandlerId: 'Search', ...props }));
+  }
+
+  beforeEach(() => {
+    _store = dispatchClientMetadata().store;
+  });
+
   it('should render a card', () => {
-    const { store } = dispatchClientMetadata();
-    const root = render({ store });
+    const root = render();
 
     expect(root).toHaveClassName('SearchContextCard');
   });
 
   it('should render "searching" while loading without query', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchStart({ filters: {} }));
-    const root = render({ store });
+    _searchStart({ filters: {} });
+    const root = render();
 
     expect(root.find('.SearchContextCard-header'))
       .toIncludeText('Loading add-ons');
   });
 
   it('should render during a search that is loading', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(searchStart({ filters: { query: 'test' } }));
-    const root = render({ store });
+    _searchStart({ filters: { query: 'test' } });
+    const root = render();
 
     expect(root.find('.SearchContextCard-header'))
       .toIncludeText('Searching for "test"');

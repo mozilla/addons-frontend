@@ -51,8 +51,8 @@
 .Home-category-list {
   display: flex;
   flex-flow: row wrap;
-  overflow: auto;
   margin-bottom: 0;
+  overflow: auto;
   padding: 0;
   width: 100%;
 
@@ -63,9 +63,9 @@
 
 .Home-category-li {
   background-color: $base-color;
-  background-size: 50% auto;
   background-position: 50% 35%;
   background-repeat: no-repeat;
+  background-size: 50% auto;
   border-radius: 6px;
   display: block;
   flex-grow: 1;
@@ -78,10 +78,10 @@
   width: 25%;
 
   a:link {
-    font-size: 10px;
-    text-decoration: none;
-    padding-top: 70%;
     display: block;
+    font-size: 10px;
+    padding-top: 70%;
+    text-decoration: none;
   }
 
   a:hover,
@@ -127,69 +127,69 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     display: inline-block;
-    width: 16px;
     height: 16px;
     margin: 0 5px;
+    width: 16px;
   }
 }
 
 .Home-extensions-link:link::before {
-  background: url('~amo/img/icons/addon-outline.svg') no-repeat 50% 50%;
+  background: url("~amo/img/icons/addon-outline.svg") no-repeat 50% 50%;
   background-size: cover;
 }
 
 .Home-themes-link:link::before {
-  background: url('~amo/img/icons/theme-outline.svg') no-repeat 50% 50%;
+  background: url("~amo/img/icons/theme-outline.svg") no-repeat 50% 50%;
   background-size: cover;
 }
 
 .Home-block-ads {
-  background-image: url('~amo/img/home/block-ads.svg');
+  background-image: url("~amo/img/home/block-ads.svg");
 }
 
 .Home-screenshot {
-  background-image: url('~amo/img/home/screenshot.svg');
+  background-image: url("~amo/img/home/screenshot.svg");
 }
 
 .Home-find-news {
-  background-image: url('~amo/img/home/find-news.svg');
+  background-image: url("~amo/img/home/find-news.svg");
   background-size: 40% auto;
 }
 
 .Home-shop-online {
-  background-image: url('~amo/img/home/shop-online.svg');
+  background-image: url("~amo/img/home/shop-online.svg");
 }
 
 .Home-be-social {
-  background-image: url('~amo/img/home/be-social.svg');
+  background-image: url("~amo/img/home/be-social.svg");
 }
 
 .Home-play-games {
-  background-image: url('~amo/img/home/play-games.svg');
+  background-image: url("~amo/img/home/play-games.svg");
 }
 
 .Home-wild {
-  background-image: url('~amo/img/home/wild.svg');
+  background-image: url("~amo/img/home/wild.svg");
 }
 
 .Home-abstract {
-  background-image: url('~amo/img/home/abstract.svg');
+  background-image: url("~amo/img/home/abstract.svg");
 }
 
 .Home-holiday {
-  background-image: url('~amo/img/home/holiday.svg');
+  background-image: url("~amo/img/home/holiday.svg");
 }
 
 .Home-scenic {
-  background-image: url('~amo/img/home/scenic.svg');
+  background-image: url("~amo/img/home/scenic.svg");
 }
 
 .Home-sporty {
-  background-image: url('~amo/img/home/sporty.svg');
+  background-image: url("~amo/img/home/sporty.svg");
 }
 
 .Home-solid {
-  background-image: url('~amo/img/home/solid.svg');
+  background-image: url("~amo/img/home/solid.svg");
 }

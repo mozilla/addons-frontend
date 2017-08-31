@@ -1,20 +1,10 @@
 import { getLanding } from 'amo/actions/landing';
-import landing from 'amo/reducers/landing';
+import landing, { initialState } from 'amo/reducers/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
 describe('landing reducer', () => {
-  let initialData;
-
-  beforeAll(() => {
-    initialData = {
-      featured: { count: 0, results: [] },
-      highlyRated: { count: 0, results: [] },
-      loading: true,
-      popular: { count: 0, results: [] },
-    };
-  });
-
   it('defaults to not loading', () => {
     const { loading } = landing(undefined, { type: 'unrelated' });
 
@@ -42,21 +32,51 @@ describe('landing reducer', () => {
 
   describe('LANDING_GET', () => {
     it('sets the initialState', () => {
-      const initialState = {
-        featured: { foo: 'bar' },
-        highlyRated: { count: 0 },
-        loading: false,
-        popular: { results: [] },
-      };
       const {
         addonType, featured, highlyRated, loading, popular,
-      } = landing(initialState, getLanding({ addonType: ADDON_TYPE_THEME }));
+      } = landing(initialState, getLanding({
+        addonType: ADDON_TYPE_THEME,
+        errorHandlerId: 'some-error-handler',
+      }));
 
       expect(addonType).toEqual(ADDON_TYPE_THEME);
       expect(loading).toEqual(true);
-      expect(featured).toEqual({ foo: 'bar' });
-      expect(highlyRated).toEqual({ count: 0 });
-      expect(popular).toEqual({ results: [] });
+      expect(featured).toEqual(initialState.featured);
+      expect(highlyRated).toEqual(initialState.highlyRated);
+      expect(popular).toEqual(initialState.popular);
+    });
+
+    it('sets resultsLoaded to false', () => {
+      const state = landing({ ...initialState, resultsLoaded: true }, getLanding({
+        addonType: ADDON_TYPE_THEME,
+        errorHandlerId: 'some-error-handler',
+      }));
+
+      expect(state.resultsLoaded).toEqual(false);
+    });
+
+    it('resets each set of add-ons', () => {
+      const entities = {
+        addons: {
+          bar: { ...fakeAddon, slug: 'bar' },
+          foo: { ...fakeAddon, slug: 'foo' },
+          food: { ...fakeAddon, slug: 'food' },
+        },
+      };
+      const state = landing({
+        ...initialState,
+        featured: {
+          entities,
+          result: { count: 2, results: ['foo', 'food'] },
+        },
+      }, getLanding({
+        addonType: ADDON_TYPE_THEME,
+        errorHandlerId: 'some-error-handler',
+      }));
+
+      expect(state.featured).toEqual(initialState.featured);
+      expect(state.highlyRated).toEqual(initialState.highlyRated);
+      expect(state.popular).toEqual(initialState.popular);
     });
   });
 
@@ -69,7 +89,7 @@ describe('landing reducer', () => {
           food: { slug: 'food' },
         },
       };
-      const { featured, highlyRated, popular } = landing(initialData, {
+      const state = landing(initialState, {
         type: 'LANDING_LOADED',
         payload: {
           addonType: ADDON_TYPE_THEME,
@@ -81,10 +101,12 @@ describe('landing reducer', () => {
           popular: { entities, result: { count: 0, results: [] } },
         },
       });
-      expect(featured.count).toEqual(2);
-      expect(featured.results).toEqual([{ slug: 'foo' }, { slug: 'food' }]);
-      expect(highlyRated).toEqual({ count: 0, results: [] });
-      expect(popular).toEqual({ count: 0, results: [] });
+      expect(state.featured.count).toEqual(2);
+      expect(state.featured.results)
+        .toEqual([{ slug: 'foo' }, { slug: 'food' }]);
+      expect(state.highlyRated).toEqual({ count: 0, results: [] });
+      expect(state.popular).toEqual({ count: 0, results: [] });
+      expect(state.resultsLoaded).toEqual(true);
     });
 
     it('does not set null keys', () => {
@@ -96,7 +118,7 @@ describe('landing reducer', () => {
         },
       };
       const { highlyRated } = landing({
-        ...initialData,
+        ...initialState,
         highlyRated: 'hello',
       }, {
         type: 'LANDING_LOADED',
@@ -110,22 +132,6 @@ describe('landing reducer', () => {
         },
       });
       expect(highlyRated).toEqual('hello');
-    });
-  });
-
-  describe('LANDING_FAILED', () => {
-    it('sets loading to false on failure', () => {
-      const initialState = landing(initialData, { type: 'LANDING_GET', payload: { addonType: ADDON_TYPE_THEME } });
-      const state = landing(initialState,
-        { type: 'LANDING_FAILED', payload: { page: 2, addonType: ADDON_TYPE_THEME } });
-
-      expect(state).toEqual({
-        addonType: ADDON_TYPE_THEME,
-        featured: { count: 0, results: [] },
-        highlyRated: { count: 0, results: [] },
-        loading: false,
-        popular: { count: 0, results: [] },
-      });
     });
   });
 });

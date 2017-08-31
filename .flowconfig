@@ -7,7 +7,7 @@
 .*/node_modules/enzyme-matchers/.*
 .*/node_modules/jest-enzyme/.*
 .*/node_modules/eslint-plugin-jsx-a11y/.*
-.*/node_modules/react-nested-status
+.*/node_modules/react-nested-status/node_modules/.*
 .*/node_modules/stylelint
 
 [include]

@@ -36,7 +36,7 @@
         margin-bottom: 0;
       }
 
-      .SearchResult-link {
+      .SearchResult-result {
         display: grid;
         grid-column-gap: 8px;
         grid-template-columns: 32px auto;
@@ -52,10 +52,6 @@
         grid-row: 1 / 2;
         margin: 0;
         width: auto;
-      }
-
-      .SearchResult-name {
-        font-size: $font-size-s;
       }
 
       .SearchResult-metadata,
@@ -76,12 +72,12 @@
         padding: 10px 0;
 
         // stylelint-disable max-nesting-depth
-        .SearchResult-link {
+        .SearchResult-result {
           display: block;
         }
 
         .SearchResult-icon-wrapper {
-          margin: 0;
+          margin: 0 0 5px;
         }
         // stylelint-enable max-nesting-depth
       }

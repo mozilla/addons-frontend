@@ -26,12 +26,13 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
-import { fetchAddon as fetchAddonAction } from 'core/actions/addons';
+import { fetchAddon as fetchAddonAction } from 'core/reducers/addons';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_THEME,
+  ADDON_TYPE_OPENSEARCH,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALLED,
@@ -40,14 +41,16 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
+import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
-  dispatchSignInActions, fakeAddon, signedInApiState,
-} from 'tests/unit/amo/helpers';
-import {
-  createFetchAddonResult, getFakeI18nInst, sampleUserAgentParsed,
+  createFetchAddonResult,
+  createStubErrorHandler,
+  getFakeI18nInst,
+  sampleUserAgentParsed,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
+import Badge from 'ui/components/Badge';
 
 
 function renderProps({
@@ -62,10 +65,7 @@ function renderProps({
     addon,
     ...addonProps,
     dispatch: sinon.stub(),
-    errorHandler: new ErrorHandler({
-      id: 'some-id',
-      dispatch: sinon.stub(),
-    }),
+    errorHandler: createStubErrorHandler(),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
@@ -74,7 +74,7 @@ function renderProps({
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
-    store: createStore({ api: signedInApiState }).store,
+    store: dispatchSignInActions().store,
     ...customProps,
   };
 }
@@ -166,10 +166,7 @@ describe('Addon', () => {
   });
 
   it('renders without an add-on', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'no-addon-error-handler',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler();
     const slugParam = 'some-addon'; // as passed through the URL.
     const fakeDispatch = sinon.stub();
 
@@ -203,12 +200,34 @@ describe('Addon', () => {
     expect(root.find(AddonMeta).prop('addon')).toEqual(null);
   });
 
+  it('does not dispatch fetchAddon action when slug is the same', () => {
+    const fakeDispatch = sinon.stub();
+    const errorHandler = createStubErrorHandler();
+    const addon = fakeAddon;
+    const root = shallowRender({ addon, errorHandler, dispatch: fakeDispatch });
+
+    fakeDispatch.reset();
+    // Update with the same slug.
+    root.setProps({ params: { slug: addon.slug } });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('dispatches fetchAddon action when updating with a new slug', () => {
+    const fakeDispatch = sinon.stub();
+    const errorHandler = createStubErrorHandler();
+    const root = shallowRender({ errorHandler, dispatch: fakeDispatch });
+    const slug = 'some-new-slug';
+
+    fakeDispatch.reset();
+    // Update with a new slug.
+    root.setProps({ params: { slug } });
+
+    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({ errorHandler, slug }));
+  });
+
   it('renders an error if there is one', () => {
-    const errorHandler = new ErrorHandler({
-      capturedError: new Error('some error'),
-      id: 'some-handler',
-      dispatch: sinon.stub(),
-    });
+    const errorHandler = createStubErrorHandler(new Error('some error'));
 
     const root = shallowRender({ errorHandler });
     expect(root.find(ErrorList)).toHaveLength(1);
@@ -753,5 +772,57 @@ describe('mapStateToProps', () => {
     const { addon } = _mapStateToProps();
 
     expect(addon).toEqual(undefined);
+  });
+
+  it('displays a badge when the addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
+  });
+
+  it('adds a different badge label when a "theme" addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_THEME };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
+  });
+
+  it('adds a different badge label when an addon of a different type is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Add-on');
+  });
+
+  it('does not display the featured badge when addon is not featured', () => {
+    const addon = { ...fakeAddon, is_featured: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('displays a badge when the addon needs restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'restart-required');
+    expect(root.find(Badge)).toHaveProp('label', 'Restart Required');
+  });
+
+  it('does not display the "restart required" badge when addon does not need restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('does not display the "restart required" badge when isRestartRequired is not true', () => {
+    const root = shallowRender({ addon: fakeAddon });
+
+    expect(root.find(Badge)).toHaveLength(0);
   });
 });

@@ -12,13 +12,15 @@ import {
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
 import { loadEntities } from 'core/actions';
-import { fetchAddon } from 'core/actions/addons';
-import { ErrorHandler } from 'core/errorHandler';
-import { denormalizeAddon } from 'core/reducers/addons';
+import { denormalizeAddon, fetchAddon } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
-import { createFetchAddonResult, getFakeI18nInst } from 'tests/unit/helpers';
+import {
+  createFetchAddonResult,
+  createStubErrorHandler,
+  getFakeI18nInst,
+} from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
 function getLoadedReviews({
@@ -34,10 +36,7 @@ describe('amo/components/AddonReviewList', () => {
     function render({
       addon = fakeAddon,
       dispatch = sinon.stub(),
-      errorHandler = new ErrorHandler({
-        id: 'some-error-handler',
-        dispatch: sinon.stub(),
-      }),
+      errorHandler = createStubErrorHandler(),
       params = {
         addonSlug: fakeAddon.slug,
       },
@@ -92,10 +91,7 @@ describe('amo/components/AddonReviewList', () => {
     it('fetches an addon if needed', () => {
       const addonSlug = 'some-addon-slug';
       const dispatch = sinon.stub();
-      const errorHandler = new ErrorHandler({
-        id: 'fetch-error-handler',
-        dispatch: sinon.stub(),
-      });
+      const errorHandler = createStubErrorHandler();
 
       render({
         addon: null, errorHandler, params: { addonSlug }, dispatch,
@@ -109,10 +105,7 @@ describe('amo/components/AddonReviewList', () => {
     it('fetches reviews if needed', () => {
       const addon = { ...fakeAddon, slug: 'some-other-slug' };
       const dispatch = sinon.stub();
-      const errorHandler = new ErrorHandler({
-        id: 'fetch-reviews-error-handler',
-        dispatch: sinon.stub(),
-      });
+      const errorHandler = createStubErrorHandler();
 
       render({
         addon,
@@ -131,10 +124,7 @@ describe('amo/components/AddonReviewList', () => {
     it('fetches reviews if needed during an update', () => {
       const addon = { ...fakeAddon, slug: 'some-other-slug' };
       const dispatch = sinon.stub();
-      const errorHandler = new ErrorHandler({
-        id: 'fetch-reviews-error-handler',
-        dispatch: sinon.stub(),
-      });
+      const errorHandler = createStubErrorHandler();
 
       const root = render({
         addon: null,
@@ -155,10 +145,7 @@ describe('amo/components/AddonReviewList', () => {
 
     it('fetches reviews by page', () => {
       const dispatch = sinon.stub();
-      const errorHandler = new ErrorHandler({
-        id: 'fetch-reviews-error-handler',
-        dispatch: sinon.stub(),
-      });
+      const errorHandler = createStubErrorHandler();
       const addonSlug = fakeAddon.slug;
       const page = 2;
 
@@ -179,10 +166,7 @@ describe('amo/components/AddonReviewList', () => {
 
     it('fetches reviews when the page changes', () => {
       const dispatch = sinon.stub();
-      const errorHandler = new ErrorHandler({
-        id: 'fetch-reviews-error-handler',
-        dispatch: sinon.stub(),
-      });
+      const errorHandler = createStubErrorHandler();
       const addonSlug = fakeAddon.slug;
 
       const root = render({
@@ -204,11 +188,7 @@ describe('amo/components/AddonReviewList', () => {
     it('does not fetch an addon if there is an error', () => {
       const addon = { ...fakeAddon, slug: 'some-other-slug' };
       const dispatch = sinon.stub();
-      const errorHandler = new ErrorHandler({
-        capturedError: new Error('some error'),
-        id: 'fetch-addon-error-handler',
-        dispatch: sinon.stub(),
-      });
+      const errorHandler = createStubErrorHandler(new Error('some error'));
 
       render({
         addon: null,
@@ -222,11 +202,7 @@ describe('amo/components/AddonReviewList', () => {
 
     it('does not fetch reviews if there is an error', () => {
       const dispatch = sinon.stub();
-      const errorHandler = new ErrorHandler({
-        capturedError: new Error('some error'),
-        id: 'fetch-reviews-error-handler',
-        dispatch: sinon.stub(),
-      });
+      const errorHandler = createStubErrorHandler(new Error('some error'));
 
       render({
         reviews: null,
@@ -246,11 +222,7 @@ describe('amo/components/AddonReviewList', () => {
     });
 
     it('renders an error', () => {
-      const errorHandler = new ErrorHandler({
-        capturedError: new Error('some error'),
-        id: 'custom-error-handler',
-        dispatch: sinon.stub(),
-      });
+      const errorHandler = createStubErrorHandler(new Error('some error'));
 
       const root = render({ errorHandler });
       expect(root.find(ErrorList)).toHaveLength(1);
@@ -374,7 +346,11 @@ describe('amo/components/AddonReviewList', () => {
     it('loads addon from state', () => {
       store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps();
-      expect(props.addon).toEqual(denormalizeAddon(fakeAddon));
+      expect(props.addon).toEqual(denormalizeAddon({
+        ...fakeAddon,
+        installURL: '',
+        isRestartRequired: false,
+      }));
     });
 
     it('ignores other add-ons', () => {

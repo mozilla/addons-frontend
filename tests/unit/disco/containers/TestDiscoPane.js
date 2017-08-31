@@ -1,158 +1,176 @@
+import { mount, shallow } from 'enzyme';
 import config from 'config';
 import React from 'react';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
+import { Provider } from 'react-redux';
 
-import { loadEntities } from 'core/actions';
 import {
-  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   GLOBAL_EVENTS,
   INSTALL_STATE,
 } from 'core/constants';
-import * as InfoDialog from 'core/containers/InfoDialog';
-import { discoResults } from 'disco/actions';
-import * as discoApi from 'disco/api';
+import { ErrorHandler } from 'core/errorHandler';
+import I18nProvider from 'core/i18n/Provider';
+import { getDiscoResults } from 'disco/actions';
 import createStore from 'disco/store';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
 } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
-import { getFakeI18nInst, MockedSubComponent } from 'tests/unit/helpers';
-
+import {
+  createFakeEvent,
+  createStubErrorHandler,
+  getFakeI18nInst,
+  MockedSubComponent,
+} from 'tests/unit/helpers';
+import {
+  fakeDiscoAddon,
+  loadDiscoResultsIntoState,
+} from 'tests/unit/disco/helpers';
+import ErrorList from 'ui/components/ErrorList';
 
 // Use DiscoPane that isn't wrapped in asyncConnect.
 const { DiscoPaneBase } = helpers;
 
 
 describe('AddonPage', () => {
+  let fakeEvent;
   let fakeVideo;
   let fakeTracking;
 
   beforeEach(() => {
+    fakeEvent = createFakeEvent();
     fakeTracking = { sendEvent: sinon.stub() };
     fakeVideo = { play: sinon.stub(), pause: sinon.stub() };
   });
 
-  function render(props) {
-    // Stub InfoDialog since it uses the store and is irrelevant.
-    sinon.stub(InfoDialog, 'default', () => <p>InfoDialog</p>);
-    const { store } = createStore({
-      addons: { foo: { type: ADDON_TYPE_EXTENSION } },
-      discoResults: [{ addon: 'foo' }],
-    });
-    const results = [{ addon: 'foo', type: ADDON_TYPE_EXTENSION }];
+  function renderProps(customProps = {}) {
     const i18n = getFakeI18nInst();
 
-    // We need providers because InstallButton will pull data from the store.
-    return findDOMNode(renderIntoDocument(
-      <DiscoPaneBase
-        AddonComponent={MockedSubComponent}
-        i18n={i18n}
-        results={results}
-        store={store}
-        _tracking={fakeTracking}
-        _video={fakeVideo}
-        {...props}
-      />
-    ));
+    let results;
+    if (typeof customProps.results === 'undefined') {
+      const mappedProps = helpers.mapStateToProps(loadDiscoResultsIntoState([{
+        heading: 'Discovery Addon 1',
+        description: 'informative text',
+        addon: {
+          ...fakeDiscoAddon,
+          guid: 'foo',
+        },
+      }]));
+      results = mappedProps.results;
+    }
+
+    return {
+      AddonComponent: MockedSubComponent,
+      errorHandler: createStubErrorHandler(),
+      dispatch: sinon.stub(),
+      i18n,
+      results,
+      _tracking: fakeTracking,
+      _video: fakeVideo,
+      ...customProps,
+    };
+  }
+
+  function render(props = {}) {
+    return shallow(<DiscoPaneBase {...renderProps(props)} />);
+  }
+
+  function renderAndMount(customProps = {}) {
+    const { store } = createStore();
+    const props = renderProps(customProps);
+    return mount(
+      <Provider store={store}>
+        <I18nProvider i18n={props.i18n}>
+          <DiscoPaneBase {...props} />
+        </I18nProvider>
+      </Provider>
+    );
   }
 
   describe('video', () => {
     it('is small by default', () => {
       const root = render();
-      expect(root.querySelector('.show-video')).toBeFalsy();
+      expect(root.find('header')).not.toHaveClassName('.show-video');
     });
 
     it('gets bigger and smaller when clicked', () => {
       const root = render();
-      Simulate.click(root.querySelector('.play-video'));
-      expect(root.querySelector('.show-video')).toBeTruthy();
-      Simulate.click(root.querySelector('.close-video a'));
-      expect(root.querySelector('.show-video')).toBeFalsy();
+      root.find('.play-video').simulate('click', fakeEvent);
+      expect(root.find('header')).toHaveClassName('.show-video');
+      root.find('.close-video a').simulate('click', fakeEvent);
+      expect(root.find('header')).not.toHaveClassName('.show-video');
     });
 
     it('tracks video being played', () => {
       const root = render();
-      Simulate.click(root.querySelector('.play-video'));
-      expect(fakeTracking.sendEvent.calledWith({
+      root.find('.play-video').simulate('click', fakeEvent);
+      sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: VIDEO_CATEGORY,
         action: 'play',
-      })).toBeTruthy();
-      expect(fakeVideo.play.calledOnce).toBeTruthy();
+      });
+      sinon.assert.calledOnce(fakeVideo.play);
     });
 
     it('tracks video being closed', () => {
       const root = render();
-      Simulate.click(root.querySelector('.close-video a'));
-      expect(fakeTracking.sendEvent.calledWith({
+      root.find('.close-video a').simulate('click', fakeEvent);
+      sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: VIDEO_CATEGORY,
         action: 'close',
-      })).toBeTruthy();
-      expect(fakeVideo.pause.calledOnce).toBeTruthy();
-    });
-  });
-
-  describe('loadDataIfNeeded', () => {
-    it('does nothing if there are loaded results', () => {
-      const store = {
-        getState() {
-          return { addons: { foo: {} }, discoResults: [{ addon: 'foo' }] };
-        },
-      };
-      const getAddons = sinon.stub(discoApi, 'getDiscoveryAddons');
-      return helpers.loadDataIfNeeded({ store })
-        .then(() => expect(getAddons.called).toBeFalsy());
-    });
-
-    it('loads the addons if there are none', () => {
-      const api = { the: 'config' };
-      const dispatch = sinon.spy();
-      const store = {
-        dispatch,
-        getState() {
-          return { addons: {}, api, discoResults: [] };
-        },
-      };
-      const entities = {
-        addons: {
-          foo: {
-            slug: 'foo',
-          },
-        },
-        discoResults: {
-          foo: {
-            addon: 'foo',
-          },
-        },
-      };
-      const result = { results: ['foo'] };
-      const getAddons = sinon.stub(discoApi, 'getDiscoveryAddons')
-        .returns(Promise.resolve({ entities, result }));
-      return helpers.loadDataIfNeeded({ store })
-        .then(() => {
-          expect(getAddons.calledWith({ api })).toBeTruthy();
-          expect(dispatch.calledWith(loadEntities(entities))).toBeTruthy();
-          expect(dispatch.calledWith(discoResults([{ addon: 'foo' }]))).toBeTruthy();
-        });
+      });
+      sinon.assert.calledOnce(fakeVideo.pause);
     });
   });
 
   describe('mapStateToProps', () => {
-    it('only sets results', () => {
-      const props = helpers.mapStateToProps({
-        discoResults: [],
-      });
-      expect(Object.keys(props)).toEqual(['results']);
+    it('sets extension results', () => {
+      const addon = { ...fakeDiscoAddon };
+
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
+        heading: 'The Add-on',
+        description: 'editorial text',
+        addon,
+      }]));
+
+      expect(props.results).toEqual([{
+        ...addon,
+        addon: addon.guid,
+        description: 'editorial text',
+        heading: 'The Add-on',
+        iconUrl: addon.icon_url,
+        isRestartRequired: false,
+      }]);
     });
 
-    it('sets the results', () => {
-      const props = helpers.mapStateToProps({
-        addons: { one: { slug: 'one' }, two: { slug: 'two' } },
-        discoResults: [{ addon: 'two' }],
-        infoDialog: {},
-      });
-      expect(props.results).toEqual([{ slug: 'two', addon: 'two' }]);
+    it('sets theme results', () => {
+      const addon = {
+        ...fakeDiscoAddon,
+        theme_data: {},
+        type: ADDON_TYPE_THEME,
+      };
+
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
+        heading: 'The Theme',
+        description: 'editorial text',
+        addon,
+      }]));
+
+      // This is removed by the reducer.
+      delete addon.theme_data;
+
+      // Adjust the theme guid to match how Firefox code does it internally.
+      const guid = '1234@personas.mozilla.org';
+
+      expect(props.results).toEqual([{
+        ...addon,
+        addon: guid,
+        guid,
+        description: undefined,
+        heading: 'The Theme',
+        iconUrl: addon.icon_url,
+        isRestartRequired: false,
+      }]);
     });
   });
 
@@ -163,14 +181,60 @@ describe('AddonPage', () => {
       const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
       const payload = { id: 'whatever' };
       handleGlobalEvent(payload);
-      expect(dispatch.calledWith({ type: INSTALL_STATE, payload })).toBeTruthy();
+      sinon.assert.calledWith(dispatch, { type: INSTALL_STATE, payload });
     });
 
-    it('is empty when there is no navigator', () => {
-      const configStub = {
-        get: sinon.stub().returns(true),
-      };
-      expect(helpers.mapDispatchToProps(sinon.spy(), { _config: configStub })).toEqual({});
+    it('does not pass handleGlobalEvent when on the server', () => {
+      const dispatch = sinon.stub();
+      const configSource = { server: true };
+      const configStub = { get: (key) => configSource[key] };
+      expect(helpers.mapDispatchToProps(dispatch, { _config: configStub }))
+        .toEqual({ dispatch });
+    });
+  });
+
+  describe('constructor', () => {
+    it('gets discovery results when results are empty', () => {
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
+
+      render({ errorHandler, dispatch, ...props });
+
+      sinon.assert.calledWith(dispatch, getDiscoResults({
+        errorHandlerId: errorHandler.id,
+      }));
+    });
+
+    it('does not get discovery results when results are loaded', () => {
+      const dispatch = sinon.stub();
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
+        heading: 'Discovery Addon 1',
+        description: 'informative text',
+        addon: {
+          ...fakeDiscoAddon,
+          guid: '@guid1',
+          slug: 'discovery-addon-1',
+        },
+      }]));
+
+      render({ dispatch, ...props });
+
+      sinon.assert.notCalled(dispatch);
+    });
+
+    it('does not get results if there was an error', () => {
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({
+        id: 'some-id',
+        dispatch,
+        capturedError: new Error('some API error'),
+      });
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
+
+      render({ errorHandler, dispatch, ...props });
+
+      sinon.assert.notCalled(dispatch);
     });
   });
 
@@ -179,20 +243,29 @@ describe('AddonPage', () => {
       const fakeMozAddonManager = {
         addEventListener: sinon.stub(),
       };
-      render({ mozAddonManager: fakeMozAddonManager });
+      renderAndMount({ mozAddonManager: fakeMozAddonManager });
       expect(fakeMozAddonManager.addEventListener.callCount).toEqual(GLOBAL_EVENTS.length);
+    });
+  });
+
+  describe('errors', () => {
+    it('renders errors', () => {
+      const errorHandler = createStubErrorHandler(new Error('some error'));
+      const root = render({ errorHandler });
+
+      expect(root.find(ErrorList)).toHaveLength(1);
     });
   });
 
   describe('See more add-ons link', () => {
     it('tracks see more addons link being clicked', () => {
       const root = render();
-      Simulate.click(root.querySelector('.amo-link a'));
-      expect(fakeTracking.sendEvent.calledWith({
+      root.find('.amo-link a').simulate('click');
+      sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: NAVIGATION_CATEGORY,
         action: 'click',
         label: 'See More Add-ons',
-      })).toBeTruthy();
+      });
     });
   });
 });

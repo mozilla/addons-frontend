@@ -1,11 +1,22 @@
+import { normalize } from 'normalizr';
+import config from 'config';
+
 import createStore from 'amo/store';
 import {
   setClientApp, setLang, setAuthToken, setUserAgent,
 } from 'core/actions';
-import { searchLoad } from 'core/actions/search';
+import { addon as addonSchema } from 'core/api';
+import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
+import { searchLoad, searchStart } from 'core/actions/search';
+import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
+import { loadUserProfile } from 'core/reducers/user';
 
 import {
-  userAuthToken, sampleUserAgent, signedInApiState as coreSignedInApiState,
+  createStubErrorHandler,
+  createUserProfileResponse,
+  userAuthToken,
+  sampleUserAgent,
+  signedInApiState as coreSignedInApiState,
 } from '../helpers';
 
 export const fakeAddon = Object.freeze({
@@ -23,7 +34,10 @@ export const fakeAddon = Object.freeze({
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
-    files: [],
+    files: [{
+      is_webextension: true,
+    }],
+    is_strict_compatibility_enabled: false,
   },
   previews: [],
   ratings: {
@@ -59,6 +73,17 @@ export const fakeReview = Object.freeze({
   title: 'Review Title',
 });
 
+export const fakeCategory = Object.freeze({
+  application: CLIENT_APP_FIREFOX,
+  description: 'I am a cool category for doing things',
+  id: 5,
+  misc: false,
+  name: 'Testing category',
+  slug: 'test',
+  type: ADDON_TYPE_THEME,
+  weight: 1,
+});
+
 /*
  * Redux store state for when a user has signed in.
  */
@@ -85,11 +110,15 @@ export function dispatchClientMetadata({
 
 export function dispatchSignInActions({
   authToken = userAuthToken(),
+  userId = 12345,
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
+  store.dispatch(loadUserProfile({
+    profile: createUserProfileResponse({ id: userId }),
+  }));
 
   return {
     store,
@@ -105,14 +134,56 @@ export function dispatchSearchResults({
   filters = { query: 'test' },
   store = dispatchClientMetadata().store,
 } = {}) {
+  store.dispatch(searchStart({
+    errorHandlerId: createStubErrorHandler().id,
+    filters,
+  }));
   store.dispatch(searchLoad({
     entities: { addons },
-    filters,
     result: {
       count: Object.keys(addons).length,
       results: Object.keys(addons),
     },
   }));
+
+  return { store };
+}
+
+export function createAddonsApiResult(results) {
+  // Return a normalized add-ons response just like many utility functions do.
+  // For example: core.api.featured(), core.api.search()...
+  return normalize({ results }, { results: [addonSchema] });
+}
+
+export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
+  return {
+    id: Date.now(),
+    icon_url: `${config.get('amoCDN')}/${name}.png`,
+    name,
+    url: `https://example.org/en-US/firefox/addons/${name}/`,
+  };
+}
+
+export function createFakeAddon({ files = {} } = {}) {
+  return {
+    ...fakeAddon,
+    current_version: {
+      ...fakeAddon.current_version,
+      files,
+    },
+  };
+}
+
+export function dispatchAutocompleteResults({
+  filters = { query: 'test' },
+  store = dispatchClientMetadata().store,
+  results = [],
+} = {}) {
+  store.dispatch(autocompleteStart({
+    errorHandlerId: createStubErrorHandler().id,
+    filters,
+  }));
+  store.dispatch(autocompleteLoad({ results }));
 
   return { store };
 }

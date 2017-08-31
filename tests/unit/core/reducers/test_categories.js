@@ -5,19 +5,18 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
 } from 'core/constants';
-import { categoriesFetch } from 'core/actions/categories';
-import categories, { emptyCategoryList } from 'core/reducers/categories';
+import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
+import categories, { initialState } from 'core/reducers/categories';
+import { fakeCategory } from 'tests/unit/amo/helpers';
 
 
 describe('categories reducer', () => {
-  const initialState = {
-    categories: emptyCategoryList(), error: false, loading: true,
-  };
-
   it('defaults to an empty set of categories', () => {
-    const state = categories(initialState, { type: 'unrelated' });
-    expect(state.categories).toEqual(emptyCategoryList());
+    const state = categories(undefined, { type: 'unrelated' });
+    expect(state.categories).toEqual(null);
   });
 
   it('defaults to not loading', () => {
@@ -25,16 +24,11 @@ describe('categories reducer', () => {
     expect(loading).toEqual(false);
   });
 
-  it('defaults to not error', () => {
-    const { error } = categories(undefined, { type: 'unrelated' });
-    expect(error).toEqual(false);
-  });
-
   describe('CATEGORIES_FETCH', () => {
     it('sets loading', () => {
-      const state = categories(initialState, categoriesFetch());
-      expect(state.categories).toEqual(emptyCategoryList());
-      expect(state.error).toEqual(false);
+      const state = categories(initialState,
+        categoriesFetch({ errorHandlerId: 'some-handler' }));
+      expect(state.categories).toEqual(null);
       expect(state.loading).toEqual(true);
     });
   });
@@ -45,127 +39,139 @@ describe('categories reducer', () => {
     beforeAll(() => {
       const result = [
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Alerts & Update',
           slug: 'alert-update',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Games',
           slug: 'Games',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Blogging',
           slug: 'blogging',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Naturé',
           slug: 'naturé',
           type: ADDON_TYPE_THEME,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Painting',
           slug: 'painting',
           type: ADDON_TYPE_THEME,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Anime',
           slug: 'anime',
           type: ADDON_TYPE_THEME,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Alerts & Update',
           slug: 'alert-update',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Security',
           slug: 'security',
           type: ADDON_TYPE_EXTENSION,
         },
         {
+          ...fakeCategory,
           application: 'netscape',
           name: 'I should not appear',
           slug: 'i-should-not-appear',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'I should also not appear',
           slug: 'i-should-also-not-appear',
           type: 'FAKE_TYPE',
         },
       ];
-      state = categories(initialState, {
-        type: 'CATEGORIES_LOAD',
-        payload: { result },
-      });
+      state = categories(initialState, categoriesLoad({ result }));
     });
 
-    it('sets the categories', () => {
+    it('sets the categories in a sorted order', () => {
       const result = [
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Alerts & Update',
           slug: 'alert-update',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Blogging',
           slug: 'blogging',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'android',
+          ...fakeCategory,
+          application: CLIENT_APP_ANDROID,
           name: 'Games',
           slug: 'Games',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Alerts & Update',
           slug: 'alert-update',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Security',
           slug: 'security',
           type: ADDON_TYPE_EXTENSION,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Anime',
           slug: 'anime',
           type: ADDON_TYPE_THEME,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Naturé',
           slug: 'naturé',
           type: ADDON_TYPE_THEME,
         },
         {
-          application: 'firefox',
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
           name: 'Painting',
           slug: 'painting',
           type: ADDON_TYPE_THEME,
         },
       ];
-      state = categories(initialState, {
-        type: 'CATEGORIES_LOAD',
-        payload: { result },
-      });
+      state = categories(initialState, categoriesLoad({ result }));
 
       // Notice all Firefox theme categories are also set as Android theme
       // categories and no Android categories are returned. This reflects the
@@ -180,13 +186,15 @@ describe('categories reducer', () => {
           [ADDON_TYPE_DICT]: {},
           [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
-              application: 'firefox',
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
               name: 'Alerts & Update',
               slug: 'alert-update',
               type: ADDON_TYPE_EXTENSION,
             },
             security: {
-              application: 'firefox',
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
               name: 'Security',
               slug: 'security',
               type: ADDON_TYPE_EXTENSION,
@@ -196,19 +204,22 @@ describe('categories reducer', () => {
           [ADDON_TYPE_OPENSEARCH]: {},
           [ADDON_TYPE_THEME]: {
             anime: {
-              application: 'firefox',
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
               name: 'Anime',
               slug: 'anime',
               type: ADDON_TYPE_THEME,
             },
             naturé: {
-              application: 'firefox',
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
               name: 'Naturé',
               slug: 'naturé',
               type: ADDON_TYPE_THEME,
             },
             painting: {
-              application: 'firefox',
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
               name: 'Painting',
               slug: 'painting',
               type: ADDON_TYPE_THEME,
@@ -220,19 +231,22 @@ describe('categories reducer', () => {
           [ADDON_TYPE_DICT]: {},
           [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
-              application: 'android',
+              ...fakeCategory,
+              application: CLIENT_APP_ANDROID,
               name: 'Alerts & Update',
               slug: 'alert-update',
               type: ADDON_TYPE_EXTENSION,
             },
             blogging: {
-              application: 'android',
+              ...fakeCategory,
+              application: CLIENT_APP_ANDROID,
               name: 'Blogging',
               slug: 'blogging',
               type: ADDON_TYPE_EXTENSION,
             },
             Games: {
-              application: 'android',
+              ...fakeCategory,
+              application: CLIENT_APP_ANDROID,
               name: 'Games',
               slug: 'Games',
               type: ADDON_TYPE_EXTENSION,
@@ -242,19 +256,22 @@ describe('categories reducer', () => {
           [ADDON_TYPE_OPENSEARCH]: {},
           [ADDON_TYPE_THEME]: {
             anime: {
-              application: 'firefox',
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
               name: 'Anime',
               slug: 'anime',
               type: ADDON_TYPE_THEME,
             },
             naturé: {
-              application: 'firefox',
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
               name: 'Naturé',
               slug: 'naturé',
               type: ADDON_TYPE_THEME,
             },
             painting: {
-              application: 'firefox',
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
               name: 'Painting',
               slug: 'painting',
               type: ADDON_TYPE_THEME,
@@ -267,25 +284,6 @@ describe('categories reducer', () => {
     it('sets loading', () => {
       const { loading } = state;
       expect(loading).toBe(false);
-    });
-
-    it('sets no error', () => {
-      const { error } = state;
-      expect(error).toEqual(false);
-    });
-  });
-
-  describe('CATEGORIES_FAIL', () => {
-    it('sets error to be true', () => {
-      const error = true;
-      const loading = false;
-
-      const state = categories(initialState, {
-        type: 'CATEGORIES_FAIL', payload: { error, loading },
-      });
-      expect(state).toEqual({
-        categories: emptyCategoryList(), error, loading,
-      });
     });
   });
 });

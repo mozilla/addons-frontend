@@ -1,8 +1,10 @@
 import { createStore as _createStore, combineReducers } from 'redux';
 import { reducer as reduxAsyncConnect } from 'redux-connect';
+import createSagaMiddleware from 'redux-saga';
 
 import { middleware } from 'core/store';
 import addons from 'core/reducers/addons';
+import errors from 'core/reducers/errors';
 import api from 'core/reducers/api';
 import errorPage from 'core/reducers/errorPage';
 import infoDialog from 'core/reducers/infoDialog';
@@ -11,10 +13,12 @@ import discoResults from 'disco/reducers/discoResults';
 
 
 export default function createStore(initialState = {}) {
+  const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
     combineReducers({
       addons,
       api,
+      errors,
       discoResults,
       errorPage,
       installations,
@@ -22,8 +26,8 @@ export default function createStore(initialState = {}) {
       reduxAsyncConnect,
     }),
     initialState,
-    middleware(),
+    middleware({ sagaMiddleware }),
   );
 
-  return { store };
+  return { sagaMiddleware, store };
 }

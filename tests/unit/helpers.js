@@ -1,5 +1,7 @@
+/* global Response */
 import base64url from 'base64url';
 import config from 'config';
+import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
 import React from 'react';
@@ -11,6 +13,7 @@ import * as coreApi from 'core/api';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
+import { ErrorHandler } from 'core/errorHandler';
 
 export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
@@ -103,6 +106,7 @@ export const signedInApiState = Object.freeze({
   token: 'secret-token',
   userAgent: sampleUserAgent,
   userAgentInfo: { browser, os },
+  userId: 102345,
 });
 
 export const userAgents = {
@@ -131,10 +135,17 @@ export const userAgents = {
   ],
   firefox: [
     'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0',
-    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1',
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101
-      Firefox/33.0`,
+    oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
+      Gecko/20100101 Firefox/40.1`,
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0)
+      Gecko/20100101 Firefox/33.0`,
     'Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0',
+    // Firefox ESR 52
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.2.1)
+      Gecko/20100101 Firefox/52.2.1`,
+    // Firefox 57 (first version that is WebExtension-only) for Mac
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
+      Gecko/20100101 Firefox/57.1`,
   ],
   firefoxOS: [
     'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
@@ -147,6 +158,7 @@ export const userAgents = {
     'Mozilla/5.0 (Android; Tablet; rv:40.0) Gecko/40.0 Firefox/40.0',
     'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0',
     'Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0',
+    'Mozilla/5.0 (Android 4.4; Tablet; rv:57.0) Gecko/57.0 Firefox/57.0',
   ],
   firefoxIOS: [
     oneLine`Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X)
@@ -177,4 +189,110 @@ export function createFetchAddonResult(addon) {
   // Simulate how callApi() applies the add-on schema to
   // the API server response.
   return normalize(addon, coreApi.addon);
+}
+
+/*
+ * Repeatedly render a component tree using enzyme.shallow() until
+ * finding and rendering TargetComponent.
+ *
+ * This is useful for testing a component wrapped in one or more
+ * HOCs (higher order components).
+ *
+ * The `componentInstance` parameter is a React component instance.
+ * Example: <MyComponent {...props} />
+ *
+ * The `TargetComponent` parameter is the React class (or function) that
+ * you want to retrieve from the component tree.
+ */
+export function shallowUntilTarget(componentInstance, TargetComponent, {
+  maxTries = 10,
+  shallowOptions,
+  _shallow = shallow,
+} = {}) {
+  if (!componentInstance) {
+    throw new Error('componentInstance parameter is required');
+  }
+  if (!TargetComponent) {
+    throw new Error('TargetComponent parameter is required');
+  }
+
+  let root = _shallow(componentInstance, shallowOptions);
+
+  if (typeof root.type() === 'string') {
+    // If type() is a string then it's a DOM Node.
+    // If it were wrapped, it would be a React component.
+    throw new Error(
+      'Cannot unwrap this component because it is not wrapped');
+  }
+
+  for (let tries = 1; tries <= maxTries; tries++) {
+    if (root.is(TargetComponent)) {
+      // Now that we found the target component, render it.
+      return root.shallow(shallowOptions);
+    }
+    // Unwrap the next component in the hierarchy.
+    root = root.first().shallow(shallowOptions);
+  }
+
+  throw new Error(oneLine`Could not find ${TargetComponent} in rendered
+    instance: ${componentInstance}; gave up after ${maxTries} tries`
+  );
+}
+
+export function createFakeEvent(extraProps = {}) {
+  return {
+    currentTarget: sinon.stub(),
+    preventDefault: sinon.stub(),
+    ...extraProps,
+  };
+}
+
+export function createStubErrorHandler(capturedError = null) {
+  return new ErrorHandler({
+    id: 'create-stub-error-handler-id',
+    dispatch: sinon.stub(),
+    capturedError,
+  });
+}
+
+export function generateHeaders(
+  headerData = { 'Content-Type': 'application/json' }
+) {
+  const response = new Response();
+  Object.keys(headerData).forEach((key) => (
+    response.headers.append(key, headerData[key])
+  ));
+  return response.headers;
+}
+
+export function createApiResponse({
+  ok = true, jsonData = {}, ...responseProps
+} = {}) {
+  const response = {
+    ok,
+    headers: generateHeaders(),
+    json: () => Promise.resolve(jsonData),
+    ...responseProps,
+  };
+  return Promise.resolve(response);
+}
+
+export function createUserProfileResponse({ id = 123456, username = 'user-1234' } = {}) {
+  return {
+    average_addon_rating: null,
+    biography: '',
+    created: '2017-08-15T12:01:13Z',
+    homepage: '',
+    id,
+    is_addon_developer: false,
+    is_artist: false,
+    location: '',
+    name: '',
+    num_addons_listed: 0,
+    occupation: '',
+    picture_type: '',
+    picture_url: `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+    url: null,
+    username,
+  };
 }

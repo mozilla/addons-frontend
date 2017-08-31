@@ -1,15 +1,13 @@
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
-import { fetchAddon } from 'core/actions/addons';
 import * as api from 'core/api';
 import { ENTITIES_LOADED } from 'core/constants';
-import { ErrorHandler } from 'core/errorHandler';
-import addonsReducer from 'core/reducers/addons';
+import addonsReducer, { fetchAddon } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import addonsSaga from 'core/sagas/addons';
 import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
-import { createFetchAddonResult } from 'tests/unit/helpers';
+import { createFetchAddonResult, createStubErrorHandler } from 'tests/unit/helpers';
 
 
 describe('core/sagas/addons', () => {
@@ -19,10 +17,7 @@ describe('core/sagas/addons', () => {
   let sagaTester;
 
   beforeEach(() => {
-    errorHandler = new ErrorHandler({
-      id: 'some-addon-handler',
-      dispatch: sinon.stub(),
-    });
+    errorHandler = createStubErrorHandler();
     mockApi = sinon.mock(api);
     const initialState = dispatchSignInActions().state;
     apiState = initialState.api;

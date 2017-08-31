@@ -1,3 +1,4 @@
+import deepEqual from 'deep-eql';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -6,16 +7,17 @@ import { compose } from 'redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import SearchContextCard from 'amo/components/SearchContextCard';
+import SearchFilters from 'amo/components/SearchFilters';
+import SearchResults from 'amo/components/SearchResults';
+import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
 import { VIEW_CONTEXT_EXPLORE } from 'core/constants';
-import SearchResults from 'amo/components/SearchResults';
-import SearchSort from 'amo/components/SearchSort';
+import { withErrorHandler } from 'core/errorHandler';
 import {
   convertFiltersToQueryParams,
-  loadSearchResultsIfNeeded,
-  mapStateToProps,
+  hasSearchFilters,
 } from 'core/searchUtils';
-import { safeAsyncConnect } from 'core/utils';
+import { parsePage } from 'core/utils';
 
 import './styles.scss';
 
@@ -25,33 +27,56 @@ export class SearchBase extends React.Component {
     LinkComponent: PropTypes.node.isRequired,
     count: PropTypes.number,
     dispatch: PropTypes.func.isRequired,
-    enableSearchSort: PropTypes.bool,
+    enableSearchFilters: PropTypes.bool,
+    errorHandler: PropTypes.object.isRequired,
     filters: PropTypes.object,
-    hasSearchParams: PropTypes.bool.isRequired,
+    filtersUsedForResults: PropTypes.object,
     loading: PropTypes.bool.isRequired,
-    page: PropTypes.number,
+    paginationQueryParams: PropTypes.object,
     pathname: PropTypes.string,
-    queryParams: PropTypes.object,
     results: PropTypes.array,
   }
 
   static defaultProps = {
     LinkComponent: Link,
     count: 0,
-    enableSearchSort: true,
+    enableSearchFilters: true,
     filters: {},
+    filtersUsedForResults: {},
+    paginationQueryParams: null,
     pathname: '/search/',
     results: [],
   }
 
   componentWillMount() {
-    const { dispatch, filters } = this.props;
+    this.dispatchSearch({
+      newFilters: this.props.filters,
+      oldFilters: this.props.filtersUsedForResults,
+    });
+  }
 
-    const { addonType } = filters;
-    if (addonType) {
-      dispatch(setViewContext(addonType));
-    } else {
-      dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
+  componentWillReceiveProps({ filters }) {
+    this.dispatchSearch({
+      newFilters: filters,
+      oldFilters: this.props.filters,
+    });
+  }
+
+  dispatchSearch({ newFilters = {}, oldFilters = {} } = {}) {
+    const { dispatch, errorHandler } = this.props;
+
+    if (hasSearchFilters(newFilters) && !deepEqual(oldFilters, newFilters)) {
+      dispatch(searchStart({
+        errorHandlerId: errorHandler.id,
+        filters: newFilters,
+      }));
+
+      const { addonType } = newFilters;
+      if (addonType) {
+        dispatch(setViewContext(addonType));
+      } else {
+        dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
+      }
     }
   }
 
@@ -59,48 +84,73 @@ export class SearchBase extends React.Component {
     const {
       LinkComponent,
       count,
-      enableSearchSort,
+      enableSearchFilters,
+      errorHandler,
       filters,
-      hasSearchParams,
       loading,
-      page,
+      paginationQueryParams,
       pathname,
       results,
     } = this.props;
-    const queryParams = this.props.queryParams ||
+
+    const page = parsePage(filters.page);
+
+    // We allow specific paginationQueryParams instead of always using
+    // convertFiltersToQueryParams(filters) so certain search filters
+    // aren't repeated if they are elsewhere in the URL. This is useful
+    // for pages like the category page which contain `addonType` and
+    // `category` in their URLs
+    // (eg: `/extensions/categories/feed-news-blogging/`) so they don't
+    // need them in the queryParams.
+    //
+    // If paginator params aren't specified, we fallback to filters.
+    const queryParams = paginationQueryParams ||
       convertFiltersToQueryParams(filters);
-    const paginator = count > 0 && hasSearchParams ? (
+
+    const paginator = count > 0 ? (
       <Paginate
         LinkComponent={LinkComponent}
-        currentPage={page}
         count={count}
+        currentPage={page}
         pathname={pathname}
         queryParams={queryParams}
       />
-    ) : [];
-    const searchSort = enableSearchSort && hasSearchParams && results.length ? (
-      <SearchSort filters={filters} pathname={pathname} />
     ) : null;
 
     return (
       <div className="Search">
+        {errorHandler.renderErrorIfPresent()}
+
         <SearchContextCard />
-        {searchSort}
+
+        {enableSearchFilters ? (
+          <SearchFilters filters={filters} pathname={pathname} />
+        ) : null}
+
         <SearchResults
           count={count}
           filters={filters}
-          hasSearchParams={hasSearchParams}
           loading={loading}
           pathname={pathname}
           results={results}
         />
+
         {paginator}
       </div>
     );
   }
 }
 
+export function mapStateToProps(state) {
+  return {
+    count: state.search.count,
+    filtersUsedForResults: state.search.filters,
+    loading: state.search.loading,
+    results: state.search.results,
+  };
+}
+
 export default compose(
-  safeAsyncConnect([{ promise: loadSearchResultsIfNeeded }]),
+  withErrorHandler({ name: 'Search' }),
   connect(mapStateToProps),
 )(SearchBase);

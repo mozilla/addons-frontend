@@ -6,8 +6,11 @@ import {
   mapStateToProps,
 } from 'core/containers/LoginRequired';
 import LoginPage from 'core/components/LoginPage';
+import { logOutUser } from 'core/actions';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
-describe('<LoginRequired />', () => {
+
+describe(__filename, () => {
   class MyComponent extends React.Component {
     render() {
       return <p>Authenticated content.</p>;
@@ -33,13 +36,19 @@ describe('<LoginRequired />', () => {
   });
 
   describe('mapStateToProps', () => {
-    it('sets authenticated to true when there is a token', () => {
-      expect(mapStateToProps({ auth: { token: 'foo' } }))
-        .toEqual({ authenticated: true });
+    let store;
+
+    beforeEach(() => {
+      store = dispatchSignInActions().store;
     });
 
-    it('sets authenticated to false when there is not a token', () => {
-      expect(mapStateToProps({ auth: {} })).toEqual({ authenticated: false });
+    it('sets authenticated to true', () => {
+      expect(mapStateToProps(store.getState())).toEqual({ authenticated: true });
+    });
+
+    it('sets authenticated to false', () => {
+      store.dispatch(logOutUser());
+      expect(mapStateToProps(store.getState())).toEqual({ authenticated: false });
     });
   });
 });

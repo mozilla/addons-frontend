@@ -6,25 +6,31 @@ import SagaTester from 'redux-saga-tester';
 import { put, select } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import createStore from 'amo/store';
-import { setClientApp, setLang } from 'core/actions';
 import apiReducer from 'core/reducers/api';
-import { getApi } from 'core/sagas/utils';
+import { createErrorHandler, getState } from 'core/sagas/utils';
+import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
 
 describe('Saga utils', () => {
-  it('should return API state', async () => {
+  it('does not allow usage of dispatch from a saga', () => {
+    const fakeLog = { error: sinon.stub() };
+    const errorHandler = createErrorHandler('some-error-handler', {
+      log: fakeLog });
+    errorHandler.dispatch('ANYTHING');
+
+    sinon.assert.calledWith(fakeLog.error,
+      'ErrorHandler cannot dispatch from a saga');
+  });
+
+  it('should return entire state', async () => {
     function* testGetApiSaga() {
       yield takeEvery('TEST_GET_API', function* selectGetApiTest() {
-        const apiState = yield select(getApi);
-        yield put({ type: 'TEST_GOT_API', payload: apiState });
+        const state = yield select(getState);
+        yield put({ type: 'TEST_GOT_API', payload: state });
       });
     }
 
-    const store = createStore().store;
-    store.dispatch(setClientApp('firefox'));
-    store.dispatch(setLang('en-US'));
-
+    const { store } = dispatchSignInActions();
     const state = store.getState();
 
     const sagaTester = new SagaTester({
@@ -39,7 +45,7 @@ describe('Saga utils', () => {
 
     expect(sagaTester.getLatestCalledAction()).toEqual({
       type: 'TEST_GOT_API',
-      payload: state.api,
+      payload: { api: state.api },
     });
   });
 });

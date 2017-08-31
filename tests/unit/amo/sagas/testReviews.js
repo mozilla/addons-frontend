@@ -6,12 +6,11 @@ import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
 import { SET_ADDON_REVIEWS } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga from 'amo/sagas/reviews';
-import { ErrorHandler } from 'core/errorHandler';
 import apiReducer from 'core/reducers/api';
 import {
   dispatchSignInActions, fakeAddon, fakeReview,
 } from 'tests/unit/amo/helpers';
-import { apiResponsePage } from 'tests/unit/helpers';
+import { apiResponsePage, createStubErrorHandler } from 'tests/unit/helpers';
 
 describe('amo/sagas/reviews', () => {
   describe('fetchReviews', () => {
@@ -21,10 +20,7 @@ describe('amo/sagas/reviews', () => {
     let sagaTester;
 
     beforeEach(() => {
-      errorHandler = new ErrorHandler({
-        id: 'some-addon-handler',
-        dispatch: sinon.stub(),
-      });
+      errorHandler = createStubErrorHandler();
       mockAmoApi = sinon.mock(amoApi);
 
       const { state } = dispatchSignInActions();

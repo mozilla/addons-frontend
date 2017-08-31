@@ -79,6 +79,7 @@ export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
 
 // Incompatibility codes for clients that can't install an add-on.
 export const INCOMPATIBLE_FIREFOX_FOR_IOS = 'INCOMPATIBLE_FIREFOX_FOR_IOS';
+export const INCOMPATIBLE_OVER_MAX_VERSION = 'INCOMPATIBLE_OVER_MAX_VERSION';
 export const INCOMPATIBLE_NO_OPENSEARCH = 'INCOMPATIBLE_NO_OPENSEARCH';
 export const INCOMPATIBLE_NOT_FIREFOX = 'INCOMPATIBLE_NOT_FIREFOX';
 export const INCOMPATIBLE_UNDER_MIN_VERSION = 'INCOMPATIBLE_UNDER_MIN_VERSION';
@@ -96,20 +97,23 @@ export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
 export const SEARCH_SORT_POPULAR = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
 
+// Operating system for add-ons
+export const OS_WINDOWS = 'windows';
+export const OS_MAC = 'mac';
+export const OS_LINUX = 'linux';
+// TODO: Do we need this? We have clientApp.
+export const OS_ANDROID = 'android';
+
 // Action types.
-export const FETCH_ADDON = 'FETCH_ADDON';
 export const CATEGORIES_FETCH = 'CATEGORIES_FETCH';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
-export const CATEGORIES_FAIL = 'CATEGORIES_FAIL';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const ENTITIES_LOADED = 'ENTITIES_LOADED';
 export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';
 export const LANDING_GET = 'LANDING_GET';
 export const LANDING_LOADED = 'LANDING_LOADED';
-export const LANDING_FAILED = 'LANDING_FAILED';
 export const LOG_OUT_USER = 'LOG_OUT_USER';
-export const SEARCH_FAILED = 'SEARCH_FAILED';
 export const SEARCH_LOADED = 'SEARCH_LOADED';
 export const SEARCH_STARTED = 'SEARCH_STARTED';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';

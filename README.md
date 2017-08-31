@@ -1,6 +1,6 @@
 [![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg)](https://github.com/mozilla/addons-frontend/blob/master/CODE_OF_CONDUCT.md)
 [![Build Status](https://travis-ci.org/mozilla/addons-frontend.svg?branch=master)](https://travis-ci.org/mozilla/addons-frontend)
-[![Coverage Status](https://coveralls.io/repos/github/mozilla/addons-frontend/badge.svg?branch=master)](https://coveralls.io/github/mozilla/addons-frontend?branch=master)
+[![codecov](https://codecov.io/gh/mozilla/addons-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/mozilla/addons-frontend)
 [![Documentation](https://readthedocs.org/projects/addons-frontend/badge/?version=latest)](http://addons-frontend.readthedocs.io/en/latest/)
 
 # Addons-frontend 🔥
@@ -10,7 +10,7 @@ Front-end infrastructure and code to complement
 
 ## Security Bug Reports
 
-This code and it’s associated production website are included in Mozilla’s web and services [bug bounty program]. If you find a security vulnerability, please submit it via the process outlined in the program and [FAQ pages]. Further technical details about this application are available from the [Bug Bounty Onramp page].
+This code and its associated production website are included in Mozilla’s web and services [bug bounty program]. If you find a security vulnerability, please submit it via the process outlined in the program and [FAQ pages]. Further technical details about this application are available from the [Bug Bounty Onramp page].
 
 Please submit all security-related bugs through Bugzilla using the [web security bug form].
 
@@ -34,7 +34,8 @@ The easiest way to manage multiple node versions in development is to use
 ## Get started
 
 * type `yarn` to install all dependencies
-* type `yarn dev:amo` to start a dev server
+* type `yarn amo:stage` to start a local server that connects to a
+  hosted staging server
 
 ## Development commands
 
@@ -42,9 +43,11 @@ Here are some commands you can run:
 
 | Command                     | Description |
 |-----------------------------|-------------|
-| yarn dev:amo                | Start the dev server and proxy (amo) |
-| yarn dev:amo:no-proxy       | Start the dev server without proxy (amo) |
-| yarn dev:disco              | Start the dev server (discovery pane) |
+| yarn amo                    | Start the dev server/proxy (for amo) using data from Docker |
+| yarn amo:dev                | Start the dev server/proxy (for amo) using data from the dev server (https://addons-dev.allizom.org/) |
+| yarn amo:no-proxy           | Start the dev server without a proxy (for amo) using data from Docker |
+| yarn amo:stage              | Start the dev server/proxy (for amo) using data from the staging server (https://addons.allizom.org/) |
+| yarn disco                  | Start the dev server (for Discovery Pane) using data from the dev server (https://addons-dev.allizom.org/) |
 | yarn flow                   | Run Flow. By default this checks for errors and exits |
 | yarn flow:check             | Explicitly check for Flow errors and exit |
 | yarn flow:dev               | Continuously check for Flow errors |
@@ -52,6 +55,7 @@ Here are some commands you can run:
 | yarn start-func-test-server | Start a Docker container for functional tests |
 | yarn stylelint              | Lint the SCSS |
 | yarn lint                   | Run all the JS + SCSS linters |
+| yarn nsp-check              | Run [nsp][] to detect dependencies with known vulnerabilities |
 | yarn version-check          | Check you have the required dependencies |
 | yarn test                   | Run all tests (Enters [jest][] in `--watch` mode) |
 | yarn test-coverage          | Run all tests and generate code coverage report (Enters [jest][] in `--watch` mode) |
@@ -194,9 +198,9 @@ it will not work when logging in from an addons-server page. See
 [mozilla/addons-server#4684](https://github.com/mozilla/addons-server/issues/4684) for more
 information on fixing this.
 
-If you would like to use `https://addons-dev.allizom.org` for the API you should use the
-`yarn dev:amo:no-proxy` command with an `API_HOST` to start the server without the proxy. For
-example: `API_HOST=https://addons-dev.allizom.org yarn dev:amo:no-proxy`.
+If you would like to use `https://addons-dev.allizom.org` for data you should use the
+`yarn amo:dev` command. See the table of commands up above for similar
+hosted options.
 
 ### Configuring for local development
 
@@ -223,7 +227,7 @@ module.exports = {
 When you start up your front-end Discovery Pane server, it will now apply
 overrides from your local configuration file:
 
-    yarn dev:disco
+    yarn disco
 
 Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
@@ -341,6 +345,10 @@ be sure to clear your cookies.
 
 **NOTE**: At this time, it's not possible to sign in using this approach.
 
+### Working with UX Mocks
+
+When implementing user interfaces you will need to refer to the [Sketch](https://www.sketchapp.com/) mocks that are located in the [assets](https://github.com/mozilla/addons-frontend/tree/master/assets) directory. You will need a license to run Sketch and you also need to install some fonts (which are free). Install [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans) and [Chivo](https://www.fontsquirrel.com/fonts/chivo).
+
 ## What version is deployed?
 
 You can check to see what commit of `addons-frontend` is deployed by
@@ -389,3 +397,4 @@ still can.
 * Unit tests with high coverage (aiming for 100%)
 
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
+[nsp]: https://github.com/nodesecurity/nsp

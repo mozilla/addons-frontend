@@ -4,10 +4,11 @@ import {
   renderIntoDocument,
   findRenderedComponentWithType,
 } from 'react-addons-test-utils';
+import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
 
-import {
+import App, {
   AppBase,
   mapDispatchToProps,
   mapStateToProps,
@@ -21,7 +22,7 @@ import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
+import { getFakeI18nInst, shallowUntilTarget, userAuthToken } from 'tests/unit/helpers';
 
 
 describe('App', () => {
@@ -56,8 +57,8 @@ describe('App', () => {
 
   const FakeInfoDialogComponent = () => <div />;
 
-  function render({ children = [], ...customProps } = {}) {
-    const props = {
+  function renderProps(customProps = {}) {
+    return {
       i18n: getFakeI18nInst(),
       logOutUser: sinon.stub(),
       location: sinon.stub(),
@@ -65,6 +66,10 @@ describe('App', () => {
       store: createStore().store,
       ...customProps,
     };
+  }
+
+  function render({ children = [], ...customProps } = {}) {
+    const props = renderProps(customProps);
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={props.store}>
         <I18nProvider i18n={props.i18n}>
@@ -177,6 +182,11 @@ describe('App', () => {
     const rootNode = findDOMNode(root);
 
     expect(rootNode.textContent).toContain('Page not found');
+  });
+
+  it('renders a response with a 200 status', () => {
+    const root = shallowUntilTarget(<App {...renderProps()} />, AppBase);
+    expect(root.find(NestedStatus)).toHaveProp('code', 200);
   });
 
   describe('handling expired auth tokens', () => {

@@ -12,27 +12,28 @@ import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
 import * as actions from 'core/actions';
-import { categoriesLoad } from 'core/actions/categories';
 import * as api from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CATEGORY_COLORS,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   validAddonTypes,
 } from 'core/constants';
 import {
+  apiAddonTypeIsValid,
   addQueryParams,
   apiAddonType,
   convertBoolean,
   findAddon,
   getCategoryColor,
-  getCategoryFromState,
   getClientApp,
   getClientCompatibility,
   getClientConfig,
@@ -43,6 +44,7 @@ import {
   loadAddonIfNeeded,
   ngettext,
   nl2br,
+  parsePage,
   refreshAddon,
   render404IfConfigKeyIsFalse,
   safeAsyncConnect,
@@ -54,7 +56,6 @@ import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
 import {
   fakeAddon,
-  dispatchClientMetadata,
   signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
@@ -72,7 +73,8 @@ describe('apiAddonType', () => {
 
   it('fails on unrecognised plural/visible addonType', () => {
     expect(() => {
-      // "theme" is not a valid pluralAddonType mapping; it should be "themes".
+      // "theme" is not a valid pluralAddonType mapping; it should
+      // be "themes".
       apiAddonType('theme');
     }).toThrowError('"theme" not found in API_ADDON_TYPES_MAPPING');
   });
@@ -83,6 +85,16 @@ describe('apiAddonType', () => {
     expect(() => {
       apiAddonType('hasOwnProperty');
     }).toThrowError('"hasOwnProperty" not found in API_ADDON_TYPES_MAPPING');
+  });
+});
+
+describe('addonTypeIsValid', () => {
+  it('returns true for a valid addonType', () => {
+    expect(apiAddonTypeIsValid('extensions')).toEqual(true);
+  });
+
+  it('returns false for an invalid addonType', () => {
+    expect(apiAddonTypeIsValid('xul')).toEqual(false);
   });
 });
 
@@ -139,59 +151,59 @@ describe('convertBoolean', () => {
 
 describe('getClientApp', () => {
   it('should return firefox by default with no args', () => {
-    expect(getClientApp()).toEqual('firefox');
+    expect(getClientApp()).toEqual(CLIENT_APP_FIREFOX);
   });
 
   it('should return firefox by default with bad type', () => {
-    expect(getClientApp(1)).toEqual('firefox');
+    expect(getClientApp(1)).toEqual(CLIENT_APP_FIREFOX);
   });
 
   userAgents.androidWebkit.forEach((ua) => {
     it(`should return 'android' for a androidWebkit UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('android');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
     });
   });
 
   userAgents.chromeAndroid.forEach((ua) => {
     it(`should return 'android' for a chromeAndroid UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('android');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
     });
   });
 
   userAgents.chrome.forEach((ua) => {
     it(`should fallback to 'firefox' for a chrome UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('firefox');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
     });
   });
 
   userAgents.firefox.forEach((ua) => {
     it(`should return firefox by default for a Firefox UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('firefox');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
     });
   });
 
   userAgents.firefoxOS.forEach((ua) => {
     it(`should return firefox by default for a Firefox OS UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('firefox');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
     });
   });
 
   userAgents.firefoxAndroid.forEach((ua) => {
     it(`should return android for a Firefox Android UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('android');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
     });
   });
 
   userAgents.firefoxIOS.forEach((ua) => {
     it(`should return 'firefox' for a Firefox iOS UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('firefox');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
     });
   });
 
   it('should return "android" for lowercase UA string', () => {
     // This UA string has android, not Android.
     const ua = 'mozilla/5.0 (android; mobile; rv:40.0) gecko/40.0 firefox/40.0';
-    expect(getClientApp(ua)).toEqual('android');
+    expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
   });
 });
 
@@ -227,7 +239,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefox.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
         addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
-          .toEqual({ compatible: true, reason: null });
+        .toEqual({ compatible: true, reason: null });
     });
   });
 
@@ -235,7 +247,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefoxAndroid.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
         addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
-          .toEqual({ compatible: true, reason: null });
+        .toEqual({ compatible: true, reason: null });
     });
   });
 
@@ -243,7 +255,7 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefoxOS.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
         addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
-          .toEqual({ compatible: true, reason: null });
+        .toEqual({ compatible: true, reason: null });
     });
   });
 
@@ -251,20 +263,20 @@ describe('isCompatibleWithUserAgent', () => {
     userAgents.firefoxIOS.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
         addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
-          .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
+        .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
     });
   });
 
   it(oneLine`should use a Firefox for iOS reason code even if minVersion is
     also not met`, () => {
-    const userAgentInfo = {
-      browser: { name: 'Firefox', version: '8.0' },
-      os: { name: 'iOS' },
-    };
-    expect(isCompatibleWithUserAgent({
-      addon: fakeAddon, minVersion: '9.0', userAgentInfo }))
+      const userAgentInfo = {
+        browser: { name: 'Firefox', version: '8.0' },
+        os: { name: 'iOS' },
+      };
+      expect(isCompatibleWithUserAgent({
+        addon: fakeAddon, minVersion: '9.0', userAgentInfo }))
         .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
-  });
+    });
 
   it('should mark Firefox without window.external as incompatible', () => {
     const userAgentInfo = {
@@ -276,7 +288,7 @@ describe('isCompatibleWithUserAgent', () => {
 
     expect(isCompatibleWithUserAgent({
       _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }))
-        .toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
+      .toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
   });
 
   it('should mark Firefox without OpenSearch support as incompatible', () => {
@@ -289,7 +301,7 @@ describe('isCompatibleWithUserAgent', () => {
 
     expect(isCompatibleWithUserAgent({
       _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }))
-        .toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
+      .toEqual({ compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH });
   });
 
   it('should mark Firefox with OpenSearch support as compatible', () => {
@@ -302,7 +314,7 @@ describe('isCompatibleWithUserAgent', () => {
 
     expect(isCompatibleWithUserAgent({
       _window: fakeWindow, addon: fakeOpenSearchAddon, userAgentInfo }))
-        .toEqual({ compatible: true, reason: null });
+      .toEqual({ compatible: true, reason: null });
   });
 
   it('should mark non-Firefox UAs as incompatible', () => {
@@ -318,7 +330,7 @@ describe('isCompatibleWithUserAgent', () => {
     };
     expect(isCompatibleWithUserAgent({
       addon: fakeAddon, minVersion: '10.1', userAgentInfo }))
-        .toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
+      .toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
   });
 
   it('should mark Firefox 24 as compatible with a maxVersion of 8', () => {
@@ -328,7 +340,16 @@ describe('isCompatibleWithUserAgent', () => {
       os: { name: 'Windows' },
     };
     expect(isCompatibleWithUserAgent({
-      addon: fakeAddon, maxVersion: '8', userAgentInfo })).toEqual({ compatible: true, reason: null });
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          is_strict_compatibility_enabled: false,
+        },
+      },
+      maxVersion: '8',
+      userAgentInfo,
+    })).toEqual({ compatible: true, reason: null });
   });
 
   it('should mark Firefox as compatible when no min or max version', () => {
@@ -381,14 +402,17 @@ describe('isCompatibleWithUserAgent', () => {
 
 describe('isValidClientApp', () => {
   const _config = new Map();
-  _config.set('validClientApplications', ['firefox', 'android']);
+  _config.set('validClientApplications', [
+    CLIENT_APP_FIREFOX,
+    CLIENT_APP_ANDROID,
+  ]);
 
   it('should be valid if passed "firefox"', () => {
-    expect(isValidClientApp('firefox', { _config })).toEqual(true);
+    expect(isValidClientApp(CLIENT_APP_FIREFOX, { _config })).toEqual(true);
   });
 
   it('should be valid if passed "android"', () => {
-    expect(isValidClientApp('android', { _config })).toEqual(true);
+    expect(isValidClientApp(CLIENT_APP_ANDROID, { _config })).toEqual(true);
   });
 
   it('should be invalid if passed "whatever"', () => {
@@ -585,7 +609,7 @@ describe('addQueryParams', () => {
 describe('ngettext', () => {
   function fileCount(count) {
     return sprintf(ngettext('%(count)s file', '%(count)s files', count),
-                   { count });
+      { count });
   }
 
   it('outputs singular when count is one', () => {
@@ -814,7 +838,7 @@ describe('getCompatibleVersions', () => {
       },
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp: 'firefox' });
+      addon, clientApp: CLIENT_APP_FIREFOX });
 
     expect(maxVersion).toEqual('20.0.*');
     expect(minVersion).toEqual('11.0.1');
@@ -834,7 +858,7 @@ describe('getCompatibleVersions', () => {
       },
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp: 'android' });
+      addon, clientApp: CLIENT_APP_ANDROID });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -849,7 +873,7 @@ describe('getCompatibleVersions', () => {
       },
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp: 'firefox' });
+      addon, clientApp: CLIENT_APP_FIREFOX });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -861,7 +885,7 @@ describe('getCompatibleVersions', () => {
       current_version: null,
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp: 'firefox' });
+      addon, clientApp: CLIENT_APP_FIREFOX });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -869,7 +893,7 @@ describe('getCompatibleVersions', () => {
 
   it('returns null if addon is null', () => {
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon: null, clientApp: 'firefox' });
+      addon: null, clientApp: CLIENT_APP_FIREFOX });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -885,7 +909,10 @@ describe('getCompatibleVersions', () => {
       type: ADDON_TYPE_OPENSEARCH,
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      _log: fakeLog, addon: openSearchAddon, clientApp: 'firefox' });
+      _log: fakeLog,
+      addon: openSearchAddon,
+      clientApp: CLIENT_APP_FIREFOX,
+    });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -900,7 +927,7 @@ describe('getClientCompatibility', () => {
 
     expect(getClientCompatibility({
       addon: fakeAddon,
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
       compatible: true,
@@ -923,7 +950,7 @@ describe('getClientCompatibility', () => {
           },
         },
       },
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
       compatible: true,
@@ -946,7 +973,7 @@ describe('getClientCompatibility', () => {
           },
         },
       },
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
       compatible: true,
@@ -962,13 +989,66 @@ describe('getClientCompatibility', () => {
 
     expect(getClientCompatibility({
       addon: fakeAddon,
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
       compatible: true,
       maxVersion: null,
       minVersion: null,
       reason: null,
+    });
+  });
+
+  it('returns compatible if strict compatibility is off', () => {
+    const { browser, os } = UAParser(userAgents.firefox[4]);
+    const userAgentInfo = { browser, os };
+
+    expect(getClientCompatibility({
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          compatibility: {
+            ...fakeAddon.current_version.compatibility,
+            [CLIENT_APP_FIREFOX]: {
+              max: '56.*',
+              min: '24.0',
+            },
+          },
+          files: [{ is_webextension: true }],
+          is_strict_compatibility_enabled: false,
+        },
+      },
+      clientApp: CLIENT_APP_FIREFOX,
+      userAgentInfo,
+    })).toMatchObject({ compatible: true });
+  });
+
+  it('returns incompatible if strict compatibility enabled', () => {
+    const { browser, os } = UAParser(userAgents.firefox[5]);
+    const userAgentInfo = { browser, os };
+
+    expect(getClientCompatibility({
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          compatibility: {
+            ...fakeAddon.current_version.compatibility,
+            [CLIENT_APP_FIREFOX]: {
+              max: '56.*',
+              min: '24.0',
+            },
+          },
+          files: [{ is_webextension: false }],
+          is_strict_compatibility_enabled: true,
+        },
+      },
+      clientApp: CLIENT_APP_FIREFOX,
+      userAgentInfo,
+    })).toMatchObject({
+      compatible: false,
+      reason: INCOMPATIBLE_OVER_MAX_VERSION,
     });
   });
 });
@@ -1017,61 +1097,36 @@ describe('getCategoryColor', () => {
   });
 });
 
-describe('getCategoryFromState', () => {
-  it('handles missing category', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const categorySlug = 'foo';
-    const clientApp = CLIENT_APP_FIREFOX;
-    const { state } = dispatchClientMetadata();
-
-    const category = getCategoryFromState({
-      addonType, clientApp, categorySlug, state });
-
-    expect(category).toBeNull();
+describe('parsePage', () => {
+  it('returns a number', () => {
+    expect(parsePage(10)).toBe(10);
   });
 
-  it('handles unknown clientApp', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const categorySlug = 'foo';
-    const clientApp = 'not a real thing';
-    const { state } = dispatchClientMetadata();
-
-    const category = getCategoryFromState({
-      addonType, clientApp, categorySlug, state });
-
-    expect(category).toBeNull();
+  it('parses a number from a string', () => {
+    expect(parsePage('8')).toBe(8);
   });
 
-  it('handles unknown addonType', () => {
-    const addonType = 'not real';
-    const categorySlug = 'foo';
-    const clientApp = CLIENT_APP_FIREFOX;
-    const { state } = dispatchClientMetadata();
-
-    const category = getCategoryFromState({
-      addonType, clientApp, categorySlug, state });
-
-    expect(category).toBeNull();
+  it('treats negatives as 1', () => {
+    expect(parsePage('-10')).toBe(1);
   });
 
-  it('returns a category', () => {
-    const addonType = ADDON_TYPE_THEME;
-    const fakeCategory = {
-      id: 5,
-      application: CLIENT_APP_FIREFOX,
-      description: 'I am a cool category for doing things',
-      name: 'Testing category',
-      slug: 'test',
-      type: ADDON_TYPE_THEME,
-    };
-    const categorySlug = 'test';
-    const clientApp = CLIENT_APP_FIREFOX;
-    const { store } = dispatchClientMetadata();
-    store.dispatch(categoriesLoad({ result: [fakeCategory] }));
+  it('treats words as 1', () => {
+    expect(parsePage('hmmm')).toBe(1);
+  });
 
-    const category = getCategoryFromState({
-      addonType, clientApp, categorySlug, state: store.getState() });
+  it('treats "0" as 1', () => {
+    expect(parsePage('0')).toBe(1);
+  });
 
-    expect(category).toMatchObject(fakeCategory);
+  it('treats 0 as 1', () => {
+    expect(parsePage(0)).toBe(1);
+  });
+
+  it('treats empty strings as 1', () => {
+    expect(parsePage('')).toBe(1);
+  });
+
+  it('treats undefined as 1', () => {
+    expect(parsePage(undefined)).toBe(1);
   });
 });

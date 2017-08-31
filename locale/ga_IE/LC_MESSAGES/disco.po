@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-11 16:54+0000\n"
+"POT-Creation-Date: 2017-08-22 21:36+0000\n"
 "PO-Revision-Date: 2017-07-03 20:00+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -91,46 +91,46 @@ msgstr "Anois is féidir leat teacht ar %(name)s ón bharra uirlisí."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:115
+#: src/disco/components/Addon.js:122
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Cuir do luch os a chionn chun réamhamharc a fháil, nó cliceáil chun %(name)s "
 "a shuiteáil"
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:137
 msgid "Hover over the image to preview"
 msgstr "Cuir do luch os cionn an phictiúir le réamhamharc a fháil"
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Installation failed. Please try again."
 msgstr "Theip ar an tsuiteáil. Bain triail eile as."
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:163
 msgid "Download failed. Please check your connection."
 msgstr ""
 "Theip ar an íoslódáil. Déan cinnte go bhfuil tú ceangailte leis an líonra."
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:165
 msgid "An unexpected error occurred during installation."
 msgstr "Tharla earráid gan súil leis le linn suiteála."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Tharla earráid gan súil leis le linn díshuiteála."
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred."
 msgstr "Tharla earráid gan súil leis."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:178
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Díshuiteálfar an breiseán seo tar éis duit Firefox a atosú."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:180
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ní mór duit Firefox a atosú chun an breiseán seo a úsáid."
 
-#: src/disco/components/Addon.js:78
+#: src/disco/components/Addon.js:83
 msgid "Close"
 msgstr "Dún"
 
@@ -147,15 +147,19 @@ msgstr "Díshuiteálfar an breiseán seo tar éis duit Firefox a atosú."
 msgid "This add-on does not support your browser."
 msgstr ""
 
-#: src/disco/containers/App.js:33
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr ""
+
+#: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
 msgstr "Aimsigh Breiseáin"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:113
 msgid "Personalize Your Firefox"
 msgstr "Cuir Firefox in oiriúint duitse féin"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:114
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -170,18 +174,31 @@ msgstr ""
 "I dtús báire, seo duit roinnt breiseán a mholaimid mar gheall ar "
 "fheidhmíocht agus gníomhaíocht thar barr."
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:122
 msgid "Click to play"
 msgstr "Cliceáil le seinm"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:123
 msgid "to find out more about add-ons"
 msgstr "chun tuilleadh eolais faoi bhreiseáin a fháil"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:137
 msgid "Close video"
 msgstr "Dún an físeán"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:156
 msgid "See more add-ons!"
 msgstr "Tuilleadh breiseán!"
+
+#: src/ui/components/ErrorList/index.js:45
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:52
+#, fuzzy
+msgid "An unexpected error occurred"
+msgstr "Tharla earráid gan súil leis."
+
+#: src/ui/components/ErrorList/index.js:61
+msgid "Reload To Continue"
+msgstr ""

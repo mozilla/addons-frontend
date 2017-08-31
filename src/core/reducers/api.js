@@ -18,8 +18,14 @@ import type {
 import type { Exact } from 'core/types/util';
 
 type UserAgentInfoType = {|
-  browser: string,
-  os: string,
+  browser: {
+    major?: string,
+    name?: string,
+    version?: string,
+  },
+  os: {
+    name?: string,
+  },
 |};
 
 export type ApiStateType = {
@@ -27,15 +33,15 @@ export type ApiStateType = {
   lang: ?string,
   token: ?string,
   userAgent: ?string,
-  userAgentInfo: ?UserAgentInfoType,
+  userAgentInfo: UserAgentInfoType,
 };
 
-export const initialApiState = {
+export const initialApiState: ApiStateType = {
   clientApp: null,
   lang: null,
   token: null,
   userAgent: null,
-  userAgentInfo: null,
+  userAgentInfo: { browser: {}, os: {} },
 };
 
 export default function api(
@@ -48,21 +54,24 @@ export default function api(
 ): Exact<ApiStateType> {
   switch (action.type) {
     case SET_AUTH_TOKEN:
-      return { ...state, token: action.payload.token };
+      return {
+        ...state,
+        token: action.payload.token,
+      };
     case SET_LANG:
       return { ...state, lang: action.payload.lang };
     case SET_CLIENT_APP:
       return { ...state, clientApp: action.payload.clientApp };
     case SET_USER_AGENT:
-      {
-        const { browser, os } = UAParser(action.payload.userAgent);
+    {
+      const { browser, os } = UAParser(action.payload.userAgent);
 
-        return {
-          ...state,
-          userAgent: action.payload.userAgent,
-          userAgentInfo: { browser, os },
-        };
-      }
+      return {
+        ...state,
+        userAgent: action.payload.userAgent,
+        userAgentInfo: { browser, os },
+      };
+    }
     case LOG_OUT_USER:
       return { ...state, token: null };
     default:

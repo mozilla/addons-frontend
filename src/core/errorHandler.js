@@ -18,10 +18,14 @@ function generateHandlerId({ name = '' } = {}) {
  * information from the Redux state.
  */
 export class ErrorHandler {
-  constructor({ id, dispatch, capturedError = null } = {}) {
+  constructor({ id, dispatch = null, capturedError = null } = {}) {
     this.id = id;
     this.dispatch = dispatch;
     this.capturedError = capturedError;
+  }
+
+  captureError(error) {
+    this.capturedError = error;
   }
 
   clear() {
@@ -42,11 +46,22 @@ export class ErrorHandler {
     return <ErrorList messages={messages} code={code} />;
   }
 
+  renderErrorIfPresent() {
+    return this.hasError() ? this.renderError() : null;
+  }
+
+  setDispatch(dispatch) {
+    this.dispatch = dispatch;
+  }
+
   createErrorAction(error) {
     return setError({ error, id: this.id });
   }
 
   handle(error) {
+    if (!this.dispatch) {
+      throw new Error('A dispatch function has not been configured');
+    }
     const action = this.createErrorAction(error);
     this.dispatch(action);
   }
@@ -60,8 +75,8 @@ export type ErrorHandlerType = typeof ErrorHandler;
  * The decorator will assign an ErrorHandler instance to the errorHandler
  * property.
  *
- * For convenience, you can use withErrorHandling() instead which will
- * additionally renders the error automatically.
+ * For convenience, you can use `withRenderedErrorHandler()` which renders the
+ * error automatically at the beginning of the component's output.
  *
  * Example:
  *
@@ -73,7 +88,7 @@ export type ErrorHandlerType = typeof ErrorHandler;
  *     const { errorHandler } = this.props;
  *     return (
  *       <div>
- *         {errorHandler.hasError() ? errorHandler.renderError() : null}
+ *         {errorHandler.hasErrorIfPresent()}
  *         <div>some content</div>
  *       </div>
  *     );
@@ -88,26 +103,35 @@ export function withErrorHandler({ name, id }) {
   return (WrappedComponent) => {
     const mapStateToProps = () => {
       // Each component instance gets its own error handler ID.
-      let instanceId = id;
-      if (!instanceId) {
-        instanceId = generateHandlerId({ name });
-        log.debug(`Generated error handler ID: ${instanceId}`);
+      let defaultInstanceId = id;
+      if (!defaultInstanceId) {
+        defaultInstanceId = generateHandlerId({ name });
+        log.debug(`Generated error handler ID: ${defaultInstanceId}`);
       }
 
-      return (state) => ({
-        error: state.errors[instanceId],
-        instanceId,
-      });
+      // Now that the component has been instantiated, return its
+      // state mapper function.
+      return (state, ownProps) => {
+        const instanceId = ownProps.errorHandler ?
+          ownProps.errorHandler.id : defaultInstanceId;
+        return {
+          error: state.errors[instanceId],
+          instanceId,
+        };
+      };
     };
 
-    const mergeProps = (stateProps, dispatchProps, ownProps) => ({
-      ...ownProps,
-      errorHandler: new ErrorHandler({
-        capturedError: stateProps.error,
+    const mergeProps = (stateProps, dispatchProps, ownProps) => {
+      const errorHandler = ownProps.errorHandler || new ErrorHandler({
         id: stateProps.instanceId,
-        dispatch: dispatchProps.dispatch,
-      }),
-    });
+      });
+      errorHandler.setDispatch(dispatchProps.dispatch);
+      if (stateProps.error) {
+        errorHandler.captureError(stateProps.error);
+      }
+
+      return { ...ownProps, errorHandler };
+    };
 
     return compose(
       connect(mapStateToProps, undefined, mergeProps),
@@ -137,10 +161,10 @@ export function withErrorHandler({ name, id }) {
  * }
  *
  * export default compose(
- *   withErrorHandling({ name: 'SomeComponent' }),
+ *   withRenderedErrorHandler({ name: 'SomeComponent' }),
  * )(SomeComponent);
  */
-export function withErrorHandling({ name, id } = {}) {
+export function withRenderedErrorHandler({ name, id } = {}) {
   return (WrappedComponent) => {
     function ErrorBanner(props) {
       // eslint-disable-next-line react/prop-types

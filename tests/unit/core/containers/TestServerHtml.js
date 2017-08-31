@@ -1,6 +1,5 @@
 import Helmet from 'react-helmet';
 import React from 'react';
-import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import {
   findRenderedDOMComponentWithTag,
@@ -8,51 +7,24 @@ import {
 } from 'react-addons-test-utils';
 
 import ServerHtml from 'core/containers/ServerHtml';
+import FakeApp, {
+  fakeAssets, fakeSRIData,
+} from 'tests/unit/core/server/fakeApp';
 
 describe('<ServerHtml />', () => {
+  const _helmetCanUseDOM = Helmet.canUseDOM;
+
   beforeEach(() => {
     Helmet.canUseDOM = false;
+  });
+
+  afterEach(() => {
+    Helmet.canUseDOM = _helmetCanUseDOM;
   });
 
   const fakeStore = {
     getState: () => ({ foo: 'bar' }),
   };
-
-  const fakeAssets = {
-    styles: {
-      disco: '/bar/disco-blah.css',
-      search: '/search-blah.css',
-    },
-    javascript: {
-      disco: '/foo/disco-blah.js',
-      search: '/search-blah.js',
-    },
-  };
-
-  const fakeSRIData = {
-    'disco-blah.css': 'sha512-disco-css',
-    'search-blah.css': 'sha512-search-css',
-    'disco-blah.js': 'sha512-disco-js',
-    'search-blah.js': 'sha512-search-js',
-  };
-
-  class FakeApp extends React.Component {
-    static propTypes = {
-      children: PropTypes.node,
-    }
-
-    render() {
-      const { children } = this.props;
-      return (
-        <div>
-          <Helmet defaultTitle="test title">
-            <meta name="description" content="test meta" />
-          </Helmet>
-          {children}
-        </div>
-      );
-    }
-  }
 
   function render(opts = {}) {
     const pageProps = {
