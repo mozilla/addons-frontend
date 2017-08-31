@@ -12,6 +12,10 @@
 
 .Icon-arrow {
   @include icon($name: "arrow");
+
+  [dir=rtl] & {
+    transform: rotate(180deg);
+  }
 }
 
 .Icon-arrow-blue {

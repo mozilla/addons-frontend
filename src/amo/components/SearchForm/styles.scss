@@ -49,11 +49,6 @@
   }
 }
 
-// This rotates the -> arrow icon around for RTL users.
-[dir=rtl] .SearchForm-icon-arrow {
-  transform: rotateY(180deg);
-}
-
 .SearchForm-suggestions-list {
   @include end(0);
 

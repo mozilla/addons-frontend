@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
-import type { UserAgentInfoType } from 'core/reducers/api';
+import type { ApiStateType, UserAgentInfoType } from 'core/reducers/api';
 import Button from 'ui/components/Button';
 
 
@@ -19,7 +19,6 @@ export const DownloadFirefoxButtonBase = ({
   className,
   i18n,
   userAgentInfo,
-// eslint-disable-next-line indent
 }: PropTypes = {}) => {
   if (userAgentInfo.browser.name === 'Firefox') {
     return null;
@@ -34,7 +33,7 @@ export const DownloadFirefoxButtonBase = ({
         'Button--small',
         className,
       )}
-      href="http://mozilla.org/"
+      href="https://mozilla.org/firefox/"
     >
       {i18n.gettext('Download Firefox')}
     </Button>
@@ -42,8 +41,8 @@ export const DownloadFirefoxButtonBase = ({
 };
 
 type StateType = {|
-  api: { userAgentInfo: UserAgentInfoType },
-|};
+  api: ApiStateType,
+|}
 
 export function mapStateToProps(state: StateType) {
   return {

@@ -28,6 +28,9 @@ export default class Button extends React.Component {
     if (href || to) {
       if (href) {
         props.href = href;
+        // If this button should be a link we don't want to prefix the URL.
+        props.prependClientApp = false;
+        props.prependLang = false;
       } else if (to) {
         props.to = to;
       }
