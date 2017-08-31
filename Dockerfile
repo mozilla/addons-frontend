@@ -5,6 +5,9 @@ RUN mkdir -p /srv/node
 ADD package.json /srv/node/
 WORKDIR /srv/node
 
+# This file has been downloaded from: https://dl.yarnpkg.com/debian/pubkey.gpg
+COPY docker/etc/pki/yarnpkg.gpg.key /etc/pki/yarnpkg.gpg.key
+
 RUN buildDeps=' \
     git \
     yarn \
@@ -13,7 +16,7 @@ RUN buildDeps=' \
     apt-get update -y && \
     apt-get install -y --no-install-recommends apt-transport-https && \
     # configure Yarn repository, see: https://yarnpkg.com/en/docs/install#linux-tab
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg|apt-key add - && \
+    apt-key add /etc/pki/yarnpkg.gpg.key && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list && \
     # the base image installs yarn, let's be sure we use ours
     rm -f /usr/local/bin/yarn /usr/local/bin/yarnpkg && \
