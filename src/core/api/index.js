@@ -22,7 +22,6 @@ const Entity = normalizrSchema.Entity;
 
 export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
 export const category = new Entity('categories', {}, { idAttribute: 'slug' });
-export const user = new Entity('users', {}, { idAttribute: 'username' });
 
 export function makeQueryString(query: { [key: string]: * }) {
   const resolvedQuery = { ...query };
@@ -212,15 +211,6 @@ export function startLoginUrl(
   }
   const query = makeQueryString(params);
   return `${API_BASE}/accounts/login/start/${query}`;
-}
-
-export function fetchProfile({ api }: {| api: ApiStateType |}) {
-  return callApi({
-    endpoint: 'accounts/profile',
-    schema: user,
-    auth: true,
-    state: api,
-  });
 }
 
 type FeaturedParams = {|

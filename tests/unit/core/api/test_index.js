@@ -378,31 +378,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('fetchProfile', () => {
-    it("requests the user's profile", () => {
-      const token = userAuthToken();
-      const user = { username: 'foo', email: 'foo@example.com' };
-      mockWindow
-        .expects('fetch')
-        .withArgs(`${apiHost}/api/v3/accounts/profile/?lang=en-US`, {
-          body: undefined,
-          credentials: undefined,
-          headers: { authorization: `Bearer ${token}` },
-          method: 'GET',
-        })
-        .once()
-        .returns(createApiResponse({ jsonData: user }));
-      return api.fetchProfile({ api: { lang: 'en-US', token } })
-        .then((apiResponse) => {
-          expect(apiResponse).toEqual({
-            entities: { users: { foo: user } },
-            result: 'foo',
-          });
-          mockWindow.verify();
-        });
-    });
-  });
-
   describe('startLoginUrl', () => {
     const getStartLoginQs = (location) =>
       querystring.parse(api.startLoginUrl({ location }).split('?')[1]);
