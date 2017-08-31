@@ -141,6 +141,13 @@
   }
 }
 
+.Addon-badges {
+  flex-basis: 100%;
+  flex-grow: 1;
+  margin-bottom: 10px;
+  order: 4;
+}
+
 // Details section with lots of grid stuff, on larger displays.
 @include respond-to(large) {
   .Addon-details {

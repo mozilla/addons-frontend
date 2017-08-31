@@ -26,7 +26,7 @@ export function* fetchSearchResults({ payload }) {
 
     const response = yield call(searchApi, {
       api: state.api,
-      auth: state.auth,
+      auth: true,
       filters,
       page,
     });

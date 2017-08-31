@@ -125,7 +125,7 @@ new Promise((resolve) => {
       // This will make sure we can read the logs.
       '--log-driver=json-file',
       imageId,
-      '/bin/sh -c "npm run build && npm run start"',
+      '/bin/sh -c "yarn build && yarn start"',
     ];
     return exec('docker', runArgs);
   })

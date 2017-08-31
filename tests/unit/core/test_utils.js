@@ -18,9 +18,12 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CATEGORY_COLORS,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   validAddonTypes,
 } from 'core/constants';
@@ -70,7 +73,8 @@ describe('apiAddonType', () => {
 
   it('fails on unrecognised plural/visible addonType', () => {
     expect(() => {
-      // "theme" is not a valid pluralAddonType mapping; it should be "themes".
+      // "theme" is not a valid pluralAddonType mapping; it should
+      // be "themes".
       apiAddonType('theme');
     }).toThrowError('"theme" not found in API_ADDON_TYPES_MAPPING');
   });
@@ -147,59 +151,59 @@ describe('convertBoolean', () => {
 
 describe('getClientApp', () => {
   it('should return firefox by default with no args', () => {
-    expect(getClientApp()).toEqual('firefox');
+    expect(getClientApp()).toEqual(CLIENT_APP_FIREFOX);
   });
 
   it('should return firefox by default with bad type', () => {
-    expect(getClientApp(1)).toEqual('firefox');
+    expect(getClientApp(1)).toEqual(CLIENT_APP_FIREFOX);
   });
 
   userAgents.androidWebkit.forEach((ua) => {
     it(`should return 'android' for a androidWebkit UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('android');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
     });
   });
 
   userAgents.chromeAndroid.forEach((ua) => {
     it(`should return 'android' for a chromeAndroid UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('android');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
     });
   });
 
   userAgents.chrome.forEach((ua) => {
     it(`should fallback to 'firefox' for a chrome UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('firefox');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
     });
   });
 
   userAgents.firefox.forEach((ua) => {
     it(`should return firefox by default for a Firefox UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('firefox');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
     });
   });
 
   userAgents.firefoxOS.forEach((ua) => {
     it(`should return firefox by default for a Firefox OS UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('firefox');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
     });
   });
 
   userAgents.firefoxAndroid.forEach((ua) => {
     it(`should return android for a Firefox Android UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('android');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
     });
   });
 
   userAgents.firefoxIOS.forEach((ua) => {
     it(`should return 'firefox' for a Firefox iOS UA string ${ua}`, () => {
-      expect(getClientApp(ua)).toEqual('firefox');
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
     });
   });
 
   it('should return "android" for lowercase UA string', () => {
     // This UA string has android, not Android.
     const ua = 'mozilla/5.0 (android; mobile; rv:40.0) gecko/40.0 firefox/40.0';
-    expect(getClientApp(ua)).toEqual('android');
+    expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
   });
 });
 
@@ -336,7 +340,16 @@ describe('isCompatibleWithUserAgent', () => {
       os: { name: 'Windows' },
     };
     expect(isCompatibleWithUserAgent({
-      addon: fakeAddon, maxVersion: '8', userAgentInfo })).toEqual({ compatible: true, reason: null });
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          is_strict_compatibility_enabled: false,
+        },
+      },
+      maxVersion: '8',
+      userAgentInfo,
+    })).toEqual({ compatible: true, reason: null });
   });
 
   it('should mark Firefox as compatible when no min or max version', () => {
@@ -389,14 +402,17 @@ describe('isCompatibleWithUserAgent', () => {
 
 describe('isValidClientApp', () => {
   const _config = new Map();
-  _config.set('validClientApplications', ['firefox', 'android']);
+  _config.set('validClientApplications', [
+    CLIENT_APP_FIREFOX,
+    CLIENT_APP_ANDROID,
+  ]);
 
   it('should be valid if passed "firefox"', () => {
-    expect(isValidClientApp('firefox', { _config })).toEqual(true);
+    expect(isValidClientApp(CLIENT_APP_FIREFOX, { _config })).toEqual(true);
   });
 
   it('should be valid if passed "android"', () => {
-    expect(isValidClientApp('android', { _config })).toEqual(true);
+    expect(isValidClientApp(CLIENT_APP_ANDROID, { _config })).toEqual(true);
   });
 
   it('should be invalid if passed "whatever"', () => {
@@ -822,7 +838,7 @@ describe('getCompatibleVersions', () => {
       },
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp: 'firefox' });
+      addon, clientApp: CLIENT_APP_FIREFOX });
 
     expect(maxVersion).toEqual('20.0.*');
     expect(minVersion).toEqual('11.0.1');
@@ -842,7 +858,7 @@ describe('getCompatibleVersions', () => {
       },
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp: 'android' });
+      addon, clientApp: CLIENT_APP_ANDROID });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -857,7 +873,7 @@ describe('getCompatibleVersions', () => {
       },
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp: 'firefox' });
+      addon, clientApp: CLIENT_APP_FIREFOX });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -869,7 +885,7 @@ describe('getCompatibleVersions', () => {
       current_version: null,
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon, clientApp: 'firefox' });
+      addon, clientApp: CLIENT_APP_FIREFOX });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -877,7 +893,7 @@ describe('getCompatibleVersions', () => {
 
   it('returns null if addon is null', () => {
     const { maxVersion, minVersion } = getCompatibleVersions({
-      addon: null, clientApp: 'firefox' });
+      addon: null, clientApp: CLIENT_APP_FIREFOX });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -893,7 +909,10 @@ describe('getCompatibleVersions', () => {
       type: ADDON_TYPE_OPENSEARCH,
     };
     const { maxVersion, minVersion } = getCompatibleVersions({
-      _log: fakeLog, addon: openSearchAddon, clientApp: 'firefox' });
+      _log: fakeLog,
+      addon: openSearchAddon,
+      clientApp: CLIENT_APP_FIREFOX,
+    });
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
@@ -908,7 +927,7 @@ describe('getClientCompatibility', () => {
 
     expect(getClientCompatibility({
       addon: fakeAddon,
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
       compatible: true,
@@ -931,7 +950,7 @@ describe('getClientCompatibility', () => {
           },
         },
       },
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
       compatible: true,
@@ -954,7 +973,7 @@ describe('getClientCompatibility', () => {
           },
         },
       },
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
       compatible: true,
@@ -970,13 +989,66 @@ describe('getClientCompatibility', () => {
 
     expect(getClientCompatibility({
       addon: fakeAddon,
-      clientApp: 'firefox',
+      clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
       compatible: true,
       maxVersion: null,
       minVersion: null,
       reason: null,
+    });
+  });
+
+  it('returns compatible if strict compatibility is off', () => {
+    const { browser, os } = UAParser(userAgents.firefox[4]);
+    const userAgentInfo = { browser, os };
+
+    expect(getClientCompatibility({
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          compatibility: {
+            ...fakeAddon.current_version.compatibility,
+            [CLIENT_APP_FIREFOX]: {
+              max: '56.*',
+              min: '24.0',
+            },
+          },
+          files: [{ is_webextension: true }],
+          is_strict_compatibility_enabled: false,
+        },
+      },
+      clientApp: CLIENT_APP_FIREFOX,
+      userAgentInfo,
+    })).toMatchObject({ compatible: true });
+  });
+
+  it('returns incompatible if strict compatibility enabled', () => {
+    const { browser, os } = UAParser(userAgents.firefox[5]);
+    const userAgentInfo = { browser, os };
+
+    expect(getClientCompatibility({
+      addon: {
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          compatibility: {
+            ...fakeAddon.current_version.compatibility,
+            [CLIENT_APP_FIREFOX]: {
+              max: '56.*',
+              min: '24.0',
+            },
+          },
+          files: [{ is_webextension: false }],
+          is_strict_compatibility_enabled: true,
+        },
+      },
+      clientApp: CLIENT_APP_FIREFOX,
+      userAgentInfo,
+    })).toMatchObject({
+      compatible: false,
+      reason: INCOMPATIBLE_OVER_MAX_VERSION,
     });
   });
 });

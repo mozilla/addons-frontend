@@ -2,8 +2,8 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { SearchBase, mapStateToProps } from 'amo/components/Search';
+import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
-import SearchSort from 'amo/components/SearchSort';
 import { setViewContext } from 'amo/actions/viewContext';
 import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
@@ -72,26 +72,25 @@ describe('Search', () => {
     expect(paginators.length).toEqual(0);
   });
 
-  it('does render a SearchSort when there are filters and results', () => {
+  it('renders SearchFilters when there are filters and results', () => {
     const root = render();
-    const sort = root.find(SearchSort);
+    const sort = root.find(SearchFilters);
 
     expect(sort.prop('filters')).toEqual(props.filters);
     expect(sort.prop('pathname')).toEqual(props.pathname);
   });
 
-  it('does not render a SearchSort when there are no results', () => {
+  it('renders SearchFilters even when there are no results', () => {
     const { store } = dispatchSearchResults({ addons: {} });
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.find(SearchSort)).toHaveLength(0);
+    expect(root.find(SearchFilters)).toHaveLength(1);
   });
 
-  it('does not render SearchSort when enableSearchSort is false', () => {
-    const root = render({ enableSearchSort: false });
-    const searchSort = root.find(SearchSort);
+  it('does not render SearchFilters when enableSearchFilters is false', () => {
+    const root = render({ enableSearchFilters: false });
 
-    expect(searchSort.length).toEqual(0);
+    expect(root.find(SearchFilters)).toHaveLength(0);
   });
 
   it('dispatches the search on mount', () => {
@@ -153,7 +152,7 @@ describe('Search', () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('should render category results', () => {
+  it('should render category results, even with empty query', () => {
     const root = render({ filters: { query: null, category: 'some-category' } });
 
     expect(root.find(SearchResults)).toHaveLength(1);

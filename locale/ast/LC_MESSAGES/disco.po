@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"POT-Creation-Date: 2017-08-22 21:36+0000\n"
 "PO-Revision-Date: 2017-02-02 13:58+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,43 +86,43 @@ msgstr "Agora pues acceder a %(name)s dende la barra de ferramientes."
 msgid "OK!"
 msgstr "¡Val!"
 
-#: src/disco/components/Addon.js:115
+#: src/disco/components/Addon.js:122
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Pasa penriba pa previsualizar o primi pa instalar %(name)s"
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:137
 msgid "Hover over the image to preview"
 msgstr "Pasa penriba d'una imaxe pa previsualizala"
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Installation failed. Please try again."
 msgstr "Falló la instalación. Volvi tentalo, por favor."
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:163
 msgid "Download failed. Please check your connection."
 msgstr "Falló la descarga. Comprueba la to conexón, por favor."
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:165
 msgid "An unexpected error occurred during installation."
 msgstr "Asocedió un fallu inesperáu na instalación."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Asocedió un fallu inesperáu na desinstalación."
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred."
 msgstr "Asocedió un fallu inesperáu."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:178
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Esti add-on desinstalaráse dempués de que reanicies Firefox."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:180
 msgid "Please restart Firefox to use this add-on."
 msgstr "Reanicia Firefox pa usar esti add-on, por favor."
 
-#: src/disco/components/Addon.js:78
+#: src/disco/components/Addon.js:83
 msgid "Close"
 msgstr "Zarrar"
 
@@ -143,15 +143,15 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/disco/containers/App.js:35
+#: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
 msgstr "Descubrir add-ons"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:113
 msgid "Personalize Your Firefox"
 msgstr "Personaliza'l to Firefox"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:114
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -168,18 +168,31 @@ msgstr ""
 "y, p'ayudate a entamar, equí hai daqué qu'aconseyamos pa esi rindimientu y\n"
 "funcionalidá destacaos."
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:122
 msgid "Click to play"
 msgstr "Primi pa reproducir"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:123
 msgid "to find out more about add-ons"
 msgstr "pa pescudar más tocante a los add-ons"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:137
 msgid "Close video"
 msgstr "Zarrar videu"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:156
 msgid "See more add-ons!"
 msgstr "¡Mira más add-ons!"
+
+#: src/ui/components/ErrorList/index.js:45
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:52
+#, fuzzy
+msgid "An unexpected error occurred"
+msgstr "Asocedió un fallu inesperáu."
+
+#: src/ui/components/ErrorList/index.js:61
+msgid "Reload To Continue"
+msgstr ""

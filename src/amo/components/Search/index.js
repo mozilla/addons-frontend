@@ -7,8 +7,8 @@ import { compose } from 'redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import SearchContextCard from 'amo/components/SearchContextCard';
+import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
-import SearchSort from 'amo/components/SearchSort';
 import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
 import { VIEW_CONTEXT_EXPLORE } from 'core/constants';
@@ -27,7 +27,7 @@ export class SearchBase extends React.Component {
     LinkComponent: PropTypes.node.isRequired,
     count: PropTypes.number,
     dispatch: PropTypes.func.isRequired,
-    enableSearchSort: PropTypes.bool,
+    enableSearchFilters: PropTypes.bool,
     errorHandler: PropTypes.object.isRequired,
     filters: PropTypes.object,
     filtersUsedForResults: PropTypes.object,
@@ -40,7 +40,7 @@ export class SearchBase extends React.Component {
   static defaultProps = {
     LinkComponent: Link,
     count: 0,
-    enableSearchSort: true,
+    enableSearchFilters: true,
     filters: {},
     filtersUsedForResults: {},
     paginationQueryParams: null,
@@ -84,7 +84,7 @@ export class SearchBase extends React.Component {
     const {
       LinkComponent,
       count,
-      enableSearchSort,
+      enableSearchFilters,
       errorHandler,
       filters,
       loading,
@@ -116,9 +116,6 @@ export class SearchBase extends React.Component {
         queryParams={queryParams}
       />
     ) : null;
-    const searchSort = enableSearchSort && count > 0 ? (
-      <SearchSort filters={filters} pathname={pathname} />
-    ) : null;
 
     return (
       <div className="Search">
@@ -126,7 +123,9 @@ export class SearchBase extends React.Component {
 
         <SearchContextCard />
 
-        {searchSort}
+        {enableSearchFilters ? (
+          <SearchFilters filters={filters} pathname={pathname} />
+        ) : null}
 
         <SearchResults
           count={count}

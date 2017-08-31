@@ -1,7 +1,9 @@
 @import "./vars";
 @import "~core/css/inc/mixins";
 
-.Icon {
+@mixin icon($name) {
+  background: url("./#{$name}.svg") center no-repeat;
+  background-size: contain;
   content: "";
   display: inline-block;
   height: $default-icon-size;
@@ -9,12 +11,14 @@
 }
 
 .Icon-magnifying-glass {
-  background: url("~amo/img/icons/magnifying-glass.svg") center no-repeat;
+  @include icon($name: "magnifying-glass");
+
   background-size: cover;
 }
 
 .Icon-eye {
-  background: url("./eye.svg") center no-repeat;
+  @include icon($name: "eye");
+
   background-size: cover;
 
   &,
@@ -24,66 +28,69 @@
 }
 
 .Icon-fox {
-  background: url("./fox.svg") center no-repeat;
+  @include icon($name: "fox");
+
   background-size: cover;
 }
 
 .Icon-fox-light {
-  background: url("./fox-light.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "fox-light");
 }
 
 .Icon-mozilla {
-  background: url("./mozilla.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "mozilla");
+
   height: 32px;
   width: 112px;
 }
 
+.Icon-triangle-down {
+  @include icon($name: "triangle-down");
+}
+
+.Icon-triangle-down-black {
+  @include icon($name: "triangle-down-black");
+}
+
 .Icon-user {
-  background: url("./user.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "user");
 }
 
 .Icon-star {
-  background: url("./star.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "star");
 }
 
 .Icon-star-empty {
-  background: url("./star-empty.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "star-empty");
 }
 
 .Icon-star-full {
-  background: url("./star-full.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "star-full");
 }
 
 .Icon-star-half {
-  background: url("./star-half.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "star-half");
 }
 
 .Icon-user-dark {
-  background: url("./user-dark.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "user-dark");
 }
 
 .Icon-user-fill {
-  background: url("./user-fill.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "user-fill");
 }
 
 .Icon-browse {
-  background: url("./bullet-list.svg") center no-repeat;
+  @include icon($name: "bullet-list");
+
   background-size: cover;
   height: 20px;
   width: 20px;
 }
 
 .Icon-themes {
-  background: url("./themes.svg") center no-repeat;
+  @include icon($name: "themes");
+
   background-size: cover;
   height: 45px;
   min-width: 37.3px;
@@ -91,7 +98,8 @@
 }
 
 .Icon-extensions {
-  background: url("./extensions.svg") center no-repeat;
+  @include icon($name: "extensions");
+
   background-size: cover;
   height: 44.7px;
   min-width: 46.3px;
@@ -99,15 +107,34 @@
 }
 
 .Icon-artistic-unicorn {
-  background: url("./artistic-unicorn.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "artistic-unicorn");
+
   height: 198.6px;
   width: 394px;
 }
 
 .Icon-multitasking-octopus {
-  background: url("./multitasking-octopus.svg") center no-repeat;
-  background-size: contain;
+  @include icon($name: "multitasking-octopus");
+
   height: 199.3px;
   width: 366px;
+}
+
+.Icon-featured {
+  @include icon($name: "featured");
+}
+
+.Icon-restart {
+  @include icon($name: "restart");
+}
+
+.Icon-arrow-big-blue {
+  @include icon($name: "arrow-big-blue");
+
+  width: 18px;
+
+  [dir=rtl] & {
+    right: auto;
+    transform: rotate(180deg);
+  }
 }

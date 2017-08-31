@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2017-07-20 12:12+0000\n"
+"POT-Creation-Date: 2017-08-22 21:36+0000\n"
+"PO-Revision-Date: 2017-08-28 11:22+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fy_NL\n"
@@ -82,43 +82,43 @@ msgstr "Jo kinne %(name)s no benaderje fan de arkbalke ôf."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:115
+#: src/disco/components/Addon.js:122
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Hâld de mûsoanwizer hjir foar in foarbyld of klik om %(name)s te ynstallearjen"
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:137
 msgid "Hover over the image to preview"
 msgstr "Hâld de mûsoanwizer boppe de ôfbylding foar in foarbyld"
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Installation failed. Please try again."
 msgstr "Ynstallaasje mislearre. Probearje it opnij."
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:163
 msgid "Download failed. Please check your connection."
 msgstr "Downloaden mislearre. Kontrolearje jo ferbining."
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:165
 msgid "An unexpected error occurred during installation."
 msgstr "Der is in ûnferwachte flater bard wylst it ynstallearjen."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Der is in ûnferwachte flater bard wylst it fuortsmiten."
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred."
 msgstr "Der is in ûnferwachte flater bard."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:178
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Dizze add-on sil de-ynstallearre wurde neidat jo Firefox opnij starte."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:180
 msgid "Please restart Firefox to use this add-on."
 msgstr "Start Firefox opnij om dizze add-on te brûken."
 
-#: src/disco/components/Addon.js:78
+#: src/disco/components/Addon.js:83
 msgid "Close"
 msgstr "Slute"
 
@@ -138,15 +138,15 @@ msgstr "Dizze add-on wurdt net stipe troch jo browser."
 msgid "Privacy Policy"
 msgstr "Privacybelied"
 
-#: src/disco/containers/App.js:35
+#: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
 msgstr "Add-ons ûntdekke"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:113
 msgid "Personalize Your Firefox"
 msgstr "Personalisearje jo Firefox"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:114
 msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
@@ -157,18 +157,30 @@ msgstr ""
 "Om jo op gong te helpen, binne hjir in pear add-ons dy't wy oanrekkomandearre fanwege harren bjusterbaarlike prestaasjes\n"
 "en funksjonaliteit."
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:122
 msgid "Click to play"
 msgstr "Klik om de fideo ôf te spyljen"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:123
 msgid "to find out more about add-ons"
 msgstr "en mear oer add-ons te ûntdekken"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:137
 msgid "Close video"
 msgstr "Fideo slute"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:156
 msgid "See more add-ons!"
 msgstr "Besjoch mear add-ons!"
+
+#: src/ui/components/ErrorList/index.js:45
+msgid "Your session has expired"
+msgstr "Jo sesje is ferrûn"
+
+#: src/ui/components/ErrorList/index.js:52
+msgid "An unexpected error occurred"
+msgstr "Der is in ûnferwachte flater bard"
+
+#: src/ui/components/ErrorList/index.js:61
+msgid "Reload To Continue"
+msgstr "Opnij lade om troch te gean"

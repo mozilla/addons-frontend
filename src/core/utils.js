@@ -20,6 +20,7 @@ import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import { AddonTypeNotFound } from 'core/errors';
@@ -354,9 +355,13 @@ export function isCompatibleWithUserAgent({
     // confused by this as tofumatt was.
     // See: https://github.com/mozilla/addons-frontend/issues/2074#issuecomment-286983423
     if (maxVersion && mozCompare(browser.version, maxVersion) === 1) {
-      _log.info(oneLine`maxVersion ${maxVersion} for add-on lower than browser
-        version ${browser.version}, but add-on still marked as compatible
-        because we largely ignore maxVersion. See:
+      if (addon.current_version.is_strict_compatibility_enabled) {
+        return { compatible: false, reason: INCOMPATIBLE_OVER_MAX_VERSION };
+      }
+
+      _log.info(oneLine`maxVersion ${maxVersion} for add-on lower than
+        browser version ${browser.version}, but add-on still marked as
+        compatible because we largely ignore maxVersion. See:
         https://github.com/mozilla/addons-frontend/issues/2074`);
     }
 
@@ -370,6 +375,8 @@ export function isCompatibleWithUserAgent({
         );
       }
 
+      // `minVersion` is always respected, regardless of
+      // `is_strict_compatibility_enabled`'s value.
       return { compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION };
     }
 

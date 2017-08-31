@@ -13,7 +13,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
-import { fetchAddon } from 'core/actions/addons';
+import { fetchAddon } from 'core/reducers/addons';
 import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
@@ -33,6 +33,7 @@ import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
+import Badge from 'ui/components/Badge';
 
 import './styles.scss';
 
@@ -89,11 +90,16 @@ export class AddonBase extends React.Component {
     }
   }
 
-  componentWillReceiveProps({ addon: newAddon }) {
-    const { addon: oldAddon, dispatch } = this.props;
+  componentWillReceiveProps({ addon: newAddon, params: newParams }) {
+    const { addon: oldAddon, dispatch, errorHandler, params } = this.props;
+
     const oldAddonType = oldAddon ? oldAddon.type : null;
     if (newAddon && newAddon.type !== oldAddonType) {
       dispatch(setViewContext(newAddon.type));
+    }
+
+    if (params.slug !== newParams.slug) {
+      dispatch(fetchAddon({ slug: newParams.slug, errorHandler }));
     }
   }
 
@@ -111,6 +117,19 @@ export class AddonBase extends React.Component {
 
   onClick = (event) => {
     this.props.toggleThemePreview(event.currentTarget);
+  }
+
+  getFeaturedText(addonType) {
+    const { i18n } = this.props;
+
+    switch (addonType) {
+      case ADDON_TYPE_EXTENSION:
+        return i18n.gettext('Featured Extension');
+      case ADDON_TYPE_THEME:
+        return i18n.gettext('Featured Theme');
+      default:
+        return i18n.gettext('Featured Add-on');
+    }
   }
 
   headerImage({ compatible } = {}) {
@@ -292,12 +311,16 @@ export class AddonBase extends React.Component {
     const addonPreviews = addon ? addon.previews : [];
 
     let isCompatible = false;
+    let isFeatured = false;
+    let isRestartRequired = false;
     let compatibility;
     if (addon) {
       compatibility = getClientCompatibility({
         addon, clientApp, userAgentInfo,
       });
       isCompatible = compatibility.compatible;
+      isFeatured = addon.is_featured;
+      isRestartRequired = addon.isRestartRequired;
     }
 
     return (
@@ -307,6 +330,21 @@ export class AddonBase extends React.Component {
           <header className="Addon-header">
             <h1 className="Addon-title" {...titleProps} />
             <p className="Addon-summary" {...summaryProps} />
+
+            <div className="Addon-badges">
+              {isFeatured ? (
+                <Badge
+                  type="featured"
+                  label={this.getFeaturedText(addonType)}
+                />
+              ) : null}
+              {isRestartRequired ? (
+                <Badge
+                  type="restart-required"
+                  label={i18n.gettext('Restart Required')}
+                />
+              ) : null}
+            </div>
 
             {addon ?
               <InstallButton
