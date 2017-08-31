@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-29 19:04+0000\n"
-"PO-Revision-Date: 2017-08-31 08:30+0000\n"
+"PO-Revision-Date: 2017-08-31 08:41+0000\n"
 "Last-Translator: Artanto Ishaam <artanto.ishaam@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -485,24 +485,21 @@ msgid "No add-ons found"
 msgstr "Pengaya tidak ditemukan"
 
 #: src/amo/components/SearchContextCard/index.js:45
-#, fuzzy
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] "Tidak ada kategori ditemukan."
+msgstr[0] "%(count)s pengaya ditemukan"
 
 #: src/amo/components/SearchForm/index.js:153
 msgid "Go to the add-on page"
 msgstr "Menuju laman pengaya"
 
 #: src/amo/components/SearchForm/index.js:163
-#, fuzzy
 msgid "Search extensions"
-msgstr "Ekstensi pilihan"
+msgstr "Cari ekstensi"
 
 #: src/amo/components/SearchForm/index.js:165
-#, fuzzy
 msgid "Search themes"
-msgstr "Tema pilihan"
+msgstr "Cari tema"
 
 #: src/amo/components/SearchForm/index.js:167
 msgid "Search extensions and themes"
@@ -517,9 +514,8 @@ msgid "Enter"
 msgstr "Enter"
 
 #: src/amo/components/SearchForm/index.js:73
-#, fuzzy
 msgid "Loading"
-msgstr "Memuat..."
+msgstr "Memuat"
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
@@ -542,9 +538,8 @@ msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Silakan masukkan kata pencarian untuk mencari Pengaya Firefox."
 
 #: src/amo/components/SearchResults.js:60
-#, fuzzy
 msgid "Search results"
-msgstr "Tema pilihan"
+msgstr "Hasil pencarian"
 
 #: src/amo/components/SearchSort/index.js:41
 msgid "Recently Updated"
@@ -599,14 +594,12 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
 #: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
-#, fuzzy
 msgid "Add to Firefox"
-msgstr "Pengaya untuk Firefox"
+msgstr "Tambah ke Firefox"
 
 #: src/core/components/InstallButton/index.js:85
-#, fuzzy
 msgid "Install Theme"
-msgstr "Memasang %(name)s."
+msgstr "Pasang Tema"
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."
@@ -673,9 +666,8 @@ msgid "Reload To Continue"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:94
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Peringkat rata-rata: %(rating)s dari 5"
+msgstr "Peringkat %(rating)s dari 5"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
