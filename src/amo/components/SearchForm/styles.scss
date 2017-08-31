@@ -2,10 +2,6 @@
 @import "~amo/css/inc/vars";
 @import "~ui/css/vars";
 
-$item-padding-horizontal: 23px;
-$item-padding: 5px 6;
-$arrow-width: 18px;
-
 .SearchForm {
   position: relative;
 }
@@ -14,7 +10,7 @@ $arrow-width: 18px;
   @include start(6px);
 
   position: absolute;
-  top: 5px;
+  top: 6px;
 }
 
 .SearchForm-query {
@@ -26,8 +22,8 @@ $arrow-width: 18px;
   color: $black;
   height: 28px;
   outline: 0;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-top: 6px;
   white-space: nowrap;
   width: 100%;
 
@@ -49,7 +45,7 @@ $arrow-width: 18px;
 
     display: block;
     position: absolute;
-    top: 5px;
+    top: 6px;
   }
 }
 
@@ -79,17 +75,6 @@ $arrow-width: 18px;
   outline: none;
   padding: 5px 6px;
   width: 100%;
-
-  .Icon-arrow-big-blue {
-    display: none;
-    height: 16px;
-    margin-top: 1px;
-    width: $arrow-width;
-
-    [dir=rtl] & {
-      transform: rotateY(180deg);
-    }
-  }
 }
 
 .SearchForm-suggestions-item:hover,
@@ -99,7 +84,7 @@ $arrow-width: 18px;
   color: $link-color;
   white-space: normal;
 
-  .Icon-arrow-big-blue {
+  .SearchSuggestion-icon-arrow {
     display: block;
   }
 }

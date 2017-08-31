@@ -170,7 +170,6 @@ export class SearchFormBase extends React.Component {
       className,
       i18n,
       pathname,
-      query,
     } = this.props;
 
     let placeholderText;
@@ -192,7 +191,7 @@ export class SearchFormBase extends React.Component {
       onChange: this.handleSearchChange,
       placeholder: placeholderText,
       type: 'search',
-      value: query && query.length ? query : this.state.searchValue,
+      value: this.state.searchValue,
     };
 
     return (

@@ -21,7 +21,11 @@ const SearchSuggestion = ({ name, iconUrl, arrowAlt, loading }: Props) => {
       <span className="SearchSuggestion-name">
         {loading ? <LoadingText minWidth={20} range={12} /> : name}
       </span>
-      <Icon name="arrow-big-blue" alt={arrowAlt} />
+      <Icon
+        alt={arrowAlt}
+        className="SearchSuggestion-icon-arrow"
+        name="arrow-blue"
+      />
     </p>
   );
 };

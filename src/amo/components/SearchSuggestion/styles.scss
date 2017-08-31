@@ -1,7 +1,5 @@
 @import "~core/css/inc/mixins";
 
-$addon-icon-margin-end: 12px;
-
 .SearchSuggestion {
   display: flex;
   flex-direction: row;
@@ -18,8 +16,21 @@ $addon-icon-margin-end: 12px;
 }
 
 .SearchSuggestion-icon {
-  @include margin-end($addon-icon-margin-end);
+  @include margin-end(12px);
 
   height: 16px;
   width: 16px;
+}
+
+.SearchSuggestion-icon-arrow {
+  @include margin-end(2px);
+
+  display: none;
+  height: 16px;
+  margin-top: 1px;
+  width: 16px;
+
+  // [dir=rtl] & {
+  //   transform: rotateY(180deg);
+  // }
 }

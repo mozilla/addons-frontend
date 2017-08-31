@@ -50,16 +50,18 @@ export class HeaderBase extends React.Component {
 
         <div className="Header-user-and-external-links">
           <Link
-            className="Header-developer-hub-link"
+            className="Header-developer-hub-link Header-button"
             href="/developers/"
             external
             prependClientApp={false}
           >
             {i18n.gettext('Developer Hub')}
           </Link>
-          <DownloadFirefoxButton className="Header-download-button" />
+          <DownloadFirefoxButton
+            className="Header-download-button Header-button"
+          />
           <AuthenticateButton
-            className="Header-authenticate-button Button--action
+            className="Header-authenticate-button Header-button Button--action
               Button--outline-only Button--small"
             location={location}
             noIcon
