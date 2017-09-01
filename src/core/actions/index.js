@@ -75,6 +75,7 @@ export type LoadEntitiesAction = {|
   type: string,
 |};
 
+// TODO: move this to loadAddons
 export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
   return {
     type: ENTITIES_LOADED,
