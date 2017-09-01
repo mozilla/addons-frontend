@@ -3,41 +3,47 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 import addons, { denormalizeAddon, fetchAddon } from 'core/reducers/addons';
 import {
   createFetchAddonResult,
+  createFetchAllAddonsResult,
   createStubErrorHandler,
 } from 'tests/unit/helpers';
 import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
-  let addonsState;
-
-  beforeEach(() => {
-    const anotherFakeAddon = { ...fakeAddon, slug: 'testing123', id: 64 };
-
-    addonsState = addons({},
+  it('ignores unrelated actions', () => {
+    const firstState = addons(undefined,
       loadEntities(createFetchAddonResult(fakeAddon).entities));
-    addonsState = addons(addonsState,
-      loadEntities(createFetchAddonResult(anotherFakeAddon).entities));
-  });
-
-  it('returns the old state', () => {
-    expect(addonsState)
-      .toEqual(addons(addonsState, { type: 'UNRELATED_ACTION' }));
+    expect(addons(firstState, { type: 'UNRELATED_ACTION' }))
+      .toEqual(firstState);
   });
 
   it('stores addons from entities', () => {
-    const anotherFakeAddon = { ...fakeAddon, slug: 'testing1234', id: 6401 };
+    const firstState = addons(undefined,
+      loadEntities(createFetchAddonResult(fakeAddon).entities));
 
-    const newAddonsState = addons(addonsState,
+    const anotherFakeAddon = { ...fakeAddon, slug: 'testing1234', id: 6401 };
+    const newState = addons(firstState,
       loadEntities(createFetchAddonResult(anotherFakeAddon).entities));
-    expect(newAddonsState).toEqual({
-      ...addonsState,
+
+    expect(newState).toEqual({
+      ...firstState,
       [anotherFakeAddon.slug]: denormalizeAddon({
         ...anotherFakeAddon,
         installURL: '',
         isRestartRequired: false,
       }),
     });
+  });
+
+  it('stores all add-ons', () => {
+    const addonResults = [
+      { ...fakeAddon, slug: 'first-slug' },
+      { ...fakeAddon, slug: 'second-slug' },
+    ];
+    const state = addons(undefined,
+      loadEntities(createFetchAllAddonsResult(addonResults).entities));
+    expect(Object.keys(state).sort())
+      .toEqual(['first-slug', 'second-slug']);
   });
 
   it('reads the install URL from the file', () => {
