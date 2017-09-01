@@ -168,27 +168,6 @@ describe(__filename, () => {
     return _search().then(() => mockWindow.verify());
   });
 
-  it('does not set appversion if addonType is set but not extension', () => {
-    api = dispatchSignInActions({
-      clientApp: CLIENT_APP_FIREFOX,
-      userAgent: firefox57,
-    }).store.getState().api;
-
-    mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&type=persona&lang=en-US`)
-      .once()
-      .returns(mockResponse());
-
-    return _search({
-      filters: {
-        addonType: ADDON_TYPE_THEME,
-        page: parsePage(3),
-        query: 'foo',
-      },
-    })
-      .then(() => mockWindow.verify());
-  });
-
   it('normalizes the response', () => {
     mockWindow.expects('fetch').once().returns(mockResponse());
 

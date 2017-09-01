@@ -3,7 +3,6 @@ import { oneLine } from 'common-tags';
 
 import { addon, callApi } from 'core/api';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
 } from 'core/constants';
@@ -57,25 +56,12 @@ export default function search(
     _filters.clientApp = 'firefox';
   }
 
-  // Themes are cross-platform and searching for them with an operatingSystem
-  // filter will result in no results, so we delete it for now.
-  // Can be deleted once https://github.com/mozilla/addons-server/issues/6206
-  // is fixed.
-  if (_filters.addonType === ADDON_TYPE_THEME) {
-    delete _filters.operatingSystem;
-  }
-
   // If the browser is Firefox or Firefox for Android and we're searching for
   // extensions, send the appversion param to get extensions marked as
   // compatible with this version.
   if (
     api.userAgentInfo.browser.name === 'Firefox' &&
-    api.userAgentInfo.os.name !== 'iOS' &&
-    // TODO: Remove this check once
-    // https://github.com/mozilla/addons-server/issues/6206 is fixed.
-    // Right now sending the `appversion` param to search will result
-    // in no themes being returned.
-    (!_filters.addonType || _filters.addonType === ADDON_TYPE_EXTENSION)
+    api.userAgentInfo.os.name !== 'iOS'
   ) {
     const browserVersion = parseInt(api.userAgentInfo.browser.version, 10);
 
