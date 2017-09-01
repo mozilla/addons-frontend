@@ -7,7 +7,9 @@ import log from 'core/logger';
 import ErrorList from 'ui/components/ErrorList';
 
 function generateHandlerId({ name = '' } = {}) {
-  return `${name}-${Math.random().toString(36).substr(2, 9)}`;
+  return `${name}-${Math.random()
+    .toString(36)
+    .substr(2, 9)}`;
 }
 
 /*
@@ -100,7 +102,7 @@ export type ErrorHandlerType = typeof ErrorHandler;
  * )(SomeComponent);
  */
 export function withErrorHandler({ name, id }) {
-  return (WrappedComponent) => {
+  return WrappedComponent => {
     const mapStateToProps = () => {
       // Each component instance gets its own error handler ID.
       let defaultInstanceId = id;
@@ -112,8 +114,9 @@ export function withErrorHandler({ name, id }) {
       // Now that the component has been instantiated, return its
       // state mapper function.
       return (state, ownProps) => {
-        const instanceId = ownProps.errorHandler ?
-          ownProps.errorHandler.id : defaultInstanceId;
+        const instanceId = ownProps.errorHandler
+          ? ownProps.errorHandler.id
+          : defaultInstanceId;
         return {
           error: state.errors[instanceId],
           instanceId,
@@ -122,9 +125,11 @@ export function withErrorHandler({ name, id }) {
     };
 
     const mergeProps = (stateProps, dispatchProps, ownProps) => {
-      const errorHandler = ownProps.errorHandler || new ErrorHandler({
-        id: stateProps.instanceId,
-      });
+      const errorHandler =
+        ownProps.errorHandler ||
+        new ErrorHandler({
+          id: stateProps.instanceId,
+        });
       errorHandler.setDispatch(dispatchProps.dispatch);
       if (stateProps.error) {
         errorHandler.captureError(stateProps.error);
@@ -133,9 +138,9 @@ export function withErrorHandler({ name, id }) {
       return { ...ownProps, errorHandler };
     };
 
-    return compose(
-      connect(mapStateToProps, undefined, mergeProps),
-    )(WrappedComponent);
+    return compose(connect(mapStateToProps, undefined, mergeProps))(
+      WrappedComponent
+    );
   };
 }
 
@@ -165,7 +170,7 @@ export function withErrorHandler({ name, id }) {
  * )(SomeComponent);
  */
 export function withRenderedErrorHandler({ name, id } = {}) {
-  return (WrappedComponent) => {
+  return WrappedComponent => {
     function ErrorBanner(props) {
       // eslint-disable-next-line react/prop-types
       const { errorHandler } = props;
@@ -182,8 +187,6 @@ export function withRenderedErrorHandler({ name, id } = {}) {
       return <WrappedComponent {...props} />;
     }
 
-    return compose(
-      withErrorHandler({ name, id }),
-    )(ErrorBanner);
+    return compose(withErrorHandler({ name, id }))(ErrorBanner);
   };
 }

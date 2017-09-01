@@ -46,11 +46,11 @@ export const initialApiState: ApiStateType = {
 
 export default function api(
   state: Exact<ApiStateType> = initialApiState,
-  action: SetAuthTokenAction
-    & SetLangAction
-    & SetClientAppAction
-    & SetUserAgentAction
-    & LogOutUserAction
+  action: SetAuthTokenAction &
+    SetLangAction &
+    SetClientAppAction &
+    SetUserAgentAction &
+    LogOutUserAction
 ): Exact<ApiStateType> {
   switch (action.type) {
     case SET_AUTH_TOKEN:
@@ -62,8 +62,7 @@ export default function api(
       return { ...state, lang: action.payload.lang };
     case SET_CLIENT_APP:
       return { ...state, clientApp: action.payload.clientApp };
-    case SET_USER_AGENT:
-    {
+    case SET_USER_AGENT: {
       const { browser, os } = UAParser(action.payload.userAgent);
 
       return {

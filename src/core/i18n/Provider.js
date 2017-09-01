@@ -10,11 +10,11 @@ export default class I18nProvider extends Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
     children: PropTypes.element.isRequired,
-  }
+  };
 
   static childContextTypes = {
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   constructor(props, context) {
     super(props, context);

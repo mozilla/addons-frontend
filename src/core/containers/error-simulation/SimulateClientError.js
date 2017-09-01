@@ -16,11 +16,12 @@ export class SimulateClientErrorBase extends React.Component {
     this.setState({ buttonClicked: true });
     setTimeout(() => this.setState({ buttonClicked: false }), 3000);
     throw new Error('This is a simulated client error');
-  }
+  };
 
   render() {
-    const prompt = this.state.buttonClicked ?
-      'Nice! Check Sentry' : '💣 Go ahead, trigger an error';
+    const prompt = this.state.buttonClicked
+      ? 'Nice! Check Sentry'
+      : '💣 Go ahead, trigger an error';
     return (
       <div className="SimulateClientError">
         <Button onClick={this.onClick}>{prompt}</Button>
@@ -29,6 +30,6 @@ export class SimulateClientErrorBase extends React.Component {
   }
 }
 
-export default compose(
-  render404IfConfigKeyIsFalse('allowErrorSimulation'),
-)(SimulateClientErrorBase);
+export default compose(render404IfConfigKeyIsFalse('allowErrorSimulation'))(
+  SimulateClientErrorBase
+);

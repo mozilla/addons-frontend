@@ -21,9 +21,12 @@ describe('featured reducer', () => {
   describe('FEATURED_GET', () => {
     it('sets the initialState', () => {
       const { addonType, loading, results } = featured(
-        initialState, actions.getFeatured({
-          addonType: ADDON_TYPE_THEME, errorHandlerId: 'some-error-handler',
-        }));
+        initialState,
+        actions.getFeatured({
+          addonType: ADDON_TYPE_THEME,
+          errorHandlerId: 'some-error-handler',
+        })
+      );
 
       expect(addonType).toEqual(ADDON_TYPE_THEME);
       expect(loading).toEqual(true);

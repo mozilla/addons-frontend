@@ -8,12 +8,11 @@ import Rating from 'ui/components/Rating';
 
 import 'amo/css/AddonMeta.scss';
 
-
 export class AddonMetaBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { addon, i18n } = this.props;
@@ -25,7 +24,7 @@ export class AddonMetaBase extends React.Component {
       const averageDailyUsers = addon.average_daily_users;
       userCount = i18n.sprintf(
         i18n.ngettext('%(total)s user', '%(total)s users', averageDailyUsers),
-        { total: i18n.formatNumber(averageDailyUsers) },
+        { total: i18n.formatNumber(averageDailyUsers) }
       );
     } else {
       userCount = <LoadingText width={100} />;
@@ -37,8 +36,11 @@ export class AddonMetaBase extends React.Component {
     } else if (addonRatingCount) {
       reviewCount = i18n.sprintf(
         i18n.ngettext(
-          '%(total)s review', '%(total)s reviews', addonRatingCount),
-        { total: i18n.formatNumber(addonRatingCount) },
+          '%(total)s review',
+          '%(total)s reviews',
+          addonRatingCount
+        ),
+        { total: i18n.formatNumber(addonRatingCount) }
       );
     } else {
       reviewCount = i18n.gettext('No reviews');
@@ -48,12 +50,8 @@ export class AddonMetaBase extends React.Component {
       <div className="AddonMeta">
         <div className="AddonMeta-item AddonMeta-users">
           <h3 className="visually-hidden">{i18n.gettext('Used by')}</h3>
-          <p className="AddonMeta-text AddonMeta-user-count">
-            {userCount}
-          </p>
-          <p className="AddonMeta-text AddonMeta-review-count">
-            {reviewCount}
-          </p>
+          <p className="AddonMeta-text AddonMeta-user-count">{userCount}</p>
+          <p className="AddonMeta-text AddonMeta-review-count">{reviewCount}</p>
           <Rating
             className="AddonMeta-Rating"
             rating={averageRating}
@@ -66,6 +64,4 @@ export class AddonMetaBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(AddonMetaBase);
+export default compose(translate({ withRef: true }))(AddonMetaBase);

@@ -14,7 +14,6 @@ import { apiAddonType, parsePage } from 'core/utils';
 
 import './styles.scss';
 
-
 export class CategoryBase extends React.Component {
   static propTypes = {
     categories: PropTypes.object,
@@ -24,7 +23,7 @@ export class CategoryBase extends React.Component {
     loading: PropTypes.bool,
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
-  }
+  };
 
   componentWillMount() {
     const { categories, dispatch, errorHandler, loading } = this.props;
@@ -48,8 +47,7 @@ export class CategoryBase extends React.Component {
     try {
       addonType = apiAddonType(params.visibleAddonType);
     } catch (error) {
-      log.info(
-        `addonType ${params.visibleAddonType} threw an error: ${error}`);
+      log.info(`addonType ${params.visibleAddonType} threw an error: ${error}`);
       return <NotFound />;
     }
     const categorySlug = params.slug;
@@ -99,5 +97,5 @@ export function mapStateToProps(state) {
 
 export default compose(
   withErrorHandler({ name: 'Category' }),
-  connect(mapStateToProps),
+  connect(mapStateToProps)
 )(CategoryBase);

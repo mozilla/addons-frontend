@@ -8,7 +8,6 @@ import { setAuthToken } from 'core/actions';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let mockApi;
   let sagaTester;
@@ -48,9 +47,7 @@ describe(__filename, () => {
 
   it('lets exceptions to be thrown', () => {
     const expectedError = new Error('some API error maybe');
-    mockApi
-      .expects('userProfile')
-      .returns(Promise.reject(expectedError));
+    mockApi.expects('userProfile').returns(Promise.reject(expectedError));
 
     sagaTester.dispatch(setAuthToken(userAuthToken()));
 
@@ -58,7 +55,7 @@ describe(__filename, () => {
       .then(() => {
         throw new Error('unexpected success');
       })
-      .catch((error) => {
+      .catch(error => {
         mockApi.verify();
         expect(error).toBe(expectedError);
       });

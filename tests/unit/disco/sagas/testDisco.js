@@ -9,7 +9,8 @@ import discoResultsReducer from 'disco/reducers/discoResults';
 import discoSaga from 'disco/sagas/disco';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import {
-  createFetchDiscoveryResult, fakeDiscoAddon,
+  createFetchDiscoveryResult,
+  fakeDiscoAddon,
 } from 'tests/unit/disco/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
@@ -39,10 +40,12 @@ describe(__filename, () => {
     });
 
     function _getDiscoResults(overrides = {}) {
-      sagaTester.dispatch(getDiscoResults({
-        errorHandlerId: errorHandler.id,
-        ...overrides,
-      }));
+      sagaTester.dispatch(
+        getDiscoResults({
+          errorHandlerId: errorHandler.id,
+          ...overrides,
+        })
+      );
     }
 
     it('fetches landing page addons from the API', async () => {

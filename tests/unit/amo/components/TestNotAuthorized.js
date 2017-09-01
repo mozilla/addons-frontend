@@ -13,7 +13,6 @@ import I18nProvider from 'core/i18n/Provider';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('<NotAuthorized />', () => {
   function render({ ...props }) {
     const { store } = dispatchSignInActions();
@@ -23,13 +22,18 @@ describe('<NotAuthorized />', () => {
     });
     store.dispatch(loadFail('ReduxKey', error));
 
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <NotAuthorized {...props} />
-        </I18nProvider>
-      </Provider>
-    ), NotAuthorized));
+    return findDOMNode(
+      findRenderedComponentWithType(
+        renderIntoDocument(
+          <Provider store={store}>
+            <I18nProvider i18n={getFakeI18nInst()}>
+              <NotAuthorized {...props} />
+            </I18nProvider>
+          </Provider>
+        ),
+        NotAuthorized
+      )
+    );
   }
 
   it('renders a not authorized error', () => {

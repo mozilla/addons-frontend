@@ -22,8 +22,11 @@ import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst, shallowUntilTarget, userAuthToken } from 'tests/unit/helpers';
-
+import {
+  getFakeI18nInst,
+  shallowUntilTarget,
+  userAuthToken,
+} from 'tests/unit/helpers';
 
 describe('App', () => {
   class FakeErrorPageComponent extends React.Component {
@@ -70,23 +73,26 @@ describe('App', () => {
 
   function render({ children = [], ...customProps } = {}) {
     const props = renderProps(customProps);
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={props.store}>
-        <I18nProvider i18n={props.i18n}>
-          <AppBase
-            FooterComponent={FakeFooterComponent}
-            InfoDialogComponent={FakeInfoDialogComponent}
-            HeaderComponent={FakeHeaderComponent}
-            SearchFormComponent={FakeSearchFormComponent}
-            ErrorPage={FakeErrorPageComponent}
-            setUserAgent={sinon.stub()}
-            {...props}
-          >
-            {children}
-          </AppBase>
-        </I18nProvider>
-      </Provider>
-    ), AppBase);
+    return findRenderedComponentWithType(
+      renderIntoDocument(
+        <Provider store={props.store}>
+          <I18nProvider i18n={props.i18n}>
+            <AppBase
+              FooterComponent={FakeFooterComponent}
+              InfoDialogComponent={FakeInfoDialogComponent}
+              HeaderComponent={FakeHeaderComponent}
+              SearchFormComponent={FakeSearchFormComponent}
+              ErrorPage={FakeErrorPageComponent}
+              setUserAgent={sinon.stub()}
+              {...props}
+            >
+              {children}
+            </AppBase>
+          </I18nProvider>
+        </Provider>
+      ),
+      AppBase
+    );
   }
 
   it('renders its children', () => {
@@ -116,7 +122,10 @@ describe('App', () => {
     };
 
     const root = render();
-    root.onViewDesktop(fakeEvent, { _window: fakeWindow, _cookie: fakeCookieLib });
+    root.onViewDesktop(fakeEvent, {
+      _window: fakeWindow,
+      _cookie: fakeCookieLib,
+    });
     expect(fakeEvent.preventDefault.called).toBeTruthy();
     expect(fakeCookieLib.save.calledWith('mamo', 'off')).toBeTruthy();
     expect(fakeWindow.location.reload.called).toBeTruthy();
@@ -270,9 +279,12 @@ describe('App', () => {
 
     it('ignores malformed timestamps', () => {
       const authTokenValidFor = 10; // seconds
-      const authToken = userAuthToken({}, {
-        tokenCreatedAt: 'bogus-timestamp',
-      });
+      const authToken = userAuthToken(
+        {},
+        {
+          tokenCreatedAt: 'bogus-timestamp',
+        }
+      );
       const logOutUser = sinon.stub();
 
       render({ authToken, authTokenValidFor, logOutUser });
@@ -304,7 +316,7 @@ describe('App', () => {
     });
 
     it('does not set a timeout for expirations too far in the future', () => {
-      const authTokenValidFor = (maximumSetTimeoutDelay / 1000) + 1;
+      const authTokenValidFor = maximumSetTimeoutDelay / 1000 + 1;
       const logOutUser = sinon.stub();
 
       renderAppWithAuth({ authTokenValidFor, logOutUser });

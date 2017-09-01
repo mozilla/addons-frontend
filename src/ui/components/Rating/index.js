@@ -8,7 +8,6 @@ import translate from 'core/i18n/translate';
 
 import './styles.scss';
 
-
 const RATING_STYLES = ['small', 'large', 'small-monochrome'];
 
 export class RatingBase extends React.Component {
@@ -19,20 +18,20 @@ export class RatingBase extends React.Component {
     rating: PropTypes.number,
     readOnly: PropTypes.bool,
     styleName: PropTypes.oneOf(RATING_STYLES),
-  }
+  };
 
   static defaultProps = {
     className: '',
     readOnly: false,
     styleName: 'large',
-  }
+  };
 
   constructor(props) {
     super(props);
     this.ratingElements = {};
   }
 
-  onSelectRating = (event) => {
+  onSelectRating = event => {
     event.preventDefault();
     event.stopPropagation();
     const button = event.currentTarget;
@@ -41,17 +40,18 @@ export class RatingBase extends React.Component {
 
     if (!this.props.onSelectRating) {
       throw new Error(
-        'onSelectRating was empty. Did you mean to set readOnly=true?');
+        'onSelectRating was empty. Did you mean to set readOnly=true?'
+      );
     }
     this.props.onSelectRating(rating);
-  }
+  };
 
   renderRatings() {
     const { readOnly } = this.props;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
-    return [1, 2, 3, 4, 5].map((thisRating) => {
+    return [1, 2, 3, 4, 5].map(thisRating => {
       const props = {
         className: classNames('Rating-choice', {
           'Rating-selected-star': rating && thisRating <= rating,
@@ -59,12 +59,14 @@ export class RatingBase extends React.Component {
           // 0.5 place. The API should not return floats for your own review
           // so effectively this only appears in readOnly for now, but there's
           // nothing stopping the API from supporting half-stars later.
-          'Rating-half-star': (rating && thisRating > rating &&
-            thisRating - 0.5 <= rating),
+          'Rating-half-star':
+            rating && thisRating > rating && thisRating - 0.5 <= rating,
         }),
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
-        ref: (ref) => { this.ratingElements[thisRating] = ref; },
+        ref: ref => {
+          this.ratingElements[thisRating] = ref;
+        },
       };
 
       if (readOnly) {
@@ -73,11 +75,7 @@ export class RatingBase extends React.Component {
 
       return (
         // eslint-disable-next-line react/jsx-key
-        <button
-          onClick={this.onSelectRating}
-          value={thisRating}
-          {...props}
-        />
+        <button onClick={this.onSelectRating} value={thisRating} {...props} />
       );
     });
   }
@@ -87,23 +85,31 @@ export class RatingBase extends React.Component {
     if (!RATING_STYLES.includes(styleName)) {
       throw new Error(
         `styleName=${styleName} is not a valid value; ` +
-        `possible values: ${RATING_STYLES.join(', ')}`);
+          `possible values: ${RATING_STYLES.join(', ')}`
+      );
     }
     let description;
     if (rating) {
-      description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
-        { rating: i18n.formatNumber(parseFloat(rating.toFixed(1))) });
+      description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'), {
+        rating: i18n.formatNumber(parseFloat(rating.toFixed(1))),
+      });
     } else {
       description = i18n.gettext('No ratings');
     }
 
-    const allClassNames = classNames('Rating', `Rating--${styleName}`,
-      className, { 'Rating--editable': !readOnly });
+    const allClassNames = classNames(
+      'Rating',
+      `Rating--${styleName}`,
+      className,
+      { 'Rating--editable': !readOnly }
+    );
 
     return (
       <div
         className={allClassNames}
-        ref={(ref) => { this.element = ref; }}
+        ref={ref => {
+          this.element = ref;
+        }}
         title={description}
       >
         <span className="Rating-star-group">
@@ -115,6 +121,4 @@ export class RatingBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(RatingBase);
+export default compose(translate({ withRef: true }))(RatingBase);

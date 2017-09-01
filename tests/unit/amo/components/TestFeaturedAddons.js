@@ -8,9 +8,7 @@ import {
   mapStateToProps,
 } from 'amo/components/FeaturedAddons';
 import AddonsCard from 'amo/components/AddonsCard';
-import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import {
@@ -19,7 +17,6 @@ import {
   fakeAddon,
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
-
 
 describe('<FeaturedAddons />', () => {
   let errorHandler;
@@ -37,13 +34,14 @@ describe('<FeaturedAddons />', () => {
     });
   }
 
-  function _loadFeatured({
-    addonType = ADDON_TYPE_EXTENSION,
-    results = [fakeAddon],
-  } = {}) {
+  function _loadFeatured(
+    { addonType = ADDON_TYPE_EXTENSION, results = [fakeAddon] } = {}
+  ) {
     const { entities, result } = createAddonsApiResult(results);
     return featuredActions.loadFeatured({
-      addonType, entities, result,
+      addonType,
+      entities,
+      result,
     });
   }
 
@@ -79,10 +77,13 @@ describe('<FeaturedAddons />', () => {
       results: null,
     });
 
-    sinon.assert.calledWith(dispatch, _getFeatured({
-      addonType,
-      errorHandlerId: customErrorHandler.id,
-    }));
+    sinon.assert.calledWith(
+      dispatch,
+      _getFeatured({
+        addonType,
+        errorHandlerId: customErrorHandler.id,
+      })
+    );
   });
 
   it('fetches featured add-ons when component is updated', () => {
@@ -107,8 +108,10 @@ describe('<FeaturedAddons />', () => {
       },
     });
 
-    sinon.assert.calledWith(dispatch,
-      _getFeatured({ addonType: secondAddonType }));
+    sinon.assert.calledWith(
+      dispatch,
+      _getFeatured({ addonType: secondAddonType })
+    );
   });
 
   it('fetches featured add-ons when addonType changes', () => {
@@ -136,8 +139,10 @@ describe('<FeaturedAddons />', () => {
       },
     });
 
-    sinon.assert.calledWith(dispatch,
-      _getFeatured({ addonType: secondAddonType }));
+    sinon.assert.calledWith(
+      dispatch,
+      _getFeatured({ addonType: secondAddonType })
+    );
   });
 
   it('does not fetch featured add-ons while component is loading', () => {
@@ -215,24 +220,27 @@ describe('<FeaturedAddons />', () => {
       },
     });
 
-    expect(root.find('.FeaturedAddons-header'))
-      .toIncludeText('More Featured Extensions');
+    expect(root.find('.FeaturedAddons-header')).toIncludeText(
+      'More Featured Extensions'
+    );
   });
 
   it('renders a header when fetching extensions', () => {
     store.dispatch(_getFeatured({ addonType: ADDON_TYPE_EXTENSION }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.find('.FeaturedAddons-header'))
-      .toIncludeText('More Featured Extensions');
+    expect(root.find('.FeaturedAddons-header')).toIncludeText(
+      'More Featured Extensions'
+    );
   });
 
   it('renders a header when fetching themes', () => {
     store.dispatch(_getFeatured({ addonType: ADDON_TYPE_THEME }));
     const root = render(mapStateToProps(store.getState()));
 
-    expect(root.find('.FeaturedAddons-header'))
-      .toIncludeText('More Featured Themes');
+    expect(root.find('.FeaturedAddons-header')).toIncludeText(
+      'More Featured Themes'
+    );
   });
 
   it('renders a header for a configured addonType', () => {
@@ -243,8 +251,9 @@ describe('<FeaturedAddons />', () => {
       },
     });
 
-    expect(root.find('.FeaturedAddons-header'))
-      .toIncludeText('More Featured Themes');
+    expect(root.find('.FeaturedAddons-header')).toIncludeText(
+      'More Featured Themes'
+    );
   });
 
   it('renders result placeholders when fetching addons', () => {
@@ -266,16 +275,21 @@ describe('<FeaturedAddons />', () => {
   });
 
   it('renders each add-on when set', () => {
-    store.dispatch(_loadFeatured({
-      results: [
-        { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
-        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
-      ],
-    }));
+    store.dispatch(
+      _loadFeatured({
+        results: [
+          { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
+          { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+        ],
+      })
+    );
     const root = render(mapStateToProps(store.getState()));
 
     expect(
-      root.find(AddonsCard).prop('addons').map((result) => result.name)
+      root
+        .find(AddonsCard)
+        .prop('addons')
+        .map(result => result.name)
     ).toEqual(['Howdy', 'Howdy again']);
   });
 

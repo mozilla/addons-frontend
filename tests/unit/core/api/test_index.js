@@ -16,7 +16,6 @@ import {
 } from 'tests/unit/helpers';
 import { createFakeAutocompleteResult } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let mockWindow;
   const apiHost = config.get('apiHost');
@@ -31,21 +30,30 @@ describe(__filename, () => {
     });
 
     it('transforms method to upper case', () => {
-      mockWindow.expects('fetch')
+      mockWindow
+        .expects('fetch')
         .withArgs(`${apiHost}/api/v3/resource/`, {
-          body: undefined, credentials: undefined, method: 'GET', headers: {},
+          body: undefined,
+          credentials: undefined,
+          method: 'GET',
+          headers: {},
         })
         .once()
         .returns(createApiResponse());
-      return api.callApi({ endpoint: 'resource', method: 'get' })
+      return api
+        .callApi({ endpoint: 'resource', method: 'get' })
         .then(() => mockWindow.verify());
     });
 
     it('encodes non-ascii URLs in UTF8', () => {
       const endpoint = 'diccionario-español-venezuela';
-      mockWindow.expects('fetch')
+      mockWindow
+        .expects('fetch')
         .withArgs(utf8.encode(`${apiHost}/api/v3/${endpoint}/`), {
-          body: undefined, credentials: undefined, method: 'GET', headers: {},
+          body: undefined,
+          credentials: undefined,
+          method: 'GET',
+          headers: {},
         })
         .once()
         .returns(createApiResponse());
@@ -58,71 +66,83 @@ describe(__filename, () => {
       const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'clear');
 
-      return api.callApi({ endpoint: 'resource', errorHandler })
-        .then(() => {
-          expect(errorHandler.clear.called).toBeTruthy();
-        });
+      return api.callApi({ endpoint: 'resource', errorHandler }).then(() => {
+        expect(errorHandler.clear.called).toBeTruthy();
+      });
     });
 
     it('passes errors to the error handler', () => {
       const nonFieldErrors = ['user_id and password cannot be blank'];
-      mockWindow.expects('fetch').returns(createApiResponse({
-        ok: false,
-        jsonData: { non_field_errors: nonFieldErrors },
-      }));
+      mockWindow.expects('fetch').returns(
+        createApiResponse({
+          ok: false,
+          jsonData: { non_field_errors: nonFieldErrors },
+        })
+      );
 
       const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
-      return api.callApi({ endpoint: 'resource', errorHandler })
+      return api
+        .callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
           expect(errorHandler.handle.called).toBeTruthy();
           const args = errorHandler.handle.firstCall.args;
-          expect(args[0].response.data.non_field_errors).toEqual(nonFieldErrors);
+          expect(args[0].response.data.non_field_errors).toEqual(
+            nonFieldErrors
+          );
         });
     });
 
     it('handles error responses with JSON syntax errors', () => {
-      mockWindow.expects('fetch').returns(createApiResponse({
-        json() {
-          return Promise.reject(
-            new SyntaxError('pretend this was a response with invalid JSON'));
-        },
-      }));
+      mockWindow.expects('fetch').returns(
+        createApiResponse({
+          json() {
+            return Promise.reject(
+              new SyntaxError('pretend this was a response with invalid JSON')
+            );
+          },
+        })
+      );
 
       const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
-      return api.callApi({ endpoint: 'resource' })
-        .then(unexpectedSuccess, (err) => {
-          expect(err.message).toEqual('pretend this was a response with invalid JSON');
+      return api
+        .callApi({ endpoint: 'resource' })
+        .then(unexpectedSuccess, err => {
+          expect(err.message).toEqual(
+            'pretend this was a response with invalid JSON'
+          );
         });
     });
 
     it('handles non-JSON responses', () => {
-      mockWindow.expects('fetch').returns(createApiResponse({
-        headers: generateHeaders({ 'Content-Type': 'text/plain' }),
-        text() {
-          return Promise.resolve('some text response');
-        },
-      }));
+      mockWindow.expects('fetch').returns(
+        createApiResponse({
+          headers: generateHeaders({ 'Content-Type': 'text/plain' }),
+          text() {
+            return Promise.resolve('some text response');
+          },
+        })
+      );
 
-      return api.callApi({ endpoint: 'resource' })
-        .then((responseData) => {
-          mockWindow.verify();
-          expect(responseData).toEqual({});
-        });
+      return api.callApi({ endpoint: 'resource' }).then(responseData => {
+        mockWindow.verify();
+        expect(responseData).toEqual({});
+      });
     });
 
     it('handles any fetch error', () => {
-      mockWindow.expects('fetch').returns(Promise.reject(new Error(
-        'this could be any error'
-      )));
+      mockWindow
+        .expects('fetch')
+        .returns(Promise.reject(new Error('this could be any error')));
 
       const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
-      return api.callApi({ endpoint: 'resource', errorHandler })
+      return api
+        .callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
           expect(errorHandler.handle.called).toBeTruthy();
           const args = errorHandler.handle.firstCall.args;
@@ -135,13 +155,18 @@ describe(__filename, () => {
         headers: generateHeaders({ 'Content-Type': 'Application/JSON' }),
       });
 
-      mockWindow.expects('fetch')
+      mockWindow
+        .expects('fetch')
         .withArgs(`${apiHost}/api/v3/resource/`, {
-          body: undefined, credentials: undefined, method: 'GET', headers: {},
+          body: undefined,
+          credentials: undefined,
+          method: 'GET',
+          headers: {},
         })
         .once()
         .returns(response);
-      return api.callApi({ endpoint: 'resource', method: 'GET' })
+      return api
+        .callApi({ endpoint: 'resource', method: 'GET' })
         .then(() => mockWindow.verify());
     });
   });
@@ -190,26 +215,27 @@ describe(__filename, () => {
   });
 
   describe('featured add-ons api', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: {
-        results: [
-          { slug: 'foo' },
-          { slug: 'food' },
-          { slug: 'football' },
-        ],
-      },
-    });
+    const mockResponse = () =>
+      createApiResponse({
+        jsonData: {
+          results: [{ slug: 'foo' }, { slug: 'food' }, { slug: 'football' }],
+        },
+      });
 
     it('sets the app, lang, and type query', () => {
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&lang=en-US`)
+      mockWindow
+        .expects('fetch')
+        .withArgs(
+          `${apiHost}/api/v3/addons/featured/?app=android&type=persona&lang=en-US`
+        )
         .once()
         .returns(mockResponse());
-      return api.featured({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-        filters: { addonType: ADDON_TYPE_THEME },
-      })
-        .then((response) => {
+      return api
+        .featured({
+          api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+          filters: { addonType: ADDON_TYPE_THEME },
+        })
+        .then(response => {
           expect(response).toEqual({
             entities: {
               addons: {
@@ -239,7 +265,8 @@ describe(__filename, () => {
     }
 
     it('sets the lang and slug', () => {
-      mockWindow.expects('fetch')
+      mockWindow
+        .expects('fetch')
         .withArgs(`${apiHost}/api/v3/addons/addon/foo/?lang=en-US`, {
           body: undefined,
           credentials: undefined,
@@ -248,18 +275,21 @@ describe(__filename, () => {
         })
         .once()
         .returns(mockResponse());
-      return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
+      return api
+        .fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
         .then(() => mockWindow.verify());
     });
 
     it('normalizes the response', () => {
-      mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.fetchAddon('foo')
-        .then((results) => {
-          const foo = { slug: 'foo', name: 'Foo!' };
-          expect(results.result).toEqual('foo');
-          expect(results.entities).toEqual({ addons: { foo } });
-        });
+      mockWindow
+        .expects('fetch')
+        .once()
+        .returns(mockResponse());
+      return api.fetchAddon('foo').then(results => {
+        const foo = { slug: 'foo', name: 'Foo!' };
+        expect(results.result).toEqual('foo');
+        expect(results.entities).toEqual({ addons: { foo } });
+      });
     });
 
     it('fails when the add-on is not found', () => {
@@ -273,12 +303,13 @@ describe(__filename, () => {
         })
         .once()
         .returns(mockResponse({ ok: false }));
-      return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
-        .then(unexpectedSuccess,
-          (error) => {
-            expect(error.message)
-              .toMatch(new RegExp('Error calling: /api/v3/addons/addon/foo/'));
-          });
+      return api
+        .fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
+        .then(unexpectedSuccess, error => {
+          expect(error.message).toMatch(
+            new RegExp('Error calling: /api/v3/addons/addon/foo/')
+          );
+        });
     });
 
     it('includes the authorization token if available', () => {
@@ -293,8 +324,9 @@ describe(__filename, () => {
         })
         .once()
         .returns(mockResponse());
-      return api.fetchAddon({ api: { lang: 'en-US', token }, slug: 'bar' })
-        .then((results) => {
+      return api
+        .fetchAddon({ api: { lang: 'en-US', token }, slug: 'bar' })
+        .then(results => {
           const foo = { slug: 'foo', name: 'Foo!' };
           expect(results.result).toEqual('foo');
           expect(results.entities).toEqual({ addons: { foo } });
@@ -304,9 +336,7 @@ describe(__filename, () => {
   });
 
   describe('createApiError', () => {
-    function _createApiError({
-      response = { status: 500 }, ...params } = {}
-    ) {
+    function _createApiError({ response = { status: 500 }, ...params } = {}) {
       return api.createApiError({ response, ...params });
     }
 
@@ -314,8 +344,9 @@ describe(__filename, () => {
       const error = _createApiError({
         apiURL: `${config.get('apiHost')}/api/v3/addons/addon/123/`,
       });
-      expect(error.message)
-        .toMatch(new RegExp('Error calling: /api/v3/addons/addon/123/'));
+      expect(error.message).toMatch(
+        new RegExp('Error calling: /api/v3/addons/addon/123/')
+      );
     });
 
     it('strips query params from the abbreviated URL', () => {
@@ -337,16 +368,18 @@ describe(__filename, () => {
         apiURL: `${config.get('apiHost')}/api/resource/`,
         response: { status: 422 },
       });
-      expect(error.message)
-        .toEqual('Error calling: /api/resource/ (status: 422)');
+      expect(error.message).toEqual(
+        'Error calling: /api/resource/ (status: 422)'
+      );
     });
   });
 
   describe('login', () => {
     const response = { token: userAuthToken() };
-    const mockResponse = () => createApiResponse({
-      jsonData: response,
-    });
+    const mockResponse = () =>
+      createApiResponse({
+        jsonData: response,
+      });
 
     it('sends the code and state', () => {
       mockWindow
@@ -359,27 +392,32 @@ describe(__filename, () => {
         })
         .once()
         .returns(mockResponse());
-      return api.login({ api: { lang: 'en-US' }, code: 'my-code', state: 'my-state' })
-        .then((apiResponse) => {
+      return api
+        .login({ api: { lang: 'en-US' }, code: 'my-code', state: 'my-state' })
+        .then(apiResponse => {
           expect(apiResponse).toBe(response);
           mockWindow.verify();
         });
     });
 
     it('sends the config when set', () => {
-      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
+      sinon
+        .stub(config, 'get')
+        .withArgs('fxaConfig')
+        .returns('my-config');
       mockWindow
         .expects('fetch')
         .withArgs(`${apiHost}/api/v3/accounts/login/?config=my-config&lang=fr`)
         .once()
         .returns(mockResponse());
-      return api.login({ api: { lang: 'fr' }, code: 'my-code', state: 'my-state' })
+      return api
+        .login({ api: { lang: 'fr' }, code: 'my-code', state: 'my-state' })
         .then(() => mockWindow.verify());
     });
   });
 
   describe('startLoginUrl', () => {
-    const getStartLoginQs = (location) =>
+    const getStartLoginQs = location =>
       querystring.parse(api.startLoginUrl({ location }).split('?')[1]);
 
     it('includes the next path', () => {
@@ -388,9 +426,15 @@ describe(__filename, () => {
     });
 
     it('includes the next path the config if set', () => {
-      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
+      sinon
+        .stub(config, 'get')
+        .withArgs('fxaConfig')
+        .returns('my-config');
       const location = { pathname: '/foo' };
-      expect(getStartLoginQs(location)).toEqual({ to: '/foo', config: 'my-config' });
+      expect(getStartLoginQs(location)).toEqual({
+        to: '/foo',
+        config: 'my-config',
+      });
     });
   });
 
@@ -398,25 +442,22 @@ describe(__filename, () => {
     function mockResponse(responseProps = {}) {
       return createApiResponse({
         jsonData: {
-          results: [
-            { slug: 'foo' },
-            { slug: 'food' },
-            { slug: 'football' },
-          ],
+          results: [{ slug: 'foo' }, { slug: 'food' }, { slug: 'football' }],
         },
         ...responseProps,
       });
     }
 
     it('sets the lang and calls the right API endpoint', () => {
-      mockWindow.expects('fetch')
-        .withArgs(
-          `${apiHost}/api/v3/addons/categories/?lang=en-US`)
+      mockWindow
+        .expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/categories/?lang=en-US`)
         .once()
         .returns(mockResponse());
-      return api.categories({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-      })
+      return api
+        .categories({
+          api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+        })
         .then(() => mockWindow.verify());
     });
   });
@@ -424,7 +465,8 @@ describe(__filename, () => {
   describe('logOutFromServer', () => {
     it('makes a delete request to the session endpoint', () => {
       const mockResponse = createApiResponse({ jsonData: { ok: true } });
-      mockWindow.expects('fetch')
+      mockWindow
+        .expects('fetch')
         .withArgs(`${apiHost}/api/v3/accounts/session/?lang=en-US`, {
           body: undefined,
           credentials: 'include',
@@ -433,48 +475,58 @@ describe(__filename, () => {
         })
         .once()
         .returns(mockResponse);
-      return api.logOutFromServer({ api: signedInApiState })
+      return api
+        .logOutFromServer({ api: signedInApiState })
         .then(() => mockWindow.verify());
     });
   });
 
   describe('autocomplete api', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: {
-        results: [
-          createFakeAutocompleteResult({ name: 'foo' }),
-          createFakeAutocompleteResult({ name: 'food' }),
-          createFakeAutocompleteResult({ name: 'football' }),
-        ],
-      },
-    });
+    const mockResponse = () =>
+      createApiResponse({
+        jsonData: {
+          results: [
+            createFakeAutocompleteResult({ name: 'foo' }),
+            createFakeAutocompleteResult({ name: 'food' }),
+            createFakeAutocompleteResult({ name: 'football' }),
+          ],
+        },
+      });
 
     it('sets the app, lang, and query', () => {
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&lang=en-US`)
+      mockWindow
+        .expects('fetch')
+        .withArgs(
+          `${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&lang=en-US`
+        )
         .once()
         .returns(mockResponse());
-      return api.autocomplete({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-        filters: {
-          query: 'foo',
-        },
-      })
+      return api
+        .autocomplete({
+          api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+          filters: {
+            query: 'foo',
+          },
+        })
         .then(() => mockWindow.verify());
     });
 
     it('optionally takes addon type as filter', () => {
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&type=persona&lang=en-US`)
+      mockWindow
+        .expects('fetch')
+        .withArgs(
+          `${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&type=persona&lang=en-US`
+        )
         .once()
         .returns(mockResponse());
-      return api.autocomplete({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-        filters: {
-          query: 'foo',
-          addonType: ADDON_TYPE_THEME,
-        },
-      })
+      return api
+        .autocomplete({
+          api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+          filters: {
+            query: 'foo',
+            addonType: ADDON_TYPE_THEME,
+          },
+        })
         .then(() => mockWindow.verify());
     });
   });

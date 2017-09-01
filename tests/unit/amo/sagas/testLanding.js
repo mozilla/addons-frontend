@@ -14,7 +14,9 @@ import {
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import {
-  createAddonsApiResult, dispatchSignInActions, fakeAddon,
+  createAddonsApiResult,
+  dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
@@ -40,51 +42,65 @@ describe('amo/sagas/landing', () => {
     });
 
     function _getLanding(overrides = {}) {
-      sagaTester.dispatch(getLanding({
-        addonType: ADDON_TYPE_EXTENSION,
-        errorHandlerId: errorHandler.id,
-        ...overrides,
-      }));
+      sagaTester.dispatch(
+        getLanding({
+          addonType: ADDON_TYPE_EXTENSION,
+          errorHandlerId: errorHandler.id,
+          ...overrides,
+        })
+      );
     }
 
     it('fetches landing page addons from the API', async () => {
       const addonType = ADDON_TYPE_EXTENSION;
       const baseArgs = { api: apiState };
       const baseFilters = {
-        addonType, page_size: LANDING_PAGE_ADDON_COUNT,
+        addonType,
+        page_size: LANDING_PAGE_ADDON_COUNT,
       };
 
-      const featured = createAddonsApiResult([{
-        ...fakeAddon, slug: 'featured-addon',
-      }]);
+      const featured = createAddonsApiResult([
+        {
+          ...fakeAddon,
+          slug: 'featured-addon',
+        },
+      ]);
       mockApi
         .expects('featured')
         .withArgs({ ...baseArgs, filters: { ...baseFilters } })
         .returns(Promise.resolve(featured));
 
-      const highlyRated = createAddonsApiResult([{
-        ...fakeAddon, slug: 'highly-rated-addon',
-      }]);
+      const highlyRated = createAddonsApiResult([
+        {
+          ...fakeAddon,
+          slug: 'highly-rated-addon',
+        },
+      ]);
       mockApi
         .expects('search')
         .withArgs({
           ...baseArgs,
           filters: {
-            ...baseFilters, sort: SEARCH_SORT_TOP_RATED,
+            ...baseFilters,
+            sort: SEARCH_SORT_TOP_RATED,
           },
           page: 1,
         })
         .returns(Promise.resolve(highlyRated));
 
-      const popular = createAddonsApiResult([{
-        ...fakeAddon, slug: 'popular-addon',
-      }]);
+      const popular = createAddonsApiResult([
+        {
+          ...fakeAddon,
+          slug: 'popular-addon',
+        },
+      ]);
       mockApi
         .expects('search')
         .withArgs({
           ...baseArgs,
           filters: {
-            ...baseFilters, sort: SEARCH_SORT_POPULAR,
+            ...baseFilters,
+            sort: SEARCH_SORT_POPULAR,
           },
           page: 1,
         })
@@ -97,9 +113,14 @@ describe('amo/sagas/landing', () => {
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(showLoading());
-      expect(calledActions[2]).toEqual(loadLanding({
-        addonType, featured, highlyRated, popular,
-      }));
+      expect(calledActions[2]).toEqual(
+        loadLanding({
+          addonType,
+          featured,
+          highlyRated,
+          popular,
+        })
+      );
       expect(calledActions[3]).toEqual(hideLoading());
     });
 

@@ -3,7 +3,6 @@ import landing, { initialState } from 'amo/reducers/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe('landing reducer', () => {
   it('defaults to not loading', () => {
     const { loading } = landing(undefined, { type: 'unrelated' });
@@ -32,12 +31,13 @@ describe('landing reducer', () => {
 
   describe('LANDING_GET', () => {
     it('sets the initialState', () => {
-      const {
-        addonType, featured, highlyRated, loading, popular,
-      } = landing(initialState, getLanding({
-        addonType: ADDON_TYPE_THEME,
-        errorHandlerId: 'some-error-handler',
-      }));
+      const { addonType, featured, highlyRated, loading, popular } = landing(
+        initialState,
+        getLanding({
+          addonType: ADDON_TYPE_THEME,
+          errorHandlerId: 'some-error-handler',
+        })
+      );
 
       expect(addonType).toEqual(ADDON_TYPE_THEME);
       expect(loading).toEqual(true);
@@ -47,10 +47,13 @@ describe('landing reducer', () => {
     });
 
     it('sets resultsLoaded to false', () => {
-      const state = landing({ ...initialState, resultsLoaded: true }, getLanding({
-        addonType: ADDON_TYPE_THEME,
-        errorHandlerId: 'some-error-handler',
-      }));
+      const state = landing(
+        { ...initialState, resultsLoaded: true },
+        getLanding({
+          addonType: ADDON_TYPE_THEME,
+          errorHandlerId: 'some-error-handler',
+        })
+      );
 
       expect(state.resultsLoaded).toEqual(false);
     });
@@ -63,16 +66,19 @@ describe('landing reducer', () => {
           food: { ...fakeAddon, slug: 'food' },
         },
       };
-      const state = landing({
-        ...initialState,
-        featured: {
-          entities,
-          result: { count: 2, results: ['foo', 'food'] },
+      const state = landing(
+        {
+          ...initialState,
+          featured: {
+            entities,
+            result: { count: 2, results: ['foo', 'food'] },
+          },
         },
-      }, getLanding({
-        addonType: ADDON_TYPE_THEME,
-        errorHandlerId: 'some-error-handler',
-      }));
+        getLanding({
+          addonType: ADDON_TYPE_THEME,
+          errorHandlerId: 'some-error-handler',
+        })
+      );
 
       expect(state.featured).toEqual(initialState.featured);
       expect(state.highlyRated).toEqual(initialState.highlyRated);
@@ -102,8 +108,10 @@ describe('landing reducer', () => {
         },
       });
       expect(state.featured.count).toEqual(2);
-      expect(state.featured.results)
-        .toEqual([{ slug: 'foo' }, { slug: 'food' }]);
+      expect(state.featured.results).toEqual([
+        { slug: 'foo' },
+        { slug: 'food' },
+      ]);
       expect(state.highlyRated).toEqual({ count: 0, results: [] });
       expect(state.popular).toEqual({ count: 0, results: [] });
       expect(state.resultsLoaded).toEqual(true);
@@ -117,20 +125,23 @@ describe('landing reducer', () => {
           food: { slug: 'food' },
         },
       };
-      const { highlyRated } = landing({
-        ...initialState,
-        highlyRated: 'hello',
-      }, {
-        type: 'LANDING_LOADED',
-        payload: {
-          addonType: ADDON_TYPE_THEME,
-          featured: {
-            entities,
-            result: { count: 2, results: ['foo', 'food'] },
-          },
-          popular: { entities, result: { count: 0, results: [] } },
+      const { highlyRated } = landing(
+        {
+          ...initialState,
+          highlyRated: 'hello',
         },
-      });
+        {
+          type: 'LANDING_LOADED',
+          payload: {
+            addonType: ADDON_TYPE_THEME,
+            featured: {
+              entities,
+              result: { count: 2, results: ['foo', 'food'] },
+            },
+            popular: { entities, result: { count: 0, results: [] } },
+          },
+        }
+      );
       expect(highlyRated).toEqual('hello');
     });
   });

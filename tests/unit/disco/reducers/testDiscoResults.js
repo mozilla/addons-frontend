@@ -1,7 +1,8 @@
 import { loadDiscoResults } from 'disco/actions';
 import discoResults from 'disco/reducers/discoResults';
 import {
-  createFetchDiscoveryResult, fakeDiscoAddon,
+  createFetchDiscoveryResult,
+  fakeDiscoAddon,
 } from 'tests/unit/disco/helpers';
 
 describe('discoResults reducer', () => {
@@ -28,7 +29,8 @@ describe('discoResults reducer', () => {
     };
     const { entities, result } = createFetchDiscoveryResult([addon1, addon2]);
 
-    const state = discoResults(undefined,
+    const state = discoResults(
+      undefined,
       loadDiscoResults({ entities, result })
     );
 

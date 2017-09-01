@@ -5,15 +5,8 @@ module.exports = {
     '<rootDir>/src/core/server/webpack-isomorphic-tools-config.js',
     '<rootDir>/src/locale/',
   ],
-  moduleDirectories: [
-    'src',
-    'node_modules',
-  ],
-  moduleFileExtensions: [
-    'js',
-    'json',
-    'jsx',
-  ],
+  moduleDirectories: ['src', 'node_modules'],
+  moduleFileExtensions: ['js', 'json', 'jsx'],
   moduleNameMapper: {
     // Prevent un-transpiled react-photoswipe code being required.
     '^photoswipe$': '<rootDir>/node_modules/photoswipe',
@@ -29,18 +22,13 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/(assets|bin|config|coverage|dist|docs|flow|locale|src)/',
   ],
-  testMatch: [
-    '**/[Tt]est(*).js?(x)',
-    '**/__tests__/**/*.js?(x)',
-  ],
+  testMatch: ['**/[Tt]est(*).js?(x)', '**/__tests__/**/*.js?(x)'],
   transform: {
     '^.+\\.js$': 'babel-jest',
     // This transforms images to be a module that exports the filename.
     // Tests can assert on the filenname.
     '^.+\\.(jpg|jpeg|gif|png)$': '<rootDir>/tests/fileTransformer',
   },
-  transformIgnorePatterns: [
-    '<rootDir>/node_modules/',
-  ],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   verbose: false,
 };

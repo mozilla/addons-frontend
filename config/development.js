@@ -5,7 +5,6 @@ const webpackServerHost = '127.0.0.1';
 const webpackServerPort = 3001;
 const webpackHost = `${webpackServerHost}:${webpackServerPort}`;
 
-
 module.exports = {
   apiHost: apiDevHost,
   amoCDN: amoDevCDN,
@@ -27,25 +26,10 @@ module.exports = {
 
   CSP: {
     directives: {
-      connectSrc: [
-        "'self'",
-        amoDevCDN,
-        sentryHost,
-        webpackHost,
-      ],
-      imgSrc: [
-        "'self'",
-        webpackHost,
-      ],
-      scriptSrc: [
-        "'self'",
-        amoDevCDN,
-        webpackHost,
-      ],
-      styleSrc: [
-        "'self'",
-        'blob:',
-      ],
+      connectSrc: ["'self'", amoDevCDN, sentryHost, webpackHost],
+      imgSrc: ["'self'", webpackHost],
+      scriptSrc: ["'self'", amoDevCDN, webpackHost],
+      styleSrc: ["'self'", 'blob:'],
     },
     reportOnly: true,
   },

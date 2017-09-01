@@ -7,7 +7,6 @@ import CardList from 'ui/components/CardList';
 
 import './styles.scss';
 
-
 export default class AddonsCard extends React.Component {
   static propTypes = {
     addons: PropTypes.array.isRequired,
@@ -18,14 +17,14 @@ export default class AddonsCard extends React.Component {
     // that will be rendered.
     placeholderCount: PropTypes.number,
     type: PropTypes.string,
-  }
+  };
 
   static defaultProps = {
     loading: false,
     // Set this to the default API page size.
     placeholderCount: 25,
     type: 'list',
-  }
+  };
 
   render() {
     const {
@@ -41,16 +40,12 @@ export default class AddonsCard extends React.Component {
     const searchResults = [];
 
     if (addons && addons.length) {
-      addons.forEach((addon) => {
-        searchResults.push(
-          <SearchResult addon={addon} key={addon.slug} />
-        );
+      addons.forEach(addon => {
+        searchResults.push(<SearchResult addon={addon} key={addon.slug} />);
       });
     } else if (loading) {
       for (let count = 0; count < placeholderCount; count++) {
-        searchResults.push(
-          <SearchResult key={count} />
-        );
+        searchResults.push(<SearchResult key={count} />);
       }
     }
 
@@ -58,13 +53,13 @@ export default class AddonsCard extends React.Component {
       <CardList
         {...otherProps}
         className={classNames('AddonsCard', `AddonsCard--${type}`, className)}
-        ref={(ref) => { this.cardContainer = ref; }}
+        ref={ref => {
+          this.cardContainer = ref;
+        }}
       >
         {children}
         {searchResults.length ? (
-          <ul className="AddonsCard-list">
-            {searchResults}
-          </ul>
+          <ul className="AddonsCard-list">{searchResults}</ul>
         ) : null}
       </CardList>
     );

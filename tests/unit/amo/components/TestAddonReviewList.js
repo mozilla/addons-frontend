@@ -23,8 +23,8 @@ import {
 } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
-function getLoadedReviews({
-  addonSlug = fakeAddon.slug, reviews = [fakeReview], reviewCount = 1 } = {},
+function getLoadedReviews(
+  { addonSlug = fakeAddon.slug, reviews = [fakeReview], reviewCount = 1 } = {}
 ) {
   const action = setAddonReviews({ addonSlug, reviewCount, reviews });
   // This is how reviews look after they have been loaded.
@@ -33,16 +33,18 @@ function getLoadedReviews({
 
 describe('amo/components/AddonReviewList', () => {
   describe('<AddonReviewListBase/>', () => {
-    function render({
-      addon = fakeAddon,
-      dispatch = sinon.stub(),
-      errorHandler = createStubErrorHandler(),
-      params = {
-        addonSlug: fakeAddon.slug,
-      },
-      reviews = [fakeReview],
-      ...customProps
-    } = {}) {
+    function render(
+      {
+        addon = fakeAddon,
+        dispatch = sinon.stub(),
+        errorHandler = createStubErrorHandler(),
+        params = {
+          addonSlug: fakeAddon.slug,
+        },
+        reviews = [fakeReview],
+        ...customProps
+      } = {}
+    ) {
       const loadedReviews = reviews ? getLoadedReviews({ reviews }) : null;
       const props = {
         addon: addon && denormalizeAddon(addon),
@@ -60,26 +62,41 @@ describe('amo/components/AddonReviewList', () => {
     }
 
     it('requires an addonSlug property', () => {
-      expect(() => render({ params: { addonSlug: null } }))
-        .toThrowError(/addonSlug cannot be falsey/);
+      expect(() => render({ params: { addonSlug: null } })).toThrowError(
+        /addonSlug cannot be falsey/
+      );
     });
 
     it('waits for an addon and reviews to load', () => {
       const root = render({ addon: null, reviews: null });
-      expect(root.find('.AddonReviewList-header-icon img').prop('src'))
-        .toContain('default');
-      expect(root.find('.AddonReviewList-header-text').find(LoadingText))
-        .toHaveLength(2);
+      expect(
+        root.find('.AddonReviewList-header-icon img').prop('src')
+      ).toContain('default');
+      expect(
+        root.find('.AddonReviewList-header-text').find(LoadingText)
+      ).toHaveLength(2);
 
       // Make sure four review placeholders were rendered.
       expect(root.find('.AddonReviewList-li')).toHaveLength(4);
       // Do a sanity check on the first placeholder;
-      expect(root.find('.AddonReviewList-li h3').at(0).find(LoadingText))
-        .toHaveLength(1);
-      expect(root.find('.AddonReviewList-li p').at(0).find(LoadingText))
-        .toHaveLength(1);
-      expect(root.find('.AddonReviewList-by-line').at(0).find(LoadingText))
-        .toHaveLength(1);
+      expect(
+        root
+          .find('.AddonReviewList-li h3')
+          .at(0)
+          .find(LoadingText)
+      ).toHaveLength(1);
+      expect(
+        root
+          .find('.AddonReviewList-li p')
+          .at(0)
+          .find(LoadingText)
+      ).toHaveLength(1);
+      expect(
+        root
+          .find('.AddonReviewList-by-line')
+          .at(0)
+          .find(LoadingText)
+      ).toHaveLength(1);
     });
 
     it('does not paginate before reviews have loaded', () => {
@@ -94,12 +111,19 @@ describe('amo/components/AddonReviewList', () => {
       const errorHandler = createStubErrorHandler();
 
       render({
-        addon: null, errorHandler, params: { addonSlug }, dispatch,
+        addon: null,
+        errorHandler,
+        params: { addonSlug },
+        dispatch,
       });
 
-      sinon.assert.calledWith(dispatch, fetchAddon({
-        slug: addonSlug, errorHandler,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchAddon({
+          slug: addonSlug,
+          errorHandler,
+        })
+      );
     });
 
     it('fetches reviews if needed', () => {
@@ -115,10 +139,13 @@ describe('amo/components/AddonReviewList', () => {
         dispatch,
       });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug: addon.slug,
-        errorHandlerId: errorHandler.id,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug: addon.slug,
+          errorHandlerId: errorHandler.id,
+        })
+      );
     });
 
     it('fetches reviews if needed during an update', () => {
@@ -137,10 +164,13 @@ describe('amo/components/AddonReviewList', () => {
       // Simulate how a redux state change will introduce an addon.
       root.setProps({ addon });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug: addon.slug,
-        errorHandlerId: errorHandler.id,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug: addon.slug,
+          errorHandlerId: errorHandler.id,
+        })
+      );
     });
 
     it('fetches reviews by page', () => {
@@ -157,11 +187,14 @@ describe('amo/components/AddonReviewList', () => {
         dispatch,
       });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug,
-        errorHandlerId: errorHandler.id,
-        page,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug,
+          errorHandlerId: errorHandler.id,
+          page,
+        })
+      );
     });
 
     it('fetches reviews when the page changes', () => {
@@ -178,11 +211,14 @@ describe('amo/components/AddonReviewList', () => {
       dispatch.reset();
       root.setProps({ location: { query: { page: 3 } } });
 
-      sinon.assert.calledWith(dispatch, fetchReviews({
-        addonSlug,
-        errorHandlerId: errorHandler.id,
-        page: 3,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        fetchReviews({
+          addonSlug,
+          errorHandlerId: errorHandler.id,
+          page: 3,
+        })
+      );
     });
 
     it('does not fetch an addon if there is an error', () => {
@@ -217,8 +253,7 @@ describe('amo/components/AddonReviewList', () => {
       const dispatch = sinon.stub();
       render({ addon: fakeAddon, dispatch });
 
-      sinon.assert.calledWith(
-        dispatch, setViewContext(fakeAddon.type));
+      sinon.assert.calledWith(dispatch, setViewContext(fakeAddon.type));
     });
 
     it('renders an error', () => {
@@ -251,17 +286,22 @@ describe('amo/components/AddonReviewList', () => {
       };
       const wrapper = render({ reviews: [fakeReviewWithNewLine] });
 
-      expect(root.find('.AddonReviewList-li h3'))
-        .toHaveText(fakeReview.title);
+      expect(root.find('.AddonReviewList-li h3')).toHaveText(fakeReview.title);
 
-      expect(root.find('.AddonReviewList-li p'))
-        .toHaveHTML(`<p>${fakeReview.body}</p>`);
+      expect(root.find('.AddonReviewList-li p')).toHaveHTML(
+        `<p>${fakeReview.body}</p>`
+      );
 
-      expect(root.find('.AddonReviewList-by-line'))
-        .toIncludeText(fakeReview.user.name);
+      expect(root.find('.AddonReviewList-by-line')).toIncludeText(
+        fakeReview.user.name
+      );
 
-      expect(wrapper.find('.AddonReviewList-li p').render().find('br'))
-        .toHaveLength(1);
+      expect(
+        wrapper
+          .find('.AddonReviewList-li p')
+          .render()
+          .find('br')
+      ).toHaveLength(1);
     });
 
     it("renders the add-on's icon in the header", () => {
@@ -289,24 +329,32 @@ describe('amo/components/AddonReviewList', () => {
     });
 
     it('produces an addon URL', () => {
-      expect(render().instance().addonURL())
-        .toEqual(`/addon/${fakeAddon.slug}/`);
+      expect(
+        render()
+          .instance()
+          .addonURL()
+      ).toEqual(`/addon/${fakeAddon.slug}/`);
     });
 
     it('produces a URL to itself', () => {
-      expect(render().instance().url())
-        .toEqual(`/addon/${fakeAddon.slug}/reviews/`);
+      expect(
+        render()
+          .instance()
+          .url()
+      ).toEqual(`/addon/${fakeAddon.slug}/reviews/`);
     });
 
     it('requires an addon prop to produce a URL', () => {
-      expect(() => render({ addon: null }).instance().addonURL())
-        .toThrowError(/cannot access addonURL/);
+      expect(() =>
+        render({ addon: null })
+          .instance()
+          .addonURL()
+      ).toThrowError(/cannot access addonURL/);
     });
 
     it('configures a paginator with the right URL', () => {
       const root = render();
-      expect(root.find(Paginate))
-        .toHaveProp('pathname', root.instance().url());
+      expect(root.find(Paginate)).toHaveProp('pathname', root.instance().url());
     });
 
     it('configures a paginator with the right Link', () => {
@@ -337,20 +385,22 @@ describe('amo/components/AddonReviewList', () => {
       store = createStore().store;
     });
 
-    function getMappedProps({
-      addonSlug = fakeAddon.slug, params = { addonSlug },
-    } = {}) {
+    function getMappedProps(
+      { addonSlug = fakeAddon.slug, params = { addonSlug } } = {}
+    ) {
       return mapStateToProps(store.getState(), { params });
     }
 
     it('loads addon from state', () => {
       store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps();
-      expect(props.addon).toEqual(denormalizeAddon({
-        ...fakeAddon,
-        installURL: '',
-        isRestartRequired: false,
-      }));
+      expect(props.addon).toEqual(
+        denormalizeAddon({
+          ...fakeAddon,
+          installURL: '',
+          isRestartRequired: false,
+        })
+      );
     });
 
     it('ignores other add-ons', () => {
@@ -360,19 +410,23 @@ describe('amo/components/AddonReviewList', () => {
     });
 
     it('requires component properties', () => {
-      expect(() => getMappedProps({ params: null }))
-        .toThrowError(/component had a falsey params.addonSlug parameter/);
+      expect(() => getMappedProps({ params: null })).toThrowError(
+        /component had a falsey params.addonSlug parameter/
+      );
     });
 
     it('requires an existing slug property', () => {
-      expect(() => getMappedProps({ params: {} }))
-        .toThrowError(/component had a falsey params.addonSlug parameter/);
+      expect(() => getMappedProps({ params: {} })).toThrowError(
+        /component had a falsey params.addonSlug parameter/
+      );
     });
 
     it('loads all reviews from state', () => {
       const reviews = [{ ...fakeReview, id: 1 }, { ...fakeReview, id: 2 }];
       const action = setAddonReviews({
-        addonSlug: fakeAddon.slug, reviews, reviewCount: reviews.length,
+        addonSlug: fakeAddon.slug,
+        reviews,
+        reviewCount: reviews.length,
       });
       store.dispatch(action);
 
@@ -387,9 +441,13 @@ describe('amo/components/AddonReviewList', () => {
     });
 
     it('sets reviewCount prop from from state', () => {
-      store.dispatch(setAddonReviews({
-        addonSlug: fakeAddon.slug, reviews: [fakeReview], reviewCount: 1,
-      }));
+      store.dispatch(
+        setAddonReviews({
+          addonSlug: fakeAddon.slug,
+          reviews: [fakeReview],
+          reviewCount: 1,
+        })
+      );
 
       const props = getMappedProps();
       expect(props.reviewCount).toEqual(1);

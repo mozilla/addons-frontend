@@ -10,7 +10,6 @@ import Link, { mapStateToProps } from 'amo/components/Link';
 import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';
 
-
 describe('<Link />', () => {
   let store;
 
@@ -43,21 +42,25 @@ describe('<Link />', () => {
   it('passes other `to` types through to link', () => {
     const root = render({ base: null, to: null });
 
-    expect(findRenderedComponentWithType(root, ReactRouterLink).props.to).toEqual(null);
+    expect(
+      findRenderedComponentWithType(root, ReactRouterLink).props.to
+    ).toEqual(null);
   });
 
   it('passes `to` without leading slash without base', () => {
     expect(() => {
       render({ to: 'test' });
     }).toThrow(
-      '"to" prop cannot contain a relative path; it must start with a "/".');
+      '"to" prop cannot contain a relative path; it must start with a "/".'
+    );
   });
 
   it('passes `to.pathname` without leading slash without base', () => {
     expect(() => {
       render({ to: { pathname: 'test' } });
     }).toThrow(
-      '"to" prop cannot contain a relative path; it must start with a "/".');
+      '"to" prop cannot contain a relative path; it must start with a "/".'
+    );
   });
 
   it('prefixes the `to` prop', () => {
@@ -146,8 +149,8 @@ describe('<Link />', () => {
       prependLang: false,
     });
 
-    const toProp = findRenderedComponentWithType(
-      root, ReactRouterLink).props.to;
+    const toProp = findRenderedComponentWithType(root, ReactRouterLink).props
+      .to;
 
     expect(toProp).toContain('/test');
     expect(toProp).not.toContain('/fr/test');
@@ -162,8 +165,8 @@ describe('<Link />', () => {
       prependLang: false,
     });
 
-    const toProp = findRenderedComponentWithType(
-      root, ReactRouterLink).props.to;
+    const toProp = findRenderedComponentWithType(root, ReactRouterLink).props
+      .to;
 
     expect(toProp.pathname).toContain('/test');
     expect(toProp.pathname).not.toContain('/fr/test');
@@ -195,6 +198,7 @@ describe('<Link />', () => {
     expect(() => {
       render({ href: '/test', to: '/test' });
     }).toThrowError(
-      'Cannot use "href" prop and "to" prop in the same Link component');
+      'Cannot use "href" prop and "to" prop in the same Link component'
+    );
   });
 });

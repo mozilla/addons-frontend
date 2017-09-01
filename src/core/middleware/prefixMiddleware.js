@@ -10,7 +10,6 @@ import {
 import { getLanguage, isValidLang } from 'core/i18n/utils';
 import log from 'core/logger';
 
-
 export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   // Split on slashes after removing the leading slash.
   const URLParts = req.originalUrl.replace(/^\//, '').split('/');
@@ -24,17 +23,21 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   // header.
   const acceptLanguage = req.headers['accept-language'];
   const { lang, isLangFromHeader } = getLanguage({
-    lang: langFromURL, acceptLanguage });
+    lang: langFromURL,
+    acceptLanguage,
+  });
   // Get the application from the UA if one wasn't specified in the URL (or
   // if it turns out to be invalid).
   const application = getClientApp(req.headers['user-agent']);
 
   const hasValidLang = isValidLang(langFromURL);
-  const hasValidLocaleException = isValidLocaleUrlException(
-    appFromURL, { _config });
+  const hasValidLocaleException = isValidLocaleUrlException(appFromURL, {
+    _config,
+  });
   const hasValidClientApp = isValidClientApp(appFromURL, { _config });
-  let hasValidClientAppUrlException = isValidClientAppUrlException(
-    appFromURL, { _config });
+  let hasValidClientAppUrlException = isValidClientAppUrlException(appFromURL, {
+    _config,
+  });
 
   let isApplicationFromHeader = false;
   let prependedOrMovedApplication = false;
@@ -52,7 +55,8 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
       prependedOrMovedApplication = true;
     }
   } else if (
-    (hasValidLang && langFromURL !== lang) || hasValidClientApp ||
+    (hasValidLang && langFromURL !== lang) ||
+    hasValidClientApp ||
     hasValidClientAppUrlException
   ) {
     // Replace the first part of the URL if:
@@ -72,8 +76,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     URLParts.splice(0, 0, lang);
     // If we've prepended the lang to the URL we need to re-check our
     // URL exception and make sure it's valid.
-    hasValidClientAppUrlException = isValidClientAppUrlException(
-      URLParts[1], { _config });
+    hasValidClientAppUrlException = isValidClientAppUrlException(URLParts[1], {
+      _config,
+    });
   }
 
   if (!hasValidClientApp && isValidClientApp(URLParts[1], { _config })) {
@@ -82,7 +87,8 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     log.info('Application in URL is valid following prepending a lang.');
   } else if (prependedOrMovedApplication) {
     log.info(
-      'URL is valid because we added/changed the first part to a clientApp.');
+      'URL is valid because we added/changed the first part to a clientApp.'
+    );
   } else if (hasValidLocaleException || hasValidClientAppUrlException) {
     if (hasValidLang || hasValidLocaleException) {
       log.info('Exception in URL found; we fallback to addons-server.');

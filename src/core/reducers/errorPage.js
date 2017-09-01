@@ -23,7 +23,9 @@ export default function errorPage(state = initialState, action) {
       // response. See:
       // github.com/mozilla/addons-frontend/pull/1685#discussion_r99243105
       let statusCode = 500;
-      if (payload.error && payload.error.response &&
+      if (
+        payload.error &&
+        payload.error.response &&
         payload.error.response.status
       ) {
         statusCode = payload.error.response.status;

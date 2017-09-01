@@ -21,7 +21,9 @@ describe('Theme Preview Lib', () => {
     fakeDoc.createEvent.returns(fakeEvent);
     themeAction(fakeNode, THEME_PREVIEW, fakeDoc);
     expect(fakeDoc.createEvent.calledWith('Events')).toBeTruthy();
-    expect(fakeEvent.initEvent.calledWith(THEME_PREVIEW, true, false)).toBeTruthy();
+    expect(
+      fakeEvent.initEvent.calledWith(THEME_PREVIEW, true, false)
+    ).toBeTruthy();
     expect(fakeNode.dispatchEvent.calledWith(fakeEvent)).toBeTruthy();
   });
 
@@ -42,4 +44,3 @@ describe('Theme Preview Lib', () => {
     expect(themeData).toEqual(getThemeData({ ...themeData, badKey: true }));
   });
 });
-

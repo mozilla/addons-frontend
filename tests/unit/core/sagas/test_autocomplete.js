@@ -15,7 +15,6 @@ import {
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let errorHandler;
   let mockApi;
@@ -36,10 +35,12 @@ describe(__filename, () => {
   });
 
   function _autocompleteStart(params) {
-    sagaTester.dispatch(autocompleteStart({
-      errorHandlerId: 'create-stub-error-handler-id',
-      ...params,
-    }));
+    sagaTester.dispatch(
+      autocompleteStart({
+        errorHandlerId: 'create-stub-error-handler-id',
+        ...params,
+      })
+    );
   }
 
   it('calls the API for suggestions', async () => {
@@ -66,15 +67,14 @@ describe(__filename, () => {
     _autocompleteStart({ filters: { query: 'foo' } });
 
     await sagaTester.waitFor(CLEAR_ERROR);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    expect(sagaTester.getCalledActions()[1]).toEqual(
+      errorHandler.createClearingAction()
+    );
   });
 
   it('dispatches an error', async () => {
     const error = new Error('some API error maybe');
-    mockApi
-      .expects('autocomplete')
-      .returns(Promise.reject(error));
+    mockApi.expects('autocomplete').returns(Promise.reject(error));
 
     _autocompleteStart({ filters: {} });
 
@@ -91,7 +91,7 @@ describe(__filename, () => {
       // allowing the `autocompleteCancel()` to be handled. The delay does not
       // really matter since cancellation is expected as soon as
       // AUTOCOMPLETE_CANCELLED is fired.
-      .returns(new Promise((resolve) => setTimeout(resolve, 500)));
+      .returns(new Promise(resolve => setTimeout(resolve, 500)));
 
     _autocompleteStart({ filters: {} });
     sagaTester.dispatch(autocompleteCancel());
@@ -112,12 +112,13 @@ describe(__filename, () => {
     const autocompleteApi = mockApi.expects('autocomplete').twice();
 
     // This configures the API for the first autocomplete start.
-    autocompleteApi.onCall(0)
+    autocompleteApi
+      .onCall(0)
       // Add a delay to the API call so that it slows down the fetch saga,
       // allowing the `autocompleteCancel()` to be handled. The delay does not
       // really matter since cancellation is expected as soon as
       // AUTOCOMPLETE_CANCELLED is fired.
-      .returns(new Promise((resolve) => setTimeout(resolve, 500)));
+      .returns(new Promise(resolve => setTimeout(resolve, 500)));
 
     // This configures the API for the second autocomplete start.
     autocompleteApi.onCall(1).returns(Promise.resolve({ results }));

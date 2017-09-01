@@ -1,6 +1,5 @@
 import { FEATURED_GET, FEATURED_LOADED } from 'core/constants';
 
-
 export const initialState = {
   addonType: null,
   loading: false,
@@ -17,9 +16,9 @@ export default function featured(state = initialState, action) {
         ...state,
         addonType: payload.addonType,
         loading: false,
-        results: payload.result.results.map((slug) => (
-          payload.entities.addons[slug]
-        )),
+        results: payload.result.results.map(
+          slug => payload.entities.addons[slug]
+        ),
       };
     default:
       return state;

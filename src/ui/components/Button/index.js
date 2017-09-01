@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import Link from 'amo/components/Link';
 
-
 import './Button.scss';
 
 export default class Button extends React.Component {
@@ -13,16 +12,10 @@ export default class Button extends React.Component {
     className: PropTypes.string,
     href: PropTypes.string,
     to: PropTypes.string,
-  }
+  };
 
   render() {
-    const {
-      children,
-      className,
-      href,
-      to,
-      ...rest
-    } = this.props;
+    const { children, className, href, to, ...rest } = this.props;
     const props = { className: classNames('Button', className), ...rest };
 
     if (href || to) {

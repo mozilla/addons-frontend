@@ -9,7 +9,6 @@ import values from 'object.values';
 // See: github.com/mozilla/addons-frontend/pull/2540#discussion_r120926107
 import 'jest-enzyme';
 
-
 if (!Object.values) {
   values.shim();
 }
@@ -19,7 +18,7 @@ class LocalStorageMock {
     this.store = {};
   }
   clear() {
-    Object.keys(this.store).forEach((key) => {
+    Object.keys(this.store).forEach(key => {
       delete this.store[key];
     });
   }
@@ -42,9 +41,7 @@ class LocalStorageMock {
 }
 global.localStorage = new LocalStorageMock();
 
-const localesMyAppSupports = [
-  'de', 'fr',
-];
+const localesMyAppSupports = ['de', 'fr'];
 
 if (global.Intl) {
   // Determine if the built-in `Intl` has the locale data we need.

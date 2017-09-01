@@ -7,10 +7,7 @@ module.exports = {
 
   CSP: {
     directives: {
-      scriptSrc: [
-        staticHost,
-        'https://www.google-analytics.com/analytics.js',
-      ],
+      scriptSrc: [staticHost, 'https://www.google-analytics.com/analytics.js'],
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
@@ -24,5 +21,6 @@ module.exports = {
   },
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-stage/
-  publicSentryDsn: 'https://45ef7d925267490fa65100a62fef3179@sentry.prod.mozaws.net/185',
+  publicSentryDsn:
+    'https://45ef7d925267490fa65100a62fef3179@sentry.prod.mozaws.net/185',
 };

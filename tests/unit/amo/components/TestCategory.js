@@ -17,7 +17,6 @@ import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
-
 describe('Category', () => {
   let errorHandler;
   let store;
@@ -31,18 +30,17 @@ describe('Category', () => {
   });
 
   function _categoriesLoad(actionParams = {}) {
-    store.dispatch(categoriesLoad({
-      result: [fakeCategory],
-      ...actionParams,
-    }));
+    store.dispatch(
+      categoriesLoad({
+        result: [fakeCategory],
+        ...actionParams,
+      })
+    );
   }
 
   function renderProps(
     customProps = {},
-    {
-      autoDispatchCategories = true,
-      paramOverrides = {},
-    } = {}
+    { autoDispatchCategories = true, paramOverrides = {} } = {}
   ) {
     if (autoDispatchCategories) {
       _categoriesLoad();
@@ -69,10 +67,12 @@ describe('Category', () => {
   }
 
   function _categoriesFetch(overrides = {}) {
-    store.dispatch(categoriesFetch({
-      errorHandlerId: errorHandler.id,
-      ...overrides,
-    }));
+    store.dispatch(
+      categoriesFetch({
+        errorHandlerId: errorHandler.id,
+        ...overrides,
+      })
+    );
   }
 
   it('outputs a category page', () => {
@@ -84,18 +84,19 @@ describe('Category', () => {
   it('should render an error', () => {
     const root = render();
     root.setProps({
-      errorHandler: createStubErrorHandler(
-        new Error('example of an error')
-      ),
+      errorHandler: createStubErrorHandler(new Error('example of an error')),
     });
 
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
   it('should render an error without a category too', () => {
-    const root = render({}, {
-      paramOverrides: { slug: 'unknown-category' },
-    });
+    const root = render(
+      {},
+      {
+        paramOverrides: { slug: 'unknown-category' },
+      }
+    );
     root.setProps({
       errorHandler: createStubErrorHandler(new Error('example')),
     });
@@ -120,8 +121,10 @@ describe('Category', () => {
     expect(search).toHaveProp('paginationQueryParams', {
       page: location.query.page,
     });
-    expect(search).toHaveProp('pathname',
-      `/${params.visibleAddonType}/${fakeCategory.slug}/`);
+    expect(search).toHaveProp(
+      'pathname',
+      `/${params.visibleAddonType}/${fakeCategory.slug}/`
+    );
     expect(search).toHaveProp('enableSearchFilters', false);
   });
 
@@ -129,9 +132,12 @@ describe('Category', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
-    sinon.assert.calledWithMatch(fakeDispatch, categoriesFetch({
-      errorHandlerId: errorHandler.id,
-    }));
+    sinon.assert.calledWithMatch(
+      fakeDispatch,
+      categoriesFetch({
+        errorHandlerId: errorHandler.id,
+      })
+    );
   });
 
   it('does not fetch categories when already loaded', () => {
@@ -191,12 +197,15 @@ describe('Category', () => {
       slug: 'target-slug',
     };
 
-    const _dispatchClientApp = (clientApp) => dispatchClientMetadata({
-      store, clientApp,
-    });
+    const _dispatchClientApp = clientApp =>
+      dispatchClientMetadata({
+        store,
+        clientApp,
+      });
 
     function _render(
-      props = {}, { autoDispatchCategories = true, ...options } = {}
+      props = {},
+      { autoDispatchCategories = true, ...options } = {}
     ) {
       if (autoDispatchCategories) {
         _categoriesLoad({ result: [decoyCategory, targetCategory] });
@@ -218,14 +227,16 @@ describe('Category', () => {
         },
       });
 
-      expect(root.find(CategoryHeader))
-        .toHaveProp('category', targetCategory);
+      expect(root.find(CategoryHeader)).toHaveProp('category', targetCategory);
     });
 
     it('renders a 404 for unknown category', () => {
-      const root = _render({}, {
-        paramOverrides: { slug: 'unknown-category' },
-      });
+      const root = _render(
+        {},
+        {
+          paramOverrides: { slug: 'unknown-category' },
+        }
+      );
 
       expect(root.find(NotFound)).toHaveLength(1);
     });
@@ -283,9 +294,12 @@ describe('Category', () => {
     });
 
     it('does not render missing category 404 when error is present', () => {
-      const root = _render({}, {
-        paramOverrides: { slug: 'unknown-category' },
-      });
+      const root = _render(
+        {},
+        {
+          paramOverrides: { slug: 'unknown-category' },
+        }
+      );
       root.setProps({
         errorHandler: createStubErrorHandler(new Error('example')),
       });
@@ -295,10 +309,13 @@ describe('Category', () => {
 
     it('does not render missing category 404 while loading', () => {
       _categoriesFetch();
-      const root = _render({}, {
-        autoDispatchCategories: false,
-        paramOverrides: { slug: 'unknown-category' },
-      });
+      const root = _render(
+        {},
+        {
+          autoDispatchCategories: false,
+          paramOverrides: { slug: 'unknown-category' },
+        }
+      );
 
       expect(root.find(NotFound)).toHaveLength(0);
       // Make sure the header is still rendered.
@@ -306,10 +323,13 @@ describe('Category', () => {
     });
 
     it('does not render missing category 404 before loading categories', () => {
-      const root = _render({}, {
-        autoDispatchCategories: false,
-        paramOverrides: { slug: 'unknown-category' },
-      });
+      const root = _render(
+        {},
+        {
+          autoDispatchCategories: false,
+          paramOverrides: { slug: 'unknown-category' },
+        }
+      );
 
       expect(root.find(NotFound)).toHaveLength(0);
     });

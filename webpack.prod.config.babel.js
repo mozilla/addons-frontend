@@ -9,8 +9,7 @@ import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
 import SriDataPlugin from './src/core/server/sriDataPlugin';
 import { getPlugins, getRules } from './webpack-common';
-import webpackIsomorphicToolsConfig
-  from './src/core/server/webpack-isomorphic-tools-config';
+import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
 
 const appName = config.get('appName');
 const appsBuildList = appName ? [appName] : config.get('validAppNames');
@@ -59,7 +58,7 @@ export default {
     // uglify errors.
     // Remove when https://github.com/webpack/webpack/issues/2390 is fixed.
     function bailOnStatsError() {
-      this.plugin('done', (stats) => {
+      this.plugin('done', stats => {
         if (stats.compilation.errors && stats.compilation.errors.length) {
           // eslint-disable-next-line no-console
           console.log(stats.compilation.errors);
@@ -73,10 +72,7 @@ export default {
       'normalize.css': 'normalize.css/normalize.css',
       tests: path.resolve('./tests'),
     },
-    modules: [
-      path.resolve('./src'),
-      'node_modules',
-    ],
+    modules: [path.resolve('./src'), 'node_modules'],
     extensions: ['.js', '.jsx'],
   },
 };

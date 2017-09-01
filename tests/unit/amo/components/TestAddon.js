@@ -52,13 +52,14 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Badge from 'ui/components/Badge';
 
-
-function renderProps({
-  addon = fakeAddon,
-  params,
-  setCurrentStatus = sinon.spy(),
-  ...customProps
-} = {}) {
+function renderProps(
+  {
+    addon = fakeAddon,
+    params,
+    setCurrentStatus = sinon.spy(),
+    ...customProps
+  } = {}
+) {
   const i18n = getFakeI18nInst();
   const addonProps = addon || {};
   return {
@@ -82,13 +83,16 @@ function renderProps({
 function render(...args) {
   const { store, i18n, ...props } = renderProps(...args);
   props.i18n = i18n;
-  return findRenderedComponentWithType(renderIntoDocument(
-    <Provider store={store}>
-      <I18nProvider i18n={i18n}>
-        <AddonBase store={store} {...props} />
-      </I18nProvider>
-    </Provider>
-  ), AddonBase);
+  return findRenderedComponentWithType(
+    renderIntoDocument(
+      <Provider store={store}>
+        <I18nProvider i18n={i18n}>
+          <AddonBase store={store} {...props} />
+        </I18nProvider>
+      </Provider>
+    ),
+    AddonBase
+  );
 }
 
 function renderAsDOMNode(...args) {
@@ -125,15 +129,16 @@ describe('Addon', () => {
       addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
     });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_THEME));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_THEME));
   });
 
   it('dispatches setViewContext when updating with new addon', () => {
     const fakeDispatch = sinon.stub();
     // Start with a null addon
     const root = shallowRender({
-      addon: null, dispatch: fakeDispatch, params: { slug: 'some-slug' },
+      addon: null,
+      dispatch: fakeDispatch,
+      params: { slug: 'some-slug' },
     });
     fakeDispatch.reset();
     // Update with a new addon
@@ -180,7 +185,9 @@ describe('Addon', () => {
 
     // Since there's no add-on, it should be fetched on load.
     sinon.assert.calledWith(
-      fakeDispatch, fetchAddonAction({ errorHandler, slug: slugParam }));
+      fakeDispatch,
+      fetchAddonAction({ errorHandler, slug: slugParam })
+    );
 
     // These should be empty:
     expect(root.find(InstallButton)).toHaveLength(0);
@@ -189,12 +196,17 @@ describe('Addon', () => {
     expect(root.find(RatingManager)).toHaveLength(0);
 
     // These should show LoadingText
-    expect(root.find('.AddonDescription-contents').find(LoadingText))
-      .toHaveLength(1);
+    expect(
+      root.find('.AddonDescription-contents').find(LoadingText)
+    ).toHaveLength(1);
     expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
     expect(root.find('.Addon-title').find(LoadingText)).toHaveLength(1);
-    expect(root.find('.Addon-overall-rating').shallow().find(LoadingText))
-      .toHaveLength(1);
+    expect(
+      root
+        .find('.Addon-overall-rating')
+        .shallow()
+        .find(LoadingText)
+    ).toHaveLength(1);
 
     // These should render with an empty addon.
     expect(root.find(AddonMeta).prop('addon')).toEqual(null);
@@ -223,7 +235,10 @@ describe('Addon', () => {
     // Update with a new slug.
     root.setProps({ params: { slug } });
 
-    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({ errorHandler, slug }));
+    sinon.assert.calledWith(
+      fakeDispatch,
+      fetchAddonAction({ errorHandler, slug })
+    );
   });
 
   it('renders an error if there is one', () => {
@@ -248,7 +263,9 @@ describe('Addon', () => {
 
     // Set up an error handler from state like withErrorHandler().
     const errorHandler = new ErrorHandler({
-      id, dispatch: sinon.stub(), capturedError,
+      id,
+      dispatch: sinon.stub(),
+      capturedError,
     });
 
     const root = shallowRender({ errorHandler });
@@ -260,10 +277,12 @@ describe('Addon', () => {
     const root = shallowRender({
       addon: {
         ...fakeAddon,
-        authors: [{
-          name: 'Krupa',
-          url: authorUrl,
-        }],
+        authors: [
+          {
+            name: 'Krupa',
+            url: authorUrl,
+          },
+        ],
       },
     });
     expect(root.find('.Addon-title').html()).toContain('Krupa');
@@ -274,13 +293,16 @@ describe('Addon', () => {
     const root = shallowRender({
       addon: {
         ...fakeAddon,
-        authors: [{
-          name: 'Krupa',
-          url: 'http://olympia.dev/en-US/firefox/user/krupa/',
-        }, {
-          name: 'Fligtar',
-          url: 'http://olympia.dev/en-US/firefox/user/fligtar/',
-        }],
+        authors: [
+          {
+            name: 'Krupa',
+            url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+          },
+          {
+            name: 'Fligtar',
+            url: 'http://olympia.dev/en-US/firefox/user/fligtar/',
+          },
+        ],
       },
     });
     expect(root.find('h1').html()).toContain('Krupa');
@@ -325,18 +347,21 @@ describe('Addon', () => {
     // Make sure an actual script tag was not created.
     expect(root.querySelector('.AddonDescription script')).toEqual(null);
     // Make sure the script has been removed.
-    expect(root.querySelector('.AddonDescription').innerHTML)
-      .not.toContain('<script>');
+    expect(root.querySelector('.AddonDescription').innerHTML).not.toContain(
+      '<script>'
+    );
   });
 
   it('allows certain HTML tags in the title', () => {
     const rootNode = renderAsDOMNode({
       addon: {
         ...fakeAddon,
-        authors: [{
-          name: 'Krupa',
-          url: 'http://olympia.dev/en-US/firefox/user/krupa/',
-        }],
+        authors: [
+          {
+            name: 'Krupa',
+            url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+          },
+        ],
       },
     });
     // Make sure these tags were whitelisted.
@@ -353,22 +378,26 @@ describe('Addon', () => {
 
   it('sets the type in the header', () => {
     const root = shallowRender();
-    expect(root.find('.AddonDescription').prop('header'))
-      .toContain('About this extension');
+    expect(root.find('.AddonDescription').prop('header')).toContain(
+      'About this extension'
+    );
   });
 
   it('uses the summary as the description if no description exists', () => {
     const addon = { ...fakeAddon, summary: 'short text' };
     delete addon.description;
     const rootNode = renderAsDOMNode({ addon });
-    expect(rootNode.querySelector('.AddonDescription-contents').textContent)
-      .toEqual(addon.summary);
+    expect(
+      rootNode.querySelector('.AddonDescription-contents').textContent
+    ).toEqual(addon.summary);
   });
 
   it('uses the summary as the description if description is blank', () => {
     const addon = { ...fakeAddon, description: '', summary: 'short text' };
     const rootNode = renderAsDOMNode({ addon });
-    expect(rootNode.querySelector('.AddonDescription-contents').textContent).toEqual(addon.summary);
+    expect(
+      rootNode.querySelector('.AddonDescription-contents').textContent
+    ).toEqual(addon.summary);
   });
 
   it('hides the description if description and summary are null', () => {
@@ -406,7 +435,8 @@ describe('Addon', () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const tagToCheck of allowedTags) {
       expect(
-        rootNode.querySelectorAll(`.AddonDescription-contents ${tagToCheck}`).length
+        rootNode.querySelectorAll(`.AddonDescription-contents ${tagToCheck}`)
+          .length
       ).toBe(1);
     }
   });
@@ -443,9 +473,13 @@ describe('Addon', () => {
         summary: '<a href="http://foo.com/">my website</a>',
       },
     });
-    expect(rootNode.querySelector('.Addon-summary').textContent).toContain('my website');
+    expect(rootNode.querySelector('.Addon-summary').textContent).toContain(
+      'my website'
+    );
     expect(rootNode.querySelectorAll('.Addon-summary a').length).toEqual(1);
-    expect(rootNode.querySelector('.Addon-summary a').href).toEqual('http://foo.com/');
+    expect(rootNode.querySelector('.Addon-summary a').href).toEqual(
+      'http://foo.com/'
+    );
   });
 
   it('renders an amo CDN icon image', () => {
@@ -618,28 +652,29 @@ describe('Addon', () => {
       const root = reviewFooterDOM({
         ratingsCount: 0,
       });
-      const footer =
-        root.querySelector('.Addon-read-reviews-footer');
+      const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('No reviews yet');
-      expect(root.querySelector('footer').className).toEqual('Card-footer-text');
+      expect(root.querySelector('footer').className).toEqual(
+        'Card-footer-text'
+      );
     });
 
     it('prompts you to read one review', () => {
       const root = reviewFooterDOM({
         ratingsCount: 1,
       });
-      const footer =
-        root.querySelector('.Addon-read-reviews-footer');
+      const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('Read 1 review');
-      expect(root.querySelector('footer').className).toEqual('Card-footer-link');
+      expect(root.querySelector('footer').className).toEqual(
+        'Card-footer-link'
+      );
     });
 
     it('prompts you to read many reviews', () => {
       const root = reviewFooterDOM({
         ratingsCount: 5,
       });
-      const footer =
-        root.querySelector('.Addon-read-reviews-footer');
+      const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toEqual('Read all 5 reviews');
     });
 
@@ -647,8 +682,7 @@ describe('Addon', () => {
       const root = reviewFooterDOM({
         ratingsCount: 10000,
       });
-      const footer =
-        root.querySelector('.Addon-read-reviews-footer');
+      const footer = root.querySelector('.Addon-read-reviews-footer');
       expect(footer.textContent).toContain('10,000');
     });
 
@@ -662,9 +696,9 @@ describe('Addon', () => {
           },
         },
       });
-      const allLinks = scryRenderedComponentsWithType(root, Link)
-        .filter((component) =>
-          component.props.className === 'Addon-all-reviews-link');
+      const allLinks = scryRenderedComponentsWithType(root, Link).filter(
+        component => component.props.className === 'Addon-all-reviews-link'
+      );
       expect(allLinks.length).toEqual(1);
 
       const link = allLinks[0];
@@ -702,7 +736,7 @@ describe('mapStateToProps', () => {
 
   function _mapStateToProps(
     state = store.getState(),
-    ownProps = { params: { slug: fakeAddon.slug } },
+    ownProps = { params: { slug: fakeAddon.slug } }
   ) {
     return mapStateToProps(state, ownProps);
   }
@@ -727,9 +761,13 @@ describe('mapStateToProps', () => {
   it('sets installStatus to INSTALLED when add-on is installed', () => {
     signIn();
     fetchAddon();
-    store.dispatch(setInstallState({
-      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
-    }));
+    store.dispatch(
+      setInstallState({
+        guid: fakeAddon.guid,
+        needsRestart: false,
+        status: INSTALLED,
+      })
+    );
     const { installStatus } = _mapStateToProps();
 
     expect(installStatus).toEqual(INSTALLED);
@@ -757,9 +795,13 @@ describe('mapStateToProps', () => {
   it('must convert all installed addon props to component props', () => {
     signIn();
     fetchAddon();
-    store.dispatch(setInstallState({
-      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
-    }));
+    store.dispatch(
+      setInstallState({
+        guid: fakeAddon.guid,
+        needsRestart: false,
+        status: INSTALLED,
+      })
+    );
     const { needsRestart } = _mapStateToProps();
 
     // Make sure a random installedAddon prop gets passed as a component prop
@@ -791,7 +833,11 @@ describe('mapStateToProps', () => {
   });
 
   it('adds a different badge label when an addon of a different type is featured', () => {
-    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH };
+    const addon = {
+      ...fakeAddon,
+      is_featured: true,
+      type: ADDON_TYPE_OPENSEARCH,
+    };
     const root = shallowRender({ addon });
 
     expect(root.find(Badge)).toHaveProp('type', 'featured');

@@ -28,8 +28,9 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/foo/bar/',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
     expect(fakeNext.called).toBeTruthy();
   });
 
@@ -38,8 +39,9 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/foo/bar',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
     expect(fakeRes.redirect.firstCall.args).toEqual([301, '/foo/bar/']);
     expect(fakeNext.called).toBeFalsy();
   });
@@ -49,8 +51,9 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/no/trailing',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
     expect(fakeRes.redirect.called).toBeFalsy();
     expect(fakeNext.called).toBeTruthy();
   });
@@ -60,8 +63,9 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/en-US/lack/trailing',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
     expect(fakeRes.redirect.called).toBeFalsy();
     expect(fakeNext.called).toBeTruthy();
   });
@@ -71,8 +75,9 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/firefox/none/trailing',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
     expect(fakeRes.redirect.called).toBeFalsy();
     expect(fakeNext.called).toBeTruthy();
   });
@@ -82,8 +87,9 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/fr/firefox/slash/trailing',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
     expect(fakeRes.redirect.called).toBeFalsy();
     expect(fakeNext.called).toBeTruthy();
   });
@@ -93,8 +99,9 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/slash/trailing',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
     expect(fakeRes.redirect.firstCall.args).toEqual([301, '/slash/trailing/']);
     expect(fakeNext.called).toBeFalsy();
   });
@@ -104,9 +111,13 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/en-US/slash/trailing',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/en-US/slash/trailing/']);
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    expect(fakeRes.redirect.firstCall.args).toEqual([
+      301,
+      '/en-US/slash/trailing/',
+    ]);
     expect(fakeNext.called).toBeFalsy();
   });
 
@@ -115,9 +126,13 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/en-US/firefox/trailing',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/en-US/firefox/trailing/']);
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    expect(fakeRes.redirect.firstCall.args).toEqual([
+      301,
+      '/en-US/firefox/trailing/',
+    ]);
     expect(fakeNext.called).toBeFalsy();
   });
 
@@ -126,8 +141,9 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/no/trailing?query=test',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
     expect(fakeRes.redirect.called).toBeFalsy();
     expect(fakeNext.called).toBeTruthy();
   });
@@ -137,9 +153,13 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/hello?query=test',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/hello/?query=test']);
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    expect(fakeRes.redirect.firstCall.args).toEqual([
+      301,
+      '/hello/?query=test',
+    ]);
     expect(fakeNext.called).toBeFalsy();
   });
 
@@ -148,9 +168,13 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/firefox/slash/trailing',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/firefox/slash/trailing/']);
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    expect(fakeRes.redirect.firstCall.args).toEqual([
+      301,
+      '/firefox/slash/trailing/',
+    ]);
     expect(fakeNext.called).toBeFalsy();
   });
 
@@ -159,9 +183,13 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/foo/search?q=foo&category=bar',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/foo/search/?q=foo&category=bar']);
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    expect(fakeRes.redirect.firstCall.args).toEqual([
+      301,
+      '/foo/search/?q=foo&category=bar',
+    ]);
     expect(fakeNext.called).toBeFalsy();
   });
 
@@ -170,9 +198,13 @@ describe('Trailing Slashes Middleware', () => {
       originalUrl: '/foo/search?q=foo&category=bar?test=bad',
       headers: {},
     };
-    trailingSlashesMiddleware(
-      fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
-    expect(fakeRes.redirect.firstCall.args).toEqual([301, '/foo/search/?q=foo&category=bar?test=bad']);
+    trailingSlashesMiddleware(fakeReq, fakeRes, fakeNext, {
+      _config: fakeConfig,
+    });
+    expect(fakeRes.redirect.firstCall.args).toEqual([
+      301,
+      '/foo/search/?q=foo&category=bar?test=bad',
+    ]);
     expect(fakeNext.called).toBeFalsy();
   });
 });

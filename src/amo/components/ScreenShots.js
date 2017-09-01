@@ -21,11 +21,14 @@ const PHOTO_SWIPE_OPTIONS = {
   preloaderEl: true,
   // Overload getThumbsBoundsFn as workaround to
   // https://github.com/minhtranite/react-photoswipe/issues/23
-  getThumbBoundsFn: /* istanbul ignore next */ function getThumbBoundsFn(index) {
+  getThumbBoundsFn: /* istanbul ignore next */ function getThumbBoundsFn(
+    index
+  ) {
     const thumbnail = document.querySelectorAll('.pswp-thumbnails')[index];
     if (thumbnail && thumbnail.getElementsByTagName) {
       const img = thumbnail.getElementsByTagName('img')[0];
-      const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+      const pageYScroll =
+        window.pageYOffset || document.documentElement.scrollTop;
       const rect = img.getBoundingClientRect();
       return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
     }
@@ -33,38 +36,48 @@ const PHOTO_SWIPE_OPTIONS = {
   },
 };
 
-const formatPreviews = (previews) => (
-  previews.map((preview) => ({
+const formatPreviews = previews =>
+  previews.map(preview => ({
     src: preview.image_url,
     thumbnail_src: preview.thumbnail_url,
     h: HEIGHT,
     w: WIDTH,
     title: preview.caption,
-  }))
-);
+  }));
 
-export const thumbnailContent = (item) => (
-  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" />
+export const thumbnailContent = item => (
+  <img
+    src={item.src}
+    className="ScreenShots-image"
+    height={HEIGHT}
+    width={WIDTH}
+    alt=""
+  />
 );
 
 export default class ScreenShots extends React.Component {
   static propTypes = {
     previews: PropTypes.array.isRequired,
-  }
+  };
 
-  onClose = (photoswipe) => {
+  onClose = photoswipe => {
     const index = photoswipe.getCurrentIndex();
     const list = this.viewport.querySelector('.pswp-thumbnails');
     const currentItem = list.children[index];
     const offset = currentItem.getBoundingClientRect().x;
     list.scrollLeft += offset - list.getBoundingClientRect().x;
-  }
+  };
 
   render() {
     const { previews } = this.props;
     return (
       <div className="ScreenShots">
-        <div className="ScreenShots-viewport" ref={(el) => { this.viewport = el; }}>
+        <div
+          className="ScreenShots-viewport"
+          ref={el => {
+            this.viewport = el;
+          }}
+        >
           <PhotoSwipeGallery
             className="ScreenShots-list"
             close={this.onClose}

@@ -36,23 +36,26 @@ import {
 } from 'core/constants';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import {
-  getFakeAddonManagerWrapper, shallowUntilTarget,
+  getFakeAddonManagerWrapper,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 import * as installAddon from 'core/installAddon';
 import * as themePreview from 'core/themePreview';
 
 const {
-  WithInstallHelpers, installTheme, makeProgressHandler, makeMapDispatchToProps,
-  mapStateToProps, withInstallHelpers,
+  WithInstallHelpers,
+  installTheme,
+  makeProgressHandler,
+  makeMapDispatchToProps,
+  mapStateToProps,
+  withInstallHelpers,
 } = installAddon;
 const BaseComponent = () => <div />;
 
 function componentWithInstallHelpers({ src = 'some-src' } = {}) {
   // This simulates how a component would typically apply
   // the withInstallHelpers() HOC wrapper.
-  return compose(
-    withInstallHelpers({ src })
-  )(BaseComponent);
+  return compose(withInstallHelpers({ src }))(BaseComponent);
 }
 
 function renderWithInstallHelpers({ src, ...customProps } = {}) {
@@ -75,13 +78,20 @@ describe('withInstallHelpers', () => {
   it('connects mapDispatchToProps for the component', () => {
     const _makeMapDispatchToProps = sinon.spy();
     const WrappedComponent = sinon.stub();
-    withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(WrappedComponent);
-    expect(_makeMapDispatchToProps.calledWith({ WrappedComponent, src: 'Howdy' })).toBeTruthy();
+    withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(
+      WrappedComponent
+    );
+    expect(
+      _makeMapDispatchToProps.calledWith({ WrappedComponent, src: 'Howdy' })
+    ).toBeTruthy();
   });
 
   it('wraps the component in WithInstallHelpers', () => {
     const _makeMapDispatchToProps = sinon.spy();
-    const Component = withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
+    const Component = withInstallHelpers({
+      src: 'Howdy',
+      _makeMapDispatchToProps,
+    })(() => {});
     const { store } = createStore();
     const root = shallow(<Component store={store} />);
     expect(root.type()).toEqual(WithInstallHelpers);
@@ -210,7 +220,9 @@ describe('withInstallHelpers inner functions', () => {
   let configStub;
   let mapDispatchToProps;
 
-  function getMapStateToProps({ _tracking, installations = {}, state = {} } = {}) {
+  function getMapStateToProps(
+    { _tracking, installations = {}, state = {} } = {}
+  ) {
     return mapStateToProps({ installations, addons: {} }, state, { _tracking });
   }
 
@@ -219,7 +231,10 @@ describe('withInstallHelpers inner functions', () => {
   });
 
   beforeEach(() => {
-    configStub = sinon.stub(config, 'get').withArgs('server').returns(false);
+    configStub = sinon
+      .stub(config, 'get')
+      .withArgs('server')
+      .returns(false);
   });
 
   describe('setCurrentStatus', () => {
@@ -233,13 +248,12 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ENABLED, url: installURL }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: ENABLED, url: installURL })
+        );
+      });
     });
 
     it('lets you pass custom props to setCurrentStatus', () => {
@@ -250,13 +264,12 @@ describe('withInstallHelpers inner functions', () => {
       const installURL = 'http://the.url';
 
       dispatch.reset();
-      return setCurrentStatus({ guid, installURL })
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ENABLED, url: installURL }),
-          );
-        });
+      return setCurrentStatus({ guid, installURL }).then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: ENABLED, url: installURL })
+        );
+      });
     });
 
     it('sets the status to DISABLED when a disabled add-on found', () => {
@@ -276,13 +289,12 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: DISABLED, url: installURL }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: DISABLED, url: installURL })
+        );
+      });
     });
 
     it('sets the status to DISABLED when an inactive add-on found', () => {
@@ -302,18 +314,21 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: DISABLED, url: installURL }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: DISABLED, url: installURL })
+        );
+      });
     });
 
     it('sets the status to ENABLED when an enabled theme is found', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
-        getAddon: Promise.resolve({ type: ADDON_TYPE_THEME, isActive: true, isEnabled: true }),
+        getAddon: Promise.resolve({
+          type: ADDON_TYPE_THEME,
+          isActive: true,
+          isEnabled: true,
+        }),
       });
       const guid = '@foo';
       const installURL = 'http://the.url';
@@ -325,13 +340,12 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ENABLED, url: installURL }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: ENABLED, url: installURL })
+        );
+      });
     });
 
     it('sets the status to DISABLED when an inactive theme is found', () => {
@@ -352,13 +366,12 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: DISABLED, url: installURL }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: DISABLED, url: installURL })
+        );
+      });
     });
 
     it('sets the status to DISABLED when a disabled theme is found', () => {
@@ -379,13 +392,12 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: DISABLED, url: installURL }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: DISABLED, url: installURL })
+        );
+      });
     });
 
     it('sets the status to UNINSTALLED when not found', () => {
@@ -402,13 +414,12 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: UNINSTALLED, url: installURL }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: UNINSTALLED, url: installURL })
+        );
+      });
     });
 
     it('dispatches error when setCurrentStatus gets exception', () => {
@@ -426,13 +437,12 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      return setCurrentStatus()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ERROR, error: FATAL_ERROR }),
-          );
-        });
+      return setCurrentStatus().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: ERROR, error: FATAL_ERROR })
+        );
+      });
     });
   });
 
@@ -464,9 +474,13 @@ describe('withInstallHelpers inner functions', () => {
       const guid = '{my-addon}';
       const handler = makeProgressHandler(dispatch, guid);
       handler({ state: 'STATE_SOMETHING' }, { type: 'onDownloadEnded' });
-      sinon.assert.calledWith(dispatch, setInstallState({
-        guid, status: INSTALLING,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        setInstallState({
+          guid,
+          status: INSTALLING,
+        })
+      );
     });
 
     it('resets status to uninstalled on onInstallCancelled', () => {
@@ -510,16 +524,18 @@ describe('withInstallHelpers inner functions', () => {
         permissionPromptsEnabled: false,
       });
       const { root } = renderWithInstallHelpers({
-        name, iconUrl, guid, _addonManager: fakeAddonManager,
+        name,
+        iconUrl,
+        guid,
+        _addonManager: fakeAddonManager,
       });
       const { enable } = root.instance().props;
 
       const fakeShowInfo = sinon.stub();
-      return enable({ _showInfo: fakeShowInfo })
-        .then(() => {
-          sinon.assert.calledWith(fakeAddonManager.enable, guid);
-          sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
-        });
+      return enable({ _showInfo: fakeShowInfo }).then(() => {
+        sinon.assert.calledWith(fakeAddonManager.enable, guid);
+        sinon.assert.calledWith(fakeShowInfo, { name, iconUrl });
+      });
     });
 
     it('calls addonManager.enable() without content notification', () => {
@@ -527,16 +543,18 @@ describe('withInstallHelpers inner functions', () => {
         permissionPromptsEnabled: true,
       });
       const { root } = renderWithInstallHelpers({
-        name, iconUrl, guid, _addonManager: fakeAddonManager,
+        name,
+        iconUrl,
+        guid,
+        _addonManager: fakeAddonManager,
       });
       const { enable } = root.instance().props;
 
       const fakeShowInfo = sinon.stub();
-      return enable({ _showInfo: fakeShowInfo })
-        .then(() => {
-          sinon.assert.calledWith(fakeAddonManager.enable, guid);
-          sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
-        });
+      return enable({ _showInfo: fakeShowInfo }).then(() => {
+        sinon.assert.calledWith(fakeAddonManager.enable, guid);
+        sinon.assert.neverCalledWith(fakeShowInfo, { name, iconUrl });
+      });
     });
 
     it('dispatches a FATAL_ERROR', () => {
@@ -544,32 +562,38 @@ describe('withInstallHelpers inner functions', () => {
         enable: sinon.stub().returns(Promise.reject(new Error('hai'))),
       };
       const { dispatch, root } = renderWithInstallHelpers({
-        name, iconUrl, guid, _addonManager: fakeAddonManager,
+        name,
+        iconUrl,
+        guid,
+        _addonManager: fakeAddonManager,
       });
       const { enable } = root.instance().props;
 
-      return enable()
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: ERROR, error: FATAL_ERROR }),
-          );
-        });
+      return enable().then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: ERROR, error: FATAL_ERROR })
+        );
+      });
     });
 
     it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
       const fakeAddonManager = {
-        enable: sinon.stub().returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
+        enable: sinon
+          .stub()
+          .returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
       };
       const { root, dispatch } = renderWithInstallHelpers({
-        name, iconUrl, guid, _addonManager: fakeAddonManager,
+        name,
+        iconUrl,
+        guid,
+        _addonManager: fakeAddonManager,
       });
       const { enable } = root.instance().props;
 
-      return enable()
-        .then(() => {
-          sinon.assert.notCalled(dispatch);
-        });
+      return enable().then(() => {
+        sinon.assert.notCalled(dispatch);
+      });
     });
   });
 
@@ -580,19 +604,20 @@ describe('withInstallHelpers inner functions', () => {
     it('calls addonManager.install()', () => {
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const { root } = renderWithInstallHelpers({
-        _addonManager: fakeAddonManager, installURL, src,
+        _addonManager: fakeAddonManager,
+        installURL,
+        src,
       });
       const { install } = root.instance().props;
 
-      return install({ guid, installURL })
-        .then(() => {
-          sinon.assert.calledWith(
-            fakeAddonManager.install,
-            installURL,
-            sinon.match.func,
-            { src }
-          );
-        });
+      return install({ guid, installURL }).then(() => {
+        sinon.assert.calledWith(
+          fakeAddonManager.install,
+          installURL,
+          sinon.match.func,
+          { src }
+        );
+      });
     });
 
     it('tracks an addon install', () => {
@@ -607,14 +632,13 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { install } = root.instance().props;
 
-      return install({ guid, installURL, name, type })
-        .then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: TRACKING_TYPE_EXTENSION,
-            category: INSTALL_CATEGORY,
-            label: 'hai-addon',
-          });
+      return install({ guid, installURL, name, type }).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: TRACKING_TYPE_EXTENSION,
+          category: INSTALL_CATEGORY,
+          label: 'hai-addon',
         });
+      });
     });
 
     it('should dispatch START_DOWNLOAD', () => {
@@ -623,13 +647,12 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { install } = root.instance().props;
 
-      return install({ guid, installURL })
-        .then(() => {
-          sinon.assert.calledWith(dispatch, {
-            type: START_DOWNLOAD,
-            payload: { guid },
-          });
+      return install({ guid, installURL }).then(() => {
+        sinon.assert.calledWith(dispatch, {
+          type: START_DOWNLOAD,
+          payload: { guid },
         });
+      });
     });
 
     it('should dispatch SHOW_INFO if permissionPromptsEnabled is false', () => {
@@ -643,28 +666,27 @@ describe('withInstallHelpers inner functions', () => {
       const { root, dispatch } = renderWithInstallHelpers(props);
       const { install } = root.instance().props;
 
-      return install({ guid, installURL })
-        .then(() => {
-          sinon.assert.calledWith(dispatch, {
-            type: SHOW_INFO,
-            payload: {
-              addonName: 'test-addon',
-              imageURL: props.iconUrl,
-              closeAction: sinon.match.func,
-            },
-          });
-
-          const arg = dispatch.secondCall.args[0];
-          // Prove we're looking at the SHOW_INFO dispatch.
-          expect(arg.type).toEqual(SHOW_INFO);
-
-          // Test that close action dispatches.
-          dispatch.reset();
-          arg.payload.closeAction();
-          sinon.assert.calledWith(dispatch, {
-            type: CLOSE_INFO,
-          });
+      return install({ guid, installURL }).then(() => {
+        sinon.assert.calledWith(dispatch, {
+          type: SHOW_INFO,
+          payload: {
+            addonName: 'test-addon',
+            imageURL: props.iconUrl,
+            closeAction: sinon.match.func,
+          },
         });
+
+        const arg = dispatch.secondCall.args[0];
+        // Prove we're looking at the SHOW_INFO dispatch.
+        expect(arg.type).toEqual(SHOW_INFO);
+
+        // Test that close action dispatches.
+        dispatch.reset();
+        arg.payload.closeAction();
+        sinon.assert.calledWith(dispatch, {
+          type: CLOSE_INFO,
+        });
+      });
     });
 
     it('should not dispatch SHOW_INFO if permissionPromptsEnabled is true', () => {
@@ -678,17 +700,18 @@ describe('withInstallHelpers inner functions', () => {
       const { root, dispatch } = renderWithInstallHelpers(props);
       const { install } = root.instance().props;
 
-      return install({ guid, installURL })
-        .then(() => {
-          expect(dispatch.neverCalledWith({
+      return install({ guid, installURL }).then(() => {
+        expect(
+          dispatch.neverCalledWith({
             type: SHOW_INFO,
             payload: {
               addonName: 'test-addon',
               imageURL: props.iconUrl,
               closeAction: sinon.match.func,
             },
-          })).toBeTruthy();
-        });
+          })
+        ).toBeTruthy();
+      });
     });
 
     it('dispatches error when addonManager.install throws', () => {
@@ -696,19 +719,21 @@ describe('withInstallHelpers inner functions', () => {
       fakeAddonManager.install = sinon.stub().returns(Promise.reject());
 
       const { root, dispatch } = renderWithInstallHelpers({
-        _addonManager: fakeAddonManager, guid,
+        _addonManager: fakeAddonManager,
+        guid,
       });
       const { install } = root.instance().props;
 
-      return install({ guid, installURL })
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid, status: ERROR, error: FATAL_INSTALL_ERROR,
-            }),
-          );
-        });
+      return install({ guid, installURL }).then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_INSTALL_ERROR,
+          })
+        );
+      });
     });
   });
 
@@ -723,14 +748,13 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { uninstall } = root.instance().props;
 
-      return uninstall({ guid, installURL })
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: UNINSTALLING }),
-          );
-          sinon.assert.calledWith(fakeAddonManager.uninstall, guid);
-        });
+      return uninstall({ guid, installURL }).then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: UNINSTALLING })
+        );
+        sinon.assert.calledWith(fakeAddonManager.uninstall, guid);
+      });
     });
 
     it('dispatches error when addonManager.uninstall throws', () => {
@@ -741,19 +765,20 @@ describe('withInstallHelpers inner functions', () => {
       });
       const { uninstall } = root.instance().props;
 
-      return uninstall({ guid, installURL })
-        .then(() => {
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({ guid, status: UNINSTALLING }),
-          );
-          sinon.assert.calledWith(
-            dispatch,
-            setInstallState({
-              guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
-            }),
-          );
-        });
+      return uninstall({ guid, installURL }).then(() => {
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({ guid, status: UNINSTALLING })
+        );
+        sinon.assert.calledWith(
+          dispatch,
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_UNINSTALL_ERROR,
+          })
+        );
+      });
     });
 
     it('tracks an addon uninstall', () => {
@@ -770,14 +795,13 @@ describe('withInstallHelpers inner functions', () => {
       const name = 'whatevs';
       const type = ADDON_TYPE_EXTENSION;
 
-      return uninstall({ guid, installURL, name, type })
-        .then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: TRACKING_TYPE_EXTENSION,
-            category: UNINSTALL_CATEGORY,
-            label: name,
-          });
+      return uninstall({ guid, installURL, name, type }).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: TRACKING_TYPE_EXTENSION,
+          category: UNINSTALL_CATEGORY,
+          label: name,
         });
+      });
     });
 
     it('tracks a theme uninstall', () => {
@@ -792,14 +816,18 @@ describe('withInstallHelpers inner functions', () => {
       const { uninstall } = root.instance().props;
       const name = 'whatevs';
 
-      return uninstall({ guid, installURL, name, type: ADDON_TYPE_THEME })
-        .then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: TRACKING_TYPE_THEME,
-            category: UNINSTALL_CATEGORY,
-            label: name,
-          });
+      return uninstall({
+        guid,
+        installURL,
+        name,
+        type: ADDON_TYPE_THEME,
+      }).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: TRACKING_TYPE_THEME,
+          category: UNINSTALL_CATEGORY,
+          label: name,
         });
+      });
     });
 
     it('tracks a unknown type uninstall', () => {
@@ -815,21 +843,23 @@ describe('withInstallHelpers inner functions', () => {
       const name = 'whatevs';
       const type = 'foo';
 
-      return uninstall({ guid, installURL, name, type })
-        .then(() => {
-          sinon.assert.calledWith(fakeTracking.sendEvent, {
-            action: 'invalid',
-            category: UNINSTALL_CATEGORY,
-            label: 'whatevs',
-          });
+      return uninstall({ guid, installURL, name, type }).then(() => {
+        sinon.assert.calledWith(fakeTracking.sendEvent, {
+          action: 'invalid',
+          category: UNINSTALL_CATEGORY,
+          label: 'whatevs',
         });
+      });
     });
   });
 
   describe('mapDispatchToProps', () => {
     it('is empty when there is no navigator', () => {
       sinon.restore();
-      configStub = sinon.stub(config, 'get').withArgs('server').returns(true);
+      configStub = sinon
+        .stub(config, 'get')
+        .withArgs('server')
+        .returns(true);
       expect(mapDispatchToProps(sinon.spy())).toEqual({ WrappedComponent });
       expect(configStub.calledOnce).toBeTruthy();
       expect(configStub.calledWith('server')).toBeTruthy();
@@ -926,11 +956,13 @@ describe('withInstallHelpers inner functions', () => {
       const node = sinon.stub();
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
-      expect(stubs._tracking.sendEvent.calledWith({
-        action: TRACKING_TYPE_THEME,
-        category: INSTALL_CATEGORY,
-        label: 'hai-theme',
-      })).toBeTruthy();
+      expect(
+        stubs._tracking.sendEvent.calledWith({
+          action: TRACKING_TYPE_THEME,
+          category: INSTALL_CATEGORY,
+          label: 'hai-theme',
+        })
+      ).toBeTruthy();
     });
 
     it('does not try to install theme if INSTALLED', () => {
@@ -968,16 +1000,19 @@ describe('withInstallHelpers inner functions', () => {
       const themeAction = sinon.spy();
       const node = 'fake-node';
       const guid = 'foo@bar.com';
-      const props = mapStateToProps({
-        installations: {
-          [guid]: {
-            status: UNINSTALLED,
-            guid,
+      const props = mapStateToProps(
+        {
+          installations: {
+            [guid]: {
+              status: UNINSTALLED,
+              guid,
+            },
           },
         },
-      }, {
-        guid,
-      });
+        {
+          guid,
+        }
+      );
       props.previewTheme = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
       expect(props.previewTheme.calledWith(node, themeAction)).toBeTruthy();
@@ -990,20 +1025,25 @@ describe('withInstallHelpers inner functions', () => {
       const themeAction = sinon.spy();
       const node = 'fake-node';
       const guid = 'foo@bar.com';
-      const props = mapStateToProps({
-        installations: {
-          [guid]: {
-            status: UNINSTALLED,
-            isPreviewingTheme: true,
-            guid,
+      const props = mapStateToProps(
+        {
+          installations: {
+            [guid]: {
+              status: UNINSTALLED,
+              isPreviewingTheme: true,
+              guid,
+            },
           },
         },
-      }, {
-        guid,
-      });
+        {
+          guid,
+        }
+      );
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
-      expect(props.resetThemePreview.calledWith(node, themeAction)).toBeTruthy();
+      expect(
+        props.resetThemePreview.calledWith(node, themeAction)
+      ).toBeTruthy();
     });
 
     it('logs if theme is not available', () => {
@@ -1013,19 +1053,24 @@ describe('withInstallHelpers inner functions', () => {
       const themeAction = sinon.spy();
       const node = 'fake-node';
       const guid = 'foo@bar.com';
-      const props = mapStateToProps({
-        installations: {
-          [guid]: {
-            status: UNINSTALLED,
-            isPreviewingTheme: true,
+      const props = mapStateToProps(
+        {
+          installations: {
+            [guid]: {
+              status: UNINSTALLED,
+              isPreviewingTheme: true,
+            },
           },
         },
-      }, {
-        guid,
-      });
+        {
+          guid,
+        }
+      );
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
-      expect(fakeLog.info.calledWith('Theme foo@bar.com could not be found')).toBeTruthy();
+      expect(
+        fakeLog.info.calledWith('Theme foo@bar.com could not be found')
+      ).toBeTruthy();
     });
 
     it('logs if theme is already enabled', () => {
@@ -1035,21 +1080,26 @@ describe('withInstallHelpers inner functions', () => {
       const themeAction = sinon.spy();
       const node = 'fake-node';
       const guid = 'foo@bar.com';
-      const props = mapStateToProps({
-        installations: {
-          [guid]: {
-            status: ENABLED,
-            isPreviewingTheme: true,
-            guid,
+      const props = mapStateToProps(
+        {
+          installations: {
+            [guid]: {
+              status: ENABLED,
+              isPreviewingTheme: true,
+              guid,
+            },
           },
         },
-      }, {
-        guid,
-      });
+        {
+          guid,
+        }
+      );
       props.resetThemePreview = sinon.spy();
       props.toggleThemePreview(node, themeAction, fakeLog);
       expect(
-        fakeLog.info.calledWith(sinon.match('Theme foo@bar.com is already enabled'))
+        fakeLog.info.calledWith(
+          sinon.match('Theme foo@bar.com is already enabled')
+        )
       ).toBeTruthy();
     });
   });

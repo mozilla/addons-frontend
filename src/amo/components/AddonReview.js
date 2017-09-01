@@ -71,14 +71,16 @@ export class AddonReviewBase extends React.Component {
   }
 
   checkForStoredState() {
-    return this.localState.load()
-      .then((storedState) => {
-        if (storedState) {
-          log.debug(oneLine`Initializing AddonReview state from LocalState
-            ${this.localState.id}`, storedState);
-          this.setState(storedState);
-        }
-      });
+    return this.localState.load().then(storedState => {
+      if (storedState) {
+        log.debug(
+          oneLine`Initializing AddonReview state from LocalState
+            ${this.localState.id}`,
+          storedState
+        );
+        this.setState(storedState);
+      }
+    });
   }
 
   onSubmit = (event: Event) => {
@@ -106,8 +108,8 @@ export class AddonReviewBase extends React.Component {
     this.props.setDenormalizedReview(updatedReview);
 
     // Next, update the review with an actual API request.
-    return this.props.updateReviewText(params)
-      .then(() => Promise.all([
+    return this.props.updateReviewText(params).then(() =>
+      Promise.all([
         // Give the parent a callback saying that the review has been
         // submitted. Example: this might close the review entry overlay.
         onReviewSubmitted(),
@@ -115,13 +117,15 @@ export class AddonReviewBase extends React.Component {
         // the API now.
         this.localState.clear(),
         this.props.refreshAddon({
-          addonSlug: review.addonSlug, apiState,
+          addonSlug: review.addonSlug,
+          apiState,
         }),
-      ]));
-  }
+      ])
+    );
+  };
 
   onBodyInput = (event: ElementEvent<HTMLInputElement>) => {
-    const saveState = this.props.debounce((state) => {
+    const saveState = this.props.debounce(state => {
       // After a few keystrokes, save the text to a local store
       // so we can recover from crashes.
       this.localState.save(state);
@@ -130,7 +134,7 @@ export class AddonReviewBase extends React.Component {
     const newState = { reviewBody: event.target.value };
     saveState(newState);
     this.setState(newState);
-  }
+  };
 
   render() {
     const { errorHandler, i18n, review } = this.props;
@@ -152,15 +156,26 @@ export class AddonReviewBase extends React.Component {
       prompt = i18n.gettext('Tell the world about this extension.');
       placeholder = i18n.gettext(
         'Tell us about your experience with this extension. ' +
-        'Be specific and concise.'
+          'Be specific and concise.'
       );
     }
 
     return (
       <OverlayCard visibleOnLoad className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
-        <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
-        <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
+        <p
+          ref={ref => {
+            this.reviewPrompt = ref;
+          }}
+        >
+          {prompt}
+        </p>
+        <form
+          onSubmit={this.onSubmit}
+          ref={ref => {
+            this.reviewForm = ref;
+          }}
+        >
           <div className="AddonReview-form-input">
             {errorHandler.renderErrorIfPresent()}
             <label htmlFor="AddonReview-textarea" className="visually-hidden">
@@ -168,7 +183,9 @@ export class AddonReviewBase extends React.Component {
             </label>
             <textarea
               id="AddonReview-textarea"
-              ref={(ref) => { this.reviewTextarea = ref; }}
+              ref={ref => {
+                this.reviewTextarea = ref;
+              }}
               className="AddonReview-textarea"
               onInput={this.onBodyInput}
               name="review"
@@ -192,22 +209,25 @@ export const mapStateToProps = (state: {| api: ApiStateType |}) => ({
 });
 
 export const mapDispatchToProps = (dispatch: DispatchFunc) => ({
-  refreshAddon(
-    { addonSlug, apiState }: {| addonSlug: string, apiState: ApiStateType |},
-  ) {
+  refreshAddon({
+    addonSlug,
+    apiState,
+  }: {|
+    addonSlug: string,
+    apiState: ApiStateType,
+  |}) {
     return refreshAddon({ addonSlug, apiState, dispatch });
   },
   setDenormalizedReview(review: UserReviewType) {
     dispatch(setDenormalizedReview(review));
   },
   updateReviewText(params: SubmitReviewParams): Promise<void> {
-    return submitReview(params)
-      .then((review) => dispatch(setReview(review)));
+    return submitReview(params).then(review => dispatch(setReview(review)));
   },
 });
 
 export default compose(
   withErrorHandler({ name: 'AddonReview' }),
   connect(mapStateToProps, mapDispatchToProps),
-  translate({ withRef: true }),
+  translate({ withRef: true })
 )(AddonReviewBase);

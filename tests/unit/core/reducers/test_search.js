@@ -1,7 +1,6 @@
 import { searchLoad, searchStart } from 'core/actions/search';
 import search, { initialState } from 'core/reducers/search';
 
-
 describe('search reducer', () => {
   it('defaults to an set of filters', () => {
     const { filters } = search(undefined, { type: 'unrelated' });
@@ -20,10 +19,13 @@ describe('search reducer', () => {
 
   describe('SEARCH_STARTED', () => {
     it('sets the filters and loading', () => {
-      const state = search(initialState, searchStart({
-        errorHandlerId: 'foo',
-        filters: { query: 'foo' },
-      }));
+      const state = search(
+        initialState,
+        searchStart({
+          errorHandlerId: 'foo',
+          filters: { query: 'foo' },
+        })
+      );
       expect(state.filters).toEqual({ query: 'foo' });
       expect(state.loading).toBe(true);
       expect(state.results).toEqual([]);
@@ -53,10 +55,13 @@ describe('search reducer', () => {
     });
 
     function getNextState() {
-      return search(initialLoadedState, searchLoad({
-        entities: response.entities,
-        result: response.result,
-      }));
+      return search(
+        initialLoadedState,
+        searchLoad({
+          entities: response.entities,
+          result: response.result,
+        })
+      );
     }
 
     it('sets loading', () => {

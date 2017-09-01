@@ -13,7 +13,6 @@ import I18nProvider from 'core/i18n/Provider';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('<ServerError />', () => {
   function render({ ...props }) {
     const { store } = dispatchSignInActions();
@@ -23,18 +22,25 @@ describe('<ServerError />', () => {
     });
     store.dispatch(loadFail('ReduxKey', error));
 
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <ServerError {...props} />
-        </I18nProvider>
-      </Provider>
-    ), ServerError));
+    return findDOMNode(
+      findRenderedComponentWithType(
+        renderIntoDocument(
+          <Provider store={store}>
+            <I18nProvider i18n={getFakeI18nInst()}>
+              <ServerError {...props} />
+            </I18nProvider>
+          </Provider>
+        ),
+        ServerError
+      )
+    );
   }
 
   it('renders a server error', () => {
     const rootNode = render();
 
-    expect(rootNode.textContent).toContain('but there was an error with our server and');
+    expect(rootNode.textContent).toContain(
+      'but there was an error with our server and'
+    );
   });
 });

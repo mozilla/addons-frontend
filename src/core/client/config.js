@@ -11,9 +11,9 @@ export class ClientConfig {
     // This Object.assign keeps the config data private.
     Object.assign(this, {
       // eslint-disable-next-line no-prototype-builtins
-      has: (key) => objData.hasOwnProperty(key),
+      has: key => objData.hasOwnProperty(key),
 
-      get: (key) => {
+      get: key => {
         if (this.has(key)) {
           return objData[key];
         }
@@ -24,4 +24,8 @@ export class ClientConfig {
   }
 }
 
-export default new ClientConfig({ ...CLIENT_CONFIG, client: true, server: false });
+export default new ClientConfig({
+  ...CLIENT_CONFIG,
+  client: true,
+  server: false,
+});

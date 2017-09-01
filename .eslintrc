@@ -14,7 +14,7 @@
     "prettier",
   ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {"singleQuote": true, "trailingComma": 'es5'}],
     // FIXME: Deprecate use of findDOMNode https://github.com/mozilla/addons-frontend/issues/968
     "react/no-find-dom-node": "off",
   },

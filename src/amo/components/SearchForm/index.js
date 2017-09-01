@@ -26,7 +26,6 @@ import Suggestion from 'amo/components/SearchForm/Suggestion';
 import 'core/css/inc/lib.scss';
 import './styles.scss';
 
-
 export class SearchFormBase extends React.Component {
   static propTypes = {
     addonType: PropTypes.string,
@@ -36,15 +35,17 @@ export class SearchFormBase extends React.Component {
     query: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    suggestions: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      iconUrl: PropTypes.string.isRequired,
-    })).isRequired,
+    suggestions: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        iconUrl: PropTypes.string.isRequired,
+      })
+    ).isRequired,
     loadingSuggestions: PropTypes.bool.isRequired,
     router: PropTypes.object.isRequired,
     debounce: PropTypes.func.isRequired,
-  }
+  };
 
   static defaultProps = {
     debounce: defaultDebounce,
@@ -76,7 +77,7 @@ export class SearchFormBase extends React.Component {
       });
     }
 
-    return this.props.suggestions.map((suggestion) => ({
+    return this.props.suggestions.map(suggestion => ({
       ...suggestion,
       loading: false,
     }));
@@ -96,19 +97,21 @@ export class SearchFormBase extends React.Component {
     });
   }
 
-  handleSearch = (e) => {
+  handleSearch = e => {
     e.preventDefault();
     this.searchInput.blur();
     this.goToSearch(this.searchInput.value);
-  }
+  };
 
-  handleSearchChange = (e) => {
+  handleSearchChange = e => {
     this.setState({ searchValue: e.target.value });
-  }
+  };
 
   handleSuggestionsFetchRequested = this.props.debounce(({ value }) => {
     if (!value) {
-      log.debug(`Ignoring suggestions fetch requested because value is not supplied: ${value}`);
+      log.debug(
+        `Ignoring suggestions fetch requested because value is not supplied: ${value}`
+      );
       return;
     }
 
@@ -119,15 +122,17 @@ export class SearchFormBase extends React.Component {
       filters.addonType = addonType;
     }
 
-    dispatch(autocompleteStart({
-      errorHandlerId: errorHandler.id,
-      filters,
-    }));
-  }, 200)
+    dispatch(
+      autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters,
+      })
+    );
+  }, 200);
 
   handleSuggestionsClearRequested = () => {
     this.props.dispatch(autocompleteCancel());
-  }
+  };
 
   handleSuggestionSelected = (e, { suggestion }) => {
     e.preventDefault();
@@ -140,9 +145,9 @@ export class SearchFormBase extends React.Component {
     this.setState({ searchValue: '' }, () => {
       this.props.router.push(suggestion.url);
     });
-  }
+  };
 
-  renderSuggestion = (suggestion) => {
+  renderSuggestion = suggestion => {
     const { name, iconUrl, loading } = suggestion;
 
     return (
@@ -153,7 +158,7 @@ export class SearchFormBase extends React.Component {
         arrowAlt={this.props.i18n.gettext('Go to the add-on page')}
       />
     );
-  }
+  };
 
   render() {
     const { addonType, api, i18n, pathname } = this.props;
@@ -174,7 +179,9 @@ export class SearchFormBase extends React.Component {
       className: 'SearchForm-query',
       name: 'q',
       type: 'search',
-      inputRef: (ref) => { this.searchInput = ref; },
+      inputRef: ref => {
+        this.searchInput = ref;
+      },
     };
 
     return (
@@ -183,24 +190,23 @@ export class SearchFormBase extends React.Component {
         action={`/${api.lang}/${api.clientApp}${pathname}`}
         onSubmit={this.handleSearch}
         className="SearchForm-form"
-        ref={(ref) => { this.form = ref; }}
+        ref={ref => {
+          this.form = ref;
+        }}
       >
-        <label
-          className="visually-hidden"
-          htmlFor={inputProps.name}
-        >
+        <label className="visually-hidden" htmlFor={inputProps.name}>
           {i18n.gettext('Search')}
         </label>
         <Autosuggest
           className="SearchForm-suggestions"
           focusInputOnSuggestionClick={false}
-          getSuggestionValue={(suggestion) => suggestion.name}
+          getSuggestionValue={suggestion => suggestion.name}
           inputProps={inputProps}
           onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
           onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
           onSuggestionSelected={this.handleSuggestionSelected}
           renderSuggestion={this.renderSuggestion}
-          renderInputComponent={(props) => <SearchInput {...props} />}
+          renderInputComponent={props => <SearchInput {...props} />}
           suggestions={this.getSuggestions()}
           theme={{
             suggestionContainer: 'SearchForm-suggestions',
@@ -212,7 +218,9 @@ export class SearchFormBase extends React.Component {
         <button
           className="visually-hidden"
           onClick={this.handleSearch}
-          ref={(ref) => { this.submitButton = ref; }}
+          ref={ref => {
+            this.submitButton = ref;
+          }}
           type="submit"
         >
           {i18n.gettext('Search')}
@@ -224,8 +232,9 @@ export class SearchFormBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
-    addonType: validAddonTypes.includes(state.viewContext.context) ?
-      state.viewContext.context : null,
+    addonType: validAddonTypes.includes(state.viewContext.context)
+      ? state.viewContext.context
+      : null,
     api: state.api,
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
@@ -236,5 +245,5 @@ export default compose(
   withRouter,
   withErrorHandler({ name: 'SearchForm' }),
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate({ withRef: true })
 )(SearchFormBase);

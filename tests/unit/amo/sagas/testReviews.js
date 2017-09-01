@@ -8,7 +8,9 @@ import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga from 'amo/sagas/reviews';
 import apiReducer from 'core/reducers/api';
 import {
-  dispatchSignInActions, fakeAddon, fakeReview,
+  dispatchSignInActions,
+  fakeAddon,
+  fakeReview,
 } from 'tests/unit/amo/helpers';
 import { apiResponsePage, createStubErrorHandler } from 'tests/unit/helpers';
 
@@ -34,11 +36,13 @@ describe('amo/sagas/reviews', () => {
     });
 
     function _fetchReviews(params = {}) {
-      sagaTester.dispatch(fetchReviews({
-        errorHandlerId: errorHandler.id,
-        addonSlug: fakeAddon.slug,
-        ...params,
-      }));
+      sagaTester.dispatch(
+        fetchReviews({
+          errorHandlerId: errorHandler.id,
+          addonSlug: fakeAddon.slug,
+          ...params,
+        })
+      );
     }
 
     it('fetches reviews from the API', async () => {
@@ -61,9 +65,13 @@ describe('amo/sagas/reviews', () => {
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(showLoading());
-      expect(calledActions[2]).toEqual(setAddonReviews({
-        addonSlug: fakeAddon.slug, reviews, reviewCount: 1,
-      }));
+      expect(calledActions[2]).toEqual(
+        setAddonReviews({
+          addonSlug: fakeAddon.slug,
+          reviews,
+          reviewCount: 1,
+        })
+      );
       expect(calledActions[3]).toEqual(hideLoading());
     });
 

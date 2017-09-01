@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  renderIntoDocument,
-} from 'react-addons-test-utils';
+import { renderIntoDocument } from 'react-addons-test-utils';
 
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
-
 
 describe('I18nProvider', () => {
   class MyComponent extends React.Component {

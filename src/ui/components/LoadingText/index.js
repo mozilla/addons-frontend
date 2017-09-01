@@ -4,19 +4,18 @@ import React from 'react';
 
 import './styles.scss';
 
-
 type LoadingTextProps = {
   className?: string,
   width?: number,
   minWidth: number,
   range: number,
-}
+};
 
 export default class LoadingText extends React.Component {
   static defaultProps = {
     minWidth: 20,
     range: 60,
-  }
+  };
 
   props: LoadingTextProps;
 
@@ -39,7 +38,7 @@ export default class LoadingText extends React.Component {
         className={classNames(
           'LoadingText',
           `LoadingText--delay-${delayStart}`,
-          className,
+          className
         )}
         style={{
           width: `${finalWidth}%`,

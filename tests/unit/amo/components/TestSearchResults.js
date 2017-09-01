@@ -12,19 +12,21 @@ import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('<SearchResults />', () => {
   function renderResults(props) {
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
     const { store } = createStore(initialState);
 
-    return findRenderedComponentWithType(render(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <SearchResults {...props} />
-        </I18nProvider>
-      </Provider>
-    ), SearchResults).getWrappedInstance();
+    return findRenderedComponentWithType(
+      render(
+        <Provider store={store}>
+          <I18nProvider i18n={getFakeI18nInst()}>
+            <SearchResults {...props} />
+          </I18nProvider>
+        </Provider>
+      ),
+      SearchResults
+    ).getWrappedInstance();
   }
 
   it('renders empty search results container', () => {
@@ -60,7 +62,8 @@ describe('<SearchResults />', () => {
     });
 
     expect(root.message.firstChild.textContent).toContain(
-      'No results were found');
+      'No results were found'
+    );
   });
 
   it('renders searching text during search', () => {

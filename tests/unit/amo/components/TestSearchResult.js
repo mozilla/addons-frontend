@@ -8,14 +8,10 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
-
 describe('<SearchResult />', () => {
   const baseAddon = {
     ...fakeAddon,
-    authors: [
-      { name: 'A funky déveloper' },
-      { name: 'A groovy developer' },
-    ],
+    authors: [{ name: 'A funky déveloper' }, { name: 'A groovy developer' }],
     average_daily_users: 5253,
     name: 'A search result',
     slug: 'a-search-result',
@@ -34,15 +30,15 @@ describe('<SearchResult />', () => {
   it('renders the heading', () => {
     const root = render();
 
-    expect(root.find('.SearchResult-name'))
-      .toIncludeText('A search result');
+    expect(root.find('.SearchResult-name')).toIncludeText('A search result');
   });
 
   it('renders the author', () => {
     const root = render();
 
-    expect(root.find('.SearchResult-author'))
-      .toIncludeText('A funky déveloper');
+    expect(root.find('.SearchResult-author')).toIncludeText(
+      'A funky déveloper'
+    );
   });
 
   it('ignores an empty author list', () => {
@@ -54,10 +50,12 @@ describe('<SearchResult />', () => {
   it("renders only the first author's name when there are multiple", () => {
     const root = render();
 
-    expect(root.find('.SearchResult-author'))
-      .toIncludeText('A funky déveloper');
-    expect(root.find('.SearchResult-author'))
-      .not.toIncludeText('A groovy developer');
+    expect(root.find('.SearchResult-author')).toIncludeText(
+      'A funky déveloper'
+    );
+    expect(root.find('.SearchResult-author')).not.toIncludeText(
+      'A groovy developer'
+    );
   });
 
   it('renders the user count', () => {
@@ -81,8 +79,10 @@ describe('<SearchResult />', () => {
   it('links to the detail page', () => {
     const root = render();
 
-    expect(root.find('.SearchResult-link'))
-      .toHaveProp('to', '/addon/a-search-result/');
+    expect(root.find('.SearchResult-link')).toHaveProp(
+      'to',
+      '/addon/a-search-result/'
+    );
   });
 
   it('renders the star ratings', () => {
@@ -96,8 +96,7 @@ describe('<SearchResult />', () => {
     const root = render({ addon });
 
     // image `require` calls in jest return the filename
-    expect(root.find('.SearchResult-icon'))
-      .toHaveProp('src', 'default-64.png');
+    expect(root.find('.SearchResult-icon')).toHaveProp('src', 'default-64.png');
   });
 
   it('adds a theme-specific class', () => {
@@ -105,7 +104,8 @@ describe('<SearchResult />', () => {
       ...fakeAddon,
       type: ADDON_TYPE_THEME,
       theme_data: {
-        previewURL: 'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
+        previewURL:
+          'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
       },
     };
     const root = render({ addon });
@@ -117,8 +117,9 @@ describe('<SearchResult />', () => {
     const addon = { ...fakeAddon, type: ADDON_TYPE_THEME };
     const root = render({ addon });
 
-    expect(root.find('.SearchResult-notheme'))
-      .toIncludeText('No theme preview available');
+    expect(root.find('.SearchResult-notheme')).toIncludeText(
+      'No theme preview available'
+    );
   });
 
   it('renders placeholders without an addon', () => {
@@ -127,16 +128,15 @@ describe('<SearchResult />', () => {
     // Since there's no add-on, there shouldn't be a link.
     expect(root.find('.SearchResult-link')).toHaveLength(0);
 
-    expect(root.find('.SearchResult-icon'))
-      .toHaveProp('src', 'default-64.png');
-    expect(root.find('.SearchResult-name').find(LoadingText))
-      .toHaveLength(1);
-    expect(root.find('.SearchResult-summary').find(LoadingText))
-      .toHaveLength(1);
+    expect(root.find('.SearchResult-icon')).toHaveProp('src', 'default-64.png');
+    expect(root.find('.SearchResult-name').find(LoadingText)).toHaveLength(1);
+    expect(root.find('.SearchResult-summary').find(LoadingText)).toHaveLength(
+      1
+    );
     expect(root.find(Rating)).toHaveProp('rating', 0);
-    expect(root.find('.SearchResult-author').find(LoadingText))
-      .toHaveLength(1);
-    expect(root.find('.SearchResult-users-text').find(LoadingText))
-      .toHaveLength(1);
+    expect(root.find('.SearchResult-author').find(LoadingText)).toHaveLength(1);
+    expect(
+      root.find('.SearchResult-users-text').find(LoadingText)
+    ).toHaveLength(1);
   });
 });

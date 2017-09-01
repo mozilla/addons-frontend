@@ -17,7 +17,10 @@ import { fetchAddon } from 'core/reducers/addons';
 import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, ENABLED, UNKNOWN,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  ENABLED,
+  UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
@@ -36,7 +39,6 @@ import ShowMoreCard from 'ui/components/ShowMoreCard';
 import Badge from 'ui/components/Badge';
 
 import './styles.scss';
-
 
 export const allowedDescriptionTags = [
   'a',
@@ -73,12 +75,12 @@ export class AddonBase extends React.Component {
     installStatus: PropTypes.string.isRequired,
     toggleThemePreview: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
-  }
+  };
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
     getClientCompatibility: _getClientCompatibility,
-  }
+  };
 
   componentWillMount() {
     const { addon, dispatch, errorHandler, params } = this.props;
@@ -115,9 +117,9 @@ export class AddonBase extends React.Component {
     }
   }
 
-  onClick = (event) => {
+  onClick = event => {
     this.props.toggleThemePreview(event.currentTarget);
-  }
+  };
 
   getFeaturedText(addonType) {
     const { i18n } = this.props;
@@ -145,9 +147,13 @@ export class AddonBase extends React.Component {
     const iconUrl = getAddonIconUrl(addon);
 
     if (type === ADDON_TYPE_THEME) {
-      const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
+      const label = isPreviewingTheme
+        ? i18n.gettext('Cancel preview')
+        : i18n.gettext('Tap to preview');
       const imageClassName = 'Addon-theme-header-image';
-      const headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
+      const headerImage = (
+        <img alt={label} className={imageClassName} src={previewURL} />
+      );
 
       return (
         <div
@@ -186,8 +192,12 @@ export class AddonBase extends React.Component {
     if (addon && addon.ratings.count) {
       const count = addon.ratings.count;
       const linkText = i18n.sprintf(
-        i18n.ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
-        { count: i18n.formatNumber(count) },
+        i18n.ngettext(
+          'Read %(count)s review',
+          'Read all %(count)s reviews',
+          count
+        ),
+        { count: i18n.formatNumber(count) }
       );
 
       footerPropName = 'footerLink';
@@ -207,7 +217,8 @@ export class AddonBase extends React.Component {
 
     const props = {
       [footerPropName]: (
-        <div className="Addon-read-reviews-footer">{content}</div>),
+        <div className="Addon-read-reviews-footer">{content}</div>
+      ),
     };
     return (
       <Card
@@ -215,13 +226,13 @@ export class AddonBase extends React.Component {
         className="Addon-overall-rating"
         {...props}
       >
-        {addon ?
+        {addon ? (
           <RatingManager
             addon={addon}
             location={location}
             version={addon.current_version}
-          /> : null
-        }
+          />
+        ) : null}
       </Card>
     );
   }
@@ -232,25 +243,30 @@ export class AddonBase extends React.Component {
 
     const descriptionProps = {};
     if (addon) {
-      const description =
-        addon.description ? addon.description : addon.summary;
+      const description = addon.description ? addon.description : addon.summary;
       if (!description || !description.length) {
         return null;
       }
       descriptionProps.dangerouslySetInnerHTML = sanitizeHTML(
-        nl2br(description), allowedDescriptionTags);
+        nl2br(description),
+        allowedDescriptionTags
+      );
     } else {
       descriptionProps.children = <LoadingText width={100} />;
     }
 
     return (
       <ShowMoreCard
-        header={i18n.sprintf(i18n.gettext('About this %(addonType)s'), { addonType })}
+        header={i18n.sprintf(i18n.gettext('About this %(addonType)s'), {
+          addonType,
+        })}
         className="AddonDescription"
       >
         <div
           className="AddonDescription-contents"
-          ref={(ref) => { this.addonDescription = ref; }}
+          ref={ref => {
+            this.addonDescription = ref;
+          }}
           {...descriptionProps}
         />
       </ShowMoreCard>
@@ -293,10 +309,12 @@ export class AddonBase extends React.Component {
     const titleProps = {};
     if (addon) {
       const authorList = addon.authors.map(
-        (author) => `<a href="${author.url}">${author.name}</a>`);
+        author => `<a href="${author.url}">${author.name}</a>`
+      );
       const title = i18n.sprintf(
         // L10n: Example: The Add-On <span>by The Author</span>
-        i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
+        i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'),
+        {
           addonName: addon.name,
           authorList: authorList.join(', '),
           startSpan: '<span class="Addon-author">',
@@ -316,7 +334,9 @@ export class AddonBase extends React.Component {
     let compatibility;
     if (addon) {
       compatibility = getClientCompatibility({
-        addon, clientApp, userAgentInfo,
+        addon,
+        clientApp,
+        userAgentInfo,
       });
       isCompatible = compatibility.compatible;
       isFeatured = addon.is_featured;
@@ -346,15 +366,17 @@ export class AddonBase extends React.Component {
               ) : null}
             </div>
 
-            {addon ?
+            {addon ? (
               <InstallButton
                 {...this.props}
                 className="Button--action Button--small"
                 disabled={!isCompatible}
-                ref={(ref) => { this.installButton = ref; }}
+                ref={ref => {
+                  this.installButton = ref;
+                }}
                 status={installStatus}
-              /> : null
-            }
+              />
+            ) : null}
 
             {this.headerImage({ compatible: isCompatible })}
 
@@ -428,5 +450,5 @@ export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),
-  withErrorHandler({ name: 'Addon' }),
+  withErrorHandler({ name: 'Addon' })
 )(AddonBase);

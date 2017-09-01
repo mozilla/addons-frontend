@@ -8,19 +8,18 @@ import Card from 'ui/components/Card';
 
 import './styles.scss';
 
-
 export class SearchContextCardBase extends React.Component {
   static propTypes = {
     count: PropTypes.number,
     filters: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
-  }
+  };
 
   static defaultProps = {
     count: 0,
     filters: {},
-  }
+  };
 
   render() {
     const { count, filters, i18n, loading } = this.props;
@@ -29,23 +28,30 @@ export class SearchContextCardBase extends React.Component {
     let searchText;
 
     if (!loading && query) {
-      searchText = i18n.sprintf(i18n.ngettext(
-        '%(count)s result for "%(query)s"',
-        '%(count)s results for "%(query)s"',
-        count), { count: i18n.formatNumber(count), query }
+      searchText = i18n.sprintf(
+        i18n.ngettext(
+          '%(count)s result for "%(query)s"',
+          '%(count)s results for "%(query)s"',
+          count
+        ),
+        { count: i18n.formatNumber(count), query }
       );
     } else if (loading && query) {
-      searchText = i18n.sprintf(i18n.gettext(
-        'Searching for "%(query)s"'), { query });
+      searchText = i18n.sprintf(i18n.gettext('Searching for "%(query)s"'), {
+        query,
+      });
     } else if (loading) {
       searchText = i18n.gettext('Loading add-ons');
     } else if (!loading && count === 0) {
       searchText = i18n.gettext('No add-ons found');
     } else {
-      searchText = i18n.sprintf(i18n.ngettext(
-        '%(count)s add-on found',
-        '%(count)s add-ons found',
-        count), { count: i18n.formatNumber(count) }
+      searchText = i18n.sprintf(
+        i18n.ngettext(
+          '%(count)s add-on found',
+          '%(count)s add-ons found',
+          count
+        ),
+        { count: i18n.formatNumber(count) }
       );
     }
 
@@ -65,7 +71,6 @@ export function mapStateToProps(state) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  translate(),
-)(SearchContextCardBase);
+export default compose(connect(mapStateToProps), translate())(
+  SearchContextCardBase
+);

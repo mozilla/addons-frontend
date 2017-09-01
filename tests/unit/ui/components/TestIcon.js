@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import Icon from 'ui/components/Icon';
 
-
 describe('<Icon />', () => {
   it('maps the name to a className', () => {
     const root = shallow(<Icon name="foo" />);

@@ -11,7 +11,6 @@ import apiReducer from 'core/reducers/api';
 import categoriesReducer from 'core/reducers/categories';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
-
 describe('categoriesSaga', () => {
   let errorHandler;
   let initialState;
@@ -39,7 +38,8 @@ describe('categoriesSaga', () => {
 
   function _categoriesFetch(overrides = {}) {
     return actions.categoriesFetch({
-      errorHandlerId: errorHandler.id, ...overrides,
+      errorHandlerId: errorHandler.id,
+      ...overrides,
     });
   }
 

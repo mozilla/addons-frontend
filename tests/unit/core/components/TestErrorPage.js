@@ -13,16 +13,20 @@ import { getFakeI18nInst } from 'tests/unit/helpers';
 import I18nProvider from 'core/i18n/Provider';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
-
 describe('<ErrorPage />', () => {
   function render({ ...props }, store = dispatchSignInActions().store) {
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <ErrorPage {...props} />
-        </I18nProvider>
-      </Provider>
-    ), ErrorPage));
+    return findDOMNode(
+      findRenderedComponentWithType(
+        renderIntoDocument(
+          <Provider store={store}>
+            <I18nProvider i18n={getFakeI18nInst()}>
+              <ErrorPage {...props} />
+            </I18nProvider>
+          </Provider>
+        ),
+        ErrorPage
+      )
+    );
   }
 
   it('renders children when there are no errors', () => {
@@ -48,6 +52,8 @@ describe('<ErrorPage />', () => {
 
 describe('<ErrorPage mapStateToProps />', () => {
   it('returns errorPage from state', () => {
-    expect(mapStateToProps({ errorPage: 'howdy' })).toEqual({ errorPage: 'howdy' });
+    expect(mapStateToProps({ errorPage: 'howdy' })).toEqual({
+      errorPage: 'howdy',
+    });
   });
 });

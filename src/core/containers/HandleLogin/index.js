@@ -18,15 +18,15 @@ export class HandleLoginBase extends React.Component {
     loadData: PropTypes.func.isRequired,
     location: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
-  }
+  };
 
   state = {
     error: false,
-  }
+  };
 
   componentDidMount() {
     const { api, loadData, location, router } = this.props;
-    loadData({ api, location, router }).catch((e) => {
+    loadData({ api, location, router }).catch(e => {
       this.setState({ error: true });
       log.error('Error when logging in', e);
     });
@@ -56,23 +56,22 @@ function createLoadData(dispatch) {
   return ({ api, location, router }) => {
     const { code, state } = location.query;
     if (code && state) {
-      return login({ api, code, state })
-        .then(({ token }) => {
-          dispatch(setAuthToken(token));
-          cookie.save(config.get('cookieName'), token, {
-            path: '/',
-            secure: config.get('cookieSecure'),
-            maxAge: config.get('cookieMaxAge'),
-          });
-          let to;
-          try {
-            to = browserBase64Decode(state.split(':')[1]);
-          } catch (e) {
-            log.error('Could not parse next path after log in', e, state);
-            to = '/';
-          }
-          router.push({ pathname: to });
+      return login({ api, code, state }).then(({ token }) => {
+        dispatch(setAuthToken(token));
+        cookie.save(config.get('cookieName'), token, {
+          path: '/',
+          secure: config.get('cookieSecure'),
+          maxAge: config.get('cookieMaxAge'),
         });
+        let to;
+        try {
+          to = browserBase64Decode(state.split(':')[1]);
+        } catch (e) {
+          log.error('Could not parse next path after log in', e, state);
+          to = '/';
+        }
+        router.push({ pathname: to });
+      });
     }
     return Promise.resolve();
   };
@@ -90,5 +89,5 @@ export function mapDispatchToProps(dispatch) {
 
 export default compose(
   withRouter,
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps, mapDispatchToProps)
 )(HandleLoginBase);

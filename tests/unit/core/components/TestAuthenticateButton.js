@@ -1,7 +1,9 @@
 import config from 'config';
 import React from 'react';
 import {
-  Simulate, findRenderedComponentWithType, renderIntoDocument,
+  Simulate,
+  findRenderedComponentWithType,
+  renderIntoDocument,
 } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -25,19 +27,21 @@ import {
 } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 
-
 describe('<AuthenticateButton />', () => {
   function renderTree(props) {
     const { store } = dispatchSignInActions();
 
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <AuthenticateButtonBase i18n={getFakeI18nInst()} {...props} />
-      </Provider>
-    ), AuthenticateButtonBase);
+    return findRenderedComponentWithType(
+      renderIntoDocument(
+        <Provider store={store}>
+          <AuthenticateButtonBase i18n={getFakeI18nInst()} {...props} />
+        </Provider>
+      ),
+      AuthenticateButtonBase
+    );
   }
 
-  const render = (props) => findDOMNode(renderTree(props));
+  const render = props => findDOMNode(renderTree(props));
 
   it('passes along a className', () => {
     const root = render({ className: 'MyComponent-auth-button' });
@@ -52,8 +56,9 @@ describe('<AuthenticateButton />', () => {
 
   it('lets you hide the Icon', () => {
     const root = renderTree({ noIcon: true });
-    expect(() => findRenderedComponentWithType(root, Icon))
-      .toThrowError(/Did not find exactly one match/);
+    expect(() => findRenderedComponentWithType(root, Icon)).toThrowError(
+      /Did not find exactly one match/
+    );
   });
 
   it('lets you customize the log in text', () => {
@@ -62,7 +67,10 @@ describe('<AuthenticateButton />', () => {
   });
 
   it('lets you customize the log out text', () => {
-    const root = render({ isAuthenticated: true, logOutText: 'Maybe log out?' });
+    const root = render({
+      isAuthenticated: true,
+      logOutText: 'Maybe log out?',
+    });
     expect(root.textContent).toEqual('Maybe log out?');
   });
 
@@ -89,7 +97,9 @@ describe('<AuthenticateButton />', () => {
     const { store } = dispatchSignInActions();
     const _window = { location: '/foo' };
     const location = { pathname: '/bar', query: { q: 'wat' } };
-    const startLoginUrlStub = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
+    const startLoginUrlStub = sinon
+      .stub(api, 'startLoginUrl')
+      .returns('https://a.m.org/login');
 
     const { handleLogIn } = mapStateToProps(store.getState());
     handleLogIn(location, { _window });
@@ -104,7 +114,7 @@ describe('<AuthenticateButton />', () => {
       cookieName: 'authcookie',
       apiHost: 'http://localhost:9876',
     };
-    sinon.stub(config, 'get').callsFake((key) => _config[key]);
+    sinon.stub(config, 'get').callsFake(key => _config[key]);
 
     const { store } = dispatchSignInActions();
     store.dispatch(setAuthToken(userAuthToken()));
@@ -113,11 +123,12 @@ describe('<AuthenticateButton />', () => {
     expect(apiConfig.token).toBeTruthy();
 
     const { handleLogOut } = mapDispatchToProps(store.dispatch);
-    return handleLogOut({ api: apiConfig })
-      .then(() => {
-        expect(store.getState().api.token).toBeFalsy();
-        expect(api.logOutFromServer.firstCall.args[0]).toEqual({ api: apiConfig });
+    return handleLogOut({ api: apiConfig }).then(() => {
+      expect(store.getState().api.token).toBeFalsy();
+      expect(api.logOutFromServer.firstCall.args[0]).toEqual({
+        api: apiConfig,
       });
+    });
   });
 
   it('retrieves `isAuthenticated` from state', () => {
@@ -125,9 +136,11 @@ describe('<AuthenticateButton />', () => {
 
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(false);
     store.dispatch(setAuthToken(userAuthToken()));
-    store.dispatch(loadUserProfile({
-      profile: createUserProfileResponse(),
-    }));
+    store.dispatch(
+      loadUserProfile({
+        profile: createUserProfileResponse(),
+      })
+    );
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);
   });
 });

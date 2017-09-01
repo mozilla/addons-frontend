@@ -33,10 +33,12 @@ const app = new Express();
 app.use(webpackDevMiddleware(compiler, serverOptions));
 app.use(webpackHotMiddleware(compiler));
 
-app.listen(port, (err) => {
+app.listen(port, err => {
   if (err) {
     console.error(err);
   } else {
-    console.info(`🚧  Webpack development server listening on host: ${host} port: ${port}`);
+    console.info(
+      `🚧  Webpack development server listening on host: ${host} port: ${port}`
+    );
   }
 });

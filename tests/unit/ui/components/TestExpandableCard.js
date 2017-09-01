@@ -10,7 +10,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
-
 function render(props) {
   return shallowUntilTarget(
     <ExpandableCard i18n={getFakeI18nInst()} {...props} />,

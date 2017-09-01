@@ -1,8 +1,7 @@
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 
-import { SimulateAsyncErrorBase } from
-  'core/containers/error-simulation/SimulateAsyncError';
+import { SimulateAsyncErrorBase } from 'core/containers/error-simulation/SimulateAsyncError';
 
 describe('SimulateAsyncError', () => {
   let clock;

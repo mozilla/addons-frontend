@@ -1,7 +1,5 @@
 /* @flow */
-import {
-  FETCH_REVIEWS, SET_ADDON_REVIEWS, SET_REVIEW,
-} from 'amo/constants';
+import { FETCH_REVIEWS, SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
 import type { ApiReviewType } from 'amo/api';
 
 export type UserReviewType = {|
@@ -64,9 +62,11 @@ export type FetchReviewsAction = {|
   |},
 |};
 
-export function fetchReviews(
-  { addonSlug, errorHandlerId, page = 1 }: FetchReviewsParams
-): FetchReviewsAction {
+export function fetchReviews({
+  addonSlug,
+  errorHandlerId,
+  page = 1,
+}: FetchReviewsParams): FetchReviewsAction {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId cannot be empty');
   }
@@ -103,9 +103,11 @@ type SetAddonReviewsParams = {|
   reviews: Array<ApiReviewType>,
 |};
 
-export const setAddonReviews = (
-  { addonSlug, reviewCount, reviews }: SetAddonReviewsParams
-): SetAddonReviewsAction => {
+export const setAddonReviews = ({
+  addonSlug,
+  reviewCount,
+  reviews,
+}: SetAddonReviewsParams): SetAddonReviewsAction => {
   if (!addonSlug) {
     throw new Error('addonSlug cannot be empty');
   }
@@ -120,7 +122,7 @@ export const setAddonReviews = (
     payload: {
       addonSlug,
       reviewCount,
-      reviews: reviews.map((review) => denormalizeReview(review)),
+      reviews: reviews.map(review => denormalizeReview(review)),
     },
   };
 };

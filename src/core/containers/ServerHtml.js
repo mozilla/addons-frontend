@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import Helmet from 'react-helmet';
 
-
 export default class ServerHtml extends Component {
   static propTypes = {
     appName: PropTypes.string.isRequired,
@@ -24,7 +23,7 @@ export default class ServerHtml extends Component {
     htmlDir: 'ltr',
     htmlLang: 'en-US',
     trackingEnabled: false,
-  }
+  };
 
   getStatic({ filePath, type, index }) {
     const { includeSri, sriData, appName } = this.props;
@@ -43,13 +42,15 @@ export default class ServerHtml extends Component {
       }
       switch (type) {
         case 'css':
-          return (<link
-            href={filePath}
-            {...sriProps}
-            key={type + index}
-            rel="stylesheet"
-            type="text/css"
-          />);
+          return (
+            <link
+              href={filePath}
+              {...sriProps}
+              key={type + index}
+              rel="stylesheet"
+              type="text/css"
+            />
+          );
         case 'js':
           return <script key={type + index} src={filePath} {...sriProps} />;
         default:
@@ -62,7 +63,9 @@ export default class ServerHtml extends Component {
 
   getAnalytics() {
     if (this.props.trackingEnabled) {
-      return <script async src="https://www.google-analytics.com/analytics.js" />;
+      return (
+        <script async src="https://www.google-analytics.com/analytics.js" />
+      );
     }
     return null;
   }
@@ -70,13 +73,15 @@ export default class ServerHtml extends Component {
   getStyle() {
     const { assets } = this.props;
     return Object.keys(assets.styles).map((style, index) =>
-      this.getStatic({ filePath: assets.styles[style], type: 'css', index }));
+      this.getStatic({ filePath: assets.styles[style], type: 'css', index })
+    );
   }
 
   getScript() {
     const { assets } = this.props;
     return Object.keys(assets.javascript).map((js, index) =>
-      this.getStatic({ filePath: assets.javascript[js], type: 'js', index }));
+      this.getStatic({ filePath: assets.javascript[js], type: 'js', index })
+    );
   }
 
   render() {
@@ -95,9 +100,11 @@ export default class ServerHtml extends Component {
           {head.title.toComponent()}
           {head.meta.toComponent()}
           {this.getStyle()}
-          {noScriptStyles
-            ? <noscript><style dangerouslySetInnerHTML={{ __html: noScriptStyles }} /></noscript>
-            : null}
+          {noScriptStyles ? (
+            <noscript>
+              <style dangerouslySetInnerHTML={{ __html: noScriptStyles }} />
+            </noscript>
+          ) : null}
         </head>
         <body>
           <div id="react-view" dangerouslySetInnerHTML={{ __html: content }} />

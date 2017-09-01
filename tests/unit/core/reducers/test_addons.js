@@ -7,29 +7,35 @@ import {
 } from 'tests/unit/helpers';
 import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let addonsState;
 
   beforeEach(() => {
     const anotherFakeAddon = { ...fakeAddon, slug: 'testing123', id: 64 };
 
-    addonsState = addons({},
-      loadEntities(createFetchAddonResult(fakeAddon).entities));
-    addonsState = addons(addonsState,
-      loadEntities(createFetchAddonResult(anotherFakeAddon).entities));
+    addonsState = addons(
+      {},
+      loadEntities(createFetchAddonResult(fakeAddon).entities)
+    );
+    addonsState = addons(
+      addonsState,
+      loadEntities(createFetchAddonResult(anotherFakeAddon).entities)
+    );
   });
 
   it('returns the old state', () => {
-    expect(addonsState)
-      .toEqual(addons(addonsState, { type: 'UNRELATED_ACTION' }));
+    expect(addonsState).toEqual(
+      addons(addonsState, { type: 'UNRELATED_ACTION' })
+    );
   });
 
   it('stores addons from entities', () => {
     const anotherFakeAddon = { ...fakeAddon, slug: 'testing1234', id: 6401 };
 
-    const newAddonsState = addons(addonsState,
-      loadEntities(createFetchAddonResult(anotherFakeAddon).entities));
+    const newAddonsState = addons(
+      addonsState,
+      loadEntities(createFetchAddonResult(anotherFakeAddon).entities)
+    );
     expect(newAddonsState).toEqual({
       ...addonsState,
       [anotherFakeAddon.slug]: denormalizeAddon({
@@ -89,7 +95,9 @@ describe(__filename, () => {
       type: ADDON_TYPE_THEME,
     };
     const state = addons(
-      {}, loadEntities(createFetchAddonResult(theme).entities));
+      {},
+      loadEntities(createFetchAddonResult(theme).entities)
+    );
 
     expect(state).toMatchObject({
       baz: { theme_thing: 'some-data' },
@@ -109,7 +117,9 @@ describe(__filename, () => {
       type: ADDON_TYPE_THEME,
     };
     const state = addons(
-      {}, loadEntities(createFetchAddonResult(theme).entities));
+      {},
+      loadEntities(createFetchAddonResult(theme).entities)
+    );
 
     expect(state).toMatchObject({
       baz: { description: null },
@@ -193,15 +203,15 @@ describe(__filename, () => {
     it('requires an error handler', () => {
       const params = { ...defaultParams };
       delete params.errorHandler;
-      expect(() => fetchAddon(params))
-        .toThrowError(/errorHandler cannot be empty/);
+      expect(() => fetchAddon(params)).toThrowError(
+        /errorHandler cannot be empty/
+      );
     });
 
     it('requires a slug', () => {
       const params = { ...defaultParams };
       delete params.slug;
-      expect(() => fetchAddon(params))
-        .toThrowError(/slug cannot be empty/);
+      expect(() => fetchAddon(params)).toThrowError(/slug cannot be empty/);
     });
   });
 });

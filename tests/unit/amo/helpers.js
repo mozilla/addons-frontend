@@ -3,12 +3,18 @@ import config from 'config';
 
 import createStore from 'amo/store';
 import {
-  setClientApp, setLang, setAuthToken, setUserAgent,
+  setClientApp,
+  setLang,
+  setAuthToken,
+  setUserAgent,
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
 import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
-import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
+import {
+  autocompleteLoad,
+  autocompleteStart,
+} from 'core/reducers/autocomplete';
 import { loadUserProfile } from 'core/reducers/user';
 
 import {
@@ -26,17 +32,21 @@ export const fakeAddon = Object.freeze({
   icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
   slug: 'chill-out',
   average_daily_users: 100,
-  authors: [{
-    name: 'Krupa',
-    url: 'http://olympia.dev/en-US/firefox/user/krupa/',
-  }],
+  authors: [
+    {
+      name: 'Krupa',
+      url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+    },
+  ],
   current_version: {
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
-    files: [{
-      is_webextension: true,
-    }],
+    files: [
+      {
+        is_webextension: true,
+      },
+    ],
     is_strict_compatibility_enabled: false,
   },
   previews: [],
@@ -92,12 +102,14 @@ export const signedInApiState = Object.freeze({
   clientApp: 'firefox',
 });
 
-export function dispatchClientMetadata({
-  store = createStore().store,
-  clientApp = 'android',
-  lang = 'en-US',
-  userAgent = sampleUserAgent,
-} = {}) {
+export function dispatchClientMetadata(
+  {
+    store = createStore().store,
+    clientApp = 'android',
+    lang = 'en-US',
+    userAgent = sampleUserAgent,
+  } = {}
+) {
   store.dispatch(setClientApp(clientApp));
   store.dispatch(setLang(lang));
   store.dispatch(setUserAgent(userAgent));
@@ -108,17 +120,17 @@ export function dispatchClientMetadata({
   };
 }
 
-export function dispatchSignInActions({
-  authToken = userAuthToken(),
-  userId = 12345,
-  ...otherArgs
-} = {}) {
+export function dispatchSignInActions(
+  { authToken = userAuthToken(), userId = 12345, ...otherArgs } = {}
+) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
-  store.dispatch(loadUserProfile({
-    profile: createUserProfileResponse({ id: userId }),
-  }));
+  store.dispatch(
+    loadUserProfile({
+      profile: createUserProfileResponse({ id: userId }),
+    })
+  );
 
   return {
     store,
@@ -126,25 +138,31 @@ export function dispatchSignInActions({
   };
 }
 
-export function dispatchSearchResults({
-  addons = {
-    [fakeAddon.slug]: fakeAddon,
-    'some-other-slug': { ...fakeAddon, slug: 'some-other-slug' },
-  },
-  filters = { query: 'test' },
-  store = dispatchClientMetadata().store,
-} = {}) {
-  store.dispatch(searchStart({
-    errorHandlerId: createStubErrorHandler().id,
-    filters,
-  }));
-  store.dispatch(searchLoad({
-    entities: { addons },
-    result: {
-      count: Object.keys(addons).length,
-      results: Object.keys(addons),
+export function dispatchSearchResults(
+  {
+    addons = {
+      [fakeAddon.slug]: fakeAddon,
+      'some-other-slug': { ...fakeAddon, slug: 'some-other-slug' },
     },
-  }));
+    filters = { query: 'test' },
+    store = dispatchClientMetadata().store,
+  } = {}
+) {
+  store.dispatch(
+    searchStart({
+      errorHandlerId: createStubErrorHandler().id,
+      filters,
+    })
+  );
+  store.dispatch(
+    searchLoad({
+      entities: { addons },
+      result: {
+        count: Object.keys(addons).length,
+        results: Object.keys(addons),
+      },
+    })
+  );
 
   return { store };
 }
@@ -155,7 +173,9 @@ export function createAddonsApiResult(results) {
   return normalize({ results }, { results: [addonSchema] });
 }
 
-export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
+export function createFakeAutocompleteResult(
+  { name = 'suggestion-result' } = {}
+) {
   return {
     id: Date.now(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
@@ -174,15 +194,19 @@ export function createFakeAddon({ files = {} } = {}) {
   };
 }
 
-export function dispatchAutocompleteResults({
-  filters = { query: 'test' },
-  store = dispatchClientMetadata().store,
-  results = [],
-} = {}) {
-  store.dispatch(autocompleteStart({
-    errorHandlerId: createStubErrorHandler().id,
-    filters,
-  }));
+export function dispatchAutocompleteResults(
+  {
+    filters = { query: 'test' },
+    store = dispatchClientMetadata().store,
+    results = [],
+  } = {}
+) {
+  store.dispatch(
+    autocompleteStart({
+      errorHandlerId: createStubErrorHandler().id,
+      filters,
+    })
+  );
   store.dispatch(autocompleteLoad({ results }));
 
   return { store };

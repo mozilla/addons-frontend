@@ -14,7 +14,6 @@ import { VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 class FakeChild extends React.Component {
   render() {
     return <p>The component</p>;
@@ -28,13 +27,16 @@ describe('Header', () => {
     store.dispatch(setLang('en-GB'));
     const fakeI18n = getFakeI18nInst();
 
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={fakeI18n}>
-          <HeaderBase i18n={fakeI18n} {...props} />
-        </I18nProvider>
-      </Provider>
-    ), HeaderBase);
+    return findRenderedComponentWithType(
+      renderIntoDocument(
+        <Provider store={store}>
+          <I18nProvider i18n={fakeI18n}>
+            <HeaderBase i18n={fakeI18n} {...props} />
+          </I18nProvider>
+        </Provider>
+      ),
+      HeaderBase
+    );
   }
 
   it('renders an <h1> when isHomepage is true', () => {

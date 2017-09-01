@@ -14,9 +14,10 @@ function render(customProps = {}) {
     i18n: getFakeI18nInst(),
     ...customProps,
   };
-  return findRenderedComponentWithType(renderIntoDocument(
-    <Rating {...props} />
-  ), RatingBase);
+  return findRenderedComponentWithType(
+    renderIntoDocument(<Rating {...props} />),
+    RatingBase
+  );
 }
 
 function makeFakeEvent() {
@@ -45,8 +46,9 @@ describe('ui/components/Rating', () => {
   });
 
   it('throws an error for invalid styleNames', () => {
-    expect(() => render({ styleName: 'x-large' }))
-      .toThrowError(/styleName=x-large is not a valid value; possible values: small,/);
+    expect(() => render({ styleName: 'x-large' })).toThrowError(
+      /styleName=x-large is not a valid value; possible values: small,/
+    );
   });
 
   it('lets you select a one star rating', () => {
@@ -93,10 +95,12 @@ describe('ui/components/Rating', () => {
     const root = render({ rating: 3 });
 
     // Make sure only the first 3 stars are selected.
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+    [1, 2, 3].forEach(rating => {
+      expect(root.ratingElements[rating].className).toEqual(
+        'Rating-choice Rating-selected-star'
+      );
     });
-    [4, 5].forEach((rating) => {
+    [4, 5].forEach(rating => {
       expect(root.ratingElements[rating].className).toEqual('Rating-choice');
     });
   });
@@ -106,13 +110,17 @@ describe('ui/components/Rating', () => {
     const root = render({ rating: 3.60001 });
 
     // The first three stars are fully highlighted
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+    [1, 2, 3].forEach(rating => {
+      expect(root.ratingElements[rating].className).toEqual(
+        'Rating-choice Rating-selected-star'
+      );
     });
-    [4].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-half-star');
+    [4].forEach(rating => {
+      expect(root.ratingElements[rating].className).toEqual(
+        'Rating-choice Rating-half-star'
+      );
     });
-    [5].forEach((rating) => {
+    [5].forEach(rating => {
       expect(root.ratingElements[rating].className).toEqual('Rating-choice');
     });
   });
@@ -129,13 +137,17 @@ describe('ui/components/Rating', () => {
     const root = render({ rating: 3.6, readOnly: true });
 
     // The first three stars are fully highlighted
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+    [1, 2, 3].forEach(rating => {
+      expect(root.ratingElements[rating].className).toEqual(
+        'Rating-choice Rating-selected-star'
+      );
     });
-    [4].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-half-star');
+    [4].forEach(rating => {
+      expect(root.ratingElements[rating].className).toEqual(
+        'Rating-choice Rating-half-star'
+      );
     });
-    [5].forEach((rating) => {
+    [5].forEach(rating => {
       expect(root.ratingElements[rating].className).toEqual('Rating-choice');
     });
   });
@@ -146,14 +158,14 @@ describe('ui/components/Rating', () => {
     const root = render({ rating: null });
 
     // Make sure no stars have the selected class.
-    [1, 2, 3, 4, 5].forEach((rating) => {
+    [1, 2, 3, 4, 5].forEach(rating => {
       expect(root.ratingElements[rating].className).toEqual('Rating-choice');
     });
   });
 
   it('renders all stars as selectable by default', () => {
     const root = render();
-    [1, 2, 3, 4, 5].forEach((rating) => {
+    [1, 2, 3, 4, 5].forEach(rating => {
       const star = root.ratingElements[rating];
       expect(star.className).toEqual('Rating-choice');
       expect(star.tagName).toEqual('BUTTON');
@@ -179,10 +191,12 @@ describe('ui/components/Rating', () => {
     const root = render({ rating: 3, readOnly: true });
 
     // Make sure only the first 3 stars are selected.
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+    [1, 2, 3].forEach(rating => {
+      expect(root.ratingElements[rating].className).toEqual(
+        'Rating-choice Rating-selected-star'
+      );
     });
-    [4, 5].forEach((rating) => {
+    [4, 5].forEach(rating => {
       expect(root.ratingElements[rating].className).toEqual('Rating-choice');
     });
   });
@@ -202,8 +216,9 @@ describe('ui/components/Rating', () => {
     const root = render({ onSelectRating: null });
 
     const button = root.ratingElements[4];
-    expect(() => Simulate.click(button, makeFakeEvent()))
-      .toThrowError(/onSelectRating was empty/);
+    expect(() => Simulate.click(button, makeFakeEvent())).toThrowError(
+      /onSelectRating was empty/
+    );
   });
 
   describe('readOnly=true', () => {
@@ -231,7 +246,7 @@ describe('ui/components/Rating', () => {
       expect(elementKeys.length).toEqual(5);
 
       let allDivs = true;
-      elementKeys.forEach((key) => {
+      elementKeys.forEach(key => {
         if (root.ratingElements[key].tagName !== 'DIV') {
           allDivs = false;
         }

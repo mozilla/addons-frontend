@@ -13,7 +13,7 @@ class InfoDialogRaw extends React.Component {
     closeAction: PropTypes.func.isRequired,
     imageURL: PropTypes.string.isRequired,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   handleClickOutside() {
     this.props.closeAction();
@@ -34,35 +34,40 @@ class InfoDialogRaw extends React.Component {
           </div>
           <div className="copy">
             <h3 id="show-info-title">{i18n.gettext('Your add-on is ready')}</h3>
-            <p id="show-info-description">{i18n.sprintf(
-              i18n.gettext('Now you can access %(name)s from the toolbar.'),
-              { name: addonName })}</p>
+            <p id="show-info-description">
+              {i18n.sprintf(
+                i18n.gettext('Now you can access %(name)s from the toolbar.'),
+                { name: addonName }
+              )}
+            </p>
           </div>
         </div>
         <button
-          ref={(button) => { if (button != null) { button.focus(); } }}
+          ref={button => {
+            if (button != null) {
+              button.focus();
+            }
+          }}
           onClick={closeAction}
-        >{i18n.gettext('OK!')}</button>
+        >
+          {i18n.gettext('OK!')}
+        </button>
       </div>
     );
   }
 }
 
-export const InfoDialogBase = compose(
-  translate(),
-  onClickOutside,
-)(InfoDialogRaw);
-
-export const ShowInfoDialog = ({ data, show }) => (
-  show ? <InfoDialogBase {...data} /> : null
+export const InfoDialogBase = compose(translate(), onClickOutside)(
+  InfoDialogRaw
 );
+
+export const ShowInfoDialog = ({ data, show }) =>
+  show ? <InfoDialogBase {...data} /> : null;
 ShowInfoDialog.propTypes = {
   data: PropTypes.object.isRequired,
   show: PropTypes.bool.isRequired,
 };
 
-export const mapStateToProps = (state) => state.infoDialog;
+export const mapStateToProps = state => state.infoDialog;
 
-export default compose(
-  connect(mapStateToProps),
-)(ShowInfoDialog);
+export default compose(connect(mapStateToProps))(ShowInfoDialog);

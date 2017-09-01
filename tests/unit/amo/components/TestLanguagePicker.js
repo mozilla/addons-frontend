@@ -14,17 +14,19 @@ import {
 } from 'amo/components/LanguagePicker';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('LanguagePicker', () => {
   function renderLanguagePicker({ ...props }) {
     const initialState = { api: { clientApp: 'android', lang: 'fr' } };
     const { store } = createStore(initialState);
 
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <LanguagePickerBase i18n={getFakeI18nInst()} {...props} />
-      </Provider>
-    ), LanguagePickerBase);
+    return findRenderedComponentWithType(
+      renderIntoDocument(
+        <Provider store={store}>
+          <LanguagePickerBase i18n={getFakeI18nInst()} {...props} />
+        </Provider>
+      ),
+      LanguagePickerBase
+    );
   }
 
   it('renders a LanguagePicker', () => {
@@ -36,7 +38,9 @@ describe('LanguagePicker', () => {
   it('selects the current locale', () => {
     const root = renderLanguagePicker({ currentLocale: 'fr' });
 
-    expect(findDOMNode(root).querySelector('option:checked').value).toEqual('fr');
+    expect(findDOMNode(root).querySelector('option:checked').value).toEqual(
+      'fr'
+    );
   });
 
   it('changes the language on change', () => {

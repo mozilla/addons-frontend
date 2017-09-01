@@ -16,25 +16,27 @@ import { visibleAddonType } from 'core/utils';
 
 import './styles.scss';
 
-
 type SectionLinksProps = {
   i18n: Object,
   viewContext: ViewContextType,
-}
+};
 
 export class SectionLinksBase extends React.Component {
   props: SectionLinksProps;
 
   render() {
     const { i18n, viewContext } = this.props;
-    const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME]
-      .includes(viewContext);
+    const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME].includes(
+      viewContext
+    );
 
     return (
       <ul className="SectionLinks">
         <li>
           <Link
-            className={classNames('SectionLinks-link', { 'SectionLinks-link--active': isExploring })}
+            className={classNames('SectionLinks-link', {
+              'SectionLinks-link--active': isExploring,
+            })}
             to="/"
           >
             {i18n.gettext('Explore')}
@@ -69,7 +71,4 @@ export function mapStateToProps(state: { viewContext: ViewContextType }) {
   return { viewContext: state.viewContext.context };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  translate(),
-)(SectionLinksBase);
+export default compose(connect(mapStateToProps), translate())(SectionLinksBase);

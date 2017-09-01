@@ -9,30 +9,37 @@ import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
 import { getPlugins, getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
-import webpackIsomorphicToolsConfig
-  from './src/core/server/webpack-isomorphic-tools-config';
-
+import webpackIsomorphicToolsConfig from './src/core/server/webpack-isomorphic-tools-config';
 
 const localDevelopment = config.util.getEnv('NODE_ENV') === 'development';
 
-const webpackIsomorphicToolsPlugin =
-  new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig);
+const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(
+  webpackIsomorphicToolsConfig
+);
 
 const babelrc = fs.readFileSync('./.babelrc');
 const babelrcObject = JSON.parse(babelrc);
 
 const babelPlugins = babelrcObject.plugins || [];
-const babelDevPlugins = [['react-transform', {
-  transforms: [{
-    transform: 'react-transform-hmr',
-    imports: ['react'],
-    locals: ['module'],
-  }],
-}]];
+const babelDevPlugins = [
+  [
+    'react-transform',
+    {
+      transforms: [
+        {
+          transform: 'react-transform-hmr',
+          imports: ['react'],
+          locals: ['module'],
+        },
+      ],
+    },
+  ],
+];
 
 const BABEL_QUERY = Object.assign({}, babelrcObject, {
-  plugins: localDevelopment ?
-    babelPlugins.concat(babelDevPlugins) : babelPlugins,
+  plugins: localDevelopment
+    ? babelPlugins.concat(babelDevPlugins)
+    : babelPlugins,
 });
 
 const webpackHost = config.get('webpackServerHost');
@@ -47,10 +54,7 @@ const appsBuildList = appName ? [appName] : config.get('validAppNames');
 const entryPoints = {};
 // eslint-disable-next-line no-restricted-syntax
 for (const app of appsBuildList) {
-  entryPoints[app] = [
-    hmr,
-    `${app}/client`,
-  ];
+  entryPoints[app] = [hmr, `${app}/client`];
 }
 
 export default Object.assign({}, webpackConfig, {
@@ -75,12 +79,12 @@ export default Object.assign({}, webpackConfig, {
     // error messages, because they use
     // [Invariant](https://github.com/zertosh/invariant) which
     // hides error messages in the production build.
+    new webpack.NormalModuleReplacementPlugin(/^react$/, 'react/dist/react.js'),
     new webpack.NormalModuleReplacementPlugin(
-      /^react$/, 'react/dist/react.js'),
-    new webpack.NormalModuleReplacementPlugin(
-      /^react-dom$/, 'react-dom/dist/react-dom.js'),
-    new webpack.NormalModuleReplacementPlugin(
-      /^redux$/, 'redux/dist/redux.js'),
+      /^react-dom$/,
+      'react-dom/dist/react-dom.js'
+    ),
+    new webpack.NormalModuleReplacementPlugin(/^redux$/, 'redux/dist/redux.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(/webpack-stats\.json$/),
     webpackIsomorphicToolsPlugin.development(),

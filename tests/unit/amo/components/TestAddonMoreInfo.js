@@ -12,21 +12,23 @@ import { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('<AddonMoreInfo />', () => {
   const initialState = { api: { clientApp: 'android', lang: 'pt' } };
   const { store } = createStore(initialState);
 
   function render(props) {
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <AddonMoreInfoBase
-          i18n={getFakeI18nInst()}
-          addon={fakeAddon}
-          {...props}
-        />
-      </Provider>
-    ), AddonMoreInfoBase);
+    return findRenderedComponentWithType(
+      renderIntoDocument(
+        <Provider store={store}>
+          <AddonMoreInfoBase
+            i18n={getFakeI18nInst()}
+            addon={fakeAddon}
+            {...props}
+          />
+        </Provider>
+      ),
+      AddonMoreInfoBase
+    );
   }
 
   it('does renders a link <dt> if links exist', () => {
@@ -108,18 +110,23 @@ describe('<AddonMoreInfo />', () => {
     const addon = { ...fakeAddon, has_privacy_policy: true };
     const root = render({ addon });
 
-    expect(findDOMNode(root.privacyPolicyLink).textContent).toEqual('Read the privacy policy for this add-on');
+    expect(findDOMNode(root.privacyPolicyLink).textContent).toEqual(
+      'Read the privacy policy for this add-on'
+    );
     // TODO: Change this to an internal `<Link>` tag and use `expect().toBe`
     // once https://github.com/mozilla/addons-frontend/issues/1828 is fixed.
-    expect(root.privacyPolicyLink.props.href).toContain('/addon/chill-out/privacy/');
+    expect(root.privacyPolicyLink.props.href).toContain(
+      '/addon/chill-out/privacy/'
+    );
   });
 
   it('renders the EULA and link', () => {
     const addon = { ...fakeAddon, has_eula: true };
     const root = render({ addon });
 
-    expect(findDOMNode(root.eulaLink).textContent)
-      .toEqual('Read the license agreement for this add-on');
+    expect(findDOMNode(root.eulaLink).textContent).toEqual(
+      'Read the license agreement for this add-on'
+    );
     expect(root.eulaLink.props.href).toContain('/addon/chill-out/eula/');
   });
 

@@ -3,19 +3,12 @@ import config from 'config';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import {
-  ADDON_TYPE_THEME,
-  GLOBAL_EVENTS,
-  INSTALL_STATE,
-} from 'core/constants';
+import { ADDON_TYPE_THEME, GLOBAL_EVENTS, INSTALL_STATE } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { getDiscoResults } from 'disco/actions';
 import createStore from 'disco/store';
-import {
-  NAVIGATION_CATEGORY,
-  VIDEO_CATEGORY,
-} from 'disco/constants';
+import { NAVIGATION_CATEGORY, VIDEO_CATEGORY } from 'disco/constants';
 import * as helpers from 'disco/containers/DiscoPane';
 import {
   createFakeEvent,
@@ -31,7 +24,6 @@ import ErrorList from 'ui/components/ErrorList';
 
 // Use DiscoPane that isn't wrapped in asyncConnect.
 const { DiscoPaneBase } = helpers;
-
 
 describe('AddonPage', () => {
   let fakeEvent;
@@ -49,14 +41,18 @@ describe('AddonPage', () => {
 
     let results;
     if (typeof customProps.results === 'undefined') {
-      const mappedProps = helpers.mapStateToProps(loadDiscoResultsIntoState([{
-        heading: 'Discovery Addon 1',
-        description: 'informative text',
-        addon: {
-          ...fakeDiscoAddon,
-          guid: 'foo',
-        },
-      }]));
+      const mappedProps = helpers.mapStateToProps(
+        loadDiscoResultsIntoState([
+          {
+            heading: 'Discovery Addon 1',
+            description: 'informative text',
+            addon: {
+              ...fakeDiscoAddon,
+              guid: 'foo',
+            },
+          },
+        ])
+      );
       results = mappedProps.results;
     }
 
@@ -127,20 +123,26 @@ describe('AddonPage', () => {
     it('sets extension results', () => {
       const addon = { ...fakeDiscoAddon };
 
-      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
-        heading: 'The Add-on',
-        description: 'editorial text',
-        addon,
-      }]));
+      const props = helpers.mapStateToProps(
+        loadDiscoResultsIntoState([
+          {
+            heading: 'The Add-on',
+            description: 'editorial text',
+            addon,
+          },
+        ])
+      );
 
-      expect(props.results).toEqual([{
-        ...addon,
-        addon: addon.guid,
-        description: 'editorial text',
-        heading: 'The Add-on',
-        iconUrl: addon.icon_url,
-        isRestartRequired: false,
-      }]);
+      expect(props.results).toEqual([
+        {
+          ...addon,
+          addon: addon.guid,
+          description: 'editorial text',
+          heading: 'The Add-on',
+          iconUrl: addon.icon_url,
+          isRestartRequired: false,
+        },
+      ]);
     });
 
     it('sets theme results', () => {
@@ -150,11 +152,15 @@ describe('AddonPage', () => {
         type: ADDON_TYPE_THEME,
       };
 
-      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
-        heading: 'The Theme',
-        description: 'editorial text',
-        addon,
-      }]));
+      const props = helpers.mapStateToProps(
+        loadDiscoResultsIntoState([
+          {
+            heading: 'The Theme',
+            description: 'editorial text',
+            addon,
+          },
+        ])
+      );
 
       // This is removed by the reducer.
       delete addon.theme_data;
@@ -162,22 +168,27 @@ describe('AddonPage', () => {
       // Adjust the theme guid to match how Firefox code does it internally.
       const guid = '1234@personas.mozilla.org';
 
-      expect(props.results).toEqual([{
-        ...addon,
-        addon: guid,
-        guid,
-        description: undefined,
-        heading: 'The Theme',
-        iconUrl: addon.icon_url,
-        isRestartRequired: false,
-      }]);
+      expect(props.results).toEqual([
+        {
+          ...addon,
+          addon: guid,
+          guid,
+          description: undefined,
+          heading: 'The Theme',
+          iconUrl: addon.icon_url,
+          isRestartRequired: false,
+        },
+      ]);
     });
   });
 
   describe('mapDispatchToProps', () => {
     it('calls dispatch when handleGlobalEvent is called with data', () => {
       const dispatch = sinon.spy();
-      sinon.stub(config, 'get').withArgs('server').returns(false);
+      sinon
+        .stub(config, 'get')
+        .withArgs('server')
+        .returns(false);
       const { handleGlobalEvent } = helpers.mapDispatchToProps(dispatch);
       const payload = { id: 'whatever' };
       handleGlobalEvent(payload);
@@ -187,9 +198,10 @@ describe('AddonPage', () => {
     it('does not pass handleGlobalEvent when on the server', () => {
       const dispatch = sinon.stub();
       const configSource = { server: true };
-      const configStub = { get: (key) => configSource[key] };
-      expect(helpers.mapDispatchToProps(dispatch, { _config: configStub }))
-        .toEqual({ dispatch });
+      const configStub = { get: key => configSource[key] };
+      expect(
+        helpers.mapDispatchToProps(dispatch, { _config: configStub })
+      ).toEqual({ dispatch });
     });
   });
 
@@ -201,22 +213,29 @@ describe('AddonPage', () => {
 
       render({ errorHandler, dispatch, ...props });
 
-      sinon.assert.calledWith(dispatch, getDiscoResults({
-        errorHandlerId: errorHandler.id,
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        getDiscoResults({
+          errorHandlerId: errorHandler.id,
+        })
+      );
     });
 
     it('does not get discovery results when results are loaded', () => {
       const dispatch = sinon.stub();
-      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([{
-        heading: 'Discovery Addon 1',
-        description: 'informative text',
-        addon: {
-          ...fakeDiscoAddon,
-          guid: '@guid1',
-          slug: 'discovery-addon-1',
-        },
-      }]));
+      const props = helpers.mapStateToProps(
+        loadDiscoResultsIntoState([
+          {
+            heading: 'Discovery Addon 1',
+            description: 'informative text',
+            addon: {
+              ...fakeDiscoAddon,
+              guid: '@guid1',
+              slug: 'discovery-addon-1',
+            },
+          },
+        ])
+      );
 
       render({ dispatch, ...props });
 
@@ -244,7 +263,9 @@ describe('AddonPage', () => {
         addEventListener: sinon.stub(),
       };
       renderAndMount({ mozAddonManager: fakeMozAddonManager });
-      expect(fakeMozAddonManager.addEventListener.callCount).toEqual(GLOBAL_EVENTS.length);
+      expect(fakeMozAddonManager.addEventListener.callCount).toEqual(
+        GLOBAL_EVENTS.length
+      );
     });
   });
 

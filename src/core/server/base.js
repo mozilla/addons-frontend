@@ -23,8 +23,12 @@ import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
 import * as middleware from 'core/middleware';
 import { convertBoolean } from 'core/utils';
-import { setAuthToken, setClientApp, setLang, setUserAgent }
-  from 'core/actions';
+import {
+  setAuthToken,
+  setClientApp,
+  setLang,
+  setUserAgent,
+} from 'core/actions';
 import {
   getDirection,
   isValidLang,
@@ -35,20 +39,22 @@ import I18nProvider from 'core/i18n/Provider';
 
 import WebpackIsomorphicToolsConfig from './webpack-isomorphic-tools-config';
 
-
 export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
   const appName = config.get('appName');
   const isDeployed = config.get('isDeployed');
 
   // Get SRI for deployed services only.
-  const sriData = (isDeployed) ? JSON.parse(
-    fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
-  ) : {};
+  const sriData = isDeployed
+    ? JSON.parse(
+        fs.readFileSync(path.join(config.get('basePath'), 'dist/sri.json'))
+      )
+    : {};
 
   // Check the lang supplied by res.locals.lang for validity
   // or fall-back to the default.
-  const lang = isValidLang(res.locals.lang) ?
-    res.locals.lang : config.get('defaultLang');
+  const lang = isValidLang(res.locals.lang)
+    ? res.locals.lang
+    : config.get('defaultLang');
   const dir = getDirection(lang);
   store.dispatch(setLang(lang));
   if (res.locals.clientApp) {
@@ -73,10 +79,10 @@ export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
     noScriptStyles,
     sriData,
     store,
-    trackingEnabled: (
+    // A DNT header set to "1" means Do Not Track
+    trackingEnabled:
       convertBoolean(config.get('trackingEnabled')) &&
-      req.header('dnt') !== '1' // A DNT header set to "1" means Do Not Track
-    ),
+      req.header('dnt') !== '1',
   };
 }
 
@@ -93,29 +99,31 @@ function showErrorPage({ createStore, error = {}, req, res, status, config }) {
   const apiError = createApiError({ response: { status: adjustedStatus } });
   store.dispatch(loadFail('ServerBase', { ...apiError, ...error }));
 
-  const HTML = ReactDOM.renderToString(
-    <ServerHtml {...pageProps} />);
-  return res.status(adjustedStatus)
+  const HTML = ReactDOM.renderToString(<ServerHtml {...pageProps} />);
+  return res
+    .status(adjustedStatus)
     .send(`<!DOCTYPE html>\n${HTML}`)
     .end();
 }
-
 
 function hydrateOnClient({ res, props = {}, pageProps }) {
-  const HTML =
-    ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+  const HTML = ReactDOM.renderToString(
+    <ServerHtml {...pageProps} {...props} />
+  );
   const componentDeclaredStatus = NestedStatus.rewind();
-  return res.status(componentDeclaredStatus)
+  return res
+    .status(componentDeclaredStatus)
     .send(`<!DOCTYPE html>\n${HTML}`)
     .end();
 }
 
-function baseServer(routes, createStore, {
-  appSagas,
-  appInstanceName = null,
-  config = defaultConfig,
-} = {}) {
-  const appName = appInstanceName !== null ? appInstanceName : config.get('appName');
+function baseServer(
+  routes,
+  createStore,
+  { appSagas, appInstanceName = null, config = defaultConfig } = {}
+) {
+  const appName =
+    appInstanceName !== null ? appInstanceName : config.get('appName');
 
   const app = new Express();
   app.disable('x-powered-by');
@@ -127,7 +135,9 @@ function baseServer(routes, createStore, {
     log.info(`Sentry reporting configured with DSN ${sentryDsn}`);
     // The error handler is defined below.
   } else {
-    log.warn('Sentry reporting is disabled; Set config.sentryDsn to enable it.');
+    log.warn(
+      'Sentry reporting is disabled; Set config.sentryDsn to enable it.'
+    );
   }
 
   app.use(middleware.logRequests);
@@ -158,7 +168,7 @@ function baseServer(routes, createStore, {
     // This is a magic file that gets written by deployment scripts.
     const version = path.join(config.get('basePath'), 'version.json');
 
-    fs.stat(version, (error) => {
+    fs.stat(version, error => {
       if (error) {
         log.error(`Could not stat version file ${version}: ${error}`);
         res.sendStatus(415);
@@ -180,7 +190,8 @@ function baseServer(routes, createStore, {
   const isDevelopment = config.get('isDevelopment');
   if (appName === 'disco' && isDevelopment) {
     app.get('/', (req, res) =>
-      res.redirect(302, '/en-US/firefox/discovery/pane/48.0/Darwin/normal'));
+      res.redirect(302, '/en-US/firefox/discovery/pane/48.0/Darwin/normal')
+    );
   }
 
   // Handle application and lang redirections.
@@ -218,113 +229,122 @@ function baseServer(routes, createStore, {
     // Vary the cache on Do Not Track headers.
     res.vary('DNT');
 
-    match({ location: req.url, routes }, (
-      matchError, redirectLocation, renderProps
-    ) => {
-      if (matchError) {
-        log.info(`match() returned an error for ${req.url}: ${matchError}`);
-        return next(matchError);
-      }
-      if (!renderProps) {
-        log.info(`match() did not return renderProps for ${req.url}`);
-        return showErrorPage({ createStore, status: 404, req, res, config });
-      }
-
-      let htmlLang;
-      let locale;
-      let pageProps;
-      let runningSagas;
-      let sagaMiddleware;
-      let store;
-
-      try {
-        cookie.plugToRequest(req, res);
-
-        const storeAndSagas = createStore();
-        sagaMiddleware = storeAndSagas.sagaMiddleware;
-        store = storeAndSagas.store;
-
-        let sagas = appSagas;
-        if (!sagas) {
-          // eslint-disable-next-line global-require, import/no-dynamic-require
-          sagas = require(`${appName}/sagas`).default;
+    match(
+      { location: req.url, routes },
+      (matchError, redirectLocation, renderProps) => {
+        if (matchError) {
+          log.info(`match() returned an error for ${req.url}: ${matchError}`);
+          return next(matchError);
         }
-        runningSagas = sagaMiddleware.run(sagas);
-
-        const token = cookie.load(config.get('cookieName'));
-        if (token) {
-          store.dispatch(setAuthToken(token));
+        if (!renderProps) {
+          log.info(`match() did not return renderProps for ${req.url}`);
+          return showErrorPage({ createStore, status: 404, req, res, config });
         }
 
-        pageProps = getPageProps({ noScriptStyles, store, req, res, config });
-        if (config.get('disableSSR') === true) {
-          // This stops all running sagas.
-          store.dispatch(END);
+        let htmlLang;
+        let locale;
+        let pageProps;
+        let runningSagas;
+        let sagaMiddleware;
+        let store;
 
-          return runningSagas.done.then(() => {
-            log.warn('Server side rendering is disabled.');
-            return hydrateOnClient({ res, pageProps });
-          });
-        }
+        try {
+          cookie.plugToRequest(req, res);
 
-        htmlLang = pageProps.htmlLang;
-        locale = langToLocale(htmlLang);
-      } catch (preLoadError) {
-        log.info(`Caught an error in match() before loadOnServer(): ${preLoadError}`);
-        return next(preLoadError);
-      }
+          const storeAndSagas = createStore();
+          sagaMiddleware = storeAndSagas.sagaMiddleware;
+          store = storeAndSagas.store;
 
-      return loadOnServer({ ...renderProps, store })
-        .then(() => {
-          // eslint-disable-next-line global-require
-          let i18nData = {};
-          try {
-            if (locale !== langToLocale(config.get('defaultLang'))) {
-              // eslint-disable-next-line global-require, import/no-dynamic-require
-              i18nData = require(`../../locale/${locale}/${appName}.js`);
-            }
-          } catch (e) {
-            log.info(`Locale JSON not found or required for locale: "${locale}"`);
-            log.info(`Falling back to default lang: "${config.get('defaultLang')}".`);
+          let sagas = appSagas;
+          if (!sagas) {
+            // eslint-disable-next-line global-require, import/no-dynamic-require
+            sagas = require(`${appName}/sagas`).default;
           }
-          const i18n = makeI18n(i18nData, htmlLang);
+          runningSagas = sagaMiddleware.run(sagas);
 
-          const InitialComponent = (
-            <I18nProvider i18n={i18n}>
-              <Provider store={store} key="provider">
-                <ReduxAsyncConnect {...renderProps} />
-              </Provider>
-            </I18nProvider>
+          const token = cookie.load(config.get('cookieName'));
+          if (token) {
+            store.dispatch(setAuthToken(token));
+          }
+
+          pageProps = getPageProps({ noScriptStyles, store, req, res, config });
+          if (config.get('disableSSR') === true) {
+            // This stops all running sagas.
+            store.dispatch(END);
+
+            return runningSagas.done.then(() => {
+              log.warn('Server side rendering is disabled.');
+              return hydrateOnClient({ res, pageProps });
+            });
+          }
+
+          htmlLang = pageProps.htmlLang;
+          locale = langToLocale(htmlLang);
+        } catch (preLoadError) {
+          log.info(
+            `Caught an error in match() before loadOnServer(): ${preLoadError}`
           );
+          return next(preLoadError);
+        }
 
-          const errorPage = store.getState().errorPage;
-          if (errorPage && errorPage.hasError) {
-            log.info(`Error page was dispatched to state: ${errorPage.error}`);
-            throw errorPage.error;
-          }
+        return loadOnServer({ ...renderProps, store })
+          .then(() => {
+            // eslint-disable-next-line global-require
+            let i18nData = {};
+            try {
+              if (locale !== langToLocale(config.get('defaultLang'))) {
+                // eslint-disable-next-line global-require, import/no-dynamic-require
+                i18nData = require(`../../locale/${locale}/${appName}.js`);
+              }
+            } catch (e) {
+              log.info(
+                `Locale JSON not found or required for locale: "${locale}"`
+              );
+              log.info(
+                `Falling back to default lang: "${config.get('defaultLang')}".`
+              );
+            }
+            const i18n = makeI18n(i18nData, htmlLang);
 
-          const props = { component: InitialComponent };
+            const InitialComponent = (
+              <I18nProvider i18n={i18n}>
+                <Provider store={store} key="provider">
+                  <ReduxAsyncConnect {...renderProps} />
+                </Provider>
+              </I18nProvider>
+            );
 
-          // We need to render once because it will force components to
-          // dispatch data loading actions which get processed by sagas.
-          log.info('First component render to dispatch loading actions');
-          ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+            const errorPage = store.getState().errorPage;
+            if (errorPage && errorPage.hasError) {
+              log.info(
+                `Error page was dispatched to state: ${errorPage.error}`
+              );
+              throw errorPage.error;
+            }
 
-          // Send the redux-saga END action to stop sagas from running
-          // indefinitely. This is only done for server-side rendering.
-          store.dispatch(END);
+            const props = { component: InitialComponent };
 
-          // Once all sagas have completed, we load the page.
-          return runningSagas.done.then(() => {
-            log.info('Second component render after sagas have finished');
-            return hydrateOnClient({ props, pageProps, res });
+            // We need to render once because it will force components to
+            // dispatch data loading actions which get processed by sagas.
+            log.info('First component render to dispatch loading actions');
+            ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+
+            // Send the redux-saga END action to stop sagas from running
+            // indefinitely. This is only done for server-side rendering.
+            store.dispatch(END);
+
+            // Once all sagas have completed, we load the page.
+            return runningSagas.done.then(() => {
+              log.info('Second component render after sagas have finished');
+              return hydrateOnClient({ props, pageProps, res });
+            });
+          })
+          .catch(loadError => {
+            log.error(`Caught error from loadOnServer(): ${loadError}`);
+            next(loadError);
           });
-        })
-        .catch((loadError) => {
-          log.error(`Caught error from loadOnServer(): ${loadError}`);
-          next(loadError);
-        });
-    });
+      }
+    );
   });
 
   // Error handlers:
@@ -348,20 +368,22 @@ function baseServer(routes, createStore, {
   return app;
 }
 
-export function runServer({
-  listen = true,
-  exitProcess = true,
-  config = defaultConfig,
-} = {}) {
+export function runServer(
+  { listen = true, exitProcess = true, config = defaultConfig } = {}
+) {
   const port = config.get('serverPort');
   const host = config.get('serverHost');
   const appName = config.get('appName');
 
-  const isoMorphicServer = new WebpackIsomorphicTools(WebpackIsomorphicToolsConfig);
+  const isoMorphicServer = new WebpackIsomorphicTools(
+    WebpackIsomorphicToolsConfig
+  );
 
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     if (!appName) {
-      throw new Error(`Please specify a valid appName from ${config.get('validAppNames')}`);
+      throw new Error(
+        `Please specify a valid appName from ${config.get('validAppNames')}`
+      );
     }
     resolve();
   })
@@ -375,33 +397,39 @@ export function runServer({
         const routes = require(`${appName}/routes`).default;
         const createStore = require(`${appName}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        const server = baseServer(
-          routes, createStore, { appInstanceName: appName });
+        const server = baseServer(routes, createStore, {
+          appInstanceName: appName,
+        });
         if (listen === true) {
-          server.listen(port, host, (err) => {
+          server.listen(port, host, err => {
             if (err) {
               return reject(err);
             }
             const proxyEnabled = convertBoolean(config.get('proxyEnabled'));
             // Not using oneLine here since it seems to change '  ' to ' '.
-            log.info([
-              `🔥  Addons-frontend server is running`,
-              `[ENV:${config.util.getEnv('NODE_ENV')}]`,
-              `[APP:${appName}]`,
-              `[isDevelopment:${config.get('isDevelopment')}]`,
-              `[isDeployed:${config.get('isDeployed')}]`,
-              `[apiHost:${config.get('apiHost')}]`,
-              `[apiPath:${config.get('apiPath')}]`,
-            ].join(' '));
+            log.info(
+              [
+                `🔥  Addons-frontend server is running`,
+                `[ENV:${config.util.getEnv('NODE_ENV')}]`,
+                `[APP:${appName}]`,
+                `[isDevelopment:${config.get('isDevelopment')}]`,
+                `[isDeployed:${config.get('isDeployed')}]`,
+                `[apiHost:${config.get('apiHost')}]`,
+                `[apiPath:${config.get('apiPath')}]`,
+              ].join(' ')
+            );
             if (proxyEnabled) {
               const proxyPort = config.get('proxyPort');
               log.info(
-                `🚦  Proxy detected, frontend running at http://${host}:${port}.`);
+                `🚦  Proxy detected, frontend running at http://${host}:${port}.`
+              );
               log.info(
-                `👁  Open your browser at http://localhost:${proxyPort} to view it.`);
+                `👁  Open your browser at http://localhost:${proxyPort} to view it.`
+              );
             } else {
               log.info(
-                `👁  Open your browser at http://${host}:${port} to view it.`);
+                `👁  Open your browser at http://${host}:${port} to view it.`
+              );
             }
             return resolve(server);
           });
@@ -410,7 +438,7 @@ export function runServer({
         }
       });
     })
-    .catch((err) => {
+    .catch(err => {
       log.error({ err });
       if (exitProcess) {
         process.exit(1);

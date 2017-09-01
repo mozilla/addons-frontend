@@ -8,13 +8,12 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-
 export class FooterBase extends React.Component {
   static propTypes = {
     handleViewDesktop: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { handleViewDesktop, i18n, location } = this.props;
@@ -25,7 +24,9 @@ export class FooterBase extends React.Component {
         <div className="Footer-language-and-links">
           <LanguagePicker
             location={location}
-            ref={(ref) => { this.languagePicker = ref; }}
+            ref={ref => {
+              this.languagePicker = ref;
+            }}
           />
           <ul className="Footer-links">
             <li>
@@ -57,7 +58,9 @@ export class FooterBase extends React.Component {
                 href="#desktop"
                 className="Footer-link Footer-desktop"
                 onClick={handleViewDesktop}
-                ref={(ref) => { this.desktopLink = ref; }}
+                ref={ref => {
+                  this.desktopLink = ref;
+                }}
               >
                 {i18n.gettext('View classic desktop site')}
               </a>
@@ -81,6 +84,4 @@ export class FooterBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(FooterBase);
+export default compose(translate({ withRef: true }))(FooterBase);

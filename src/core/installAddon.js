@@ -41,9 +41,10 @@ import {
 } from 'core/constants';
 import * as addonManager from 'core/addonManager';
 
-
 export function installTheme(
-  node, addon, { _themeAction = themeAction, _tracking = tracking } = {},
+  node,
+  addon,
+  { _themeAction = themeAction, _tracking = tracking } = {}
 ) {
   const { name, status, type } = addon;
   if (
@@ -63,7 +64,9 @@ export function makeProgressHandler(dispatch, guid) {
   return (addonInstall, event) => {
     if (addonInstall.state === 'STATE_DOWNLOADING') {
       const downloadProgress = parseInt(
-        (100 * addonInstall.progress) / addonInstall.maxProgress, 10);
+        100 * addonInstall.progress / addonInstall.maxProgress,
+        10
+      );
       dispatch({
         type: DOWNLOAD_PROGRESS,
         payload: { guid, downloadProgress },
@@ -123,7 +126,8 @@ export function mapStateToProps(state, ownProps) {
       }
       if (theme && theme.status === ENABLED) {
         _log.info(
-          `Theme ${guid} is already enabled! Previewing is not necessary.`);
+          `Theme ${guid} is already enabled! Previewing is not necessary.`
+        );
       }
     },
   };
@@ -166,14 +170,14 @@ export class WithInstallHelpers extends React.Component {
     src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-  }
+  };
 
   static defaultProps = {
     _addonManager: addonManager,
     _tracking: tracking,
     hasAddonManager: addonManager.hasAddonManager(),
     installTheme,
-  }
+  };
 
   componentDidMount() {
     this.setCurrentStatus(this.props);
@@ -200,45 +204,57 @@ export class WithInstallHelpers extends React.Component {
     const payload = { guid, url: installURL };
 
     log.info('Setting add-on status');
-    return _addonManager.getAddon(guid)
-      .then((addon) => {
-        const status = addon.isActive && addon.isEnabled ?
-          ENABLED : DISABLED;
+    return _addonManager
+      .getAddon(guid)
+      .then(
+        addon => {
+          const status = addon.isActive && addon.isEnabled ? ENABLED : DISABLED;
 
-        dispatch(setInstallState({ ...payload, status }));
-      }, (error) => {
-        log.info(
-          oneLine`Add-on "${guid}" not found so setting status to
-          UNINSTALLED; exact error: ${error}`);
-        dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
-      })
-      .catch((error) => {
+          dispatch(setInstallState({ ...payload, status }));
+        },
+        error => {
+          log.info(
+            oneLine`Add-on "${guid}" not found so setting status to
+          UNINSTALLED; exact error: ${error}`
+          );
+          dispatch(setInstallState({ ...payload, status: UNINSTALLED }));
+        }
+      )
+      .catch(error => {
         log.error(`Caught error from addonManager: ${error}`);
         // Dispatch a generic error should the success/error functions
         // throw.
-        dispatch(setInstallState({
-          guid, status: ERROR, error: FATAL_ERROR,
-        }));
+        dispatch(
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_ERROR,
+          })
+        );
       });
   }
 
   enable({ _showInfo = this.showInfo } = {}) {
     const { _addonManager, dispatch, guid, iconUrl, name } = this.props;
-    return _addonManager.enable(guid)
+    return _addonManager
+      .enable(guid)
       .then(() => {
         if (!_addonManager.hasPermissionPromptsEnabled()) {
           _showInfo({ name, iconUrl });
         }
       })
-      .catch((err) => {
+      .catch(err => {
         if (err && err.message === SET_ENABLE_NOT_AVAILABLE) {
-          log.info(
-            `addon.setEnabled not available. Unable to enable ${guid}`);
+          log.info(`addon.setEnabled not available. Unable to enable ${guid}`);
         } else {
           log.error(err);
-          dispatch(setInstallState({
-            guid, status: ERROR, error: FATAL_ERROR,
-          }));
+          dispatch(
+            setInstallState({
+              guid,
+              status: ERROR,
+              error: FATAL_ERROR,
+            })
+          );
         }
       });
   }
@@ -257,9 +273,8 @@ export class WithInstallHelpers extends React.Component {
 
     dispatch({ type: START_DOWNLOAD, payload: { guid } });
 
-    return _addonManager.install(
-      installURL, makeProgressHandler(dispatch, guid), { src }
-    )
+    return _addonManager
+      .install(installURL, makeProgressHandler(dispatch, guid), { src })
       .then(() => {
         _tracking.sendEvent({
           action: TRACKING_TYPE_EXTENSION,
@@ -270,11 +285,15 @@ export class WithInstallHelpers extends React.Component {
           this.showInfo({ name, iconUrl });
         }
       })
-      .catch((error) => {
+      .catch(error => {
         log.error(`Install error: ${error}`);
-        dispatch(setInstallState({
-          guid, status: ERROR, error: FATAL_INSTALL_ERROR,
-        }));
+        dispatch(
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_INSTALL_ERROR,
+          })
+        );
       });
   }
 
@@ -320,7 +339,8 @@ export class WithInstallHelpers extends React.Component {
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
 
     const action = getAction(type);
-    return _addonManager.uninstall(guid)
+    return _addonManager
+      .uninstall(guid)
       .then(() => {
         _tracking.sendEvent({
           action,
@@ -328,11 +348,15 @@ export class WithInstallHelpers extends React.Component {
           label: name,
         });
       })
-      .catch((err) => {
+      .catch(err => {
         log.error(err);
-        dispatch(setInstallState({
-          guid, status: ERROR, error: FATAL_UNINSTALL_ERROR,
-        }));
+        dispatch(
+          setInstallState({
+            guid,
+            status: ERROR,
+            error: FATAL_UNINSTALL_ERROR,
+          })
+        );
       });
   }
 
@@ -354,14 +378,17 @@ export class WithInstallHelpers extends React.Component {
 }
 
 export function withInstallHelpers({
-  _makeMapDispatchToProps = makeMapDispatchToProps, src,
+  _makeMapDispatchToProps = makeMapDispatchToProps,
+  src,
 }) {
   if (!src) {
     throw new Error('src is required for withInstallHelpers');
   }
-  return (WrappedComponent) => compose(
-    connect(
-      mapStateToProps, _makeMapDispatchToProps({ WrappedComponent, src })
-    ),
-  )(WithInstallHelpers);
+  return WrappedComponent =>
+    compose(
+      connect(
+        mapStateToProps,
+        _makeMapDispatchToProps({ WrappedComponent, src })
+      )
+    )(WithInstallHelpers);
 }

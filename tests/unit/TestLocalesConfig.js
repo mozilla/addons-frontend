@@ -36,7 +36,7 @@ describe(__filename, () => {
 describe('Check Locale JS for entities', () => {
   // eslint-disable-next-line no-restricted-syntax
   for (const localeJSFile of glob.sync('src/locale/*/*.js')) {
-    it(`${localeJSFile} should not have html entities`, (done) => {
+    it(`${localeJSFile} should not have html entities`, done => {
       fs.readFile(localeJSFile, 'utf8', (err, data) => {
         if (!err) {
           expect(/&[^\s]+;/.test(data)).toBeFalsy();

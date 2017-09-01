@@ -54,9 +54,7 @@ export class AddonReviewListBase extends React.Component {
   }
 
   loadDataIfNeeded(nextProps?: AddonReviewListProps) {
-    const {
-      addon, dispatch, errorHandler, params, reviews,
-    } = {
+    const { addon, dispatch, errorHandler, params, reviews } = {
       ...this.props,
       ...nextProps,
     };
@@ -82,11 +80,13 @@ export class AddonReviewListBase extends React.Component {
     }
 
     if (!reviews || locationChanged) {
-      dispatch(fetchReviews({
-        addonSlug: params.addonSlug,
-        errorHandlerId: errorHandler.id,
-        page: parsePage(location.query.page),
-      }));
+      dispatch(
+        fetchReviews({
+          addonSlug: params.addonSlug,
+          errorHandlerId: errorHandler.id,
+          page: parsePage(location.query.page),
+        })
+      );
     }
   }
 
@@ -112,14 +112,19 @@ export class AddonReviewListBase extends React.Component {
       // L10n: Example: "from Jose, last week"
       byLine = i18n.sprintf(
         i18n.gettext('from %(authorName)s, %(timestamp)s'),
-        { authorName: review.userName, timestamp });
+        { authorName: review.userName, timestamp }
+      );
 
       const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
       // eslint-disable-next-line react/no-danger
       reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
     } else {
       byLine = <LoadingText />;
-      reviewBody = <p><LoadingText /></p>;
+      reviewBody = (
+        <p>
+          <LoadingText />
+        </p>
+      );
     }
 
     return (
@@ -127,10 +132,9 @@ export class AddonReviewListBase extends React.Component {
         <h3>{review ? review.title : <LoadingText />}</h3>
         {reviewBody}
         <div className="AddonReviewList-by-line">
-          {review ?
+          {review ? (
             <Rating styleName="small" rating={review.rating} readOnly />
-            : null
-          }
+          ) : null}
           {byLine}
         </div>
       </li>
@@ -139,7 +143,13 @@ export class AddonReviewListBase extends React.Component {
 
   render() {
     const {
-      addon, errorHandler, location, params, i18n, reviewCount, reviews,
+      addon,
+      errorHandler,
+      location,
+      params,
+      i18n,
+      reviewCount,
+      reviews,
     } = this.props;
     if (!params.addonSlug) {
       throw new Error('params.addonSlug cannot be falsey');
@@ -149,14 +159,13 @@ export class AddonReviewListBase extends React.Component {
     // as a placeholder.
     const allReviews = reviews || Array(4).fill(null);
     const iconUrl = getAddonIconUrl(addon);
-    const iconImage = (
-      <img src={iconUrl} alt={i18n.gettext('Add-on icon')} />
-    );
+    const iconImage = <img src={iconUrl} alt={i18n.gettext('Add-on icon')} />;
 
     let header;
     if (addon) {
-      header = i18n.sprintf(
-        i18n.gettext('Reviews for %(addonName)s'), { addonName: addon.name });
+      header = i18n.sprintf(i18n.gettext('Reviews for %(addonName)s'), {
+        addonName: addon.name,
+      });
     } else {
       header = <LoadingText />;
     }
@@ -188,22 +197,22 @@ export class AddonReviewListBase extends React.Component {
             })}
           </ul>
         </CardList>
-        {addon && reviewCount ?
+        {addon && reviewCount ? (
           <Paginate
             LinkComponent={Link}
             count={reviewCount}
             currentPage={parsePage(location.query.page)}
             pathname={this.url()}
           />
-          : null
-        }
+        ) : null}
       </div>
     );
   }
 }
 
 export function mapStateToProps(
-  state: {| reviews: ReviewState |}, ownProps: AddonReviewListProps,
+  state: {| reviews: ReviewState |},
+  ownProps: AddonReviewListProps
 ) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey params.addonSlug parameter');
@@ -220,5 +229,5 @@ export function mapStateToProps(
 export default compose(
   connect(mapStateToProps),
   translate({ withRef: true }),
-  withErrorHandler({ name: 'AddonReviewList' }),
+  withErrorHandler({ name: 'AddonReviewList' })
 )(AddonReviewListBase);

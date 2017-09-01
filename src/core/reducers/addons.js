@@ -3,7 +3,6 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 
-
 export const FETCH_ADDON = 'FETCH_ADDON';
 
 const initialState = {};
@@ -24,7 +23,10 @@ export type FetchAddonAction = {|
   |},
 |};
 
-export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddonAction {
+export function fetchAddon({
+  errorHandler,
+  slug,
+}: FetchAddonParams): FetchAddonAction {
   if (!errorHandler) {
     throw new Error('errorHandler cannot be empty');
   }
@@ -65,7 +67,7 @@ export default function addon(
 
   if (payload && payload.entities && payload.entities.addons) {
     const newState = { ...state };
-    Object.keys(payload.entities.addons).forEach((key) => {
+    Object.keys(payload.entities.addons).forEach(key => {
       const thisAddon = {
         ...payload.entities.addons[key],
         isRestartRequired: false,
@@ -86,12 +88,15 @@ export default function addon(
           type: ADDON_TYPE_THEME,
         };
         delete newState[key].theme_data;
-      } else if (thisAddon.current_version && thisAddon.current_version.files.length > 0) {
+      } else if (
+        thisAddon.current_version &&
+        thisAddon.current_version.files.length > 0
+      ) {
         newState[key] = {
           ...thisAddon,
           installURL: thisAddon.current_version.files[0].url || '',
           isRestartRequired: thisAddon.current_version.files.some(
-            (file) => !!file.is_restart_required
+            file => !!file.is_restart_required
           ),
         };
       } else {

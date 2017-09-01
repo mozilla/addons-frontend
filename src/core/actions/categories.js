@@ -1,7 +1,4 @@
-import {
-  CATEGORIES_FETCH,
-  CATEGORIES_LOAD,
-} from 'core/constants';
+import { CATEGORIES_FETCH, CATEGORIES_LOAD } from 'core/constants';
 
 export function categoriesFetch({ errorHandlerId } = {}) {
   if (!errorHandlerId) {

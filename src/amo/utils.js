@@ -4,7 +4,6 @@ import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 
-
 export function getErrorComponent(status) {
   switch (status) {
     case 401:
@@ -27,6 +26,7 @@ export function getErrorComponent(status) {
 export function getDjangoBase62() {
   // This is the alphabet used by Django.
   base62.setCharacterSet(
-    '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+    '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  );
   return base62;
 }

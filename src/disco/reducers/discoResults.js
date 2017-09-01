@@ -6,7 +6,7 @@ export default function discoResults(state = [], { type, payload }) {
       const { entities, result } = payload;
       // The API schema that complicates result.results can be found
       // in disco/api.js
-      return result.results.map((guid) => entities.discoResults[guid]);
+      return result.results.map(guid => entities.discoResults[guid]);
     }
     default:
       return state;

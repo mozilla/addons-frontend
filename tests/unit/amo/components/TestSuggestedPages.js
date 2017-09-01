@@ -11,17 +11,21 @@ import createStore from 'amo/store';
 import I18nProvider from 'core/i18n/Provider';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('<SuggestedPages />', () => {
   function render({ ...props }) {
     const { store } = createStore();
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <SuggestedPages {...props} />
-        </I18nProvider>
-      </Provider>
-    ), SuggestedPages));
+    return findDOMNode(
+      findRenderedComponentWithType(
+        renderIntoDocument(
+          <Provider store={store}>
+            <I18nProvider i18n={getFakeI18nInst()}>
+              <SuggestedPages {...props} />
+            </I18nProvider>
+          </Provider>
+        ),
+        SuggestedPages
+      )
+    );
   }
 
   it('renders Suggested Pages', () => {

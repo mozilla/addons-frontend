@@ -11,7 +11,6 @@ import log from 'core/logger';
 import type { ApiStateType } from 'core/reducers/api';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
-
 export type SearchParams = {|
   api: ApiStateType,
   auth: boolean,
@@ -21,7 +20,7 @@ export type SearchParams = {|
     addonType?: string,
     clientApp?: string,
     category?: string,
-    compatibleWithVersion?: number|string,
+    compatibleWithVersion?: number | string,
     operatingSystem?: string,
     page?: number,
     page_size?: number,
@@ -30,13 +29,16 @@ export type SearchParams = {|
   |},
 |};
 
-export default function search(
-  { api, auth = false, filters = {} }: SearchParams
-) {
+export default function search({
+  api,
+  auth = false,
+  filters = {},
+}: SearchParams) {
   const _filters = { ...filters };
   if (!_filters.clientApp && api.clientApp) {
     log.debug(
-      `No clientApp found in filters; using api.clientApp (${api.clientApp})`);
+      `No clientApp found in filters; using api.clientApp (${api.clientApp})`
+    );
     _filters.clientApp = api.clientApp;
   }
   // TODO: This loads Firefox personas (lightweight themes) for Android

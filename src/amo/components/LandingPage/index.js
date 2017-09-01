@@ -29,7 +29,6 @@ import Icon from 'ui/components/Icon/index';
 
 import './styles.scss';
 
-
 const ICON_MAP = {
   [ADDON_TYPE_EXTENSION]: 'multitasking-octopus',
   [ADDON_TYPE_THEME]: 'artistic-unicorn',
@@ -49,7 +48,7 @@ export class LandingPageBase extends React.Component {
       visibleAddonType: PropTypes.string.isRequired,
     }).isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-  }
+  };
 
   componentWillMount() {
     const { params } = this.props;
@@ -87,12 +86,17 @@ export class LandingPageBase extends React.Component {
 
     const requestedAddonType = apiAddonType(params.visibleAddonType);
 
-    if (!loading && !errorHandler.hasError() &&
-        (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
-      dispatch(getLanding({
-        addonType: requestedAddonType,
-        errorHandlerId: errorHandler.id,
-      }));
+    if (
+      !loading &&
+      !errorHandler.hasError() &&
+      (!resultsLoaded || addonTypeOfResults !== requestedAddonType)
+    ) {
+      dispatch(
+        getLanding({
+          addonType: requestedAddonType,
+          errorHandlerId: errorHandler.id,
+        })
+      );
     }
   }
 
@@ -102,7 +106,7 @@ export class LandingPageBase extends React.Component {
     dispatch(setViewContext(addonType));
   }
 
-  contentForType = (visibleAddonType) => {
+  contentForType = visibleAddonType => {
     const { i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
 
@@ -151,14 +155,14 @@ export class LandingPageBase extends React.Component {
     };
 
     return { addonType, html: contentForTypes[addonType] };
-  }
+  };
 
   icon(addonType) {
     return (
       <Icon
         className={classNames(
           'LandingPage-icon',
-          `LandingPage-icon--${addonType}`,
+          `LandingPage-icon--${addonType}`
         )}
         name={ICON_MAP[addonType]}
       />
@@ -265,5 +269,5 @@ export function mapStateToProps(state) {
 export default compose(
   withErrorHandler({ name: 'LandingPage' }),
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate({ withRef: true })
 )(LandingPageBase);

@@ -18,8 +18,11 @@ export const paramsToFilter = {
 // our filter keys and back again.
 export function convertFiltersToQueryParams(filters) {
   return Object.keys(paramsToFilter).reduce((object, key) => {
-    if (filters && typeof filters[paramsToFilter[key]] !== 'undefined' &&
-      filters[paramsToFilter[key]] !== '') {
+    if (
+      filters &&
+      typeof filters[paramsToFilter[key]] !== 'undefined' &&
+      filters[paramsToFilter[key]] !== ''
+    ) {
       return { ...object, [key]: filters[paramsToFilter[key]] };
     }
     return object;

@@ -36,7 +36,6 @@ import {
 
 import 'disco/css/Addon.scss';
 
-
 export class AddonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
@@ -59,7 +58,7 @@ export class AddonBase extends React.Component {
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     _tracking: PropTypes.object,
-  }
+  };
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
@@ -67,35 +66,39 @@ export class AddonBase extends React.Component {
     // Defaults themeAction to the imported func.
     themeAction,
     _tracking: tracking,
-  }
+  };
 
   getError() {
     const { error, i18n, status } = this.props;
-    return status === ERROR ? (<div className="notification error" key="error-overlay">
-      <p className="message">{this.errorMessage()}</p>
-      {error && !error.startsWith('FATAL') ? (
-        // eslint-disable-next-line jsx-a11y/href-no-hash
-        <a
-          className="close"
-          href="#"
-          onClick={this.closeError}
-        >
-          {i18n.gettext('Close')}
-        </a>
-      ) : null}
-    </div>) : null;
+    return status === ERROR ? (
+      <div className="notification error" key="error-overlay">
+        <p className="message">{this.errorMessage()}</p>
+        {error && !error.startsWith('FATAL') ? (
+          // eslint-disable-next-line jsx-a11y/href-no-hash
+          <a className="close" href="#" onClick={this.closeError}>
+            {i18n.gettext('Close')}
+          </a>
+        ) : null}
+      </div>
+    ) : null;
   }
 
   getRestart() {
-    return this.props.needsRestart ? (<div className="notification restart" key="restart-overlay">
-      <p className="message">{this.restartMessage()}</p>
-    </div>) : null;
+    return this.props.needsRestart ? (
+      <div className="notification restart" key="restart-overlay">
+        <p className="message">{this.restartMessage()}</p>
+      </div>
+    ) : null;
   }
 
   getLogo() {
     const { iconUrl } = this.props;
     if (this.props.type === ADDON_TYPE_EXTENSION) {
-      return <div className="logo"><img src={iconUrl} alt="" /></div>;
+      return (
+        <div className="logo">
+          <img src={iconUrl} alt="" />
+        </div>
+      );
     }
     return null;
   }
@@ -119,7 +122,10 @@ export class AddonBase extends React.Component {
           >
             <img
               src={previewURL}
-              alt={sprintf(i18n.gettext('Hover to preview or click to install %(name)s'), { name })}
+              alt={sprintf(
+                i18n.gettext('Hover to preview or click to install %(name)s'),
+                { name }
+              )}
             />
           </a>
         </HoverIntent>
@@ -141,18 +147,19 @@ export class AddonBase extends React.Component {
     return (
       <div
         className="editorial-description"
-        dangerouslySetInnerHTML={
-          sanitizeHTML(description, ['blockquote', 'cite'])
-        }
+        dangerouslySetInnerHTML={sanitizeHTML(description, [
+          'blockquote',
+          'cite',
+        ])}
       />
     );
   }
 
-  installTheme = (event) => {
+  installTheme = event => {
     event.preventDefault();
     const { addon, installTheme } = this.props;
     installTheme(event.currentTarget, addon);
-  }
+  };
 
   errorMessage() {
     const { error, i18n } = this.props;
@@ -162,9 +169,13 @@ export class AddonBase extends React.Component {
       case DOWNLOAD_FAILED:
         return i18n.gettext('Download failed. Please check your connection.');
       case FATAL_INSTALL_ERROR:
-        return i18n.gettext('An unexpected error occurred during installation.');
+        return i18n.gettext(
+          'An unexpected error occurred during installation.'
+        );
       case FATAL_UNINSTALL_ERROR:
-        return i18n.gettext('An unexpected error occurred during uninstallation.');
+        return i18n.gettext(
+          'An unexpected error occurred during uninstallation.'
+        );
       case FATAL_ERROR:
       default:
         return i18n.gettext('An unexpected error occurred.');
@@ -175,18 +186,20 @@ export class AddonBase extends React.Component {
     const { status, i18n } = this.props;
     switch (status) {
       case UNINSTALLING:
-        return i18n.gettext('This add-on will be uninstalled after you restart Firefox.');
+        return i18n.gettext(
+          'This add-on will be uninstalled after you restart Firefox.'
+        );
       default:
         return i18n.gettext('Please restart Firefox to use this add-on.');
     }
   }
 
-  closeError = (e) => {
+  closeError = e => {
     e.preventDefault();
     this.props.setCurrentStatus();
-  }
+  };
 
-  clickHeadingLink = (e) => {
+  clickHeadingLink = e => {
     const { type, name, _tracking } = this.props;
 
     if (e.target.nodeName.toLowerCase() === 'a') {
@@ -196,15 +209,15 @@ export class AddonBase extends React.Component {
         label: name,
       });
     }
-  }
+  };
 
-  previewTheme = (e) => {
+  previewTheme = e => {
     this.props.previewTheme(e.currentTarget);
-  }
+  };
 
-  resetThemePreview = (e) => {
+  resetThemePreview = e => {
     this.props.resetThemePreview(e.currentTarget);
-  }
+  };
 
   render() {
     const {
@@ -226,7 +239,10 @@ export class AddonBase extends React.Component {
     });
 
     const { compatible, minVersion, reason } = getClientCompatibility({
-      addon, clientApp, userAgentInfo });
+      addon,
+      clientApp,
+      userAgentInfo,
+    });
 
     return (
       // Disabling this is fine since the onClick is just being used to delegate
@@ -259,10 +275,7 @@ export class AddonBase extends React.Component {
           />
         </div>
         {!compatible ? (
-          <AddonCompatibilityError
-            minVersion={minVersion}
-            reason={reason}
-          />
+          <AddonCompatibilityError minVersion={minVersion} reason={reason} />
         ) : null}
       </div>
     );
@@ -284,5 +297,5 @@ export function mapStateToProps(state, ownProps) {
 export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
-  withInstallHelpers({ src: 'discovery-promo' }),
+  withInstallHelpers({ src: 'discovery-promo' })
 )(AddonBase);

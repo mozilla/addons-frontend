@@ -39,7 +39,7 @@ type LoadSavedReviewFunc = ({|
   versionId: $PropertyType<GetLatestReviewParams, 'version'>,
 |}) => Promise<any>;
 
-type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
+type SubmitReviewFunc = SubmitReviewParams => Promise<void>;
 
 type RatingManagerProps = {|
   AddonReview: typeof DefaultAddonReview,
@@ -66,7 +66,7 @@ export class RatingManagerBase extends React.Component {
     AddonReview: DefaultAddonReview,
     AuthenticateButton: DefaultAuthenticateButton,
     Rating: DefaultRating,
-  }
+  };
 
   constructor(props: RatingManagerProps) {
     super(props);
@@ -74,7 +74,12 @@ export class RatingManagerBase extends React.Component {
     this.state = { showTextEntry: false };
     if (userId) {
       log.info(`loading a saved rating (if it exists) for user ${userId}`);
-      loadSavedReview({ apiState, userId, addonId: addon.id, versionId: version.id });
+      loadSavedReview({
+        apiState,
+        userId,
+        addonId: addon.id,
+        versionId: version.id,
+      });
     }
   }
 
@@ -94,7 +99,8 @@ export class RatingManagerBase extends React.Component {
       log.info(`Editing reviewId ${userReview.id}`);
       if (userReview.versionId === params.versionId) {
         log.info(
-          `Updating reviewId ${userReview.id} for versionId ${params.versionId}`);
+          `Updating reviewId ${userReview.id} for versionId ${params.versionId}`
+        );
         params.reviewId = userReview.id;
       } else {
         // Since we have a version mismatch, submit the review against the
@@ -105,11 +111,10 @@ export class RatingManagerBase extends React.Component {
     } else {
       log.info(`Submitting a new review for versionId ${params.versionId}`);
     }
-    return this.props.submitReview(params)
-      .then(() => {
-        this.setState({ showTextEntry: true });
-      });
-  }
+    return this.props.submitReview(params).then(() => {
+      this.setState({ showTextEntry: true });
+    });
+  };
 
   getLogInPrompt(
     { addonType }: {| addonType: string |},
@@ -161,7 +166,8 @@ export class RatingManagerBase extends React.Component {
 
     const prompt = i18n.sprintf(
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
-      { addonName: addon.name });
+      { addonName: addon.name }
+    );
 
     const onReviewSubmitted = () => {
       this.setState({ showTextEntry: false });
@@ -169,15 +175,19 @@ export class RatingManagerBase extends React.Component {
 
     return (
       <div className="RatingManager">
-        {showTextEntry && isLoggedIn ?
+        {showTextEntry && isLoggedIn ? (
           <AddonReview
             onReviewSubmitted={onReviewSubmitted}
             review={userReview}
-          /> : null
-        }
+          />
+        ) : null}
         <form action="">
           <fieldset>
-            <legend ref={(ref) => { this.ratingLegend = ref; }}>
+            <legend
+              ref={ref => {
+                this.ratingLegend = ref;
+              }}
+            >
               {prompt}
             </legend>
             {!isLoggedIn ? this.renderLogInToRate() : null}
@@ -195,7 +205,8 @@ export class RatingManagerBase extends React.Component {
 
 // TODO: when all state types are exported, define `state`.
 export const mapStateToProps = (
-  state: Object, ownProps: RatingManagerProps
+  state: Object,
+  ownProps: RatingManagerProps
 ) => {
   const userId = state.user.id;
   let userReview;
@@ -208,12 +219,15 @@ export const mapStateToProps = (
     const allUserReviews = state.reviews[userId] || {};
     const addonReviews = allUserReviews[ownProps.addon.id] || {};
     const latestId = Object.keys(addonReviews).find(
-      (reviewId) => addonReviews[reviewId].isLatest);
+      reviewId => addonReviews[reviewId].isLatest
+    );
 
     if (latestId) {
       userReview = addonReviews[latestId];
-      log.info('Found the latest review in state for this component',
-        userReview);
+      log.info(
+        'Found the latest review in state for this component',
+        userReview
+      );
     }
   }
 
@@ -227,36 +241,38 @@ export const mapStateToProps = (
 type DispatchMappedProps = {|
   loadSavedReview: LoadSavedReviewFunc,
   submitReview: SubmitReviewFunc,
-|}
+|};
 
 export const mapDispatchToProps = (
   dispatch: DispatchFunc
 ): DispatchMappedProps => ({
-
   loadSavedReview({ apiState, userId, addonId, versionId }) {
     return getLatestUserReview({
-      apiState, user: userId, addon: addonId, version: versionId,
-    })
-      .then((review) => {
-        if (review) {
-          dispatch(setReview(review));
-        } else {
-          log.info(
-            `No saved review found for userId ${userId}, addonId ${addonId}`);
-        }
-      });
+      apiState,
+      user: userId,
+      addon: addonId,
+      version: versionId,
+    }).then(review => {
+      if (review) {
+        dispatch(setReview(review));
+      } else {
+        log.info(
+          `No saved review found for userId ${userId}, addonId ${addonId}`
+        );
+      }
+    });
   },
 
   submitReview(params) {
-    return submitReview(params).then((review) => dispatch(setReview(review)));
+    return submitReview(params).then(review => dispatch(setReview(review)));
   },
 });
 
-export const RatingManagerWithI18n = compose(
-  translate({ withRef: true }),
-)(RatingManagerBase);
+export const RatingManagerWithI18n = compose(translate({ withRef: true }))(
+  RatingManagerBase
+);
 
 export default compose(
   withRenderedErrorHandler({ name: 'RatingManager' }),
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps, mapDispatchToProps)
 )(RatingManagerWithI18n);

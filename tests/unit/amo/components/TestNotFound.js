@@ -13,7 +13,6 @@ import I18nProvider from 'core/i18n/Provider';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('<NotFound />', () => {
   function render({ ...props }) {
     const { store } = dispatchSignInActions();
@@ -23,13 +22,18 @@ describe('<NotFound />', () => {
     });
     store.dispatch(loadFail('ReduxKey', error));
 
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <NotFound {...props} />
-        </I18nProvider>
-      </Provider>
-    ), NotFound));
+    return findDOMNode(
+      findRenderedComponentWithType(
+        renderIntoDocument(
+          <Provider store={store}>
+            <I18nProvider i18n={getFakeI18nInst()}>
+              <NotFound {...props} />
+            </I18nProvider>
+          </Provider>
+        ),
+        NotFound
+      )
+    );
   }
 
   it('renders a not found error', () => {

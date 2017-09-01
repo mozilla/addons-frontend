@@ -15,7 +15,8 @@ import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
 import { ErrorHandler } from 'core/errorHandler';
 
-export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
+export const sampleUserAgent =
+  'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
 
 /*
@@ -24,7 +25,7 @@ export const sampleUserAgentParsed = UAParser(sampleUserAgent);
  */
 export function userAuthToken(
   dataOverrides = {},
-  { tokenCreatedAt = (Date.now() / 1000).toFixed(0), tokenData } = {},
+  { tokenCreatedAt = (Date.now() / 1000).toFixed(0), tokenData } = {}
 ) {
   const data = {
     user_id: 102345,
@@ -49,8 +50,9 @@ const enabledExtension = Promise.resolve({
   type: ADDON_TYPE_EXTENSION,
 });
 
-export function getFakeAddonManagerWrapper({
-  getAddon = enabledExtension, permissionPromptsEnabled = true } = {}) {
+export function getFakeAddonManagerWrapper(
+  { getAddon = enabledExtension, permissionPromptsEnabled = true } = {}
+) {
   return {
     addChangeListeners: sinon.stub(),
     enable: sinon.stub().returns(Promise.resolve()),
@@ -173,9 +175,9 @@ export const userAgents = {
   ],
 };
 
-export function apiResponsePage({
-  count, next, previous, pageSize = 25, results = [],
-} = {}) {
+export function apiResponsePage(
+  { count, next, previous, pageSize = 25, results = [] } = {}
+) {
   return Promise.resolve({
     count: typeof count !== 'undefined' ? count : results.length,
     next,
@@ -204,11 +206,11 @@ export function createFetchAddonResult(addon) {
  * The `TargetComponent` parameter is the React class (or function) that
  * you want to retrieve from the component tree.
  */
-export function shallowUntilTarget(componentInstance, TargetComponent, {
-  maxTries = 10,
-  shallowOptions,
-  _shallow = shallow,
-} = {}) {
+export function shallowUntilTarget(
+  componentInstance,
+  TargetComponent,
+  { maxTries = 10, shallowOptions, _shallow = shallow } = {}
+) {
   if (!componentInstance) {
     throw new Error('componentInstance parameter is required');
   }
@@ -221,8 +223,7 @@ export function shallowUntilTarget(componentInstance, TargetComponent, {
   if (typeof root.type() === 'string') {
     // If type() is a string then it's a DOM Node.
     // If it were wrapped, it would be a React component.
-    throw new Error(
-      'Cannot unwrap this component because it is not wrapped');
+    throw new Error('Cannot unwrap this component because it is not wrapped');
   }
 
   for (let tries = 1; tries <= maxTries; tries++) {
@@ -235,8 +236,7 @@ export function shallowUntilTarget(componentInstance, TargetComponent, {
   }
 
   throw new Error(oneLine`Could not find ${TargetComponent} in rendered
-    instance: ${componentInstance}; gave up after ${maxTries} tries`
-  );
+    instance: ${componentInstance}; gave up after ${maxTries} tries`);
 }
 
 export function createFakeEvent(extraProps = {}) {
@@ -259,15 +259,15 @@ export function generateHeaders(
   headerData = { 'Content-Type': 'application/json' }
 ) {
   const response = new Response();
-  Object.keys(headerData).forEach((key) => (
+  Object.keys(headerData).forEach(key =>
     response.headers.append(key, headerData[key])
-  ));
+  );
   return response.headers;
 }
 
-export function createApiResponse({
-  ok = true, jsonData = {}, ...responseProps
-} = {}) {
+export function createApiResponse(
+  { ok = true, jsonData = {}, ...responseProps } = {}
+) {
   const response = {
     ok,
     headers: generateHeaders(),
@@ -277,7 +277,9 @@ export function createApiResponse({
   return Promise.resolve(response);
 }
 
-export function createUserProfileResponse({ id = 123456, username = 'user-1234' } = {}) {
+export function createUserProfileResponse(
+  { id = 123456, username = 'user-1234' } = {}
+) {
   return {
     average_addon_rating: null,
     biography: '',

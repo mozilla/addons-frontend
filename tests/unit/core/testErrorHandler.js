@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
-import { findRenderedComponentWithType, renderIntoDocument }
-  from 'react-addons-test-utils';
+import {
+  findRenderedComponentWithType,
+  renderIntoDocument,
+} from 'react-addons-test-utils';
 import { createStore, combineReducers } from 'redux';
 import { shallow } from 'enzyme';
 
@@ -11,8 +13,11 @@ import { createApiError } from 'core/api/index';
 import { ERROR_UNKNOWN } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
-import { ErrorHandler, withErrorHandler, withRenderedErrorHandler }
-  from 'core/errorHandler';
+import {
+  ErrorHandler,
+  withErrorHandler,
+  withRenderedErrorHandler,
+} from 'core/errorHandler';
 import errors from 'core/reducers/errors';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 import { createFakeApiError } from 'tests/unit/core/reducers/test_errors';
@@ -22,7 +27,7 @@ class SomeComponentBase extends React.Component {
   static propTypes = {
     // eslint-disable-next-line react/no-unused-prop-types
     errorHandler: PropTypes.object,
-  }
+  };
   render() {
     return <div className="SomeComponent">Component text</div>;
   }
@@ -32,13 +37,20 @@ function createErrorStore() {
   return createStore(combineReducers({ errors }));
 }
 
-function createWrappedComponent({
-  id, store = createErrorStore(), decorator = withErrorHandler,
-  customProps = {}, ...options
-} = {}) {
+function createWrappedComponent(
+  {
+    id,
+    store = createErrorStore(),
+    decorator = withErrorHandler,
+    customProps = {},
+    ...options
+  } = {}
+) {
   const SomeComponent = translate({ withRef: true })(SomeComponentBase);
   const ComponentWithErrorHandling = decorator({
-    id, name: 'SomeComponent', ...options,
+    id,
+    name: 'SomeComponent',
+    ...options,
   })(SomeComponent);
 
   const tree = renderIntoDocument(
@@ -63,13 +75,16 @@ describe('errorHandler', () => {
     it('creates a unique handler ID per wrapped component', () => {
       const { component: component1 } = createWrappedComponent();
       const { component: component2 } = createWrappedComponent();
-      expect(component1.props.errorHandler.id).not.toEqual(component2.props.errorHandler.id);
+      expect(component1.props.errorHandler.id).not.toEqual(
+        component2.props.errorHandler.id
+      );
     });
 
     it('creates a unique handler ID per component instance', () => {
       const SomeComponent = translate({ withRef: true })(SomeComponentBase);
-      const ComponentWithErrorHandling =
-        withErrorHandler({ name: 'SomeComponent' })(SomeComponent);
+      const ComponentWithErrorHandling = withErrorHandler({
+        name: 'SomeComponent',
+      })(SomeComponent);
 
       const getRenderedComponent = () => {
         const provider = renderIntoDocument(
@@ -81,7 +96,9 @@ describe('errorHandler', () => {
       const component1 = getRenderedComponent();
       const component2 = getRenderedComponent();
 
-      expect(component1.props.errorHandler.id).not.toEqual(component2.props.errorHandler.id);
+      expect(component1.props.errorHandler.id).not.toEqual(
+        component2.props.errorHandler.id
+      );
     });
 
     it('allows you to set a custom error handler', () => {
@@ -126,7 +143,9 @@ describe('errorHandler', () => {
       errorHandler.handle(error);
 
       expect(store.dispatch.called).toBeTruthy();
-      expect(store.dispatch.firstCall.args[0]).toEqual(setError({ id: errorHandler.id, error }));
+      expect(store.dispatch.firstCall.args[0]).toEqual(
+        setError({ id: errorHandler.id, error })
+      );
     });
 
     it('passes through wrapped component properties', () => {
@@ -146,14 +165,18 @@ describe('errorHandler', () => {
       store.dispatch(setError({ id, error: new Error() }));
 
       const { dom, tree } = createWrappedComponent({
-        store, id, decorator: withRenderedErrorHandler,
+        store,
+        id,
+        decorator: withRenderedErrorHandler,
       });
       const errorList = findRenderedComponentWithType(tree, ErrorList);
       expect(errorList.props.code).toEqual(ERROR_UNKNOWN);
       expect(errorList.props.messages).toEqual([]);
 
       // It also renders component content:
-      expect(dom.querySelector('.SomeComponent').textContent).toEqual('Component text');
+      expect(dom.querySelector('.SomeComponent').textContent).toEqual(
+        'Component text'
+      );
     });
 
     it('passes a nested API response object', () => {
@@ -171,7 +194,9 @@ describe('errorHandler', () => {
       store.dispatch(setError({ id, error }));
 
       const { tree } = createWrappedComponent({
-        store, id, decorator: withRenderedErrorHandler,
+        store,
+        id,
+        decorator: withRenderedErrorHandler,
       });
       const errorList = findRenderedComponentWithType(tree, ErrorList);
       expect(errorList.props.messages).toEqual([nestedMessage]);
@@ -181,8 +206,9 @@ describe('errorHandler', () => {
       const { dom, tree } = createWrappedComponent({
         decorator: withRenderedErrorHandler,
       });
-      expect(() => findRenderedComponentWithType(tree, ErrorList))
-        .toThrowError(/Did not find exactly one match/);
+      expect(() => findRenderedComponentWithType(tree, ErrorList)).toThrowError(
+        /Did not find exactly one match/
+      );
       expect(dom.textContent).toEqual('Component text');
     });
 
@@ -196,7 +222,9 @@ describe('errorHandler', () => {
       store.dispatch(setError({ id, error }));
 
       const { tree } = createWrappedComponent({
-        store, id, decorator: withRenderedErrorHandler,
+        store,
+        id,
+        decorator: withRenderedErrorHandler,
       });
 
       const errorList = findRenderedComponentWithType(tree, ErrorList);
@@ -211,23 +239,32 @@ describe('errorHandler', () => {
       store.dispatch(clearError(id));
 
       const { tree } = createWrappedComponent({
-        store, id, decorator: withRenderedErrorHandler,
+        store,
+        id,
+        decorator: withRenderedErrorHandler,
       });
-      expect(() => findRenderedComponentWithType(tree, ErrorList))
-        .toThrowError(/Did not find exactly one match/);
+      expect(() => findRenderedComponentWithType(tree, ErrorList)).toThrowError(
+        /Did not find exactly one match/
+      );
     });
 
     it('ignores errors sent by other error handlers', () => {
       const store = createErrorStore();
-      store.dispatch(setError({
-        id: 'another-handler-id', error: new Error(),
-      }));
+      store.dispatch(
+        setError({
+          id: 'another-handler-id',
+          error: new Error(),
+        })
+      );
 
       const { tree } = createWrappedComponent({
-        store, id: 'this-handler-id', decorator: withRenderedErrorHandler,
+        store,
+        id: 'this-handler-id',
+        decorator: withRenderedErrorHandler,
       });
-      expect(() => findRenderedComponentWithType(tree, ErrorList))
-        .toThrowError(/Did not find exactly one match/);
+      expect(() => findRenderedComponentWithType(tree, ErrorList)).toThrowError(
+        /Did not find exactly one match/
+      );
     });
 
     it('passes through wrapped component properties without an error', () => {
@@ -280,7 +317,8 @@ describe('errorHandler', () => {
 
     beforeEach(() => {
       errorHandler = new ErrorHandler({
-        id: 'some-handler', dispatch: sinon.stub(),
+        id: 'some-handler',
+        dispatch: sinon.stub(),
       });
     });
 
@@ -288,33 +326,38 @@ describe('errorHandler', () => {
       const error = new Error();
       errorHandler.handle(error);
       expect(errorHandler.dispatch.called).toBeTruthy();
-      expect(errorHandler.dispatch.firstCall.args[0])
-        .toEqual(setError({ id: errorHandler.id, error }));
+      expect(errorHandler.dispatch.firstCall.args[0]).toEqual(
+        setError({ id: errorHandler.id, error })
+      );
     });
 
     it('requires a dispatch function to handle an error', () => {
       const handler = new ErrorHandler({ id: 'some-id' });
       const error = new Error();
-      expect(() => handler.handle(error))
-        .toThrow(/dispatch function has not been configured/);
+      expect(() => handler.handle(error)).toThrow(
+        /dispatch function has not been configured/
+      );
     });
 
     it('lets you create an error action', () => {
       const error = new Error();
-      expect(errorHandler.createErrorAction(error))
-        .toEqual(setError({ id: errorHandler.id, error }));
+      expect(errorHandler.createErrorAction(error)).toEqual(
+        setError({ id: errorHandler.id, error })
+      );
     });
 
     it('clears an error', () => {
       errorHandler.clear();
       expect(errorHandler.dispatch.called).toBeTruthy();
-      expect(errorHandler.dispatch.firstCall.args[0])
-        .toEqual(clearError(errorHandler.id));
+      expect(errorHandler.dispatch.firstCall.args[0]).toEqual(
+        clearError(errorHandler.id)
+      );
     });
 
     it('lets you create an error clearing action', () => {
-      expect(errorHandler.createClearingAction())
-        .toEqual(clearError(errorHandler.id));
+      expect(errorHandler.createClearingAction()).toEqual(
+        clearError(errorHandler.id)
+      );
     });
 
     it('tells you if it has an error', () => {
@@ -351,7 +394,9 @@ describe('errorHandler', () => {
     });
 
     it('returns a component if it has an error', () => {
-      const handler = new ErrorHandler({ capturedError: new Error('error message') });
+      const handler = new ErrorHandler({
+        capturedError: new Error('error message'),
+      });
       const wrapper = shallow(<div>{handler.renderErrorIfPresent()}</div>);
       expect(handler.renderErrorIfPresent()).not.toBe(null);
       expect(wrapper.find(ErrorList)).toHaveLength(1);

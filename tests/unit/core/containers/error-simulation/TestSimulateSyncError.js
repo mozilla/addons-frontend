@@ -1,8 +1,7 @@
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 
-import { SimulateSyncErrorBase } from
-  'core/containers/error-simulation/SimulateSyncError';
+import { SimulateSyncErrorBase } from 'core/containers/error-simulation/SimulateSyncError';
 
 describe('SimulateSyncError', () => {
   function render(props = {}) {

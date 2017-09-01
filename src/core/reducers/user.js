@@ -1,7 +1,6 @@
 /* @flow */
 import { LOG_OUT_USER } from 'core/constants';
 
-
 const LOAD_USER_PROFILE = 'LOAD_USER_PROFILE';
 
 type Action = Object;

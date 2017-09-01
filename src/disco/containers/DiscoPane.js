@@ -13,16 +13,12 @@ import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
-import {
-  NAVIGATION_CATEGORY,
-  VIDEO_CATEGORY,
-} from 'disco/constants';
+import { NAVIGATION_CATEGORY, VIDEO_CATEGORY } from 'disco/constants';
 import { getDiscoResults } from 'disco/actions';
 import Addon from 'disco/components/Addon';
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
-
 
 export class DiscoPaneBase extends React.Component {
   static propTypes = {
@@ -36,7 +32,7 @@ export class DiscoPaneBase extends React.Component {
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
     _video: PropTypes.object,
-  }
+  };
 
   static defaultProps = {
     AddonComponent: Addon,
@@ -44,7 +40,7 @@ export class DiscoPaneBase extends React.Component {
     _addChangeListeners: addChangeListeners,
     _tracking: tracking,
     _video: null,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -57,12 +53,16 @@ export class DiscoPaneBase extends React.Component {
   }
 
   componentDidMount() {
-    const { _addChangeListeners, handleGlobalEvent, mozAddonManager } = this.props;
+    const {
+      _addChangeListeners,
+      handleGlobalEvent,
+      mozAddonManager,
+    } = this.props;
     // Use addonManager.addChangeListener to setup and filter events.
     _addChangeListeners(handleGlobalEvent, mozAddonManager);
   }
 
-  showVideo = (e) => {
+  showVideo = e => {
     const { _tracking } = this.props;
     const _video = this.props._video || this.video;
 
@@ -73,9 +73,9 @@ export class DiscoPaneBase extends React.Component {
       action: 'play',
       category: VIDEO_CATEGORY,
     });
-  }
+  };
 
-  closeVideo = (e) => {
+  closeVideo = e => {
     const { _tracking } = this.props;
     const _video = this.props._video || this.video;
 
@@ -86,7 +86,7 @@ export class DiscoPaneBase extends React.Component {
       action: 'close',
       category: VIDEO_CATEGORY,
     });
-  }
+  };
 
   showMoreAddons = () => {
     const { _tracking } = this.props;
@@ -95,7 +95,7 @@ export class DiscoPaneBase extends React.Component {
       category: NAVIGATION_CATEGORY,
       label: 'See More Add-ons',
     });
-  }
+  };
 
   render() {
     // TODO: Add captions see https://github.com/mozilla/addons/issues/367
@@ -105,22 +105,33 @@ export class DiscoPaneBase extends React.Component {
     const { showVideo } = this.state;
 
     return (
-      <div id="app-view" ref={(ref) => { this.container = ref; }}>
+      <div
+        id="app-view"
+        ref={ref => {
+          this.container = ref;
+        }}
+      >
         {errorHandler.renderErrorIfPresent()}
         <header className={showVideo ? 'show-video' : ''}>
           <div className="disco-header">
             <div className="disco-content">
               <h1>{i18n.gettext('Personalize Your Firefox')}</h1>
-              <p>{i18n.gettext(`There are thousands of free add-ons, created by developers all over
+              <p>
+                {i18n.gettext(`There are thousands of free add-ons, created by developers all over
                     the world, that you can install to personalize your Firefox. From fun visual themes
                     to powerful tools that make browsing faster and safer, add-ons make your browser yours.
                     To help you get started, here are some we recommend for their stand-out performance
-                    and functionality.`)}</p>
+                    and functionality.`)}
+              </p>
             </div>
             <div className="video-wrapper">
               <a className="play-video" href="#play" onClick={this.showVideo}>
-                <span className="play-video-text">{i18n.gettext('Click to play')}</span>
-                <span className="visually-hidden">{i18n.gettext('to find out more about add-ons')}</span>
+                <span className="play-video-text">
+                  {i18n.gettext('Click to play')}
+                </span>
+                <span className="visually-hidden">
+                  {i18n.gettext('to find out more about add-ons')}
+                </span>
               </a>
               <video
                 poster={videoPoster}
@@ -128,18 +139,22 @@ export class DiscoPaneBase extends React.Component {
                 width="512"
                 height="288"
                 className="disco-video"
-                ref={(ref) => { this.video = ref; }}
+                ref={ref => {
+                  this.video = ref;
+                }}
               >
                 <source src={videoWebm} type="video/webm" />
                 <source src={videoMp4} type="video/mp4" />
               </video>
               <div className="close-video">
-                <a href="#close" onClick={this.closeVideo}>{i18n.gettext('Close video')}</a>
+                <a href="#close" onClick={this.closeVideo}>
+                  {i18n.gettext('Close video')}
+                </a>
               </div>
             </div>
           </div>
         </header>
-        {results.map((item) => (
+        {results.map(item => (
           <AddonComponent
             addon={item}
             {...camelCaseKeys(item)}
@@ -163,9 +178,10 @@ export class DiscoPaneBase extends React.Component {
 }
 
 export function loadedAddons(state) {
-  return state.discoResults.map(
-    (result) => ({ ...result, ...state.addons[result.addon] })
-  );
+  return state.discoResults.map(result => ({
+    ...result,
+    ...state.addons[result.addon],
+  }));
 }
 
 export function mapStateToProps(state) {
@@ -190,5 +206,5 @@ export function mapDispatchToProps(dispatch, { _config = config } = {}) {
 export default compose(
   withErrorHandler({ name: 'DiscoPane' }),
   connect(mapStateToProps, mapDispatchToProps),
-  translate(),
+  translate()
 )(DiscoPaneBase);

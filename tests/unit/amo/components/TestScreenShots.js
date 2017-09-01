@@ -56,10 +56,12 @@ describe('<ScreenShots />', () => {
   });
 
   it('scrolls to the active item on close', () => {
-    const onePixelImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
-    const newPreviews = previews.map((preview) => (
-      { ...preview, image_url: onePixelImage }
-    ));
+    const onePixelImage =
+      'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+    const newPreviews = previews.map(preview => ({
+      ...preview,
+      image_url: onePixelImage,
+    }));
     const root = renderIntoDocument(<ScreenShots previews={newPreviews} />);
     const item = { getBoundingClientRect: () => ({ x: 500 }) };
     const list = {

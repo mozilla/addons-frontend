@@ -15,12 +15,14 @@ const log = bunyan.createLogger({
 
 const proxy = httpProxy.createProxyServer();
 const apiHost = config.get('proxyApiHost', null) || config.get('apiHost');
-const frontendHost = `http://${config.get('serverHost')}:${config.get('serverPort')}`;
+const frontendHost = `http://${config.get('serverHost')}:${config.get(
+  'serverPort'
+)}`;
 
 log.info(`apiHost: ${apiHost}`);
 log.info(`frontendHost: ${frontendHost}`);
 
-const array = (value) => {
+const array = value => {
   if (!value) {
     return [];
   } else if (Array.isArray(value)) {
@@ -32,7 +34,7 @@ const array = (value) => {
 function unsecureCookie(req, res, proxyRes) {
   const proxyCookies = array(proxyRes.headers['set-cookie']);
   // eslint-disable-next-line no-param-reassign
-  proxyRes.headers['set-cookie'] = proxyCookies.map((rewrittenCookie) => {
+  proxyRes.headers['set-cookie'] = proxyCookies.map(rewrittenCookie => {
     if (!req.connection.encrypted) {
       return rewrittenCookie.replace(/;\s*?(Secure)/i, '');
     }
@@ -41,7 +43,8 @@ function unsecureCookie(req, res, proxyRes) {
 }
 
 function getHost(req) {
-  const useDesktop = req.headers.cookie && cookie.parse(req.headers.cookie).mamo === 'off';
+  const useDesktop =
+    req.headers.cookie && cookie.parse(req.headers.cookie).mamo === 'off';
   if (useDesktop || req.url.startsWith('/api/')) {
     return apiHost;
   }

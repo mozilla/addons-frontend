@@ -19,10 +19,12 @@ function render({ ...customProps } = {}) {
 describe('<AddonMeta>', () => {
   it('can render without an addon', () => {
     const root = render({ addon: null });
-    expect(root.find('.AddonMeta-user-count').find(LoadingText))
-      .toHaveLength(1);
-    expect(root.find('.AddonMeta-review-count').find(LoadingText))
-      .toHaveLength(1);
+    expect(root.find('.AddonMeta-user-count').find(LoadingText)).toHaveLength(
+      1
+    );
+    expect(root.find('.AddonMeta-review-count').find(LoadingText)).toHaveLength(
+      1
+    );
     expect(root.find(Rating).prop('rating')).toEqual(null);
   });
 

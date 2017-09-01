@@ -29,10 +29,16 @@ describe('<SearchInput />', () => {
     const addEventListener = sinon.stub(window, 'addEventListener');
     const removeEventListener = sinon.stub(window, 'removeEventListener');
     const root = renderIntoDocument(<SearchInput name="foo" />);
-    expect(addEventListener.calledWith('resize', root.setIconPosition)).toBeTruthy();
+    expect(
+      addEventListener.calledWith('resize', root.setIconPosition)
+    ).toBeTruthy();
     sinon.assert.notCalled(removeEventListener);
     root.componentWillUnmount();
-    sinon.assert.calledWith(removeEventListener, 'resize', root.setIconPosition);
+    sinon.assert.calledWith(
+      removeEventListener,
+      'resize',
+      root.setIconPosition
+    );
   });
 
   it('starts with the --text class with a value', () => {

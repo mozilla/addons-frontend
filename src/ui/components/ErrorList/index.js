@@ -11,7 +11,6 @@ import Button from 'ui/components/Button';
 
 import './styles.scss';
 
-
 class ErrorList extends React.Component {
   static propTypes = {
     _window: PropTypes.object,
@@ -19,7 +18,7 @@ class ErrorList extends React.Component {
     className: PropTypes.string,
     i18n: PropTypes.object.isRequired,
     messages: PropTypes.array.isRequired,
-  }
+  };
 
   static defaultProps = {
     _window: typeof window !== 'undefined' ? window : {},
@@ -29,7 +28,7 @@ class ErrorList extends React.Component {
     const { _window, code, className, i18n, messages } = this.props;
     const items = [];
 
-    messages.forEach((messageItem) => {
+    messages.forEach(messageItem => {
       let message = messageItem;
       if (typeof message === 'object') {
         // This handles an unlikely scenario where an API error response
@@ -65,13 +64,15 @@ class ErrorList extends React.Component {
 
     return (
       <ul className={classNames('ErrorList', className)}>
-        { // eslint-disable-next-line react/no-array-index-key
-          items.map((item, index) => <li className="ErrorList-item" key={`erroritem-${index}`}>{item}</li>)}
+        {items.map((item, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <li className="ErrorList-item" key={`erroritem-${index}`}>
+            {item}
+          </li>
+        ))}
       </ul>
     );
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(ErrorList);
+export default compose(translate({ withRef: true }))(ErrorList);

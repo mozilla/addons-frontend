@@ -14,23 +14,27 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type { FetchReviewsAction } from 'amo/actions/reviews';
 
-
-export function* fetchReviews(
-  {
-    payload: { errorHandlerId, addonSlug, page },
-  }: FetchReviewsAction
-): Generator<any, any, any> {
+export function* fetchReviews({
+  payload: { errorHandlerId, addonSlug, page },
+}: FetchReviewsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     yield put(showLoading());
     const state = yield select(getState);
     const response = yield call(getReviews, {
       // Hide star-only ratings (reviews that do not have a body).
-      api: state.api, addon: addonSlug, page, filter: 'without_empty_body',
+      api: state.api,
+      addon: addonSlug,
+      page,
+      filter: 'without_empty_body',
     });
-    yield put(setAddonReviews({
-      addonSlug, reviews: response.results, reviewCount: response.count,
-    }));
+    yield put(
+      setAddonReviews({
+        addonSlug,
+        reviews: response.results,
+        reviewCount: response.count,
+      })
+    );
   } catch (error) {
     log.warn(`Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

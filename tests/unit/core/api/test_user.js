@@ -6,7 +6,6 @@ import {
 } from 'tests/unit/helpers';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   let mockApi;
 
@@ -15,14 +14,16 @@ describe(__filename, () => {
   });
 
   describe('userProfile', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: createUserProfileResponse(),
-    });
+    const mockResponse = () =>
+      createApiResponse({
+        jsonData: createUserProfileResponse(),
+      });
 
     it('fetches the current user profile', () => {
       const state = dispatchClientMetadata().store.getState();
 
-      mockApi.expects('callApi')
+      mockApi
+        .expects('callApi')
         .withArgs({
           auth: true,
           endpoint: 'accounts/profile',
@@ -30,8 +31,7 @@ describe(__filename, () => {
         })
         .returns(mockResponse());
 
-      return userProfile({ api: state.api })
-        .then(() => mockApi.verify());
+      return userProfile({ api: state.api }).then(() => mockApi.verify());
     });
 
     it('throws an error if api state is missing', () => {

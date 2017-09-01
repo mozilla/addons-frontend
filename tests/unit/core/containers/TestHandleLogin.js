@@ -8,7 +8,8 @@ import cookie from 'react-cookie';
 import { createStore } from 'redux';
 
 import HandleLogin, {
-  HandleLoginBase, mapDispatchToProps,
+  HandleLoginBase,
+  mapDispatchToProps,
 } from 'core/containers/HandleLogin';
 import { setAuthToken } from 'core/actions';
 import * as api from 'core/api';
@@ -16,11 +17,13 @@ import { userAuthToken } from 'tests/unit/helpers';
 
 describe('<HandleLogin />', () => {
   function render(store, location, router) {
-    return findDOMNode(renderIntoDocument(
-      <Provider store={store}>
-        <HandleLogin location={location} router={router} />
-      </Provider>
-    ));
+    return findDOMNode(
+      renderIntoDocument(
+        <Provider store={store}>
+          <HandleLogin location={location} router={router} />
+        </Provider>
+      )
+    );
   }
 
   describe('while loading', () => {
@@ -76,7 +79,9 @@ describe('<HandleLogin />', () => {
 
     it('gives an error', () => {
       const root = render(store, location, router);
-      expect(root.querySelector('p').textContent).toEqual('There was an error logging you in, please try again.');
+      expect(root.querySelector('p').textContent).toEqual(
+        'There was an error logging you in, please try again.'
+      );
     });
 
     it('shows a login link', () => {
@@ -106,11 +111,14 @@ describe('<HandleLogin />', () => {
         data.state += `:${btoa(to).replace(/=/g, '')}`;
       }
       data.location = { query: { code: data.code, state: data.state } };
-      sinon.stub(api, 'login').withArgs({
-        api: data.apiConfig,
-        code: data.code,
-        state: data.state,
-      }).returns(Promise.resolve(data.payload));
+      sinon
+        .stub(api, 'login')
+        .withArgs({
+          api: data.apiConfig,
+          code: data.code,
+          state: data.state,
+        })
+        .returns(Promise.resolve(data.payload));
       return data;
     }
 
@@ -124,11 +132,23 @@ describe('<HandleLogin />', () => {
     });
 
     it('stores the token in a cookie', () => {
-      const { apiConfig, dispatch, location, payload: { token }, router } = setupData();
+      const {
+        apiConfig,
+        dispatch,
+        location,
+        payload: { token },
+        router,
+      } = setupData();
       const { loadData } = mapDispatchToProps(dispatch);
       const mockCookie = sinon.mock(cookie);
-      mockCookie.expects('save').once().withArgs(
-        'api_auth_token', token, { path: '/', secure: true, maxAge: 2592000 });
+      mockCookie
+        .expects('save')
+        .once()
+        .withArgs('api_auth_token', token, {
+          path: '/',
+          secure: true,
+          maxAge: 2592000,
+        });
       return loadData({ api: apiConfig, location, router }).then(() => {
         mockCookie.verify();
       });
@@ -149,7 +169,9 @@ describe('<HandleLogin />', () => {
     });
 
     it('redirects to the next path', () => {
-      const { apiConfig, dispatch, location, router } = setupData({ to: '/foo' });
+      const { apiConfig, dispatch, location, router } = setupData({
+        to: '/foo',
+      });
       const { loadData } = mapDispatchToProps(dispatch);
       const mockRouter = sinon.mock(router);
       mockRouter

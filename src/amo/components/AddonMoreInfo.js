@@ -9,12 +9,11 @@ import Card from 'ui/components/Card';
 
 import './AddonMoreInfo.scss';
 
-
 export class AddonMoreInfoBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { addon, i18n } = this.props;
@@ -22,17 +21,31 @@ export class AddonMoreInfoBase extends React.Component {
     let homepage = trimAndAddProtocolToUrl(addon.homepage);
     if (homepage) {
       homepage = (
-        <li><a href={homepage} ref={(ref) => { this.homepageLink = ref; }}>
-          {i18n.gettext('Homepage')}
-        </a></li>
+        <li>
+          <a
+            href={homepage}
+            ref={ref => {
+              this.homepageLink = ref;
+            }}
+          >
+            {i18n.gettext('Homepage')}
+          </a>
+        </li>
       );
     }
     let supportUrl = trimAndAddProtocolToUrl(addon.support_url);
     if (supportUrl) {
       supportUrl = (
-        <li><a href={supportUrl} ref={(ref) => { this.supportLink = ref; }}>
-          {i18n.gettext('Support Site')}
-        </a></li>
+        <li>
+          <a
+            href={supportUrl}
+            ref={ref => {
+              this.supportLink = ref;
+            }}
+          >
+            {i18n.gettext('Support Site')}
+          </a>
+        </li>
       );
     }
 
@@ -40,7 +53,11 @@ export class AddonMoreInfoBase extends React.Component {
       <Card className="AddonMoreInfo" header={i18n.gettext('More information')}>
         <dl className="AddonMoreInfo-contents">
           {homepage || supportUrl ? (
-            <dt ref={(ref) => { this.linkTitle = ref; }}>
+            <dt
+              ref={ref => {
+                this.linkTitle = ref;
+              }}
+            >
               {i18n.gettext('Add-on Links')}
             </dt>
           ) : null}
@@ -53,7 +70,11 @@ export class AddonMoreInfoBase extends React.Component {
             </dd>
           ) : null}
           <dt>{i18n.gettext('Version')}</dt>
-          <dd ref={(ref) => { this.version = ref; }}>
+          <dd
+            ref={ref => {
+              this.version = ref;
+            }}
+          >
             {addon.current_version.version}
           </dd>
           <dt>{i18n.gettext('Last updated')}</dt>
@@ -61,14 +82,19 @@ export class AddonMoreInfoBase extends React.Component {
             {i18n.sprintf(
               // L10n: This will output, in English:
               // "2 months ago (Dec 12 2016)"
-              i18n.gettext('%(timeFromNow)s (%(date)s)'), {
+              i18n.gettext('%(timeFromNow)s (%(date)s)'),
+              {
                 timeFromNow: i18n.moment(addon.last_updated).fromNow(),
                 date: i18n.moment(addon.last_updated).format('ll'),
               }
             )}
           </dd>
           {addon.current_version.license ? (
-            <dt ref={(ref) => { this.licenseHeader = ref; }}>
+            <dt
+              ref={ref => {
+                this.licenseHeader = ref;
+              }}
+            >
               {i18n.gettext('License')}
             </dt>
           ) : null}
@@ -76,9 +102,12 @@ export class AddonMoreInfoBase extends React.Component {
             <dd>
               <a
                 href={addon.current_version.license.url}
-                ref={(ref) => { this.licenseLink = ref; }}
+                ref={ref => {
+                  this.licenseLink = ref;
+                }}
               >
-                {addon.current_version.license.name}</a>
+                {addon.current_version.license.name}
+              </a>
             </dd>
           ) : null}
           {addon.has_privacy_policy ? (
@@ -88,7 +117,9 @@ export class AddonMoreInfoBase extends React.Component {
             <dd>
               <Link
                 href={`/addon/${addon.slug}/privacy/`}
-                ref={(ref) => { this.privacyPolicyLink = ref; }}
+                ref={ref => {
+                  this.privacyPolicyLink = ref;
+                }}
               >
                 {i18n.gettext('Read the privacy policy for this add-on')}
               </Link>
@@ -101,7 +132,9 @@ export class AddonMoreInfoBase extends React.Component {
             <dd>
               <Link
                 href={`/addon/${addon.slug}/eula/`}
-                ref={(ref) => { this.eulaLink = ref; }}
+                ref={ref => {
+                  this.eulaLink = ref;
+                }}
               >
                 {i18n.gettext('Read the license agreement for this add-on')}
               </Link>
@@ -113,6 +146,4 @@ export class AddonMoreInfoBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(AddonMoreInfoBase);
+export default compose(translate({ withRef: true }))(AddonMoreInfoBase);

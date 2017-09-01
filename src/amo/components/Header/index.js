@@ -13,7 +13,6 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-
 export class HeaderBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
@@ -21,12 +20,12 @@ export class HeaderBase extends React.Component {
     location: PropTypes.object.isRequired,
     SearchFormComponent: PropTypes.node.isRequired,
     query: PropTypes.string,
-  }
+  };
 
   static defaultPropTypes = {
     SearchFormComponent: SearchForm,
     isHomePage: false,
-  }
+  };
 
   render() {
     const {
@@ -39,10 +38,8 @@ export class HeaderBase extends React.Component {
     const headerLink = (
       <Link className="Header-title" to="/">
         <Icon className="Header-addons-icon" name="fox-light" />
-        {
-          // translators: "Firefox" should not be translated. :-)
-          i18n.gettext('Firefox Add-ons')
-        }
+        {// translators: "Firefox" should not be translated. :-)
+        i18n.gettext('Firefox Add-ons')}
       </Link>
     );
 
@@ -66,9 +63,11 @@ export class HeaderBase extends React.Component {
           </div>
         </div>
         <div className="Header-content">
-          {isHomePage
-            ? <h1 className="Header-title-wrapper">{headerLink}</h1>
-            : headerLink}
+          {isHomePage ? (
+            <h1 className="Header-title-wrapper">{headerLink}</h1>
+          ) : (
+            headerLink
+          )}
         </div>
         <SectionLinks location={location} />
         <SearchFormComponent pathname="/search/" query={query} />
@@ -81,7 +80,6 @@ export function mapStateToProps(state) {
   return { isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  translate({ withRef: true }),
-)(HeaderBase);
+export default compose(connect(mapStateToProps), translate({ withRef: true }))(
+  HeaderBase
+);
