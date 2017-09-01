@@ -8,16 +8,17 @@ const config = require('config');
 const appName = config.get('appName');
 
 if (!appName) {
-  console.log(
-    chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
+  console.log(chalk.red('Please specify the appName with NODE_APP_INSTANCE'));
   process.exit(1);
 }
 
 if (config.util.getEnv('NODE_ENV') === 'development') {
-  if (!require('piping')({
-    hook: true,
-    ignore: /(\/\.|~$|\.json|\.scss$)/i,
-  })) {
+  if (
+    !require('piping')({
+      hook: true,
+      ignore: /(\/\.|~$|\.json|\.scss$)/i,
+    })
+  ) {
     return;
   }
 }

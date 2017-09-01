@@ -2,9 +2,7 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
-import {
-  InstallSwitchBase,
-} from 'core/components/InstallSwitch';
+import { InstallSwitchBase } from 'core/components/InstallSwitch';
 import {
   DISABLED,
   DISABLING,
@@ -21,7 +19,6 @@ import {
 import * as themePreview from 'core/themePreview';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('<InstallSwitch />', () => {
   function renderButton(props = {}) {
     const renderProps = {
@@ -36,8 +33,7 @@ describe('<InstallSwitch />', () => {
       ...props,
     };
 
-    return renderIntoDocument(
-      <InstallSwitchBase {...renderProps} />);
+    return renderIntoDocument(<InstallSwitchBase {...renderProps} />);
   }
 
   it('should be disabled if isDisabled status is UNKNOWN', () => {
@@ -73,7 +69,9 @@ describe('<InstallSwitch />', () => {
     const button = renderButton({ status: ENABLED });
     const switchEl = button.switchEl;
     expect(switchEl.props.checked).toEqual(true);
-    expect(switchEl.props.label).toContain('test-addon is installed and enabled');
+    expect(switchEl.props.label).toContain(
+      'test-addon is installed and enabled'
+    );
     expect(switchEl.props.label).toContain('Click to uninstall');
     expect(switchEl.props.success).toEqual(true);
   });
@@ -117,8 +115,12 @@ describe('<InstallSwitch />', () => {
   it('should associate the label and input with id and for attributes', () => {
     const button = renderButton({ status: UNINSTALLED, slug: 'foo' });
     const root = findDOMNode(button);
-    expect(root.querySelector('input').getAttribute('id')).toEqual('install-button-foo');
-    expect(root.querySelector('label').getAttribute('for')).toEqual('install-button-foo');
+    expect(root.querySelector('input').getAttribute('id')).toEqual(
+      'install-button-foo'
+    );
+    expect(root.querySelector('label').getAttribute('for')).toEqual(
+      'install-button-foo'
+    );
   });
 
   it('should throw on bogus status', () => {
@@ -152,7 +154,9 @@ describe('<InstallSwitch />', () => {
     Simulate.click(root);
     expect(installTheme.calledOnce).toBeTruthy();
     const themeDataEl = installTheme.args[0][0];
-    expect(themeDataEl.getAttribute('data-browsertheme')).toEqual(JSON.stringify(browsertheme));
+    expect(themeDataEl.getAttribute('data-browsertheme')).toEqual(
+      JSON.stringify(browsertheme)
+    );
   });
 
   it('should call install function on click when uninstalled', () => {
@@ -161,7 +165,14 @@ describe('<InstallSwitch />', () => {
     const install = sinon.spy();
     const i18n = getFakeI18nInst();
     const installURL = 'https://my.url/download';
-    const button = renderButton({ guid, i18n, install, installURL, name, status: UNINSTALLED });
+    const button = renderButton({
+      guid,
+      i18n,
+      install,
+      installURL,
+      name,
+      status: UNINSTALLED,
+    });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     expect(install.calledWith()).toBeTruthy();
@@ -173,7 +184,14 @@ describe('<InstallSwitch />', () => {
     const enable = sinon.spy();
     const i18n = getFakeI18nInst();
     const installURL = 'https://my.url/download';
-    const button = renderButton({ guid, i18n, enable, installURL, name, status: DISABLED });
+    const button = renderButton({
+      guid,
+      i18n,
+      enable,
+      installURL,
+      name,
+      status: DISABLED,
+    });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     expect(enable.calledWith()).toBeTruthy();
@@ -185,7 +203,14 @@ describe('<InstallSwitch />', () => {
     const name = 'hai';
     const type = 'whatevs';
     const uninstall = sinon.spy();
-    const button = renderButton({ guid, installURL, name, status: INSTALLED, type, uninstall });
+    const button = renderButton({
+      guid,
+      installURL,
+      name,
+      status: INSTALLED,
+      type,
+      uninstall,
+    });
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
     expect(uninstall.calledWith({ guid, installURL, name, type })).toBeTruthy();

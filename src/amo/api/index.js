@@ -53,7 +53,7 @@ export function submitReview({
   reviewId,
   ...apiCallParams
 }: SubmitReviewParams): Promise<ApiReviewType> {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const review = {
       addon: undefined,
       rating,
@@ -76,14 +76,16 @@ export function submitReview({
       review.addon = addonId;
     }
 
-    resolve(callApi({
-      endpoint,
-      body: review,
-      method,
-      auth: true,
-      state: apiState,
-      ...apiCallParams,
-    }));
+    resolve(
+      callApi({
+        endpoint,
+        body: review,
+        method,
+        auth: true,
+        state: apiState,
+        ...apiCallParams,
+      })
+    );
   });
 }
 
@@ -104,17 +106,19 @@ type GetReviewsApiResponse = PaginatedApiResponse<ApiReviewType>;
 export function getReviews(
   { apiState, user, addon, ...params }: GetReviewsParams = {}
 ): Promise<GetReviewsApiResponse> {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     if (!user && !addon) {
       throw new Error('Either user or addon must be specified');
     }
-    resolve(callApi({
-      // Make an authenticated request if an API token exists.
-      auth: Boolean(apiState && apiState.token),
-      endpoint: 'reviews/review',
-      params: { user, addon, ...params },
-      state: apiState,
-    }));
+    resolve(
+      callApi({
+        // Make an authenticated request if an API token exists.
+        auth: Boolean(apiState && apiState.token),
+        endpoint: 'reviews/review',
+        params: { user, addon, ...params },
+        state: apiState,
+      })
+    );
   });
 }
 
@@ -128,22 +132,21 @@ export type GetLatestReviewParams = {|
 export function getLatestUserReview(
   { apiState, user, addon, version }: GetLatestReviewParams = {}
 ): Promise<null | ApiReviewType> {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     if (!user || !addon || !version) {
       throw new Error('user, addon, and version must be specified');
     }
     // The API will only return the latest user review for this add-on
     // and version.
     resolve(getReviews({ apiState, user, addon, version }));
-  })
-    .then((response) => {
-      const reviews = response.results;
-      if (reviews.length === 1) {
-        return reviews[0];
-      } else if (reviews.length === 0) {
-        return null;
-      }
-      throw new Error(oneLine`Unexpectedly received multiple review objects:
+  }).then(response => {
+    const reviews = response.results;
+    if (reviews.length === 1) {
+      return reviews[0];
+    } else if (reviews.length === 0) {
+      return null;
+    }
+    throw new Error(oneLine`Unexpectedly received multiple review objects:
         ${JSON.stringify(reviews)}`);
-    });
+  });
 }

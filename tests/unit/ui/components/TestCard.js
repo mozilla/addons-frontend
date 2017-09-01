@@ -3,7 +3,6 @@ import { renderIntoDocument } from 'react-addons-test-utils';
 
 import Card from 'ui/components/Card';
 
-
 describe('<Card />', () => {
   function render(props = {}) {
     return renderIntoDocument(<Card {...props} />);
@@ -53,10 +52,12 @@ describe('<Card />', () => {
   });
 
   it('throws an error if you mix footer content', () => {
-    expect(() => render({
-      footerLink: <a href="/some-link">Some link</a>,
-      footerText: 'something else',
-    })).toThrowError(/cannot specify footerLink and footerText/);
+    expect(() =>
+      render({
+        footerLink: <a href="/some-link">Some link</a>,
+        footerText: 'something else',
+      })
+    ).toThrowError(/cannot specify footerLink and footerText/);
   });
 
   it('hides footer if none supplied', () => {

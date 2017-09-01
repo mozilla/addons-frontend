@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
-
 export default class PaginatorLink extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.func,
@@ -14,11 +13,11 @@ export default class PaginatorLink extends React.Component {
     pageCount: PropTypes.number.isRequired,
     queryParams: PropTypes.object,
     text: PropTypes.string,
-  }
+  };
 
   static defaultProps = {
     LinkComponent: Link,
-  }
+  };
 
   render() {
     const {

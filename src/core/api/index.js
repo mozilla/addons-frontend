@@ -16,7 +16,6 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ReactRouterLocation } from 'core/types/router';
 
-
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 const Entity = normalizrSchema.Entity;
 
@@ -25,7 +24,7 @@ export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 
 export function makeQueryString(query: { [key: string]: * }) {
   const resolvedQuery = { ...query };
-  Object.keys(resolvedQuery).forEach((key) => {
+  Object.keys(resolvedQuery).forEach(key => {
     const value = resolvedQuery[key];
     if (value === undefined || value === null || value === '') {
       // Make sure we don't turn this into ?key= (empty string) because
@@ -42,9 +41,11 @@ type CreateApiErrorParams = {|
   jsonResponse?: Object,
 |};
 
-export function createApiError(
-  { apiURL, response, jsonResponse }: CreateApiErrorParams
-) {
+export function createApiError({
+  apiURL,
+  response,
+  jsonResponse,
+}: CreateApiErrorParams) {
   let urlId = '[unknown URL]';
   if (apiURL) {
     // Strip the host since we already know that.
@@ -116,7 +117,7 @@ export function callApi({
 
   // $FLOW_FIXME: once everything uses Flow we won't have to use toUpperCase
   return fetch(apiURL, options)
-    .then((response) => {
+    .then(response => {
       const contentType = response.headers.get('Content-Type').toLowerCase();
 
       // This is a bit paranoid, but we ensure the API returns a JSON response
@@ -125,41 +126,48 @@ export function callApi({
       // If the JSON parsing fails; we log the error and return an "unknown
       // error".
       if (contentType === 'application/json') {
-        return response.json()
-          .then((jsonResponse) => ({ response, jsonResponse }));
+        return response
+          .json()
+          .then(jsonResponse => ({ response, jsonResponse }));
       }
 
-      log.warn(oneLine`Response from API was not JSON (was Content-Type:
-        ${contentType})`, response);
+      log.warn(
+        oneLine`Response from API was not JSON (was Content-Type:
+        ${contentType})`,
+        response
+      );
       return response.text().then(() => {
         // jsonResponse should be an empty object in this case.
         // Otherwise, its keys could be treated as generic API errors.
         return { jsonResponse: {}, response };
       });
     })
-    .then(({ response, jsonResponse }) => {
-      if (response.ok) {
-        return jsonResponse;
-      }
+    .then(
+      ({ response, jsonResponse }) => {
+        if (response.ok) {
+          return jsonResponse;
+        }
 
-      // If response is not ok we'll throw an error.
-      // Note that if callApi is executed by an asyncConnect() handler,
-      // then redux-connect will catch this exception and
-      // dispatch a LOAD_FAIL action which puts the error in the state.
-      const apiError = createApiError({ apiURL, response, jsonResponse });
-      if (errorHandler) {
-        errorHandler.handle(apiError);
+        // If response is not ok we'll throw an error.
+        // Note that if callApi is executed by an asyncConnect() handler,
+        // then redux-connect will catch this exception and
+        // dispatch a LOAD_FAIL action which puts the error in the state.
+        const apiError = createApiError({ apiURL, response, jsonResponse });
+        if (errorHandler) {
+          errorHandler.handle(apiError);
+        }
+        throw apiError;
+      },
+      fetchError => {
+        // This actually handles the case when the call to fetch() is
+        // rejected, say, for a network connection error, etc.
+        if (errorHandler) {
+          errorHandler.handle(fetchError);
+        }
+        throw fetchError;
       }
-      throw apiError;
-    }, (fetchError) => {
-      // This actually handles the case when the call to fetch() is
-      // rejected, say, for a network connection error, etc.
-      if (errorHandler) {
-        errorHandler.handle(fetchError);
-      }
-      throw fetchError;
-    })
-    .then((response) => (schema ? normalize(response, schema) : response));
+    )
+    .then(response => (schema ? normalize(response, schema) : response));
 }
 
 type FetchAddonParams = {|
@@ -198,9 +206,11 @@ export function login({ api, code, state }: LoginParams) {
   });
 }
 
-export function startLoginUrl(
-  { location }: {| location: ReactRouterLocation |},
-) {
+export function startLoginUrl({
+  location,
+}: {|
+  location: ReactRouterLocation,
+|}) {
   const configName = config.get('fxaConfig');
   const params = {
     config: undefined,

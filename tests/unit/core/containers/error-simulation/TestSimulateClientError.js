@@ -1,12 +1,8 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import {
-  Simulate,
-  renderIntoDocument,
-} from 'react-addons-test-utils';
+import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
-import { SimulateClientErrorBase } from
-  'core/containers/error-simulation/SimulateClientError';
+import { SimulateClientErrorBase } from 'core/containers/error-simulation/SimulateClientError';
 
 describe('SimulateClientError', () => {
   let clock;
@@ -21,7 +17,8 @@ describe('SimulateClientError', () => {
 
   function render(props = {}) {
     return findDOMNode(
-      renderIntoDocument(<SimulateClientErrorBase {...props} />));
+      renderIntoDocument(<SimulateClientErrorBase {...props} />)
+    );
   }
 
   it('lets you trigger an error', () => {

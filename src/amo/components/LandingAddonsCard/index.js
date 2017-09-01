@@ -14,11 +14,16 @@ export default class LandingAddonsCard extends React.Component {
     footerText: PropTypes.string.isRequired,
     header: PropTypes.node.isRequired,
     loading: PropTypes.bool.isRequired,
-  }
+  };
 
   render() {
     const {
-      addons, className, footerLink, footerText, header, loading,
+      addons,
+      className,
+      footerLink,
+      footerText,
+      header,
+      loading,
     } = this.props;
     const linkSearchURL = {
       ...footerLink,

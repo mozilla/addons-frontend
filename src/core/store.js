@@ -5,7 +5,6 @@ import { loadingBarMiddleware } from 'react-redux-loading-bar';
 import { createLogger } from 'redux-logger';
 import config from 'config';
 
-
 // These are the actions the loading indicator will respond to for showing
 // or hiding the loading bar.
 // These are existing reduxConnect actions that we hook into to dispatch
@@ -27,11 +26,14 @@ const PROMISE_PREFIXES = {
  * This returns a function that takes a single argument, `createStore`,
  * and returns a new `createStore` function.
  */
-export function middleware({
-  _config = config, _createLogger = createLogger,
-  _window = typeof window !== 'undefined' ? window : null,
-  sagaMiddleware = null,
-} = {}) {
+export function middleware(
+  {
+    _config = config,
+    _createLogger = createLogger,
+    _window = typeof window !== 'undefined' ? window : null,
+    sagaMiddleware = null,
+  } = {}
+) {
   const isDev = _config.get('isDevelopment');
 
   const callbacks = [];
@@ -47,7 +49,8 @@ export function middleware({
 
   return compose(
     applyMiddleware(...callbacks),
-    isDev && _window && _window.devToolsExtension ?
-      _window.devToolsExtension() : (createStore) => createStore
+    isDev && _window && _window.devToolsExtension
+      ? _window.devToolsExtension()
+      : createStore => createStore
   );
 }

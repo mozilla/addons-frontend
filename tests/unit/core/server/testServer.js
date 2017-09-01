@@ -17,7 +17,6 @@ import * as userApi from 'core/api/user';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let mockUserApi;
 
@@ -41,27 +40,31 @@ describe(__filename, () => {
     delete global.webpackIsomorphicTools;
   });
 
-  function createStoreAndSagas({
-    reducers = { reduxAsyncConnect, api: apiReducer, user: userReducer },
-  } = {}) {
+  function createStoreAndSagas(
+    {
+      reducers = { reduxAsyncConnect, api: apiReducer, user: userReducer },
+    } = {}
+  ) {
     const sagaMiddleware = createSagaMiddleware();
     const store = createStore(
       combineReducers(reducers),
       // Do not define an initial state.
       undefined,
-      applyMiddleware(sagaMiddleware),
+      applyMiddleware(sagaMiddleware)
     );
 
     return { store, sagaMiddleware };
   }
 
-  function testClient({
-    stubRoutes = defaultStubRoutes,
-    store = null,
-    sagaMiddleware = null,
-    appSagas = null,
-    config = defaultConfig,
-  } = {}) {
+  function testClient(
+    {
+      stubRoutes = defaultStubRoutes,
+      store = null,
+      sagaMiddleware = null,
+      appSagas = null,
+      config = defaultConfig,
+    } = {}
+  ) {
     function _createStoreAndSagas() {
       if (store === null) {
         return createStoreAndSagas();
@@ -83,7 +86,9 @@ describe(__filename, () => {
 
   describe('app', () => {
     it('varies on DNT', async () => {
-      const response = await testClient().get('/en-US/firefox/').end();
+      const response = await testClient()
+        .get('/en-US/firefox/')
+        .end();
 
       expect(response.headers).toMatchObject({ vary: 'DNT' });
       expect(response.statusCode).toEqual(200);
@@ -152,7 +157,11 @@ describe(__filename, () => {
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware, appSagas: userSaga })
+      const response = await testClient({
+        store,
+        sagaMiddleware,
+        appSagas: userSaga,
+      })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
@@ -174,7 +183,11 @@ describe(__filename, () => {
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware, appSagas: userSaga })
+      const response = await testClient({
+        store,
+        sagaMiddleware,
+        appSagas: userSaga,
+      })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();

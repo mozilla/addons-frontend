@@ -5,7 +5,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import SearchResult from 'amo/components/SearchResult';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe('<AddonsCard />', () => {
   let addons;
 
@@ -25,13 +24,15 @@ describe('<AddonsCard />', () => {
     const list = root.childAt(0);
 
     expect(list.type()).toEqual('ul');
-    expect(list.children().map((c) => c.type()))
-      .toEqual([SearchResult, SearchResult]);
-    expect(list.children().map((c) => c.prop('addon'))).toEqual(addons);
+    expect(list.children().map(c => c.type())).toEqual([
+      SearchResult,
+      SearchResult,
+    ]);
+    expect(list.children().map(c => c.prop('addon'))).toEqual(addons);
   });
 
   it('renders children', () => {
-    const root = render({ addons, children: (<div>I am content</div>) });
+    const root = render({ addons, children: <div>I am content</div> });
     expect(root.childAt(0).type()).toEqual('div');
     expect(root.childAt(1).type()).toEqual('ul');
   });
@@ -51,7 +52,9 @@ describe('<AddonsCard />', () => {
 
   it('allows you configure the number of placeholders', () => {
     const root = render({
-      addons: null, loading: true, placeholderCount: 2,
+      addons: null,
+      loading: true,
+      placeholderCount: 2,
     });
     expect(root.find(SearchResult)).toHaveLength(2);
   });

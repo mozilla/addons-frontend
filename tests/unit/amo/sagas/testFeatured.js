@@ -9,7 +9,9 @@ import featuredSaga from 'amo/sagas/featured';
 import apiReducer from 'core/reducers/api';
 import { ADDON_TYPE_EXTENSION, FEATURED_LOADED } from 'core/constants';
 import {
-  createAddonsApiResult, dispatchSignInActions, fakeAddon,
+  createAddonsApiResult,
+  dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
@@ -35,9 +37,12 @@ describe('amo/sagas/featured', () => {
     });
 
     function _getFeatured({ addonType = ADDON_TYPE_EXTENSION } = {}) {
-      sagaTester.dispatch(getFeatured({
-        addonType, errorHandlerId: errorHandler.id,
-      }));
+      sagaTester.dispatch(
+        getFeatured({
+          addonType,
+          errorHandlerId: errorHandler.id,
+        })
+      );
     }
 
     it('fetches featured addons from the API', async () => {
@@ -59,9 +64,13 @@ describe('amo/sagas/featured', () => {
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(showLoading());
-      expect(calledActions[2]).toEqual(loadFeatured({
-        addonType, entities, result,
-      }));
+      expect(calledActions[2]).toEqual(
+        loadFeatured({
+          addonType,
+          entities,
+          result,
+        })
+      );
       expect(calledActions[3]).toEqual(hideLoading());
     });
 

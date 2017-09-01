@@ -6,7 +6,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
 import { hasSearchFilters } from 'core/searchUtils';
 
-
 class SearchResults extends React.Component {
   static propTypes = {
     count: PropTypes.number,
@@ -14,13 +13,13 @@ class SearchResults extends React.Component {
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
     results: PropTypes.arrayOf(PropTypes.object),
-  }
+  };
 
   static defaultProps = {
     count: 0,
     filters: {},
     results: [],
-  }
+  };
 
   render() {
     const { count, filters, i18n, loading, results } = this.props;
@@ -33,7 +32,9 @@ class SearchResults extends React.Component {
       loadingMessage = (
         <div
           className="visually-hidden"
-          ref={(ref) => { this.loadingText = ref; }}
+          ref={ref => {
+            this.loadingText = ref;
+          }}
         >
           {i18n.gettext('Searching…')}
         </div>
@@ -41,7 +42,9 @@ class SearchResults extends React.Component {
     } else if (count === 0 && hasSearchFilters(filters)) {
       if (query) {
         messageText = i18n.sprintf(
-          i18n.gettext('No results were found for "%(query)s".'), { query });
+          i18n.gettext('No results were found for "%(query)s".'),
+          { query }
+        );
       } else {
         // TODO: Add the extension type, if available, so it says
         // "no extensions" found that match your search or something.
@@ -49,11 +52,17 @@ class SearchResults extends React.Component {
       }
     } else if (!hasSearchFilters(filters)) {
       messageText = i18n.gettext(
-        'Please enter a search term to search Firefox Add-ons.');
+        'Please enter a search term to search Firefox Add-ons.'
+      );
     }
 
     return (
-      <div ref={(ref) => { this.container = ref; }} className="SearchResults">
+      <div
+        ref={ref => {
+          this.container = ref;
+        }}
+        className="SearchResults"
+      >
         {loadingMessage}
         <AddonsCard
           addons={hasSearchFilters(filters) ? results : null}
@@ -62,7 +71,9 @@ class SearchResults extends React.Component {
         >
           {messageText ? (
             <p
-              ref={(ref) => { this.message = ref; }}
+              ref={ref => {
+                this.message = ref;
+              }}
               className="SearchResults-message"
             >
               {messageText}
@@ -74,6 +85,4 @@ class SearchResults extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(SearchResults);
+export default compose(translate({ withRef: true }))(SearchResults);

@@ -3,7 +3,9 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
 import createStore from 'amo/store';
-import InstallButton, { InstallButtonBase } from 'core/components/InstallButton';
+import InstallButton, {
+  InstallButtonBase,
+} from 'core/components/InstallButton';
 import InstallSwitch from 'core/components/InstallSwitch';
 import {
   ADDON_TYPE_EXTENSION,
@@ -17,7 +19,6 @@ import * as themePreview from 'core/themePreview';
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
-
 
 describe('<InstallButton />', () => {
   const getClientCompatibilityFalse = () => ({
@@ -38,12 +39,16 @@ describe('<InstallButton />', () => {
     ...customProps,
   });
 
-  const render = (props) => shallowUntilTarget(
-    <InstallButton {...renderProps(props)} />, InstallButtonBase
-  );
+  const render = props =>
+    shallowUntilTarget(
+      <InstallButton {...renderProps(props)} />,
+      InstallButtonBase
+    );
 
-  const renderToDom = (props) => findDOMNode(
-    renderIntoDocument(<InstallButtonBase {...renderProps(props)} />));
+  const renderToDom = props =>
+    findDOMNode(
+      renderIntoDocument(<InstallButtonBase {...renderProps(props)} />)
+    );
 
   it('renders InstallSwitch when mozAddonManager is available', () => {
     const i18n = getFakeI18nInst();
@@ -80,7 +85,8 @@ describe('<InstallButton />', () => {
     expect(button.type()).toEqual(Button);
     expect(button.children()).toIncludeText('Install Theme');
     expect(button).toHaveProp(
-      'data-browsertheme', JSON.stringify(themePreview.getThemeData(addon))
+      'data-browsertheme',
+      JSON.stringify(themePreview.getThemeData(addon))
     );
   });
 
@@ -95,8 +101,10 @@ describe('<InstallButton />', () => {
 
     sinon.assert.called(preventDefault);
     sinon.assert.called(installTheme);
-    sinon.assert.calledWith(installTheme,
-      button, { ...addon, status: UNKNOWN });
+    sinon.assert.calledWith(installTheme, button, {
+      ...addon,
+      status: UNKNOWN,
+    });
   });
 
   it('renders an add-on button when mozAddonManager is not available', () => {
@@ -220,6 +228,8 @@ describe('<InstallButton />', () => {
 
     sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');
     sinon.assert.calledWith(
-      fakeWindow.external.AddSearchProvider, fakeAddon.installURL);
+      fakeWindow.external.AddSearchProvider,
+      fakeAddon.installURL
+    );
   });
 });

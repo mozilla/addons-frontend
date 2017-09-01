@@ -19,7 +19,6 @@ import search from 'core/reducers/search';
 import user from 'core/reducers/user';
 import { middleware } from 'core/store';
 
-
 export default function createStore(initialState = {}) {
   const sagaMiddleware = createSagaMiddleware();
 
@@ -43,7 +42,7 @@ export default function createStore(initialState = {}) {
       viewContext,
     }),
     initialState,
-    middleware({ sagaMiddleware }),
+    middleware({ sagaMiddleware })
   );
 
   return { sagaMiddleware, store };

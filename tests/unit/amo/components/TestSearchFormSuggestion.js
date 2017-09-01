@@ -6,7 +6,6 @@ import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   const shallowComponent = (props = {}) => {
     const allProps = {

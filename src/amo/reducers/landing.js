@@ -1,8 +1,4 @@
-import {
-  LANDING_GET,
-  LANDING_LOADED,
-} from 'core/constants';
-
+import { LANDING_GET, LANDING_LOADED } from 'core/constants';
 
 export const initialState = {
   addonType: null,
@@ -26,13 +22,13 @@ export default function landing(state = initialState, action) {
     case LANDING_LOADED: {
       const newState = { ...state, loading: false, resultsLoaded: true };
 
-      ['featured', 'highlyRated', 'popular'].forEach((key) => {
+      ['featured', 'highlyRated', 'popular'].forEach(key => {
         if (payload[key]) {
           newState[key] = {
             count: payload[key].result.count,
-            results: payload[key].result.results.map((slug) => (
-              payload[key].entities.addons[slug]
-            )),
+            results: payload[key].result.results.map(
+              slug => payload[key].entities.addons[slug]
+            ),
           };
         }
       });

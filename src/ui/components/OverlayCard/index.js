@@ -7,7 +7,6 @@ import Overlay from 'ui/components/Overlay';
 
 import './OverlayCard.scss';
 
-
 export default class OverlayCard extends React.Component {
   static propTypes = {
     children: PropTypes.node,
@@ -16,11 +15,11 @@ export default class OverlayCard extends React.Component {
     footerLink: PropTypes.node,
     footerText: PropTypes.node,
     visibleOnLoad: PropTypes.bool.isRequired,
-  }
+  };
 
   static defaultProps = {
     visibleOnLoad: false,
-  }
+  };
 
   hide() {
     this.overlay.hide();
@@ -36,20 +35,29 @@ export default class OverlayCard extends React.Component {
 
   render() {
     const {
-      children, className, header, footerLink, footerText, visibleOnLoad,
+      children,
+      className,
+      header,
+      footerLink,
+      footerText,
+      visibleOnLoad,
     } = this.props;
 
     return (
       <Overlay
         visibleOnLoad={visibleOnLoad}
-        ref={(ref) => { this.overlay = ref; }}
+        ref={ref => {
+          this.overlay = ref;
+        }}
       >
         <Card
           className={classNames('OverlayCard', className)}
           header={header}
           footerLink={footerLink}
           footerText={footerText}
-          ref={(ref) => { this.overlayCard = ref; }}
+          ref={ref => {
+            this.overlayCard = ref;
+          }}
         >
           {children}
         </Card>

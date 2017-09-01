@@ -9,7 +9,6 @@ import LoginPage from 'core/components/LoginPage';
 import { logOutUser } from 'core/actions';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
-
 describe(__filename, () => {
   class MyComponent extends React.Component {
     render() {
@@ -43,12 +42,16 @@ describe(__filename, () => {
     });
 
     it('sets authenticated to true', () => {
-      expect(mapStateToProps(store.getState())).toEqual({ authenticated: true });
+      expect(mapStateToProps(store.getState())).toEqual({
+        authenticated: true,
+      });
     });
 
     it('sets authenticated to false', () => {
       store.dispatch(logOutUser());
-      expect(mapStateToProps(store.getState())).toEqual({ authenticated: false });
+      expect(mapStateToProps(store.getState())).toEqual({
+        authenticated: false,
+      });
     });
   });
 });

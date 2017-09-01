@@ -3,7 +3,6 @@ import { ErrorHandler } from 'core/errorHandler';
 import defaultLog from 'core/logger';
 import type { ApiStateType } from 'core/reducers/api';
 
-
 type CreateErrorHandlerType = {| log: typeof defaultLog |};
 type StateType = {| api: ApiStateType, auth: Object |};
 

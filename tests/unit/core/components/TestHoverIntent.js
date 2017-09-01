@@ -4,20 +4,21 @@ import {
   renderIntoDocument,
   Simulate,
 } from 'react-addons-test-utils';
-import {
-  findDOMNode,
-} from 'react-dom';
+import { findDOMNode } from 'react-dom';
 
 import HoverIntent from 'core/components/HoverIntent';
 
 function renderHoverIntent({ ...props }) {
   const sensitivity = 5;
   const interval = 50;
-  const hoverIntent = findRenderedComponentWithType(renderIntoDocument(
-    <HoverIntent {...props} sensitivity={sensitivity} interval={interval}>
-      <span id="text-content">Text content</span>
-    </HoverIntent>
-  ), HoverIntent);
+  const hoverIntent = findRenderedComponentWithType(
+    renderIntoDocument(
+      <HoverIntent {...props} sensitivity={sensitivity} interval={interval}>
+        <span id="text-content">Text content</span>
+      </HoverIntent>
+    ),
+    HoverIntent
+  );
   const innerElement = findDOMNode(hoverIntent);
 
   return { hoverIntent, innerElement };
@@ -137,22 +138,28 @@ describe('<HoverIntent />', () => {
   });
 
   it('throws if child provides onMouse events', () => {
-    expect(() => renderIntoDocument(
-      <HoverIntent {...props} sensitivity={5} interval={10}>
-        <span onMouseOver={() => {}}>Test</span>
-      </HoverIntent>
-    )).toThrowError(/onMouseOver/);
+    expect(() =>
+      renderIntoDocument(
+        <HoverIntent {...props} sensitivity={5} interval={10}>
+          <span onMouseOver={() => {}}>Test</span>
+        </HoverIntent>
+      )
+    ).toThrowError(/onMouseOver/);
 
-    expect(() => renderIntoDocument(
-      <HoverIntent {...props} sensitivity={5} interval={10}>
-        <span onMouseOut={() => {}}>Test</span>
-      </HoverIntent>
-    )).toThrowError(/onMouseOut/);
+    expect(() =>
+      renderIntoDocument(
+        <HoverIntent {...props} sensitivity={5} interval={10}>
+          <span onMouseOut={() => {}}>Test</span>
+        </HoverIntent>
+      )
+    ).toThrowError(/onMouseOut/);
 
-    expect(() => renderIntoDocument(
-      <HoverIntent {...props} sensitivity={5} interval={10}>
-        <span onMouseMove={() => {}}>Test</span>
-      </HoverIntent>
-    )).toThrowError(/onMouseMove/);
+    expect(() =>
+      renderIntoDocument(
+        <HoverIntent {...props} sensitivity={5} interval={10}>
+          <span onMouseMove={() => {}}>Test</span>
+        </HoverIntent>
+      )
+    ).toThrowError(/onMouseMove/);
   });
 });

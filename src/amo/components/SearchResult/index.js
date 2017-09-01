@@ -14,12 +14,11 @@ import Rating from 'ui/components/Rating';
 
 import './styles.scss';
 
-
 export class SearchResultBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   addonIsTheme() {
     const { addon } = this.props;
@@ -34,21 +33,20 @@ export class SearchResultBase extends React.Component {
 
     // Fall-back to default icon if invalid icon url.
     const iconURL = getAddonIconUrl(addon);
-    const themeURL = (addon && addon.theme_data &&
-      isAllowedOrigin(addon.theme_data.previewURL)) ?
-      addon.theme_data.previewURL : null;
+    const themeURL =
+      addon && addon.theme_data && isAllowedOrigin(addon.theme_data.previewURL)
+        ? addon.theme_data.previewURL
+        : null;
     const imageURL = isTheme ? themeURL : iconURL;
 
     // Sets classes to handle fallback if theme preview is not available.
     const iconWrapperClassnames = classNames('SearchResult-icon-wrapper', {
-      'SearchResult-icon-wrapper--no-theme-image': (
-        isTheme && imageURL === null
-      ),
+      'SearchResult-icon-wrapper--no-theme-image': isTheme && imageURL === null,
     });
 
     let addonAuthors = null;
-    const addonAuthorsData = addon && addon.authors && addon.authors.length ?
-      addon.authors : null;
+    const addonAuthorsData =
+      addon && addon.authors && addon.authors.length ? addon.authors : null;
     if (!addon || addonAuthorsData) {
       addonAuthors = (
         <h3 className="SearchResult-author SearchResult--meta-section">
@@ -80,10 +78,7 @@ export class SearchResultBase extends React.Component {
           <h2 className="SearchResult-name">
             {addon ? addon.name : <LoadingText />}
           </h2>
-          <p
-            className="SearchResult-summary"
-            {...summaryProps}
-          />
+          <p className="SearchResult-summary" {...summaryProps} />
 
           <div className="SearchResult-metadata">
             <div className="SearchResult-rating">
@@ -100,10 +95,18 @@ export class SearchResultBase extends React.Component {
         <h3 className="SearchResult-users SearchResult--meta-section">
           <Icon className="SearchResult-users-icon" name="user-fill" />
           <span className="SearchResult-users-text">
-            {addon ? i18n.sprintf(i18n.ngettext(
-              '%(total)s user', '%(total)s users', averageDailyUsers),
-            { total: i18n.formatNumber(averageDailyUsers) },
-            ) : <LoadingText width={90} />}
+            {addon ? (
+              i18n.sprintf(
+                i18n.ngettext(
+                  '%(total)s user',
+                  '%(total)s users',
+                  averageDailyUsers
+                ),
+                { total: i18n.formatNumber(averageDailyUsers) }
+              )
+            ) : (
+              <LoadingText width={90} />
+            )}
           </span>
         </h3>
       </div>
@@ -121,19 +124,22 @@ export class SearchResultBase extends React.Component {
 
     return (
       <li className={resultClassnames}>
-        {addon ?
+        {addon ? (
           <Link
             to={`/addon/${addon.slug}/`}
             className="SearchResult-link"
-            ref={(el) => { this.name = el; }}
-          >{result}</Link>
-          : result
-        }
+            ref={el => {
+              this.name = el;
+            }}
+          >
+            {result}
+          </Link>
+        ) : (
+          result
+        )}
       </li>
     );
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(SearchResultBase);
+export default compose(translate({ withRef: true }))(SearchResultBase);

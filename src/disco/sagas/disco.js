@@ -11,7 +11,6 @@ import { loadDiscoResults } from 'disco/actions';
 import { GET_DISCO_RESULTS } from 'disco/constants';
 import { getDiscoveryAddons } from 'disco/api';
 
-
 export function* fetchDiscoveryAddons({ payload: { errorHandlerId } }) {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {

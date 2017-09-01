@@ -4,14 +4,13 @@ import classNames from 'classnames';
 
 import './styles.scss';
 
-
 export default class Icon extends React.Component {
   static propTypes = {
     alt: PropTypes.node,
     className: PropTypes.string,
     getRef: PropTypes.func,
     name: PropTypes.string.isRequired,
-  }
+  };
 
   render() {
     const { alt, className, name, getRef, ...props } = this.props;

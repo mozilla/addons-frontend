@@ -9,11 +9,13 @@ describe('disco api', () => {
       const callApi = sinon.stub(coreApi, 'callApi');
       const api = { some: 'apiconfig' };
       getDiscoveryAddons({ api });
-      expect(callApi.calledWith({
-        endpoint: 'discovery',
-        schema: { results: [discoResult] },
-        state: api,
-      })).toBeTruthy();
+      expect(
+        callApi.calledWith({
+          endpoint: 'discovery',
+          schema: { results: [discoResult] },
+          state: api,
+        })
+      ).toBeTruthy();
     });
   });
 

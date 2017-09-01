@@ -21,7 +21,6 @@ import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import Switch from 'ui/components/Switch';
 
-
 export class InstallSwitchBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
@@ -39,13 +38,13 @@ export class InstallSwitchBase extends React.Component {
     status: PropTypes.oneOf(validStates),
     type: PropTypes.oneOf(validAddonTypes),
     uninstall: PropTypes.func.isRequired,
-  }
+  };
 
   static defaultProps = {
     disabled: false,
     status: UNKNOWN,
     downloadProgress: 0,
-  }
+  };
 
   getLabel() {
     const { i18n, name, status } = this.props;
@@ -59,7 +58,9 @@ export class InstallSwitchBase extends React.Component {
         break;
       case ENABLED:
       case INSTALLED:
-        label = i18n.gettext('%(name)s is installed and enabled. Click to uninstall.');
+        label = i18n.gettext(
+          '%(name)s is installed and enabled. Click to uninstall.'
+        );
         break;
       case DISABLED:
         label = i18n.gettext('%(name)s is disabled. Click to enable.');
@@ -89,7 +90,7 @@ export class InstallSwitchBase extends React.Component {
     return undefined;
   }
 
-  handleClick = (e) => {
+  handleClick = e => {
     e.preventDefault();
     const {
       addon,
@@ -107,7 +108,8 @@ export class InstallSwitchBase extends React.Component {
 
     if (disabled) {
       log.info(
-        'handleClick for InstallSwitch disabled; disabled prop set to true.');
+        'handleClick for InstallSwitch disabled; disabled prop set to true.'
+      );
       return;
     }
 
@@ -120,7 +122,7 @@ export class InstallSwitchBase extends React.Component {
     } else if ([INSTALLED, ENABLED].includes(status)) {
       uninstall({ guid, installURL, name, type });
     }
-  }
+  };
 
   render() {
     const browsertheme = JSON.stringify(getThemeData(this.props));
@@ -130,12 +132,19 @@ export class InstallSwitchBase extends React.Component {
       throw new Error(`Invalid add-on status ${status}`);
     }
 
-    const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(status);
+    const isChecked = [INSTALLED, INSTALLING, ENABLING, ENABLED].includes(
+      status
+    );
     const isDisabled = disabled || status === UNKNOWN;
     const isSuccess = [ENABLED, INSTALLED].includes(status);
 
     return (
-      <div data-browsertheme={browsertheme} ref={(el) => { this.themeData = el; }}>
+      <div
+        data-browsertheme={browsertheme}
+        ref={el => {
+          this.themeData = el;
+        }}
+      >
         <Switch
           {...otherProps}
           checked={isChecked}
@@ -146,13 +155,13 @@ export class InstallSwitchBase extends React.Component {
           onClick={this.handleClick}
           progress={this.getDownloadProgress()}
           success={isSuccess}
-          ref={(el) => { this.switchEl = el; }}
+          ref={el => {
+            this.switchEl = el;
+          }}
         />
       </div>
     );
   }
 }
 
-export default compose(
-  translate(),
-)(InstallSwitchBase);
+export default compose(translate())(InstallSwitchBase);

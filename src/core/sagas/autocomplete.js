@@ -13,7 +13,6 @@ import { autocomplete as autocompleteApi } from 'core/api';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-
 export function* fetchAutocompleteResults({ payload }) {
   const { errorHandlerId } = payload;
   const errorHandler = createErrorHandler(errorHandlerId);

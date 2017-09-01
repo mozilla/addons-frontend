@@ -9,15 +9,16 @@ import { CLIENT_APP_ANDROID } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   let store;
 
-  function render({
-    location = { query: { page: 2, q: 'burger' } },
-    pathname = '/testingsearch/',
-    ...props
-  } = {}) {
+  function render(
+    {
+      location = { query: { page: 2, q: 'burger' } },
+      pathname = '/testingsearch/',
+      ...props
+    } = {}
+  ) {
     return shallowUntilTarget(
       <SearchPage
         location={location}
@@ -25,7 +26,7 @@ describe(__filename, () => {
         store={store}
         {...props}
       />,
-      SearchPageBase,
+      SearchPageBase
     );
   }
 

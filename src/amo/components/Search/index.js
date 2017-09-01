@@ -21,7 +21,6 @@ import { parsePage } from 'core/utils';
 
 import './styles.scss';
 
-
 export class SearchBase extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.node.isRequired,
@@ -35,7 +34,7 @@ export class SearchBase extends React.Component {
     paginationQueryParams: PropTypes.object,
     pathname: PropTypes.string,
     results: PropTypes.array,
-  }
+  };
 
   static defaultProps = {
     LinkComponent: Link,
@@ -46,7 +45,7 @@ export class SearchBase extends React.Component {
     paginationQueryParams: null,
     pathname: '/search/',
     results: [],
-  }
+  };
 
   componentWillMount() {
     this.dispatchSearch({
@@ -66,10 +65,12 @@ export class SearchBase extends React.Component {
     const { dispatch, errorHandler } = this.props;
 
     if (hasSearchFilters(newFilters) && !deepEqual(oldFilters, newFilters)) {
-      dispatch(searchStart({
-        errorHandlerId: errorHandler.id,
-        filters: newFilters,
-      }));
+      dispatch(
+        searchStart({
+          errorHandlerId: errorHandler.id,
+          filters: newFilters,
+        })
+      );
 
       const { addonType } = newFilters;
       if (addonType) {
@@ -104,18 +105,19 @@ export class SearchBase extends React.Component {
     // need them in the queryParams.
     //
     // If paginator params aren't specified, we fallback to filters.
-    const queryParams = paginationQueryParams ||
-      convertFiltersToQueryParams(filters);
+    const queryParams =
+      paginationQueryParams || convertFiltersToQueryParams(filters);
 
-    const paginator = count > 0 ? (
-      <Paginate
-        LinkComponent={LinkComponent}
-        count={count}
-        currentPage={page}
-        pathname={pathname}
-        queryParams={queryParams}
-      />
-    ) : null;
+    const paginator =
+      count > 0 ? (
+        <Paginate
+          LinkComponent={LinkComponent}
+          count={count}
+          currentPage={page}
+          pathname={pathname}
+          queryParams={queryParams}
+        />
+      ) : null;
 
     return (
       <div className="Search">
@@ -152,5 +154,5 @@ export function mapStateToProps(state) {
 
 export default compose(
   withErrorHandler({ name: 'Search' }),
-  connect(mapStateToProps),
+  connect(mapStateToProps)
 )(SearchBase);

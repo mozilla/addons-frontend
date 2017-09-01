@@ -11,7 +11,6 @@ import {
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe('SectionLinks Component', () => {
   let _store;
 
@@ -38,30 +37,34 @@ describe('SectionLinks Component', () => {
     _store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
     const root = render();
 
-    expect(root.find('.SectionLinks-link--active').children())
-      .toIncludeText('Explore');
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Explore'
+    );
   });
 
   it('renders Explore active when exploring', () => {
     const root = render({ viewContext: VIEW_CONTEXT_HOME });
 
-    expect(root.find('.SectionLinks-link--active').children())
-      .toIncludeText('Explore');
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Explore'
+    );
   });
 
   it('renders Extensions active when addonType is extensions', () => {
     _store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
     const root = render();
 
-    expect(root.find('.SectionLinks-link--active').children())
-      .toIncludeText('Extensions');
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Extensions'
+    );
   });
 
   it('renders Themes active when addonType is themes', () => {
     _store.dispatch(setViewContext(ADDON_TYPE_THEME));
     const root = render();
 
-    expect(root.find('.SectionLinks-link--active').children())
-      .toIncludeText('Themes');
+    expect(root.find('.SectionLinks-link--active').children()).toIncludeText(
+      'Themes'
+    );
   });
 });

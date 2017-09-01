@@ -36,10 +36,7 @@ module.exports = {
   CSP: {
     directives: {
       // Script is limited to the discovery specific CDN.
-      scriptSrc: [
-        staticHost,
-        'https://www.google-analytics.com/analytics.js',
-      ],
+      scriptSrc: [staticHost, 'https://www.google-analytics.com/analytics.js'],
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
@@ -64,5 +61,6 @@ module.exports = {
   po2jsonFuzzyOutput: false,
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-disco-prod/
-  publicSentryDsn: 'https://b9e70d0dca144344a7a5674c29b08355@sentry.prod.mozaws.net/186',
+  publicSentryDsn:
+    'https://b9e70d0dca144344a7a5674c29b08355@sentry.prod.mozaws.net/186',
 };

@@ -14,7 +14,6 @@ const langMap = config.get('langMap');
 const supportedLangs = langs.concat(Object.keys(langMap));
 const rtlLangs = config.get('rtlLangs');
 
-
 export function localeToLang(locale?: any, log_?: typeof log = log) {
   let lang;
   if (locale && locale.split) {
@@ -23,8 +22,10 @@ export function localeToLang(locale?: any, log_?: typeof log = log) {
       lang = parts[0].toLowerCase();
     } else if (parts.length === 2) {
       let pt2 = parts[1];
-      pt2 = (pt2.length > 2) ? pt2[0].toUpperCase() +
-        pt2.slice(1).toLowerCase() : pt2.toUpperCase();
+      pt2 =
+        pt2.length > 2
+          ? pt2[0].toUpperCase() + pt2.slice(1).toLowerCase()
+          : pt2.toUpperCase();
       lang = `${parts[0].toLowerCase()}-${pt2}`;
     } else if (parts.length === 3) {
       // sr_RS should be sr-RS
@@ -44,8 +45,10 @@ export function langToLocale(language?: any, log_?: typeof log = log) {
       locale = parts[0].toLowerCase();
     } else if (parts.length === 2) {
       let pt2 = parts[1];
-      pt2 = (pt2.length > 2) ?
-        pt2[0].toUpperCase() + pt2.slice(1).toLowerCase() : pt2.toUpperCase();
+      pt2 =
+        pt2.length > 2
+          ? pt2[0].toUpperCase() + pt2.slice(1).toLowerCase()
+          : pt2.toUpperCase();
       locale = `${parts[0].toLowerCase()}_${pt2}`;
     } else if (parts.length === 3) {
       // sr-Cyrl-RS should be sr_RS
@@ -81,7 +84,8 @@ type IsValidLangOptions = {|
 |};
 
 export function isValidLang(
-  lang?: string, { _langs = langs }: IsValidLangOptions = {}
+  lang?: string,
+  { _langs = langs }: IsValidLangOptions = {}
 ) {
   return _langs.includes(lang);
 }
@@ -91,7 +95,9 @@ export function sanitizeLanguage(langOrLocale?: string) {
   // Only look in the un-mapped lang list.
   if (!isValidLang(language)) {
     // eslint-disable-next-line no-prototype-builtins
-    language = langMap.hasOwnProperty(language) ? langMap[language] : defaultLang;
+    language = langMap.hasOwnProperty(language)
+      ? langMap[language]
+      : defaultLang;
   }
   return language;
 }
@@ -104,7 +110,6 @@ export function isRtlLang(lang: string) {
 export function getDirection(lang: string) {
   return isRtlLang(lang) ? 'rtl' : 'ltr';
 }
-
 
 function qualityCmp(a, b) {
   if (a.quality === b.quality) {
@@ -126,7 +131,7 @@ export function parseAcceptLanguage(header: string) {
     return [];
   }
   const rawLangs = header.split(',');
-  const langList = rawLangs.map((rawLang) => {
+  const langList = rawLangs.map(rawLang => {
     const parts = rawLang.split(';');
     let q = 1;
     if (parts.length > 1 && parts[1].trim().indexOf('q=') === 0) {
@@ -148,7 +153,6 @@ type GetLangFromHeaderOptions = {|
   _supportedLangs?: Object,
 |};
 
-
 /*
  * Given an accept-language header and a list of currently
  * supported languages, returns the best match normalized.
@@ -157,7 +161,8 @@ type GetLangFromHeaderOptions = {|
  *
  */
 export function getLangFromHeader(
-  acceptLanguage: string, { _supportedLangs }: GetLangFromHeaderOptions = {}
+  acceptLanguage: string,
+  { _supportedLangs }: GetLangFromHeaderOptions = {}
 ) {
   let userLang;
   if (acceptLanguage) {
@@ -167,8 +172,12 @@ export function getLangFromHeader(
       if (isSupportedLang(normalizeLang(langPref.lang), { _supportedLangs })) {
         userLang = langPref.lang;
         break;
-      // Match locale, even if region isn't supported
-      } else if (isSupportedLang(normalizeLang(langPref.lang.split('-')[0]), { _supportedLangs })) {
+        // Match locale, even if region isn't supported
+      } else if (
+        isSupportedLang(normalizeLang(langPref.lang.split('-')[0]), {
+          _supportedLangs,
+        })
+      ) {
         userLang = langPref.lang.split('-')[0];
         break;
       }
@@ -223,7 +232,8 @@ type I18nConfig = {|
   domain: string,
   locale_data: {
     [domain: string]: {
-      '': { // an empty string configures the domain.
+      '': {
+        // an empty string configures the domain.
         domain: string,
         lang: string,
         plural_forms: string,
@@ -239,7 +249,6 @@ type makeI18nOptions = {|
   _Intl?: typeof Intl,
 |};
 
-
 // Create an i18n object with a translated moment object available we can
 // use for translated dates across the app.
 export function makeI18n(
@@ -248,7 +257,9 @@ export function makeI18n(
   _Jed: Jed = Jed,
   // Checks required to guard against ReferenceError when Intl is not defined.
   // $FLOW_FIXME
-  { _Intl = typeof Intl !== 'undefined' ? Intl : undefined }: makeI18nOptions = {}
+  {
+    _Intl = typeof Intl !== 'undefined' ? Intl : undefined,
+  }: makeI18nOptions = {}
 ) {
   const i18n = new _Jed(i18nData);
   i18n.lang = lang;
@@ -256,14 +267,17 @@ export function makeI18n(
   // TODO: move all of this to an I18n class that extends Jed so that we
   // can type-check all the components that rely on the i18n object.
   // Note: the available locales for tests are controlled in tests/setup.js
-  if (typeof _Intl === 'object' && Object.prototype.hasOwnProperty.call(_Intl, 'NumberFormat')) {
+  if (
+    typeof _Intl === 'object' &&
+    Object.prototype.hasOwnProperty.call(_Intl, 'NumberFormat')
+  ) {
     log.info('Intl.NumberFormat exists');
     i18n.numberFormat = new _Intl.NumberFormat(lang);
   } else {
     log.info('Intl.NumberFormat does NOT exist');
   }
 
-  i18n.formatNumber = (number) => {
+  i18n.formatNumber = number => {
     if (typeof i18n.numberFormat !== 'undefined') {
       return i18n.numberFormat.format(number);
     }
@@ -282,9 +296,20 @@ export function makeI18n(
   // Wrap the core Jed functionality so that we can always strip leading whitespace
   // from translation keys to match the same process used in extraction.
   i18n._dcnpgettext = i18n.dcnpgettext;
-  i18n.dcnpgettext = function dcnpgettext(domain, context, singularKey, pluralKey, val) {
-    return i18n._dcnpgettext(domain, context, oneLineTranslationString(singularKey),
-      oneLineTranslationString(pluralKey), val);
+  i18n.dcnpgettext = function dcnpgettext(
+    domain,
+    context,
+    singularKey,
+    pluralKey,
+    val
+  ) {
+    return i18n._dcnpgettext(
+      domain,
+      context,
+      oneLineTranslationString(singularKey),
+      oneLineTranslationString(pluralKey),
+      val
+    );
   };
 
   // We add a translated "moment" property to our `i18n` object

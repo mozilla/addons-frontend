@@ -27,7 +27,7 @@ export class LocalState {
 
   constructor(
     id: string,
-    { localForage = defaultLocalForage }: LocalStateOptions = {},
+    { localForage = defaultLocalForage }: LocalStateOptions = {}
   ) {
     this.id = id;
     this.localForage = localForage;
@@ -35,42 +35,43 @@ export class LocalState {
   }
 
   load(): Promise<Object | null> {
-    return this.localForage.getItem(this.id)
-      .then((data) => {
+    return this.localForage
+      .getItem(this.id)
+      .then(data => {
         if (!data) {
           return null;
         }
         return data;
       })
-      .catch((error) => {
+      .catch(error => {
         log.error(`Error with localForage.getItem("${this.id}"): ${error}`);
         throw error;
       });
   }
 
   clear(): Promise<void> {
-    return this.localForage.removeItem(this.id)
-      .catch((error) => {
-        log.error(`Error with localForage.removeItem("${this.id}"): ${error}`);
-        throw error;
-      });
+    return this.localForage.removeItem(this.id).catch(error => {
+      log.error(`Error with localForage.removeItem("${this.id}"): ${error}`);
+      throw error;
+    });
   }
 
   save(data: Object): Promise<void> {
     if (typeof data !== 'object' || data === null) {
       return Promise.reject(
-        new Error('The argument to save() must be an object'));
+        new Error('The argument to save() must be an object')
+      );
     }
-    return this.localForage.setItem(this.id, data)
-      .catch((error) => {
-        log.error(`Error with localForage.setItem("${this.id}"): ${error}`);
-        throw error;
-      });
+    return this.localForage.setItem(this.id, data).catch(error => {
+      log.error(`Error with localForage.setItem("${this.id}"): ${error}`);
+      throw error;
+    });
   }
 }
 
 export default function createLocalState(
-  id: string, options?: LocalStateOptions
+  id: string,
+  options?: LocalStateOptions
 ) {
   return new LocalState(id, options);
 }

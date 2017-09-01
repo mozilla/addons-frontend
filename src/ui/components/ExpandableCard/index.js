@@ -9,25 +9,24 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-
 export class ExpandableCardBase extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     header: PropTypes.node,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   constructor(props) {
     super(props);
     this.state = { expanded: false };
   }
 
-  onClick = (event) => {
+  onClick = event => {
     event.preventDefault();
 
     this.setState({ expanded: !this.state.expanded });
-  }
+  };
 
   render() {
     const { children, className, header, i18n } = this.props;
@@ -63,6 +62,4 @@ export class ExpandableCardBase extends React.Component {
   }
 }
 
-export default compose(
-  translate(),
-)(ExpandableCardBase);
+export default compose(translate())(ExpandableCardBase);

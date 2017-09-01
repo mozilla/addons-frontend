@@ -2,12 +2,9 @@ import config from 'config';
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
-import SimulateAsyncError from
-  'core/containers/error-simulation/SimulateAsyncError';
-import SimulateClientError from
-  'core/containers/error-simulation/SimulateClientError';
-import SimulateSyncError from
-  'core/containers/error-simulation/SimulateSyncError';
+import SimulateAsyncError from 'core/containers/error-simulation/SimulateAsyncError';
+import SimulateClientError from 'core/containers/error-simulation/SimulateClientError';
+import SimulateSyncError from 'core/containers/error-simulation/SimulateSyncError';
 import HandleLogin from 'core/containers/HandleLogin';
 
 import AddonReviewList from './components/AddonReviewList';

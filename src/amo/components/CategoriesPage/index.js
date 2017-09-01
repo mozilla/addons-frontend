@@ -21,6 +21,4 @@ export class CategoriesPageBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(CategoriesPageBase);
+export default compose(translate({ withRef: true }))(CategoriesPageBase);

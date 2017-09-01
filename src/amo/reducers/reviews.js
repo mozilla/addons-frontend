@@ -7,7 +7,7 @@ type ReviewsByAddon = {
     reviewCount: number,
     reviews: Array<UserReviewType>,
   |},
-}
+};
 
 export type ReviewState = {|
   byAddon: ReviewsByAddon,
@@ -34,11 +34,11 @@ export const initialState = {
 
 function mergeInNewReview(
   latestReview: UserReviewType,
-  oldReviews: { [reviewId: string]: UserReviewType } = {},
+  oldReviews: { [reviewId: string]: UserReviewType } = {}
 ): { [id: string]: Array<UserReviewType> } {
   const mergedReviews = {};
 
-  Object.keys(oldReviews).forEach((id) => {
+  Object.keys(oldReviews).forEach(id => {
     mergedReviews[id] = oldReviews[id];
     if (latestReview.isLatest) {
       // Reset the 'latest' flag for all old reviews.
@@ -50,15 +50,15 @@ function mergeInNewReview(
   return mergedReviews;
 }
 
-
 export default function reviews(
   state: ReviewState = initialState,
-  { payload, type }: {| payload: any, type: string |},
+  { payload, type }: {| payload: any, type: string |}
 ) {
   switch (type) {
     case SET_REVIEW: {
-      const existingReviews =
-        state[payload.userId] ? state[payload.userId][payload.addonId] : {};
+      const existingReviews = state[payload.userId]
+        ? state[payload.userId][payload.addonId]
+        : {};
       const latestReview = payload;
       return {
         ...state,

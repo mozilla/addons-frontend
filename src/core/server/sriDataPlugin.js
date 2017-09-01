@@ -13,16 +13,17 @@ export default class SriDataPlugin {
   }
 
   apply(compiler) {
-    compiler.plugin('done', (stats) => {
+    compiler.plugin('done', stats => {
       const sriStats = {};
       try {
-        Object.keys(stats.compilation.assets).forEach((baseName) => {
+        Object.keys(stats.compilation.assets).forEach(baseName => {
           const asset = stats.compilation.assets[baseName];
           if (!asset.integrity) {
             throw new Error(
               oneLine`The integrity property is falsey for
               asset ${baseName}; Is the webpack-subresource-integrity
-              plugin installed and enabled?`);
+              plugin installed and enabled?`
+            );
           }
           sriStats[baseName] = asset.integrity;
         });

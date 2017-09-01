@@ -10,7 +10,6 @@ import {
 import LoadingText from 'ui/components/LoadingText';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('CategoryHeader', () => {
   let category;
 
@@ -55,8 +54,9 @@ describe('CategoryHeader', () => {
   it('uses the description if one exists', () => {
     const root = render();
 
-    expect(root.find('.CategoryHeader-description'))
-      .toIncludeText('I am a cool category for doing things');
+    expect(root.find('.CategoryHeader-description')).toIncludeText(
+      'I am a cool category for doing things'
+    );
   });
 
   it('uses the generic description if category lacks description', () => {
@@ -64,8 +64,9 @@ describe('CategoryHeader', () => {
     delete category.description;
     const root = render({ category });
 
-    expect(root.find('.CategoryHeader-description'))
-      .toIncludeText('Browse all add-ons in this category');
+    expect(root.find('.CategoryHeader-description')).toIncludeText(
+      'Browse all add-ons in this category'
+    );
   });
 
   it('uses the extension description if category lacks description', () => {
@@ -73,8 +74,9 @@ describe('CategoryHeader', () => {
     delete category.description;
     const root = render({ category });
 
-    expect(root.find('.CategoryHeader-description'))
-      .toIncludeText('Browse all extensions in this category');
+    expect(root.find('.CategoryHeader-description')).toIncludeText(
+      'Browse all extensions in this category'
+    );
   });
 
   it('uses the themes description if category lacks description', () => {
@@ -82,8 +84,9 @@ describe('CategoryHeader', () => {
     delete category.description;
     const root = render({ category });
 
-    expect(root.find('.CategoryHeader-description'))
-      .toIncludeText('Browse all themes in this category');
+    expect(root.find('.CategoryHeader-description')).toIncludeText(
+      'Browse all themes in this category'
+    );
   });
 
   it('omits addonType if there is no category', () => {
@@ -91,8 +94,9 @@ describe('CategoryHeader', () => {
 
     // We use an exact className because we're making sure
     // `CategoryHeader--type-${type}` is omitted.
-    expect(root.prop('className'))
-      .toEqual('CategoryHeader CategoryHeader--loading');
+    expect(root.prop('className')).toEqual(
+      'CategoryHeader CategoryHeader--loading'
+    );
   });
 
   it('omits color if there is no category', () => {
@@ -100,16 +104,17 @@ describe('CategoryHeader', () => {
 
     // We use an exact className because we're making sure
     // `CategoryHeader--category-color-${color}` is omitted.
-    expect(root.prop('className'))
-      .toEqual('CategoryHeader CategoryHeader--loading');
+    expect(root.prop('className')).toEqual(
+      'CategoryHeader CategoryHeader--loading'
+    );
   });
 
   it('renders LoadingText if category is null (e.g. is loading)', () => {
     const root = render({ category: null });
 
-    expect(root.find('.CategoryHeader-name').find(LoadingText))
-      .toHaveLength(1);
-    expect(root.find('.CategoryHeader-description').find(LoadingText))
-      .toHaveLength(2);
+    expect(root.find('.CategoryHeader-name').find(LoadingText)).toHaveLength(1);
+    expect(
+      root.find('.CategoryHeader-description').find(LoadingText)
+    ).toHaveLength(2);
   });
 });

@@ -16,10 +16,7 @@ import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
 import I18nProvider from 'core/i18n/Provider';
 import log from 'core/logger';
 
-
-export default function makeClient(
-  routes, createStore, { sagas = null } = {},
-) {
+export default function makeClient(routes, createStore, { sagas = null } = {}) {
   // This code needs to come before anything else so we get logs/errors
   // if anything else in this function goes wrong.
   const publicSentryDsn = config.get('publicSentryDsn');
@@ -67,7 +64,7 @@ export default function makeClient(
 
     const middleware = applyRouterMiddleware(
       useScroll(),
-      useReduxAsyncConnect(),
+      useReduxAsyncConnect()
     );
 
     render(
@@ -82,11 +79,12 @@ export default function makeClient(
     );
   }
 
-
   try {
     if (locale !== langToLocale(config.get('defaultLang'))) {
       // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-      require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(renderApp);
+      require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(
+        renderApp
+      );
     } else {
       renderApp({});
     }

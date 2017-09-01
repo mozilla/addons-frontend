@@ -11,7 +11,6 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { parsePage } from 'core/utils';
 
-
 export function* fetchSearchResults({ payload }) {
   const { errorHandlerId } = payload;
   const errorHandler = createErrorHandler(errorHandlerId);

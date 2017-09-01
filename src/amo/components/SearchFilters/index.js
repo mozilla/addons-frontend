@@ -20,7 +20,6 @@ import ExpandableCard from 'ui/components/ExpandableCard';
 
 import './styles.scss';
 
-
 const NO_FILTER = '';
 
 export class SearchFiltersBase extends React.Component {
@@ -31,9 +30,9 @@ export class SearchFiltersBase extends React.Component {
     lang: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
     router: PropTypes.object.isRequired,
-  }
+  };
 
-  onSelectElementChange = (event) => {
+  onSelectElementChange = event => {
     event.preventDefault();
 
     const { clientApp, filters, lang, pathname, router } = this.props;
@@ -61,7 +60,7 @@ export class SearchFiltersBase extends React.Component {
     });
 
     return false;
-  }
+  };
 
   addonTypeOptions() {
     const { i18n } = this.props;
@@ -103,10 +102,7 @@ export class SearchFiltersBase extends React.Component {
         className="SearchFilters"
         header={i18n.gettext('Filter results')}
       >
-        <label
-          className="SearchFilters-label"
-          htmlFor="SearchFilters-Sort"
-        >
+        <label className="SearchFilters-label" htmlFor="SearchFilters-Sort">
           {i18n.gettext('Sort by')}
         </label>
         <select
@@ -116,7 +112,7 @@ export class SearchFiltersBase extends React.Component {
           onChange={this.onSelectElementChange}
           value={filters.sort || 'relevance'}
         >
-          {this.sortOptions().map((option) => {
+          {this.sortOptions().map(option => {
             return <option key={option.name} {...option} />;
           })}
         </select>
@@ -134,7 +130,7 @@ export class SearchFiltersBase extends React.Component {
           onChange={this.onSelectElementChange}
           value={filters.addonType || NO_FILTER}
         >
-          {this.addonTypeOptions().map((option) => {
+          {this.addonTypeOptions().map(option => {
             return <option key={option.name} {...option} />;
           })}
         </select>
@@ -152,7 +148,7 @@ export class SearchFiltersBase extends React.Component {
           onChange={this.onSelectElementChange}
           value={filters.operatingSystem || NO_FILTER}
         >
-          {this.operatingSystemOptions().map((option) => {
+          {this.operatingSystemOptions().map(option => {
             return <option key={option.name} {...option} />;
           })}
         </select>
@@ -173,5 +169,5 @@ export default compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'Search' }),
+  withErrorHandler({ name: 'Search' })
 )(SearchFiltersBase);

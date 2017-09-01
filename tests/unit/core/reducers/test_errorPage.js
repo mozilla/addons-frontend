@@ -4,7 +4,6 @@ import { endGlobalLoad, loadFail } from 'redux-connect/lib/store';
 import { createApiError } from 'core/api';
 import errorPage, { initialState } from 'core/reducers/errorPage';
 
-
 function getErrorPageState(store) {
   return store.getState().errorPage;
 }

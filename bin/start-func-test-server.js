@@ -32,22 +32,26 @@ function shell(cmd, args) {
       cwd: root,
     });
 
-    child.stdout.on('data', (data) => {
+    child.stdout.on('data', data => {
       process.stdout.write(data.toString());
     });
-    child.stdout.on('error', (error) => reject(error));
+    child.stdout.on('error', error => reject(error));
 
-    child.stderr.on('data', (data) => {
+    child.stderr.on('data', data => {
       process.stderr.write(data.toString());
     });
-    child.stderr.on('error', (error) => reject(error));
+    child.stderr.on('error', error => reject(error));
 
-    child.on('error', (error) => reject(error));
-    child.on('exit', (exitCode) => {
+    child.on('error', error => reject(error));
+    child.on('exit', exitCode => {
       logDivider('END shell');
       if (exitCode !== 0) {
-        reject(new Error(
-          `shell command failed: ${cmdString} (exit: ${exitCode || '[empty]'})`));
+        reject(
+          new Error(
+            `shell command failed: ${cmdString} (exit: ${exitCode ||
+              '[empty]'})`
+          )
+        );
       }
       resolve();
     });
@@ -85,7 +89,9 @@ function exec(cmd, argParts, { quiet = false } = {}) {
         }
         if (!quiet) {
           // Don't log all of the error because it includes all of stderr.
-          console.error(`Snippet of exec error: ${error.toString().slice(0, 60)}...`);
+          console.error(
+            `Snippet of exec error: ${error.toString().slice(0, 60)}...`
+          );
         }
         reject(new Error(`exec command failed: ${cmdString}`));
       }
@@ -102,7 +108,7 @@ function fileExistsSync(file) {
   }
 }
 
-new Promise((resolve) => {
+new Promise(resolve => {
   if (fileExistsSync(containerIdFile)) {
     console.warn(`Removing existing container ID file: ${containerIdFile}`);
     fs.unlinkSync(containerIdFile);
@@ -110,8 +116,8 @@ new Promise((resolve) => {
   resolve();
 })
   .then(() => exec('docker', ['build', '-q', '.']))
-  .then((imageIdOutput) => imageIdOutput.trim())
-  .then((imageId) => {
+  .then(imageIdOutput => imageIdOutput.trim())
+  .then(imageId => {
     // Start the server.
     const runArgs = [
       'run',
@@ -132,7 +138,7 @@ new Promise((resolve) => {
   .then(() => {
     return fs.readFileSync(containerIdFile).toString();
   })
-  .then((containerId) => {
+  .then(containerId => {
     // Wait for the server to start and build assets.
 
     // This is the subresource integrity file, one of several asset files
@@ -144,20 +150,25 @@ new Promise((resolve) => {
       const interval = 1000;
       const timeOut = 1000 * 60 * 5; // 5 minutes
       let timeElapsed = 0;
-      console.log(`Waiting for assets to build (looking for ${sampleAssetFile})`);
+      console.log(
+        `Waiting for assets to build (looking for ${sampleAssetFile})`
+      );
 
       const waitForAssets = () => {
         if (timeElapsed >= timeOut) {
-          reject(new Error(
-            `Timed out waiting for assets file to appear at
-            ${sampleAssetFile}`));
+          reject(
+            new Error(
+              `Timed out waiting for assets file to appear at
+            ${sampleAssetFile}`
+            )
+          );
           return;
         }
         timeElapsed += interval;
 
-        exec('docker',
-          ['exec', containerId, 'ls', sampleAssetFile], { quiet: true }
-        )
+        exec('docker', ['exec', containerId, 'ls', sampleAssetFile], {
+          quiet: true,
+        })
           .then(() => {
             // The file exists, the server has finished building assets.
             resolve(containerId);
@@ -171,20 +182,19 @@ new Promise((resolve) => {
       waitForAssets();
     });
   })
-  .then((containerId) => {
+  .then(containerId => {
     // Since the asset we just checked for isn't the final asset built,
     // wait just a bit before capturing the logs.
-    return new Promise(
-      (resolve) => setTimeout(() => resolve(containerId), 2000));
+    return new Promise(resolve => setTimeout(() => resolve(containerId), 2000));
   })
-  .then((containerId) => {
+  .then(containerId => {
     // Show all of the server logs.
     return shell('docker', ['logs', '--tail=all', containerId]);
   })
   .then(() => {
     console.log('The server is ready 🦄 ✨');
   })
-  .catch((error) => {
+  .catch(error => {
     console.log(''); // Pad with a blank line
     console.error(error.stack);
     process.exit(1);

@@ -10,21 +10,21 @@ import Card from 'ui/components/Card';
 
 import 'amo/components/ErrorPage/ErrorPage.scss';
 
-
 export class NotFoundBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     const { i18n } = this.props;
 
-    const fileAnIssueText = i18n.sprintf(i18n.gettext(`
+    const fileAnIssueText = i18n.sprintf(
+      i18n.gettext(`
       If you followed a link from somewhere, please
       <a href="%(url)s">file an issue</a>. Tell us where you came from and
       what you were looking for, and we'll do our best to fix it.`),
-    { url: 'https://github.com/mozilla/addons-frontend/issues/new/' });
-
+      { url: 'https://github.com/mozilla/addons-frontend/issues/new/' }
+    );
 
     /* eslint-disable react/no-danger */
     return (
@@ -50,6 +50,4 @@ export class NotFoundBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(NotFoundBase);
+export default compose(translate({ withRef: true }))(NotFoundBase);

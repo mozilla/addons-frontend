@@ -9,7 +9,6 @@ import {
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
 
-
 type PropTypes = {|
   filters: Object,
   pathname: string,
@@ -55,6 +54,4 @@ export function mapStateToProps(state: any, ownProps: any) {
   return { filters };
 }
 
-export default compose(
-  connect(mapStateToProps),
-)(SearchPageBase);
+export default compose(connect(mapStateToProps))(SearchPageBase);

@@ -14,7 +14,6 @@ import {
 import { signedInApiState } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 
-
 describe(__filename, () => {
   const defaultUserAgentInfo = {
     browser: { name: 'Firefox' },
@@ -49,10 +48,17 @@ describe(__filename, () => {
     });
 
     expect(
-      root.find('.AddonCompatibilityError').render().find('a').attr('href')
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .find('a')
+        .attr('href')
     ).toEqual('https://www.mozilla.org/en-GB/firefox/');
     expect(
-      root.find('.AddonCompatibilityError').render().text()
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text()
     ).toContain('You need to download Firefox to install this add-on.');
   });
 
@@ -67,7 +73,10 @@ describe(__filename, () => {
     });
 
     expect(
-      root.find('.AddonCompatibilityError').render().text()
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text()
     ).toContain('This add-on is not compatible with your version of Firefox');
   });
 
@@ -77,17 +86,24 @@ describe(__filename, () => {
       minVersion: '11.0',
       reason: INCOMPATIBLE_UNDER_MIN_VERSION,
       userAgentInfo: {
-        browser: { name: 'Firefox', version: '8.0' }, os: {},
+        browser: { name: 'Firefox', version: '8.0' },
+        os: {},
       },
     });
 
-    const text = root.find('.AddonCompatibilityError').render().text();
+    const text = root
+      .find('.AddonCompatibilityError')
+      .render()
+      .text();
 
     expect(
-      root.find('.AddonCompatibilityError').render().find('a').attr('href')
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .find('a')
+        .attr('href')
     ).toEqual('https://www.mozilla.org/en-GB/firefox/');
-    expect(text).toContain(
-      'This add-on requires a newer version of Firefox');
+    expect(text).toContain('This add-on requires a newer version of Firefox');
     expect(text).toContain('(at least version 11.0)');
     expect(text).toContain('You are using Firefox 8.0');
   });
@@ -98,20 +114,29 @@ describe(__filename, () => {
       userAgentInfo: { browser: { name: 'Firefox' }, os: { name: 'iOS' } },
     });
 
-    expect(root.find('.AddonCompatibilityError').render().text())
-      .toContain('Firefox for iOS does not currently support add-ons.');
+    expect(
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text()
+    ).toContain('Firefox for iOS does not currently support add-ons.');
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {
     const root = render({
       reason: INCOMPATIBLE_NO_OPENSEARCH,
       userAgentInfo: {
-        browser: { name: 'Firefox' }, os: { name: 'Plan 9' },
+        browser: { name: 'Firefox' },
+        os: { name: 'Plan 9' },
       },
     });
 
-    expect(root.find('.AddonCompatibilityError').render().text())
-      .toContain('Your version of Firefox does not support search plugins.');
+    expect(
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text()
+    ).toContain('Your version of Firefox does not support search plugins.');
   });
 
   it('renders a notice and logs warning when reason code not known', () => {
@@ -125,10 +150,14 @@ describe(__filename, () => {
     sinon.assert.calledWith(
       fakeLog.warn,
       'Unknown reason code supplied to AddonCompatibilityError',
-      'fake reason',
+      'fake reason'
     );
-    expect(root.find('.AddonCompatibilityError').render().text())
-      .toContain('Your browser does not support add-ons.');
+    expect(
+      root
+        .find('.AddonCompatibilityError')
+        .render()
+        .text()
+    ).toContain('Your browser does not support add-ons.');
   });
 
   it('throws an error if no reason is supplied', () => {

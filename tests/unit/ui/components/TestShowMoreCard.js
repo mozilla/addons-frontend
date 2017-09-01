@@ -6,7 +6,6 @@ import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { ShowMoreCardBase } from 'ui/components/ShowMoreCard';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 function render(props) {
   return renderIntoDocument(
     <ShowMoreCardBase i18n={getFakeI18nInst()} {...props} />
@@ -23,7 +22,9 @@ describe('<ShowMoreCard />', () => {
     root.setState({ expanded: false });
     expect(rootNode.className).not.toContain('.ShowMoreCard--expanded');
     expect(root.state.expanded).toBe(false);
-    expect(rootNode.querySelector('.Card-footer-link').textContent).toEqual('Expand to Read more');
+    expect(rootNode.querySelector('.Card-footer-link').textContent).toEqual(
+      'Expand to Read more'
+    );
 
     Simulate.click(rootNode.querySelector('.Card-footer-link a'));
 

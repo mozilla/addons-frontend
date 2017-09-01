@@ -1,28 +1,31 @@
 import * as actions from 'core/actions';
 import { userAgents } from 'tests/unit/helpers';
 
-
 describe('core actions setAuthToken', () => {
   it('requires a token', () => {
-    expect(() => actions.setAuthToken())
-      .toThrowError(/token cannot be falsey/);
+    expect(() => actions.setAuthToken()).toThrowError(/token cannot be falsey/);
   });
 });
 
 describe('core actions setLang', () => {
   it('creates the SET_LANG action', () => {
-    expect(actions.setLang('fr')).toEqual({ type: 'SET_LANG', payload: { lang: 'fr' } });
+    expect(actions.setLang('fr')).toEqual({
+      type: 'SET_LANG',
+      payload: { lang: 'fr' },
+    });
   });
 });
 
 describe('core actions setClientApp', () => {
   it('creates the SET_CLIENT_APP action', () => {
-    expect(actions.setClientApp('firefox')).toEqual({ type: 'SET_CLIENT_APP', payload: { clientApp: 'firefox' } });
+    expect(actions.setClientApp('firefox')).toEqual({
+      type: 'SET_CLIENT_APP',
+      payload: { clientApp: 'firefox' },
+    });
   });
 
   it('requires a clientApp value', () => {
-    expect(() => actions.setClientApp(''))
-      .toThrowError(/cannot be falsey/);
+    expect(() => actions.setClientApp('')).toThrowError(/cannot be falsey/);
   });
 });
 

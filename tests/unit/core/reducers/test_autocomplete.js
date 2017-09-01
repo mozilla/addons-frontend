@@ -26,10 +26,13 @@ describe(__filename, () => {
     });
 
     it('handles AUTOCOMPLETE_STARTED', () => {
-      const { loading, suggestions } = reducer(undefined, autocompleteStart({
-        errorHandlerId: 'any-error-handler-id',
-        filters: { q: 'search string' },
-      }));
+      const { loading, suggestions } = reducer(
+        undefined,
+        autocompleteStart({
+          errorHandlerId: 'any-error-handler-id',
+          filters: { q: 'search string' },
+        })
+      );
       expect(loading).toBe(true);
       expect(suggestions).toEqual([]);
     });
@@ -41,7 +44,10 @@ describe(__filename, () => {
         createFakeAutocompleteResult({ name: 'baz' }),
       ];
 
-      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
+      const { loading, suggestions } = reducer(
+        undefined,
+        autocompleteLoad({ results })
+      );
       expect(loading).toBe(false);
       expect(suggestions).toHaveLength(3);
       expect(suggestions[0]).toHaveProperty('name', 'foo');
@@ -53,7 +59,10 @@ describe(__filename, () => {
       const result = createFakeAutocompleteResult({ name: 'baz' });
       const results = [result];
 
-      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
+      const { loading, suggestions } = reducer(
+        undefined,
+        autocompleteLoad({ results })
+      );
       expect(loading).toBe(false);
       expect(suggestions).toEqual([
         {
@@ -71,7 +80,10 @@ describe(__filename, () => {
         createFakeAutocompleteResult({ name: 'baz' }),
       ];
 
-      const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
+      const { loading, suggestions } = reducer(
+        undefined,
+        autocompleteLoad({ results })
+      );
       expect(loading).toBe(false);
       expect(suggestions).toHaveLength(2);
     });

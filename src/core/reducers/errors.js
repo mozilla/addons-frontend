@@ -18,7 +18,7 @@ function getMessagesFromError(error) {
   log.info('Extracting messages from error object:', error);
 
   if (error && error.response && error.response.data) {
-    Object.keys(error.response.data).forEach((key) => {
+    Object.keys(error.response.data).forEach(key => {
       const val = error.response.data[key];
       if (key === 'code') {
         errorData = { ...errorData, code: val };
@@ -28,7 +28,7 @@ function getMessagesFromError(error) {
         // Most API reponse errors will consist of a key (which could be a
         // form field) and an array of localized messages.
         // More info: http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
-        val.forEach((msg) => {
+        val.forEach(msg => {
           if (key === 'non_field_errors') {
             // Add a generic error not related to a specific field.
             errorData.messages.push(msg);
@@ -62,15 +62,15 @@ export default function errors(state = initialState, action) {
         [action.payload.id]: null,
       };
     case SET_ERROR: {
-      const { code, messages } =
-        getMessagesFromError(action.payload.error);
+      const { code, messages } = getMessagesFromError(action.payload.error);
       return {
         ...state,
         [action.payload.id]: {
           code,
           messages,
-          responseStatusCode: action.payload.error.response ?
-            action.payload.error.response.status : null,
+          responseStatusCode: action.payload.error.response
+            ? action.payload.error.response.status
+            : null,
         },
       };
     }

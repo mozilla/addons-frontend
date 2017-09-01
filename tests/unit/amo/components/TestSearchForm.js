@@ -2,10 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import {
-  SearchFormBase,
-  mapStateToProps,
-} from 'amo/components/SearchForm';
+import { SearchFormBase, mapStateToProps } from 'amo/components/SearchForm';
 import Suggestion from 'amo/components/SearchForm/Suggestion';
 import LoadingText from 'ui/components/LoadingText';
 import {
@@ -28,7 +25,6 @@ import {
   autocompleteStart,
 } from 'core/reducers/autocomplete';
 
-
 describe(__filename, () => {
   const pathname = '/search/';
   const api = { clientApp: 'firefox', lang: 'de' };
@@ -47,7 +43,7 @@ describe(__filename, () => {
         errorHandler={errorHandler}
         dispatch={() => {}}
         router={router}
-        debounce={(callback) => (...args) => callback(...args)}
+        debounce={callback => (...args) => callback(...args)}
         {...props}
       />
     );
@@ -109,7 +105,9 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('adblock'));
+      wrapper
+        .find('input')
+        .simulate('change', createFakeChangeEvent('adblock'));
       wrapper.find('form').simulate('submit');
       sinon.assert.called(router.push);
     });
@@ -119,7 +117,9 @@ describe(__filename, () => {
       const blurSpy = sinon.stub(wrapper.instance().searchInput, 'blur');
 
       sinon.assert.notCalled(blurSpy);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('something'));
+      wrapper
+        .find('input')
+        .simulate('change', createFakeChangeEvent('something'));
       wrapper.find('form').simulate('submit');
       sinon.assert.called(blurSpy);
     });
@@ -128,7 +128,9 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('adblock'));
+      wrapper
+        .find('input')
+        .simulate('change', createFakeChangeEvent('adblock'));
       wrapper.find('input').simulate('keydown', { key: 'A', shiftKey: true });
       sinon.assert.notCalled(router.push);
     });
@@ -137,7 +139,9 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('adblock'));
+      wrapper
+        .find('input')
+        .simulate('change', createFakeChangeEvent('adblock'));
       wrapper.find('button').simulate('click');
       sinon.assert.called(router.push);
     });
@@ -160,7 +164,9 @@ describe(__filename, () => {
       const wrapper = mountComponent();
 
       sinon.assert.notCalled(router.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('searching'));
+      wrapper
+        .find('input')
+        .simulate('change', createFakeChangeEvent('searching'));
       wrapper.find('button').simulate('click');
       sinon.assert.calledWith(router.push, {
         pathname: '/de/firefox/search/',
@@ -195,7 +201,9 @@ describe(__filename, () => {
       wrapper.find('input').simulate('change', createFakeChangeEvent('foo'));
       expect(wrapper.state('searchValue')).toEqual('foo');
 
-      wrapper.find('input').simulate('change', createFakeChangeEvent(undefined));
+      wrapper
+        .find('input')
+        .simulate('change', createFakeChangeEvent(undefined));
       expect(wrapper.state('searchValue')).toEqual('');
     });
 
@@ -211,12 +219,15 @@ describe(__filename, () => {
       // This is needed to trigger handleSuggestionsFetchRequested()
       wrapper.find('input').simulate('focus');
       sinon.assert.callCount(dispatch, 1);
-      sinon.assert.calledWith(dispatch, autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters: {
-          query: 'foo',
-        },
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        autocompleteStart({
+          errorHandlerId: errorHandler.id,
+          filters: {
+            query: 'foo',
+          },
+        })
+      );
     });
 
     it('clears suggestions when input is cleared', () => {
@@ -232,10 +243,12 @@ describe(__filename, () => {
     });
 
     it('displays suggestions when user is typing', () => {
-      const { store } = dispatchAutocompleteResults({ results: [
-        createFakeAutocompleteResult(),
-        createFakeAutocompleteResult(),
-      ] });
+      const { store } = dispatchAutocompleteResults({
+        results: [
+          createFakeAutocompleteResult(),
+          createFakeAutocompleteResult(),
+        ],
+      });
       const { autocomplete: autocompleteState } = store.getState();
 
       const wrapper = mountComponent({
@@ -250,10 +263,12 @@ describe(__filename, () => {
     });
 
     it('does not display suggestions when search is empty', () => {
-      const { store } = dispatchAutocompleteResults({ results: [
-        createFakeAutocompleteResult(),
-        createFakeAutocompleteResult(),
-      ] });
+      const { store } = dispatchAutocompleteResults({
+        results: [
+          createFakeAutocompleteResult(),
+          createFakeAutocompleteResult(),
+        ],
+      });
       const { autocomplete: autocompleteState } = store.getState();
 
       // setting the `query` prop to empty also sets the input state to empty.
@@ -276,10 +291,12 @@ describe(__filename, () => {
     it('displays 10 loading bars when suggestions are loading', () => {
       const { store } = dispatchSignInActions();
 
-      store.dispatch(autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters: { query: 'test' },
-      }));
+      store.dispatch(
+        autocompleteStart({
+          errorHandlerId: errorHandler.id,
+          filters: { query: 'test' },
+        })
+      );
 
       const wrapper = mountComponent(mapStateToProps(store.getState()));
       wrapper.find('input').simulate('focus');
@@ -341,13 +358,16 @@ describe(__filename, () => {
       wrapper.find('input').simulate('focus');
 
       sinon.assert.callCount(dispatch, 1);
-      sinon.assert.calledWith(dispatch, autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters: {
-          query: 'ad',
-          addonType: ADDON_TYPE_EXTENSION,
-        },
-      }));
+      sinon.assert.calledWith(
+        dispatch,
+        autocompleteStart({
+          errorHandlerId: errorHandler.id,
+          filters: {
+            query: 'ad',
+            addonType: ADDON_TYPE_EXTENSION,
+          },
+        })
+      );
     });
   });
 
@@ -397,10 +417,12 @@ describe(__filename, () => {
     it('passes the loading suggestions boolean through', () => {
       const { store } = dispatchSignInActions();
 
-      store.dispatch(autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters: { query: 'test' },
-      }));
+      store.dispatch(
+        autocompleteStart({
+          errorHandlerId: errorHandler.id,
+          filters: { query: 'test' },
+        })
+      );
 
       const state = store.getState();
 

@@ -5,7 +5,7 @@ import universalWindow from 'core/window';
 const purify = createDOMPurify(universalWindow);
 export default purify;
 
-purify.addHook('afterSanitizeAttributes', (node) => {
+purify.addHook('afterSanitizeAttributes', node => {
   // Set all elements owning target to target=_blank
   // and add rel="noopener noreferrer".
   if ('target' in node) {

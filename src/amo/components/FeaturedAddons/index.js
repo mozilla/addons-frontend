@@ -14,7 +14,6 @@ import { apiAddonType } from 'core/utils';
 
 import './styles.scss';
 
-
 export class FeaturedAddonsBase extends React.Component {
   static propTypes = {
     addonType: PropTypes.string.isRequired,
@@ -24,7 +23,7 @@ export class FeaturedAddonsBase extends React.Component {
     loading: PropTypes.bool.isRequired,
     params: PropTypes.object.isRequired,
     results: PropTypes.array,
-  }
+  };
 
   componentWillMount() {
     this.props.dispatch(setViewContext(this.requestedAddonType()));
@@ -57,24 +56,27 @@ export class FeaturedAddonsBase extends React.Component {
 
   loadDataIfNeeded(nextProps = {}) {
     const { addonType: lastAddonType } = this.props;
-    const {
-      errorHandler, dispatch, loading, results,
-    } = { ...this.props, ...nextProps };
+    const { errorHandler, dispatch, loading, results } = {
+      ...this.props,
+      ...nextProps,
+    };
 
-    const nextParams = nextProps && nextProps.params ?
-      nextProps.params : {};
+    const nextParams = nextProps && nextProps.params ? nextProps.params : {};
     // Find out the next requested add-on type, i.e. one passed via
     // URL params.
-    const nextAddonType = nextParams.visibleAddonType ?
-      apiAddonType(nextParams.visibleAddonType) : this.requestedAddonType();
+    const nextAddonType = nextParams.visibleAddonType
+      ? apiAddonType(nextParams.visibleAddonType)
+      : this.requestedAddonType();
 
     if ((!results || nextAddonType !== lastAddonType) && !loading) {
       // Fetch featured add-ons from the API if we don't yet have results
       // or if the add-on type of the component has changed.
-      dispatch(getFeatured({
-        addonType: nextAddonType,
-        errorHandlerId: errorHandler.id,
-      }));
+      dispatch(
+        getFeatured({
+          addonType: nextAddonType,
+          errorHandlerId: errorHandler.id,
+        })
+      );
     }
   }
 
@@ -84,13 +86,8 @@ export class FeaturedAddonsBase extends React.Component {
     return (
       <div className="FeaturedAddons">
         {errorHandler.renderErrorIfPresent()}
-        <h2 className="FeaturedAddons-header">
-          {this.headerForAddonType()}
-        </h2>
-        <AddonsCard
-          addons={loading ? null : results}
-          loading={loading}
-        />
+        <h2 className="FeaturedAddons-header">{this.headerForAddonType()}</h2>
+        <AddonsCard addons={loading ? null : results} loading={loading} />
       </div>
     );
   }
@@ -107,5 +104,5 @@ export function mapStateToProps(state) {
 export default compose(
   withErrorHandler({ name: 'FeaturedAddons' }),
   connect(mapStateToProps),
-  translate(),
+  translate()
 )(FeaturedAddonsBase);

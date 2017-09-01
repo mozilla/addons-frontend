@@ -8,14 +8,9 @@ module.exports = {
   CSP: {
     directives: {
       fontSrc: [staticHost],
-      formAction: [
-        "'self'",
-      ],
+      formAction: ["'self'"],
       // Script is limited to the amo specific CDN.
-      scriptSrc: [
-        staticHost,
-        'https://www.google-analytics.com/analytics.js',
-      ],
+      scriptSrc: [staticHost, 'https://www.google-analytics.com/analytics.js'],
       styleSrc: [staticHost],
       imgSrc: [
         "'self'",
@@ -104,7 +99,8 @@ module.exports = {
   trackingId: 'UA-36116321-7',
 
   // https://sentry.prod.mozaws.net/operations/addons-frontend-amo-prod/
-  publicSentryDsn: 'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
+  publicSentryDsn:
+    'https://dbce4e759d8b4dc6a1731d3301fdaab7@sentry.prod.mozaws.net/183',
 
   // The amount of time (in seconds) that an auth token lives for.
   // This needs to match the SESSION_COOKIE_AGE in addons-server:

@@ -10,13 +10,10 @@ import { ADDON_TYPE_OPENSEARCH, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
-import {
-  getClientCompatibility as _getClientCompatibility,
-} from 'core/utils';
+import { getClientCompatibility as _getClientCompatibility } from 'core/utils';
 import Button from 'ui/components/Button';
 
 import './styles.scss';
-
 
 export class InstallButtonBase extends React.Component {
   static propTypes = {
@@ -31,19 +28,19 @@ export class InstallButtonBase extends React.Component {
     userAgentInfo: PropTypes.string.isRequired,
     _log: PropTypes.object,
     _window: PropTypes.object,
-  }
+  };
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
     _log: log,
     _window: typeof window !== 'undefined' ? window : {},
-  }
+  };
 
-  installTheme = (event) => {
+  installTheme = event => {
     event.preventDefault();
     const { addon, status, installTheme } = this.props;
     installTheme(event.currentTarget, { ...addon, status });
-  }
+  };
 
   render() {
     const {
@@ -60,16 +57,23 @@ export class InstallButtonBase extends React.Component {
 
     // OpenSearch plugins display their own prompt so using the "Add to
     // Firefox" button regardless on mozAddonManager support is a better UX.
-    const useButton = (hasAddonManager !== undefined && !hasAddonManager) ||
+    const useButton =
+      (hasAddonManager !== undefined && !hasAddonManager) ||
       addon.type === ADDON_TYPE_OPENSEARCH;
     let button;
 
     const { compatible } = getClientCompatibility({
-      addon, clientApp, userAgentInfo });
+      addon,
+      clientApp,
+      userAgentInfo,
+    });
 
     const buttonIsDisabled = !compatible;
     const buttonClass = classNames(
-      'InstallButton-button', 'Button--action', className, {
+      'InstallButton-button',
+      'Button--action',
+      className,
+      {
         'InstallButton-button--disabled': buttonIsDisabled,
       }
     );
@@ -86,15 +90,17 @@ export class InstallButtonBase extends React.Component {
         </Button>
       );
     } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
-      const onClick = buttonIsDisabled ? null : (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+      const onClick = buttonIsDisabled
+        ? null
+        : event => {
+            event.preventDefault();
+            event.stopPropagation();
 
-        _log.info('Adding OpenSearch Provider', { addon });
-        _window.external.AddSearchProvider(addon.installURL);
+            _log.info('Adding OpenSearch Provider', { addon });
+            _window.external.AddSearchProvider(addon.installURL);
 
-        return false;
-      };
+            return false;
+          };
       button = (
         <Button
           className={buttonClass}
@@ -108,11 +114,13 @@ export class InstallButtonBase extends React.Component {
         </Button>
       );
     } else {
-      const onClick = buttonIsDisabled ? (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        return false;
-      } : null;
+      const onClick = buttonIsDisabled
+        ? event => {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+          }
+        : null;
       button = (
         <Button
           className={buttonClass}
@@ -151,7 +159,6 @@ export function mapStateToProps(state) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  translate(),
-)(InstallButtonBase);
+export default compose(connect(mapStateToProps), translate())(
+  InstallButtonBase
+);

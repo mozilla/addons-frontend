@@ -4,7 +4,6 @@ import {
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
 
-
 describe(__filename, () => {
   describe('convertFiltersToQueryParams', () => {
     it('converts filters', () => {

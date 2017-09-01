@@ -19,7 +19,7 @@ export default class SearchInput extends React.Component {
     placeholder: PropTypes.string,
     type: PropTypes.string,
     inputRef: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     type: 'search',
@@ -48,7 +48,7 @@ export default class SearchInput extends React.Component {
     window.removeEventListener('resize', this.setIconPosition);
   }
 
-  onBlur = (e) => {
+  onBlur = e => {
     this.setState({ focus: false }, () => {
       if (this.props.onBlur) {
         this.props.onBlur(e);
@@ -59,9 +59,9 @@ export default class SearchInput extends React.Component {
       // There is no transitionstart event, but animation will start if there is no value.
       this.setState({ animating: true });
     }
-  }
+  };
 
-  onFocus = (e) => {
+  onFocus = e => {
     this.setState({ focus: true }, () => {
       if (this.props.onFocus) {
         this.props.onFocus(e);
@@ -76,39 +76,40 @@ export default class SearchInput extends React.Component {
     // the CSS animation is a no-op due to the size of text in the label.
     // CSS Animation time + 25ms.
     this.onTransitionEndTimeout = window.setTimeout(this.onTransitionEnd, 275);
-  }
+  };
 
   onTransitionEnd = () => {
     if (this.onTransitionEndTimeout) {
       window.clearTimeout(this.onTransitionEndTimeout);
     }
     this.setState({ animating: false });
-  }
+  };
 
-  onChange = (e) => {
+  onChange = e => {
     e.persist();
     this.setState({ value: e.target.value }, () => {
       if (this.props.onChange) {
         this.props.onChange(e);
       }
     });
-  }
+  };
 
   setIconPosition = () => {
     if (!this.animateLeft) {
       this.animateLeft = this.animateIcon.getBoundingClientRect().left;
     }
     const { left: labelLeft } = this.labelIcon.getBoundingClientRect();
-    this.animateIcon.style.transform = `translateX(${labelLeft - this.animateLeft}px)`;
-  }
+    this.animateIcon.style.transform = `translateX(${labelLeft -
+      this.animateLeft}px)`;
+  };
 
-  setInputRef = (el) => {
+  setInputRef = el => {
     this.input = el;
 
     if (this.props.inputRef) {
       this.props.inputRef(el);
     }
-  }
+  };
 
   get value() {
     return this.state.value;
@@ -126,19 +127,25 @@ export default class SearchInput extends React.Component {
           'SearchInput--text': focus || value,
           'SearchInput--animating': animating,
         })}
-        ref={(el) => { this.root = el; }}
+        ref={el => {
+          this.root = el;
+        }}
       >
         <Icon
           name="magnifying-glass"
           className="SearchInput-animation-icon"
-          getRef={(el) => { this.animateIcon = el; }}
+          getRef={el => {
+            this.animateIcon = el;
+          }}
           onTransitionEnd={this.onTransitionEnd}
         />
         <label className="SearchInput-label" htmlFor={id}>
           <Icon
             name="magnifying-glass"
             className="SearchInput-label-icon"
-            getRef={(el) => { this.labelIcon = el; }}
+            getRef={el => {
+              this.labelIcon = el;
+            }}
           />
           {placeholder}
         </label>

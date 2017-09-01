@@ -1,8 +1,4 @@
-import {
-  LANDING_GET,
-  LANDING_LOADED,
-} from 'core/constants';
-
+import { LANDING_GET, LANDING_LOADED } from 'core/constants';
 
 export function getLanding({ addonType, errorHandlerId }) {
   if (!addonType) {

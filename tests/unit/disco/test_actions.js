@@ -1,6 +1,7 @@
 import { getDiscoResults, loadDiscoResults } from 'disco/actions';
 import {
-  createFetchDiscoveryResult, fakeDiscoAddon,
+  createFetchDiscoveryResult,
+  fakeDiscoAddon,
 } from 'tests/unit/disco/helpers';
 
 describe('disco/actions/loadDiscoResults', () => {
@@ -17,15 +18,17 @@ describe('disco/actions/loadDiscoResults', () => {
   it('requires an entities param', () => {
     const params = defaultParams();
     delete params.entities;
-    expect(() => loadDiscoResults(params))
-      .toThrow(/entities parameter is required/);
+    expect(() => loadDiscoResults(params)).toThrow(
+      /entities parameter is required/
+    );
   });
 
   it('requires a result param', () => {
     const params = defaultParams();
     delete params.result;
-    expect(() => loadDiscoResults(params))
-      .toThrow(/result parameter is required/);
+    expect(() => loadDiscoResults(params)).toThrow(
+      /result parameter is required/
+    );
   });
 });
 
@@ -37,8 +40,7 @@ describe('disco/actions/getDiscoResults', () => {
   it('requires an error handler ID', () => {
     const params = defaultParams();
     delete params.errorHandlerId;
-    expect(() => getDiscoResults(params))
-      .toThrow(/errorHandlerId is required/);
+    expect(() => getDiscoResults(params)).toThrow(/errorHandlerId is required/);
   });
 
   it('adds errorHandlerId to the payload', () => {

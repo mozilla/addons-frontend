@@ -48,12 +48,16 @@ type CategoriesProps = {
   errorHandler: ErrorHandlerType,
   i18n: Object,
   loading: boolean,
-}
+};
 
 export class CategoriesBase extends React.Component {
   componentWillMount() {
     const {
-      addonType, categoriesState, dispatch, errorHandler, loading,
+      addonType,
+      categoriesState,
+      dispatch,
+      errorHandler,
+      loading,
     } = this.props;
 
     if (!loading && !categoriesState) {
@@ -107,25 +111,27 @@ export class CategoriesBase extends React.Component {
     return (
       <Card className={classNameProp} header={i18n.gettext('Categories')}>
         {errorHandler.renderErrorIfPresent()}
-        {loading ?
+        {loading ? (
           <div className="Categories-loading">
             <span className="Categories-loading-info visually-hidden">
               {i18n.gettext('Loading categories.')}
             </span>
-            {Array(8).fill(0).map((value, index) => {
-              return (
-                <LoadingText
-                  className="Categories-loading-text"
-                  key={`Categories-loading-text-${index}`}
-                  maxWidth={20}
-                  range={3}
-                />
-              );
-            })}
+            {Array(8)
+              .fill(0)
+              .map((value, index) => {
+                return (
+                  <LoadingText
+                    className="Categories-loading-text"
+                    key={`Categories-loading-text-${index}`}
+                    maxWidth={20}
+                    range={3}
+                  />
+                );
+              })}
           </div>
-          :
+        ) : (
           <ul className="Categories-list">
-            {categories.map((category) => {
+            {categories.map(category => {
               // Flow cannot figure out CategoryType in this case.
               // See https://github.com/facebook/flow/issues/2174
               // and https://github.com/facebook/flow/issues/2221
@@ -148,15 +154,16 @@ export class CategoriesBase extends React.Component {
               );
             })}
           </ul>
-        }
+        )}
       </Card>
     );
   }
 }
 
-export function mapStateToProps(
-  state: {| api: ApiStateType, categories: CategoriesStateType |}
-) {
+export function mapStateToProps(state: {|
+  api: ApiStateType,
+  categories: CategoriesStateType,
+|}) {
   return {
     categoriesState: state.categories.categories,
     clientApp: state.api.clientApp,
@@ -167,5 +174,5 @@ export function mapStateToProps(
 export default compose(
   withErrorHandler({ name: 'Categories' }),
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate({ withRef: true })
 )(CategoriesBase);

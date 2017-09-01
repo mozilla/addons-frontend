@@ -4,17 +4,16 @@ import PropTypes from 'prop-types';
 
 import './Overlay.scss';
 
-
 export default class Overlay extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     visibleOnLoad: PropTypes.bool.isRequired,
-  }
+  };
 
   static defaultProps = {
     visibleOnLoad: false,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -29,7 +28,7 @@ export default class Overlay extends React.Component {
 
   onClickBackground = () => {
     this.hide();
-  }
+  };
 
   hide() {
     this.setState({ visible: false });
@@ -48,18 +47,26 @@ export default class Overlay extends React.Component {
 
     return (
       <div
-        className={classNames('Overlay', className, { 'Overlay--visible': this.state.visible })}
-        ref={(ref) => { this.overlayContainer = ref; }}
+        className={classNames('Overlay', className, {
+          'Overlay--visible': this.state.visible,
+        })}
+        ref={ref => {
+          this.overlayContainer = ref;
+        }}
       >
         <div
           onClick={this.onClickBackground}
-          ref={(ref) => { this.overlayBackground = ref; }}
+          ref={ref => {
+            this.overlayBackground = ref;
+          }}
           className="Overlay-background"
           role="presentation"
         />
         <div
           className="Overlay-contents"
-          ref={(ref) => { this.overlayContents = ref; }}
+          ref={ref => {
+            this.overlayContents = ref;
+          }}
         >
           {children}
         </div>

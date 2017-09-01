@@ -6,9 +6,6 @@ import { all, fork } from 'redux-saga/effects';
 
 import disco from 'disco/sagas/disco';
 
-
 export default function* rootSaga() {
-  yield all([
-    fork(disco),
-  ]);
+  yield all([fork(disco)]);
 }

@@ -13,7 +13,6 @@ import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('Home', () => {
   function render(props) {
     const fakeDispatch = sinon.stub();
@@ -54,21 +53,27 @@ describe('Home', () => {
     const root = render({ clientApp: CLIENT_APP_FIREFOX });
     const links = shallow(root.instance().extensionsCategoriesForClientApp());
 
-    expect(links.find(ExtensionLink).find('[name="block-ads"]'))
-      .toHaveProp('slug', 'privacy-security');
+    expect(links.find(ExtensionLink).find('[name="block-ads"]')).toHaveProp(
+      'slug',
+      'privacy-security'
+    );
   });
 
   it('renders Android URLs for categories', () => {
     const root = render({ clientApp: CLIENT_APP_ANDROID });
     const links = shallow(root.instance().extensionsCategoriesForClientApp());
 
-    expect(links.find(ExtensionLink).find('[name="block-ads"]'))
-      .toHaveProp('slug', 'security-privacy');
+    expect(links.find(ExtensionLink).find('[name="block-ads"]')).toHaveProp(
+      'slug',
+      'security-privacy'
+    );
   });
 
   it('renders an ExtensionLink', () => {
     const root = shallow(
-      <ExtensionLink name="scenic" slug="test">Hello</ExtensionLink>
+      <ExtensionLink name="scenic" slug="test">
+        Hello
+      </ExtensionLink>
     );
 
     expect(root.find(CategoryLink)).toHaveProp('children', 'Hello');
@@ -79,7 +84,9 @@ describe('Home', () => {
 
   it('renders a ThemeLink', () => {
     const root = shallow(
-      <ThemeLink name="scenic" slug="test">Hello</ThemeLink>
+      <ThemeLink name="scenic" slug="test">
+        Hello
+      </ThemeLink>
     );
 
     expect(root.find(CategoryLink)).toHaveProp('children', 'Hello');

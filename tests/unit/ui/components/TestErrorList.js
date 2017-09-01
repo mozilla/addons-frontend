@@ -13,11 +13,13 @@ function render(customProps = {}) {
     _window: { location: { reload: sinon.stub() } },
     ...customProps,
   };
-  return findDOMNode(renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
-      <ErrorList {...props} />
-    </I18nProvider>
-  ));
+  return findDOMNode(
+    renderIntoDocument(
+      <I18nProvider i18n={getFakeI18nInst()}>
+        <ErrorList {...props} />
+      </I18nProvider>
+    )
+  );
 }
 
 describe('ui/components/ErrorList', () => {

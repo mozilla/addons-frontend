@@ -5,7 +5,6 @@ import AddonsCard from 'amo/components/AddonsCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
-
 describe('amo/components/LandingAddonsCard', () => {
   function render(customProps = {}) {
     const props = {

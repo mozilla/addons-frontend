@@ -12,7 +12,6 @@ import Card from 'ui/components/Card';
 
 import './ShowMoreCard.scss';
 
-
 const MAX_HEIGHT = 100;
 
 export class ShowMoreCardBase extends React.Component {
@@ -21,7 +20,7 @@ export class ShowMoreCardBase extends React.Component {
     className: PropTypes.string,
     header: PropTypes.node,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -32,22 +31,22 @@ export class ShowMoreCardBase extends React.Component {
     this.truncateToMaxHeight(ReactDOM.findDOMNode(this.contents));
   }
 
-  onClick = (event) => {
+  onClick = event => {
     event.preventDefault();
     this.expandText();
-  }
+  };
 
   expandText() {
     this.setState({ expanded: true });
   }
 
-  truncateToMaxHeight = (contents) => {
+  truncateToMaxHeight = contents => {
     // If the contents are short enough they don't need a "show more" link; the
     // contents are expanded by default.
     if (contents.clientHeight > MAX_HEIGHT) {
       this.setState({ expanded: false });
     }
-  }
+  };
 
   render() {
     const { children, className, header, i18n } = this.props;
@@ -64,20 +63,25 @@ export class ShowMoreCardBase extends React.Component {
             // makes sense out of context. The HTML makes it hidden from
             // non-screenreaders and must stay.
             '<span class="visually-hidden">Expand to</span> Read more'
-          ), ['span']
+          ),
+          ['span']
         )}
       />
     );
 
     return (
       <Card
-        className={classNames('ShowMoreCard', className, { 'ShowMoreCard--expanded': expanded })}
+        className={classNames('ShowMoreCard', className, {
+          'ShowMoreCard--expanded': expanded,
+        })}
         header={header}
         footerLink={expanded ? null : readMoreLink}
       >
         <div
           className="ShowMoreCard-contents"
-          ref={(ref) => { this.contents = ref; }}
+          ref={ref => {
+            this.contents = ref;
+          }}
         >
           {children}
         </div>
@@ -86,6 +90,4 @@ export class ShowMoreCardBase extends React.Component {
   }
 }
 
-export default compose(
-  translate({ withRef: true }),
-)(ShowMoreCardBase);
+export default compose(translate({ withRef: true }))(ShowMoreCardBase);

@@ -3,7 +3,6 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import { getErrorComponent } from 'amo/utils';
 
-
 describe('amo/utils', () => {
   describe('getErrorComponent', () => {
     it('returns a NotAuthorized component for 401 errors', () => {

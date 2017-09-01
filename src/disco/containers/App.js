@@ -12,18 +12,17 @@ import Footer from 'disco/components/Footer';
 
 import 'disco/css/App.scss';
 
-
 export class AppBase extends React.Component {
   static propTypes = {
     ErrorPage: PropTypes.node.isRequired,
     browserVersion: PropTypes.string.isRequired,
     children: PropTypes.node,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   static defaultProps = {
     ErrorPage: DefaultErrorPage,
-  }
+  };
 
   render() {
     const { ErrorPage, browserVersion, children, i18n } = this.props;
@@ -37,9 +36,7 @@ export class AppBase extends React.Component {
           <Helmet defaultTitle={i18n.gettext('Discover Add-ons')}>
             <meta name="robots" content="noindex" />
           </Helmet>
-          <ErrorPage>
-            {children}
-          </ErrorPage>
+          <ErrorPage>{children}</ErrorPage>
           <Footer />
         </div>
       </NestedStatus>
@@ -53,7 +50,6 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  translate({ withRef: true }),
-)(AppBase);
+export default compose(connect(mapStateToProps), translate({ withRef: true }))(
+  AppBase
+);

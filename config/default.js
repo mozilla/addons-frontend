@@ -7,17 +7,14 @@ import path from 'path';
 import { amoProdCDN, apiProdHost, sentryHost } from './lib/shared';
 
 const appName = process.env.NODE_APP_INSTANCE || null;
-const validAppNames = [
-  'amo',
-  'disco',
-];
+const validAppNames = ['amo', 'disco'];
 
 // Throw if the appName supplied is not valid.
 if (appName && !validAppNames.includes(appName)) {
   throw new Error(
-    `App "${appName}" is not enabled; valid app names: ${validAppNames}`);
+    `App "${appName}" is not enabled; valid app names: ${validAppNames}`
+  );
 }
-
 
 module.exports = {
   appName,
@@ -219,10 +216,7 @@ module.exports = {
 
   // The list of valid client application names.
   // These are derived from UA strings when not supplied in the URL.
-  validClientApplications: [
-    'android',
-    'firefox',
-  ],
+  validClientApplications: ['android', 'firefox'],
 
   validLocaleUrlExceptions: [],
   validClientAppUrlExceptions: [],

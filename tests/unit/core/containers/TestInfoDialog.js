@@ -11,7 +11,6 @@ import {
 } from 'core/containers/InfoDialog';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 let closeAction;
 
 function getInfoDialog(props = {}) {
@@ -40,15 +39,17 @@ describe('<InfoDialogBase />', () => {
   it('Should render a title', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
-    expect(root.querySelector('#show-info-title').textContent)
-      .toEqual('Your add-on is ready');
+    expect(root.querySelector('#show-info-title').textContent).toEqual(
+      'Your add-on is ready'
+    );
   });
 
   it('Should render a description containing the add-on name', () => {
     const dialog = renderInfoDialog();
     const root = findDOMNode(dialog);
-    expect(root.querySelector('#show-info-description').textContent)
-      .toContain('A Test Add-on');
+    expect(root.querySelector('#show-info-description').textContent).toContain(
+      'A Test Add-on'
+    );
   });
 
   it('should have an img element with a src', () => {
@@ -64,7 +65,6 @@ describe('<InfoDialogBase />', () => {
     expect(closeAction.called).toBeTruthy();
   });
 });
-
 
 describe('Clicking outside <InfoDialogBase />', () => {
   let mountNode;
@@ -92,10 +92,7 @@ describe('Clicking outside <InfoDialogBase />', () => {
         return (
           <div>
             {getInfoDialog()}
-            <button
-              id="outside-component"
-              onClick={(e) => e.stopPropagation()}
-            />
+            <button id="outside-component" onClick={e => e.stopPropagation()} />
           </div>
         );
       }

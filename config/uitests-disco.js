@@ -5,10 +5,7 @@ module.exports = {
 
   CSP: {
     directives: {
-      scriptSrc: [
-        "'self'",
-        'https://www.google-analytics.com',
-      ],
+      scriptSrc: ["'self'", 'https://www.google-analytics.com'],
       styleSrc: ["'self'"],
       imgSrc: [
         "'self'",

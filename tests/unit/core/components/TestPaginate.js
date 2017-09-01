@@ -13,7 +13,6 @@ import Paginate from 'core/components/Paginate';
 import PaginatorLink from 'core/components/PaginatorLink';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
-
 describe('<Paginate />', () => {
   const getRenderProps = () => ({
     i18n: getFakeI18nInst(),
@@ -27,9 +26,10 @@ describe('<Paginate />', () => {
       ...getRenderProps(),
       ...extra,
     };
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Paginate {...props} />
-    ), Paginate).getWrappedInstance();
+    return findRenderedComponentWithType(
+      renderIntoDocument(<Paginate {...props} />),
+      Paginate
+    ).getWrappedInstance();
   }
 
   describe('methods', () => {
@@ -37,22 +37,25 @@ describe('<Paginate />', () => {
       it('does not allow an undefined count', () => {
         const props = getRenderProps();
         delete props.count;
-        expect(() => renderIntoDocument(<Paginate {...props} />))
-          .toThrowError(/count property cannot be undefined/);
+        expect(() => renderIntoDocument(<Paginate {...props} />)).toThrowError(
+          /count property cannot be undefined/
+        );
       });
 
       it('does not allow an undefined currentPage', () => {
         const props = getRenderProps();
         delete props.currentPage;
-        expect(() => renderIntoDocument(<Paginate {...props} />))
-          .toThrowError(/currentPage property cannot be undefined/);
+        expect(() => renderIntoDocument(<Paginate {...props} />)).toThrowError(
+          /currentPage property cannot be undefined/
+        );
       });
 
       it('does not allow an undefined pathname', () => {
         const props = getRenderProps();
         delete props.pathname;
-        expect(() => renderIntoDocument(<Paginate {...props} />))
-          .toThrowError(/pathname property cannot be undefined/);
+        expect(() => renderIntoDocument(<Paginate {...props} />)).toThrowError(
+          /pathname property cannot be undefined/
+        );
       });
     });
 
@@ -73,13 +76,15 @@ describe('<Paginate />', () => {
       });
 
       it('does not allow a per page value of zero', () => {
-        expect(() => renderPaginate({ count: 5, perPage: 0 }))
-          .toThrowError(/0 is not allowed/);
+        expect(() => renderPaginate({ count: 5, perPage: 0 })).toThrowError(
+          /0 is not allowed/
+        );
       });
 
       it('does not allow a negative per page value', () => {
-        expect(() => renderPaginate({ count: 5, perPage: -1 }))
-          .toThrowError(/-1 is not allowed/);
+        expect(() => renderPaginate({ count: 5, perPage: -1 })).toThrowError(
+          /-1 is not allowed/
+        );
       });
     });
 
@@ -93,7 +98,9 @@ describe('<Paginate />', () => {
         const commonParams = { count: 30, perPage: 3, showPages: 5 };
 
         it('will be 0 by default', () => {
-          expect(getVisiblePages({ count: 30, perPage: 3, currentPage: 1 })).toEqual([]);
+          expect(
+            getVisiblePages({ count: 30, perPage: 3, currentPage: 1 })
+          ).toEqual([]);
         });
 
         it('will not be less than 0', () => {
@@ -137,7 +144,10 @@ describe('<Paginate />', () => {
 
         it('will not offset near the end', () => {
           const pages = getVisiblePages({
-            count: 128, perPage: 25, showPages: 9, currentPage: 6,
+            count: 128,
+            perPage: 25,
+            showPages: 9,
+            currentPage: 6,
           });
           expect(pages).toEqual([1, 2, 3, 4, 5, 6]);
         });
@@ -148,12 +158,20 @@ describe('<Paginate />', () => {
         });
 
         it('will not render when showPages is false-y', () => {
-          const pages = getVisiblePages({ ...commonParams, currentPage: 3, showPages: 0 });
+          const pages = getVisiblePages({
+            ...commonParams,
+            currentPage: 3,
+            showPages: 0,
+          });
           expect(pages).toEqual([]);
         });
 
         it('will not render when showPages is false', () => {
-          const pages = getVisiblePages({ ...commonParams, currentPage: 3, showPages: false });
+          const pages = getVisiblePages({
+            ...commonParams,
+            currentPage: 3,
+            showPages: false,
+          });
           expect(pages).toEqual([]);
         });
       });
@@ -168,7 +186,9 @@ describe('<Paginate />', () => {
       });
 
       it('will render with more than one page', () => {
-        const root = findDOMNode(renderPaginate({ ...commonParams, count: 30 }));
+        const root = findDOMNode(
+          renderPaginate({ ...commonParams, count: 30 })
+        );
         expect(root.classList.contains('Paginate')).toBeTruthy();
       });
     });
@@ -217,21 +237,25 @@ describe('<Paginate />', () => {
     }
 
     function renderPaginateRoute() {
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
         const node = document.createElement('div');
-        render((
+        render(
           <Router history={createMemoryHistory('/')}>
             <Route path="/" component={PaginateWrapper} />
-          </Router>
-        ), node, () => {
-          resolve(node);
-        });
+          </Router>,
+          node,
+          () => {
+            resolve(node);
+          }
+        );
       });
     }
 
-    return renderPaginateRoute().then((root) => {
+    return renderPaginateRoute().then(root => {
       const links = Array.from(root.querySelectorAll('a'));
-      expect(links.map((link) => [link.textContent, link.getAttribute('href')])).toEqual([
+      expect(
+        links.map(link => [link.textContent, link.getAttribute('href')])
+      ).toEqual([
         ['Previous', '/some-path/?page=4'],
         ['3', '/some-path/?page=3'],
         ['4', '/some-path/?page=4'],

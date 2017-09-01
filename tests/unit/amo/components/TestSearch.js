@@ -43,13 +43,9 @@ describe('Search', () => {
     expect(results.prop('loading')).toEqual(props.loading);
     expect(results.prop('pathname')).toEqual(props.pathname);
     expect(results.prop('results')).toEqual(props.results);
-    expect(Object.keys(results.props()).sort()).toEqual([
-      'count',
-      'filters',
-      'loading',
-      'pathname',
-      'results',
-    ].sort());
+    expect(Object.keys(results.props()).sort()).toEqual(
+      ['count', 'filters', 'loading', 'pathname', 'results'].sort()
+    );
   });
 
   it('renders a Paginate', () => {
@@ -96,19 +92,25 @@ describe('Search', () => {
   it('dispatches the search on mount', () => {
     render();
 
-    sinon.assert.calledWith(props.dispatch, searchStart({
-      errorHandlerId: props.errorHandler.id,
-      filters: props.filters,
-    }));
+    sinon.assert.calledWith(
+      props.dispatch,
+      searchStart({
+        errorHandlerId: props.errorHandler.id,
+        filters: props.filters,
+      })
+    );
   });
 
   it('does not dispatch on mount if filters/results are loaded', () => {
     render({ filtersUsedForResults: props.filters });
 
-    sinon.assert.neverCalledWith(props.dispatch, searchStart({
-      errorHandlerId: props.errorHandler.id,
-      filters: props.filters,
-    }));
+    sinon.assert.neverCalledWith(
+      props.dispatch,
+      searchStart({
+        errorHandlerId: props.errorHandler.id,
+        filters: props.filters,
+      })
+    );
   });
 
   it('dispatches the search on props change', () => {
@@ -117,10 +119,13 @@ describe('Search', () => {
     const newFilters = { query: 'I am a new query', page: 1 };
     root.setProps({ filters: newFilters });
 
-    sinon.assert.calledWith(props.dispatch, searchStart({
-      errorHandlerId: props.errorHandler.id,
-      filters: newFilters,
-    }));
+    sinon.assert.calledWith(
+      props.dispatch,
+      searchStart({
+        errorHandlerId: props.errorHandler.id,
+        filters: newFilters,
+      })
+    );
   });
 
   it('sets the viewContext to the addonType if addonType exists', () => {
@@ -129,8 +134,7 @@ describe('Search', () => {
 
     render({ count: 0, dispatch: fakeDispatch, filters });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
   });
 
   it('sets the viewContext to exploring if no addonType found', () => {
@@ -139,8 +143,7 @@ describe('Search', () => {
 
     render({ count: 0, dispatch: fakeDispatch, filters });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 
   it('should render an error', () => {

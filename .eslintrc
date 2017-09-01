@@ -1,5 +1,8 @@
 {
-  "extends": "amo",
+  "extends": [
+    "amo",
+    "prettier",
+  ],
   "globals": {
     "CLIENT_CONFIG": true,
     "webpackIsomorphicTools": true,
@@ -7,9 +10,11 @@
   },
   "parser": "babel-eslint",
   "plugins": [
-    "jest"
+    "jest",
+    "prettier",
   ],
   "rules": {
+    "prettier/prettier": ["error", {"singleQuote": true, "trailingComma": 'es5'}],
     // FIXME: Deprecate use of findDOMNode https://github.com/mozilla/addons-frontend/issues/968
     "react/no-find-dom-node": "off",
   },

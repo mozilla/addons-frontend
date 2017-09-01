@@ -11,7 +11,6 @@ import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import discoResults from 'disco/reducers/discoResults';
 
-
 export default function createStore(initialState = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
@@ -26,7 +25,7 @@ export default function createStore(initialState = {}) {
       reduxAsyncConnect,
     }),
     initialState,
-    middleware({ sagaMiddleware }),
+    middleware({ sagaMiddleware })
   );
 
   return { sagaMiddleware, store };

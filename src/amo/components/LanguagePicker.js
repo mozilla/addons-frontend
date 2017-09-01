@@ -10,10 +10,11 @@ import { addQueryParams } from 'core/utils';
 
 import './LanguagePicker.scss';
 
-
 export function changeLocaleURL({ currentLocale, location, newLocale }) {
-  const newPath = location.pathname.replace(new RegExp(`^/${currentLocale}/`),
-    `/${newLocale}/`);
+  const newPath = location.pathname.replace(
+    new RegExp(`^/${currentLocale}/`),
+    `/${newLocale}/`
+  );
   return addQueryParams(newPath, location.query);
 }
 
@@ -23,12 +24,12 @@ export class LanguagePickerBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     _window: PropTypes.object,
-  }
+  };
 
-  onChange = (event) => {
+  onChange = event => {
     event.preventDefault();
     this.changeLanguage(event.target.value);
-  }
+  };
 
   changeLanguage(newLocale) {
     const { currentLocale, location, _window } = this.props;
@@ -52,14 +53,15 @@ export class LanguagePickerBase extends React.Component {
         <select
           className="LanguagePicker-selector"
           defaultValue={currentLocale}
-          ref={(ref) => { this.selector = ref; }}
+          ref={ref => {
+            this.selector = ref;
+          }}
           onChange={this.onChange}
         >
-          {Object.keys(languages).map((locale) => (
-            <option
-              key={locale}
-              value={locale}
-            >{languages[locale].native}</option>
+          {Object.keys(languages).map(locale => (
+            <option key={locale} value={locale}>
+              {languages[locale].native}
+            </option>
           ))}
         </select>
       </div>
@@ -71,7 +73,6 @@ export function mapStateToProps(state) {
   return { currentLocale: state.api.lang };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  translate({ withRef: true }),
-)(LanguagePickerBase);
+export default compose(connect(mapStateToProps), translate({ withRef: true }))(
+  LanguagePickerBase
+);

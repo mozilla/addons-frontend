@@ -16,7 +16,6 @@ import Card from 'ui/components/Card';
 
 import './styles.scss';
 
-
 export const CategoryLink = ({ children, name, slug, type }) => {
   return (
     <li className={classNames('Home-category-li', `Home-${name}`)}>
@@ -33,11 +32,11 @@ CategoryLink.propTypes = {
   type: PropTypes.string.isRequired,
 };
 
-export const ExtensionLink = (props) => {
+export const ExtensionLink = props => {
   return <CategoryLink type="extensions" {...props} />;
 };
 
-export const ThemeLink = (props) => {
+export const ThemeLink = props => {
   return <CategoryLink type="themes" {...props} />;
 };
 
@@ -46,7 +45,7 @@ export class HomeBase extends React.Component {
     clientApp: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-  }
+  };
 
   componentWillMount() {
     const { dispatch } = this.props;
@@ -117,12 +116,24 @@ export class HomeBase extends React.Component {
 
     return (
       <ul className="Home-category-list">
-        <ThemeLink name="wild" slug="nature">{i18n.gettext('Wild')}</ThemeLink>
-        <ThemeLink name="abstract" slug="abstract">{i18n.gettext('Abstract')}</ThemeLink>
-        <ThemeLink name="holiday" slug="holiday">{i18n.gettext('Holiday')}</ThemeLink>
-        <ThemeLink name="scenic" slug="scenery">{i18n.gettext('Scenic')}</ThemeLink>
-        <ThemeLink name="sporty" slug="sports">{i18n.gettext('Sporty')}</ThemeLink>
-        <ThemeLink name="solid" slug="solid">{i18n.gettext('Solid')}</ThemeLink>
+        <ThemeLink name="wild" slug="nature">
+          {i18n.gettext('Wild')}
+        </ThemeLink>
+        <ThemeLink name="abstract" slug="abstract">
+          {i18n.gettext('Abstract')}
+        </ThemeLink>
+        <ThemeLink name="holiday" slug="holiday">
+          {i18n.gettext('Holiday')}
+        </ThemeLink>
+        <ThemeLink name="scenic" slug="scenery">
+          {i18n.gettext('Scenic')}
+        </ThemeLink>
+        <ThemeLink name="sporty" slug="sports">
+          {i18n.gettext('Sporty')}
+        </ThemeLink>
+        <ThemeLink name="solid" slug="solid">
+          {i18n.gettext('Solid')}
+        </ThemeLink>
       </ul>
     );
   }
@@ -134,9 +145,11 @@ export class HomeBase extends React.Component {
       <div className="Home">
         <Card
           className="Home-category-card Home-category-card--extensions"
-          footerLink={<Link to="/extensions/">
-            {i18n.gettext('Browse all extensions')}
-          </Link>}
+          footerLink={
+            <Link to="/extensions/">
+              {i18n.gettext('Browse all extensions')}
+            </Link>
+          }
         >
           <div className="Home-text-wrapper">
             <h2 className="Home-subheading">
@@ -144,7 +157,8 @@ export class HomeBase extends React.Component {
             </h2>
             <p className="Home-description">
               {i18n.gettext(
-                'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.')}
+                'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.'
+              )}
             </p>
           </div>
 
@@ -153,9 +167,9 @@ export class HomeBase extends React.Component {
 
         <Card
           className="Home-category-card Home-category-card--themes"
-          footerLink={<Link to="/themes/">
-            {i18n.gettext('Browse all themes')}
-          </Link>}
+          footerLink={
+            <Link to="/themes/">{i18n.gettext('Browse all themes')}</Link>
+          }
         >
           <div className="Home-text-wrapper">
             <h2 className="Home-subheading">
@@ -163,7 +177,8 @@ export class HomeBase extends React.Component {
             </h2>
             <p className="Home-description">
               {i18n.gettext(
-                "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want.")}
+                "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+              )}
             </p>
           </div>
 
@@ -181,5 +196,5 @@ export function mapStateToProps(state) {
 export default compose(
   // This allows us to dispatch from our component.
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate({ withRef: true })
 )(HomeBase);

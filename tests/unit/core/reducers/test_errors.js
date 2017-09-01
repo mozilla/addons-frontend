@@ -15,7 +15,9 @@ export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
   }
 
   return createApiError({
-    response, jsonResponse: data, apiURL: '/some/url/',
+    response,
+    jsonResponse: data,
+    apiURL: '/some/url/',
   });
 }
 
@@ -42,10 +44,12 @@ describe('errors reducer', () => {
 
   it('preserves existing errors', () => {
     const action1 = setError({
-      id: 'action1', error: createFakeApiError({ nonFieldErrors: ['action1'] }),
+      id: 'action1',
+      error: createFakeApiError({ nonFieldErrors: ['action1'] }),
     });
     const action2 = setError({
-      id: 'action2', error: createFakeApiError({ nonFieldErrors: ['action2'] }),
+      id: 'action2',
+      error: createFakeApiError({ nonFieldErrors: ['action2'] }),
     });
 
     let state;
@@ -67,14 +71,20 @@ describe('errors reducer', () => {
 
   it('only clears a single error', () => {
     let state;
-    state = errors(state, setError({
-      id: 'action1',
-      error: createFakeApiError({ nonFieldErrors: ['action1'] }),
-    }));
-    state = errors(state, setError({
-      id: 'action2',
-      error: createFakeApiError({ nonFieldErrors: ['action2'] }),
-    }));
+    state = errors(
+      state,
+      setError({
+        id: 'action1',
+        error: createFakeApiError({ nonFieldErrors: ['action1'] }),
+      })
+    );
+    state = errors(
+      state,
+      setError({
+        id: 'action2',
+        error: createFakeApiError({ nonFieldErrors: ['action2'] }),
+      })
+    );
     state = errors(state, clearError('action1'));
 
     // Make sure the other error was not cleared.

@@ -19,7 +19,6 @@ import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
-
 describe('<LandingPage />', () => {
   function renderProps(props = {}) {
     return {
@@ -56,8 +55,7 @@ describe('<LandingPage />', () => {
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
     fakeDispatch.reset();
 
     root.setProps({
@@ -78,7 +76,8 @@ describe('<LandingPage />', () => {
       resultsLoaded: false,
     });
 
-    sinon.assert.calledWith(dispatch,
+    sinon.assert.calledWith(
+      dispatch,
       landingActions.getLanding({ addonType, errorHandlerId: errorHandler.id })
     );
   });
@@ -97,7 +96,8 @@ describe('<LandingPage />', () => {
       loading: false,
     });
 
-    sinon.assert.calledWith(dispatch,
+    sinon.assert.calledWith(
+      dispatch,
       landingActions.getLanding({ addonType, errorHandlerId: errorHandler.id })
     );
   });
@@ -122,9 +122,11 @@ describe('<LandingPage />', () => {
       params: { visibleAddonType: visibleAddonType(secondAddonType) },
     });
 
-    sinon.assert.calledWith(dispatch,
+    sinon.assert.calledWith(
+      dispatch,
       landingActions.getLanding({
-        addonType: secondAddonType, errorHandlerId: errorHandler.id,
+        addonType: secondAddonType,
+        errorHandlerId: errorHandler.id,
       })
     );
   });
@@ -147,7 +149,9 @@ describe('<LandingPage />', () => {
   it('does not dispatch getLanding when there is an error', () => {
     const dispatch = sinon.stub();
     const errorHandler = new ErrorHandler({
-      id: 'some-id', dispatch, capturedError: new Error('some error'),
+      id: 'some-id',
+      dispatch,
+      capturedError: new Error('some error'),
     });
     render({
       dispatch,
@@ -183,8 +187,10 @@ describe('<LandingPage />', () => {
     };
     const root = render({ params: fakeParams });
 
-    expect(root.find('.LandingPage-button'))
-      .toHaveProp('children', 'Explore all categories');
+    expect(root.find('.LandingPage-button')).toHaveProp(
+      'children',
+      'Explore all categories'
+    );
   });
 
   it('sets the links in each footer for extensions', () => {
@@ -236,59 +242,77 @@ describe('<LandingPage />', () => {
 
   it('renders each add-on when set', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(landingActions.loadLanding({
-      addonType: ADDON_TYPE_THEME,
-      featured: {
-        entities: {
-          addons: {
-            howdy: {
-              ...fakeAddon, name: 'Howdy', slug: 'howdy',
-            },
-            'howdy-again': {
-              ...fakeAddon, name: 'Howdy again', slug: 'howdy-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['howdy', 'howdy-again'] },
-      },
-      highlyRated: {
-        entities: {
-          addons: {
-            high: {
-              ...fakeAddon, name: 'High', slug: 'high',
-            },
-            'high-again': {
-              ...fakeAddon, name: 'High again', slug: 'high-again',
+    store.dispatch(
+      landingActions.loadLanding({
+        addonType: ADDON_TYPE_THEME,
+        featured: {
+          entities: {
+            addons: {
+              howdy: {
+                ...fakeAddon,
+                name: 'Howdy',
+                slug: 'howdy',
+              },
+              'howdy-again': {
+                ...fakeAddon,
+                name: 'Howdy again',
+                slug: 'howdy-again',
+              },
             },
           },
+          result: { count: 50, results: ['howdy', 'howdy-again'] },
         },
-        result: { count: 50, results: ['high', 'high-again'] },
-      },
-      popular: {
-        entities: {
-          addons: {
-            pop: {
-              ...fakeAddon, name: 'Pop', slug: 'pop',
-            },
-            'pop-again': {
-              ...fakeAddon, name: 'Pop again', slug: 'pop-again',
+        highlyRated: {
+          entities: {
+            addons: {
+              high: {
+                ...fakeAddon,
+                name: 'High',
+                slug: 'high',
+              },
+              'high-again': {
+                ...fakeAddon,
+                name: 'High again',
+                slug: 'high-again',
+              },
             },
           },
+          result: { count: 50, results: ['high', 'high-again'] },
         },
-        result: { count: 50, results: ['pop', 'pop-again'] },
-      },
-    }));
+        popular: {
+          entities: {
+            addons: {
+              pop: {
+                ...fakeAddon,
+                name: 'Pop',
+                slug: 'pop',
+              },
+              'pop-again': {
+                ...fakeAddon,
+                name: 'Pop again',
+                slug: 'pop-again',
+              },
+            },
+          },
+          result: { count: 50, results: ['pop', 'pop-again'] },
+        },
+      })
+    );
     const root = renderAndMount({
       ...mapStateToProps(store.getState()),
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
     expect(
-      root.find('.SearchResult-name')
-        .map((heading) => heading.text()))
-      .toEqual([
-        'Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again',
-      ]);
+      root.find('.SearchResult-name').map(heading => heading.text())
+    ).toEqual([
+      'Howdy',
+      'Howdy again',
+      'High',
+      'High again',
+      'Pop',
+      'Pop again',
+    ]);
   });
 
   it('renders not found if add-on type is not supported', () => {

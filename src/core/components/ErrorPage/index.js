@@ -5,18 +5,17 @@ import { compose } from 'redux';
 
 import { getErrorComponent as getErrorComponentDefault } from 'core/utils';
 
-
 export class ErrorPageBase extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     errorPage: PropTypes.object.isRequired,
     getErrorComponent: PropTypes.func.isRequired,
-  }
+  };
 
   static defaultProps = {
     errorPage: {},
     getErrorComponent: getErrorComponentDefault,
-  }
+  };
 
   render() {
     const { children, errorPage, getErrorComponent } = this.props;
@@ -32,11 +31,8 @@ export class ErrorPageBase extends React.Component {
   }
 }
 
-
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = state => ({
   errorPage: state.errorPage,
 });
 
-export default compose(
-  connect(mapStateToProps),
-)(ErrorPageBase);
+export default compose(connect(mapStateToProps))(ErrorPageBase);

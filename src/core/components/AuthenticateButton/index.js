@@ -16,9 +16,9 @@ import type { UserStateType } from 'core/reducers/user';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 
-
 type HandleLogInFunc = (
-  location: ReactRouterLocation, options?: {| _window: typeof window |}
+  location: ReactRouterLocation,
+  options?: {| _window: typeof window |}
 ) => void;
 
 type HandleLogOutFunc = ({| api: ApiStateType |}) => Promise<void>;
@@ -41,28 +41,37 @@ export class AuthenticateButtonBase extends React.Component {
 
   static defaultProps = {
     noIcon: false,
-  }
+  };
 
   onClick = (event: Event) => {
     event.preventDefault();
     event.stopPropagation();
     const {
-      api, handleLogIn, handleLogOut, isAuthenticated, location,
+      api,
+      handleLogIn,
+      handleLogOut,
+      isAuthenticated,
+      location,
     } = this.props;
     if (isAuthenticated) {
       handleLogOut({ api });
     } else {
       handleLogIn(location);
     }
-  }
+  };
 
   render() {
     const {
-      i18n, isAuthenticated, logInText, logOutText, noIcon, ...otherProps
+      i18n,
+      isAuthenticated,
+      logInText,
+      logOutText,
+      noIcon,
+      ...otherProps
     } = this.props;
-    const buttonText = isAuthenticated ?
-      logOutText || i18n.gettext('Log out') :
-      logInText || i18n.gettext('Log in/Sign up');
+    const buttonText = isAuthenticated
+      ? logOutText || i18n.gettext('Log out')
+      : logInText || i18n.gettext('Log in/Sign up');
 
     // The `href` is required because a <button> element with a :hover effect
     // and/or focus effect (that is not part of a form) that changes its
@@ -84,12 +93,10 @@ type StateMappedProps = {|
   handleLogIn: HandleLogInFunc,
 |};
 
-export const mapStateToProps = (
-  state: {|
-    api: ApiStateType,
-    user: UserStateType,
-  |}
-): StateMappedProps => ({
+export const mapStateToProps = (state: {|
+  api: ApiStateType,
+  user: UserStateType,
+|}): StateMappedProps => ({
   api: state.api,
   isAuthenticated: isUserAuthenticated(state),
   handleLogIn(location, { _window = window } = {}) {
@@ -106,12 +113,11 @@ export const mapDispatchToProps = (
   dispatch: DispatchFunc
 ): DispatchMappedProps => ({
   handleLogOut({ api }) {
-    return logOutFromServer({ api })
-      .then(() => dispatch(logOutUser()));
+    return logOutFromServer({ api }).then(() => dispatch(logOutUser()));
   },
 });
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  translate(),
+  translate()
 )(AuthenticateButtonBase);

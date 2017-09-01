@@ -27,7 +27,6 @@ import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
 import purify from 'core/purify';
 
-
 export function gettext(str) {
   return str;
 }
@@ -99,8 +98,9 @@ export function findAddon(state, slug) {
 }
 
 export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
-  return fetchAddon({ slug: addonSlug, api: apiState })
-    .then(({ entities }) => dispatch(loadEntities(entities)));
+  return fetchAddon({ slug: addonSlug, api: apiState }).then(({ entities }) =>
+    dispatch(loadEntities(entities))
+  );
 }
 
 // asyncConnect() helper for loading an add-on by slug.
@@ -112,7 +112,7 @@ export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
 //
 export function loadAddonIfNeeded(
   { store: { dispatch, getState }, params: { slug } },
-  { _refreshAddon = refreshAddon } = {},
+  { _refreshAddon = refreshAddon } = {}
 ) {
   const state = getState();
   const addon = findAddon(state, slug);
@@ -125,9 +125,10 @@ export function loadAddonIfNeeded(
   return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
 }
 
-export function isAllowedOrigin(urlString, {
-  allowedOrigins = [config.get('amoCDN')],
-} = {}) {
+export function isAllowedOrigin(
+  urlString,
+  { allowedOrigins = [config.get('amoCDN')] } = {}
+) {
   let parsedURL;
   try {
     parsedURL = url.parse(urlString);
@@ -153,32 +154,42 @@ export function browserBase64Decode(str) {
   // https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
   /* global atob */
   // eslint-disable-next-line prefer-arrow-callback, func-names
-  return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
-    // eslint-disable-next-line prefer-template
-    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
+  return decodeURIComponent(
+    Array.prototype.map
+      .call(atob(str), c => {
+        // eslint-disable-next-line prefer-template
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join('')
+  );
 }
 
 export function apiAddonTypeIsValid(addonType) {
   return Object.prototype.hasOwnProperty.call(
-    API_ADDON_TYPES_MAPPING, addonType
+    API_ADDON_TYPES_MAPPING,
+    addonType
   );
 }
 
 export function apiAddonType(addonType) {
   if (!apiAddonTypeIsValid(addonType)) {
     throw new AddonTypeNotFound(
-      `"${addonType}" not found in API_ADDON_TYPES_MAPPING`);
+      `"${addonType}" not found in API_ADDON_TYPES_MAPPING`
+    );
   }
   return API_ADDON_TYPES_MAPPING[addonType];
 }
 
 export function visibleAddonType(addonType) {
-  if (!Object.prototype.hasOwnProperty.call(
-    VISIBLE_ADDON_TYPES_MAPPING, addonType
-  )) {
+  if (
+    !Object.prototype.hasOwnProperty.call(
+      VISIBLE_ADDON_TYPES_MAPPING,
+      addonType
+    )
+  ) {
     throw new AddonTypeNotFound(
-      `"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`);
+      `"${addonType}" not found in VISIBLE_ADDON_TYPES_MAPPING`
+    );
   }
   return VISIBLE_ADDON_TYPES_MAPPING[addonType];
 }
@@ -201,7 +212,8 @@ export function isValidClientAppUrlException(value, { _config = config } = {}) {
 }
 
 export function isValidTrailingSlashUrlException(
-  value, { _config = config } = {}
+  value,
+  { _config = config } = {}
 ) {
   return _config.get('validTrailingSlashUrlExceptions').includes(value);
 }
@@ -213,7 +225,7 @@ export function isValidTrailingSlashUrlException(
  * instead. If the callback runs without an error, its return value is not
  * altered. In other words, it may or may not return a promise and that's ok.
  */
-export const safePromise = (callback) => (...args) => {
+export const safePromise = callback => (...args) => {
   try {
     return callback(...args);
   } catch (error) {
@@ -232,9 +244,10 @@ export const safePromise = (callback) => (...args) => {
  * )(SomeComponent);
  */
 export function safeAsyncConnect(
-  configs, { asyncConnect = defaultAsyncConnect } = {}
+  configs,
+  { asyncConnect = defaultAsyncConnect } = {}
 ) {
-  const safeConfigs = configs.map((conf) => {
+  const safeConfigs = configs.map(conf => {
     let key = conf.key;
     if (!key) {
       // If asyncConnect does not get a key in its config, it
@@ -248,7 +261,8 @@ export function safeAsyncConnect(
       // This is the only way we use asyncConnect() for now.
       throw new Error(
         oneLine`Expected safeAsyncConnect() config to define a promise:
-        ${JSON.stringify(conf)}`);
+        ${JSON.stringify(conf)}`
+      );
     }
     return {
       ...conf,
@@ -288,12 +302,13 @@ export function trimAndAddProtocolToUrl(urlToCheck) {
  * )(MyComponent);
  */
 export function render404IfConfigKeyIsFalse(
-  configKey, { _config = config } = {}
+  configKey,
+  { _config = config } = {}
 ) {
   if (!configKey) {
     throw new TypeError('configKey cannot be empty');
   }
-  return (Component) => (props) => {
+  return Component => props => {
     if (!_config.get(configKey)) {
       log.debug(`config.${configKey} was false; not rendering ${Component}`);
       return <NotFound />;
@@ -305,30 +320,37 @@ export function render404IfConfigKeyIsFalse(
 export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
-  if (
-    addon && addon.current_version && addon.current_version.compatibility
-  ) {
+  if (addon && addon.current_version && addon.current_version.compatibility) {
     if (addon.current_version.compatibility[clientApp]) {
       maxVersion = addon.current_version.compatibility[clientApp].max;
       minVersion = addon.current_version.compatibility[clientApp].min;
     } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
-      _log.info(oneLine`addon is type ${ADDON_TYPE_OPENSEARCH}; no
-        compatibility info found but this is expected.`, { addon, clientApp });
-    } else {
-      _log.error(
-        'addon found with no compatibility info for valid clientApp',
+      _log.info(
+        oneLine`addon is type ${ADDON_TYPE_OPENSEARCH}; no
+        compatibility info found but this is expected.`,
         { addon, clientApp }
       );
+    } else {
+      _log.error('addon found with no compatibility info for valid clientApp', {
+        addon,
+        clientApp,
+      });
     }
   }
 
   return { maxVersion, minVersion };
 }
 
-export function isCompatibleWithUserAgent({
-  _log = log, _window = typeof window !== 'undefined' ? window : {},
-  addon, maxVersion, minVersion, userAgentInfo,
-} = {}) {
+export function isCompatibleWithUserAgent(
+  {
+    _log = log,
+    _window = typeof window !== 'undefined' ? window : {},
+    addon,
+    maxVersion,
+    minVersion,
+    userAgentInfo,
+  } = {}
+) {
   // If the userAgent is false there was likely a programming error.
   if (!userAgentInfo) {
     throw new Error('userAgentInfo is required');
@@ -369,7 +391,8 @@ export function isCompatibleWithUserAgent({
     // first.
     if (minVersion && mozCompare(browser.version, minVersion) === -1) {
       if (minVersion === '*') {
-        _log.error(oneLine`minVersion of "*" was passed to
+        _log.error(
+          oneLine`minVersion of "*" was passed to
           isCompatibleWithUserAgent(); bad add-on version data`,
           { browserVersion: browser.version, minVersion }
         );
@@ -395,13 +418,19 @@ export function isCompatibleWithUserAgent({
   return { compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX };
 }
 
-export function getClientCompatibility({
-  addon, clientApp, userAgentInfo,
-} = {}) {
+export function getClientCompatibility(
+  { addon, clientApp, userAgentInfo } = {}
+) {
   const { maxVersion, minVersion } = getCompatibleVersions({
-    addon, clientApp });
+    addon,
+    clientApp,
+  });
   const { compatible, reason } = isCompatibleWithUserAgent({
-    addon, maxVersion, minVersion, userAgentInfo });
+    addon,
+    maxVersion,
+    minVersion,
+    userAgentInfo,
+  });
 
   return { compatible, maxVersion, minVersion, reason };
 }
@@ -415,7 +444,8 @@ export function getCategoryColor(category) {
 
   if (!maxColors) {
     throw new Error(
-      `addonType "${category.type}" not found in CATEGORY_COLORS.`);
+      `addonType "${category.type}" not found in CATEGORY_COLORS.`
+    );
   }
 
   if (category.id > maxColors) {

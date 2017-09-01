@@ -5,13 +5,12 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-
 type Props = {|
   label: string,
   type?: 'featured' | 'restart-required',
 |};
 
-const getIconNameForType = (type) => {
+const getIconNameForType = type => {
   switch (type) {
     case 'restart-required':
       return 'restart';

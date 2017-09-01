@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import './Card.scss';
 
-
 export default class Card extends React.Component {
   static propTypes = {
     children: PropTypes.node,
@@ -13,7 +12,7 @@ export default class Card extends React.Component {
     footerText: PropTypes.node,
     header: PropTypes.node,
     photonStyle: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     // Photon is the name of the new Firefox design language. This flag
@@ -21,7 +20,7 @@ export default class Card extends React.Component {
     // the styles to be in line with the new photon mocks while we migrate
     // the rest of the site over.
     photonStyle: false,
-  }
+  };
 
   render() {
     const {
@@ -37,7 +36,8 @@ export default class Card extends React.Component {
     let footerClass;
     if (footerText && footerLink) {
       throw new Error(
-        'You cannot specify footerLink and footerText at the same time');
+        'You cannot specify footerLink and footerText at the same time'
+      );
     } else if (footerText) {
       footer = footerText;
       footerClass = 'Card-footer-text';
@@ -53,23 +53,39 @@ export default class Card extends React.Component {
           'Card--no-header': !header,
           'Card--no-footer': !footer,
         })}
-        ref={(ref) => { this.cardContainer = ref; }}
+        ref={ref => {
+          this.cardContainer = ref;
+        }}
       >
         {header ? (
-          <h2 className="Card-header" ref={(ref) => { this.header = ref; }}>{header}</h2>
+          <h2
+            className="Card-header"
+            ref={ref => {
+              this.header = ref;
+            }}
+          >
+            {header}
+          </h2>
         ) : null}
 
         {children ? (
           <div
             className="Card-contents"
-            ref={(ref) => { this.contents = ref; }}
+            ref={ref => {
+              this.contents = ref;
+            }}
           >
             {children}
           </div>
         ) : null}
 
         {footer ? (
-          <footer className={footerClass} ref={(ref) => { this.footer = ref; }}>
+          <footer
+            className={footerClass}
+            ref={ref => {
+              this.footer = ref;
+            }}
+          >
             {footer}
           </footer>
         ) : null}
