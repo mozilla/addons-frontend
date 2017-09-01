@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-29 19:04+0000\n"
-"PO-Revision-Date: 2017-08-30 14:27+0000\n"
+"PO-Revision-Date: 2017-09-01 13:47+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -16,11 +16,11 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:127
 msgid "Featured Extension"
-msgstr ""
+msgstr "რჩეული გაფართოება"
 
 #: src/amo/components/Addon/index.js:129
 msgid "Featured Theme"
-msgstr ""
+msgstr "გამორჩეული თემა"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Addon/index.js:131
@@ -42,7 +42,7 @@ msgstr[0] ""
 
 #: src/amo/components/Addon/index.js:205
 msgid "No reviews yet"
-msgstr ""
+msgstr "მიმოხილვები ჯერ არ გაკეთებულა"
 
 #: src/amo/components/Addon/index.js:214
 msgid "Rate your experience"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:344
 msgid "Restart Required"
-msgstr ""
+msgstr "საჭიროებს გადატვირთვას"
 
 #: src/amo/components/Addon/index.js:362
 msgid "Extension Metadata"
@@ -66,7 +66,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:381
 msgid "Screenshots"
-msgstr ""
+msgstr "ეკრანის სურათები"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
