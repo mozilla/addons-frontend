@@ -8,6 +8,7 @@ export const FETCH_ADDON = 'FETCH_ADDON';
 
 const initialState = {};
 
+// TODO: fix Flow types
 type Action = Object;
 type AddonState = Object;
 
