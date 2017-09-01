@@ -134,7 +134,7 @@ describe(__filename, () => {
     });
   });
 
-  it('sets `isRestartRequired` to `false` when addon does not need restart', () => {
+  it('sets `isRestartRequired` to `false` when restart is not required', () => {
     const addon = createFakeAddon({
       files: [
         { ...fakeAddon.current_version.files[0], is_restart_required: false },
@@ -152,7 +152,7 @@ describe(__filename, () => {
     });
   });
 
-  it('sets `isRestartRequired` to `false` when addon does not have any files', () => {
+  it('sets `isRestartRequired` to `false` when addon has no files', () => {
     const addon = createFakeAddon({ files: [] });
 
     expect(
@@ -165,7 +165,7 @@ describe(__filename, () => {
     });
   });
 
-  it('sets `isRestartRequired` to `true` when at least one of the files declares it', () => {
+  it('sets `isRestartRequired` to `true` when some files declare it', () => {
     const addon = createFakeAddon({
       files: [
         { ...fakeAddon.current_version.files[0], is_restart_required: false },
