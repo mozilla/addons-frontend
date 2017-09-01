@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-29 19:04+0000\n"
-"PO-Revision-Date: 2017-08-30 13:05+0000\n"
+"PO-Revision-Date: 2017-09-01 22:07+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -153,11 +153,11 @@ msgstr "Licencja"
 
 #: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
-msgstr "Polityka prywatności"
+msgstr "Zasady ochrony prywatności"
 
 #: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
-msgstr "Przeczytaj politykę prywatności tego dodatku"
+msgstr "Przeczytaj zasady ochrony prywatności tego dodatku"
 
 #: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
@@ -287,7 +287,7 @@ msgstr "Strona domowa Mozilli"
 
 #: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
-msgstr "Polityka prywatności"
+msgstr "Zasady ochrony prywatności"
 
 #: src/amo/components/Footer/index.js:44
 msgid "Legal notices"
