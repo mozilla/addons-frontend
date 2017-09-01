@@ -104,8 +104,8 @@ export class SearchFormBase extends React.Component {
   handleSearch = (event) => {
     event.preventDefault();
 
-    this.autocomplete.input.blur();
-    this.goToSearch(this.autocomplete.input.value);
+    this.autosuggest.input.blur();
+    this.goToSearch(this.autosuggest.input.value);
   }
 
   handleSearchChange = (event) => {
@@ -222,7 +222,7 @@ export class SearchFormBase extends React.Component {
           onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
           onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
           onSuggestionSelected={this.handleSuggestionSelected}
-          ref={(ref) => { this.autocomplete = ref; }}
+          ref={(ref) => { this.autosuggest = ref; }}
           renderSuggestion={this.renderSuggestion}
           suggestions={this.getSuggestions()}
           theme={{
