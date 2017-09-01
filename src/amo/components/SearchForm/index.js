@@ -7,6 +7,7 @@ import { compose } from 'redux';
 import Autosuggest from 'react-autosuggest';
 import { withRouter } from 'react-router';
 import defaultDebounce from 'simple-debounce';
+import deepEqual from 'deep-eql';
 
 import Suggestion from 'amo/components/SearchSuggestion';
 import {
@@ -60,6 +61,7 @@ export class SearchFormBase extends React.Component {
 
     this.state = {
       searchValue: props.query || '',
+      oldAutocompleteFilters: {},
     };
   }
 
@@ -112,7 +114,7 @@ export class SearchFormBase extends React.Component {
     this.setState({ searchValue: event.target.value });
   }
 
-  handleSuggestionsFetchRequested = this.props.debounce(({ value }) => {
+  handleSuggestionsFetchRequested = this.props.debounce(({ value, reason }) => {
     if (!value) {
       log.debug(oneLine`Ignoring suggestions fetch requested because value
         is not supplied: ${value}`);
@@ -126,10 +128,22 @@ export class SearchFormBase extends React.Component {
       filters.addonType = addonType;
     }
 
-    dispatch(autocompleteStart({
-      errorHandlerId: errorHandler.id,
-      filters,
-    }));
+    if (
+      // See: https://github.com/moroshko/react-autosuggest#onsuggestionsfetchrequested-required.
+      reason === 'input-focused' &&
+      deepEqual(filters, this.state.oldAutocompleteFilters)
+    ) {
+      log.debug(oneLine`No autocomplete start dispatched: search input focused
+        but filters have not changed.`);
+      return;
+    }
+
+    this.setState({ oldAutocompleteFilters: filters }, () => {
+      dispatch(autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters,
+      }));
+    });
   }, 200)
 
   handleSuggestionsClearRequested = () => {
