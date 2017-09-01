@@ -12,7 +12,6 @@ import { match } from 'react-router';
 import { setViewContext } from 'amo/actions/viewContext';
 import {
   AddonBase,
-  allowedDescriptionTags,
   mapStateToProps,
 } from 'amo/components/Addon';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -393,22 +392,17 @@ describe('Addon', () => {
     expect(rootNode.querySelectorAll('.AddonDescription br').length).toBe(3);
   });
 
-  it('preserves certain HTML tags in the description', () => {
-    let description = '';
-    const allowedTags = [...allowedDescriptionTags];
-    // Ignore <br/> since it's checked elsewhere.
-    allowedTags.splice(allowedTags.indexOf('br'), 1);
-    // eslint-disable-next-line no-restricted-syntax
-    for (const tag of allowedTags) {
-      description = `${description} <${tag}>placeholder</${tag}>`;
-    }
-    const rootNode = renderAsDOMNode({ addon: { ...fakeAddon, description } });
-    // eslint-disable-next-line no-restricted-syntax
-    for (const tagToCheck of allowedTags) {
-      expect(
-        rootNode.querySelectorAll(`.AddonDescription-contents ${tagToCheck}`).length
-      ).toBe(1);
-    }
+  it('allows some HTML tags in the description', () => {
+    const root = shallowRender({
+      addon: {
+        ...fakeAddon,
+        description: '<b>super</b> <i>cool</i> <blink>add-on</blink>',
+      },
+    });
+    const contents = root.find('.AddonDescription-contents');
+    expect(contents.html()).toMatch(
+      new RegExp('<b>super</b> <i>cool</i> add-on')
+    );
   });
 
   it('strips dangerous HTML tag attributes from description', () => {
@@ -681,6 +675,76 @@ describe('Addon', () => {
           return resolve();
         });
       });
+    });
+  });
+
+  describe('version release notes', () => {
+    function addonWithVersion(version = {}) {
+      return {
+        ...fakeAddon,
+        current_version: version && {
+          ...fakeAddon.current_version,
+          version: '2.5.0',
+          release_notes: 'Changed some stuff',
+          ...version,
+        },
+      };
+    }
+
+    function getReleaseNotes(...args) {
+      const root = shallowRender({
+        addon: addonWithVersion(...args),
+      });
+      return root.find('.AddonDescription-version-notes p').render();
+    }
+
+    it('is hidden when an add-on has not loaded yet', () => {
+      const root = shallowRender({ addon: undefined });
+      expect(root.find('.AddonDescription-version-notes p'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when the add-on does not have a current version', () => {
+      const root = shallowRender({ addon: addonWithVersion(null) });
+      expect(root.find('.AddonDescription-version-notes p'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when the current version does not have release notes', () => {
+      const root = shallowRender({
+        addon: addonWithVersion({ release_notes: null }),
+      });
+      expect(root.find('.AddonDescription-version-notes p'))
+        .toHaveLength(0);
+    });
+
+    it('shows the version string', () => {
+      const root = shallowRender({
+        addon: addonWithVersion({
+          version: 'v1.4.5',
+        }),
+      });
+      const card = root.find('.AddonDescription-version-notes');
+      expect(card.prop('header')).toEqual('Release notes for v1.4.5');
+    });
+
+    it('shows the release notes', () => {
+      const root = shallowRender({
+        addon: addonWithVersion({
+          release_notes: 'Fixed some stuff',
+        }),
+      });
+      const notes = root.find('.AddonDescription-version-notes p');
+      expect(notes.html()).toContain('Fixed some stuff');
+    });
+
+    it('allows some HTML tags', () => {
+      const root = getReleaseNotes({
+        release_notes: '<b>lots</b> <i>of</i> <blink>bug fixes</blink>',
+      });
+      expect(root.html()).toMatch(
+        new RegExp('<b>lots</b> <i>of</i> bug fixes')
+      );
     });
   });
 });

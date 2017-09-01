@@ -94,6 +94,35 @@ export function nl2br(text) {
   return (text || '').replace(/(?:\r\n|\r|\n)/g, '<br />');
 }
 
+/*
+ * Sanitizes user inputted HTML, allowing some tags.
+ *
+ * This also converts new lines to breaks (<br />) as a convenience when
+ * users did not write entirely in HTML.
+ *
+ * This is meant to display things like an add-on's description or version
+ * release notes. The allowed tags are meant to match what you see in the
+ * Developer Hub when you hover over the *Some HTML Supported* link under
+ * the textarea field.
+ */
+export function sanitizeUserHTML(text) {
+  return sanitizeHTML(nl2br(text), [
+    'a',
+    'abbr',
+    'acronym',
+    'b',
+    'blockquote',
+    'br',
+    'code',
+    'em',
+    'i',
+    'li',
+    'ol',
+    'strong',
+    'ul',
+  ]);
+}
+
 export function findAddon(state, slug) {
   return state.addons[slug];
 }
