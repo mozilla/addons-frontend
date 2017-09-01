@@ -1154,4 +1154,8 @@ describe('sanitizeUserHTML', () => {
     expect(sanitize('<b>my add-on</b> <script>alert("does XSS")</script>'))
       .toEqual('<b>my add-on</b> ');
   });
+
+  it('does nothing to null values', () => {
+    expect(sanitize(null)).toEqual('');
+  });
 });
