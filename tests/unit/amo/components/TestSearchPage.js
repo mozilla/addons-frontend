@@ -42,7 +42,7 @@ describe(__filename, () => {
   it('enables search filters', () => {
     const root = render();
 
-    expect(root.find(Search)).toHaveProp('enableSearchSort', true);
+    expect(root.find(Search)).toHaveProp('enableSearchFilters', true);
   });
 
   it("doesn't duplicate the clientApp in the URL in the queryParams", () => {

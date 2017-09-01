@@ -27,7 +27,7 @@ export const SearchPageBase = ({ filters, pathname, ...props }: PropTypes) => {
   return (
     <Search
       {...props}
-      enableSearchSort
+      enableSearchFilters
       filters={filters}
       paginationQueryParams={paginationQueryParams}
       pathname={pathname}
