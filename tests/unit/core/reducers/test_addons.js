@@ -1,7 +1,7 @@
 import { loadEntities } from 'core/actions';
-import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
-  denormalizeAddon, fetchAddon, getGuid,
+  denormalizeAddon, fetchAddon, flattenApiAddon, getGuid,
 } from 'core/reducers/addons';
 import {
   createFetchAddonResult,
@@ -32,7 +32,7 @@ describe(__filename, () => {
     expect(newState).toEqual({
       ...firstState,
       [anotherFakeAddon.slug]: denormalizeAddon({
-        ...anotherFakeAddon,
+        ...flattenApiAddon(anotherFakeAddon),
         installURL: '',
         isRestartRequired: false,
       }),
@@ -69,12 +69,15 @@ describe(__filename, () => {
 
     const expectedTheme = {
       ...denormalizeAddon(theme),
+      // Expect theme_data to be merged into the addon.
       ...theme.theme_data,
       description: theme.description,
       guid: getGuid(theme),
+      installURL: '',
       isRestartRequired: false,
     };
     delete expectedTheme.theme_data;
+
     expect(state[theme.slug]).toEqual(expectedTheme);
   });
 
@@ -95,51 +98,19 @@ describe(__filename, () => {
         files: [{ url: 'https://a.m.o/download.xpi' }, { file: 'data' }],
       },
     };
-
-    expect(
-      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
-    ).toEqual({
-      installable: denormalizeAddon({
-        ...addon,
-        installURL: 'https://a.m.o/download.xpi',
-        isRestartRequired: false,
-      }),
-    });
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].installURL).toEqual('https://a.m.o/download.xpi');
   });
 
   it('sets the icon_url as iconUrl', () => {
     const addon = {
       ...fakeAddon,
-      slug: 'installable',
       icon_url: 'http://foo.com/img.png',
     };
-
-    expect(
-      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
-    ).toEqual({
-      installable: {
-        ...addon,
-        iconUrl: addon.icon_url,
-        installURL: '',
-        isRestartRequired: false,
-      },
-    });
-  });
-
-  it('flattens theme data', () => {
-    const theme = {
-      ...fakeAddon,
-      slug: 'baz',
-      id: 42,
-      theme_data: { theme_thing: 'some-data' },
-      type: ADDON_TYPE_THEME,
-    };
-    const state = addons(
-      {}, loadEntities(createFetchAddonResult(theme).entities));
-
-    expect(state).toMatchObject({
-      baz: { theme_thing: 'some-data' },
-    });
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].iconUrl).toEqual(addon.icon_url);
   });
 
   it('does not use description from theme_data', () => {
@@ -147,19 +118,19 @@ describe(__filename, () => {
     // Can be removed when
     // https://github.com/mozilla/addons-frontend/issues/1416 is fixed.
     const theme = {
-      ...fakeAddon,
+      ...fakeTheme,
       description: null,
       slug: 'baz',
       id: 42,
-      theme_data: { theme_thing: 'some-data', description: 'None' },
-      type: ADDON_TYPE_THEME,
+      theme_data: {
+        ...fakeTheme.theme_data,
+        description: 'None',
+      },
     };
     const state = addons(
       {}, loadEntities(createFetchAddonResult(theme).entities));
 
-    expect(state).toMatchObject({
-      baz: { description: null },
-    });
+    expect(state[theme.slug].description).toBe(null);
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {
@@ -169,15 +140,9 @@ describe(__filename, () => {
       ],
     });
 
-    expect(
-      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
-    ).toEqual({
-      [addon.slug]: denormalizeAddon({
-        ...addon,
-        installURL: '',
-        isRestartRequired: true,
-      }),
-    });
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isRestartRequired).toBe(true);
   });
 
   it('sets `isRestartRequired` to `false` when restart is not required', () => {
@@ -187,28 +152,17 @@ describe(__filename, () => {
       ],
     });
 
-    expect(
-      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
-    ).toEqual({
-      [addon.slug]: denormalizeAddon({
-        ...addon,
-        installURL: '',
-        isRestartRequired: false,
-      }),
-    });
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isRestartRequired).toBe(false);
   });
 
   it('sets `isRestartRequired` to `false` when addon has no files', () => {
     const addon = createFakeAddon({ files: [] });
 
-    expect(
-      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
-    ).toEqual({
-      [addon.slug]: denormalizeAddon({
-        ...addon,
-        isRestartRequired: false,
-      }),
-    });
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isRestartRequired).toBe(false);
   });
 
   it('sets `isRestartRequired` to `true` when some files declare it', () => {
@@ -219,15 +173,9 @@ describe(__filename, () => {
       ],
     });
 
-    expect(
-      addons(undefined, loadEntities(createFetchAddonResult(addon).entities))
-    ).toEqual({
-      [addon.slug]: denormalizeAddon({
-        ...addon,
-        installURL: '',
-        isRestartRequired: true,
-      }),
-    });
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isRestartRequired).toBe(true);
   });
 
   describe('fetchAddon', () => {
