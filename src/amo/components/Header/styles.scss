@@ -1,66 +1,186 @@
+@import "~photon-colors/colors";
+
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
 @import "~ui/css/vars";
 
 .Header {
-  background: $header-base-color;
-  min-height: 100px;
-  position: relative;
+  background: $ink-90;
+  display: grid;
+  grid-template-columns: min-content auto;
+  min-height: 112px;
+  padding: 0 12px;
+
+  @include respond-to(medium) {
+    grid-template-columns: auto auto;
+    min-height: 98px;
+  }
+
+  @include respond-to(large) {
+    grid-template-columns: max-content auto auto;
+    grid-template-rows: 46px auto;
+    min-height: 112px;
+  }
 }
 
 .Header-content {
-  padding: 20px 0 10px;
+  grid-column: 1 / span 4;
+  grid-row: 2 / 4;
+  line-height: 1;
+  margin: 0 0 36px;
   text-align: center;
+  width: 100%;
+  z-index: 4;
+
+  @include respond-to(medium) {
+    @include text-align-start();
+
+    align-self: end;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    margin: 24px 0 0;
+  }
 
   @include respond-to(large) {
-    padding: 10px 0;
+    @include margin-end(24px);
+
+    align-self: center;
+    grid-column: 1;
+    grid-row: 2 / 2;
+    margin-top: 0;
+  }
+}
+
+.Header-addons-icon {
+  @include margin-end(14px);
+
+  height: 32px;
+  vertical-align: bottom;
+  width: 32px;
+
+  @include respond-to(medium) {
+    vertical-align: middle;
   }
 
-  h1 {
-    margin: 0;
+  @include respond-to(large) {
+    vertical-align: bottom;
   }
+}
+
+.Header-title-wrapper {
+  font-size: $font-size-l;
+  margin: 0;
 }
 
 .Header-title {
-  align-items: center;
-  color: $header-font-color;
-  display: flex;
-  font-size: 24px;
-  justify-content: center;
-  line-height: 1.3;
-  padding: 0 20px;
-
+  &,
   &:link {
-    color: $header-font-color;
-    font-size: 24px;
+    color: $white;
+    font-size: $font-size-l;
+    font-weight: 300;
+    margin: 0;
     text-decoration: none;
-  }
 
-  .Header-addons-icon {
-    @include margin-end(8px);
-
-    height: 35px;
-    width: 35px;
+    @include respond-to(extraLarge) {
+      font-size: $font-size-header-title;
+    }
   }
 }
 
-.Header-top-row {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0 15px;
+.Header-user-and-external-links {
+  @include margin-start(auto);
+  @include text-align-end();
+
+  grid-column: 3 / span 2;
+  grid-row: 1 / 2;
+  margin-top: 11px;
+
+  @include respond-to(medium) {
+    grid-column: 4 / -1;
+    grid-row: 1 / 2;
+  }
+
+  @include respond-to(large) {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+  }
+}
+
+.Header-button {
+  margin-bottom: 12px;
+  vertical-align: middle;
 }
 
 .Header-developer-hub-link {
   display: none;
 
   @include respond-to(large) {
-    @include margin-end(10px);
+    &,
+    &:link {
+      @include margin-start(12px);
 
-    display: inline-block;
-    margin-top: 10px;
+      color: $white;
+      display: inline-block;
+      font-size: $font-size-s;
+      font-weight: normal;
+      text-decoration: none;
+    }
   }
 }
 
-.Header-auth-button {
-  margin-top: 10px;
+.Header-download-button {
+  @include margin-start(12px);
+}
+
+.Header-authenticate-button {
+  @include margin-start(12px);
+}
+
+.Header-SectionLinks {
+  grid-column: 1 / span 4;
+  grid-row: 3 / 4;
+  margin: 16px auto 1px;
+  z-index: 4;
+
+  @include respond-to(medium) {
+    @include margin-start(-12px);
+
+    align-self: end;
+    grid-column: 1 / 3;
+    grid-row: 2 / 2;
+    margin: 0 0 6px;
+  }
+
+  @include respond-to(large) {
+    @include margin-end(12px);
+
+    align-self: center;
+    grid-column: 2;
+    grid-row: 2 / 2;
+    margin-top: 24px;
+  }
+}
+
+.Header-search-form {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  margin: 10px 0 0;
+  min-width: 144px;
+
+  @include respond-to(medium) {
+    @include margin-start(auto);
+
+    grid-column: 3 / 3;
+    grid-row: 2 / 2;
+    margin-top: 0;
+    max-width: 250px;
+  }
+
+  @include respond-to(large) {
+    align-self: center;
+    margin-top: 6px;
+    max-width: 284px;
+    min-width: 144px;
+    width: 100%;
+  }
 }

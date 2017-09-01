@@ -62,7 +62,7 @@ export class AuthenticateButtonBase extends React.Component {
     } = this.props;
     const buttonText = isAuthenticated ?
       logOutText || i18n.gettext('Log out') :
-      logInText || i18n.gettext('Log in/Sign up');
+      logInText || i18n.gettext('Register or Log in');
 
     // The `href` is required because a <button> element with a :hover effect
     // and/or focus effect (that is not part of a form) that changes its
