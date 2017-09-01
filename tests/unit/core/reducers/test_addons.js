@@ -1,12 +1,16 @@
 import { loadEntities } from 'core/actions';
-import { ADDON_TYPE_THEME } from 'core/constants';
-import addons, { denormalizeAddon, fetchAddon } from 'core/reducers/addons';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
+import addons, {
+  denormalizeAddon, fetchAddon, getGuid,
+} from 'core/reducers/addons';
 import {
   createFetchAddonResult,
   createFetchAllAddonsResult,
   createStubErrorHandler,
 } from 'tests/unit/helpers';
-import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
+import {
+  createFakeAddon, fakeAddon, fakeTheme,
+} from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
@@ -44,6 +48,42 @@ describe(__filename, () => {
       loadEntities(createFetchAllAddonsResult(addonResults).entities));
     expect(Object.keys(state).sort())
       .toEqual(['first-slug', 'second-slug']);
+  });
+
+  it('stores a modified extension object', () => {
+    const extension = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(extension).entities));
+
+    expect(state[extension.slug]).toEqual({
+      ...denormalizeAddon(extension),
+      installURL: '',
+      isRestartRequired: false,
+    });
+  });
+
+  it('stores a modified theme object', () => {
+    const theme = { ...fakeTheme };
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(theme).entities));
+
+    const expectedTheme = {
+      ...denormalizeAddon(theme),
+      ...theme.theme_data,
+      description: theme.description,
+      guid: getGuid(theme),
+      isRestartRequired: false,
+    };
+    delete expectedTheme.theme_data;
+    expect(state[theme.slug]).toEqual(expectedTheme);
+  });
+
+  it('mimics how Firefox appends @persona.mozilla.org to GUIDs', () => {
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(fakeTheme).entities));
+
+    expect(state[fakeTheme.slug].guid)
+      .toEqual('54321@personas.mozilla.org');
   });
 
   it('reads the install URL from the file', () => {
