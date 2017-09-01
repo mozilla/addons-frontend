@@ -48,19 +48,6 @@ export function getGuid(result: AddonType) {
   return result.guid;
 }
 
-// TODO: merge this functionality into flattenApiAddon
-export function denormalizeAddon(apiAddon: AddonType) {
-  if (apiAddon.icon_url) {
-    return {
-      ...apiAddon,
-      // Set iconUrl to be consistent between disco and amo.
-      // TODO: hah, this isn't even right. It should be iconURL
-      iconUrl: apiAddon.icon_url,
-    };
-  }
-  return apiAddon;
-}
-
 // TODO: make APIAddonType for Flow
 export function flattenApiAddon(apiAddon: AddonType) {
   // TODO: remove unused fields.
@@ -150,6 +137,9 @@ export function flattenApiAddon(apiAddon: AddonType) {
     };
   }
 
+  // TODO: remove this if possible. It was added by mistake.
+  addon.iconUrl = addon.icon_url;
+
   return addon;
 }
 
@@ -163,7 +153,6 @@ export default function addonsReducer(
     const newState = { ...state };
     Object.keys(payload.entities.addons).forEach((key) => {
       newState[key] = flattenApiAddon(payload.entities.addons[key]);
-      newState[key] = denormalizeAddon(newState[key]);
     });
     return newState;
   }

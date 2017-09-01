@@ -1,7 +1,7 @@
 import { loadEntities } from 'core/actions';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
-  denormalizeAddon, fetchAddon, flattenApiAddon, getGuid,
+  fetchAddon, flattenApiAddon, getGuid,
 } from 'core/reducers/addons';
 import {
   createFetchAddonResult,
@@ -31,11 +31,11 @@ describe(__filename, () => {
 
     expect(newState).toEqual({
       ...firstState,
-      [anotherFakeAddon.slug]: denormalizeAddon({
+      [anotherFakeAddon.slug]: {
         ...flattenApiAddon(anotherFakeAddon),
         installURL: '',
         isRestartRequired: false,
-      }),
+      },
     });
   });
 
@@ -56,7 +56,8 @@ describe(__filename, () => {
       loadEntities(createFetchAddonResult(extension).entities));
 
     expect(state[extension.slug]).toEqual({
-      ...denormalizeAddon(extension),
+      ...extension,
+      iconUrl: extension.icon_url,
       installURL: '',
       isRestartRequired: false,
     });
@@ -68,11 +69,12 @@ describe(__filename, () => {
       loadEntities(createFetchAddonResult(theme).entities));
 
     const expectedTheme = {
-      ...denormalizeAddon(theme),
+      ...theme,
       // Expect theme_data to be merged into the addon.
       ...theme.theme_data,
       description: theme.description,
       guid: getGuid(theme),
+      iconUrl: theme.icon_url,
       installURL: '',
       isRestartRequired: false,
     };

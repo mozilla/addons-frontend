@@ -12,7 +12,7 @@ import {
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
 import { loadEntities } from 'core/actions';
-import { denormalizeAddon, fetchAddon } from 'core/reducers/addons';
+import { fetchAddon, flattenApiAddon } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
@@ -45,7 +45,7 @@ describe('amo/components/AddonReviewList', () => {
     } = {}) {
       const loadedReviews = reviews ? getLoadedReviews({ reviews }) : null;
       const props = {
-        addon: addon && denormalizeAddon(addon),
+        addon,
         dispatch,
         errorHandler,
         i18n: getFakeI18nInst(),
@@ -346,11 +346,7 @@ describe('amo/components/AddonReviewList', () => {
     it('loads addon from state', () => {
       store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps();
-      expect(props.addon).toEqual(denormalizeAddon({
-        ...fakeAddon,
-        installURL: '',
-        isRestartRequired: false,
-      }));
+      expect(props.addon).toEqual(flattenApiAddon(fakeAddon));
     });
 
     it('ignores other add-ons', () => {
