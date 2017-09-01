@@ -1,3 +1,9 @@
+export const operatingSystems = {
+  Linux: 'linux',
+  'Mac OS': 'mac',
+  Windows: 'windows',
+};
+
 export const paramsToFilter = {
   app: 'clientApp',
   appversion: 'compatibleWithVersion',
@@ -33,6 +39,14 @@ export function convertQueryParamsToFilters(params) {
     }
     return object;
   }, {});
+}
+
+export function convertOperatingSystemToFilterName(name) {
+  if (name in operatingSystems) {
+    return operatingSystems[name];
+  }
+
+  return '';
 }
 
 export function hasSearchFilters(filters) {

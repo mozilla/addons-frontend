@@ -21,11 +21,14 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
   autocompleteCancel,
   autocompleteStart,
 } from 'core/reducers/autocomplete';
+import {
+  convertOperatingSystemToFilterName,
+  convertFiltersToQueryParams,
+} from 'core/searchUtils';
 import Icon from 'ui/components/Icon';
 
 import './styles.scss';
@@ -49,6 +52,7 @@ export class SearchFormBase extends React.Component {
       url: PropTypes.string.isRequired,
       iconUrl: PropTypes.string.isRequired,
     })).isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -90,12 +94,14 @@ export class SearchFormBase extends React.Component {
   }
 
   goToSearch(query) {
-    const { addonType, api, pathname, router } = this.props;
+    const { addonType, api, pathname, router, userAgentInfo } = this.props;
     const filters = { query };
 
     if (addonType) {
       filters.addonType = addonType;
     }
+    filters.operatingSystem = convertOperatingSystemToFilterName(
+      userAgentInfo.os.name);
 
     router.push({
       pathname: `/${api.lang}/${api.clientApp}${pathname}`,
@@ -130,12 +136,14 @@ export class SearchFormBase extends React.Component {
       return;
     }
 
-    const { addonType } = this.props;
+    const { addonType, dispatch, errorHandler, userAgentInfo } = this.props;
     const filters = { query: value };
 
     if (addonType) {
       filters.addonType = addonType;
     }
+    filters.operatingSystem = convertOperatingSystemToFilterName(
+      userAgentInfo.os.name);
 
     this.setState({
       autocompleteIsOpen: true,
@@ -283,6 +291,7 @@ export function mapStateToProps(state) {
     api: state.api,
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
+    userAgentInfo: state.api.userAgentInfo,
   };
 }
 
