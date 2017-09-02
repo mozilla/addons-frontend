@@ -12,14 +12,14 @@ import FakeApp, {
 } from 'tests/unit/core/server/fakeApp';
 
 describe('<ServerHtml />', () => {
-  const _helmentCanUseDOM = Helmet.canUseDOM;
+  const _helmetCanUseDOM = Helmet.canUseDOM;
 
   beforeEach(() => {
     Helmet.canUseDOM = false;
   });
 
   afterEach(() => {
-    Helmet.canUseDOM = _helmentCanUseDOM;
+    Helmet.canUseDOM = _helmetCanUseDOM;
   });
 
   const fakeStore = {

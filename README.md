@@ -1,6 +1,6 @@
 [![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg)](https://github.com/mozilla/addons-frontend/blob/master/CODE_OF_CONDUCT.md)
 [![Build Status](https://travis-ci.org/mozilla/addons-frontend.svg?branch=master)](https://travis-ci.org/mozilla/addons-frontend)
-[![Coverage Status](https://coveralls.io/repos/github/mozilla/addons-frontend/badge.svg?branch=master)](https://coveralls.io/github/mozilla/addons-frontend?branch=master)
+[![codecov](https://codecov.io/gh/mozilla/addons-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/mozilla/addons-frontend)
 [![Documentation](https://readthedocs.org/projects/addons-frontend/badge/?version=latest)](http://addons-frontend.readthedocs.io/en/latest/)
 
 # Addons-frontend 🔥
@@ -344,6 +344,10 @@ If you have used `localhost` before with a different configuration,
 be sure to clear your cookies.
 
 **NOTE**: At this time, it's not possible to sign in using this approach.
+
+### Working with UX Mocks
+
+When implementing user interfaces you will need to refer to the [Sketch](https://www.sketchapp.com/) mocks that are located in the [assets](https://github.com/mozilla/addons-frontend/tree/master/assets) directory. You will need a license to run Sketch and you also need to install some fonts (which are free). Install [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans) and [Chivo](https://www.fontsquirrel.com/fonts/chivo).
 
 ## What version is deployed?
 

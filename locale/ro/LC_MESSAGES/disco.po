@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"POT-Creation-Date: 2017-08-22 21:36+0000\n"
 "PO-Revision-Date: 2016-07-21 23:36+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -88,43 +88,43 @@ msgstr "Acum poți accesa %(name)s de pe bara de unelte."
 msgid "OK!"
 msgstr "Ok!"
 
-#: src/disco/components/Addon.js:115
+#: src/disco/components/Addon.js:122
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:137
 msgid "Hover over the image to preview"
 msgstr ""
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:163
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:165
 msgid "An unexpected error occurred during installation."
 msgstr "S-a produs o eroare neașteptată în timpul instalării."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred during uninstallation."
 msgstr "S-a produs o eroare neașteptată în timpul dezinstalării."
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred."
 msgstr "S-a produs o eroare neașteptată."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:178
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ""
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:180
 msgid "Please restart Firefox to use this add-on."
 msgstr ""
 
-#: src/disco/components/Addon.js:78
+#: src/disco/components/Addon.js:83
 msgid "Close"
 msgstr "Închide"
 
@@ -144,15 +144,15 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: src/disco/containers/App.js:35
+#: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
 msgstr "Descoperă suplimente"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:113
 msgid "Personalize Your Firefox"
 msgstr "Personalizează Firefox"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:114
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -161,18 +161,31 @@ msgid ""
 "their stand-out performance and functionality."
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:122
 msgid "Click to play"
 msgstr "Clic pentru redare"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:123
 msgid "to find out more about add-ons"
 msgstr "pentru a afla mai multe despre suplimente"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:137
 msgid "Close video"
 msgstr "Închide videoclipul"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:156
 msgid "See more add-ons!"
 msgstr "Vezi mai multe suplimente!"
+
+#: src/ui/components/ErrorList/index.js:45
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:52
+#, fuzzy
+msgid "An unexpected error occurred"
+msgstr "S-a produs o eroare neașteptată."
+
+#: src/ui/components/ErrorList/index.js:61
+msgid "Reload To Continue"
+msgstr ""

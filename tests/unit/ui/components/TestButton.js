@@ -18,8 +18,8 @@ describe('<Button />', () => {
     expect(button.children()).toIncludeText('My button!');
   });
 
-  it('renders a link with an href', () => {
-    const href = 'https://addons.mozilla.org';
+  it('renders an in-app link with a to prop', () => {
+    const href = '/profile/';
     const button = shallow(
       <Button className="Bar" to={href}>Link text!</Button>);
 
@@ -28,5 +28,19 @@ describe('<Button />', () => {
     expect(button).toHaveClassName('Bar');
     expect(button).toHaveProp('to', href);
     expect(button.children()).toIncludeText('Link text!');
+  });
+
+  it('renders a link with a href', () => {
+    const href = 'https://addons.mozilla.org';
+    const button = shallow(
+      <Button className="Bar" href={href}>Link text!</Button>);
+
+    expect(button.type()).toEqual(Link);
+    expect(button).toHaveClassName('Button');
+    expect(button).toHaveClassName('Bar');
+    expect(button).toHaveProp('href', href);
+    expect(button.children()).toIncludeText('Link text!');
+    expect(button.find(Link)).toHaveProp('prependClientApp', false);
+    expect(button.find(Link)).toHaveProp('prependLang', false);
   });
 });

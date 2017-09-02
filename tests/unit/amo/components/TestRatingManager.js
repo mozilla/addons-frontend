@@ -6,6 +6,7 @@ import {
 
 import translate from 'core/i18n/translate';
 import { setAuthToken } from 'core/actions';
+import { loadUserProfile } from 'core/reducers/user';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -24,7 +25,12 @@ import {
 import {
   fakeAddon, fakeReview, signedInApiState,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
+import {
+  createUserProfileResponse,
+  getFakeI18nInst,
+  userAuthToken,
+} from 'tests/unit/helpers';
+
 
 function render(customProps = {}) {
   const props = {
@@ -384,9 +390,10 @@ describe('RatingManager', () => {
     }
 
     function signIn({ userId = 98765 } = {}) {
-      store.dispatch(setAuthToken(userAuthToken({
-        user_id: userId,
-      })));
+      store.dispatch(setAuthToken(userAuthToken()));
+      store.dispatch(loadUserProfile({
+        profile: createUserProfileResponse({ id: userId }),
+      }));
     }
 
     it('copies api state to props', () => {
@@ -404,7 +411,7 @@ describe('RatingManager', () => {
     });
 
     it('sets an empty userId when not signed in', () => {
-      expect(getMappedProps().userId).toEqual(undefined);
+      expect(getMappedProps().userId).toEqual(null);
     });
 
     it('sets the userId property from the state', () => {

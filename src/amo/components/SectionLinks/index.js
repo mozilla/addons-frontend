@@ -18,6 +18,7 @@ import './styles.scss';
 
 
 type SectionLinksProps = {
+  className?: string,
   i18n: Object,
   viewContext: ViewContextType,
 }
@@ -26,12 +27,12 @@ export class SectionLinksBase extends React.Component {
   props: SectionLinksProps;
 
   render() {
-    const { i18n, viewContext } = this.props;
+    const { className, i18n, viewContext } = this.props;
     const isExploring = [VIEW_CONTEXT_EXPLORE, VIEW_CONTEXT_HOME]
       .includes(viewContext);
 
     return (
-      <ul className="SectionLinks">
+      <ul className={classNames('SectionLinks', className)}>
         <li>
           <Link
             className={classNames('SectionLinks-link', { 'SectionLinks-link--active': isExploring })}

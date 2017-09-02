@@ -52,7 +52,7 @@ export function submitReview({
   body,
   reviewId,
   ...apiCallParams
-  }: SubmitReviewParams): Promise<ApiReviewType> {
+}: SubmitReviewParams): Promise<ApiReviewType> {
   return new Promise((resolve) => {
     const review = {
       addon: undefined,

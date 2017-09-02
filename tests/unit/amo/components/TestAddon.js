@@ -12,7 +12,6 @@ import { match } from 'react-router';
 import { setViewContext } from 'amo/actions/viewContext';
 import {
   AddonBase,
-  allowedDescriptionTags,
   mapStateToProps,
 } from 'amo/components/Addon';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -26,12 +25,13 @@ import RatingManager, {
 } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
 import { loadEntities } from 'core/actions';
-import { fetchAddon as fetchAddonAction } from 'core/actions/addons';
+import { fetchAddon as fetchAddonAction } from 'core/reducers/addons';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_THEME,
+  ADDON_TYPE_OPENSEARCH,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALLED,
@@ -49,6 +49,7 @@ import {
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
+import Badge from 'ui/components/Badge';
 
 
 function renderProps({
@@ -196,6 +197,32 @@ describe('Addon', () => {
 
     // These should render with an empty addon.
     expect(root.find(AddonMeta).prop('addon')).toEqual(null);
+  });
+
+  it('does not dispatch fetchAddon action when slug is the same', () => {
+    const fakeDispatch = sinon.stub();
+    const errorHandler = createStubErrorHandler();
+    const addon = fakeAddon;
+    const root = shallowRender({ addon, errorHandler, dispatch: fakeDispatch });
+
+    fakeDispatch.reset();
+    // Update with the same slug.
+    root.setProps({ params: { slug: addon.slug } });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('dispatches fetchAddon action when updating with a new slug', () => {
+    const fakeDispatch = sinon.stub();
+    const errorHandler = createStubErrorHandler();
+    const root = shallowRender({ errorHandler, dispatch: fakeDispatch });
+    const slug = 'some-new-slug';
+
+    fakeDispatch.reset();
+    // Update with a new slug.
+    root.setProps({ params: { slug } });
+
+    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({ errorHandler, slug }));
   });
 
   it('renders an error if there is one', () => {
@@ -365,22 +392,17 @@ describe('Addon', () => {
     expect(rootNode.querySelectorAll('.AddonDescription br').length).toBe(3);
   });
 
-  it('preserves certain HTML tags in the description', () => {
-    let description = '';
-    const allowedTags = [...allowedDescriptionTags];
-    // Ignore <br/> since it's checked elsewhere.
-    allowedTags.splice(allowedTags.indexOf('br'), 1);
-    // eslint-disable-next-line no-restricted-syntax
-    for (const tag of allowedTags) {
-      description = `${description} <${tag}>placeholder</${tag}>`;
-    }
-    const rootNode = renderAsDOMNode({ addon: { ...fakeAddon, description } });
-    // eslint-disable-next-line no-restricted-syntax
-    for (const tagToCheck of allowedTags) {
-      expect(
-        rootNode.querySelectorAll(`.AddonDescription-contents ${tagToCheck}`).length
-      ).toBe(1);
-    }
+  it('allows some HTML tags in the description', () => {
+    const root = shallowRender({
+      addon: {
+        ...fakeAddon,
+        description: '<b>super</b> <i>cool</i> <blink>add-on</blink>',
+      },
+    });
+    const contents = root.find('.AddonDescription-contents');
+    expect(contents.html()).toMatch(
+      new RegExp('<b>super</b> <i>cool</i> add-on')
+    );
   });
 
   it('strips dangerous HTML tag attributes from description', () => {
@@ -655,6 +677,76 @@ describe('Addon', () => {
       });
     });
   });
+
+  describe('version release notes', () => {
+    function addonWithVersion(version = {}) {
+      return {
+        ...fakeAddon,
+        current_version: version && {
+          ...fakeAddon.current_version,
+          version: '2.5.0',
+          release_notes: 'Changed some stuff',
+          ...version,
+        },
+      };
+    }
+
+    function getReleaseNotes(...args) {
+      const root = shallowRender({
+        addon: addonWithVersion(...args),
+      });
+      return root.find('.AddonDescription-version-notes p').render();
+    }
+
+    it('is hidden when an add-on has not loaded yet', () => {
+      const root = shallowRender({ addon: undefined });
+      expect(root.find('.AddonDescription-version-notes p'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when the add-on does not have a current version', () => {
+      const root = shallowRender({ addon: addonWithVersion(null) });
+      expect(root.find('.AddonDescription-version-notes p'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when the current version does not have release notes', () => {
+      const root = shallowRender({
+        addon: addonWithVersion({ release_notes: null }),
+      });
+      expect(root.find('.AddonDescription-version-notes p'))
+        .toHaveLength(0);
+    });
+
+    it('shows the version string', () => {
+      const root = shallowRender({
+        addon: addonWithVersion({
+          version: 'v1.4.5',
+        }),
+      });
+      const card = root.find('.AddonDescription-version-notes');
+      expect(card.prop('header')).toEqual('Release notes for v1.4.5');
+    });
+
+    it('shows the release notes', () => {
+      const root = shallowRender({
+        addon: addonWithVersion({
+          release_notes: 'Fixed some stuff',
+        }),
+      });
+      const notes = root.find('.AddonDescription-version-notes p');
+      expect(notes.html()).toContain('Fixed some stuff');
+    });
+
+    it('allows some HTML tags', () => {
+      const root = getReleaseNotes({
+        release_notes: '<b>lots</b> <i>of</i> <blink>bug fixes</blink>',
+      });
+      expect(root.html()).toMatch(
+        new RegExp('<b>lots</b> <i>of</i> bug fixes')
+      );
+    });
+  });
 });
 
 describe('mapStateToProps', () => {
@@ -744,5 +836,57 @@ describe('mapStateToProps', () => {
     const { addon } = _mapStateToProps();
 
     expect(addon).toEqual(undefined);
+  });
+
+  it('displays a badge when the addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
+  });
+
+  it('adds a different badge label when a "theme" addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_THEME };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
+  });
+
+  it('adds a different badge label when an addon of a different type is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Add-on');
+  });
+
+  it('does not display the featured badge when addon is not featured', () => {
+    const addon = { ...fakeAddon, is_featured: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('displays a badge when the addon needs restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'restart-required');
+    expect(root.find(Badge)).toHaveProp('label', 'Restart Required');
+  });
+
+  it('does not display the "restart required" badge when addon does not need restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('does not display the "restart required" badge when isRestartRequired is not true', () => {
+    const root = shallowRender({ addon: fakeAddon });
+
+    expect(root.find(Badge)).toHaveLength(0);
   });
 });

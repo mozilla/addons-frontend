@@ -122,7 +122,7 @@ describe('Category', () => {
     });
     expect(search).toHaveProp('pathname',
       `/${params.visibleAddonType}/${fakeCategory.slug}/`);
-    expect(search).toHaveProp('enableSearchSort', false);
+    expect(search).toHaveProp('enableSearchFilters', false);
   });
 
   it('fetches categories when not yet loaded', () => {

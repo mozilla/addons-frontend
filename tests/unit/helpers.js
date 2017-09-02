@@ -1,3 +1,4 @@
+/* global Response */
 import base64url from 'base64url';
 import config from 'config';
 import { shallow } from 'enzyme';
@@ -105,6 +106,7 @@ export const signedInApiState = Object.freeze({
   token: 'secret-token',
   userAgent: sampleUserAgent,
   userAgentInfo: { browser, os },
+  userId: 102345,
 });
 
 export const userAgents = {
@@ -133,10 +135,17 @@ export const userAgents = {
   ],
   firefox: [
     'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0',
-    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1',
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101
-      Firefox/33.0`,
+    oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
+      Gecko/20100101 Firefox/40.1`,
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0)
+      Gecko/20100101 Firefox/33.0`,
     'Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0',
+    // Firefox ESR 52
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.2.1)
+      Gecko/20100101 Firefox/52.2.1`,
+    // Firefox 57 (first version that is WebExtension-only) for Mac
+    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
+      Gecko/20100101 Firefox/57.1`,
   ],
   firefoxOS: [
     'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
@@ -149,6 +158,7 @@ export const userAgents = {
     'Mozilla/5.0 (Android; Tablet; rv:40.0) Gecko/40.0 Firefox/40.0',
     'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0',
     'Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0',
+    'Mozilla/5.0 (Android 4.4; Tablet; rv:57.0) Gecko/57.0 Firefox/57.0',
   ],
   firefoxIOS: [
     oneLine`Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X)
@@ -243,4 +253,46 @@ export function createStubErrorHandler(capturedError = null) {
     dispatch: sinon.stub(),
     capturedError,
   });
+}
+
+export function generateHeaders(
+  headerData = { 'Content-Type': 'application/json' }
+) {
+  const response = new Response();
+  Object.keys(headerData).forEach((key) => (
+    response.headers.append(key, headerData[key])
+  ));
+  return response.headers;
+}
+
+export function createApiResponse({
+  ok = true, jsonData = {}, ...responseProps
+} = {}) {
+  const response = {
+    ok,
+    headers: generateHeaders(),
+    json: () => Promise.resolve(jsonData),
+    ...responseProps,
+  };
+  return Promise.resolve(response);
+}
+
+export function createUserProfileResponse({ id = 123456, username = 'user-1234' } = {}) {
+  return {
+    average_addon_rating: null,
+    biography: '',
+    created: '2017-08-15T12:01:13Z',
+    homepage: '',
+    id,
+    is_addon_developer: false,
+    is_artist: false,
+    location: '',
+    name: '',
+    num_addons_listed: 0,
+    occupation: '',
+    picture_type: '',
+    picture_url: `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+    url: null,
+    username,
+  };
 }

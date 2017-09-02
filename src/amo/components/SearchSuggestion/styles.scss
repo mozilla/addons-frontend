@@ -1,0 +1,32 @@
+@import "~core/css/inc/mixins";
+
+.SearchSuggestion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.SearchSuggestion-name {
+  flex: 1;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.SearchSuggestion-icon {
+  @include margin-end(12px);
+
+  height: 16px;
+  width: 16px;
+}
+
+.SearchSuggestion-icon-arrow {
+  @include margin-end(2px);
+
+  display: none;
+  height: 16px;
+  margin-top: 1px;
+  width: 16px;
+}

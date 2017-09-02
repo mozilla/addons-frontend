@@ -7,6 +7,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { setAuthToken } from 'core/actions';
+import { loadUserProfile } from 'core/reducers/user';
 import * as api from 'core/api';
 import {
   AuthenticateButtonBase,
@@ -17,7 +18,11 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, userAuthToken } from 'tests/unit/helpers';
+import {
+  createUserProfileResponse,
+  getFakeI18nInst,
+  userAuthToken,
+} from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 
 
@@ -65,31 +70,32 @@ describe('<AuthenticateButton />', () => {
     const handleLogIn = sinon.spy();
     const location = sinon.stub();
     const root = render({ isAuthenticated: false, handleLogIn, location });
-    expect(root.textContent).toEqual('Log in/Sign up');
+
+    expect(root.textContent).toEqual('Register or Log in');
     Simulate.click(root);
-    expect(handleLogIn.calledWith(location)).toBeTruthy();
+    sinon.assert.calledWith(handleLogIn, location);
   });
 
   it('shows a log out button when authenticated', () => {
     const handleLogOut = sinon.spy();
     const root = render({ handleLogOut, isAuthenticated: true });
+
     expect(root.textContent).toEqual('Log out');
     Simulate.click(root);
-    expect(handleLogOut.called).toBeTruthy();
+    sinon.assert.called(handleLogOut);
   });
 
   it('updates the location on handleLogIn', () => {
+    const { store } = dispatchSignInActions();
     const _window = { location: '/foo' };
     const location = { pathname: '/bar', query: { q: 'wat' } };
-    const startLoginUrlStub =
-      sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
-    const { handleLogIn } = mapStateToProps({
-      auth: {},
-      api: { lang: 'en-GB' },
-    });
+    const startLoginUrlStub = sinon.stub(api, 'startLoginUrl').returns('https://a.m.org/login');
+
+    const { handleLogIn } = mapStateToProps(store.getState());
     handleLogIn(location, { _window });
+
     expect(_window.location).toEqual('https://a.m.org/login');
-    expect(startLoginUrlStub.calledWith({ location })).toBeTruthy();
+    sinon.assert.calledWith(startLoginUrlStub, { location });
   });
 
   it('gets the server to clear cookie and auth token in handleLogOut', () => {
@@ -101,7 +107,8 @@ describe('<AuthenticateButton />', () => {
     sinon.stub(config, 'get').callsFake((key) => _config[key]);
 
     const { store } = dispatchSignInActions();
-    store.dispatch(setAuthToken(userAuthToken({ user_id: 99 })));
+    store.dispatch(setAuthToken(userAuthToken()));
+
     const apiConfig = { token: store.getState().api.token };
     expect(apiConfig.token).toBeTruthy();
 
@@ -113,10 +120,14 @@ describe('<AuthenticateButton />', () => {
       });
   });
 
-  it('pulls isAuthenticated from state', () => {
+  it('retrieves `isAuthenticated` from state', () => {
     const { store } = dispatchClientMetadata();
+
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(false);
-    store.dispatch(setAuthToken(userAuthToken({ user_id: 123 })));
+    store.dispatch(setAuthToken(userAuthToken()));
+    store.dispatch(loadUserProfile({
+      profile: createUserProfileResponse(),
+    }));
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);
   });
 });

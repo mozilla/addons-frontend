@@ -9,6 +9,7 @@ import Search from 'amo/components/Search';
 import { categoriesFetch } from 'core/actions/categories';
 import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 import { apiAddonType, parsePage } from 'core/utils';
 
 import './styles.scss';
@@ -58,7 +59,9 @@ export class CategoryBase extends React.Component {
       page: parsePage(location.query.page),
     };
     const pathname = `/${params.visibleAddonType}/${categorySlug}/`;
-    const paginationQueryParams = { page: filters.page };
+    const paginationQueryParams = convertFiltersToQueryParams({
+      page: filters.page,
+    });
 
     let category;
     if (categories) {
@@ -76,7 +79,7 @@ export class CategoryBase extends React.Component {
         {errorHandler.renderErrorIfPresent()}
         <CategoryHeader category={category} />
         <Search
-          enableSearchSort={false}
+          enableSearchFilters={false}
           filters={filters}
           paginationQueryParams={paginationQueryParams}
           pathname={pathname}

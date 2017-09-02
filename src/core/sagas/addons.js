@@ -9,9 +9,9 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 
 import { loadEntities } from 'core/actions';
 import { fetchAddon as fetchAddonFromApi } from 'core/api';
-import { FETCH_ADDON } from 'core/constants';
+import { FETCH_ADDON } from 'core/reducers/addons';
 import log from 'core/logger';
-import type { FetchAddonAction } from 'core/actions/addons';
+import type { FetchAddonAction } from 'core/reducers/addons';
 
 import { createErrorHandler, getState } from './utils';
 
