@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-08-29 19:04+0000\n"
-"PO-Revision-Date: 2017-09-01 13:47+0000\n"
+"PO-Revision-Date: 2017-09-02 21:54+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -29,11 +29,11 @@ msgstr "რჩეული დამატება"
 
 #: src/amo/components/Addon/index.js:148
 msgid "Cancel preview"
-msgstr ""
+msgstr "გადახედვის გაუქმება"
 
 #: src/amo/components/Addon/index.js:148
 msgid "Tap to preview"
-msgstr ""
+msgstr "გადახედვა"
 
 #: src/amo/components/Addon/index.js:189
 msgid "Read %(count)s review"
