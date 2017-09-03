@@ -1,6 +1,6 @@
 # Testing
 
-We want to maintain a project with a high coverage (aiming for 100%). Our main [coverage criterion](https://en.wikipedia.org/wiki/Code_coverage#Coverage_criteria) is **branch coverage**, that is making sure all possible code branches are covered by test. At an absolute bare minimum, we require 100% line coverage. [Coveralls](https://coveralls.io/github/mozilla/addons-frontend) monitors our test coverage for every Pull Request. You can make sure you haven't decreased coverage by checking the Pull Request on GitHub. You can also [generate a coverage report locally](https://github.com/mozilla/addons-frontend/#code-coverage).
+We want to maintain a project with a high coverage (aiming for 100%). Our main [coverage criterion](https://en.wikipedia.org/wiki/Code_coverage#Coverage_criteria) is **branch coverage**, that is making sure all possible code branches are covered by test. At an absolute bare minimum, we require 100% line coverage. [Codecov](https://codecov.io/gh/mozilla/addons-frontend) monitors our test coverage for every Pull Request. You can make sure you haven't decreased coverage by checking the Pull Request on GitHub. You can also [generate a coverage report locally](https://github.com/mozilla/addons-frontend/#code-coverage).
 
 ## General guidelines
 

@@ -10,10 +10,25 @@
   width: $default-icon-size;
 }
 
+.Icon-arrow {
+  @include icon($name: "arrow");
+
+  [dir=rtl] & {
+    transform: rotate(180deg);
+  }
+}
+
+.Icon-arrow-blue {
+  @include icon($name: "arrow-blue");
+
+  [dir=rtl] & {
+    right: auto;
+    transform: rotate(180deg);
+  }
+}
+
 .Icon-magnifying-glass {
   @include icon($name: "magnifying-glass");
-
-  background-size: cover;
 }
 
 .Icon-eye {
@@ -29,12 +44,6 @@
 
 .Icon-fox {
   @include icon($name: "fox");
-
-  background-size: cover;
-}
-
-.Icon-fox-light {
-  @include icon($name: "fox-light");
 }
 
 .Icon-mozilla {
@@ -50,6 +59,14 @@
 
 .Icon-triangle-down-black {
   @include icon($name: "triangle-down-black");
+}
+
+.Icon-external {
+  @include icon($name: "external");
+  @include margin-start(5px);
+
+  height: 10px;
+  width: 10px;
 }
 
 .Icon-user {
@@ -126,15 +143,4 @@
 
 .Icon-restart {
   @include icon($name: "restart");
-}
-
-.Icon-arrow-big-blue {
-  @include icon($name: "arrow-big-blue");
-
-  width: 18px;
-
-  [dir=rtl] & {
-    right: auto;
-    transform: rotate(180deg);
-  }
 }

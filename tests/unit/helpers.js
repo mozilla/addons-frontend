@@ -276,3 +276,23 @@ export function createApiResponse({
   };
   return Promise.resolve(response);
 }
+
+export function createUserProfileResponse({ id = 123456, username = 'user-1234' } = {}) {
+  return {
+    average_addon_rating: null,
+    biography: '',
+    created: '2017-08-15T12:01:13Z',
+    homepage: '',
+    id,
+    is_addon_developer: false,
+    is_artist: false,
+    location: '',
+    name: '',
+    num_addons_listed: 0,
+    occupation: '',
+    picture_type: '',
+    picture_url: `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+    url: null,
+    username,
+  };
+}

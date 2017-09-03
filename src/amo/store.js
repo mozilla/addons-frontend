@@ -16,6 +16,7 @@ import errorPage from 'core/reducers/errorPage';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import search from 'core/reducers/search';
+import user from 'core/reducers/user';
 import { middleware } from 'core/store';
 
 
@@ -38,6 +39,7 @@ export default function createStore(initialState = {}) {
       reduxAsyncConnect,
       reviews,
       search,
+      user,
       viewContext,
     }),
     initialState,

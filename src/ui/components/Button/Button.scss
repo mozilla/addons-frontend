@@ -1,3 +1,5 @@
+@import "~photon-colors/colors";
+
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
@@ -30,9 +32,9 @@
 
 .Button--confirm {
   @include button(
-    $background: $action-base-color,
-    $background-active: $action-active-color,
-    $background-hover: $action-hover-color
+    $background: $confirm-base-color,
+    $background-active: $confirm-active-color,
+    $background-hover: $confirm-hover-color
   );
 }
 

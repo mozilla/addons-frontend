@@ -40,6 +40,17 @@ describe(__filename, () => {
     expect(root.find(Search)).toHaveLength(1);
   });
 
+  it("doesn't duplicate the clientApp in the URL in the queryParams", () => {
+    const root = render({
+      location: { query: { page: 3, q: 'fries' } },
+    });
+
+    expect(root.find(Search).prop('filters')).toEqual({
+      page: 3,
+      query: 'fries',
+    });
+  });
+
   it('should render Search results on search with query', () => {
     const root = render({
       location: { query: { page: 3, q: 'fries' } },

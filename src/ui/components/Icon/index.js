@@ -9,16 +9,11 @@ export default class Icon extends React.Component {
   static propTypes = {
     alt: PropTypes.node,
     className: PropTypes.string,
-    getRef: PropTypes.func,
     name: PropTypes.string.isRequired,
   }
 
   render() {
-    const { alt, className, name, getRef, ...props } = this.props;
-
-    if (getRef) {
-      props.ref = getRef;
-    }
+    const { alt, className, name, ...props } = this.props;
 
     // If alt text was included, we'll render that in a hidden span.
     if (alt) {

@@ -115,7 +115,7 @@ export class RatingManagerBase extends React.Component {
     { addonType }: {| addonType: string |},
     {
       validAddonTypes = defaultValidAddonTypes,
-      }: {|
+    }: {|
       validAddonTypes: typeof defaultValidAddonTypes,
     |} = {}
   ) {
@@ -197,7 +197,7 @@ export class RatingManagerBase extends React.Component {
 export const mapStateToProps = (
   state: Object, ownProps: RatingManagerProps
 ) => {
-  const userId = state.api && state.api.userId;
+  const userId = state.user.id;
   let userReview;
 
   // Look for the latest saved review by this user for this add-on.
