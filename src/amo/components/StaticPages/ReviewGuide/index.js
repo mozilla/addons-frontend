@@ -17,9 +17,6 @@ export class ReviewGuideBase extends React.Component {
   render() {
     const { i18n } = this.props;
 
-    const forumText = i18n.sprintf(i18n.gettext(`Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(url)s to engage in additional discussion or follow-up.`),
-      { url: '<a href="https://discourse.mozilla-community.org/c/add-ons/add-on-support">forum</a>' });
-
     /* eslint-disable react/no-danger */
     return (
 
@@ -62,12 +59,30 @@ export class ReviewGuideBase extends React.Component {
         </section>
         <section>
           <h2>{i18n.gettext('Frequently Asked Questions about Reviews')}</h2>
-          <dl className="staticSubHeading">{i18n.gettext('How can I report a problematic review?')}</dl>
-          <p>{i18n.gettext('Please report or flag any questionable reviews by clicking the "Report this review" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to evaluate whether or not to delete the review or restore it back to the site.')}</p>
-          <dl className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}</dl>
-          <p dangerouslySetInnerHTML={sanitizeHTML(forumText, ['a'])} />
-          <dl className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I delete unfavorable reviews or ratings?`)}</dl>
-          <p>{i18n.gettext('In general, no. But if the review did not meet the review guidelines outlined above, you can click "Report this review" and have it moderated. If a review included a complaint that is no longer valid due to a new release of your add-on, we may consider deleting the review.')}</p>
+          <dl>
+            <dt className="staticSubHeading">{i18n.gettext('How can I report a problematic review?')}</dt>
+            <dd>
+              <p>{i18n.gettext('Please report or flag any questionable reviews by clicking the "Report this review" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to evaluate whether or not to delete the review or restore it back to the site.')}</p>
+            </dd>
+          </dl>
+          <dl>
+            <dt className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}</dt>
+            <dd>
+              <p
+                dangerouslySetInnerHTML={sanitizeHTML(i18n.sprintf(i18n.gettext(`Yes, add-on authors can provide a single response to a review.
+                You can set up a discussion topic in our %(url)s to engage in additional discussion or follow-up.`),
+                {
+                  url: '<a href="https://discourse.mozilla-community.org/c/add-ons/add-on-support">forum</a>',
+                }), ['a'])}
+              />
+            </dd>
+          </dl>
+          <dl>
+            <dt className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I delete unfavorable reviews or ratings?`)}</dt>
+            <dd>
+              <p>{i18n.gettext('In general, no. But if the review did not meet the review guidelines outlined above, you can click "Report this review" and have it moderated. If a review included a complaint that is no longer valid due to a new release of your add-on, we may consider deleting the review.')}</p>
+            </dd>
+          </dl>
         </section>
       </Card>
     );
@@ -75,5 +90,5 @@ export class ReviewGuideBase extends React.Component {
 }
 
 export default compose(
-  translate({ withRef: true }),
+  translate(),
 )(ReviewGuideBase);
