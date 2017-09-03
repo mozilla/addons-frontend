@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:50+0000\n"
-"PO-Revision-Date: 2017-07-22 22:54+0000\n"
+"POT-Creation-Date: 2017-08-22 21:36+0000\n"
+"PO-Revision-Date: 2017-08-22 22:31+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -82,43 +82,43 @@ msgstr "Vous pouvez à présent accéder à %(name)s depuis la barre d’outils.
 msgid "OK!"
 msgstr "OK"
 
-#: src/disco/components/Addon.js:115
+#: src/disco/components/Addon.js:122
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Survolez l’image pour activer la prévisualisation ou cliquez pour installer %(name)s"
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:137
 msgid "Hover over the image to preview"
 msgstr "Survolez l’image pour activer la prévisualisation"
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Installation failed. Please try again."
 msgstr "Échec de l’installation. Veuillez réessayer."
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:163
 msgid "Download failed. Please check your connection."
 msgstr "Échec du téléchargement. Veuillez vérifier votre connexion."
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:165
 msgid "An unexpected error occurred during installation."
 msgstr "Une erreur inattendue s’est produite pendant l’installation."
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Une erreur inattendue s’est produite pendant la désinstallation."
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred."
 msgstr "Une erreur inattendue s’est produite."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:178
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ce module sera désinstallé au prochain démarrage de Firefox."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:180
 msgid "Please restart Firefox to use this add-on."
 msgstr "Veuillez redémarrer Firefox pour utiliser ce module."
 
-#: src/disco/components/Addon.js:78
+#: src/disco/components/Addon.js:83
 msgid "Close"
 msgstr "Fermer"
 
@@ -138,15 +138,15 @@ msgstr "Ce module ne prend pas en charge votre navigateur."
 msgid "Privacy Policy"
 msgstr "Politique de confidentialité"
 
-#: src/disco/containers/App.js:35
+#: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
 msgstr "Découvrez des modules"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:113
 msgid "Personalize Your Firefox"
 msgstr "Personnalisez Firefox"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:114
 msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
@@ -155,21 +155,33 @@ msgstr ""
 "rendent votre navigation encore plus rapide et sûre, les modules vous permettent de personnaliser complètement votre navigation. Pour vous aider à bien démarrer, nous en avons sélectionné quelques-"
 "uns selon leurs performances et leurs fonctionnalités."
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:122
 msgid "Click to play"
 msgstr "Lire la vidéo"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:123
 msgid "to find out more about add-ons"
 msgstr "et en apprendre davantage sur les modules"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:137
 msgid "Close video"
 msgstr "Fermer la vidéo"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:156
 msgid "See more add-ons!"
 msgstr "Découvrez davantage de modules"
+
+#: src/ui/components/ErrorList/index.js:45
+msgid "Your session has expired"
+msgstr "Votre session a expiré"
+
+#: src/ui/components/ErrorList/index.js:52
+msgid "An unexpected error occurred"
+msgstr "Une erreur inattendue s’est produite"
+
+#: src/ui/components/ErrorList/index.js:61
+msgid "Reload To Continue"
+msgstr "Rechargez la page pour continuer"
 
 #~ msgid "Installed and added to toolbar"
 #~ msgstr "Installé et ajouté à la barre d’outils"

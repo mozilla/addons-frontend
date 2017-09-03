@@ -1,6 +1,5 @@
 /* @flow */
 /* global fetch */
-
 import url from 'url';
 
 import utf8 from 'utf8';
@@ -10,8 +9,8 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 
 import { initialApiState } from 'core/reducers/api';
-import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
 import log from 'core/logger';
+import searchApi from 'core/api/search';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
@@ -23,7 +22,6 @@ const Entity = normalizrSchema.Entity;
 
 export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
 export const category = new Entity('categories', {}, { idAttribute: 'slug' });
-export const user = new Entity('users', {}, { idAttribute: 'username' });
 
 export function makeQueryString(query: { [key: string]: * }) {
   const resolvedQuery = { ...query };
@@ -54,7 +52,9 @@ export function createApiError(
     // Strip query string params since lang will vary quite a lot.
     urlId = urlId.split('?')[0];
   }
-  const apiError = new Error(`Error calling: ${urlId}`);
+  const apiError = new Error(
+    `Error calling: ${urlId} (status: ${response.status})`
+  );
   // $FLOW_FIXME: turn Error into a custom ApiError class.
   apiError.response = {
     apiURL,
@@ -162,56 +162,6 @@ export function callApi({
     .then((response) => (schema ? normalize(response, schema) : response));
 }
 
-type SearchParams = {|
-  api: ApiStateType,
-  auth: boolean,
-  // TODO: Make a "searchFilters" type because these are the same args
-  // for convertFiltersToQueryParams.
-  filters: {|
-    addonType?: string,
-    clientApp?: string,
-    category?: string,
-    page?: number,
-    page_size?: number,
-    query?: string,
-    sort?: string,
-  |},
-|};
-
-export function search(
-  { api, auth = false, filters = {} }: SearchParams
-) {
-  const _filters = { ...filters };
-  if (!_filters.clientApp && api.clientApp) {
-    log.debug(
-      `No clientApp found in filters; using api.clientApp (${api.clientApp})`);
-    _filters.clientApp = api.clientApp;
-  }
-  // TODO: This loads Firefox personas (lightweight themes) for Android
-  // until github.com/mozilla/addons-frontend/issues/1723#issuecomment-278793546
-  // and https://github.com/mozilla/addons-server/issues/4766 are addressed.
-  // Essentially: right now there are no categories for the combo
-  // of "Android" + "Themes" but Firefox lightweight themes will work fine
-  // on mobile so we request "Firefox" + "Themes" for Android instead.
-  // Obviously we need to fix this on the API end so our requests aren't
-  // overridden, but for now this will work.
-  if (
-    _filters.clientApp === CLIENT_APP_ANDROID &&
-    _filters.addonType === ADDON_TYPE_THEME
-  ) {
-    log.info(oneLine`addonType: ${_filters.addonType}/clientApp:
-      ${_filters.clientApp} is not supported. Changing clientApp to "firefox"`);
-    _filters.clientApp = 'firefox';
-  }
-  return callApi({
-    endpoint: 'addons/search',
-    schema: { results: [addon] },
-    params: convertFiltersToQueryParams(_filters),
-    state: api,
-    auth,
-  });
-}
-
 type FetchAddonParams = {|
   api: ApiStateType,
   slug: string,
@@ -263,15 +213,6 @@ export function startLoginUrl(
   return `${API_BASE}/accounts/login/start/${query}`;
 }
 
-export function fetchProfile({ api }: {| api: ApiStateType |}) {
-  return callApi({
-    endpoint: 'accounts/profile',
-    schema: user,
-    auth: true,
-    state: api,
-  });
-}
-
 type FeaturedParams = {|
   api: ApiStateType,
   filters: Object,
@@ -308,3 +249,24 @@ export function logOutFromServer({ api }: {| api: ApiStateType |}) {
     state: api,
   });
 }
+
+type AutocompleteParams = {|
+  api: ApiStateType,
+  filters: {|
+    query: string,
+    addonType?: string,
+  |},
+|};
+
+export function autocomplete({ api, filters }: AutocompleteParams) {
+  return callApi({
+    endpoint: 'addons/autocomplete',
+    params: {
+      app: api.clientApp,
+      ...convertFiltersToQueryParams(filters),
+    },
+    state: api,
+  });
+}
+
+export const search = searchApi;

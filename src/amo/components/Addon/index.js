@@ -13,7 +13,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
-import { fetchAddon } from 'core/actions/addons';
+import { fetchAddon } from 'core/reducers/addons';
 import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
@@ -22,8 +22,8 @@ import {
 import { withInstallHelpers } from 'core/installAddon';
 import {
   getClientCompatibility as _getClientCompatibility,
-  nl2br,
   sanitizeHTML,
+  sanitizeUserHTML,
 } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
@@ -33,25 +33,10 @@ import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
+import Badge from 'ui/components/Badge';
 
 import './styles.scss';
 
-
-export const allowedDescriptionTags = [
-  'a',
-  'abbr',
-  'acronym',
-  'b',
-  'blockquote',
-  'br',
-  'code',
-  'em',
-  'i',
-  'li',
-  'ol',
-  'strong',
-  'ul',
-];
 
 export class AddonBase extends React.Component {
   static propTypes = {
@@ -89,11 +74,16 @@ export class AddonBase extends React.Component {
     }
   }
 
-  componentWillReceiveProps({ addon: newAddon }) {
-    const { addon: oldAddon, dispatch } = this.props;
+  componentWillReceiveProps({ addon: newAddon, params: newParams }) {
+    const { addon: oldAddon, dispatch, errorHandler, params } = this.props;
+
     const oldAddonType = oldAddon ? oldAddon.type : null;
     if (newAddon && newAddon.type !== oldAddonType) {
       dispatch(setViewContext(newAddon.type));
+    }
+
+    if (params.slug !== newParams.slug) {
+      dispatch(fetchAddon({ slug: newParams.slug, errorHandler }));
     }
   }
 
@@ -111,6 +101,19 @@ export class AddonBase extends React.Component {
 
   onClick = (event) => {
     this.props.toggleThemePreview(event.currentTarget);
+  }
+
+  getFeaturedText(addonType) {
+    const { i18n } = this.props;
+
+    switch (addonType) {
+      case ADDON_TYPE_EXTENSION:
+        return i18n.gettext('Featured Extension');
+      case ADDON_TYPE_THEME:
+        return i18n.gettext('Featured Theme');
+      default:
+        return i18n.gettext('Featured Add-on');
+    }
   }
 
   headerImage({ compatible } = {}) {
@@ -218,8 +221,7 @@ export class AddonBase extends React.Component {
       if (!description || !description.length) {
         return null;
       }
-      descriptionProps.dangerouslySetInnerHTML = sanitizeHTML(
-        nl2br(description), allowedDescriptionTags);
+      descriptionProps.dangerouslySetInnerHTML = sanitizeUserHTML(description);
     } else {
       descriptionProps.children = <LoadingText width={100} />;
     }
@@ -236,6 +238,32 @@ export class AddonBase extends React.Component {
         />
       </ShowMoreCard>
     );
+  }
+
+  renderVersionReleaseNotes() {
+    const { addon, i18n } = this.props;
+    if (!addon) {
+      return null;
+    }
+
+    const currentVersion = addon.current_version;
+    if (!currentVersion || !currentVersion.release_notes) {
+      return null;
+    }
+
+    const header = i18n.sprintf(
+      i18n.gettext('Release notes for %(addonVersion)s'),
+      { addonVersion: currentVersion.version }
+    );
+    const releaseNotes = sanitizeUserHTML(currentVersion.release_notes);
+
+    /* eslint-disable react/no-danger */
+    return (
+      <ShowMoreCard className="AddonDescription-version-notes" header={header}>
+        <p dangerouslySetInnerHTML={releaseNotes} />
+      </ShowMoreCard>
+    );
+    /* eslint-enable react/no-danger */
   }
 
   render() {
@@ -276,7 +304,7 @@ export class AddonBase extends React.Component {
       const authorList = addon.authors.map(
         (author) => `<a href="${author.url}">${author.name}</a>`);
       const title = i18n.sprintf(
-        // L10n: Example: The Add-On <span>by The Author</span>
+        // translators: Example: The Add-On <span>by The Author</span>
         i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
           addonName: addon.name,
           authorList: authorList.join(', '),
@@ -292,12 +320,16 @@ export class AddonBase extends React.Component {
     const addonPreviews = addon ? addon.previews : [];
 
     let isCompatible = false;
+    let isFeatured = false;
+    let isRestartRequired = false;
     let compatibility;
     if (addon) {
       compatibility = getClientCompatibility({
         addon, clientApp, userAgentInfo,
       });
       isCompatible = compatibility.compatible;
+      isFeatured = addon.is_featured;
+      isRestartRequired = addon.isRestartRequired;
     }
 
     return (
@@ -307,6 +339,21 @@ export class AddonBase extends React.Component {
           <header className="Addon-header">
             <h1 className="Addon-title" {...titleProps} />
             <p className="Addon-summary" {...summaryProps} />
+
+            <div className="Addon-badges">
+              {isFeatured ? (
+                <Badge
+                  type="featured"
+                  label={this.getFeaturedText(addonType)}
+                />
+              ) : null}
+              {isRestartRequired ? (
+                <Badge
+                  type="restart-required"
+                  label={i18n.gettext('Restart Required')}
+                />
+              ) : null}
+            </div>
 
             {addon ?
               <InstallButton
@@ -350,6 +397,7 @@ export class AddonBase extends React.Component {
           {this.renderRatingsCard()}
 
           {addon ? <AddonMoreInfo addon={addon} /> : null}
+          {this.renderVersionReleaseNotes()}
         </div>
       </div>
     );

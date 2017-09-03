@@ -139,6 +139,7 @@ describe('AddonPage', () => {
         description: 'editorial text',
         heading: 'The Add-on',
         iconUrl: addon.icon_url,
+        isRestartRequired: false,
       }]);
     });
 
@@ -168,6 +169,7 @@ describe('AddonPage', () => {
         description: undefined,
         heading: 'The Theme',
         iconUrl: addon.icon_url,
+        isRestartRequired: false,
       }]);
     });
   });

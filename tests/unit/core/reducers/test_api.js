@@ -14,7 +14,10 @@ describe('api reducer', () => {
 
   it('stores the auth token', () => {
     const token = userAuthToken();
-    expect(api({ foo: 'bar' }, actions.setAuthToken(token))).toEqual({ foo: 'bar', token });
+    expect(api({ foo: 'bar' }, actions.setAuthToken(token))).toEqual({
+      foo: 'bar',
+      token,
+    });
   });
 
   it('clears the auth token on log out', () => {
@@ -71,5 +74,14 @@ describe('api reducer', () => {
 
   it('defaults to an empty object', () => {
     expect(api(undefined, { type: 'UNRELATED' })).toEqual({ ...initialApiState });
+  });
+
+  describe('set and reduce auth token', () => {
+    const setAndReduceToken = (token) => api(undefined, actions.setAuthToken(token));
+
+    it('sets auth state based on the token', () => {
+      const token = userAuthToken({ user_id: 91234 });
+      expect(setAndReduceToken(token)).toHaveProperty('token', token);
+    });
   });
 });

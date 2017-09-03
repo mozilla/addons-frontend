@@ -197,7 +197,7 @@ export class RatingManagerBase extends React.Component {
 export const mapStateToProps = (
   state: Object, ownProps: RatingManagerProps
 ) => {
-  const userId = state.auth && state.auth.userId;
+  const userId = state.user.id;
   let userReview;
 
   // Look for the latest saved review by this user for this add-on.
@@ -213,7 +213,7 @@ export const mapStateToProps = (
     if (latestId) {
       userReview = addonReviews[latestId];
       log.info('Found the latest review in state for this component',
-               userReview);
+        userReview);
     }
   }
 

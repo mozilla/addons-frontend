@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import Rating from 'ui/components/Rating';
 import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
-import { fetchAddon } from 'core/actions/addons';
+import { fetchAddon } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -112,7 +112,7 @@ export class AddonReviewListBase extends React.Component {
       // L10n: Example: "from Jose, last week"
       byLine = i18n.sprintf(
         i18n.gettext('from %(authorName)s, %(timestamp)s'),
-          { authorName: review.userName, timestamp });
+        { authorName: review.userName, timestamp });
 
       const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
       // eslint-disable-next-line react/no-danger

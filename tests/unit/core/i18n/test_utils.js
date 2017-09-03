@@ -460,8 +460,8 @@ describe('i18n utils', () => {
       const numberFormatSpy = sinon.spy(Intl, 'NumberFormat');
       const i18n = utils.makeI18n({}, 'de', FakeJed, { _Intl: false });
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
-      const number = 1234;
-      expect(i18n.formatNumber(number)).toEqual('1,234');
+      const number = 9518231;
+      expect(i18n.formatNumber(number)).toEqual('9.518.231');
       sinon.assert.calledWith(toLocaleStringSpy, 'de');
       sinon.assert.notCalled(numberFormatSpy);
     });
@@ -471,7 +471,7 @@ describe('i18n utils', () => {
       const i18n = utils.makeI18n({}, 'fr', FakeJed, { _Intl: {} });
       const toLocaleStringSpy = sinon.spy(Number.prototype, 'toLocaleString');
       const number = 12345;
-      expect(i18n.formatNumber(number)).toEqual('12,345');
+      expect(i18n.formatNumber(number)).toEqual('12 345');
       sinon.assert.calledWith(toLocaleStringSpy, 'fr');
       sinon.assert.notCalled(numberFormatSpy);
     });

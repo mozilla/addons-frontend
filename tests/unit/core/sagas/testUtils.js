@@ -7,7 +7,6 @@ import { put, select } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import apiReducer from 'core/reducers/api';
-import authReducer from 'core/reducers/authentication';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
@@ -35,8 +34,8 @@ describe('Saga utils', () => {
     const state = store.getState();
 
     const sagaTester = new SagaTester({
-      initialState: { api: state.api, auth: state.auth },
-      reducers: { api: apiReducer, auth: authReducer },
+      initialState: { api: state.api },
+      reducers: { api: apiReducer },
     });
     sagaTester.start(testGetApiSaga);
 
@@ -46,7 +45,7 @@ describe('Saga utils', () => {
 
     expect(sagaTester.getLatestCalledAction()).toEqual({
       type: 'TEST_GOT_API',
-      payload: { api: state.api, auth: state.auth },
+      payload: { api: state.api },
     });
   });
 });

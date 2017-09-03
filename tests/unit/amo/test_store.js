@@ -6,7 +6,7 @@ describe('amo createStore', () => {
     expect(Object.keys(store.getState()).sort()).toEqual([
       'addons',
       'api',
-      'auth',
+      'autocomplete',
       'categories',
       'errorPage',
       'errors',
@@ -18,6 +18,7 @@ describe('amo createStore', () => {
       'reduxAsyncConnect',
       'reviews',
       'search',
+      'user',
       'viewContext',
     ]);
   });

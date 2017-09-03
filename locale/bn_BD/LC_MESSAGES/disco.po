@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-07-19 16:50+0000\n"
+"POT-Creation-Date: 2017-08-22 21:36+0000\n"
 "PO-Revision-Date: 2017-08-12 18:49+0000\n"
 "Last-Translator: Belayet Hossain <bellayet@gmail.com>\n"
 "Language-Team: none\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "সার্ভার ত্রুটি"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"দুঃখিত, কিন্তু একটি ত্রুটি ছিল এবং আমরা আপনার অনুরোধটি সম্পূর্ণ করতে পারিনি। আমরা এই "
+"ত্রুটি লিপিবদ্ধ করেছি এবং এটা আমরা তদন্ত করে দেখবো।"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "এরর কোড: %(status)s।"
 
@@ -34,7 +39,8 @@ msgstr "পাতা পাওয়া যায়নি"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "দুঃখিত, কিন্তু আমরা আপনার লেখা URL এ কিছু খুঁজে পাচ্ছি না।"
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Firefox এ যুক্ত করুন"
 
@@ -82,43 +88,43 @@ msgstr "আপনি এখন টুলবার থেকে %(name)s এ প�
 msgid "OK!"
 msgstr "ওকে!"
 
-#: src/disco/components/Addon.js:115
+#: src/disco/components/Addon.js:122
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"
 
-#: src/disco/components/Addon.js:130
+#: src/disco/components/Addon.js:137
 msgid "Hover over the image to preview"
 msgstr "ছবির উপর মাউস ঘুরান প্রিভিউ দেখতে"
 
-#: src/disco/components/Addon.js:154
+#: src/disco/components/Addon.js:161
 msgid "Installation failed. Please try again."
 msgstr "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
 
-#: src/disco/components/Addon.js:156
+#: src/disco/components/Addon.js:163
 msgid "Download failed. Please check your connection."
 msgstr "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
 
-#: src/disco/components/Addon.js:158
+#: src/disco/components/Addon.js:165
 msgid "An unexpected error occurred during installation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
 
-#: src/disco/components/Addon.js:160
+#: src/disco/components/Addon.js:167
 msgid "An unexpected error occurred during uninstallation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:178
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:180
 msgid "Please restart Firefox to use this add-on."
 msgstr "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
 
-#: src/disco/components/Addon.js:78
+#: src/disco/components/Addon.js:83
 msgid "Close"
 msgstr "বন্ধ"
 
@@ -138,34 +144,53 @@ msgstr "এই অ্যাড-অনটি আপনার ব্রাউজ�
 msgid "Privacy Policy"
 msgstr "গোপনীয়তা নীতি"
 
-#: src/disco/containers/App.js:35
+#: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
 msgstr "আরো এড-অন আবিষ্কার করুন"
 
-#: src/disco/containers/DiscoPane.js:107
+#: src/disco/containers/DiscoPane.js:113
 msgid "Personalize Your Firefox"
 msgstr "আপনার Firefox ব্যক্তিগত করুন"
 
-#: src/disco/containers/DiscoPane.js:108
+#: src/disco/containers/DiscoPane.js:114
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"সাড়া বিশ্বের ডেভলপারদের তৈরি বিণামূল্যের হাজারো অ্যাড-অন রয়েছে, যা ইন্সটল করে আপনি Firefox কে নিজের মত করে সাজিয়ে নিতে পারেন। মজার থিম থেকে শুরু করে শক্তিশালী টুল রয়েছে যা ব্রাউজিং কে করবে দ্রুত ও "
-"নিরাপদ, অ্যাড-অন ব্রাউজারকে করবে একান্তই আপনার। সহজে আরম্ভ করতে, আমরা কিছু অ্যাড-অন কার্যক্ষমতা ও ফাংশনালিটির উপর ভিত্তি করে এখানে সুপারিশ করছি।"
+"সাড়া বিশ্বের ডেভলপারদের তৈরি বিণামূল্যের হাজারো অ্যাড-অন রয়েছে, যা ইন্সটল করে "
+"আপনি Firefox কে নিজের মত করে সাজিয়ে নিতে পারেন। মজার থিম থেকে শুরু করে "
+"শক্তিশালী টুল রয়েছে যা ব্রাউজিং কে করবে দ্রুত ও নিরাপদ, অ্যাড-অন ব্রাউজারকে করবে "
+"একান্তই আপনার। সহজে আরম্ভ করতে, আমরা কিছু অ্যাড-অন কার্যক্ষমতা ও ফাংশনালিটির উপর "
+"ভিত্তি করে এখানে সুপারিশ করছি।"
 
-#: src/disco/containers/DiscoPane.js:116
+#: src/disco/containers/DiscoPane.js:122
 msgid "Click to play"
 msgstr "চালু করতে ক্লিক করুন"
 
-#: src/disco/containers/DiscoPane.js:117
+#: src/disco/containers/DiscoPane.js:123
 msgid "to find out more about add-ons"
 msgstr "এড-অন সম্বন্ধে আরো খুঁজুন"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:137
 msgid "Close video"
 msgstr "ভিডিওটি বন্ধ করুন"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:156
 msgid "See more add-ons!"
 msgstr "আরো এড-ওন দেখুন!"
+
+#: src/ui/components/ErrorList/index.js:45
+msgid "Your session has expired"
+msgstr ""
+
+#: src/ui/components/ErrorList/index.js:52
+#, fuzzy
+msgid "An unexpected error occurred"
+msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
+
+#: src/ui/components/ErrorList/index.js:61
+msgid "Reload To Continue"
+msgstr ""

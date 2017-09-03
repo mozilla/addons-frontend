@@ -10,11 +10,13 @@ describe(__filename, () => {
     it('converts filters', () => {
       const queryParams = convertFiltersToQueryParams({
         addonType: ADDON_TYPE_THEME,
+        compatibleWithVersion: '57.0',
         page: 4,
         query: 'Cool things',
       });
 
       expect(queryParams).toEqual({
+        appversion: '57.0',
         page: 4,
         q: 'Cool things',
         type: ADDON_TYPE_THEME,
@@ -25,6 +27,7 @@ describe(__filename, () => {
   describe('convertQueryParamsToFilters', () => {
     it('converts query params', () => {
       const filters = convertQueryParamsToFilters({
+        appversion: '57.0',
         page: 4,
         q: 'Cool things',
         type: ADDON_TYPE_THEME,
@@ -32,6 +35,7 @@ describe(__filename, () => {
 
       expect(filters).toEqual({
         addonType: ADDON_TYPE_THEME,
+        compatibleWithVersion: '57.0',
         page: 4,
         query: 'Cool things',
       });

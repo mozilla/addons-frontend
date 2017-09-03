@@ -9,13 +9,14 @@ import reviews from 'amo/reducers/reviews';
 import viewContext from 'amo/reducers/viewContext';
 import addons from 'core/reducers/addons';
 import api from 'core/reducers/api';
-import auth from 'core/reducers/authentication';
+import autocomplete from 'core/reducers/autocomplete';
 import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
 import errorPage from 'core/reducers/errorPage';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import search from 'core/reducers/search';
+import user from 'core/reducers/user';
 import { middleware } from 'core/store';
 
 
@@ -26,7 +27,7 @@ export default function createStore(initialState = {}) {
     combineReducers({
       addons,
       api,
-      auth,
+      autocomplete,
       categories,
       errors,
       errorPage,
@@ -38,6 +39,7 @@ export default function createStore(initialState = {}) {
       reduxAsyncConnect,
       reviews,
       search,
+      user,
       viewContext,
     }),
     initialState,
