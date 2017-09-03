@@ -17,9 +17,6 @@ export class ReviewGuideBase extends React.Component {
   render() {
     const { i18n } = this.props;
 
-    const forumText = i18n.sprintf(i18n.gettext(`Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(url)s to engage in additional discussion or follow-up.`),
-      { url: '<a href="https://discourse.mozilla-community.org/c/add-ons/add-on-support">forum</a>' });
-
     /* eslint-disable react/no-danger */
     return (
 
@@ -79,7 +76,13 @@ export class ReviewGuideBase extends React.Component {
           <dl>
             <dt className="staticSubHeading">{i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}</dt>
             <dd>
-              <p dangerouslySetInnerHTML={sanitizeHTML(forumText, ['a'])} />
+              <p
+                dangerouslySetInnerHTML={sanitizeHTML(i18n.sprintf(i18n.gettext(`Yes, add-on authors can provide a single response to a review. 
+                You can set up a discussion topic in our %(url)s to engage in additional discussion or follow-up.`),
+                {
+                  url: '<a href="https://discourse.mozilla-community.org/c/add-ons/add-on-support">forum</a>',
+                }), ['a'])}
+              />
             </dd>
           </dl>
           <dl>
@@ -95,5 +98,5 @@ export class ReviewGuideBase extends React.Component {
 }
 
 export default compose(
-  translate({ withRef: true }),
+  translate(),
 )(ReviewGuideBase);
