@@ -46,7 +46,10 @@ export default function reducer(state = initialState, action = {}) {
 
   switch (action.type) {
     case AUTOCOMPLETE_CANCELLED:
-      return initialState;
+      return {
+        ...state,
+        loading: false,
+      };
     case AUTOCOMPLETE_STARTED:
       return {
         ...initialState,
