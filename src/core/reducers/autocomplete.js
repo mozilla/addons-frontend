@@ -48,6 +48,7 @@ export default function reducer(state = initialState, action = {}) {
     case AUTOCOMPLETE_CANCELLED:
       return {
         ...state,
+        isOpen: false,
         loading: false,
       };
     case AUTOCOMPLETE_STARTED:

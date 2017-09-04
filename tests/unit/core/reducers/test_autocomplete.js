@@ -22,9 +22,14 @@ describe(__filename, () => {
     it('handles AUTOCOMPLETE_CANCELLED', () => {
       const results = [createFakeAutocompleteResult({ name: 'foo' })];
       const previousState = reducer(undefined, autocompleteLoad({ results }));
-      const { loading, suggestions } = reducer(previousState, autocompleteCancel());
+      const {
+        isOpen,
+        loading,
+        suggestions,
+      } = reducer(previousState, autocompleteCancel());
 
       expect(loading).toEqual(false);
+      expect(isOpen).toEqual(false);
       expect(suggestions).toEqual(previousState.suggestions);
     });
 

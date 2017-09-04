@@ -180,7 +180,6 @@ export class SearchFormBase extends React.Component {
     const {
       addonType,
       api,
-      autocompleteIsOpen,
       className,
       i18n,
       pathname,
@@ -207,6 +206,9 @@ export class SearchFormBase extends React.Component {
       type: 'search',
       value: this.state.searchValue,
     };
+
+    const autocompleteIsOpen = this.props.autocompleteIsOpen &&
+      this.state.searchValue.length > 0;
 
     return (
       <form
