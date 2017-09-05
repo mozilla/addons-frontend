@@ -1,7 +1,7 @@
 import { loadEntities } from 'core/actions';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
-  fetchAddon, flattenApiAddon, getGuid,
+  fetchAddon, flattenApiAddon, getGuid, removeUndefinedProps,
 } from 'core/reducers/addons';
 import {
   createFetchAddonResult,
@@ -81,6 +81,20 @@ describe(__filename, () => {
     delete expectedTheme.theme_data;
 
     expect(state[theme.slug]).toEqual(expectedTheme);
+  });
+
+  it('does not let theme_data set properties to undefined', () => {
+    const theme = {
+      ...fakeTheme,
+      theme_data: {
+        ...fakeTheme.theme_data,
+        id: undefined,
+      },
+    };
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(theme).entities));
+
+    expect(state[theme.slug].id).toEqual(theme.id);
   });
 
   it('does not store undefined properties', () => {
@@ -206,6 +220,26 @@ describe(__filename, () => {
       delete params.slug;
       expect(() => fetchAddon(params))
         .toThrowError(/slug cannot be empty/);
+    });
+  });
+
+  describe('removeUndefinedProps', () => {
+    it('removes undefined properties', () => {
+      expect(removeUndefinedProps({ thing: undefined })).toEqual({});
+    });
+
+    it('preserves falsy properties', () => {
+      expect(removeUndefinedProps({ thing: false })).toEqual({ thing: false });
+    });
+
+    it('preserves other properties', () => {
+      expect(removeUndefinedProps({ thing: 'thing' })).toEqual({ thing: 'thing' });
+    });
+
+    it('does not modify the original object', () => {
+      const example = { thing: undefined };
+      removeUndefinedProps(example)
+      expect(example).toEqual({ thing: undefined });
     });
   });
 });

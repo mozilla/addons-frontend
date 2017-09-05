@@ -48,6 +48,16 @@ export function getGuid(result: AddonType) {
   return result.guid;
 }
 
+export function removeUndefinedProps(object) {
+  const newObject = {};
+  Object.keys(object).forEach((key) => {
+    if (typeof object[key] !== 'undefined') {
+      newObject[key] = object[key];
+    }
+  });
+  return newObject;
+}
+
 // TODO: make APIAddonType for Flow
 export function flattenApiAddon(apiAddon: AddonType) {
   // TODO: remove unused fields.
@@ -60,7 +70,7 @@ export function flattenApiAddon(apiAddon: AddonType) {
     description: apiAddon.description,
     default_locale: apiAddon.default_locale,
     edit_url: apiAddon.edit_url,
-    guid: apiAddon.guid,
+    guid: getGuid(apiAddon),
     has_eula: apiAddon.has_eula,
     has_privacy_policy: apiAddon.has_privacy_policy,
     homepage: apiAddon.homepage,
@@ -92,36 +102,38 @@ export function flattenApiAddon(apiAddon: AddonType) {
   };
 
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
+    // Merge in theme_data. This overwrites add-on properties.
+    // We should not do this but there are lots of components to
+    // fix first.
     addon = {
       ...addon,
-      // Merge in theme_data. This overwrites add-on properties.
-      // We should not do this but there are lots of components to
-      // fix first.
-      accentcolor: apiAddon.theme_data.accentcolor,
-      author: apiAddon.theme_data.author,
-      category: apiAddon.theme_data.category,
-      // TODO: Remove this when
-      // https://github.com/mozilla/addons-frontend/issues/1416 is fixed.
-      // theme_data will contain `description: 'None'` when the description
-      // is actually `null` and we don't want to set that on the addon
-      // itself so we reset it in case it's been overwritten.
-      //
-      // See also https://github.com/mozilla/addons-server/issues/5650.
-      description: apiAddon.description,
-      detailURL: apiAddon.theme_data.detailURL,
-      footer: apiAddon.theme_data.footer,
-      footerURL: apiAddon.theme_data.footerURL,
-      // Set a custom GUID.
-      guid: getGuid(addon),
-      header: apiAddon.theme_data.header,
-      headerURL: apiAddon.theme_data.headerURL,
-      iconURL: apiAddon.theme_data.iconURL,
-      id: apiAddon.theme_data.id,
-      name: apiAddon.theme_data.name,
-      previewURL: apiAddon.theme_data.previewURL,
-      textcolor: apiAddon.theme_data.textcolor,
-      updateURL: apiAddon.theme_data.updateURL,
-      version: apiAddon.theme_data.version,
+      ...removeUndefinedProps({
+        accentcolor: apiAddon.theme_data.accentcolor,
+        author: apiAddon.theme_data.author,
+        category: apiAddon.theme_data.category,
+        // TODO: Set this back to apiAddon.theme_data.description after
+        // https://github.com/mozilla/addons-frontend/issues/1416
+        // is fixed.
+        // theme_data will contain `description: 'None'` when the
+        // description
+        // is actually `null` and we don't want to set that on the addon
+        // itself so we reset it in case it's been overwritten.
+        //
+        // See also https://github.com/mozilla/addons-server/issues/5650.
+        description: apiAddon.description,
+        detailURL: apiAddon.theme_data.detailURL,
+        footer: apiAddon.theme_data.footer,
+        footerURL: apiAddon.theme_data.footerURL,
+        header: apiAddon.theme_data.header,
+        headerURL: apiAddon.theme_data.headerURL,
+        iconURL: apiAddon.theme_data.iconURL,
+        id: apiAddon.theme_data.id,
+        name: apiAddon.theme_data.name,
+        previewURL: apiAddon.theme_data.previewURL,
+        textcolor: apiAddon.theme_data.textcolor,
+        updateURL: apiAddon.theme_data.updateURL,
+        version: apiAddon.theme_data.version,
+      }),
     };
   }
 
@@ -140,16 +152,12 @@ export function flattenApiAddon(apiAddon: AddonType) {
   // TODO: remove this if possible. It was added by mistake.
   addon.iconUrl = addon.icon_url;
 
-  // Remove undefined values entirely. This is for some legacy code in
-  // Discopane that relies on spreads to combine a Discopane result
+  // Remove undefined properties entirely. This is for some legacy code
+  // in Discopane that relies on spreads to combine a Discopane result
   // (which has a header and description) with a minimal add-on object.
   // For example, the minimal add-on object does not have a description
   // property; the spread should not override `description`.
-  Object.keys(addon).forEach((key) => {
-    if (typeof addon[key] === 'undefined') {
-      delete addon[key];
-    }
-  });
+  addon = removeUndefinedProps(addon);
 
   return addon;
 }
