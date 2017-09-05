@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-05 22:30+0000\n"
+"PO-Revision-Date: 2017-09-05 22:49+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -37,9 +37,9 @@ msgstr "Stuknij, aby wyświetlić podgląd"
 #: src/amo/components/Addon/index.js:173
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Przeczytaj %(count)s recenzję"
-msgstr[1] "Przeczytaj %(count)s recenzje"
-msgstr[2] "Przeczytaj %(count)s recenzji"
+msgstr[0] "%(count)s recenzja"
+msgstr[1] "%(count)s recenzje"
+msgstr[2] "%(count)s recenzji"
 
 #: src/amo/components/Addon/index.js:189
 msgid "No reviews yet"
@@ -121,15 +121,15 @@ msgstr "Używane przez"
 
 #: src/amo/components/AddonMoreInfo.js:106
 msgid "Read the license agreement for this add-on"
-msgstr "Przeczytaj licencję tego dodatku"
+msgstr "Licencja tego dodatku"
 
 #: src/amo/components/AddonMoreInfo.js:26
 msgid "Homepage"
-msgstr "Strona domowa"
+msgstr "Domowa"
 
 #: src/amo/components/AddonMoreInfo.js:34
 msgid "Support Site"
-msgstr "Strona pomocy"
+msgstr "Pomoc"
 
 #: src/amo/components/AddonMoreInfo.js:40
 msgid "More information"
@@ -157,11 +157,11 @@ msgstr "Licencja"
 
 #: src/amo/components/AddonMoreInfo.js:85
 msgid "Privacy Policy"
-msgstr "Zasady ochrony prywatności"
+msgstr "Prywatność"
 
 #: src/amo/components/AddonMoreInfo.js:93
 msgid "Read the privacy policy for this add-on"
-msgstr "Przeczytaj zasady ochrony prywatności tego dodatku"
+msgstr "Zasady ochrony prywatności tego dodatku"
 
 #: src/amo/components/AddonMoreInfo.js:98
 msgid "End-User License Agreement"
@@ -189,7 +189,7 @@ msgstr "Napisz recenzję"
 
 #: src/amo/components/AddonReview.js:167
 msgid "Review text"
-msgstr "Podgląda tekstu"
+msgstr "Podgląd tekstu"
 
 #: src/amo/components/AddonReview.js:182
 msgid "Submit review"
@@ -295,7 +295,7 @@ msgstr "Strona domowa Mozilli"
 
 #: src/amo/components/Footer/index.js:36
 msgid "Privacy policy"
-msgstr "Zasady ochrony prywatności"
+msgstr "Prywatność"
 
 #: src/amo/components/Footer/index.js:44
 msgid "Legal notices"
@@ -307,7 +307,7 @@ msgstr "Zgłoś błąd"
 
 #: src/amo/components/Footer/index.js:62
 msgid "View classic desktop site"
-msgstr "Poprzednia wersja strony na komputery"
+msgstr "Poprzednia wersja strony"
 
 #: src/amo/components/Header/index.js:36
 msgid "Firefox Add-ons"
@@ -323,7 +323,7 @@ msgstr "Zakupy w Internecie"
 
 #: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
 msgid "Be social"
-msgstr "Sieci społecznościowe"
+msgstr "Serwisy społecznościowe"
 
 #: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
 msgid "Play games"
@@ -737,7 +737,7 @@ msgstr "Brak ocen"
 
 #: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Rozwiń</span>, aby przeczytać więcej"
+msgstr "<span class=\"visually-hidden\">↓</span> Rozwiń"
 
 #~ msgid "Search extensions"
 #~ msgstr "Wyszukaj rozszerzenia"
