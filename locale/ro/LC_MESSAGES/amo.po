@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-29 19:04+0000\n"
+"POT-Creation-Date: 2017-09-05 18:50+0000\n"
 "PO-Revision-Date: 2016-11-10 09:55+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -13,58 +13,62 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
 
-#: src/amo/components/Addon/index.js:127
+#: src/amo/components/Addon/index.js:111
 msgid "Featured Extension"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:129
+#: src/amo/components/Addon/index.js:113
 msgid "Featured Theme"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:131
+#: src/amo/components/Addon/index.js:115
 msgid "Featured Add-on"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:148
+#: src/amo/components/Addon/index.js:132
 msgid "Cancel preview"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:148
+#: src/amo/components/Addon/index.js:132
 msgid "Tap to preview"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:173
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/amo/components/Addon/index.js:205
+#: src/amo/components/Addon/index.js:189
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:214
+#: src/amo/components/Addon/index.js:198
 msgid "Rate your experience"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:248
+#: src/amo/components/Addon/index.js:231
 msgid "About this %(addonType)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:299
+#: src/amo/components/Addon/index.js:255
+msgid "Release notes for %(addonVersion)s"
+msgstr ""
+
+#: src/amo/components/Addon/index.js:308
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:344
+#: src/amo/components/Addon/index.js:353
 msgid "Restart Required"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:362
+#: src/amo/components/Addon/index.js:371
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:381
+#: src/amo/components/Addon/index.js:390
 msgid "Screenshots"
 msgstr ""
 
@@ -242,6 +246,10 @@ msgstr ""
 msgid "Browse all themes in this category."
 msgstr ""
 
+#: src/amo/components/DownloadFirefoxButton/index.js:38
+msgid "Download Firefox"
+msgstr ""
+
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
@@ -325,11 +333,11 @@ msgstr ""
 msgid "View classic desktop site"
 msgstr ""
 
-#: src/amo/components/Header/index.js:44
+#: src/amo/components/Header/index.js:36
 msgid "Firefox Add-ons"
 msgstr ""
 
-#: src/amo/components/Header/index.js:59
+#: src/amo/components/Header/index.js:58
 msgid "Developer Hub"
 msgstr ""
 
@@ -460,12 +468,12 @@ msgid "More highly rated themes"
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:50
+#: src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr ""
 
@@ -531,32 +539,93 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/amo/components/SearchForm/index.js:153
+#: src/amo/components/SearchFilters/index.js:104
+msgid "Filter results"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:110
+msgid "Sort by"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:128
+msgid "Add-on Type"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:146
+msgid "Operating System"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:70
+#: src/amo/components/SearchFilters/index.js:80
+msgid "All"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:71
+msgid "Extension"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:72
+msgid "Theme"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:81
+msgid "Windows"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:82
+msgid "macOS"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:83
+msgid "Linux"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:91
+msgid "Relevance"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:92
+msgid "Recently Updated"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:93
+msgid "Most Users"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:94
+msgid "Top Rated"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:174
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:163
-msgid "Search extensions"
+#: src/amo/components/SearchForm/index.js:191
+msgid "Find extensions"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:165
-msgid "Search themes"
+#: src/amo/components/SearchForm/index.js:193
+msgid "Find dictionary"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:167
-msgid "Search extensions and themes"
+#: src/amo/components/SearchForm/index.js:195
+msgid "Find language pack"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:192
-#: src/amo/components/SearchForm/index.js:219
+#: src/amo/components/SearchForm/index.js:197
+msgid "Find themes"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:199
+msgid "Find add-ons"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:225
+#: src/amo/components/SearchForm/index.js:255
 msgid "Search"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:216
-msgid "Enter"
-msgstr ""
-
-#: src/amo/components/SearchForm/index.js:73
+#: src/amo/components/SearchForm/index.js:80
 msgid "Loading"
 msgstr ""
 
@@ -584,28 +653,7 @@ msgstr ""
 msgid "Search results"
 msgstr ""
 
-#: src/amo/components/SearchSort/index.js:41
-msgid "Recently Updated"
-msgstr ""
-
-#: src/amo/components/SearchSort/index.js:42
-msgid "Relevance"
-msgstr ""
-
-#: src/amo/components/SearchSort/index.js:43
-msgid "Most Users"
-msgstr ""
-
-#: src/amo/components/SearchSort/index.js:44
-msgid "Top Rated"
-msgstr ""
-
-#: src/amo/components/SearchSort/index.js:66
-#: src/amo/components/SearchSort/index.js:74
-msgid "Sort"
-msgstr ""
-
-#: src/amo/components/SectionLinks/index.js:40
+#: src/amo/components/SectionLinks/index.js:41
 msgid "Explore"
 msgstr ""
 
@@ -617,12 +665,12 @@ msgstr ""
 msgid "Add-ons Home Page"
 msgstr ""
 
-#: src/core/components/AuthenticateButton/index.js:61
+#: src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr ""
 
-#: src/core/components/AuthenticateButton/index.js:62
-msgid "Log in/Sign up"
+#: src/core/components/AuthenticateButton/index.js:65
+msgid "Register or Log in"
 msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
@@ -713,6 +761,10 @@ msgstr ""
 msgid "Reload To Continue"
 msgstr ""
 
+#: src/ui/components/ExpandableCard/index.js:43
+msgid "Toggle contents"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr ""
@@ -721,6 +773,6 @@ msgstr ""
 msgid "No ratings"
 msgstr ""
 
-#: src/ui/components/ShowMoreCard/index.js:62
+#: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""

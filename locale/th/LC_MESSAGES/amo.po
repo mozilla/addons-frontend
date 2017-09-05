@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-29 19:04+0000\n"
+"POT-Creation-Date: 2017-09-05 18:50+0000\n"
 "PO-Revision-Date: 2017-07-12 06:54+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,59 +14,64 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:127
+#: src/amo/components/Addon/index.js:111
 #, fuzzy
 msgid "Featured Extension"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/Addon/index.js:129
+#: src/amo/components/Addon/index.js:113
 #, fuzzy
 msgid "Featured Theme"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/Addon/index.js:131
+#: src/amo/components/Addon/index.js:115
 #, fuzzy
 msgid "Featured Add-on"
 msgstr "ส่วนเสริม Firefox"
 
-#: src/amo/components/Addon/index.js:148
+#: src/amo/components/Addon/index.js:132
 msgid "Cancel preview"
 msgstr "ยกเลิกการแสดงตัวอย่าง"
 
-#: src/amo/components/Addon/index.js:148
+#: src/amo/components/Addon/index.js:132
 msgid "Tap to preview"
 msgstr "แตะเพื่อแสดงตัวอย่าง"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:173
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
 
-#: src/amo/components/Addon/index.js:205
+#: src/amo/components/Addon/index.js:189
 msgid "No reviews yet"
 msgstr "ยังไม่มีบทวิจารณ์"
 
-#: src/amo/components/Addon/index.js:214
+#: src/amo/components/Addon/index.js:198
 msgid "Rate your experience"
 msgstr "ให้คะแนนประสบการณ์ของคุณ"
 
-#: src/amo/components/Addon/index.js:248
+#: src/amo/components/Addon/index.js:231
 msgid "About this %(addonType)s"
 msgstr "เกี่ยวกับ %(addonType)s นี้"
 
-#: src/amo/components/Addon/index.js:299
+#: src/amo/components/Addon/index.js:255
+#, fuzzy
+msgid "Release notes for %(addonVersion)s"
+msgstr "บทวิจารณ์สำหรับ %(addonName)s"
+
+#: src/amo/components/Addon/index.js:308
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:344
+#: src/amo/components/Addon/index.js:353
 msgid "Restart Required"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:362
+#: src/amo/components/Addon/index.js:371
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/components/Addon/index.js:381
+#: src/amo/components/Addon/index.js:390
 msgid "Screenshots"
 msgstr "ภาพหน้าจอ"
 
@@ -250,6 +255,11 @@ msgstr "เรียกดูส่วนขยายทั้งหมด"
 msgid "Browse all themes in this category."
 msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 
+#: src/amo/components/DownloadFirefoxButton/index.js:38
+#, fuzzy
+msgid "Download Firefox"
+msgstr "ส่วนเสริมสำหรับ Firefox"
+
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
@@ -335,11 +345,11 @@ msgstr "รายงานข้อบกพร่อง"
 msgid "View classic desktop site"
 msgstr "ดูไซต์สำหรับเดสก์ท็อป"
 
-#: src/amo/components/Header/index.js:44
+#: src/amo/components/Header/index.js:36
 msgid "Firefox Add-ons"
 msgstr "ส่วนเสริม Firefox"
 
-#: src/amo/components/Header/index.js:59
+#: src/amo/components/Header/index.js:58
 msgid "Developer Hub"
 msgstr ""
 
@@ -479,12 +489,12 @@ msgid "More highly rated themes"
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr "ชุดตกแต่ง"
 
 #: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:50
+#: src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr "ส่วนขยาย"
 
@@ -553,34 +563,102 @@ msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "ไม่พบหมวดหมู่"
 
-#: src/amo/components/SearchForm/index.js:153
+#: src/amo/components/SearchFilters/index.js:104
+#, fuzzy
+msgid "Filter results"
+msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
+
+#: src/amo/components/SearchFilters/index.js:110
+#, fuzzy
+msgid "Sort by"
+msgstr "เรียง"
+
+#: src/amo/components/SearchFilters/index.js:128
+#, fuzzy
+msgid "Add-on Type"
+msgstr "ไอคอนส่วนเสริม"
+
+#: src/amo/components/SearchFilters/index.js:146
+msgid "Operating System"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:70
+#: src/amo/components/SearchFilters/index.js:80
+msgid "All"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:71
+#, fuzzy
+msgid "Extension"
+msgstr "ส่วนขยาย"
+
+#: src/amo/components/SearchFilters/index.js:72
+#, fuzzy
+msgid "Theme"
+msgstr "ชุดตกแต่ง"
+
+#: src/amo/components/SearchFilters/index.js:81
+msgid "Windows"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:82
+msgid "macOS"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:83
+msgid "Linux"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:91
+msgid "Relevance"
+msgstr "ความเกี่ยวข้อง"
+
+#: src/amo/components/SearchFilters/index.js:92
+msgid "Recently Updated"
+msgstr "อัปเดตล่าสุด"
+
+#: src/amo/components/SearchFilters/index.js:93
+msgid "Most Users"
+msgstr "ผู้ใช้มากสุด"
+
+#: src/amo/components/SearchFilters/index.js:94
+msgid "Top Rated"
+msgstr "อันดับสูงสุด"
+
+#: src/amo/components/SearchForm/index.js:174
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:163
+#: src/amo/components/SearchForm/index.js:191
 #, fuzzy
-msgid "Search extensions"
+msgid "Find extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
-#: src/amo/components/SearchForm/index.js:165
+#: src/amo/components/SearchForm/index.js:193
+msgid "Find dictionary"
+msgstr ""
+
+#: src/amo/components/SearchForm/index.js:195
 #, fuzzy
-msgid "Search themes"
-msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
+msgid "Find language pack"
+msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดภาษานี้"
 
-#: src/amo/components/SearchForm/index.js:167
-msgid "Search extensions and themes"
-msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
+#: src/amo/components/SearchForm/index.js:197
+#, fuzzy
+msgid "Find themes"
+msgstr "ค้นหาข่าว"
 
-#: src/amo/components/SearchForm/index.js:192
-#: src/amo/components/SearchForm/index.js:219
+#: src/amo/components/SearchForm/index.js:199
+#, fuzzy
+msgid "Find add-ons"
+msgstr "ไม่สามารถโหลดหมวดหมู่"
+
+#: src/amo/components/SearchForm/index.js:225
+#: src/amo/components/SearchForm/index.js:255
 msgid "Search"
 msgstr "ค้นหา"
 
-#: src/amo/components/SearchForm/index.js:216
-msgid "Enter"
-msgstr ""
-
-#: src/amo/components/SearchForm/index.js:73
+#: src/amo/components/SearchForm/index.js:80
 #, fuzzy
 msgid "Loading"
 msgstr "กำลังโหลด..."
@@ -610,28 +688,7 @@ msgstr "โปรดป้อนคำค้นหาเพื่อค้นห
 msgid "Search results"
 msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
 
-#: src/amo/components/SearchSort/index.js:41
-msgid "Recently Updated"
-msgstr "อัปเดตล่าสุด"
-
-#: src/amo/components/SearchSort/index.js:42
-msgid "Relevance"
-msgstr "ความเกี่ยวข้อง"
-
-#: src/amo/components/SearchSort/index.js:43
-msgid "Most Users"
-msgstr "ผู้ใช้มากสุด"
-
-#: src/amo/components/SearchSort/index.js:44
-msgid "Top Rated"
-msgstr "อันดับสูงสุด"
-
-#: src/amo/components/SearchSort/index.js:66
-#: src/amo/components/SearchSort/index.js:74
-msgid "Sort"
-msgstr "เรียง"
-
-#: src/amo/components/SectionLinks/index.js:40
+#: src/amo/components/SectionLinks/index.js:41
 msgid "Explore"
 msgstr "สำรวจ"
 
@@ -643,13 +700,13 @@ msgstr ""
 msgid "Add-ons Home Page"
 msgstr "หน้าแรกส่วนเสริม"
 
-#: src/core/components/AuthenticateButton/index.js:61
+#: src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "ออกจากระบบ"
 
-#: src/core/components/AuthenticateButton/index.js:62
-msgid "Log in/Sign up"
-msgstr "เข้าสู่ระบบ/ลงทะเบียน"
+#: src/core/components/AuthenticateButton/index.js:65
+msgid "Register or Log in"
+msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
@@ -739,6 +796,10 @@ msgstr "เกิดข้อผิดพลาดที่ไม่คาดค
 msgid "Reload To Continue"
 msgstr "โหลดใหม่เพื่อดำเนินการต่อ"
 
+#: src/ui/components/ExpandableCard/index.js:43
+msgid "Toggle contents"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:94
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
@@ -748,9 +809,23 @@ msgstr "การจัดอันดับเฉลี่ย: %(rating)s จ�
 msgid "No ratings"
 msgstr "ไม่มีการจัดอันดับ"
 
-#: src/ui/components/ShowMoreCard/index.js:62
+#: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ่านเพิ่มเติม"
+
+#, fuzzy
+#~ msgid "Search extensions"
+#~ msgstr "เรียกดูส่วนขยายทั้งหมด"
+
+#, fuzzy
+#~ msgid "Search themes"
+#~ msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
+
+#~ msgid "Search extensions and themes"
+#~ msgstr "ค้นหาส่วนขยายและชุดตกแต่ง"
+
+#~ msgid "Log in/Sign up"
+#~ msgstr "เข้าสู่ระบบ/ลงทะเบียน"
 
 #~ msgid "Failed to load categories."
 #~ msgstr "ไม่สามารถโหลดหมวดหมู่"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-29 19:04+0000\n"
+"POT-Creation-Date: 2017-09-05 18:50+0000\n"
 "PO-Revision-Date: 2017-08-27 11:12+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,61 +14,66 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:127
+#: src/amo/components/Addon/index.js:111
 #, fuzzy
 msgid "Featured Extension"
 msgstr "Doporučená rozšíření"
 
-#: src/amo/components/Addon/index.js:129
+#: src/amo/components/Addon/index.js:113
 #, fuzzy
 msgid "Featured Theme"
 msgstr "Doporučené motivy vzhledu"
 
-#: src/amo/components/Addon/index.js:131
+#: src/amo/components/Addon/index.js:115
 #, fuzzy
 msgid "Featured Add-on"
 msgstr "Doplňky pro Firefox"
 
-#: src/amo/components/Addon/index.js:148
+#: src/amo/components/Addon/index.js:132
 msgid "Cancel preview"
 msgstr "Zrušit náhled"
 
-#: src/amo/components/Addon/index.js:148
+#: src/amo/components/Addon/index.js:132
 msgid "Tap to preview"
 msgstr "Pro náhled klepněte"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:173
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Přečíst %(count)s recenzi"
 msgstr[1] "Přečíst všechny %(count)s recenze"
 msgstr[2] "Přečtěte si všech %(count)s recenzí"
 
-#: src/amo/components/Addon/index.js:205
+#: src/amo/components/Addon/index.js:189
 msgid "No reviews yet"
 msgstr "Zatím žádné recenze"
 
-#: src/amo/components/Addon/index.js:214
+#: src/amo/components/Addon/index.js:198
 msgid "Rate your experience"
 msgstr "Ohodnoťte svou zkušenost"
 
-#: src/amo/components/Addon/index.js:248
+#: src/amo/components/Addon/index.js:231
 msgid "About this %(addonType)s"
 msgstr "O tomto %(addonType)s"
 
-#: src/amo/components/Addon/index.js:299
+#: src/amo/components/Addon/index.js:255
+#, fuzzy
+msgid "Release notes for %(addonVersion)s"
+msgstr "Recenze doplňku %(addonName)s"
+
+#: src/amo/components/Addon/index.js:308
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s od %(authorList)s %(endSpan)s"
 
-#: src/amo/components/Addon/index.js:344
+#: src/amo/components/Addon/index.js:353
 msgid "Restart Required"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:362
+#: src/amo/components/Addon/index.js:371
 msgid "Extension Metadata"
 msgstr "Metadata rozšíření"
 
-#: src/amo/components/Addon/index.js:381
+#: src/amo/components/Addon/index.js:390
 msgid "Screenshots"
 msgstr "Snímky obrazovky"
 
@@ -254,6 +259,11 @@ msgstr "Procházet všechna rozšíření v této kategorii."
 msgid "Browse all themes in this category."
 msgstr "Procházet všechny motivy v této kategorii."
 
+#: src/amo/components/DownloadFirefoxButton/index.js:38
+#, fuzzy
+msgid "Download Firefox"
+msgstr "Doplňky pro Firefox"
+
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
@@ -354,11 +364,11 @@ msgstr "Nahlásit chybu"
 msgid "View classic desktop site"
 msgstr "Zobrazit verzi stránky pro počítač"
 
-#: src/amo/components/Header/index.js:44
+#: src/amo/components/Header/index.js:36
 msgid "Firefox Add-ons"
 msgstr "Doplňky pro Firefox"
 
-#: src/amo/components/Header/index.js:59
+#: src/amo/components/Header/index.js:58
 msgid "Developer Hub"
 msgstr "Pro vývojáře"
 
@@ -493,12 +503,12 @@ msgid "More highly rated themes"
 msgstr "Více kladně hodnocených motivů"
 
 #: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr "Motivy"
 
 #: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:50
+#: src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr "Rozšíření"
 
@@ -564,32 +574,102 @@ msgstr[0] "Nalezen %(count)s doplněk"
 msgstr[1] "Nalezeny %(count)s doplňky"
 msgstr[2] "Nalezeno %(count)s doplňků"
 
-#: src/amo/components/SearchForm/index.js:153
+#: src/amo/components/SearchFilters/index.js:104
+#, fuzzy
+msgid "Filter results"
+msgstr "Výsledky vyhledávání"
+
+#: src/amo/components/SearchFilters/index.js:110
+#, fuzzy
+msgid "Sort by"
+msgstr "Řazení"
+
+#: src/amo/components/SearchFilters/index.js:128
+#, fuzzy
+msgid "Add-on Type"
+msgstr "Ikona doplňku"
+
+#: src/amo/components/SearchFilters/index.js:146
+msgid "Operating System"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:70
+#: src/amo/components/SearchFilters/index.js:80
+msgid "All"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:71
+#, fuzzy
+msgid "Extension"
+msgstr "Rozšíření"
+
+#: src/amo/components/SearchFilters/index.js:72
+#, fuzzy
+msgid "Theme"
+msgstr "Motivy"
+
+#: src/amo/components/SearchFilters/index.js:81
+msgid "Windows"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:82
+msgid "macOS"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:83
+msgid "Linux"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:91
+msgid "Relevance"
+msgstr "Relevance"
+
+#: src/amo/components/SearchFilters/index.js:92
+msgid "Recently Updated"
+msgstr "Nedávno aktualizované"
+
+#: src/amo/components/SearchFilters/index.js:93
+msgid "Most Users"
+msgstr "Nejvíce uživatelů"
+
+#: src/amo/components/SearchFilters/index.js:94
+msgid "Top Rated"
+msgstr "Nejlépe hodnocené"
+
+#: src/amo/components/SearchForm/index.js:174
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:163
-msgid "Search extensions"
-msgstr "Hledat rozšíření"
+#: src/amo/components/SearchForm/index.js:191
+#, fuzzy
+msgid "Find extensions"
+msgstr "Doporučená rozšíření"
 
-#: src/amo/components/SearchForm/index.js:165
-msgid "Search themes"
-msgstr "Hledat motivy"
+#: src/amo/components/SearchForm/index.js:193
+msgid "Find dictionary"
+msgstr ""
 
-#: src/amo/components/SearchForm/index.js:167
-msgid "Search extensions and themes"
-msgstr "Prohledávejte rozšíření a motivy"
+#: src/amo/components/SearchForm/index.js:195
+#, fuzzy
+msgid "Find language pack"
+msgstr "Pro hodnocení tohoto jazykového balíčku se přihlaste"
 
-#: src/amo/components/SearchForm/index.js:192
-#: src/amo/components/SearchForm/index.js:219
+#: src/amo/components/SearchForm/index.js:197
+#, fuzzy
+msgid "Find themes"
+msgstr "Hledejte zprávy"
+
+#: src/amo/components/SearchForm/index.js:199
+#, fuzzy
+msgid "Find add-ons"
+msgstr "Načítání doplňků"
+
+#: src/amo/components/SearchForm/index.js:225
+#: src/amo/components/SearchForm/index.js:255
 msgid "Search"
 msgstr "Hledat"
 
-#: src/amo/components/SearchForm/index.js:216
-msgid "Enter"
-msgstr ""
-
-#: src/amo/components/SearchForm/index.js:73
+#: src/amo/components/SearchForm/index.js:80
 #, fuzzy
 msgid "Loading"
 msgstr "Načítání..."
@@ -619,28 +699,7 @@ msgstr ""
 msgid "Search results"
 msgstr "Výsledky vyhledávání"
 
-#: src/amo/components/SearchSort/index.js:41
-msgid "Recently Updated"
-msgstr "Nedávno aktualizované"
-
-#: src/amo/components/SearchSort/index.js:42
-msgid "Relevance"
-msgstr "Relevance"
-
-#: src/amo/components/SearchSort/index.js:43
-msgid "Most Users"
-msgstr "Nejvíce uživatelů"
-
-#: src/amo/components/SearchSort/index.js:44
-msgid "Top Rated"
-msgstr "Nejlépe hodnocené"
-
-#: src/amo/components/SearchSort/index.js:66
-#: src/amo/components/SearchSort/index.js:74
-msgid "Sort"
-msgstr "Řazení"
-
-#: src/amo/components/SectionLinks/index.js:40
+#: src/amo/components/SectionLinks/index.js:41
 msgid "Explore"
 msgstr "Prozkoumat"
 
@@ -652,13 +711,13 @@ msgstr "Doporučené stránky"
 msgid "Add-ons Home Page"
 msgstr "Domovská stránka"
 
-#: src/core/components/AuthenticateButton/index.js:61
+#: src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "Odhlásit se"
 
-#: src/core/components/AuthenticateButton/index.js:62
-msgid "Log in/Sign up"
-msgstr "Přihlásit se / Zaregistrovat se"
+#: src/core/components/AuthenticateButton/index.js:65
+msgid "Register or Log in"
+msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
@@ -750,6 +809,10 @@ msgstr "Došlo k neočekávané chybě"
 msgid "Reload To Continue"
 msgstr "Pro pokračování obnovte stránku"
 
+#: src/ui/components/ExpandableCard/index.js:43
+msgid "Toggle contents"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "Ohodnoceno %(rating)s z 5"
@@ -758,9 +821,21 @@ msgstr "Ohodnoceno %(rating)s z 5"
 msgid "No ratings"
 msgstr "Nehodnoceno"
 
-#: src/ui/components/ShowMoreCard/index.js:62
+#: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Rozbalit do</span> Přečíst více"
+
+#~ msgid "Search extensions"
+#~ msgstr "Hledat rozšíření"
+
+#~ msgid "Search themes"
+#~ msgstr "Hledat motivy"
+
+#~ msgid "Search extensions and themes"
+#~ msgstr "Prohledávejte rozšíření a motivy"
+
+#~ msgid "Log in/Sign up"
+#~ msgstr "Přihlásit se / Zaregistrovat se"
 
 #~ msgid "Failed to load categories."
 #~ msgstr "Načítání kategorií selhalo."
