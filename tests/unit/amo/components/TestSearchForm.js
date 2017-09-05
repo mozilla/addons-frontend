@@ -247,6 +247,179 @@ describe(__filename, () => {
       }));
     });
 
+    it('does not fetch suggestions twice on focus when search has not changed', () => {
+      const { store } = dispatchAutocompleteResults({ results: [
+        createFakeAutocompleteResult(),
+        createFakeAutocompleteResult(),
+      ] });
+      const { autocomplete: autocompleteState } = store.getState();
+
+      const dispatch = sinon.spy();
+      const wrapper = mountComponent({
+        dispatch,
+        suggestions: autocompleteState.suggestions,
+      });
+
+      sinon.assert.notCalled(dispatch);
+
+      // User types 'a' in the search input.
+      wrapper.find('input').simulate('change', createFakeChangeEvent('a'));
+
+      // User clicks somewhere else on the UI, triggering the
+      // AUTOCOMPLETE_CANCELLED action.
+      store.dispatch(autocompleteCancel());
+      wrapper.setProps(mapStateToProps(store.getState()));
+
+      // User focuses the search input.
+      wrapper.find('input').simulate('focus');
+
+      expect(wrapper.find(Suggestion)).toHaveLength(
+        autocompleteState.suggestions.length
+      );
+
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: { query: 'a' },
+      }));
+    });
+
+    it('fetches suggestions twice on focus when search has not changed but add-type changed', () => {
+      const { store } = dispatchAutocompleteResults({ results: [
+        createFakeAutocompleteResult(),
+        createFakeAutocompleteResult(),
+      ] });
+      const { autocomplete: autocompleteState } = store.getState();
+
+      const dispatch = sinon.spy();
+      const wrapper = mountComponent({
+        dispatch,
+        suggestions: autocompleteState.suggestions,
+      });
+
+      sinon.assert.notCalled(dispatch);
+
+      // User types 'a' in the search input.
+      wrapper.find('input').simulate('change', createFakeChangeEvent('a'));
+
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: { query: 'a' },
+      }));
+      dispatch.reset();
+
+      // User clicks somewhere else on the UI, triggering the
+      // AUTOCOMPLETE_CANCELLED action.
+      store.dispatch(autocompleteCancel());
+      wrapper.setProps(mapStateToProps(store.getState()));
+      wrapper.setProps({ addonType: ADDON_TYPE_THEME });
+
+      // User focuses the search input.
+      wrapper.find('input').simulate('focus');
+
+      expect(wrapper.find(Suggestion)).toHaveLength(
+        autocompleteState.suggestions.length
+      );
+
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: { query: 'a', addonType: ADDON_TYPE_THEME },
+      }));
+    });
+
+    it('does not fetch suggestions twice on focus when query is present but search has not changed', () => {
+      // This test case reproduces what would happen if user opens
+      // `http://localhost:3000/en-US/firefox/search/?q=aa` and then clicks
+      // into the search bar. It should fetch the suggestions only once.
+      const { store } = dispatchAutocompleteResults({ results: [
+        createFakeAutocompleteResult(),
+        createFakeAutocompleteResult(),
+      ] });
+
+      const { autocomplete: autocompleteState } = store.getState();
+
+      const dispatch = sinon.spy();
+      const wrapper = mountComponent({
+        dispatch,
+        query: 'ad',
+        suggestions: autocompleteState.suggestions,
+      });
+
+      sinon.assert.notCalled(dispatch);
+      expect(wrapper.find(Suggestion)).toHaveLength(0);
+
+      // User clicks somewhere else on the UI, triggering the
+      // AUTOCOMPLETE_CANCELLED action.
+      store.dispatch(autocompleteCancel());
+      wrapper.setProps(mapStateToProps(store.getState()));
+
+      // User focuses the search input.
+      wrapper.find('input').simulate('focus');
+
+      // User clicks somewhere else on the UI, triggering the
+      // AUTOCOMPLETE_CANCELLED action, again.
+      store.dispatch(autocompleteCancel());
+      wrapper.setProps(mapStateToProps(store.getState()));
+
+      // User focuses the search input, again.
+      wrapper.find('input').simulate('focus');
+
+      expect(wrapper.find(Suggestion)).toHaveLength(
+        autocompleteState.suggestions.length
+      );
+
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: { query: 'ad' },
+      }));
+    });
+
+    it('fetches suggestions on focus when query is present but search has changed', () => {
+      const { store } = dispatchAutocompleteResults({ results: [
+        createFakeAutocompleteResult(),
+        createFakeAutocompleteResult(),
+      ] });
+
+      const { autocomplete: autocompleteState } = store.getState();
+
+      const dispatch = sinon.spy();
+      const wrapper = mountComponent({
+        dispatch,
+        query: 'ad',
+        suggestions: autocompleteState.suggestions,
+      });
+
+      sinon.assert.notCalled(dispatch);
+      expect(wrapper.find(Suggestion)).toHaveLength(0);
+
+      // User focuses the search input, which will load suggestions from the API.
+      wrapper.find('input').simulate('focus');
+
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: { query: 'ad' },
+      }));
+      dispatch.reset();
+
+      // User types 'adb' in the search input, which requires new suggestions
+      // to be loaded from the API.
+      wrapper.find('input').simulate('change', createFakeChangeEvent('adb'));
+
+      expect(wrapper.find(Suggestion)).toHaveLength(
+        autocompleteState.suggestions.length
+      );
+
+      sinon.assert.callCount(dispatch, 1);
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: { query: 'adb' },
+      }));
+    });
+
     it('clears suggestions when input is cleared', () => {
       const dispatch = sinon.spy();
       const wrapper = mountComponent({
@@ -364,12 +537,11 @@ describe(__filename, () => {
     it('adds addonType to the filters used to fetch suggestions', () => {
       const dispatch = sinon.spy();
       const wrapper = mountComponent({
-        query: 'ad',
         addonType: ADDON_TYPE_EXTENSION,
         dispatch,
       });
 
-      wrapper.find('input').simulate('focus');
+      wrapper.find('input').simulate('change', createFakeChangeEvent('ad'));
 
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({

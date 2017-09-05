@@ -9,7 +9,7 @@ describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
       const { loading, suggestions } = reducer(undefined);
-      expect(loading).toBe(false);
+      expect(loading).toEqual(false);
       expect(suggestions).toEqual([]);
     });
 
@@ -20,9 +20,12 @@ describe(__filename, () => {
     });
 
     it('handles AUTOCOMPLETE_CANCELLED', () => {
-      const { loading, suggestions } = reducer(undefined, autocompleteCancel());
-      expect(loading).toBe(false);
-      expect(suggestions).toEqual([]);
+      const results = [createFakeAutocompleteResult({ name: 'foo' })];
+      const previousState = reducer(undefined, autocompleteLoad({ results }));
+      const { loading, suggestions } = reducer(previousState, autocompleteCancel());
+
+      expect(loading).toEqual(false);
+      expect(suggestions).toEqual(previousState.suggestions);
     });
 
     it('handles AUTOCOMPLETE_STARTED', () => {
@@ -30,7 +33,7 @@ describe(__filename, () => {
         errorHandlerId: 'any-error-handler-id',
         filters: { q: 'search string' },
       }));
-      expect(loading).toBe(true);
+      expect(loading).toEqual(true);
       expect(suggestions).toEqual([]);
     });
 
@@ -67,7 +70,7 @@ describe(__filename, () => {
       const results = [result];
 
       const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
-      expect(loading).toBe(false);
+      expect(loading).toEqual(false);
       expect(suggestions).toEqual([
         {
           name: result.name,
@@ -85,7 +88,7 @@ describe(__filename, () => {
       ];
 
       const { loading, suggestions } = reducer(undefined, autocompleteLoad({ results }));
-      expect(loading).toBe(false);
+      expect(loading).toEqual(false);
       expect(suggestions).toHaveLength(2);
     });
   });

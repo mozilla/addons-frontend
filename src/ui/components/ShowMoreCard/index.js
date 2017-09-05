@@ -3,7 +3,6 @@
 import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
@@ -29,15 +28,13 @@ export class ShowMoreCardBase extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.truncateToMaxHeight(ReactDOM.findDOMNode(this.contents));
+    this.setState({ expanded: true }, () => {
+      this.truncateToMaxHeight(this.contents);
+    });
   }
 
   onClick = (event) => {
     event.preventDefault();
-    this.expandText();
-  }
-
-  expandText() {
     this.setState({ expanded: true });
   }
 

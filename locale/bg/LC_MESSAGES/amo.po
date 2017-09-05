@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-29 19:04+0000\n"
+"POT-Creation-Date: 2017-09-05 18:50+0000\n"
 "PO-Revision-Date: 2017-08-24 11:26+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
@@ -14,60 +14,65 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:127
+#: src/amo/components/Addon/index.js:111
 #, fuzzy
 msgid "Featured Extension"
 msgstr "Препоръчани добавки"
 
-#: src/amo/components/Addon/index.js:129
+#: src/amo/components/Addon/index.js:113
 #, fuzzy
 msgid "Featured Theme"
 msgstr "Препоръчани теми"
 
-#: src/amo/components/Addon/index.js:131
+#: src/amo/components/Addon/index.js:115
 #, fuzzy
 msgid "Featured Add-on"
 msgstr "Добавки за Firefox"
 
-#: src/amo/components/Addon/index.js:148
+#: src/amo/components/Addon/index.js:132
 msgid "Cancel preview"
 msgstr "Отказ"
 
-#: src/amo/components/Addon/index.js:148
+#: src/amo/components/Addon/index.js:132
 msgid "Tap to preview"
 msgstr "Докоснете за преглед"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:173
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочетете %(count)s рецензия"
 msgstr[1] "Прочетете всички %(count)s рецензии"
 
-#: src/amo/components/Addon/index.js:205
+#: src/amo/components/Addon/index.js:189
 msgid "No reviews yet"
 msgstr "Няма рецензии"
 
-#: src/amo/components/Addon/index.js:214
+#: src/amo/components/Addon/index.js:198
 msgid "Rate your experience"
 msgstr "Дайте оценка"
 
-#: src/amo/components/Addon/index.js:248
+#: src/amo/components/Addon/index.js:231
 msgid "About this %(addonType)s"
 msgstr "Относно тази %(addonType)s"
 
-#: src/amo/components/Addon/index.js:299
+#: src/amo/components/Addon/index.js:255
+#, fuzzy
+msgid "Release notes for %(addonVersion)s"
+msgstr "Рецензии за %(addonName)s"
+
+#: src/amo/components/Addon/index.js:308
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sот %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:344
+#: src/amo/components/Addon/index.js:353
 msgid "Restart Required"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:362
+#: src/amo/components/Addon/index.js:371
 msgid "Extension Metadata"
 msgstr "Метаданни за разширението"
 
-#: src/amo/components/Addon/index.js:381
+#: src/amo/components/Addon/index.js:390
 msgid "Screenshots"
 msgstr "Снимки на екрана"
 
@@ -249,6 +254,11 @@ msgstr "Всички разширения в категорията."
 msgid "Browse all themes in this category."
 msgstr "Всички теми в категорията."
 
+#: src/amo/components/DownloadFirefoxButton/index.js:38
+#, fuzzy
+msgid "Download Firefox"
+msgstr "Добавки за Firefox"
+
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
@@ -348,11 +358,11 @@ msgstr "Докладване на дефект"
 msgid "View classic desktop site"
 msgstr "Настолна версия"
 
-#: src/amo/components/Header/index.js:44
+#: src/amo/components/Header/index.js:36
 msgid "Firefox Add-ons"
 msgstr "Добавки за Firefox"
 
-#: src/amo/components/Header/index.js:59
+#: src/amo/components/Header/index.js:58
 msgid "Developer Hub"
 msgstr "Център за разработчици"
 
@@ -487,12 +497,12 @@ msgid "More highly rated themes"
 msgstr "Повече високо оценени теми"
 
 #: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr "Теми"
 
 #: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:50
+#: src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr "Разширения"
 
@@ -556,32 +566,102 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "намерена %(count)s добавка"
 msgstr[1] "намерени %(count)s добавки"
 
-#: src/amo/components/SearchForm/index.js:153
+#: src/amo/components/SearchFilters/index.js:104
+#, fuzzy
+msgid "Filter results"
+msgstr "Резултати"
+
+#: src/amo/components/SearchFilters/index.js:110
+#, fuzzy
+msgid "Sort by"
+msgstr "Сортиране по"
+
+#: src/amo/components/SearchFilters/index.js:128
+#, fuzzy
+msgid "Add-on Type"
+msgstr "Пиктограма на добавката"
+
+#: src/amo/components/SearchFilters/index.js:146
+msgid "Operating System"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:70
+#: src/amo/components/SearchFilters/index.js:80
+msgid "All"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:71
+#, fuzzy
+msgid "Extension"
+msgstr "Разширения"
+
+#: src/amo/components/SearchFilters/index.js:72
+#, fuzzy
+msgid "Theme"
+msgstr "Теми"
+
+#: src/amo/components/SearchFilters/index.js:81
+msgid "Windows"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:82
+msgid "macOS"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:83
+msgid "Linux"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:91
+msgid "Relevance"
+msgstr "Съответствие"
+
+#: src/amo/components/SearchFilters/index.js:92
+msgid "Recently Updated"
+msgstr "Скоро обновени"
+
+#: src/amo/components/SearchFilters/index.js:93
+msgid "Most Users"
+msgstr "Най-много потребители"
+
+#: src/amo/components/SearchFilters/index.js:94
+msgid "Top Rated"
+msgstr "Най-високо оценени"
+
+#: src/amo/components/SearchForm/index.js:174
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:163
-msgid "Search extensions"
-msgstr "Търсене на разширения"
+#: src/amo/components/SearchForm/index.js:191
+#, fuzzy
+msgid "Find extensions"
+msgstr "Препоръчани добавки"
 
-#: src/amo/components/SearchForm/index.js:165
-msgid "Search themes"
-msgstr "Търсене на теми"
+#: src/amo/components/SearchForm/index.js:193
+msgid "Find dictionary"
+msgstr ""
 
-#: src/amo/components/SearchForm/index.js:167
-msgid "Search extensions and themes"
-msgstr "Търсене на разширения и теми"
+#: src/amo/components/SearchForm/index.js:195
+#, fuzzy
+msgid "Find language pack"
+msgstr "За да оцените този езиков пакет се впишете"
 
-#: src/amo/components/SearchForm/index.js:192
-#: src/amo/components/SearchForm/index.js:219
+#: src/amo/components/SearchForm/index.js:197
+#, fuzzy
+msgid "Find themes"
+msgstr "Търсене на новини"
+
+#: src/amo/components/SearchForm/index.js:199
+#, fuzzy
+msgid "Find add-ons"
+msgstr "Зареждане на добавки"
+
+#: src/amo/components/SearchForm/index.js:225
+#: src/amo/components/SearchForm/index.js:255
 msgid "Search"
 msgstr "Търсене"
 
-#: src/amo/components/SearchForm/index.js:216
-msgid "Enter"
-msgstr ""
-
-#: src/amo/components/SearchForm/index.js:73
+#: src/amo/components/SearchForm/index.js:80
 #, fuzzy
 msgid "Loading"
 msgstr "Зареждане…"
@@ -610,28 +690,7 @@ msgstr "Моля, въведете ключова дума, за да търси
 msgid "Search results"
 msgstr "Резултати"
 
-#: src/amo/components/SearchSort/index.js:41
-msgid "Recently Updated"
-msgstr "Скоро обновени"
-
-#: src/amo/components/SearchSort/index.js:42
-msgid "Relevance"
-msgstr "Съответствие"
-
-#: src/amo/components/SearchSort/index.js:43
-msgid "Most Users"
-msgstr "Най-много потребители"
-
-#: src/amo/components/SearchSort/index.js:44
-msgid "Top Rated"
-msgstr "Най-високо оценени"
-
-#: src/amo/components/SearchSort/index.js:66
-#: src/amo/components/SearchSort/index.js:74
-msgid "Sort"
-msgstr "Сортиране по"
-
-#: src/amo/components/SectionLinks/index.js:40
+#: src/amo/components/SectionLinks/index.js:41
 msgid "Explore"
 msgstr "Разглеждане"
 
@@ -643,13 +702,13 @@ msgstr "Предложени етикети"
 msgid "Add-ons Home Page"
 msgstr "Сайт на добавката"
 
-#: src/core/components/AuthenticateButton/index.js:61
+#: src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "Изход"
 
-#: src/core/components/AuthenticateButton/index.js:62
-msgid "Log in/Sign up"
-msgstr "Вход/Регистрация"
+#: src/core/components/AuthenticateButton/index.js:65
+msgid "Register or Log in"
+msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
@@ -741,6 +800,10 @@ msgstr "Възникна неочаквана грешка"
 msgid "Reload To Continue"
 msgstr "Презаредете, за да продължите"
 
+#: src/ui/components/ExpandableCard/index.js:43
+msgid "Toggle contents"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "Оценка %(rating)s от 5"
@@ -749,9 +812,21 @@ msgstr "Оценка %(rating)s от 5"
 msgid "No ratings"
 msgstr "Без оценка"
 
-#: src/ui/components/ShowMoreCard/index.js:62
+#: src/ui/components/ShowMoreCard/index.js:59
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Отваряне за </span>Повече информация"
+
+#~ msgid "Search extensions"
+#~ msgstr "Търсене на разширения"
+
+#~ msgid "Search themes"
+#~ msgstr "Търсене на теми"
+
+#~ msgid "Search extensions and themes"
+#~ msgstr "Търсене на разширения и теми"
+
+#~ msgid "Log in/Sign up"
+#~ msgstr "Вход/Регистрация"
 
 #~ msgid "Failed to load categories."
 #~ msgstr "Грешка при зареждане на категориите."
