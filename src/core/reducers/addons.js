@@ -38,14 +38,13 @@ export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddon
   };
 }
 
-// TODO: merge this into flattenApiAddon
-export function getGuid(result: AddonType) {
-  if (result.type === ADDON_TYPE_THEME) {
+export function getGuid(addon: AddonType) {
+  if (addon.type === ADDON_TYPE_THEME) {
     // This mimics how Firefox appends @personas.mozilla.org internally.
     // It's needed to look up themes in mozAddonManager.
-    return `${result.id}@personas.mozilla.org`;
+    return `${addon.id}@personas.mozilla.org`;
   }
-  return result.guid;
+  return addon.guid;
 }
 
 export function removeUndefinedProps(object) {
