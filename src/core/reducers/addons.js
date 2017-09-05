@@ -140,6 +140,17 @@ export function flattenApiAddon(apiAddon: AddonType) {
   // TODO: remove this if possible. It was added by mistake.
   addon.iconUrl = addon.icon_url;
 
+  // Remove undefined values entirely. This is for some legacy code in
+  // Discopane that relies on spreads to combine a Discopane result
+  // (which has a header and description) with a minimal add-on object.
+  // For example, the minimal add-on object does not have a description
+  // property; the spread should not override `description`.
+  Object.keys(addon).forEach((key) => {
+    if (typeof addon[key] === 'undefined') {
+      delete addon[key];
+    }
+  });
+
   return addon;
 }
 

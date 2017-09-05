@@ -83,6 +83,14 @@ describe(__filename, () => {
     expect(state[theme.slug]).toEqual(expectedTheme);
   });
 
+  it('does not store undefined properties', () => {
+    const extension = { ...fakeAddon, description: undefined };
+    const state = addons(undefined,
+      loadEntities(createFetchAddonResult(extension).entities));
+
+    expect(state[extension.slug].hasOwnProperty('description')).toEqual(false);
+  });
+
   it('mimics how Firefox appends @persona.mozilla.org to GUIDs', () => {
     const state = addons(undefined,
       loadEntities(createFetchAddonResult(fakeTheme).entities));
