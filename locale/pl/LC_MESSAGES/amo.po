@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-05 22:49+0000\n"
+"PO-Revision-Date: 2017-09-05 22:55+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -725,7 +725,7 @@ msgstr "Wczytaj ponownie, aby kontynuować"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Przełącz treść"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
