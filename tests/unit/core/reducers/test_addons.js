@@ -102,7 +102,9 @@ describe(__filename, () => {
     const state = addons(undefined,
       loadEntities(createFetchAddonResult(extension).entities));
 
-    expect(state[extension.slug].hasOwnProperty('description')).toEqual(false);
+    // eslint-disable-next-line no-prototype-builtins
+    expect(state[extension.slug].hasOwnProperty('description'))
+      .toEqual(false);
   });
 
   it('mimics how Firefox appends @persona.mozilla.org to GUIDs', () => {
@@ -229,16 +231,18 @@ describe(__filename, () => {
     });
 
     it('preserves falsy properties', () => {
-      expect(removeUndefinedProps({ thing: false })).toEqual({ thing: false });
+      expect(removeUndefinedProps({ thing: false }))
+        .toEqual({ thing: false });
     });
 
     it('preserves other properties', () => {
-      expect(removeUndefinedProps({ thing: 'thing' })).toEqual({ thing: 'thing' });
+      expect(removeUndefinedProps({ thing: 'thing' }))
+        .toEqual({ thing: 'thing' });
     });
 
     it('does not modify the original object', () => {
       const example = { thing: undefined };
-      removeUndefinedProps(example)
+      removeUndefinedProps(example);
       expect(example).toEqual({ thing: undefined });
     });
   });
