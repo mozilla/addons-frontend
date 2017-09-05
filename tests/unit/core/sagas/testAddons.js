@@ -2,7 +2,7 @@ import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api';
-import { ENTITIES_LOADED } from 'core/constants';
+import { ADDONS_LOADED } from 'core/constants';
 import addonsReducer, { fetchAddon } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import addonsSaga from 'core/sagas/addons';
@@ -46,7 +46,7 @@ describe('core/sagas/addons', () => {
     _fetchAddon({ slug: fakeAddon.slug });
 
     // The saga should respond by dispatching the addon entity.
-    await sagaTester.waitFor(ENTITIES_LOADED);
+    await sagaTester.waitFor(ADDONS_LOADED);
     mockApi.verify();
   });
 
@@ -57,7 +57,7 @@ describe('core/sagas/addons', () => {
 
     _fetchAddon();
 
-    await sagaTester.waitFor(ENTITIES_LOADED);
+    await sagaTester.waitFor(ADDONS_LOADED);
     expect(sagaTester.getCalledActions()[2]).toEqual(showLoading());
     expect(sagaTester.getCalledActions()[4]).toEqual(hideLoading());
   });
@@ -69,7 +69,7 @@ describe('core/sagas/addons', () => {
 
     _fetchAddon();
 
-    await sagaTester.waitFor(ENTITIES_LOADED);
+    await sagaTester.waitFor(ADDONS_LOADED);
     expect(sagaTester.getCalledActions()[1])
       .toEqual(errorHandler.createClearingAction());
   });

@@ -1,6 +1,6 @@
 /* @flow */
 import {
-  ENTITIES_LOADED,
+  ADDONS_LOADED,
   LOG_OUT_USER,
   SET_AUTH_TOKEN,
   SET_CLIENT_APP,
@@ -78,7 +78,7 @@ export type LoadEntitiesAction = {|
 // TODO: move this to loadAddons
 export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
   return {
-    type: ENTITIES_LOADED,
+    type: ADDONS_LOADED,
     payload: { entities },
   };
 }
