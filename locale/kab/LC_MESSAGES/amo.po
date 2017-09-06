@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-06 12:07+0000\n"
+"PO-Revision-Date: 2017-09-06 12:24+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -505,18 +505,16 @@ msgstr[0] "%(count)s n usiɣzef yellan"
 msgstr[1] "%(count)s n isiγzaf yellan"
 
 #: src/amo/components/SearchFilters/index.js:104
-#, fuzzy
 msgid "Filter results"
-msgstr "Igmaḍ n unadi"
+msgstr "Sizdeg igmaḍ n unadi"
 
 #: src/amo/components/SearchFilters/index.js:110
 msgid "Sort by"
 msgstr "Smizzwer"
 
 #: src/amo/components/SearchFilters/index.js:128
-#, fuzzy
 msgid "Add-on Type"
-msgstr "Tignit n uzegrir"
+msgstr "Anaw n uzegrir"
 
 #: src/amo/components/SearchFilters/index.js:146
 msgid "Operating System"
@@ -527,14 +525,12 @@ msgid "All"
 msgstr "Akk"
 
 #: src/amo/components/SearchFilters/index.js:71
-#, fuzzy
 msgid "Extension"
-msgstr "Isiɣzaf"
+msgstr "Asiɣzef"
 
 #: src/amo/components/SearchFilters/index.js:72
-#, fuzzy
 msgid "Theme"
-msgstr "Isental"
+msgstr "Asentel"
 
 #: src/amo/components/SearchFilters/index.js:81
 msgid "Windows"
@@ -569,28 +565,24 @@ msgid "Go to the add-on page"
 msgstr "Ddu ɣer usebter n izegrar"
 
 #: src/amo/components/SearchForm/index.js:191
-#, fuzzy
 msgid "Find extensions"
-msgstr "Isiɣzaf yettwaszemlen"
+msgstr "Aff isiɣzaf"
 
 #: src/amo/components/SearchForm/index.js:193
 msgid "Find dictionary"
 msgstr "Aff asegzawal"
 
 #: src/amo/components/SearchForm/index.js:195
-#, fuzzy
 msgid "Find language pack"
-msgstr "Qqen akken ad ternud tazmilt i ukemmus-agi utlayan"
+msgstr "Aff akemmus utlayan"
 
 #: src/amo/components/SearchForm/index.js:197
-#, fuzzy
 msgid "Find themes"
-msgstr "Af-d isallen"
+msgstr "Aff-d isental"
 
 #: src/amo/components/SearchForm/index.js:199
-#, fuzzy
 msgid "Find add-ons"
-msgstr "Asali n iseγzaf"
+msgstr "Aff-d iseγzaf"
 
 #: src/amo/components/SearchForm/index.js:225 src/amo/components/SearchForm/index.js:255
 msgid "Search"
