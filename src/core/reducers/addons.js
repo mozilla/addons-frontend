@@ -7,8 +7,6 @@ import type { AddonType, ExternalAddonType } from 'core/types/addons';
 export const ADDONS_LOADED = 'ADDONS_LOADED';
 export const FETCH_ADDON = 'FETCH_ADDON';
 
-const initialState = {};
-
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
 };
@@ -33,9 +31,6 @@ export function loadAddons(
     payload: { addons: entities.addons || {} },
   };
 }
-
-// TODO: fix Flow types
-type AddonState = Object;
 
 type FetchAddonParams = {|
   errorHandler: ErrorHandlerType,
@@ -180,7 +175,12 @@ export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
   return addon;
 }
 
-// TODO: fix reducer for new action payload and use switch cases.
+const initialState = {};
+
+type AddonState = {
+  [addonSlug: string]: AddonType,
+};
+
 export default function addonsReducer(
   state: AddonState = initialState,
   action: LoadAddonsAction
