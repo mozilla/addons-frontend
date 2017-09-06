@@ -77,7 +77,9 @@ export function removeUndefinedProps(object: Object): Object {
   return newObject;
 }
 
-export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
+export function createInternalAddon(
+  apiAddon: ExternalAddonType
+): AddonType {
   let addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
@@ -92,9 +94,6 @@ export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
     has_privacy_policy: apiAddon.has_privacy_policy,
     homepage: apiAddon.homepage,
     icon_url: apiAddon.icon_url,
-    // TODO: remove this if possible. I think it was added by mistake
-    // but there are some things relying on it :/
-    iconUrl: apiAddon.icon_url,
     id: apiAddon.id,
     is_disabled: apiAddon.is_disabled,
     is_experimental: apiAddon.is_experimental,
@@ -119,6 +118,11 @@ export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
     weekly_downloads: apiAddon.weekly_downloads,
 
     // These are custom properties not in the API response.
+
+    // TODO: remove this if possible. I think it was added by mistake
+    // but there are some things relying on it :/
+    iconUrl: apiAddon.icon_url,
+
     isRestartRequired: false,
   };
 
@@ -132,6 +136,7 @@ export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
         accentcolor: apiAddon.theme_data.accentcolor,
         author: apiAddon.theme_data.author,
         category: apiAddon.theme_data.category,
+
         // TODO: Set this back to apiAddon.theme_data.description after
         // https://github.com/mozilla/addons-frontend/issues/1416
         // is fixed.
@@ -142,6 +147,7 @@ export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
         //
         // See also https://github.com/mozilla/addons-server/issues/5650.
         description: apiAddon.description,
+
         detailURL: apiAddon.theme_data.detailURL,
         footer: apiAddon.theme_data.footer,
         footerURL: apiAddon.theme_data.footerURL,
@@ -159,6 +165,8 @@ export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
   }
 
   if (apiAddon.current_version && apiAddon.current_version.files.length > 0) {
+    // TODO: support specific platform files.
+    // See https://github.com/mozilla/addons-frontend/issues/2998
     addon.installURL = apiAddon.current_version.files[0].url || '';
     addon.isRestartRequired = apiAddon.current_version.files.some(
       (file) => !!file.is_restart_required
@@ -190,7 +198,7 @@ export default function addonsReducer(
       const { addons } = action.payload;
       const newState = { ...state };
       Object.keys(addons).forEach((key) => {
-        newState[key] = flattenApiAddon(addons[key]);
+        newState[key] = createInternalAddon(addons[key]);
       });
       return newState;
     }
