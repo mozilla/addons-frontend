@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-05 19:23+0000\n"
+"PO-Revision-Date: 2017-09-06 17:03+0000\n"
 "Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -553,7 +553,7 @@ msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:82
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:83
 msgid "Linux"
