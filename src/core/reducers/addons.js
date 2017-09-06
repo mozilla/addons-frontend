@@ -98,7 +98,8 @@ export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
     has_privacy_policy: apiAddon.has_privacy_policy,
     homepage: apiAddon.homepage,
     icon_url: apiAddon.icon_url,
-    // TODO: remove this if possible. It was added by mistake.
+    // TODO: remove this if possible. I think it was added by mistake
+    // but there are some things relying on it :/
     iconUrl: apiAddon.icon_url,
     id: apiAddon.id,
     is_disabled: apiAddon.is_disabled,

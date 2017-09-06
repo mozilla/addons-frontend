@@ -109,9 +109,10 @@ type BaseAddonType = {|
  */
 export type AddonType = {
   ...BaseAddonType,
-  // TODO: let's stop merging this in :(
+  // TODO: Let's stop merging this in because it's confusing. Lots of
+  // DiscoPane code will need to be carefully fixed.
   ...ThemeData,
-  // TODO: remove this when we can.
+  // Here are some custom properties for our internal representation.
   iconUrl: string,
   installURL?: string,
   isRestartRequired: boolean,
