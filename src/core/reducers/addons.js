@@ -1,10 +1,10 @@
 /* @flow */
-import { ADDONS_LOADED, ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 
-// TODO: move ADDONS_LOADED here.
+export const ADDONS_LOADED = 'ADDONS_LOADED';
 export const FETCH_ADDON = 'FETCH_ADDON';
 
 const initialState = {};

@@ -2,8 +2,9 @@ import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api';
-import { ADDONS_LOADED } from 'core/constants';
-import addonsReducer, { fetchAddon } from 'core/reducers/addons';
+import addonsReducer, {
+  ADDONS_LOADED, fetchAddon,
+} from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import addonsSaga from 'core/sagas/addons';
 import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
