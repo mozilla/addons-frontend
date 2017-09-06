@@ -1,7 +1,7 @@
 /* @flow */
 import { ADDONS_LOADED, ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { AddonType } from 'core/types/addons';
+import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 
 // TODO: move ADDONS_LOADED here.
@@ -9,15 +9,18 @@ export const FETCH_ADDON = 'FETCH_ADDON';
 
 const initialState = {};
 
+type ExternalAddonMap = {
+  [addonSlug: string]: ExternalAddonType,
+};
+
 export type LoadAddonsAction = {|
-  // TODO: fix flow type
-  payload: {| addons: Array<Object> |},
+  payload: {| addons: ExternalAddonMap |},
   type: string,
 |};
 
-// TODO: update the Flow type.
-// I think it should be: addons: { [slug: string]: ApiAddonType }
-export function loadAddons(entities: Array<Object>): LoadAddonsAction {
+export function loadAddons(
+  entities: {| addons?: ExternalAddonMap |}
+): LoadAddonsAction {
   if (!entities) {
     throw new Error('the entities parameter cannot be empty');
   }
@@ -32,7 +35,6 @@ export function loadAddons(entities: Array<Object>): LoadAddonsAction {
 }
 
 // TODO: fix Flow types
-type Action = Object;
 type AddonState = Object;
 
 type FetchAddonParams = {|
@@ -61,7 +63,7 @@ export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddon
   };
 }
 
-export function getGuid(addon: AddonType) {
+export function getGuid(addon: ExternalAddonType): string {
   if (addon.type === ADDON_TYPE_THEME) {
     // This mimics how Firefox appends @personas.mozilla.org internally.
     // It's needed to look up themes in mozAddonManager.
@@ -70,7 +72,7 @@ export function getGuid(addon: AddonType) {
   return addon.guid;
 }
 
-export function removeUndefinedProps(object) {
+export function removeUndefinedProps(object: Object): Object {
   const newObject = {};
   Object.keys(object).forEach((key) => {
     if (typeof object[key] !== 'undefined') {
@@ -80,33 +82,35 @@ export function removeUndefinedProps(object) {
   return newObject;
 }
 
-// TODO: make APIAddonType for Flow
-export function flattenApiAddon(apiAddon: AddonType) {
+export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
   // TODO: remove unused fields after adding Flow types.
-  let addon = {
+  let addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
     categories: apiAddon.categories,
     current_beta_version: apiAddon.current_beta_version,
     current_version: apiAddon.current_version,
-    description: apiAddon.description,
     default_locale: apiAddon.default_locale,
+    description: apiAddon.description,
     edit_url: apiAddon.edit_url,
     guid: getGuid(apiAddon),
     has_eula: apiAddon.has_eula,
     has_privacy_policy: apiAddon.has_privacy_policy,
     homepage: apiAddon.homepage,
-    id: apiAddon.id,
     icon_url: apiAddon.icon_url,
+    // TODO: remove this if possible. It was added by mistake.
+    iconUrl: apiAddon.icon_url,
+    id: apiAddon.id,
     is_disabled: apiAddon.is_disabled,
     is_experimental: apiAddon.is_experimental,
     is_featured: apiAddon.is_featured,
     is_source_public: apiAddon.is_source_public,
-    last_udpated: apiAddon.last_udpated,
+    last_updated: apiAddon.last_updated,
+    latest_unlisted_version: apiAddon.latest_unlisted_version,
     name: apiAddon.name,
     previews: apiAddon.previews,
     public_stats: apiAddon.public_stats,
-    ratings: apiAddon.ratings,
+    ratings: apiAddon.ratings || undefined,
     requires_payment: apiAddon.requires_payment,
     review_url: apiAddon.review_url,
     slug: apiAddon.slug,
@@ -160,19 +164,11 @@ export function flattenApiAddon(apiAddon: AddonType) {
   }
 
   if (apiAddon.current_version && apiAddon.current_version.files.length > 0) {
-    addon = {
-      ...addon,
-      // TODO: fix this to support multiple platforms.
-      // https://github.com/mozilla/addons-frontend/issues/2998
-      installURL: apiAddon.current_version.files[0].url || '',
-      isRestartRequired: apiAddon.current_version.files.some(
-        (file) => !!file.is_restart_required
-      ),
-    };
+    addon.installURL = apiAddon.current_version.files[0].url || '';
+    addon.isRestartRequired = apiAddon.current_version.files.some(
+      (file) => !!file.is_restart_required
+    );
   }
-
-  // TODO: remove this if possible. It was added by mistake.
-  addon.iconUrl = addon.icon_url;
 
   // Remove undefined properties entirely. This is for some legacy code
   // in Discopane that relies on spreads to combine a Discopane result
@@ -187,7 +183,7 @@ export function flattenApiAddon(apiAddon: AddonType) {
 // TODO: fix reducer for new action payload and use switch cases.
 export default function addonsReducer(
   state: AddonState = initialState,
-  action: Action = {}
+  action: LoadAddonsAction
 ) {
   switch (action.type) {
     case ADDONS_LOADED: {

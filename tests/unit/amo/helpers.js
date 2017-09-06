@@ -51,7 +51,7 @@ export const fakeAddon = Object.freeze({
   is_experimental: false,
   is_featured: false,
   is_source_public: true,
-  last_udpated: '2014-11-22T10:09:01Z',
+  last_updated: '2014-11-22T10:09:01Z',
   name: 'Chill Out',
   previews: [{
     id: 1234778,

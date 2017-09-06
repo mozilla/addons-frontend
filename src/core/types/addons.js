@@ -20,15 +20,37 @@ export type AddonAuthorType = {|
   url: string,
 |};
 
-export type AddonType = {|
+type ThemeData = {|
+  accentcolor?: string,
+  author?: string,
+  category?: string,
+  description?: string,
+  detailURL?: string,
+  footer?: string,
+  footerURL?: string,
+  header?: string,
+  headerURL?: string,
+  iconURL?: string,
+  id?: number,
+  name?: string,
+  previewURL?: string,
+  textcolor?: string,
+  updateURL?: string,
+  version?: string,
+|};
+
+/*
+ * This defines common fields that are shared between detailed
+ * representations of add-ons.
+ */
+type BaseAddonType = {|
   authors: Array<AddonAuthorType>,
   average_daily_users: number,
   categories: Object,
-  compatibility: Object,
   current_beta_version?: AddonVersionType,
   current_version: AddonVersionType,
   default_locale: string,
-  description?: string,
+  description: string,
   edit_url: string,
   guid: string,
   has_eula: boolean,
@@ -50,6 +72,7 @@ export type AddonType = {|
     bayesian_average: number,
     count: number,
   |},
+  requires_payment: boolean,
   review_url: string,
   slug: string,
   status:
@@ -69,8 +92,37 @@ export type AddonType = {|
   support_email?: string,
   support_url?: string,
   tags: Array<string>,
-  theme_data: Object,
+  theme_data?: ThemeData,
   type: AddonTypeType,
   url: string,
   weekly_downloads: number,
+|};
+
+/*
+ * This is our internal representation of an add-on, found in Redux state.
+ *
+ * This will not include all fields from an actual add-on API response.
+ *
+ * TODO: for better protection, turn this into an Exact Type. This is
+ * not currently possible because of:
+ * https://github.com/facebook/flow/issues/4818
+ */
+export type AddonType = {
+  ...BaseAddonType,
+  // TODO: let's stop merging this in :(
+  ...ThemeData,
+  // TODO: remove this when we can.
+  iconUrl: string,
+  installURL?: string,
+  isRestartRequired: boolean,
+};
+
+/*
+ * This is the external API representation of an add-on.
+ *
+ * This is a detailed API response. Not all API responses
+ * include this amount of detail.
+ */
+export type ExternalAddonType = {|
+  ...BaseAddonType,
 |};
