@@ -4,7 +4,7 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import { loadEntities } from 'core/actions';
+import { loadAddons } from 'core/reducers/addons';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { loadDiscoResults } from 'disco/actions';
@@ -20,7 +20,7 @@ export function* fetchDiscoveryAddons({ payload: { errorHandlerId } }) {
       api: state.api,
     });
 
-    yield put(loadEntities(entities));
+    yield put(loadAddons(entities));
     yield put(loadDiscoResults({ entities, result }));
   } catch (error) {
     log.warn(`Failed to fetch discovery add-ons: ${error}`);

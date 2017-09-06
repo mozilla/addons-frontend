@@ -1,6 +1,5 @@
 /* @flow */
 import {
-  ADDONS_LOADED,
   LOG_OUT_USER,
   SET_AUTH_TOKEN,
   SET_CLIENT_APP,
@@ -67,18 +66,5 @@ export function setUserAgent(userAgent: string): SetUserAgentAction {
   return {
     type: SET_USER_AGENT,
     payload: { userAgent },
-  };
-}
-
-export type LoadEntitiesAction = {|
-  payload: {| entities: Array<Object> |},
-  type: string,
-|};
-
-// TODO: move this to loadAddons
-export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
-  return {
-    type: ADDONS_LOADED,
-    payload: { entities },
   };
 }

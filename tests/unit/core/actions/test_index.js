@@ -36,13 +36,3 @@ describe('core actions setUserAgent', () => {
     });
   });
 });
-
-// TODO: move to reducers/test_addons
-describe('loadEntities', () => {
-  const entities = sinon.stub();
-  const action = actions.loadEntities(entities);
-
-  it('sets the payload', () => {
-    expect(action.payload).toEqual({ entities });
-  });
-});

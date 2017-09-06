@@ -1,7 +1,10 @@
-import { loadEntities } from 'core/actions';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
-  fetchAddon, flattenApiAddon, getGuid, removeUndefinedProps,
+  fetchAddon,
+  flattenApiAddon,
+  getGuid,
+  loadAddons,
+  removeUndefinedProps,
 } from 'core/reducers/addons';
 import {
   createFetchAddonResult,
@@ -16,18 +19,18 @@ import {
 describe(__filename, () => {
   it('ignores unrelated actions', () => {
     const firstState = addons(undefined,
-      loadEntities(createFetchAddonResult(fakeAddon).entities));
+      loadAddons(createFetchAddonResult(fakeAddon).entities));
     expect(addons(firstState, { type: 'UNRELATED_ACTION' }))
       .toEqual(firstState);
   });
 
   it('stores addons from entities', () => {
     const firstState = addons(undefined,
-      loadEntities(createFetchAddonResult(fakeAddon).entities));
+      loadAddons(createFetchAddonResult(fakeAddon).entities));
 
     const anotherFakeAddon = { ...fakeAddon, slug: 'testing1234', id: 6401 };
     const newState = addons(firstState,
-      loadEntities(createFetchAddonResult(anotherFakeAddon).entities));
+      loadAddons(createFetchAddonResult(anotherFakeAddon).entities));
 
     expect(newState).toEqual({
       ...firstState,
@@ -45,15 +48,22 @@ describe(__filename, () => {
       { ...fakeAddon, slug: 'second-slug' },
     ];
     const state = addons(undefined,
-      loadEntities(createFetchAllAddonsResult(addonResults).entities));
+      loadAddons(createFetchAllAddonsResult(addonResults).entities));
     expect(Object.keys(state).sort())
       .toEqual(['first-slug', 'second-slug']);
+  });
+
+  it('ignores empty results', () => {
+    const addonResults = [];
+    const state = addons(undefined,
+      loadAddons(createFetchAllAddonsResult(addonResults).entities));
+    expect(Object.keys(state)).toEqual([]);
   });
 
   it('stores a modified extension object', () => {
     const extension = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(extension).entities));
+      loadAddons(createFetchAddonResult(extension).entities));
 
     expect(state[extension.slug]).toEqual({
       ...extension,
@@ -66,7 +76,7 @@ describe(__filename, () => {
   it('stores a modified theme object', () => {
     const theme = { ...fakeTheme };
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(theme).entities));
+      loadAddons(createFetchAddonResult(theme).entities));
 
     const expectedTheme = {
       ...theme,
@@ -92,7 +102,7 @@ describe(__filename, () => {
       },
     };
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(theme).entities));
+      loadAddons(createFetchAddonResult(theme).entities));
 
     expect(state[theme.slug].id).toEqual(theme.id);
   });
@@ -100,7 +110,7 @@ describe(__filename, () => {
   it('does not store undefined properties', () => {
     const extension = { ...fakeAddon, description: undefined };
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(extension).entities));
+      loadAddons(createFetchAddonResult(extension).entities));
 
     // eslint-disable-next-line no-prototype-builtins
     expect(state[extension.slug].hasOwnProperty('description'))
@@ -109,7 +119,7 @@ describe(__filename, () => {
 
   it('mimics how Firefox appends @persona.mozilla.org to GUIDs', () => {
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(fakeTheme).entities));
+      loadAddons(createFetchAddonResult(fakeTheme).entities));
 
     expect(state[fakeTheme.slug].guid)
       .toEqual('54321@personas.mozilla.org');
@@ -125,7 +135,7 @@ describe(__filename, () => {
       },
     };
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(addon).entities));
+      loadAddons(createFetchAddonResult(addon).entities));
     expect(state[addon.slug].installURL).toEqual('https://a.m.o/download.xpi');
   });
 
@@ -135,7 +145,7 @@ describe(__filename, () => {
       icon_url: 'http://foo.com/img.png',
     };
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(addon).entities));
+      loadAddons(createFetchAddonResult(addon).entities));
     expect(state[addon.slug].iconUrl).toEqual(addon.icon_url);
   });
 
@@ -154,7 +164,7 @@ describe(__filename, () => {
       },
     };
     const state = addons(
-      {}, loadEntities(createFetchAddonResult(theme).entities));
+      {}, loadAddons(createFetchAddonResult(theme).entities));
 
     expect(state[theme.slug].description).toBe(null);
   });
@@ -167,7 +177,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(addon).entities));
+      loadAddons(createFetchAddonResult(addon).entities));
     expect(state[addon.slug].isRestartRequired).toBe(true);
   });
 
@@ -179,7 +189,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(addon).entities));
+      loadAddons(createFetchAddonResult(addon).entities));
     expect(state[addon.slug].isRestartRequired).toBe(false);
   });
 
@@ -187,7 +197,7 @@ describe(__filename, () => {
     const addon = createFakeAddon({ files: [] });
 
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(addon).entities));
+      loadAddons(createFetchAddonResult(addon).entities));
     expect(state[addon.slug].isRestartRequired).toBe(false);
   });
 
@@ -200,7 +210,7 @@ describe(__filename, () => {
     });
 
     const state = addons(undefined,
-      loadEntities(createFetchAddonResult(addon).entities));
+      loadAddons(createFetchAddonResult(addon).entities));
     expect(state[addon.slug].isRestartRequired).toBe(true);
   });
 
@@ -222,6 +232,19 @@ describe(__filename, () => {
       delete params.slug;
       expect(() => fetchAddon(params))
         .toThrowError(/slug cannot be empty/);
+    });
+  });
+
+  describe('loadAddons', () => {
+    it('requires entities', () => {
+      expect(() => loadAddons())
+        .toThrow(/entities parameter cannot be empty/);
+    });
+
+    it('allows a missing addons property', () => {
+      // This could happen when there are zero results from an API request.
+      expect(loadAddons({}))
+        .toMatchObject({ payload: { addons: {} } });
     });
   });
 

@@ -11,8 +11,9 @@ import {
 } from 'amo/components/AddonReviewList';
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
-import { loadEntities } from 'core/actions';
-import { fetchAddon, flattenApiAddon } from 'core/reducers/addons';
+import {
+  fetchAddon, flattenApiAddon, loadAddons,
+} from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
@@ -344,13 +345,13 @@ describe('amo/components/AddonReviewList', () => {
     }
 
     it('loads addon from state', () => {
-      store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps();
       expect(props.addon).toEqual(flattenApiAddon(fakeAddon));
     });
 
     it('ignores other add-ons', () => {
-      store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps({ addonSlug: 'other-slug' });
       expect(props.addon).toBe(undefined);
     });

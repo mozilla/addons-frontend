@@ -1,12 +1,35 @@
 /* @flow */
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDONS_LOADED, ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 
 
+// TODO: move ADDONS_LOADED here.
 export const FETCH_ADDON = 'FETCH_ADDON';
 
 const initialState = {};
+
+export type LoadAddonsAction = {|
+  // TODO: fix flow type
+  payload: {| addons: Array<Object> |},
+  type: string,
+|};
+
+// TODO: update the Flow type.
+// I think it should be: addons: { [slug: string]: ApiAddonType }
+export function loadAddons(entities: Array<Object>): LoadAddonsAction {
+  if (!entities) {
+    throw new Error('the entities parameter cannot be empty');
+  }
+  return {
+    type: ADDONS_LOADED,
+    // TODO: after https://github.com/mozilla/addons-frontend/issues/2917
+    // hopefully this can be a little less fragile. Right now if the
+    // caller passes in an incorrect `entities` then we have no way of
+    // throwing an error.
+    payload: { addons: entities.addons || {} },
+  };
+}
 
 // TODO: fix Flow types
 type Action = Object;
@@ -161,18 +184,21 @@ export function flattenApiAddon(apiAddon: AddonType) {
   return addon;
 }
 
+// TODO: fix reducer for new action payload and use switch cases.
 export default function addonsReducer(
   state: AddonState = initialState,
   action: Action = {}
 ) {
-  const { payload } = action;
-
-  if (payload && payload.entities && payload.entities.addons) {
-    const newState = { ...state };
-    Object.keys(payload.entities.addons).forEach((key) => {
-      newState[key] = flattenApiAddon(payload.entities.addons[key]);
-    });
-    return newState;
+  switch (action.type) {
+    case ADDONS_LOADED: {
+      const { addons } = action.payload;
+      const newState = { ...state };
+      Object.keys(addons).forEach((key) => {
+        newState[key] = flattenApiAddon(addons[key]);
+      });
+      return newState;
+    }
+    default:
+      return state;
   }
-  return state;
 }
