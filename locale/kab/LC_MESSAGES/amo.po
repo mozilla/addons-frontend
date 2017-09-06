@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-06 11:49+0000\n"
+"PO-Revision-Date: 2017-09-06 12:07+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -15,19 +15,16 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/Addon/index.js:111
-#, fuzzy
 msgid "Featured Extension"
 msgstr "Isiɣzaf yettwaszemlen"
 
 #: src/amo/components/Addon/index.js:113
-#, fuzzy
 msgid "Featured Theme"
 msgstr "Isental itran"
 
 #: src/amo/components/Addon/index.js:115
-#, fuzzy
 msgid "Featured Add-on"
-msgstr "Izegrar Firefox"
+msgstr "Izegrar itran"
 
 #: src/amo/components/Addon/index.js:132
 msgid "Cancel preview"
@@ -56,9 +53,8 @@ msgid "About this %(addonType)s"
 msgstr "Ɣef %(addonType)s-agi"
 
 #: src/amo/components/Addon/index.js:255
-#, fuzzy
 msgid "Release notes for %(addonVersion)s"
-msgstr "Iceggiren i %(addonName)s"
+msgstr "Iceggiren i %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:308
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -66,7 +62,7 @@ msgstr "%(addonName)s %(startSpan)ssɣuṛ %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:353
 msgid "Restart Required"
-msgstr ""
+msgstr "Asenker tikelt nniḍen yettwasra"
 
 #: src/amo/components/Addon/index.js:371
 msgid "Extension Metadata"
@@ -241,9 +237,8 @@ msgid "Browse all themes in this category."
 msgstr "Inig ɣer akk isental di teggayt-a."
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38
-#, fuzzy
 msgid "Download Firefox"
-msgstr "Izegrar i Firefox"
+msgstr "Sider Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -515,7 +510,6 @@ msgid "Filter results"
 msgstr "Igmaḍ n unadi"
 
 #: src/amo/components/SearchFilters/index.js:110
-#, fuzzy
 msgid "Sort by"
 msgstr "Smizzwer"
 
@@ -572,7 +566,7 @@ msgstr "Yettwasezmel aṭas"
 
 #: src/amo/components/SearchForm/index.js:174
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Ddu ɣer usebter n izegrar"
 
 #: src/amo/components/SearchForm/index.js:191
 #, fuzzy
@@ -648,7 +642,7 @@ msgstr "Tufɣa"
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"
-msgstr ""
+msgstr "Jerred neγ kcem"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -736,7 +730,7 @@ msgstr "Smiren akken ad tkemmleḍ"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Ldi/Mdel igburen"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
