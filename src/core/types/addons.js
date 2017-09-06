@@ -40,10 +40,12 @@ type ThemeData = {|
 |};
 
 /*
- * This defines common fields that are shared between detailed
- * representations of add-ons.
+ * This is the external API representation of an add-on.
+ *
+ * This is a detailed API response. Not all API responses
+ * include this amount of detail.
  */
-type BaseAddonType = {|
+export type ExternalAddonType = {|
   authors: Array<AddonAuthorType>,
   average_daily_users: number,
   categories: Object,
@@ -101,29 +103,15 @@ type BaseAddonType = {|
 /*
  * This is our internal representation of an add-on, found in Redux state.
  *
- * This will not include all fields from an actual add-on API response.
- *
  * TODO: for better protection, turn this into an Exact Type. This is
  * not currently possible because of:
  * https://github.com/facebook/flow/issues/4818
  */
 export type AddonType = {
-  ...BaseAddonType,
-  // TODO: Let's stop merging this in because it's confusing. Lots of
-  // DiscoPane code will need to be carefully fixed.
+  ...ExternalAddonType,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
   iconUrl: string,
   installURL?: string,
   isRestartRequired: boolean,
 };
-
-/*
- * This is the external API representation of an add-on.
- *
- * This is a detailed API response. Not all API responses
- * include this amount of detail.
- */
-export type ExternalAddonType = {|
-  ...BaseAddonType,
-|};

@@ -127,9 +127,9 @@ export function createInternalAddon(
   };
 
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
-    // Merge in theme_data. This overwrites add-on properties.
-    // We should not do this but there are lots of components to
-    // fix first.
+    // This merges theme_data into the addon.
+    // TODO: Let's stop doing that because it's confusing. Lots of
+    // deep button / install code will need to be fixed.
     addon = {
       ...addon,
       ...removeUndefinedProps({

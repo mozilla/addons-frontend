@@ -1,7 +1,7 @@
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import addons, {
+  createInternalAddon,
   fetchAddon,
-  flattenApiAddon,
   getGuid,
   loadAddons,
   removeUndefinedProps,
@@ -35,7 +35,7 @@ describe(__filename, () => {
     expect(newState).toEqual({
       ...firstState,
       [anotherFakeAddon.slug]: {
-        ...flattenApiAddon(anotherFakeAddon),
+        ...createInternalAddon(anotherFakeAddon),
         installURL: '',
         isRestartRequired: false,
       },

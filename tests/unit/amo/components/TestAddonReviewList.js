@@ -12,7 +12,7 @@ import {
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
 import {
-  fetchAddon, flattenApiAddon, loadAddons,
+  fetchAddon, createInternalAddon, loadAddons,
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import Rating from 'ui/components/Rating';
@@ -347,7 +347,7 @@ describe('amo/components/AddonReviewList', () => {
     it('loads addon from state', () => {
       store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps();
-      expect(props.addon).toEqual(flattenApiAddon(fakeAddon));
+      expect(props.addon).toEqual(createInternalAddon(fakeAddon));
     });
 
     it('ignores other add-ons', () => {
