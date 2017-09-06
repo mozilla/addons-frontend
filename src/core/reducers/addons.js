@@ -178,7 +178,7 @@ export function flattenApiAddon(apiAddon: AddonType) {
   // in Discopane that relies on spreads to combine a Discopane result
   // (which has a header and description) with a minimal add-on object.
   // For example, the minimal add-on object does not have a description
-  // property; the spread should not override `description`.
+  // property so the spread should not override `description`.
   addon = removeUndefinedProps(addon);
 
   return addon;
