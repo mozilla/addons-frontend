@@ -83,7 +83,6 @@ export function removeUndefinedProps(object: Object): Object {
 }
 
 export function flattenApiAddon(apiAddon: ExternalAddonType): AddonType {
-  // TODO: remove unused fields after adding Flow types.
   let addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
