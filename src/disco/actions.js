@@ -17,8 +17,6 @@ export function loadDiscoResults({ entities, result } = {}) {
   if (!result) {
     throw new Error('result parameter is required');
   }
-  // TODO: change payload to entities.discoResults so it can throw an
-  // error if discoResults is missing?
   return {
     type: LOAD_DISCO_RESULTS,
     payload: { entities, result },
