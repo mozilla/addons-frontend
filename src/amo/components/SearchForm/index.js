@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Autosuggest from 'react-autosuggest';
 import { withRouter } from 'react-router';
-import defaultDebounce from 'simple-debounce';
+import defaultDebounce from 'lodash.debounce';
 import deepEqual from 'deep-eql';
 
 import Suggestion from 'amo/components/SearchSuggestion';
@@ -144,7 +144,9 @@ export class SearchFormBase extends React.Component {
         filters,
       }));
     });
-  }, 200)
+  // Configure debounce (200ms) with `leading: true` so that the method is
+  // triggered immediately and subsequent calls are debounced.
+  }, 200, { leading: true, trailing: false })
 
   handleSuggestionsClearRequested = () => {
     this.props.dispatch(autocompleteCancel());
@@ -180,7 +182,6 @@ export class SearchFormBase extends React.Component {
     const {
       addonType,
       api,
-      autocompleteIsOpen,
       className,
       i18n,
       pathname,
@@ -207,6 +208,9 @@ export class SearchFormBase extends React.Component {
       type: 'search',
       value: this.state.searchValue,
     };
+
+    const autocompleteIsOpen = this.props.autocompleteIsOpen &&
+      this.state.searchValue.length > 0;
 
     return (
       <form

@@ -2,7 +2,7 @@
 /* eslint-disable react/sort-comp */
 /* global $Shape, Event, HTMLInputElement, Node */
 import { oneLine } from 'common-tags';
-import defaultDebounce from 'simple-debounce';
+import defaultDebounce from 'lodash.debounce';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
