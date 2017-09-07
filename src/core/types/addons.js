@@ -42,8 +42,10 @@ type ThemeData = {|
 /*
  * This is the external API representation of an add-on.
  *
- * This is a detailed API response. Not all API responses
- * include this amount of detail.
+ * This is a detailed API response. Not all API responses which return
+ * add-ons will include this amount of detail.
+ *
+ * See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#detail
  */
 export type ExternalAddonType = {|
   authors: Array<AddonAuthorType>,
