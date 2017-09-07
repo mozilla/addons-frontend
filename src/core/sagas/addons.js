@@ -7,9 +7,8 @@ import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import { loadEntities } from 'core/actions';
 import { fetchAddon as fetchAddonFromApi } from 'core/api';
-import { FETCH_ADDON } from 'core/reducers/addons';
+import { FETCH_ADDON, loadAddons } from 'core/reducers/addons';
 import log from 'core/logger';
 import type { FetchAddonAction } from 'core/reducers/addons';
 
@@ -25,7 +24,7 @@ export function* fetchAddon(
     yield put(showLoading());
     const state = yield select(getState);
     const response = yield call(fetchAddonFromApi, { api: state.api, slug });
-    yield put(loadEntities(response.entities));
+    yield put(loadAddons(response.entities));
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));

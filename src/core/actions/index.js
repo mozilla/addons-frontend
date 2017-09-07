@@ -1,6 +1,5 @@
 /* @flow */
 import {
-  ENTITIES_LOADED,
   LOG_OUT_USER,
   SET_AUTH_TOKEN,
   SET_CLIENT_APP,
@@ -67,17 +66,5 @@ export function setUserAgent(userAgent: string): SetUserAgentAction {
   return {
     type: SET_USER_AGENT,
     payload: { userAgent },
-  };
-}
-
-export type LoadEntitiesAction = {|
-  payload: {| entities: Array<Object> |},
-  type: string,
-|};
-
-export function loadEntities(entities: Array<Object>): LoadEntitiesAction {
-  return {
-    type: ENTITIES_LOADED,
-    payload: { entities },
   };
 }

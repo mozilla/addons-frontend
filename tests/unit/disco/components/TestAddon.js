@@ -39,7 +39,7 @@ function renderAddon(customProps = {}) {
   return shallow(<AddonBase {...props} />);
 }
 
-describe('<Addon />', () => {
+describe(__filename, () => {
   let fakeEvent;
   const _state = loadDiscoResultsIntoState([{
     heading: 'test-heading',

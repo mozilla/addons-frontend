@@ -24,8 +24,9 @@ import RatingManager, {
   RatingManagerWithI18n,
 } from 'amo/components/RatingManager';
 import createStore from 'amo/store';
-import { loadEntities } from 'core/actions';
-import { fetchAddon as fetchAddonAction } from 'core/reducers/addons';
+import {
+  fetchAddon as fetchAddonAction, loadAddons,
+} from 'core/reducers/addons';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
@@ -761,7 +762,7 @@ describe('mapStateToProps', () => {
   }
 
   function fetchAddon({ addon = fakeAddon } = {}) {
-    store.dispatch(loadEntities(createFetchAddonResult(addon).entities));
+    store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
   }
 
   function _mapStateToProps(

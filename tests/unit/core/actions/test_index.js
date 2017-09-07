@@ -36,16 +36,3 @@ describe('core actions setUserAgent', () => {
     });
   });
 });
-
-describe('ENTITIES_LOADED', () => {
-  const entities = sinon.stub();
-  const action = actions.loadEntities(entities);
-
-  it('sets the type', () => {
-    expect(action.type).toEqual('ENTITIES_LOADED');
-  });
-
-  it('sets the payload', () => {
-    expect(action.payload).toEqual({ entities });
-  });
-});

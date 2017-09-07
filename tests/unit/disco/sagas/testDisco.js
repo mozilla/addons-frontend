@@ -1,7 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
-import { loadEntities } from 'core/actions';
-import addonsReducer from 'core/reducers/addons';
+import addonsReducer, { loadAddons } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import * as api from 'disco/api';
 import { getDiscoResults, loadDiscoResults } from 'disco/actions';
@@ -80,7 +79,7 @@ describe(__filename, () => {
 
       const calledActions = sagaTester.getCalledActions();
 
-      expect(calledActions[1]).toEqual(loadEntities(entities));
+      expect(calledActions[1]).toEqual(loadAddons(entities));
       expect(calledActions[2]).toEqual(expectedLoadAction);
     });
 

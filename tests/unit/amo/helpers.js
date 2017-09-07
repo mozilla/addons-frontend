@@ -6,7 +6,9 @@ import {
   setClientApp, setLang, setAuthToken, setUserAgent,
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
-import { ADDON_TYPE_THEME, CLIENT_APP_FIREFOX } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, CLIENT_APP_FIREFOX,
+} from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
 import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
 import { loadUserProfile } from 'core/reducers/user';
@@ -20,16 +22,13 @@ import {
 } from '../helpers';
 
 export const fakeAddon = Object.freeze({
-  id: 1234,
-  guid: '1234@my-addons.firefox',
-  name: 'Chill Out',
-  icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
-  slug: 'chill-out',
-  average_daily_users: 100,
   authors: [{
     name: 'Krupa',
     url: 'http://olympia.dev/en-US/firefox/user/krupa/',
   }],
+  average_daily_users: 100,
+  categories: { firefox: ['other'] },
+  current_beta_version: null,
   current_version: {
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
@@ -39,18 +38,75 @@ export const fakeAddon = Object.freeze({
     }],
     is_strict_compatibility_enabled: false,
   },
-  previews: [],
+  description: 'This is a longer description of the chill out add-on',
+  default_locale: 'en-US',
+  edit_url: 'https://addons.m.o/addon/chill-out/edit',
+  guid: '1234@my-addons.firefox',
+  has_eula: true,
+  has_privacy_policy: true,
+  homepage: 'http://hamsterdance.com/',
+  id: 1234,
+  icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',
+  is_disabled: false,
+  is_experimental: false,
+  is_featured: false,
+  is_source_public: true,
+  last_updated: '2014-11-22T10:09:01Z',
+  name: 'Chill Out',
+  previews: [{
+    id: 1234778,
+    caption: 'Chill out control panel',
+    image_url: 'https://addons.cdn.mozilla.net/123/image.png',
+    thumbnail_url: 'https://addons.cdn.mozilla.net/7123/image.png',
+  }],
+  public_stats: true,
   ratings: {
     count: 10,
     average: 3.5,
   },
+  requires_payment: false,
+  review_url: 'https://addons.m.o/en-US/editors/review/2377',
+  slug: 'chill-out',
+  status: 'public',
   summary: 'This is a summary of the chill out add-on',
-  description: 'This is a longer description of the chill out add-on',
-  has_privacy_policy: true,
-  has_eula: true,
-  homepage: 'http://hamsterdance.com/',
+  support_email: null,
   support_url: 'http://support.hampsterdance.com/',
-  type: 'extension',
+  tags: ['chilling'],
+  type: ADDON_TYPE_EXTENSION,
+  url: 'https://addons.m.o/addon/chill-out/',
+  weekly_downloads: 900023,
+});
+
+export const fakeTheme = Object.freeze({
+  ...fakeAddon,
+  authors: [{
+    name: 'Madonna',
+    url: 'http://olympia.dev/en-US/firefox/user/madonna/',
+  }],
+  description: 'This is the add-on description',
+  guid: 'dancing-daisies-theme@my-addons.firefox',
+  id: 54321,
+  name: 'Dancing Daisies by MaDonna',
+  slug: 'dancing-daisies',
+  theme_data: {
+    accentcolor: '#71eafa',
+    author: 'MaDonna',
+    category: 'Nature',
+    description: 'This is theme_data description',
+    detailURL: 'https://addons.m/o/dancing-daisies-by-madonna/',
+    footer: 'https://addons.cdn.mozilla.net/610804/footer.png',
+    footerURL: 'https://addons.cdn.mozilla.net/610804/footer.png',
+    header: 'https://addons.cdn.mozilla.net/610804/header.png',
+    headerURL: 'https://addons.cdn.mozilla.net/610804/header.png',
+    iconURL: 'https://addons.cdn.mozilla.net/610804/icon.png',
+    id: 54321,
+    name: 'Dancing Daisies by MaDonna',
+    previewURL: 'https://addons.cdn.mozilla.net/610804/preview.png',
+    textcolor: '#ffffff',
+    updateURL: 'https://versioncheck.m.o/themes/update-check/610804',
+    version: '1.0',
+  },
+  type: ADDON_TYPE_THEME,
 });
 
 export const fakeReview = Object.freeze({

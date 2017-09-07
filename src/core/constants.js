@@ -108,7 +108,6 @@ export const OS_ANDROID = 'android';
 export const CATEGORIES_FETCH = 'CATEGORIES_FETCH';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
-export const ENTITIES_LOADED = 'ENTITIES_LOADED';
 export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';
 export const LANDING_GET = 'LANDING_GET';

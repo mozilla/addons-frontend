@@ -8,7 +8,7 @@ import mozCompare from 'mozilla-version-comparator';
 import React from 'react';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
 
-import { loadEntities } from 'core/actions';
+import { loadAddons } from 'core/reducers/addons';
 import { fetchAddon } from 'core/api';
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
@@ -129,7 +129,7 @@ export function findAddon(state, slug) {
 
 export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
   return fetchAddon({ slug: addonSlug, api: apiState })
-    .then(({ entities }) => dispatch(loadEntities(entities)));
+    .then(({ entities }) => dispatch(loadAddons(entities)));
 }
 
 // asyncConnect() helper for loading an add-on by slug.
