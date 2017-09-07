@@ -8,7 +8,7 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import { fetchAddon as fetchAddonFromApi } from 'core/api';
-import { loadAddons, FETCH_ADDON } from 'core/reducers/addons';
+import { FETCH_ADDON, loadAddons } from 'core/reducers/addons';
 import log from 'core/logger';
 import type { FetchAddonAction } from 'core/reducers/addons';
 
