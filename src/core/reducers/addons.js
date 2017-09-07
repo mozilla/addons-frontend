@@ -4,7 +4,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 
-export const ADDONS_LOADED = 'ADDONS_LOADED';
+export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
 
 type ExternalAddonMap = {
@@ -23,7 +23,7 @@ export function loadAddons(
     throw new Error('the entities parameter cannot be empty');
   }
   return {
-    type: ADDONS_LOADED,
+    type: LOAD_ADDONS,
     // TODO: after https://github.com/mozilla/addons-frontend/issues/2917
     // hopefully this can be a little less fragile. Right now if the
     // caller passes in an incorrect `entities` then we have no way of
@@ -194,7 +194,7 @@ export default function addonsReducer(
   action: LoadAddonsAction
 ) {
   switch (action.type) {
-    case ADDONS_LOADED: {
+    case LOAD_ADDONS: {
       const { addons } = action.payload;
       const newState = { ...state };
       Object.keys(addons).forEach((key) => {
