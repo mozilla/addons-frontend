@@ -104,7 +104,7 @@ export function createInternalAddon(
     name: apiAddon.name,
     previews: apiAddon.previews,
     public_stats: apiAddon.public_stats,
-    ratings: apiAddon.ratings || undefined,
+    ratings: apiAddon.ratings,
     requires_payment: apiAddon.requires_payment,
     review_url: apiAddon.review_url,
     slug: apiAddon.slug,
