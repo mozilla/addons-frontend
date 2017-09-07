@@ -191,6 +191,15 @@ export function createFetchAddonResult(addon) {
   return normalize(addon, coreApi.addon);
 }
 
+export function createFetchAllAddonsResult(addons) {
+  return normalize(
+    // Simulate an API response that returns an array of addons.
+    { results: addons },
+    // Simulate how callApi() would apply an add-on schema to results.
+    { results: [coreApi.addon] }
+  );
+}
+
 /*
  * Repeatedly render a component tree using enzyme.shallow() until
  * finding and rendering TargetComponent.

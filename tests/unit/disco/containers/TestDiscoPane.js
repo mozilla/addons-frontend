@@ -165,8 +165,8 @@ describe('AddonPage', () => {
       expect(props.results).toEqual([{
         ...addon,
         addon: guid,
+        description: 'editorial text',
         guid,
-        description: undefined,
         heading: 'The Theme',
         iconUrl: addon.icon_url,
         isRestartRequired: false,

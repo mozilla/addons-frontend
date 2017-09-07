@@ -11,8 +11,9 @@ import {
 } from 'amo/components/AddonReviewList';
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
-import { loadEntities } from 'core/actions';
-import { denormalizeAddon, fetchAddon } from 'core/reducers/addons';
+import {
+  fetchAddon, createInternalAddon, loadAddons,
+} from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import Rating from 'ui/components/Rating';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
@@ -45,7 +46,7 @@ describe('amo/components/AddonReviewList', () => {
     } = {}) {
       const loadedReviews = reviews ? getLoadedReviews({ reviews }) : null;
       const props = {
-        addon: addon && denormalizeAddon(addon),
+        addon,
         dispatch,
         errorHandler,
         i18n: getFakeI18nInst(),
@@ -344,17 +345,13 @@ describe('amo/components/AddonReviewList', () => {
     }
 
     it('loads addon from state', () => {
-      store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps();
-      expect(props.addon).toEqual(denormalizeAddon({
-        ...fakeAddon,
-        installURL: '',
-        isRestartRequired: false,
-      }));
+      expect(props.addon).toEqual(createInternalAddon(fakeAddon));
     });
 
     it('ignores other add-ons', () => {
-      store.dispatch(loadEntities(createFetchAddonResult(fakeAddon).entities));
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
       const props = getMappedProps({ addonSlug: 'other-slug' });
       expect(props.addon).toBe(undefined);
     });

@@ -11,8 +11,8 @@ import {
 import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
-import * as actions from 'core/actions';
 import * as api from 'core/api';
+import { loadAddons } from 'core/reducers/addons';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
@@ -60,6 +60,7 @@ import {
   signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
+  createFetchAddonResult,
   getFakeI18nInst,
   unexpectedSuccess,
   userAgents,
@@ -450,7 +451,7 @@ describe('refreshAddon', () => {
   });
 
   it('fetches and dispatches an add-on', () => {
-    const entities = { [addonSlug]: fakeAddon };
+    const entities = createFetchAddonResult(fakeAddon).entities;
     mockApi
       .expects('fetchAddon')
       .once()
@@ -460,7 +461,7 @@ describe('refreshAddon', () => {
     return refreshAddon({ addonSlug, apiState, dispatch })
       .then(() => {
         expect(dispatch.called).toBeTruthy();
-        expect(dispatch.firstCall.args[0]).toEqual(actions.loadEntities(entities));
+        expect(dispatch.firstCall.args[0]).toEqual(loadAddons(entities));
         mockApi.verify();
       });
   });

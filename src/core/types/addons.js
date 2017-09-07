@@ -20,15 +20,41 @@ export type AddonAuthorType = {|
   url: string,
 |};
 
-export type AddonType = {|
+type ThemeData = {|
+  accentcolor?: string,
+  author?: string,
+  category?: string,
+  description?: string,
+  detailURL?: string,
+  footer?: string,
+  footerURL?: string,
+  header?: string,
+  headerURL?: string,
+  iconURL?: string,
+  id?: number,
+  name?: string,
+  previewURL?: string,
+  textcolor?: string,
+  updateURL?: string,
+  version?: string,
+|};
+
+/*
+ * This is the external API representation of an add-on.
+ *
+ * This is a detailed API response. Not all API responses which return
+ * add-ons will include this amount of detail.
+ *
+ * See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#detail
+ */
+export type ExternalAddonType = {|
   authors: Array<AddonAuthorType>,
   average_daily_users: number,
   categories: Object,
-  compatibility: Object,
   current_beta_version?: AddonVersionType,
   current_version: AddonVersionType,
   default_locale: string,
-  description?: string,
+  description: string,
   edit_url: string,
   guid: string,
   has_eula: boolean,
@@ -50,6 +76,7 @@ export type AddonType = {|
     bayesian_average: number,
     count: number,
   |},
+  requires_payment: boolean,
   review_url: string,
   slug: string,
   status:
@@ -69,8 +96,24 @@ export type AddonType = {|
   support_email?: string,
   support_url?: string,
   tags: Array<string>,
-  theme_data: Object,
+  theme_data?: ThemeData,
   type: AddonTypeType,
   url: string,
   weekly_downloads: number,
 |};
+
+/*
+ * This is our internal representation of an add-on, found in Redux state.
+ *
+ * TODO: for better protection, turn this into an Exact Type. This is
+ * not currently possible because of:
+ * https://github.com/facebook/flow/issues/4818
+ */
+export type AddonType = {
+  ...ExternalAddonType,
+  ...ThemeData,
+  // Here are some custom properties for our internal representation.
+  iconUrl: string,
+  installURL?: string,
+  isRestartRequired: boolean,
+};
