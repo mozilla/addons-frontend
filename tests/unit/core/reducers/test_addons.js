@@ -201,7 +201,7 @@ describe(__filename, () => {
     expect(state[addon.slug].isRestartRequired).toBe(false);
   });
 
-  it('sets `isRestartRequired` to `true` when some files declare it', () => {
+  it('sets `isRestartRequired` to `true` when any file declares it', () => {
     const addon = createFakeAddon({
       files: [
         { ...fakeAddon.current_version.files[0], is_restart_required: false },
