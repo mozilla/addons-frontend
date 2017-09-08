@@ -72,18 +72,18 @@ describe(__filename, () => {
       expect(filterName).toEqual('linux');
     });
 
-    it('converts Android to nothing (we use clientApp for Android)', () => {
+    it('converts Android to undefined (we use clientApp for Android)', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefoxAndroid[0]);
       const filterName = convertOSToFilterValue(osName);
 
-      expect(filterName).toEqual('');
+      expect(filterName).toEqual(undefined);
     });
 
-    it('converts an unexpected value to nothing', () => {
+    it('converts an unexpected value to undefined', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefoxOS[0]);
       const filterName = convertOSToFilterValue(osName);
 
-      expect(filterName).toEqual('');
+      expect(filterName).toEqual(undefined);
     });
   });
 });
