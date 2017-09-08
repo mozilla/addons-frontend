@@ -471,14 +471,16 @@ describe(__filename, () => {
     });
 
     it('clears suggestions when input is cleared', () => {
-      const { store } = dispatchSignInActions();
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const wrapper = mountBaseComponent({ query: 'foo', store });
+      const fakeDispatch = sinon.stub();
+      const wrapper = mountBaseComponent({
+        dispatch: fakeDispatch,
+        query: 'foo',
+      });
 
       // Clearing the input calls `handleSuggestionsClearRequested()`.
       wrapper.find('input').simulate('change', createFakeChangeEvent());
-      sinon.assert.callCount(dispatchSpy, 1);
-      sinon.assert.calledWith(dispatchSpy, autocompleteCancel());
+      sinon.assert.callCount(fakeDispatch, 1);
+      sinon.assert.calledWith(fakeDispatch, autocompleteCancel());
       expect(wrapper.state('autocompleteIsOpen')).toEqual(false);
     });
 
@@ -517,9 +519,7 @@ describe(__filename, () => {
       });
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
-      expect(wrapper.find('form'))
-        .not.toHaveClassName('SearchForm--autocompleteIsOpen');
-      expect(wrapper.state('autocompleteIsOpen')).toEqual(false);
+      expect(wrapper.find('.SearchForm--autocompleteIsOpen')).toHaveLength(0);
     });
 
     it('does not display suggestions when there is no suggestion', () => {
@@ -528,9 +528,7 @@ describe(__filename, () => {
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
       expect(wrapper.find(LoadingText)).toHaveLength(0);
-      expect(wrapper.find('form'))
-        .not.toHaveClassName('SearchForm--autocompleteIsOpen');
-      expect(wrapper.state('autocompleteIsOpen')).toEqual(false);
+      expect(wrapper.find('.SearchForm--autocompleteIsOpen')).toHaveLength(0);
     });
 
     it('does not display suggestions when the API returns nothing', () => {

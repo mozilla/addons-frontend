@@ -144,7 +144,6 @@ export class SearchFormBase extends React.Component {
       return;
     }
 
-    const { dispatch, errorHandler } = this.props;
     const filters = this.setFilters({ query: value });
 
     this.setState({
@@ -227,8 +226,8 @@ export class SearchFormBase extends React.Component {
     };
 
     const autocompleteIsOpen = this.state.autocompleteIsOpen &&
-      // This prevents the input to look like Autosuggest is open when there is
-      // no result coming from the API.
+      // This prevents the input to look like Autosuggest is open when
+      // there is no result coming from the API.
       this.getSuggestions().length > 0;
 
     return (
