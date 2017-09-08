@@ -55,7 +55,7 @@ export class DiscoPaneBase extends React.Component {
     // TODO: fix this; it's not the right way to detect whether a
     // dispatch is needed. This should look for an undefined value
     // instead of an empty list because an empty list could be a valid
-    // API response.
+    // (yet unlikley) API response.
     if (!errorHandler.hasError() && !results.length) {
       dispatch(getDiscoResults({
         errorHandlerId: errorHandler.id,
