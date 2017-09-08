@@ -41,7 +41,7 @@ export function convertQueryParamsToFilters(params) {
   }, {});
 }
 
-export function convertOperatingSystemToFilterName(name) {
+export function convertOSToFilterValue(name) {
   if (name in operatingSystems) {
     return operatingSystems[name];
   }

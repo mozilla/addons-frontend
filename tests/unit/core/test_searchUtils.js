@@ -2,7 +2,7 @@ import { ADDON_TYPE_THEME } from 'core/constants';
 import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
-  convertOperatingSystemToFilterName,
+  convertOSToFilterValue,
 } from 'core/searchUtils';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { userAgents } from 'tests/unit/helpers';
@@ -45,7 +45,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('convertOperatingSystemToFilterName', () => {
+  describe('convertOSToFilterValue', () => {
     function getOSNameFromUserAgent(userAgent) {
       const { store } = dispatchClientMetadata({ userAgent });
       return store.getState().api.userAgentInfo.os.name;
@@ -53,35 +53,35 @@ describe(__filename, () => {
 
     it('converts Windows to filter', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefox[1]);
-      const filterName = convertOperatingSystemToFilterName(osName);
+      const filterName = convertOSToFilterValue(osName);
 
       expect(filterName).toEqual('windows');
     });
 
     it('converts Mac to filter', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefox[2]);
-      const filterName = convertOperatingSystemToFilterName(osName);
+      const filterName = convertOSToFilterValue(osName);
 
       expect(filterName).toEqual('mac');
     });
 
     it('converts Linux to filter', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefox[0]);
-      const filterName = convertOperatingSystemToFilterName(osName);
+      const filterName = convertOSToFilterValue(osName);
 
       expect(filterName).toEqual('linux');
     });
 
     it('converts Android to nothing (we use clientApp for Android)', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefoxAndroid[0]);
-      const filterName = convertOperatingSystemToFilterName(osName);
+      const filterName = convertOSToFilterValue(osName);
 
       expect(filterName).toEqual('');
     });
 
     it('converts an unexpected value to nothing', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefoxOS[0]);
-      const filterName = convertOperatingSystemToFilterName(osName);
+      const filterName = convertOSToFilterValue(osName);
 
       expect(filterName).toEqual('');
     });

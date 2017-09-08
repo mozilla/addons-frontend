@@ -26,7 +26,7 @@ import {
   autocompleteStart,
 } from 'core/reducers/autocomplete';
 import {
-  convertOperatingSystemToFilterName,
+  convertOSToFilterValue,
   convertFiltersToQueryParams,
 } from 'core/searchUtils';
 import Icon from 'ui/components/Icon';
@@ -101,7 +101,7 @@ export class SearchFormBase extends React.Component {
       filters.addonType = addonType;
     }
 
-    filters.operatingSystem = convertOperatingSystemToFilterName(
+    filters.operatingSystem = convertOSToFilterValue(
       userAgentInfo.os.name);
 
     return filters;
