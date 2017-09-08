@@ -28,9 +28,7 @@ export class ShowMoreCardBase extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.setState({ expanded: true }, () => {
-      this.truncateToMaxHeight(this.contents);
-    });
+    this.truncateToMaxHeight(this.contents);
   }
 
   onClick = (event) => {
@@ -43,6 +41,8 @@ export class ShowMoreCardBase extends React.Component {
     // contents are expanded by default.
     if (contents.clientHeight > MAX_HEIGHT) {
       this.setState({ expanded: false });
+    } else {
+      this.setState({ expanded: true });
     }
   }
 
