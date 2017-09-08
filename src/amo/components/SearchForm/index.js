@@ -93,15 +93,23 @@ export class SearchFormBase extends React.Component {
     }));
   }
 
-  goToSearch(query) {
-    const { addonType, api, pathname, router, userAgentInfo } = this.props;
-    const filters = { query };
+  setFilters(newFilters) {
+    const { addonType, userAgentInfo } = this.props;
+    const filters = { ...newFilters };
 
     if (addonType) {
       filters.addonType = addonType;
     }
+
     filters.operatingSystem = convertOperatingSystemToFilterName(
       userAgentInfo.os.name);
+
+    return filters;
+  }
+
+  goToSearch(query) {
+    const { api, pathname, router } = this.props;
+    const filters = this.setFilters({ query });
 
     router.push({
       pathname: `/${api.lang}/${api.clientApp}${pathname}`,
@@ -136,14 +144,8 @@ export class SearchFormBase extends React.Component {
       return;
     }
 
-    const { addonType, dispatch, errorHandler, userAgentInfo } = this.props;
-    const filters = { query: value };
-
-    if (addonType) {
-      filters.addonType = addonType;
-    }
-    filters.operatingSystem = convertOperatingSystemToFilterName(
-      userAgentInfo.os.name);
+    const { dispatch, errorHandler } = this.props;
+    const filters = this.setFilters({ query: value });
 
     this.setState({
       autocompleteIsOpen: true,
