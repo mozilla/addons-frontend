@@ -12,12 +12,14 @@ import { GET_DISCO_RESULTS } from 'disco/constants';
 import { getDiscoveryAddons } from 'disco/api';
 
 
-export function* fetchDiscoveryAddons({ payload: { errorHandlerId } }) {
+export function* fetchDiscoveryAddons({
+  payload: { errorHandlerId, telemetryClientId },
+}) {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
     const { entities, result } = yield call(getDiscoveryAddons, {
-      api: state.api,
+      api: state.api, telemetryClientId,
     });
 
     yield put(loadAddons(entities));

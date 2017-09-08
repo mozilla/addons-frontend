@@ -1,19 +1,42 @@
 import { normalize } from 'normalizr';
 
 import { discoResult, getDiscoveryAddons } from 'disco/api';
+import createStore from 'disco/store';
 import * as coreApi from 'core/api';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
-describe('disco api', () => {
+describe(__filename, () => {
+  let apiState;
+  let callApiMock;
+
+  beforeEach(() => {
+    callApiMock = sinon.stub(coreApi, 'callApi');
+    const store = createStore().store;
+    apiState = dispatchClientMetadata({ store }).state.api;
+  });
+
   describe('getDiscoveryAddons', () => {
     it('calls the API', () => {
-      const callApi = sinon.stub(coreApi, 'callApi');
-      const api = { some: 'apiconfig' };
-      getDiscoveryAddons({ api });
-      expect(callApi.calledWith({
+      getDiscoveryAddons({ api: apiState });
+
+      sinon.assert.calledWith(callApiMock, {
         endpoint: 'discovery',
+        params: { 'telemetry-client-id': undefined },
         schema: { results: [discoResult] },
-        state: api,
-      })).toBeTruthy();
+        state: apiState,
+      });
+    });
+
+    it('calls the API with a telemetry client ID', () => {
+      const telemetryClientId = 'client-id';
+      getDiscoveryAddons({ api: apiState, telemetryClientId });
+
+      sinon.assert.calledWith(callApiMock, {
+        endpoint: 'discovery',
+        params: { 'telemetry-client-id': telemetryClientId },
+        schema: { results: [discoResult] },
+        state: apiState,
+      });
     });
   });
 

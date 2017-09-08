@@ -33,7 +33,7 @@ import ErrorList from 'ui/components/ErrorList';
 const { DiscoPaneBase } = helpers;
 
 
-describe('AddonPage', () => {
+describe(__filename, () => {
   let fakeEvent;
   let fakeVideo;
   let fakeTracking;
@@ -65,6 +65,7 @@ describe('AddonPage', () => {
       errorHandler: createStubErrorHandler(),
       dispatch: sinon.stub(),
       i18n,
+      location: { query: {} },
       results,
       _tracking: fakeTracking,
       _video: fakeVideo,
@@ -202,7 +203,26 @@ describe('AddonPage', () => {
       render({ errorHandler, dispatch, ...props });
 
       sinon.assert.calledWith(dispatch, getDiscoResults({
+        errorHandlerId: errorHandler.id, telemetryClientId: undefined,
+      }));
+    });
+
+    it('sends a telemetry client ID if there is one', () => {
+      const location = {
+        query: {
+          clientId: 'telemetry-client-id',
+        },
+      };
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+      // Set up some empty results so that the component fetches new ones.
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
+
+      render({ errorHandler, dispatch, location, ...props });
+
+      sinon.assert.calledWith(dispatch, getDiscoResults({
         errorHandlerId: errorHandler.id,
+        telemetryClientId: location.query.clientId,
       }));
     });
 

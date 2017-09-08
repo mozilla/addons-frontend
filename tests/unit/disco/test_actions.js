@@ -31,10 +31,10 @@ describe('disco/actions/loadDiscoResults', () => {
 
 describe('disco/actions/getDiscoResults', () => {
   function defaultParams() {
-    return { errorHandlerId: 'some-id' };
+    return { errorHandlerId: 'some-id', telemetryClientId: 'client-id' };
   }
 
-  it('requires an error handler ID', () => {
+  it('requires errorHandlerId', () => {
     const params = defaultParams();
     delete params.errorHandlerId;
     expect(() => getDiscoResults(params))

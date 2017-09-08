@@ -11,9 +11,10 @@ export const discoResult = new schema.Entity(
   { idAttribute: (result) => getGuid(result.addon) }
 );
 
-export function getDiscoveryAddons({ api }) {
+export function getDiscoveryAddons({ api, telemetryClientId }) {
   return callApi({
     endpoint: 'discovery',
+    params: { 'telemetry-client-id': telemetryClientId },
     schema: { results: [discoResult] },
     state: api,
   });

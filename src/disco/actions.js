@@ -1,12 +1,14 @@
 import { GET_DISCO_RESULTS, LOAD_DISCO_RESULTS } from 'disco/constants';
 
-export function getDiscoResults({ errorHandlerId } = {}) {
+export function getDiscoResults({
+  errorHandlerId, telemetryClientId = undefined,
+} = {}) {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
   return {
     type: GET_DISCO_RESULTS,
-    payload: { errorHandlerId },
+    payload: { errorHandlerId, telemetryClientId },
   };
 }
 
