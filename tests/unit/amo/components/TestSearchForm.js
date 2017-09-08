@@ -430,6 +430,7 @@ describe(__filename, () => {
       wrapper.find('input').simulate('change', createFakeChangeEvent());
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteCancel());
+      expect(wrapper.state('autocompleteIsOpen')).toEqual(false);
     });
 
     it('displays suggestions when user is typing', () => {
@@ -442,14 +443,15 @@ describe(__filename, () => {
       const wrapper = mountComponent({
         query: 'foo',
         suggestions: autocompleteState.suggestions,
-        autocompleteIsOpen: autocompleteState.isOpen,
       });
       expect(wrapper.find(Suggestion)).toHaveLength(0);
       // this triggers Autosuggest
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(2);
       expect(wrapper.find(LoadingText)).toHaveLength(0);
-      expect(wrapper.find('form')).toHaveClassName('SearchForm--autocompleteIsOpen');
+      expect(wrapper.find('form'))
+        .toHaveClassName('SearchForm--autocompleteIsOpen');
+      expect(wrapper.state('autocompleteIsOpen')).toEqual(true);
     });
 
     it('does not display suggestions when search is empty', () => {
@@ -463,23 +465,45 @@ describe(__filename, () => {
       const wrapper = mountComponent({
         query: '',
         suggestions: autocompleteState.suggestions,
-        autocompleteIsOpen: autocompleteState.isOpen,
       });
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
-      expect(wrapper.find('form')).not.toHaveClassName('SearchForm--autocompleteIsOpen');
+      expect(wrapper.find('form'))
+        .not.toHaveClassName('SearchForm--autocompleteIsOpen');
+      expect(wrapper.state('autocompleteIsOpen')).toEqual(false);
     });
 
     it('does not display suggestions when there is no suggestion', () => {
+      const wrapper = mountComponent({ suggestions: [] });
+
+      wrapper.find('input').simulate('focus');
+      expect(wrapper.find(Suggestion)).toHaveLength(0);
+      expect(wrapper.find(LoadingText)).toHaveLength(0);
+      expect(wrapper.find('form'))
+        .not.toHaveClassName('SearchForm--autocompleteIsOpen');
+      expect(wrapper.state('autocompleteIsOpen')).toEqual(false);
+    });
+
+    it('does not display suggestions when the API returns nothing', () => {
+      // Setting `query` to `fhghfhgfhhgfhghfhgfj` will trigger Autosuggest
+      // `onSuggestionsFetchRequested()` method, which normally opens the list
+      // of results when focused. Yet, this value does not return any result,
+      // which is another edge case.
       const wrapper = mountComponent({
+        query: 'fhghfhgfhhgfhghfhgfj',
         suggestions: [],
-        autocompleteIsOpen: false,
       });
 
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(Suggestion)).toHaveLength(0);
       expect(wrapper.find(LoadingText)).toHaveLength(0);
-      expect(wrapper.find('form')).not.toHaveClassName('SearchForm--autocompleteIsOpen');
+      expect(wrapper.find('form'))
+        .not.toHaveClassName('SearchForm--autocompleteIsOpen');
+      // This value is set to `true` because the autocomplete should be open
+      // and this value is controlled by Autosuggest. Because there is no
+      // results, Autosuggest does not display anything and we should make the
+      // `input` look like if there is no result too.
+      expect(wrapper.state('autocompleteIsOpen')).toEqual(true);
     });
 
     it('displays 10 loading bars when suggestions are loading', () => {
@@ -496,7 +520,8 @@ describe(__filename, () => {
       });
       wrapper.find('input').simulate('focus');
       expect(wrapper.find(LoadingText)).toHaveLength(10);
-      expect(wrapper.find('form')).toHaveClassName('SearchForm--autocompleteIsOpen');
+      expect(wrapper.find('form'))
+        .toHaveClassName('SearchForm--autocompleteIsOpen');
     });
 
     it('updates the state and push a new route when a suggestion is selected', () => {
@@ -604,7 +629,6 @@ describe(__filename, () => {
         },
       ]);
       expect(mapStateToProps(state).loadingSuggestions).toEqual(false);
-      expect(mapStateToProps(state).autocompleteIsOpen).toEqual(true);
     });
 
     it('passes the loading suggestions boolean through', () => {
@@ -618,18 +642,6 @@ describe(__filename, () => {
       const state = store.getState();
 
       expect(mapStateToProps(state).loadingSuggestions).toEqual(true);
-      expect(mapStateToProps(state).autocompleteIsOpen).toEqual(true);
-    });
-
-    it('passes the `isOpen` boolean through', () => {
-      const { store } = dispatchSignInActions();
-
-      store.dispatch(autocompleteCancel());
-
-      const state = store.getState();
-
-      expect(mapStateToProps(state).loadingSuggestions).toEqual(false);
-      expect(mapStateToProps(state).autocompleteIsOpen).toEqual(false);
     });
   });
 });

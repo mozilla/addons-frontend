@@ -23,13 +23,11 @@ describe(__filename, () => {
       const results = [createFakeAutocompleteResult({ name: 'foo' })];
       const previousState = reducer(undefined, autocompleteLoad({ results }));
       const {
-        isOpen,
         loading,
         suggestions,
       } = reducer(previousState, autocompleteCancel());
 
       expect(loading).toEqual(false);
-      expect(isOpen).toEqual(false);
       expect(suggestions).toEqual(previousState.suggestions);
     });
 
@@ -51,23 +49,14 @@ describe(__filename, () => {
 
       const {
         loading,
-        isOpen,
         suggestions,
       } = reducer(undefined, autocompleteLoad({ results }));
 
       expect(loading).toBe(false);
-      expect(isOpen).toEqual(true);
       expect(suggestions).toHaveLength(3);
       expect(suggestions[0]).toHaveProperty('name', 'foo');
       expect(suggestions[1]).toHaveProperty('name', 'bar');
       expect(suggestions[2]).toHaveProperty('name', 'baz');
-    });
-
-    it('sets isOpen to false if no suggestions are found', () => {
-      const results = [];
-      const { isOpen } = reducer(undefined, autocompleteLoad({ results }));
-
-      expect(isOpen).toEqual(false);
     });
 
     it('sets the icon_url as iconUrl', () => {

@@ -7,7 +7,6 @@ export const AUTOCOMPLETE_CANCELLED = 'AUTOCOMPLETE_CANCELLED';
 
 const initialState = {
   loading: false,
-  isOpen: false,
   suggestions: [],
 };
 
@@ -48,14 +47,12 @@ export default function reducer(state = initialState, action = {}) {
     case AUTOCOMPLETE_CANCELLED:
       return {
         ...state,
-        isOpen: false,
         loading: false,
       };
     case AUTOCOMPLETE_STARTED:
       return {
         ...initialState,
         loading: true,
-        isOpen: true,
       };
     case AUTOCOMPLETE_LOADED:
     {
@@ -72,7 +69,6 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         loading: false,
-        isOpen: suggestions.length > 0,
         suggestions,
       };
     }
