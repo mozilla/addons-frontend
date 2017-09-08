@@ -35,7 +35,6 @@ export class SearchFormBase extends React.Component {
   static propTypes = {
     addonType: PropTypes.string,
     api: PropTypes.object.isRequired,
-    autocompleteIsOpen: PropTypes.bool.isRequired,
     className: PropTypes.string,
     debounce: PropTypes.func.isRequired,
     dispatch: PropTypes.func.isRequired,
@@ -60,8 +59,9 @@ export class SearchFormBase extends React.Component {
     super(props);
 
     this.state = {
-      searchValue: props.query || '',
+      autocompleteIsOpen: false,
       oldAutocompleteFilters: {},
+      searchValue: props.query || '',
     };
   }
 
@@ -114,19 +114,33 @@ export class SearchFormBase extends React.Component {
     this.setState({ searchValue: event.target.value });
   }
 
-  handleSuggestionsFetchRequested = this.props.debounce(({ value, reason }) => {
+  dispatchAutocompleteStart = this.props.debounce(({ filters }) => {
+    const { dispatch, errorHandler } = this.props;
+
+    dispatch(autocompleteStart({
+      errorHandlerId: errorHandler.id,
+      filters,
+    }));
+  }, 200, { trailing: true })
+
+  handleSuggestionsFetchRequested = ({ value, reason }) => {
     if (!value) {
       log.debug(oneLine`Ignoring suggestions fetch requested because value
         is not supplied: ${value}`);
       return;
     }
 
-    const { addonType, dispatch, errorHandler } = this.props;
+    const { addonType } = this.props;
     const filters = { query: value };
 
     if (addonType) {
       filters.addonType = addonType;
     }
+
+    this.setState({
+      autocompleteIsOpen: true,
+      oldAutocompleteFilters: filters,
+    });
 
     if (
       // See: https://github.com/moroshko/react-autosuggest#onsuggestionsfetchrequested-required.
@@ -138,17 +152,11 @@ export class SearchFormBase extends React.Component {
       return;
     }
 
-    this.setState({ oldAutocompleteFilters: filters }, () => {
-      dispatch(autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters,
-      }));
-    });
-  // Configure debounce (200ms) with `leading: true` so that the method is
-  // triggered immediately and subsequent calls are debounced.
-  }, 200, { leading: true, trailing: false })
+    this.dispatchAutocompleteStart({ filters });
+  }
 
   handleSuggestionsClearRequested = () => {
+    this.setState({ autocompleteIsOpen: false });
     this.props.dispatch(autocompleteCancel());
   }
 
@@ -160,9 +168,8 @@ export class SearchFormBase extends React.Component {
       return;
     }
 
-    this.setState({ searchValue: '' }, () => {
-      this.props.router.push(suggestion.url);
-    });
+    this.setState({ autocompleteIsOpen: false, searchValue: '' });
+    this.props.router.push(suggestion.url);
   }
 
   renderSuggestion = (suggestion) => {
@@ -209,8 +216,10 @@ export class SearchFormBase extends React.Component {
       value: this.state.searchValue,
     };
 
-    const autocompleteIsOpen = this.props.autocompleteIsOpen &&
-      this.state.searchValue.length > 0;
+    const autocompleteIsOpen = this.state.autocompleteIsOpen &&
+      // This prevents the input to look like Autosuggest is open when there is
+      // no result coming from the API.
+      this.getSuggestions().length > 0;
 
     return (
       <form
@@ -272,7 +281,6 @@ export function mapStateToProps(state) {
     addonType: validAddonTypes.includes(state.viewContext.context) ?
       state.viewContext.context : null,
     api: state.api,
-    autocompleteIsOpen: state.autocomplete.isOpen,
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
   };
