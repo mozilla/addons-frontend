@@ -52,7 +52,7 @@ export function convertOSToFilterValue(name) {
   log.info(
     `operatingSystem "${name}" not recognized so falling back to no OS.`);
 
-  return '';
+  return undefined;
 }
 
 export function hasSearchFilters(filters) {
