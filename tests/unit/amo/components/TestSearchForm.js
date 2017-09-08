@@ -324,11 +324,7 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-<<<<<<< HEAD
         filters: { operatingSystem: OS_WINDOWS, query: 'a' },
-=======
-        filters: { operatingSystem: 'windows', query: 'a' },
->>>>>>> Fixup tests from rebase
       }));
     });
 
@@ -353,11 +349,7 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-<<<<<<< HEAD
         filters: { operatingSystem: OS_WINDOWS, query: 'a' },
-=======
-        filters: { operatingSystem: 'windows', query: 'a' },
->>>>>>> Fixup tests from rebase
       }));
       dispatch.reset();
 
@@ -379,11 +371,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         filters: {
           addonType: ADDON_TYPE_THEME,
-<<<<<<< HEAD
           operatingSystem: OS_WINDOWS,
-=======
-          operatingSystem: 'windows',
->>>>>>> Fixup tests from rebase
           query: 'a',
         },
       }));
@@ -433,11 +421,7 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-<<<<<<< HEAD
         filters: { operatingSystem: OS_WINDOWS, query: 'ad' },
-=======
-        filters: { operatingSystem: 'windows', query: 'ad' },
->>>>>>> Fixup tests from rebase
       }));
     });
 
@@ -465,11 +449,7 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-<<<<<<< HEAD
         filters: { operatingSystem: OS_WINDOWS, query: 'ad' },
-=======
-        filters: { operatingSystem: 'windows', query: 'ad' },
->>>>>>> Fixup tests from rebase
       }));
       dispatch.reset();
 
@@ -484,11 +464,7 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-<<<<<<< HEAD
         filters: { operatingSystem: OS_WINDOWS, query: 'adb' },
-=======
-        filters: { operatingSystem: 'windows', query: 'adb' },
->>>>>>> Fixup tests from rebase
       }));
     });
 
