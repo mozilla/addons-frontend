@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-08 11:30+0000\n"
+"PO-Revision-Date: 2017-09-08 11:32+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -53,9 +53,8 @@ msgid "About this %(addonType)s"
 msgstr "Σχετικά με αυτό το %(addonType)s"
 
 #: src/amo/components/Addon/index.js:255
-#, fuzzy
 msgid "Release notes for %(addonVersion)s"
-msgstr "Κριτικές για το %(addonName)s"
+msgstr "Σημειώσεις έκδοσης για το %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:308
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -520,9 +519,8 @@ msgid "Sort by"
 msgstr "Ταξινόμηση κατά"
 
 #: src/amo/components/SearchFilters/index.js:128
-#, fuzzy
 msgid "Add-on Type"
-msgstr "Εικονίδιο προσθέτου"
+msgstr "Τύπος προσθέτου"
 
 #: src/amo/components/SearchFilters/index.js:146
 msgid "Operating System"
@@ -533,14 +531,12 @@ msgid "All"
 msgstr "Όλα"
 
 #: src/amo/components/SearchFilters/index.js:71
-#, fuzzy
 msgid "Extension"
-msgstr "Επεκτάσεις"
+msgstr "Επέκταση"
 
 #: src/amo/components/SearchFilters/index.js:72
-#, fuzzy
 msgid "Theme"
-msgstr "Θέματα"
+msgstr "Θέμα"
 
 #: src/amo/components/SearchFilters/index.js:81
 msgid "Windows"
@@ -575,28 +571,24 @@ msgid "Go to the add-on page"
 msgstr "Μετάβαση στη σελίδα των προσθέτων"
 
 #: src/amo/components/SearchForm/index.js:191
-#, fuzzy
 msgid "Find extensions"
-msgstr "Προτεινόμενες επεκτάσεις"
+msgstr "Εύρεση επεκτάσεων"
 
 #: src/amo/components/SearchForm/index.js:193
 msgid "Find dictionary"
 msgstr "Εύρεση λεξικού"
 
 #: src/amo/components/SearchForm/index.js:195
-#, fuzzy
 msgid "Find language pack"
-msgstr "Συνδεθείτε για βαθμολόγηση αυτού του πακέτου γλώσσας"
+msgstr "Εύρεση πακέτου γλώσσας"
 
 #: src/amo/components/SearchForm/index.js:197
-#, fuzzy
 msgid "Find themes"
-msgstr "Εύρεση ειδήσεων"
+msgstr "Εύρεση θεμάτων"
 
 #: src/amo/components/SearchForm/index.js:199
-#, fuzzy
 msgid "Find add-ons"
-msgstr "Φόρτωση προσθέτων"
+msgstr "Εύρεση προσθέτων"
 
 #: src/amo/components/SearchForm/index.js:225 src/amo/components/SearchForm/index.js:255
 msgid "Search"
