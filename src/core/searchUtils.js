@@ -1,3 +1,6 @@
+import log from 'core/logger';
+
+
 export const operatingSystems = {
   Linux: 'linux',
   'Mac OS': 'mac',
@@ -45,6 +48,9 @@ export function convertOSToFilterValue(name) {
   if (name in operatingSystems) {
     return operatingSystems[name];
   }
+
+  log.info(
+    `operatingSystem "${name}" not recognized so falling back to no OS.`);
 
   return '';
 }
