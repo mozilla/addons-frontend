@@ -37,7 +37,6 @@ import {
 
 describe(__filename, () => {
   let errorHandler;
-  // let fakeDispatch;
   let fakeRouter;
 
   function mountComponent({
@@ -60,6 +59,9 @@ describe(__filename, () => {
     );
   }
 
+  // We use `mount` and the base version of this component for these tests
+  // because we need to check the state of the component and the only way
+  // to do that is to mount it directly without HOC.
   function mountBaseComponent({
     pathname = '/search/',
     query = 'foo',
