@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
@@ -19,6 +19,7 @@ import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
+import SearchResult from 'amo/components/SearchResult';
 import routes from 'amo/routes';
 import RatingManager, {
   RatingManagerWithI18n,
@@ -27,6 +28,7 @@ import createStore from 'amo/store';
 import {
   fetchAddon as fetchAddonAction, loadAddons,
 } from 'core/reducers/addons';
+import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
@@ -41,7 +43,12 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { dispatchSignInActions, dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+  fakeAddon,
+  fakeTheme,
+} from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
@@ -99,6 +106,20 @@ function renderAsDOMNode(...args) {
 function shallowRender(...args) {
   const props = renderProps(...args);
   return shallow(<AddonBase {...props} />, { context: { i18n: props.i18n } });
+}
+
+// We use `mount` to test the i18n logic on the Addon component.
+function mountRender(...args) {
+  const { store, i18n, ...props } = renderProps(...args);
+  props.i18n = i18n;
+
+  return mount(
+    <Provider store={store}>
+      <I18nProvider i18n={i18n}>
+        <AddonBase store={store} {...props} />
+      </I18nProvider>
+    </Provider>
+  );
 }
 
 describe('Addon', () => {
@@ -223,7 +244,10 @@ describe('Addon', () => {
     // Update with a new slug.
     root.setProps({ params: { slug } });
 
-    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({ errorHandler, slug }));
+    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({
+      errorHandler,
+      slug,
+    }));
   });
 
   it('renders an error if there is one', () => {
@@ -768,6 +792,242 @@ describe('Addon', () => {
       );
     });
   });
+
+  describe('more add-ons by authors', () => {
+    function mountMoreAddonsByAuthors({ addon = fakeAddon, ...others }) {
+      const root = mountRender({
+        addon,
+        ...others,
+      });
+
+      return root.find('.AddonDescription-more-addons');
+    }
+
+    it('fetches the other add-ons by authors', () => {
+      const addon = fakeAddon;
+      const fakeDispatch = sinon.stub();
+      shallowRender({ addon, dispatch: fakeDispatch });
+
+      sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
+        addonType: addon.type,
+        authors: addon.authors.map((author) => author.username),
+        errorHandlerId: createStubErrorHandler().id,
+        slug: addon.slug,
+      }));
+    });
+
+    it('does not fetch the other add-ons when add-on is the same', () => {
+      const addon = fakeAddon;
+      const fakeDispatch = sinon.stub();
+      const root = shallowRender({ addon, dispatch: fakeDispatch });
+      fakeDispatch.reset();
+
+      root.setProps({ addon });
+
+      sinon.assert.notCalled(fakeDispatch);
+    });
+
+    it('fetches the other add-ons when a new add-on is loaded', () => {
+      const fakeDispatch = sinon.stub();
+      const root = shallowRender({ addon: fakeAddon, dispatch: fakeDispatch });
+      fakeDispatch.reset();
+
+      const newAddon = { ...fakeAddon, slug: 'new-addon-slug' };
+      root.setProps({ addon: newAddon });
+
+      sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
+        addonType: newAddon.type,
+        authors: newAddon.authors.map((author) => author.username),
+        errorHandlerId: createStubErrorHandler().id,
+        slug: newAddon.slug,
+      }));
+    });
+
+    it('does not fetch the other add-ons when they are already loaded', () => {
+      const fakeDispatch = sinon.stub();
+      const root = shallowRender({ addon: fakeAddon, dispatch: fakeDispatch });
+      fakeDispatch.reset();
+
+      const newAddon = { ...fakeAddon, slug: 'new-addon-slug' };
+      // These `addonsByAuthors` are related to the `newAddon` above, and it
+      // simulates the case when user has previously browsed this `newAddon`
+      // and navigates to it again.
+      const addonsByAuthors = [
+        { ...fakeAddon, slug: 'addon-1' },
+        { ...fakeAddon, slug: 'addon-2' },
+        { ...fakeAddon, slug: 'addon-3' },
+      ];
+
+      root.setProps({ addon: newAddon, addonsByAuthors });
+
+      sinon.assert.notCalled(fakeDispatch);
+    });
+
+    it('is hidden when an add-on has not loaded yet', () => {
+      const root = shallowRender({ addon: undefined });
+      expect(root.find('.AddonDescription-more-addons'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when other addons are not loaded yet', () => {
+      const root = shallowRender({ addonsByAuthors: undefined });
+      expect(root.find('.AddonDescription-more-addons'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when there is no other addon', () => {
+      const root = shallowRender({ addonsByAuthors: [] });
+      expect(root.find('.AddonDescription-more-addons'))
+        .toHaveLength(0);
+    });
+
+    it('displays the developer name when add-on is an extension', () => {
+      const root = mountMoreAddonsByAuthors({
+        addonsByAuthors: [fakeAddon],
+      });
+      expect(root.find('.Card-header'))
+        .toIncludeText('More extensions by Krupa');
+    });
+
+    it('displays the artist name when add-on is a theme', () => {
+      const root = mountMoreAddonsByAuthors({
+        addon: fakeTheme,
+        addonsByAuthors: [fakeTheme],
+      });
+      expect(root.find('.Card-header'))
+        .toIncludeText('More themes by Madonna');
+    });
+
+    it('displays the author name when add-on is not extension or theme', () => {
+      const root = mountMoreAddonsByAuthors({
+        addon: {
+          ...fakeAddon,
+          type: ADDON_TYPE_OPENSEARCH,
+        },
+        addonsByAuthors: [fakeAddon],
+      });
+      expect(root.find('.Card-header'))
+        .toIncludeText('More add-ons by Krupa');
+    });
+
+    it('displays a plural form when extension has multiple authors', () => {
+      const root = mountMoreAddonsByAuthors({
+        addon: {
+          ...fakeAddon,
+          authors: Array(2).fill(fakeAddon.authors[0]),
+        },
+        addonsByAuthors: [fakeAddon],
+      });
+      expect(root.find('.Card-header'))
+        .toIncludeText('More extensions by these authors');
+    });
+
+    it('displays a plural form when theme has multiple authors', () => {
+      const root = mountMoreAddonsByAuthors({
+        addon: {
+          ...fakeTheme,
+          authors: Array(2).fill(fakeTheme.authors[0]),
+        },
+        addonsByAuthors: [fakeTheme],
+      });
+      expect(root.find('.Card-header'))
+        .toIncludeText('More themes by these authors');
+    });
+
+    it('displays a plural form when add-on has multiple authors', () => {
+      const root = mountMoreAddonsByAuthors({
+        addon: {
+          ...fakeAddon,
+          authors: Array(2).fill(fakeAddon.authors[0]),
+          type: ADDON_TYPE_OPENSEARCH,
+        },
+        addonsByAuthors: [fakeAddon],
+      });
+      expect(root.find('.Card-header'))
+        .toIncludeText('More add-ons by these authors');
+    });
+
+    it('displays more add-ons by authors', () => {
+      const addonsByAuthors = [
+        { ...fakeAddon, slug: 'addon-1' },
+        { ...fakeAddon, slug: 'addon-2' },
+        { ...fakeAddon, slug: 'addon-3' },
+      ];
+      const root = mountMoreAddonsByAuthors({ addonsByAuthors });
+
+      expect(root.find('.AddonDescription-more-addons--theme'))
+        .toHaveLength(0);
+      expect(root.find(SearchResult)).toHaveLength(addonsByAuthors.length);
+    });
+
+    it('indicates when other add-ons are themes', () => {
+      const addonsByAuthors = [
+        { ...fakeTheme, slug: 'addon-1' },
+        { ...fakeTheme, slug: 'addon-2' },
+        { ...fakeTheme, slug: 'addon-3' },
+      ];
+      const root = mountMoreAddonsByAuthors({
+        addon: fakeTheme,
+        addonsByAuthors,
+      });
+
+      expect(root.find('.AddonDescription-more-addons--theme'))
+        .toHaveLength(1);
+      expect(root.find(SearchResult)).toHaveLength(addonsByAuthors.length);
+    });
+  });
+
+  it('displays a badge when the addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
+  });
+
+  it('adds a different badge label when a "theme" addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_THEME };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
+  });
+
+  it('adds a different badge label when an addon of a different type is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Add-on');
+  });
+
+  it('does not display the featured badge when addon is not featured', () => {
+    const addon = { ...fakeAddon, is_featured: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('displays a badge when the addon needs restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'restart-required');
+    expect(root.find(Badge)).toHaveProp('label', 'Restart Required');
+  });
+
+  it('does not display the "restart required" badge when addon does not need restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('does not display the "restart required" badge when isRestartRequired is not true', () => {
+    const root = shallowRender({ addon: fakeAddon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
 });
 
 describe('mapStateToProps', () => {
@@ -857,57 +1117,5 @@ describe('mapStateToProps', () => {
     const { addon } = _mapStateToProps();
 
     expect(addon).toEqual(undefined);
-  });
-
-  it('displays a badge when the addon is featured', () => {
-    const addon = { ...fakeAddon, is_featured: true };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
-  });
-
-  it('adds a different badge label when a "theme" addon is featured', () => {
-    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_THEME };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
-  });
-
-  it('adds a different badge label when an addon of a different type is featured', () => {
-    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Add-on');
-  });
-
-  it('does not display the featured badge when addon is not featured', () => {
-    const addon = { ...fakeAddon, is_featured: false };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveLength(0);
-  });
-
-  it('displays a badge when the addon needs restart', () => {
-    const addon = { ...fakeAddon, isRestartRequired: true };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'restart-required');
-    expect(root.find(Badge)).toHaveProp('label', 'Restart Required');
-  });
-
-  it('does not display the "restart required" badge when addon does not need restart', () => {
-    const addon = { ...fakeAddon, isRestartRequired: false };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveLength(0);
-  });
-
-  it('does not display the "restart required" badge when isRestartRequired is not true', () => {
-    const root = shallowRender({ addon: fakeAddon });
-
-    expect(root.find(Badge)).toHaveLength(0);
   });
 });

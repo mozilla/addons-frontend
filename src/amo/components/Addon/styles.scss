@@ -148,6 +148,46 @@
   order: 4;
 }
 
+.AddonDescription-more-addons {
+  margin-top: 0;
+
+  .Card-contents .AddonsCard-list {
+    background-color: $white;
+    display: grid;
+    grid-auto-flow: initial;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.AddonDescription-more-addons--theme {
+  .Card-contents .AddonsCard-list {
+    .SearchResult-result {
+      width: 100%;
+    }
+
+    .SearchResult-icon-wrapper {
+      margin: 0 0 10px;
+      width: 100%;
+    }
+
+    .SearchResult-icon {
+      border-radius: $border-radius-default;
+    }
+
+    @include respond-to(large) {
+      .SearchResult.SearchResult--theme {
+        margin: 0 5px;
+      }
+    }
+
+    @include respond-to(desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
 // Details section with lots of grid stuff, on larger displays.
 @include respond-to(large) {
   .Addon-details {
@@ -164,6 +204,15 @@
 
     .AddonDescription-version-notes {
       grid-column: 1;
+    }
+
+    .AddonDescription-more-addons {
+      grid-column: 1;
+    }
+
+    .AddonDescription-more-addons--theme {
+      grid-column: 2;
+      grid-row: 1 / span 5;
     }
 
     .AddonDescription-contents {

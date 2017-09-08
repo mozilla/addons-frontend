@@ -26,6 +26,7 @@ export const fakeAddon = Object.freeze({
   authors: [{
     name: 'Krupa',
     url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+    username: 'krupa',
   }],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
@@ -83,6 +84,7 @@ export const fakeTheme = Object.freeze({
   authors: [{
     name: 'Madonna',
     url: 'http://olympia.dev/en-US/firefox/user/madonna/',
+    username: 'madonna',
   }],
   description: 'This is the add-on description',
   guid: 'dancing-daisies-theme@my-addons.firefox',
