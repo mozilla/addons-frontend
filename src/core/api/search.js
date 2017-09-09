@@ -1,7 +1,8 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 
-import { addon, callApi } from 'core/api';
+import { callApi } from 'core/api';
+import { addonSchema } from 'core/api/addon';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -11,6 +12,25 @@ import log from 'core/logger';
 import type { ApiStateType } from 'core/reducers/api';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
+
+type AutocompleteParams = {|
+  api: ApiStateType,
+  filters: {|
+    query: string,
+    addonType?: string,
+  |},
+|};
+
+export function autocomplete({ api, filters }: AutocompleteParams) {
+  return callApi({
+    endpoint: 'addons/autocomplete',
+    params: {
+      app: api.clientApp,
+      ...convertFiltersToQueryParams(filters),
+    },
+    state: api,
+  });
+}
 
 export type SearchParams = {|
   api: ApiStateType,
@@ -30,7 +50,7 @@ export type SearchParams = {|
   |},
 |};
 
-export default function search(
+export function search(
   { api, auth = false, filters = {} }: SearchParams
 ) {
   const _filters = { ...filters };
@@ -92,7 +112,7 @@ export default function search(
 
   return callApi({
     endpoint: 'addons/search',
-    schema: { results: [addon] },
+    schema: { results: [addonSchema] },
     params: convertFiltersToQueryParams(_filters),
     state: api,
     auth,

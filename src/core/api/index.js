@@ -4,25 +4,24 @@ import url from 'url';
 
 import utf8 from 'utf8';
 import 'isomorphic-fetch';
-import { schema as normalizrSchema, normalize } from 'normalizr';
+import { normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
 import { initialApiState } from 'core/reducers/api';
 import log from 'core/logger';
-import searchApi from 'core/api/search';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+import * as addonApi from 'core/api/addon';
+import * as authenticationApi from 'core/api/authentication';
+import * as categoriesApi from 'core/api/categories';
+import * as featuredApi from 'core/api/featured';
+import * as searchApi from 'core/api/search';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
-import type { ReactRouterLocation } from 'core/types/router';
 
 
-const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
-const Entity = normalizrSchema.Entity;
+export const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 
-export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
-export const category = new Entity('categories', {}, { idAttribute: 'slug' });
-
+// TODO: Move this to a utils file.
 export function makeQueryString(query: { [key: string]: * }) {
   const resolvedQuery = { ...query };
   Object.keys(resolvedQuery).forEach((key) => {
@@ -162,111 +161,22 @@ export function callApi({
     .then((response) => (schema ? normalize(response, schema) : response));
 }
 
-type FetchAddonParams = {|
-  api: ApiStateType,
-  slug: string,
-|};
+// Schemas
+// TODO: Remove this when
+// https://github.com/mozilla/addons-frontend/issues/2917 is fixed.
+export const addon = addonApi.addonSchema;
+export const category = categoriesApi.categorySchema;
 
-export function fetchAddon({ api, slug }: FetchAddonParams) {
-  return callApi({
-    endpoint: `addons/addon/${slug}`,
-    schema: addon,
-    auth: true,
-    state: api,
-  });
-}
-
-type LoginParams = {|
-  api: ApiStateType,
-  code: string,
-  state: string,
-|};
-
-export function login({ api, code, state }: LoginParams) {
-  const params = { config: undefined };
-  const configName = config.get('fxaConfig');
-  if (configName) {
-    params.config = configName;
-  }
-  return callApi({
-    endpoint: 'accounts/login',
-    method: 'POST',
-    body: { code, state },
-    params,
-    state: api,
-    credentials: true,
-  });
-}
-
-export function startLoginUrl(
-  { location }: {| location: ReactRouterLocation |},
-) {
-  const configName = config.get('fxaConfig');
-  const params = {
-    config: undefined,
-    to: url.format({ ...location }),
-  };
-  if (configName) {
-    params.config = configName;
-  }
-  const query = makeQueryString(params);
-  return `${API_BASE}/accounts/login/start/${query}`;
-}
-
-type FeaturedParams = {|
-  api: ApiStateType,
-  filters: Object,
-  page: number,
-|};
-
-export function featured({ api, filters, page }: FeaturedParams) {
-  return callApi({
-    endpoint: 'addons/featured',
-    params: {
-      app: api.clientApp,
-      ...convertFiltersToQueryParams(filters),
-      page,
-    },
-    schema: { results: [addon] },
-    state: api,
-  });
-}
-
-export function categories({ api }: {| api: ApiStateType |}) {
-  return callApi({
-    endpoint: 'addons/categories',
-    schema: { results: [category] },
-    state: api,
-  });
-}
-
-export function logOutFromServer({ api }: {| api: ApiStateType |}) {
-  return callApi({
-    auth: true,
-    credentials: true,
-    endpoint: 'accounts/session',
-    method: 'DELETE',
-    state: api,
-  });
-}
-
-type AutocompleteParams = {|
-  api: ApiStateType,
-  filters: {|
-    query: string,
-    addonType?: string,
-  |},
-|};
-
-export function autocomplete({ api, filters }: AutocompleteParams) {
-  return callApi({
-    endpoint: 'addons/autocomplete',
-    params: {
-      app: api.clientApp,
-      ...convertFiltersToQueryParams(filters),
-    },
-    state: api,
-  });
-}
-
-export const search = searchApi;
+// Add-on APIs
+export const fetchAddon = addonApi.fetchAddon;
+// Auth APIs
+export const login = authenticationApi.login;
+export const logOutFromServer = authenticationApi.logOutFromServer;
+export const startLoginUrl = authenticationApi.startLoginUrl;
+// Category APIs
+export const categories = categoriesApi.categories;
+// Featured Add-on APIs
+export const featured = featuredApi.featured;
+// Search and Autocomplete APIs
+export const autocomplete = searchApi.autocomplete;
+export const search = searchApi.search;
