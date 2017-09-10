@@ -35,7 +35,7 @@ The easiest way to manage multiple node versions in development is to use
 
 * type `yarn` to install all dependencies
 * type `yarn amo:stage` to start a local server that connects to a
-  hosted staging server
+  a hosted staging server
 
 ## Development commands
 
@@ -74,8 +74,7 @@ Here are a few tips:
   adding test files or changing existing code. As you save each file, [jest][]
   will only run tests related to the code you change.
 * If you had typed `a` when you first started then [jest][] will continue to
-  run the full suite even when you change specific files. Type `o` to switch
-  back to the mode of only running tests related to the files you are changing.
+  run the full suite even when you change specific files. Type `o` to switch back to the mode of only running tests related to the files you are changing.
 * If you see something like `Error watching file for changes: EMFILE` on Mac OS
   then `brew install watchman` might fix it.
   See https://github.com/facebook/jest/issues/1767
@@ -85,7 +84,7 @@ Here are a few tips:
 By default, `yarn test` will only run a subset of tests that relate to the code
 you are working on.
 
-To explicitly run a subset of tests, you can type `t` or `p` which are explained
+To explicitly run a subset of tests, you can type `t` or `p` which is explained
 in the [jest][] watch usage.
 
 Alternatively, you can start the test runner with a
@@ -123,8 +122,7 @@ Here is our Flow manifesto:
 
 * We use Flow to **declare the intention of our code** and help others
   refactor it with confidence.
-  Flow also makes it easier to catch mistakes before spending hours in a debugger
-  trying to find out what happened.
+  Flow also makes it easier to catch mistakes before spending hours in a debugger trying to find out what happened.
 * Avoid magic [Flow declarations](https://flowtype.org/en/docs/config/libs/)
   for any *internal* code. Just declare a
   [type alias](https://flowtype.org/en/docs/types/aliases/) next to the code
@@ -133,8 +131,7 @@ Here is our Flow manifesto:
 * Never import a real JS object just to reference its type. Make a type alias
   and import that instead.
 * Never add more type annotations than you need. Flow is really good at
-  inferring types from standard JS code; it will tell you
-  when you need to add explicit annotations.
+  inferring types from standard JS code; it will tell you when you need to add explicit annotations.
 * When a function like `getAllAddons` takes object arguments, call its
   type object `GetAllAddonsParams`. Example:
 
@@ -158,16 +155,12 @@ function getAllAddons({ categoryId }: GetAllAddonsParams = {}) {
   if you have to. This is meant as a working replacement for
   [$Exact<T>](https://flow.org/en/docs/types/utilities/#toc-exact).
 * Try to avoid loose types like `Object` or `any` but feel free to use
-  them if you are spending too much time declaring types that depend on other
-  types that depend on other types, and so on.
+  them if you are spending too much time declaring types that depend on other types that depend on other types, and so on.
 * You can add a `$FLOW_FIXME` comment to skip a Flow check if you run
-  into a bug or if you hit something that's making you bang your head on
-  the keyboard. If it's something you think is unfixable then use
-  `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link
-  to a GitHub issue if possible.
+  into a bug or if you hit something that's making you bang your head on the keyboard. If it's something you think is unfixable then use
+  `$FLOW_IGNORE` instead. Please explain your rationale in the comment and link to a GitHub issue if possible.
 * If you're stumped on why some Flow annotations aren't working, try using
-  the `yarn flow type-at-pos ...` command to trace which types are being applied
-  to the code. See `yarn flow -- --help type-at-pos` for details.
+  the `yarn flow type-at-pos ...` command to trace which types are being applied to the code. See `yarn flow -- --help type-at-pos` for details.
 
 ### Code coverage
 
@@ -186,9 +179,9 @@ open coverage/lcov-report/index.html
 
 ### Running AMO for local development
 
-A proxy server is provided for running the AMO app with the API on the same host as the frontend.
+A proxy server is provided for running the AMO app with the API on the same host as the front end.
 This provides a setup that is closer to production than running the frontend on its own. The
-default configuration for this is to use a local addons-server for the API which can be setup
+the default configuration for this is to use a local addons-server for the API which can be setup
 according to the
 [addons-server docs](https://addons-server.readthedocs.io/en/latest/topics/install/index.html).
 Docker is the preferred method of running addons-server.
@@ -208,7 +201,7 @@ The `dev` scripts above will connect to a hosted development API by default.
 If you want to run your own
 [addons-server](https://github.com/mozilla/addons-server)
 API or make any other local changes, just add a local configuration
-file for each app. For example, to run your own discovery pane API, first create
+file for each app. For example, to run your own discovery pane API, first, create
 a local config file:
 
     touch config/local-development-disco.js
@@ -231,11 +224,11 @@ overrides from your local configuration file:
 
 Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
-to learn more about how configuration is applied.
+to learn more about how the configuration is applied.
 
 #### Disabling CSP for local development
 
-When developing locally with a webpack server, the randomly generated asset
+When developing locally with a web pack server, the randomly generated asset
 URL will fail our Content Security Policy (CSP) and clutter your console
 with errors. You can turn off all CSP errors by settings CSP to `false`
 in any local config file, such as `local-development-amo.js`. Example:
@@ -364,7 +357,7 @@ curl https://addons-dev.allizom.org/__frontend_version__
 }
 ```
 
-This will return a 415 response if a `version.json` file doesn't exist
+This will return a 415 response if a `version.json` the file doesn't exist
 in the root directory. This file is typically generated by the deploy process.
 
 For consistency with monitoring scripts, the same data can be retrieved
@@ -387,12 +380,12 @@ tooling to support a universal front-end infrastructure without having to
 worry about cutting packages and bumping versions the entire time.
 
 At a later date if we need to move things out into their own project we
-still can.
+still, can.
 
 ## Core technologies
 
 * Based on Redux + React
-* Code written in ES2015+
+* Code is written in ES2015+
 * Universal rendering via node
 * Unit tests with high coverage (aiming for 100%)
 
