@@ -101,32 +101,26 @@ const reducer = (
   action: Action
 ): State => {
   switch (action.type) {
-    case FETCH_OTHER_ADDONS_BY_AUTHORS: {
-      const payload = action.payload;
-
+    case FETCH_OTHER_ADDONS_BY_AUTHORS:
       return {
         ...state,
         byAddonSlug: {
           ...state.byAddonSlug,
-          [payload.slug]: undefined,
+          [action.payload.slug]: undefined,
         },
       };
-    }
-    case LOAD_OTHER_ADDONS_BY_AUTHORS: {
-      const payload = action.payload;
-
+    case LOAD_OTHER_ADDONS_BY_AUTHORS:
       return {
         ...state,
         byAddonSlug: {
           ...state.byAddonSlug,
-          [payload.slug]: payload.addons
+          [action.payload.slug]: action.payload.addons
             // This ensures we do not display the main add-on in the list of
             // "add-ons by these authors".
-            .filter((addon) => addon.slug !== payload.slug)
+            .filter((addon) => addon.slug !== action.payload.slug)
             .slice(0, OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE),
         },
       };
-    }
     default:
       return state;
   }

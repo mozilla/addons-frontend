@@ -8,7 +8,6 @@ import addonsByAuthorsReducer, {
 import addonsByAuthorsSaga from 'amo/sagas/addonsByAuthors';
 import {
   ADDON_TYPE_THEME,
-  CLEAR_ERROR,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import * as searchApi from 'core/api/search';
@@ -81,7 +80,9 @@ describe(__filename, () => {
   it('clears the error handler', async () => {
     _fetchOtherAddonsByAuthors({ authors: [], slug: fakeAddon.slug });
 
-    await sagaTester.waitFor(CLEAR_ERROR);
+    const expectedAction = errorHandler.createClearingAction();
+
+    await sagaTester.waitFor(expectedAction.type);
     expect(sagaTester.getCalledActions()[1])
       .toEqual(errorHandler.createClearingAction());
   });
