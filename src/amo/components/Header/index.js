@@ -89,15 +89,15 @@ export class HeaderBase extends React.Component {
               text={username}
               className="Header-authenticate-button Header-button"
             >
-              <DropdownMenuItem>{i18n.gettext('Account')}</DropdownMenuItem>
+              <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
               <DropdownMenuItem>
                 <Link href={`/user/${username}/`}>
-                  {i18n.gettext('My profile')}
+                  {i18n.gettext('View Profile')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link href="/users/edit">
-                  {i18n.gettext('Account settings')}
+                  {i18n.gettext('Edit Profile')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem onClick={this.handleLogOut} detached>

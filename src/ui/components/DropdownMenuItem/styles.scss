@@ -1,25 +1,22 @@
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
-$section-font-size: 11px;
-$link-font-size: 15px;
-
 .DropdownMenuItem-section {
   color: $grey-50;
-  font-size: $section-font-size;
+  font-size: $font-size-s;
   line-height: 1.6;
   margin: 16px 0 0;
-  text-transform: uppercase;
 }
 
-.DropdownMenuItem-link {
+.DropdownMenuItem-link a,
+.DropdownMenuItem-link button {
   @include font-medium();
 
   &,
   &:link {
     color: $grey-90;
     cursor: pointer;
-    font-size: $link-font-size;
+    font-size: $font-size-m-smaller;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -33,6 +30,6 @@ $link-font-size: 15px;
   }
 }
 
-.DropdownMenuItem-link--detached {
+.DropdownMenuItem--detached {
   margin-top: 8px;
 }

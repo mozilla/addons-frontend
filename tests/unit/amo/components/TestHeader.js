@@ -60,14 +60,14 @@ describe(__filename, () => {
       .toContain('Firefox Add-ons');
   });
 
-  it('displays `login` text when user is not connected', () => {
+  it('displays `login` text when user is not signed in', () => {
     const wrapper = renderHeader();
 
     expect(wrapper.find(AuthenticateButton)).toHaveLength(1);
     expect(wrapper.find(DropdownMenu)).toHaveLength(0);
   });
 
-  it('displays a menu and the username when user is logged in', () => {
+  it('displays a menu and the username when user is signed in', () => {
     const { store } = dispatchSignInActions({ username: 'babar' });
     const wrapper = renderHeader({ store });
 
@@ -75,7 +75,7 @@ describe(__filename, () => {
     expect(wrapper.find(DropdownMenu)).toHaveProp('text', 'babar');
   });
 
-  it('allows to log out a logged user', () => {
+  it('allows a signed-in user to log out', () => {
     const { store } = dispatchSignInActions({ username: 'babar' });
     const wrapper = renderHeader({ store });
     const mockApi = sinon.mock(api);

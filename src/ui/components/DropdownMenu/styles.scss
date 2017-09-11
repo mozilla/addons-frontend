@@ -15,7 +15,6 @@
   @include font-regular();
 
   color: $white;
-  cursor: pointer;
   font-size: $font-size-s;
   font-weight: normal;
   text-decoration: none;
@@ -25,6 +24,7 @@
 
     height: 10px;
     opacity: 0.6;
+    transition: opacity $transition-short ease-in-out;
     width: 9px;
   }
 }

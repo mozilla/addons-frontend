@@ -71,7 +71,7 @@ export class AuthenticateButtonBase extends React.Component {
     // https://github.com/mozilla/addons-frontend/issues/1904
     return (
       <Button
-        href={`#log-${isAuthenticated ? 'out' : 'in'}`}
+        href={`#${isAuthenticated ? 'logout' : 'login'}`}
         className={className}
         onClick={this.onClick}
       >

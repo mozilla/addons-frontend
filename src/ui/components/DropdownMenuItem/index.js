@@ -25,31 +25,19 @@ const DropdownMenuItem = ({ children, onClick, detached = false }: Props) => {
       of "DropdownMenuItem", got: ${children.type.displayName}`);
   }
 
-  if (!childIsComponent && !onClick) {
-    return (
-      <li className="DropdownMenuItem DropdownMenuItem-section">
-        {children}
-      </li>
-    );
-  }
-
-  const classnames = classNames('DropdownMenuItem-link', {
-    'DropdownMenuItem-link--detached': detached,
+  const classnames = classNames('DropdownMenuItem', {
+    'DropdownMenuItem-section': !childIsComponent && !onClick,
+    'DropdownMenuItem-link': childIsComponent || onClick,
+    'DropdownMenuItem--detached': detached,
   });
 
-  if (childIsComponent) {
-    return (
-      <li className="DropdownMenuItem">
-        {React.cloneElement((children: Link), { className: classnames })}
-      </li>
-    );
-  }
-
   return (
-    <li className="DropdownMenuItem">
-      <button className={classnames} onClick={onClick}>
-        {children}
-      </button>
+    <li className={classnames}>
+      {onClick ? (
+        <button onClick={onClick}>{children}</button>
+      ) : (
+        children
+      )}
     </li>
   );
 };
