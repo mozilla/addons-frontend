@@ -93,7 +93,7 @@ export class SearchFormBase extends React.Component {
     }));
   }
 
-  setFilters(newFilters) {
+  createFiltersFromQuery(newFilters) {
     const { addonType, userAgentInfo } = this.props;
     const filters = { ...newFilters };
 
@@ -109,7 +109,7 @@ export class SearchFormBase extends React.Component {
 
   goToSearch(query) {
     const { api, pathname, router } = this.props;
-    const filters = this.setFilters({ query });
+    const filters = this.createFiltersFromQuery({ query });
 
     router.push({
       pathname: `/${api.lang}/${api.clientApp}${pathname}`,
@@ -144,7 +144,7 @@ export class SearchFormBase extends React.Component {
       return;
     }
 
-    const filters = this.setFilters({ query: value });
+    const filters = this.createFiltersFromQuery({ query: value });
 
     this.setState({
       autocompleteIsOpen: true,

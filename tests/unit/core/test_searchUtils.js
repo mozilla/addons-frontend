@@ -53,37 +53,37 @@ describe(__filename, () => {
 
     it('converts Windows to filter', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefox[1]);
-      const filterName = convertOSToFilterValue(osName);
+      const osFilterValue = convertOSToFilterValue(osName);
 
-      expect(filterName).toEqual('windows');
+      expect(osFilterValue).toEqual('windows');
     });
 
     it('converts Mac to filter', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefox[2]);
-      const filterName = convertOSToFilterValue(osName);
+      const osFilterValue = convertOSToFilterValue(osName);
 
-      expect(filterName).toEqual('mac');
+      expect(osFilterValue).toEqual('mac');
     });
 
     it('converts Linux to filter', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefox[0]);
-      const filterName = convertOSToFilterValue(osName);
+      const osFilterValue = convertOSToFilterValue(osName);
 
-      expect(filterName).toEqual('linux');
+      expect(osFilterValue).toEqual('linux');
     });
 
     it('converts Android to undefined (we use clientApp for Android)', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefoxAndroid[0]);
-      const filterName = convertOSToFilterValue(osName);
+      const osFilterValue = convertOSToFilterValue(osName);
 
-      expect(filterName).toEqual(undefined);
+      expect(osFilterValue).toEqual(undefined);
     });
 
     it('converts an unexpected value to undefined', () => {
       const osName = getOSNameFromUserAgent(userAgents.firefoxOS[0]);
-      const filterName = convertOSToFilterValue(osName);
+      const osFilterValue = convertOSToFilterValue(osName);
 
-      expect(filterName).toEqual(undefined);
+      expect(osFilterValue).toEqual(undefined);
     });
   });
 });
