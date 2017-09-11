@@ -21,11 +21,14 @@ import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
   autocompleteCancel,
   autocompleteStart,
 } from 'core/reducers/autocomplete';
+import {
+  convertOSToFilterValue,
+  convertFiltersToQueryParams,
+} from 'core/searchUtils';
 import Icon from 'ui/components/Icon';
 
 import './styles.scss';
@@ -49,6 +52,7 @@ export class SearchFormBase extends React.Component {
       url: PropTypes.string.isRequired,
       iconUrl: PropTypes.string.isRequired,
     })).isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -89,13 +93,23 @@ export class SearchFormBase extends React.Component {
     }));
   }
 
-  goToSearch(query) {
-    const { addonType, api, pathname, router } = this.props;
-    const filters = { query };
+  createFiltersFromQuery(newFilters) {
+    const { addonType, userAgentInfo } = this.props;
+    const filters = { ...newFilters };
 
     if (addonType) {
       filters.addonType = addonType;
     }
+
+    filters.operatingSystem = convertOSToFilterValue(
+      userAgentInfo.os.name);
+
+    return filters;
+  }
+
+  goToSearch(query) {
+    const { api, pathname, router } = this.props;
+    const filters = this.createFiltersFromQuery({ query });
 
     router.push({
       pathname: `/${api.lang}/${api.clientApp}${pathname}`,
@@ -130,12 +144,7 @@ export class SearchFormBase extends React.Component {
       return;
     }
 
-    const { addonType } = this.props;
-    const filters = { query: value };
-
-    if (addonType) {
-      filters.addonType = addonType;
-    }
+    const filters = this.createFiltersFromQuery({ query: value });
 
     this.setState({
       autocompleteIsOpen: true,
@@ -217,8 +226,8 @@ export class SearchFormBase extends React.Component {
     };
 
     const autocompleteIsOpen = this.state.autocompleteIsOpen &&
-      // This prevents the input to look like Autosuggest is open when there is
-      // no result coming from the API.
+      // This prevents the input to look like Autosuggest is open when
+      // there is no result coming from the API.
       this.getSuggestions().length > 0;
 
     return (
@@ -283,6 +292,7 @@ export function mapStateToProps(state) {
     api: state.api,
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
+    userAgentInfo: state.api.userAgentInfo,
   };
 }
 

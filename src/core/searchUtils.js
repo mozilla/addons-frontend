@@ -1,3 +1,12 @@
+import log from 'core/logger';
+
+
+export const operatingSystems = {
+  Linux: 'linux',
+  'Mac OS': 'mac',
+  Windows: 'windows',
+};
+
 export const paramsToFilter = {
   app: 'clientApp',
   appversion: 'compatibleWithVersion',
@@ -34,6 +43,17 @@ export function convertQueryParamsToFilters(params) {
     }
     return object;
   }, {});
+}
+
+export function convertOSToFilterValue(name) {
+  if (name in operatingSystems) {
+    return operatingSystems[name];
+  }
+
+  log.info(
+    `operatingSystem "${name}" not recognized so falling back to no OS.`);
+
+  return undefined;
 }
 
 export function hasSearchFilters(filters) {
