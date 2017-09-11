@@ -13,6 +13,7 @@ describe(__filename, () => {
         compatibleWithVersion: '57.0',
         page: 4,
         query: 'Cool things',
+        author: 'johndoe',
       });
 
       expect(queryParams).toEqual({
@@ -20,6 +21,7 @@ describe(__filename, () => {
         page: 4,
         q: 'Cool things',
         type: ADDON_TYPE_THEME,
+        author: 'johndoe',
       });
     });
   });

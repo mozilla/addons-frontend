@@ -3,6 +3,7 @@ import { createStore as _createStore, combineReducers } from 'redux';
 import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
 
+import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import featured from 'amo/reducers/featured';
 import landing from 'amo/reducers/landing';
 import reviews from 'amo/reducers/reviews';
@@ -26,6 +27,7 @@ export default function createStore(initialState = {}) {
   const store = _createStore(
     combineReducers({
       addons,
+      addonsByAuthors,
       api,
       autocomplete,
       categories,

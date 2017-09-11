@@ -1,7 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import { searchStart } from 'core/actions/search';
-import * as api from 'core/api';
+import * as api from 'core/api/search';
 import { CLEAR_ERROR, SEARCH_LOADED } from 'core/constants';
 import searchReducer from 'core/reducers/search';
 import apiReducer from 'core/reducers/api';
