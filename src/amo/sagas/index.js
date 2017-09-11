@@ -4,6 +4,7 @@
 import { all, fork } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
+import addonsByAuthors from 'amo/sagas/addonsByAuthors';
 import categories from 'amo/sagas/categories';
 import featured from 'amo/sagas/featured';
 import landing from 'amo/sagas/landing';
@@ -18,6 +19,7 @@ import user from 'core/sagas/user';
 export default function* rootSaga() {
   yield all([
     fork(addons),
+    fork(addonsByAuthors),
     fork(autocomplete),
     fork(categories),
     fork(featured),

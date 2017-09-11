@@ -10,7 +10,6 @@ import config from 'config';
 
 import { initialApiState } from 'core/reducers/api';
 import log from 'core/logger';
-import searchApi from 'core/api/search';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
@@ -268,5 +267,3 @@ export function autocomplete({ api, filters }: AutocompleteParams) {
     state: api,
   });
 }
-
-export const search = searchApi;

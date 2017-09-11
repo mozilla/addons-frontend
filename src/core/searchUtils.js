@@ -1,6 +1,7 @@
 export const paramsToFilter = {
   app: 'clientApp',
   appversion: 'compatibleWithVersion',
+  author: 'author',
   category: 'category',
   page: 'page',
   // TODO: Change our filter to `pageSize`, for consistency.

@@ -19,6 +19,7 @@ export type SearchParams = {|
   // for convertFiltersToQueryParams.
   filters: {|
     addonType?: string,
+    author?: string,
     clientApp?: string,
     category?: string,
     compatibleWithVersion?: number|string,
@@ -30,7 +31,7 @@ export type SearchParams = {|
   |},
 |};
 
-export default function search(
+export function search(
   { api, auth = false, filters = {} }: SearchParams
 ) {
   const _filters = { ...filters };
