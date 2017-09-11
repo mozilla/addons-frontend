@@ -44,6 +44,11 @@ body {
   padding: 0 0 $padding-page;
 }
 
+.App-content-wrapper {
+  margin: 0 auto;
+  max-width: $max-content-width;
+}
+
 h1,
 h2 {
   @include font-bold();

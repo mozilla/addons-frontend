@@ -28,3 +28,6 @@ $vertical-space-s: 16px;
 $vertical-space-m: 32px;
 $vertical-space-l: 64px;
 $vertical-space-xl: 128px;
+
+// Restrict content to this width on large screens.
+$max-content-width: 1366px;

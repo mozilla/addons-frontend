@@ -11,6 +11,12 @@
     display: flex;
     justify-content: space-between;
   }
+
+  @include respond-to(large) {
+    margin: 0 auto;
+    max-width: $max-content-width;
+    width: 100%;
+  }
 }
 
 .Footer-language-and-links {
