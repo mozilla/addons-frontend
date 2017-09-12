@@ -19,7 +19,10 @@
   @include respond-to(large) {
     grid-template-columns: max-content auto auto;
     grid-template-rows: 46px auto;
+    margin: 0 auto;
+    max-width: $max-content-width;
     min-height: 112px;
+    width: 100%;
   }
 }
 
