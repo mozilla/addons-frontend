@@ -255,6 +255,28 @@ describe('Addon', () => {
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
+  it('renders NotFound page for unauthorized add-on - 401 error', () => {
+    const id = 'error-handler-id';
+    const { store } = createStore();
+
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Authentication credentials were not provided.' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    // Set up an error handler from state like withErrorHandler().
+    const errorHandler = new ErrorHandler({
+      id, dispatch: sinon.stub(), capturedError,
+    });
+
+    const root = shallowRender({ errorHandler });
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
   it('renders a single author', () => {
     const authorUrl = 'http://olympia.dev/en-US/firefox/user/krupa/';
     const root = shallowRender({
