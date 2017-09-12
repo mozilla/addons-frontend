@@ -97,11 +97,11 @@ export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
 export const SEARCH_SORT_POPULAR = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
 
-// Operating system for add-ons
+// Operating system for add-ons and files
+export const OS_ALL = 'all';
 export const OS_WINDOWS = 'windows';
 export const OS_MAC = 'mac';
 export const OS_LINUX = 'linux';
-// TODO: Do we need this? We have clientApp.
 export const OS_ANDROID = 'android';
 
 // Action types.

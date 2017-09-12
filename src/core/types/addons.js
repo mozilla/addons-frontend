@@ -4,10 +4,36 @@ import { validAddonTypes } from 'core/constants';
 // You have to just laugh at this line!
 type AddonTypeType = validAddonTypes;
 
+type AddonStatus =
+  | 'beta'
+  | 'lite'
+  | 'public'
+  | 'deleted'
+  | 'pending'
+  | 'disabled'
+  | 'rejected'
+  | 'nominated'
+  | 'incomplete'
+  | 'unreviewed'
+  | 'lite-nominated'
+  | 'review-pending';
+
+type AddonFileType = {|
+  created: string,
+  hash: string,
+  id: number,
+  is_restart_required: boolean,
+  is_webextension: boolean,
+  permissions?: Array<string>,
+  platform: 'all' | 'android' | 'mac' | 'linux' | 'windows',
+  status: AddonStatus,
+  url: string,
+|};
+
 export type AddonVersionType = {|
   channel: string,
   edit_url: string,
-  files: Array<Object>,
+  files: Array<AddonFileType>,
   id: number,
   // The `text` property is omitted from addon.current_version.license.
   license: { name: string, url: string },
@@ -79,19 +105,7 @@ export type ExternalAddonType = {|
   requires_payment: boolean,
   review_url: string,
   slug: string,
-  status:
-    | 'beta'
-    | 'lite'
-    | 'public'
-    | 'deleted'
-    | 'pending'
-    | 'disabled'
-    | 'rejected'
-    | 'nominated'
-    | 'incomplete'
-    | 'unreviewed'
-    | 'lite-nominated'
-    | 'review-pending',
+  status: AddonStatus,
   summary?: string,
   support_email?: string,
   support_url?: string,
@@ -114,6 +128,12 @@ export type AddonType = {
   ...ThemeData,
   // Here are some custom properties for our internal representation.
   iconUrl: string,
-  installURL?: string,
+  installURLs: {
+    all: ?string,
+    android: ?string,
+    mac: ?string,
+    linux: ?string,
+    windows: ?string,
+  },
   isRestartRequired: boolean,
 };

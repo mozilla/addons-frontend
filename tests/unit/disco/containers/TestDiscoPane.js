@@ -140,6 +140,13 @@ describe(__filename, () => {
         description: 'editorial text',
         heading: 'The Add-on',
         iconUrl: addon.icon_url,
+        installURLs: {
+          all: undefined,
+          android: undefined,
+          linux: undefined,
+          mac: undefined,
+          windows: undefined,
+        },
         isRestartRequired: false,
       }]);
     });
@@ -170,6 +177,13 @@ describe(__filename, () => {
         guid,
         heading: 'The Theme',
         iconUrl: addon.icon_url,
+        installURLs: {
+          all: undefined,
+          android: undefined,
+          linux: undefined,
+          mac: undefined,
+          windows: undefined,
+        },
         isRestartRequired: false,
       }]);
     });

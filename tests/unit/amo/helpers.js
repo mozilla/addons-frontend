@@ -7,7 +7,10 @@ import {
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
 import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, CLIENT_APP_FIREFOX,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  CLIENT_APP_FIREFOX,
+  OS_ALL,
 } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
 import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
@@ -35,7 +38,15 @@ export const fakeAddon = Object.freeze({
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
     files: [{
+      created: '2014-11-22T10:09:01Z',
+      hash: 'a1b2c3d4',
+      id: 57721,
+      is_restart_required: false,
       is_webextension: true,
+      permissions: ['activeTab', 'webRequest'],
+      platform: OS_ALL,
+      status: 'public',
+      url: 'https://a.m.o/files/321/addon.xpi',
     }],
     is_strict_compatibility_enabled: false,
   },
