@@ -69,14 +69,4 @@ describe(__filename, () => {
     expect(item).toHaveClassName('DropdownMenuItem-link');
     expect(item).toHaveClassName('DropdownMenuItem--detached');
   });
-
-  it('throws an error if child component is not a `Link`', () => {
-    expect(() => {
-      shallow(
-        <DropdownMenuItem>
-          <input />
-        </DropdownMenuItem>
-      );
-    }).toThrowError(/Only the "Link" component is supported as a child/);
-  });
 });
