@@ -209,9 +209,11 @@ export class AppBase extends React.Component {
             ref={(ref) => { this.header = ref; }}
           />
           <div className="App-content">
-            <ErrorPage getErrorComponent={getErrorComponent}>
-              {children}
-            </ErrorPage>
+            <div className="App-content-wrapper">
+              <ErrorPage getErrorComponent={getErrorComponent}>
+                {children}
+              </ErrorPage>
+            </div>
           </div>
           <FooterComponent
             handleViewDesktop={this.onViewDesktop}
